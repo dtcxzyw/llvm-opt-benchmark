@@ -1406,7 +1406,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 55:                                               ; preds = %.preheader27.i
   %56 = getelementptr inbounds i8, ptr %53, i64 4
-  %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 2), ptr noundef nonnull dereferenceable(4) %56, i64 4)
+  %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (i8, ptr @client_sa, i64 4), ptr noundef nonnull dereferenceable(4) %56, i64 4)
   %.not24.i = icmp eq i32 %bcmp23.i, 0
   br i1 %.not24.i, label %.thread56, label %57
 
@@ -1415,12 +1415,12 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
   br label %.preheader27.i
 
 .preheader.i:                                     ; preds = %52
-  %58 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 8), align 4
   %59 = icmp eq i32 %58, 0
-  %60 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 1), align 4
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 12), align 4
   %61 = icmp eq i32 %60, 0
   %or.cond.i = select i1 %59, i1 %61, i1 false
-  %62 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 2), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 16), align 4
   %or.cond.fr.i = freeze i1 %or.cond.i
   br i1 %or.cond.fr.i, label %.preheader.split.us.i, label %.preheader.split.i
 
@@ -1441,13 +1441,13 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds %union._sa_t, ptr %51, i64 %indvars.iv34.i, i32 0, i32 2
-  %bcmp21.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 3), ptr noundef nonnull dereferenceable(4) %69, i64 4)
+  %bcmp21.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (i8, ptr @client_sa, i64 20), ptr noundef nonnull dereferenceable(4) %69, i64 4)
   %.not22.us.i = icmp eq i32 %bcmp21.us.i, 0
   br i1 %.not22.us.i, label %.thread56, label %.critedge.us.i
 
 70:                                               ; preds = %.preheader.split.us.i
   %71 = getelementptr inbounds i8, ptr %63, i64 8
-  %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), ptr noundef nonnull dereferenceable(12) %71, i64 12)
+  %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %71, i64 12)
   %.not20.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not20.us.i, label %.thread56, label %.critedge.us.i
 
@@ -1466,7 +1466,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 74:                                               ; preds = %.preheader.split.i
   %75 = getelementptr inbounds i8, ptr %72, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), ptr noundef nonnull dereferenceable(12) %75, i64 12)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %75, i64 12)
   %.not20.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not20.i, label %.thread56, label %.critedge.i
 
@@ -1481,29 +1481,29 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   ]
 
 76:                                               ; preds = %fcgi_is_allowed.exit
-  %77 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 2), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %77 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %fcgi_get_last_client_ip.exit
 
 78:                                               ; preds = %fcgi_is_allowed.exit
-  %79 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), align 4
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 8), align 4
   %80 = icmp eq i32 %79, 0
-  %81 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 1), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 12), align 4
   %82 = icmp eq i32 %81, 0
   %or.cond.i33 = select i1 %80, i1 %82, i1 false
   br i1 %or.cond.i33, label %83, label %89
 
 83:                                               ; preds = %78
-  %84 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 2), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 16), align 4
   %85 = call i32 @htonl(i32 noundef 65535) #34
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
-  %88 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 3), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %88 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %fcgi_get_last_client_ip.exit
 
 89:                                               ; preds = %83, %78
-  %90 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %90 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %fcgi_get_last_client_ip.exit
 
 fcgi_get_last_client_ip.exit:                     ; preds = %52, %fcgi_is_allowed.exit, %76, %87, %89
@@ -2456,29 +2456,29 @@ define hidden ptr @fcgi_get_last_client_ip() local_unnamed_addr #3 {
   ]
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 2), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %3 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %.critedge
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 8), align 4
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 12), align 4
   %8 = icmp eq i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %9, label %15
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 2), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @client_sa, i64 16), align 4
   %11 = tail call i32 @htonl(i32 noundef 65535) #34
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3, i32 0, i32 0, i64 3), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %14 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %.critedge
 
 15:                                               ; preds = %4, %9
-  %16 = tail call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds (%union._sa_t, ptr @client_sa, i64 0, i32 0, i32 3), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
+  %16 = tail call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #32
   br label %.critedge
 
 .critedge:                                        ; preds = %0, %15, %13, %2

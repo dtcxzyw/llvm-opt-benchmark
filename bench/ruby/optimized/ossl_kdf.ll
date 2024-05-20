@@ -77,11 +77,11 @@ define internal i64 @kdf_pbkdf2_hmac(i32 noundef %0, ptr noundef %1, i64 %2) #0 
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 4) #4
   store i64 %9, ptr @kdf_pbkdf2_hmac.kwargs_ids, align 16
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 10) #4
-  store i64 %10, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 1), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 8), align 8
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 6) #4
-  store i64 %11, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 2), align 16
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 16), align 16
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.8, i64 noundef 4) #4
-  store i64 %12, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 3), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 24), align 8
   br label %13
 
 13:                                               ; preds = %8, %3
@@ -220,13 +220,13 @@ define internal i64 @kdf_scrypt(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 4) #4
   store i64 %9, ptr @kdf_scrypt.kwargs_ids, align 16
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 1) #4
-  store i64 %10, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 1), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @kdf_scrypt.kwargs_ids, i64 8), align 8
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 1) #4
-  store i64 %11, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 2), align 16
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @kdf_scrypt.kwargs_ids, i64 16), align 16
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 1) #4
-  store i64 %12, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 3), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @kdf_scrypt.kwargs_ids, i64 24), align 8
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 6) #4
-  store i64 %13, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 4), align 16
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @kdf_scrypt.kwargs_ids, i64 32), align 16
   br label %14
 
 14:                                               ; preds = %8, %3
@@ -371,11 +371,11 @@ define internal i64 @kdf_hkdf(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 4) #4
   store i64 %10, ptr @kdf_hkdf.kwargs_ids, align 16
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 4) #4
-  store i64 %11, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 1), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @kdf_hkdf.kwargs_ids, i64 8), align 8
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 6) #4
-  store i64 %12, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 2), align 16
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @kdf_hkdf.kwargs_ids, i64 16), align 16
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.8, i64 noundef 4) #4
-  store i64 %13, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 3), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @kdf_hkdf.kwargs_ids, i64 24), align 8
   br label %14
 
 14:                                               ; preds = %9, %3

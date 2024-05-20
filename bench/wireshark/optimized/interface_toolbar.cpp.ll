@@ -265,9 +265,9 @@ define void @_ZN16InterfaceToolbarC2EP7QWidgetPK14_iface_toolbar(ptr noundef non
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16InterfaceToolbar, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16InterfaceToolbar, i64 456), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
           to label %10 unwind label %47
@@ -660,7 +660,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i44:    ; preds = %63
   call void @_ZN10QBoxLayout9addLayoutEP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %69, ptr noundef %70, i32 noundef 0)
   %71 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %72 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %71, align 8
   store <4 x i32> <i32 0, i32 40, i32 5, i32 1507328>, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %73, align 4
@@ -1829,9 +1829,9 @@ define void @_ZN16InterfaceToolbarD2Ev(ptr noundef nonnull align 8 dereferenceab
   %3 = alloca %class.QList, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QList.15, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16InterfaceToolbar, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i64 0, i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16InterfaceToolbar, i64 456), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %8 = load ptr, ptr %7, align 8, !noalias !33
@@ -10804,7 +10804,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %11, %18
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %_ZN7QStringC2ERKS_.exit
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22InterfaceToolbarReader, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22InterfaceToolbarReader, i64 16), ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %13, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 24

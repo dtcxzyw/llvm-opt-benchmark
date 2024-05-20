@@ -2024,7 +2024,7 @@ define linkonce_odr void @_ZNSt7__cxx114listIN5ZXing5Aztec13EncodingStateESaIS3_
 
 ; Function Attrs: nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text.startup" {
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 0, i32 0, i64 32), align 1, !tbaa !28
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 32), align 1, !tbaa !28
   br label %1
 
 1:                                                ; preds = %103, %0
@@ -2215,7 +2215,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   br i1 %105, label %106, label %1, !llvm.loop !67
 
 106:                                              ; preds = %103
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1, i32 0, i64 32), align 1, !tbaa !28
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 288), align 1, !tbaa !28
   br label %107
 
 107:                                              ; preds = %209, %106
@@ -2230,7 +2230,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 115:                                              ; preds = %107
   %116 = add nuw nsw i64 %108, 97
-  %117 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %116
+  %117 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %116
   %118 = or disjoint i8 %109, 2
   store i8 %118, ptr %117, align 1, !tbaa !28
   br label %119
@@ -2241,7 +2241,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 121:                                              ; preds = %119
   %122 = add nuw nsw i64 %108, 98
-  %123 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %122
+  %123 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %122
   %124 = or disjoint i8 %109, 3
   store i8 %124, ptr %123, align 1, !tbaa !28
   br label %125
@@ -2252,7 +2252,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 127:                                              ; preds = %125
   %128 = add nuw nsw i64 %108, 99
-  %129 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %128
+  %129 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %128
   %130 = or disjoint i8 %109, 4
   store i8 %130, ptr %129, align 1, !tbaa !28
   br label %131
@@ -2263,7 +2263,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 133:                                              ; preds = %131
   %134 = add nuw nsw i64 %108, 100
-  %135 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %134
+  %135 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %134
   %136 = or disjoint i8 %109, 5
   store i8 %136, ptr %135, align 1, !tbaa !28
   br label %137
@@ -2274,7 +2274,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 139:                                              ; preds = %137
   %140 = add nuw nsw i64 %108, 101
-  %141 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %140
+  %141 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %140
   %142 = or disjoint i8 %109, 6
   store i8 %142, ptr %141, align 1, !tbaa !28
   br label %143
@@ -2285,7 +2285,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 145:                                              ; preds = %143
   %146 = add nuw nsw i64 %108, 102
-  %147 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %146
+  %147 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %146
   %148 = or disjoint i8 %109, 7
   store i8 %148, ptr %147, align 1, !tbaa !28
   br label %149
@@ -2296,7 +2296,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 151:                                              ; preds = %149
   %152 = add nuw nsw i64 %108, 103
-  %153 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %152
+  %153 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %152
   %154 = or disjoint i8 %109, 8
   store i8 %154, ptr %153, align 1, !tbaa !28
   br label %155
@@ -2307,7 +2307,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 157:                                              ; preds = %155
   %158 = add nuw nsw i64 %108, 104
-  %159 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %158
+  %159 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %158
   %160 = or disjoint i8 %109, 9
   store i8 %160, ptr %159, align 1, !tbaa !28
   br label %161
@@ -2318,7 +2318,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 163:                                              ; preds = %161
   %164 = add nuw nsw i64 %108, 105
-  %165 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %164
+  %165 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %164
   %166 = or disjoint i8 %109, 10
   store i8 %166, ptr %165, align 1, !tbaa !28
   br label %167
@@ -2329,7 +2329,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 169:                                              ; preds = %167
   %170 = add nuw nsw i64 %108, 106
-  %171 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %170
+  %171 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %170
   %172 = or disjoint i8 %109, 11
   store i8 %172, ptr %171, align 1, !tbaa !28
   br label %173
@@ -2340,7 +2340,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 175:                                              ; preds = %173
   %176 = add nuw nsw i64 %108, 107
-  %177 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %176
+  %177 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %176
   %178 = or disjoint i8 %109, 12
   store i8 %178, ptr %177, align 1, !tbaa !28
   br label %179
@@ -2351,7 +2351,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 181:                                              ; preds = %179
   %182 = add nuw nsw i64 %108, 108
-  %183 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %182
+  %183 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %182
   %184 = or disjoint i8 %109, 13
   store i8 %184, ptr %183, align 1, !tbaa !28
   br label %185
@@ -2362,7 +2362,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 187:                                              ; preds = %185
   %188 = add nuw nsw i64 %108, 109
-  %189 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %188
+  %189 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %188
   %190 = or disjoint i8 %109, 14
   store i8 %190, ptr %189, align 1, !tbaa !28
   br label %191
@@ -2373,7 +2373,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 193:                                              ; preds = %191
   %194 = add nuw nsw i64 %108, 110
-  %195 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %194
+  %195 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %194
   %196 = or disjoint i8 %109, 15
   store i8 %196, ptr %195, align 1, !tbaa !28
   br label %197
@@ -2384,7 +2384,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 199:                                              ; preds = %197
   %200 = add nuw nsw i64 %108, 111
-  %201 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %200
+  %201 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %200
   %202 = add i8 %109, 16
   store i8 %202, ptr %201, align 1, !tbaa !28
   br label %203
@@ -2395,7 +2395,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 205:                                              ; preds = %203
   %206 = add nuw nsw i64 %108, 112
-  %207 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %206
+  %207 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 256), i64 0, i64 %206
   %208 = add i8 %109, 17
   store i8 %208, ptr %207, align 1, !tbaa !28
   br label %209
@@ -2406,18 +2406,18 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   br i1 %211, label %212, label %107, !llvm.loop !70
 
 212:                                              ; preds = %209
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 32), align 1, !tbaa !28
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 544), align 1, !tbaa !28
   br label %213
 
 213:                                              ; preds = %213, %212
   %214 = phi i64 [ 0, %212 ], [ %222, %213 ]
   %215 = trunc nuw i64 %214 to i8
   %216 = or disjoint i64 %214, 48
-  %217 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2), i64 0, i64 %216
+  %217 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 512), i64 0, i64 %216
   %218 = add nuw nsw i8 %215, 2
   store i8 %218, ptr %217, align 1, !tbaa !28
   %219 = or disjoint i64 %214, 49
-  %220 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2), i64 0, i64 %219
+  %220 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 512), i64 0, i64 %219
   %221 = add nuw nsw i8 %215, 3
   store i8 %221, ptr %220, align 1, !tbaa !28
   %222 = add nuw nsw i64 %214, 2
@@ -2425,8 +2425,8 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   br i1 %223, label %224, label %213, !llvm.loop !71
 
 224:                                              ; preds = %213
-  store i8 12, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 44), align 1, !tbaa !28
-  store i8 13, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 46), align 1, !tbaa !28
+  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 556), align 1, !tbaa !28
+  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 558), align 1, !tbaa !28
   br label %225
 
 225:                                              ; preds = %225, %224
@@ -2434,7 +2434,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   %227 = getelementptr inbounds [28 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.mixedTable, i64 0, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !28
   %229 = sext i8 %228 to i64
-  %230 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 3), i64 0, i64 %229
+  %230 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 768), i64 0, i64 %229
   %231 = trunc nuw nsw i64 %226 to i8
   store i8 %231, ptr %230, align 1, !tbaa !28
   %232 = add nuw nsw i64 %226, 1
@@ -2452,7 +2452,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   %239 = getelementptr inbounds [31 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.punctTable, i64 0, i64 %234
   %240 = load i8, ptr %239, align 1, !tbaa !28
   %241 = zext nneg i8 %240 to i64
-  %242 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 4), i64 0, i64 %241
+  %242 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 1024), i64 0, i64 %241
   %243 = trunc nuw nsw i64 %234 to i8
   store i8 %243, ptr %242, align 1, !tbaa !28
   br label %244
@@ -2465,12 +2465,12 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 247:                                              ; preds = %244
   store ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, ptr @_ZN5ZXing5Aztec8CHAR_MAPE, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i8 -1, i64 36, i1 false), !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 0, i32 0, i64 4), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1, i32 0, i64 4), align 1, !tbaa !28
-  store i8 28, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 3, i32 0, i64 4), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2, i32 0, i64 4), align 1, !tbaa !28
-  store i8 15, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2), align 1, !tbaa !28
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 4), align 1, !tbaa !28
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 10), align 1, !tbaa !28
+  store i8 28, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 6), align 1, !tbaa !28
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 22), align 1, !tbaa !28
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 16), align 1, !tbaa !28
+  store i8 15, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 12), align 1, !tbaa !28
   store ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, ptr @_ZN5ZXing5Aztec11SHIFT_TABLEE, align 8, !tbaa !32
   ret void
 }

@@ -119,7 +119,7 @@ define void @_ZN5rfb_tC2Ei(ptr noundef nonnull align 8 dereferenceable(168) %0, 
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.std::function", align 8
   tail call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5rfb_t, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 60
@@ -3395,7 +3395,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5rfb_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5rfb_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = tail call i64 @pthread_self() #20
@@ -4719,7 +4719,7 @@ define linkonce_odr noundef ptr @_ZN5rfb_t8identityEv(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8device_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

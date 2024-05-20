@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define ptr @nxmq_alloc_msg() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.list_node, ptr @g_msgfree, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @g_msgfree, i64 8), align 8
   %.not.i = icmp eq ptr %1, @g_msgfree
   br i1 %.not.i, label %list_remove_head.exit.thread, label %list_remove_head.exit
 
@@ -36,7 +36,7 @@ list_remove_head.exit.thread:                     ; preds = %0
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %list_remove_head.exit.thread
-  %9 = load ptr, ptr getelementptr inbounds (%struct.list_node, ptr @g_msgfreeirq, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_msgfreeirq, i64 8), align 8
   %.not.i7 = icmp eq ptr %9, @g_msgfreeirq
   br i1 %.not.i7, label %list_remove_head.exit9, label %10
 

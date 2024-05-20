@@ -239,7 +239,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @backlight_device_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(912) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 912) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %41, label %9
@@ -560,10 +560,10 @@ define internal i32 @backlight_class_init() #7 section ".init.text" align 16 {
   %11 = getelementptr inbounds i8, ptr %1, i64 88
   store ptr @backlight_class_dev_pm_ops, ptr %11, align 8
   store volatile ptr @backlight_dev_list, ptr @backlight_dev_list, align 8
-  store volatile ptr @backlight_dev_list, ptr getelementptr inbounds (%struct.list_head, ptr @backlight_dev_list, i64 0, i32 1), align 8
+  store volatile ptr @backlight_dev_list, ptr getelementptr inbounds (i8, ptr @backlight_dev_list, i64 8), align 8
   tail call void @__mutex_init(ptr noundef nonnull @backlight_dev_list_mutex, ptr noundef nonnull @.str.16, ptr noundef nonnull @backlight_class_init.__key) #12
   tail call void @__init_rwsem(ptr noundef nonnull @backlight_notifier, ptr noundef nonnull @.str.18, ptr noundef nonnull @backlight_class_init.__key.17) #12
-  store ptr null, ptr getelementptr inbounds (%struct.blocking_notifier_head, ptr @backlight_notifier, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @backlight_notifier, i64 40), align 8
   br label %12
 
 12:                                               ; preds = %9, %3

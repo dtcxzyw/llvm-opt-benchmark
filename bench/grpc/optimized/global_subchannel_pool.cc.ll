@@ -95,10 +95,10 @@ init:                                             ; preds = %init.check
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %init
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core26grpc_subchannel_pool_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core26grpc_subchannel_pool_traceE, i64 16) monotonic, align 8
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core20GlobalSubchannelPoolE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core20GlobalSubchannelPoolE, i64 16), ptr %call, align 8
   %3 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %3, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -570,7 +570,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

@@ -911,17 +911,17 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit:     ; preds = %21, %41
   br i1 %43, label %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %41
-  %44 = load i32, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 104), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 416), align 4
   %45 = icmp eq i32 %44, %29
   br i1 %45, label %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i, label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %._crit_edge.loopexit.i.i.i.i.i
-  %46 = load i32, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 105), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 420), align 4
   %47 = icmp eq i32 %46, %29
   br i1 %47, label %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i, label %._crit_edge._crit_edge52.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %48 = load i32, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 106), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 424), align 4
   %49 = icmp eq i32 %48, %29
   br i1 %49, label %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i, label %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit
 
@@ -936,7 +936,7 @@ _ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i: ; pre
   br i1 %50, label %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit, label %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i
 
 _ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i: ; preds = %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.thread, %._crit_edge._crit_edge52.i.i.i.i.i, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i
-  %.028.i.i.i.i7.i = phi ptr [ %.028.i.i.i.i.i.ptr, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i ], [ getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 105), %._crit_edge._crit_edge.i.i.i.i.i ], [ getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 104), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds (%"struct.std::array", ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i32 0, i64 106), %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i.ptr19, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.thread ]
+  %.028.i.i.i.i7.i = phi ptr [ %.028.i.i.i.i.i.ptr, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 420), %._crit_edge._crit_edge.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 416), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 424), %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i.ptr19, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.thread ]
   %51 = ptrtoint ptr %.028.i.i.i.i7.i to i64
   %52 = sub i64 %51, ptrtoint (ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE to i64)
   %53 = lshr exact i64 %52, 2

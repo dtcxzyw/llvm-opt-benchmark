@@ -88,12 +88,12 @@ define range(i32 -13, 1) i32 @mca_coll_base_comm_select(ptr noundef %0) local_un
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %6 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 9, i32 noundef %5) #9
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #9
@@ -104,12 +104,12 @@ define range(i32 -13, 1) i32 @mca_coll_base_comm_select(ptr noundef %0) local_un
   %13 = tail call noalias dereferenceable_or_null(1112) ptr @calloc(i64 noundef 1, i64 noundef 1112) #10
   %14 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %13, ptr %14, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %16 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %15) #9
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %18, ptr noundef nonnull @.str.3) #9
   br label %19
 
@@ -262,10 +262,10 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   %.093.i = phi ptr [ null, %50 ], [ %28, %._crit_edge.i ], [ null, %22 ], [ null, %19 ], [ %28, %52 ], [ %28, %85 ]
   %.092.i = phi ptr [ null, %50 ], [ %70, %._crit_edge.i ], [ null, %22 ], [ null, %19 ], [ null, %52 ], [ null, %85 ]
   %.091.i = phi ptr [ null, %50 ], [ %57, %._crit_edge.i ], [ null, %22 ], [ null, %19 ], [ %57, %52 ], [ %57, %85 ]
-  %89 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %89 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %90 = call noalias ptr @malloc(i64 noundef %89) #11
   %91 = load i32, ptr @opal_class_init_epoch, align 4
-  %92 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i115.i = icmp eq i32 %91, %92
   br i1 %.not.i115.i, label %94, label %93
 
@@ -281,7 +281,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   store ptr @opal_list_t_class, ptr %90, align 8
   %96 = getelementptr inbounds i8, ptr %90, i64 8
   store volatile i32 1, ptr %96, align 8
-  %97 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %98 = load ptr, ptr %97, align 8
   %.not6.i.i.i = icmp eq ptr %98, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.i, label %.lr.ph.i.i.i
@@ -296,8 +296,8 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br i1 %.not.i.i.i, label %opal_obj_new.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %95, %94
-  %.09517.i = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not10718.i = icmp eq ptr %.09517.i, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 12, i32 1)
+  %.09517.i = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 112), align 8
+  %.not10718.i = icmp eq ptr %.09517.i, getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 96)
   br i1 %.not10718.i, label %._crit_edge21.i, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %opal_obj_new.exit.i
@@ -333,12 +333,12 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %95, 
   br i1 %115, label %component_in_argv.exit.i, label %110
 
 component_in_argv.exit.i:                         ; preds = %.lr.ph.i117.i
-  %116 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %117 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %116) #9
   br i1 %117, label %118, label %199
 
 118:                                              ; preds = %component_in_argv.exit.i
-  %119 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %119, ptr noundef nonnull @.str.63, ptr noundef nonnull %108) #9
   br label %199
 
@@ -373,24 +373,24 @@ component_in_argv.exit.i:                         ; preds = %.lr.ph.i117.i
   %135 = load i32, ptr %2, align 4
   %136 = call i32 @llvm.smin.i32(i32 %135, i32 100)
   store i32 %136, ptr %2, align 4
-  %137 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %138 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %137) #9
   br i1 %138, label %139, label %check_one_component.exit.i
 
 139:                                              ; preds = %134
-  %140 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %141 = load i32, ptr %2, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %140, ptr noundef nonnull @.str.65, ptr noundef nonnull %108, i32 noundef %141) #9
   br label %check_one_component.exit.i
 
 142:                                              ; preds = %131, %127, %123, %.loopexit7.i
   store i32 -1, ptr %2, align 4
-  %143 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %144 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %143) #9
   br i1 %144, label %145, label %check_one_component.exit.i
 
 145:                                              ; preds = %142
-  %146 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %146 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %146, ptr noundef nonnull @.str.66, ptr noundef nonnull %108) #9
   br label %check_one_component.exit.i
 
@@ -402,10 +402,10 @@ check_one_component.exit.i:                       ; preds = %145, %142, %139, %1
   br i1 %148, label %149, label %173
 
 149:                                              ; preds = %check_one_component.exit.i
-  %150 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_avail_coll_t_class, i64 0, i32 8), align 8
+  %150 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_base_avail_coll_t_class, i64 56), align 8
   %151 = call noalias ptr @malloc(i64 noundef %150) #11
   %152 = load i32, ptr @opal_class_init_epoch, align 4
-  %153 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_avail_coll_t_class, i64 0, i32 4), align 8
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_base_avail_coll_t_class, i64 32), align 8
   %.not.i119.i = icmp eq i32 %152, %153
   br i1 %.not.i119.i, label %155, label %154
 
@@ -421,7 +421,7 @@ check_one_component.exit.i:                       ; preds = %145, %142, %139, %1
   store ptr @mca_coll_base_avail_coll_t_class, ptr %151, align 8
   %157 = getelementptr inbounds i8, ptr %151, i64 8
   store volatile i32 1, ptr %157, align 8
-  %158 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_avail_coll_t_class, i64 0, i32 6), align 8
+  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_base_avail_coll_t_class, i64 40), align 8
   %159 = load ptr, ptr %158, align 8
   %.not6.i.i121.i = icmp eq ptr %159, null
   br i1 %.not6.i.i121.i, label %opal_obj_new.exit125.i, label %.lr.ph.i.i122.i
@@ -457,12 +457,12 @@ opal_obj_new.exit125.i:                           ; preds = %.lr.ph.i.i122.i, %1
   br label %199
 
 173:                                              ; preds = %check_one_component.exit.i
-  %174 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %174 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %175 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %174) #9
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %173
-  %177 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %177, ptr noundef nonnull @.str.64, ptr noundef nonnull %108, i32 noundef %147) #9
   br label %178
 
@@ -517,7 +517,7 @@ opal_obj_run_destructors.exit132.i:               ; preds = %.lr.ph.i129.i, %191
 199:                                              ; preds = %opal_obj_run_destructors.exit132.i, %opal_thread_add_fetch_32.exit127.i, %178, %opal_obj_new.exit125.i, %118, %component_in_argv.exit.i
   %200 = getelementptr inbounds i8, ptr %.09519.i, i64 16
   %.095.i = load volatile ptr, ptr %200, align 8
-  %.not107.i = icmp eq ptr %.095.i, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 12, i32 1)
+  %.not107.i = icmp eq ptr %.095.i, getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 96)
   br i1 %.not107.i, label %._crit_edge21.i, label %105, !llvm.loop !10
 
 ._crit_edge21.i:                                  ; preds = %199, %opal_obj_new.exit.i
@@ -686,10 +686,10 @@ check_components.exit:                            ; preds = %263, %.sink.split.i
   br label %4024
 
 268:                                              ; preds = %check_components.exit
-  %269 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %269 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %270 = call noalias ptr @malloc(i64 noundef %269) #11
   %271 = load i32, ptr @opal_class_init_epoch, align 4
-  %272 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %272 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i1346 = icmp eq i32 %271, %272
   br i1 %.not.i1346, label %274, label %273
 
@@ -705,7 +705,7 @@ check_components.exit:                            ; preds = %263, %.sink.split.i
   store ptr @opal_list_t_class, ptr %270, align 8
   %276 = getelementptr inbounds i8, ptr %270, i64 8
   store volatile i32 1, ptr %276, align 8
-  %277 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %277 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %278 = load ptr, ptr %277, align 8
   %.not6.i.i1347 = icmp eq ptr %278, null
   br i1 %.not6.i.i1347, label %opal_obj_new.exit, label %.lr.ph.i.i1348
@@ -752,12 +752,12 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i1348, %27
   %301 = getelementptr inbounds i8, ptr %300, i64 16
   %302 = load ptr, ptr %301, align 8
   %303 = call i32 %302(ptr noundef %300, ptr noundef %0) #9
-  %304 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %304 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %305 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 9, i32 noundef %304) #9
   br i1 %305, label %306, label %314
 
 306:                                              ; preds = %298
-  %307 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 11), align 4
+  %307 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %308 = getelementptr inbounds i8, ptr %.011312068, i64 56
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds i8, ptr %.011312068, i64 40

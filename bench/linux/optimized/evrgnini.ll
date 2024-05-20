@@ -58,7 +58,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_system_memory_region_setup
   %25 = and i64 %24, 512
   %26 = icmp eq i64 %25, 0
   %27 = select i1 %26, i32 2336, i32 3520
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %29 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %28, i32 noundef %27, i64 noundef 32) #7
   %30 = icmp eq ptr %29, null
   br i1 %30, label %39, label %31
@@ -179,7 +179,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
   %44 = and i64 %43, 512
   %45 = icmp eq i64 %44, 0
   %46 = select i1 %45, i32 2336, i32 3520
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %48 = call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %47, i32 noundef %46, i64 noundef 8) #7
   %49 = icmp eq ptr %48, null
   br i1 %49, label %90, label %50
@@ -391,7 +391,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_data_table_region_setup(pt
   %13 = and i64 %12, 512
   %14 = icmp eq i64 %13, 0
   %15 = select i1 %14, i32 2336, i32 3520
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %17 = call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %15, i64 noundef 8) #7
   %18 = icmp eq ptr %17, null
   br i1 %18, label %24, label %19

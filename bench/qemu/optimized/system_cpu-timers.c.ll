@@ -55,29 +55,29 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @cpu_get_ticks() local_unnamed_addr #0 {
 entry:
-  %0 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %0 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %1 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
-  %2 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %2, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %3 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %entry
-  %4 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
-  %5 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not.i1 = icmp eq i16 %5, 0
   br i1 %tobool.not.i1, label %if.end.i, label %if.then.i
 
@@ -100,15 +100,15 @@ if.end.i:                                         ; preds = %if.then.i, %qemu_sp
 
 if.then1.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 %7, %ticks.0.i
-  %8 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   %add2.i = add i64 %sub.i, %8
-  store i64 %add2.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
+  store i64 %add2.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   br label %cpu_get_ticks_locked.exit
 
 cpu_get_ticks_locked.exit:                        ; preds = %if.end.i, %if.then1.i
   %ticks.1.i = phi i64 [ %7, %if.then1.i ], [ %ticks.0.i, %if.end.i ]
   store i64 %ticks.1.i, ptr @timers_state, align 8
-  store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   ret i64 %ticks.1.i
 }
 
@@ -117,8 +117,8 @@ define dso_local i64 @cpu_get_clock_locked() local_unnamed_addr #0 {
 entry:
   %tv.i.i = alloca %struct.timeval, align 8
   %ts.i = alloca %struct.timespec, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
-  %1 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -170,12 +170,12 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %cpu_get_clock_locked.exit, %entry
-  %0 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence acquire
   %and.i = and i32 %0, -2
-  %1 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
-  %2 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i, label %cpu_get_clock_locked.exit, label %if.then.i
 
@@ -214,7 +214,7 @@ cpu_get_clock_locked.exit:                        ; preds = %do.body, %get_clock
   %time.0.i = phi i64 [ %add.i, %get_clock.exit.i ], [ %1, %do.body ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
-  %8 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %8, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !12
 
@@ -227,33 +227,33 @@ define dso_local void @cpu_enable_ticks() local_unnamed_addr #0 {
 entry:
   %tv.i.i = alloca %struct.timeval, align 8
   %ts.i = alloca %struct.timespec, align 8
-  %0 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %0 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %1 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i5 = icmp eq i32 %1, 0
   br i1 %tobool.not.i5, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
-  %2 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %2, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %3 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %entry
-  %4 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   fence release
-  %5 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not = icmp eq i16 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -265,10 +265,10 @@ if.then:                                          ; preds = %qemu_spin_lock.exit
   %asmresult1.i.neg.z = zext i32 %asmresult1.i.neg to i64
   %shl.i.neg4 = shl nuw i64 %asmresult1.i.neg.z, 32
   %conv2.i = zext i32 %asmresult.i to i64
-  %7 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   %or.i.neg = sub i64 %7, %conv2.i
   %sub = add i64 %or.i.neg, %shl.i.neg4
-  store i64 %sub, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
+  store i64 %sub, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %8 = load i32, ptr @use_rt_clock, align 4
   %tobool.not.i = icmp eq i32 %8, 0
@@ -298,19 +298,19 @@ if.else.i:                                        ; preds = %if.then
 get_clock.exit:                                   ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %add.i.i2, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  %13 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
   %sub3 = sub i64 %13, %retval.0.i
-  store i64 %sub3, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
-  store i16 1, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  store i64 %sub3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
+  store i16 1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   br label %if.end
 
 if.end:                                           ; preds = %get_clock.exit, %qemu_spin_lock.exit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   fence release
-  %14 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i3 = add i32 %14, 1
-  store atomic i32 %add.i.i3, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
+  store atomic i32 %add.i.i3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   ret void
 }
 
@@ -319,33 +319,33 @@ define dso_local void @cpu_disable_ticks() local_unnamed_addr #0 {
 entry:
   %tv.i.i.i = alloca %struct.timeval, align 8
   %ts.i.i = alloca %struct.timespec, align 8
-  %0 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %0 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %1 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i4 = icmp eq i32 %1, 0
   br i1 %tobool.not.i4, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
-  %2 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %2, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %3 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %entry
-  %4 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   fence release
-  %5 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not = icmp eq i16 %5, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -356,12 +356,12 @@ if.then:                                          ; preds = %qemu_spin_lock.exit
   %conv.i = zext i32 %asmresult1.i to i64
   %shl.i = shl nuw i64 %conv.i, 32
   %conv2.i = zext i32 %asmresult.i to i64
-  %7 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   %or.i = add i64 %7, %conv2.i
   %add = add i64 %or.i, %shl.i
-  store i64 %add, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 1), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
-  %9 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
+  %9 = load i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   %tobool.not.i = icmp eq i16 %9, 0
   br i1 %tobool.not.i, label %cpu_get_clock_locked.exit, label %if.then.i
 
@@ -400,17 +400,17 @@ get_clock.exit.i:                                 ; preds = %if.else.i.i, %if.th
 
 cpu_get_clock_locked.exit:                        ; preds = %if.then, %get_clock.exit.i
   %time.0.i = phi i64 [ %add.i, %get_clock.exit.i ], [ %8, %if.then ]
-  store i64 %time.0.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 9), align 8
-  store i16 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 4), align 8
+  store i64 %time.0.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
+  store i16 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 24), align 8
   br label %if.end
 
 if.end:                                           ; preds = %cpu_get_clock_locked.exit, %qemu_spin_lock.exit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   fence release
-  %15 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i3 = add i32 %15, 1
-  store atomic i32 %add.i.i3, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
+  store atomic i32 %add.i.i3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   ret void
 }
 
@@ -474,8 +474,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_timers_init() local_unnamed_addr #0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef 0, ptr noundef nonnull @vmstate_timers, ptr noundef nonnull @timers_state, i32 noundef -1, i32 noundef 0, ptr noundef null) #9
   tail call void @cpu_throttle_init() #9
   ret void

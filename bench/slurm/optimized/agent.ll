@@ -230,7 +230,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   br i1 %6, label %.preheader, label %25
 
 .preheader:                                       ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %.not18 = icmp eq i32 %7, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -245,7 +245,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %14 = load ptr, ptr @pmi2_handle, align 8
   tail call void @slurm_eio_new_initial_obj(ptr noundef %14, ptr noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
@@ -259,7 +259,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %20 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %.lcssa, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__func__._agent) #10
   store ptr %20, ptr @initialized, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__._agent) #10

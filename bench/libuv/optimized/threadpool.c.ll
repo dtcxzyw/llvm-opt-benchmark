@@ -39,10 +39,10 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr @exit_message, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.uv__queue, ptr @exit_message, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @exit_message, i64 8), align 8
   store ptr @exit_message, ptr %1, align 8
-  store ptr @exit_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr @exit_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %2 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i = icmp eq i32 %2, 0
   br i1 %cmp3.not.i, label %post.exit, label %if.then4.i
@@ -123,11 +123,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr @slow_io_pending_wq, ptr %wq, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @slow_io_pending_wq, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   %prev1.i.i = getelementptr inbounds i8, ptr %w, i64 32
   store ptr %0, ptr %prev1.i.i, align 8
   store ptr %wq, ptr %0, align 8
-  store ptr %wq, ptr getelementptr inbounds (%struct.uv__queue, ptr @slow_io_pending_wq, i64 0, i32 1), align 8
+  store ptr %wq, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   %1 = load ptr, ptr @run_slow_work_message, align 8
   %cmp.i.not.i = icmp eq ptr %1, @run_slow_work_message
   br i1 %cmp.i.not.i, label %if.end2.i, label %post.exit
@@ -135,11 +135,11 @@ if.then.i:                                        ; preds = %entry
 if.end2.i:                                        ; preds = %if.then.i, %entry
   %q.addr.0.i = phi ptr [ %wq, %entry ], [ @run_slow_work_message, %if.then.i ]
   store ptr @wq, ptr %q.addr.0.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %prev1.i2.i = getelementptr inbounds i8, ptr %q.addr.0.i, i64 8
   store ptr %2, ptr %prev1.i2.i, align 8
   store ptr %q.addr.0.i, ptr %2, align 8
-  store ptr %q.addr.0.i, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr %q.addr.0.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %3 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i = icmp eq i32 %3, 0
   br i1 %cmp3.not.i, label %post.exit, label %if.then4.i
@@ -234,11 +234,11 @@ if.then23.i:                                      ; preds = %if.end20.i
 
 if.end24.i:                                       ; preds = %if.end20.i
   store ptr @wq, ptr @wq, align 8
-  store ptr @wq, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr @wq, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   store ptr @slow_io_pending_wq, ptr @slow_io_pending_wq, align 8
-  store ptr @slow_io_pending_wq, ptr getelementptr inbounds (%struct.uv__queue, ptr @slow_io_pending_wq, i64 0, i32 1), align 8
+  store ptr @slow_io_pending_wq, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   %call25.i = call i32 @uv_sem_init(ptr noundef nonnull %sem.i, i32 noundef 0) #9
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %if.end28.i, label %if.then27.i
@@ -421,11 +421,11 @@ do.body1:                                         ; preds = %entry
   %wq.i = getelementptr inbounds i8, ptr %req, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %wq.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %prev1.i2.i.i = getelementptr inbounds i8, ptr %req, i64 120
   store ptr %1, ptr %prev1.i2.i.i, align 8
   store ptr %wq.i, ptr %1, align 8
-  store ptr %wq.i, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr %wq.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %2 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i.i = icmp eq i32 %2, 0
   br i1 %cmp3.not.i.i, label %uv__work_submit.exit, label %if.then4.i.i
@@ -645,13 +645,13 @@ if.end:                                           ; preds = %while.end
   br label %if.end26
 
 if.then9:                                         ; preds = %land.rhs, %land.lhs.true
-  %8 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr %1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   %prev4.i35 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %9, ptr %prev4.i35, align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   %10 = load i32, ptr @slow_io_work_running, align 4
   %11 = load i32, ptr @nthreads, align 4
   %add.i17 = add i32 %11, 1
@@ -661,10 +661,10 @@ if.then9:                                         ; preds = %land.rhs, %land.lhs
 
 if.then12:                                        ; preds = %if.then9
   store ptr @wq, ptr @run_slow_work_message, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
-  store ptr %12, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr @run_slow_work_message, ptr %12, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   br label %while.cond.backedge
 
 if.end13:                                         ; preds = %if.then9
@@ -690,10 +690,10 @@ if.end17:                                         ; preds = %if.end13
 
 if.then21:                                        ; preds = %if.end17
   store ptr @wq, ptr @run_slow_work_message, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
-  store ptr %18, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr @run_slow_work_message, ptr %18, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %19 = load i32, ptr @idle_threads, align 4
   %cmp22.not = icmp eq i32 %19, 0
   br i1 %cmp22.not, label %if.end26, label %if.then23

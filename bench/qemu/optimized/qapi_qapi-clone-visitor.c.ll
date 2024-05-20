@@ -357,9 +357,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %1, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   store ptr @qnull_, ptr %obj, align 8
   ret i1 true
 }

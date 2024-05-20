@@ -51,8 +51,8 @@ define dso_local noundef i32 @attribute_container_register(ptr noundef %0) #2 al
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @klist_init(ptr noundef %3, ptr noundef nonnull @internal_container_klist_get, ptr noundef nonnull @internal_container_klist_put) #7
   tail call void @mutex_lock(ptr noundef nonnull @attribute_container_mutex) #7
-  %4 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @attribute_container_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @attribute_container_list, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @attribute_container_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @attribute_container_list, i64 8), align 8
   store ptr @attribute_container_list, ptr %0, align 8
   store ptr %4, ptr %2, align 8
   store volatile ptr %0, ptr %4, align 8
@@ -139,7 +139,7 @@ define dso_local void @attribute_container_add_device(ptr noundef %0, ptr nounde
   br i1 %17, label %67, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %20 = tail call noalias noundef align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 768) #8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %66, label %22
@@ -243,7 +243,7 @@ attribute_container_add_class_device.exit.us:     ; preds = %.preheader.i.us, %5
   br i1 %79, label %102, label %80
 
 80:                                               ; preds = %75
-  %81 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %82 = tail call noalias noundef align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3520, i64 noundef 768) #8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %85

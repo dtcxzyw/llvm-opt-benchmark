@@ -837,7 +837,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %6 = load ptr, ptr @accel_shared_globals, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 39), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
   %10 = icmp ugt i64 %8, %9
   br i1 %10, label %11, label %12
 
@@ -861,7 +861,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %19 = getelementptr inbounds i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull @zend_accel_load_script.haltoff, i64 noundef 24, ptr noundef nonnull %18, i64 noundef %20, i1 noundef zeroext false) #10
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %23 = tail call ptr @zend_hash_find(ptr noundef %22, ptr noundef %21) #10
   %.not177 = icmp eq ptr %23, null
   br i1 %.not177, label %24, label %29
@@ -903,7 +903,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 42:                                               ; preds = %39
   %43 = load i8, ptr @zend_observer_function_declared_observed, align 1
   %44 = trunc i8 %43 to i1
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 272
@@ -938,7 +938,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 64:                                               ; preds = %60
   %65 = load ptr, ptr %.0171205, align 8
   %66 = load ptr, ptr %63, align 8
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %67 = getelementptr inbounds i8, ptr %65, i64 152
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @zend_set_compiled_filename(ptr noundef %68) #10
@@ -946,7 +946,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load i32, ptr %72, align 8
-  store i32 %73, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %73, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %74 = load i8, ptr %66, align 8
   %75 = icmp eq i8 %74, 2
   br i1 %75, label %102, label %116
@@ -1035,7 +1035,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 128:                                              ; preds = %124
   %129 = load ptr, ptr %.069.i, align 8
   %130 = load ptr, ptr %127, align 8
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %131 = getelementptr inbounds i8, ptr %129, i64 152
   %132 = load ptr, ptr %131, align 8
   %133 = tail call ptr @zend_set_compiled_filename(ptr noundef %132) #10
@@ -1043,7 +1043,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load i32, ptr %136, align 8
-  store i32 %137, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %137, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %138 = load i8, ptr %130, align 8
   %139 = icmp eq i8 %138, 2
   br i1 %139, label %172, label %186
@@ -1138,7 +1138,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 194:                                              ; preds = %191
   %195 = load i8, ptr @zend_observer_class_linked_observed, align 1
   %196 = trunc i8 %195 to i1
-  %197 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 24
   %199 = load i32, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %0, i64 328
@@ -1181,13 +1181,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %221 = getelementptr inbounds i8, ptr %217, i64 24
   %222 = load i8, ptr %221, align 8
   %223 = icmp eq i8 %222, 0
-  %224 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 6), align 1
+  %224 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
   %225 = trunc i8 %224 to i1
   %or.cond.not = select i1 %223, i1 true, i1 %225
   br i1 %or.cond.not, label %285, label %227
 
 226:                                              ; preds = %216
-  %.old = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 6), align 1
+  %.old = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
   %.old1 = trunc i8 %.old to i1
   br i1 %.old1, label %285, label %227
 
@@ -1200,13 +1200,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %.not190, label %232, label %285
 
 232:                                              ; preds = %227
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %233 = getelementptr inbounds i8, ptr %228, i64 496
   %234 = load ptr, ptr %233, align 8
   %235 = tail call ptr @zend_set_compiled_filename(ptr noundef %234) #10
   %236 = getelementptr inbounds i8, ptr %228, i64 504
   %237 = load i32, ptr %236, align 8
-  store i32 %237, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %237, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %238 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %228, i1 noundef zeroext false) #10
   %239 = getelementptr inbounds i8, ptr %228, i64 8
   %240 = load ptr, ptr %239, align 8
@@ -1270,7 +1270,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %.not187, label %285, label %280
 
 280:                                              ; preds = %274
-  %281 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %282 = load i32, ptr %276, align 4
   %283 = zext i32 %282 to i64
   %284 = getelementptr inbounds i8, ptr %281, i64 %283
@@ -1310,13 +1310,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %300 = getelementptr inbounds i8, ptr %296, i64 24
   %301 = load i8, ptr %300, align 8
   %302 = icmp eq i8 %301, 0
-  %303 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 6), align 1
+  %303 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
   %304 = trunc i8 %303 to i1
   %or.cond.not.i = select i1 %302, i1 true, i1 %304
   br i1 %or.cond.not.i, label %366, label %306
 
 305:                                              ; preds = %295
-  %.old.i = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 6), align 1
+  %.old.i = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
   %.old1.i = trunc i8 %.old.i to i1
   br i1 %.old1.i, label %366, label %306
 
@@ -1329,13 +1329,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %.not77.i, label %311, label %366
 
 311:                                              ; preds = %306
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %312 = getelementptr inbounds i8, ptr %307, i64 496
   %313 = load ptr, ptr %312, align 8
   %314 = tail call ptr @zend_set_compiled_filename(ptr noundef %313) #10
   %315 = getelementptr inbounds i8, ptr %307, i64 504
   %316 = load i32, ptr %315, align 8
-  store i32 %316, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %316, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %317 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %307, i1 noundef zeroext false) #10
   %318 = getelementptr inbounds i8, ptr %307, i64 8
   %319 = load ptr, ptr %318, align 8
@@ -1399,7 +1399,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %.not74.i, label %364, label %359
 
 359:                                              ; preds = %353
-  %360 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %361 = load i32, ptr %355, align 4
   %362 = zext i32 %361 to i64
   %363 = getelementptr inbounds i8, ptr %360, i64 %362
@@ -1445,11 +1445,11 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store ptr %382, ptr %373, align 8
   %383 = sext i32 %380 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %382, i8 0, i64 %383, i1 false)
-  %384 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %385 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %385 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %386 = load ptr, ptr %0, align 8
-  store ptr %386, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store ptr %386, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %387 = load i32, ptr %370, align 8
   %.not116.i = icmp eq i32 %387, 0
   br i1 %.not116.i, label %zend_accel_do_delayed_early_binding.exit, label %.lr.ph.i196
@@ -1463,13 +1463,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %390 = load ptr, ptr %388, align 8
   %391 = getelementptr inbounds %struct._zend_early_binding, ptr %390, i64 %indvars.iv.i
   %392 = load ptr, ptr %391, align 8
-  %393 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
+  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %394 = tail call ptr @zend_hash_find_known_hash(ptr noundef %393, ptr noundef %392) #10
   %.not101.i = icmp eq ptr %394, null
   br i1 %.not101.i, label %395, label %.thread112.i
 
 395:                                              ; preds = %389
-  %396 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
+  %396 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %397 = getelementptr inbounds i8, ptr %391, i64 8
   %398 = load ptr, ptr %397, align 8
   %399 = tail call ptr @zend_hash_find_known_hash(ptr noundef %396, ptr noundef %398) #10
@@ -1487,7 +1487,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 405:                                              ; preds = %400
   %406 = getelementptr inbounds i8, ptr %391, i64 16
   %407 = load ptr, ptr %406, align 8
-  %408 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
+  %408 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %409 = tail call ptr @zend_hash_find_known_hash(ptr noundef %408, ptr noundef %407) #10
   %.not105.i = icmp eq ptr %409, null
   br i1 %.not105.i, label %412, label %410
@@ -1530,8 +1530,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 
 zend_accel_do_delayed_early_binding.exit:         ; preds = %.thread112.i, %372
   %425 = and i8 %385, 1
-  store ptr %384, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  store i8 %425, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store ptr %384, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  store i8 %425, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   br label %426
 
 426:                                              ; preds = %zend_accel_do_delayed_early_binding.exit, %369

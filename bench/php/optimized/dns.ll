@@ -766,7 +766,7 @@ define hidden void @zif_dns_check_record(ptr noundef %0, ptr nocapture noundef w
 
 34:                                               ; preds = %.thread182
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #12
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %143
@@ -981,7 +981,7 @@ define hidden void @zif_dns_check_record(ptr noundef %0, ptr nocapture noundef w
 
 118:                                              ; preds = %115, %111
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.18) #12
-  %119 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %120 = icmp ne ptr %119, null
   call void @llvm.assume(i1 %120)
   br label %143
@@ -1204,7 +1204,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   br label %68
 
 65:                                               ; preds = %57
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %.loopexit
@@ -1247,7 +1247,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   br label %.thread461
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
   br label %.loopexit
@@ -1269,7 +1269,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 
 96:                                               ; preds = %92
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.19) #12
-  %97 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
   br label %.loopexit
@@ -1281,7 +1281,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 
 101:                                              ; preds = %99
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.20) #12
-  %102 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %103 = icmp ne ptr %102, null
   call void @llvm.assume(i1 %103)
   br label %.loopexit
@@ -2575,7 +2575,7 @@ define hidden void @zif_dns_get_mx(ptr noundef %0, ptr nocapture noundef writeon
   br label %45
 
 42:                                               ; preds = %34
-  %43 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
   br label %181
@@ -2617,7 +2617,7 @@ define hidden void @zif_dns_get_mx(ptr noundef %0, ptr nocapture noundef writeon
   br label %.thread285
 
 63:                                               ; preds = %55
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %181

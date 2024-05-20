@@ -6302,14 +6302,14 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 
 12:                                               ; preds = %10
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hffe969795b087f00E"(ptr noundef nonnull align 8 @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, ptr noundef nonnull align 8 @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE)
-  %13 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 0, i32 0, i64 8), align 8, !range !574, !noundef !4
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 8), align 8, !range !574, !noundef !4
   %14 = icmp ne i64 %13, -9223372036854775808
   tail call void @llvm.assume(i1 %14)
   br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit"
 
 "_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit": ; preds = %10, %12
-  %15 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 0, i32 1, i64 0), align 8, !nonnull !4, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 0, i32 1, i64 8), align 8, !noundef !4
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 16), align 8, !nonnull !4, !noundef !4
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE, i64 24), align 8, !noundef !4
   call void @_ZN10pdf_writer5chunk5Chunk20post_script_function17hb27c5c94acbf2c9cE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, { { ptr, i32, i8, i8, [2 x i8] } } } }) align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %9, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16)
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %7, align 16
   %17 = getelementptr inbounds i8, ptr %7, i64 16
@@ -6364,14 +6364,14 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 
 33:                                               ; preds = %31
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hffe969795b087f00E"(ptr noundef nonnull align 8 @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, ptr noundef nonnull align 8 @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E)
-  %34 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 0, i32 0, i64 8), align 8, !range !574, !noundef !4
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 8), align 8, !range !574, !noundef !4
   %35 = icmp ne i64 %34, -9223372036854775808
   call void @llvm.assume(i1 %35)
   br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19"
 
 "_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19": ; preds = %31, %33
-  %36 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 0, i32 1, i64 0), align 8, !nonnull !4, !noundef !4
-  %37 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 0, i32 1, i64 8), align 8, !noundef !4
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 16), align 8, !nonnull !4, !noundef !4
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 24), align 8, !noundef !4
   call void @_ZN10pdf_writer5chunk5Chunk11icc_profile17hb4c884d43140ebddE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, { { ptr, i32, i8, i8, [2 x i8] } } } }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %21, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %37)
   %38 = invoke noundef align 8 dereferenceable(32) ptr @_ZN10pdf_writer5color10IccProfile1n17h4f6c59fa87ffc77aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %44 unwind label %42
@@ -6415,14 +6415,14 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 
 52:                                               ; preds = %50
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hffe969795b087f00E"(ptr noundef nonnull align 8 @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, ptr noundef nonnull align 8 @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E)
-  %53 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 0, i32 0, i64 8), align 8, !range !574, !noundef !4
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 8), align 8, !range !574, !noundef !4
   %54 = icmp ne i64 %53, -9223372036854775808
   call void @llvm.assume(i1 %54)
   br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22"
 
 "_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22": ; preds = %50, %52
-  %55 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 0, i32 1, i64 0), align 8, !nonnull !4, !noundef !4
-  %56 = load i64, ptr getelementptr inbounds (<{ [16 x i8], [16 x i8], ptr }>, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 0, i32 1, i64 8), align 8, !noundef !4
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 16), align 8, !nonnull !4, !noundef !4
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 24), align 8, !noundef !4
   call void @_ZN10pdf_writer5chunk5Chunk11icc_profile17hb4c884d43140ebddE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, { { ptr, i32, i8, i8, [2 x i8] } } } }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %41, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %56)
   %57 = invoke noundef align 8 dereferenceable(32) ptr @_ZN10pdf_writer5color10IccProfile1n17h4f6c59fa87ffc77aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1)
           to label %61 unwind label %59

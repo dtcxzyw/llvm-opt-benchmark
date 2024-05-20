@@ -63,7 +63,7 @@ mi_bin.exit:                                      ; preds = %entry, %if.then2.i,
 define hidden i64 @_mi_bin_size(i8 noundef zeroext %bin) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i8 %bin to i64
-  %block_size = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2, i64 %idxprom, i32 2
+  %block_size = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 0, i64 %idxprom, i32 2
   %0 = load i64, ptr %block_size, align 8
   ret i64 %0
 }
@@ -105,7 +105,7 @@ if.else7.i:                                       ; preds = %if.else.i
 
 mi_bin.exit:                                      ; preds = %if.then, %if.then2.i, %if.else7.i
   %bin.0.i = phi i64 [ %conv.i, %if.then2.i ], [ %3, %if.else7.i ], [ 1, %if.then ]
-  %block_size.i = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2, i64 %bin.0.i, i32 2
+  %block_size.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 0, i64 %bin.0.i, i32 2
   %4 = load i64, ptr %block_size.i, align 8
   br label %return
 

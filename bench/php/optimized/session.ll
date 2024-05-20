@@ -392,7 +392,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_session_destroy() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %1, 2
   br i1 %.not, label %3, label %2
 
@@ -401,20 +401,20 @@ define range(i32 -1, 1) i32 @php_session_destroy() local_unnamed_addr #0 {
   br label %16
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef nonnull %4) #23
+  %9 = tail call i32 %8(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef nonnull %4) #23
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not5 = icmp eq ptr %12, null
   br i1 %.not5, label %13, label %14
 
@@ -425,17 +425,17 @@ define range(i32 -1, 1) i32 @php_session_destroy() local_unnamed_addr #0 {
 14:                                               ; preds = %11, %13, %5, %3
   %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %5 ], [ 0, %3 ]
   tail call fastcc void @php_rshutdown_session_globals()
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %15 = load i32, ptr @my_module_number, align 4
-  store i32 %15, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   br label %16
 
 16:                                               ; preds = %14, %2
@@ -448,45 +448,45 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_rshutdown_session_globals() unnamed_addr #0 {
   %1 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %2 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 360)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   br label %5
 
 5:                                                ; preds = %4, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %7, %5
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %12 = call i32 @__sigsetjmp(ptr noundef nonnull %1, i32 noundef 0) #24
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %17(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %18 = call i32 %17(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %19
 
 19:                                               ; preds = %14, %10
-  store ptr %11, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %20
 
 20:                                               ; preds = %19, %7
-  %21 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not28 = icmp eq ptr %21, null
   br i1 %.not28, label %33, label %22
 
@@ -511,11 +511,11 @@ define internal fastcc void @php_rshutdown_session_globals() unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %26, %31, %22
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br label %33
 
 33:                                               ; preds = %32, %20
-  %34 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %.not30 = icmp eq ptr %34, null
   br i1 %.not30, label %46, label %35
 
@@ -540,11 +540,11 @@ define internal fastcc void @php_rshutdown_session_globals() unnamed_addr #0 {
   br label %45
 
 45:                                               ; preds = %39, %44, %35
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   br label %46
 
 46:                                               ; preds = %45, %33
-  %47 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
   %.not32 = icmp eq ptr %47, null
   br i1 %.not32, label %62, label %48
 
@@ -578,11 +578,11 @@ define internal fastcc void @php_rshutdown_session_globals() unnamed_addr #0 {
   br label %61
 
 61:                                               ; preds = %52, %60, %59, %48
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
   br label %62
 
 62:                                               ; preds = %61, %46
-  %63 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %php_session_cleanup_filename.exit, label %64
 
@@ -616,24 +616,24 @@ define internal fastcc void @php_rshutdown_session_globals() unnamed_addr #0 {
   br label %77
 
 77:                                               ; preds = %76, %75, %68, %64
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 120), align 8
   br label %php_session_cleanup_filename.exit
 
 php_session_cleanup_filename.exit:                ; preds = %62, %77
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @php_add_session_var(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
-  %3 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %4 = icmp eq i8 %3, 10
   br i1 %4, label %5, label %30
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i8, ptr %8, align 8
@@ -686,12 +686,12 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_set_session_var(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %5 = icmp eq i8 %4, 10
   br i1 %5, label %6, label %27
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i8, ptr %9, align 8
@@ -733,12 +733,12 @@ define ptr @php_set_session_var(ptr noundef %0, ptr noundef %1, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_get_session_var(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %3 = icmp eq i8 %2, 10
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 7
@@ -760,13 +760,13 @@ declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @php_session_create_id(ptr nocapture readnone %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %4 = call i32 @php_random_bytes(ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext true) #23
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %42, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %8 = and i64 %7, -8
   %9 = add i64 %8, 32
   %10 = call noalias ptr @_emalloc(i64 noundef %9) #25
@@ -777,9 +777,9 @@ define noalias noundef ptr @php_session_create_id(ptr nocapture readnone %0) loc
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %7, ptr %13, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 24
-  %16 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 37), align 16
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 384), align 16
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %2, i64 %14
   %sext = shl i32 %17, 24
@@ -884,12 +884,12 @@ define hidden ptr @ps_srlzr_encode_php_serialize() #0 {
   %1 = alloca %struct.smart_str, align 8
   %2 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %3 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %4 = icmp eq i8 %3, 10
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 7
@@ -898,7 +898,7 @@ define hidden ptr @ps_srlzr_encode_php_serialize() #0 {
 10:                                               ; preds = %5
   %11 = tail call ptr @php_var_serialize_init() #23
   store ptr %11, ptr %2, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   call void @php_var_serialize(ptr noundef nonnull %1, ptr noundef nonnull %13, ptr noundef nonnull %2) #23
   %14 = load ptr, ptr %2, align 8
@@ -955,12 +955,12 @@ define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php_serialize(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %18, %2
-  %20 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %19
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 360)) #23
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -986,10 +986,10 @@ define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php_serialize(ptr noundef %0
   store i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %29, i64 24
   store ptr null, ptr %35, align 8
-  store ptr %29, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
-  store i32 266, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
+  store i32 266, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   store i32 2, ptr %29, align 4
-  %36 = call ptr @zend_hash_update_ind(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull %7, ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35)) #23
+  %36 = call ptr @zend_hash_update_ind(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 360)) #23
   %37 = load i32, ptr %8, align 4
   %38 = and i32 %37, 64
   %.not = icmp eq i32 %38, 0
@@ -1036,7 +1036,7 @@ define hidden ptr @ps_srlzr_encode_php_binary() #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %3 = tail call ptr @php_var_serialize_init() #23
   store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1094,12 +1094,12 @@ define hidden ptr @ps_srlzr_encode_php_binary() #0 {
   br label %php_get_session_var.exit.thread
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %34 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %35 = icmp eq i8 %34, 10
   br i1 %35, label %36, label %php_get_session_var.exit.thread
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8
   %40 = icmp eq i8 %39, 7
@@ -1252,12 +1252,12 @@ define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php_binary(ptr noundef %0, i
 31:                                               ; preds = %16
   store ptr %29, ptr %5, align 8
   store i32 13, ptr %9, align 8
-  %32 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %33 = icmp eq i8 %32, 10
   br i1 %33, label %34, label %php_set_session_var.exit
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = getelementptr inbounds i8, ptr %35, i64 16
   %38 = load i8, ptr %37, align 8
@@ -1351,12 +1351,12 @@ declare ptr @var_tmp_var(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_session_normalize_vars() unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %2 = icmp eq i8 %1, 10
   br i1 %2, label %3, label %.loopexit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 7
@@ -1419,12 +1419,12 @@ define internal fastcc void @php_session_normalize_vars() unnamed_addr #0 {
   br label %php_get_session_var.exit.thread
 
 35:                                               ; preds = %32
-  %36 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %36 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %37 = icmp eq i8 %36, 10
   br i1 %37, label %38, label %php_get_session_var.exit.thread
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, 7
@@ -1469,7 +1469,7 @@ define hidden ptr @ps_srlzr_encode_php() #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %3 = tail call ptr @php_var_serialize_init() #23
   store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1527,12 +1527,12 @@ define hidden ptr @ps_srlzr_encode_php() #0 {
   br label %php_get_session_var.exit.thread
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %34 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %35 = icmp eq i8 %34, 10
   br i1 %35, label %36, label %php_get_session_var.exit.thread
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8
   %40 = icmp eq i8 %39, 7
@@ -1726,12 +1726,12 @@ define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php(ptr noundef %0, i64 noun
 32:                                               ; preds = %16
   store ptr %30, ptr %5, align 8
   store i32 13, ptr %9, align 8
-  %33 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %34 = icmp eq i8 %33, 10
   br i1 %34, label %35, label %php_set_session_var.exit
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = load i8, ptr %38, align 8
@@ -1948,8 +1948,8 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.smart_str, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  %7 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -1958,12 +1958,12 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %.critedge
 
 9:                                                ; preds = %0
-  %10 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %357
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %357
 
@@ -1972,7 +1972,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %16 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %22, label %17
 
@@ -1991,7 +1991,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %php_session_send_cookie.exit
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %24 = tail call ptr @strpbrk(ptr noundef %23, ptr noundef nonnull @.str.110) #26
   %.not507.i = icmp eq ptr %24, null
   br i1 %.not507.i, label %26, label %25
@@ -2015,7 +2015,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   store i64 12, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #26
   %39 = add i64 %38, 12
   %40 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2101,14 +2101,14 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %81
 
 81:                                               ; preds = %80, %75, %65
-  %82 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 5), align 8
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 40), align 8
   %83 = icmp sgt i64 %82, 0
   br i1 %83, label %84, label %178
 
 84:                                               ; preds = %81
   %85 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #23
   %86 = load i64, ptr %4, align 8
-  %87 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 5), align 8
+  %87 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 40), align 8
   %88 = add nsw i64 %87, %86
   %89 = icmp sgt i64 %88, 0
   br i1 %89, label %90, label %178
@@ -2219,7 +2219,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %141 = load ptr, ptr %3, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   store i64 %.1464.i, ptr %142, align 8
-  %143 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 5), align 8
+  %143 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 40), align 8
   %144 = getelementptr inbounds i8, ptr %2, i64 31
   %145 = icmp slt i64 %143, 0
   br i1 %145, label %146, label %156
@@ -2298,7 +2298,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %178
 
 178:                                              ; preds = %171, %84, %81
-  %179 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 6), align 16
+  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 48), align 16
   %180 = load i8, ptr %179, align 1
   %.not528.i = icmp eq i8 %180, 0
   br i1 %.not528.i, label %208, label %181
@@ -2334,7 +2334,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %194 = load ptr, ptr %3, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 16
   store i64 %.1462.i, ptr %195, align 8
-  %196 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 6), align 16
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 48), align 16
   %197 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %196) #26
   %198 = add i64 %197, %.1462.i
   %199 = load i64, ptr %40, align 8
@@ -2360,7 +2360,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %208
 
 208:                                              ; preds = %201, %178
-  %209 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 7), align 8
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 56), align 8
   %210 = load i8, ptr %209, align 1
   %.not533.i = icmp eq i8 %210, 0
   br i1 %.not533.i, label %238, label %211
@@ -2396,7 +2396,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %224 = load ptr, ptr %3, align 8
   %225 = getelementptr inbounds i8, ptr %224, i64 16
   store i64 %.1458.i, ptr %225, align 8
-  %226 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 7), align 8
+  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 56), align 8
   %227 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %226) #26
   %228 = add i64 %227, %.1458.i
   %229 = load i64, ptr %40, align 8
@@ -2422,7 +2422,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %238
 
 238:                                              ; preds = %231, %208
-  %239 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 9), align 8
+  %239 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 72), align 8
   %240 = trunc i8 %239 to i1
   br i1 %240, label %241, label %256
 
@@ -2460,7 +2460,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   br label %256
 
 256:                                              ; preds = %249, %238
-  %257 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 10), align 1
+  %257 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 73), align 1
   %258 = trunc i8 %257 to i1
   %259 = load ptr, ptr %3, align 8
   br i1 %258, label %260, label %thread-pre-split
@@ -2499,7 +2499,7 @@ define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
 
 thread-pre-split:                                 ; preds = %256, %267
   %.pr.i = phi ptr [ %272, %267 ], [ %259, %256 ]
-  %274 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 8), align 16
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 64), align 16
   %275 = load i8, ptr %274, align 1
   %.not542.i = icmp eq i8 %275, 0
   %.not547.i = icmp eq ptr %.pr.i, null
@@ -2534,7 +2534,7 @@ thread-pre-split:                                 ; preds = %256, %267
   %288 = load ptr, ptr %3, align 8
   %289 = getelementptr inbounds i8, ptr %288, i64 16
   store i64 %.1450.i, ptr %289, align 8
-  %290 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 8), align 16
+  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 64), align 16
   %291 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %290) #26
   %292 = add i64 %291, %.1450.i
   %293 = load i64, ptr %40, align 8
@@ -2577,14 +2577,14 @@ thread-pre-split:                                 ; preds = %256, %267
 
 307:                                              ; preds = %302, %301
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  %308 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %309 = call ptr @strpbrk(ptr noundef %308, ptr noundef nonnull @.str.110) #26
   %310 = icmp eq ptr %309, null
   call void @llvm.assume(i1 %310)
   %311 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull @.str.121, ptr noundef %308) #23
   %312 = load ptr, ptr %1, align 8
   %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %312) #26
-  %314 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2), align 8
+  %314 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), align 8
   %.not28.i.i = icmp eq ptr %314, null
   br i1 %.not28.i.i, label %php_session_remove_cookie.exit.i, label %.lr.ph.i.i
 
@@ -2614,18 +2614,18 @@ thread-pre-split:                                 ; preds = %256, %267
   %329 = getelementptr inbounds i8, ptr %.029.i.i, i64 8
   %330 = load ptr, ptr %329, align 8
   %.not26.i.i = icmp eq ptr %330, null
-  %..i.i = select i1 %.not26.i.i, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2), ptr %330
+  %..i.i = select i1 %.not26.i.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr %330
   store ptr %316, ptr %..i.i, align 8
   %.not27.i.i = icmp eq ptr %316, null
   %331 = load ptr, ptr %329, align 8
   %332 = getelementptr inbounds i8, ptr %316, i64 8
-  %.sink.i.i = select i1 %.not27.i.i, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 0, i32 1), ptr %332
+  %.sink.i.i = select i1 %.not27.i.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 168), ptr %332
   store ptr %331, ptr %.sink.i.i, align 8
   call void @sapi_free_header(ptr noundef nonnull %315) #23
   call void @_efree(ptr noundef nonnull %.029.i.i) #23
-  %333 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 0, i32 2), align 8
+  %333 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
   %334 = add i64 %333, -1
-  store i64 %334, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 0, i32 2), align 8
+  store i64 %334, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
   br label %335
 
 335:                                              ; preds = %328, %325, %320, %.lr.ph.i.i
@@ -2677,18 +2677,18 @@ php_session_send_cookie.exit:                     ; preds = %20, %21, %25, %php_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   br label %357
 
 357:                                              ; preds = %php_session_send_cookie.exit, %12, %9
   %358 = call ptr @zend_get_constant_str(ptr noundef nonnull @.str.5, i64 noundef 3) #23
-  %359 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
+  %359 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
   %360 = trunc i8 %359 to i1
   br i1 %360, label %361, label %482
 
 361:                                              ; preds = %357
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %362 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %363 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %362) #26
   call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %363) #23
   %364 = load ptr, ptr %5, align 8
@@ -2719,7 +2719,7 @@ php_session_send_cookie.exit:                     ; preds = %20, %21, %25, %php_
   %379 = load ptr, ptr %5, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 16
   store i64 %371, ptr %380, align 8
-  %381 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %382 = getelementptr inbounds i8, ptr %381, i64 24
   %383 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %382) #26
   %384 = add i64 %383, %371
@@ -2951,22 +2951,22 @@ php_session_send_cookie.exit:                     ; preds = %20, %21, %25, %php_
   br label %497
 
 497:                                              ; preds = %494, %496, %459, %481
-  %498 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 31), align 1
+  %498 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 349), align 1
   %499 = trunc i8 %498 to i1
   br i1 %499, label %500, label %.critedge
 
 500:                                              ; preds = %497
-  %501 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %501 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %502 = trunc i8 %501 to i1
   br i1 %502, label %.critedge, label %503
 
 503:                                              ; preds = %500
-  %504 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %504 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %505 = trunc i8 %504 to i1
   br i1 %505, label %506, label %523
 
 506:                                              ; preds = %503
-  %507 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull @.str.7, i64 noundef 7) #23
+  %507 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.7, i64 noundef 7) #23
   %.not329 = icmp eq ptr %507, null
   br i1 %.not329, label %523, label %508
 
@@ -2991,14 +2991,14 @@ php_session_send_cookie.exit:                     ; preds = %20, %21, %25, %php_
 
 518:                                              ; preds = %515
   %519 = load ptr, ptr %.0289, align 8
-  %520 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %521 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %520) #26
   %522 = call ptr @zend_hash_str_find(ptr noundef %519, ptr noundef %520, i64 noundef %521) #23
   %.not330 = icmp eq ptr %522, null
   br i1 %.not330, label %523, label %.critedge
 
 523:                                              ; preds = %515, %518, %506, %503
-  %524 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %524 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %525 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %524) #26
   %526 = and i64 %525, -8
   %527 = add i64 %526, 32
@@ -3034,9 +3034,9 @@ php_session_send_cookie.exit:                     ; preds = %20, %21, %25, %php_
   br label %543
 
 543:                                              ; preds = %537, %542, %523
-  %544 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %544 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %545 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %544) #26
-  %546 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %546 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %547 = getelementptr inbounds i8, ptr %546, i64 24
   %548 = getelementptr inbounds i8, ptr %546, i64 16
   %549 = load i64, ptr %548, align 8
@@ -3063,25 +3063,25 @@ declare i32 @php_url_scanner_add_session_var(ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_session_start() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   switch i32 %1, label %38 [
     i32 2, label %2
     i32 0, label %12
   ]
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
   %.not76 = icmp eq ptr %3, null
   br i1 %.not76, label %7, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  %6 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 16), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 120), align 8
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef nonnull %5, i32 noundef %6) #23
   br label %php_session_cache_limiter.exit.thread
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 28), align 2
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 346), align 2
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -3095,7 +3095,7 @@ define range(i32 -1, 1) i32 @php_session_start() local_unnamed_addr #0 {
 
 12:                                               ; preds = %0
   %13 = tail call ptr @zend_ini_string(ptr noundef nonnull @.str.11, i64 noundef 20, i32 noundef 0) #23
-  %14 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %15 = icmp eq ptr %14, null
   %16 = icmp ne ptr %13, null
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -3121,17 +3121,17 @@ define range(i32 -1, 1) i32 @php_session_start() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %24, label %.preheader
 
 _php_find_ps_module.exit:                         ; preds = %18
-  store ptr %17, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   br label %25
 
 24:                                               ; preds = %21
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %13) #23
   br label %php_session_cache_limiter.exit.thread
 
 25:                                               ; preds = %_php_find_ps_module.exit, %12
   %26 = tail call ptr @zend_ini_string(ptr noundef nonnull @.str.13, i64 noundef 25, i32 noundef 0) #23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %28 = icmp eq ptr %27, null
   %29 = icmp ne ptr %26, null
   %or.cond3 = select i1 %28, i1 %29, i1 false
@@ -3156,30 +3156,30 @@ _php_find_ps_module.exit:                         ; preds = %18
   br i1 %.not.i98, label %.loopexit, label %.lr.ph.i
 
 _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
-  store ptr %.010.i, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  store ptr %.010.i, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   br label %37
 
 .loopexit:                                        ; preds = %34, %30
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull %26) #23
   br label %php_session_cache_limiter.exit.thread
 
 37:                                               ; preds = %_php_find_ps_serializer.exit, %25
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %38
 
 38:                                               ; preds = %37, %0
-  %39 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %40 = and i8 %39, 1
   %41 = xor i8 %40, 1
-  store i8 %41, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
-  %42 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  store i8 %41, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %43 = trunc i8 %42 to i1
   %44 = select i1 %43, i8 1, i8 %40
-  store i8 %44, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
-  %45 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  store i8 %44, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #26
-  %47 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not77 = icmp eq ptr %47, null
   br i1 %.not77, label %48, label %.thread116
 
@@ -3187,7 +3187,7 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
   br i1 %43, label %49, label %88
 
 49:                                               ; preds = %48
-  %50 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull @.str.7, i64 noundef 7) #23
+  %50 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.7, i64 noundef 7) #23
   %.not78 = icmp eq ptr %50, null
   br i1 %.not78, label %88, label %51
 
@@ -3212,7 +3212,7 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %.062, align 8
-  %63 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %64 = tail call ptr @zend_hash_str_find(ptr noundef %62, ptr noundef %63, i64 noundef %46) #23
   %.not79 = icmp eq ptr %64, null
   br i1 %.not79, label %88, label %65
@@ -3259,23 +3259,23 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
 
 ppid2sid.exit:                                    ; preds = %72, %75
   %storemerge61.i = phi ptr [ %82, %75 ], [ null, %72 ]
-  store ptr %storemerge61.i, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
+  store ptr %storemerge61.i, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
   br label %88
 
 88:                                               ; preds = %58, %61, %ppid2sid.exit, %49, %48
-  %89 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %89 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %90 = trunc i8 %89 to i1
   br i1 %90, label %159, label %91
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not80 = icmp eq ptr %92, null
   br i1 %.not80, label %93, label %.thread109
 
 93:                                               ; preds = %91
-  %94 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull @.str.15, i64 noundef 4) #23
+  %94 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.15, i64 noundef 4) #23
   %.not81 = icmp eq ptr %94, null
   br i1 %.not81, label %110, label %95
 
@@ -3300,7 +3300,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %.1, align 8
-  %107 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %108 = tail call ptr @zend_hash_str_find(ptr noundef %106, ptr noundef %107, i64 noundef %46) #23
   %.not82 = icmp eq ptr %108, null
   br i1 %.not82, label %110, label %109
@@ -3310,12 +3310,12 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br label %110
 
 110:                                              ; preds = %102, %105, %109, %93
-  %.pr = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not83 = icmp eq ptr %.pr, null
   br i1 %.not83, label %111, label %.thread109
 
 111:                                              ; preds = %110
-  %112 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull @.str.16, i64 noundef 5) #23
+  %112 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.16, i64 noundef 5) #23
   %.not84 = icmp eq ptr %112, null
   br i1 %.not84, label %128, label %113
 
@@ -3340,7 +3340,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr %.2, align 8
-  %125 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %126 = tail call ptr @zend_hash_str_find(ptr noundef %124, ptr noundef %125, i64 noundef %46) #23
   %.not85 = icmp eq ptr %126, null
   br i1 %.not85, label %128, label %127
@@ -3350,21 +3350,21 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br label %128
 
 128:                                              ; preds = %120, %123, %127, %111
-  %.pr108 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %.pr108 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not86 = icmp eq ptr %.pr108, null
   br i1 %.not86, label %.thread114, label %.thread109
 
 .thread109:                                       ; preds = %91, %110, %128
-  %129 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 3), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 24), align 8
   %130 = load i8, ptr %129, align 1
   %.not87 = icmp eq i8 %130, 0
-  %131 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 3, i32 1), align 8
+  %131 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
   %132 = icmp eq i8 %131, 0
   %or.cond97 = select i1 %.not87, i1 true, i1 %132
   br i1 %or.cond97, label %159, label %133
 
 133:                                              ; preds = %.thread109
-  %134 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 3), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
   %135 = tail call ptr @zend_hash_str_find(ptr noundef %134, ptr noundef nonnull @.str.17, i64 noundef 12) #23
   %.not88 = icmp eq ptr %135, null
   br i1 %.not88, label %159, label %136
@@ -3384,13 +3384,13 @@ ppid2sid.exit:                                    ; preds = %72, %75
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %141, i64 24
-  %146 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 3), align 8
+  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 24), align 8
   %147 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(1) %146) #26
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %159
 
 149:                                              ; preds = %144
-  %150 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %151 = getelementptr inbounds i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
@@ -3407,7 +3407,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br i1 %158, label %.thread114.sink.split.sink.split, label %.thread114.sink.split
 
 159:                                              ; preds = %88, %144, %140, %136, %133, %.thread109
-  %.pr112 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %.pr112 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not91 = icmp eq ptr %.pr112, null
   br i1 %.not91, label %.thread114, label %.thread116
 
@@ -3440,7 +3440,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br label %.thread114.sink.split
 
 .thread114.sink.split:                            ; preds = %.thread114.sink.split.sink.split, %163, %167, %149, %154
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br label %.thread114
 
 .thread114:                                       ; preds = %.thread114.sink.split, %128, %.thread116, %159
@@ -3449,45 +3449,45 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br i1 %173, label %php_session_cache_limiter.exit, label %174
 
 174:                                              ; preds = %.thread114
-  %175 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 4), align 16
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 32), align 16
   %176 = load i8, ptr %175, align 1
   %177 = icmp ne i8 %176, 0
-  %178 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %178 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not.i99 = icmp eq i32 %178, 2
   %or.cond119 = select i1 %177, i1 %.not.i99, i1 false
   br i1 %or.cond119, label %179, label %php_session_cache_limiter.exit.thread
 
 179:                                              ; preds = %174
-  %180 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %180 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not10.i101 = icmp eq i8 %180, 0
   br i1 %.not10.i101, label %.preheader.i, label %181
 
 181:                                              ; preds = %179
   %182 = tail call ptr @php_output_get_start_filename() #23
   %183 = tail call i32 @php_output_get_start_lineno() #23
-  %184 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %184 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %185 = icmp eq i32 %184, 2
   br i1 %185, label %186, label %php_session_abort.exit.i
 
 186:                                              ; preds = %181
-  %187 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i.i = icmp eq ptr %187, null
   br i1 %.not.i.i, label %188, label %191
 
 188:                                              ; preds = %186
-  %189 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %189 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %190 = trunc i8 %189 to i1
   br i1 %190, label %191, label %196
 
 191:                                              ; preds = %188, %186
-  %192 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %193 = getelementptr inbounds i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
-  %195 = tail call i32 %194(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %195 = tail call i32 %194(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %196
 
 196:                                              ; preds = %191, %188
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %php_session_abort.exit.i
 
 php_session_abort.exit.i:                         ; preds = %196, %181
@@ -3522,8 +3522,8 @@ php_session_abort.exit.i:                         ; preds = %196, %181
   br i1 %.not11.i, label %php_session_cache_limiter.exit.thread, label %.preheader.i
 
 php_session_cache_limiter.exit:                   ; preds = %198, %197, %.thread114
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %207 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %207 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not94 = icmp eq ptr %207, null
   br i1 %.not94, label %php_session_cache_limiter.exit.thread, label %208
 
@@ -3548,7 +3548,7 @@ php_session_cache_limiter.exit:                   ; preds = %198, %197, %.thread
   br label %218
 
 218:                                              ; preds = %212, %217, %208
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br label %php_session_cache_limiter.exit.thread
 
 php_session_cache_limiter.exit.thread:            ; preds = %204, %174, %201, %php_session_cache_limiter.exit, %218, %4, %11, %10, %.loopexit, %24
@@ -3604,8 +3604,8 @@ define internal fastcc void @ppid2sid(ptr nocapture noundef readonly %0) unnamed
 24:                                               ; preds = %8, %11
   %storemerge61 = phi ptr [ %18, %11 ], [ null, %8 ]
   %storemerge = phi i8 [ 0, %11 ], [ 1, %8 ]
-  store ptr %storemerge61, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i8 %storemerge, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  store ptr %storemerge61, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i8 %storemerge, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   ret void
 }
 
@@ -3620,13 +3620,13 @@ define internal fastcc range(i32 -1, 1) i32 @php_session_initialize() unnamed_ad
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  store i32 2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %0
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.122) #23
   br label %php_session_abort.exit76
 
@@ -3634,51 +3634,51 @@ define internal fastcc range(i32 -1, 1) i32 @php_session_initialize() unnamed_ad
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @ps_globals, align 16
-  %9 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
-  %10 = tail call i32 %7(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %8, ptr noundef %9) #23
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
+  %10 = tail call i32 %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %8, ptr noundef %9) #23
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %php_session_abort.exit
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17, %15
-  %21 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %24 = tail call i32 %23(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %25
 
 25:                                               ; preds = %20, %17
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %php_session_abort.exit
 
 php_session_abort.exit:                           ; preds = %12, %25
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not70 = icmp eq ptr %26, null
   br i1 %.not70, label %27, label %php_session_abort.exit76
 
 27:                                               ; preds = %php_session_abort.exit
-  %28 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @ps_globals, align 16
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.123, ptr noundef %29, ptr noundef %30) #23
   br label %php_session_abort.exit76
 
 31:                                               ; preds = %5
-  %32 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not52 = icmp eq ptr %32, null
   br i1 %.not52, label %.thread, label %33
 
@@ -3709,76 +3709,76 @@ php_session_abort.exit:                           ; preds = %12, %25
   br label %.thread
 
 .thread:                                          ; preds = %31, %36, %45, %40
-  %46 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr %48(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store ptr %49, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %49 = tail call ptr %48(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not56 = icmp eq ptr %49, null
   br i1 %.not56, label %50, label %69
 
 50:                                               ; preds = %.thread
-  %51 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %52 = icmp eq i32 %51, 2
   br i1 %52, label %53, label %php_session_abort.exit73
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i72 = icmp eq ptr %54, null
   br i1 %.not.i72, label %55, label %58
 
 55:                                               ; preds = %53
-  %56 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %56 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %55, %53
-  %59 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %62 = tail call i32 %61(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %63
 
 63:                                               ; preds = %58, %55
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %php_session_abort.exit73
 
 php_session_abort.exit73:                         ; preds = %50, %63
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not57 = icmp eq ptr %64, null
   br i1 %.not57, label %65, label %php_session_abort.exit76
 
 65:                                               ; preds = %php_session_abort.exit73
-  %66 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr @ps_globals, align 16
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.124, ptr noundef %67, ptr noundef %68) #23
   br label %php_session_abort.exit76
 
 69:                                               ; preds = %.thread
-  %70 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %70 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %.sink.split, label %104
 
 72:                                               ; preds = %33
-  %73 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 45), align 2
+  %73 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 434), align 2
   %74 = trunc i8 %73 to i1
   br i1 %74, label %75, label %104
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %77 = getelementptr inbounds i8, ptr %76, i64 64
   %78 = load ptr, ptr %77, align 8
   %.not58 = icmp eq ptr %78, null
   br i1 %.not58, label %104, label %79
 
 79:                                               ; preds = %75
-  %80 = tail call i32 %78(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef nonnull %32) #23
+  %80 = tail call i32 %78(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef nonnull %32) #23
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %82, label %104
 
 82:                                               ; preds = %79
-  %83 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not59 = icmp eq ptr %83, null
   br i1 %.not59, label %94, label %84
 
@@ -3803,26 +3803,26 @@ php_session_abort.exit73:                         ; preds = %50, %63
   br label %94
 
 94:                                               ; preds = %84, %93, %88, %82
-  %95 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %96 = getelementptr inbounds i8, ptr %95, i64 56
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call ptr %97(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store ptr %98, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %98 = tail call ptr %97(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store ptr %98, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not61 = icmp eq ptr %98, null
   br i1 %.not61, label %99, label %101
 
 99:                                               ; preds = %94
   %100 = tail call ptr @php_session_create_id(ptr poison)
-  store ptr %100, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br label %101
 
 101:                                              ; preds = %99, %94
-  %102 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %102 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %103 = trunc i8 %102 to i1
   br i1 %103, label %.sink.split, label %104
 
 .sink.split:                                      ; preds = %101, %69
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   br label %104
 
 104:                                              ; preds = %.sink.split, %72, %75, %79, %101, %69
@@ -3831,75 +3831,75 @@ php_session_abort.exit73:                         ; preds = %50, %63
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %104
-  %108 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %109 = icmp eq i32 %108, 2
   br i1 %109, label %110, label %php_session_abort.exit76
 
 110:                                              ; preds = %107
-  %111 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i75 = icmp eq ptr %111, null
   br i1 %.not.i75, label %112, label %115
 
 112:                                              ; preds = %110
-  %113 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %113 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %112, %110
-  %116 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = tail call i32 %118(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %119 = tail call i32 %118(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %120
 
 120:                                              ; preds = %115, %112
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %php_session_abort.exit76
 
 121:                                              ; preds = %104
   tail call fastcc void @php_session_track_init()
-  %122 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %123 = getelementptr inbounds i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %126 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %127 = call i32 %124(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %125, ptr noundef nonnull %2, i64 noundef %126) #23
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %126 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %127 = call i32 %124(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %125, ptr noundef nonnull %2, i64 noundef %126) #23
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %129, label %148
 
 129:                                              ; preds = %121
-  %130 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %131 = icmp eq i32 %130, 2
   br i1 %131, label %132, label %php_session_abort.exit79
 
 132:                                              ; preds = %129
-  %133 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i78 = icmp eq ptr %133, null
   br i1 %.not.i78, label %134, label %137
 
 134:                                              ; preds = %132
-  %135 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %135 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %134, %132
-  %138 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %139 = getelementptr inbounds i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
-  %141 = call i32 %140(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %141 = call i32 %140(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %142
 
 142:                                              ; preds = %137, %134
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %php_session_abort.exit79
 
 php_session_abort.exit79:                         ; preds = %129, %142
-  %143 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not69 = icmp eq ptr %143, null
   br i1 %.not69, label %144, label %php_session_abort.exit76
 
 144:                                              ; preds = %php_session_abort.exit79
-  %145 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr @ps_globals, align 16
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.125, ptr noundef %146, ptr noundef %147) #23
@@ -3908,44 +3908,44 @@ php_session_abort.exit79:                         ; preds = %129, %142
 148:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 -1, ptr %1, align 8
-  %149 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not4.i = icmp eq ptr %149, null
   br i1 %.not4.i, label %150, label %155
 
 150:                                              ; preds = %148
-  %151 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %151 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %152 = trunc i8 %151 to i1
-  %153 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 20), align 16
+  %153 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 160), align 16
   %154 = icmp sgt i64 %153, 0
   %or.cond.not = select i1 %152, i1 %154, i1 false
   br i1 %or.cond.not, label %156, label %php_session_gc.exit
 
 155:                                              ; preds = %148
-  %.old = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 20), align 16
+  %.old = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 160), align 16
   %.old82 = icmp slt i64 %.old, 1
   br i1 %.old82, label %php_session_gc.exit, label %156
 
 156:                                              ; preds = %150, %155
-  %157 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 21), align 8
+  %157 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 168), align 8
   %158 = add nsw i64 %157, -1
-  %159 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 19), align 16
-  %160 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 19, i32 1), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 144), align 16
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 152), align 8
   %161 = call i64 @php_random_range(ptr %159, ptr %160, i64 noundef 0, i64 noundef %158) #23
-  %162 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 20), align 16
+  %162 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 160), align 16
   %163 = icmp slt i64 %161, %162
   br i1 %163, label %164, label %php_session_gc.exit
 
 164:                                              ; preds = %156
-  %165 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %166 = getelementptr inbounds i8, ptr %165, i64 48
   %167 = load ptr, ptr %166, align 8
-  %168 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %169 = call i64 %167(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), i64 noundef %168, ptr noundef nonnull %1) #23
+  %168 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %169 = call i64 %167(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), i64 noundef %168, ptr noundef nonnull %1) #23
   br label %php_session_gc.exit
 
 php_session_gc.exit:                              ; preds = %155, %150, %156, %164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %170 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %.not62 = icmp eq ptr %170, null
   br i1 %.not62, label %182, label %171
 
@@ -3970,7 +3970,7 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
   br label %181
 
 181:                                              ; preds = %175, %180, %171
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   br label %182
 
 182:                                              ; preds = %181, %php_session_gc.exit
@@ -3979,7 +3979,7 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
   br i1 %.not64, label %208, label %184
 
 184:                                              ; preds = %182
-  %185 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 46), align 1
+  %185 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 435), align 1
   %186 = trunc i8 %185 to i1
   br i1 %186, label %187, label %195
 
@@ -3999,7 +3999,7 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
 
 194:                                              ; preds = %191, %187
   %.pre = phi ptr [ %.pre.pre, %191 ], [ %183, %187 ]
-  store ptr %183, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr %183, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   br label %195
 
 195:                                              ; preds = %194, %184
@@ -4026,7 +4026,7 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
   br label %208
 
 208:                                              ; preds = %195, %207, %202, %182
-  %209 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
   %.not.i80 = icmp eq ptr %209, null
   br i1 %.not.i80, label %php_session_cleanup_filename.exit, label %210
 
@@ -4060,8 +4060,8 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
   br label %223
 
 223:                                              ; preds = %222, %221, %214, %210
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 120), align 8
   br label %php_session_cleanup_filename.exit
 
 php_session_cleanup_filename.exit:                ; preds = %208, %223
@@ -4083,9 +4083,9 @@ php_session_cleanup_filename.exit:                ; preds = %208, %223
   br label %232
 
 232:                                              ; preds = %229, %225
-  store ptr %224, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
+  store ptr %224, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
   %233 = call i32 @zend_get_executed_lineno() #23
-  store i32 %233, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 16), align 8
+  store i32 %233, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 120), align 8
   br label %php_session_abort.exit76
 
 php_session_abort.exit76:                         ; preds = %120, %107, %php_session_cleanup_filename.exit, %232, %php_session_abort.exit79, %144, %php_session_abort.exit73, %65, %php_session_abort.exit, %27, %4
@@ -4095,37 +4095,37 @@ php_session_abort.exit76:                         ; preds = %120, %107, %php_ses
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_session_flush(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %96
 
 4:                                                ; preds = %1
   %.not.i = icmp ne i32 %0, 0
-  %5 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %6 = icmp eq i8 %5, 10
   %or.cond49.i = select i1 %.not.i, i1 %6, i1 false
   br i1 %or.cond49.i, label %7, label %86
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 7
   br i1 %11, label %12, label %86
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
-  %14 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not40.i = icmp eq ptr %14, null
   br i1 %.not40.i, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %70
 
 18:                                               ; preds = %15, %12
-  %19 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %php_session_encode.exit.thread.i, label %php_session_encode.exit.i
 
@@ -4141,12 +4141,12 @@ php_session_encode.exit.i:                        ; preds = %18
   br i1 %.not41.i, label %62, label %23
 
 23:                                               ; preds = %php_session_encode.exit.i
-  %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 46), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 435), align 1
   %25 = trunc i8 %24 to i1
-  %26 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %27 = icmp ne ptr %26, null
   %or.cond.i = select i1 %25, i1 %27, i1 false
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   br i1 %or.cond.i, label %28, label %.critedge3.i
 
 28:                                               ; preds = %23
@@ -4171,7 +4171,7 @@ php_session_encode.exit.i:                        ; preds = %18
 
 39:                                               ; preds = %33
   %40 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %22, ptr noundef nonnull %26) #23
-  %.pre54.i = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %.pre54.i = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   br i1 %40, label %..critedge_crit_edge.i, label %.critedge3.i
 
 ..critedge_crit_edge.i:                           ; preds = %39
@@ -4181,9 +4181,9 @@ php_session_encode.exit.i:                        ; preds = %18
 
 .critedge.i:                                      ; preds = %..critedge_crit_edge.i, %31
   %41 = phi ptr [ %.pre53.i, %..critedge_crit_edge.i ], [ %30, %31 ]
-  %42 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %43 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %44 = tail call i32 %41(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %42, ptr noundef nonnull %22, i64 noundef %43) #23
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %44 = tail call i32 %41(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %42, ptr noundef nonnull %22, i64 noundef %43) #23
   %.not44.i = icmp eq ptr %13, null
   %45 = select i1 %.not44.i, ptr @.str.160, ptr @.str.159
   br label %52
@@ -4192,9 +4192,9 @@ php_session_encode.exit.i:                        ; preds = %18
   %46 = phi ptr [ %.pre.i, %33 ], [ %.pre54.i, %39 ], [ %.pre.i, %28 ], [ %.pre.i, %23 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %50 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %51 = tail call i32 %48(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %49, ptr noundef nonnull %22, i64 noundef %50) #23
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %51 = tail call i32 %48(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %49, ptr noundef nonnull %22, i64 noundef %50) #23
   br label %52
 
 52:                                               ; preds = %.critedge3.i, %.critedge.i
@@ -4220,31 +4220,31 @@ php_session_encode.exit.i:                        ; preds = %18
   br label %70
 
 62:                                               ; preds = %php_session_encode.exit.i, %php_session_encode.exit.thread.i
-  %63 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %64 = getelementptr inbounds i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %67 = load ptr, ptr @zend_empty_string, align 8
-  %68 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %69 = tail call i32 %65(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %66, ptr noundef %67, i64 noundef %68) #23
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %69 = tail call i32 %65(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %66, ptr noundef %67, i64 noundef %68) #23
   br label %70
 
 70:                                               ; preds = %62, %61, %56, %52, %15
   %.135.i = phi ptr [ %.034.i, %52 ], [ %.034.i, %61 ], [ %.034.i, %56 ], [ @.str.51, %62 ], [ undef, %15 ]
   %.1.i = phi i32 [ %.0.i, %52 ], [ %.0.i, %61 ], [ %.0.i, %56 ], [ %69, %62 ], [ -1, %15 ]
   %71 = icmp ne i32 %.1.i, -1
-  %72 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %73 = icmp ne ptr %72, null
   %or.cond5.i = select i1 %71, i1 true, i1 %73
   br i1 %or.cond5.i, label %86, label %74
 
 74:                                               ; preds = %70
-  %75 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %75 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %76 = trunc i8 %75 to i1
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr @ps_globals, align 16
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.161, ptr noundef %79, ptr noundef %80) #23
@@ -4265,24 +4265,24 @@ php_session_encode.exit.i:                        ; preds = %18
   br label %86
 
 86:                                               ; preds = %85, %83, %77, %70, %7, %4
-  %87 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not47.i = icmp eq ptr %87, null
   br i1 %.not47.i, label %88, label %91
 
 88:                                               ; preds = %86
-  %89 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %89 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %90 = trunc i8 %89 to i1
   br i1 %90, label %91, label %php_session_save_current_state.exit
 
 91:                                               ; preds = %88, %86
-  %92 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call i32 %94(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %95 = tail call i32 %94(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %php_session_save_current_state.exit
 
 php_session_save_current_state.exit:              ; preds = %88, %91
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %96
 
 96:                                               ; preds = %1, %php_session_save_current_state.exit
@@ -4292,21 +4292,21 @@ php_session_save_current_state.exit:              ; preds = %88, %91
 
 ; Function Attrs: nounwind uwtable
 define void @session_adapt_url(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 31), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 349), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %9 = trunc i8 %8 to i1
-  %10 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %11 = icmp ne i32 %10, 2
   %or.cond.not = select i1 %9, i1 true, i1 %11
   br i1 %or.cond.not, label %17, label %12
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr @php_url_scanner_adapt_single_url(ptr noundef %0, i64 noundef %1, ptr noundef %13, ptr noundef nonnull %15, ptr noundef %3, i32 noundef 1) #23
   store ptr %16, ptr %2, align 8
@@ -4329,7 +4329,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   store ptr null, ptr %5, align 8
   store i8 0, ptr %6, align 1
   store i8 0, ptr %7, align 1
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %429
 
@@ -4492,7 +4492,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
 .thread881:                                       ; preds = %61, %59, %60, %58, %.thread841, %44, %34, %.thread
   %.3892 = phi i8 [ %.2765844, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ %.2765844, %58 ], [ %.2765844, %60 ], [ %.2765844, %59 ], [ %.2765844, %61 ]
   %.3769891 = phi i8 [ 1, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ 0, %58 ], [ 1, %60 ], [ 0, %59 ], [ 0, %61 ]
-  %64 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %65 = icmp eq i32 %64, 2
   br i1 %65, label %66, label %68
 
@@ -4503,7 +4503,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 68:                                               ; preds = %.thread881
-  %69 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %69 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not793 = icmp eq i8 %69, 0
   br i1 %.not793, label %72, label %70
 
@@ -4524,7 +4524,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
 
 75:                                               ; preds = %73
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.21) #23
-  %76 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %77 = icmp ne ptr %76, null
   call void @llvm.assume(i1 %77)
   br label %429
@@ -4536,7 +4536,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
 
 80:                                               ; preds = %78
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.21) #23
-  %81 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %82 = icmp ne ptr %81, null
   call void @llvm.assume(i1 %82)
   br label %429
@@ -4547,7 +4547,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
 
 85:                                               ; preds = %83
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.21) #23
-  %86 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %87 = icmp ne ptr %86, null
   call void @llvm.assume(i1 %87)
   br label %429
@@ -4558,7 +4558,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
 
 90:                                               ; preds = %88
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.21) #23
-  %91 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %92 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %92)
   br label %429
@@ -4858,7 +4858,7 @@ thread-pre-split896:                              ; preds = %189
 
 ._crit_edge.thread:                               ; preds = %93, %._crit_edge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.30) #23
-  %233 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %233 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %234 = icmp ne ptr %233, null
   call void @llvm.assume(i1 %234)
   br label %429
@@ -4874,7 +4874,7 @@ thread-pre-split896:                              ; preds = %189
   %.2758 = phi i32 [ %.1757, %._crit_edge ], [ 0, %235 ]
   %.2755 = phi ptr [ %.1754, %._crit_edge ], [ null, %235 ]
   %.2 = phi ptr [ %.1749, %._crit_edge ], [ %237, %235 ]
-  %239 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not798 = icmp eq ptr %239, null
   br i1 %.not798, label %240, label %369
 
@@ -5312,7 +5312,7 @@ define hidden void @zif_session_get_cookie_params(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %18
@@ -5322,19 +5322,19 @@ define hidden void @zif_session_get_cookie_params(ptr nocapture noundef readonly
   store ptr %8, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %9, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 5), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 40), align 8
   tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i64 noundef 8, i64 noundef %10) #23
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 6), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 48), align 16
   tail call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i64 noundef 4, ptr noundef %11) #23
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 7), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 56), align 8
   tail call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i64 noundef 6, ptr noundef %12) #23
-  %13 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 9), align 8
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 72), align 8
   %14 = trunc i8 %13 to i1
   tail call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef 6, i1 noundef zeroext %14) #23
-  %15 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 10), align 1
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 73), align 1
   %16 = trunc i8 %15 to i1
   tail call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i64 noundef 8, i1 noundef zeroext %16) #23
-  %17 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 8), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 64), align 16
   tail call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 8, ptr noundef %17) #23
   br label %18
 
@@ -5355,7 +5355,7 @@ define hidden void @zif_session_name(ptr nocapture noundef readonly %0, ptr noca
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %53
@@ -5363,7 +5363,7 @@ define hidden void @zif_session_name(ptr nocapture noundef readonly %0, ptr noca
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ne ptr %12, null
-  %14 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %15 = icmp eq i32 %14, 2
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
@@ -5375,7 +5375,7 @@ define hidden void @zif_session_name(ptr nocapture noundef readonly %0, ptr noca
   br label %53
 
 18:                                               ; preds = %11
-  %19 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %20 = icmp ne i8 %19, 0
   %or.cond4 = select i1 %13, i1 %20, i1 false
   br i1 %or.cond4, label %21, label %23
@@ -5387,7 +5387,7 @@ define hidden void @zif_session_name(ptr nocapture noundef readonly %0, ptr noca
   br label %53
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #26
   %26 = and i64 %25, -8
   %27 = add i64 %26, 32
@@ -5460,7 +5460,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %108
@@ -5468,7 +5468,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ne ptr %12, null
-  %14 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %15 = icmp eq i32 %14, 2
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
@@ -5480,7 +5480,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
   br label %108
 
 18:                                               ; preds = %11
-  %19 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %20 = icmp ne i8 %19, 0
   %or.cond4 = select i1 %13, i1 %20, i1 false
   br i1 %or.cond4, label %21, label %23
@@ -5492,7 +5492,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
   br label %108
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %38, label %25
 
@@ -5559,7 +5559,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
 
 56:                                               ; preds = %52
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.45) #23
-  %57 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
   br label %108
@@ -5616,24 +5616,24 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
   br label %108
 
 _php_find_ps_module.exit:                         ; preds = %64
-  %82 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not154 = icmp eq ptr %82, null
   br i1 %.not154, label %83, label %86
 
 83:                                               ; preds = %_php_find_ps_module.exit
-  %84 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %84 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %85 = trunc i8 %84 to i1
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %83, %_php_find_ps_module.exit
-  %87 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = call i32 %89(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %90 = call i32 %89(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %91
 
 91:                                               ; preds = %86, %83
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %92 = call noalias ptr @_emalloc_48() #23
   store i32 1, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %92, i64 4
@@ -5708,18 +5708,18 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
   br label %571
 
 35:                                               ; preds = %28
-  %36 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %42, label %40
 
@@ -5731,7 +5731,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %571
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
   %.not899 = icmp eq ptr %43, null
   br i1 %.not899, label %57, label %44
 
@@ -5784,19 +5784,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %70
 
 70:                                               ; preds = %67, %57
-  store ptr %63, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
-  %71 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
+  %71 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %70
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 192)) #23
   br label %74
 
 74:                                               ; preds = %70, %73
   %75 = call ptr @_zend_new_array_0() #23
-  store ptr %75, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  store ptr %75, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 192), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   %76 = load ptr, ptr %3, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 9
   %78 = load i8, ptr %77, align 1
@@ -5807,7 +5807,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
   %83 = load ptr, ptr %3, align 8
-  %84 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24), align 16
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 192), align 16
   %85 = call ptr @zend_hash_next_index_insert(ptr noundef %84, ptr noundef %83) #23
   %86 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %86, align 4
@@ -5821,19 +5821,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   store i32 1852141679, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %86, i64 28
   store i8 0, ptr %91, align 1
-  %92 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24), ptr noundef nonnull %86) #23
-  %93 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  %92 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 192), ptr noundef nonnull %86) #23
+  %93 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %74
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 208)) #23
   br label %96
 
 96:                                               ; preds = %74, %95
   %97 = call ptr @_zend_new_array_0() #23
-  store ptr %97, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  store ptr %97, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 208), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   %98 = load ptr, ptr %3, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 9
   %100 = load i8, ptr %99, align 1
@@ -5844,7 +5844,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   %105 = load ptr, ptr %3, align 8
-  %106 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1), align 16
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 208), align 16
   %107 = call ptr @zend_hash_next_index_insert(ptr noundef %106, ptr noundef %105) #23
   %108 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %108, align 4
@@ -5858,19 +5858,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %112, ptr noundef nonnull align 1 dereferenceable(5) @.str.49, i64 5, i1 false)
   %113 = getelementptr inbounds i8, ptr %108, i64 29
   store i8 0, ptr %113, align 1
-  %114 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1), ptr noundef nonnull %108) #23
-  %115 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  %114 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 208), ptr noundef nonnull %108) #23
+  %115 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   %116 = icmp eq i8 %115, 0
   br i1 %116, label %118, label %117
 
 117:                                              ; preds = %96
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 224)) #23
   br label %118
 
 118:                                              ; preds = %96, %117
   %119 = call ptr @_zend_new_array_0() #23
-  store ptr %119, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  store ptr %119, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 224), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   %120 = load ptr, ptr %3, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 9
   %122 = load i8, ptr %121, align 1
@@ -5881,7 +5881,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %126 = add i32 %125, 1
   store i32 %126, ptr %124, align 4
   %127 = load ptr, ptr %3, align 8
-  %128 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2), align 16
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 224), align 16
   %129 = call ptr @zend_hash_next_index_insert(ptr noundef %128, ptr noundef %127) #23
   %130 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %130, align 4
@@ -5895,19 +5895,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   store i32 1684104562, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %130, i64 28
   store i8 0, ptr %135, align 1
-  %136 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2), ptr noundef nonnull %130) #23
-  %137 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  %136 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 224), ptr noundef nonnull %130) #23
+  %137 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   %138 = icmp eq i8 %137, 0
   br i1 %138, label %140, label %139
 
 139:                                              ; preds = %118
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240)) #23
   br label %140
 
 140:                                              ; preds = %118, %139
   %141 = call ptr @_zend_new_array_0() #23
-  store ptr %141, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  store ptr %141, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 240), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   %142 = load ptr, ptr %3, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 9
   %144 = load i8, ptr %143, align 1
@@ -5918,7 +5918,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
   %149 = load ptr, ptr %3, align 8
-  %150 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3), align 16
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 240), align 16
   %151 = call ptr @zend_hash_next_index_insert(ptr noundef %150, ptr noundef %149) #23
   %152 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %152, align 4
@@ -5932,19 +5932,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %156, ptr noundef nonnull align 1 dereferenceable(5) @.str.51, i64 5, i1 false)
   %157 = getelementptr inbounds i8, ptr %152, i64 29
   store i8 0, ptr %157, align 1
-  %158 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3), ptr noundef nonnull %152) #23
-  %159 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  %158 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %152) #23
+  %159 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   %160 = icmp eq i8 %159, 0
   br i1 %160, label %162, label %161
 
 161:                                              ; preds = %140
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 256)) #23
   br label %162
 
 162:                                              ; preds = %140, %161
   %163 = call ptr @_zend_new_array_0() #23
-  store ptr %163, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  store ptr %163, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 256), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   %164 = load ptr, ptr %3, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 9
   %166 = load i8, ptr %165, align 1
@@ -5955,7 +5955,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %170 = add i32 %169, 1
   store i32 %170, ptr %168, align 4
   %171 = load ptr, ptr %3, align 8
-  %172 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4), align 16
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 256), align 16
   %173 = call ptr @zend_hash_next_index_insert(ptr noundef %172, ptr noundef %171) #23
   %174 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %174, align 4
@@ -5969,19 +5969,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %178, ptr noundef nonnull align 1 dereferenceable(7) @.str.52, i64 7, i1 false)
   %179 = getelementptr inbounds i8, ptr %174, i64 31
   store i8 0, ptr %179, align 1
-  %180 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4), ptr noundef nonnull %174) #23
-  %181 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  %180 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 256), ptr noundef nonnull %174) #23
+  %181 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   %182 = icmp eq i8 %181, 0
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %162
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 272)) #23
   br label %184
 
 184:                                              ; preds = %162, %183
   %185 = call ptr @_zend_new_array_0() #23
-  store ptr %185, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  store ptr %185, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 272), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   %186 = load ptr, ptr %3, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 9
   %188 = load i8, ptr %187, align 1
@@ -5992,7 +5992,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %192 = add i32 %191, 1
   store i32 %192, ptr %190, align 4
   %193 = load ptr, ptr %3, align 8
-  %194 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5), align 16
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 272), align 16
   %195 = call ptr @zend_hash_next_index_insert(ptr noundef %194, ptr noundef %193) #23
   %196 = call noalias ptr @_emalloc_32() #23
   store i32 1, ptr %196, align 4
@@ -6006,19 +6006,19 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   store i16 25447, ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %196, i64 26
   store i8 0, ptr %201, align 1
-  %202 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5), ptr noundef nonnull %196) #23
+  %202 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 272), ptr noundef nonnull %196) #23
   %203 = load ptr, ptr %3, align 8
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 64
-  %208 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  %208 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %209 = icmp eq i8 %208, 0
   br i1 %209, label %211, label %210
 
 210:                                              ; preds = %184
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 288)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   br label %211
 
 211:                                              ; preds = %184, %210
@@ -6048,8 +6048,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 .critedge:                                        ; preds = %211, %224
   %226 = call ptr @_zend_new_array_0() #23
-  store ptr %226, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  store ptr %226, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 288), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %227 = load ptr, ptr %3, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 9
   %229 = load i8, ptr %228, align 1
@@ -6060,7 +6060,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %233 = add i32 %232, 1
   store i32 %233, ptr %231, align 4
   %234 = load ptr, ptr %3, align 8
-  %235 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), align 16
+  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 288), align 16
   %236 = call ptr @zend_hash_next_index_insert(ptr noundef %235, ptr noundef %234) #23
   %237 = load i32, ptr %213, align 4
   %238 = and i32 %237, 64
@@ -6074,8 +6074,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 241:                                              ; preds = %239
   %242 = call ptr @_zend_new_array_0() #23
-  store ptr %242, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  store ptr %242, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 288), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %243 = load ptr, ptr %3, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 9
   %245 = load i8, ptr %244, align 1
@@ -6086,7 +6086,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %249 = add i32 %248, 1
   store i32 %249, ptr %247, align 4
   %250 = load ptr, ptr %3, align 8
-  %251 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), align 16
+  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 288), align 16
   %252 = call ptr @zend_hash_next_index_insert(ptr noundef %251, ptr noundef %250) #23
   %253 = load i32, ptr %213, align 4
   %254 = and i32 %253, 64
@@ -6100,7 +6100,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %241, %.critedge
-  %257 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), ptr noundef nonnull %212) #23
+  %257 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 288), ptr noundef nonnull %212) #23
   br label %258
 
 258:                                              ; preds = %.sink.split, %239
@@ -6123,23 +6123,23 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %267
 
 267:                                              ; preds = %261, %266, %258
-  %268 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %268 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %269 = icmp eq i8 %268, 0
   br i1 %269, label %271, label %270
 
 270:                                              ; preds = %267
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   br label %271
 
 271:                                              ; preds = %270, %267
-  %272 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  %272 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %273 = icmp eq i8 %272, 0
   br i1 %273, label %275, label %274
 
 274:                                              ; preds = %271
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 320)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   br label %275
 
 275:                                              ; preds = %271, %274
@@ -6181,8 +6181,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 .critedge2:                                       ; preds = %275, %294
   %296 = call ptr @_zend_new_array_0() #23
-  store ptr %296, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  store ptr %296, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 304), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %297 = load ptr, ptr %3, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 9
   %299 = load i8, ptr %298, align 1
@@ -6193,7 +6193,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %303 = add i32 %302, 1
   store i32 %303, ptr %301, align 4
   %304 = load ptr, ptr %3, align 8
-  %305 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), align 16
+  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 304), align 16
   %306 = call ptr @zend_hash_next_index_insert(ptr noundef %305, ptr noundef %304) #23
   %307 = load i32, ptr %277, align 4
   %308 = and i32 %307, 64
@@ -6207,10 +6207,10 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %312
 
 312:                                              ; preds = %309, %.critedge2
-  %313 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), ptr noundef nonnull %276) #23
+  %313 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %276) #23
   %314 = call ptr @_zend_new_array_0() #23
-  store ptr %314, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  store ptr %314, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 320), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %315 = load ptr, ptr %3, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 9
   %317 = load i8, ptr %316, align 1
@@ -6221,7 +6221,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %321 = add i32 %320, 1
   store i32 %321, ptr %319, align 4
   %322 = load ptr, ptr %3, align 8
-  %323 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), align 16
+  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 320), align 16
   %324 = call ptr @zend_hash_next_index_insert(ptr noundef %323, ptr noundef %322) #23
   %325 = load i32, ptr %283, align 4
   %326 = and i32 %325, 64
@@ -6235,8 +6235,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 329:                                              ; preds = %327
   %330 = call ptr @_zend_new_array_0() #23
-  store ptr %330, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  store ptr %330, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 304), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %331 = load ptr, ptr %3, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 9
   %333 = load i8, ptr %332, align 1
@@ -6247,7 +6247,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %337 = add i32 %336, 1
   store i32 %337, ptr %335, align 4
   %338 = load ptr, ptr %3, align 8
-  %339 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), align 16
+  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 304), align 16
   %340 = call ptr @zend_hash_next_index_insert(ptr noundef %339, ptr noundef %338) #23
   %341 = load i32, ptr %277, align 4
   %342 = and i32 %341, 64
@@ -6261,7 +6261,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %346
 
 346:                                              ; preds = %343, %329
-  %347 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), ptr noundef nonnull %276) #23
+  %347 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %276) #23
   br label %348
 
 348:                                              ; preds = %346, %327
@@ -6271,8 +6271,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 350:                                              ; preds = %348
   %351 = call ptr @_zend_new_array_0() #23
-  store ptr %351, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), align 16
-  store i32 775, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  store ptr %351, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 320), align 16
+  store i32 775, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %352 = load ptr, ptr %3, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 9
   %354 = load i8, ptr %353, align 1
@@ -6283,7 +6283,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %358 = add i32 %357, 1
   store i32 %358, ptr %356, align 4
   %359 = load ptr, ptr %3, align 8
-  %360 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), align 16
+  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 320), align 16
   %361 = call ptr @zend_hash_next_index_insert(ptr noundef %360, ptr noundef %359) #23
   %362 = load i32, ptr %283, align 4
   %363 = and i32 %362, 64
@@ -6297,7 +6297,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %.sink.split927
 
 .sink.split927:                                   ; preds = %.sink.split927.sink.split, %350, %312
-  %366 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), ptr noundef nonnull %282) #23
+  %366 = call i32 @add_next_index_str(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 320), ptr noundef nonnull %282) #23
   br label %367
 
 367:                                              ; preds = %.sink.split927, %348
@@ -6378,9 +6378,9 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %404
 
 404:                                              ; preds = %388, %402
-  %405 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %405 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not918 = icmp eq i32 %405, 2
-  %406 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %.not919 = icmp eq ptr %406, @ps_mod_user
   %or.cond = select i1 %.not918, i1 true, i1 %.not919
   br i1 %or.cond, label %408, label %407
@@ -6396,7 +6396,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
 
 410:                                              ; preds = %2
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.60) #23
-  %411 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %411 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %411, null
   br i1 %.not, label %412, label %571
 
@@ -6416,18 +6416,18 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %412
-  %417 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %417 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %418 = icmp ne ptr %417, null
   call void @llvm.assume(i1 %418)
   br label %571
 
 419:                                              ; preds = %412
-  %420 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %420 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %421 = icmp eq i32 %420, 2
   br i1 %421, label %424, label %422
 
 422:                                              ; preds = %419
-  %423 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %423 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not.i920 = icmp eq i8 %423, 0
   br i1 %.not.i920, label %426, label %424
 
@@ -6439,7 +6439,7 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %571
 
 426:                                              ; preds = %422
-  %427 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
+  %427 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
   %.not883 = icmp eq ptr %427, null
   br i1 %.not883, label %442, label %428
 
@@ -6473,12 +6473,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %441
 
 441:                                              ; preds = %432, %440, %439, %428
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 25), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 336), align 16
   br label %442
 
 442:                                              ; preds = %441, %426
   %443 = call zeroext i1 @remove_user_shutdown_function(ptr noundef nonnull @.str.58, i64 noundef 16) #23
-  %444 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %444 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %.not886 = icmp eq ptr %444, @ps_mod_user
   br i1 %.not886, label %446, label %445
 
@@ -6487,12 +6487,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %446
 
 446:                                              ; preds = %442, %445
-  %447 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  %447 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   %448 = icmp eq i8 %447, 0
   br i1 %448, label %450, label %449
 
 449:                                              ; preds = %446
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 192)) #23
   br label %450
 
 450:                                              ; preds = %446, %449
@@ -6500,8 +6500,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %452 = load ptr, ptr %451, align 8
   %453 = getelementptr inbounds i8, ptr %7, i64 16
   %454 = load i32, ptr %453, align 8
-  store ptr %452, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24), align 16
-  store i32 %454, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  store ptr %452, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 192), align 16
+  store i32 %454, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   %455 = and i32 %454, 65280
   %.not887 = icmp eq i32 %455, 0
   br i1 %.not887, label %459, label %456
@@ -6513,12 +6513,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %459
 
 459:                                              ; preds = %450, %456
-  %460 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  %460 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   %461 = icmp eq i8 %460, 0
   br i1 %461, label %463, label %462
 
 462:                                              ; preds = %459
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 208)) #23
   br label %463
 
 463:                                              ; preds = %459, %462
@@ -6526,8 +6526,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds i8, ptr %9, i64 16
   %467 = load i32, ptr %466, align 8
-  store ptr %465, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1), align 16
-  store i32 %467, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  store ptr %465, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 208), align 16
+  store i32 %467, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   %468 = and i32 %467, 65280
   %.not888 = icmp eq i32 %468, 0
   br i1 %.not888, label %472, label %469
@@ -6539,12 +6539,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %472
 
 472:                                              ; preds = %463, %469
-  %473 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  %473 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   %474 = icmp eq i8 %473, 0
   br i1 %474, label %476, label %475
 
 475:                                              ; preds = %472
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 224)) #23
   br label %476
 
 476:                                              ; preds = %472, %475
@@ -6552,8 +6552,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds i8, ptr %11, i64 16
   %480 = load i32, ptr %479, align 8
-  store ptr %478, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2), align 16
-  store i32 %480, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  store ptr %478, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 224), align 16
+  store i32 %480, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   %481 = and i32 %480, 65280
   %.not889 = icmp eq i32 %481, 0
   br i1 %.not889, label %485, label %482
@@ -6565,12 +6565,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %485
 
 485:                                              ; preds = %476, %482
-  %486 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  %486 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   %487 = icmp eq i8 %486, 0
   br i1 %487, label %489, label %488
 
 488:                                              ; preds = %485
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240)) #23
   br label %489
 
 489:                                              ; preds = %485, %488
@@ -6578,8 +6578,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %491 = load ptr, ptr %490, align 8
   %492 = getelementptr inbounds i8, ptr %13, i64 16
   %493 = load i32, ptr %492, align 8
-  store ptr %491, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3), align 16
-  store i32 %493, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  store ptr %491, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 240), align 16
+  store i32 %493, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   %494 = and i32 %493, 65280
   %.not890 = icmp eq i32 %494, 0
   br i1 %.not890, label %498, label %495
@@ -6591,12 +6591,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %498
 
 498:                                              ; preds = %489, %495
-  %499 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  %499 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   %500 = icmp eq i8 %499, 0
   br i1 %500, label %502, label %501
 
 501:                                              ; preds = %498
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 256)) #23
   br label %502
 
 502:                                              ; preds = %498, %501
@@ -6604,8 +6604,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %504 = load ptr, ptr %503, align 8
   %505 = getelementptr inbounds i8, ptr %15, i64 16
   %506 = load i32, ptr %505, align 8
-  store ptr %504, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4), align 16
-  store i32 %506, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  store ptr %504, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 256), align 16
+  store i32 %506, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   %507 = and i32 %506, 65280
   %.not891 = icmp eq i32 %507, 0
   br i1 %.not891, label %511, label %508
@@ -6617,12 +6617,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br label %511
 
 511:                                              ; preds = %502, %508
-  %512 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  %512 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   %513 = icmp eq i8 %512, 0
   br i1 %513, label %515, label %514
 
 514:                                              ; preds = %511
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 272)) #23
   br label %515
 
 515:                                              ; preds = %511, %514
@@ -6630,8 +6630,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds i8, ptr %17, i64 16
   %519 = load i32, ptr %518, align 8
-  store ptr %517, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5), align 16
-  store i32 %519, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  store ptr %517, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 272), align 16
+  store i32 %519, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   %520 = and i32 %519, 65280
   %.not892 = icmp eq i32 %520, 0
   br i1 %.not892, label %524, label %521
@@ -6648,12 +6648,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br i1 %.not893, label %539, label %526
 
 526:                                              ; preds = %524
-  %527 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  %527 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %528 = icmp eq i8 %527, 0
   br i1 %528, label %530, label %529
 
 529:                                              ; preds = %526
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 288)) #23
   br label %530
 
 530:                                              ; preds = %526, %529
@@ -6661,8 +6661,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds i8, ptr %19, i64 16
   %534 = load i32, ptr %533, align 8
-  store ptr %532, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6), align 16
-  store i32 %534, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  store ptr %532, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 288), align 16
+  store i32 %534, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %535 = and i32 %534, 65280
   %.not894 = icmp eq i32 %535, 0
   br i1 %.not894, label %539, label %536
@@ -6679,12 +6679,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br i1 %.not895, label %554, label %541
 
 541:                                              ; preds = %539
-  %542 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %542 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %543 = icmp eq i8 %542, 0
   br i1 %543, label %545, label %544
 
 544:                                              ; preds = %541
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304)) #23
   br label %545
 
 545:                                              ; preds = %541, %544
@@ -6692,8 +6692,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %547 = load ptr, ptr %546, align 8
   %548 = getelementptr inbounds i8, ptr %21, i64 16
   %549 = load i32, ptr %548, align 8
-  store ptr %547, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7), align 16
-  store i32 %549, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  store ptr %547, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 304), align 16
+  store i32 %549, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %550 = and i32 %549, 65280
   %.not896 = icmp eq i32 %550, 0
   br i1 %.not896, label %554, label %551
@@ -6710,12 +6710,12 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   br i1 %.not897, label %569, label %556
 
 556:                                              ; preds = %554
-  %557 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  %557 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %558 = icmp eq i8 %557, 0
   br i1 %558, label %560, label %559
 
 559:                                              ; preds = %556
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8)) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 320)) #23
   br label %560
 
 560:                                              ; preds = %556, %559
@@ -6723,8 +6723,8 @@ define hidden void @zif_session_set_save_handler(ptr nocapture noundef readonly 
   %562 = load ptr, ptr %561, align 8
   %563 = getelementptr inbounds i8, ptr %23, i64 16
   %564 = load i32, ptr %563, align 8
-  store ptr %562, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8), align 16
-  store i32 %564, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  store ptr %562, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 320), align 16
+  store i32 %564, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %565 = and i32 %564, 65280
   %.not898 = icmp eq i32 %565, 0
   br i1 %.not898, label %569, label %566
@@ -6769,9 +6769,9 @@ define internal fastcc void @set_user_save_handler_ini() unnamed_addr #0 {
   %7 = load ptr, ptr @zend_known_strings, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 256
   %9 = load ptr, ptr %8, align 8
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
   %10 = tail call i32 @zend_alter_ini_entry(ptr noundef nonnull %1, ptr noundef %9, i32 noundef 1, i32 noundef 16) #23
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
   %11 = getelementptr inbounds i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 64
@@ -6825,7 +6825,7 @@ define hidden void @zif_session_save_path(ptr nocapture noundef readonly %0, ptr
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %53
@@ -6833,7 +6833,7 @@ define hidden void @zif_session_save_path(ptr nocapture noundef readonly %0, ptr
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ne ptr %12, null
-  %14 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %15 = icmp eq i32 %14, 2
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
@@ -6845,7 +6845,7 @@ define hidden void @zif_session_save_path(ptr nocapture noundef readonly %0, ptr
   br label %53
 
 18:                                               ; preds = %11
-  %19 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %20 = icmp ne i8 %19, 0
   %or.cond4 = select i1 %13, i1 %20, i1 false
   br i1 %or.cond4, label %21, label %23
@@ -6928,7 +6928,7 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %75
@@ -6936,7 +6936,7 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ne ptr %12, null
-  %14 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %15 = icmp eq i32 %14, 2
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
@@ -6951,9 +6951,9 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %13, label %19, label %26
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %21 = trunc i8 %20 to i1
-  %22 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %23 = icmp ne i8 %22, 0
   %or.cond4 = select i1 %21, i1 %23, i1 false
   br i1 %or.cond4, label %24, label %26
@@ -6965,7 +6965,7 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
   br label %75
 
 26:                                               ; preds = %19, %18
-  %27 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %49, label %28
 
@@ -7023,7 +7023,7 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not97, label %75, label %54
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not98 = icmp eq ptr %55, null
   br i1 %.not98, label %66, label %56
 
@@ -7062,7 +7062,7 @@ define hidden void @zif_session_id(ptr nocapture noundef readonly %0, ptr nocapt
   br label %74
 
 74:                                               ; preds = %71, %66
-  store ptr %67, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr %67, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br label %75
 
 75:                                               ; preds = %74, %51, %24, %16, %8
@@ -7081,13 +7081,13 @@ define hidden void @zif_session_regenerate_id(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %241
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %16, label %14
 
@@ -7098,7 +7098,7 @@ define hidden void @zif_session_regenerate_id(ptr nocapture noundef readonly %0,
   br label %241
 
 16:                                               ; preds = %12
-  %17 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not53 = icmp eq i8 %17, 0
   br i1 %.not53, label %20, label %18
 
@@ -7114,26 +7114,26 @@ define hidden void @zif_session_regenerate_id(ptr nocapture noundef readonly %0,
   br i1 %22, label %23, label %42
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %25 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %28 = call i32 %26(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %27) #23
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %28 = call i32 %26(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %27) #23
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %90
 
 30:                                               ; preds = %23
-  %31 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = call i32 %33(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %34 = call i32 %33(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not70 = icmp eq ptr %35, null
   br i1 %.not70, label %36, label %40
 
 36:                                               ; preds = %30
-  %37 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr @ps_globals, align 16
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.71, ptr noundef %38, ptr noundef %39) #23
@@ -7145,19 +7145,19 @@ define hidden void @zif_session_regenerate_id(ptr nocapture noundef readonly %0,
   br label %241
 
 42:                                               ; preds = %20
-  %43 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %43 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %44 = icmp eq i8 %43, 10
   br i1 %44, label %45, label %php_session_encode.exit.thread
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i8, ptr %47, align 8
   %49 = icmp eq i8 %48, 7
   br i1 %49, label %50, label %php_session_encode.exit.thread
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %php_session_encode.exit.thread, label %php_session_encode.exit
 
@@ -7176,12 +7176,12 @@ php_session_encode.exit:                          ; preds = %50
   br i1 %.not54, label %71, label %55
 
 55:                                               ; preds = %php_session_encode.exit
-  %56 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %60 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %61 = call i32 %58(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %59, ptr noundef nonnull %54, i64 noundef %60) #23
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %61 = call i32 %58(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %59, ptr noundef nonnull %54, i64 noundef %60) #23
   %62 = getelementptr inbounds i8, ptr %54, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 64
@@ -7202,13 +7202,13 @@ php_session_encode.exit:                          ; preds = %50
   br label %79
 
 71:                                               ; preds = %php_session_encode.exit.thread, %php_session_encode.exit
-  %72 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %73 = getelementptr inbounds i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %76 = load ptr, ptr @zend_empty_string, align 8
-  %77 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %78 = call i32 %74(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %75, ptr noundef %76, i64 noundef %77) #23
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %78 = call i32 %74(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %75, ptr noundef %76, i64 noundef %77) #23
   br label %79
 
 79:                                               ; preds = %55, %70, %65, %71
@@ -7217,12 +7217,12 @@ php_session_encode.exit:                          ; preds = %50
   br i1 %80, label %81, label %90
 
 81:                                               ; preds = %79
-  %82 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %85 = call i32 %84(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr @ps_globals, align 16
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %87, ptr noundef %88) #23
@@ -7231,11 +7231,11 @@ php_session_encode.exit:                          ; preds = %50
   br label %241
 
 90:                                               ; preds = %79, %23
-  %91 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %92 = getelementptr inbounds i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %93(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  %95 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  %94 = call i32 %93(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %.not56 = icmp eq ptr %95, null
   br i1 %.not56, label %107, label %96
 
@@ -7260,11 +7260,11 @@ php_session_encode.exit:                          ; preds = %50
   br label %106
 
 106:                                              ; preds = %100, %105, %96
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   br label %107
 
 107:                                              ; preds = %106, %90
-  %108 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 64
@@ -7285,28 +7285,28 @@ php_session_encode.exit:                          ; preds = %50
   br label %118
 
 118:                                              ; preds = %112, %117, %107
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  %119 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %120 = getelementptr inbounds i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr @ps_globals, align 16
-  %123 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
-  %124 = call i32 %121(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %122, ptr noundef %123) #23
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
+  %124 = call i32 %121(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %122, ptr noundef %123) #23
   %125 = icmp eq i32 %124, -1
   br i1 %125, label %126, label %135
 
 126:                                              ; preds = %118
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %127 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not69 = icmp eq ptr %127, null
   br i1 %.not69, label %128, label %133
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr @ps_globals, align 16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.73, ptr noundef %130, ptr noundef %131) #23
-  %.pre77 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %132 = icmp ne ptr %.pre77, null
   br label %133
 
@@ -7316,26 +7316,26 @@ php_session_encode.exit:                          ; preds = %50
   br label %241
 
 135:                                              ; preds = %118
-  %136 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %137 = getelementptr inbounds i8, ptr %136, i64 56
   %138 = load ptr, ptr %137, align 8
-  %139 = call ptr %138(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store ptr %139, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %139 = call ptr %138(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store ptr %139, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not59 = icmp eq ptr %139, null
   br i1 %.not59, label %140, label %149
 
 140:                                              ; preds = %135
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %141 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not60 = icmp eq ptr %141, null
   br i1 %.not60, label %142, label %147
 
 142:                                              ; preds = %140
-  %143 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr @ps_globals, align 16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %144, ptr noundef %145) #23
-  %.pre76 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre76 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %146 = icmp ne ptr %.pre76, null
   br label %147
 
@@ -7345,27 +7345,27 @@ php_session_encode.exit:                          ; preds = %50
   br label %241
 
 149:                                              ; preds = %135
-  %150 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 45), align 2
+  %150 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 434), align 2
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %.critedge
 
 152:                                              ; preds = %149
-  %153 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %153 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %154 = trunc i8 %153 to i1
   br i1 %154, label %161, label %155
 
 155:                                              ; preds = %152
-  %156 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %157 = getelementptr inbounds i8, ptr %156, i64 64
   %158 = load ptr, ptr %157, align 8
   %.not61 = icmp eq ptr %158, null
-  %159 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %159 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %160 = icmp eq i8 %159, 0
   %or.cond = select i1 %.not61, i1 %160, i1 false
   br i1 %or.cond, label %.critedge, label %.preheader
 
 161:                                              ; preds = %152
-  %.old = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %.old = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %.old71 = icmp eq i8 %.old, 0
   br i1 %.old71, label %.critedge, label %.preheader
 
@@ -7380,12 +7380,12 @@ php_session_encode.exit:                          ; preds = %50
   br i1 %.not62, label %.critedge, label %165
 
 165:                                              ; preds = %162
-  %166 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %167 = getelementptr inbounds i8, ptr %166, i64 64
   %168 = load ptr, ptr %167, align 8
-  %169 = call i32 %168(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef nonnull %163) #23
+  %169 = call i32 %168(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef nonnull %163) #23
   %170 = icmp eq i32 %169, 0
-  %.pre74.pre = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %.pre74.pre = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   br i1 %170, label %171, label %.critedge
 
 171:                                              ; preds = %165
@@ -7409,30 +7409,30 @@ php_session_encode.exit:                          ; preds = %50
   br label %181
 
 181:                                              ; preds = %175, %180, %171
-  %182 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %183 = getelementptr inbounds i8, ptr %182, i64 56
   %184 = load ptr, ptr %183, align 8
-  %185 = call ptr %184(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store ptr %185, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %185 = call ptr %184(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store ptr %185, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not64 = icmp eq ptr %185, null
   br i1 %.not64, label %186, label %162
 
 186:                                              ; preds = %181
-  %187 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %188 = getelementptr inbounds i8, ptr %187, i64 16
   %189 = load ptr, ptr %188, align 8
-  %190 = call i32 %189(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %191 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %190 = call i32 %189(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not65 = icmp eq ptr %191, null
   br i1 %.not65, label %192, label %197
 
 192:                                              ; preds = %186
-  %193 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr @ps_globals, align 16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef %194, ptr noundef %195) #23
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %196 = icmp ne ptr %.pre, null
   br label %197
 
@@ -7443,30 +7443,30 @@ php_session_encode.exit:                          ; preds = %50
 
 .critedge:                                        ; preds = %162, %165, %155, %161, %149
   %199 = phi ptr [ %139, %155 ], [ %139, %161 ], [ %139, %149 ], [ %163, %162 ], [ %.pre74.pre, %165 ]
-  %200 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8
-  %203 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %204 = call i32 %202(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %199, ptr noundef nonnull %4, i64 noundef %203) #23
+  %203 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %204 = call i32 %202(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %199, ptr noundef nonnull %4, i64 noundef %203) #23
   %205 = icmp eq i32 %204, -1
   br i1 %205, label %206, label %219
 
 206:                                              ; preds = %.critedge
-  %207 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %207 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %208 = getelementptr inbounds i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
-  %210 = call i32 %209(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %211 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %210 = call i32 %209(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not68 = icmp eq ptr %211, null
   br i1 %.not68, label %212, label %217
 
 212:                                              ; preds = %206
-  %213 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %214 = load ptr, ptr %213, align 8
   %215 = load ptr, ptr @ps_globals, align 16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef %214, ptr noundef %215) #23
-  %.pre75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre75 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %216 = icmp ne ptr %.pre75, null
   br label %217
 
@@ -7501,12 +7501,12 @@ php_session_encode.exit:                          ; preds = %50
   br label %231
 
 231:                                              ; preds = %221, %230, %225, %219
-  %232 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %232 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %233 = trunc i8 %232 to i1
   br i1 %233, label %234, label %235
 
 234:                                              ; preds = %231
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   br label %235
 
 235:                                              ; preds = %234, %231
@@ -7543,7 +7543,7 @@ define hidden void @zif_session_create_id(ptr nocapture noundef readonly %0, ptr
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %212
@@ -7613,35 +7613,35 @@ php_session_valid_key.exit.thread:                ; preds = %23, %18, %php_sessi
   br label %38
 
 38:                                               ; preds = %31, %15, %13
-  %39 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %40 = trunc i8 %39 to i1
-  %41 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %42 = icmp ne i32 %41, 2
   %or.cond.not = select i1 %40, i1 true, i1 %42
   br i1 %or.cond.not, label %71, label %.preheader
 
 .preheader:                                       ; preds = %38, %69
   %43 = phi i32 [ %70, %69 ], [ 2, %38 ]
-  %44 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = call ptr %46(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
-  %48 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %47 = call ptr %46(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %49 = getelementptr inbounds i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8
   %.not218 = icmp eq ptr %50, null
   br i1 %.not218, label %.loopexit, label %51
 
 51:                                               ; preds = %.preheader
-  %52 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %52 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %53 = trunc i8 %52 to i1
-  %54 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %54 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %55 = icmp eq i8 %54, 0
   %or.cond = select i1 %53, i1 %55, i1 false
   br i1 %or.cond, label %.loopexit, label %56
 
 56:                                               ; preds = %51
-  %57 = call i32 %50(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %47) #23
+  %57 = call i32 %50(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %47) #23
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %.loopexit
 
@@ -7672,13 +7672,13 @@ php_session_valid_key.exit.thread:                ; preds = %23, %18, %php_sessi
 
 71:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
-  %72 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %72 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %73 = call i32 @php_random_bytes(ptr noundef nonnull %3, i64 noundef %72, i1 noundef zeroext true) #23
   %74 = icmp eq i32 %73, -1
   br i1 %74, label %php_session_create_id.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %77 = and i64 %76, -8
   %78 = add i64 %77, 32
   %79 = call noalias ptr @_emalloc(i64 noundef %78) #25
@@ -7689,9 +7689,9 @@ php_session_valid_key.exit.thread:                ; preds = %23, %18, %php_sessi
   store i64 0, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %79, i64 16
   store i64 %76, ptr %82, align 8
-  %83 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  %83 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   %84 = getelementptr inbounds i8, ptr %79, i64 24
-  %85 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 37), align 16
+  %85 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 384), align 16
   %86 = trunc i64 %85 to i32
   %87 = getelementptr inbounds i8, ptr %3, i64 %83
   %sext.i = shl i32 %86, 24
@@ -7966,7 +7966,7 @@ define hidden void @zif_session_cache_limiter(ptr nocapture noundef readonly %0,
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %53
@@ -7974,7 +7974,7 @@ define hidden void @zif_session_cache_limiter(ptr nocapture noundef readonly %0,
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ne ptr %12, null
-  %14 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %15 = icmp eq i32 %14, 2
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
@@ -7986,7 +7986,7 @@ define hidden void @zif_session_cache_limiter(ptr nocapture noundef readonly %0,
   br label %53
 
 18:                                               ; preds = %11
-  %19 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %20 = icmp ne i8 %19, 0
   %or.cond4 = select i1 %13, i1 %20, i1 false
   br i1 %or.cond4, label %21, label %23
@@ -7998,7 +7998,7 @@ define hidden void @zif_session_cache_limiter(ptr nocapture noundef readonly %0,
   br label %53
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 4), align 16
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 32), align 16
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #26
   %26 = and i64 %25, -8
   %27 = add i64 %26, 32
@@ -8070,7 +8070,7 @@ define hidden void @zif_session_cache_expire(ptr nocapture noundef readonly %0, 
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %56
@@ -8078,21 +8078,21 @@ define hidden void @zif_session_cache_expire(ptr nocapture noundef readonly %0, 
 12:                                               ; preds = %2
   %13 = load i8, ptr %4, align 1
   %14 = trunc i8 %13 to i1
-  %15 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %16 = icmp ne i32 %15, 2
   %or.cond.not = select i1 %14, i1 true, i1 %16
   br i1 %or.cond.not, label %20, label %17
 
 17:                                               ; preds = %12
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.84) #23
-  %18 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   store i64 %18, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %19, align 8
   br label %56
 
 20:                                               ; preds = %12
-  %21 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %22 = icmp eq i8 %21, 0
   %or.cond5.not = select i1 %14, i1 true, i1 %22
   br i1 %or.cond5.not, label %25, label %23
@@ -8104,7 +8104,7 @@ define hidden void @zif_session_cache_expire(ptr nocapture noundef readonly %0, 
   br label %56
 
 25:                                               ; preds = %20
-  %26 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   store i64 %26, ptr %1, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %27, align 8
@@ -8177,25 +8177,25 @@ define hidden void @zif_session_encode(ptr nocapture noundef readonly %0, ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
 
 .critedge:                                        ; preds = %2
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %9 = icmp eq i8 %8, 10
   br i1 %9, label %10, label %php_session_encode.exit.thread.sink.split
 
 10:                                               ; preds = %.critedge
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 7
   br i1 %14, label %15, label %php_session_encode.exit.thread.sink.split
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %php_session_encode.exit.thread.sink.split, label %php_session_encode.exit
 
@@ -8242,13 +8242,13 @@ define hidden void @zif_session_decode(ptr nocapture noundef readonly %0, ptr no
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %22
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %12, 2
   br i1 %.not, label %15, label %13
 
@@ -8280,7 +8280,7 @@ define hidden void @zif_session_decode(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @php_session_decode(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %3 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -8289,14 +8289,14 @@ define internal fastcc range(i32 -1, 1) i32 @php_session_decode(ptr noundef %0) 
   br label %21
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %7 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #24
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8311,13 +8311,13 @@ define internal fastcc range(i32 -1, 1) i32 @php_session_decode(ptr noundef %0) 
   br label %21
 
 19:                                               ; preds = %5
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call fastcc void @php_session_cancel_decode()
   call void @_zend_bailout(ptr noundef nonnull @.str.169, i32 noundef 282) #28
   unreachable
 
 20:                                               ; preds = %9
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %21
 
 21:                                               ; preds = %20, %18, %4
@@ -8337,29 +8337,29 @@ define hidden void @zif_session_start(ptr nocapture noundef readonly %0, ptr noc
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %178
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 15), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 112), align 16
   %.not103 = icmp eq ptr %16, null
   br i1 %.not103, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %16, i64 24
-  %19 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 16), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 120), align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.90, ptr noundef nonnull %18, i32 noundef %19) #23
   br label %25
 
 20:                                               ; preds = %15
-  %21 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 28), align 2
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 346), align 2
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %24
 
@@ -8377,9 +8377,9 @@ define hidden void @zif_session_start(ptr nocapture noundef readonly %0, ptr noc
   br label %178
 
 27:                                               ; preds = %12
-  %28 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %29 = trunc i8 %28 to i1
-  %30 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %31 = icmp ne i8 %30, 0
   %or.cond = select i1 %29, i1 %31, i1 false
   br i1 %or.cond, label %32, label %34
@@ -8604,7 +8604,7 @@ php_session_start_set_ini.exit:                   ; preds = %94, %106, %110, %11
   %131 = getelementptr inbounds i8, ptr %.184, i64 24
   %132 = call ptr @zend_zval_value_name(ptr noundef nonnull %.087109) #23
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.96, ptr noundef %130, ptr noundef nonnull %131, ptr noundef %132) #23
-  %133 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %134 = icmp ne ptr %133, null
   call void @llvm.assume(i1 %134)
   br label %178
@@ -8622,17 +8622,17 @@ php_session_start_set_ini.exit:                   ; preds = %94, %106, %110, %11
 .loopexit:                                        ; preds = %.loopexit.loopexit, %36, %34
   %.2 = phi i1 [ true, %34 ], [ true, %36 ], [ %137, %.loopexit.loopexit ]
   %138 = call i32 @php_session_start()
-  %139 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %139 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not95 = icmp eq i32 %139, 2
   br i1 %.not95, label %165, label %140
 
 140:                                              ; preds = %.loopexit
-  %141 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %141 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %142 = icmp eq i8 %141, 10
   br i1 %142, label %143, label %163
 
 143:                                              ; preds = %140
-  %144 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 8
   %146 = getelementptr inbounds i8, ptr %144, i64 16
   %147 = load i8, ptr %146, align 8
@@ -8676,24 +8676,24 @@ php_session_start_set_ini.exit:                   ; preds = %94, %106, %110, %11
   br i1 %.2, label %176, label %166
 
 166:                                              ; preds = %165
-  %167 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not47.i.i = icmp eq ptr %167, null
   br i1 %.not47.i.i, label %168, label %171
 
 168:                                              ; preds = %166
-  %169 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %169 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %170 = trunc i8 %169 to i1
   br i1 %170, label %171, label %php_session_flush.exit
 
 171:                                              ; preds = %168, %166
-  %172 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %173 = getelementptr inbounds i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
-  %175 = call i32 %174(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %175 = call i32 %174(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %php_session_flush.exit
 
 php_session_flush.exit:                           ; preds = %168, %171
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %176
 
 176:                                              ; preds = %php_session_flush.exit, %165
@@ -8722,13 +8722,13 @@ define hidden void @zif_session_destroy(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %24
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not.i = icmp eq i32 %8, 2
   br i1 %.not.i, label %9, label %php_session_destroy.exit.thread
 
@@ -8737,20 +8737,20 @@ php_session_destroy.exit.thread:                  ; preds = %.critedge
   br label %21
 
 9:                                                ; preds = %.critedge
-  %10 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not4.i = icmp eq ptr %10, null
   br i1 %.not4.i, label %php_session_destroy.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef nonnull %10) #23
+  %15 = tail call i32 %14(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef nonnull %10) #23
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %php_session_destroy.exit
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %19, label %php_session_destroy.exit
 
@@ -8761,17 +8761,17 @@ php_session_destroy.exit.thread:                  ; preds = %.critedge
 php_session_destroy.exit:                         ; preds = %9, %11, %17, %19
   %spec.select = phi i32 [ 2, %17 ], [ 2, %19 ], [ 3, %11 ], [ 3, %9 ]
   tail call fastcc void @php_rshutdown_session_globals()
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %20 = load i32, ptr @my_module_number, align 4
-  store i32 %20, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   br label %21
 
 21:                                               ; preds = %php_session_destroy.exit, %php_session_destroy.exit.thread
@@ -8793,13 +8793,13 @@ define hidden void @zif_session_unset(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %36
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not18 = icmp eq i32 %8, 2
   br i1 %.not18, label %11, label %9
 
@@ -8809,12 +8809,12 @@ define hidden void @zif_session_unset(ptr nocapture noundef readonly %0, ptr noc
   br label %36
 
 11:                                               ; preds = %.critedge
-  %12 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
   %18 = load i8, ptr %17, align 8
@@ -8868,13 +8868,13 @@ define hidden void @zif_session_gc(ptr nocapture noundef readonly %0, ptr nocapt
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %27
 
 .critedge:                                        ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not7 = icmp eq i32 %9, 2
   br i1 %.not7, label %12, label %10
 
@@ -8887,12 +8887,12 @@ define hidden void @zif_session_gc(ptr nocapture noundef readonly %0, ptr nocapt
 12:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 -1, ptr %3, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not4.i = icmp eq ptr %13, null
   br i1 %.not4.i, label %14, label %php_session_gc.exit
 
 14:                                               ; preds = %12
-  %15 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %php_session_gc.exit, label %php_session_gc.exit.thread
 
@@ -8901,11 +8901,11 @@ php_session_gc.exit.thread:                       ; preds = %14
   br label %23
 
 php_session_gc.exit:                              ; preds = %12, %14
-  %17 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %21 = call i64 %19(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), i64 noundef %20, ptr noundef nonnull %3) #23
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %21 = call i64 %19(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), i64 noundef %20, ptr noundef nonnull %3) #23
   %.pre.i = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %22 = icmp slt i64 %.pre.i, 0
@@ -8935,13 +8935,13 @@ define hidden void @zif_session_write_close(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not3 = icmp eq i32 %8, 2
   br i1 %.not3, label %11, label %9
 
@@ -8969,13 +8969,13 @@ define hidden void @zif_session_abort(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %22
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not3 = icmp eq i32 %8, 2
   br i1 %.not3, label %11, label %9
 
@@ -8985,24 +8985,24 @@ define hidden void @zif_session_abort(ptr nocapture noundef readonly %0, ptr noc
   br label %22
 
 11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %php_session_abort.exit
 
 16:                                               ; preds = %13, %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #23
+  %20 = tail call i32 %19(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #23
   br label %php_session_abort.exit
 
 php_session_abort.exit:                           ; preds = %13, %16
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %21, align 8
   br label %22
@@ -9020,13 +9020,13 @@ define hidden void @zif_session_reset(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not3 = icmp eq i32 %8, 2
   br i1 %.not3, label %php_session_reset.exit, label %9
 
@@ -9054,13 +9054,13 @@ define hidden void @zif_session_status(ptr nocapture noundef readonly %0, ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #23
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %11
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %9 = zext i32 %8 to i64
   store i64 %9, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9129,8 +9129,8 @@ define internal noundef i32 @zm_startup_session(i32 noundef %0, i32 noundef %1) 
   %8 = tail call ptr %7(ptr noundef nonnull @.str.2, i64 noundef 8, i1 noundef zeroext true) #23
   %9 = tail call i32 @zend_register_auto_global(ptr noundef %8, i1 noundef zeroext false, ptr noundef null) #23
   store i32 %1, ptr @my_module_number, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %10 = tail call i32 @zend_register_ini_entries_ex(ptr noundef nonnull @ini_entries, i32 noundef %1, i32 noundef %0) #23
   %11 = load ptr, ptr @php_rfc1867_callback, align 8
   store ptr %11, ptr @php_session_rfc1867_orig_callback, align 8
@@ -9209,14 +9209,14 @@ define internal noundef i32 @zm_shutdown_session(i32 noundef %0, i32 noundef %1)
   br label %6
 
 6:                                                ; preds = %5, %2
-  store ptr null, ptr getelementptr inbounds (<{ %struct.ps_serializer_struct, %struct.ps_serializer_struct, %struct.ps_serializer_struct, [30 x %struct.ps_serializer_struct] }>, ptr @ps_serializers, i64 0, i32 3, i64 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) getelementptr inbounds (<{ ptr, ptr, [31 x ptr] }>, ptr @ps_modules, i64 0, i32 2, i64 0), i8 0, i64 240, i1 false)
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_serializers, i64 72), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) getelementptr inbounds (i8, ptr @ps_modules, i64 16), i8 0, i64 240, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_activate_session(i32 %0, i32 %1) #0 {
-  %3 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 28), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 346), align 2
   %4 = trunc i8 %3 to i1
   tail call fastcc void @php_rinit_session(i1 noundef zeroext %4)
   ret i32 0
@@ -9225,13 +9225,13 @@ define internal noundef i32 @zm_activate_session(i32 %0, i32 %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_deactivate_session(i32 %0, i32 %1) #0 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %4 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #24
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
@@ -9241,98 +9241,98 @@ define internal noundef i32 @zm_deactivate_session(i32 %0, i32 %1) #0 {
   br label %12
 
 12:                                               ; preds = %10, %6
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %13
 
 13:                                               ; preds = %12, %2
   call fastcc void @php_rshutdown_session_globals()
-  %14 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 0, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 192)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 200), align 8
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 1, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 208)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 216), align 8
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %21
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 2, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 224)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 232), align 8
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 3, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 248), align 8
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %29
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 4, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 256)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 264), align 8
   br label %33
 
 33:                                               ; preds = %32, %29
-  %34 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  %34 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %33
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 5, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 272)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 280), align 8
   br label %37
 
 37:                                               ; preds = %36, %33
-  %38 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 6, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 288)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
   br label %41
 
 41:                                               ; preds = %40, %37
-  %42 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %41
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 7, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
   br label %45
 
 45:                                               ; preds = %44, %41
-  %46 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  %46 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %45
-  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
+  call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 320)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   br label %49
 
 49:                                               ; preds = %48, %45
@@ -9756,12 +9756,12 @@ define internal fastcc void @php_session_track_init() unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 0, ptr %6, align 1
   %7 = tail call i32 @zend_delete_global_variable(ptr noundef nonnull %1) #23
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %0
-  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35)) #23
+  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 360)) #23
   br label %11
 
 11:                                               ; preds = %0, %10
@@ -9775,10 +9775,10 @@ define internal fastcc void @php_session_track_init() unnamed_addr #0 {
   store i32 775, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr null, ptr %17, align 8
-  store ptr %13, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
-  store i32 266, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
+  store i32 266, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   store i32 2, ptr %13, align 4
-  %18 = tail call ptr @zend_hash_update_ind(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5), ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35)) #23
+  %18 = tail call ptr @zend_hash_update_ind(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 360)) #23
   %19 = load i32, ptr %2, align 4
   %20 = and i32 %19, 64
   %.not = icmp eq i32 %20, 0
@@ -9816,7 +9816,7 @@ define internal void @_php_cache_limiter_public() #0 {
   %5 = alloca i64, align 8
   %6 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #23
   %7 = load i64, ptr %4, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   %9 = mul nsw i64 %8, 60
   %10 = add nsw i64 %9, %7
   store i64 %10, ptr %5, align 8
@@ -9862,7 +9862,7 @@ strcpy_gmt.exit:                                  ; preds = %0, %13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
   %38 = call i32 @sapi_add_header_ex(ptr noundef nonnull %3, i64 noundef %37, i1 noundef zeroext true, i1 noundef zeroext true) #23
-  %39 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   %40 = mul nsw i64 %39, 60
   %41 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 513, ptr noundef nonnull @.str.133, i64 noundef %40) #23
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
@@ -9876,7 +9876,7 @@ define internal void @_php_cache_limiter_private() #0 {
   %1 = alloca [513 x i8], align 16
   %2 = tail call i32 @sapi_add_header_ex(ptr noundef nonnull @.str.155, i64 noundef 38, i1 noundef zeroext true, i1 noundef zeroext true) #23
   call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %1)
-  %3 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   %4 = mul nsw i64 %3, 60
   %5 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %1, i64 noundef 513, ptr noundef nonnull @.str.156, i64 noundef %4) #23
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
@@ -9889,7 +9889,7 @@ define internal void @_php_cache_limiter_private() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @_php_cache_limiter_private_no_expire() #0 {
   %1 = alloca [513 x i8], align 16
-  %2 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 23), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 184), align 8
   %3 = mul nsw i64 %2, 60
   %4 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %1, i64 noundef 513, ptr noundef nonnull @.str.156, i64 noundef %3) #23
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
@@ -9915,7 +9915,7 @@ define internal fastcc void @last_modified() unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca [513 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %39, label %6
 
@@ -10004,7 +10004,7 @@ declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_session_cancel_decode() unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not.i = icmp eq i32 %1, 2
   br i1 %.not.i, label %3, label %2
 
@@ -10013,17 +10013,17 @@ define internal fastcc void @php_session_cancel_decode() unnamed_addr #0 {
   br label %php_session_destroy.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %.not4.i = icmp eq ptr %4, null
   br i1 %.not4.i, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef nonnull %4) #23
+  %9 = tail call i32 %8(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef nonnull %4) #23
   %10 = icmp eq i32 %9, -1
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not5.i = icmp eq ptr %11, null
   %or.cond = select i1 %10, i1 %.not5.i, i1 false
   br i1 %or.cond, label %12, label %13
@@ -10034,17 +10034,17 @@ define internal fastcc void @php_session_cancel_decode() unnamed_addr #0 {
 
 13:                                               ; preds = %12, %5, %3
   tail call fastcc void @php_rshutdown_session_globals()
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %14 = load i32, ptr @my_module_number, align 4
-  store i32 %14, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   br label %php_session_destroy.exit
 
 php_session_destroy.exit:                         ; preds = %2, %13
@@ -10078,12 +10078,12 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
 
 7:                                                ; preds = %5, %3
   %.0342 = phi i32 [ %6, %5 ], [ 0, %3 ]
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 43), align 16
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 432), align 16
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %281
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 38), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 392), align 8
   switch i32 %0, label %276 [
     i32 0, label %12
     i32 1, label %18
@@ -10098,10 +10098,10 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   %14 = load i64, ptr %1, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 72
   store i64 %14, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #26
   store i64 %17, ptr %13, align 8
-  store ptr %13, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 38), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 392), align 8
   br label %.thread
 
 18:                                               ; preds = %10
@@ -10144,7 +10144,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %bcmp = tail call i32 @bcmp(ptr nonnull %30, ptr %41, i64 %37)
   %42 = icmp eq i32 %bcmp, 0
   br i1 %42, label %43, label %54
@@ -10172,7 +10172,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   br label %.thread
 
 54:                                               ; preds = %40, %36
-  %55 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 40), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 408), align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #26
   %57 = icmp eq i64 %37, %56
   br i1 %57, label %58, label %.thread
@@ -10216,7 +10216,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
 75:                                               ; preds = %61, %74
   %76 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 0, ptr %76, align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 39), align 16
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 400), align 16
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #26
   tail call void @smart_str_erealloc(ptr noundef nonnull %62, i64 noundef %78) #23
   %79 = load ptr, ptr %62, align 8
@@ -10273,9 +10273,9 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   br label %108
 
 108:                                              ; preds = %103, %95
-  %109 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 31), align 1
+  %109 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 349), align 1
   %110 = trunc i8 %109 to i1
-  %111 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %111 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %112 = and i8 %111, 1
   %113 = xor i8 %112, 1
   %114 = getelementptr inbounds i8, ptr %11, i64 65
@@ -10305,7 +10305,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   br i1 %127, label %128, label %169
 
 128:                                              ; preds = %123
-  %129 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 41), align 16
+  %129 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 416), align 16
   %130 = icmp sgt i64 %129, -1
   br i1 %130, label %137, label %131
 
@@ -10364,19 +10364,19 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %153, i64 %155, i1 false)
   %163 = getelementptr inbounds [1 x i8], ptr %162, i64 0, i64 %155
   store i8 0, ptr %163, align 1
-  store ptr %158, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
+  store ptr %158, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   %164 = getelementptr inbounds i8, ptr %11, i64 65
   %165 = load i8, ptr %164, align 1
   %166 = trunc i8 %165 to i1
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %137
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 31), align 1
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 349), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   br label %168
 
 168:                                              ; preds = %167, %137
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 32), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 350), align 2
   br label %169
 
 169:                                              ; preds = %123, %168
@@ -10489,7 +10489,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   br i1 %.not360, label %255, label %229
 
 229:                                              ; preds = %226
-  %230 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 44), align 1
+  %230 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 433), align 1
   %231 = trunc i8 %230 to i1
   br i1 %231, label %232, label %233
 
@@ -10585,7 +10585,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   %275 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 0, ptr %275, align 8
   tail call void @_efree(ptr noundef nonnull %11) #23
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 38), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 392), align 8
   br label %280
 
 276:                                              ; preds = %10
@@ -10609,7 +10609,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateSaveDir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10618,7 +10618,7 @@ define internal i32 @OnUpdateSaveDir(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %35
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10657,7 +10657,7 @@ define internal i32 @OnUpdateSaveDir(ptr noundef %0, ptr noundef %1, ptr noundef
 
 27:                                               ; preds = %23, %21
   %.021 = phi ptr [ %spec.select, %23 ], [ %17, %21 ]
-  %28 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 18), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   %.not26 = icmp eq ptr %28, null
   br i1 %.not26, label %33, label %29
 
@@ -10682,7 +10682,7 @@ define internal i32 @OnUpdateSaveDir(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10691,7 +10691,7 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %31
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10748,7 +10748,7 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateSaveHandler(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10757,7 +10757,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSaveHandler(ptr nocapture readnone
   br label %37
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10793,7 +10793,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSaveHandler(ptr nocapture readnone
 _php_find_ps_module.exit:                         ; preds = %22
   %25 = icmp eq i32 %5, 16
   %spec.select = select i1 %25, i32 2, i32 1
-  %26 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 49), align 8
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 480), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %.thread
 
@@ -10805,7 +10805,7 @@ _php_find_ps_module.exit:                         ; preds = %22
   br label %37
 
 30:                                               ; preds = %19
-  %31 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
+  %31 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
   %32 = trunc i8 %31 to i1
   %33 = icmp ne ptr %18, @ps_mod_user
   %or.cond6.not = or i1 %33, %32
@@ -10819,9 +10819,9 @@ _php_find_ps_module.exit:                         ; preds = %22
 
 .thread:                                          ; preds = %_php_find_ps_module.exit, %30
   %.08.i2126 = phi ptr [ %18, %30 ], [ null, %_php_find_ps_module.exit ]
-  %36 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
-  store ptr %36, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
-  store ptr %.08.i2126, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
+  store ptr %.08.i2126, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   br label %37
 
 37:                                               ; preds = %28, %29, %.thread, %34, %14, %9
@@ -10835,7 +10835,7 @@ declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateSessionLong(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10844,7 +10844,7 @@ define internal i32 @OnUpdateSessionLong(ptr noundef %0, ptr noundef %1, ptr nou
   br label %17
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10865,7 +10865,7 @@ define internal i32 @OnUpdateSessionLong(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateSerializer(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10874,7 +10874,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSerializer(ptr nocapture readnone 
   br label %28
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10904,7 +10904,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSerializer(ptr nocapture readnone 
   br i1 %.not.i, label %_php_find_ps_serializer.exit, label %.lr.ph.i
 
 _php_find_ps_serializer.exit:                     ; preds = %20, %15
-  %23 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 49), align 8
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 480), align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %_php_find_ps_serializer.exit.thread
 
@@ -10919,7 +10919,7 @@ _php_find_ps_serializer.exit:                     ; preds = %20, %15
 
 _php_find_ps_serializer.exit.thread:              ; preds = %.lr.ph.i, %_php_find_ps_serializer.exit
   %.06.i15 = phi ptr [ null, %_php_find_ps_serializer.exit ], [ %.010.i, %.lr.ph.i ]
-  store ptr %.06.i15, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  store ptr %.06.i15, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   br label %28
 
 28:                                               ; preds = %25, %26, %_php_find_ps_serializer.exit.thread, %14, %9
@@ -10929,7 +10929,7 @@ _php_find_ps_serializer.exit.thread:              ; preds = %.lr.ph.i, %_php_fin
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10938,7 +10938,7 @@ define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr 
   br label %22
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10969,7 +10969,7 @@ define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateSessionString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -10978,7 +10978,7 @@ define internal i32 @OnUpdateSessionString(ptr noundef %0, ptr noundef %1, ptr n
   br label %17
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -10999,7 +10999,7 @@ define internal i32 @OnUpdateSessionString(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @OnUpdateSessionBool(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -11008,7 +11008,7 @@ define internal i32 @OnUpdateSessionBool(ptr noundef %0, ptr noundef %1, ptr nou
   br label %17
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %12 = icmp ne i8 %11, 0
   %13 = icmp ne i32 %5, 8
   %or.cond = and i1 %13, %12
@@ -11031,7 +11031,7 @@ define internal i32 @OnUpdateSessionBool(ptr noundef %0, ptr noundef %1, ptr nou
 define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %11
 
@@ -11040,7 +11040,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr nocapture readnone %
   br label %27
 
 11:                                               ; preds = %6
-  %12 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %13 = icmp ne i8 %12, 0
   %14 = icmp ne i32 %5, 8
   %or.cond = and i1 %14, %13
@@ -11066,7 +11066,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr nocapture readnone %
   br i1 %or.cond5, label %25, label %26
 
 25:                                               ; preds = %20
-  store i64 %18, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 36), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 376), align 8
   br label %27
 
 26:                                               ; preds = %20, %16
@@ -11082,7 +11082,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr nocapture readnone %
 define internal range(i32 -1, 1) i32 @OnUpdateSidBits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %11
 
@@ -11091,7 +11091,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidBits(ptr nocapture readnone %0,
   br label %27
 
 11:                                               ; preds = %6
-  %12 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %13 = icmp ne i8 %12, 0
   %14 = icmp ne i32 %5, 8
   %or.cond = and i1 %14, %13
@@ -11117,7 +11117,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidBits(ptr nocapture readnone %0,
   br i1 %or.cond5, label %25, label %26
 
 25:                                               ; preds = %20
-  store i64 %18, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 37), align 16
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 384), align 16
   br label %27
 
 26:                                               ; preds = %20, %16
@@ -11175,7 +11175,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateRfc1867Freq(ptr nocapture readnone
 
 27:                                               ; preds = %25, %23
   %storemerge = phi i64 [ %26, %25 ], [ %24, %23 ]
-  store i64 %storemerge, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 41), align 16
+  store i64 %storemerge, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 416), align 16
   br label %28
 
 28:                                               ; preds = %27, %22, %11
@@ -11212,21 +11212,21 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_session_rfc1867_early_find_sid(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 29), align 1
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 347), align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %early_find_sid_in.exit.thread
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 22), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
   tail call void %5(i32 noundef 2, ptr noundef null, ptr noundef null) #23
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 2, i32 1, i32 0), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 384), align 8
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %early_find_sid_in.exit.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 2), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %12 = load i64, ptr %0, align 8
   %13 = tail call ptr @zend_hash_str_find(ptr noundef %10, ptr noundef %11, i64 noundef %12) #23
   %.not.i = icmp eq ptr %13, null
@@ -11280,21 +11280,21 @@ define internal fastcc void @php_session_rfc1867_early_find_sid(ptr noundef %0) 
   br label %early_find_sid_in.exit13
 
 early_find_sid_in.exit.thread:                    ; preds = %9, %14, %4, %1
-  %39 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 30), align 4
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
   %40 = trunc i8 %39 to i1
   br i1 %40, label %early_find_sid_in.exit13, label %41
 
 41:                                               ; preds = %early_find_sid_in.exit.thread
-  %42 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 22), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
   tail call void %42(i32 noundef 1, ptr noundef null, ptr noundef null) #23
   %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 1, i32 1, i32 0), align 8
+  %44 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 368), align 8
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %early_find_sid_in.exit13, label %46
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 39, i64 1), align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 8), align 8
   %49 = load i64, ptr %0, align 8
   %50 = tail call ptr @zend_hash_str_find(ptr noundef %47, ptr noundef %48, i64 noundef %49) #23
   %.not.i5 = icmp eq ptr %50, null
@@ -11355,18 +11355,18 @@ declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_rinit_session(i1 noundef zeroext %0) unnamed_addr #0 {
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 2), align 16
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 48), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), align 16
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 33), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 49), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 437), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 351), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 440), align 8
   %2 = load i32, ptr @my_module_number, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 17), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
-  store ptr null, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 124), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %3 = tail call ptr @zend_ini_string(ptr noundef nonnull @.str.11, i64 noundef 20, i32 noundef 0) #23
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %.preheader
@@ -11392,11 +11392,11 @@ define internal fastcc void @php_rinit_session(i1 noundef zeroext %0) unnamed_ad
 
 _php_find_ps_module.exit:                         ; preds = %5, %8
   %.08.i = phi ptr [ null, %8 ], [ %4, %5 ]
-  store ptr %.08.i, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  store ptr %.08.i, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   br label %11
 
 11:                                               ; preds = %_php_find_ps_module.exit, %1
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %23
 
@@ -11406,7 +11406,7 @@ _php_find_ps_module.exit:                         ; preds = %5, %8
   br i1 %.not7, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   br label %23
 
 16:                                               ; preds = %14
@@ -11429,19 +11429,19 @@ _php_find_ps_module.exit:                         ; preds = %5, %8
 
 _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i, %20, %16
   %.06.i = phi ptr [ null, %16 ], [ null, %20 ], [ %.010.i, %.lr.ph.i ]
-  store ptr %.06.i, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
+  store ptr %.06.i, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 352), align 16
   br label %23
 
 23:                                               ; preds = %._crit_edge, %_php_find_ps_serializer.exit, %11
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %.06.i, %_php_find_ps_serializer.exit ], [ %12, %11 ]
-  %25 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 11), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 80), align 16
   %26 = icmp eq ptr %25, null
   %27 = icmp eq ptr %24, null
   %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %28, label %29
 
 28:                                               ; preds = %23
-  store i32 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   br label %32
 
 29:                                               ; preds = %23
@@ -11477,7 +11477,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   br i1 %11, label %111, label %12
 
 12:                                               ; preds = %5
-  %13 = load double, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 42), align 8
+  %13 = load double, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 424), align 8
   %14 = fcmp ogt double %13, 0.000000e+00
   br i1 %14, label %15, label %30
 
@@ -11497,7 +11497,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   br i1 %26, label %111, label %27
 
 27:                                               ; preds = %15
-  %28 = load double, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 42), align 8
+  %28 = load double, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 424), align 8
   %29 = fadd double %23, %28
   store double %29, ptr %24, align 8
   %.pre = load ptr, ptr %6, align 8
@@ -11514,13 +11514,13 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
 
 35:                                               ; preds = %30, %2
   %36 = tail call fastcc i32 @php_session_initialize()
-  store i32 2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %37 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %38 = icmp eq i8 %37, 10
   br i1 %38, label %39, label %109
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = getelementptr inbounds i8, ptr %40, i64 16
   %43 = load i8, ptr %42, align 8
@@ -11553,7 +11553,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   %58 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %59 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -11653,13 +11653,13 @@ php_check_cancel_upload.exit:                     ; preds = %80, %82, %85, %89
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_session_rfc1867_cleanup(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = tail call fastcc i32 @php_session_initialize()
-  store i32 2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
-  %3 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 368), align 16
   %4 = icmp eq i8 %3, 10
   br i1 %4, label %5, label %28
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 360), align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i8, ptr %8, align 8

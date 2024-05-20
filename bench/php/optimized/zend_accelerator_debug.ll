@@ -38,7 +38,7 @@ define hidden void @zend_accel_error(i32 noundef %0, ptr nocapture noundef reado
 define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = sext i32 %0 to i64
-  %6 = load i64, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 20), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 96), align 8
   %.not = icmp slt i64 %6, %5
   br i1 %.not, label %42, label %7
 
@@ -49,7 +49,7 @@ define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapt
   %10 = call ptr @asctime(ptr noundef %9) #10
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   store i8 0, ptr %11, align 1
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 18), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 80), align 8
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %18, label %13
 

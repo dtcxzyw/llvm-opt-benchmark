@@ -520,7 +520,7 @@ define internal i32 @posix_clock_open(ptr nocapture noundef readonly %0, ptr noc
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 16) #6
   %13 = icmp eq ptr %12, null
   br i1 %13, label %27, label %14

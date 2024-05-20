@@ -70,15 +70,15 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %30, label %10, label %31, !llvm.loop !12
 
 31:                                               ; preds = %27
-  %32 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 192, i32 0, i64 0)) #11
+  %32 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1152)) #11
   br i1 %32, label %45, label %33
 
 33:                                               ; preds = %31
-  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 193, i32 0, i64 0)) #11
+  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1158)) #11
   br i1 %34, label %45, label %35
 
 35:                                               ; preds = %33
-  %36 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 194, i32 0, i64 0)) #11
+  %36 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1164)) #11
   br i1 %36, label %45, label %42
 
 37:                                               ; preds = %19, %15, %10
@@ -97,7 +97,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br label %138
 
 45:                                               ; preds = %31, %33, %35, %40, %37
-  %46 = phi ptr [ %25, %40 ], [ %39, %37 ], [ getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 193, i32 0, i64 0), %33 ], [ getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 192, i32 0, i64 0), %31 ], [ getelementptr inbounds ([195 x %"struct.ZXing::AiInfo"], ptr @_ZN5ZXingL7aiInfosE, i64 0, i64 194, i32 0, i64 0), %35 ]
+  %46 = phi ptr [ %25, %40 ], [ %39, %37 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1158), %33 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1152), %31 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1164), %35 ]
   %47 = invoke noundef i32 @_ZNK5ZXing6AiInfo6aiSizeEv(ptr noundef nonnull align 1 dereferenceable(6) %46) #11
           to label %48 unwind label %54
 

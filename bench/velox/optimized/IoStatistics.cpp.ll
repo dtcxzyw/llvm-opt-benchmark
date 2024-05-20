@@ -473,7 +473,7 @@ invoke.cont:
   %u_.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 4, ptr %ref.tmp, align 8
   store i64 %0, ptr %u_.i8, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str, ptr nonnull getelementptr inbounds ([12 x i8], ptr @.str, i64 0, i64 11))
+  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str, ptr nonnull getelementptr inbounds (i8, ptr @.str, i64 11))
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -484,7 +484,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %u_.i9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i32 4, ptr %ref.tmp5, align 8
   store i64 %1, ptr %u_.i9, align 8
-  %call11 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.1, ptr nonnull getelementptr inbounds ([19 x i8], ptr @.str.1, i64 0, i64 18))
+  %call11 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.1, ptr nonnull getelementptr inbounds (i8, ptr @.str.1, i64 18))
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %invoke.cont6
@@ -494,7 +494,7 @@ invoke.cont14:                                    ; preds = %invoke.cont6
   %u_.i13 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i32 4, ptr %ref.tmp13, align 8
   store i64 %2, ptr %u_.i13, align 8
-  %call19 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds ([22 x i8], ptr @.str.2, i64 0, i64 21))
+  %call19 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds (i8, ptr @.str.2, i64 21))
           to label %invoke.cont22 unwind label %lpad16
 
 invoke.cont22:                                    ; preds = %invoke.cont14
@@ -505,7 +505,7 @@ invoke.cont22:                                    ; preds = %invoke.cont14
   %u_.i17 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   store i32 4, ptr %ref.tmp21, align 8
   store i64 %3, ptr %u_.i17, align 8
-  %call27 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds ([20 x i8], ptr @.str.3, i64 0, i64 19))
+  %call27 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds (i8, ptr @.str.3, i64 19))
           to label %invoke.cont30 unwind label %lpad24
 
 invoke.cont30:                                    ; preds = %invoke.cont22
@@ -516,7 +516,7 @@ invoke.cont30:                                    ; preds = %invoke.cont22
   %u_.i21 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store i32 4, ptr %ref.tmp29, align 8
   store i64 %4, ptr %u_.i21, align 8
-  %call35 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds ([11 x i8], ptr @.str.4, i64 0, i64 10))
+  %call35 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds (i8, ptr @.str.4, i64 10))
           to label %invoke.cont38 unwind label %lpad32
 
 invoke.cont38:                                    ; preds = %invoke.cont30
@@ -527,7 +527,7 @@ invoke.cont38:                                    ; preds = %invoke.cont30
   %u_.i25 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   store i32 4, ptr %ref.tmp37, align 8
   store i64 %5, ptr %u_.i25, align 8
-  %call43 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds ([13 x i8], ptr @.str.5, i64 0, i64 12))
+  %call43 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds (i8, ptr @.str.5, i64 12))
           to label %invoke.cont46 unwind label %lpad40
 
 invoke.cont46:                                    ; preds = %invoke.cont38
@@ -538,7 +538,7 @@ invoke.cont46:                                    ; preds = %invoke.cont38
   %u_.i29 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store i32 4, ptr %ref.tmp45, align 8
   store i64 %6, ptr %u_.i29, align 8
-  %call51 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds ([20 x i8], ptr @.str.6, i64 0, i64 19))
+  %call51 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds (i8, ptr @.str.6, i64 19))
           to label %invoke.cont50 unwind label %lpad48
 
 invoke.cont50:                                    ; preds = %invoke.cont46

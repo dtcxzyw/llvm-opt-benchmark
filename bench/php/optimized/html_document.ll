@@ -184,7 +184,7 @@ define hidden void @zim_DOM_HTMLDocument_createEmpty(ptr nocapture noundef reado
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %39
@@ -208,7 +208,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %15
 
 lxb_encoding_data_by_name.exit.thread:            ; preds = %15, %12, %lxb_encoding_data_by_name.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #11
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %39
@@ -233,7 +233,7 @@ lxb_encoding_data_by_name.exit.thread:            ; preds = %15, %12, %lxb_encod
 
 36:                                               ; preds = %24
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #11
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %39
@@ -280,7 +280,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef 
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %132
@@ -293,7 +293,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef 
 
 25:                                               ; preds = %22
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.19) #11
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %132
@@ -331,7 +331,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef 
   %42 = load ptr, ptr %3, align 8
   store ptr %42, ptr %12, align 8
   %43 = getelementptr inbounds i8, ptr %13, i64 144
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %43, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %13, i64 152
   store ptr null, ptr %44, align 8
   store i8 1, ptr %13, align 8
@@ -343,7 +343,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef 
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 4096, ptr %49, align 8
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %45, align 8
   %50 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr @.str.108, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %13, i64 48
@@ -370,7 +370,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %56
 
 lxb_encoding_data_by_name.exit.thread:            ; preds = %56, %53, %lxb_encoding_data_by_name.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.2) #11
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
   br label %132
@@ -519,7 +519,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %95, %104, %105,
 .loopexit:                                        ; preds = %86, %93, %91, %79, %76
   %129 = call ptr @lxb_html_document_destroy(ptr noundef %77) #11
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #11
-  %130 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %131 = icmp ne ptr %130, null
   call void @llvm.assume(i1 %131)
   br label %132
@@ -799,12 +799,12 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %49, %41
-  %.sroa.0.0.ph.i = phi ptr [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %49 ], [ %48, %41 ]
+  %.sroa.0.0.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), %49 ], [ %48, %41 ]
   %50 = call ptr @lxb_html_encoding_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #11
   br label %dom_setup_parser_encoding_manually.exit
 
 dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %.thread22.i, %.sink.split.i
-  %.sroa.0.0.i = phi ptr [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %16 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 25), %23 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 26), %27 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %.thread22.i ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), %16 ], [ getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1200), %23 ], [ getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1248), %27 ], [ getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), %.thread22.i ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   %.sroa.7.0.i = phi i64 [ 3, %16 ], [ 2, %23 ], [ 2, %27 ], [ 0, %.thread22.i ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %51 = load ptr, ptr %0, align 8
@@ -1378,7 +1378,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %213
@@ -1391,7 +1391,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
 
 27:                                               ; preds = %24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.8) #11
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %213
@@ -1404,7 +1404,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
 
 33:                                               ; preds = %30
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.19) #11
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %213
@@ -1438,7 +1438,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
   %49 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %8, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %11, i64 144
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %11, i64 152
   store ptr null, ptr %51, align 8
   store i8 1, ptr %11, align 8
@@ -1450,7 +1450,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
   store ptr %53, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 4096, ptr %56, align 8
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %52, align 8
   %57 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr @.str.108, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %11, i64 48
@@ -1477,7 +1477,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %63
 
 lxb_encoding_data_by_name.exit.thread:            ; preds = %63, %60, %lxb_encoding_data_by_name.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.2) #11
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %69 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %69)
   br label %213
@@ -1518,14 +1518,14 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   br i1 %.not71, label %86, label %94
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not72 = icmp eq ptr %87, null
   br i1 %.not72, label %88, label %92
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %3, align 8
   %90 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %89) #11
-  %.pre102 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %91 = icmp ne ptr %.pre102, null
   br label %92
 
@@ -1790,7 +1790,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %152, %161, %162
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #11
   %209 = call ptr @lxb_html_document_destroy(ptr noundef %130) #11
   %210 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
-  %211 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %212 = icmp ne ptr %211, null
   call void @llvm.assume(i1 %212)
   br label %213
@@ -1834,7 +1834,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef read
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %52
@@ -1846,7 +1846,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef read
 
 17:                                               ; preds = %14
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.14) #11
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %52
@@ -1877,7 +1877,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef read
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16, ptr noundef nonnull %36) #11
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %52
@@ -1964,7 +1964,7 @@ lxb_encoding_encode_init.exit:                    ; preds = %12, %2, %lxb_encodi
   store ptr %6, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 4096, ptr %24, align 8
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %4, align 8
   %25 = load i32, ptr %.0.i2, align 8
   %26 = icmp eq i32 %25, 27
   %27 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1980,7 +1980,7 @@ lxb_encoding_encode_init.exit:                    ; preds = %12, %2, %lxb_encodi
   store i64 1, ptr %30, align 8
   store ptr %.0.i2, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2111,7 +2111,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %116
@@ -2131,7 +2131,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16, ptr noundef nonnull %25) #11
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %116
@@ -2156,7 +2156,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16, ptr noundef nonnull %41) #11
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %116

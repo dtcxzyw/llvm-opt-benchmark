@@ -4154,7 +4154,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %"_ZN4co
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %12, align 8, !noalias !851
   %13 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.7323b786273fd7c2d7ac9dfc0d97b66a.180, i64 0, i32 0, i64 1), ptr %13, align 8, !noalias !851
+  store ptr getelementptr inbounds (i8, ptr @anon.7323b786273fd7c2d7ac9dfc0d97b66a.180, i64 1), ptr %13, align 8, !noalias !851
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %14, align 8, !noalias !851
   %15 = icmp ugt i64 %1, 65

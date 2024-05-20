@@ -156,13 +156,13 @@ define dso_local noundef range(i32 -22, 1) i32 @logic_pio_register_range(ptr nou
   %84 = phi i64 [ %66, %76 ], [ %66, %68 ], [ %65, %78 ]
   %85 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %84, ptr %85, align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @io_range_list, i64 0, i32 1), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @io_range_list, i64 8), align 8
   store ptr @io_range_list, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %86, ptr %87, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
   store volatile ptr %0, ptr %86, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @io_range_list, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @io_range_list, i64 8), align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %27, %83, %78, %73, %.loopexit5

@@ -23,7 +23,7 @@ define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_strin
 entry:
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url20StdStringCanonOutputE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url20StdStringCanonOutputE, i64 16), ptr %this, align 8
   %str_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %str, ptr %str_, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #7

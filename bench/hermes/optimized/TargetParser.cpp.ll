@@ -1019,7 +1019,7 @@ _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302: ; preds = %land.lhs.true.i16
   br i1 %cmp5.i1697, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603, label %land.lhs.true.i1377
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302
-  %ref.tmp.sroa.168.3.in.in = phi ptr [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 4, i32 7), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302 ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 3, i32 7), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311 ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 2, i32 7), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320 ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 1, i32 7), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329 ]
+  %ref.tmp.sroa.168.3.in.in = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 308), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 244), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 180), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 116), %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329 ]
   %ref.tmp.sroa.168.3.in = load i32, ptr %ref.tmp.sroa.168.3.in.in, align 4
   %ref.tmp.sroa.168.3 = or i32 %ref.tmp.sroa.168.3.in, 1
   br label %return
@@ -5483,7 +5483,7 @@ return.split.loop.exit12.i:                       ; preds = %land.rhs.i.i
   br label %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit
 
 _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.split.loop.exit12.i
-  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 0, i32 8), %entry ]
+  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %A.sroa.39.0.copyload.le.i = load i32, ptr %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i, align 8
   %cmp = icmp eq i32 %A.sroa.39.0.copyload.le.i, 0
   br i1 %cmp, label %return, label %for.body
@@ -5561,7 +5561,7 @@ return.split.loop.exit12:                         ; preds = %land.rhs.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %entry, %return.split.loop.exit12
-  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18, %return.split.loop.exit12 ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 0, i32 8), %entry ]
+  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18, %return.split.loop.exit12 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %A.sroa.39.0.copyload.le = load i32, ptr %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink, align 8
   br label %return
 
@@ -7800,7 +7800,7 @@ return.loopexit.split.loop.exit16.i:              ; preds = %land.rhs.i.i
   br label %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit
 
 _ZN4llvh7AArch649parseArchENS_9StringRefE.exit:   ; preds = %if.end.i, %return.loopexit.split.loop.exit16.i
-  %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink.i = phi ptr [ %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.i, %return.loopexit.split.loop.exit16.i ], [ getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 0, i32 8), %if.end.i ]
+  %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink.i = phi ptr [ %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.i, %return.loopexit.split.loop.exit16.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 56), %if.end.i ]
   %A.sroa.311.0.copyload.le20.i = load i32, ptr %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink.i, align 8
   %cmp = icmp eq i32 %A.sroa.311.0.copyload.le20.i, 0
   br i1 %cmp, label %return, label %for.body
@@ -7895,7 +7895,7 @@ return.loopexit.split.loop.exit16:                ; preds = %land.rhs.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %return.loopexit.split.loop.exit16
-  %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink = phi ptr [ %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le, %return.loopexit.split.loop.exit16 ], [ getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 0, i32 8), %if.end ]
+  %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink = phi ptr [ %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le, %return.loopexit.split.loop.exit16 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 56), %if.end ]
   %A.sroa.311.0.copyload.le20 = load i32, ptr %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le.sink, align 8
   br label %return
 
@@ -8791,7 +8791,7 @@ return.split.loop.exit12.i:                       ; preds = %land.rhs.i.i
   br label %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit
 
 _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.split.loop.exit12.i
-  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 0, i32 8), %entry ]
+  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %A.sroa.39.0.copyload.le.i = load i32, ptr %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i, align 8
   %6 = sext i32 %A.sroa.39.0.copyload.le.i to i64
   %switch.gep = getelementptr inbounds [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %6
@@ -8846,7 +8846,7 @@ return.split.loop.exit12.i:                       ; preds = %land.rhs.i.i
   br label %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit
 
 _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.split.loop.exit12.i
-  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 0, i32 8), %entry ]
+  %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.i, %return.split.loop.exit12.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %A.sroa.39.0.copyload.le.i = load i32, ptr %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le18.sink.i, align 8
   %6 = sext i32 %A.sroa.39.0.copyload.le.i to i64
   %switch.gep = getelementptr inbounds [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %6
@@ -9186,7 +9186,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([32 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1, i64 0, i32 0, i32 0)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
   %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not4
   br i1 %tobool.not, label %return, label %if.then
@@ -9228,7 +9228,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([26 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1, i64 0, i32 0, i32 0)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not4
   br i1 %tobool.not, label %return, label %if.then
@@ -9346,7 +9346,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([32 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1, i64 0, i32 0, i32 0)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
   %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not2
   br i1 %tobool.not, label %return, label %if.then
@@ -9383,7 +9383,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([26 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1, i64 0, i32 0, i32 0)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not2
   br i1 %tobool.not, label %return, label %if.then
@@ -9495,7 +9495,7 @@ for.body.i.preheader:                             ; preds = %entry, %if.end.i
 
 for.body.i.us:                                    ; preds = %entry, %for.inc.i.us
   %__begin1.0.idx16.i.us = phi i64 [ %__begin1.0.add.i.us, %for.inc.i.us ], [ %GPU.coerce1.fr, %entry ]
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds ([32 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 0, i64 0, i32 0, i32 1), i64 %__begin1.0.idx16.i.us
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %__begin1.0.idx16.i.us
   %C.sroa.2.0.copyload.i.us = load i64, ptr %gep, align 8
   %cmp.i.i.us = icmp eq i64 %C.sroa.2.0.copyload.i.us, 0
   br i1 %cmp.i.i.us, label %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %for.inc.i.us

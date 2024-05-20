@@ -6015,7 +6015,7 @@ define internal fastcc void @set_drx_info(ptr nocapture noundef readonly %0, i16
   %25 = getelementptr inbounds i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr @get_drx_result_hash_key.key, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.drx_state_key_t, ptr @get_drx_result_hash_key.key, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @get_drx_result_hash_key.key, i64 4), align 4
   %27 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef nonnull @get_drx_result_hash_key.key) #16
   %.not16 = icmp eq ptr %27, null
   br i1 %.not16, label %31, label %28
@@ -6036,7 +6036,7 @@ define internal fastcc void @show_drx_info(ptr nocapture noundef readonly %0, pt
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr @get_drx_result_hash_key.key, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.drx_state_key_t, ptr @get_drx_result_hash_key.key, i64 0, i32 1), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @get_drx_result_hash_key.key, i64 4), align 4
   %10 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull @get_drx_result_hash_key.key) #16
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit, label %11
@@ -7152,15 +7152,15 @@ define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %1, i64 24
   %55 = load i64, ptr %54, align 8
-  %.val.i = load i64, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 1, i32 0), align 8
-  %.val29.i = load i64, ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 1, i32 0), align 8
+  %.val.i = load i64, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 8), align 8
+  %.val29.i = load i64, ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 8), align 8
   %56 = select i1 %48, i64 %.val.i, i64 %.val29.i
   %57 = sub i64 %55, %56
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds i8, ptr %1, i64 32
   %60 = load i32, ptr %59, align 8
-  %.val30.i = load i32, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 1, i32 1), align 8
-  %.val31.i = load i32, ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 1, i32 1), align 8
+  %.val30.i = load i32, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 16), align 8
+  %.val31.i = load i32, ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 16), align 8
   %61 = select i1 %48, i32 %.val30.i, i32 %.val31.i
   %62 = mul i32 %58, 1000000
   %63 = add i32 %60, 500
@@ -7172,15 +7172,15 @@ define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef 
 
 .critedge.i:                                      ; preds = %53, %45
   store i16 %51, ptr %UL_tti_info.DL_tti_info.i, align 8
-  %68 = select i1 %48, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 1, i32 0), ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 1, i32 0)
+  %68 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 8), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 8)
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %69, i64 16, i1 false)
-  %70 = select i1 %48, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 2), ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 2)
+  %70 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 24), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 24)
   store i32 1, ptr %70, align 8
   br label %75
 
 71:                                               ; preds = %53
-  %72 = select i1 %48, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 2), ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 2)
+  %72 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 24), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 24)
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 8
@@ -11567,7 +11567,7 @@ proto_item_set_generated.exit2022:                ; preds = %2506, %2512, %2515
   %2569 = load ptr, ptr @mac_lte_drx_frame_result, align 8
   %2570 = load i32, ptr %40, align 4
   store i32 %2570, ptr @get_drx_result_hash_key.key, align 4
-  store i32 %8, ptr getelementptr inbounds (%struct.drx_state_key_t, ptr @get_drx_result_hash_key.key, i64 0, i32 1), align 4
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @get_drx_result_hash_key.key, i64 4), align 4
   %2571 = call ptr @g_hash_table_lookup(ptr noundef %2569, ptr noundef nonnull @get_drx_result_hash_key.key) #16
   %.not16.i = icmp eq ptr %2571, null
   br i1 %.not16.i, label %set_drx_info.exit2025, label %2572

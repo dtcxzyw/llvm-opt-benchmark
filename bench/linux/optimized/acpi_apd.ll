@@ -46,7 +46,7 @@ define internal i32 @acpi_apd_create_device(ptr noundef %0, ptr nocapture nounde
   br label %41
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 24) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %41, label %19

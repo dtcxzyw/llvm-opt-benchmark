@@ -24,7 +24,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %6, %2
-  %9 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 600
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 220
@@ -44,7 +44,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds i32, ptr %24, i64 %25
-  %27 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
   %.not46 = icmp eq i32 %17, 0

@@ -68,7 +68,7 @@ define range(i32 0, 2) i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %0, i
 
 5:                                                ; preds = %2
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %6
+  %7 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp sge i32 %8, %1
   %10 = zext i1 %9 to i32
@@ -94,7 +94,7 @@ define ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef %0, i32 noundef %1) loca
 
 mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %7
+  %8 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not8 = icmp slt i32 %9, %1
   br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
@@ -122,7 +122,7 @@ define ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %1) lo
 
 mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %5
+  %6 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not8 = icmp slt i32 %7, %1
   br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %8
@@ -153,13 +153,13 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
 
 5:                                                ; preds = %2
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %6
+  %7 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %6
+  %11 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %6
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -194,7 +194,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @mca_coll_han_init_algorithms() local_unnamed_addr #1 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29), i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i8 0, i64 264, i1 false)
   br label %1
 
 1:                                                ; preds = %0, %mca_han_algorithm_enumerator_create.exit.thread
@@ -205,7 +205,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_algorithms() local_unnamed_addr #
   br i1 %.not.i, label %mca_han_algorithm_count.exit.thread, label %.preheader.i
 
 mca_han_algorithm_count.exit.thread:              ; preds = %1
-  %4 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %indvars.iv
+  %4 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   store i32 0, ptr %4, align 4
   br label %mca_han_algorithm_enumerator_create.exit.thread
 
@@ -219,7 +219,7 @@ mca_han_algorithm_count.exit.thread:              ; preds = %1
 
 mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %8 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %indvars.iv
+  %8 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   store i32 %7, ptr %8, align 4
   %9 = icmp eq i64 %indvars.iv.i, 0
   br i1 %9, label %mca_han_algorithm_enumerator_create.exit.thread, label %10
@@ -230,7 +230,7 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   br i1 %12, label %13, label %mca_han_algorithm_enumerator_create.exit.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %indvars.iv
+  %14 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %2, align 8
   store ptr null, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
@@ -299,7 +299,7 @@ mca_han_algorithm_enumerator_create.exit.thread:  ; preds = %13, %mca_han_algori
 
 34:                                               ; preds = %38, %33
   %indvars.iv.i12 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i14, %38 ]
-  %35 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %indvars.iv.i12
+  %35 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv.i12
   %36 = load ptr, ptr %35, align 8
   %.not.i13 = icmp eq ptr %36, null
   br i1 %.not.i13, label %38, label %37
@@ -327,7 +327,7 @@ define noundef i32 @mca_coll_han_free_algorithms() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %5
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
-  %2 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %indvars.iv
+  %2 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

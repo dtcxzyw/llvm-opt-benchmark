@@ -2825,7 +2825,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !197
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !197
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !199
@@ -2981,7 +2981,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !197
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !197
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !62
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -3700,7 +3700,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !233, !noalias !230
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !235, !noalias !230
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !197, !noalias !230
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !197, !noalias !230
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %seed, 0
   %0 = trunc i64 %seed to i32
@@ -4537,7 +4537,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !233, !noalias !256
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i21.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !235, !noalias !256
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly4test13UniformSubsetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i, align 8, !tbaa !197, !noalias !256
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly4test13UniformSubsetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i21.i.i.i.i, align 8, !tbaa !197, !noalias !256
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i21.i.i.i.i, i64 16
   invoke void @_ZN5folly4test21DeterministicSchedule7uniformEm(ptr dead_on_unwind nonnull writable sret(%"class.std::function.13") align 8 %_M_impl.i.i.i.i.i.i, i64 noundef %seed)
           to label %if.then.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly4test13UniformSubsetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit27.i.i.i.i, !noalias !256
@@ -5675,7 +5675,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i14.i
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont.i.i, %_ZNKSt8functionIFvbEEclEb.exit.i, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit.i
-  %12 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), align 8, !tbaa !93
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), align 8, !tbaa !93
   %tobool.not.i.i16.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i16.not.i, label %_ZN5folly4test21DeterministicSchedule7callAuxEb.exit, label %_ZNKSt8functionIFvmEEclEm.exit.i
 
@@ -5683,7 +5683,7 @@ _ZNKSt8functionIFvmEEclEm.exit.i:                 ; preds = %if.end.i
   %13 = load i64, ptr %step_.i, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17.i)
   store i64 %13, ptr %__args.addr.i17.i, align 8, !tbaa !44
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 1), align 8, !tbaa !284
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 24), align 8, !tbaa !284
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) @_ZN5folly4test21DeterministicSchedule7aux_chkE, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i17.i)
   br label %_ZN5folly4test21DeterministicSchedule7callAuxEb.exit
@@ -5781,7 +5781,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i14
   unreachable
 
 if.end:                                           ; preds = %invoke.cont.i, %_ZNKSt8functionIFvbEEclEb.exit, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), align 8, !tbaa !93
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), align 8, !tbaa !93
   %tobool.not.i.i16.not = icmp eq ptr %9, null
   br i1 %tobool.not.i.i16.not, label %if.end9, label %_ZNKSt8functionIFvmEEclEm.exit
 
@@ -5789,7 +5789,7 @@ _ZNKSt8functionIFvmEEclEm.exit:                   ; preds = %if.end
   %10 = load i64, ptr %step_, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17)
   store i64 %10, ptr %__args.addr.i17, align 8, !tbaa !44
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 1), align 8, !tbaa !284
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 24), align 8, !tbaa !284
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) @_ZN5folly4test21DeterministicSchedule7aux_chkE, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i17)
   br label %if.end9
@@ -6040,11 +6040,11 @@ _ZNSt8functionIFvmEEC2ERKS1_.exit.i:              ; preds = %invoke.cont.i.i, %e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16, i1 false), !tbaa.struct !94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN5folly4test21DeterministicSchedule7aux_chkE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), align 8, !tbaa !126
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), align 8, !tbaa !126
   store ptr %7, ptr %_M_manager.i.i.i, align 8, !tbaa !126
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 1), align 8, !tbaa !126
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 24), align 8, !tbaa !126
   store ptr %8, ptr %_M_invoker.i.i, align 8, !tbaa !126
-  store <2 x ptr> %6, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), align 8, !tbaa !126
+  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), align 8, !tbaa !126
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvmEEaSERKS1_.exit, label %if.then.i5.i
 
@@ -6067,7 +6067,7 @@ _ZNSt8functionIFvmEEaSERKS1_.exit:                ; preds = %if.then.i5.i, %_ZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly4test21DeterministicSchedule11clearAuxChkEv() local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), align 8, !tbaa !93
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), align 8, !tbaa !93
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNSt8functionIFvmEEaSEDn.exit, label %if.then.i
 
@@ -6076,7 +6076,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::function", ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 0, i32 0, i32 1), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5folly4test21DeterministicSchedule7aux_chkE, i64 16), i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEaSEDn.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -9285,12 +9285,12 @@ if.then.i:                                        ; preds = %_ZN5folly20Singleto
   br label %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit
 
 _ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit: ; preds = %if.then.i, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit.i
-  %4 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 3), align 8, !tbaa !360
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 24), align 8, !tbaa !360
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.i, label %if.end15.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit, %for.body.i.i.i
-  %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 2, i32 0), %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit ]
+  %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 16), %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8, !tbaa !16
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, null
   br i1 %cmp.i.not.i.i.i, label %if.then.loopexit, label %for.body.i.i.i
@@ -9303,7 +9303,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit
   %6 = ptrtoint ptr %sem to i64
-  %7 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i.i.i.i
@@ -9337,7 +9337,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then, !llvm.loop !363
 
 if.then.loopexit:                                 ; preds = %for.cond.i.i.i
-  %.pre = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %.pre58 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %.pre59 = ptrtoint ptr %sem to i64
   br label %if.then
@@ -9456,7 +9456,7 @@ if.end.loopexit:                                  ; preds = %for.body.i.i.i
 
 if.end:                                           ; preds = %for.cond.i.i.i.i.i, %if.end.loopexit, %_ZNSt10unique_ptrIN5folly4test13ThreadSyncVarESt14default_deleteIS2_EED2Ev.exit, %if.end.i.i.i.i.i
   %.pre-phi61 = phi i64 [ %.pre60, %if.end.loopexit ], [ %6, %if.end.i.i.i.i.i ], [ %.pre-phi, %_ZNSt10unique_ptrIN5folly4test13ThreadSyncVarESt14default_deleteIS2_EED2Ev.exit ], [ %6, %for.cond.i.i.i.i.i ]
-  %27 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %rem.i.i.i.i.i9 = urem i64 %.pre-phi61, %27
   %28 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %arrayidx.i.i.i.i10 = getelementptr inbounds ptr, ptr %28, i64 %rem.i.i.i.i.i9
@@ -9844,12 +9844,12 @@ if.then.i:                                        ; preds = %_ZN5folly20Singleto
   br label %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit
 
 _ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit: ; preds = %if.then.i, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit.i
-  %4 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 3), align 8, !tbaa !360
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 24), align 8, !tbaa !360
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.i, label %if.end15.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit, %for.body.i.i.i
-  %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 2, i32 0), %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit ]
+  %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 16), %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8, !tbaa !16
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, null
   br i1 %cmp.i.not.i.i.i, label %if.then.loopexit, label %for.body.i.i.i
@@ -9862,7 +9862,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit
   %6 = ptrtoint ptr %sem to i64
-  %7 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i.i.i.i
@@ -9896,7 +9896,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then, !llvm.loop !387
 
 if.then.loopexit:                                 ; preds = %for.cond.i.i.i
-  %.pre = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %.pre103 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %.pre104 = ptrtoint ptr %sem to i64
   br label %if.then
@@ -10029,7 +10029,7 @@ if.then7:                                         ; preds = %_ZNSt11unique_lockI
   store i64 %dec.i, ptr %sem, align 8, !tbaa !119
   %call1.i.i.i.i5.i92 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_.i) #16
   %28 = ptrtoint ptr %sem to i64
-  %29 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %rem.i.i.i.i.i23 = urem i64 %28, %29
   %30 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %arrayidx.i.i.i.i24 = getelementptr inbounds ptr, ptr %30, i64 %rem.i.i.i.i.i23
@@ -10097,7 +10097,7 @@ _ZNSt13unordered_mapIPN5folly4test9SemaphoreESt10unique_ptrINS1_13ThreadSyncVarE
 if.else:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_.i) #16
   %39 = ptrtoint ptr %sem to i64
-  %40 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8
   %rem.i.i.i.i.i49 = urem i64 %39, %40
   %41 = load ptr, ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
   %arrayidx.i.i.i.i50 = getelementptr inbounds ptr, ptr %41, i64 %rem.i.i.i.i.i49
@@ -11642,17 +11642,17 @@ define internal void @_GLOBAL__sub_I_DeterministicSchedule.cpp() #26 section ".t
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5folly4test21DeterministicSchedule7aux_chkE, i8 0, i64 32, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt14_Function_baseD2Ev, ptr nonnull @_ZN5folly4test21DeterministicSchedule7aux_chkE, ptr nonnull @__dso_handle) #16
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 0, i32 0, i32 5), ptr @_ZN5folly4testL11futexQueuesB5cxx11E, align 8, !tbaa !22
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 0, i32 0, i32 1), align 8, !tbaa !23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !99
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 48), ptr @_ZN5folly4testL11futexQueuesB5cxx11E, align 8, !tbaa !22
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 8), align 8, !tbaa !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 32), align 8, !tbaa !99
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5folly4testL11futexQueuesB5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapIPKN5folly4test23DeterministicAtomicImplIjNS1_21DeterministicScheduleESt6atomicEENSt7__cxx114listISt4pairIjPbESaISC_EEESt4hashIS7_ESt8equal_toIS7_ESaISA_IKS7_SE_EEED2Ev, ptr nonnull @_ZN5folly4testL11futexQueuesB5cxx11E, ptr nonnull @__dso_handle) #16
-  store ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 5), ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 1), align 8, !tbaa !359
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !99
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.199", ptr @_ZN5folly4testL10semSyncVarE, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 48), ptr @_ZN5folly4testL10semSyncVarE, align 8, !tbaa !358
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 8), align 8, !tbaa !359
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 32), align 8, !tbaa !99
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5folly4testL10semSyncVarE, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapIPN5folly4test9SemaphoreESt10unique_ptrINS1_13ThreadSyncVarESt14default_deleteIS5_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEED2Ev, ptr nonnull @_ZN5folly4testL10semSyncVarE, ptr nonnull @__dso_handle) #16
   ret void
 }

@@ -4095,90 +4095,90 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gtpv2() local_unnamed_addr #1 {
   store ptr @ett_gtpv2, ptr @proto_register_gtpv2.ett_gtpv2_array, align 16
-  store ptr @ett_gtpv2_flags, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 1), align 8
-  store ptr @ett_gtpv2_uli_flags, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 2), align 16
-  store ptr @ett_gtpv2_uli_field, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 3), align 8
-  store ptr @ett_gtpv2_bearer_ctx, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 4), align 16
-  store ptr @ett_gtpv2_PDN_conn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 5), align 8
-  store ptr @ett_gtpv2_overload_control_information, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 6), align 16
-  store ptr @ett_gtpv2_mm_context_flag, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 7), align 8
-  store ptr @ett_gtpv2_pdn_numbers_nsapi, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 8), align 16
-  store ptr @ett_gtpv2_tra_info_trigg, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 9), align 8
-  store ptr @ett_gtpv2_tra_info_trigg_msc_server, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 10), align 16
-  store ptr @ett_gtpv2_tra_info_trigg_mgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 11), align 8
-  store ptr @ett_gtpv2_tra_info_trigg_sgsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 12), align 16
-  store ptr @ett_gtpv2_tra_info_trigg_ggsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 13), align 8
-  store ptr @ett_gtpv2_tra_info_trigg_bm_sc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 14), align 16
-  store ptr @ett_gtpv2_tra_info_trigg_sgw_mme, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 15), align 8
-  store ptr @ett_gtpv2_tra_info_trigg_sgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 16), align 16
-  store ptr @ett_gtpv2_tra_info_trigg_pgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 17), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 18), align 16
-  store ptr @ett_gtpv2_tra_info_interfaces_imsc_server, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 19), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces_lmgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 20), align 16
-  store ptr @ett_gtpv2_tra_info_interfaces_lsgsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 21), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces_lggsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 22), align 16
-  store ptr @ett_gtpv2_tra_info_interfaces_lrnc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 23), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces_lbm_sc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 24), align 16
-  store ptr @ett_gtpv2_tra_info_interfaces_lmme, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 25), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces_lsgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 26), align 16
-  store ptr @ett_gtpv2_tra_info_interfaces_lpdn_gw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 27), align 8
-  store ptr @ett_gtpv2_tra_info_interfaces_lpdn_lenb, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 28), align 16
-  store ptr @ett_gtpv2_tra_info_ne_types, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 29), align 8
-  store ptr @ett_gtpv2_rai, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 30), align 16
-  store ptr @ett_gtpv2_stn_sr, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 31), align 8
-  store ptr @ett_gtpv2_ms_mark, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 32), align 16
-  store ptr @ett_gtpv2_supp_codec_list, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 33), align 8
-  store ptr @ett_gtpv2_bss_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 34), align 16
-  store ptr @ett_gtpv2_utran_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 35), align 8
-  store ptr @ett_gtpv2_eutran_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 36), align 16
-  store ptr @ett_gtpv2_son_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 37), align 8
-  store ptr @ett_gtpv2_endc_son_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 38), align 16
-  store ptr @ett_gtpv2_intersys_son_con, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 39), align 8
-  store ptr @ett_gtpv2_mm_context_auth_qua, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 40), align 16
-  store ptr @ett_gtpv2_mm_context_auth_qui, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 41), align 8
-  store ptr @ett_gtpv2_mm_context_auth_tri, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 42), align 16
-  store ptr @ett_gtpv2_mm_context_net_cap, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 43), align 8
-  store ptr @ett_gtpv2_ms_network_capability, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 44), align 16
-  store ptr @ett_gtpv2_mm_context_sc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 45), align 8
-  store ptr @ett_gtpv2_vd_pref, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 46), align 16
-  store ptr @ett_gtpv2_access_rest_data, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 47), align 8
-  store ptr @ett_gtpv2_qua, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 48), align 16
-  store ptr @ett_gtpv2_qui, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 49), align 8
-  store ptr @ett_gtpv2_preaa_tais, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 50), align 16
-  store ptr @ett_gtpv2_preaa_menbs, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 51), align 8
-  store ptr @ett_gtpv2_preaa_henbs, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 52), align 16
-  store ptr @ett_gtpv2_preaa_ecgis, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 53), align 8
-  store ptr @ett_gtpv2_preaa_rais, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 54), align 16
-  store ptr @ett_gtpv2_preaa_sais, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 55), align 8
-  store ptr @ett_gtpv2_preaa_cgis, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 56), align 16
-  store ptr @ett_gtpv2_load_control_inf, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 57), align 8
-  store ptr @ett_gtpv2_eci, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 58), align 16
-  store ptr @ett_gtpv2_twan_flags, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 59), align 8
-  store ptr @ett_gtpv2_ciot_support_ind, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 60), align 16
-  store ptr @ett_gtpv2_rohc_profile_flags, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 61), align 8
-  store ptr @ett_gtpv2_secondary_rat_usage_data_report, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 62), align 16
-  store ptr @ett_gtpv2_pres_rep_area_info, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 63), align 8
-  store ptr @ett_gtpv2_preaa_ext_menbs, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 64), align 16
-  store ptr @ett_gtpv2_ue_nr_sec_cap_len, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 65), align 8
-  store ptr @ett_gtpv2_apn_rte_ctrl_sts_len, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 66), align 16
-  store ptr @ett_gtpv2_if_mgcs, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 67), align 8
-  store ptr @ett_gtpv2_if_mgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 68), align 16
-  store ptr @ett_gtpv2_if_sgsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 69), align 8
-  store ptr @ett_gtpv2_if_ggsn, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 70), align 16
-  store ptr @ett_gtpv2_if_rnc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 71), align 8
-  store ptr @ett_gtpv2_if_bm_sc, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 72), align 16
-  store ptr @ett_gtpv2_if_mme, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 73), align 8
-  store ptr @ett_gtpv2_if_sgw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 74), align 16
-  store ptr @ett_gtpv2_if_pdn_gw, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 75), align 8
-  store ptr @ett_gtpv2_if_enb, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 76), align 16
-  store ptr @ett_gtpv2_if_hss, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 77), align 8
-  store ptr @ett_gtpv2_if_eir, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 78), align 16
-  store ptr @ett_gtpv2_if_amf, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 79), align 8
-  store ptr @ett_gtpv2_if_pcf, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 80), align 16
-  store ptr @ett_gtpv2_if_smf, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 81), align 8
-  store ptr @ett_gtpv2_if_upf, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 82), align 16
-  store ptr @ett_gtpv2_if_ng_ran_node, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 83), align 8
-  store ptr @ett_gtpv2_PGW_change_info, ptr getelementptr inbounds ([341 x ptr], ptr @proto_register_gtpv2.ett_gtpv2_array, i64 0, i64 84), align 16
+  store ptr @ett_gtpv2_flags, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 8), align 8
+  store ptr @ett_gtpv2_uli_flags, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 16), align 16
+  store ptr @ett_gtpv2_uli_field, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 24), align 8
+  store ptr @ett_gtpv2_bearer_ctx, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 32), align 16
+  store ptr @ett_gtpv2_PDN_conn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 40), align 8
+  store ptr @ett_gtpv2_overload_control_information, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 48), align 16
+  store ptr @ett_gtpv2_mm_context_flag, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 56), align 8
+  store ptr @ett_gtpv2_pdn_numbers_nsapi, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 64), align 16
+  store ptr @ett_gtpv2_tra_info_trigg, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 72), align 8
+  store ptr @ett_gtpv2_tra_info_trigg_msc_server, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 80), align 16
+  store ptr @ett_gtpv2_tra_info_trigg_mgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 88), align 8
+  store ptr @ett_gtpv2_tra_info_trigg_sgsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 96), align 16
+  store ptr @ett_gtpv2_tra_info_trigg_ggsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 104), align 8
+  store ptr @ett_gtpv2_tra_info_trigg_bm_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 112), align 16
+  store ptr @ett_gtpv2_tra_info_trigg_sgw_mme, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 120), align 8
+  store ptr @ett_gtpv2_tra_info_trigg_sgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 128), align 16
+  store ptr @ett_gtpv2_tra_info_trigg_pgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 136), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 144), align 16
+  store ptr @ett_gtpv2_tra_info_interfaces_imsc_server, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 152), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces_lmgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 160), align 16
+  store ptr @ett_gtpv2_tra_info_interfaces_lsgsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 168), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces_lggsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 176), align 16
+  store ptr @ett_gtpv2_tra_info_interfaces_lrnc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 184), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces_lbm_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 192), align 16
+  store ptr @ett_gtpv2_tra_info_interfaces_lmme, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 200), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces_lsgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 208), align 16
+  store ptr @ett_gtpv2_tra_info_interfaces_lpdn_gw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 216), align 8
+  store ptr @ett_gtpv2_tra_info_interfaces_lpdn_lenb, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 224), align 16
+  store ptr @ett_gtpv2_tra_info_ne_types, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 232), align 8
+  store ptr @ett_gtpv2_rai, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 240), align 16
+  store ptr @ett_gtpv2_stn_sr, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 248), align 8
+  store ptr @ett_gtpv2_ms_mark, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 256), align 16
+  store ptr @ett_gtpv2_supp_codec_list, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 264), align 8
+  store ptr @ett_gtpv2_bss_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 272), align 16
+  store ptr @ett_gtpv2_utran_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 280), align 8
+  store ptr @ett_gtpv2_eutran_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 288), align 16
+  store ptr @ett_gtpv2_son_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 296), align 8
+  store ptr @ett_gtpv2_endc_son_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 304), align 16
+  store ptr @ett_gtpv2_intersys_son_con, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 312), align 8
+  store ptr @ett_gtpv2_mm_context_auth_qua, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 320), align 16
+  store ptr @ett_gtpv2_mm_context_auth_qui, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 328), align 8
+  store ptr @ett_gtpv2_mm_context_auth_tri, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 336), align 16
+  store ptr @ett_gtpv2_mm_context_net_cap, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 344), align 8
+  store ptr @ett_gtpv2_ms_network_capability, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 352), align 16
+  store ptr @ett_gtpv2_mm_context_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 360), align 8
+  store ptr @ett_gtpv2_vd_pref, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 368), align 16
+  store ptr @ett_gtpv2_access_rest_data, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 376), align 8
+  store ptr @ett_gtpv2_qua, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 384), align 16
+  store ptr @ett_gtpv2_qui, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 392), align 8
+  store ptr @ett_gtpv2_preaa_tais, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 400), align 16
+  store ptr @ett_gtpv2_preaa_menbs, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 408), align 8
+  store ptr @ett_gtpv2_preaa_henbs, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 416), align 16
+  store ptr @ett_gtpv2_preaa_ecgis, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 424), align 8
+  store ptr @ett_gtpv2_preaa_rais, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 432), align 16
+  store ptr @ett_gtpv2_preaa_sais, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 440), align 8
+  store ptr @ett_gtpv2_preaa_cgis, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 448), align 16
+  store ptr @ett_gtpv2_load_control_inf, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 456), align 8
+  store ptr @ett_gtpv2_eci, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 464), align 16
+  store ptr @ett_gtpv2_twan_flags, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 472), align 8
+  store ptr @ett_gtpv2_ciot_support_ind, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 480), align 16
+  store ptr @ett_gtpv2_rohc_profile_flags, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 488), align 8
+  store ptr @ett_gtpv2_secondary_rat_usage_data_report, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 496), align 16
+  store ptr @ett_gtpv2_pres_rep_area_info, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 504), align 8
+  store ptr @ett_gtpv2_preaa_ext_menbs, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 512), align 16
+  store ptr @ett_gtpv2_ue_nr_sec_cap_len, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 520), align 8
+  store ptr @ett_gtpv2_apn_rte_ctrl_sts_len, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 528), align 16
+  store ptr @ett_gtpv2_if_mgcs, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 536), align 8
+  store ptr @ett_gtpv2_if_mgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 544), align 16
+  store ptr @ett_gtpv2_if_sgsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 552), align 8
+  store ptr @ett_gtpv2_if_ggsn, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 560), align 16
+  store ptr @ett_gtpv2_if_rnc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 568), align 8
+  store ptr @ett_gtpv2_if_bm_sc, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 576), align 16
+  store ptr @ett_gtpv2_if_mme, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 584), align 8
+  store ptr @ett_gtpv2_if_sgw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 592), align 16
+  store ptr @ett_gtpv2_if_pdn_gw, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 600), align 8
+  store ptr @ett_gtpv2_if_enb, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 608), align 16
+  store ptr @ett_gtpv2_if_hss, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 616), align 8
+  store ptr @ett_gtpv2_if_eir, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 624), align 16
+  store ptr @ett_gtpv2_if_amf, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 632), align 8
+  store ptr @ett_gtpv2_if_pcf, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 640), align 16
+  store ptr @ett_gtpv2_if_smf, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 648), align 8
+  store ptr @ett_gtpv2_if_upf, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 656), align 16
+  store ptr @ett_gtpv2_if_ng_ran_node, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 664), align 8
+  store ptr @ett_gtpv2_PGW_change_info, ptr getelementptr inbounds (i8, ptr @proto_register_gtpv2.ett_gtpv2_array, i64 672), align 16
   br label %1
 
 1:                                                ; preds = %0, %1

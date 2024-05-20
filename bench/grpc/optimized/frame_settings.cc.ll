@@ -801,12 +801,12 @@ if.then125:                                       ; preds = %land.lhs.true
   %38 = load i64, ptr %initial_window_update, align 8
   %add = add nsw i64 %38, %sub
   store i64 %add, ptr %initial_window_update, align 8
-  %39 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %39 to i1
   br i1 %tobool.i.i.i, label %if.then137, label %lor.lhs.false134
 
 lor.lhs.false134:                                 ; preds = %if.then125
-  %40 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_flowctl_trace, i64 16) monotonic, align 8
   %tobool.i.i.i88 = trunc i8 %40 to i1
   br i1 %tobool.i.i.i88, label %if.then137, label %if.end146
 
@@ -825,7 +825,7 @@ if.end146:                                        ; preds = %lor.lhs.false134, %
   %idxprom149 = zext i32 %42 to i64
   %arrayidx150 = getelementptr inbounds [8 x i32], ptr %incoming_settings148, i64 0, i64 %idxprom149
   store i32 %43, ptr %arrayidx150, align 4
-  %44 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %44 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
   %tobool.i.i.i89 = trunc i8 %44 to i1
   br i1 %tobool.i.i.i89, label %if.then153, label %for.cond.outer.backedge
 
@@ -889,7 +889,7 @@ ehcleanup173:                                     ; preds = %lpad170, %lpad165
   br label %eh.resume
 
 if.else175:                                       ; preds = %if.else
-  %58 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %58 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
   %tobool.i.i.i90 = trunc i8 %58 to i1
   br i1 %tobool.i.i.i90, label %if.then178, label %for.cond.outer.backedge
 
@@ -969,7 +969,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

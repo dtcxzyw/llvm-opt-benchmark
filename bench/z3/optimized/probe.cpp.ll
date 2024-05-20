@@ -541,7 +541,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12memory_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12memory_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -556,7 +556,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11depth_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11depth_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -566,7 +566,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10size_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10size_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -576,7 +576,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15num_exprs_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15num_exprs_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -586,7 +586,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11const_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11const_probe, i64 16), ptr %call, align 8
   %m_val.i = getelementptr inbounds i8, ptr %call, i64 16
   store double %v, ptr %m_val.i, align 8
   ret ptr %call
@@ -604,7 +604,7 @@ entry:
   %0 = load i32, ptr %m_ref_count.i2.i.i, align 8
   %inc.i.i.i = add i32 %0, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i2.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9not_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -626,7 +626,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9and_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9and_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -648,7 +648,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8or_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8or_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -664,7 +664,7 @@ entry:
   %0 = load i32, ptr %m_ref_count.i2.i.i.i, align 8
   %inc.i.i.i.i = add i32 %0, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i2.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9not_probe, i64 16), ptr %call.i, align 8
   %call.i1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_ref_count.i.i.i.i2 = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i32 0, ptr %m_ref_count.i.i.i.i2, align 8
@@ -677,7 +677,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i.i, align 8
   %inc.i5.i.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i.i, ptr %m_ref_count.i4.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8or_probe, i64 0, i32 0, i64 2), ptr %call.i1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8or_probe, i64 16), ptr %call.i1, align 8
   ret ptr %call.i1
 }
 
@@ -699,7 +699,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8eq_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8eq_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -721,14 +721,14 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i.i, align 8
   %inc.i5.i.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i.i, ptr %m_ref_count.i4.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8eq_probe, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8eq_probe, i64 16), ptr %call.i, align 8
   %call.i1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i.i.i2 = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i32 0, ptr %m_ref_count.i.i.i.i2, align 8
   %m_p.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   store ptr %call.i, ptr %m_p.i.i.i, align 8
   store i32 1, ptr %m_ref_count.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i64 0, i32 0, i64 2), ptr %call.i1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9not_probe, i64 16), ptr %call.i1, align 8
   ret ptr %call.i1
 }
 
@@ -750,7 +750,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8le_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -772,7 +772,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i.i, align 8
   %inc.i5.i.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i.i, ptr %m_ref_count.i4.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8le_probe, i64 16), ptr %call.i, align 8
   ret ptr %call.i
 }
 
@@ -794,14 +794,14 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i.i.i, align 8
   %inc.i5.i.i.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i.i.i, ptr %m_ref_count.i4.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8le_probe, i64 16), ptr %call.i.i, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %m_ref_count.i.i.i.i, align 8
   %m_p.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call.i.i, ptr %m_p.i.i.i, align 8
   store i32 1, ptr %m_ref_count.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9not_probe, i64 16), ptr %call.i, align 8
   ret ptr %call.i
 }
 
@@ -823,14 +823,14 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i.i.i.i, align 8
   %inc.i5.i.i.i.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i.i.i.i, ptr %m_ref_count.i4.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8le_probe, i64 16), ptr %call.i.i.i, align 8
   %call.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 0, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_p.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call.i.i.i, ptr %m_p.i.i.i.i, align 8
   store i32 1, ptr %m_ref_count.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9not_probe, i64 16), ptr %call.i.i, align 8
   ret ptr %call.i.i
 }
 
@@ -852,7 +852,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9add_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9add_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -874,7 +874,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9mul_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9mul_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -896,7 +896,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9sub_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9sub_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -918,7 +918,7 @@ entry:
   %1 = load i32, ptr %m_ref_count.i4.i.i, align 8
   %inc.i5.i.i = add i32 %1, 1
   store i32 %inc.i5.i.i, ptr %m_ref_count.i4.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9div_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9div_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -928,7 +928,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22is_propositional_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22is_propositional_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -938,7 +938,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13is_qfbv_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13is_qfbv_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -948,7 +948,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16is_qfaufbv_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16is_qfaufbv_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -958,7 +958,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15is_qfufbv_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15is_qfufbv_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -968,7 +968,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16num_consts_probe, i64 16), ptr %call, align 8
   %m_bool.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %m_bool.i, align 4
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -982,7 +982,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16num_consts_probe, i64 16), ptr %call, align 8
   %m_bool.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %m_bool.i, align 4
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -996,7 +996,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16num_consts_probe, i64 16), ptr %call, align 8
   %m_bool.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %m_bool.i, align 4
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -1010,7 +1010,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16num_consts_probe, i64 16), ptr %call, align 8
   %m_bool.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %m_bool.i, align 4
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -1024,7 +1024,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_proofs_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20produce_proofs_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1034,7 +1034,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_models_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20produce_models_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1044,7 +1044,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25produce_unsat_cores_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25produce_unsat_cores_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1054,7 +1054,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17has_pattern_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17has_pattern_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1064,7 +1064,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20has_quantifier_probe, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20has_quantifier_probe, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1233,7 +1233,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9not_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11unary_probe, i64 16), ptr %this, align 8
   %m_p.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1264,7 +1264,7 @@ _ZN11unary_probeD2Ev.exit:                        ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9not_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11unary_probe, i64 16), ptr %this, align 8
   %m_p.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1312,7 +1312,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11unary_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11unary_probe, i64 16), ptr %this, align 8
   %m_p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p, align 8
   %m_ref_count.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1363,7 +1363,7 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9and_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1411,7 +1411,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9and_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1491,7 +1491,7 @@ land.end.thread:                                  ; preds = %entry, %land.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9bin_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1, align 8
   %m_ref_count.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1546,7 +1546,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8or_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1594,7 +1594,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8or_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1674,7 +1674,7 @@ lor.end.thread:                                   ; preds = %entry, %lor.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8eq_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1722,7 +1722,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8eq_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1791,7 +1791,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8le_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1839,7 +1839,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8le_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1908,7 +1908,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9add_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1956,7 +1956,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9add_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2024,7 +2024,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9mul_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2072,7 +2072,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9mul_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2140,7 +2140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9sub_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2188,7 +2188,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9sub_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2256,7 +2256,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9div_probeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2304,7 +2304,7 @@ _ZN9bin_probeD2Ev.exit:                           ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9div_probeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9bin_probe, i64 16), ptr %this, align 8
   %m_p1.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_p1.i.i, align 8
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -3886,7 +3886,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
@@ -3962,7 +3962,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #17
   ret void

@@ -56,7 +56,7 @@ define noundef ptr @_create_slurmdbd_conn(ptr noundef %0, i32 noundef %1) local_
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
   store ptr @ext_shutdown, ptr %7, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 177), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1216), align 8
   %9 = trunc i32 %8 to i16
   %10 = call i32 @clusteracct_storage_p_register_ctld(ptr noundef %6, i16 noundef zeroext %9) #8
   %11 = icmp eq i32 %10, 2002
@@ -141,7 +141,7 @@ define internal fastcc void @_create_ext_conns() unnamed_addr #0 {
   %5 = alloca %struct.slurm_persist_conn_t, align 8
   store ptr null, ptr %4, align 8
   %6 = tail call ptr @slurm_list_create(ptr noundef nonnull @_destroy_external_host_conns) #8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 32), align 8
   %8 = tail call ptr @slurm_xstrdup(ptr noundef %7) #8
   store ptr %8, ptr %3, align 8
   %.not = icmp eq ptr %8, null
@@ -161,7 +161,7 @@ define internal fastcc void @_create_ext_conns() unnamed_addr #0 {
   %.135 = phi ptr [ %10, %.lr.ph ], [ %34, %33 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, i8 0, i64 168, i1 false)
   %14 = call ptr @slurm_xstrstr(ptr noundef nonnull %.135, ptr noundef nonnull @.str.5) #8
-  %15 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 8), align 8
+  %15 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 64), align 8
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %20, label %16
 
@@ -193,7 +193,7 @@ define internal fastcc void @_create_ext_conns() unnamed_addr #0 {
   store ptr %25, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
   store ptr @ext_shutdown, ptr %26, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 177), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1216), align 8
   %28 = trunc i32 %27 to i16
   %29 = call i32 @clusteracct_storage_p_register_ctld(ptr noundef %25, i16 noundef zeroext %28) #8
   %30 = icmp eq i32 %29, 2002
@@ -694,7 +694,7 @@ define internal range(i32 0, 2) i32 @_for_each_check_ext_conn(ptr noundef %0, pt
 
 5:                                                ; preds = %2
   %6 = tail call i32 @slurm_persist_conn_reopen(ptr noundef %0, i1 noundef zeroext true) #8
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 177), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1216), align 8
   %8 = trunc i32 %7 to i16
   %9 = tail call i32 @clusteracct_storage_p_register_ctld(ptr noundef %0, i16 noundef zeroext %8) #8
   %10 = icmp eq i32 %9, 2002

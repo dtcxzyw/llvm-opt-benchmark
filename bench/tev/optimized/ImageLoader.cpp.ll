@@ -125,7 +125,7 @@ define internal fastcc void @"_ZZN3tev11ImageLoader10getLoadersEvENK3$_0clEv"() 
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i unwind label %119
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i: ; preds = %0
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14ExrImageLoaderE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev14ExrImageLoaderE, i64 16), ptr %1, align 8
   %2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %3 unwind label %119
 
@@ -133,13 +133,13 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %2, align 8
   store ptr %2, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
-  store ptr %4, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8 unwind label %119
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8: ; preds = %3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14PfmImageLoaderE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev14PfmImageLoaderE, i64 16), ptr %5, align 8
   %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
           to label %7 unwind label %119
 
@@ -151,16 +151,16 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %11 = load i64, ptr %2, align 8
   store i64 %11, ptr %6, align 8
   store ptr %6, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %10, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
-  store ptr %9, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   tail call void @_ZdlPv(ptr noundef nonnull %2) #15
-  store ptr %10, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %13 unwind label %119
 
 13:                                               ; preds = %7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev20ClipboardImageLoaderE, i64 0, i32 0, i64 2), ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev20ClipboardImageLoaderE, i64 16), ptr %12, align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %15 = icmp ult ptr %10, %14
   br i1 %15, label %16, label %18
 
@@ -206,8 +206,8 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i22, ptr align 8 %19, i64 %22, i1 false)
   store ptr %storemerge.i.i.i22, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %36, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
-  store ptr %35, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %.not.i5.i.i23 = icmp eq ptr %19, null
   br i1 %.not.i5.i.i23, label %38, label %37
 
@@ -217,13 +217,13 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
 
 38:                                               ; preds = %37, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21, %16
   %.0.i24 = phi ptr [ %17, %16 ], [ %36, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21 ], [ %36, %37 ]
-  store ptr %.0.i24, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %.0.i24, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %40 unwind label %119
 
 40:                                               ; preds = %38
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev16EmptyImageLoaderE, i64 0, i32 0, i64 2), ptr %39, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev16EmptyImageLoaderE, i64 16), ptr %39, align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %42 = icmp ult ptr %.0.i24, %41
   br i1 %42, label %43, label %45
 
@@ -269,8 +269,8 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
   %63 = getelementptr inbounds i8, ptr %61, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i34, ptr align 8 %46, i64 %49, i1 false)
   store ptr %storemerge.i.i.i34, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %63, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
-  store ptr %62, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
+  store ptr %62, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %.not.i5.i.i35 = icmp eq ptr %46, null
   br i1 %.not.i5.i.i35, label %65, label %64
 
@@ -280,13 +280,13 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
 
 65:                                               ; preds = %64, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33, %43
   %.0.i36 = phi ptr [ %44, %43 ], [ %63, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33 ], [ %63, %64 ]
-  store ptr %.0.i36, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %.0.i36, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   %66 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %67 unwind label %119
 
 67:                                               ; preds = %65
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14QoiImageLoaderE, i64 0, i32 0, i64 2), ptr %66, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev14QoiImageLoaderE, i64 16), ptr %66, align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %69 = icmp ult ptr %.0.i36, %68
   br i1 %69, label %70, label %72
 
@@ -332,8 +332,8 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
   %90 = getelementptr inbounds i8, ptr %88, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i46, ptr align 8 %73, i64 %76, i1 false)
   store ptr %storemerge.i.i.i46, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %90, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
-  store ptr %89, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr %90, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %.not.i5.i.i47 = icmp eq ptr %73, null
   br i1 %.not.i5.i.i47, label %92, label %91
 
@@ -343,13 +343,13 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
 
 92:                                               ; preds = %91, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i45, %70
   %.0.i48 = phi ptr [ %71, %70 ], [ %90, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i45 ], [ %90, %91 ]
-  store ptr %.0.i48, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %.0.i48, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   %93 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %94 unwind label %119
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15StbiImageLoaderE, i64 0, i32 0, i64 2), ptr %93, align 8
-  %95 = load ptr, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev15StbiImageLoaderE, i64 16), ptr %93, align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %96 = icmp ult ptr %.0.i48, %95
   br i1 %96, label %97, label %99
 
@@ -409,8 +409,8 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
   %117 = getelementptr inbounds i8, ptr %115, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i58, ptr align 8 %100, i64 %103, i1 false)
   store ptr %storemerge.i.i.i58, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, align 8
-  store ptr %117, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
-  store ptr %116, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr %117, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
+  store ptr %116, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 16), align 8
   %.not.i5.i.i59 = icmp eq ptr %100, null
   br i1 %.not.i5.i.i59, label %121, label %118
 
@@ -426,7 +426,7 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_delete
 
 121:                                              ; preds = %118, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i57, %97
   %.0.i60 = phi ptr [ %98, %97 ], [ %117, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i57 ], [ %117, %118 ]
-  store ptr %.0.i60, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 0, i32 1), align 8
+  store ptr %.0.i60, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders, i64 8), align 8
   ret void
 }
 
@@ -915,7 +915,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 

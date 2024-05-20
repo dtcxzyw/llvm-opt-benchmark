@@ -222,9 +222,9 @@ if.then7:                                         ; preds = %if.then5
   br label %if.end14
 
 if.else:                                          ; preds = %if.then5
-  %4 = load ptr, ptr getelementptr inbounds ([4 x %struct.ossl_param_st], ptr @p_get_params.counter_request, i64 0, i64 0, i32 2), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @p_get_params.counter_request, i64 16), align 16
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds ([4 x %struct.ossl_param_st], ptr @p_get_params.counter_request, i64 0, i64 1, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @p_get_params.counter_request, i64 56), align 8
   %7 = load ptr, ptr %6, align 8
   %call10 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %5, ptr noundef %7) #12
   br label %if.end14

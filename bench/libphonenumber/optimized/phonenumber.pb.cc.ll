@@ -94,10 +94,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
-  store ptr null, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 12), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 8), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 20), align 4
   %1 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit, label %2
@@ -107,11 +107,11 @@ define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov
   br label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %0, %2
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 40), i8 0, i64 20, i1 false)
-  store i32 1, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 60), align 4
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 24), align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 32), align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 48), i8 0, i64 20, i1 false)
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 68), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E)
   ret void
 }
@@ -213,7 +213,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21InitAsDefaultInstanc
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -244,7 +244,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2415,7 +2415,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber11GetTypeNameB5cxx11E
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([30 x i8], ptr @.str.3, i64 0, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 29))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -2454,7 +2454,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 20
@@ -2487,7 +2487,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %12, %15
   %16 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 72)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %0, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 20
@@ -2520,7 +2520,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 20
@@ -2835,20 +2835,20 @@ define internal void @_GLOBAL__sub_I_phonenumber.pb.cc() #14 section ".text.star
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
   store ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, align 16
-  store i64 20, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 0, i32 0, i32 1), align 8
-  store i32 20, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 0, i32 1), align 16
-  store ptr getelementptr inbounds ([107 x i8], ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 0, i64 20), ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 1), align 8
-  store i64 29, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 1, i32 0, i32 1), align 16
-  store i32 10, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 1, i32 1), align 8
-  store ptr getelementptr inbounds ([107 x i8], ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 0, i64 49), ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 2), align 16
-  store i64 20, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 2, i32 0, i32 1), align 8
-  store i32 5, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 2, i32 1), align 16
-  store ptr getelementptr inbounds ([107 x i8], ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 0, i64 69), ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 3), align 8
-  store i64 26, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 3, i32 0, i32 1), align 16
-  store i32 1, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 3, i32 1), align 8
-  store ptr getelementptr inbounds ([107 x i8], ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 0, i64 95), ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 4), align 16
-  store i64 11, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 4, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds ([5 x %"struct.google::protobuf::internal::EnumEntry"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 0, i64 4, i32 1), align 16
+  store i64 20, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 8), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 16), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20), ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 24), align 8
+  store i64 29, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 32), align 16
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 40), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 49), ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 48), align 16
+  store i64 20, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 56), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 64), align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 69), ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 72), align 8
+  store i64 26, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 80), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 88), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 95), ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 96), align 16
+  store i64 11, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 112), align 16
   ret void
 }
 

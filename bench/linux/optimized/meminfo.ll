@@ -92,8 +92,8 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   call void @si_meminfo(ptr noundef nonnull %3) #6
   call void @si_swapinfo(ptr noundef nonnull %3) #6
   %5 = call i64 @vm_memory_committed() #6
-  %6 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 19), align 8
-  %7 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 40), align 16
+  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 152), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 320), align 16
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   %9 = load i64, ptr %8, align 8
   br label %10
@@ -116,9 +116,9 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %22 = sub i64 %19, %21
   %23 = call i64 @llvm.smax.i64(i64 %22, i64 0)
   %24 = call i64 @si_mem_available() #6
-  %25 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 5), align 8
+  %25 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 40), align 8
   %26 = call i64 @llvm.smax.i64(i64 %25, i64 0)
-  %27 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 6), align 16
+  %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 48), align 16
   %28 = call i64 @llvm.smax.i64(i64 %27, i64 0)
   %29 = getelementptr inbounds i8, ptr %3, i64 32
   %30 = load i64, ptr %29, align 8
@@ -140,7 +140,7 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %42 = shl i64 %23, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef %42, i32 noundef 8) #6
   %43 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %44 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 40), align 16
+  %44 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 320), align 16
   %45 = call i64 @llvm.smax.i64(i64 %44, i64 0)
   %46 = shl i64 %45, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %46, i32 noundef 8) #6
@@ -177,7 +177,7 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %71 = shl i64 %70, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %71, i32 noundef 8) #6
   %72 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %73 = load volatile i64, ptr getelementptr inbounds ([10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 7), align 8
+  %73 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_zone_stat, i64 56), align 8
   %74 = call i64 @llvm.smax.i64(i64 %73, i64 0)
   %75 = shl i64 %74, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %75, i32 noundef 8) #6
@@ -192,22 +192,22 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %83 = shl i64 %82, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.16, i64 noundef %83, i32 noundef 8) #6
   %84 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %85 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 20), align 16
+  %85 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 160), align 16
   %86 = call i64 @llvm.smax.i64(i64 %85, i64 0)
   %87 = shl i64 %86, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.17, i64 noundef %87, i32 noundef 8) #6
   %88 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %89 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 21), align 8
+  %89 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 168), align 8
   %90 = call i64 @llvm.smax.i64(i64 %89, i64 0)
   %91 = shl i64 %90, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef %91, i32 noundef 8) #6
   %92 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %93 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 17), align 8
+  %93 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 136), align 8
   %94 = call i64 @llvm.smax.i64(i64 %93, i64 0)
   %95 = shl i64 %94, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %95, i32 noundef 8) #6
   %96 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %97 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 18), align 16
+  %97 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 144), align 16
   %98 = call i64 @llvm.smax.i64(i64 %97, i64 0)
   %99 = shl i64 %98, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef %99, i32 noundef 8) #6
@@ -217,7 +217,7 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %103 = shl i64 %102, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef %103, i32 noundef 8) #6
   %104 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %105 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 34), align 16
+  %105 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 272), align 16
   %106 = call i64 @llvm.smax.i64(i64 %105, i64 0)
   %107 = add nuw i64 %106, %26
   %108 = shl i64 %107, 2
@@ -233,27 +233,27 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   %115 = shl i64 %28, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef %115, i32 noundef 8) #6
   %116 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %117 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 37), align 8
+  %117 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 296), align 8
   %118 = call i64 @llvm.smax.i64(i64 %117, i64 0)
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %118) #6
-  %119 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 38), align 16
+  %119 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 304), align 16
   %120 = call i64 @llvm.smax.i64(i64 %119, i64 0)
   %121 = shl i64 %120, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef %121, i32 noundef 8) #6
   %122 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %123 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 39), align 8
+  %123 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 312), align 8
   %124 = call i64 @llvm.smax.i64(i64 %123, i64 0)
   %125 = shl i64 %124, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %125, i32 noundef 8) #6
   %126 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 0, i32 noundef 8) #6
   %127 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %128 = load volatile i64, ptr getelementptr inbounds ([10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 8), align 16
+  %128 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_zone_stat, i64 64), align 16
   %129 = call i64 @llvm.smax.i64(i64 %128, i64 0)
   %130 = shl i64 %129, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef %130, i32 noundef 8) #6
   %131 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
-  %132 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 22), align 16
+  %132 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 176), align 16
   %133 = call i64 @llvm.smax.i64(i64 %132, i64 0)
   %134 = shl i64 %133, 2
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef %134, i32 noundef 8) #6
@@ -266,7 +266,7 @@ define internal noundef i32 @meminfo_proc_show(ptr noundef %0, ptr nocapture rea
   call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef %139, i32 noundef 8) #6
   %140 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 4) #6
   %141 = load i64, ptr @vmalloc_base, align 8
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #6
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #6
           to label %143 [label %143, label %142], !srcloc !9
 
 142:                                              ; preds = %18

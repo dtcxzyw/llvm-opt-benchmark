@@ -102,7 +102,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @gtk_box_pack_start(ptr noundef %23, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %24 = load ptr, ptr %7, align 8, !tbaa !13
   tail call void @gtk_widget_set_name(ptr noundef %24, ptr noundef nonnull @.str.7) #7
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !14
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
   %26 = getelementptr inbounds i8, ptr %25, i64 112
   %27 = tail call ptr @dt_action_define(ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %9, ptr noundef nonnull @dt_action_def_rating) #7
   tail call void @dt_shortcut_register(ptr noundef %27, i32 noundef 0, i32 noundef 0, i32 noundef 48, i32 noundef 0) #7
@@ -148,7 +148,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %5 = alloca %struct._GdkRGBA, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !14
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
   %9 = getelementptr inbounds i8, ptr %8, i64 14144
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = icmp eq i32 %10, 0
@@ -168,7 +168,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %21 = fsub reassoc nsz arcp contract afn double %18, %20
   %22 = fmul reassoc nsz arcp contract afn double %21, 2.500000e-01
   %23 = fptrunc double %22 to float
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %25 = getelementptr inbounds i8, ptr %24, i64 1456
   %26 = load double, ptr %25, align 8, !tbaa !34
   %27 = fmul reassoc nsz arcp contract afn double %26, %18
@@ -177,7 +177,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %30 = fmul reassoc nsz arcp contract afn double %26, %29
   %31 = fptosi double %30 to i32
   %32 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %28, i32 noundef %31) #7
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %34 = getelementptr inbounds i8, ptr %33, i64 1456
   %35 = load double, ptr %34, align 8, !tbaa !34
   call void @cairo_surface_set_device_scale(ptr noundef %32, double noundef %35, double noundef %35) #7
@@ -191,7 +191,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   %42 = call i32 @gtk_widget_get_state_flags(ptr noundef %0) #7
   call void @gtk_style_context_get_color(ptr noundef %37, i32 noundef %42, ptr noundef nonnull %5) #7
-  %43 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %44 = getelementptr inbounds i8, ptr %43, i64 1448
   %45 = load double, ptr %44, align 8, !tbaa !38
   call void @cairo_set_line_width(ptr noundef %36, double noundef %45) #7
@@ -307,7 +307,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
 
 125:                                              ; preds = %117
   %126 = add nuw nsw i32 %90, 1
-  %127 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !14
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
   %128 = getelementptr inbounds i8, ptr %127, i64 588
   store i32 %126, ptr %128, align 4, !tbaa !47
   store i32 %126, ptr %7, align 4, !tbaa !39
@@ -341,7 +341,7 @@ define internal noundef i32 @_lib_ratings_button_press_callback(ptr nocapture re
   %9 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %10 = load i32, ptr %5, align 4, !tbaa !39
   tail call void @dt_ratings_apply_on_list(ptr noundef %9, i32 noundef %10, i32 noundef 1) #7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !48
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !48
   tail call void @dt_collection_update_query(ptr noundef %11, i32 noundef 3, i32 noundef 32, ptr noundef %9) #7
   tail call void (...) @dt_control_queue_redraw_center() #7
   br label %12

@@ -1416,7 +1416,7 @@ define void @_ZN4SSAOC2Ef(ptr nocapture noundef nonnull writeonly align 8 derefe
   store i32 1024, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1024, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV4SSAO, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store float %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1432,7 +1432,7 @@ define void @_ZN4SSAOC2Ef(ptr nocapture noundef nonnull writeonly align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4SSAOD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV4SSAO, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @__glewDetachShader, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
@@ -3165,9 +3165,9 @@ define internal void @_GLOBAL__sub_I_ssao.cpp() #17 section ".text.startup" pers
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #21
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

@@ -50,7 +50,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 global_state_do_store.exit:                       ; preds = %entry
-  tail call void @strpadcpy(ptr noundef nonnull getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 1), i32 noundef 100, ptr noundef %call.i, i8 noundef signext 0) #7
+  tail call void @strpadcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 4), i32 noundef 100, ptr noundef %call.i, i8 noundef signext 0) #7
   ret void
 }
 
@@ -69,14 +69,14 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 global_state_do_store.exit:                       ; preds = %entry
-  tail call void @strpadcpy(ptr noundef nonnull getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 1), i32 noundef 100, ptr noundef %call.i, i8 noundef signext 0) #7
+  tail call void @strpadcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 4), i32 noundef 100, ptr noundef %call.i, i8 noundef signext 0) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @global_state_received() local_unnamed_addr #2 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 3), align 4
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @global_state, i64 108), align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
@@ -84,15 +84,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @global_state_get_runstate() local_unnamed_addr #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @global_state, i64 104), align 4
   ret i32 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @register_global_state() local_unnamed_addr #0 {
 entry:
-  store i8 0, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 1), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 3), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @global_state, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @global_state, i64 108), align 4
   %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef 0, ptr noundef nonnull @vmstate_globalstate, ptr noundef nonnull @global_state, i32 noundef -1, i32 noundef 0, ptr noundef null) #7
   ret void
 }

@@ -311,7 +311,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_setup_gpe_for_wake(ptr nou
   %15 = and i64 %14, 512
   %16 = icmp eq i64 %15, 0
   %17 = select i1 %16, i32 2336, i32 3520
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %19 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %17, i64 noundef 16) #5
   %20 = icmp eq ptr %19, null
   br i1 %20, label %66, label %21

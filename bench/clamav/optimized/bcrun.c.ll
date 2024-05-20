@@ -578,14 +578,14 @@ print_src.exit:                                   ; preds = %116, %169
   %227 = getelementptr inbounds i8, ptr %5, i64 96
   store ptr null, ptr %227, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @dbg_state, i8 0, i64 40, i1 false)
-  store ptr @.str.25, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 5), align 8
+  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 32), align 8
   %228 = call ptr @optget(ptr noundef %9, ptr noundef nonnull @.str.26) #15
   %229 = getelementptr inbounds i8, ptr %228, i64 32
   %230 = load i32, ptr %229, align 8
   %.not180 = icmp eq i32 %230, 0
   %231 = zext i1 %.not180 to i32
-  store i32 %231, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 6), align 4
+  store i32 %231, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 36), align 4
   %232 = call ptr @optget(ptr noundef %9, ptr noundef nonnull @.str.27) #15
   %233 = getelementptr inbounds i8, ptr %232, i64 24
   %234 = load i64, ptr %233, align 8
@@ -901,9 +901,9 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr @stderr, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 1), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 4), align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 32), align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 1184
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 1188
@@ -912,7 +912,7 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.59, ptr noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %6, i32 noundef %16, i32 noundef %18, ptr noundef %20) #18
   %22 = load ptr, ptr %19, align 8
-  store ptr %22, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 2), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 16), align 8
   br label %47
 
 23:                                               ; preds = %9
@@ -922,9 +922,9 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
 
 26:                                               ; preds = %9
   %27 = load ptr, ptr @stderr, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 1), align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 4), align 4
-  %30 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 5), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 32), align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 1184
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 1188
@@ -932,11 +932,11 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.61, ptr noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %6, i32 noundef %32, i32 noundef %34) #18
   %36 = getelementptr inbounds i8, ptr %0, i64 1168
   %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 2), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 16), align 8
   br label %47
 
 38:                                               ; preds = %9, %9
-  %39 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 6), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 36), align 4
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %41, label %40
 
@@ -946,18 +946,18 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @stderr, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 1), align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 4), align 4
-  %45 = load i32, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 5), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 32), align 8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.62, ptr noundef %43, i32 noundef %44, i32 noundef %45) #18
   br label %47
 
 47:                                               ; preds = %9, %40, %41, %26, %10
   %48 = load ptr, ptr %5, align 8
-  store ptr %48, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 1), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 1184
   %50 = load <2 x i32>, ptr %49, align 8
-  store <2 x i32> %50, ptr getelementptr inbounds (%struct.dbg_state, ptr @dbg_state, i64 0, i32 4), align 4
+  store <2 x i32> %50, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
   br label %51
 
 51:                                               ; preds = %2, %47, %23

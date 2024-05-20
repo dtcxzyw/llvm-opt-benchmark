@@ -28,13 +28,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = load i32, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
   store i8 32, ptr %hookmask, align 1
   tail call void @lj_dispatch_update(ptr noundef nonnull %1) #7
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 2), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 6), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 16), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @profile_state, i64 64), align 8
   tail call void %6(ptr noundef %7, ptr noundef nonnull %L, i32 noundef %5, i32 noundef %8) #7
   %9 = load i8, ptr %hookmask, align 1
   %10 = and i8 %9, -128
@@ -133,13 +133,13 @@ if.end20:                                         ; preds = %if.then15, %while.e
   %12 = load i64, ptr %glref21, align 8
   %13 = inttoptr i64 %12 to ptr
   store ptr %13, ptr @profile_state, align 8
-  store i32 %interval.0.lcssa, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 4), align 8
-  store ptr %cb, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 1), align 8
-  store ptr %data, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
+  store i32 %interval.0.lcssa, ptr getelementptr inbounds (i8, ptr @profile_state, i64 56), align 8
+  store ptr %cb, ptr getelementptr inbounds (i8, ptr @profile_state, i64 8), align 8
+  store ptr %data, ptr getelementptr inbounds (i8, ptr @profile_state, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
   %14 = ptrtoint ptr %L to i64
-  store i64 %14, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), i8 0, i64 24, i1 false)
+  store i64 %14, ptr getelementptr inbounds (i8, ptr @profile_state, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @profile_state, i64 24), i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tm.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
   %div.i = sdiv i32 %interval.0.lcssa, 1000
@@ -160,7 +160,7 @@ if.end20:                                         ; preds = %if.then15, %while.e
   store ptr @profile_signal, ptr %sa.i, align 8
   %sa_mask.i = getelementptr inbounds i8, ptr %sa.i, i64 8
   %call7.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #7
-  %call8.i = call i32 @sigaction(i32 noundef 27, ptr noundef nonnull %sa.i, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 7)) #7
+  %call8.i = call i32 @sigaction(i32 noundef 27, ptr noundef nonnull %sa.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @profile_state, i64 72)) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
   br label %return
@@ -186,7 +186,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tm.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tm.i, i8 0, i64 32, i1 false)
   %call.i16 = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %tm.i, ptr noundef null) #7
-  %call5.i = tail call i32 @sigaction(i32 noundef 27, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 7), ptr noundef null) #7
+  %call5.i = tail call i32 @sigaction(i32 noundef 27, ptr noundef nonnull getelementptr inbounds (i8, ptr @profile_state, i64 72), ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
   %hookmask = getelementptr inbounds i8, ptr %0, i64 145
   %3 = load i8, ptr %hookmask, align 1
@@ -196,8 +196,8 @@ if.then:                                          ; preds = %entry
   %prof_mode = getelementptr inbounds i8, ptr %0, i64 3836
   store i32 0, ptr %prof_mode, align 4
   %call = tail call i32 @lj_trace_flushall(ptr noundef nonnull %L) #7
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 32), align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -211,7 +211,7 @@ if.then:                                          ; preds = %entry
   %9 = load ptr, ptr %allocd.i, align 8
   %call.i = tail call ptr %8(ptr noundef %9, ptr noundef %5, i64 noundef %conv2.i, i64 noundef 0) #7
   store ptr null, ptr @profile_state, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @profile_state, i64 24), i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -222,18 +222,18 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %L, ptr noundef %fmt, i32 noundef %depth, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %L to i64
-  store i64 %0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
-  tail call void @lj_debug_dumpstack(ptr noundef %L, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), ptr noundef %fmt, i32 noundef %depth) #7
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
+  store i64 %0, ptr getelementptr inbounds (i8, ptr @profile_state, i64 48), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 40), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @profile_state, i64 24), align 8
+  tail call void @lj_debug_dumpstack(ptr noundef %L, ptr noundef nonnull getelementptr inbounds (i8, ptr @profile_state, i64 24), ptr noundef %fmt, i32 noundef %depth) #7
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 40), align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv3 = and i64 %sub.ptr.sub, 4294967295
   store i64 %conv3, ptr %len, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 40), align 8
   ret ptr %4
 }
 
@@ -246,9 +246,9 @@ declare noundef i32 @setitimer(i32 noundef, ptr nocapture noundef readonly, ptr 
 define internal void @profile_signal(i32 %sig) #0 {
 entry:
   %0 = load ptr, ptr @profile_state, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
   %inc.i = add nsw i32 %1, 1
-  store i32 %inc.i, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
+  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
   %hookmask.i = getelementptr inbounds i8, ptr %0, i64 145
   %2 = load i8, ptr %hookmask.i, align 1
   %tobool.not.i = icmp ult i8 %2, 32
@@ -273,7 +273,7 @@ cond.false6.i:                                    ; preds = %cond.false.i
 
 cond.end16.i:                                     ; preds = %cond.false6.i, %cond.false.i, %if.then.i
   %cond17.i = phi i32 [ 78, %if.then.i ], [ %cond13.i, %cond.false6.i ], [ 73, %cond.false.i ]
-  store i32 %cond17.i, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 6), align 8
+  store i32 %cond17.i, ptr getelementptr inbounds (i8, ptr @profile_state, i64 64), align 8
   %4 = or disjoint i8 %2, -128
   store i8 %4, ptr %hookmask.i, align 1
   tail call void @lj_dispatch_update(ptr noundef nonnull %0) #7

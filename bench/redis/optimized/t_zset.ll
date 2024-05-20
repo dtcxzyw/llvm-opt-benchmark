@@ -1683,12 +1683,12 @@ cond.true.i:                                      ; preds = %land.rhs
   br i1 %cmp.i4.i, label %while.body, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %8, %5
   br i1 %cmp1.i.i, label %while.body, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %9, %7
   br i1 %cmp2.i.i, label %while.body, label %if.end4.i.i
 
@@ -1702,12 +1702,12 @@ cond.false.i:                                     ; preds = %land.rhs
   br i1 %cmp.i4.i, label %while.end, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %10, %5
   br i1 %cmp1.i6.i, label %while.body, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %11, %7
   br i1 %cmp2.i8.i, label %while.body, label %if.end4.i9.i
 
@@ -1770,12 +1770,12 @@ cond.true.i22:                                    ; preds = %land.rhs18
   br i1 %cmp.i4.i21, label %while.end29, label %if.end.i.i23
 
 if.end.i.i23:                                     ; preds = %cond.true.i22
-  %18 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i24 = icmp eq ptr %18, %15
   br i1 %cmp1.i.i24, label %while.body23, label %lor.lhs.false.i.i25
 
 lor.lhs.false.i.i25:                              ; preds = %if.end.i.i23
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i26 = icmp eq ptr %19, %17
   br i1 %cmp2.i.i26, label %while.body23, label %if.end4.i.i27
 
@@ -1794,12 +1794,12 @@ cond.false.i31:                                   ; preds = %land.rhs18
   br i1 %cmp.i4.i21, label %while.body23, label %if.end.i5.i32
 
 if.end.i5.i32:                                    ; preds = %cond.false.i31
-  %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i33 = icmp eq ptr %21, %15
   br i1 %cmp1.i6.i33, label %while.body23, label %lor.lhs.false.i7.i34
 
 lor.lhs.false.i7.i34:                             ; preds = %if.end.i5.i32
-  %22 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i35 = icmp eq ptr %22, %17
   br i1 %cmp2.i8.i35, label %while.body23, label %if.end4.i9.i36
 
@@ -1943,12 +1943,12 @@ cond.true:                                        ; preds = %entry
   br i1 %cmp.i4, label %cond.end, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.true
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i = icmp eq ptr %2, %value
   br i1 %cmp1.i, label %cond.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i = icmp eq ptr %3, %1
   br i1 %cmp2.i, label %cond.end, label %if.end4.i
 
@@ -1962,12 +1962,12 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp.i4, label %cond.end, label %if.end.i5
 
 if.end.i5:                                        ; preds = %cond.false
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6 = icmp eq ptr %4, %value
   br i1 %cmp1.i6, label %cond.end, label %lor.lhs.false.i7
 
 lor.lhs.false.i7:                                 ; preds = %if.end.i5
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8 = icmp eq ptr %5, %1
   br i1 %cmp2.i8, label %cond.end, label %if.end4.i9
 
@@ -2004,12 +2004,12 @@ cond.true:                                        ; preds = %entry
   br i1 %cmp.i4, label %cond.end, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.true
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i = icmp eq ptr %2, %value
   br i1 %cmp1.i, label %cond.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i = icmp eq ptr %3, %1
   br i1 %cmp2.i, label %cond.end, label %if.end4.i
 
@@ -2028,12 +2028,12 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp.i4, label %cond.end, label %if.end.i5
 
 if.end.i5:                                        ; preds = %cond.false
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6 = icmp eq ptr %5, %value
   br i1 %cmp1.i6, label %cond.end, label %lor.lhs.false.i7
 
 lor.lhs.false.i7:                                 ; preds = %if.end.i5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8 = icmp eq ptr %6, %1
   br i1 %cmp2.i8, label %cond.end, label %if.end4.i9
 
@@ -2386,7 +2386,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   store i32 1, ptr %ex, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %return.sink.split
 
 sw.bb4:                                           ; preds = %entry
@@ -2397,7 +2397,7 @@ sw.bb4:                                           ; preds = %entry
 
 if.end10:                                         ; preds = %sw.bb4
   store i32 1, ptr %ex, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   br label %return.sink.split
 
 sw.bb11:                                          ; preds = %entry
@@ -2562,17 +2562,17 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 define dso_local void @zslFreeLexRange(ptr nocapture noundef readonly %spec) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %spec, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp.not = icmp eq ptr %0, %1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.not = icmp eq ptr %0, %2
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2.not
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @sdsfree(ptr noundef %0) #19
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
-  %.pre8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
+  %.pre8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2623,17 +2623,17 @@ lor.lhs.false9:                                   ; preds = %if.end
 
 if.then13:                                        ; preds = %lor.lhs.false9, %if.end
   %2 = load ptr, ptr %spec, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp.not.i = icmp eq ptr %2, %3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.not.i = icmp eq ptr %2, %4
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
   tail call void @sdsfree(ptr noundef %2) #19
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
-  %.pre8.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
+  %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then13
@@ -2661,12 +2661,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1 = icmp eq ptr %0, %a
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2 = icmp eq ptr %1, %b
   br i1 %cmp2, label %return, label %if.end4
 
@@ -2695,12 +2695,12 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i = icmp eq ptr %2, %0
   br i1 %cmp1.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i = icmp eq ptr %3, %1
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
@@ -2750,12 +2750,12 @@ cond.true.i:                                      ; preds = %lor.lhs.false6
   br i1 %cmp.i4.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %10, %7
   br i1 %cmp1.i.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %11, %9
   br i1 %cmp2.i.i, label %return, label %if.end4.i.i
 
@@ -2769,12 +2769,12 @@ cond.false.i:                                     ; preds = %lor.lhs.false6
   br i1 %cmp.i4.i, label %if.end10, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %12, %7
   br i1 %cmp1.i6.i, label %return, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %13, %9
   br i1 %cmp2.i8.i, label %return, label %if.end4.i9.i
 
@@ -2810,12 +2810,12 @@ cond.true.i14:                                    ; preds = %lor.lhs.false12
   br i1 %cmp.i4.i13, label %zslLexValueLteMax.exit.thread49, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %cond.true.i14
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i16 = icmp eq ptr %19, %16
   br i1 %cmp1.i.i16, label %return, label %lor.lhs.false.i.i17
 
 lor.lhs.false.i.i17:                              ; preds = %if.end.i.i15
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i18 = icmp eq ptr %20, %18
   br i1 %cmp2.i.i18, label %return, label %if.end4.i.i19
 
@@ -2834,12 +2834,12 @@ cond.false.i23:                                   ; preds = %lor.lhs.false12
   br i1 %cmp.i4.i13, label %return, label %if.end.i5.i24
 
 if.end.i5.i24:                                    ; preds = %cond.false.i23
-  %22 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i25 = icmp eq ptr %22, %16
   br i1 %cmp1.i6.i25, label %return, label %lor.lhs.false.i7.i26
 
 lor.lhs.false.i7.i26:                             ; preds = %if.end.i5.i24
-  %23 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i27 = icmp eq ptr %23, %18
   br i1 %cmp2.i8.i27, label %return, label %if.end4.i9.i28
 
@@ -2908,12 +2908,12 @@ cond.true.i:                                      ; preds = %land.rhs
   br i1 %cmp.i4.i, label %while.body, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %6, %3
   br i1 %cmp1.i.i, label %while.body, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %7, %5
   br i1 %cmp2.i.i, label %while.body, label %if.end4.i.i
 
@@ -2927,12 +2927,12 @@ cond.false.i:                                     ; preds = %land.rhs
   br i1 %cmp.i4.i, label %while.end, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %8, %3
   br i1 %cmp1.i6.i, label %while.body, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %9, %5
   br i1 %cmp2.i8.i, label %while.body, label %if.end4.i9.i
 
@@ -3006,12 +3006,12 @@ cond.true.i74:                                    ; preds = %land.rhs26
   br i1 %cmp.i4.i73, label %while.body36, label %if.end.i.i75
 
 if.end.i.i75:                                     ; preds = %cond.true.i74
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i76 = icmp eq ptr %19, %16
   br i1 %cmp1.i.i76, label %while.body36, label %lor.lhs.false.i.i77
 
 lor.lhs.false.i.i77:                              ; preds = %if.end.i.i75
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i78 = icmp eq ptr %20, %18
   br i1 %cmp2.i.i78, label %while.body36, label %if.end4.i.i79
 
@@ -3025,12 +3025,12 @@ cond.false.i87:                                   ; preds = %land.rhs26
   br i1 %cmp.i4.i73, label %for.inc, label %if.end.i5.i88
 
 if.end.i5.i88:                                    ; preds = %cond.false.i87
-  %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i89 = icmp eq ptr %21, %16
   br i1 %cmp1.i6.i89, label %while.body36, label %lor.lhs.false.i7.i90
 
 lor.lhs.false.i7.i90:                             ; preds = %if.end.i5.i88
-  %22 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i91 = icmp eq ptr %22, %18
   br i1 %cmp2.i8.i91, label %while.body36, label %if.end4.i9.i92
 
@@ -3153,12 +3153,12 @@ cond.true.i100:                                   ; preds = %land.lhs.true
   br i1 %cmp.i4.i99, label %return, label %if.end.i.i101
 
 if.end.i.i101:                                    ; preds = %cond.true.i100
-  %35 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i102 = icmp eq ptr %35, %32
   br i1 %cmp1.i.i102, label %if.end146, label %lor.lhs.false.i.i103
 
 lor.lhs.false.i.i103:                             ; preds = %if.end.i.i101
-  %36 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i104 = icmp eq ptr %36, %34
   br i1 %cmp2.i.i104, label %if.end146, label %if.end4.i.i105
 
@@ -3177,12 +3177,12 @@ cond.false.i109:                                  ; preds = %land.lhs.true
   br i1 %cmp.i4.i99, label %if.end146, label %if.end.i5.i110
 
 if.end.i5.i110:                                   ; preds = %cond.false.i109
-  %38 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i111 = icmp eq ptr %38, %32
   br i1 %cmp1.i6.i111, label %if.end146, label %lor.lhs.false.i7.i112
 
 lor.lhs.false.i7.i112:                            ; preds = %if.end.i5.i110
-  %39 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i113 = icmp eq ptr %39, %34
   br i1 %cmp2.i8.i113, label %if.end146, label %if.end4.i9.i114
 
@@ -3240,12 +3240,12 @@ cond.true.i123:                                   ; preds = %land.rhs89
   br i1 %cmp.i4.i122, label %for.inc109, label %if.end.i.i124
 
 if.end.i.i124:                                    ; preds = %cond.true.i123
-  %48 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i125 = icmp eq ptr %48, %45
   br i1 %cmp1.i.i125, label %while.body98, label %lor.lhs.false.i.i126
 
 lor.lhs.false.i.i126:                             ; preds = %if.end.i.i124
-  %49 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i127 = icmp eq ptr %49, %47
   br i1 %cmp2.i.i127, label %while.body98, label %if.end4.i.i128
 
@@ -3264,12 +3264,12 @@ cond.false.i135:                                  ; preds = %land.rhs89
   br i1 %cmp.i4.i122, label %while.body98, label %if.end.i5.i136
 
 if.end.i5.i136:                                   ; preds = %cond.false.i135
-  %51 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i137 = icmp eq ptr %51, %45
   br i1 %cmp1.i6.i137, label %while.body98, label %lor.lhs.false.i7.i138
 
 lor.lhs.false.i7.i138:                            ; preds = %if.end.i5.i136
-  %52 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i139 = icmp eq ptr %52, %47
   br i1 %cmp2.i8.i139, label %while.body98, label %if.end4.i9.i140
 
@@ -3402,12 +3402,12 @@ cond.true.i173:                                   ; preds = %land.lhs.true140
   br i1 %cmp.i4.i172, label %return, label %if.end.i.i174
 
 if.end.i.i174:                                    ; preds = %cond.true.i173
-  %68 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i175 = icmp eq ptr %68, %65
   br i1 %cmp1.i.i175, label %return, label %lor.lhs.false.i.i176
 
 lor.lhs.false.i.i176:                             ; preds = %if.end.i.i174
-  %69 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i177 = icmp eq ptr %69, %67
   br i1 %cmp2.i.i177, label %return, label %if.end4.i.i178
 
@@ -3421,12 +3421,12 @@ cond.false.i186:                                  ; preds = %land.lhs.true140
   br i1 %cmp.i4.i172, label %if.end146, label %if.end.i5.i187
 
 if.end.i5.i187:                                   ; preds = %cond.false.i186
-  %70 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i188 = icmp eq ptr %70, %65
   br i1 %cmp1.i6.i188, label %return, label %lor.lhs.false.i7.i189
 
 lor.lhs.false.i7.i189:                            ; preds = %if.end.i5.i187
-  %71 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i190 = icmp eq ptr %71, %67
   br i1 %cmp2.i8.i190, label %return, label %if.end4.i9.i191
 
@@ -4035,12 +4035,12 @@ cond.true.i:                                      ; preds = %lpGetObject.exit
   br i1 %cmp.i4.i, label %zslLexValueGteMin.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %4, %retval.0.i
   br i1 %cmp1.i.i, label %zslLexValueGteMin.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %5, %3
   br i1 %cmp2.i.i, label %zslLexValueGteMin.exit, label %if.end4.i.i
 
@@ -4054,12 +4054,12 @@ cond.false.i3:                                    ; preds = %lpGetObject.exit
   br i1 %cmp.i4.i, label %zslLexValueGteMin.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i3
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %6, %retval.0.i
   br i1 %cmp1.i6.i, label %zslLexValueGteMin.exit, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %7, %3
   br i1 %cmp2.i8.i, label %zslLexValueGteMin.exit, label %if.end4.i9.i
 
@@ -4129,12 +4129,12 @@ cond.true.i:                                      ; preds = %lpGetObject.exit
   br i1 %cmp.i4.i, label %zslLexValueLteMax.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %4, %retval.0.i
   br i1 %cmp1.i.i, label %zslLexValueLteMax.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %5, %3
   br i1 %cmp2.i.i, label %zslLexValueLteMax.exit, label %if.end4.i.i
 
@@ -4153,12 +4153,12 @@ cond.false.i3:                                    ; preds = %lpGetObject.exit
   br i1 %cmp.i4.i, label %zslLexValueLteMax.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %7, %retval.0.i
   br i1 %cmp1.i6.i, label %zslLexValueLteMax.exit, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %8, %3
   br i1 %cmp2.i8.i, label %zslLexValueLteMax.exit, label %if.end4.i9.i
 
@@ -4190,12 +4190,12 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i = icmp eq ptr %2, %0
   br i1 %cmp1.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i = icmp eq ptr %3, %1
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
@@ -4978,9 +4978,9 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @zsetTypeCreate(i64 noundef %size_hint, i64 noundef %val_len_hint) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp.not = icmp ult i64 %0, %size_hint
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 343), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5032), align 8
   %cmp1.not = icmp ult i64 %1, %val_len_hint
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not
   br i1 %or.cond, label %if.end, label %if.then
@@ -5014,7 +5014,7 @@ entry:
   %bf.load = load i32, ptr %zobj, align 8
   %0 = and i32 %bf.load, 240
   %cmp = icmp eq i32 %0, 176
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp1 = icmp ult i64 %1, %size_hint
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %if.end
@@ -5300,9 +5300,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %zsl, align 8
   %length = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %length, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp1.not = icmp ugt i64 %3, %4
-  %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 343), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5032), align 8
   %cmp2.not = icmp ult i64 %5, %maxelelen
   %or.cond = select i1 %cmp1.not, i1 true, i1 %cmp2.not
   br i1 %or.cond, label %if.end5, label %land.lhs.true3
@@ -5517,7 +5517,7 @@ if.then52:                                        ; preds = %if.else
   %div1.i = lshr i64 %call.i80, 1
   %add55 = add nuw i64 %div1.i, 1
   %conv56 = and i64 %add55, 4294967295
-  %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp57 = icmp ult i64 %10, %conv56
   br i1 %cmp57, label %if.then68, label %lor.lhs.false59
 
@@ -5564,7 +5564,7 @@ sw.bb13.i:                                        ; preds = %lor.lhs.false59
 
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %15, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
-  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 343), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5032), align 8
   %cmp61 = icmp ugt i64 %retval.0.i, %16
   br i1 %cmp61, label %if.then68, label %lor.lhs.false63
 
@@ -6594,7 +6594,7 @@ while.end:                                        ; preds = %if.end31, %while.en
   br i1 %or.cond, label %if.end49, label %if.then48
 
 if.then48:                                        ; preds = %while.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %7) #19
   br label %if.end170
 
@@ -6694,7 +6694,7 @@ if.else109:                                       ; preds = %if.end93
   %bf.load.i = load i32, ptr %call89, align 8
   %24 = and i32 %bf.load.i, 240
   %cmp.i = icmp eq i32 %24, 176
-  %25 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp1.i = icmp ult i64 %25, %conv73
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.end111
@@ -6755,9 +6755,9 @@ reply_to_client:                                  ; preds = %if.end129
   %37 = load double, ptr %newscore, align 8
   %add148 = add nsw i32 %updated.1, %spec.select
   %conv149 = sext i32 %add148 to i64
-  %38 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add150 = add nsw i64 %38, %conv149
-  store i64 %add150, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %add150, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br i1 %cmp32, label %if.then152, label %if.else157
 
 reply_to_client.thread150:                        ; preds = %if.end111
@@ -6860,7 +6860,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call = tail call ptr @lookupKeyWriteOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #19
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6959,9 +6959,9 @@ if.end22:                                         ; preds = %if.then19, %if.then
   %18 = load ptr, ptr %db17, align 8
   tail call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %18, ptr noundef %1) #19
   %conv = zext nneg i32 %spec.select to i64
-  %19 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add = add nsw i64 %19, %conv
-  store i64 %add, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %for.end, %for.cond.preheader, %if.end22
@@ -7047,7 +7047,7 @@ if.else30:                                        ; preds = %if.else
 
 if.end33:                                         ; preds = %if.then10, %if.then21, %lor.lhs.false
   %notify_type.0 = phi ptr [ @.str.31, %lor.lhs.false ], [ @.str.32, %if.then10 ], [ @.str.34, %if.then21 ]
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call34 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %1, ptr noundef %9) #19
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %cleanup, label %lor.lhs.false36
@@ -7130,7 +7130,7 @@ if.end52:                                         ; preds = %if.then51, %if.end4
   br i1 %or.cond, label %if.end57, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end52
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %19) #19
   br label %if.end143
 
@@ -7293,9 +7293,9 @@ if.then134:                                       ; preds = %if.then130
 
 if.end138:                                        ; preds = %if.then130, %if.then134, %if.end128
   %49 = load i64, ptr %deleted, align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add139 = add i64 %50, %49
-  store i64 %add139, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %add139, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %49) #19
   br label %cleanup
 
@@ -7305,17 +7305,17 @@ cleanup:                                          ; preds = %if.end33, %lor.lhs.
 
 if.then142:                                       ; preds = %cleanup
   %51 = load ptr, ptr %lexrange, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp.not.i = icmp eq ptr %51, %52
-  %53 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.not.i = icmp eq ptr %51, %53
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i64
 
 if.then.i64:                                      ; preds = %if.then142
   call void @sdsfree(ptr noundef %51) #19
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
-  %.pre8.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
+  %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i64, %if.then142
@@ -8479,7 +8479,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end3
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %6) #19
   br label %return
 
@@ -8514,7 +8514,7 @@ if.then19:                                        ; preds = %for.body
 
 if.then26:                                        ; preds = %if.then19
   call void @zfree(ptr noundef %call8) #19
-  %12 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 13), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 200), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %12) #19
   br label %return
 
@@ -8668,7 +8668,7 @@ if.else122:                                       ; preds = %if.else114
 
 if.else130:                                       ; preds = %if.else122
   call void @zfree(ptr noundef %call8) #19
-  %29 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %29) #19
   br label %return
 
@@ -8734,7 +8734,7 @@ if.end175:                                        ; preds = %if.then165
 
 if.else178:                                       ; preds = %land.lhs.true143, %land.lhs.true158, %if.else153
   call void @zfree(ptr noundef %call8) #19
-  %37 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef %c, ptr noundef %37) #19
   br label %return
 
@@ -9502,7 +9502,7 @@ if.then376:                                       ; preds = %if.then373
   br label %if.end396.sink.split
 
 if.else386:                                       ; preds = %if.then373
-  %129 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   call void @addReply(ptr noundef %c, ptr noundef %129) #19
   %db387 = getelementptr inbounds i8, ptr %c, i64 32
   %130 = load ptr, ptr %db387, align 8
@@ -9520,9 +9520,9 @@ if.then390:                                       ; preds = %if.else386
   br label %if.end396.sink.split
 
 if.end396.sink.split:                             ; preds = %if.then376, %if.then390
-  %134 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %134 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc394 = add nsw i64 %134, 1
-  store i64 %inc394, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc394, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end396
 
 if.end396:                                        ; preds = %if.end396.sink.split, %if.else386
@@ -9688,7 +9688,7 @@ if.then430:                                       ; preds = %sw.bb13.i372, %sw.b
   br i1 %cmp416.not, label %while.end436, label %while.body418, !llvm.loop !69
 
 while.end436:                                     ; preds = %if.then430, %sdslen.exit406.us, %if.end414.thread506, %if.end414.thread, %if.end414
-  %156 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 390), align 8
+  %156 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5336), align 8
   %tobool437.not = icmp eq i32 %156, 0
   br i1 %tobool437.not, label %cond.false439, label %cond.true438
 
@@ -11221,7 +11221,7 @@ land.lhs.true54:                                  ; preds = %land.lhs.true44
   br i1 %tobool60.not, label %for.inc, label %if.else62
 
 if.else62:                                        ; preds = %if.else42, %land.lhs.true54
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef %0, ptr noundef %11) #19
   br label %if.end162
 
@@ -11363,7 +11363,7 @@ if.then135:                                       ; preds = %if.then133
   br label %cleanup
 
 if.else136:                                       ; preds = %if.then133
-  %31 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   call void @addReply(ptr noundef nonnull %0, ptr noundef %31) #19
   br label %cleanup
 
@@ -11993,7 +11993,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call5 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %1, ptr noundef %4) #19
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %return, label %lor.lhs.false
@@ -12020,7 +12020,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then11
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %6) #19
   br label %return
 
@@ -12282,7 +12282,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call5 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %1, ptr noundef %4) #19
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then8, label %lor.lhs.false
@@ -12294,17 +12294,17 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end
   %5 = load ptr, ptr %range, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp.not.i = icmp eq ptr %5, %6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.not.i = icmp eq ptr %5, %7
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
   tail call void @sdsfree(ptr noundef %5) #19
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
-  %.pre8.i = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
+  %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then8
@@ -12339,7 +12339,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.then14:                                        ; preds = %if.then11
   call void @zslFreeLexRange(ptr noundef nonnull %range)
-  %12 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %12) #19
   br label %return
 
@@ -12506,17 +12506,17 @@ if.else53:                                        ; preds = %if.end9
 if.end55:                                         ; preds = %cond.end.i, %while.body, %zslGetRank.exit, %if.then44, %if.then32
   %count.1 = phi i64 [ %sub50, %if.then44 ], [ %sub40, %zslGetRank.exit ], [ 0, %if.then32 ], [ %inc, %cond.end.i ], [ %count.054, %while.body ]
   %33 = load ptr, ptr %range, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp.not.i35 = icmp eq ptr %33, %34
-  %35 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.not.i36 = icmp eq ptr %33, %35
   %or.cond.i37 = select i1 %cmp.not.i35, i1 true, i1 %cmp2.not.i36
   br i1 %or.cond.i37, label %if.end.i41, label %if.then.i38
 
 if.then.i38:                                      ; preds = %if.end55
   tail call void @sdsfree(ptr noundef %33) #19
-  %.pre.i39 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
-  %.pre8.i40 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %.pre.i39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
+  %.pre8.i40 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   br label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.then.i38, %if.end55
@@ -12844,12 +12844,12 @@ cond.true.i93.us:                                 ; preds = %while.body68.us
   br i1 %cmp.i4.i92.us, label %if.end95, label %if.end.i.i94.us
 
 if.end.i.i94.us:                                  ; preds = %cond.true.i93.us
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i95.us = icmp eq ptr %13, %10
   br i1 %cmp1.i.i95.us, label %if.end81.us, label %lor.lhs.false.i.i96.us
 
 lor.lhs.false.i.i96.us:                           ; preds = %if.end.i.i94.us
-  %14 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i97.us = icmp eq ptr %14, %12
   br i1 %cmp2.i.i97.us, label %if.end81.us, label %if.end4.i.i98.us
 
@@ -12868,12 +12868,12 @@ cond.false.i104.us:                               ; preds = %while.body68.us
   br i1 %cmp.i4.i92.us, label %if.end81.us, label %if.end.i5.i105.us
 
 if.end.i5.i105.us:                                ; preds = %cond.false.i104.us
-  %16 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i106.us = icmp eq ptr %16, %10
   br i1 %cmp1.i6.i106.us, label %if.end81.us, label %lor.lhs.false.i7.i107.us
 
 lor.lhs.false.i7.i107.us:                         ; preds = %if.end.i5.i105.us
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i108.us = icmp eq ptr %17, %12
   br i1 %cmp2.i8.i108.us, label %if.end81.us, label %if.end4.i9.i109.us
 
@@ -12972,12 +12972,12 @@ cond.true.i:                                      ; preds = %while.body68
   br i1 %cmp.i4.i, label %if.end95, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i
-  %31 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i.i = icmp eq ptr %31, %28
   br i1 %cmp1.i.i, label %if.end95, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %32 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i.i = icmp eq ptr %32, %30
   br i1 %cmp2.i.i, label %if.end95, label %if.end4.i.i
 
@@ -12991,12 +12991,12 @@ cond.false.i90:                                   ; preds = %while.body68
   br i1 %cmp.i4.i, label %if.end81, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %cond.false.i90
-  %33 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
   %cmp1.i6.i = icmp eq ptr %33, %28
   br i1 %cmp1.i6.i, label %if.end95, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
-  %34 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 92), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
   %cmp2.i8.i = icmp eq ptr %34, %30
   br i1 %cmp2.i8.i, label %if.end95, label %if.end4.i9.i
 
@@ -13128,7 +13128,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #19
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -13189,7 +13189,7 @@ entry:
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx1, align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #19
   %cmp = icmp eq ptr %call, null
@@ -13387,7 +13387,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp4.not = icmp eq i32 %3, 4
-  br i1 %cmp4.not, label %if.then5, label %cond.false
+  br i1 %cmp4.not, label %if.then5, label %cond.end
 
 if.then5:                                         ; preds = %if.end
   %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13396,30 +13396,20 @@ if.then5:                                         ; preds = %if.end
   %5 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.63) #21
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %cond.true, label %if.else
+  br i1 %tobool.not, label %cond.end, label %if.else
 
 if.else:                                          ; preds = %if.then5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %6) #19
   br label %if.end53
 
-cond.true:                                        ; preds = %if.then5
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
-  %7 = load i32, ptr %resp, align 8
-  %idxprom = sext i32 %7 to i64
-  %arrayidx12 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 9, i64 %idxprom
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end
+cond.end:                                         ; preds = %if.end, %if.then5
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @shared, i64 96), %if.then5 ], [ getelementptr inbounds (i8, ptr @shared, i64 64), %if.end ]
   %resp13 = getelementptr inbounds i8, ptr %c, i64 24
-  %8 = load i32, ptr %resp13, align 8
-  %idxprom14 = sext i32 %8 to i64
-  %arrayidx15 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom14
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond.in = phi ptr [ %arrayidx12, %cond.true ], [ %arrayidx15, %cond.false ]
-  %cond = load ptr, ptr %cond.in, align 8
+  %7 = load i32, ptr %resp13, align 8
+  %idxprom14 = sext i32 %7 to i64
+  %arrayidx15 = getelementptr inbounds [4 x ptr], ptr %.sink, i64 0, i64 %idxprom14
+  %cond = load ptr, ptr %arrayidx15, align 8
   %call16 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %1, ptr noundef %cond) #19
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %if.end53, label %lor.lhs.false
@@ -13445,9 +13435,9 @@ cond.false30:                                     ; preds = %if.end21
 
 cond.end31:                                       ; preds = %if.end21, %if.end21
   %ptr32 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = load ptr, ptr %ptr32, align 8
+  %8 = load ptr, ptr %ptr32, align 8
   %score. = select i1 %cmp4.not, ptr %score, ptr null
-  %call38 = call i64 @zsetRank(ptr noundef nonnull %call16, ptr noundef %9, i32 noundef %reverse, ptr noundef %score.)
+  %call38 = call i64 @zsetRank(ptr noundef nonnull %call16, ptr noundef %8, i32 noundef %reverse, ptr noundef %score.)
   %cmp39 = icmp sgt i64 %call38, -1
   br i1 %cmp39, label %if.then41, label %if.else48
 
@@ -13457,8 +13447,8 @@ if.then41:                                        ; preds = %cond.end31
 if.then43:                                        ; preds = %if.then41
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 2) #19
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call38) #19
-  %10 = load double, ptr %score, align 8
-  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %10) #19
+  %9 = load double, ptr %score, align 8
+  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %9) #19
   br label %if.end53
 
 if.else48:                                        ; preds = %cond.end31
@@ -13514,7 +13504,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %arrayidx2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 48), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 480), align 8
   %call3 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %3, ptr noundef %4) #19
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %return, label %lor.lhs.false
@@ -13586,7 +13576,7 @@ if.then11:                                        ; preds = %if.then9
   br label %if.end167
 
 if.else:                                          ; preds = %if.then9
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   tail call void @addReply(ptr noundef %c, ptr noundef %2) #19
   br label %if.end167
 
@@ -13595,7 +13585,7 @@ if.end13:                                         ; preds = %if.end3
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %3) #19
   br label %if.end167
 
@@ -13814,9 +13804,9 @@ cond.false122:                                    ; preds = %if.end112
   unreachable
 
 cond.end123:                                      ; preds = %if.end112
-  %19 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc124 = add nsw i64 %19, 1
-  store i64 %inc124, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc124, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %cmp125 = icmp eq i64 %result_count.0, 0
   br i1 %cmp125, label %if.then127, label %if.end131
 
@@ -13948,8 +13938,8 @@ if.end149:                                        ; preds = %if.end144, %zsetLen
 
 if.then153:                                       ; preds = %if.end149
   %call160 = call ptr @createStringObjectFromLongLong(i64 noundef %cond) #19
-  %38 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 47), align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 46), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 464), align 8
   %cond166 = select i1 %cmp89, ptr %38, ptr %39
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %cond166, ptr noundef %0, ptr noundef %call160) #19
   call void @decrRefCount(ptr noundef %call160) #19
@@ -13982,7 +13972,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %1) #19
   br label %return
 
@@ -14033,7 +14023,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %1) #19
   br label %zpopMinMaxCommand.exit
 
@@ -14085,7 +14075,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %1) #19
   br label %zpopMinMaxCommand.exit
 
@@ -14207,8 +14197,8 @@ if.end14:                                         ; preds = %zsetLength.exit
 
 if.then16:                                        ; preds = %if.end14
   %cmp17 = icmp eq i32 %where, 1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 47), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 46), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 464), align 8
   %cond = select i1 %cmp17, ptr %8, ptr %9
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %cond, ptr noundef %2) #19
   br label %return
@@ -14217,8 +14207,8 @@ if.else:                                          ; preds = %if.end14
   %cond22 = call i64 @llvm.smin.i64(i64 %length.0.i, i64 %count)
   %call23 = call ptr @createStringObjectFromLongLong(i64 noundef %cond22) #19
   %cmp24 = icmp eq i32 %where, 1
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 47), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 46), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 464), align 8
   %cond28 = select i1 %cmp24, ptr %10, ptr %11
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %cond28, ptr noundef %2, ptr noundef %call23) #19
   call void @decrRefCount(ptr noundef %call23) #19
@@ -14292,7 +14282,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #19
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -14340,7 +14330,7 @@ zsetLength.exit:                                  ; preds = %if.then.i, %if.then
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %zsetLength.exit
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %7) #19
   br label %return
 
@@ -15163,7 +15153,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.then13, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true, %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %7) #19
   br label %return
 
@@ -15189,7 +15179,7 @@ if.end21:                                         ; preds = %entry
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %12 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %12 to i64
-  %arrayidx24 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx24 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %13 = load ptr, ptr %arrayidx24, align 8
   %call25 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %11, ptr noundef %13) #19
   %cmp26 = icmp eq ptr %call25, null
@@ -15284,7 +15274,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %4) #19
   br label %if.end64
 
@@ -15304,7 +15294,7 @@ if.else:                                          ; preds = %if.end6
   br i1 %tobool15.not, label %if.end19, label %if.else17
 
 if.else17:                                        ; preds = %if.else
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #19
   br label %if.end64
 
@@ -15347,7 +15337,7 @@ if.then38:                                        ; preds = %land.lhs.true
   br i1 %cmp42.not, label %for.cond, label %if.end64, !llvm.loop !99
 
 if.else46:                                        ; preds = %land.lhs.true, %for.body
-  %16 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %16) #19
   br label %if.end64
 
@@ -15539,7 +15529,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @zrangeResultBeginStore(ptr nocapture noundef writeonly %handler, i64 noundef %length) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 342), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp.not.i = icmp ult i64 %0, %length
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -15590,7 +15580,7 @@ if.then:                                          ; preds = %entry
   br label %if.end21.sink.split
 
 if.else:                                          ; preds = %entry
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef %0, ptr noundef %9) #19
   %10 = load ptr, ptr %client6, align 8
   %db8 = getelementptr inbounds i8, ptr %10, i64 32
@@ -15617,9 +15607,9 @@ if.then11:                                        ; preds = %if.else
   br label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.then, %if.then11
-  %20 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc20 = add nsw i64 %20, 1
-  store i64 %inc20, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc20, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.else

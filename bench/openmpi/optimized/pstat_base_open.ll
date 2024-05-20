@@ -46,7 +46,7 @@ define internal i32 @pmix_pstat_base_open(i32 noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_pstat_base_close() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_pstat_base_module_1_0_0_t, ptr @pmix_pstat, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pstat, i64 16), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 

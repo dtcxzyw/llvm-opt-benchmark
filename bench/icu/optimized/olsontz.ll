@@ -87,7 +87,7 @@ invoke.cont:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %emptyStr = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzid)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 16), ptr %this, align 8
   %finalZone = getelementptr inbounds i8, ptr %this, i64 128
   store ptr null, ptr %finalZone, align 8
   %transitionRulesInitOnce = getelementptr inbounds i8, ptr %this, i64 216
@@ -373,7 +373,7 @@ invoke.cont171:                                   ; preds = %invoke.cont169
   br i1 %or.cond5, label %invoke.cont179, label %if.else213
 
 invoke.cont179:                                   ; preds = %invoke.cont171
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %emptyStr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyStr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %emptyStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call180 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #16
@@ -597,7 +597,7 @@ declare void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7513OlsonTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(224) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 16), ptr %this, align 8
   %finalZone = getelementptr inbounds i8, ptr %this, i64 128
   store ptr null, ptr %finalZone, align 8
   %transitionRulesInitOnce = getelementptr inbounds i8, ptr %this, i64 216
@@ -792,7 +792,7 @@ return:                                           ; preds = %entry, %cond.end
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513OlsonTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 16), ptr %this, align 8
   invoke void @_ZN6icu_7513OlsonTimeZone21deleteTransitionRulesEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2179,7 +2179,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6icu_7513OlsonTimeZone21deleteTransitionRulesEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tzid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tzid, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tzid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3246,10 +3246,10 @@ invoke.cont:                                      ; preds = %if.end23.i.i39, %if
   %retval.0.i.i53 = phi i64 [ %or.i.i73, %if.then.i.i61 ], [ %conv22.i.i60, %if.then19.i.i56 ], [ %or42.i.i52, %if.end23.i.i39 ]
   %conv.i54 = sitofp i64 %retval.0.i.i53 to double
   %mul.i55 = fmul double %conv.i54, 1.000000e+03
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fromName, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fromName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %fromName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %toName, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %toName, align 8
   %fUnion2.i75 = getelementptr inbounds i8, ptr %toName, i64 8
   store i16 2, ptr %fUnion2.i75, align 8
   %call73 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(64) %fromName)
@@ -3706,10 +3706,10 @@ invoke.cont:                                      ; preds = %if.end23.i.i38, %if
   %retval.0.i.i52 = phi i64 [ %or.i.i72, %if.then.i.i60 ], [ %conv22.i.i59, %if.then19.i.i55 ], [ %or42.i.i51, %if.end23.i.i38 ]
   %conv.i53 = sitofp i64 %retval.0.i.i52 to double
   %mul.i54 = fmul double %conv.i53, 1.000000e+03
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fromName, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fromName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %fromName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %toName, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %toName, align 8
   %fUnion2.i74 = getelementptr inbounds i8, ptr %toName, i64 8
   store i16 2, ptr %fUnion2.i74, align 8
   %call67 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(64) %fromName)

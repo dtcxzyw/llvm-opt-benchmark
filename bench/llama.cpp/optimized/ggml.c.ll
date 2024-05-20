@@ -914,7 +914,7 @@ entry:
   %st = alloca %struct.stat, align 8
   %path = alloca [256 x i8], align 16
   %buf = alloca [42 x i8], align 16
-  %0 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %while.body, label %if.then
 
@@ -945,14 +945,14 @@ do.end:                                           ; preds = %while.body
   br i1 %cmp12.not, label %if.end15, label %while.end
 
 if.end15:                                         ; preds = %do.end
-  %7 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %inc = add i32 %7, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp1 = icmp ult i32 %inc, 8
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %do.end, %if.end15
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %cmp1722 = icmp ult i32 %.pr, 512
   br i1 %cmp1722, label %while.body19, label %while.end41
 
@@ -975,32 +975,32 @@ if.then29:                                        ; preds = %while.body19
 do.end33:                                         ; preds = %while.body19
   %call35 = call i32 @stat(ptr noundef nonnull %path, ptr noundef nonnull %st) #45
   %cmp36.not = icmp eq i32 %call35, 0
-  %.pre.pre = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %.pre.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   br i1 %cmp36.not, label %if.end39, label %while.end41
 
 if.end39:                                         ; preds = %do.end33
   %inc40 = add i32 %.pre.pre, 1
-  store i32 %inc40, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  store i32 %inc40, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %cmp17 = icmp ult i32 %inc40, 512
   br i1 %cmp17, label %while.body19, label %while.end41, !llvm.loop !10
 
 while.end41:                                      ; preds = %if.end39, %do.end33, %while.end
   %12 = phi i32 [ %.pr, %while.end ], [ %inc40, %if.end39 ], [ %.pre.pre, %do.end33 ]
-  %13 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp42 = icmp eq i32 %13, 0
   %cmp44 = icmp eq i32 %12, 0
   %or.cond2 = select i1 %cmp42, i1 true, i1 %cmp44
   br i1 %or.cond2, label %if.then46, label %for.body
 
 if.then46:                                        ; preds = %while.end41
-  store i32 0, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   br label %if.end100
 
 for.body:                                         ; preds = %while.end41, %for.inc79
   %.pr2031 = phi i32 [ %.pr20, %for.inc79 ], [ %13, %while.end41 ]
   %14 = phi i32 [ %21, %for.inc79 ], [ %12, %while.end41 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc79 ], [ 0, %while.end41 ]
-  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (i8, ptr @g_state, i64 6144), i64 0, i64 %indvars.iv
   %n_cpus = getelementptr inbounds i8, ptr %arrayidx, i64 2048
   store i32 0, ptr %n_cpus, align 4
   %cmp5123.not = icmp eq i32 %14, 0
@@ -1042,12 +1042,12 @@ if.then72:                                        ; preds = %do.end67
 
 for.inc:                                          ; preds = %do.end67, %if.then72
   %inc78 = add nuw i32 %c.024, 1
-  %20 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %cmp51 = icmp ult i32 %inc78, %20
   br i1 %cmp51, label %for.body53, label %for.inc79.loopexit, !llvm.loop !11
 
 for.inc79.loopexit:                               ; preds = %for.inc
-  %.pr20.pre = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %.pr20.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   br label %for.inc79
 
 for.inc79:                                        ; preds = %for.inc79.loopexit, %for.body
@@ -1095,7 +1095,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @ggml_is_numa() local_unnamed_addr #4 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp = icmp ugt i32 %0, 1
   ret i1 %cmp
 }
@@ -1832,20 +1832,20 @@ for.end51:                                        ; preds = %for.body46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i47)
   %call.i48 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i47) #45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i47)
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 4), align 4
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 23), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 24), align 8
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 25), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 27), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 35), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 37), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 38), align 2
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 45), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 47), align 1
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 56), align 8
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 70), align 2
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 60), align 4
-  store i8 1, ptr getelementptr inbounds ([72 x i8], ptr @GGML_OP_HAS_FINALIZE, i64 0, i64 70), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 23), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 25), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 27), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 35), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 37), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 38), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 45), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 47), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 70), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_INIT, i64 60), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @GGML_OP_HAS_FINALIZE, i64 70), align 2
   store i1 true, ptr @ggml_init.is_first_call, align 1
   br label %for.body58.preheader
 
@@ -17718,19 +17718,19 @@ if.end42:                                         ; preds = %for.cond, %if.end17
   %shared46 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %state_shared, ptr %shared46, align 16
   %call48 = call ptr @ggml_graph_compute_thread(ptr noundef nonnull %9)
-  %13 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp.i.i = icmp ugt i32 %13, 1
   br i1 %cmp.i.i, label %if.end.i, label %clear_numa_thread_affinity.exit
 
 if.end.i:                                         ; preds = %if.end42
-  %14 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %conv.i = zext i32 %14 to i64
   %sub.i = add nuw nsw i64 %conv.i, 63
   %15 = lshr i64 %sub.i, 3
   %mul.i = and i64 %15, 1073741816
   %call2.i = call ptr @__sched_cpualloc(i64 noundef %conv.i) #45
   call void @llvm.memset.p0.i64(ptr align 8 %call2.i, i8 0, i64 %mul.i, i1 false)
-  %16 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %cmp14.not.i = icmp eq i32 %16, 0
   br i1 %cmp14.not.i, label %for.end.i, label %for.body.i
 
@@ -17749,7 +17749,7 @@ cond.true.i:                                      ; preds = %for.body.i
   %18 = load i64, ptr %arrayidx.i, align 8
   %or.i = or i64 %18, %shl.i
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
@@ -17831,7 +17831,7 @@ entry:
   %n_threads5 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %n_threads5, align 8
   %ith = getelementptr inbounds i8, ptr %data, i64 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 1), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22560), align 8
   %cmp.i.i = icmp ugt i32 %4, 1
   br i1 %cmp.i.i, label %if.end.i, label %set_numa_thread_affinity.exit
 
@@ -17842,8 +17842,8 @@ if.end.i:                                         ; preds = %entry
   %div.i = udiv i32 %sub.i, %4
   %div1.i = udiv i32 %5, %div.i
   %idxprom.i = sext i32 %div1.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1), i64 0, i64 %idxprom.i
-  %6 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i64 0, i32 1, i32 2), align 4
+  %arrayidx.i = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (i8, ptr @g_state, i64 6144), i64 0, i64 %idxprom.i
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @g_state, i64 22564), align 4
   %conv.i = zext i32 %6 to i64
   %sub3.i = add nuw nsw i64 %conv.i, 63
   %7 = lshr i64 %sub3.i, 3

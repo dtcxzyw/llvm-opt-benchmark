@@ -80,10 +80,10 @@ define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly %
 
 ; Function Attrs: nounwind uwtable
 define internal void @opal_graph_construct(ptr nocapture noundef writeonly %0) #1 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #13
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -99,7 +99,7 @@ define internal void @opal_graph_construct(ptr nocapture noundef writeonly %0) #
   store ptr @opal_list_t_class, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -268,10 +268,10 @@ opal_obj_run_destructors.exit21:                  ; preds = %opal_obj_run_destru
 define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #13
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -287,7 +287,7 @@ define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeo
   store ptr @opal_list_t_class, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -470,10 +470,10 @@ define void @opal_graph_add_vertex(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %11, label %.loopexit, label %7
 
 ._crit_edge:                                      ; preds = %7, %2
-  %12 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_adjacency_list_t_class, i64 0, i32 8), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @opal_adjacency_list_t_class, i64 56), align 8
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
   %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_adjacency_list_t_class, i64 0, i32 4), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @opal_adjacency_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %14, %15
   br i1 %.not.i, label %17, label %16
 
@@ -489,7 +489,7 @@ define void @opal_graph_add_vertex(ptr noundef %0, ptr noundef %1) local_unnamed
   store ptr @opal_adjacency_list_t_class, ptr %13, align 8
   %19 = getelementptr inbounds i8, ptr %13, i64 8
   store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_adjacency_list_t_class, i64 0, i32 6), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_adjacency_list_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -1096,10 +1096,10 @@ define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   br i1 %.not26, label %9, label %71
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i64 0, i32 8), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @opal_value_array_t_class, i64 56), align 8
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i64 0, i32 4), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_value_array_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %12, %13
   br i1 %.not.i, label %15, label %14
 
@@ -1113,7 +1113,7 @@ define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   store ptr @opal_value_array_t_class, ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i64 0, i32 6), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_value_array_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8, !nonnull !17, !noundef !17
   br label %.lr.ph.i.i
 
@@ -1456,10 +1456,10 @@ define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define void @opal_graph_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #13
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -1475,7 +1475,7 @@ define void @opal_graph_duplicate(ptr nocapture noundef %0, ptr nocapture nounde
   store ptr @opal_graph_t_class, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_t_class, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_graph_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -1501,10 +1501,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 
 .lr.ph:                                           ; preds = %opal_obj_new.exit, %59
   %.071 = phi ptr [ %.0, %59 ], [ %.069, %opal_obj_new.exit ]
-  %20 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_vertex_t_class, i64 0, i32 8), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_vertex_t_class, i64 56), align 8
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #13
   %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_vertex_t_class, i64 0, i32 4), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_vertex_t_class, i64 32), align 8
   %.not.i54 = icmp eq i32 %22, %23
   br i1 %.not.i54, label %25, label %24
 
@@ -1520,7 +1520,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
   store ptr @opal_graph_vertex_t_class, ptr %21, align 8
   %27 = getelementptr inbounds i8, ptr %21, i64 8
   store volatile i32 1, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_vertex_t_class, i64 0, i32 6), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_graph_vertex_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i56 = icmp eq ptr %29, null
   br i1 %.not6.i.i56, label %opal_obj_new.exit60, label %.lr.ph.i.i57
@@ -1627,10 +1627,10 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
 
 .lr.ph76:                                         ; preds = %.lr.ph82, %opal_graph_add_edge.exit
   %.04674 = phi ptr [ %.046, %opal_graph_add_edge.exit ], [ %.04672, %.lr.ph82 ]
-  %85 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_edge_t_class, i64 0, i32 8), align 8
+  %85 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_edge_t_class, i64 56), align 8
   %86 = tail call noalias ptr @malloc(i64 noundef %85) #13
   %87 = load i32, ptr @opal_class_init_epoch, align 4
-  %88 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_edge_t_class, i64 0, i32 4), align 8
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_edge_t_class, i64 32), align 8
   %.not.i61 = icmp eq i32 %87, %88
   br i1 %.not.i61, label %90, label %89
 
@@ -1646,7 +1646,7 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
   store ptr @opal_graph_edge_t_class, ptr %86, align 8
   %92 = getelementptr inbounds i8, ptr %86, i64 8
   store volatile i32 1, ptr %92, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_graph_edge_t_class, i64 0, i32 6), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_graph_edge_t_class, i64 40), align 8
   %94 = load ptr, ptr %93, align 8
   %.not6.i.i63 = icmp eq ptr %94, null
   br i1 %.not6.i.i63, label %opal_obj_new.exit67, label %.lr.ph.i.i64

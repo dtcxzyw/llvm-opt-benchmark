@@ -69,7 +69,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 16), ptr %this, align 8
   %profilerLock_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_.i, i8 0, i64 40, i1 false)
   %profilers_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -109,7 +109,7 @@ _ZN6hermes2vm17sampling_profiler7SamplerC2Ev.exit: ; preds = %for.body.i.i.i.i.i
   store i64 0, ptr %timerThread_.i, align 8
   %enabledCondVar_.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %enabledCondVar_.i) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixE, i64 16), ptr %this, align 8
   %isSigHandlerRegistered_ = getelementptr inbounds i8, ptr %this, i64 208
   store i8 0, ptr %isSigHandlerRegistered_, align 8
   %1 = ptrtoint ptr %this to i64
@@ -253,7 +253,7 @@ define hidden void @_ZN6hermes2vm16SamplingProfiler6createERNS0_7RuntimeE(ptr no
 _ZNSt10unique_ptrIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #15, !noalias !8
   tail call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(256) %call.i, ptr noundef nonnull align 8 dereferenceable(9832) %rt) #14, !noalias !8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %call.i, align 8, !noalias !8
   %currentThread_.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %currentThread_.i.i, align 8, !noalias !8
@@ -359,7 +359,7 @@ declare void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN6hermes2vm17sampling_profiler7Sampler3getEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN6hermes2vm17sampling_profiler7Sampler3getEv.exit, !prof !4
@@ -386,7 +386,7 @@ _ZN6hermes2vm17sampling_profiler7Sampler3getEv.exit: ; preds = %entry, %init.che
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN6hermes2vm17sampling_profiler7Sampler3getEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixD2Ev.exit, !prof !4
@@ -416,7 +416,7 @@ declare void @_ZN6hermes2vm17sampling_profiler7Sampler17unregisterRuntimeEPNS0_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm16SamplingProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 16), ptr %this, align 8
   %nativeFunctions_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %nativeFunctions_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

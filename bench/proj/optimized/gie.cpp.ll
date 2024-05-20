@@ -1150,10 +1150,10 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %33, ptr noundef nonnull align 16 dereferenceable(48) @__const.main.longflags, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) @__const.main.longkeys, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30232) @_ZL1T, i8 0, i64 30232, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
-  store double 5.000000e-04, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
-  store i32 5555, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
+  store double 5.000000e-04, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
+  store i32 5555, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
   %35 = call noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %33, ptr noundef nonnull %34)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZL14list_err_codesv.exit, label %37
@@ -1256,7 +1256,7 @@ _Z9opt_givenP7OPTARGSPKc.exit54.thread:           ; preds = %66, %_Z9opt_givenP7
   br i1 %96, label %_Z9opt_givenP7OPTARGSPKc.exit57.thread, label %97
 
 _Z9opt_givenP7OPTARGSPKc.exit57.thread:           ; preds = %_Z9opt_givenP7OPTARGSPKc.exit54.thread
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   br label %117
 
 97:                                               ; preds = %_Z9opt_givenP7OPTARGSPKc.exit54.thread
@@ -1290,7 +1290,7 @@ _Z9opt_givenP7OPTARGSPKc.exit57:                  ; preds = %106, %111
   %.0.i56 = phi i32 [ %110, %106 ], [ %116, %111 ]
   %.not46 = icmp ne i32 %.0.i56, 0
   %spec.store.select = sext i1 %.not46 to i32
-  store i32 %spec.store.select, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i32 %spec.store.select, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   br i1 %.not46, label %141, label %117
 
 117:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit57.thread, %_Z9opt_givenP7OPTARGSPKc.exit57
@@ -1328,12 +1328,12 @@ _Z9opt_givenP7OPTARGSPKc.exit57:                  ; preds = %106, %111
 _Z9opt_givenP7OPTARGSPKc.exit60:                  ; preds = %117, %129, %134
   %.0.i59 = phi i32 [ %133, %129 ], [ %139, %134 ], [ 0, %117 ]
   %140 = add nsw i32 %.0.i59, 1
-  store i32 %140, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i32 %140, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   br label %141
 
 141:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit60, %_Z9opt_givenP7OPTARGSPKc.exit57
   %142 = load ptr, ptr @stdout, align 8
-  store ptr %142, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  store ptr %142, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %143 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %35, ptr noundef nonnull @.str.20)
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %_Z9opt_givenP7OPTARGSPKc.exit63.thread, label %145
@@ -1384,7 +1384,7 @@ _Z9opt_givenP7OPTARGSPKc.exit63:                  ; preds = %154, %159
 _Z7opt_argP7OPTARGSPKc.exit:                      ; preds = %165, %168
   %.0.i64 = phi ptr [ %171, %168 ], [ null, %165 ]
   %172 = call noalias ptr @fopen(ptr noundef %.0.i64, ptr noundef nonnull @.str.1)
-  store ptr %172, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  store ptr %172, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   br label %_Z9opt_givenP7OPTARGSPKc.exit63.thread
 
 _Z9opt_givenP7OPTARGSPKc.exit63.thread:           ; preds = %_Z9opt_givenP7OPTARGSPKc.exit63, %141, %_Z7opt_argP7OPTARGSPKc.exit
@@ -1456,7 +1456,7 @@ _Z9opt_givenP7OPTARGSPKc.exit69:                  ; preds = %199, %204
 
 211:                                              ; preds = %211, %210
   %indvars.iv.i = phi i64 [ 0, %210 ], [ %indvars.iv.next.i, %211 ]
-  %212 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %213 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %indvars.iv.i
   %214 = load ptr, ptr %213, align 16
   %215 = getelementptr inbounds i8, ptr %213, i64 8
@@ -1474,7 +1474,7 @@ _Z9opt_givenP7OPTARGSPKc.exit69.thread:           ; preds = %187, %_Z9opt_givenP
   br i1 %221, label %222, label %227
 
 222:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit69.thread
-  %223 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %223 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %224 = icmp eq i32 %223, -1
   br i1 %224, label %_ZL14list_err_codesv.exit, label %225
 
@@ -1560,7 +1560,7 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %230
   br i1 %258, label %259, label %265
 
 259:                                              ; preds = %253
-  %260 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %261 = load ptr, ptr %242, align 8
   %262 = getelementptr inbounds ptr, ptr %261, i64 %indvars.iv
   %263 = load ptr, ptr %262, align 8
@@ -1583,32 +1583,32 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %230
   %274 = load ptr, ptr @F, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %275, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), i8 0, i64 24, i1 false)
-  %276 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), i8 0, i64 24, i1 false)
+  %276 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i = icmp eq i32 %276, 0
   br i1 %.not.i, label %280, label %277
 
 277:                                              ; preds = %270
-  %278 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %278 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %279 = call ptr @proj_destroy(ptr noundef %278)
-  store ptr null, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   br label %_ZL12process_filePKc.exit
 
 280:                                              ; preds = %270
   %281 = call noalias ptr @fopen(ptr noundef %273, ptr noundef nonnull @.str.1)
   %282 = load ptr, ptr @F, align 8
   store ptr %281, ptr %282, align 8
-  %283 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %283 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %285, label %288
 
 285:                                              ; preds = %280
-  %286 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.57, ptr noundef nonnull @_ZL5delim, ptr noundef %273) #25
   br label %288
 
 288:                                              ; preds = %285, %280
-  store ptr %273, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
+  store ptr %273, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
   br label %_ZL8dispatchPKcS0_.exit.i
 
 _ZL8dispatchPKcS0_.exit.i:                        ; preds = %_ZL8dispatchPKcS0_.exit.i.backedge, %288
@@ -1633,7 +1633,7 @@ tailrecurse.i.i:                                  ; preds = %.loopexit.i.i, %_ZL
 .preheader.i.i:                                   ; preds = %tailrecurse.i.i
   %301 = load ptr, ptr %293, align 8
   store i8 0, ptr %301, align 1
-  %302 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %302 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i102.i.i = icmp eq i32 %302, 0
   br i1 %.not.i102.i.i, label %.lr.ph.i.i, label %.loopexit.i
 
@@ -1683,7 +1683,7 @@ tailrecurse.i.i:                                  ; preds = %.loopexit.i.i, %_ZL
 
 _ZL21at_decorative_elementP4ffio.exit.i.i:        ; preds = %323, %315
   store i8 0, ptr %320, align 1
-  %326 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %326 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i.i.i = icmp eq i32 %326, 0
   br i1 %.not.i.i.i, label %304, label %.loopexit.i, !llvm.loop !17
 
@@ -1722,15 +1722,15 @@ _ZL6at_tagP4ffio.exit.i.i:                        ; preds = %332
   br i1 %340, label %.loopexit52.i, label %352
 
 .loopexit52.i:                                    ; preds = %_ZL6at_tagP4ffio.exit.i.i, %_ZL6at_tagP4ffio.exit.thread.i.i
-  %341 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %341 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %342 = add nsw i32 %341, 1
-  store i32 %342, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %343 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %342, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %343 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %344 = add nsw i32 %343, 1
-  store i32 %344, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %345 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %344, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %346 = call i32 @proj_errno_reset(ptr noundef %345)
-  %347 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %348 = load i64, ptr %303, align 8
   %349 = trunc i64 %348 to i32
   %350 = load ptr, ptr %293, align 8
@@ -1759,7 +1759,7 @@ _ZL6at_tagP4ffio.exit.i.i:                        ; preds = %332
   store i8 0, ptr %360, align 1
   %364 = load ptr, ptr %293, align 8
   store i8 0, ptr %364, align 1
-  %365 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %365 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i45.i.i = icmp eq i32 %365, 0
   br i1 %.not.i45.i.i, label %366, label %.loopexit.i
 
@@ -1846,7 +1846,7 @@ _ZL6at_tagP4ffio.exit.i.i.i:                      ; preds = %400
 .lr.ph.i49.i.i:                                   ; preds = %.lr.ph.i49.i.i.preheader, %_ZL6at_tagP4ffio.exit21.i.i.i
   %406 = load ptr, ptr %293, align 8
   store i8 0, ptr %406, align 1
-  %407 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %407 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i15.i.i.i = icmp eq i32 %407, 0
   br i1 %.not.i15.i.i.i, label %408, label %.loopexit.i.i
 
@@ -1974,7 +1974,7 @@ _ZL6at_tagP4ffio.exit57.i.i:                      ; preds = %458
   call fastcc void @_ZL11append_argsP4ffio(ptr noundef %289)
   %467 = load ptr, ptr %293, align 8
   store i8 0, ptr %467, align 1
-  %468 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %468 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i58.i.i = icmp eq i32 %468, 0
   br i1 %.not.i58.i.i, label %469, label %.loopexit.i
 
@@ -2066,7 +2066,7 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %507, i64 24
   %511 = load ptr, ptr %510, align 8
-  %512 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %512 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i10.i = icmp eq i32 %512, 0
   br i1 %.not.i10.i, label %513, label %1299
 
@@ -2076,16 +2076,16 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   br i1 %515, label %516, label %567
 
 516:                                              ; preds = %513
-  %517 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 10), align 4
+  %517 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30124), align 4
   %518 = add nsw i32 %517, 1
-  store i32 %518, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 10), align 4
+  store i32 %518, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30124), align 4
   %519 = getelementptr inbounds i8, ptr %507, i64 72
   %520 = load i64, ptr %519, align 8
-  store i64 %520, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 20), align 8
+  store i64 %520, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30168), align 8
   %521 = load ptr, ptr %510, align 8
   %522 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZL1T, ptr noundef nonnull dereferenceable(1) %521, i64 noundef 10000) #25
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 0, i64 10000), align 8
-  %523 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 10000), align 8
+  %523 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %524 = icmp sgt i32 %523, 1
   br i1 %524, label %525, label %539
 
@@ -2094,15 +2094,15 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   br i1 %526, label %527, label %_ZL25finish_previous_operationPKc.exit.i.i.i
 
 527:                                              ; preds = %525
-  %528 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %529 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %528 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %529 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %530 = sub i32 0, %529
   %.not.i.i.i14.i = icmp eq i32 %528, %530
   br i1 %.not.i.i.i14.i, label %_ZL25finish_previous_operationPKc.exit.i.i.i, label %531
 
 531:                                              ; preds = %527
-  %532 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %533 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
+  %532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %533 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
   %.not2.i.i.i.i = icmp eq i32 %529, 0
   %.str.59..str.60.i.i.i.i = select i1 %.not2.i.i.i.i, ptr @.str.60, ptr @.str.59
   %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %532, ptr noundef nonnull @.str.68, ptr noundef nonnull @_ZL5delim, i32 noundef %528, i32 noundef %533, i32 noundef %529, ptr noundef nonnull %.str.59..str.60.i.i.i.i) #25
@@ -2116,17 +2116,17 @@ _ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %531, %527, %525
   %535 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %511) #26
   %536 = icmp ugt i64 %535, 70
   %spec.select.i.i.i.i = select i1 %536, ptr %31, ptr %32
-  %537 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %537 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %537, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef %511, ptr noundef nonnull %spec.select.i.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32)
   br label %539
 
 539:                                              ; preds = %_ZL25finish_previous_operationPKc.exit.i.i.i, %516
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 26), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30208), align 8
   br label %540
 
 540:                                              ; preds = %540, %539
@@ -2153,14 +2153,14 @@ _ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %531, %527, %525
 
 547:                                              ; preds = %546, %545, %545
   %storemerge.i.i.i.i = phi i32 [ -1, %546 ], [ 1, %545 ], [ 1, %545 ]
-  store i32 %storemerge.i.i.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  store i32 %storemerge.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   br label %_ZL9directionPKc.exit.i.i.i
 
 _ZL9directionPKc.exit.i.i.i:                      ; preds = %547, %545
   %548 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef nonnull @.str.66)
   %549 = fcmp oeq double %548, 0x7FF0000000000000
   %storemerge.i2.i.i.i = select i1 %549, double 5.000000e-04, double %548
-  store double %storemerge.i2.i.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  store double %storemerge.i2.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   br label %550
 
 550:                                              ; preds = %550, %_ZL9directionPKc.exit.i.i.i
@@ -2174,10 +2174,10 @@ _ZL9directionPKc.exit.i.i.i:                      ; preds = %547, %545
 
 _ZL6ignorePKc.exit.i.i.i:                         ; preds = %550
   %555 = call fastcc noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef nonnull %.1.i.i.i.i.i)
-  store i32 %555, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
-  %556 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %555, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
+  %556 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %557 = call i32 @proj_errno_reset(ptr noundef %556)
-  %558 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %558 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %.not.i.i13.i = icmp eq ptr %558, null
   br i1 %.not.i.i13.i, label %_ZL9operationPKc.exit.i.i, label %559
 
@@ -2187,13 +2187,13 @@ _ZL6ignorePKc.exit.i.i.i:                         ; preds = %550
 
 _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc.exit.i.i.i
   %561 = call i32 @proj_errno_reset(ptr noundef null)
-  %562 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 24), align 8
+  %562 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30200), align 8
   call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %562)
   %563 = load ptr, ptr @F, align 8
   %564 = getelementptr inbounds i8, ptr %563, i64 24
   %565 = load ptr, ptr %564, align 8
   %566 = call ptr @proj_create(ptr noundef null, ptr noundef %565)
-  store ptr %566, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store ptr %566, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 567:                                              ; preds = %513
@@ -2202,11 +2202,11 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br i1 %569, label %570, label %573
 
 570:                                              ; preds = %567
-  %571 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), ptr noundef nonnull dereferenceable(1) %511, i64 noundef 10000) #25
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2, i64 10000), align 2
-  %strcmpload.i.i.i = load i8, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), align 2
+  %571 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), ptr noundef nonnull dereferenceable(1) %511, i64 noundef 10000) #25
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30002), align 2
+  %strcmpload.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), align 2
   %.not.i32.i.i = icmp eq i8 %strcmpload.i.i.i, 0
-  %strcmpload1.i.i.i = load i8, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1), align 1
+  %strcmpload1.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 10001), align 1
   %.not2.i.i.i = icmp eq i8 %strcmpload1.i.i.i, 0
   %or.cond.i.i.i = select i1 %.not.i32.i.i, i1 true, i1 %.not2.i.i.i
   br i1 %or.cond.i.i.i, label %_ZL8dispatchPKcS0_.exit.i.backedge, label %572
@@ -2221,11 +2221,11 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br i1 %575, label %576, label %579
 
 576:                                              ; preds = %573
-  %577 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1), ptr noundef nonnull dereferenceable(1) %511, i64 noundef 10000) #25
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1, i64 10000), align 1
-  %strcmpload.i33.i.i = load i8, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), align 2
+  %577 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL1T, i64 10001), ptr noundef nonnull dereferenceable(1) %511, i64 noundef 10000) #25
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 20001), align 1
+  %strcmpload.i33.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), align 2
   %.not.i34.i.i = icmp eq i8 %strcmpload.i33.i.i, 0
-  %strcmpload1.i35.i.i = load i8, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1), align 1
+  %strcmpload1.i35.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 10001), align 1
   %.not2.i36.i.i = icmp eq i8 %strcmpload1.i35.i.i, 0
   %or.cond.i37.i.i = select i1 %.not.i34.i.i, i1 true, i1 %.not2.i36.i.i
   br i1 %or.cond.i37.i.i, label %_ZL8dispatchPKcS0_.exit.i.backedge, label %578
@@ -2235,7 +2235,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 579:                                              ; preds = %573
-  %580 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 26), align 8
+  %580 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30208), align 8
   %.not31.i.i = icmp eq i32 %580, 0
   br i1 %.not31.i.i, label %589, label %581
 
@@ -2245,12 +2245,12 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br i1 %583, label %584, label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 584:                                              ; preds = %581
-  %585 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
+  %585 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
   %586 = add nsw i32 %585, 1
-  store i32 %586, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
-  %587 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %586, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
+  %587 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   %588 = add nsw i32 %587, 1
-  store i32 %588, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %588, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 589:                                              ; preds = %579
@@ -2261,19 +2261,19 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
 592:                                              ; preds = %589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %511)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %593 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %593 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %594 = icmp sgt i32 %593, 3
   br i1 %594, label %595, label %_ZL6acceptPKc.exit.i
 
 595:                                              ; preds = %592
-  %596 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %596 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %597 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %596, ptr noundef nonnull @.str.71, ptr noundef %511) #25
   br label %_ZL6acceptPKc.exit.i
 
 _ZL6acceptPKc.exit.i:                             ; preds = %595, %592
-  %598 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 21), align 8
-  store i64 %598, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 22), align 8
+  %598 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30176), align 8
+  store i64 %598, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30184), align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
@@ -2390,23 +2390,23 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
 
 635:                                              ; preds = %_ZL6columnPKci.exit100.i.i, %_ZL6columnPKci.exit.i.i, %602
   %.0.i21.i = phi i32 [ %634, %_ZL6columnPKci.exit100.i.i ], [ 0, %_ZL6columnPKci.exit.i.i ], [ 0, %602 ]
-  %636 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
-  %637 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %636 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
+  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %638 = call i32 @proj_errno(ptr noundef %637)
   %639 = icmp eq i32 %636, %638
   br i1 %639, label %640, label %645
 
 640:                                              ; preds = %635
-  %641 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
+  %641 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
   %642 = add nsw i32 %641, 1
-  store i32 %642, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
-  %643 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %642, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
+  %643 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   %644 = add nsw i32 %643, 1
-  store i32 %644, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %644, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   br label %_ZL6expectPKc.exit.i
 
 645:                                              ; preds = %635
-  %646 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %647 = icmp eq ptr %646, null
   br i1 %647, label %648, label %756
 
@@ -2420,7 +2420,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
 650:                                              ; preds = %649
   %651 = call i32 @proj_errno(ptr noundef null)
   %.not83.i.i = icmp eq i32 %651, %.0.i21.i
-  %.pre.i32.i = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %.pre.i32.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   br i1 %.not83.i.i, label %715, label %652
 
 652:                                              ; preds = %650
@@ -2428,20 +2428,20 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
   %654 = load i32, ptr @fail_fails, align 4
   %655 = add nsw i32 %654, 1
   store i32 %655, ptr @fail_fails, align 4
-  %656 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %656 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %657 = add nsw i32 %656, 1
-  store i32 %657, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %658 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %657, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %658 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %659 = add nsw i32 %658, 1
-  store i32 %659, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %660 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %659, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %660 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %661 = call i32 @proj_errno_reset(ptr noundef %660)
-  %662 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %662 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %663 = icmp slt i32 %662, 0
   br i1 %663, label %_ZL6expectPKc.exit.i, label %664
 
 664:                                              ; preds = %652
-  %665 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %665 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %666 = icmp eq i32 %665, 0
   %667 = icmp ult i32 %662, 2
   %or.cond.i.i33.i = and i1 %667, %666
@@ -2455,21 +2455,21 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
   %669 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %670 = icmp ugt i64 %669, 70
   %spec.select.i.i.i36.i = select i1 %670, ptr %16, ptr %17
-  %671 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %671 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %672 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %671, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i.i36.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
-  %.pre.i.i.i = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %.pre.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   br label %673
 
 673:                                              ; preds = %668, %664
   %674 = phi i32 [ %.pre.i.i.i, %668 ], [ %665, %664 ]
-  %675 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %675 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %.not.i101.i.i = icmp eq i32 %674, 0
   %676 = select i1 %.not.i101.i.i, ptr @_ZL5delim, ptr @.str.105
   %fputs.i.i.i = call i32 @fputs(ptr nonnull %676, ptr %675)
-  %677 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %678 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
+  %677 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %678 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
   %679 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %678, i32 noundef 92) #26
   %680 = icmp ugt ptr %679, %678
   %681 = getelementptr inbounds i8, ptr %679, i64 1
@@ -2483,7 +2483,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
   %687 = load i64, ptr %686, align 8
   %688 = trunc i64 %687 to i32
   %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %677, ptr noundef nonnull @.str.106, ptr noundef %.1.i.i.i.i, i32 noundef %688) #25
-  %690 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %690 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   br label %693
 
 691:                                              ; preds = %693
@@ -2507,7 +2507,7 @@ _ZL20err_const_from_errnoi.exit.i.i.i:            ; preds = %691, %698
   %.0.i.i.i35.i = phi ptr [ %699, %698 ], [ @.str.110, %691 ]
   %700 = call ptr @proj_errno_string(i32 noundef %653)
   %701 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %690, ptr noundef nonnull @.str.107, ptr noundef %.0.i.i.i35.i, i32 noundef %653, ptr noundef %700) #25
-  %702 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %702 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   br label %705
 
 703:                                              ; preds = %705
@@ -2531,7 +2531,7 @@ _ZL20err_const_from_errnoi.exit12.i.i.i:          ; preds = %703, %710
   %.0.i11.i.i.i = phi ptr [ %711, %710 ], [ @.str.110, %703 ]
   %712 = call ptr @proj_errno_string(i32 noundef %.0.i21.i)
   %713 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %702, ptr noundef nonnull @.str.108, ptr noundef %.0.i11.i.i.i, i32 noundef %.0.i21.i, ptr noundef %712) #25
-  %714 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %714 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %fputc.i.i.i = call i32 @fputc(i32 10, ptr %714)
   br label %_ZL6expectPKc.exit.i
 
@@ -2540,12 +2540,12 @@ _ZL20err_const_from_errnoi.exit12.i.i.i:          ; preds = %703, %710
   %717 = load i32, ptr @succ_fails, align 4
   %718 = add nsw i32 %717, 1
   store i32 %718, ptr @succ_fails, align 4
-  %719 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
+  %719 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %720 = add nsw i32 %719, 1
-  store i32 %720, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %721 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %720, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %721 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %722 = add nsw i32 %721, 1
-  store i32 %722, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %722, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %723 = call i32 @proj_errno_reset(ptr noundef %716)
   br label %_ZL6expectPKc.exit.i
 
@@ -2557,16 +2557,16 @@ _ZL20err_const_from_errnoi.exit12.i.i.i:          ; preds = %703, %710
   %725 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %726 = icmp ugt i64 %725, 70
   %spec.select.i.i28.i = select i1 %726, ptr %14, ptr %15
-  %727 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %728 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %727, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i28.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  %729 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 20), align 8
+  %729 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30168), align 8
   %730 = trunc i64 %729 to i32
-  %731 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %731 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %732 = call i32 @proj_errno(ptr noundef %731)
   %733 = call ptr @proj_errno_string(i32 noundef %732)
-  %734 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %734 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %735 = call i32 @proj_errno(ptr noundef %734)
   br label %738
 
@@ -2589,19 +2589,19 @@ _ZL20err_const_from_errnoi.exit12.i.i.i:          ; preds = %703, %710
 
 _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %736, %743
   %.0.i.i30.i = phi ptr [ %744, %743 ], [ @.str.110, %736 ]
-  %745 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %745 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %746 = call i32 @proj_errno(ptr noundef %745)
   %747 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef nonnull @.str.74, ptr noundef nonnull @_ZL5delim, i32 noundef %730, ptr noundef %733, ptr noundef %.0.i.i30.i, i32 noundef %746)
   %748 = load i32, ptr @fail_fails, align 4
   %749 = add nsw i32 %748, 1
   store i32 %749, ptr @fail_fails, align 4
-  %750 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %750 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %751 = add nsw i32 %750, 1
-  store i32 %751, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %752 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %751, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %752 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %753 = add nsw i32 %752, 1
-  store i32 %753, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %754 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %753, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %754 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %755 = call i32 @proj_errno_reset(ptr noundef %754)
   br label %_ZL6expectPKc.exit.i
 
@@ -2610,16 +2610,16 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %736, %743
 
 757:                                              ; preds = %756
   %758 = call i32 @proj_errno_reset(ptr noundef nonnull %646)
-  %759 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %760 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %759 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %760 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %761 = call i32 @proj_angular_input(ptr noundef %759, i32 noundef %760)
   %.not80.i.i = icmp eq i32 %761, 0
   br i1 %.not80.i.i, label %780, label %762
 
 762:                                              ; preds = %757
-  %763 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %764 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  %763 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %764 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   %765 = getelementptr i8, ptr %763, i64 24
   %.val.i23.i = load ptr, ptr %765, align 8
   %766 = call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %.val.i23.i, ptr noundef nonnull @.str.112), !noalias !26
@@ -2654,13 +2654,13 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %736, %743
   br i1 %exitcond.not.i106.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i, label %.lr.ph.i104.i.i, !llvm.loop !29
 
 780:                                              ; preds = %757
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i
 
 _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i: ; preds = %778, %780, %762
-  %781 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 22), align 8, !noalias !30
-  %782 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8, !noalias !30
-  %783 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8, !noalias !30
+  %781 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30184), align 8, !noalias !30
+  %782 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8, !noalias !30
+  %783 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8, !noalias !30
   switch i64 %781, label %786 [
     i64 4, label %784
     i64 3, label %785
@@ -2683,7 +2683,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %786, %785, %784
   br i1 %.not81.i.i, label %831, label %787
 
 787:                                              ; preds = %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
-  %788 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %788 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %789 = call i32 @proj_errno(ptr noundef %788)
   %790 = icmp eq i32 %789, %.0.i21.i
   br i1 %790, label %791, label %800
@@ -2692,13 +2692,13 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %786, %785, %784
   %792 = load i32, ptr @succ_fails, align 4
   %793 = add nsw i32 %792, 1
   store i32 %793, ptr @succ_fails, align 4
-  %794 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
+  %794 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %795 = add nsw i32 %794, 1
-  store i32 %795, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %796 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %795, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %796 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %797 = add nsw i32 %796, 1
-  store i32 %797, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
-  %798 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %797, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
+  %798 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %799 = call i32 @proj_errno_reset(ptr noundef %798)
   br label %_ZL6expectPKc.exit.i
 
@@ -2710,11 +2710,11 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %786, %785, %784
   %801 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %802 = icmp ugt i64 %801, 70
   %spec.select.i107.i.i = select i1 %802, ptr %11, ptr %12
-  %803 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %803 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %804 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %803, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i107.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  %805 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %805 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %806 = call i32 @proj_errno(ptr noundef %805)
   br label %809
 
@@ -2737,7 +2737,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %786, %785, %784
 
 _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %.0.i110.i.i = phi ptr [ %815, %814 ], [ @.str.110, %807 ]
-  %816 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %816 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %817 = call i32 @proj_errno(ptr noundef %816)
   %818 = load ptr, ptr @F, align 8
   %819 = getelementptr inbounds i8, ptr %818, i64 72
@@ -2747,13 +2747,13 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %823 = load i32, ptr @fail_fails, align 4
   %824 = add nsw i32 %823, 1
   store i32 %824, ptr @fail_fails, align 4
-  %825 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %825 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %826 = add nsw i32 %825, 1
-  store i32 %826, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %827 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %826, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %827 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %828 = add nsw i32 %827, 1
-  store i32 %828, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %829 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %828, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %830 = call i32 @proj_errno_reset(ptr noundef %829)
   br label %_ZL6expectPKc.exit.i
 
@@ -2766,57 +2766,57 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %834 = load i32, ptr @succ_fails, align 4
   %835 = add nsw i32 %834, 1
   store i32 %835, ptr @succ_fails, align 4
-  %836 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
+  %836 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %837 = add nsw i32 %836, 1
-  store i32 %837, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %838 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %837, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %838 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %839 = add nsw i32 %838, 1
-  store i32 %839, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
-  %840 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %839, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
+  %840 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %841 = call i32 @proj_errno_reset(ptr noundef %840)
   br label %_ZL6expectPKc.exit.i
 
 842:                                              ; preds = %831
   call fastcc void @_ZL6bannerPKc(ptr noundef nonnull @_ZL1T)
-  %843 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 20), align 8
+  %843 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30168), align 8
   %844 = trunc i64 %843 to i32
   %845 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef nonnull @.str.76, ptr noundef nonnull @_ZL5delim, i32 noundef %844)
   call fastcc void @_ZL23another_failing_failurev()
   br label %_ZL6expectPKc.exit.i
 
 846:                                              ; preds = %756
-  %847 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %847 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %848 = icmp sgt i32 %847, 3
   br i1 %848, label %849, label %878
 
 849:                                              ; preds = %846
-  %850 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %851 = getelementptr inbounds i8, ptr %646, i64 96
   %852 = load i32, ptr %851, align 8
   %.not73.i.i = icmp eq i32 %852, 0
   %853 = select i1 %.not73.i.i, ptr @.str.79, ptr @.str.78
   %854 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %850, ptr noundef nonnull @.str.77, ptr noundef nonnull %853) #25
-  %855 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %856 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %855 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %856 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %857 = icmp eq i32 %856, 1
   %.str.65..str.80.i.i = select i1 %857, ptr @.str.65, ptr @.str.80
   %858 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %855, ptr noundef nonnull @.str.77, ptr noundef nonnull %.str.65..str.80.i.i) #25
-  %859 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %860 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %861 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %859 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %860 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %861 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %862 = call i32 @proj_angular_input(ptr noundef %860, i32 noundef %861)
   %.not74.i.i = icmp eq i32 %862, 0
   %863 = select i1 %.not74.i.i, ptr @.str.82, ptr @.str.81
   %864 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %859, ptr noundef nonnull @.str.77, ptr noundef nonnull %863) #25
-  %865 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %866 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %867 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %865 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %866 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %867 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %868 = call i32 @proj_angular_output(ptr noundef %866, i32 noundef %867)
   %.not75.i.i = icmp eq i32 %868, 0
   %869 = select i1 %.not75.i.i, ptr @.str.84, ptr @.str.83
   %870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %865, ptr noundef nonnull @.str.77, ptr noundef nonnull %869) #25
-  %871 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %872 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %871 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %873 = getelementptr inbounds i8, ptr %872, i64 380
   %874 = load i32, ptr %873, align 4
   %875 = getelementptr inbounds i8, ptr %872, i64 384
@@ -2829,26 +2829,26 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %880 = add nsw i32 %879, 1
   store i32 %880, ptr @tests, align 4
   call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %511)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 6), ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %881 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 6), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
+  %881 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), align 8
   %882 = fcmp oeq double %881, 0x7FF0000000000000
   br i1 %882, label %883, label %918
 
 883:                                              ; preds = %878
-  %884 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %884 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %885 = add nsw i32 %884, 1
-  store i32 %885, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %886 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %885, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %886 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %887 = add nsw i32 %886, 1
-  store i32 %887, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %888 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %887, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %888 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %889 = call i32 @proj_errno_reset(ptr noundef %888)
-  %890 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %890 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %891 = icmp sgt i32 %890, -1
   br i1 %891, label %892, label %_ZL6expectPKc.exit.i
 
 892:                                              ; preds = %883
-  %893 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %893 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %894 = icmp eq i32 %893, 0
   %895 = icmp ult i32 %890, 2
   %or.cond.i112.i.i = and i1 %895, %894
@@ -2862,21 +2862,21 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %897 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %898 = icmp ugt i64 %897, 70
   %spec.select.i.i116.i.i = select i1 %898, ptr %9, ptr %10
-  %899 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %899 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %900 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %899, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i116.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %.pre.i117.i.i = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %.pre.i117.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   br label %901
 
 901:                                              ; preds = %896, %892
   %902 = phi i32 [ %.pre.i117.i.i, %896 ], [ %893, %892 ]
-  %903 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %903 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %.not.i113.i.i = icmp eq i32 %902, 0
   %904 = select i1 %.not.i113.i.i, ptr @_ZL5delim, ptr @.str.105
   %fputs.i114.i.i = call i32 @fputs(ptr nonnull %904, ptr %903)
-  %905 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %906 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
+  %905 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %906 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
   %907 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %906, i32 noundef 92) #26
   %908 = icmp ugt ptr %907, %906
   %909 = getelementptr inbounds i8, ptr %907, i64 1
@@ -2893,17 +2893,17 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   br label %_ZL6expectPKc.exit.i
 
 918:                                              ; preds = %878
-  %919 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %920 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %919 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %920 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %921 = call i32 @proj_angular_output(ptr noundef %919, i32 noundef %920)
   %.not76.i.i = icmp eq i32 %921, 0
   br i1 %.not76.i.i, label %942, label %922
 
 922:                                              ; preds = %918
-  %923 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %924 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %923 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %924 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 6), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), i64 32, i1 false)
   %925 = getelementptr i8, ptr %923, i64 24
   %.val84.i.i = load ptr, ptr %925, align 8
   %926 = call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %.val84.i.i, ptr noundef nonnull @.str.112), !noalias !33
@@ -2944,19 +2944,19 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %938, %
   br label %945
 
 942:                                              ; preds = %918
-  %943 = load <2 x double>, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 6), align 8
-  %944 = load <2 x double>, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 6, i32 0, i64 2), align 8
+  %943 = load <2 x double>, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), align 8
+  %944 = load <2 x double>, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30096), align 8
   br label %945
 
 945:                                              ; preds = %942, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i
   %946 = phi <2 x double> [ %943, %942 ], [ %940, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
   %947 = phi <2 x double> [ %944, %942 ], [ %941, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
-  %948 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %948 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %949 = icmp sgt i32 %948, 3
   br i1 %949, label %950, label %957
 
 950:                                              ; preds = %945
-  %951 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %951 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %952 = extractelement <2 x double> %946, i64 0
   %953 = extractelement <2 x double> %946, i64 1
   %954 = extractelement <2 x double> %947, i64 0
@@ -2965,17 +2965,17 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %938, %
   br label %957
 
 957:                                              ; preds = %950, %945
-  %958 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %959 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %958 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %959 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %960 = call i32 @proj_angular_input(ptr noundef %958, i32 noundef %959)
   %.not77.i.i = icmp eq i32 %960, 0
   br i1 %.not77.i.i, label %979, label %961
 
 961:                                              ; preds = %957
-  %962 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %963 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %962 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %963 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   %964 = getelementptr i8, ptr %962, i64 24
   %.val85.i.i = load ptr, ptr %964, align 8
   %965 = call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %.val85.i.i, ptr noundef nonnull @.str.112), !noalias !36
@@ -3015,17 +3015,17 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i: ; preds = %977, %
   br label %980
 
 979:                                              ; preds = %957
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0164.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0164.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %980
 
 980:                                              ; preds = %979, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0164.i.i, i64 32, i1 false)
-  %981 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %981 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %982 = icmp sgt i32 %981, 3
   br i1 %982, label %983, label %990
 
 983:                                              ; preds = %980
-  %984 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %984 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %985 = load double, ptr %18, align 8
   %986 = load double, ptr %250, align 8
   %987 = load double, ptr %251, align 8
@@ -3034,9 +3034,9 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i: ; preds = %977, %
   br label %990
 
 990:                                              ; preds = %983, %980
-  %991 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 22), align 8, !noalias !39
-  %992 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8, !noalias !39
-  %993 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8, !noalias !39
+  %991 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30184), align 8, !noalias !39
+  %992 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8, !noalias !39
+  %993 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8, !noalias !39
   switch i64 %991, label %996 [
     i64 4, label %994
     i64 3, label %995
@@ -3058,20 +3058,20 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %996, %995, %994
   %997 = load <2 x double>, ptr %21, align 16
   %.sroa.10.0.copyload43.i.i = load double, ptr %.sroa.10.0..sroa_idx42.i.i, align 16
   %.sroa.12.0.copyload53.i.i = load double, ptr %.sroa.12.0..sroa_idx52.i.i, align 8
-  %998 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 21), align 8
+  %998 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30176), align 8
   %999 = icmp ult i64 %998, 4
   %.sroa.12.0.i.i = select i1 %999, double 0.000000e+00, double %.sroa.12.0.copyload53.i.i
   %1000 = icmp ult i64 %998, 3
   %.sroa.10.0.i.i = select i1 %1000, double 0.000000e+00, double %.sroa.10.0.copyload43.i.i
-  %1001 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1002 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %1001 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1002 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %1003 = call i32 @proj_angular_output(ptr noundef %1001, i32 noundef %1002)
   %.not78.i.i = icmp eq i32 %1003, 0
   br i1 %.not78.i.i, label %1024, label %1004
 
 1004:                                             ; preds = %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
-  %1005 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1006 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %1005 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1006 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %1007 = getelementptr i8, ptr %1005, i64 24
   %.val86.i.i = load ptr, ptr %1007, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -3126,15 +3126,15 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %.sroa.5.0.i.i = phi double [ %.sroa.5.0.copyload162.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.12.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
   %.sroa.4158.0.i.i = phi double [ %.sroa.4158.0.copyload159.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.10.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
   %1025 = phi <2 x double> [ %1023, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %997, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
-  store <2 x double> %1025, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5), align 8
-  store double %.sroa.4158.0.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 2), align 8
-  store double %.sroa.5.0.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 3), align 8
-  %1026 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store <2 x double> %1025, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30048), align 8
+  store double %.sroa.4158.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30064), align 8
+  store double %.sroa.5.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
+  %1026 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1027 = icmp sgt i32 %1026, 3
   br i1 %1027, label %1028, label %1033
 
 1028:                                             ; preds = %1024
-  %1029 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1029 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1030 = extractelement <2 x double> %997, i64 0
   %1031 = extractelement <2 x double> %997, i64 1
   %1032 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1029, ptr noundef nonnull @.str.88, double noundef %1030, double noundef %1031, double noundef %.sroa.10.0.i.i, double noundef %.sroa.12.0.i.i) #25
@@ -3149,14 +3149,14 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   br i1 %or.cond.i22.i, label %1047, label %1038
 
 1038:                                             ; preds = %1033
-  %1039 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1040 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %1039 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1040 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %1041 = call i32 @proj_angular_output(ptr noundef %1039, i32 noundef %1040)
   %.not79.i.i = icmp eq i32 %1041, 0
   br i1 %.not79.i.i, label %1045, label %1042
 
 1042:                                             ; preds = %1038
-  %1043 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %1043 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   store <2 x double> %946, ptr %22, align 16
   store <2 x double> %947, ptr %.sroa.6.0..sroa_idx16.i.i, align 16
   store <2 x double> %997, ptr %23, align 16
@@ -3176,27 +3176,27 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
 
 1047:                                             ; preds = %1045, %1042, %1033
   %.070.i.i = phi double [ %1044, %1042 ], [ %1046, %1045 ], [ 0.000000e+00, %1033 ]
-  %1048 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  %1048 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   %1049 = fcmp ugt double %.070.i.i, %1048
   br i1 %1049, label %1050, label %1113
 
 1050:                                             ; preds = %1047
-  %1051 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1051 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1052 = add nsw i32 %1051, 1
-  store i32 %1052, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %1053 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %1052, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %1053 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %1054 = add nsw i32 %1053, 1
-  store i32 %1054, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %1055 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1054, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %1055 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1056 = call i32 @proj_errno_reset(ptr noundef %1055)
-  %1057 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %1057 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1058 = icmp slt i32 %1057, 0
   br i1 %1058, label %_ZL6expectPKc.exit.i, label %1059
 
 1059:                                             ; preds = %1050
   %1060 = fcmp ogt double %.070.i.i, 1.000000e+06
   %1061 = fmul double %.070.i.i, 1.000000e+03
-  %1062 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1062 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1063 = icmp eq i32 %1062, 0
   %1064 = icmp ult i32 %1057, 2
   %or.cond.i145.i.i = and i1 %1064, %1063
@@ -3210,21 +3210,21 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %1066 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %1067 = icmp ugt i64 %1066, 70
   %spec.select.i.i151.i.i = select i1 %1067, ptr %4, ptr %5
-  %1068 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1068 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1068, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i151.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %.pre.i152.i.i = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %.pre.i152.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   br label %1070
 
 1070:                                             ; preds = %1065, %1059
   %1071 = phi i32 [ %.pre.i152.i.i, %1065 ], [ %1062, %1059 ]
-  %1072 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1072 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %.not.i146.i.i = icmp eq i32 %1071, 0
   %1073 = select i1 %.not.i146.i.i, ptr @_ZL5delim, ptr @.str.105
   %fputs.i147.i.i = call i32 @fputs(ptr nonnull %1073, ptr %1072)
-  %1074 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %1075 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
+  %1074 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1075 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
   %1076 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1075, i32 noundef 92) #26
   %1077 = icmp ugt ptr %1076, %1075
   %1078 = getelementptr inbounds i8, ptr %1076, i64 1
@@ -3238,23 +3238,23 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %1084 = load i64, ptr %1083, align 8
   %1085 = trunc i64 %1084 to i32
   %1086 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1074, ptr noundef nonnull @.str.106, ptr noundef %.1.i.i149.i.i, i32 noundef %1085) #25
-  %1087 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1087 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1087, ptr noundef nonnull @.str.115, ptr noundef %511) #25
-  %1089 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %1090 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5), align 8
-  %1091 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 1), align 8
+  %1089 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1090 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30048), align 8
+  %1091 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30056), align 8
   %1092 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1089, ptr noundef nonnull @.str.116, double noundef %1090, double noundef %1091) #25
-  %1093 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 3), align 8
+  %1093 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
   %1094 = fcmp une double %1093, 0.000000e+00
-  %1095 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 2), align 8
+  %1095 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30064), align 8
   %1096 = fcmp une double %1095, 0.000000e+00
   %or.cond3.i.i.i = select i1 %1094, i1 true, i1 %1096
   br i1 %or.cond3.i.i.i, label %1097, label %1100
 
 1097:                                             ; preds = %1070
-  %1098 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1098 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1099 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1098, ptr noundef nonnull @.str.117, double noundef %1095) #25
-  %.pr.i.i.i = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 5, i32 0, i64 3), align 8
+  %.pr.i.i.i = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
   br label %1100
 
 1100:                                             ; preds = %1097, %1070
@@ -3263,16 +3263,16 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   br i1 %1102, label %1103, label %1106
 
 1103:                                             ; preds = %1100
-  %1104 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1104, ptr noundef nonnull @.str.117, double noundef %1101) #25
   br label %1106
 
 1106:                                             ; preds = %1103, %1100
-  %1107 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1107 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %fputc.i150.i.i = call i32 @fputc(i32 10, ptr %1107)
-  %1108 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1108 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1109 = select i1 %1060, double 0x41CDCD64FFFFDF3B, double %1061
-  %1110 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  %1110 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   %1111 = fmul double %1110, 1.000000e+03
   %1112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1108, ptr noundef nonnull @.str.118, double noundef %1109, double noundef %1111) #25
   br label %_ZL6expectPKc.exit.i
@@ -3281,13 +3281,13 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %1114 = load i32, ptr @succs, align 4
   %1115 = add nsw i32 %1114, 1
   store i32 %1115, ptr @succs, align 4
-  %1116 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
+  %1116 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %1117 = add nsw i32 %1116, 1
-  store i32 %1117, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %1118 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %1117, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %1118 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %1119 = add nsw i32 %1118, 1
-  store i32 %1119, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
-  %1120 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1119, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
+  %1120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1121 = call i32 @proj_errno_reset(ptr noundef %1120)
   br label %_ZL6expectPKc.exit.i
 
@@ -3313,33 +3313,33 @@ _ZL6expectPKc.exit.i:                             ; preds = %1113, %1106, %1050,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
-  %1126 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %1126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1127 = icmp eq ptr %1126, null
   br i1 %1127, label %1128, label %1144
 
 1128:                                             ; preds = %1125
-  %1129 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
+  %1129 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
   %1130 = call i32 @proj_errno(ptr noundef null)
   %1131 = icmp eq i32 %1129, %1130
   br i1 %1131, label %1132, label %1137
 
 1132:                                             ; preds = %1128
-  %1133 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
+  %1133 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
   %1134 = add nsw i32 %1133, 1
-  store i32 %1134, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
-  %1135 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %1134, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
+  %1135 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   %1136 = add nsw i32 %1135, 1
-  store i32 %1136, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  store i32 %1136, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   br label %_ZL9roundtripPKc.exit.i
 
 1137:                                             ; preds = %1128
-  %1138 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1138 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1139 = add nsw i32 %1138, 1
-  store i32 %1139, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %1140 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %1139, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %1140 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %1141 = add nsw i32 %1140, 1
-  store i32 %1141, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %1142 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1141, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %1142 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1143 = call i32 @proj_errno_reset(ptr noundef %1142)
   br label %_ZL9roundtripPKc.exit.i
 
@@ -3360,13 +3360,13 @@ _ZL6expectPKc.exit.i:                             ; preds = %1113, %1106, %1050,
   %1153 = load i32, ptr @fail_rtps, align 4
   %1154 = add nsw i32 %1153, 1
   store i32 %1154, ptr @fail_rtps, align 4
-  %1155 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1155 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1156 = add nsw i32 %1155, 1
-  store i32 %1156, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %1157 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %1156, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %1157 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %1158 = add nsw i32 %1157, 1
-  store i32 %1158, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %1159 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1158, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %1159 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1160 = call i32 @proj_errno_reset(ptr noundef %1159)
   br label %_ZL9roundtripPKc.exit.i
 
@@ -3378,18 +3378,18 @@ _ZL6expectPKc.exit.i:                             ; preds = %1113, %1106, %1050,
   %.018.i.i = phi i32 [ %1162, %1161 ], [ 100, %1144 ]
   %1164 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %1146)
   %1165 = fcmp oeq double %1164, 0x7FF0000000000000
-  %1166 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  %1166 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   %1167 = select i1 %1165, double %1166, double %1164
-  %1168 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1169 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %1168 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1169 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %1170 = call i32 @proj_angular_input(ptr noundef %1168, i32 noundef %1169)
   %.not.i15.i = icmp eq i32 %1170, 0
   br i1 %.not.i15.i, label %1189, label %1171
 
 1171:                                             ; preds = %1163
-  %1172 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1173 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  %1172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   %1174 = getelementptr i8, ptr %1172, i64 24
   %.val.i.i = load ptr, ptr %1174, align 8
   %1175 = call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %.val.i.i, ptr noundef nonnull @.str.112), !noalias !46
@@ -3424,13 +3424,13 @@ _ZL6expectPKc.exit.i:                             ; preds = %1113, %1106, %1050,
   br i1 %exitcond.not.i.i20.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, label %.lr.ph.i.i18.i, !llvm.loop !29
 
 1189:                                             ; preds = %1163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
 
 _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %1189, %1171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
-  %1190 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  %1191 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  %1190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  %1191 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   %1192 = call double @proj_roundtrip(ptr noundef %1190, i32 noundef %1191, i32 noundef %.018.i.i, ptr noundef nonnull %30)
   %1193 = fcmp uno double %1192, 0.000000e+00
   br i1 %1193, label %1194, label %1197
@@ -3449,23 +3449,23 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %11
   %1199 = load i32, ptr @succ_rtps, align 4
   %1200 = add nsw i32 %1199, 1
   store i32 %1200, ptr @succ_rtps, align 4
-  %1201 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
+  %1201 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %1202 = add nsw i32 %1201, 1
-  store i32 %1202, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %1203 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
+  store i32 %1202, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %1203 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
   %1204 = add nsw i32 %1203, 1
-  store i32 %1204, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
-  %1205 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1204, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
+  %1205 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1206 = call i32 @proj_errno_reset(ptr noundef %1205)
   br label %_ZL9roundtripPKc.exit.i
 
 1207:                                             ; preds = %1197, %1194
-  %1208 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %1208 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1209 = icmp sgt i32 %1208, -1
   br i1 %1209, label %1210, label %1240
 
 1210:                                             ; preds = %1207
-  %1211 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1211 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1212 = icmp eq i32 %1211, 0
   %1213 = icmp ult i32 %1208, 2
   %or.cond3.i.i = and i1 %1213, %1212
@@ -3479,21 +3479,21 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %11
   %1215 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
   %1216 = icmp ugt i64 %1215, 70
   %spec.select.i27.i.i = select i1 %1216, ptr %26, ptr %27
-  %1217 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1217 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1217, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i27.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
-  %.pre.i.i = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %.pre.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   br label %1219
 
 1219:                                             ; preds = %1214, %1210
   %1220 = phi i32 [ %.pre.i.i, %1214 ], [ %1211, %1210 ]
-  %1221 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1221 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %.not24.i.i = icmp eq i32 %1220, 0
   %1222 = select i1 %.not24.i.i, ptr @_ZL5delim, ptr @.str.105
   %fputs.i.i = call i32 @fputs(ptr nonnull %1222, ptr %1221)
-  %1223 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %1224 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
+  %1223 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1224 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
   %1225 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1224, i32 noundef 92) #26
   %1226 = icmp ugt ptr %1225, %1224
   %1227 = getelementptr inbounds i8, ptr %1225, i64 1
@@ -3507,7 +3507,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %11
   %1233 = load i64, ptr %1232, align 8
   %1234 = trunc i64 %1233 to i32
   %1235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1223, ptr noundef nonnull @.str.106, ptr noundef %.1.i.i.i, i32 noundef %1234) #25
-  %1236 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1237 = fmul double %1192, 1.000000e+03
   %1238 = fmul double %1167, 1.000000e+03
   %1239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1236, ptr noundef nonnull @.str.120, double noundef %1237, double noundef %1238) #25
@@ -3517,13 +3517,13 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %11
   %1241 = load i32, ptr @fail_rtps, align 4
   %1242 = add nsw i32 %1241, 1
   store i32 %1242, ptr @fail_rtps, align 4
-  %1243 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %1243 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1244 = add nsw i32 %1243, 1
-  store i32 %1244, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %1245 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %1244, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %1245 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %1246 = add nsw i32 %1245, 1
-  store i32 %1246, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %1247 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %1246, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %1247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1248 = call i32 @proj_errno_reset(ptr noundef %1247)
   br label %_ZL9roundtripPKc.exit.i
 
@@ -3580,7 +3580,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
 
 1266:                                             ; preds = %1265, %1264, %1264
   %storemerge.i.i.i = phi i32 [ -1, %1265 ], [ 1, %1264 ], [ 1, %1264 ]
-  store i32 %storemerge.i.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  store i32 %storemerge.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1267:                                             ; preds = %1257
@@ -3592,7 +3592,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   %1271 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %511)
   %1272 = fcmp oeq double %1271, 0x7FF0000000000000
   %storemerge.i39.i.i = select i1 %1272, double 5.000000e-04, double %1271
-  store double %storemerge.i39.i.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  store double %storemerge.i39.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1273:                                             ; preds = %1267
@@ -3619,7 +3619,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br i1 %1283, label %1284, label %1287
 
 1284:                                             ; preds = %1281
-  %1285 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1285, ptr noundef nonnull @.str.77, ptr noundef %511) #25
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
@@ -3629,7 +3629,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br i1 %1289, label %1290, label %1292
 
 1290:                                             ; preds = %1287
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %1291 = getelementptr inbounds i8, ptr %507, i64 88
   store i64 2, ptr %1291, align 8
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
@@ -3643,16 +3643,16 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   %1296 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %511, ptr noundef nonnull dereferenceable(5) @.str.132) #26
   %1297 = icmp eq i32 %1296, 0
   %1298 = zext i1 %1297 to i32
-  store i32 %1298, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 24), align 8
+  store i32 %1298, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30200), align 8
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 _ZL8dispatchPKcS0_.exit.i.backedge:               ; preds = %1295, %1292, %1290, %1284, %1280, %1276, %1270, %1266, %1264, %1256, %1252, %_ZL9roundtripPKc.exit.i, %_ZL6expectPKc.exit.i, %_ZL6acceptPKc.exit.i, %584, %581, %578, %576, %572, %570, %_ZL9operationPKc.exit.i.i
   br label %_ZL8dispatchPKcS0_.exit.i, !llvm.loop !49
 
 1299:                                             ; preds = %_ZL7get_inpP4ffio.exit.i
-  %1300 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %1300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1301 = call ptr @proj_destroy(ptr noundef %1300)
-  store ptr null, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   br label %_ZL12process_filePKc.exit
 
 .loopexit.i:                                      ; preds = %_ZL6at_tagP4ffio.exit57.i.i, %.preheader.i.i, %.loopexit.i.i, %477, %469, %.preheader80.i.i, %_ZL21at_decorative_elementP4ffio.exit.i.i, %312, %304, %374, %366, %363, %_ZL6at_tagP4ffio.exit57.thread.i.i, %.loopexit52.i
@@ -3662,20 +3662,20 @@ _ZL8dispatchPKcS0_.exit.i.backedge:               ; preds = %1295, %1292, %1290,
   %1305 = load ptr, ptr @F, align 8
   %1306 = getelementptr inbounds i8, ptr %1305, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1306, i8 0, i64 16, i1 false)
-  %1307 = load <2 x i32>, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 14), align 4
-  %1308 = load <2 x i32>, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 17), align 8
+  %1307 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30140), align 4
+  %1308 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30152), align 8
   %1309 = add nsw <2 x i32> %1308, %1307
-  store <2 x i32> %1309, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 17), align 8
-  %1310 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 19), align 8
+  store <2 x i32> %1309, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30152), align 8
+  %1310 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30160), align 8
   %1311 = shl nsw i32 %1310, 1
-  store i32 %1311, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 19), align 8
-  %1312 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i32 %1311, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30160), align 8
+  %1312 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1313 = icmp sgt i32 %1312, 0
   br i1 %1313, label %1314, label %1320
 
 1314:                                             ; preds = %.loopexit.i
-  %1315 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %1316 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 16), align 4
+  %1315 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1316 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30148), align 4
   %1317 = extractelement <2 x i32> %1307, i64 1
   %.not8.i = icmp eq i32 %1317, 0
   %.str.59..str.60.i = select i1 %.not8.i, ptr @.str.60, ptr @.str.59
@@ -3727,61 +3727,61 @@ _ZL12process_filePKc.exit:                        ; preds = %277, %1299, %1325, 
 
 ._crit_edge:                                      ; preds = %_ZL11ffio_createPKPKcmm.exit, %._crit_edge.loopexit, %.preheader
   %.lcssa139 = phi i1 [ false, %.preheader ], [ %1339, %._crit_edge.loopexit ], [ false, %_ZL11ffio_createPKPKcmm.exit ]
-  %1340 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %1340 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1341 = icmp sgt i32 %1340, 0
   br i1 %1341, label %1342, label %1370
 
 1342:                                             ; preds = %._crit_edge
-  %.pre211 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %.pre211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   br i1 %.lcssa139, label %1343, label %1350
 
 1343:                                             ; preds = %1342
-  %1344 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 17), align 8
-  %1345 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 18), align 4
+  %1344 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30152), align 8
+  %1345 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30156), align 4
   %1346 = add nsw i32 %1345, %1344
-  %1347 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 19), align 8
+  %1347 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30160), align 8
   %1348 = add nsw i32 %1346, %1347
   %1349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.pre211, ptr noundef nonnull @.str.31, ptr noundef nonnull @_ZL5delim, i32 noundef %1348, i32 noundef %1344, i32 noundef %1347, i32 noundef %1345) #25
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   br label %1350
 
 1350:                                             ; preds = %1343, %1342
   %1351 = phi ptr [ %.pre, %1343 ], [ %.pre211, %1342 ]
   %1352 = call i64 @fwrite(ptr nonnull @_ZL5delim, i64 80, i64 1, ptr %1351)
-  %1353 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %1353 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1354 = icmp sgt i32 %1353, 1
   br i1 %1354, label %1355, label %1375
 
 1355:                                             ; preds = %1350
-  %1356 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1356 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1357 = load i32, ptr @fail_rtps, align 4
   %1358 = load i32, ptr @succ_rtps, align 4
   %1359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1356, ptr noundef nonnull @.str.33, i32 noundef %1357, i32 noundef %1358) #25
-  %1360 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1360 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1361 = load i32, ptr @fail_fails, align 4
   %1362 = load i32, ptr @succ_fails, align 4
   %1363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1360, ptr noundef nonnull @.str.34, i32 noundef %1361, i32 noundef %1362) #25
-  %1364 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1364 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1365 = load i32, ptr @tests, align 4
   %1366 = load i32, ptr @succs, align 4
   %1367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1364, ptr noundef nonnull @.str.35, i32 noundef %1365, i32 noundef %1366) #25
-  %1368 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1369 = call i64 @fwrite(ptr nonnull @_ZL5delim, i64 80, i64 1, ptr %1368)
   br label %1375
 
 1370:                                             ; preds = %._crit_edge
-  %1371 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 18), align 4
+  %1371 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30156), align 4
   %.not50 = icmp eq i32 %1371, 0
   br i1 %.not50, label %1375, label %1372
 
 1372:                                             ; preds = %1370
-  %1373 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1373 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1373, ptr noundef nonnull @.str.36, i32 noundef %1371) #25
   br label %1375
 
 1375:                                             ; preds = %1370, %1372, %1350, %1355
   %1376 = load ptr, ptr @stdout, align 8
-  %1377 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %1377 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %.not51 = icmp eq ptr %1376, %1377
   br i1 %.not51, label %1380, label %1378
 
@@ -3793,7 +3793,7 @@ _ZL12process_filePKc.exit:                        ; preds = %277, %1299, %1325, 
   call void @free(ptr noundef nonnull %35) #25
   %1381 = load ptr, ptr @F, align 8
   call fastcc void @_ZL12ffio_destroyP4ffio(ptr noundef %1381)
-  %1382 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 18), align 4
+  %1382 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30156), align 4
   br label %_ZL14list_err_codesv.exit
 
 _ZL14list_err_codesv.exit:                        ; preds = %211, %222, %2, %1380, %259, %243, %225, %_Z7opt_argP7OPTARGSPKc.exit66, %89, %62
@@ -3966,7 +3966,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19step_into_gie_blockP4ff
 
 13:                                               ; preds = %10
   store i8 0, ptr %11, align 1
-  %14 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %_ZL8nextlineP4ffio.exit13
 
@@ -4018,7 +4018,7 @@ _ZL8nextlineP4ffio.exit:                          ; preds = %23
 
 38:                                               ; preds = %.critedge
   store i8 0, ptr %.lcssa, align 1
-  %39 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 9), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
   %.not.i10 = icmp eq i32 %39, 0
   br i1 %.not.i10, label %40, label %_ZL8nextlineP4ffio.exit13
 
@@ -4062,7 +4062,7 @@ define internal fastcc void @_ZL6bannerPKc(ptr noundef %0) unnamed_addr #15 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %5 = icmp ugt i64 %4, 70
   %spec.select = select i1 %5, ptr %2, ptr %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef %0, ptr noundef nonnull %spec.select) #25
   ret void
 }
@@ -4070,7 +4070,7 @@ define internal fastcc void @_ZL6bannerPKc(ptr noundef %0) unnamed_addr #15 {
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL7verbosePKc(ptr noundef %0) unnamed_addr #10 {
   %2 = tail call noundef double @_Z9proj_atofPKc(ptr noundef %0)
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %8, label %5
 
@@ -4080,7 +4080,7 @@ define internal fastcc void @_ZL7verbosePKc(ptr noundef %0) unnamed_addr #10 {
   %.not = icmp eq i8 %char0, 0
   %7 = add nuw nsw i32 %3, 1
   %storemerge = select i1 %.not, i32 %7, i32 %6
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -4103,7 +4103,7 @@ define internal fastcc void @_ZL6ignorePKc(ptr noundef %0) unnamed_addr #10 {
 
 _ZL6columnPKci.exit:                              ; preds = %1
   %6 = tail call fastcc noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef nonnull %.1.i)
-  store i32 %6, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
   ret void
 }
 
@@ -4130,17 +4130,17 @@ _ZL6columnPKci.exit:                              ; preds = %2
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %_ZL6columnPKci.exit
-  %9 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.131, ptr noundef nonnull %.1.i) #25
   br label %14
 
 14:                                               ; preds = %11, %8
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 26), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30208), align 8
   br label %15
 
 15:                                               ; preds = %14, %_ZL6columnPKci.exit
@@ -4159,14 +4159,14 @@ define internal fastcc void @_ZL20crs_to_crs_operationv() unnamed_addr #10 {
   %1 = alloca [4 x i8], align 4
   %2 = alloca [1 x i8], align 1
   %3 = alloca [80 x i8], align 16
-  %4 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 10), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30124), align 4
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 10), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30124), align 4
   %6 = load ptr, ptr @F, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 20), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 8), align 4
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30168), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %26
 
@@ -4175,22 +4175,22 @@ define internal fastcc void @_ZL20crs_to_crs_operationv() unnamed_addr #10 {
   br i1 %12, label %13, label %_ZL25finish_previous_operationPKc.exit
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %16 = sub i32 0, %15
   %.not.i = icmp eq i32 %14, %16
   br i1 %.not.i, label %_ZL25finish_previous_operationPKc.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
   %.not2.i = icmp eq i32 %15, 0
   %.str.59..str.60.i = select i1 %.not2.i, ptr @.str.60, ptr @.str.59
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.68, ptr noundef nonnull @_ZL5delim, i32 noundef %14, i32 noundef %19, i32 noundef %15, ptr noundef nonnull %.str.59..str.60.i) #25
   br label %_ZL25finish_previous_operationPKc.exit
 
 _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 80, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1)) #25
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 80, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 10001)) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i32 3026478, ptr %1, align 4
@@ -4198,17 +4198,17 @@ _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
   %23 = icmp ugt i64 %22, 70
   %spec.select.i = select i1 %23, ptr %1, ptr %2
-  %24 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull %3, ptr noundef nonnull %spec.select.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %26
 
 26:                                               ; preds = %_ZL25finish_previous_operationPKc.exit, %0
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 26), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30208), align 8
   br label %27
 
 27:                                               ; preds = %27, %26
@@ -4235,14 +4235,14 @@ _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
 
 34:                                               ; preds = %33, %32, %32
   %storemerge.i = phi i32 [ -1, %33 ], [ 1, %32 ], [ 1, %32 ]
-  store i32 %storemerge.i, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 7), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
   br label %_ZL9directionPKc.exit
 
 _ZL9directionPKc.exit:                            ; preds = %32, %34
   %35 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef nonnull @.str.66)
   %36 = fcmp oeq double %35, 0x7FF0000000000000
   %storemerge.i2 = select i1 %36, double 5.000000e-04, double %35
-  store double %storemerge.i2, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 23), align 8
+  store double %storemerge.i2, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   br label %37
 
 37:                                               ; preds = %37, %_ZL9directionPKc.exit
@@ -4256,10 +4256,10 @@ _ZL9directionPKc.exit:                            ; preds = %32, %34
 
 _ZL6ignorePKc.exit:                               ; preds = %37
   %42 = call fastcc noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef nonnull %.1.i.i)
-  store i32 %42, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 25), align 4
-  %43 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %42, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30204), align 4
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %44 = call i32 @proj_errno_reset(ptr noundef %43)
-  %45 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %48, label %46
 
@@ -4269,12 +4269,12 @@ _ZL6ignorePKc.exit:                               ; preds = %37
 
 48:                                               ; preds = %46, %_ZL6ignorePKc.exit
   %49 = call i32 @proj_errno_reset(ptr noundef null)
-  %50 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 24), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30200), align 8
   call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %50)
-  %51 = call ptr @proj_create_crs_to_crs(ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1), ptr noundef null)
-  store ptr %51, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 2), align 2
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 1), align 1
+  %51 = call ptr @proj_create_crs_to_crs(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 10001), ptr noundef null)
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 10001), align 1
   ret void
 }
 
@@ -4289,7 +4289,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writ
   %4 = alloca ptr, align 8
   %5 = alloca %union.PJ_COORD, align 8
   call void @proj_coord(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  store i64 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 21), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30176), align 8
   br label %6
 
 6:                                                ; preds = %2, %39
@@ -4368,9 +4368,9 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writ
 39:                                               ; preds = %32
   %40 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %indvars.iv
   store double %.1, ptr %40, align 8
-  %41 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 21), align 8
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30176), align 8
   %42 = add i64 %41, 1
-  store i64 %42, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 21), align 8
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30176), align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %43, label %6, !llvm.loop !52
@@ -4470,13 +4470,13 @@ define internal fastcc void @_ZL23another_failing_failurev() unnamed_addr #10 {
   %1 = load i32, ptr @fail_fails, align 4
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @fail_fails, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 12), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 15), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 3), align 8
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30144), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %8 = tail call i32 @proj_errno_reset(ptr noundef %7)
   ret void
 }

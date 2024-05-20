@@ -104,7 +104,7 @@ define dso_local noundef ptr @eventfs_create_dir(ptr noundef %0, ptr noundef %1,
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 96) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
@@ -230,7 +230,7 @@ define dso_local ptr @eventfs_create_events_dir(ptr noundef %0, ptr noundef %1, 
   br i1 %10, label %116, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 96) #8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15

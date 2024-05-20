@@ -104,7 +104,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
 invoke.cont16:
   %info = alloca %struct.b3OpenCLDeviceInfo, align 8
   %pErrNum = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15b3RadixSort32CL, i64 16), ptr %this, align 8
   %m_commandQueue = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %queue, ptr %m_commandQueue, align 8
   call void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef %device, ptr noundef nonnull %info)
@@ -116,7 +116,7 @@ invoke.cont16:
   %frombool = and i8 %2, 1
   store i8 %frombool, ptr %m_deviceCPU, align 8
   %call = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call, align 8
   %m_size.i = getelementptr inbounds i8, ptr %call, i64 8
   %m_clContext.i = getelementptr inbounds i8, ptr %call, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
@@ -130,7 +130,7 @@ invoke.cont16:
   %m_workBuffer1 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %m_workBuffer1, align 8
   %call2 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call2, align 8
   %m_size.i60 = getelementptr inbounds i8, ptr %call2, i64 8
   %m_clContext.i61 = getelementptr inbounds i8, ptr %call2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i60, i8 0, i64 24, i1 false)
@@ -144,7 +144,7 @@ invoke.cont16:
   %m_workBuffer2 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call2, ptr %m_workBuffer2, align 8
   %call5 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 0, i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %call5, align 8
   %m_size.i65 = getelementptr inbounds i8, ptr %call5, i64 8
   %m_clContext.i66 = getelementptr inbounds i8, ptr %call5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i65, i8 0, i64 24, i1 false)
@@ -158,7 +158,7 @@ invoke.cont16:
   %m_workBuffer3 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5, ptr %m_workBuffer3, align 8
   %call8 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call8, align 8
   %m_size.i70 = getelementptr inbounds i8, ptr %call8, i64 8
   %m_clContext.i71 = getelementptr inbounds i8, ptr %call8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i70, i8 0, i64 24, i1 false)
@@ -172,7 +172,7 @@ invoke.cont16:
   %m_workBuffer3a = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call8, ptr %m_workBuffer3a, align 8
   %call11 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 0, i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %call11, align 8
   %m_size.i75 = getelementptr inbounds i8, ptr %call11, i64 8
   %m_clContext.i76 = getelementptr inbounds i8, ptr %call11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i75, i8 0, i64 24, i1 false)
@@ -186,7 +186,7 @@ invoke.cont16:
   %m_workBuffer4 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call11, ptr %m_workBuffer4, align 8
   %call14 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call14, align 8
   %m_size.i80 = getelementptr inbounds i8, ptr %call14, i64 8
   %m_clContext.i81 = getelementptr inbounds i8, ptr %call14, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i80, i8 0, i64 24, i1 false)
@@ -336,7 +336,7 @@ declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15b3RadixSort32CL, i64 16), ptr %this, align 8
   %m_scan = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_scan, align 8
   %isnull = icmp eq ptr %0, null
@@ -2761,7 +2761,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -2794,7 +2794,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2926,7 +2926,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -2959,7 +2959,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

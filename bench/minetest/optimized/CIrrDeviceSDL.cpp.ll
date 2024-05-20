@@ -685,8 +685,8 @@ if.end55:                                         ; preds = %if.then53, %_ZN3irr
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !67
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call56, i64 80
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %call56, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %46, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %call56, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %46, align 8, !tbaa !23
   %Device.i = getelementptr inbounds i8, ptr %call56, i64 8
   store ptr %this, ptr %Device.i, align 8, !tbaa !70
   %CursorPos.i = getelementptr inbounds i8, ptr %call56, i64 16
@@ -14504,14 +14504,14 @@ entry:
   %sdlversion = alloca %"class.irr::core::string", align 8
   %ref.tmp = alloca %"class.irr::core::dimension2d", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 456
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !23
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 464
   store ptr null, ptr %DebugName.i, align 8, !tbaa !67
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 472
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !69
-  tail call void @_ZN3irr14CIrrDeviceStubC2ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr13CIrrDeviceSDLE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(112) %param) #21
-  store ptr getelementptr inbounds inrange(-24, 432) ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !23
+  tail call void @_ZN3irr14CIrrDeviceStubC2ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr13CIrrDeviceSDLE, i64 8), ptr noundef nonnull align 8 dereferenceable(112) %param) #21
+  store ptr getelementptr inbounds inrange(-24, 432) (i8, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 24), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 480), ptr %0, align 8, !tbaa !23
   %Window = getelementptr inbounds i8, ptr %this, i64 248
   %WindowId = getelementptr inbounds i8, ptr %param, i64 48
   %1 = load ptr, ptr %WindowId, align 8, !tbaa !34
@@ -14771,8 +14771,8 @@ if.end54:                                         ; preds = %if.then52, %_ZN3irr
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !67
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call55, i64 80
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %call55, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %43, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %call55, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %43, align 8, !tbaa !23
   %Device.i = getelementptr inbounds i8, ptr %call55, i64 8
   store ptr %this, ptr %Device.i, align 8, !tbaa !70
   %CursorPos.i = getelementptr inbounds i8, ptr %call55, i64 16
@@ -17082,7 +17082,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8, !tbaa !892
   %_M_mode.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %_M_mode.i.i.i, align 8, !tbaa !898
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !23
   store ptr %call.i, ptr %conv, align 8, !tbaa !899
   %_M_byte_err_string.i = getelementptr inbounds i8, ptr %conv, i64 8
   %0 = getelementptr inbounds i8, ptr %conv, i64 24
@@ -17915,7 +17915,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8, !tbaa !892
   %_M_mode.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %_M_mode.i.i.i, align 8, !tbaa !898
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !23
   store ptr %call.i, ptr %conv, align 8, !tbaa !899
   %_M_byte_err_string.i = getelementptr inbounds i8, ptr %conv, i64 8
   %0 = getelementptr inbounds i8, ptr %conv, i64 24
@@ -20688,9 +20688,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr13CIrrDeviceSDL14CCursorControlD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %this, align 8, !tbaa !23
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %add.ptr.i, align 8, !tbaa !23
   %Cursors.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %Cursors.i, align 8, !tbaa !939
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -20734,9 +20734,9 @@ _ZN3irr13CIrrDeviceSDL14CCursorControlD2Ev.exit:  ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr13CIrrDeviceSDL14CCursorControlD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %this, align 8, !tbaa !23
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %add.ptr.i.i, align 8, !tbaa !23
   %Cursors.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %Cursors.i.i, align 8, !tbaa !939
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -20785,9 +20785,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %3, align 8, !tbaa !23
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %add.ptr.i.i, align 8, !tbaa !23
   %Cursors.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %Cursors.i.i, align 8, !tbaa !939
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
@@ -20835,9 +20835,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 152) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 152) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 24), ptr %3, align 8, !tbaa !23
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 200), ptr %add.ptr.i.i.i, align 8, !tbaa !23
   %Cursors.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %Cursors.i.i.i, align 8, !tbaa !939
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40

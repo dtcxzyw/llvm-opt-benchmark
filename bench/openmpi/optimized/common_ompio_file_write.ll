@@ -117,7 +117,7 @@ define i32 @mca_common_ompio_file_write(ptr noundef %0, ptr noundef %1, i32 noun
   %53 = call i32 %52(ptr noundef nonnull @.str, i32 noundef 21) #9
   %54 = sext i32 %53 to i64
   %55 = load i32, ptr @opal_class_init_epoch, align 4
-  %56 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not82.i = icmp eq i32 %55, %56
   br i1 %.not82.i, label %58, label %57
 
@@ -129,7 +129,7 @@ define i32 @mca_common_ompio_file_write(ptr noundef %0, ptr noundef %1, i32 noun
   store ptr @opal_convertor_t_class, ptr %20, align 8
   %59 = getelementptr inbounds i8, ptr %20, i64 8
   store volatile i32 1, ptr %59, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %61 = load ptr, ptr %60, align 8
   %.not6.i.i = icmp eq ptr %61, null
   br i1 %.not6.i.i, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i
@@ -295,7 +295,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   br i1 %.not84.i, label %144, label %137
 
 137:                                              ; preds = %136
-  %138 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %139 = call i32 %138(ptr noundef nonnull %19, ptr noundef nonnull %21) #9
   %.not85.i = icmp eq i32 %139, 0
   br i1 %.not85.i, label %141, label %.thread103.i
@@ -592,7 +592,7 @@ ompi_request_complete.exit:                       ; preds = %33, %.critedge.i
   %56 = call i32 %55(ptr noundef nonnull @.str, i32 noundef 21) #9
   %57 = sext i32 %56 to i64
   %58 = load i32, ptr @opal_class_init_epoch, align 4
-  %59 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not62 = icmp eq i32 %58, %59
   br i1 %.not62, label %61, label %60
 
@@ -606,7 +606,7 @@ ompi_request_complete.exit:                       ; preds = %33, %.critedge.i
   store ptr @opal_convertor_t_class, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 248
   store volatile i32 1, ptr %64, align 8
-  %65 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %66 = load ptr, ptr %65, align 8
   %.not6.i = icmp eq ptr %66, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -1122,7 +1122,7 @@ define i32 @mca_common_ompio_file_write_all(ptr noundef %0, ptr noundef %1, i32 
   store i64 0, ptr %6, align 8
   store i32 0, ptr %9, align 4
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %17, %18
   br i1 %.not, label %20, label %19
 
@@ -1134,7 +1134,7 @@ define i32 @mca_common_ompio_file_write_all(ptr noundef %0, ptr noundef %1, i32 
   store ptr @opal_convertor_t_class, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i = icmp eq ptr %23, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

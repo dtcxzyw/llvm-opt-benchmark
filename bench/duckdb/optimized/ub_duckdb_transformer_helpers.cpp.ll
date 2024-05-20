@@ -3547,7 +3547,7 @@ if.then182:                                       ; preds = %if.end180
           to label %call.i367.noexc unwind label %lpad183
 
 call.i367.noexc:                                  ; preds = %if.then182
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb9QueryNodeE, i64 0, i32 0, i64 2), ptr %call.i367369, align 8, !tbaa !46, !noalias !116
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb9QueryNodeE, i64 16), ptr %call.i367369, align 8, !tbaa !46, !noalias !116
   %type2.i.i.i = getelementptr inbounds i8, ptr %call.i367369, i64 8
   store i8 5, ptr %type2.i.i.i, align 8, !tbaa !119, !noalias !116
   %modifiers.i.i.i = getelementptr inbounds i8, ptr %call.i367369, i64 16
@@ -3564,7 +3564,7 @@ lpad.i.i.i:                                       ; preds = %call.i367.noexc
   br label %ehcleanup221
 
 invoke.cont184:                                   ; preds = %call.i367.noexc
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb7CTENodeE, i64 0, i32 0, i64 2), ptr %call.i367369, align 8, !tbaa !46, !noalias !116
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb7CTENodeE, i64 16), ptr %call.i367369, align 8, !tbaa !46, !noalias !116
   %ctename.i.i = getelementptr inbounds i8, ptr %call.i367369, i64 96
   %111 = getelementptr inbounds i8, ptr %call.i367369, i64 112
   store ptr %111, ptr %ctename.i.i, align 8, !tbaa !12, !noalias !116
@@ -4194,7 +4194,7 @@ _ZNSt10unique_ptrIN6duckdb15SelectStatementESt14default_deleteIS1_EED2Ev.exit: ;
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i147, i64 104
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !157
   store i8 0, ptr %3, align 1, !tbaa !7, !noalias !157
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SelectStatementE, i64 0, i32 0, i64 2), ptr %call.i147, align 8, !tbaa !46, !noalias !157
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %call.i147, align 8, !tbaa !46, !noalias !157
   %node.i.i = getelementptr inbounds i8, ptr %call.i147, i64 128
   store ptr null, ptr %node.i.i, align 8, !tbaa !163, !noalias !157
   store ptr %call.i147, ptr %select, align 8, !tbaa !3
@@ -4202,7 +4202,7 @@ _ZNSt10unique_ptrIN6duckdb15SelectStatementESt14default_deleteIS1_EED2Ev.exit: ;
           to label %call.i.noexc unwind label %ehcleanup118.thread
 
 call.i.noexc:                                     ; preds = %_ZNSt10unique_ptrIN6duckdb15SelectStatementESt14default_deleteIS1_EED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb9QueryNodeE, i64 0, i32 0, i64 2), ptr %call.i149, align 8, !tbaa !46, !noalias !165
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb9QueryNodeE, i64 16), ptr %call.i149, align 8, !tbaa !46, !noalias !165
   %type2.i.i.i148 = getelementptr inbounds i8, ptr %call.i149, i64 8
   store i8 4, ptr %type2.i.i.i148, align 8, !tbaa !119, !noalias !165
   %modifiers.i.i.i = getelementptr inbounds i8, ptr %call.i149, i64 16
@@ -4219,7 +4219,7 @@ lpad.i.i.i:                                       ; preds = %call.i.noexc
   br label %ehcleanup118
 
 invoke.cont7:                                     ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb16RecursiveCTENodeE, i64 0, i32 0, i64 2), ptr %call.i149, align 8, !tbaa !46, !noalias !165
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb16RecursiveCTENodeE, i64 16), ptr %call.i149, align 8, !tbaa !46, !noalias !165
   %ctename.i.i = getelementptr inbounds i8, ptr %call.i149, i64 96
   %5 = getelementptr inbounds i8, ptr %call.i149, i64 112
   store ptr %5, ptr %ctename.i.i, align 8, !tbaa !12, !noalias !165
@@ -4772,7 +4772,7 @@ ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221
   br label %_ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221
 
 _ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221: ; preds = %ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221_crit_edge, %ehcleanup118.thread
-  %vtable.i.i222 = phi ptr [ getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SelectStatementE, i64 0, i32 0, i64 2), %ehcleanup118.thread ], [ %vtable.i.i222.pre, %ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221_crit_edge ]
+  %vtable.i.i222 = phi ptr [ getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), %ehcleanup118.thread ], [ %vtable.i.i222.pre, %ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221_crit_edge ]
   %.pn145246 = phi { ptr, i32 } [ %46, %ehcleanup118.thread ], [ %.pn145.ph, %ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221_crit_edge ]
   %76 = phi ptr [ %call.i147, %ehcleanup118.thread ], [ %.pr243, %ehcleanup118._ZNKSt14default_deleteIN6duckdb15SelectStatementEEclEPS1_.exit.i221_crit_edge ]
   %vfn.i.i223 = getelementptr inbounds i8, ptr %vtable.i.i222, i64 8
@@ -7496,7 +7496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !46
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !46
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !16
   %1 = getelementptr inbounds i8, ptr %this, i64 64

@@ -3890,9 +3890,9 @@ define hidden void @"_ZN96_$LT$actix_http..encoding..decoder..Decoder$LT$S$GT$$u
   br label %42
 
 42:                                               ; preds = %.noexc.i, %39
-  %43 = load i8, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i64, { { i64, ptr }, i64 }, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !314, !noalias !601, !noundef !11
+  %43 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 68), align 4, !range !314, !noalias !601, !noundef !11
   %44 = trunc nuw i8 %43 to i1
-  %45 = load i8, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i64, { { i64, ptr }, i64 }, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !601
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 69), align 1, !noalias !601
   br i1 %44, label %46, label %.thread.i.i.i.i
 
 46:                                               ; preds = %42
@@ -3913,7 +3913,7 @@ define hidden void @"_ZN96_$LT$actix_http..encoding..decoder..Decoder$LT$S$GT$$u
 
 .thread.i.i.i.i:                                  ; preds = %46, %42
   %.sroa.5.03.i.i.i.i = phi i8 [ %spec.select124.i.i.i.i, %46 ], [ %45, %42 ]
-  store i8 %.sroa.5.03.i.i.i.i, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i64, { { i64, ptr }, i64 }, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !601
+  store i8 %.sroa.5.03.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 69), align 1, !noalias !601
   br label %54
 
 .thread7.i:                                       ; preds = %54, %47, %41

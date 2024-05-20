@@ -4461,7 +4461,7 @@ if.else:                                          ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 184
   %.val = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %uts.i.i)
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 8), align 8
   %tobool.not.i.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %ident_in_untracked.exit
 
@@ -4481,7 +4481,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   br label %ident_in_untracked.exit
 
 ident_in_untracked.exit:                          ; preds = %if.else, %if.end3.i.i
-  %retval.0.i.i = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 2), align 8
+  %retval.0.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts.i.i)
   %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #26
   %tobool.not.i.not = icmp eq i32 %call1.i, 0
@@ -4564,7 +4564,7 @@ if.then4.i.i:                                     ; preds = %cond.end
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %cond.end
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %uts.i.i)
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 8), align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %get_ident_string.exit.i
 
@@ -4584,7 +4584,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   br label %get_ident_string.exit.i
 
 get_ident_string.exit.i:                          ; preds = %if.end3.i.i, %strbuf_setlen.exit.i
-  %retval.0.i.i = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 2), align 8
+  %retval.0.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts.i.i)
   %call.i3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #26
   call void @strbuf_add(ptr noundef nonnull %ident, ptr noundef %retval.0.i.i, i64 noundef %call.i3.i) #25
@@ -4629,7 +4629,7 @@ define internal fastcc range(i32 0, 2) i32 @ident_in_untracked(ptr nocapture rea
 entry:
   %uts.i = alloca %struct.utsname, align 1
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %uts.i)
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 8), align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %get_ident_string.exit
 
@@ -4649,7 +4649,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %get_ident_string.exit
 
 get_ident_string.exit:                            ; preds = %entry, %if.end3.i
-  %retval.0.i = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i64 0, i32 2), align 8
+  %retval.0.i = load ptr, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts.i)
   %call1 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %uc.184.val, ptr noundef nonnull dereferenceable(1) %retval.0.i) #26
   %tobool.not = icmp eq i32 %call1, 0

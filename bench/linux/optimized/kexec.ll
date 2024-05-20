@@ -261,7 +261,7 @@ define internal fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr no
   tail call void @kimage_free(ptr noundef %21) #7
   %22 = load i64, ptr @crashk_res, align 8
   %23 = icmp ugt i64 %22, %0
-  %24 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @crashk_res, i64 8), align 8
   %25 = icmp ult i64 %24, %0
   %26 = select i1 %23, i1 true, i1 %25
   br i1 %26, label %.thread13, label %.thread9

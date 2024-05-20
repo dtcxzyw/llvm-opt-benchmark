@@ -241,18 +241,18 @@ entry:
   %conv = sext i32 %idx to i64
   %add = add nsw i64 %conv, 1000
   %cmp = icmp ult i64 %add, 1116
-  store i64 %add, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 3, i32 4), align 16
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @dyn_script_1, i64 176), align 16
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr @check_is_handshake, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10, i32 5), align 8
+  store ptr @check_is_handshake, ptr getelementptr inbounds (i8, ptr @dyn_script_1, i64 520), align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink4 = phi i32 [ 3, %if.then ], [ 4, %entry ]
   %.sink = phi i32 [ 9, %if.then ], [ 23, %entry ]
-  store i32 %.sink4, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9), align 16
-  store i32 %.sink, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10), align 16
+  store i32 %.sink4, ptr getelementptr inbounds (i8, ptr @dyn_script_1, i64 432), align 16
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @dyn_script_1, i64 480), align 16
   %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef nonnull @dyn_script_1)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.then3, label %return

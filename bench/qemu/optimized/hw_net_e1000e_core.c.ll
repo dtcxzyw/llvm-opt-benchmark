@@ -7124,7 +7124,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  store ptr getelementptr inbounds ([2 x %struct.E1000ERingInfo], ptr @e1000e_tx_ring_init.i, i64 0, i64 1), ptr %txr, align 8
+  store ptr getelementptr inbounds (i8, ptr @e1000e_tx_ring_init.i, i64 24), ptr %txr, align 8
   %arrayidx3.i = getelementptr i8, ptr %core, i64 131720
   %tx4.i8 = getelementptr inbounds i8, ptr %txr, i64 8
   store ptr %arrayidx3.i, ptr %tx4.i8, align 8

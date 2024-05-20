@@ -177,7 +177,7 @@ define dso_local i32 @drm_sysfs_connector_add(ptr noundef %0) local_unnamed_addr
   br i1 %5, label %6, label %53
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 728) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %53, label %10
@@ -572,7 +572,7 @@ declare dso_local ptr @drm_mode_obj_find_prop_id(ptr noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_sysfs_minor_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 728) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5

@@ -1212,7 +1212,7 @@ set_time_adjustment.exit:                         ; preds = %309, %325, %._crit_
 ._crit_edge.i555:                                 ; preds = %.lr.ph.i558, %412
   %.2.lcssa.i556 = phi i64 [ %.1.i552, %412 ], [ %418, %.lr.ph.i558 ]
   %420 = trunc i64 %.2.lcssa.i556 to i32
-  store i32 %420, ptr getelementptr inbounds (%struct.nstime_t, ptr @relative_time_window, i64 0, i32 1), align 8
+  store i32 %420, ptr getelementptr inbounds (i8, ptr @relative_time_window, i64 8), align 8
   br label %set_rel_time.exit
 
 set_rel_time.exit.thread:                         ; preds = %404, %409, %388, %380, %384
@@ -2252,7 +2252,7 @@ selected.exit:                                    ; preds = %886, %.thread613
 899:                                              ; preds = %898
   %900 = load i64, ptr @previous_time, align 8
   %901 = icmp ne i64 %900, 0
-  %902 = load i32, ptr getelementptr inbounds (%struct.nstime_t, ptr @previous_time, i64 0, i32 1), align 8
+  %902 = load i32, ptr getelementptr inbounds (i8, ptr @previous_time, i64 8), align 8
   %903 = icmp ne i32 %902, 0
   %or.cond23 = select i1 %901, i1 true, i1 %903
   br i1 %or.cond23, label %904, label %931
@@ -2277,7 +2277,7 @@ selected.exit:                                    ; preds = %886, %.thread613
   %912 = load i64, ptr @strict_time_adj.0, align 8
   %913 = add i64 %912, %911
   store i64 %913, ptr %.0352.sroa.gep, align 8
-  %914 = load i32, ptr getelementptr inbounds (%struct.nstime_t, ptr @previous_time, i64 0, i32 1), align 8
+  %914 = load i32, ptr getelementptr inbounds (i8, ptr @previous_time, i64 8), align 8
   %915 = load i32, ptr @strict_time_adj.1, align 8
   %916 = add i32 %915, %914
   %917 = icmp sgt i32 %916, 999999999
@@ -2996,7 +2996,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   %1251 = icmp eq i32 %.0339.lcssa, 1
   %1252 = select i1 %1251, ptr @.str.68, ptr @.str.69
   %1253 = load i64, ptr @relative_time_window, align 8
-  %1254 = load i32, ptr getelementptr inbounds (%struct.nstime_t, ptr @relative_time_window, i64 0, i32 1), align 8
+  %1254 = load i32, ptr getelementptr inbounds (i8, ptr @relative_time_window, i64 8), align 8
   %1255 = sext i32 %1254 to i64
   %1256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1248, ptr noundef nonnull @.str.70, i32 noundef %.0337.lcssa, ptr noundef nonnull %1250, i32 noundef %.0339.lcssa, ptr noundef nonnull %1252, i64 noundef %1253, i64 noundef %1255) #22
   br label %list_secrets_types.exit

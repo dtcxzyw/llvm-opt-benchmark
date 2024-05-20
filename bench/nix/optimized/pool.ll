@@ -5801,7 +5801,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5831,7 +5831,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_freshPoolCanGetAResource_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34Pool_freshPoolCanGetAResource_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5859,7 +5859,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeIncremented_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34Pool_capacityCanBeIncremented_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5887,7 +5887,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeDecremented_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34Pool_capacityCanBeDecremented_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5915,7 +5915,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix42Pool_flushBadDropsOutOfScopeResources_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42Pool_flushBadDropsOutOfScopeResources_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5943,7 +5943,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23Pool_reuseResource_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23Pool_reuseResource_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5971,7 +5971,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Po
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32Pool_badResourceIsNotReused_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32Pool_badResourceIsNotReused_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -6033,7 +6033,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_12TestResourceEJEEENS_3refIT_EEDpO
   store i32 1, ptr %5, align 8, !noalias !91
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !91
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !91
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !91
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %7, align 4, !noalias !91
   %8 = getelementptr inbounds i8, ptr %4, i64 20
@@ -8723,7 +8723,7 @@ define internal void @_GLOBAL__sub_I_pool.cc() #15 section ".text.startup" perso
           to label %33 unwind label %52
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestEEE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestEEE, i64 16), ptr %32, align 8
   %34 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef nonnull %32)
           to label %35 unwind label %52
 
@@ -8826,7 +8826,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %65 unwind label %84
 
 65:                                               ; preds = %63
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_freshPoolCanGetAResource_TestEEE, i64 0, i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_freshPoolCanGetAResource_TestEEE, i64 16), ptr %64, align 8
   %66 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %58, ptr noundef %60, ptr noundef %62, ptr noundef nonnull %64)
           to label %67 unwind label %84
 
@@ -8923,7 +8923,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %97 unwind label %116
 
 97:                                               ; preds = %95
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeIncremented_TestEEE, i64 0, i32 0, i64 2), ptr %96, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeIncremented_TestEEE, i64 16), ptr %96, align 8
   %98 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %90, ptr noundef %92, ptr noundef %94, ptr noundef nonnull %96)
           to label %99 unwind label %116
 
@@ -9020,7 +9020,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %129 unwind label %148
 
 129:                                              ; preds = %127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeDecremented_TestEEE, i64 0, i32 0, i64 2), ptr %128, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeDecremented_TestEEE, i64 16), ptr %128, align 8
   %130 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %122, ptr noundef %124, ptr noundef %126, ptr noundef nonnull %128)
           to label %131 unwind label %148
 
@@ -9117,7 +9117,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %161 unwind label %180
 
 161:                                              ; preds = %159
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42Pool_flushBadDropsOutOfScopeResources_TestEEE, i64 0, i32 0, i64 2), ptr %160, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42Pool_flushBadDropsOutOfScopeResources_TestEEE, i64 16), ptr %160, align 8
   %162 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %154, ptr noundef %156, ptr noundef %158, ptr noundef nonnull %160)
           to label %163 unwind label %180
 
@@ -9214,7 +9214,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %193 unwind label %212
 
 193:                                              ; preds = %191
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23Pool_reuseResource_TestEEE, i64 0, i32 0, i64 2), ptr %192, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23Pool_reuseResource_TestEEE, i64 16), ptr %192, align 8
   %194 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %186, ptr noundef %188, ptr noundef %190, ptr noundef nonnull %192)
           to label %195 unwind label %212
 
@@ -9311,7 +9311,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %225 unwind label %244
 
 225:                                              ; preds = %223
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32Pool_badResourceIsNotReused_TestEEE, i64 0, i32 0, i64 2), ptr %224, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32Pool_badResourceIsNotReused_TestEEE, i64 16), ptr %224, align 8
   %226 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %218, ptr noundef %220, ptr noundef %222, ptr noundef nonnull %224)
           to label %227 unwind label %244
 

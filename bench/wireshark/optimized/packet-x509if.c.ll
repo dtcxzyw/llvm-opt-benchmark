@@ -1243,7 +1243,7 @@ define hidden void @proto_register_x509if() local_unnamed_addr #0 {
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_x509if.hf, i32 noundef 156) #6
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_x509if.ett, i32 noundef 73) #6
   store i32 0, ptr @fmt_vals, align 16
-  store ptr null, ptr getelementptr inbounds ([32 x %struct._value_string], ptr @fmt_vals, i64 0, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @fmt_vals, i64 8), align 8
   ret void
 }
 

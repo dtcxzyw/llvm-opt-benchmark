@@ -470,7 +470,7 @@ define internal range(i32 0, 4) i32 @uint64_unary_minus(ptr nocapture noundef wr
   br label %15
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @type_list, i64 0, i64 19), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @type_list, i64 152), align 8
   store ptr %11, ptr %0, align 8
   %12 = load i64, ptr %4, align 8
   %13 = sub i64 0, %12
@@ -526,7 +526,7 @@ define internal range(i32 0, 4) i32 @uint64_subtract(ptr nocapture noundef write
   br label %_sint64_subtract.exit
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @type_list, i64 0, i64 19), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @type_list, i64 152), align 8
   store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %7, align 8

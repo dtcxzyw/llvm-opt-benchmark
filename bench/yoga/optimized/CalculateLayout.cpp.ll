@@ -589,7 +589,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1256: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1342: ; preds = %sw.epilog.i.i49.i.i1347, %if.then29.i
   %.in.i45.i.i1343 = phi ptr [ @YGValueAuto, %if.then29.i ], [ @YGValueUndefined, %sw.epilog.i.i49.i.i1347 ]
-  %retval.sroa.6.0.i.in.i46.i.i1344 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then29.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49.i.i1347 ]
+  %retval.sroa.6.0.i.in.i46.i.i1344 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then29.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49.i.i1347 ]
   %retval.sroa.6.0.i.i47.i.i1345 = load i32, ptr %retval.sroa.6.0.i.in.i46.i.i1344, align 4
   %57 = load float, ptr %.in.i45.i.i1343, align 4
   switch i32 %retval.sroa.6.0.i.i47.i.i1345, label %sw.default.i.i48.i.i1346 [
@@ -640,7 +640,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1265: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330: ; preds = %sw.epilog.i.i73.i.i1334, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1261
   %.in.i69.i.i1331 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1261 ], [ @YGValueUndefined, %sw.epilog.i.i73.i.i1334 ]
-  %retval.sroa.6.0.i.in.i70.i.i1332 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1261 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73.i.i1334 ]
+  %retval.sroa.6.0.i.in.i70.i.i1332 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1261 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73.i.i1334 ]
   %retval.sroa.6.0.i.i71.i.i1333 = load i32, ptr %retval.sroa.6.0.i.in.i70.i.i1332, align 4
   %63 = load float, ptr %.in.i69.i.i1331, align 4
   switch i32 %retval.sroa.6.0.i.i71.i.i1333, label %if.end45.i.i1272 [
@@ -713,7 +713,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1288: ; preds = %
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1316: ; preds = %sw.epilog.i.i.i.i1321, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276
   %.in.i.i.i1317 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276 ], [ @YGValueUndefined, %sw.epilog.i.i.i.i1321 ]
-  %retval.sroa.6.0.i.in.i.i.i1318 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i.i1321 ]
+  %retval.sroa.6.0.i.in.i.i.i1318 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i.i1321 ]
   %retval.sroa.6.0.i.i.i.i1319 = load i32, ptr %retval.sroa.6.0.i.in.i.i.i1318, align 4
   %69 = load float, ptr %.in.i.i.i1317, align 4
   switch i32 %retval.sroa.6.0.i.i.i.i1319, label %sw.default.i.i.i.i1320 [
@@ -764,7 +764,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1297: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304: ; preds = %sw.epilog.i.i25.i.i1308, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1293
   %.in.i21.i.i1305 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1293 ], [ @YGValueUndefined, %sw.epilog.i.i25.i.i1308 ]
-  %retval.sroa.6.0.i.in.i22.i.i1306 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1293 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i.i1308 ]
+  %retval.sroa.6.0.i.in.i22.i.i1306 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1293 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25.i.i1308 ]
   %retval.sroa.6.0.i.i23.i.i1307 = load i32, ptr %retval.sroa.6.0.i.in.i22.i.i1306, align 4
   %75 = load float, ptr %.in.i21.i.i1305, align 4
   switch i32 %retval.sroa.6.0.i.i23.i.i1307, label %if.end45.i127.i [
@@ -905,7 +905,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i136.i: ; preds = 
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i175.i: ; preds = %sw.epilog.i.i49.i180.i, %switch.lookup2694
   %.in.i45.i176.i = phi ptr [ @YGValueAuto, %switch.lookup2694 ], [ @YGValueUndefined, %sw.epilog.i.i49.i180.i ]
-  %retval.sroa.6.0.i.in.i46.i177.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %switch.lookup2694 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49.i180.i ]
+  %retval.sroa.6.0.i.in.i46.i177.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %switch.lookup2694 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49.i180.i ]
   %retval.sroa.6.0.i.i47.i178.i = load i32, ptr %retval.sroa.6.0.i.in.i46.i177.i, align 4
   %89 = load float, ptr %.in.i45.i176.i, align 4
   switch i32 %retval.sroa.6.0.i.i47.i178.i, label %sw.default.i.i48.i179.i [
@@ -956,7 +956,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i145.i: ; preds = 
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i: ; preds = %sw.epilog.i.i73.i167.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i141.i
   %.in.i69.i164.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i141.i ], [ @YGValueUndefined, %sw.epilog.i.i73.i167.i ]
-  %retval.sroa.6.0.i.in.i70.i165.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i141.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73.i167.i ]
+  %retval.sroa.6.0.i.in.i70.i165.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i141.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73.i167.i ]
   %retval.sroa.6.0.i.i71.i166.i = load i32, ptr %retval.sroa.6.0.i.in.i70.i165.i, align 4
   %95 = load float, ptr %.in.i69.i164.i, align 4
   switch i32 %retval.sroa.6.0.i.i71.i166.i, label %if.end45.i155.i [
@@ -1034,7 +1034,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i189.i: ; preds = %i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i228.i: ; preds = %sw.epilog.i.i.i233.i, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i
   %.in.i.i229.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i ], [ @YGValueUndefined, %sw.epilog.i.i.i233.i ]
-  %retval.sroa.6.0.i.in.i.i230.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i233.i ]
+  %retval.sroa.6.0.i.in.i.i230.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i233.i ]
   %retval.sroa.6.0.i.i.i231.i = load i32, ptr %retval.sroa.6.0.i.in.i.i230.i, align 4
   %103 = load float, ptr %.in.i.i229.i, align 4
   switch i32 %retval.sroa.6.0.i.i.i231.i, label %sw.default.i.i.i232.i [
@@ -1085,7 +1085,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i198.i: ; preds = 
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i: ; preds = %sw.epilog.i.i25.i220.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i194.i
   %.in.i21.i217.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i194.i ], [ @YGValueUndefined, %sw.epilog.i.i25.i220.i ]
-  %retval.sroa.6.0.i.in.i22.i218.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i194.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i220.i ]
+  %retval.sroa.6.0.i.in.i22.i218.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i194.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25.i220.i ]
   %retval.sroa.6.0.i.i23.i219.i = load i32, ptr %retval.sroa.6.0.i.in.i22.i218.i, align 4
   %109 = load float, ptr %.in.i21.i217.i, align 4
   switch i32 %retval.sroa.6.0.i.i23.i219.i, label %if.end45.i208.i [
@@ -1204,7 +1204,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1116: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1205: ; preds = %sw.epilog.i.i49.i.i1210, %if.end.i1113
   %.in.i45.i.i1206 = phi ptr [ @YGValueAuto, %if.end.i1113 ], [ @YGValueUndefined, %sw.epilog.i.i49.i.i1210 ]
-  %retval.sroa.6.0.i.in.i46.i.i1207 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.end.i1113 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49.i.i1210 ]
+  %retval.sroa.6.0.i.in.i46.i.i1207 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.end.i1113 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49.i.i1210 ]
   %retval.sroa.6.0.i.i47.i.i1208 = load i32, ptr %retval.sroa.6.0.i.in.i46.i.i1207, align 4
   %122 = load float, ptr %.in.i45.i.i1206, align 4
   switch i32 %retval.sroa.6.0.i.i47.i.i1208, label %sw.default.i.i48.i.i1209 [
@@ -1255,7 +1255,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1125: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1193: ; preds = %sw.epilog.i.i73.i.i1197, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1121
   %.in.i69.i.i1194 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1121 ], [ @YGValueUndefined, %sw.epilog.i.i73.i.i1197 ]
-  %retval.sroa.6.0.i.in.i70.i.i1195 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1121 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73.i.i1197 ]
+  %retval.sroa.6.0.i.in.i70.i.i1195 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1121 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73.i.i1197 ]
   %retval.sroa.6.0.i.i71.i.i1196 = load i32, ptr %retval.sroa.6.0.i.in.i70.i.i1195, align 4
   %128 = load float, ptr %.in.i69.i.i1194, align 4
   switch i32 %retval.sroa.6.0.i.i71.i.i1196, label %if.end45.i.i1134 [
@@ -1352,7 +1352,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1151: ; preds = %
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1179: ; preds = %sw.epilog.i.i.i.i1184, %if.end20.i
   %.in.i.i.i1180 = phi ptr [ @YGValueAuto, %if.end20.i ], [ @YGValueUndefined, %sw.epilog.i.i.i.i1184 ]
-  %retval.sroa.6.0.i.in.i.i.i1181 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.end20.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i.i1184 ]
+  %retval.sroa.6.0.i.in.i.i.i1181 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.end20.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i.i1184 ]
   %retval.sroa.6.0.i.i.i.i1182 = load i32, ptr %retval.sroa.6.0.i.in.i.i.i1181, align 4
   %139 = load float, ptr %.in.i.i.i1180, align 4
   switch i32 %retval.sroa.6.0.i.i.i.i1182, label %sw.default.i.i.i.i1183 [
@@ -1403,7 +1403,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1160: ; preds =
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1167: ; preds = %sw.epilog.i.i25.i.i1171, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1156
   %.in.i21.i.i1168 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1156 ], [ @YGValueUndefined, %sw.epilog.i.i25.i.i1171 ]
-  %retval.sroa.6.0.i.in.i22.i.i1169 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1156 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i.i1171 ]
+  %retval.sroa.6.0.i.in.i22.i.i1169 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1156 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25.i.i1171 ]
   %retval.sroa.6.0.i.i23.i.i1170 = load i32, ptr %retval.sroa.6.0.i.in.i22.i.i1169, align 4
   %145 = load float, ptr %.in.i21.i.i1168, align 4
   switch i32 %retval.sroa.6.0.i.i23.i.i1170, label %if.end45.i44.i [
@@ -1504,7 +1504,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i: ; preds = %sw.epilog.i.i49.i.i, %if.then.i1098
   %.in.i45.i.i = phi ptr [ @YGValueAuto, %if.then.i1098 ], [ @YGValueUndefined, %sw.epilog.i.i49.i.i ]
-  %retval.sroa.6.0.i.in.i46.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then.i1098 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49.i.i ]
+  %retval.sroa.6.0.i.in.i46.i.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then.i1098 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49.i.i ]
   %retval.sroa.6.0.i.i47.i.i = load i32, ptr %retval.sroa.6.0.i.in.i46.i.i, align 4
   %152 = load float, ptr %.in.i45.i.i, align 4
   switch i32 %retval.sroa.6.0.i.i47.i.i, label %sw.default.i.i48.i.i [
@@ -1555,7 +1555,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i: ; preds = %sw.epilog.i.i73.i.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i
   %.in.i69.i.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i ], [ @YGValueUndefined, %sw.epilog.i.i73.i.i ]
-  %retval.sroa.6.0.i.in.i70.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73.i.i ]
+  %retval.sroa.6.0.i.in.i70.i.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73.i.i ]
   %retval.sroa.6.0.i.i71.i.i = load i32, ptr %retval.sroa.6.0.i.in.i70.i.i, align 4
   %158 = load float, ptr %.in.i69.i.i, align 4
   switch i32 %retval.sroa.6.0.i.i71.i.i, label %if.end45.i.i [
@@ -1642,7 +1642,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i: ; preds = %if.e
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i: ; preds = %sw.epilog.i.i.i.i, %cond.end25.i
   %.in.i.i.i = phi ptr [ @YGValueAuto, %cond.end25.i ], [ @YGValueUndefined, %sw.epilog.i.i.i.i ]
-  %retval.sroa.6.0.i.in.i.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %cond.end25.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i.i ]
+  %retval.sroa.6.0.i.in.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end25.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i.i ]
   %retval.sroa.6.0.i.i.i.i = load i32, ptr %retval.sroa.6.0.i.in.i.i.i, align 4
   %164 = load float, ptr %.in.i.i.i, align 4
   switch i32 %retval.sroa.6.0.i.i.i.i, label %sw.default.i.i.i.i [
@@ -1693,7 +1693,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i: ; preds = %sw.epilog.i.i25.i.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i
   %.in.i21.i.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i ], [ @YGValueUndefined, %sw.epilog.i.i25.i.i ]
-  %retval.sroa.6.0.i.in.i22.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i.i ]
+  %retval.sroa.6.0.i.in.i22.i.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25.i.i ]
   %retval.sroa.6.0.i.i23.i.i = load i32, ptr %retval.sroa.6.0.i.in.i22.i.i, align 4
   %170 = load float, ptr %.in.i21.i.i, align 4
   switch i32 %retval.sroa.6.0.i.i23.i.i, label %if.end45.i43.i [
@@ -2296,7 +2296,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i1579: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1602: ; preds = %sw.epilog.i.i.i1607, %if.end211.i.i
   %.in.i.i1603 = phi ptr [ @YGValueAuto, %if.end211.i.i ], [ @YGValueUndefined, %sw.epilog.i.i.i1607 ]
-  %retval.sroa.6.0.i.in.i.i1604 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.end211.i.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i1607 ]
+  %retval.sroa.6.0.i.in.i.i1604 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.end211.i.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i1607 ]
   %retval.sroa.6.0.i.i.i1605 = load i32, ptr %retval.sroa.6.0.i.in.i.i1604, align 4
   %208 = load float, ptr %.in.i.i1603, align 4
   switch i32 %retval.sroa.6.0.i.i.i1605, label %sw.default.i.i.i1606 [
@@ -2372,7 +2372,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i1543: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1562: ; preds = %sw.epilog.i.i.i1567, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit1613
   %.in.i.i1563 = phi ptr [ @YGValueAuto, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit1613 ], [ @YGValueUndefined, %sw.epilog.i.i.i1567 ]
-  %retval.sroa.6.0.i.in.i.i1564 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit1613 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i1567 ]
+  %retval.sroa.6.0.i.in.i.i1564 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit1613 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i1567 ]
   %retval.sroa.6.0.i.i.i1565 = load i32, ptr %retval.sroa.6.0.i.in.i.i1564, align 4
   %214 = load float, ptr %.in.i.i1563, align 4
   switch i32 %retval.sroa.6.0.i.i.i1565, label %sw.default.i.i.i1566 [
@@ -2581,7 +2581,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i994: ; preds = %if.en
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i1002: ; preds = %sw.epilog.i.i1007, %if.then129.i
   %.in.i1003 = phi ptr [ @YGValueAuto, %if.then129.i ], [ @YGValueUndefined, %sw.epilog.i.i1007 ]
-  %retval.sroa.6.0.i.in.i1004 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then129.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i1007 ]
+  %retval.sroa.6.0.i.in.i1004 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then129.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i1007 ]
   %retval.sroa.6.0.i.i1005 = load i32, ptr %retval.sroa.6.0.i.in.i1004, align 4
   %242 = load float, ptr %.in.i1003, align 4
   switch i32 %retval.sroa.6.0.i.i1005, label %sw.default.i.i1006 [
@@ -2631,7 +2631,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i971: ; preds = %if.en
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i979: ; preds = %sw.epilog.i.i984, %invoke.cont134.i
   %.in.i980 = phi ptr [ @YGValueAuto, %invoke.cont134.i ], [ @YGValueUndefined, %sw.epilog.i.i984 ]
-  %retval.sroa.6.0.i.in.i981 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %invoke.cont134.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i984 ]
+  %retval.sroa.6.0.i.in.i981 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %invoke.cont134.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i984 ]
   %retval.sroa.6.0.i.i982 = load i32, ptr %retval.sroa.6.0.i.in.i981, align 4
   %248 = load float, ptr %.in.i980, align 4
   switch i32 %retval.sroa.6.0.i.i982, label %sw.default.i.i983 [
@@ -2681,7 +2681,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i949: ; preds = %if.en
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i957: ; preds = %sw.epilog.i.i962, %invoke.cont146.i
   %.in.i958 = phi ptr [ @YGValueAuto, %invoke.cont146.i ], [ @YGValueUndefined, %sw.epilog.i.i962 ]
-  %retval.sroa.6.0.i.in.i959 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %invoke.cont146.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i962 ]
+  %retval.sroa.6.0.i.in.i959 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %invoke.cont146.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i962 ]
   %retval.sroa.6.0.i.i960 = load i32, ptr %retval.sroa.6.0.i.in.i959, align 4
   %254 = load float, ptr %.in.i958, align 4
   switch i32 %retval.sroa.6.0.i.i960, label %sw.default.i.i961 [
@@ -2731,7 +2731,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i944, %invoke.cont158.i
   %.in.i = phi ptr [ @YGValueAuto, %invoke.cont158.i ], [ @YGValueUndefined, %sw.epilog.i.i944 ]
-  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %invoke.cont158.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i944 ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %invoke.cont158.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i944 ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
   %260 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
@@ -3490,7 +3490,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i: ; preds = %sw.epilog.i.i.i, %switch.lookup2627
   %.in.i.i = phi ptr [ @YGValueAuto, %switch.lookup2627 ], [ @YGValueUndefined, %sw.epilog.i.i.i ]
-  %retval.sroa.6.0.i.in.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %switch.lookup2627 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i ]
+  %retval.sroa.6.0.i.in.i.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %switch.lookup2627 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i ]
   %retval.sroa.6.0.i.i.i = load i32, ptr %retval.sroa.6.0.i.in.i.i, align 4
   %324 = load float, ptr %.in.i.i, align 4
   switch i32 %retval.sroa.6.0.i.i.i, label %if.end44.sink.split.i [
@@ -3543,7 +3543,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i156.i: ; preds = %if.
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i164.i: ; preds = %sw.epilog.i.i169.i, %switch.lookup2630
   %.in.i165.i = phi ptr [ @YGValueAuto, %switch.lookup2630 ], [ @YGValueUndefined, %sw.epilog.i.i169.i ]
-  %retval.sroa.6.0.i.in.i166.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %switch.lookup2630 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i169.i ]
+  %retval.sroa.6.0.i.in.i166.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %switch.lookup2630 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i169.i ]
   %retval.sroa.6.0.i.i167.i = load i32, ptr %retval.sroa.6.0.i.in.i166.i, align 4
   %330 = load float, ptr %.in.i165.i, align 4
   switch i32 %retval.sroa.6.0.i.i167.i, label %sw.default.i.i168.i [
@@ -4940,7 +4940,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i: ; preds = %if.e
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i: ; preds = %sw.epilog.i.i49.i, %if.end756.i
   %.in.i45.i = phi ptr [ @YGValueAuto, %if.end756.i ], [ @YGValueUndefined, %sw.epilog.i.i49.i ]
-  %retval.sroa.6.0.i.in.i46.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.end756.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49.i ]
+  %retval.sroa.6.0.i.in.i46.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.end756.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49.i ]
   %retval.sroa.6.0.i.i47.i = load i32, ptr %retval.sroa.6.0.i.in.i46.i, align 4
   %446 = load float, ptr %.in.i45.i, align 4
   switch i32 %retval.sroa.6.0.i.i47.i, label %sw.default.i.i48.i [
@@ -4991,7 +4991,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i: ; preds = %if.e
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i: ; preds = %sw.epilog.i.i73.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i
   %.in.i69.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i ], [ @YGValueUndefined, %sw.epilog.i.i73.i ]
-  %retval.sroa.6.0.i.in.i70.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73.i ]
+  %retval.sroa.6.0.i.in.i70.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73.i ]
   %retval.sroa.6.0.i.i71.i = load i32, ptr %retval.sroa.6.0.i.in.i70.i, align 4
   %452 = load float, ptr %.in.i69.i, align 4
   switch i32 %retval.sroa.6.0.i.i71.i, label %if.end45.i1400 [
@@ -5064,7 +5064,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i1370: ; preds = %if
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1384: ; preds = %sw.epilog.i.i.i1388, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406
   %.in.i.i1385 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406 ], [ @YGValueUndefined, %sw.epilog.i.i.i1388 ]
-  %retval.sroa.6.0.i.in.i.i1386 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i1388 ]
+  %retval.sroa.6.0.i.in.i.i1386 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i.i1388 ]
   %retval.sroa.6.0.i.i.i1387 = load i32, ptr %retval.sroa.6.0.i.in.i.i1386, align 4
   %458 = load float, ptr %.in.i.i1385, align 4
   switch i32 %retval.sroa.6.0.i.i.i1387, label %sw.default.i.i.i [
@@ -5115,7 +5115,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i: ; preds = %if.e
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i: ; preds = %sw.epilog.i.i25.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i1375
   %.in.i21.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i1375 ], [ @YGValueUndefined, %sw.epilog.i.i25.i ]
-  %retval.sroa.6.0.i.in.i22.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i1375 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i ]
+  %retval.sroa.6.0.i.in.i22.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i1375 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25.i ]
   %retval.sroa.6.0.i.i23.i = load i32, ptr %retval.sroa.6.0.i.in.i22.i, align 4
   %464 = load float, ptr %.in.i21.i, align 4
   switch i32 %retval.sroa.6.0.i.i23.i, label %if.end45.i [
@@ -5799,7 +5799,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %if.else
   %.in.i = phi ptr [ @YGValueAuto, %if.else ], [ @YGValueUndefined, %sw.epilog.i.i ]
-  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.else ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.else ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
   %6 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %if.else26 [
@@ -5849,7 +5849,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i42: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i50: ; preds = %sw.epilog.i.i55, %if.then17
   %.in.i51 = phi ptr [ @YGValueAuto, %if.then17 ], [ @YGValueUndefined, %sw.epilog.i.i55 ]
-  %retval.sroa.6.0.i.in.i52 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then17 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i55 ]
+  %retval.sroa.6.0.i.in.i52 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then17 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i55 ]
   %retval.sroa.6.0.i.i53 = load i32, ptr %retval.sroa.6.0.i.in.i52, align 4
   %12 = load float, ptr %.in.i51, align 4
   switch i32 %retval.sroa.6.0.i.i53, label %sw.default.i.i54 [
@@ -5936,7 +5936,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i76: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i84: ; preds = %sw.epilog.i.i89, %if.else40
   %.in.i85 = phi ptr [ @YGValueAuto, %if.else40 ], [ @YGValueUndefined, %sw.epilog.i.i89 ]
-  %retval.sroa.6.0.i.in.i86 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.else40 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i89 ]
+  %retval.sroa.6.0.i.in.i86 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.else40 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i89 ]
   %retval.sroa.6.0.i.i87 = load i32, ptr %retval.sroa.6.0.i.in.i86, align 4
   %19 = load float, ptr %.in.i85, align 4
   switch i32 %retval.sroa.6.0.i.i87, label %if.else58 [
@@ -5986,7 +5986,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i100: ; preds = %if.en
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i108: ; preds = %sw.epilog.i.i113, %if.then49
   %.in.i109 = phi ptr [ @YGValueAuto, %if.then49 ], [ @YGValueUndefined, %sw.epilog.i.i113 ]
-  %retval.sroa.6.0.i.in.i110 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then49 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i113 ]
+  %retval.sroa.6.0.i.in.i110 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then49 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i113 ]
   %retval.sroa.6.0.i.i111 = load i32, ptr %retval.sroa.6.0.i.in.i110, align 4
   %25 = load float, ptr %.in.i109, align 4
   switch i32 %retval.sroa.6.0.i.i111, label %sw.default.i.i112 [
@@ -6136,7 +6136,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %if.then
   %.in.i = phi ptr [ @YGValueAuto, %if.then ], [ @YGValueUndefined, %sw.epilog.i.i ]
-  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
   %4 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %cond.end [
@@ -6194,7 +6194,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i13: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21: ; preds = %sw.epilog.i.i26, %cond.end
   %.in.i22 = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i26 ]
-  %retval.sroa.6.0.i.in.i23 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %cond.end ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i26 ]
+  %retval.sroa.6.0.i.in.i23 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i26 ]
   %retval.sroa.6.0.i.i24 = load i32, ptr %retval.sroa.6.0.i.in.i23, align 4
   %10 = load float, ptr %.in.i22, align 4
   switch i32 %retval.sroa.6.0.i.i24, label %cond.end21 [
@@ -6301,7 +6301,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %switch.lookup
   %.in.i = phi ptr [ @YGValueAuto, %switch.lookup ], [ @YGValueUndefined, %sw.epilog.i.i ]
-  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %switch.lookup ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %switch.lookup ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
   %6 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
@@ -6403,7 +6403,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %if.then
   %.in.i = phi ptr [ @YGValueAuto, %if.then ], [ @YGValueUndefined, %sw.epilog.i.i ]
-  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
   %5 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
@@ -6454,7 +6454,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20: ; preds = %sw.epilog.i.i25, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
   %.in.i21 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ @YGValueUndefined, %sw.epilog.i.i25 ]
-  %retval.sroa.6.0.i.in.i22 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25 ]
+  %retval.sroa.6.0.i.in.i22 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i25 ]
   %retval.sroa.6.0.i.i23 = load i32, ptr %retval.sroa.6.0.i.in.i22, align 4
   %11 = load float, ptr %.in.i21, align 4
   switch i32 %retval.sroa.6.0.i.i23, label %if.end45 [
@@ -6506,7 +6506,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44: ; preds = %sw.epilog.i.i49, %if.then16
   %.in.i45 = phi ptr [ @YGValueAuto, %if.then16 ], [ @YGValueUndefined, %sw.epilog.i.i49 ]
-  %retval.sroa.6.0.i.in.i46 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then16 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i49 ]
+  %retval.sroa.6.0.i.in.i46 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %if.then16 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i49 ]
   %retval.sroa.6.0.i.i47 = load i32, ptr %retval.sroa.6.0.i.in.i46, align 4
   %19 = load float, ptr %.in.i45, align 4
   switch i32 %retval.sroa.6.0.i.i47, label %sw.default.i.i48 [
@@ -6557,7 +6557,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60: ; preds = %if.end
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68: ; preds = %sw.epilog.i.i73, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55
   %.in.i69 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55 ], [ @YGValueUndefined, %sw.epilog.i.i73 ]
-  %retval.sroa.6.0.i.in.i70 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i73 ]
+  %retval.sroa.6.0.i.in.i70 = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55 ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i73 ]
   %retval.sroa.6.0.i.i71 = load i32, ptr %retval.sroa.6.0.i.in.i70, align 4
   %25 = load float, ptr %.in.i69, align 4
   switch i32 %retval.sroa.6.0.i.i71, label %if.end45 [

@@ -664,7 +664,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 .preheader:                                       ; preds = %6, %38
   %9 = phi ptr [ %41, %38 ], [ @.str.18, %6 ]
-  %.046 = phi ptr [ %39, %38 ], [ getelementptr inbounds ([18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1), %6 ]
+  %.046 = phi ptr [ %39, %38 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %6 ]
   %10 = getelementptr inbounds i8, ptr %.046, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
@@ -684,7 +684,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %18, %14
   %21 = phi ptr [ @.str.19, %18 ], [ %16, %14 ]
-  %.1 = phi ptr [ getelementptr inbounds ([18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1), %18 ], [ %.046, %14 ]
+  %.1 = phi ptr [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %18 ], [ %.046, %14 ]
   %22 = load i32, ptr %.1, align 8
   store i32 %22, ptr %2, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
@@ -721,7 +721,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %38, %20, %25
-  %.2 = phi ptr [ %.1, %25 ], [ %.1, %20 ], [ getelementptr inbounds ([18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 17, i32 0), %38 ]
+  %.2 = phi ptr [ %.1, %25 ], [ %.1, %20 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 544), %38 ]
   %42 = getelementptr inbounds i8, ptr %.2, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
@@ -1086,8 +1086,8 @@ chkBoundBox.exit:                                 ; preds = %._crit_edge.i, %144
   store double %158, ptr @pymax, align 8
   store double %157, ptr @se, align 8
   store <2 x double> %156, ptr @ne, align 16
-  store double %158, ptr getelementptr inbounds (%struct.pointf_s, ptr @nw, i64 0, i32 1), align 8
-  store double %155, ptr getelementptr inbounds (%struct.pointf_s, ptr @se, i64 0, i32 1), align 8
+  store double %158, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
+  store double %155, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
   store <2 x double> %153, ptr @sw, align 16
   %159 = load i32, ptr %1, align 8
   %160 = icmp eq i32 %159, 2
@@ -1245,19 +1245,19 @@ addCorners.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %206
   %.041.lcssa.i.i.i = phi ptr [ %207, %206 ], [ %.142.i.i.i, %.lr.ph.i.i.i ]
   %229 = getelementptr inbounds i8, ptr %.047.lcssa.i.i.i, i64 8
   %230 = load double, ptr @sw, align 16
-  %231 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @sw, i64 0, i32 1), align 8
+  %231 = load double, ptr getelementptr inbounds (i8, ptr @sw, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %229, double noundef %230, double noundef %231) #18
   %232 = getelementptr inbounds i8, ptr %.043.lcssa.i.i.i, i64 8
   %233 = load double, ptr @se, align 8
-  %234 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @se, i64 0, i32 1), align 8
+  %234 = load double, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %232, double noundef %233, double noundef %234) #18
   %235 = getelementptr inbounds i8, ptr %.045.lcssa.i.i.i, i64 8
   %236 = load double, ptr @nw, align 8
-  %237 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @nw, i64 0, i32 1), align 8
+  %237 = load double, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %235, double noundef %236, double noundef %237) #18
   %238 = getelementptr inbounds i8, ptr %.041.lcssa.i.i.i, i64 8
   %239 = load double, ptr @ne, align 16
-  %240 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @ne, i64 0, i32 1), align 8
+  %240 = load double, ptr getelementptr inbounds (i8, ptr @ne, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %238, double noundef %239, double noundef %240) #18
   %241 = load i64, ptr @nsites, align 8
   %.not9.i.i = icmp eq i64 %241, 0
@@ -1385,8 +1385,8 @@ newPos.exit.i:                                    ; preds = %287, %addCorners.ex
   store double %314, ptr @pymax, align 8
   store double %313, ptr @se, align 8
   store <2 x double> %312, ptr @ne, align 16
-  store double %314, ptr getelementptr inbounds (%struct.pointf_s, ptr @nw, i64 0, i32 1), align 8
-  store double %311, ptr getelementptr inbounds (%struct.pointf_s, ptr @se, i64 0, i32 1), align 8
+  store double %314, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
+  store double %311, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
   store <2 x double> %309, ptr @sw, align 16
   br label %315
 

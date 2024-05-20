@@ -1181,7 +1181,7 @@ ConstantCompare.exit24:                           ; preds = %for.body.i14
   br i1 %cmp13.not, label %if.then18, label %if.end30
 
 if.then18:                                        ; preds = %ConstantCompare.exit24
-  %call20 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([48 x i8], ptr @seedB_data, i64 0, i64 32), i32 noundef 16, ptr noundef nonnull @seedB_data, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison)
+  %call20 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @seedB_data, i64 32), i32 noundef 16, ptr noundef nonnull @seedB_data, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison)
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %for.body.i25, label %if.end30
 

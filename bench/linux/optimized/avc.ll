@@ -416,7 +416,7 @@ declare dso_local i32 @__SCT__tp_func_selinux_audited(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_selinux_audited(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_selinux_audited, i64 0, i32 8), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_selinux_audited, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -668,9 +668,9 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, argmem: none)
 define dso_local void @selinux_avc_init() local_unnamed_addr #4 align 16 {
   store i32 512, ptr @selinux_avc, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 0, i64 0, i32 0), i8 0, i64 6144, i1 false)
-  store volatile i32 0, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), align 4
-  store volatile i32 0, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 2), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i8 0, i64 6144, i1 false)
+  store volatile i32 0, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), align 4
+  store volatile i32 0, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6152), align 8
   ret void
 }
 
@@ -714,7 +714,7 @@ define dso_local i32 @avc_get_hash_stats(ptr noundef %0) local_unnamed_addr #1 a
   %3 = phi i64 [ 0, %1 ], [ %29, %26 ]
   %4 = phi i32 [ 0, %1 ], [ %28, %26 ]
   %5 = phi i32 [ 0, %1 ], [ %27, %26 ]
-  %6 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %3
+  %6 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %3
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %26, label %9
@@ -753,7 +753,7 @@ define dso_local i32 @avc_get_hash_stats(ptr noundef %0) local_unnamed_addr #1 a
 
 31:                                               ; preds = %26
   tail call void @__rcu_read_unlock() #21
-  %32 = load volatile i32, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), align 4
+  %32 = load volatile i32, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), align 4
   %33 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %0, i64 noundef 4096, ptr noundef nonnull @.str.284, i32 noundef %32, i32 noundef %27, i32 noundef 512, i32 noundef %28) #21
   ret i32 %33
 }
@@ -959,11 +959,11 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr nocapture noun
 40:                                               ; preds = %35, %25
   %41 = load ptr, ptr %3, align 8
   %42 = load ptr, ptr %4, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_selinux_audited, i64 0, i32 1), i32 2) #21
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_selinux_audited, i64 8), i32 2) #21
           to label %63 [label %43], !srcloc !19
 
 43:                                               ; preds = %40
-  %44 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #21, !srcloc !20
+  %44 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !20
   %45 = zext i32 %44 to i64
   %46 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %45) #21, !srcloc !21
   %47 = icmp ult i8 %46, 2
@@ -972,9 +972,9 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr nocapture noun
   br i1 %48, label %63, label %49
 
 49:                                               ; preds = %43
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #21, !srcloc !22
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !22
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !23
-  %50 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_selinux_audited, i64 0, i32 8), align 8
+  %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_selinux_audited, i64 72), align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %56, label %52
 
@@ -986,7 +986,7 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr nocapture noun
 
 56:                                               ; preds = %52, %49
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !24
-  %57 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #21, !srcloc !25
+  %57 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !25
   %58 = icmp ult i8 %57, 2
   call void @llvm.assume(i1 %58)
   %59 = icmp eq i8 %57, 0
@@ -1084,7 +1084,7 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -12, 1) i32 @avc_add_callback(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 section ".init.text" align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #23
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
@@ -1110,7 +1110,7 @@ define dso_local i32 @avc_ss_reset(i32 noundef %0) local_unnamed_addr #1 align 1
 
 2:                                                ; preds = %.loopexit8, %1
   %3 = phi i64 [ 0, %1 ], [ %27, %.loopexit8 ]
-  %4 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %3
+  %4 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %3
   %5 = getelementptr %struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 1, i64 %3
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #21
   tail call void @__rcu_read_lock() #21
@@ -1140,7 +1140,7 @@ define dso_local i32 @avc_ss_reset(i32 noundef %0) local_unnamed_addr #1 align 1
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %15, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 56
   tail call void @call_rcu(ptr noundef %21, ptr noundef nonnull @avc_node_free) #21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   %22 = load ptr, ptr %13, align 8
   %23 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %22, i64 -40
@@ -1186,12 +1186,12 @@ define dso_local i32 @avc_ss_reset(i32 noundef %0) local_unnamed_addr #1 align 1
 .loopexit:                                        ; preds = %43, %29
   %48 = phi i32 [ 0, %29 ], [ %44, %43 ]
   %49 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @avc_latest_notif_update.notif_lock) #21
-  %50 = load i32, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 4), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6160), align 8
   %51 = icmp ult i32 %50, %0
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %.loopexit
-  store i32 %0, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 4), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6160), align 8
   br label %53
 
 53:                                               ; preds = %52, %.loopexit
@@ -1240,7 +1240,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %21 = xor i32 %20, %0
   %22 = and i32 %21, 511
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %23
+  %24 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = getelementptr i8, ptr %25, i64 -40
@@ -1276,7 +1276,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   br i1 %47, label %.thread18, label %.preheader, !llvm.loop !35
 
 .thread18:                                        ; preds = %41, %16
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 1)) #21, !srcloc !36
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 4), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 4)) #21, !srcloc !36
   call fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef nonnull %8, ptr noundef nonnull %13)
   br label %53
 
@@ -1557,7 +1557,7 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
   %8 = getelementptr inbounds i8, ptr %3, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @avc_latest_notif_update.notif_lock) #21
-  %11 = load i32, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6160), align 8
   %12 = icmp ugt i32 %11, %9
   br i1 %12, label %13, label %15
 
@@ -1590,8 +1590,8 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
   tail call fastcc void @avc_xperms_free(ptr noundef %26)
   %27 = load ptr, ptr @avc_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %27, ptr noundef nonnull %16) #21
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4)) #21, !srcloc !44
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16)) #21, !srcloc !44
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   br label %81
 
 28:                                               ; preds = %18
@@ -1602,7 +1602,7 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
   %33 = xor i32 %32, %0
   %34 = and i32 %33, 511
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %35
+  %36 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %35
   %37 = getelementptr %struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 1, i64 %35
   %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %37) #21
   %39 = load ptr, ptr %36, align 8
@@ -1655,7 +1655,7 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %59, align 8
   %68 = getelementptr inbounds i8, ptr %44, i64 56
   tail call void @call_rcu(ptr noundef %68, ptr noundef nonnull @avc_node_free) #21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   br label %80
 
 69:                                               ; preds = %51, %47, %.preheader
@@ -1706,7 +1706,7 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
   %18 = xor i32 %17, %4
   %19 = and i32 %18, 511
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %20
+  %21 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %20
   %22 = getelementptr %struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 1, i64 %20
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #21
   %24 = load ptr, ptr %21, align 8
@@ -1755,8 +1755,8 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
   tail call fastcc void @avc_xperms_free(ptr noundef %52)
   %53 = load ptr, ptr @avc_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %53, ptr noundef nonnull %11) #21
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4)) #21, !srcloc !44
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16)) #21, !srcloc !44
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   br label %161
 
 54:                                               ; preds = %40
@@ -1784,8 +1784,8 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
   tail call fastcc void @avc_xperms_free(ptr noundef %67)
   %68 = load ptr, ptr @avc_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %68, ptr noundef nonnull %11) #21
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4)) #21, !srcloc !44
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16)) #21, !srcloc !44
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   br label %161
 
 69:                                               ; preds = %62, %54
@@ -1951,7 +1951,7 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %151, align 8
   %160 = getelementptr inbounds i8, ptr %29, i64 56
   tail call void @call_rcu(ptr noundef %160, ptr noundef nonnull @avc_node_free) #21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
   br label %161
 
 161:                                              ; preds = %159, %65, %.loopexit
@@ -2012,7 +2012,7 @@ define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef
   %14 = xor i32 %13, %0
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %16
+  %17 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr i8, ptr %18, i64 -40
@@ -2048,7 +2048,7 @@ define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef
   br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %34, %9
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 1)) #21, !srcloc !36
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 4), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 4)) #21, !srcloc !36
   tail call void @__rcu_read_unlock() #21
   %41 = tail call fastcc i32 @avc_perm_nonode(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5), !range !52
   br label %50
@@ -2144,7 +2144,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_perm(i32 noundef %0, i32
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @avc_policy_seqno() local_unnamed_addr #6 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 6160), align 8
   ret i32 %1
 }
 
@@ -2273,7 +2273,7 @@ define internal void @avc_node_free(ptr noundef %0) #1 align 16 {
   tail call fastcc void @avc_xperms_free(ptr noundef %4)
   %5 = load ptr, ptr @avc_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %5, ptr noundef %2) #21
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 4)) #21, !srcloc !53
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 16)) #21, !srcloc !53
   ret void
 }
 
@@ -2369,8 +2369,8 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
 5:                                                ; preds = %0
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 2)) #21, !srcloc !55
-  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !56
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 8)) #21, !srcloc !55
+  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !56
   %8 = add i32 %7, 1
   %9 = load i32, ptr @selinux_avc, align 8
   %10 = icmp ugt i32 %8, %9
@@ -2379,7 +2379,7 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
 .preheader6:                                      ; preds = %5, %53
   %11 = phi i32 [ %55, %53 ], [ 0, %5 ]
   %12 = phi i32 [ %54, %53 ], [ 0, %5 ]
-  %13 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 2), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 2)) #21, !srcloc !56
+  %13 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6152), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6152)) #21, !srcloc !56
   %14 = add i32 %13, 1
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
@@ -2404,7 +2404,7 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
   br label %53
 
 25:                                               ; preds = %.preheader6
-  %26 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1), i64 0, i64 %16
+  %26 = getelementptr [512 x %struct.hlist_head], ptr getelementptr inbounds (i8, ptr @selinux_avc, i64 8), i64 0, i64 %16
   call void @__rcu_read_lock() #21
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -2433,8 +2433,8 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %36, align 8
   %42 = getelementptr inbounds i8, ptr %32, i64 56
   call void @call_rcu(ptr noundef %42, ptr noundef nonnull @avc_node_free) #21
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.selinux_avc, ptr @selinux_avc, i64 0, i32 1, i32 3)) #21, !srcloc !27
-  call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 3), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.avc_cache_stats, ptr @avc_cache_stats, i64 0, i32 3)) #21, !srcloc !60
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @selinux_avc, i64 6156)) #21, !srcloc !27
+  call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 12), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @avc_cache_stats, i64 12)) #21, !srcloc !60
   %43 = add i32 %33, 1
   %44 = icmp sgt i32 %43, 15
   br i1 %44, label %45, label %46

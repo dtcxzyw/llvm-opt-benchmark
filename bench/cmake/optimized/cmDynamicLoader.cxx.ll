@@ -151,13 +151,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i unwind label %26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: ; preds = %.noexc8.i.i
-  %30 = load ptr, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
   %.not11.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not11.i.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ]
-  %.0812.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i ], [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ]
+  %.0812.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ]
   %31 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 32
   %32 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i unwind label %33
@@ -179,7 +179,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i
-  %37 = icmp eq ptr %.19.i.i.i.i.i, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %37 = icmp eq ptr %.19.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %37, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i, label %38
 
 38:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i
@@ -196,27 +196,27 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %38
   %44 = icmp slt i32 %40, 0
-  %spec.select = select i1 %44, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr %.19.i.i.i.i.i
+  %spec.select = select i1 %44, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr %.19.i.i.i.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i ], [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  %.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %.not.i, label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i, label %45
 
 45:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.i.i
   %46 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef i32 @_ZN5cmsys13DynamicLoader12CloseLibraryEPv(ptr noundef %47)
-  %49 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
+  %49 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)) #14
   %50 = getelementptr inbounds i8, ptr %49, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #14
   call void @_ZdlPv(ptr noundef nonnull %49) #16
-  %51 = load i64, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
   %52 = add i64 %51, -1
-  store i64 %52, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
   br label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEPKc.exit.i
 
 53:                                               ; preds = %.noexc.i.i, %24
@@ -332,13 +332,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCac
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
   %.not11.i.i.i = icmp eq ptr %14, null
   br i1 %.not11.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %15 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %16 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %17
@@ -360,7 +360,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %21 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %21 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %21, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit, label %22
 
 22:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
@@ -377,14 +377,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %22
   %28 = icmp slt i32 %24, 0
-  %spec.select = select i1 %28, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr %.19.i.i.i
+  %spec.select = select i1 %28, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr %.19.i.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  %29 = icmp ne ptr %.sroa.0.0.i.i, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %29 = icmp ne ptr %.sroa.0.0.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit
@@ -422,8 +422,8 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15cmDynamicLoader10FlushCacheEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not4.i = icmp eq ptr %1, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 24), align 8
+  %.not4.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
@@ -432,11 +432,11 @@ define dso_local void @_ZN15cmDynamicLoader10FlushCacheEv() local_unnamed_addr #
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZN5cmsys13DynamicLoader12CloseLibraryEPv(ptr noundef %3)
   %5 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.05.i) #17
-  %.not.i = icmp eq ptr %5, getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not.i = icmp eq ptr %5, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8)
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %0
-  %6 = load ptr, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, ptr noundef %6)
           to label %_ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.exit unwind label %7
 
@@ -448,10 +448,10 @@ define dso_local void @_ZN15cmDynamicLoader10FlushCacheEv() local_unnamed_addr #
   unreachable
 
 _ZN12_GLOBAL__N_120cmDynamicLoaderCache10FlushCacheEv.exit: ; preds = %._crit_edge.i
-  store ptr null, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
   ret void
 }
 
@@ -1084,11 +1084,11 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_cmDynamicLoader.cxx() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  store i32 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::cmDynamicLoaderCache", ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, i64 40), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_120cmDynamicLoaderCacheD2Ev, ptr nonnull @_ZN12_GLOBAL__N_120cmDynamicLoaderCache8InstanceE, ptr nonnull @__dso_handle) #14
   ret void
 }

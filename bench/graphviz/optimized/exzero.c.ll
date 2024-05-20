@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @exzero(i64 noundef %0) local_unnamed_addr #0 {
   %cond = icmp eq i64 %0, 263
-  %spec.select = select i1 %cond, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 11), ptr null
+  %spec.select = select i1 %cond, ptr getelementptr inbounds (i8, ptr @expr, i64 128), ptr null
   ret ptr %spec.select
 }
 

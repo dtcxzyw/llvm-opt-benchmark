@@ -202,7 +202,7 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   store ptr %102, ptr %0, align 8
   %.not = icmp eq ptr %102, null
   %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %.sink = select i1 %.not, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i64 0, i32 1), ptr %103
+  %.sink = select i1 %.not, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %103
   store ptr %0, ptr %.sink, align 8
   store ptr %0, ptr @g_inactivetasks, align 8
   store i8 4, ptr %99, align 16

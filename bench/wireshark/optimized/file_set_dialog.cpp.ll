@@ -593,8 +593,8 @@ define void @_ZN13FileSetDialogC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 488), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
           to label %11 unwind label %51
@@ -1433,9 +1433,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13FileSetDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZN17FilesetEntryModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %4)

@@ -986,7 +986,7 @@ define internal noundef range(i32 -105, 1) i32 @packet_create(ptr noundef %0, pt
   %76 = getelementptr inbounds i8, ptr %0, i64 392
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
-  %79 = load i32, ptr getelementptr inbounds (%struct.proto, ptr @packet_proto, i64 0, i32 26), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @packet_proto, i64 208), align 8
   %80 = zext i32 %79 to i64
   %81 = getelementptr [64 x i32], ptr %78, i64 0, i64 %80
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #19, !srcloc !30
@@ -2180,7 +2180,7 @@ define internal i32 @packet_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2
   br label %39
 
 36:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %37 = load ptr, ptr getelementptr inbounds (%struct.proto_ops, ptr @inet_dgram_ops, i64 0, i32 9), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @inet_dgram_ops, i64 72), align 8
   %38 = tail call i32 %37(ptr noundef %0, i32 noundef %1, i64 noundef %2) #19
   br label %39
 
@@ -8493,7 +8493,7 @@ define internal fastcc i32 @packet_mc_add(ptr nocapture noundef %0, ptr nocaptur
   br i1 %14, label %packet_dev_mc.exit.thread6, label %15
 
 15:                                               ; preds = %8
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3264, i64 noundef 56) #23
   %18 = icmp eq ptr %17, null
   br i1 %18, label %packet_dev_mc.exit.thread6, label %19
@@ -8757,7 +8757,7 @@ define internal fastcc noundef range(i32 -114, 1) i32 @fanout_add(ptr noundef %0
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %25 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 128) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit19, label %27
@@ -9217,7 +9217,7 @@ define internal i32 @packet_rcv_fanout(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %fanout_demux_rollover.exit
 
 39:                                               ; preds = %23
-  %40 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #22, !srcloc !146
+  %40 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !146
   %41 = urem i32 %40, %8
   br label %fanout_demux_rollover.exit
 
@@ -10188,7 +10188,7 @@ define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_
   br label %83
 
 10:                                               ; preds = %2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([11 x [5 x %struct.static_key]], ptr @nf_hooks_needed, i64 0, i64 5, i64 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 416), i32 2) #19
           to label %46 [label %11], !srcloc !41
 
 11:                                               ; preds = %10
@@ -10270,7 +10270,7 @@ nf_hook_direct_egress.exit:                       ; preds = %41
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #19, !srcloc !159
+  %52 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !159
   %53 = add i32 %52, 1
   %54 = getelementptr inbounds i8, ptr %47, i64 156
   store i32 %53, ptr %54, align 4

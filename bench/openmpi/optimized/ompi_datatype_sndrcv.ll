@@ -59,7 +59,7 @@ define range(i32 0, 16) i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1
 
 35:                                               ; preds = %31
   %36 = load i32, ptr @opal_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not61 = icmp eq i32 %36, %37
   br i1 %.not61, label %39, label %38
 
@@ -71,7 +71,7 @@ define range(i32 0, 16) i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1
   store ptr @opal_convertor_t_class, ptr %7, align 8
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %40, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %42 = load ptr, ptr %41, align 8
   %.not6.i = icmp eq ptr %42, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -139,7 +139,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i65, %opal_o
 
 77:                                               ; preds = %73
   %78 = load i32, ptr @opal_class_init_epoch, align 4
-  %79 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not60 = icmp eq i32 %78, %79
   br i1 %.not60, label %81, label %80
 
@@ -151,7 +151,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i65, %opal_o
   store ptr @opal_convertor_t_class, ptr %8, align 8
   %82 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %82, align 8
-  %83 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %84 = load ptr, ptr %83, align 8
   %.not6.i68 = icmp eq ptr %84, null
   br i1 %.not6.i68, label %opal_obj_run_constructors.exit72, label %.lr.ph.i69
@@ -216,7 +216,7 @@ opal_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %opal_o
   %116 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #6
   store ptr %116, ptr %9, align 8
   %117 = load i32, ptr @opal_class_init_epoch, align 4
-  %118 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %118 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %117, %118
   br i1 %.not, label %120, label %119
 
@@ -228,7 +228,7 @@ opal_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %opal_o
   store ptr @opal_convertor_t_class, ptr %7, align 8
   %121 = getelementptr inbounds i8, ptr %7, i64 8
   store volatile i32 1, ptr %121, align 8
-  %122 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %123 = load ptr, ptr %122, align 8
   %.not6.i78 = icmp eq ptr %123, null
   br i1 %.not6.i78, label %opal_obj_run_constructors.exit82, label %.lr.ph.i79
@@ -255,7 +255,7 @@ opal_obj_run_constructors.exit82:                 ; preds = %.lr.ph.i79, %120
   store ptr %133, ptr %134, align 8
   %135 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %128, ptr noundef %0) #5
   %136 = load i32, ptr @opal_class_init_epoch, align 4
-  %137 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not57 = icmp eq i32 %136, %137
   br i1 %.not57, label %139, label %138
 
@@ -267,7 +267,7 @@ opal_obj_run_constructors.exit82:                 ; preds = %.lr.ph.i79, %120
   store ptr @opal_convertor_t_class, ptr %8, align 8
   %140 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %140, align 8
-  %141 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %142 = load ptr, ptr %141, align 8
   %.not6.i83 = icmp eq ptr %142, null
   br i1 %.not6.i83, label %opal_obj_run_constructors.exit87, label %.lr.ph.i84

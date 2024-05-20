@@ -90,7 +90,7 @@ define dso_local i32 @acpi_hw_legacy_sleep(i8 noundef zeroext %0) local_unnamed_
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11)) #3
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #3
           to label %52 [label %52, label %51], !srcloc !6
 
 51:                                               ; preds = %50
@@ -250,16 +250,16 @@ define dso_local i32 @acpi_hw_legacy_wake(i8 noundef zeroext %0) local_unnamed_a
   tail call void @acpi_hw_execute_sleep_method(ptr noundef nonnull @.str.1, i32 noundef %8) #3
   %9 = tail call i32 @acpi_write_bit_register(i32 noundef 6, i32 noundef 1) #3
   store i8 1, ptr @acpi_gbl_system_awake_and_running, align 1
-  %10 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2, i32 1), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_fixed_event_info, i64 13), align 1
   %11 = zext i8 %10 to i32
   %12 = tail call i32 @acpi_write_bit_register(i32 noundef %11, i32 noundef 1) #3
-  %13 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2), align 4
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_fixed_event_info, i64 12), align 4
   %14 = zext i8 %13 to i32
   %15 = tail call i32 @acpi_write_bit_register(i32 noundef %14, i32 noundef 1) #3
-  %16 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3, i32 1), align 1
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_fixed_event_info, i64 19), align 1
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @acpi_write_bit_register(i32 noundef %17, i32 noundef 1) #3
-  %19 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3), align 2
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_fixed_event_info, i64 18), align 2
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @acpi_write_bit_register(i32 noundef %20, i32 noundef 1) #3
   tail call void @acpi_hw_execute_sleep_method(ptr noundef nonnull @.str, i32 noundef 1) #3

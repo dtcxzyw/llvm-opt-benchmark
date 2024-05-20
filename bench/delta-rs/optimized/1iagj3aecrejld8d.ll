@@ -12946,7 +12946,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h93942799997be030E.exit.i.i.i": ; preds = %.noexc.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i.i
-  %.0.i.i2.i.i.i.i = phi ptr [ %41, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i.i ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %41, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i.i ]
   %.0.val.i.i.i.i = load i64, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !2521, !noundef !46
   %44 = getelementptr inbounds i8, ptr %.val12.i, i64 40
   %45 = load atomic i64, ptr %44 acquire, align 8, !noalias !2522
@@ -13064,7 +13064,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   unreachable
 
 86:                                               ; preds = %.noexc.i.i.i, %79
-  %.0.i.i2.i.i13.i.i = phi ptr [ %82, %.noexc.i.i.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %79 ]
+  %.0.i.i2.i.i13.i.i = phi ptr [ %82, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h234b1ed09bd44f64E, i64 8), %79 ]
   %87 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload.i.i, i64 16
   %88 = load i64, ptr %87, align 8, !noalias !2538, !noundef !46
   %89 = icmp eq i64 %88, 0
@@ -15657,7 +15657,7 @@ common.ret:                                       ; preds = %605, %568, %184, %8
   br i1 %193, label %194, label %.thread416
 
 194:                                              ; preds = %191
-  %195 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2a4334d0d38c5d07E", i64 0, i32 1, i64 8) monotonic, align 8
+  %195 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2a4334d0d38c5d07E", i64 16) monotonic, align 8
   switch i8 %195, label %196 [
     i8 0, label %.thread416
     i8 1, label %.thread413
@@ -15958,7 +15958,7 @@ common.ret:                                       ; preds = %605, %568, %184, %8
   br i1 %292, label %293, label %.thread424
 
 293:                                              ; preds = %290
-  %294 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h19bb75740fbe6eacE", i64 0, i32 1, i64 8) monotonic, align 8
+  %294 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h19bb75740fbe6eacE", i64 16) monotonic, align 8
   switch i8 %294, label %295 [
     i8 0, label %.thread424
     i8 1, label %.thread421
@@ -16257,7 +16257,7 @@ common.ret:                                       ; preds = %605, %568, %184, %8
   br i1 %387, label %388, label %.thread432
 
 388:                                              ; preds = %385
-  %389 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f8c4bf44f96bc67E", i64 0, i32 1, i64 8) monotonic, align 8
+  %389 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore12repair_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f8c4bf44f96bc67E", i64 16) monotonic, align 8
   switch i8 %389, label %390 [
     i8 0, label %.thread432
     i8 1, label %.thread429
@@ -17025,7 +17025,7 @@ default.unreachable329:                           ; preds = %233, %183, %3
   br i1 %56, label %57, label %.thread279
 
 57:                                               ; preds = %48
-  %58 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore18try_complete_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d9cc8b3403d4d60E", i64 0, i32 1, i64 8) monotonic, align 8
+  %58 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore18try_complete_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d9cc8b3403d4d60E", i64 16) monotonic, align 8
   switch i8 %58, label %59 [
     i8 0, label %.thread279
     i8 1, label %.thread
@@ -17994,7 +17994,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %336
   br i1 %365, label %366, label %.thread297
 
 366:                                              ; preds = %363
-  %367 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore18try_complete_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcfaebe16b9e48821E", i64 0, i32 1, i64 8) monotonic, align 8
+  %367 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws8logstore18S3DynamoDbLogStore18try_complete_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcfaebe16b9e48821E", i64 16) monotonic, align 8
   switch i8 %367, label %368 [
     i8 0, label %.thread297
     i8 1, label %.thread294
@@ -21503,7 +21503,7 @@ common.ret:                                       ; preds = %690, %335, %82
   br i1 %99, label %100, label %.thread191
 
 100:                                              ; preds = %93
-  %101 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a00f6078852d28eE", i64 0, i32 1, i64 8) monotonic, align 8
+  %101 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a00f6078852d28eE", i64 16) monotonic, align 8
   switch i8 %101, label %102 [
     i8 0, label %.thread191
     i8 1, label %.thread
@@ -22260,7 +22260,7 @@ common.ret:                                       ; preds = %690, %335, %82
   br i1 %347, label %348, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread388.i.i
 
 348:                                              ; preds = %344
-  %349 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4ff4ed34407ef00E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3791
+  %349 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4ff4ed34407ef00E", i64 16) monotonic, align 8, !noalias !3791
   switch i8 %349, label %350 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread388.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i
@@ -22551,7 +22551,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %446, label %447, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit245.thread394.i.i
 
 447:                                              ; preds = %444
-  %448 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3cd48d0d51345abfE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3791
+  %448 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3cd48d0d51345abfE", i64 16) monotonic, align 8, !noalias !3791
   switch i8 %448, label %449 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit245.thread394.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit245.thread.i.i
@@ -22906,7 +22906,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %531
   br i1 %554, label %555, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit276.thread405.i.i
 
 555:                                              ; preds = %552
-  %556 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb8d113b64f5013e0E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3791
+  %556 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18write_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb8d113b64f5013e0E", i64 16) monotonic, align 8, !noalias !3791
   switch i8 %556, label %557 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit276.thread405.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit276.thread.i.i
@@ -23613,7 +23613,7 @@ common.ret:                                       ; preds = %1379, %279, %237, %
   br i1 %112, label %113, label %.thread245
 
 113:                                              ; preds = %104
-  %114 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18get_latest_version28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h829b32cda6bccc37E", i64 0, i32 1, i64 8) monotonic, align 8
+  %114 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$18get_latest_version28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h829b32cda6bccc37E", i64 16) monotonic, align 8
   switch i8 %114, label %115 [
     i8 0, label %.thread245
     i8 1, label %.thread
@@ -24441,7 +24441,7 @@ common.ret:                                       ; preds = %1379, %279, %237, %
   br i1 %360, label %361, label %.thread207.i.i
 
 361:                                              ; preds = %358
-  %362 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8protocol19get_last_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90c231279bc31393E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !4014
+  %362 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8protocol19get_last_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90c231279bc31393E", i64 16) monotonic, align 8, !noalias !4014
   switch i8 %362, label %363 [
     i8 0, label %.thread207.i.i
     i8 1, label %.thread.i.i
@@ -26560,7 +26560,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107
   br i1 %1092, label %1093, label %.thread164.i
 
 1093:                                             ; preds = %1090
-  %1094 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8logstore18get_latest_version28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h616cd1a82b06f3c2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !4005
+  %1094 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8logstore18get_latest_version28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h616cd1a82b06f3c2E", i64 16) monotonic, align 8, !noalias !4005
   switch i8 %1094, label %1095 [
     i8 0, label %.thread164.i
     i8 1, label %.thread161.i

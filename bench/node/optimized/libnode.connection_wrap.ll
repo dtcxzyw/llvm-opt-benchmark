@@ -156,13 +156,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef %env, ptr %object.coerce, i32 noundef %provider) unnamed_addr #3 comdat($_ZN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEC5EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeE) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 288), ptr %add.ptr, align 8
   %handle_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN4node15LibuvStreamWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_stream_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %env, ptr %object.coerce, ptr noundef nonnull %handle_, i32 noundef %provider) #9
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sEE, i64 288), ptr %add.ptr, align 8
   ret void
 }
 
@@ -171,13 +171,13 @@ declare void @_ZN4node15LibuvStreamWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6Obje
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %env, ptr %object.coerce, i32 noundef %provider) unnamed_addr #3 comdat($_ZN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEC5EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeE) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 288), ptr %add.ptr, align 8
   %handle_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN4node15LibuvStreamWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_stream_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %env, ptr %object.coerce, ptr noundef nonnull %handle_, i32 noundef %provider) #9
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sEE, i64 288), ptr %add.ptr, align 8
   ret void
 }
 
@@ -1145,11 +1145,11 @@ _ZN4node17BaseObjectPtrImplINS_11ConnectWrapELb0EED2Ev.exit: ; preds = %if.end.i
 define linkonce_odr dso_local void @_ZN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %0, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #9
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -1282,11 +1282,11 @@ declare noundef ptr @_ZN4node15LibuvStreamWrap12GetAsyncWrapEv(ptr noundef nonnu
 define linkonce_odr dso_local void @_ZThn88_N4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sED1Ev(ptr noundef %this) unnamed_addr #5 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #9
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -1348,11 +1348,11 @@ declare ptr @_ZN4node10StreamBase9GetObjectEv(ptr noundef nonnull align 8 derefe
 define linkonce_odr dso_local void @_ZN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %0, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #9
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -1378,11 +1378,11 @@ entry:
 define linkonce_odr dso_local void @_ZThn88_N4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sED1Ev(ptr noundef %this) unnamed_addr #5 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #9
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8

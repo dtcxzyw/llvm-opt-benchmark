@@ -349,7 +349,7 @@ sw.epilog:                                        ; preds = %sw.bb43, %sw.bb36, 
 define internal i64 @pysiphash(ptr nocapture noundef readonly %src, i64 noundef %src_sz) #5 {
 entry:
   %0 = load i64, ptr @_Py_HashSecret, align 8
-  %1 = load i64, ptr getelementptr inbounds ({ [24 x i8] }, ptr @_Py_HashSecret, i64 0, i32 0, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 8), align 8
   %call = tail call fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr noundef %src, i64 noundef %src_sz)
   ret i64 %call
 }

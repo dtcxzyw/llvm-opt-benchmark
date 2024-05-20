@@ -822,7 +822,7 @@ define internal i32 @rps_default_mask_sysctl(ptr nocapture noundef readonly %0, 
   br i1 %12, label %14, label %19
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 8) #18
   %17 = icmp eq ptr %16, null
   br i1 %17, label %50, label %18

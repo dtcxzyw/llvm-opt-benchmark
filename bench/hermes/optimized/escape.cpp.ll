@@ -4124,7 +4124,7 @@ sw.bb21.i.i.i.i:                                  ; preds = %if.end11.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %sw.bb21.i.i.i.i
   %cmp.i31.i.i.i.i = icmp eq i16 %c, 44
-  %spec.select.i = select i1 %cmp.i31.i.i.i.i, ptr getelementptr inbounds ([11 x i16], ptr @.str.3, i64 0, i64 9), ptr getelementptr inbounds ([11 x i16], ptr @.str.3, i64 0, i64 10)
+  %spec.select.i = select i1 %cmp.i31.i.i.i.i, ptr getelementptr inbounds (i8, ptr @.str.3, i64 18), ptr getelementptr inbounds (i8, ptr @.str.3, i64 20)
   br label %_ZN6hermes2vmL11uriReservedEDs.exit
 
 _ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
@@ -4140,8 +4140,8 @@ _ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit16: ; preds = %if.en
   br label %_ZN6hermes2vmL11uriReservedEDs.exit
 
 _ZN6hermes2vmL11uriReservedEDs.exit:              ; preds = %for.body.i.i.i.i, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit14, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit16, %sw.bb21.i.i.i.i, %sw.bb26.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ getelementptr inbounds ([11 x i16], ptr @.str.3, i64 0, i64 8), %sw.bb21.i.i.i.i ], [ %spec.select.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit14 ], [ %incdec.ptr8.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit16 ], [ %__first.addr.049.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i = icmp ne ptr %retval.0.i.i.i.i, getelementptr inbounds ([11 x i16], ptr @.str.3, i64 0, i64 10)
+  %retval.0.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.3, i64 16), %sw.bb21.i.i.i.i ], [ %spec.select.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit14 ], [ %incdec.ptr8.i.i.i.i.le, %_ZN6hermes2vmL11uriReservedEDs.exit.loopexit.split.loop.exit16 ], [ %__first.addr.049.i.i.i.i, %for.body.i.i.i.i ]
+  %cmp.i = icmp ne ptr %retval.0.i.i.i.i, getelementptr inbounds (i8, ptr @.str.3, i64 20)
   %cmp = icmp eq i16 %c, 35
   %4 = or i1 %cmp, %cmp.i
   ret i1 %4

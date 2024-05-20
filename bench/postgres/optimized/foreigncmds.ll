@@ -1301,7 +1301,7 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
   br label %90
 
 90:                                               ; preds = %89, %23
-  %.sink = phi ptr [ %83, %89 ], [ getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), %23 ]
+  %.sink = phi ptr [ %83, %89 ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %23 ]
   %.sroa.035.0.in = phi ptr [ %4, %89 ], [ @InvalidObjectAddress, %23 ]
   %.sroa.3.0.copyload37 = load i32, ptr %.sink, align 4
   %.sroa.035.0 = load i64, ptr %.sroa.035.0.in, align 4
@@ -1630,7 +1630,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
   br label %89
 
 89:                                               ; preds = %88, %45
-  %.sink = phi ptr [ %80, %88 ], [ getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), %45 ]
+  %.sink = phi ptr [ %80, %88 ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %45 ]
   %.sroa.037.0.in = phi ptr [ %4, %88 ], [ @InvalidObjectAddress, %45 ]
   %.sroa.3.0.copyload39 = load i32, ptr %.sink, align 4
   %.sroa.037.0 = load i64, ptr %.sroa.037.0.in, align 4

@@ -1280,7 +1280,7 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   br i1 %404, label %405, label %407
 
 405:                                              ; preds = %402
-  %406 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2), align 16
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @run_argv, i64 16), align 16
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.81, ptr noundef nonnull @__func__._run, ptr noundef %406) #9
   br label %407
 
@@ -1594,11 +1594,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b50, label %24, label %25
 
 24:                                               ; preds = %23
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @create_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @create_argv, i64 16)) #9
   br label %25
 
 25:                                               ; preds = %24, %23
-  store ptr %22, ptr getelementptr inbounds ([4 x ptr], ptr @create_argv, i64 0, i64 2), align 16
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @create_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set, align 1
   br label %26
 
@@ -1615,11 +1615,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b4352, label %32, label %33
 
 32:                                               ; preds = %31
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @delete_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @delete_argv, i64 16)) #9
   br label %33
 
 33:                                               ; preds = %32, %31
-  store ptr %30, ptr getelementptr inbounds ([4 x ptr], ptr @delete_argv, i64 0, i64 2), align 16
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @delete_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set.68, align 1
   br label %34
 
@@ -1636,11 +1636,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b4454, label %40, label %41
 
 40:                                               ; preds = %39
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @kill_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @kill_argv, i64 16)) #9
   br label %41
 
 41:                                               ; preds = %40, %39
-  store ptr %38, ptr getelementptr inbounds ([4 x ptr], ptr @kill_argv, i64 0, i64 2), align 16
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @kill_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set.69, align 1
   br label %42
 
@@ -1657,11 +1657,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b4556, label %48, label %49
 
 48:                                               ; preds = %47
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @query_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @query_argv, i64 16)) #9
   br label %49
 
 49:                                               ; preds = %48, %47
-  store ptr %46, ptr getelementptr inbounds ([4 x ptr], ptr @query_argv, i64 0, i64 2), align 16
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @query_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set.70, align 1
   br label %50
 
@@ -1678,11 +1678,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b4658, label %56, label %57
 
 56:                                               ; preds = %55
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @run_argv, i64 16)) #9
   br label %57
 
 57:                                               ; preds = %56, %55
-  store ptr %54, ptr getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2), align 16
+  store ptr %54, ptr getelementptr inbounds (i8, ptr @run_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set.71, align 1
   br label %58
 
@@ -1699,11 +1699,11 @@ define internal fastcc void @_generate_patterns(ptr noundef %0, ptr noundef read
   br i1 %.b4760, label %64, label %65
 
 64:                                               ; preds = %63
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @start_argv, i64 0, i64 2)) #9
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @start_argv, i64 16)) #9
   br label %65
 
 65:                                               ; preds = %64, %63
-  store ptr %62, ptr getelementptr inbounds ([4 x ptr], ptr @start_argv, i64 0, i64 2), align 16
+  store ptr %62, ptr getelementptr inbounds (i8, ptr @start_argv, i64 16), align 16
   store i1 true, ptr @_generate_patterns.set.72, align 1
   br label %66
 
@@ -2407,7 +2407,7 @@ _get_container_state.exit.thread:                 ; preds = %32, %33
 
 41:                                               ; preds = %38
   %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__._get_container_state, ptr noundef nonnull %27) #9
-  %43 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %44 = and i64 %43, 2
   %.not4.i = icmp eq i64 %44, 0
   br i1 %.not4.i, label %_get_container_state.exit, label %45

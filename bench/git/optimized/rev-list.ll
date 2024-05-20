@@ -1020,7 +1020,7 @@ while.cond.preheader:                             ; preds = %if.end382
 for.body.i.preheader:                             ; preds = %while.cond.preheader, %while.body
   %87 = phi i32 [ %94, %while.body ], [ %86, %while.cond.preheader ]
   %iter.sroa.2.0221 = phi i32 [ %inc.i, %while.body ], [ 0, %while.cond.preheader ]
-  %88 = load ptr, ptr getelementptr inbounds (%struct.oidset, ptr @omitted_objects, i64 0, i32 0, i32 4), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @omitted_objects, i64 16), align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -1042,7 +1042,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.not.i, label %while.end, label %for.body.i, !llvm.loop !12
 
 oidset_iter_next.exit:                            ; preds = %for.body.i
-  %93 = load ptr, ptr getelementptr inbounds (%struct.oidset, ptr @omitted_objects, i64 0, i32 0, i32 5), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @omitted_objects, i64 24), align 8
   %tobool387.not = icmp eq ptr %93, null
   br i1 %tobool387.not, label %while.end, label %while.body
 
@@ -1073,7 +1073,7 @@ while.cond396.preheader:                          ; preds = %if.end390
 for.body.i107.preheader:                          ; preds = %while.cond396.preheader, %while.body399
   %97 = phi i32 [ %104, %while.body399 ], [ %96, %while.cond396.preheader ]
   %iter394.sroa.2.0223 = phi i32 [ %inc.i120, %while.body399 ], [ 0, %while.cond396.preheader ]
-  %98 = load ptr, ptr getelementptr inbounds (%struct.oidset, ptr @missing_objects, i64 0, i32 0, i32 4), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @missing_objects, i64 16), align 8
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %for.body.i107.preheader, %for.inc.i114
@@ -1095,7 +1095,7 @@ for.inc.i114:                                     ; preds = %for.body.i107
   br i1 %cmp.not.i116, label %while.end402, label %for.body.i107, !llvm.loop !12
 
 oidset_iter_next.exit123:                         ; preds = %for.body.i107
-  %103 = load ptr, ptr getelementptr inbounds (%struct.oidset, ptr @missing_objects, i64 0, i32 0, i32 5), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @missing_objects, i64 24), align 8
   %tobool398.not = icmp eq ptr %103, null
   br i1 %tobool398.not, label %while.end402, label %while.body399
 

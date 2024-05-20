@@ -517,7 +517,7 @@ if.then248:                                       ; preds = %entry, %if.end
 if.end250:                                        ; preds = %if.end
   %1 = load i32, ptr %verbose, align 4
   %2 = trunc i32 %1 to i16
-  %bf.load = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.value = and i16 %2, 1
   %bf.clear = and i16 %bf.load, -8060
   %bf.set = or disjoint i16 %bf.clear, %bf.value
@@ -561,12 +561,12 @@ if.end250:                                        ; preds = %if.end
   %bf.clear295.masked = or i16 %bf.clear289.masked.masked, %bf.shl288
   %bf.clear301 = or i16 %bf.clear295.masked, %bf.shl294
   %bf.set302 = or disjoint i16 %bf.clear301, %bf.shl300
-  store i16 %bf.set302, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  store i16 %bf.set302, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %nr = getelementptr inbounds i8, ptr %push_options, i64 8
   %19 = load i64, ptr %nr, align 8
   %tobool304.not = icmp eq i64 %19, 0
   %push_options. = select i1 %tobool304.not, ptr null, ptr %push_options
-  store ptr %push_options., ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 2), align 8
+  store ptr %push_options., ptr getelementptr inbounds (i8, ptr @args, i64 16), align 8
   store ptr %0, ptr @args, align 8
   %20 = load i32, ptr %from_stdin, align 4
   %tobool305.not = icmp eq i32 %20, 0
@@ -623,7 +623,7 @@ land.lhs.true:                                    ; preds = %if.end320
   br i1 %tobool323.not, label %lor.lhs.false, label %if.then337
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %bf.load324 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load324 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %25 = and i16 %bf.load324, 16
   %tobool328.not = icmp eq i16 %25, 0
   br i1 %tobool328.not, label %if.end339, label %if.then337
@@ -632,7 +632,7 @@ lor.lhs.false329:                                 ; preds = %if.end320
   br i1 %tobool323.not, label %if.end339, label %land.lhs.true331
 
 land.lhs.true331:                                 ; preds = %lor.lhs.false329
-  %bf.load332 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load332 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %26 = and i16 %bf.load332, 16
   %tobool336.not = icmp eq i16 %26, 0
   br i1 %tobool336.not, label %if.end339, label %if.then337
@@ -661,7 +661,7 @@ if.end347:                                        ; preds = %if.then341, %if.end
   %remote.0 = phi ptr [ %call342, %if.then341 ], [ null, %if.end339 ]
   %29 = load i32, ptr %progress, align 4
   %cmp348 = icmp eq i32 %29, -1
-  %bf.load358.pre33 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load358.pre33 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   br i1 %cmp348, label %if.then349, label %if.end357
 
 if.then349:                                       ; preds = %if.end347
@@ -673,7 +673,7 @@ land.rhs:                                         ; preds = %if.then349
   %call355 = call i32 @isatty(i32 noundef 2) #10
   %tobool356 = icmp ne i32 %call355, 0
   %31 = zext i1 %tobool356 to i32
-  %bf.load358.pre.pre = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load358.pre.pre = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then349
@@ -690,7 +690,7 @@ if.end357:                                        ; preds = %land.end, %if.end34
   %bf.shl360 = and i16 %bf.value359, 8
   %bf.clear361 = and i16 %bf.load358, -9
   %bf.set362 = or disjoint i16 %bf.shl360, %bf.clear361
-  store i16 %bf.set362, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  store i16 %bf.set362, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %34 = and i16 %bf.load358, 2048
   %tobool368.not = icmp eq i16 %34, 0
   br i1 %tobool368.not, label %if.else372, label %if.then369
@@ -737,7 +737,7 @@ sw.epilog:                                        ; preds = %sw.bb383, %if.end38
   %call386 = call ptr @get_local_heads() #10
   %37 = load i32, ptr %send_all, align 4
   %tobool387.not = icmp ne i32 %37, 0
-  %bf.load390 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load390 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %38 = lshr i16 %bf.load390, 3
   %39 = and i16 %38, 2
   %40 = zext i1 %tobool387.not to i16
@@ -773,7 +773,7 @@ if.then410:                                       ; preds = %if.end405
 
 if.end414:                                        ; preds = %if.then410, %if.end405
   %44 = load ptr, ptr %remote_refs, align 8
-  %bf.load415 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load415 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.lshr416 = lshr i16 %bf.load415, 4
   %bf.clear417 = and i16 %bf.lshr416, 1
   %bf.cast418 = zext nneg i16 %bf.clear417 to i32
@@ -996,14 +996,14 @@ if.end427:                                        ; preds = %print_helper_status
 
 if.then435:                                       ; preds = %if.end427
   %76 = load ptr, ptr %remote_refs, align 8
-  %bf.load436 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load436 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.clear437 = and i16 %bf.load436, 1
   %bf.cast438 = zext nneg i16 %bf.clear437 to i32
   call void @transport_print_push_status(ptr noundef nonnull %0, ptr noundef %76, i32 noundef %bf.cast438, i32 noundef 0, ptr noundef nonnull %reject_reasons) #10
   br label %if.end439
 
 if.end439:                                        ; preds = %if.then435, %if.end427
-  %bf.load440 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load440 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %77 = and i16 %bf.load440, 256
   %tobool444 = icmp ne i16 %77, 0
   %tobool446 = icmp eq ptr %remote.0, null
@@ -1015,7 +1015,7 @@ if.end439:                                        ; preds = %if.then435, %if.end
 
 for.body:                                         ; preds = %if.end439, %for.body
   %ref.030 = phi ptr [ %ref.0, %for.body ], [ %ref.028, %if.end439 ]
-  %bf.load449 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load449 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.clear450 = and i16 %bf.load449, 1
   %bf.cast451 = zext nneg i16 %bf.clear450 to i32
   call void @transport_update_tracking_ref(ptr noundef nonnull %remote.0, ptr noundef nonnull %ref.030, i32 noundef %bf.cast451) #10
@@ -1071,12 +1071,12 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %bf.load = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.clear = and i16 %bf.load, -1537
   br label %if.end15.sink.split
 
 sw.bb2:                                           ; preds = %if.then
-  %bf.load3 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load3 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.clear4 = and i16 %bf.load3, -1537
   %bf.set5 = or disjoint i16 %bf.clear4, 1024
   br label %if.end15.sink.split
@@ -1087,7 +1087,7 @@ sw.default:                                       ; preds = %if.then
   br i1 %tobool7.not, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %sw.default
-  %bf.load9 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  %bf.load9 = load i16, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   %bf.clear10 = and i16 %bf.load9, -1537
   %bf.set11 = or disjoint i16 %bf.clear10, 512
   br label %if.end15.sink.split
@@ -1108,7 +1108,7 @@ _.exit:                                           ; preds = %if.else, %if.end3.i
 
 if.end15.sink.split:                              ; preds = %if.then8, %sw.bb2, %sw.bb
   %bf.clear.sink = phi i16 [ %bf.clear, %sw.bb ], [ %bf.set5, %sw.bb2 ], [ %bf.set11, %if.then8 ]
-  store i16 %bf.clear.sink, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i64 0, i32 1), align 8
+  store i16 %bf.clear.sink, ptr getelementptr inbounds (i8, ptr @args, i64 8), align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end15.sink.split, %entry

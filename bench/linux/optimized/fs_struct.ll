@@ -187,7 +187,7 @@ define dso_local void @set_fs_pwd(ptr noundef %0, ptr noundef %1) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @chroot_fs_refs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #5
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 45, i32 0), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
   %4 = getelementptr i8, ptr %3, i64 -1112
   %5 = icmp eq ptr %4, @init_task
   br i1 %5, label %.thread, label %6

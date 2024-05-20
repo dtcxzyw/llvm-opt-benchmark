@@ -116,7 +116,7 @@ define dso_local noundef ptr @dm_region_hash_create(ptr noundef %0, ptr noundef 
   br i1 %14, label %12, label %16, !llvm.loop !5
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(264) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 264) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
@@ -592,7 +592,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   br i1 %33, label %34, label %37, !prof !18
 
 34:                                               ; preds = %.thread
-  %35 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %36 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 35840, i64 noundef 80) #12
   br label %37
 

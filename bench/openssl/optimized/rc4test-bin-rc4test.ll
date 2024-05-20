@@ -64,13 +64,13 @@ define internal i32 @test_rc4_end_processing(i32 noundef %i) #0 {
 entry:
   %obuf = alloca [512 x i8], align 16
   %key = alloca %struct.rc4_key_st, align 4
-  %0 = load i8, ptr getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, [29 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }> }>, ptr @keys, i64 0, i32 3, i32 0), align 2
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @keys, i64 90), align 2
   %conv = zext i8 %0 to i32
-  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, [29 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }> }>, ptr @keys, i64 0, i32 3, i32 1)) #3
+  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (i8, ptr @keys, i64 91)) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %obuf, i8 0, i64 512, i1 false)
   %conv1 = sext i32 %i to i64
-  call void @RC4(ptr noundef nonnull %key, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [21 x i8], [9 x i8] }>, [30 x i8], <{ [11 x i8], [19 x i8] }> }>, ptr @data, i64 0, i32 3, i32 0, i64 0), ptr noundef nonnull %obuf) #3
-  %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 83, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %obuf, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (<{ <{ [8 x i8], [22 x i8] }>, <{ [8 x i8], [22 x i8] }>, <{ [8 x i8], [22 x i8] }>, <{ [20 x i8], [10 x i8] }>, [30 x i8], <{ [10 x i8], [20 x i8] }> }>, ptr @output, i64 0, i32 3, i32 0, i64 0), i64 noundef %conv1) #3
+  call void @RC4(ptr noundef nonnull %key, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (i8, ptr @data, i64 90), ptr noundef nonnull %obuf) #3
+  %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 83, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %obuf, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (i8, ptr @output, i64 90), i64 noundef %conv1) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -90,18 +90,18 @@ define internal i32 @test_rc4_multi_call(i32 noundef %i) #0 {
 entry:
   %obuf = alloca [512 x i8], align 16
   %key = alloca %struct.rc4_key_st, align 4
-  %0 = load i8, ptr getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, [29 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }> }>, ptr @keys, i64 0, i32 3, i32 0), align 2
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @keys, i64 90), align 2
   %conv = zext i8 %0 to i32
-  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, [29 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }> }>, ptr @keys, i64 0, i32 3, i32 1)) #3
+  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (i8, ptr @keys, i64 91)) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %obuf, i8 0, i64 512, i1 false)
   %conv1 = sext i32 %i to i64
-  call void @RC4(ptr noundef nonnull %key, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [21 x i8], [9 x i8] }>, [30 x i8], <{ [11 x i8], [19 x i8] }> }>, ptr @data, i64 0, i32 3, i32 0, i64 0), ptr noundef nonnull %obuf) #3
+  call void @RC4(ptr noundef nonnull %key, i64 noundef %conv1, ptr noundef nonnull getelementptr inbounds (i8, ptr @data, i64 90), ptr noundef nonnull %obuf) #3
   %sub = sub nsw i32 20, %i
   %conv4 = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [30 x i8], ptr getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ [21 x i8], [9 x i8] }>, [30 x i8], <{ [11 x i8], [19 x i8] }> }>, ptr @data, i64 0, i32 3, i32 0, i64 0), i64 0, i64 %conv1
+  %arrayidx = getelementptr inbounds [30 x i8], ptr getelementptr inbounds (i8, ptr @data, i64 90), i64 0, i64 %conv1
   %arrayidx6 = getelementptr inbounds [512 x i8], ptr %obuf, i64 0, i64 %conv1
   call void @RC4(ptr noundef nonnull %key, i64 noundef %conv4, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx6) #3
-  %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %obuf, i64 noundef 21, ptr noundef nonnull getelementptr inbounds (<{ <{ [8 x i8], [22 x i8] }>, <{ [8 x i8], [22 x i8] }>, <{ [8 x i8], [22 x i8] }>, <{ [20 x i8], [10 x i8] }>, [30 x i8], <{ [10 x i8], [20 x i8] }> }>, ptr @output, i64 0, i32 3, i32 0, i64 0), i64 noundef 21) #3
+  %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %obuf, i64 noundef 21, ptr noundef nonnull getelementptr inbounds (i8, ptr @output, i64 90), i64 noundef 21) #3
   ret i32 %call
 }
 
@@ -116,7 +116,7 @@ entry:
   %md = alloca [20 x i8], align 16
   %0 = load i8, ptr @keys, align 16
   %conv = zext i8 %0 to i32
-  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (<{ <{ [9 x i8], [21 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, [29 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }>, <{ [9 x i8], [21 x i8] }>, <{ i8, i8, i8, i8, i8, [25 x i8] }> }>, ptr @keys, i64 0, i32 3, i32 1)) #3
+  call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull getelementptr inbounds (i8, ptr @keys, i64 91)) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %buf, i8 0, i64 513, i1 false)
   %call = call i32 @SHA1_Init(ptr noundef nonnull %c) #3
   br label %for.body

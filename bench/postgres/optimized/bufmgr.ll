@@ -546,9 +546,9 @@ BufferTagsEqual.exit:                             ; preds = %51
 
 58:                                               ; preds = %BufferTagsEqual.exit
   %59 = call zeroext i1 @PinLocalBuffer(ptr noundef nonnull %36, i1 noundef zeroext true) #14
-  %60 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 4), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
   %61 = add i64 %60, 1
-  store i64 %61, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 4), align 8
+  store i64 %61, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
   br label %BufferTagsEqual.exit.thread
 
 62:                                               ; preds = %ReservePrivateRefCountEntry.exit
@@ -1303,7 +1303,7 @@ BufferAlloc.exit:                                 ; preds = %68, %73, %86, %94, 
   ]
 
 .sink.split:                                      ; preds = %113, %113, %113, %BufferAlloc.exit, %28, %28, %28, %24
-  %pgBufferUsage.sink158 = phi ptr [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 4), %24 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 5), %28 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 5), %28 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 5), %28 ], [ @pgBufferUsage, %BufferAlloc.exit ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 1), %113 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 1), %113 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 1), %113 ]
+  %pgBufferUsage.sink158 = phi ptr [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), %24 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), %28 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), %28 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), %28 ], [ @pgBufferUsage, %BufferAlloc.exit ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), %113 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), %113 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), %113 ]
   %.ph = phi i8 [ %26, %24 ], [ %26, %28 ], [ %26, %28 ], [ %26, %28 ], [ %111, %BufferAlloc.exit ], [ %111, %113 ], [ %111, %113 ], [ %111, %113 ]
   %.0126.ph = phi i32 [ 1, %24 ], [ 1, %28 ], [ 1, %28 ], [ 1, %28 ], [ 0, %BufferAlloc.exit ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ]
   %.0125.ph = phi i32 [ 2, %24 ], [ 2, %28 ], [ 2, %28 ], [ 2, %28 ], [ %30, %BufferAlloc.exit ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ]
@@ -2246,9 +2246,9 @@ TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i143.i, %.
   br i1 %exitcond222.not.i, label %._crit_edge195.i, label %251, !llvm.loop !15
 
 ._crit_edge195.i:                                 ; preds = %TerminateBufferIO.exit.i, %241
-  %277 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 3), align 8
+  %277 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
   %278 = add i64 %277, %75
-  store i64 %278, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 3), align 8
+  store i64 %278, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
   br label %ExtendBufferedRelShared.exit
 
 ExtendBufferedRelShared.exit:                     ; preds = %72, %73, %._crit_edge195.i
@@ -2649,9 +2649,9 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %22
   %33 = load i64, ptr @VacuumPageDirty, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr @VacuumPageDirty, align 8
-  %35 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
   %36 = add i64 %35, 1
-  store i64 %36, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 8
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
   %37 = load i8, ptr @VacuumCostActive, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %43
@@ -2788,9 +2788,9 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   %4 = call i32 @StrategySyncStart(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %5 = load i32, ptr %3, align 4
   %6 = zext i32 %5 to i64
-  %7 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i64 0, i32 2), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
   %8 = add i64 %7, %6
-  store i64 %8, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i64 0, i32 2), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
   %9 = load i32, ptr @bgwriter_lru_maxpages, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %12
@@ -2951,9 +2951,9 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not75, label %103, label %99
 
 99:                                               ; preds = %95
-  %100 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i64 0, i32 1), align 8
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
   %101 = add i64 %100, 1
-  store i64 %101, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i64 0, i32 1), align 8
+  store i64 %101, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
   br label %.loopexit
 
 102:                                              ; preds = %91
@@ -3627,9 +3627,9 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %.not100.i, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 7), align 8
+  %115 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 56), align 8
   %116 = add i64 %115, 1
-  store i64 %116, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 7), align 8
+  store i64 %116, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 56), align 8
   %117 = add i32 %.089121.i, 1
   br label %118
 
@@ -3672,9 +3672,9 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   call void @IssuePendingWritebacks(ptr noundef nonnull %3, i32 noundef 2)
   call void @pfree(ptr noundef %.091.lcssa139.i) #14
   call void @binaryheap_free(ptr noundef nonnull %93) #14
-  %138 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  %138 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   %139 = add i32 %138, %.089.lcssa.i
-  store i32 %139, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  store i32 %139, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   br label %BufferSync.exit
 
 BufferSync.exit:                                  ; preds = %1, %._crit_edge.i, %._crit_edge125.i
@@ -5006,9 +5006,9 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %67, i32 noundef 1) #14
   %70 = and i32 %51, -276824065
   store volatile i32 %70, ptr %50, align 4
-  %71 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   %72 = add i64 %71, 1
-  store i64 %72, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  store i64 %72, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   %73 = load ptr, ptr %5, align 8
   store ptr %73, ptr @error_context_stack, align 8
   %.pre = load ptr, ptr @LocalBufferDescriptors, align 8
@@ -5314,9 +5314,9 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %51, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 6, i64 %49, i32 noundef 1) #14
-  %52 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 3), align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
   %53 = add i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 3), align 8
+  store i64 %53, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %54 = getelementptr inbounds i8, ptr %4, i64 4
@@ -6333,9 +6333,9 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %41
   %68 = load i64, ptr @VacuumPageDirty, align 8
   %69 = add i64 %68, 1
   store i64 %69, ptr @VacuumPageDirty, align 8
-  %70 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 8
+  %70 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
   %71 = add i64 %70, 1
-  store i64 %71, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 8
+  store i64 %71, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
   %72 = load i8, ptr @VacuumCostActive, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %78
@@ -7976,11 +7976,11 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %63
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %88
-  %93 = load i32, ptr getelementptr inbounds (%struct.WritebackContext, ptr @BackendWritebackContext, i64 0, i32 1), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 8), align 8
   %94 = add i32 %93, 1
-  store i32 %94, ptr getelementptr inbounds (%struct.WritebackContext, ptr @BackendWritebackContext, i64 0, i32 1), align 8
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 8), align 8
   %95 = sext i32 %93 to i64
-  %96 = getelementptr [256 x %struct.PendingWriteback], ptr getelementptr inbounds (%struct.WritebackContext, ptr @BackendWritebackContext, i64 0, i32 2, i64 0, i32 0, i32 0), i64 0, i64 %95
+  %96 = getelementptr [256 x %struct.PendingWriteback], ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 12), i64 0, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %96, ptr noundef nonnull readonly align 4 dereferenceable(20) %41, i64 20, i1 false)
   %.pre.i = load ptr, ptr @BackendWritebackContext, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
@@ -7988,7 +7988,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %63
 
 97:                                               ; preds = %92, %88
   %98 = phi i32 [ %.pre9.i, %92 ], [ %90, %88 ]
-  %99 = load i32, ptr getelementptr inbounds (%struct.WritebackContext, ptr @BackendWritebackContext, i64 0, i32 1), align 8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 8), align 8
   %.not8.i = icmp slt i32 %99, %98
   br i1 %.not8.i, label %ScheduleBufferTagForWriteback.exit, label %100
 
@@ -8329,7 +8329,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %63 = icmp uge ptr %.0.i, @PrivateRefCountArray
-  %64 = icmp ult ptr %.0.i, getelementptr inbounds ([8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 1, i64 0)
+  %64 = icmp ult ptr %.0.i, getelementptr inbounds (i8, ptr @PrivateRefCountArray, i64 64)
   %or.cond.i = select i1 %63, i1 %64, i1 false
   br i1 %or.cond.i, label %65, label %66
 

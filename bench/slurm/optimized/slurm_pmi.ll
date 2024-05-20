@@ -112,7 +112,7 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %_set_pmi_time.exit
-  %36 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %36 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %37 = zext i16 %36 to i32
   %38 = mul nuw nsw i32 %37, 24000
   br label %57
@@ -122,7 +122,7 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
-  %42 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %42 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %43 = zext i16 %42 to i32
   %44 = mul nuw nsw i32 %43, 12000
   br label %57
@@ -132,7 +132,7 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %48 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %49 = zext i16 %48 to i32
   %50 = mul nuw nsw i32 %49, 5000
   br label %57
@@ -142,7 +142,7 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %51
-  %54 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %54 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %55 = zext i16 %54 to i32
   %56 = mul nuw nsw i32 %55, 2000
   br label %57
@@ -465,7 +465,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %59
-  %69 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %69 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %70 = zext i16 %69 to i32
   %71 = mul nuw nsw i32 %70, 24000
   br label %90
@@ -475,7 +475,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %72
-  %75 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %75 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %76, 12000
   br label %90
@@ -485,7 +485,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %78
-  %81 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %81 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %82 = zext i16 %81 to i32
   %83 = mul nuw nsw i32 %82, 6000
   br label %90
@@ -495,7 +495,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %84
-  %87 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %87 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %88 = zext i16 %87 to i32
   %89 = mul nuw nsw i32 %88, 2000
   br label %90

@@ -1896,7 +1896,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont43 unwind label %lpad29
 
 invoke.cont43:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Poly_Functionalities_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call41, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25Poly_Functionalities_TestI7DeducedEEE, i64 16), ptr %call41, align 8, !tbaa !37
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -2721,7 +2721,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32PolyEmbedded_EmbeddedVtable_TestI15DeducedEmbeddedEEE, i64 0, i32 0, i64 2), ptr %call41, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI32PolyEmbedded_EmbeddedVtable_TestI15DeducedEmbeddedEEE, i64 16), ptr %call41, align 8, !tbaa !37
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI12PolyEmbeddedI15DeducedEmbeddedEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -3489,7 +3489,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_Owned_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_Owned_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -4257,7 +4257,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19Poly_Reference_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Poly_Reference_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -5025,7 +5025,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_ConstReference_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_ConstReference_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -5793,7 +5793,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42PolyDeathTest_DISABLED_ConstReference_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI42PolyDeathTest_DISABLED_ConstReference_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -6561,7 +6561,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_AsRef_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_AsRef_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -7329,7 +7329,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Poly_SBOVsZeroedSBOSize_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI28Poly_SBOVsZeroedSBOSize_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -8097,7 +8097,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Poly_SboAlignment_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI22Poly_SboAlignment_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -8865,7 +8865,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_NoSboAlignment_TestI7DeducedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_NoSboAlignment_TestI7DeducedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DeducedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -9891,7 +9891,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Poly_Functionalities_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call41, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25Poly_Functionalities_TestI7DefinedEEE, i64 16), ptr %call41, align 8, !tbaa !37
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -10544,7 +10544,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV25Poly_Functionalities_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV25Poly_Functionalities_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10772,11 +10772,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !213
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !213
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !213
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !213
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !213
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !213
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !213
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !213
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !213
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !213
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !213
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %invoke.cont
@@ -10820,11 +10820,11 @@ init.check.i.i1345:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1347:                                     ; preds = %init.check.i.i1345
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !217
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !217
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !217
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !217
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !217
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !217
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !217
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !217
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !217
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !217
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !217
   %11 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %invoke.cont4
@@ -10866,11 +10866,11 @@ init.check.i.i2382:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i2384:                                     ; preds = %init.check.i.i2382
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !220
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !220
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !220
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !220
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !220
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !220
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !220
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !220
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !220
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !220
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !220
   %16 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit
@@ -11518,7 +11518,7 @@ init.i:                                           ; preds = %init.check.i
 _ZN4entt7type_idIvEERKNS_9type_infoEv.exit:       ; preds = %init.i, %init.check.i, %cleanup.cont128
   %identifier.i.i.i.i = getelementptr inbounds i8, ptr %97, i64 4
   %100 = load i32, ptr %identifier.i.i.i.i, align 4, !tbaa !233, !noalias !236
-  %101 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idIvEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !236
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idIvEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !236
   %cmp.i.i.i1516 = icmp eq i32 %100, %101
   br i1 %cmp.i.i.i1516, label %if.then.i.i1517, label %if.end.i.i
 
@@ -11694,7 +11694,7 @@ init.i1555:                                       ; preds = %init.check.i1553
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit:   ; preds = %init.i1555, %init.check.i1553, %cleanup.cont158
   %identifier.i.i.i.i1556 = getelementptr inbounds i8, ptr %121, i64 4
   %124 = load i32, ptr %identifier.i.i.i.i1556, align 4, !tbaa !233, !noalias !243
-  %125 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !243
+  %125 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !243
   %cmp.i.i.i1557 = icmp eq i32 %124, %125
   br i1 %cmp.i.i.i1557, label %if.then.i.i1559, label %if.end.i.i1558
 
@@ -11875,7 +11875,7 @@ init.i1603:                                       ; preds = %init.check.i1601
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit1604: ; preds = %init.i1603, %init.check.i1601, %cleanup.cont189
   %identifier.i.i.i.i1605 = getelementptr inbounds i8, ptr %145, i64 4
   %148 = load i32, ptr %identifier.i.i.i.i1605, align 4, !tbaa !233, !noalias !248
-  %149 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !248
+  %149 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !248
   %cmp.i.i.i1606 = icmp eq i32 %148, %149
   br i1 %cmp.i.i.i1606, label %if.then.i.i1608, label %if.end.i.i1607
 
@@ -12056,7 +12056,7 @@ init.i1652:                                       ; preds = %init.check.i1650
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit1653: ; preds = %init.i1652, %init.check.i1650, %cleanup.cont220
   %identifier.i.i.i.i1654 = getelementptr inbounds i8, ptr %169, i64 4
   %172 = load i32, ptr %identifier.i.i.i.i1654, align 4, !tbaa !233, !noalias !253
-  %173 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !253
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !253
   %cmp.i.i.i1655 = icmp eq i32 %172, %173
   br i1 %cmp.i.i.i1655, label %if.then.i.i1657, label %if.end.i.i1656
 
@@ -12826,11 +12826,11 @@ init.check.i.i2394:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i2396:                                     ; preds = %init.check.i.i2394
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !258
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !258
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !258
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !258
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !258
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !258
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !258
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !258
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !258
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !258
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !258
   %264 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit1831
@@ -15996,11 +15996,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !269
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !269
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !269
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !269
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !269
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !269
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !269
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !269
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !269
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !269
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !269
   %2 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEv.exit
@@ -16445,7 +16445,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -16493,7 +16493,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -16535,7 +16535,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -16581,7 +16581,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -16625,7 +16625,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -16822,15 +16822,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %7, ptr %ss, align 8, !tbaa !37
-  %8 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -16849,12 +16849,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %13, ptr %ss, align 8, !tbaa !37
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -16925,7 +16925,7 @@ _ZN4entt10type_indexIvvE5valueEv.exit:            ; preds = %init.i, %init.check
   %alias = getelementptr inbounds i8, ptr %this, i64 8
   store i64 4, ptr %alias, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([56 x i8], ptr @.str.73, i64 0, i64 50), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.73, i64 50), ptr %5, align 8
   ret void
 }
 
@@ -16958,7 +16958,7 @@ _ZN4entt10type_indexI4implvE5valueEv.exit:        ; preds = %init.i, %init.check
   %alias = getelementptr inbounds i8, ptr %this, i64 8
   store i64 4, ptr %alias, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([56 x i8], ptr @.str.74, i64 0, i64 50), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.74, i64 50), ptr %5, align 8
   ret void
 }
 
@@ -17136,15 +17136,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -17163,12 +17163,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !37
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -17266,15 +17266,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -17293,12 +17293,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !37
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -17496,15 +17496,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -17523,12 +17523,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !37
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -17718,15 +17718,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -17745,12 +17745,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !37
-  %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -18692,15 +18692,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %7, ptr %ss, align 8, !tbaa !37
-  %8 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8, !tbaa !37
-  %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !37
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -18719,12 +18719,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !37
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %13, ptr %ss, align 8, !tbaa !37
-  %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -19817,7 +19817,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV25Poly_Functionalities_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV25Poly_Functionalities_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -20041,11 +20041,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !331
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !331
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !331
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !331
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !331
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !331
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !331
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !331
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !331
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !331
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !331
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %invoke.cont
@@ -20089,11 +20089,11 @@ init.check.i.i1281:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1283:                                     ; preds = %init.check.i.i1281
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !334
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !334
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !334
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !334
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !334
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !334
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !334
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !334
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !334
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !334
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !334
   %11 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %invoke.cont4
@@ -20135,11 +20135,11 @@ init.check.i.i2318:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i2320:                                     ; preds = %init.check.i.i2318
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !337
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !337
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !337
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !337
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !337
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !337
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !337
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !337
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !337
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !337
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !337
   %16 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit
@@ -20787,7 +20787,7 @@ init.i:                                           ; preds = %init.check.i
 _ZN4entt7type_idIvEERKNS_9type_infoEv.exit:       ; preds = %init.i, %init.check.i, %cleanup.cont120
   %identifier.i.i.i.i = getelementptr inbounds i8, ptr %97, i64 4
   %100 = load i32, ptr %identifier.i.i.i.i, align 4, !tbaa !233, !noalias !340
-  %101 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idIvEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !340
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idIvEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !340
   %cmp.i.i.i1452 = icmp eq i32 %100, %101
   br i1 %cmp.i.i.i1452, label %if.then.i.i1453, label %if.end.i.i
 
@@ -20963,7 +20963,7 @@ init.i1491:                                       ; preds = %init.check.i1489
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit:   ; preds = %init.i1491, %init.check.i1489, %cleanup.cont148
   %identifier.i.i.i.i1492 = getelementptr inbounds i8, ptr %121, i64 4
   %124 = load i32, ptr %identifier.i.i.i.i1492, align 4, !tbaa !233, !noalias !345
-  %125 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !345
+  %125 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !345
   %cmp.i.i.i1493 = icmp eq i32 %124, %125
   br i1 %cmp.i.i.i1493, label %if.then.i.i1495, label %if.end.i.i1494
 
@@ -21144,7 +21144,7 @@ init.i1539:                                       ; preds = %init.check.i1537
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit1540: ; preds = %init.i1539, %init.check.i1537, %cleanup.cont177
   %identifier.i.i.i.i1541 = getelementptr inbounds i8, ptr %145, i64 4
   %148 = load i32, ptr %identifier.i.i.i.i1541, align 4, !tbaa !233, !noalias !350
-  %149 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !350
+  %149 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !350
   %cmp.i.i.i1542 = icmp eq i32 %148, %149
   br i1 %cmp.i.i.i1542, label %if.then.i.i1544, label %if.end.i.i1543
 
@@ -21325,7 +21325,7 @@ init.i1588:                                       ; preds = %init.check.i1586
 _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit1589: ; preds = %init.i1588, %init.check.i1586, %cleanup.cont206
   %identifier.i.i.i.i1590 = getelementptr inbounds i8, ptr %169, i64 4
   %172 = load i32, ptr %identifier.i.i.i.i1590, align 4, !tbaa !233, !noalias !355
-  %173 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233, !noalias !355
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233, !noalias !355
   %cmp.i.i.i1591 = icmp eq i32 %172, %173
   br i1 %cmp.i.i.i1591, label %if.then.i.i1593, label %if.end.i.i1592
 
@@ -22095,11 +22095,11 @@ init.check.i.i2330:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i2332:                                     ; preds = %init.check.i.i2330
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !360
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !360
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !360
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !360
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !360
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !360
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !360
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !360
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !360
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !360
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !360
   %264 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit1767
@@ -25106,11 +25106,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !363
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !363
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !363
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !363
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !363
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !363
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !363
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !363
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !363
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !363
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !363
   %2 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEv.exit
@@ -25428,7 +25428,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -25476,7 +25476,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -25518,7 +25518,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -25564,7 +25564,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -25608,7 +25608,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -26652,7 +26652,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32PolyEmbedded_EmbeddedVtable_TestI15DefinedEmbeddedEEE, i64 0, i32 0, i64 2), ptr %call41, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI32PolyEmbedded_EmbeddedVtable_TestI15DefinedEmbeddedEEE, i64 16), ptr %call41, align 8, !tbaa !37
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI12PolyEmbeddedI15DefinedEmbeddedEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -27017,7 +27017,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV32PolyEmbedded_EmbeddedVtable_TestI15DeducedEmbeddedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV32PolyEmbedded_EmbeddedVtable_TestI15DeducedEmbeddedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -28099,7 +28099,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -28256,7 +28256,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV32PolyEmbedded_EmbeddedVtable_TestI15DefinedEmbeddedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV32PolyEmbedded_EmbeddedVtable_TestI15DefinedEmbeddedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -29342,7 +29342,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !206
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 24
@@ -30196,7 +30196,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_Owned_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_Owned_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -30561,7 +30561,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV15Poly_Owned_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15Poly_Owned_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -30668,11 +30668,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !441
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !441
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !441
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !441
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !441
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !441
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !441
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !441
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !441
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !441
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !441
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit
@@ -32852,7 +32852,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV15Poly_Owned_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15Poly_Owned_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -32959,11 +32959,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !459
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !459
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !459
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !459
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !459
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !459
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !459
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !459
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !459
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !459
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !459
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit
@@ -35542,7 +35542,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19Poly_Reference_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Poly_Reference_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -35907,7 +35907,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV19Poly_Reference_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV19Poly_Reference_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -36019,11 +36019,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !492
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !492
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !492
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !492
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !492
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !492
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !492
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !492
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !492
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !492
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !492
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2IR4implJS5_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -38173,7 +38173,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV19Poly_Reference_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV19Poly_Reference_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -38285,11 +38285,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !510
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !510
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !510
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !510
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !510
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !510
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !510
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !510
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !510
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !510
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !510
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2IR4implJS5_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -40838,7 +40838,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_ConstReference_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_ConstReference_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -41203,7 +41203,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV24Poly_ConstReference_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV24Poly_ConstReference_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -41315,11 +41315,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !543
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !543
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !543
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !543
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !543
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !543
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !543
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !543
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !543
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !543
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !543
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2IRK4implJRS4_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -43545,7 +43545,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV24Poly_ConstReference_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV24Poly_ConstReference_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -43657,11 +43657,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !561
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !561
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !561
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !561
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !561
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !561
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !561
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !561
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !561
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !561
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !561
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2IRK4implJRS4_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -46184,7 +46184,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42PolyDeathTest_DISABLED_ConstReference_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI42PolyDeathTest_DISABLED_ConstReference_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -46549,7 +46549,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV42PolyDeathTest_DISABLED_ConstReference_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV42PolyDeathTest_DISABLED_ConstReference_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46619,11 +46619,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !594
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !594
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !594
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !594
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !594
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !594
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !594
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !594
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !594
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !594
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !594
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2IRK4implJRS4_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -46802,7 +46802,7 @@ invoke.cont26:                                    ; preds = %if.then23
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.tmp24, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.tmp24, align 8, !tbaa !37
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   %25 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !597
   %cmp.not.i.i.i = icmp eq ptr %25, null
@@ -47213,7 +47213,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !tbaa !37, !noalias !602
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i2, align 8, !tbaa !37, !noalias !602
   %impl_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !605, !noalias !602
   store ptr %0, ptr %impl_.i.i, align 8, !tbaa !605, !noalias !602
@@ -47257,7 +47257,7 @@ invoke.cont:                                      ; preds = %_ZN7testing18Polymo
   %6 = ptrtoint ptr %call.i2 to i64
   store i64 %6, ptr %value.i.i.i.i.i.i, align 8, !tbaa !212, !noalias !602
   store ptr %call.i.i3.i.i.i3, ptr %buffer_.i.i.i, align 8, !tbaa !13, !alias.scope !602
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !37, !alias.scope !602
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.result, align 8, !tbaa !37, !alias.scope !602
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !608
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit, label %if.then.i.i.i.i
@@ -47321,7 +47321,7 @@ lpad:                                             ; preds = %_ZN7testing18Polymo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !37
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8, !tbaa !597
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -47474,7 +47474,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont3
   store i32 1, ptr %_M_use_count.i.i.i, align 8, !tbaa !614
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4, !tbaa !616
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8, !tbaa !37
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i, align 8, !tbaa !621
   call void @llvm.experimental.noalias.scope.decl(metadata !623)
@@ -47755,7 +47755,7 @@ declare void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 deref
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !37
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !608
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -47812,7 +47812,7 @@ _ZN7testing8internal19MatchesRegexMatcherD2Ev.exit: ; preds = %if.then7.i.i.i.i,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !37
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !608
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -48217,7 +48217,7 @@ declare noundef zeroext i1 @_ZN7testing8internal2RE12PartialMatchEPKcRKS1_(ptr n
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !37
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !597
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -48331,7 +48331,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !37
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !597
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -48573,7 +48573,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV42PolyDeathTest_DISABLED_ConstReference_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV42PolyDeathTest_DISABLED_ConstReference_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -48643,11 +48643,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !631
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !631
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !631
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !631
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !631
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !631
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !631
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !631
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !631
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !631
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !631
   %4 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2IRK4implJRS4_EEESt15in_place_type_tIT_EDpOT0_.exit
@@ -48826,7 +48826,7 @@ invoke.cont26:                                    ; preds = %if.then23
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.tmp24, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.tmp24, align 8, !tbaa !37
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   %25 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !597
   %cmp.not.i.i.i = icmp eq ptr %25, null
@@ -49758,7 +49758,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_AsRef_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI15Poly_AsRef_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -50123,7 +50123,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV15Poly_AsRef_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15Poly_AsRef_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -50251,11 +50251,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !649
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !649
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !649
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !649
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !649
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !649
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !649
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !649
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !649
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !649
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !649
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit
@@ -52564,11 +52564,11 @@ init.check.i.i1207:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1209:                                     ; preds = %init.check.i.i1207
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !652
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !652
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !652
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !652
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !652
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !652
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !652
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !652
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !652
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !652
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !652
   %280 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit1050
@@ -52634,11 +52634,11 @@ init.check.i.i1220:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1222:                                     ; preds = %init.check.i.i1220
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !655
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !655
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !655
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !655
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !655
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !655
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !655
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !655
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !655
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !655
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !655
   %290 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit1064
@@ -53345,7 +53345,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV15Poly_AsRef_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15Poly_AsRef_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -53473,11 +53473,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !661
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !661
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !661
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !661
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !661
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !661
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !661
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !661
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !661
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !661
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !661
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit
@@ -55786,11 +55786,11 @@ init.check.i.i1207:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1209:                                     ; preds = %init.check.i.i1207
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !664
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !664
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !664
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !664
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !664
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !664
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !664
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !664
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !664
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !664
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !664
   %280 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit1050
@@ -55856,11 +55856,11 @@ init.check.i.i1220:                               ; preds = %_ZN4entt9basic_anyI
 
 init.i.i1222:                                     ; preds = %init.check.i.i1220
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !667
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !667
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !667
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !667
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !667
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !667
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !667
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !667
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !667
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !667
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !667
   %290 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit1064
@@ -56968,7 +56968,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Poly_SBOVsZeroedSBOSize_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI28Poly_SBOVsZeroedSBOSize_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -57333,7 +57333,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV28Poly_SBOVsZeroedSBOSize_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV28Poly_SBOVsZeroedSBOSize_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -57408,11 +57408,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !688
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !688
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !688
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !688
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !688
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.26", ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !688
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !688
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !688
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !688
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !688
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !688
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm16ELm8EEC2I4implvEEOT_.exit
@@ -58957,11 +58957,11 @@ init.check.i:                                     ; preds = %_ZN4entt9basic_anyI
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !705
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm0ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.147", ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !705
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.147", ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !705
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.147", ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !705
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.147", ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !705
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.147", ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !705
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm0ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !705
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !705
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !705
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !705
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !705
   %5 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DeducedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEv.exit
@@ -59074,7 +59074,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -59122,7 +59122,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -59164,7 +59164,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -59210,7 +59210,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -59254,7 +59254,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -59419,7 +59419,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV28Poly_SBOVsZeroedSBOSize_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV28Poly_SBOVsZeroedSBOSize_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -59494,11 +59494,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !708
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !708
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !708
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !708
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !708
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.57", ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !708
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !708
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !708
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !708
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm16ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !708
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm16ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !708
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm16ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm16ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm16ELm8EEC2I4implvEEOT_.exit
@@ -60373,11 +60373,11 @@ init.check.i:                                     ; preds = %_ZN4entt9basic_anyI
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !721
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.177", ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !721
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.177", ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !721
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.177", ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !721
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (%"class.std::tuple.177", ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !721
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (%"class.std::tuple.177", ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !721
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !721
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !721
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNKS4_3getEvEEiKNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !721
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_3setEiEEvNS_9basic_anyILm0ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS6_iE_8__invokeESF_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !721
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZNS4_4incrEvEEvNS_9basic_anyILm0ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS6_E_8__invokeESF_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !721
   %5 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DefinedLm0ELm8EE8instanceI4implEEPKSt5tupleIJPFvRNS_9basic_anyILm0ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEv.exit
@@ -60414,7 +60414,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -60462,7 +60462,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -60504,7 +60504,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -60550,7 +60550,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -60594,7 +60594,7 @@ _ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i.i.i.i, %
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !697
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI4implEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 16
@@ -61162,7 +61162,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Poly_SboAlignment_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI22Poly_SboAlignment_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -61527,7 +61527,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV22Poly_SboAlignment_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22Poly_SboAlignment_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -61610,11 +61610,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !742
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm64EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !742
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !742
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !742
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !742
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !742
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm64EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !742
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !742
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !742
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !742
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !742
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit
@@ -61659,11 +61659,11 @@ init.check.i.i46:                                 ; preds = %_ZN4entt9basic_anyI
 
 init.i.i48:                                       ; preds = %init.check.i.i46
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !747
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm64EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !747
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !747
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !747
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !747
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.204", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !747
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm64EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !747
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !747
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !747
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !747
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !747
   %9 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
@@ -62816,7 +62816,7 @@ _ZN4entt10type_indexI12over_alignedvE5valueEv.exit: ; preds = %init.i, %init.che
   %alias = getelementptr inbounds i8, ptr %this, i64 8
   store i64 12, ptr %alias, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([64 x i8], ptr @.str.119, i64 0, i64 50), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.119, i64 50), ptr %5, align 8
   ret void
 }
 
@@ -62846,7 +62846,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -62894,7 +62894,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -62936,7 +62936,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -62982,7 +62982,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -63026,7 +63026,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -63926,7 +63926,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV22Poly_SboAlignment_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22Poly_SboAlignment_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -64009,11 +64009,11 @@ init.check.i.i:                                   ; preds = %_ZN4entt9basic_anyI
 
 init.i.i:                                         ; preds = %init.check.i.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !751
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !751
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !751
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !751
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !751
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !751
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !751
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !751
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !751
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !751
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !751
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit
@@ -64058,11 +64058,11 @@ init.check.i.i46:                                 ; preds = %_ZN4entt9basic_anyI
 
 init.i.i48:                                       ; preds = %init.check.i.i46
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !756
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !756
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !756
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !756
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !756
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.235", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !756
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !756
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !756
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !756
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm64EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !756
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm64EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !756
   %9 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
@@ -65137,7 +65137,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -65185,7 +65185,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -65227,7 +65227,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -65273,7 +65273,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -65317,7 +65317,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 64, !tbaa !739
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -65885,7 +65885,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_NoSboAlignment_TestI7DefinedEEE, i64 0, i32 0, i64 2), ptr %call40, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24Poly_NoSboAlignment_TestI7DefinedEEE, i64 16), ptr %call40, align 8, !tbaa !37
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %38, ptr noundef %48, ptr noundef %50, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI4PolyI7DefinedEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -66250,7 +66250,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV24Poly_NoSboAlignment_TestI7DeducedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV24Poly_NoSboAlignment_TestI7DeducedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -67413,11 +67413,11 @@ init.check.i:                                     ; preds = %_ZN4entt9basic_anyI
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !780
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (%"class.std::tuple.261", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !780
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.261", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !780
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.261", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !780
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.261", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !780
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.261", ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !780
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENUlRSB_dE_8__invokeESK_d to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !780
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !780
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !780
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !780
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !780
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DeducedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEv.exit
@@ -67535,7 +67535,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -67583,7 +67583,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -67625,7 +67625,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -67671,7 +67671,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -67715,7 +67715,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -68053,7 +68053,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV24Poly_NoSboAlignment_TestI7DefinedE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !37
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV24Poly_NoSboAlignment_TestI7DefinedE, i64 16), ptr %call, align 8, !tbaa !37
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -69219,11 +69219,11 @@ init.check.i:                                     ; preds = %_ZN4entt9basic_anyI
 
 init.i:                                           ; preds = %init.check.i
   store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZL17absolutely_randomvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, align 8, !tbaa !212, !alias.scope !785
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (%"class.std::tuple.291", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !785
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (%"class.std::tuple.291", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !785
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (%"class.std::tuple.291", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !785
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (%"class.std::tuple.291", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !785
-  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (%"class.std::tuple.291", ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 0, i32 0, i32 1, i32 0), align 8, !tbaa !212, !alias.scope !785
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEiKNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRSB_iE_8__invokeESK_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 8), align 8, !tbaa !212, !alias.scope !785
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E4decrERS4_EEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS9_E_8__invokeESI_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 16), align 8, !tbaa !212, !alias.scope !785
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZNK4impl3getEvEEiKNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS8_E_8__invokeESH_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 24), align 8, !tbaa !212, !alias.scope !785
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl3setEiEEvNS_9basic_anyILm64ELm8EEEJiEEEvRPFT1_RT2_DpT3_EENUlRS7_iE_8__invokeESG_i to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 32), align 8, !tbaa !212, !alias.scope !785
+  store i64 ptrtoint (ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN4impl4incrEvEEvNS_9basic_anyILm64ELm8EEEJEEEvRPFT1_RT2_DpT3_EENUlRS7_E_8__invokeESG_ to i64), ptr getelementptr inbounds (i8, ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, i64 40), align 8, !tbaa !212, !alias.scope !785
   %4 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable) #24
   br label %_ZN4entt11poly_vtableI7DefinedLm64ELm8EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm8EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEv.exit
@@ -69260,7 +69260,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -69308,7 +69308,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -69350,7 +69350,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -69396,7 +69396,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %3 = load ptr, ptr %info.i.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i.i.i, align 4, !tbaa !233
-  %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i)
   %vtable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72
@@ -69440,7 +69440,7 @@ _ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i: ; preds = %init.i
   %2 = load ptr, ptr %info.i.i.i.i, align 8, !tbaa !777
   %identifier.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %identifier.i.i.i.i.i.i, align 4, !tbaa !233
-  %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !233
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN4entt7type_idI12over_alignedEERKNS_9type_infoEvE8instance, i64 4), align 4, !tbaa !233
   %cmp.i.i.i.i.i = icmp eq i32 %3, %4
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %vtable.i.i.i.i.i = getelementptr inbounds i8, ptr %instance, i64 72

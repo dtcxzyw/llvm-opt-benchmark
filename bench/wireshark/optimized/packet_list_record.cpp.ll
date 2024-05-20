@@ -189,7 +189,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiiSt4lessIiESaISt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN16PacketListRecordC2EP11_frame_data(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16PacketListRecord, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16PacketListRecord, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -239,8 +239,8 @@ define void @_ZN16PacketListRecord15ensureColorizedEP13_capture_file(ptr nocaptu
   br i1 %.not7, label %15, label %11
 
 11:                                               ; preds = %3
-  %12 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
-  %13 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 2), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 64), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 56), align 8
   %14 = icmp slt i64 %12, %13
   tail call void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %1, i1 noundef zeroext %14, i1 noundef zeroext true)
   br label %15
@@ -527,7 +527,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %48, %.thread24, %50
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16PacketListRecord12resetColumnsEP16epan_column_info(ptr noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit, label %5
 
@@ -553,10 +553,10 @@ define void @_ZN16PacketListRecord12resetColumnsEP16epan_column_info(ptr noundef
   br label %_ZN16PacketListRecord20invalidateAllRecordsEv.exit
 
 _ZN16PacketListRecord20invalidateAllRecordsEv.exit: ; preds = %1, %.loopexit.i.i.i
-  store ptr null, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 1), i8 0, i64 16, i1 false)
-  store i64 0, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
-  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 24), i8 0, i64 16, i1 false)
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 64), align 8
+  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 8), align 8
   store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr @_ZN16PacketListRecord15col_text_cache_E, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %13
@@ -3844,10 +3844,10 @@ _ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE6insertEm.exit: ; preds
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_packet_list_record.cpp() #17 section ".text.startup" personality ptr @__gxx_personality_v0 {
   store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr @_ZN16PacketListRecord15col_text_cache_E, align 8
-  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 1), i8 0, i64 32, i1 false)
-  store i64 16, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 2), align 8
+  store ptr @_ZN16PacketListRecord15col_text_cache_E, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 16), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 24), i8 0, i64 32, i1 false)
+  store i64 16, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 32), align 8
   %1 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znam(i64 noundef 152) #23
           to label %__cxx_global_var_init.exit unwind label %2
 
@@ -3868,11 +3868,11 @@ __cxx_global_var_init.exit:                       ; preds = %0
   %7 = getelementptr inbounds i8, ptr %1, i64 145
   store i8 0, ptr %7, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.ptr.i.i, i8 -1, i64 128, i1 false)
-  store ptr %.ptr.i.i, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 4), align 8
+  store ptr %.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
   %8 = tail call i64 @_ZN9QHashSeed10globalSeedEv() #20
-  store i64 %8, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 1, i32 3), align 8
-  store i64 500, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 2), align 8
-  store i64 0, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 40), align 8
+  store i64 500, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 56), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 64), align 8
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6QCacheIj5QListI7QStringEED2Ev, ptr nonnull @_ZN16PacketListRecord15col_text_cache_E, ptr nonnull @__dso_handle) #20
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiiED2Ev, ptr nonnull @_ZN16PacketListRecord13cinfo_column_E, ptr nonnull @__dso_handle) #20
   ret void

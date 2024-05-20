@@ -85,7 +85,7 @@ define i64 @cons_helpers_get_def_mem_per_gpu(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define ptr @cons_helpers_mark_avail_cores(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %5 = tail call ptr @build_core_array() #2
   %.not86 = icmp sgt i16 %1, -1
   %6 = and i16 %1, 32767

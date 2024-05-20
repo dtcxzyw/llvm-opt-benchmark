@@ -7292,7 +7292,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hea063456aeab748cE.exit.i.i": ; preds = %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i
-  %.0.i.i2.i.i.i = phi ptr [ %41, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i.i.i ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i ]
+  %.0.i.i2.i.i.i = phi ptr [ %41, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i ]
   %.0.val.i.i.i = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !1268, !noundef !4
   %44 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %45 = load atomic i64, ptr %44 acquire, align 8, !noalias !1268
@@ -7411,7 +7411,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 86:                                               ; preds = %.noexc.i.i, %79
-  %.0.i.i2.i.i12.i = phi ptr [ %82, %.noexc.i.i ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %79 ]
+  %.0.i.i2.i.i12.i = phi ptr [ %82, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %79 ]
   %87 = getelementptr inbounds i8, ptr %.sroa.0.sroa.5.0.copyload.i, i64 16
   %88 = getelementptr i8, ptr %.sroa.0.sroa.5.0.copyload.i, i64 32
   %89 = load i64, ptr %88, align 8, !noalias !1285, !noundef !4

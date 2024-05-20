@@ -192,11 +192,11 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %.loopexit10
-  %51 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %51 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %52 = icmp eq i8 %51, 2
   %53 = select i1 %52, i32 4, i32 3
   %54 = load i64, ptr @lps0_dsm_guid, align 8
-  %55 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid, i64 0, i32 0, i64 8), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid, i64 8), align 8
   tail call fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %53, i32 noundef %48, i64 %54, i64 %55)
   br label %56
 
@@ -207,7 +207,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 
 59:                                               ; preds = %56
   %60 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %61 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %61 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 %60, ptr %3, align 8
   %62 = getelementptr inbounds i8, ptr %3, i64 8
@@ -232,7 +232,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %75 = select i1 %74, ptr @.str.5, ptr @.str.4
   %76 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   %77 = icmp eq i32 %76, 0
-  %78 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %78 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %79 = icmp eq i8 %78, 2
   %80 = select i1 %77, i1 %79, i1 false
   %81 = select i1 %80, ptr @.str.9, ptr @.str.6
@@ -249,11 +249,11 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %83
-  %87 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %87 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %88 = icmp eq i8 %87, 2
   %89 = select i1 %88, i32 2, i32 5
   %90 = load i64, ptr @lps0_dsm_guid, align 8
-  %91 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid, i64 0, i32 0, i64 8), align 8
+  %91 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid, i64 8), align 8
   call fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %89, i32 noundef %84, i64 %90, i64 %91)
   br label %92
 
@@ -264,7 +264,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 
 95:                                               ; preds = %92
   %96 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %97 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %97 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 %96, ptr %2, align 8
   %98 = getelementptr inbounds i8, ptr %2, i64 8
@@ -289,7 +289,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %110 = icmp eq ptr %105, null
   %111 = select i1 %110, ptr @.str.5, ptr @.str.4
   %112 = icmp eq i32 %.pre11, 0
-  %113 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %113 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %114 = icmp eq i8 %113, 2
   %115 = select i1 %112, i1 %114, i1 false
   %116 = select i1 %115, ptr @.str.12, ptr @.str.10
@@ -301,7 +301,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %118 = phi i32 [ %.pre, %108 ], [ %.pre11, %101 ], [ %93, %95 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %119 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %120 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %120 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store i64 %119, ptr %1, align 8
   %121 = getelementptr inbounds i8, ptr %1, i64 8
@@ -326,7 +326,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %134 = select i1 %133, ptr @.str.5, ptr @.str.4
   %135 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   %136 = icmp eq i32 %135, 0
-  %137 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %137 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %138 = icmp eq i8 %137, 2
   %139 = select i1 %136, i1 %138, i1 false
   %140 = select i1 %139, ptr @.str.7, ptr @.str.8
@@ -390,7 +390,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %0, i32 noundef
   %21 = select i1 %20, ptr @.str.5, ptr @.str.4
   %22 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   %23 = icmp eq i32 %22, 0
-  %24 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %25 = icmp eq i8 %24, 2
   %26 = select i1 %23, i1 %25, i1 false
   br i1 %26, label %31, label %27
@@ -512,11 +512,11 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %.loopexit
-  %23 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %24 = icmp eq i8 %23, 2
   %25 = select i1 %24, i32 3, i32 6
   %26 = load i64, ptr @lps0_dsm_guid, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid, i64 0, i32 0, i64 8), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid, i64 8), align 8
   tail call fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %25, i32 noundef %20, i64 %26, i64 %27)
   br label %28
 
@@ -527,7 +527,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 
 31:                                               ; preds = %28
   %32 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 %32, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 8
@@ -556,7 +556,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %46 = icmp eq ptr %41, null
   %47 = select i1 %46, ptr @.str.5, ptr @.str.4
   %48 = icmp eq i32 %.pr.pre10, 0
-  %49 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %50 = icmp eq i8 %49, 2
   %51 = select i1 %48, i1 %50, i1 false
   %52 = select i1 %51, ptr @.str.12, ptr @.str.9
@@ -573,7 +573,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 55:                                               ; preds = %.thread, %53
   %.pr15 = phi i32 [ %29, %.thread ], [ %.pr, %53 ]
   %56 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %57 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 %56, ptr %2, align 8
   %58 = getelementptr inbounds i8, ptr %2, i64 8
@@ -602,7 +602,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %70 = icmp eq ptr %65, null
   %71 = select i1 %70, ptr @.str.5, ptr @.str.4
   %72 = icmp eq i32 %.pr8.pre12, 0
-  %73 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %73 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %74 = icmp eq i8 %73, 2
   %75 = select i1 %72, i1 %74, i1 false
   %76 = select i1 %75, ptr @.str.12, ptr @.str.11
@@ -619,7 +619,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 79:                                               ; preds = %.thread16, %77
   %.pr818 = phi i32 [ %.pr15, %.thread16 ], [ %.pr8, %77 ]
   %80 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
-  %81 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid_microsoft, i64 0, i32 0, i64 8), align 8
+  %81 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store i64 %80, ptr %1, align 8
   %82 = getelementptr inbounds i8, ptr %1, i64 8
@@ -644,7 +644,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %95 = select i1 %94, ptr @.str.5, ptr @.str.4
   %96 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   %97 = icmp eq i32 %96, 0
-  %98 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %99 = icmp eq i8 %98, 2
   %100 = select i1 %97, i1 %99, i1 false
   %101 = select i1 %100, ptr @.str.6, ptr @.str.7
@@ -661,11 +661,11 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %.thread9
-  %106 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %106 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %107 = icmp eq i8 %106, 2
   %108 = select i1 %107, i32 5, i32 4
   %109 = load i64, ptr @lps0_dsm_guid, align 8
-  %110 = load i64, ptr getelementptr inbounds (%struct.guid_t, ptr @lps0_dsm_guid, i64 0, i32 0, i64 8), align 8
+  %110 = load i64, ptr getelementptr inbounds (i8, ptr @lps0_dsm_guid, i64 8), align 8
   call fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %108, i32 noundef %103, i64 %109, i64 %110)
   br label %111
 
@@ -800,7 +800,7 @@ define internal noundef i32 @lps0_device_attach(ptr noundef %0, ptr nocapture re
   %25 = phi i32 [ %23, %20 ], [ -22, %15 ], [ -22, %14 ], [ -22, %5 ]
   tail call void @kfree(ptr noundef %24) #8
   store i32 %25, ptr @lps0_dsm_func_mask_microsoft, align 4
-  %26 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %27 = icmp eq i8 %26, 2
   br i1 %27, label %28, label %82
 
@@ -955,7 +955,7 @@ split.thread:                                     ; preds = %38, %44, %split
 108:                                              ; preds = %102
   %109 = load ptr, ptr %6, align 8
   store ptr %109, ptr @lps0_device_handle, align 8
-  %110 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %110 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %111 = icmp eq i8 %110, 2
   br i1 %111, label %112, label %209
 
@@ -1281,7 +1281,7 @@ split.thread:                                     ; preds = %38, %44, %split
   br label %.thread34
 
 .thread34:                                        ; preds = %.thread34.sink.split, %209, %112
-  %312 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
+  %312 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %313 = and i32 %312, 2097152
   %314 = icmp ne i32 %313, 0
   %315 = load i32, ptr @mem_sleep_default, align 4

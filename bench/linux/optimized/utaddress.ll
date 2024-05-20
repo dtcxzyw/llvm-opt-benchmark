@@ -23,7 +23,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ut_add_address_range(i8 nound
   %9 = and i64 %8, 512
   %10 = icmp eq i64 %9, 0
   %11 = select i1 %10, i32 2080, i32 3264
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %11, i64 noundef 32) #5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %25, label %15

@@ -62,7 +62,7 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) @_ZZN8facebook5velox17SelectivityVector5emptyEvE6kEmpty, i8 0, i64 36, i1 false)
-  store i16 256, ptr getelementptr inbounds (%"class.facebook::velox::SelectivityVector", ptr @_ZZN8facebook5velox17SelectivityVector5emptyEvE6kEmpty, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), align 4
+  store i16 256, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox17SelectivityVector5emptyEvE6kEmpty, i64 36), align 4
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox17SelectivityVectorD2Ev, ptr nonnull @_ZZN8facebook5velox17SelectivityVector5emptyEvE6kEmpty, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox17SelectivityVector5emptyEvE6kEmpty) #15
   br label %init.end

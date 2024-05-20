@@ -73,20 +73,20 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 1) i32 @zend_file_cache_script_store(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [3 x %struct.iovec], align 16
   %4 = alloca %struct._zend_file_cache_metainfo, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 1), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 1), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %126, label %zend_file_cache_get_bin_file_path.exit
 
 zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = add i64 %9, 38
   %12 = load i64, ptr %10, align 8
   %13 = add i64 %11, %12
   %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #18
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %9, i1 false)
   %16 = getelementptr inbounds i8, ptr %14, i64 %9
   store i8 47, ptr %16, align 1
@@ -185,7 +185,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   store i64 0, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %60, i64 16
   store i64 4071, ptr %63, align 8
-  store ptr %60, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @zend_shared_alloc_init_xlat_table() #19
   br i1 %1, label %.critedge, label %64
 
@@ -202,7 +202,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 
 66:                                               ; preds = %.critedge, %64
   call void @zend_shared_alloc_destroy_xlat_table() #19
-  %67 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %68 = load i64, ptr %52, align 8
   %69 = trunc i64 %68 to i32
   %70 = call i32 @zend_adler32(i32 noundef 1, ptr noundef %59, i32 noundef %69) #19
@@ -1026,14 +1026,14 @@ define hidden ptr @zend_file_cache_script_load(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %587, label %zend_file_cache_get_bin_file_path.exit
 
 zend_file_cache_get_bin_file_path.exit:           ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = add i64 %7, 38
   %10 = load i64, ptr %8, align 8
   %11 = add i64 %9, %10
   %12 = call noalias ptr @_emalloc(i64 noundef %11) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %7, i1 false)
   %14 = getelementptr inbounds i8, ptr %12, i64 %7
   store i8 47, ptr %14, align 1
@@ -1104,7 +1104,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   br label %587
 
 44:                                               ; preds = %38
-  %45 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 7), align 2
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %57
 
@@ -1131,7 +1131,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   br label %587
 
 57:                                               ; preds = %47, %44
-  %58 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %2, i64 40
   %61 = load i64, ptr %60, align 8
@@ -1167,7 +1167,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %78, i64 16
   store ptr %58, ptr %83, align 8
-  store ptr %78, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %78, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %.pre = ptrtoint ptr %79 to i64
   br label %84
 
@@ -1185,7 +1185,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %90 = call i32 @flock(i32 noundef %20, i32 noundef 8) #19
   %91 = call i32 @close(i32 noundef %20) #19
   %92 = call i32 @unlink(ptr noundef nonnull %12) #19
-  %93 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = icmp ugt ptr %59, %95
@@ -1198,7 +1198,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %99 = getelementptr inbounds i8, ptr %.0252, i64 16
   %100 = load ptr, ptr %99, align 8
   call void @_efree(ptr noundef nonnull %.0252) #19
-  store ptr %100, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = icmp ugt ptr %59, %102
@@ -1223,7 +1223,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 109:                                              ; preds = %108, %106
   %110 = call i32 @close(i32 noundef %20) #19
-  %111 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 29), align 1
+  %111 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 161), align 1
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %133
 
@@ -1238,7 +1238,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 118:                                              ; preds = %113
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, i32 noundef %117, i32 noundef %115) #19
   %119 = call i32 @unlink(ptr noundef nonnull %12) #19
-  %120 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = icmp ugt ptr %59, %122
@@ -1251,7 +1251,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %126 = getelementptr inbounds i8, ptr %.0220253, i64 16
   %127 = load ptr, ptr %126, align 8
   call void @_efree(ptr noundef nonnull %.0220253) #19
-  store ptr %127, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %127, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ugt ptr %59, %129
@@ -1313,7 +1313,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 163:                                              ; preds = %157
   call void @zend_shared_alloc_unlock() #19
-  %164 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = icmp ugt ptr %59, %166
@@ -1326,7 +1326,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %170 = getelementptr inbounds i8, ptr %.0223258, i64 16
   %171 = load ptr, ptr %170, align 8
   call void @_efree(ptr noundef nonnull %.0223258) #19
-  store ptr %171, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %171, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = icmp ugt ptr %59, %173
@@ -1387,7 +1387,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %.0222 = phi ptr [ %192, %191 ], [ %87, %.sink.split ], [ %87, %133 ], [ %87, %136 ], [ %87, %141 ], [ %87, %145 ], [ %87, %150 ]
   %.0221 = phi i1 [ true, %191 ], [ false, %.sink.split ], [ false, %133 ], [ false, %136 ], [ false, %141 ], [ false, %145 ], [ false, %150 ]
   %197 = getelementptr inbounds i8, ptr %87, i64 %61
-  store ptr %197, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %197, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %198 = getelementptr inbounds i8, ptr %2, i64 56
   %199 = load i64, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %.0222, i64 %199
@@ -1395,8 +1395,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %202 = getelementptr inbounds i8, ptr %200, i64 384
   %203 = zext i1 %201 to i8
   store i8 %203, ptr %202, align 8
-  %204 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %205 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #21
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %zend_file_cache_unserialize.exit.thread
@@ -1417,7 +1417,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 213:                                              ; preds = %210
   %214 = load i8, ptr %202, align 8
   %215 = trunc i8 %214 to i1
-  %216 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %217 = and i64 %211, -2
   %218 = getelementptr inbounds i8, ptr %216, i64 %217
   br i1 %215, label %zend_file_cache_unserialize_interned.exit.i, label %219
@@ -1437,7 +1437,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 227:                                              ; preds = %222
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %228 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %228, i32 noundef -1) #22
   unreachable
 
@@ -1537,7 +1537,7 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
 277:                                              ; preds = %274
   %278 = load i8, ptr %202, align 8
   %279 = trunc i8 %278 to i1
-  %280 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %280 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %281 = and i64 %275, -2
   %282 = getelementptr inbounds i8, ptr %280, i64 %281
   br i1 %279, label %zend_file_cache_unserialize_interned.exit.i.i, label %283
@@ -1557,7 +1557,7 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
 
 291:                                              ; preds = %286
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %292 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %292, i32 noundef -1) #22
   unreachable
 
@@ -1632,7 +1632,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
 334:                                              ; preds = %331
   %335 = load i8, ptr %202, align 8
   %336 = trunc i8 %335 to i1
-  %337 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %338 = and i64 %332, -2
   %339 = getelementptr inbounds i8, ptr %337, i64 %338
   br i1 %336, label %zend_file_cache_unserialize_interned.exit78.i.i, label %340
@@ -1652,7 +1652,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
 
 348:                                              ; preds = %343
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %349 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %349, i32 noundef -1) #22
   unreachable
 
@@ -1753,7 +1753,7 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
 403:                                              ; preds = %400
   %404 = load i8, ptr %202, align 8
   %405 = trunc i8 %404 to i1
-  %406 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %407 = and i64 %401, -2
   %408 = getelementptr inbounds i8, ptr %406, i64 %407
   br i1 %405, label %zend_file_cache_unserialize_interned.exit.i34.i, label %409
@@ -1773,7 +1773,7 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
 
 417:                                              ; preds = %412
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %418 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %418 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %418, i32 noundef -1) #22
   unreachable
 
@@ -1840,7 +1840,7 @@ zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %419, %409, %403
 452:                                              ; preds = %449
   %453 = load i8, ptr %202, align 8
   %454 = trunc i8 %453 to i1
-  %455 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %455 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %456 = and i64 %450, -2
   %457 = getelementptr inbounds i8, ptr %455, i64 %456
   br i1 %454, label %zend_file_cache_unserialize_interned.exit93.i.i, label %458
@@ -1860,7 +1860,7 @@ zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %419, %409, %403
 
 466:                                              ; preds = %461
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %467 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %467 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %467, i32 noundef -1) #22
   unreachable
 
@@ -1927,7 +1927,7 @@ zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %468, %458, %452
 501:                                              ; preds = %498
   %502 = load i8, ptr %202, align 8
   %503 = trunc i8 %502 to i1
-  %504 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %505 = and i64 %499, -2
   %506 = getelementptr inbounds i8, ptr %504, i64 %505
   br i1 %503, label %zend_file_cache_unserialize_interned.exit96.i.i, label %507
@@ -1947,7 +1947,7 @@ zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %468, %458, %452
 
 515:                                              ; preds = %510
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %516 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %516 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @siglongjmp(ptr noundef %516, i32 noundef -1) #22
   unreachable
 
@@ -2006,16 +2006,16 @@ zend_file_cache_unserialize_interned.exit96.i.i:  ; preds = %517, %507, %501
   br i1 %546, label %.lr.ph.i32.i, label %zend_file_cache_unserialize.exit
 
 zend_file_cache_unserialize.exit.thread:          ; preds = %196
-  store ptr %204, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %204, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br i1 %.0221, label %.sink.split, label %547
 
 zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_file_cache_unserialize_warnings.exit.i
-  store ptr %204, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %204, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store i8 0, ptr %202, align 8
   br i1 %.0221, label %561, label %586
 
 547:                                              ; preds = %zend_file_cache_unserialize.exit.thread
-  %548 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %548 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %549 = getelementptr inbounds i8, ptr %548, i64 8
   %550 = load ptr, ptr %549, align 8
   %551 = icmp ugt ptr %59, %550
@@ -2028,7 +2028,7 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   %554 = getelementptr inbounds i8, ptr %.0224263, i64 16
   %555 = load ptr, ptr %554, align 8
   call void @_efree(ptr noundef nonnull %.0224263) #19
-  store ptr %555, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %555, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %556 = getelementptr inbounds i8, ptr %555, i64 8
   %557 = load ptr, ptr %556, align 8
   %558 = icmp ugt ptr %59, %557
@@ -2043,11 +2043,11 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   br label %587
 
 561:                                              ; preds = %zend_file_cache_unserialize.exit
-  %562 = load i64, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 39), align 8
+  %562 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
   %563 = load ptr, ptr @accel_shared_globals, align 8
   %564 = getelementptr inbounds i8, ptr %563, i64 80
   store i64 %562, ptr %564, align 8
-  %565 = load i64, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 15), align 8
+  %565 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
   %566 = getelementptr inbounds i8, ptr %200, i64 432
   store i64 %565, ptr %566, align 8
   %567 = load ptr, ptr @accel_shared_globals, align 8
@@ -2058,7 +2058,7 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   %571 = load ptr, ptr %200, align 8
   %572 = getelementptr inbounds i8, ptr %571, i64 24
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %572) #19
-  %573 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %573 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %574 = getelementptr inbounds i8, ptr %573, i64 8
   %575 = load ptr, ptr %574, align 8
   %576 = icmp ugt ptr %59, %575
@@ -2071,7 +2071,7 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   %579 = getelementptr inbounds i8, ptr %.0225268, i64 16
   %580 = load ptr, ptr %579, align 8
   call void @_efree(ptr noundef nonnull %.0225268) #19
-  store ptr %580, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %580, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 8
   %582 = load ptr, ptr %581, align 8
   %583 = icmp ugt ptr %59, %582
@@ -2121,14 +2121,14 @@ declare ptr @zend_accel_hash_update(ptr noundef, ptr noundef, i1 noundef zeroext
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_file_cache_invalidate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 zend_file_cache_get_bin_file_path.exit:
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = add i64 %2, 38
   %5 = load i64, ptr %3, align 8
   %6 = add i64 %4, %5
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 27), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %2, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 %2
   store i8 47, ptr %9, align 1
@@ -2164,7 +2164,7 @@ define internal fastcc ptr @zend_file_cache_serialize_interned(ptr noundef %0, p
   %11 = or i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef %0, ptr noundef nonnull %12) #19
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %14 = load i64, ptr %9, align 8
   %15 = add i64 %14, %8
   %16 = getelementptr inbounds i8, ptr %13, i64 16
@@ -2229,7 +2229,7 @@ define internal fastcc ptr @zend_file_cache_serialize_interned(ptr noundef %0, p
 
 51:                                               ; preds = %36, %47, %29
   %.0 = phi ptr [ %30, %29 ], [ %37, %47 ], [ %37, %36 ]
-  store ptr %.0, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %.0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %.pre = load i64, ptr %9, align 8
   br label %52
 
@@ -8472,7 +8472,7 @@ define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noun
 73:                                               ; preds = %70
   %74 = load i8, ptr %62, align 8
   %75 = trunc i8 %74 to i1
-  %76 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %77 = and i64 %71, -2
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
   br i1 %75, label %zend_file_cache_unserialize_interned.exit, label %79
@@ -8492,7 +8492,7 @@ define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noun
 
 87:                                               ; preds = %82
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %88 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %88, i32 noundef -1) #22
   unreachable
 
@@ -8575,7 +8575,7 @@ define internal void @zend_file_cache_unserialize_class(ptr nocapture noundef %0
   %17 = getelementptr inbounds i8, ptr %1, i64 384
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %21 = and i64 %14, -2
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
   br i1 %19, label %zend_file_cache_unserialize_interned.exit, label %23
@@ -8595,7 +8595,7 @@ define internal void @zend_file_cache_unserialize_class(ptr nocapture noundef %0
 
 31:                                               ; preds = %26
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %32, i32 noundef -1) #22
   unreachable
 
@@ -8685,7 +8685,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
   %76 = getelementptr inbounds i8, ptr %1, i64 384
   %77 = load i8, ptr %76, align 8
   %78 = trunc i8 %77 to i1
-  %79 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %80 = and i64 %73, -2
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
   br i1 %78, label %zend_file_cache_unserialize_interned.exit708, label %82
@@ -8705,7 +8705,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
 
 90:                                               ; preds = %85
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %91 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %91, i32 noundef -1) #22
   unreachable
 
@@ -8840,7 +8840,7 @@ zend_file_cache_unserialize_interned.exit708:     ; preds = %75, %82, %92
   %161 = getelementptr inbounds i8, ptr %1, i64 384
   %162 = load i8, ptr %161, align 8
   %163 = trunc i8 %162 to i1
-  %164 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %165 = and i64 %158, -2
   %166 = getelementptr inbounds i8, ptr %164, i64 %165
   br i1 %163, label %zend_file_cache_unserialize_interned.exit711, label %167
@@ -8860,7 +8860,7 @@ zend_file_cache_unserialize_interned.exit708:     ; preds = %75, %82, %92
 
 175:                                              ; preds = %170
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %176 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %176, i32 noundef -1) #22
   unreachable
 
@@ -8922,7 +8922,7 @@ zend_file_cache_unserialize_interned.exit711:     ; preds = %160, %167, %177
   %205 = getelementptr inbounds i8, ptr %1, i64 384
   %206 = load i8, ptr %205, align 8
   %207 = trunc i8 %206 to i1
-  %208 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %209 = and i64 %202, -2
   %210 = getelementptr inbounds i8, ptr %208, i64 %209
   br i1 %207, label %zend_file_cache_unserialize_interned.exit714, label %211
@@ -8942,7 +8942,7 @@ zend_file_cache_unserialize_interned.exit711:     ; preds = %160, %167, %177
 
 219:                                              ; preds = %214
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %220 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %220, i32 noundef -1) #22
   unreachable
 
@@ -9130,7 +9130,7 @@ zend_file_cache_unserialize_interned.exit714:     ; preds = %204, %211, %221
 317:                                              ; preds = %314
   %318 = load i8, ptr %308, align 8
   %319 = trunc i8 %318 to i1
-  %320 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %320 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %321 = and i64 %315, -2
   %322 = getelementptr inbounds i8, ptr %320, i64 %321
   br i1 %319, label %zend_file_cache_unserialize_interned.exit717, label %323
@@ -9150,7 +9150,7 @@ zend_file_cache_unserialize_interned.exit714:     ; preds = %204, %211, %221
 
 331:                                              ; preds = %326
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %332 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %332 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %332, i32 noundef -1) #22
   unreachable
 
@@ -9217,7 +9217,7 @@ zend_file_cache_unserialize_interned.exit717:     ; preds = %317, %323, %333
 366:                                              ; preds = %363
   %367 = load i8, ptr %308, align 8
   %368 = trunc i8 %367 to i1
-  %369 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %370 = and i64 %364, -2
   %371 = getelementptr inbounds i8, ptr %369, i64 %370
   br i1 %368, label %zend_file_cache_unserialize_interned.exit720, label %372
@@ -9237,7 +9237,7 @@ zend_file_cache_unserialize_interned.exit717:     ; preds = %317, %323, %333
 
 380:                                              ; preds = %375
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %381 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %381, i32 noundef -1) #22
   unreachable
 
@@ -9340,7 +9340,7 @@ zend_file_cache_unserialize_interned.exit720:     ; preds = %366, %372, %382
 433:                                              ; preds = %430
   %434 = load i8, ptr %424, align 8
   %435 = trunc i8 %434 to i1
-  %436 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %436 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %437 = and i64 %431, -2
   %438 = getelementptr inbounds i8, ptr %436, i64 %437
   br i1 %435, label %zend_file_cache_unserialize_interned.exit723, label %439
@@ -9360,7 +9360,7 @@ zend_file_cache_unserialize_interned.exit720:     ; preds = %366, %372, %382
 
 447:                                              ; preds = %442
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %448 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %448 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %448, i32 noundef -1) #22
   unreachable
 
@@ -9427,7 +9427,7 @@ zend_file_cache_unserialize_interned.exit723:     ; preds = %433, %439, %449
 482:                                              ; preds = %479
   %483 = load i8, ptr %424, align 8
   %484 = trunc i8 %483 to i1
-  %485 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %485 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %486 = and i64 %480, -2
   %487 = getelementptr inbounds i8, ptr %485, i64 %486
   br i1 %484, label %zend_file_cache_unserialize_interned.exit726, label %488
@@ -9447,7 +9447,7 @@ zend_file_cache_unserialize_interned.exit723:     ; preds = %433, %439, %449
 
 496:                                              ; preds = %491
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %497 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %497 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %497, i32 noundef -1) #22
   unreachable
 
@@ -9551,7 +9551,7 @@ zend_file_cache_unserialize_interned.exit726:     ; preds = %482, %488, %498
 550:                                              ; preds = %547
   %551 = load i8, ptr %538, align 8
   %552 = trunc i8 %551 to i1
-  %553 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %553 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %554 = and i64 %548, -2
   %555 = getelementptr inbounds i8, ptr %553, i64 %554
   br i1 %552, label %zend_file_cache_unserialize_interned.exit729, label %556
@@ -9571,7 +9571,7 @@ zend_file_cache_unserialize_interned.exit726:     ; preds = %482, %488, %498
 
 564:                                              ; preds = %559
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %565 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %565 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %565, i32 noundef -1) #22
   unreachable
 
@@ -9630,7 +9630,7 @@ zend_file_cache_unserialize_interned.exit729:     ; preds = %550, %556, %566
 591:                                              ; preds = %588
   %592 = load i8, ptr %538, align 8
   %593 = trunc i8 %592 to i1
-  %594 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %594 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %595 = and i64 %589, -2
   %596 = getelementptr inbounds i8, ptr %594, i64 %595
   br i1 %593, label %zend_file_cache_unserialize_interned.exit732, label %597
@@ -9650,7 +9650,7 @@ zend_file_cache_unserialize_interned.exit729:     ; preds = %550, %556, %566
 
 605:                                              ; preds = %600
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %606 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %606 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %606, i32 noundef -1) #22
   unreachable
 
@@ -9709,7 +9709,7 @@ zend_file_cache_unserialize_interned.exit732:     ; preds = %591, %597, %607
 632:                                              ; preds = %629
   %633 = load i8, ptr %538, align 8
   %634 = trunc i8 %633 to i1
-  %635 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %635 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %636 = and i64 %630, -2
   %637 = getelementptr inbounds i8, ptr %635, i64 %636
   br i1 %634, label %zend_file_cache_unserialize_interned.exit735, label %638
@@ -9729,7 +9729,7 @@ zend_file_cache_unserialize_interned.exit732:     ; preds = %591, %597, %607
 
 646:                                              ; preds = %641
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %647 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %647 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %647, i32 noundef -1) #22
   unreachable
 
@@ -9825,7 +9825,7 @@ zend_file_cache_unserialize_interned.exit735:     ; preds = %632, %638, %648
 692:                                              ; preds = %689
   %693 = load i8, ptr %680, align 8
   %694 = trunc i8 %693 to i1
-  %695 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %695 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %696 = and i64 %690, -2
   %697 = getelementptr inbounds i8, ptr %695, i64 %696
   br i1 %694, label %zend_file_cache_unserialize_interned.exit738, label %698
@@ -9845,7 +9845,7 @@ zend_file_cache_unserialize_interned.exit735:     ; preds = %632, %638, %648
 
 706:                                              ; preds = %701
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %707 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %707 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %707, i32 noundef -1) #22
   unreachable
 
@@ -9904,7 +9904,7 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %692, %698, %708
 733:                                              ; preds = %730
   %734 = load i8, ptr %680, align 8
   %735 = trunc i8 %734 to i1
-  %736 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %737 = and i64 %731, -2
   %738 = getelementptr inbounds i8, ptr %736, i64 %737
   br i1 %735, label %zend_file_cache_unserialize_interned.exit741, label %739
@@ -9924,7 +9924,7 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %692, %698, %708
 
 747:                                              ; preds = %742
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %748 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %748 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %748, i32 noundef -1) #22
   unreachable
 
@@ -9994,7 +9994,7 @@ zend_file_cache_unserialize_interned.exit741:     ; preds = %733, %739, %749
 778:                                              ; preds = %775
   %779 = load i8, ptr %680, align 8
   %780 = trunc i8 %779 to i1
-  %781 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %781 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %782 = and i64 %776, -2
   %783 = getelementptr inbounds i8, ptr %781, i64 %782
   br i1 %780, label %zend_file_cache_unserialize_interned.exit744, label %784
@@ -10014,7 +10014,7 @@ zend_file_cache_unserialize_interned.exit741:     ; preds = %733, %739, %749
 
 792:                                              ; preds = %787
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %793 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %793 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %793, i32 noundef -1) #22
   unreachable
 
@@ -10757,7 +10757,7 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 106:                                              ; preds = %103
   %107 = load i8, ptr %4, align 8
   %108 = trunc i8 %107 to i1
-  %109 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %110 = and i64 %104, -2
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
   br i1 %108, label %zend_file_cache_unserialize_interned.exit, label %112
@@ -10777,7 +10777,7 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 
 120:                                              ; preds = %115
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %121 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %121, i32 noundef -1) #22
   unreachable
 
@@ -10837,7 +10837,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %106, %112, %122
 148:                                              ; preds = %145
   %149 = load i8, ptr %4, align 8
   %150 = trunc i8 %149 to i1
-  %151 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %152 = and i64 %146, -2
   %153 = getelementptr inbounds i8, ptr %151, i64 %152
   br i1 %150, label %zend_file_cache_unserialize_interned.exit486, label %154
@@ -10857,7 +10857,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %106, %112, %122
 
 162:                                              ; preds = %157
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %163 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %163, i32 noundef -1) #22
   unreachable
 
@@ -10951,7 +10951,7 @@ zend_file_cache_unserialize_interned.exit486:     ; preds = %148, %154, %164
 210:                                              ; preds = %207
   %211 = load i8, ptr %4, align 8
   %212 = trunc i8 %211 to i1
-  %213 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %214 = and i64 %208, -2
   %215 = getelementptr inbounds i8, ptr %213, i64 %214
   br i1 %212, label %zend_file_cache_unserialize_interned.exit489, label %216
@@ -10971,7 +10971,7 @@ zend_file_cache_unserialize_interned.exit486:     ; preds = %148, %154, %164
 
 224:                                              ; preds = %219
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %225 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %225, i32 noundef -1) #22
   unreachable
 
@@ -11300,7 +11300,7 @@ zend_file_cache_unserialize_interned.exit489:     ; preds = %210, %216, %226
 407:                                              ; preds = %404
   %408 = load i8, ptr %4, align 8
   %409 = trunc i8 %408 to i1
-  %410 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %410 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %411 = and i64 %405, -2
   %412 = getelementptr inbounds i8, ptr %410, i64 %411
   br i1 %409, label %zend_file_cache_unserialize_interned.exit492, label %413
@@ -11320,7 +11320,7 @@ zend_file_cache_unserialize_interned.exit489:     ; preds = %210, %216, %226
 
 421:                                              ; preds = %416
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %422 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %422, i32 noundef -1) #22
   unreachable
 
@@ -11434,7 +11434,7 @@ zend_file_cache_unserialize_interned.exit492:     ; preds = %407, %413, %423
 477:                                              ; preds = %474
   %478 = load i8, ptr %4, align 8
   %479 = trunc i8 %478 to i1
-  %480 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %480 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %481 = and i64 %475, -2
   %482 = getelementptr inbounds i8, ptr %480, i64 %481
   br i1 %479, label %zend_file_cache_unserialize_interned.exit495, label %483
@@ -11454,7 +11454,7 @@ zend_file_cache_unserialize_interned.exit492:     ; preds = %407, %413, %423
 
 491:                                              ; preds = %486
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %492 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %492 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %492, i32 noundef -1) #22
   unreachable
 
@@ -11575,7 +11575,7 @@ zend_file_cache_unserialize_interned.exit495:     ; preds = %477, %483, %493
 548:                                              ; preds = %545
   %549 = load i8, ptr %4, align 8
   %550 = trunc i8 %549 to i1
-  %551 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %552 = and i64 %546, -2
   %553 = getelementptr inbounds i8, ptr %551, i64 %552
   br i1 %550, label %zend_file_cache_unserialize_interned.exit498, label %554
@@ -11595,7 +11595,7 @@ zend_file_cache_unserialize_interned.exit495:     ; preds = %477, %483, %493
 
 562:                                              ; preds = %557
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %563 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %563 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %563, i32 noundef -1) #22
   unreachable
 
@@ -11655,7 +11655,7 @@ zend_file_cache_unserialize_interned.exit498:     ; preds = %548, %554, %564
 590:                                              ; preds = %587
   %591 = load i8, ptr %4, align 8
   %592 = trunc i8 %591 to i1
-  %593 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %593 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %594 = and i64 %588, -2
   %595 = getelementptr inbounds i8, ptr %593, i64 %594
   br i1 %592, label %zend_file_cache_unserialize_interned.exit501, label %596
@@ -11675,7 +11675,7 @@ zend_file_cache_unserialize_interned.exit498:     ; preds = %548, %554, %564
 
 604:                                              ; preds = %599
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %605 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %605 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %605, i32 noundef -1) #22
   unreachable
 
@@ -11752,7 +11752,7 @@ zend_file_cache_unserialize_interned.exit501:     ; preds = %590, %596, %606
 642:                                              ; preds = %639
   %643 = load i8, ptr %4, align 8
   %644 = trunc i8 %643 to i1
-  %645 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %645 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %646 = and i64 %640, -2
   %647 = getelementptr inbounds i8, ptr %645, i64 %646
   br i1 %644, label %zend_file_cache_unserialize_interned.exit504, label %648
@@ -11772,7 +11772,7 @@ zend_file_cache_unserialize_interned.exit501:     ; preds = %590, %596, %606
 
 656:                                              ; preds = %651
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %657 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %657 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %657, i32 noundef -1) #22
   unreachable
 
@@ -11939,7 +11939,7 @@ define internal void @zend_file_cache_unserialize_zval(ptr nocapture noundef %0,
   %15 = getelementptr inbounds i8, ptr %1, i64 384
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %19 = and i64 %11, -2
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   br i1 %17, label %zend_file_cache_unserialize_interned.exit, label %21
@@ -11959,7 +11959,7 @@ define internal void @zend_file_cache_unserialize_zval(ptr nocapture noundef %0,
 
 29:                                               ; preds = %24
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %30, i32 noundef -1) #22
   unreachable
 
@@ -12208,7 +12208,7 @@ define internal void @zend_file_cache_unserialize_class_constant(ptr nocapture n
   %57 = getelementptr inbounds i8, ptr %1, i64 384
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
-  %60 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %61 = and i64 %54, -2
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
   br i1 %59, label %zend_file_cache_unserialize_interned.exit, label %63
@@ -12228,7 +12228,7 @@ define internal void @zend_file_cache_unserialize_class_constant(ptr nocapture n
 
 71:                                               ; preds = %66
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %72 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %72, i32 noundef -1) #22
   unreachable
 
@@ -12348,7 +12348,7 @@ define internal void @zend_file_cache_unserialize_attribute(ptr nocapture nounde
   %16 = getelementptr inbounds i8, ptr %1, i64 384
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %20 = and i64 %13, -2
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
   br i1 %18, label %zend_file_cache_unserialize_interned.exit, label %22
@@ -12368,7 +12368,7 @@ define internal void @zend_file_cache_unserialize_attribute(ptr nocapture nounde
 
 30:                                               ; preds = %25
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %31, i32 noundef -1) #22
   unreachable
 
@@ -12430,7 +12430,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %15, %22, %32
   %60 = getelementptr inbounds i8, ptr %1, i64 384
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  %63 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %64 = and i64 %57, -2
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
   br i1 %62, label %zend_file_cache_unserialize_interned.exit77, label %66
@@ -12450,7 +12450,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %15, %22, %32
 
 74:                                               ; preds = %69
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %75, i32 noundef -1) #22
   unreachable
 
@@ -12524,7 +12524,7 @@ zend_file_cache_unserialize_interned.exit77:      ; preds = %59, %66, %76
 109:                                              ; preds = %106
   %110 = load i8, ptr %101, align 8
   %111 = trunc i8 %110 to i1
-  %112 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %113 = and i64 %107, -2
   %114 = getelementptr inbounds i8, ptr %112, i64 %113
   br i1 %111, label %zend_file_cache_unserialize_interned.exit80, label %115
@@ -12544,7 +12544,7 @@ zend_file_cache_unserialize_interned.exit77:      ; preds = %59, %66, %76
 
 123:                                              ; preds = %118
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %124 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %124, i32 noundef -1) #22
   unreachable
 
@@ -12686,7 +12686,7 @@ define internal void @zend_file_cache_unserialize_prop_info(ptr nocapture nounde
   %52 = getelementptr inbounds i8, ptr %1, i64 384
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
-  %55 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %56 = and i64 %49, -2
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
   br i1 %54, label %zend_file_cache_unserialize_interned.exit, label %58
@@ -12706,7 +12706,7 @@ define internal void @zend_file_cache_unserialize_prop_info(ptr nocapture nounde
 
 66:                                               ; preds = %61
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %67 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %67, i32 noundef -1) #22
   unreachable
 
@@ -12767,7 +12767,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %51, %58, %68
   %95 = getelementptr inbounds i8, ptr %1, i64 384
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
-  %98 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %99 = and i64 %92, -2
   %100 = getelementptr inbounds i8, ptr %98, i64 %99
   br i1 %97, label %zend_file_cache_unserialize_interned.exit111, label %101
@@ -12787,7 +12787,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %51, %58, %68
 
 109:                                              ; preds = %104
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %110 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %110, i32 noundef -1) #22
   unreachable
 
@@ -13095,7 +13095,7 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
   %29 = getelementptr inbounds i8, ptr %1, i64 384
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %33 = and i64 %26, -2
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   br i1 %31, label %zend_file_cache_unserialize_interned.exit, label %35
@@ -13115,7 +13115,7 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
 
 43:                                               ; preds = %38
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   tail call void @siglongjmp(ptr noundef %44, i32 noundef -1) #22
   unreachable
 

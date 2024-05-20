@@ -387,8 +387,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_color_control() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_color_control, ptr @proto_register_zbee_zcl_color_control.ett, align 16
-  store ptr @ett_zbee_zcl_color_control_color_capabilities, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_color_control_color_loop_settings, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 2), align 16
+  store ptr @ett_zbee_zcl_color_control_color_capabilities, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_color_control.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_color_control_color_loop_settings, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_color_control.ett, i64 16), align 16
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133) #5
   store i32 %1, ptr @proto_zbee_zcl_color_control, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_color_control.hf, i32 noundef 86) #5
@@ -1116,8 +1116,8 @@ define internal void @dissect_zcl_color_control_attr_data(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_ballast_configuration() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_ballast_configuration, ptr @proto_register_zbee_zcl_ballast_configuration.ett, align 16
-  store ptr @ett_zbee_zcl_ballast_configuration_status, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_ballast_configuration_lamp_alarm_mode, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 2), align 16
+  store ptr @ett_zbee_zcl_ballast_configuration_status, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_ballast_configuration_lamp_alarm_mode, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 16), align 16
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147) #5
   store i32 %1, ptr @proto_zbee_zcl_ballast_configuration, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_ballast_configuration.hf, i32 noundef 6) #5

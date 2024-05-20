@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fRuleString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
   %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -188,7 +188,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, i32 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fRuleString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
   %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -218,7 +218,7 @@ lpad:                                             ; preds = %entry
 define void @_ZN6icu_7515RBBIDataWrapperC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %udm, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fRuleString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
   %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48

@@ -152,8 +152,8 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_governor(ptr no
 
 .thread:                                          ; preds = %11, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @cpuidle_governors, i64 0, i32 1), align 8
-  store ptr %21, ptr getelementptr inbounds (%struct.list_head, ptr @cpuidle_governors, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @cpuidle_governors, i64 8), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @cpuidle_governors, i64 8), align 8
   store ptr @cpuidle_governors, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %22, ptr %23, align 8

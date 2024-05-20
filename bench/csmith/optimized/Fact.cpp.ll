@@ -74,7 +74,7 @@ _ZNSt12_Vector_baseIP4FactSaIS1_EED2Ev.exit:      ; preds = %1, %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4FactC2E13eFactCategory(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV4Fact, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4Fact, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERK
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN4Fact6facts_E, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   %.not4 = icmp eq ptr %1, %2
   br i1 %.not4, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %.lr.ph
 
@@ -571,7 +571,7 @@ define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %6
@@ -586,7 +586,7 @@ define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 
   br i1 %.not.i.i, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %13
 
 13:                                               ; preds = %._crit_edge
-  store ptr %.pre7, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN4Fact6facts_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre7, ptr getelementptr inbounds (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %13

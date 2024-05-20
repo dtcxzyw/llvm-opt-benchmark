@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %spdy_version, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %state_, align 8
   %max_headers_in_block_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -92,7 +92,7 @@ declare void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22SpdyHeadersBlockParserD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_) #8
   %headers_block_prefix_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -103,7 +103,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22SpdyHeadersBlockParserD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %key_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_.i) #8
   %headers_block_prefix_.i = getelementptr inbounds i8, ptr %this, i64 48

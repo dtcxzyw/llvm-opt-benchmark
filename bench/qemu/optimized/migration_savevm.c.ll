@@ -754,9 +754,9 @@ entry:
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #18
   %version_id1 = getelementptr inbounds i8, ptr %call, i64 280
   store i32 %version_id, ptr %version_id1, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 72), align 8
   %inc = add i32 %0, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 72), align 8
   %section_id = getelementptr inbounds i8, ptr %call, i64 288
   store i32 %0, ptr %section_id, align 8
   %ops2 = getelementptr inbounds i8, ptr %call, i64 296
@@ -939,7 +939,7 @@ for.cond:                                         ; preds = %find_se.exit, %for.
 
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %indvars.iv.next
+  %arrayidx = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %indvars.iv.next
   %9 = load ptr, ptr %arrayidx, align 8
   %cmp8.not = icmp eq ptr %9, null
   br i1 %cmp8.not, label %for.cond, label %if.then9, !llvm.loop !11
@@ -975,17 +975,17 @@ do.body:                                          ; preds = %save_state_priority
 
 do.body28:                                        ; preds = %for.cond
   store ptr null, ptr %nse, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
   %tql_prev31 = getelementptr inbounds i8, ptr %nse, i64 8
   store ptr %14, ptr %tql_prev31, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %do.body28, %do.body
   %.sink40 = phi ptr [ %14, %do.body28 ], [ %13, %do.body ]
-  %.sink = phi ptr [ getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), %do.body28 ], [ %tql_prev, %do.body ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @savevm_state, i64 8), %do.body28 ], [ %tql_prev, %do.body ]
   store ptr %nse, ptr %.sink40, align 8
   store ptr %nse, ptr %.sink, align 8
-  %arrayidx37 = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %8
+  %arrayidx37 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %8
   %15 = load ptr, ptr %arrayidx37, align 8
   %cmp38 = icmp eq ptr %15, null
   br i1 %cmp38, label %if.then39, label %if.end42
@@ -1055,7 +1055,7 @@ if.then.i.i:                                      ; preds = %if.then16
 save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then16
   %retval.0.i.i = phi i32 [ %5, %if.then.i.i ], [ 0, %if.then16 ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %6, %se.011
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
@@ -1095,7 +1095,7 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.011, i64 8
   %10 = load ptr, ptr %tql_prev20.i, align 8
   %tql_prev17.i = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
+  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
   store ptr %10, ptr %.sink23.i, align 8
   %11 = load ptr, ptr %se.011, align 8
   store ptr %11, ptr %10, align 8
@@ -1198,7 +1198,7 @@ if.then.i.i:                                      ; preds = %if.then
 save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then
   %retval.0.i.i = phi i32 [ %7, %if.then.i.i ], [ 0, %if.then ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i4 = icmp eq ptr %8, %se.019.i
   br i1 %cmp.i4, label %if.then.i, label %savevm_state_handler_remove.exit
@@ -1238,7 +1238,7 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.019.i, i64 8
   %13 = load ptr, ptr %tql_prev20.i, align 8
   %tql_prev17.i = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
+  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
   store ptr %13, ptr %.sink23.i, align 8
   %14 = load ptr, ptr %se.019.i, align 8
   store ptr %14, ptr %13, align 8
@@ -1272,9 +1272,9 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   %1 = load i32, ptr %version_id, align 4
   %version_id2 = getelementptr inbounds i8, ptr %call, i64 280
   store i32 %1, ptr %version_id2, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 72), align 8
   %inc = add i32 %2, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 72), align 8
   %section_id = getelementptr inbounds i8, ptr %call, i64 288
   store i32 %2, ptr %section_id, align 8
   %opaque3 = getelementptr inbounds i8, ptr %call, i64 312
@@ -1560,7 +1560,7 @@ if.then.i.i:                                      ; preds = %if.then
 save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then
   %retval.0.i.i = phi i32 [ %4, %if.then.i.i ], [ 0, %if.then ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %5, %se.08
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
@@ -1600,7 +1600,7 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.08, i64 8
   %9 = load ptr, ptr %tql_prev20.i, align 8
   %tql_prev17.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
+  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
   store ptr %9, ptr %.sink23.i, align 8
   %10 = load ptr, ptr %se.08, align 8
   store ptr %10, ptr %9, align 8

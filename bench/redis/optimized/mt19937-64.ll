@@ -79,7 +79,7 @@ for.body:                                         ; preds = %init_genrand64.exit
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %4 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
   store i64 %4, ptr @mt, align 16
   br label %if.end
 
@@ -110,7 +110,7 @@ for.body15:                                       ; preds = %if.end, %for.inc31
   br i1 %cmp28, label %if.then29, label %for.inc31
 
 if.then29:                                        ; preds = %for.body15
-  %7 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
   store i64 %7, ptr @mt, align 16
   br label %for.inc31
 
@@ -169,7 +169,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !5
 
 for.body19.preheader:                             ; preds = %for.body
-  %.pre36 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 156), align 16
+  %.pre36 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1248), align 16
   br label %for.body19
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -219,19 +219,19 @@ for.body19:                                       ; preds = %for.body19.preheade
   br i1 %exitcond35.not, label %for.end42, label %for.body19, !llvm.loop !10
 
 for.end42:                                        ; preds = %for.body19
-  %13 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
   %and43 = and i64 %13, -2147483648
   %14 = load i64, ptr @mt, align 16
   %and44 = and i64 %14, 2147483646
   %or45 = or disjoint i64 %and44, %and43
-  %15 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 155), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1240), align 8
   %shr46 = lshr exact i64 %or45, 1
   %conv49 = and i64 %14, 1
   %arrayidx51 = getelementptr inbounds [2 x i64], ptr @genrand64_int64.mag01, i64 0, i64 %conv49
   %16 = load i64, ptr %arrayidx51, align 8
   %xor47 = xor i64 %16, %15
   %xor52 = xor i64 %xor47, %shr46
-  store i64 %xor52, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
+  store i64 %xor52, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %entry.if.end53_crit_edge, %for.end42

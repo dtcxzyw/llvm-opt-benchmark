@@ -53,7 +53,7 @@ define dso_local ptr @smgropen(i64 %0, i32 %1, i32 noundef %2) local_unnamed_add
   %12 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 400, ptr noundef nonnull %6, i32 noundef 40) #11
   store ptr %12, ptr @SMgrRelationHash, align 8
   store ptr @unpinned_relns, ptr @unpinned_relns, align 8
-  store ptr @unpinned_relns, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  store ptr @unpinned_relns, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %9, %3
@@ -77,7 +77,7 @@ define dso_local ptr @smgropen(i64 %0, i32 %1, i32 noundef %2) local_unnamed_add
   %22 = getelementptr inbounds i8, ptr %16, i64 88
   store i32 0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %16, i64 96
-  %24 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %._crit_edge.i
 
@@ -86,7 +86,7 @@ define dso_local ptr @smgropen(i64 %0, i32 %1, i32 noundef %2) local_unnamed_add
   br label %dlist_push_tail.exit
 
 26:                                               ; preds = %19
-  store ptr @unpinned_relns, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  store ptr @unpinned_relns, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %26
@@ -144,7 +144,7 @@ define dso_local void @smgrunpin(ptr noundef %0) local_unnamed_addr #4 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 96
-  %8 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %._crit_edge.i
 
@@ -153,7 +153,7 @@ define dso_local void @smgrunpin(ptr noundef %0) local_unnamed_addr #4 {
   br label %dlist_push_tail.exit
 
 10:                                               ; preds = %6
-  store ptr @unpinned_relns, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  store ptr @unpinned_relns, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %10
@@ -225,7 +225,7 @@ smgrrelease.exit:                                 ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgrdestroyall() local_unnamed_addr #0 {
 select.unfold.preheader:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @unpinned_relns, i64 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, ptr @unpinned_relns, ptr %0
   br label %select.unfold

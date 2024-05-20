@@ -83,7 +83,7 @@ sub_1:                                            ; preds = %sub_0
 29:                                               ; preds = %25
   %30 = load i64, ptr %2, align 8
   %31 = trunc i64 %30 to i32
-  store i32 %31, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 1), align 4
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
   %32 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef nonnull @.str, ptr noundef nonnull %2)
   %.not59 = icmp eq i32 %32, 0
   br i1 %.not59, label %35, label %33
@@ -95,7 +95,7 @@ sub_1:                                            ; preds = %sub_0
 35:                                               ; preds = %29
   %36 = load i64, ptr %2, align 8
   %37 = trunc i64 %36 to i32
-  store i32 %37, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 2), align 8
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
   %38 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %2)
   %.not60 = icmp eq i32 %38, 0
   br i1 %.not60, label %41, label %39
@@ -106,7 +106,7 @@ sub_1:                                            ; preds = %sub_0
 
 41:                                               ; preds = %35
   %42 = load i64, ptr %2, align 8
-  store i64 %42, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 3), align 8
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
   br label %.thread68
 
 sub_072:                                          ; preds = %.tail
@@ -155,7 +155,7 @@ sub_173:                                          ; preds = %sub_072
 
 63:                                               ; preds = %59
   %64 = load i64, ptr %2, align 8
-  store i64 %64, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 3), align 8
+  store i64 %64, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
   br label %101
 
 65:                                               ; preds = %56
@@ -189,7 +189,7 @@ sub_173:                                          ; preds = %sub_072
 79:                                               ; preds = %75
   %80 = load i64, ptr %2, align 8
   %81 = trunc i64 %80 to i32
-  store i32 %81, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 1), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
   br label %101
 
 82:                                               ; preds = %72
@@ -223,7 +223,7 @@ sub_173:                                          ; preds = %sub_072
 96:                                               ; preds = %92
   %97 = load i64, ptr %2, align 8
   %98 = trunc i64 %97 to i32
-  store i32 %98, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i64 0, i32 2), align 8
+  store i32 %98, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
   br label %101
 
 99:                                               ; preds = %89

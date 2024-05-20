@@ -36,7 +36,7 @@ define i32 @mca_sharedfp_individual_iwrite(ptr nocapture noundef readonly %0, pt
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef nonnull @.str) #4
   br label %32
 
@@ -101,7 +101,7 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
-  %12 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %12, ptr noundef nonnull @.str.3) #4
   br label %95
 
@@ -281,7 +281,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_sharedfp_individual_write_ordered_end(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = tail call i32 %4(ptr noundef nonnull %5, ptr noundef %2) #4
   %7 = getelementptr inbounds i8, ptr %0, i64 160

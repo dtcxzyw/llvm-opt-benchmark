@@ -46,10 +46,10 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   br label %15
 
 15:                                               ; preds = %12, %7, %5
-  %16 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 8), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #6
   %18 = load i32, ptr @pmix_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 4), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %18, %19
   br i1 %.not.i, label %21, label %20
 
@@ -71,7 +71,7 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   %27 = getelementptr inbounds i8, ptr %17, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %28 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 6), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -149,10 +149,10 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %14, label %15, label %42
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 8), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #6
   %18 = load i32, ptr @pmix_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 4), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %18, %19
   br i1 %.not.i, label %21, label %20
 
@@ -174,7 +174,7 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %27 = getelementptr inbounds i8, ptr %17, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %28 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 6), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i

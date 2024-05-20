@@ -26,7 +26,7 @@ define dso_local noundef i32 @dev_pm_set_wake_irq(ptr noundef %0, i32 noundef %1
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 24) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -166,7 +166,7 @@ define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 
   br i1 %4, label %38, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %38, label %9

@@ -119,7 +119,7 @@ define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
   br i1 %.not10, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 13), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 104), align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %.sink.split, label %8
 
@@ -140,7 +140,7 @@ define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
   br i1 %.not13, label %20, label %15
 
 .thread:                                          ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 13), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 104), align 8
   %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %12) #14
   store i32 0, ptr @plugin_inited, align 4
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #14
@@ -155,7 +155,7 @@ define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
   unreachable
 
 18:                                               ; preds = %.thread
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 13), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 104), align 8
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %19) #16
   unreachable
 
@@ -753,7 +753,7 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   br label %.preheader
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 3), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %25 = call ptr %24(i32 noundef 2, ptr noundef nonnull %3) #14
   br label %.preheader
 
@@ -1281,7 +1281,7 @@ define noundef i32 @acct_gather_profile_g_conf_options(ptr noundef %0, ptr nound
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #14
   br label %7
 
@@ -1296,7 +1296,7 @@ define noundef i32 @acct_gather_profile_g_conf_set(ptr noundef %0) local_unnamed
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   tail call void %5(ptr noundef %0) #14
   br label %6
 
@@ -1320,7 +1320,7 @@ define noundef i32 @acct_gather_profile_g_get(i32 noundef %0, ptr noundef %1) lo
   br label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %9 = tail call ptr %8(i32 noundef %0, ptr noundef %1) #14
   br label %10
 
@@ -1335,7 +1335,7 @@ define i32 @acct_gather_profile_g_node_step_start(ptr noundef %0) local_unnamed_
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %6 = tail call i32 %5(ptr noundef %0) #14
   br label %7
 
@@ -1351,7 +1351,7 @@ define i32 @acct_gather_profile_g_node_step_end() local_unnamed_addr #0 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %5 = tail call i32 %4() #14
   br label %6
 
@@ -1378,7 +1378,7 @@ define i32 @acct_gather_profile_g_task_start(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %10 = tail call i32 %9(i32 noundef %0) #14
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
   %.not9 = icmp eq i32 %11, 0
@@ -1413,7 +1413,7 @@ define i32 @acct_gather_profile_g_task_end(i32 noundef %0) local_unnamed_addr #0
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 7), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %10 = tail call i32 %9(i32 noundef %0) #14
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
   %.not9 = icmp eq i32 %11, 0
@@ -1448,7 +1448,7 @@ define i64 @acct_gather_profile_g_create_group(ptr noundef %0) local_unnamed_add
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 64), align 8
   %10 = tail call i64 %9(ptr noundef %0) #14
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
   %.not8 = icmp eq i32 %11, 0
@@ -1483,7 +1483,7 @@ define i32 @acct_gather_profile_g_create_dataset(ptr noundef %0, i64 noundef %1,
   unreachable
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 72), align 8
   %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, ptr noundef %2) #14
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
   %.not10 = icmp eq i32 %13, 0
@@ -1518,7 +1518,7 @@ define i32 @acct_gather_profile_g_add_sample_data(i32 noundef %0, ptr noundef %1
   unreachable
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 10), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
   %12 = tail call i32 %11(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
   %.not10 = icmp eq i32 %13, 0
@@ -1542,7 +1542,7 @@ define void @acct_gather_profile_g_conf_values(ptr noundef %0) local_unnamed_add
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 11), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 88), align 8
   tail call void %5(ptr noundef %0) #14
   br label %6
 
@@ -1557,7 +1557,7 @@ define zeroext i1 @acct_gather_profile_g_is_active(i32 noundef %0) local_unnamed
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_profile_ops, ptr @ops, i64 0, i32 12), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 96), align 8
   %6 = tail call zeroext i1 %5(i32 noundef %0) #14
   br label %7
 

@@ -68,7 +68,7 @@ $_ZTIN3net23NestedSpdyFramerDecoderE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net24SpdyFramerDecoderAdapterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %this, align 8
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %visitor_, i8 0, i64 17, i1 false)
   ret void
@@ -77,7 +77,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net24SpdyFramerDecoderAdapterD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -448,7 +448,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #11
   %visitor_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %visitor_.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 16), ptr %call, align 8
   %framer_.i = getelementptr inbounds i8, ptr %call, i64 32
   invoke void @_ZN3net10SpdyFramerC1ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24SpdyFramerDecoderAdapterESt14default_deleteIS3_EEPS0_E(ptr noundef nonnull align 8 dereferenceable(259) %framer_.i, i32 noundef 2, ptr noundef null)
           to label %invoke.cont unwind label %lpad.i
@@ -456,7 +456,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %call, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call) #12
   resume { ptr, i32 } %0
 
@@ -503,7 +503,7 @@ declare void @_ZN3net10SpdyFramerC1ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net23NestedSpdyFramerDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 16), ptr %this, align 8
   %visitor_adapter_ = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load ptr, ptr %visitor_adapter_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -520,14 +520,14 @@ _ZNSt10unique_ptrIN3net24SpdyFramerVisitorAdapterESt14default_deleteIS1_EED2Ev.e
   store ptr null, ptr %visitor_adapter_, align 8
   %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(259) %framer_) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net23NestedSpdyFramerDecoderD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 16), ptr %this, align 8
   %visitor_adapter_.i = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load ptr, ptr %visitor_adapter_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -555,7 +555,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
   %outer_ = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %outer_, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3net24SpdyFramerVisitorAdapterE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerVisitorAdapterE, i64 16), ptr %call, align 8
   %visitor_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %visitor, ptr %visitor_.i, align 8
   %framer_.i = getelementptr inbounds i8, ptr %call, i64 16

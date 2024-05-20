@@ -5421,7 +5421,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
 
 18:                                               ; preds = %.noexc, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !987)
-  %19 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !range !990, !noalias !991, !noundef !47
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !990, !noalias !991, !noundef !47
   %.not.i.i = icmp eq i8 %19, 2
   br i1 %.not.i.i, label %20, label %.thread34
 
@@ -5433,7 +5433,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
   br label %97
 
 20:                                               ; preds = %18
-  store i8 %14, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !noalias !991
+  store i8 %14, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !noalias !991
   %21 = load i64, ptr %0, align 8, !range !152, !alias.scope !997, !noalias !1000, !noundef !47
   %trunc.i.i.i = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5446,7 +5446,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
 .noexc10:                                         ; preds = %20
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 16), align 8, !noalias !991
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 64), align 8, !noalias !991
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %27, label %32
 
@@ -5462,16 +5462,16 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
   br label %33
 
 32:                                               ; preds = %.noexc10
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 5, i64 4), align 8, !noalias !991
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 5, i64 0), align 4, !noalias !991
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 72), align 8, !noalias !991
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 68), align 4, !noalias !991
   br label %33
 
 33:                                               ; preds = %32, %.noexc11
   %.sroa.7.0.i.i = phi i32 [ %spec.store.select.i.i.i.i.i.i, %.noexc11 ], [ %.sroa.5.0.copyload.i.i, %32 ]
   %.sroa.0.0.i.i = phi i32 [ %30, %.noexc11 ], [ %.sroa.4.0.copyload.i.i, %32 ]
-  store i32 1, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 16), align 8, !noalias !991
-  store i32 %25, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 5, i64 0), align 4, !noalias !991
-  store i32 %26, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 5, i64 4), align 8, !noalias !991
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 64), align 8, !noalias !991
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 68), align 4, !noalias !991
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 72), align 8, !noalias !991
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !991
   invoke void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h5b9b3bd7ef1d7de3E"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h04dd34217b0b88f1E.exit" unwind label %.thread
@@ -5535,8 +5535,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
   ]
 
 .thread.i:                                        ; preds = %39
-  %42 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1010, !noundef !47
-  store ptr %9, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1010
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1010, !noundef !47
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1010
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1010
   br label %56
 
@@ -5547,14 +5547,14 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
 .body.i.i.i:                                      ; preds = %83, %80, %.body.thread.i.i.i.i.i.i
   %44 = phi ptr [ %57, %83 ], [ %57, %.body.thread.i.i.i.i.i.i ], [ %46, %80 ]
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %84, %83 ], [ %53, %.body.thread.i.i.i.i.i.i ], [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %80 ]
-  store ptr %44, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1015
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1015
   br label %.body.i
 
 45:                                               ; preds = %43
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noalias !1005
   %.pr.i = load i64, ptr %9, align 8, !noalias !1020
-  %46 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1010, !noundef !47
-  store ptr %9, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1010
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1010, !noundef !47
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1010
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1010
   store ptr %9, ptr %8, align 8, !noalias !1025
   %47 = getelementptr inbounds i8, ptr %8, i64 8
@@ -5714,7 +5714,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17hdf00783c8dd2a7bbE.llvm.9340333246167
 94:                                               ; preds = %62
   store i64 0, ptr %.sroa.6.0..sroa_idx.i14, align 8, !noalias !1056
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1010
-  store ptr %57, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1063
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1063
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..scheduler..Context$GT$17hb184a50a77820c50E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
           to label %104 unwind label %102
 
@@ -5847,7 +5847,7 @@ define noundef range(i8 4, 3) i8 @_ZN5tokio7runtime7context10runtime_mt21current
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h30c534874151313bE.exit": ; preds = %3, %0
-  %.08.val.i = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !range !990, !noundef !47
+  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !990, !noundef !47
   ret i8 %.08.val.i
 }
 
@@ -5939,7 +5939,7 @@ define hidden void @_ZN5tokio7runtime7context14with_scheduler17h4d7ce72db8fe8a62
   br label %5
 
 5:                                                ; preds = %2, %4
-  %.val.i.i = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1077, !noundef !47
+  %.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1077, !noundef !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1080)
   %6 = icmp eq ptr %.val.i.i, null
   br i1 %6, label %7, label %"_ZN5tokio7runtime7context5defer28_$u7b$$u7b$closure$u7d$$u7d$17h68ebb3f542f01043E.llvm.9340333246167201960.exit.i.i.i"
@@ -6975,12 +6975,12 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter1
 .body.i.i:                                        ; preds = %37
   %36 = landingpad { ptr, i32 }
           cleanup
-  store ptr %38, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1302
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1302
   br label %.body
 
 37:                                               ; preds = %.noexc.i.i, %33
-  %38 = load ptr, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1311, !noundef !47
-  store ptr %0, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1311
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1311, !noundef !47
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1311
   %.val.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !1311, !nonnull !47, !noundef !47
   %39 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 16
   %40 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread9shutdown217hd4fe006667019918E(ptr noalias noundef nonnull align 8 %20, ptr noundef nonnull align 8 %39)
@@ -7049,7 +7049,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17hdf00783c8dd2a7bbE.llvm.9340333246167
   unreachable
 
 61:                                               ; preds = %37
-  store ptr %38, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 4, i64 8), align 8, !noalias !1321
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 56), align 8, !noalias !1321
   %62 = load i64, ptr %15, align 8, !noundef !47
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %66, label %67

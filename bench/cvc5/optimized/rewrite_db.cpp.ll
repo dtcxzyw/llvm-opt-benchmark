@@ -256,7 +256,7 @@ invoke.cont3:                                     ; preds = %_ZN4cvc58internal12
   %7 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %7, ptr %d_false, align 8
   %d_canonCb = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal8rewriter23IsListTypeClassCallbackE, i64 0, i32 0, i64 2), ptr %d_canonCb, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal8rewriter23IsListTypeClassCallbackE, i64 16), ptr %d_canonCb, align 8
   %d_canon = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN4cvc58internal4expr12TermCanonizeC1EPNS1_17TypeClassCallbackE(ptr noundef nonnull align 8 dereferenceable(216) %d_canon, ptr noundef nonnull %d_canonCb)
           to label %invoke.cont6 unwind label %lpad5

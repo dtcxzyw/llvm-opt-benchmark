@@ -150,7 +150,7 @@ define void @_ZN15SequenceDiagramC2EP7QCPAxisS1_S1_(ptr noundef nonnull align 8 
   %15 = alloca %class.QFont, align 8
   %16 = alloca %class.QString, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SequenceDiagram, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 192
@@ -723,7 +723,7 @@ declare void @_ZN20QCPAbstractPlottableD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15SequenceDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SequenceDiagram, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2785,7 +2785,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %98, %92
   %144 = getelementptr inbounds i8, ptr %126, i64 108
   %145 = load i32, ptr %144, align 4
   %146 = icmp ne i32 %145, 0
-  %147 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  %147 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   %148 = icmp ne i32 %147, 0
   %or.cond = select i1 %146, i1 %148, i1 false
   br i1 %or.cond, label %149, label %161

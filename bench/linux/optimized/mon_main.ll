@@ -171,7 +171,7 @@ define dso_local void @mon_reader_del(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !11
 
 31:                                               ; preds = %13
-  %32 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 9), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 72), align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.loopexit
 
@@ -343,7 +343,7 @@ define internal void @mon_exit() #4 section ".exit.text" align 16 {
   br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %0
-  %54 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 3), align 8
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 32), align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %57, label %56
 
@@ -352,7 +352,7 @@ define internal void @mon_exit() #4 section ".exit.text" align 16 {
   br label %57
 
 57:                                               ; preds = %56, %.loopexit
-  %58 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 4), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 36), align 4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %61, label %60
 
@@ -408,14 +408,14 @@ define internal i32 @mon_init() #4 section ".init.text" align 16 {
   br i1 %6, label %7, label %38
 
 7:                                                ; preds = %4
-  store volatile i32 1, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1), align 8
-  store volatile ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10), ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10), align 8
-  store volatile ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10), ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 1), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 16), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 88), align 8
   %8 = tail call i32 @mon_text_add(ptr noundef nonnull @mon_bus0, ptr noundef null) #7
-  store i32 %8, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 3), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 32), align 8
   %9 = tail call i32 @mon_bin_add(ptr noundef nonnull @mon_bus0, ptr noundef null) #7
-  store i32 %9, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 4), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 36), align 4
   %10 = tail call i32 @usb_mon_register(ptr noundef nonnull @mon_ops_0) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
@@ -434,7 +434,7 @@ define internal i32 @mon_init() #4 section ".init.text" align 16 {
 
 .preheader:                                       ; preds = %14, %mon_bus_init.exit
   %17 = phi ptr [ %36, %mon_bus_init.exit ], [ %15, %14 ]
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %19 = call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 112) #9
   %20 = icmp eq ptr %19, null
   br i1 %20, label %mon_bus_init.exit, label %21
@@ -459,8 +459,8 @@ define internal i32 @mon_init() #4 section ".init.text" align 16 {
   %31 = getelementptr inbounds i8, ptr %19, i64 36
   store i32 %30, ptr %31, align 4
   call void @mutex_lock(ptr noundef nonnull @mon_lock) #7
-  %32 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mon_buses, i64 0, i32 1), align 8
-  store ptr %19, ptr getelementptr inbounds (%struct.list_head, ptr @mon_buses, i64 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_buses, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @mon_buses, i64 8), align 8
   store ptr @mon_buses, ptr %19, align 8
   %33 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %32, ptr %33, align 8
@@ -509,7 +509,7 @@ define internal noundef i32 @mon_notify(ptr nocapture readnone %0, i64 noundef %
   ]
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 112) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %mon_bus_init.exit, label %8
@@ -534,8 +534,8 @@ define internal noundef i32 @mon_notify(ptr nocapture readnone %0, i64 noundef %
   %18 = getelementptr inbounds i8, ptr %6, i64 36
   store i32 %17, ptr %18, align 4
   tail call void @mutex_lock(ptr noundef nonnull @mon_lock) #7
-  %19 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mon_buses, i64 0, i32 1), align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @mon_buses, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_buses, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @mon_buses, i64 8), align 8
   store ptr @mon_buses, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %19, ptr %20, align 8
@@ -545,7 +545,7 @@ define internal noundef i32 @mon_notify(ptr nocapture readnone %0, i64 noundef %
 
 mon_bus_init.exit:                                ; preds = %4, %8
   tail call void @mutex_lock(ptr noundef nonnull @mon_lock) #7
-  %21 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 9), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 72), align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %23
 
@@ -686,12 +686,12 @@ define internal void @mon_submit(ptr nocapture noundef readonly %0, ptr noundef 
   br label %22
 
 22:                                               ; preds = %.loopexit4, %2
-  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #7
-  %24 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
+  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16)) #7
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
   %25 = add i32 %24, 1
-  store i32 %25, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
-  %26 = load ptr, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0), align 8
-  %27 = icmp eq ptr %26, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), align 8
+  %27 = icmp eq ptr %26, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %22, %.preheader
@@ -702,11 +702,11 @@ define internal void @mon_submit(ptr nocapture noundef readonly %0, ptr noundef 
   %32 = load ptr, ptr %31, align 8
   tail call void %30(ptr noundef %32, ptr noundef %1) #7
   %33 = load ptr, ptr %28, align 8
-  %34 = icmp eq ptr %33, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  %34 = icmp eq ptr %33, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %22
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i64 noundef %23) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16), i64 noundef %23) #7
   ret void
 }
 
@@ -745,12 +745,12 @@ define internal void @mon_submit_error(ptr nocapture noundef readonly %0, ptr no
   br label %23
 
 23:                                               ; preds = %.loopexit4, %3
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #7
-  %25 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16)) #7
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
   %26 = add i32 %25, 1
-  store i32 %26, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
-  %27 = load ptr, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0), align 8
-  %28 = icmp eq ptr %27, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), align 8
+  %28 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %28, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %23, %.preheader
@@ -761,11 +761,11 @@ define internal void @mon_submit_error(ptr nocapture noundef readonly %0, ptr no
   %33 = load ptr, ptr %32, align 8
   tail call void %31(ptr noundef %33, ptr noundef %1, i32 noundef %2) #7
   %34 = load ptr, ptr %29, align 8
-  %35 = icmp eq ptr %34, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  %35 = icmp eq ptr %34, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %23
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i64 noundef %24) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16), i64 noundef %24) #7
   ret void
 }
 
@@ -804,12 +804,12 @@ define internal void @mon_complete(ptr nocapture noundef readonly %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %.loopexit4, %3
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #7
-  %25 = load i32, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16)) #7
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
   %26 = add i32 %25, 1
-  store i32 %26, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 12), align 4
-  %27 = load ptr, ptr getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0), align 8
-  %28 = icmp eq ptr %27, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 100), align 4
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_bus0, i64 80), align 8
+  %28 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %28, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %23, %.preheader
@@ -820,11 +820,11 @@ define internal void @mon_complete(ptr nocapture noundef readonly %0, ptr nounde
   %33 = load ptr, ptr %32, align 8
   tail call void %31(ptr noundef %33, ptr noundef %1, i32 noundef %2) #7
   %34 = load ptr, ptr %29, align 8
-  %35 = icmp eq ptr %34, getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 10, i32 0)
+  %35 = icmp eq ptr %34, getelementptr inbounds (i8, ptr @mon_bus0, i64 80)
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %23
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.mon_bus, ptr @mon_bus0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i64 noundef %24) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @mon_bus0, i64 16), i64 noundef %24) #7
   ret void
 }
 

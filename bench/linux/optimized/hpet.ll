@@ -364,9 +364,9 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_enable() local_unnamed_addr #
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = load i64, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_hpet, i64 0, i32 13), align 8
+  %84 = load i64, ptr getelementptr inbounds (i8, ptr @clocksource_hpet, i64 88), align 8
   %85 = or i64 %84, 2
-  store i64 %85, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_hpet, i64 0, i32 13), align 8
+  store i64 %85, ptr getelementptr inbounds (i8, ptr @clocksource_hpet, i64 88), align 8
   br label %86
 
 86:                                               ; preds = %83, %81
@@ -414,7 +414,7 @@ define internal fastcc noundef zeroext i1 @hpet_is_pc10_damaged() unnamed_addr #
 2:                                                ; preds = %0
   %3 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 226) #18, !srcloc !13
   %4 = extractvalue { i64, i64 } %3, 0
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #18
           to label %9 [label %5], !srcloc !14
 
 5:                                                ; preds = %2
@@ -619,7 +619,7 @@ declare dso_local zeroext i1 @tsc_clocksource_watchdog_disabled() local_unnamed_
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @hpet_legacy_clockevent_register(ptr noundef %0) unnamed_addr #4 section ".init.text" align 16 {
 hpet_init_clockevent.exit:
-  %1 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 26), align 2
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 302), align 2
   %2 = zext i16 %1 to i32
   %3 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 %2, ptr %3, align 4
@@ -1348,16 +1348,16 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc zeroext i1 @mwait_pc10_supported() unnamed_addr #4 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %.thread
 
 3:                                                ; preds = %0
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 131, i32 8, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8)) #18
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 131, i32 8, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56)) #18
           to label %4 [label %4, label %.thread], !srcloc !28
 
 4:                                                ; preds = %3, %3
-  %5 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 10), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 5
   br i1 %6, label %.thread, label %7
 
@@ -1401,7 +1401,7 @@ define internal range(i64 0, 4294967296) i64 @read_hpet(ptr nocapture readnone %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 8
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #22, !srcloc !30
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !30
   %6 = and i32 %5, 15728640
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %8
@@ -1444,7 +1444,7 @@ define internal range(i64 0, 4294967296) i64 @read_hpet(ptr nocapture readnone %
   %27 = load ptr, ptr @hpet_virt_address, align 8
   %28 = getelementptr i8, ptr %27, i64 240
   %29 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #18, !srcloc !5
-  store volatile i32 %29, ptr getelementptr inbounds ({ %struct.anon.3 }, ptr @hpet, i64 0, i32 0, i32 1), align 4
+  store volatile i32 %29, ptr getelementptr inbounds (i8, ptr @hpet, i64 4), align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !33
   store volatile i8 0, ptr @hpet, align 64
   %30 = and i64 %18, 512
@@ -1689,7 +1689,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   br i1 %4, label %5, label %94
 
 5:                                                ; preds = %0
-  %6 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 48), align 8
+  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 96), align 8
   %7 = and i64 %6, 4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %94
@@ -1712,7 +1712,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %19 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 72) #23
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21

@@ -2316,9 +2316,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
   br label %_wait_nodes_ready.exit
 
 7:                                                ; preds = %1
-  %8 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 202), align 8
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1384), align 8
   %9 = icmp ne i16 %8, 0
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 152), align 2
+  %10 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1018), align 2
   %11 = icmp ne i16 %10, 0
   %or.cond.i = select i1 %9, i1 %11, i1 false
   br i1 %or.cond.i, label %12, label %_wait_nodes_ready.exit

@@ -662,12 +662,12 @@ if.then4.i:                                       ; preds = %call2.i.noexc
 
 .noexc:                                           ; preds = %if.then4.i
   %3 = load i32, ptr %status, align 4
-  store i32 %3, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 0, i32 1), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 4), align 4
   invoke void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE)
           to label %invoke.cont2 unwind label %lpad1
 
 if.else.i:                                        ; preds = %call2.i.noexc, %if.end.i
-  %4 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 0, i32 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %4, 1
   br i1 %cmp.i9.i, label %invoke.cont2, label %if.then8.i
 
@@ -1177,7 +1177,7 @@ if.end12:                                         ; preds = %invoke.cont9
 
 invoke.cont15:                                    ; preds = %if.end12
   %4 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_111gCategoriesE, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i64 0, i32 0, i64 2), ptr %categoriesSink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i64 16), ptr %categoriesSink, align 8
   %outQuantitiesArray.i = getelementptr inbounds i8, ptr %categoriesSink, i64 8
   store ptr %4, ptr %outQuantitiesArray.i, align 8
   %outSize2.i = getelementptr inbounds i8, ptr %categoriesSink, i64 16
@@ -1545,7 +1545,7 @@ if.then164:                                       ; preds = %invoke.cont161
 if.end165:                                        ; preds = %invoke.cont161
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call162, i8 0, i64 %conv160, i1 false)
   %80 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i64 0, i32 0, i64 2), ptr %identifierSink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i64 16), ptr %identifierSink, align 8
   %outArray.i = getelementptr inbounds i8, ptr %identifierSink, i64 8
   store ptr %80, ptr %outArray.i, align 8
   %outCategories2.i = getelementptr inbounds i8, ptr %identifierSink, i64 16
@@ -2942,12 +2942,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call fastcc void @_ZN6icu_7512_GLOBAL__N_114initUnitExtrasER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_119gUnitExtrasInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 

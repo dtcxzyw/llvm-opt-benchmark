@@ -1181,7 +1181,7 @@ declare ptr @prte_hwloc_base_get_obj_by_type(ptr noundef, i32 noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define void @prte_rmaps_base_update_local_ranks(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %13
 

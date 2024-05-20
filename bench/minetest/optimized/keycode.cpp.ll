@@ -545,7 +545,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #23
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %6, ptr %m_s.i, align 8, !tbaa !15
@@ -613,7 +613,7 @@ if.then.i.i6:                                     ; preds = %_ZN13BaseExceptionC
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV14UnknownKeycode, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14UnknownKeycode, i64 16), ptr %this, align 8, !tbaa !23
   ret void
 }
 
@@ -624,7 +624,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !19
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2118,7 +2118,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z13clearKeyCachev() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 2, i32 0), align 8, !tbaa !59
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 16), align 8, !tbaa !59
   %tobool.not4.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not4.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8KeyPressSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE5clearEv.exit, label %while.body.i.i.i
 
@@ -2167,10 +2167,10 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8KeyPressSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE5clearEv.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8KeyPressELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i.i.i, %entry
   %8 = load ptr, ptr @_Z19g_key_setting_cacheB5cxx11, align 8, !tbaa !67
-  %9 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 1), align 8, !tbaa !68
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 8), align 8, !tbaa !68
   %mul.i.i = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %mul.i.i, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 16), i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -2217,7 +2217,7 @@ _Z14lookup_keynamePKc.exit:                       ; preds = %for.body.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14UnknownKeycodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !19
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2261,7 +2261,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !19
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2907,11 +2907,11 @@ entry:
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8KeyPressD2Ev, ptr nonnull @EscapeKey, ptr nonnull @__dso_handle) #23
   tail call void @_ZN8KeyPressC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) @CancelKey, ptr noundef nonnull @.str.12)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8KeyPressD2Ev, ptr nonnull @CancelKey, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 5), ptr @_Z19g_key_setting_cacheB5cxx11, align 8, !tbaa !67
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 1), align 8, !tbaa !68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_Z19g_key_setting_cacheB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 48), ptr @_Z19g_key_setting_cacheB5cxx11, align 8, !tbaa !67
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 8), align 8, !tbaa !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 32), align 8, !tbaa !84
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_Z19g_key_setting_cacheB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8KeyPressSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEED2Ev, ptr nonnull @_Z19g_key_setting_cacheB5cxx11, ptr nonnull @__dso_handle) #23
   ret void
 }

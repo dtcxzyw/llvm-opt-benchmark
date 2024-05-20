@@ -768,7 +768,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
@@ -785,7 +785,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -7298,11 +7298,11 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6casadi8Sparsity8getC
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 5), ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 48), ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 40), i8 0, i64 16, i1 false)
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt18unordered_multimapImN6casadi7WeakRefESt4hashImESt8equal_toImESaISt4pairIKmS1_EEED2Ev, ptr nonnull @_ZZN6casadi8Sparsity8getCacheEvE3ret, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6casadi8Sparsity8getCacheEvE3ret) #24
   br label %7
@@ -8189,7 +8189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc15 unwind label %30
 
 .noexc15:                                         ; preds = %.noexc14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.52, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18 unwind label %28
 
 28:                                               ; preds = %.noexc15
@@ -11693,27 +11693,27 @@ _ZN6casadi13hash_sparsityExxPKxS1_.exit:          ; preds = %.lr.ph.i9.i, %_ZN6c
   br i1 %.not.i256, label %_ZN6casadi8Sparsity8getCacheEv.exit, label %385
 
 385:                                              ; preds = %383
-  store ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 5), ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 48), ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 40), i8 0, i64 16, i1 false)
   %386 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt18unordered_multimapImN6casadi7WeakRefESt4hashImESt8equal_toImESaISt4pairIKmS1_EEED2Ev, ptr nonnull @_ZZN6casadi8Sparsity8getCacheEvE3ret, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6casadi8Sparsity8getCacheEvE3ret) #24
   br label %_ZN6casadi8Sparsity8getCacheEv.exit
 
 _ZN6casadi8Sparsity8getCacheEv.exit:              ; preds = %_ZN6casadi13hash_sparsityExxPKxS1_.exit, %383, %385
-  %387 = load i64, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 1), align 8
+  %387 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 8), align 8
   %388 = icmp sgt i64 %387, 0
   br i1 %388, label %389, label %.loopexit311
 
 389:                                              ; preds = %_ZN6casadi8Sparsity8getCacheEv.exit
-  %390 = load i64, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 3), align 8
+  %390 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 24), align 8
   %.not.not.i.i.i = icmp eq i64 %390, 0
   br i1 %.not.not.i.i.i, label %.preheader317, label %395
 
 .preheader317:                                    ; preds = %389, %391
-  %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %391 ], [ getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0), %389 ]
+  %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %391 ], [ getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16), %389 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i257 = icmp eq ptr %.sroa.06.0.i.i.i, null
   br i1 %.not.i.i.i257, label %.loopexit311, label %391
@@ -11982,9 +11982,9 @@ _ZNSt4pairImN6casadi7WeakRefEEC2IRmRNS0_8SparsityETnNSt9enable_ifIXaaclsr5_PCCPE
 
 _ZNSt18unordered_multimapImN6casadi7WeakRefESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE6insertIS6_ImS1_EEENSt9enable_ifIXsr16is_constructibleIS8_OT_EE5valueENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEEE4typeESF_.exit: ; preds = %_ZNSt4pairImN6casadi7WeakRefEEC2IRmRNS0_8SparsityETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_.exit
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %460) #24
-  %464 = load i64, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 1), align 8
+  %464 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 8), align 8
   %.not = icmp eq i64 %387, %464
-  %465 = load ptr, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0), align 8
+  %465 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16), align 8
   %.not309369 = icmp eq ptr %465, null
   %or.cond373 = select i1 %.not, i1 true, i1 %.not309369
   br i1 %or.cond373, label %_ZNSt6vectorIxSaIxEED2Ev.exit249, label %.lr.ph372
@@ -11997,7 +11997,7 @@ _ZNSt18unordered_multimapImN6casadi7WeakRefESt4hashImESt8equal_toImESaISt4pairIK
 
 468:                                              ; preds = %.lr.ph372
   %469 = getelementptr inbounds i8, ptr %.sroa.0273.0370, i64 8
-  %470 = load i64, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 1), align 8
+  %470 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 8), align 8
   %471 = load i64, ptr %469, align 8
   %472 = urem i64 %471, %470
   %473 = load ptr, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, align 8
@@ -12039,11 +12039,11 @@ _ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stES
   %487 = phi ptr [ %475, %480 ], [ %.pre25.i.i.i, %485 ]
   %488 = phi ptr [ %473, %480 ], [ %.pre.i.i.i, %485 ]
   %489 = getelementptr inbounds ptr, ptr %488, i64 %472
-  %490 = icmp eq ptr %487, getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0)
+  %490 = icmp eq ptr %487, getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16)
   br i1 %490, label %491, label %492
 
 491:                                              ; preds = %.thread23.i.i.i
-  store ptr %479, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 2, i32 0), align 8
+  store ptr %479, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 16), align 8
   br label %492
 
 492:                                              ; preds = %491, %.thread23.i.i.i
@@ -12070,9 +12070,9 @@ _ZNSt18unordered_multimapImN6casadi7WeakRefESt4hashImESt8equal_toImESaISt4pairIK
   store ptr %500, ptr %.0.i.i.i, align 8
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %466) #24
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0273.0370) #26
-  %501 = load i64, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 3), align 8
+  %501 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 24), align 8
   %502 = add i64 %501, -1
-  store i64 %502, ptr getelementptr inbounds (%"class.std::unordered_multimap", ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 0, i32 0, i32 3), align 8
+  store i64 %502, ptr getelementptr inbounds (i8, ptr @_ZZN6casadi8Sparsity8getCacheEvE3ret, i64 24), align 8
   br label %509
 
 503:                                              ; preds = %.loopexit311
@@ -27671,7 +27671,7 @@ define void @_ZNK6casadi8Sparsity9serializeERNS_17SerializingStreamE(ptr noundef
           to label %.noexc13 unwind label %16
 
 .noexc13:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.206, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc13
@@ -27719,7 +27719,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit19:                  ; preds = %15, %.noexc14, %.no
           to label %.noexc21 unwind label %45
 
 .noexc21:                                         ; preds = %.noexc20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.206, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24 unwind label %21
 
 21:                                               ; preds = %.noexc21
@@ -27948,7 +27948,7 @@ define void @_ZN6casadi8Sparsity11deserializeERNS_19DeserializingStreamE(ptr dea
           to label %.noexc7 unwind label %15
 
 .noexc7:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.206, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc7
@@ -28505,7 +28505,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -30933,7 +30933,7 @@ define internal void @_GLOBAL__sub_I_sparsity.cpp() #18 section ".text.startup" 
           to label %13 unwind label %.body
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.180, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.180, i64 0, i64 3)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.180, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.180, i64 3)) #24
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -30947,14 +30947,14 @@ define internal void @_GLOBAL__sub_I_sparsity.cpp() #18 section ".text.startup" 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  store i32 0, ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, ptr %2, align 8
-  %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6casadi8Sparsity12file_formatsB5cxx11E, ptr nonnull getelementptr inbounds (%"class.std::set", ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6casadi8Sparsity12file_formatsB5cxx11E, ptr nonnull getelementptr inbounds (i8, ptr @_ZN6casadi8Sparsity12file_formatsB5cxx11E, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i.i unwind label %.body8.i
 
 .noexc.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i

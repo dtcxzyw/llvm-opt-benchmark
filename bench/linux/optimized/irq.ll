@@ -528,7 +528,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 47:                                               ; preds = %43
   store i32 11, ptr %44, align 4
   %48 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 60, i8 noundef zeroext 11) #11
-  %49 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 4), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 24), align 8
   %50 = load ptr, ptr @pirq_router_dev, align 8
   %51 = call i32 %49(ptr noundef %50, ptr noundef %0, i32 noundef 89, i32 noundef 11) #11
   br label %52
@@ -550,7 +550,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 3), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 16), align 8
   %64 = load ptr, ptr @pirq_router_dev, align 8
   %65 = call i32 %63(ptr noundef %64, ptr noundef %0, i32 noundef 104) #11
   store i32 %65, ptr %55, align 4
@@ -629,7 +629,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br label %156
 
 112:                                              ; preds = %.thread
-  %113 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 3), align 8
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 16), align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %134, label %115
 
@@ -652,7 +652,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %126, label %134, label %127
 
 127:                                              ; preds = %123, %119
-  %128 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 5), align 8
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 32), align 8
   %129 = icmp eq ptr %128, null
   br i1 %129, label %133, label %130
 
@@ -671,7 +671,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %136, label %156, label %137
 
 137:                                              ; preds = %134
-  %138 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 4), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 24), align 8
   %139 = icmp eq ptr %138, null
   br i1 %139, label %156, label %140
 
@@ -689,7 +689,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %148, label %156, label %149
 
 149:                                              ; preds = %145
-  %150 = load ptr, ptr getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 5), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 32), align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %155, label %152
 
@@ -876,7 +876,7 @@ define dso_local void @pcibios_irq_init() local_unnamed_addr #3 section ".init.t
   br label %36
 
 36:                                               ; preds = %35, %29, %.loopexit3, %3
-  %37 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 3), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 168), align 8
   tail call void %37() #11
   %38 = load i32, ptr @mp_irq_entries, align 4
   %39 = icmp eq i32 %38, 0
@@ -1191,7 +1191,7 @@ define internal fastcc void @pirq_find_router() unnamed_addr #3 section ".init.t
   %1 = load ptr, ptr @pirq_table, align 8
   store ptr @.str.15, ptr @pirq_router, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.irq_router, ptr @pirq_router, i64 0, i32 3), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @pirq_router, i64 16), i8 0, i64 16, i1 false)
   %3 = load i16, ptr %2, align 1
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %.preheader, label %5

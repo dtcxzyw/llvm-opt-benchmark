@@ -224,7 +224,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
   %.1264 = phi i32 [ %.0144, %.lr.ph ], [ %126, %120 ]
   %112 = getelementptr inbounds [0 x i32], ptr %107, i64 0, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
-  %114 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %115 = sext i32 %.1264 to i64
   %116 = mul nsw i64 %.0228, %115
   %117 = getelementptr inbounds i8, ptr %.1150, i64 %116
@@ -252,7 +252,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
   br i1 %31, label %136, label %130
 
 130:                                              ; preds = %.loopexit254
-  %131 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %132 = sext i32 %.2 to i64
   %133 = getelementptr inbounds i8, ptr %27, i64 12
   %134 = load i32, ptr %133, align 4
@@ -422,20 +422,20 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 
 36:                                               ; preds = %27, %23, %15
   %.0113 = phi i32 [ %1, %23 ], [ %1, %15 ], [ %spec.select, %27 ]
-  %37 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %38 = tail call i32 %37(ptr noundef %3, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %6, i32 noundef -19, ptr noundef nonnull %7, ptr noundef null) #5
   %.not148 = icmp eq i32 %38, 0
   br i1 %.not148, label %39, label %ompi_coll_base_free_reqs.exit
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %41 = sext i32 %.0113 to i64
   %42 = tail call i32 %40(ptr noundef %0, i64 noundef %41, ptr noundef nonnull %2, i32 noundef %6, i32 noundef -19, i32 noundef 4, ptr noundef nonnull %7) #5
   %.not149 = icmp eq i32 %42, 0
   br i1 %.not149, label %43, label %ompi_coll_base_free_reqs.exit
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %45 = mul nsw i64 %21, %41
   %46 = getelementptr inbounds i8, ptr %0, i64 %45
   %47 = sub nsw i32 %1, %.0113
@@ -509,14 +509,14 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %88 = mul nsw i64 %indvars.iv, %78
   %89 = mul nsw i64 %88, %61
   %90 = getelementptr inbounds i8, ptr %3, i64 %89
-  %91 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   %93 = call i32 %91(ptr noundef %90, i64 noundef %79, ptr noundef %5, i32 noundef %92, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %11) #5
   %.not142 = icmp eq i32 %93, 0
   br i1 %.not142, label %94, label %.loopexit166
 
 94:                                               ; preds = %87
-  %95 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %96 = call i32 %95(ptr noundef %3, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %92, i32 noundef -19, i32 noundef 4, ptr noundef %7) #5
   %.not143 = icmp eq i32 %96, 0
   br i1 %.not143, label %97, label %.loopexit166
@@ -525,14 +525,14 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %98 = add nsw i64 %88, %79
   %99 = mul nsw i64 %98, %61
   %100 = getelementptr inbounds i8, ptr %3, i64 %99
-  %101 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %102 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
   %103 = call i32 %101(ptr noundef %100, i64 noundef %81, ptr noundef %5, i32 noundef %92, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %102) #5
   %.not144 = icmp eq i32 %103, 0
   br i1 %.not144, label %104, label %.loopexit166
 
 104:                                              ; preds = %97
-  %105 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %106 = call i32 %105(ptr noundef nonnull %11, ptr noundef null) #5
   %.not145 = icmp eq i32 %106, 0
   br i1 %.not145, label %107, label %.loopexit166
@@ -557,7 +557,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   br i1 %.not140, label %115, label %.loopexit166
 
 115:                                              ; preds = %108, %._crit_edge
-  %116 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %117 = sext i32 %.val.val to i64
   %118 = call i32 %116(i64 noundef %117, ptr noundef nonnull %53, ptr noundef null) #5
   %.not141 = icmp eq i32 %118, 0
@@ -628,7 +628,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   br label %ompi_request_cancel.exit.i
 
 ompi_request_cancel.exit.i:                       ; preds = %135, %132
-  %137 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %138 = call i32 %137(ptr noundef nonnull %127, ptr noundef null) #5
   br label %143
 
@@ -662,7 +662,7 @@ define i32 @ompi_coll_base_gather_intra_basic_linear(ptr noundef %0, i32 noundef
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %15 = sext i32 %1 to i64
   %16 = tail call i32 %14(ptr noundef %0, i64 noundef %15, ptr noundef %2, i32 noundef %6, i32 noundef -19, i32 noundef 4, ptr noundef nonnull %7) #5
   br label %.loopexit
@@ -689,7 +689,7 @@ define i32 @ompi_coll_base_gather_intra_basic_linear(ptr noundef %0, i32 noundef
   br i1 %26, label %.thread.us, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
-  %28 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %29 = tail call i32 %28(ptr noundef %.03346.us, i64 noundef %23, ptr noundef %5, i32 noundef %.03444.us, i32 noundef -19, ptr noundef %7, ptr noundef null) #5
   %.not40.us = icmp eq i32 %29, 0
   br i1 %.not40.us, label %.thread.us, label %.loopexit
@@ -711,7 +711,7 @@ define i32 @ompi_coll_base_gather_intra_basic_linear(ptr noundef %0, i32 noundef
   br label %38
 
 35:                                               ; preds = %.lr.ph.split
-  %36 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %37 = tail call i32 %36(ptr noundef %.03346, i64 noundef %23, ptr noundef %5, i32 noundef %.03444, i32 noundef -19, ptr noundef %7, ptr noundef null) #5
   br label %38
 

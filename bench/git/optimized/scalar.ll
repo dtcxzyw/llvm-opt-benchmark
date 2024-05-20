@@ -1348,7 +1348,7 @@ for.cond58:                                       ; preds = %for.body63
 
 for.body63:                                       ; preds = %if.end53, %for.cond58
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %for.cond58 ], [ 1, %if.end53 ]
-  %arrayidx6028 = phi ptr [ %arrayidx60, %for.cond58 ], [ getelementptr inbounds ([6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 1), %if.end53 ]
+  %arrayidx6028 = phi ptr [ %arrayidx60, %for.cond58 ], [ getelementptr inbounds (i8, ptr @__const.cmd_run.tasks, i64 16), %if.end53 ]
   %task66 = getelementptr inbounds i8, ptr %arrayidx6028, i64 8
   %9 = load ptr, ptr %task66, align 8
   %call67 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.156, ptr noundef %9, ptr noundef null)

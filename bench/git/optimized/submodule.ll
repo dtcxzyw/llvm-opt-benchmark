@@ -597,7 +597,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @added_submodule_odb_paths, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @added_submodule_odb_paths, i64 8), align 8
   %conv = trunc i64 %0 to i32
   %cmp5.not = icmp eq i64 %0, 0
   br i1 %cmp5.not, label %if.end6, label %for.body
@@ -609,7 +609,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load ptr, ptr %arrayidx, align 8
   tail call void @add_to_alternates_memory(ptr noundef %2) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @added_submodule_odb_paths, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @added_submodule_odb_paths, i64 8), align 8
   %cmp = icmp ugt i64 %3, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 

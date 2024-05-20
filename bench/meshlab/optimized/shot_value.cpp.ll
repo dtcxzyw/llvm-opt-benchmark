@@ -204,7 +204,7 @@ define void @_ZN9ShotValue3setERK5Value(ptr nocapture noundef nonnull writeonly 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @_ZNK9ShotValue5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %0) unnamed_addr #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV9ShotValue, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ShotValue, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %3, ptr noundef nonnull align 8 dereferenceable(132) %4, i64 132, i1 false)
@@ -249,7 +249,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9ShotValueC2ERKN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV9ShotValue, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ShotValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %3, ptr noundef nonnull align 4 dereferenceable(132) %1, i64 132, i1 false)
   ret void

@@ -93,7 +93,7 @@ msgsnd_wait.exit:                                 ; preds = %40
   br label %msgsnd_wait.exit.thread56
 
 msgsnd_wait.exit.thread:                          ; preds = %.split.us.i, %42, %16
-  %45 = load ptr, ptr getelementptr inbounds (%struct.list_node, ptr @g_msgfreelist, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @g_msgfreelist, i64 8), align 8
   %.not.i51 = icmp eq ptr %45, @g_msgfreelist
   br i1 %.not.i51, label %msgsnd_wait.exit.thread56, label %list_remove_head.exit
 

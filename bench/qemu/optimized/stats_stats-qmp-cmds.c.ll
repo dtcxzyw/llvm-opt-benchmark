@@ -21,11 +21,11 @@ entry:
   store ptr %schemas_fn, ptr %schemas_cb, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %next, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @stats_callbacks, i64 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @stats_callbacks, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @stats_callbacks, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @stats_callbacks, i64 8), align 8
   ret void
 }
 

@@ -6706,12 +6706,12 @@ define void @proj_info(ptr dead_on_unwind noalias nocapture writable writeonly s
   store i64 0, ptr %2, align 8
   tail call void @_Z15pj_acquire_lockv()
   store i32 9, ptr @_ZL4info, align 8
-  store i32 5, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 2), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 8), align 8
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL7version, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef 9, i32 noundef 5, i32 noundef 0) #33
-  store ptr @_ZL7version, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 4), align 8
+  store ptr @_ZL7version, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 24), align 8
   %5 = tail call noundef ptr @_Z14pj_get_releasev()
-  store ptr %5, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 3), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 16), align 8
   %6 = tail call noundef ptr @_Z18pj_get_default_ctxv()
   %7 = getelementptr inbounds i8, ptr %6, i64 120
   %8 = load ptr, ptr %7, align 8
@@ -6775,7 +6775,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %.preheader, %21, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %.2 = phi ptr [ %.0.lcssa35, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0.lcssa35, %21 ], [ %23, %.preheader ]
-  %25 = load ptr, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 5), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 32), align 8
   %.not = icmp eq ptr %25, @.str.67
   br i1 %.not, label %27, label %26
 
@@ -6786,10 +6786,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 27:                                               ; preds = %26, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %.not16 = icmp eq ptr %.2, null
   %28 = select i1 %.not16, ptr @.str.67, ptr %.2
-  store ptr %28, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 5), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 32), align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 144
   %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 6), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 40), align 8
   %31 = load ptr, ptr %9, align 8
   %32 = load ptr, ptr %7, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -6797,7 +6797,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %35 = sub i64 %33, %34
   %sext = shl i64 %35, 27
   %36 = ashr exact i64 %sext, 32
-  store i64 %36, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i64 0, i32 7), align 8
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @_ZL4info, i64 48), align 8
   call void @_Z15pj_release_lockv()
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) @_ZL4info, i64 56, i1 false)
   ret void

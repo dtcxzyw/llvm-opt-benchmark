@@ -102,7 +102,7 @@ define range(i32 0, 19) i32 @PMPI_Waitall(i32 noundef %0, ptr noundef %1, ptr no
   br i1 %37, label %45, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %40 = sext i32 %0 to i64
   %41 = tail call i32 %39(i64 noundef %40, ptr noundef %1, ptr noundef %2) #2
   %42 = icmp eq i32 %41, 0

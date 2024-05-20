@@ -894,7 +894,7 @@ entry:
   %hashtable_alloc.i.i = alloca %struct._Py_hashtable_allocator_t, align 8
   %hashtable_alloc.i3 = alloca %struct._Py_hashtable_allocator_t, align 8
   %hashtable_alloc.i = alloca %struct._Py_hashtable_allocator_t, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3304), align 8
   switch i32 %0, label %if.end3 [
     i32 2, label %if.then
     i32 1, label %return
@@ -906,8 +906,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end3:                                          ; preds = %entry
-  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1)) #13
-  %call = tail call i32 @PyThread_tss_create(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360)) #13
+  %call = tail call i32 @PyThread_tss_create(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
@@ -917,13 +917,13 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %cmp8 = icmp eq ptr %3, null
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end7
   %call10 = tail call ptr @PyThread_allocate_lock() #13
-  store ptr %call10, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  store ptr %call10, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %if.then12, label %if.end14
 
@@ -937,25 +937,25 @@ if.end14:                                         ; preds = %if.then9, %if.end7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_pyobject, ptr noundef nonnull @hashtable_compare_unicode, ptr noundef nonnull @tracemalloc_clear_filename, ptr noundef null, ptr noundef nonnull %hashtable_alloc.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i)
-  store ptr %call.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i3, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i4 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_traceback, ptr noundef nonnull @hashtable_compare_traceback, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %hashtable_alloc.i3) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i3)
-  store ptr %call.i4, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  store ptr %call.i4, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i.i, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i.i = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %hashtable_alloc.i.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i.i)
-  store ptr %call.i.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i.i5, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i.i6 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_uint, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @_Py_hashtable_destroy, ptr noundef nonnull %hashtable_alloc.i.i5) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i.i5)
-  store ptr %call.i.i6, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  store ptr %call.i.i6, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %8 = insertelement <4 x ptr> poison, ptr %6, i64 0
   %9 = insertelement <4 x ptr> %8, ptr %5, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %7, i64 2
@@ -971,22 +971,22 @@ if.then25:                                        ; preds = %if.end14
   br label %return
 
 while.body.preheader.i:                           ; preds = %if.end14
-  store i16 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 1), align 8
-  store i16 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 2), align 2
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 8), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 3, i64 0, i32 1), align 4
-  %call.i7 = call i64 @PyObject_Hash(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 8)) #13
-  %14 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 3, i64 0, i32 1), align 4
+  store i16 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3512), align 8
+  store i16 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3514), align 2
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3516), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3524), align 4
+  %call.i7 = call i64 @PyObject_Hash(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808)) #13
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3524), align 4
   %conv2.i = zext i32 %14 to i64
   %15 = xor i64 %call.i7, %conv2.i
   %xor3.i = xor i64 %15, 3430008
   %mul.i = mul i64 %xor3.i, 1000003
-  %16 = load i16, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10, i32 2), align 2
+  %16 = load i16, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3514), align 2
   %conv8.i = zext i16 %16 to i64
   %xor9.i = xor i64 %mul.i, %conv8.i
   %add10.i = add i64 %xor9.i, 97531
-  store i64 %add10.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27), align 8
+  store i64 %add10.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3504), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3304), align 8
   br label %return
 
 return:                                           ; preds = %entry, %while.body.preheader.i, %if.then25, %if.then12, %if.then5, %if.then
@@ -1121,8 +1121,8 @@ return:                                           ; preds = %for.body, %if.end22
 ; Function Attrs: nounwind uwtable
 define internal void @raw_free(ptr noundef %ptr) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #13
   ret void
 }
@@ -1148,20 +1148,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %2 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end7
-  store i32 %max_nframe, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 2), align 8
+  store i32 %max_nframe, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3312), align 8
   %sub = add nsw i32 %max_nframe, -1
   %conv10 = zext nneg i32 %sub to i64
   %mul = mul nuw nsw i64 %conv10, 12
   %add = add nuw nsw i64 %mul, 24
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 1), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   %call.i = tail call ptr %3(ptr noundef %4, i64 noundef %add) #13
-  store ptr %call.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 6), align 8
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
   %cmp12 = icmp eq ptr %call.i, null
   br i1 %cmp12, label %if.then14, label %if.end16
 
@@ -1178,20 +1178,20 @@ if.end16:                                         ; preds = %if.end9
   store ptr @tracemalloc_raw_realloc, ptr %realloc, align 8
   %free = getelementptr inbounds i8, ptr %alloc, i64 32
   store ptr @tracemalloc_free, ptr %free, align 8
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), ptr %alloc, align 8
-  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1)) #13
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), ptr %alloc, align 8
+  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360)) #13
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %alloc) #13
   store ptr @tracemalloc_malloc_gil, ptr %malloc, align 8
   store ptr @tracemalloc_calloc_gil, ptr %calloc, align 8
   store ptr @tracemalloc_realloc_gil, ptr %realloc, align 8
   store ptr @tracemalloc_free, ptr %free, align 8
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1), ptr %alloc, align 8
-  call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1)) #13
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3320), ptr %alloc, align 8
+  call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3320)) #13
   call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull %alloc) #13
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 2), ptr %alloc, align 8
-  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 2)) #13
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3400), ptr %alloc, align 8
+  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3400)) #13
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %alloc) #13
-  store i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end, %if.end16, %if.then14, %if.then
@@ -1218,7 +1218,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @tracemalloc_raw_realloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
-  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.not.i.not, label %if.end6, label %if.then
 
@@ -1233,9 +1233,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call5 = tail call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %tracemalloc_remove_trace.exit, label %if.end.i
 
@@ -1246,25 +1246,25 @@ if.end.i:                                         ; preds = %if.then4
 
 if.end4.i:                                        ; preds = %if.end.i
   %4 = load i64, ptr %call1.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub.i = sub i64 %5, %4
-  store i64 %sub.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %6(ptr noundef %7, ptr noundef nonnull %call1.i) #13
   br label %tracemalloc_remove_trace.exit
 
 tracemalloc_remove_trace.exit:                    ; preds = %if.then4, %if.end.i, %if.end4.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %call.i9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
+  %call.i9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
   %call7 = tail call i32 @PyGILState_Ensure() #13
   %call8 = tail call fastcc ptr @tracemalloc_realloc(ptr noundef %ctx, ptr noundef %ptr, i64 noundef %new_size)
   tail call void @PyGILState_Release(i32 noundef %call7) #13
-  %call1.i11 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i11 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %if.then, %tracemalloc_remove_trace.exit, %if.end6
@@ -1283,9 +1283,9 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void %0(ptr noundef %1, ptr noundef nonnull %ptr) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call = tail call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %tracemalloc_remove_trace.exit, label %if.end.i
 
@@ -1296,16 +1296,16 @@ if.end.i:                                         ; preds = %if.end
 
 if.end4.i:                                        ; preds = %if.end.i
   %4 = load i64, ptr %call1.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub.i = sub i64 %5, %4
-  store i64 %sub.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %6(ptr noundef %7, ptr noundef nonnull %call1.i) #13
   br label %tracemalloc_remove_trace.exit
 
 tracemalloc_remove_trace.exit:                    ; preds = %if.end, %if.end.i, %if.end4.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   br label %return
 
@@ -1332,7 +1332,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @tracemalloc_realloc_gil(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
-  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.not.i.not, label %if.end6, label %if.then
 
@@ -1347,9 +1347,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call5 = tail call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %tracemalloc_remove_trace.exit, label %if.end.i
 
@@ -1360,23 +1360,23 @@ if.end.i:                                         ; preds = %if.then4
 
 if.end4.i:                                        ; preds = %if.end.i
   %4 = load i64, ptr %call1.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub.i = sub i64 %5, %4
-  store i64 %sub.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %6(ptr noundef %7, ptr noundef nonnull %call1.i) #13
   br label %tracemalloc_remove_trace.exit
 
 tracemalloc_remove_trace.exit:                    ; preds = %if.then4, %if.end.i, %if.end4.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %call.i9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
+  %call.i9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
   %call7 = tail call fastcc ptr @tracemalloc_realloc(ptr noundef %ctx, ptr noundef %ptr, i64 noundef %new_size)
-  %call1.i11 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i11 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %if.then, %tracemalloc_remove_trace.exit, %if.end6
@@ -1387,33 +1387,33 @@ return:                                           ; preds = %if.then, %tracemall
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTraceMalloc_Stop() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
-  tail call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1)) #13
-  tail call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1)) #13
-  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 2)) #13
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
+  tail call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360)) #13
+  tail call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3320)) #13
+  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3400)) #13
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %2) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %3) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), i8 0, i64 16, i1 false)
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), i8 0, i64 16, i1 false)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %4) #13
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %5) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %6) #13
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 6), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %8(ptr noundef %9, ptr noundef %7) #13
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1423,7 +1423,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyMem_DumpTraceback(i32 noundef %fd, ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end.i
 
@@ -1432,20 +1432,20 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %if.end5.thread.i, label %if.end5.i
 
 if.end5.thread.i:                                 ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %3) #13
   br label %return
 
 if.end5.i:                                        ; preds = %if.end.i
   %call4.i = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %2, ptr noundef %ptr) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %4) #13
   %tobool6.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
@@ -1498,16 +1498,16 @@ declare i64 @_Py_write_noraise(i32 noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PyTraceMalloc_Track(i32 noundef %domain, i64 noundef %ptr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @PyGILState_Ensure() #13
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call1 = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
   %call2 = tail call fastcc i32 @tracemalloc_add_trace(i32 noundef %domain, i64 noundef %ptr, i64 noundef %size)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %2) #13
   tail call void @PyGILState_Release(i32 noundef %call) #13
   br label %return
@@ -1534,11 +1534,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   br label %tracemalloc_get_traces_table.exit
 
 if.else.i:                                        ; preds = %if.end
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %conv.i = zext i32 %domain to i64
   %2 = inttoptr i64 %conv.i to ptr
   %call.i = tail call ptr @_Py_hashtable_get(ptr noundef %1, ptr noundef nonnull %2) #13
@@ -1558,7 +1558,7 @@ if.then3:                                         ; preds = %tracemalloc_get_tra
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %conv = zext i32 %domain to i64
   %4 = inttoptr i64 %conv to ptr
   %call8 = call i32 @_Py_hashtable_set(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call.i.i) #13
@@ -1578,17 +1578,17 @@ if.end13:                                         ; preds = %if.end7, %tracemall
 
 if.then17:                                        ; preds = %if.end13
   %6 = load i64, ptr %call14, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub = sub i64 %7, %6
-  store i64 %sub, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  store i64 %sub, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   store i64 %size, ptr %call14, align 8
   %traceback20 = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr %call, ptr %traceback20, align 8
   br label %if.end33
 
 if.else:                                          ; preds = %if.end13
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   %call.i21 = call ptr %8(ptr noundef %9, i64 noundef 16) #13
   %cmp22 = icmp eq ptr %call.i21, null
   br i1 %cmp22, label %return, label %if.end25
@@ -1602,21 +1602,21 @@ if.end25:                                         ; preds = %if.else
   br i1 %cmp29.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end25
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   call void %10(ptr noundef %11, ptr noundef nonnull %call.i21) #13
   br label %return
 
 if.end33:                                         ; preds = %if.end25, %if.then17
-  %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %add = add i64 %12, %size
-  store i64 %add, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 4), align 8
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3456), align 8
   %cmp34 = icmp ugt i64 %add, %13
   br i1 %cmp34, label %if.then36, label %return
 
 if.then36:                                        ; preds = %if.end33
-  store i64 %add, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 4), align 8
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3456), align 8
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then36, %if.else, %if.then3, %entry, %if.then31, %if.then11
@@ -1631,22 +1631,22 @@ declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @PyTraceMalloc_Untrack(i32 noundef %domain, i64 noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
   %cmp.i.i = icmp eq i32 %domain, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   br label %tracemalloc_get_traces_table.exit.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %conv.i.i = zext i32 %domain to i64
   %4 = inttoptr i64 %conv.i.i to ptr
   %call.i.i = tail call ptr @_Py_hashtable_get(ptr noundef %3, ptr noundef nonnull %4) #13
@@ -1665,16 +1665,16 @@ if.end.i:                                         ; preds = %tracemalloc_get_tra
 
 if.end4.i:                                        ; preds = %if.end.i
   %6 = load i64, ptr %call1.i, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub.i = sub i64 %7, %6
-  store i64 %sub.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %8(ptr noundef %9, ptr noundef nonnull %call1.i) #13
   br label %tracemalloc_remove_trace.exit
 
 tracemalloc_remove_trace.exit:                    ; preds = %tracemalloc_get_traces_table.exit.i, %if.end.i, %if.end4.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %10) #13
   br label %return
 
@@ -1686,32 +1686,32 @@ return:                                           ; preds = %entry, %tracemalloc
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTraceMalloc_Fini() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3304), align 8
   %cmp.not.i = icmp eq i32 %0, 1
   br i1 %cmp.not.i, label %if.end.i, label %tracemalloc_deinit.exit
 
 if.end.i:                                         ; preds = %entry
-  store i32 2, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3304), align 8
   tail call void @_PyTraceMalloc_Stop()
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   tail call void @_Py_hashtable_destroy(ptr noundef %1) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   tail call void @_Py_hashtable_destroy(ptr noundef %2) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   tail call void @_Py_hashtable_destroy(ptr noundef %3) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   tail call void @_Py_hashtable_destroy(ptr noundef %4) #13
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %cmp1.not.i = icmp eq ptr %5, null
   br i1 %cmp1.not.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @PyThread_free_lock(ptr noundef nonnull %5) #13
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
-  tail call void @PyThread_tss_delete(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  tail call void @PyThread_tss_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   br label %tracemalloc_deinit.exit
 
 tracemalloc_deinit.exit:                          ; preds = %entry, %if.end3.i
@@ -1721,7 +1721,7 @@ tracemalloc_deinit.exit:                          ; preds = %entry, %if.end3.i
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_NewReference(ptr noundef %op) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1738,9 +1738,9 @@ if.end:                                           ; preds = %entry
   %.neg = add nsw i64 %4, %conv.i5.i.neg
   %narrow.i.neg = shl nsw i64 %.neg, 4
   %add.ptr = getelementptr i8, ptr %op, i64 %narrow.i.neg
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call2 = tail call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %call3 = tail call ptr @_Py_hashtable_get(ptr noundef %6, ptr noundef %add.ptr) #13
   %cmp.not = icmp eq ptr %call3, null
   br i1 %cmp.not, label %if.end10, label %if.then4
@@ -1757,7 +1757,7 @@ if.then7:                                         ; preds = %if.then4
 
 if.end10:                                         ; preds = %if.then4, %if.then7, %if.end
   %res.0 = phi i32 [ 0, %if.then7 ], [ -1, %if.then4 ], [ -1, %if.end ]
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %7) #13
   br label %return
 
@@ -1771,7 +1771,7 @@ declare ptr @_Py_hashtable_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @traceback_new() unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 6), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
   %nframe = getelementptr inbounds i8, ptr %0, i64 8
   store i16 0, ptr %nframe, align 8
   %total_nframe = getelementptr inbounds i8, ptr %0, i64 10
@@ -1825,14 +1825,14 @@ while.body.i:                                     ; preds = %while.body.i.loopex
   %6 = phi i16 [ %.pre.i, %while.body.lr.ph.i ], [ %21, %while.body.i.loopexit ]
   %pyframe.011.i = phi ptr [ %frame.addr.08.i.i.i, %while.body.lr.ph.i ], [ %frame.addr.08.i.i, %while.body.i.loopexit ]
   %conv.i = zext i16 %6 to i32
-  %7 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 2), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3312), align 8
   %cmp2.i = icmp sgt i32 %7, %conv.i
   br i1 %cmp2.i, label %if.then4.i, label %if.end7.i
 
 if.then4.i:                                       ; preds = %while.body.i
   %idxprom.i = zext i16 %6 to i64
   %arrayidx.i = getelementptr [1 x %struct.tracemalloc_frame], ptr %frames.i, i64 0, i64 %idxprom.i
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 8), ptr %arrayidx.i, align 1
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808), ptr %arrayidx.i, align 1
   %call.i.i = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %pyframe.011.i) #13
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %call.i.i, i32 0)
   %lineno1.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -1853,7 +1853,7 @@ if.end5.i.i:                                      ; preds = %if.then4.i
   br i1 %tobool.not.i.i, label %tracemalloc_get_frame.exit.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   %get_entry_func.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %get_entry_func.i.i.i, align 8
   %call.i.i.i = tail call ptr %14(ptr noundef %13, ptr noundef nonnull %9) #13
@@ -1866,7 +1866,7 @@ if.then17.i.i:                                    ; preds = %if.end9.i.i
   br label %if.end23.i.i
 
 if.else.i.i:                                      ; preds = %if.end9.i.i
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   %17 = load i32, ptr %9, align 8
   %add.i.i.i.i = add i32 %17, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
@@ -1988,7 +1988,7 @@ traceback_hash.exit:                              ; preds = %while.body.i17
   %xor9.i = xor i64 %mul.i, %conv8.i
   %add10.i = add i64 %xor9.i, 97531
   store i64 %add10.i, ptr %0, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   %get_entry_func.i = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %get_entry_func.i, align 8
   %call.i21 = tail call ptr %34(ptr noundef %33, ptr noundef nonnull %0) #13
@@ -2005,49 +2005,49 @@ if.else:                                          ; preds = %traceback_hash.exit
   %conv9 = zext i16 %36 to i64
   %37 = mul nuw nsw i64 %conv9, 12
   %add = add nuw nsw i64 %37, 12
-  %38 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 1), align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   %call.i22 = tail call ptr %38(ptr noundef %39, i64 noundef %add) #13
   %cmp12 = icmp eq ptr %call.i22, null
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add, i1 false)
-  %40 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   %call16 = tail call i32 @_Py_hashtable_set(ptr noundef %40, ptr noundef nonnull %call.i22, ptr noundef null) #13
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end15
-  %41 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %41(ptr noundef %42, ptr noundef nonnull %call.i22) #13
   br label %return
 
 return:                                           ; preds = %if.then7, %if.end15, %if.else, %traceback_get_frames.exit, %if.then19
-  %retval.0 = phi ptr [ null, %if.then19 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 10), %traceback_get_frames.exit ], [ null, %if.else ], [ %35, %if.then7 ], [ %call.i22, %if.end15 ]
+  %retval.0 = phi ptr [ null, %if.then19 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3504), %traceback_get_frames.exit ], [ null, %if.else ], [ %35, %if.then7 ], [ %call.i22, %if.end15 ]
   ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyTraceMalloc_GetTraceback(i32 noundef %domain, i64 noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
   %cmp.i.i = icmp eq i32 %domain, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   br label %tracemalloc_get_traces_table.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %conv.i.i = zext i32 %domain to i64
   %4 = inttoptr i64 %conv.i.i to ptr
   %call.i.i = tail call ptr @_Py_hashtable_get(ptr noundef %3, ptr noundef nonnull %4) #13
@@ -2059,14 +2059,14 @@ tracemalloc_get_traces_table.exit.i:              ; preds = %if.else.i.i, %if.th
   br i1 %tobool2.not.i, label %if.end5.thread.i, label %if.end5.i
 
 if.end5.thread.i:                                 ; preds = %tracemalloc_get_traces_table.exit.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %5) #13
   br label %return
 
 if.end5.i:                                        ; preds = %tracemalloc_get_traces_table.exit.i
   %6 = inttoptr i64 %ptr to ptr
   %call4.i = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %retval.0.i.i, ptr noundef %6) #13
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %7) #13
   %tobool6.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
@@ -2242,33 +2242,33 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @_PyTraceMalloc_IsTracing() local_unnamed_addr #4 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   ret i32 %0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTraceMalloc_ClearTraces() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %call.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call.i1 = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %2) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %3) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), i8 0, i64 16, i1 false)
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), i8 0, i64 16, i1 false)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %4) #13
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %5) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   tail call void @_Py_hashtable_clear(ptr noundef %6) #13
-  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2294,7 +2294,7 @@ entry:
   br i1 %cmp, label %if.end44, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end4
 
@@ -2308,9 +2308,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp8, label %no_memory, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call11 = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i.i.i = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %hashtable_alloc.i.i.i) #13
@@ -2330,15 +2330,15 @@ if.then2.i:                                       ; preds = %if.end.i10
 tracemalloc_copy_traces.exit:                     ; preds = %if.end10, %if.end.i10, %if.then2.i
   %3 = phi ptr [ null, %if.then2.i ], [ null, %if.end10 ], [ %call.i.i.i, %if.end.i10 ]
   store ptr %3, ptr %get_traces, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   call void @PyThread_release_lock(ptr noundef %4) #13
   %cmp15 = icmp eq ptr %3, null
   br i1 %cmp15, label %no_memory, label %if.end17
 
 if.end17:                                         ; preds = %tracemalloc_copy_traces.exit
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call18 = call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i.i11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %call.i.i.i12 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_uint, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @_Py_hashtable_destroy, ptr noundef nonnull %hashtable_alloc.i.i.i11) #13
@@ -2358,13 +2358,13 @@ if.then2.i17:                                     ; preds = %if.end.i14
 tracemalloc_copy_domains.exit:                    ; preds = %if.end17, %if.end.i14, %if.then2.i17
   %retval.0.i18 = phi ptr [ null, %if.then2.i17 ], [ null, %if.end17 ], [ %call.i.i.i12, %if.end.i14 ]
   store ptr %retval.0.i18, ptr %domains, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   call void @PyThread_release_lock(ptr noundef %7) #13
   %cmp22 = icmp eq ptr %retval.0.i18, null
   br i1 %cmp22, label %no_memory, label %if.end24
 
 if.end24:                                         ; preds = %tracemalloc_copy_domains.exit
-  %call.i19 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
+  %call.i19 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
   %call26 = call i32 @_Py_hashtable_foreach(ptr noundef nonnull %3, ptr noundef nonnull @tracemalloc_get_traces_fill, ptr noundef nonnull %get_traces) #13
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.then28, label %do.body.critedge
@@ -2373,7 +2373,7 @@ if.then28:                                        ; preds = %if.end24
   %8 = load ptr, ptr %domains, align 8
   %call30 = call i32 @_Py_hashtable_foreach(ptr noundef %8, ptr noundef nonnull @tracemalloc_get_traces_domain, ptr noundef nonnull %get_traces) #13
   %9 = icmp eq i32 %call30, 0
-  %call1.i21 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i21 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br i1 %9, label %finally, label %do.body
 
 no_memory:                                        ; preds = %tracemalloc_copy_domains.exit, %tracemalloc_copy_traces.exit, %if.end4
@@ -2381,7 +2381,7 @@ no_memory:                                        ; preds = %tracemalloc_copy_do
   br label %do.body
 
 do.body.critedge:                                 ; preds = %if.end24
-  %call1.i23 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i23 = call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %do.body
 
 do.body:                                          ; preds = %do.body.critedge, %no_memory, %if.then28
@@ -2639,25 +2639,25 @@ entry:
   %.neg = add nsw i64 %3, %conv.i5.i.neg
   %narrow.i.neg = shl nsw i64 %.neg, 4
   %add.ptr = getelementptr i8, ptr %obj, i64 %narrow.i.neg
-  %4 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool2.not.i = icmp eq ptr %6, null
   br i1 %tobool2.not.i, label %if.end5.thread.i, label %if.end5.i
 
 if.end5.thread.i:                                 ; preds = %if.end.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %7) #13
   br label %return
 
 if.end5.i:                                        ; preds = %if.end.i
   %call4.i = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %6, ptr noundef %add.ptr) #13
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   %tobool6.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
@@ -2680,7 +2680,7 @@ return:                                           ; preds = %if.end5.thread.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @_PyTraceMalloc_GetTracebackLimit() local_unnamed_addr #4 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 2), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3312), align 8
   ret i32 %0
 }
 
@@ -2688,20 +2688,20 @@ entry:
 define hidden i64 @_PyTraceMalloc_GetMemory() local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 7), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
   %call = tail call i64 @_Py_hashtable_size(ptr noundef %0) #13
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 5), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
   %call1 = tail call i64 @_Py_hashtable_size(ptr noundef %1) #13
   %add = add i64 %call, %call1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call2 = tail call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %call3 = tail call i64 @_Py_hashtable_size(ptr noundef %3) #13
   %add4 = add i64 %add, %call3
   store i64 %add4, ptr %size, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %call5 = call i32 @_Py_hashtable_foreach(ptr noundef %4, ptr noundef nonnull @tracemalloc_get_tracemalloc_memory_cb, ptr noundef nonnull %size) #13
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   call void @PyThread_release_lock(ptr noundef %5) #13
   %6 = load i64, ptr %size, align 8
   ret i64 %6
@@ -2722,7 +2722,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTraceMalloc_GetTracedMemory() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2731,11 +2731,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call1 = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 4), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3456), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %4) #13
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.7, i64 noundef %2, i64 noundef %3) #13
   br label %return
@@ -2750,16 +2750,16 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTraceMalloc_ResetPeak() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3308), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #13
-  %2 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  store i64 %2, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 4), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3456), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %3) #13
   br label %return
 
@@ -2793,7 +2793,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tracemalloc_raw_alloc(i32 noundef %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.not.i.not, label %if.end, label %if.then
 
@@ -2816,7 +2816,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i10 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
+  %call.i10 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
   %call7 = tail call i32 @PyGILState_Ensure() #13
   %tobool.not.i = icmp eq i32 %use_calloc, 0
   %3 = load ptr, ptr %ctx, align 8
@@ -2841,13 +2841,13 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %tracemalloc_alloc.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call6.i = tail call i32 @PyThread_acquire_lock(ptr noundef %6, i32 noundef 1) #13
   %7 = ptrtoint ptr %ptr.0.i to i64
   %mul7.i = mul i64 %elsize, %nelem
   %call8.i = tail call fastcc i32 @tracemalloc_add_trace(i32 noundef 0, i64 noundef %7, i64 noundef %mul7.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   br i1 %cmp9.i, label %if.then10.i, label %tracemalloc_alloc.exit
 
@@ -2861,7 +2861,7 @@ if.then10.i:                                      ; preds = %if.end5.i
 tracemalloc_alloc.exit:                           ; preds = %if.end.i, %if.end5.i, %if.then10.i
   %retval.0.i = phi ptr [ null, %if.then10.i ], [ null, %if.end.i ], [ %ptr.0.i, %if.end5.i ]
   tail call void @PyGILState_Release(i32 noundef %call7) #13
-  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %tracemalloc_alloc.exit, %if.else, %if.then2
@@ -2883,7 +2883,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp2.not = icmp eq ptr %ptr, null
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call12 = tail call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #13
   br i1 %cmp2.not, label %if.else, label %if.then3
 
@@ -2892,7 +2892,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end7, label %if.end.i
 
@@ -2903,11 +2903,11 @@ if.end.i:                                         ; preds = %if.then6
 
 if.end4.i:                                        ; preds = %if.end.i
   %4 = load i64, ptr %call1.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   %sub.i = sub i64 %5, %4
-  store i64 %sub.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 3), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %6(ptr noundef %7, ptr noundef nonnull %call1.i) #13
   br label %if.end7
 
@@ -2922,7 +2922,7 @@ if.then10:                                        ; preds = %if.end7
   unreachable
 
 if.end11:                                         ; preds = %if.end7
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %9) #13
   br label %return
 
@@ -2930,7 +2930,7 @@ if.else:                                          ; preds = %if.end
   %10 = ptrtoint ptr %call to i64
   %call13 = tail call fastcc i32 @tracemalloc_add_trace(i32 noundef 0, i64 noundef %10, i64 noundef %new_size)
   %cmp14 = icmp slt i32 %call13, 0
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %11) #13
   br i1 %cmp14, label %if.then15, label %return
 
@@ -2952,7 +2952,7 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tracemalloc_alloc_gil(i32 noundef %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11)) #13
+  %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.not.i.not, label %if.end, label %if.then
 
@@ -2975,7 +2975,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i10 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef nonnull @_Py_TrueStruct) #13
+  %call.i10 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef nonnull @_Py_TrueStruct) #13
   %tobool.not.i = icmp eq i32 %use_calloc, 0
   %3 = load ptr, ptr %ctx, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2999,13 +2999,13 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %tracemalloc_alloc.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   %call6.i = tail call i32 @PyThread_acquire_lock(ptr noundef %6, i32 noundef 1) #13
   %7 = ptrtoint ptr %ptr.0.i to i64
   %mul7.i = mul i64 %elsize, %nelem
   %call8.i = tail call fastcc i32 @tracemalloc_add_trace(i32 noundef 0, i64 noundef %7, i64 noundef %mul7.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3440), align 8
   tail call void @PyThread_release_lock(ptr noundef %8) #13
   br i1 %cmp9.i, label %if.then10.i, label %tracemalloc_alloc.exit
 
@@ -3018,7 +3018,7 @@ if.then10.i:                                      ; preds = %if.end5.i
 
 tracemalloc_alloc.exit:                           ; preds = %if.end.i, %if.end5.i, %if.then10.i
   %retval.0.i = phi ptr [ null, %if.then10.i ], [ null, %if.end.i ], [ %ptr.0.i, %if.end5.i ]
-  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 11), ptr noundef null) #13
+  %call1.i = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528), ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %tracemalloc_alloc.exit, %if.else, %if.then2
@@ -3053,8 +3053,8 @@ declare i32 @PyThread_tss_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr nocapture readnone %traces, ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %user_data) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   %call.i = tail call ptr %0(ptr noundef %1, i64 noundef 16) #13
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -3066,8 +3066,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 4), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3392), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
   tail call void %2(ptr noundef %3, ptr noundef nonnull %call.i) #13
   br label %return
 

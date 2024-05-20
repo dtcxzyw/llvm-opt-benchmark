@@ -222,7 +222,7 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   unreachable
 
 46:                                               ; preds = %35, %21
-  %47 = phi ptr [ getelementptr ([0 x ptr], ptr @x86_nops, i64 0, i64 5), %35 ], [ getelementptr ([0 x ptr], ptr @x86_nops, i64 0, i64 2), %21 ]
+  %47 = phi ptr [ getelementptr (i8, ptr @x86_nops, i64 40), %35 ], [ getelementptr (i8, ptr @x86_nops, i64 16), %21 ]
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq i32 %1, 1
   %50 = select i1 %49, ptr %48, ptr @text_gen_insn.insn

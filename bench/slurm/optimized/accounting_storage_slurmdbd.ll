@@ -220,7 +220,7 @@ define noundef i32 @init() local_unnamed_addr #0 {
   br i1 %.b, label %38, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -243,7 +243,7 @@ define noundef i32 @init() local_unnamed_addr #0 {
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %9
-  %12 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %13 = and i16 %12, 32
   %.not14 = icmp eq i16 %13, 0
   br i1 %.not14, label %14, label %37
@@ -501,7 +501,7 @@ _partial_destroy_dbd_job_start.exit:              ; preds = %48, %_partial_free_
   br i1 %72, label %73, label %.backedge
 
 73:                                               ; preds = %70
-  %74 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %74 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %75 = and i64 %74, 2251799813685248
   %.not51 = icmp eq i64 %75, 0
   br i1 %.not51, label %.loopexit, label %76
@@ -4865,7 +4865,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 192
   store i64 %40, ptr %41, align 8
-  %42 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %43 = and i32 %42, 512
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %57, label %44
@@ -4890,7 +4890,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
   %55 = load i64, ptr %54, align 8
   %56 = or i64 %55, 34359738368
   store i64 %56, ptr %54, align 8
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   br label %57
 
 57:                                               ; preds = %53, %48, %44, %36
@@ -5475,7 +5475,7 @@ define range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr noundef %0, ptr 
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %23 = and i32 %22, 2
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %28, label %24
@@ -6472,7 +6472,7 @@ define internal noundef i32 @_set_db_inx_for_each(ptr nocapture noundef readonly
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %13 = and i32 %12, 512
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %27, label %14
@@ -6497,7 +6497,7 @@ define internal noundef i32 @_set_db_inx_for_each(ptr nocapture noundef readonly
   %25 = load i64, ptr %24, align 8
   %26 = or i64 %25, 34359738368
   store i64 %26, ptr %24, align 8
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   br label %27
 
 27:                                               ; preds = %23, %18, %14, %11

@@ -123,7 +123,7 @@ define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) loc
   br i1 %.old3, label %jobacct_storage_g_job_start.exit, label %10
 
 10:                                               ; preds = %4, %9
-  %11 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %12 = and i16 %11, 32
   %.not.i = icmp eq i16 %12, 0
   br i1 %.not.i, label %13, label %jobacct_storage_g_job_start.exit
@@ -139,13 +139,13 @@ define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) loc
   %18 = getelementptr inbounds i8, ptr %1, i64 888
   %19 = load i64, ptr %18, align 8
   store i64 0, ptr %18, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 62), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
   %21 = tail call i32 %20(ptr noundef %0, ptr noundef nonnull %1) #6
   store i64 %19, ptr %18, align 8
   br label %jobacct_storage_g_job_start.exit
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 62), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
   %24 = tail call i32 %23(ptr noundef %0, ptr noundef nonnull %1) #6
   br label %jobacct_storage_g_job_start.exit
 
@@ -163,7 +163,7 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 32
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %20
@@ -179,13 +179,13 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
   %13 = getelementptr inbounds i8, ptr %1, i64 888
   %14 = load i64, ptr %13, align 8
   store i64 0, ptr %13, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 62), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %1) #6
   store i64 %14, ptr %13, align 8
   br label %20
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 62), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
   %19 = tail call i32 %18(ptr noundef %0, ptr noundef nonnull %1) #6
   br label %20
 
@@ -212,7 +212,7 @@ define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
   br i1 %.not9, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %.sink.split, label %8
 
@@ -223,7 +223,7 @@ define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
   br i1 %.not11, label %10, label %.sink.split
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #6
   br label %.sink.split
 
@@ -329,7 +329,7 @@ define i32 @acct_storage_g_close_connection(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %6 = tail call i32 %5(ptr noundef %0) #6
   br label %7
 
@@ -345,7 +345,7 @@ define i32 @acct_storage_g_commit(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #6
   br label %8
 
@@ -361,7 +361,7 @@ define i32 @acct_storage_g_add_users(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -377,7 +377,7 @@ define ptr @acct_storage_g_add_users_cond(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -393,7 +393,7 @@ define i32 @acct_storage_g_add_coord(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %9 = tail call i32 %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -409,7 +409,7 @@ define i32 @acct_storage_g_add_accounts(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 6), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -425,7 +425,7 @@ define ptr @acct_storage_g_add_accounts_cond(ptr noundef %0, i32 noundef %1, ptr
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -441,7 +441,7 @@ define i32 @acct_storage_g_add_clusters(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 64), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -457,7 +457,7 @@ define i32 @acct_storage_g_add_federations(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 72), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -473,7 +473,7 @@ define i32 @acct_storage_g_add_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 10), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -489,7 +489,7 @@ define i32 @acct_storage_g_add_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 11), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 88), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -505,7 +505,7 @@ define i32 @acct_storage_g_add_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 12), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 96), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -521,7 +521,7 @@ define i32 @acct_storage_g_add_res(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 13), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 104), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -537,7 +537,7 @@ define i32 @acct_storage_g_add_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 14), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 112), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -553,7 +553,7 @@ define i32 @acct_storage_g_add_reservation(ptr noundef %0, ptr noundef %1) local
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 120), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -569,7 +569,7 @@ define ptr @acct_storage_g_modify_users(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 128), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -585,7 +585,7 @@ define ptr @acct_storage_g_modify_accounts(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 17), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 136), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -601,7 +601,7 @@ define ptr @acct_storage_g_modify_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 18), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 144), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -617,7 +617,7 @@ define ptr @acct_storage_g_modify_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 19), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 152), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -633,7 +633,7 @@ define ptr @acct_storage_g_modify_federations(ptr noundef %0, i32 noundef %1, pt
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 20), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 160), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -649,7 +649,7 @@ define ptr @acct_storage_g_modify_job(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 21), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 168), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -665,7 +665,7 @@ define ptr @acct_storage_g_modify_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 22), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 176), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -681,7 +681,7 @@ define ptr @acct_storage_g_modify_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 23), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 184), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -697,7 +697,7 @@ define ptr @acct_storage_g_modify_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 24), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 192), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -713,7 +713,7 @@ define i32 @acct_storage_g_modify_reservation(ptr noundef %0, ptr noundef %1) lo
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 25), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 200), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -729,7 +729,7 @@ define ptr @acct_storage_g_remove_users(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 26), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 208), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -745,7 +745,7 @@ define ptr @acct_storage_g_remove_coord(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 27), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 216), align 8
   %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %10
 
@@ -761,7 +761,7 @@ define ptr @acct_storage_g_remove_accounts(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 28), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 224), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -777,7 +777,7 @@ define ptr @acct_storage_g_remove_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 29), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 232), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -793,7 +793,7 @@ define ptr @acct_storage_g_remove_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 30), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 240), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -809,7 +809,7 @@ define ptr @acct_storage_g_remove_federations(ptr noundef %0, i32 noundef %1, pt
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 31), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 248), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -825,7 +825,7 @@ define ptr @acct_storage_g_remove_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 32), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 256), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -841,7 +841,7 @@ define ptr @acct_storage_g_remove_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 33), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 264), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -857,7 +857,7 @@ define ptr @acct_storage_g_remove_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 34), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 272), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -873,7 +873,7 @@ define i32 @acct_storage_g_remove_reservation(ptr noundef %0, ptr noundef %1) lo
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 35), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 280), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -889,7 +889,7 @@ define ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 36), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 288), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -905,7 +905,7 @@ define ptr @acct_storage_g_get_accounts(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 37), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 296), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -921,7 +921,7 @@ define ptr @acct_storage_g_get_clusters(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 38), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 304), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -937,7 +937,7 @@ define ptr @acct_storage_g_get_federations(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 39), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 312), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -953,7 +953,7 @@ define ptr @acct_storage_g_get_config(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 320), align 8
   %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -969,7 +969,7 @@ define ptr @acct_storage_g_get_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 41), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 328), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -985,7 +985,7 @@ define ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 42), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 336), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1001,7 +1001,7 @@ define ptr @acct_storage_g_get_events(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 43), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 344), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1017,7 +1017,7 @@ define ptr @acct_storage_g_get_instances(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 44), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 352), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1033,7 +1033,7 @@ define ptr @acct_storage_g_get_problems(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 45), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 360), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1049,7 +1049,7 @@ define ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 46), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 368), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1065,7 +1065,7 @@ define ptr @acct_storage_g_get_res(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 47), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 376), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1081,7 +1081,7 @@ define ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 48), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 384), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1097,7 +1097,7 @@ define ptr @acct_storage_g_get_reservations(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 49), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 392), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1113,7 +1113,7 @@ define ptr @acct_storage_g_get_txn(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 400), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1129,7 +1129,7 @@ define i32 @acct_storage_g_get_usage(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 51), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 408), align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #6
   br label %12
 
@@ -1145,7 +1145,7 @@ define i32 @acct_storage_g_roll_usage(ptr noundef %0, i64 noundef %1, i64 nounde
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 52), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 416), align 8
   %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3, ptr noundef %4) #6
   br label %11
 
@@ -1161,7 +1161,7 @@ define i32 @acct_storage_g_fix_runaway_jobs(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 53), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 424), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1177,7 +1177,7 @@ define i32 @clusteracct_storage_g_node_down(ptr noundef %0, ptr noundef %1, i64 
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 54), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 432), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #6
   br label %11
 
@@ -1193,7 +1193,7 @@ define ptr @acct_storage_g_node_inx(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 55), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 440), align 8
   %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1215,7 +1215,7 @@ define i32 @clusteracct_storage_g_node_up(ptr noundef %0, ptr noundef %1, i64 no
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 -2, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 56), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 448), align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6
   br label %12
 
@@ -1233,7 +1233,7 @@ define i32 @clusteracct_storage_g_node_update(ptr noundef %0, ptr noundef %1) lo
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 57), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 456), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1249,7 +1249,7 @@ define i32 @clusteracct_storage_g_cluster_tres(ptr noundef %0, ptr noundef %1, p
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 58), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 464), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %4) #6
   br label %11
 
@@ -1265,7 +1265,7 @@ define i32 @clusteracct_storage_g_register_ctld(ptr noundef %0, i16 noundef zero
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 59), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 472), align 8
   %7 = tail call i32 %6(ptr noundef %0, i16 noundef zeroext %1) #6
   br label %8
 
@@ -1281,7 +1281,7 @@ define i32 @clusteracct_storage_g_register_disconn_ctld(ptr noundef %0, ptr noun
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 60), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 480), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1297,7 +1297,7 @@ define i32 @clusteracct_storage_g_fini_ctld(ptr noundef %0, ptr noundef %1) loca
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 61), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 488), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1313,13 +1313,13 @@ define i32 @jobacct_storage_g_job_heavy(ptr noundef %0, ptr noundef %1) local_un
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 32
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 63), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 504), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
   br label %11
 
@@ -1335,13 +1335,13 @@ define i32 @jobacct_storage_g_job_complete(ptr noundef %0, ptr noundef %1) local
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 32
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 512), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
   br label %11
 
@@ -1357,13 +1357,13 @@ define i32 @jobacct_storage_g_step_start(ptr noundef %0, ptr noundef %1) local_u
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 64
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 65), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 520), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
   br label %11
 
@@ -1379,13 +1379,13 @@ define i32 @jobacct_storage_g_step_complete(ptr noundef %0, ptr noundef %1) loca
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 64
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 66), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 528), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
   br label %11
 
@@ -1401,13 +1401,13 @@ define i32 @jobacct_storage_g_job_suspend(ptr noundef %0, ptr noundef %1) local_
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
   %7 = and i16 %6, 32
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 67), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 536), align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
   br label %11
 
@@ -1423,7 +1423,7 @@ define ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 68), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 544), align 8
   %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %2, null
@@ -1476,7 +1476,7 @@ define i32 @jobacct_storage_g_archive(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 69), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 552), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1492,7 +1492,7 @@ define i32 @jobacct_storage_g_archive_load(ptr noundef %0, ptr noundef %1) local
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 70), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 560), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1508,7 +1508,7 @@ define i32 @acct_storage_g_update_shares_used(ptr noundef %0, ptr noundef %1) lo
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 71), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 568), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1524,7 +1524,7 @@ define i32 @acct_storage_g_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1)
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 72), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 576), align 8
   %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1) #6
   br label %8
 
@@ -1540,7 +1540,7 @@ define i32 @acct_storage_g_reconfig(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 73), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 584), align 8
   %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #6
   br label %8
 
@@ -1556,7 +1556,7 @@ define i32 @acct_storage_g_reset_lft_rgt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 74), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 592), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1572,7 +1572,7 @@ define i32 @acct_storage_g_get_stats(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 75), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 600), align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
   br label %8
 
@@ -1588,7 +1588,7 @@ define i32 @acct_storage_g_clear_stats(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 76), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 608), align 8
   %6 = tail call i32 %5(ptr noundef %0) #6
   br label %7
 
@@ -1604,7 +1604,7 @@ define i32 @acct_storage_g_get_data(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 77), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 616), align 8
   %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
   br label %9
 
@@ -1620,7 +1620,7 @@ define void @acct_storage_g_send_all(ptr noundef %0, i64 noundef %1, i32 noundef
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 78), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 624), align 8
   tail call void %7(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6
   br label %8
 
@@ -1635,7 +1635,7 @@ define i32 @acct_storage_g_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i64 0, i32 79), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 632), align 8
   %6 = tail call i32 %5(ptr noundef %0) #6
   br label %7
 

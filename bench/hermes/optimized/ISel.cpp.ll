@@ -41005,7 +41005,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %sw.bb53
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %OS, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %OS, align 8
   %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
   store ptr %sizeStr, ptr %OS.i, align 8
   %27 = load ptr, ptr %parsedBigInt, align 16
@@ -52617,7 +52617,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS2_17RegisterAllocato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes17RegisterAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(1952) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes17RegisterAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes17RegisterAllocatorE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds i8, ptr %this, i64 1904
   %0 = load ptr, ptr %file, align 8
   tail call void @free(ptr noundef %0) #19

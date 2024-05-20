@@ -212,13 +212,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_Z29ValidateExclusiveConfigOptionRKN3ozz7options6OptionEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ozz::log::Err", align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL19OPTIONS_config_file, i64 0, i32 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19OPTIONS_config_file, i64 48), align 8
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL14OPTIONS_config, i64 0, i32 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL14OPTIONS_config, i64 48), align 8
   %8 = load i8, ptr %7, align 1
   %.not3 = icmp eq i8 %8, 0
   br i1 %.not3, label %.thread, label %9
@@ -301,7 +301,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline20ProcessConfigura
 
 21:                                               ; preds = %20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %22 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL14OPTIONS_config, i64 0, i32 0, i32 2), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL14OPTIONS_config, i64 48), align 8
   %23 = load i8, ptr %22, align 1
   %.not22 = icmp eq i8 %23, 0
   br i1 %.not22, label %30, label %24
@@ -322,7 +322,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline20ProcessConfigura
   br label %206
 
 30:                                               ; preds = %21
-  %31 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL19OPTIONS_config_file, i64 0, i32 0, i32 2), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19OPTIONS_config_file, i64 48), align 8
   %32 = load i8, ptr %31, align 1
   %.not23 = icmp eq i8 %32, 0
   br i1 %.not23, label %78, label %33
@@ -337,7 +337,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline20ProcessConfigura
           to label %_ZN3ozz3log6LoggerlsIA21_cEERSoRKT_.exit unwind label %58
 
 _ZN3ozz3log6LoggerlsIA21_cEERSoRKT_.exit:         ; preds = %34
-  %37 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL19OPTIONS_config_file, i64 0, i32 0, i32 2), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19OPTIONS_config_file, i64 48), align 8
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %37)
           to label %39 unwind label %58
 
@@ -351,7 +351,7 @@ _ZN3ozz3log6LoggerlsIA21_cEERSoRKT_.exit:         ; preds = %34
 
 43:                                               ; preds = %41
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9) #16
-  %44 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL19OPTIONS_config_file, i64 0, i32 0, i32 2), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19OPTIONS_config_file, i64 48), align 8
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef %44, i32 noundef 8)
           to label %45 unwind label %28
 
@@ -372,7 +372,7 @@ _ZN3ozz3log6LoggerlsIA21_cEERSoRKT_.exit:         ; preds = %34
           to label %_ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit unwind label %62
 
 _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit:         ; preds = %49
-  %52 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL19OPTIONS_config_file, i64 0, i32 0, i32 2), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19OPTIONS_config_file, i64 48), align 8
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %52)
           to label %54 unwind label %62
 
@@ -646,7 +646,7 @@ _ZN3ozz3log6LoggerlsIA25_cEERSoRKT_.exit:         ; preds = %139
   br label %.body
 
 153:                                              ; preds = %147, %135
-  %154 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL29OPTIONS_config_dump_reference, i64 0, i32 0, i32 2), align 8
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL29OPTIONS_config_dump_reference, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

@@ -67,7 +67,7 @@ declare dso_local i32 @acpi_ev_gpe_detect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_install_sci_handler() local_unnamed_addr #0 align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %2 = zext i16 %1 to i32
   %3 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
   %4 = tail call i32 @acpi_os_install_interrupt_handler(i32 noundef %2, ptr noundef nonnull @acpi_ev_sci_xrupt_handler, ptr noundef %3) #2
@@ -123,7 +123,7 @@ define internal i32 @acpi_ev_sci_xrupt_handler(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_remove_all_sci_handlers() local_unnamed_addr #0 align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %2 = zext i16 %1 to i32
   %3 = tail call i32 @acpi_os_remove_interrupt_handler(i32 noundef %2, ptr noundef nonnull @acpi_ev_sci_xrupt_handler) #2
   %4 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8

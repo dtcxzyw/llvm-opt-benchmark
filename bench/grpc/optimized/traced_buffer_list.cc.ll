@@ -531,7 +531,7 @@ sw.bb24:                                          ; preds = %if.then
   %arg_ = getelementptr inbounds i8, ptr %elem.068, i64 32
   %10 = load ptr, ptr %arg_, align 8
   store i64 0, ptr %agg.tmp, align 8, !alias.scope !4
-  %11 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   invoke void %11(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef %10, ptr noundef nonnull %ts_25, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -623,7 +623,7 @@ if.end51.us:                                      ; preds = %invoke.cont47.us
 
 invoke.cont56.us:                                 ; preds = %if.end51.us
   %ts_53.us = getelementptr inbounds i8, ptr %elem.270.us, i64 40
-  %23 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   invoke void %23(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef %22, ptr noundef nonnull %ts_53.us, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp54)
           to label %invoke.cont58.us unwind label %lpad57.split.us
 
@@ -694,7 +694,7 @@ if.end51:                                         ; preds = %invoke.cont47
 
 invoke.cont56:                                    ; preds = %if.end51
   %ts_53 = getelementptr inbounds i8, ptr %elem.270, i64 40
-  %32 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   invoke void %32(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef %31, ptr noundef nonnull %ts_53, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp54)
           to label %invoke.cont58 unwind label %lpad57.split
 
@@ -1067,7 +1067,7 @@ if.then.i.i:                                      ; preds = %while.body
 
 invoke.cont:                                      ; preds = %if.then.i.i, %while.body
   %ts_ = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   invoke void %6(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef %2, ptr noundef nonnull %ts_, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1121,7 +1121,7 @@ if.then.i.i10:                                    ; preds = %if.then
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.then.i.i10, %if.then
-  %17 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   invoke void %17(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull %remaining, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -1185,16 +1185,16 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit21:      ; preds = %ehcleanup
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17grpc_event_engine12experimental29TcpSetWriteTimestampsCallbackEN4absl12lts_2023080212AnyInvocableIFvPvPNS0_10TimestampsENS2_6StatusEEEE(ptr noundef %fn) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 1), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   tail call void %0(i1 noundef zeroext true, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #13
-  store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 1), align 16
-  store ptr null, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
+  store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   %manager_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #13
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
-  store <2 x ptr> %2, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 1), align 16
+  store <2 x ptr> %2, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   ret void
@@ -1285,8 +1285,8 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   store ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_125DefaultTimestampsCallbackEPvPNS0_10TimestampsEN4absl12lts_202308026StatusE, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, align 16
-  store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRPFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEJS3_S7_S8_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 2), align 8
-  store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (%"class.absl::lts_20230802::AnyInvocable", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 0, i32 0, i32 0, i32 1), align 16
+  store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRPFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEJS3_S7_S8_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
+  store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4absl12lts_2023080212AnyInvocableIFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEED2Ev, ptr nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr nonnull @__dso_handle) #13
   ret void
 }

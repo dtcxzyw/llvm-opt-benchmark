@@ -343,7 +343,7 @@ if.end20:                                         ; preds = %if.then17, %if.end1
   %call21 = tail call i32 @fclose(ptr noundef nonnull %call)
   %call22 = tail call i32 @fclose(ptr noundef nonnull %call1)
   %cmp = icmp eq i32 %call15, -1
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_terminal_prompt.buf, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @git_terminal_prompt.buf, i64 16), align 8
   %spec.select = select i1 %cmp, ptr null, ptr %0
   br label %return
 

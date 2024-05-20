@@ -191,8 +191,8 @@ lor.lhs.false120:                                 ; preds = %for.end110
 
 for.cond128.preheader:                            ; preds = %sw.epilog, %for.end110, %lor.lhs.false120
   %cmp121237 = phi i1 [ %cmp121, %lor.lhs.false120 ], [ false, %for.end110 ], [ false, %sw.epilog ]
-  %base.0158234 = phi ptr [ @MOZ_Z_inflate_table.dbase, %lor.lhs.false120 ], [ %work, %for.end110 ], [ getelementptr inbounds ([31 x i16], ptr @MOZ_Z_inflate_table.lbase, i64 -9, i64 22), %sw.epilog ]
-  %extra.0159233 = phi ptr [ @MOZ_Z_inflate_table.dext, %lor.lhs.false120 ], [ %work, %for.end110 ], [ getelementptr inbounds ([31 x i16], ptr @MOZ_Z_inflate_table.lext, i64 -9, i64 22), %sw.epilog ]
+  %base.0158234 = phi ptr [ @MOZ_Z_inflate_table.dbase, %lor.lhs.false120 ], [ %work, %for.end110 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lbase, i64 -514), %sw.epilog ]
+  %extra.0159233 = phi ptr [ @MOZ_Z_inflate_table.dext, %lor.lhs.false120 ], [ %work, %for.end110 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lext, i64 -514), %sw.epilog ]
   %end.0160232 = phi i32 [ -1, %lor.lhs.false120 ], [ 19, %for.end110 ], [ 256, %sw.epilog ]
   %cmp115163231 = phi i1 [ false, %lor.lhs.false120 ], [ false, %for.end110 ], [ true, %sw.epilog ]
   %shl113161235 = shl nuw i32 1, %spec.select145

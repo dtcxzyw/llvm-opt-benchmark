@@ -2400,7 +2400,7 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   %19 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_radius_attr_info) #14
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct._radius_vendor_info_t, ptr @no_vendor, i64 0, i32 3), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @no_vendor, i64 24), align 8
   %22 = getelementptr inbounds i8, ptr %15, i64 24
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 28
@@ -2465,11 +2465,11 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   store i32 0, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %49, i64 64
   store i32 -1, ptr %56, align 8
-  %57 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %58 = getelementptr inbounds i8, ptr %49, i64 68
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %49, i64 48
-  %60 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %60 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %60, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %49, i64 72
   store ptr null, ptr %61, align 8
@@ -3430,11 +3430,11 @@ _radius_load_dictionary.exit8:                    ; preds = %_radius_load_dictio
   store i32 0, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %54, i64 64
   store i32 -1, ptr %61, align 8
-  %62 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %63 = getelementptr inbounds i8, ptr %54, i64 68
   store i32 %62, ptr %63, align 4
   %64 = getelementptr inbounds i8, ptr %54, i64 48
-  %65 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %65 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %65, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %54, i64 72
   store ptr null, ptr %66, align 8
@@ -3474,11 +3474,11 @@ radius_register_avp_dissector.exit:               ; preds = %_radius_load_dictio
   store i32 0, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %77, i64 64
   store i32 -1, ptr %84, align 8
-  %85 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %86 = getelementptr inbounds i8, ptr %77, i64 68
   store i32 %85, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %77, i64 48
-  %88 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %88 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %88, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %77, i64 72
   store ptr null, ptr %89, align 8
@@ -3518,11 +3518,11 @@ radius_register_avp_dissector.exit13:             ; preds = %radius_register_avp
   store i32 0, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %100, i64 64
   store i32 -1, ptr %107, align 8
-  %108 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %109 = getelementptr inbounds i8, ptr %100, i64 68
   store i32 %108, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %100, i64 48
-  %111 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %111 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %111, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %100, i64 72
   store ptr null, ptr %112, align 8
@@ -3562,11 +3562,11 @@ radius_register_avp_dissector.exit18:             ; preds = %radius_register_avp
   store i32 0, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %123, i64 64
   store i32 -1, ptr %130, align 8
-  %131 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %132 = getelementptr inbounds i8, ptr %123, i64 68
   store i32 %131, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %123, i64 48
-  %134 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %134 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %134, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %123, i64 72
   store ptr null, ptr %135, align 8
@@ -3606,11 +3606,11 @@ radius_register_avp_dissector.exit23:             ; preds = %radius_register_avp
   store i32 0, ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %146, i64 64
   store i32 -1, ptr %153, align 8
-  %154 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %154 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %155 = getelementptr inbounds i8, ptr %146, i64 68
   store i32 %154, ptr %155, align 4
   %156 = getelementptr inbounds i8, ptr %146, i64 48
-  %157 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %157 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %157, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %146, i64 72
   store ptr null, ptr %158, align 8
@@ -3650,11 +3650,11 @@ radius_register_avp_dissector.exit28:             ; preds = %radius_register_avp
   store i32 0, ptr %175, align 8
   %176 = getelementptr inbounds i8, ptr %169, i64 64
   store i32 -1, ptr %176, align 8
-  %177 = load i32, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 12), align 4
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
   %178 = getelementptr inbounds i8, ptr %169, i64 68
   store i32 %177, ptr %178, align 4
   %179 = getelementptr inbounds i8, ptr %169, i64 48
-  %180 = load <2 x i32>, ptr getelementptr inbounds ({ ptr, { [2 x i8], [2 x i8] }, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr }, ptr @no_dictionary_entry, i64 0, i32 7), align 8
+  %180 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
   store <2 x i32> %180, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %169, i64 72
   store ptr null, ptr %181, align 8

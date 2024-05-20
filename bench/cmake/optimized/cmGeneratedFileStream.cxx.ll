@@ -295,12 +295,12 @@ define dso_local void @_ZN21cmGeneratedFileStreamC1E16codecvt_Encoding(ptr nound
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   %10 = getelementptr inbounds i8, ptr %0, i64 344
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %10, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT21cmGeneratedFileStream, i64 0, i64 1))
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT21cmGeneratedFileStream, i64 8))
           to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 64), ptr %6, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %28, label %12
 
@@ -353,7 +353,7 @@ define dso_local void @_ZN21cmGeneratedFileStreamC1E16codecvt_Encoding(ptr nound
 27:                                               ; preds = %25, %23, %21
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ], [ %24, %23 ]
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT21cmGeneratedFileStream, i64 0, i64 1)) #15
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT21cmGeneratedFileStream, i64 8)) #15
   br label %29
 
 28:                                               ; preds = %18, %11
@@ -643,15 +643,15 @@ define dso_local void @_ZN21cmGeneratedFileStreamC1ERKNSt7__cxx1112basic_stringI
   br label %.body
 
 _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 64), ptr %10, align 8
   %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT21cmGeneratedFileStream, i64 0, i64 1), ptr noundef %17, i32 noundef 16)
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT21cmGeneratedFileStream, i64 8), ptr noundef %17, i32 noundef 16)
           to label %18 unwind label %24
 
 18:                                               ; preds = %_ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21cmGeneratedFileStream, i64 64), ptr %10, align 8
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %20 unwind label %26
 
@@ -754,7 +754,7 @@ _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 53:                                               ; preds = %49, %28, %26
   %.pn13 = phi { ptr, i32 } [ %27, %26 ], [ %.pn, %49 ], [ %29, %28 ]
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT21cmGeneratedFileStream, i64 0, i64 1)) #15
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT21cmGeneratedFileStream, i64 8)) #15
   br label %54
 
 54:                                               ; preds = %53, %24

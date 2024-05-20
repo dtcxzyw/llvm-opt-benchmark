@@ -358,7 +358,7 @@ sw.bb94:                                          ; preds = %while.cond
 
 sw.bb98:                                          ; preds = %while.cond
   %call99 = tail call ptr @opt_arg() #6
-  %1 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp.not19.i = icmp eq ptr %1, null
   br i1 %cmp.not19.i, label %if.then5.i, label %for.body.i
 
@@ -1703,12 +1703,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @calculate_columns(ptr noundef nonnull @functions, ptr noundef nonnull %dc) #6
-  %0 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp.not35 = icmp eq ptr %0, null
   br i1 %cmp.not35, label %if.then27, label %for.body.us.preheader
 
 if.end.thread:                                    ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp.not3590 = icmp eq ptr %1, null
   br i1 %cmp.not3590, label %if.end29, label %for.body.lr.ph.split
 
@@ -1718,7 +1718,7 @@ for.body.us.preheader:                            ; preds = %if.end
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %2 = phi ptr [ %9, %for.inc.us ], [ %0, %for.body.us.preheader ]
-  %name38.us = phi ptr [ %name.us, %for.inc.us ], [ getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), %for.body.us.preheader ]
+  %name38.us = phi ptr [ %name.us, %for.inc.us ], [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.us.preheader ]
   %i.037.us = phi i32 [ %i.1.us, %for.inc.us ], [ 0, %for.body.us.preheader ]
   %fp.036.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ @functions, %for.body.us.preheader ]
   %3 = load i32, ptr %fp.036.us, align 8
@@ -1812,7 +1812,7 @@ for.body.lr.ph.split:                             ; preds = %if.end.thread
 
 for.body.us39:                                    ; preds = %for.body.lr.ph.split, %for.inc.us58
   %10 = phi ptr [ %14, %for.inc.us58 ], [ %1, %for.body.lr.ph.split ]
-  %name38.us40 = phi ptr [ %name.us60, %for.inc.us58 ], [ getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), %for.body.lr.ph.split ]
+  %name38.us40 = phi ptr [ %name.us60, %for.inc.us58 ], [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.lr.ph.split ]
   %fp.036.us41 = phi ptr [ %incdec.ptr.us59, %for.inc.us58 ], [ @functions, %for.body.lr.ph.split ]
   %11 = load i32, ptr %fp.036.us41, align 8
   %cmp1.not.us42 = icmp eq i32 %11, 3
@@ -1855,7 +1855,7 @@ for.inc.us58:                                     ; preds = %sw.epilog.us57, %is
 
 for.body.us63:                                    ; preds = %for.body.lr.ph.split, %for.inc.us83
   %15 = phi ptr [ %19, %for.inc.us83 ], [ %1, %for.body.lr.ph.split ]
-  %name38.us64 = phi ptr [ %name.us85, %for.inc.us83 ], [ getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), %for.body.lr.ph.split ]
+  %name38.us64 = phi ptr [ %name.us85, %for.inc.us83 ], [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.lr.ph.split ]
   %fp.036.us65 = phi ptr [ %incdec.ptr.us84, %for.inc.us83 ], [ @functions, %for.body.lr.ph.split ]
   %16 = load i32, ptr %fp.036.us65, align 8
   %cmp1.not.us66 = icmp eq i32 %16, 2

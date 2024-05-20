@@ -206,7 +206,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %16, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
-  store ptr getelementptr inbounds ([16 x %struct.rpc_procinfo], ptr @gssp_procedures, i64 0, i64 9), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @gssp_procedures, i64 432), ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 16
@@ -226,7 +226,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   store i32 1024, ptr %16, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 120
   store i32 64, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %27 = call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 512) #8
   %28 = getelementptr inbounds i8, ptr %4, i64 112
   store ptr %27, ptr %28, align 8

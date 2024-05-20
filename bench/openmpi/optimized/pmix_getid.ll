@@ -36,7 +36,7 @@ define range(i32 -12, 1) i32 @pmix_util_getid(i32 noundef %0, ptr nocapture noun
   %4 = alloca %struct.ucred, align 4
   %5 = alloca i32, align 4
   store i32 12, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 15), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
@@ -57,7 +57,7 @@ define range(i32 -12, 1) i32 @pmix_util_getid(i32 noundef %0, ptr nocapture noun
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 15), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond3 = icmp ult i32 %17, 64
   br i1 %or.cond3, label %18, label %32
 

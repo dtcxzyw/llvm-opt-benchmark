@@ -938,7 +938,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpihelp_mul_karatsuba_case(ptr n
   br i1 %155, label %156, label %160
 
 156:                                              ; preds = %153
-  %157 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %158 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %157, i32 noundef 3520, i64 noundef 40) #6
   store ptr %158, ptr %5, align 8
   %159 = icmp eq ptr %158, null

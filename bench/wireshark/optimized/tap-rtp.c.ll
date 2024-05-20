@@ -58,7 +58,7 @@ define internal void @rtpstreams_stat_draw_cb(ptr nocapture readnone %0) #0 {
   %4 = tail call ptr @setlocale(i32 noundef 1, ptr noundef null) #5
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #5
   %6 = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.19) #5
-  %7 = load ptr, ptr getelementptr inbounds (%struct._rtpstream_tapinfo, ptr @the_tapinfo_struct, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @the_tapinfo_struct, i64 40), align 8
   %8 = tail call ptr @g_list_first(ptr noundef %7) #5
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph

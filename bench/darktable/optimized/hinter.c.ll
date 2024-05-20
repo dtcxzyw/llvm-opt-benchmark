@@ -76,7 +76,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #6
   %12 = load ptr, ptr %2, align 8, !tbaa !14
   tail call void @gtk_container_add(ptr noundef %11, ptr noundef %12) #6
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %14 = getelementptr inbounds i8, ptr %13, i64 14656
   store ptr %0, ptr %14, align 8, !tbaa !26
   %15 = getelementptr inbounds i8, ptr %13, i64 14664
@@ -116,14 +116,14 @@ define internal void @_lib_hinter_set_message(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !34
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !34
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = tail call i32 @dt_ui_panel_visible(ptr noundef %11, i32 noundef 1) #6
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !39
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !39
   %16 = tail call ptr @dt_view_filter_get_count(ptr noundef %15) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %30, label %18
@@ -153,7 +153,7 @@ define internal void @_lib_hinter_set_message(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %3 = getelementptr inbounds i8, ptr %2, i64 14656
   store ptr null, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds i8, ptr %0, i64 280

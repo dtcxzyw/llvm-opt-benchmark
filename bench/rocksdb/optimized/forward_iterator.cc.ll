@@ -416,7 +416,7 @@ entry:
   %frombool = zext i1 %allow_unprepared_value to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb15ForwardIteratorE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ForwardIteratorE, i64 16), ptr %this, align 16
   %db_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %db, ptr %db_, align 8
   %read_options_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -718,7 +718,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr %3, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 56
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %rep_.i = getelementptr inbounds i8, ptr %range_del_agg, i64 64
   store ptr %internal_comparator_.i, ptr %rep_.i, align 8
   %iters_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 72
@@ -1353,7 +1353,7 @@ _ZN7rocksdb6StatusD2Ev.exit90:                    ; preds = %_ZN7rocksdb6Statusa
 
 if.end104:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit90, %invoke.cont94
   call void @_ZN7rocksdb18RangeDelAggregator9StripeRepD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %rep_.i) #22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %files_seen_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 16
   %92 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %files_seen_.i.i, ptr noundef %92)
@@ -1383,7 +1383,7 @@ declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb15ForwardIteratorD2Ev(ptr noundef nonnull align 16 dereferenceable(2800) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb15ForwardIteratorE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ForwardIteratorE, i64 16), ptr %this, align 16
   invoke void @_ZN7rocksdb15ForwardIterator7CleanupEb(ptr noundef nonnull align 16 dereferenceable(2800) %this, i1 noundef zeroext true)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3347,7 +3347,7 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE5clearEv.exit
   store ptr %25, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 56
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %rep_.i = getelementptr inbounds i8, ptr %range_del_agg, i64 64
   store ptr %internal_comparator_.i, ptr %rep_.i, align 8
   %iters_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 72
@@ -4317,7 +4317,7 @@ if.then.i.i.i201:                                 ; preds = %if.end152
 
 _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit202: ; preds = %if.end152, %if.then.i.i.i201
   call void @_ZN7rocksdb18RangeDelAggregator9StripeRepD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %rep_.i) #22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %files_seen_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 16
   %139 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %files_seen_.i.i, ptr noundef %139)
@@ -8549,7 +8549,7 @@ if.else:                                          ; preds = %lor.rhs, %land.rhs
 
 invoke.cont:                                      ; preds = %if.else
   %frombool.i = and i8 %21, 1
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20ForwardLevelIteratorE, i64 0, i32 0, i64 2), ptr %call18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20ForwardLevelIteratorE, i64 16), ptr %call18, align 8
   %cfd_.i = getelementptr inbounds i8, ptr %call18, i64 40
   store ptr %20, ptr %cfd_.i, align 8
   %read_options_.i = getelementptr inbounds i8, ptr %call18, i64 48
@@ -8659,7 +8659,7 @@ define linkonce_odr void @_ZN7rocksdb22ReadRangeDelAggregatorD2Ev(ptr noundef no
 entry:
   %rep_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN7rocksdb18RangeDelAggregator9StripeRepD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %rep_) #22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 16), ptr %this, align 8
   %files_seen_.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -8921,7 +8921,7 @@ if.end:                                           ; preds = %_ZNSt6vectorISt4pai
   store ptr %11, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 56
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22ReadRangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %rep_.i = getelementptr inbounds i8, ptr %range_del_agg, i64 64
   store ptr %internal_comparator_.i, ptr %rep_.i, align 8
   %iters_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 72
@@ -9092,7 +9092,7 @@ lpad:                                             ; preds = %if.then26, %invoke.
 
 if.end33:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %invoke.cont24
   call void @_ZN7rocksdb18RangeDelAggregator9StripeRepD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %rep_.i) #22
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %range_del_agg, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 16), ptr %range_del_agg, align 8
   %files_seen_.i.i = getelementptr inbounds i8, ptr %range_del_agg, i64 16
   %41 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %files_seen_.i.i, ptr noundef %41)
@@ -11003,7 +11003,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18RangeDelAggregatorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18RangeDelAggregatorE, i64 16), ptr %this, align 8
   %files_seen_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -11447,7 +11447,7 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20ForwardLevelIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(114) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20ForwardLevelIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20ForwardLevelIteratorE, i64 16), ptr %this, align 8
   %pinned_iters_mgr_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %pinned_iters_mgr_, align 8
   %tobool.not = icmp eq ptr %0, null

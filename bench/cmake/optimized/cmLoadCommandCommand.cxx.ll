@@ -414,7 +414,7 @@ define dso_local noundef zeroext i1 @_Z20cmLoadCommandCommandRKSt6vectorINSt7__c
           to label %.noexc64 unwind label %95
 
 .noexc64:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.4, i64 0, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 26))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc64
@@ -439,7 +439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc66 unwind label %99
 
 .noexc66:                                         ; preds = %.noexc65
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.6, i64 0, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 26))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69 unwind label %51
 
 51:                                               ; preds = %.noexc66
@@ -798,7 +798,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 .noexc88:                                         ; preds = %182
   %185 = getelementptr inbounds i8, ptr %184, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false), !noalias !67
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 0, i32 0, i64 2), ptr %184, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %184, align 8, !noalias !67
   %186 = getelementptr inbounds i8, ptr %184, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   store ptr null, ptr %186, align 8, !alias.scope !70, !noalias !67
@@ -810,7 +810,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   store i32 1, ptr %188, align 8, !noalias !73
   %189 = getelementptr inbounds i8, ptr %187, i64 12
   store i32 1, ptr %189, align 4, !noalias !73
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %187, align 8, !noalias !73
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %187, align 8, !noalias !73
   %190 = getelementptr inbounds i8, ptr %187, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %190, i8 0, i64 96, i1 false), !noalias !73
   %191 = getelementptr inbounds i8, ptr %187, i64 32
@@ -1179,7 +1179,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115cmLoadedCommandESt14default_deleteIS1_EED2Ev.
           to label %.noexc107 unwind label %338
 
 .noexc107:                                        ; preds = %.noexc106
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([56 x i8], ptr @.str.13, i64 0, i64 55))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 55))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110 unwind label %334
 
 334:                                              ; preds = %.noexc107
@@ -1850,7 +1850,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
@@ -1930,7 +1930,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i, null
@@ -2420,7 +2420,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %_ZNS
 define internal void @_ZN12_GLOBAL__N_115cmLoadedCommand5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.266") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31, !noalias !79
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !79
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !79
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %3, align 8, !noalias !79
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   store i64 0, ptr %5, align 8
@@ -3844,7 +3844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc26 unwind label %48
 
 .noexc26:                                         ; preds = %.noexc25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.16, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 16))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29 unwind label %39
 
 39:                                               ; preds = %.noexc26
@@ -3863,7 +3863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29: ; 
           to label %.noexc31 unwind label %50
 
 .noexc31:                                         ; preds = %.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.17, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34 unwind label %42
 
 42:                                               ; preds = %.noexc31
@@ -5606,7 +5606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i32 1, ptr %49, align 8, !noalias !97
   %50 = getelementptr inbounds i8, ptr %48, i64 12
   store i32 1, ptr %50, align 4, !noalias !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %48, align 8, !noalias !97
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !97
   %51 = getelementptr inbounds i8, ptr %48, i64 16
   invoke void @_ZSt10_ConstructIN18cmListFileFunction14ImplementationEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlS8_St6vectorI18cmListFileArgumentSaISA_EEEEvPT_DpOT0_(ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %53 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !97
@@ -6438,13 +6438,13 @@ _ZN12cmSourceFile9AddDependERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %74 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %74, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %73, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %74, %73 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %73 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %73 ]
   %75 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = icmp ult ptr %76, %35
@@ -6456,7 +6456,7 @@ _ZN12cmSourceFile9AddDependERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !107
 
 _ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %78 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %78 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8)
   br i1 %78, label %.critedge.i, label %79
 
 79:                                               ; preds = %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i
@@ -6466,7 +6466,7 @@ _ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_dele
   br i1 %82, label %.critedge.i, label %84
 
 .critedge.i:                                      ; preds = %79, %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, %73
-  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %79 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %73 ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %79 ], [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %73 ]
   store ptr %6, ptr %3, align 8
   %83 = invoke ptr @_ZNSt8_Rb_treeIP12cmSourceFileSt4pairIKS1_St10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL23cmCPluginAPISourceFiles, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %84 unwind label %87
@@ -6593,13 +6593,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not, label %77, label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 16), align 8
   %.not10.i.i.i = icmp eq ptr %21, null
   br i1 %.not10.i.i.i, label %select.unfold, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %20, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %21, %20 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %20 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %20 ]
   %22 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ult ptr %23, %18
@@ -6611,7 +6611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIP12cmSourceFileSt4pairIKS1_St10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !107
 
 _ZNSt8_Rb_treeIP12cmSourceFileSt4pairIKS1_St10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %25 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %25 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8)
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %_ZNSt8_Rb_treeIP12cmSourceFileSt4pairIKS1_St10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
@@ -6673,13 +6673,13 @@ select.unfold:                                    ; preds = %26, %_ZNSt8_Rb_tree
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %8) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
-  %57 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %53, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %57, %53 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %53 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %53 ]
   %58 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ult ptr %59, %18
@@ -6691,7 +6691,7 @@ select.unfold:                                    ; preds = %26, %_ZNSt8_Rb_tree
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !107
 
 _ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %61 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %61 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8)
   br i1 %61, label %.critedge.i, label %62
 
 62:                                               ; preds = %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i
@@ -6701,7 +6701,7 @@ _ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_dele
   br i1 %65, label %.critedge.i, label %67
 
 .critedge.i:                                      ; preds = %62, %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, %53
-  %.08.lcssa.i.i.i19.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %62 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %53 ]
+  %.08.lcssa.i.i.i19.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %62 ], [ getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), %53 ]
   %66 = invoke ptr @_ZNSt8_Rb_treeIP12cmSourceFileSt4pairIKS1_St10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_emplace_hint_uniqueIJRS1_S8_EEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL23cmCPluginAPISourceFiles, ptr %.08.lcssa.i.i.i19.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %67 unwind label %73
 
@@ -7810,7 +7810,7 @@ define internal void @_ZL20cmSourceFileSetName2PvPKcS1_S1_i(ptr noundef %0, ptr 
           to label %.noexc23 unwind label %22
 
 .noexc23:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.35, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 16))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %17
 
 17:                                               ; preds = %.noexc23
@@ -7829,7 +7829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc25 unwind label %24
 
 .noexc25:                                         ; preds = %.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.36, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.36, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28 unwind label %20
 
 20:                                               ; preds = %.noexc25
@@ -11342,7 +11342,7 @@ define linkonce_odr dso_local void @_ZN17cmExecutionStatusC2ER10cmMakefile(ptr n
           to label %.noexc3 unwind label %11
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds ([15 x i8], ptr @.str.29, i64 0, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 14))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc3
@@ -12988,11 +12988,11 @@ define internal void @_GLOBAL__sub_I_cmLoadCommandCommand.cxx() #24 section ".te
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #30
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZL18cmPropertySentinalB5cxx11) #30
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL18cmPropertySentinalB5cxx11, ptr nonnull @__dso_handle) #30
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL23cmCPluginAPISourceFiles, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL23cmCPluginAPISourceFiles, i64 40), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIP12cmSourceFileSt10unique_ptrI22cmCPluginAPISourceFileSt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZL23cmCPluginAPISourceFiles, ptr nonnull @__dso_handle) #30
   ret void
 }

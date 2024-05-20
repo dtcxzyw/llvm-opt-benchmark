@@ -3428,12 +3428,12 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)
   %7 = load ptr, ptr @tmpbuf, align 8, !alias.scope !69
-  %8 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @tmpbuf, i64 0, i32 1), align 8, !alias.scope !69
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   store i64 %6, ptr %10, align 1, !noalias !69
   %11 = add i32 %8, 8
-  store i32 %11, ptr getelementptr inbounds (%struct.StringInfoData, ptr @tmpbuf, i64 0, i32 1), align 8, !alias.scope !69
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
   %12 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -4428,12 +4428,12 @@ define internal fastcc void @WalSndKeepalive(i1 noundef zeroext %0, i64 noundef 
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %7 = load ptr, ptr @output_message, align 8, !alias.scope !78
-  %8 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !78
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   store i8 107, ptr %10, align 1, !noalias !78
   %11 = add i32 %8, 1
-  store i32 %11, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !78
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
   %12 = icmp eq i64 %1, 0
   %13 = load i64, ptr @sentPtr, align 8
   %14 = select i1 %12, i64 %13, i64 %1
@@ -4441,33 +4441,33 @@ define internal fastcc void @WalSndKeepalive(i1 noundef zeroext %0, i64 noundef 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
   %16 = load ptr, ptr @output_message, align 8, !alias.scope !81
-  %17 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !81
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   store i64 %15, ptr %19, align 1, !noalias !81
   %20 = add i32 %17, 8
-  store i32 %20, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !81
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
   %21 = tail call i64 @GetCurrentTimestamp() #16
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
   %23 = load ptr, ptr @output_message, align 8, !alias.scope !84
-  %24 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !84
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
   %25 = sext i32 %24 to i64
   %26 = getelementptr i8, ptr %23, i64 %25
   store i64 %22, ptr %26, align 1, !noalias !84
   %27 = add i32 %24, 8
-  store i32 %27, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !84
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
   %28 = zext i1 %0 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %29 = load ptr, ptr @output_message, align 8, !alias.scope !87
-  %30 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !87
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
   store i8 %28, ptr %32, align 1, !noalias !87
   %33 = add i32 %30, 1
-  store i32 %33, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !87
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
   %34 = load ptr, ptr @PqCommMethods, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
@@ -5394,41 +5394,41 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %102 = load ptr, ptr @output_message, align 8, !alias.scope !92
-  %103 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !92
+  %103 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
   %104 = sext i32 %103 to i64
   %105 = getelementptr i8, ptr %102, i64 %104
   store i8 119, ptr %105, align 1, !noalias !92
   %106 = add i32 %103, 1
-  store i32 %106, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !92
+  store i32 %106, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %107 = call i64 @llvm.bswap.i64(i64 %.pre)
   %108 = load ptr, ptr @output_message, align 8, !alias.scope !95
-  %109 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !95
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
   %110 = sext i32 %109 to i64
   %111 = getelementptr i8, ptr %108, i64 %110
   store i64 %107, ptr %111, align 1, !noalias !95
   %112 = add i32 %109, 8
-  store i32 %112, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !95
+  store i32 %112, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %113 = call i64 @llvm.bswap.i64(i64 %.0)
   %114 = load ptr, ptr @output_message, align 8, !alias.scope !98
-  %115 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !98
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   %116 = sext i32 %115 to i64
   %117 = getelementptr i8, ptr %114, i64 %116
   store i64 %113, ptr %117, align 1, !noalias !98
   %118 = add i32 %115, 8
-  store i32 %118, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !98
+  store i32 %118, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %119 = load ptr, ptr @output_message, align 8, !alias.scope !101
-  %120 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !101
+  %120 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   %121 = sext i32 %120 to i64
   %122 = getelementptr i8, ptr %119, i64 %121
   store i64 0, ptr %122, align 1, !noalias !101
   %123 = add i32 %120, 8
-  store i32 %123, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8, !alias.scope !101
+  store i32 %123, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   %124 = trunc i64 %101 to i32
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef %124) #16
   br label %125
@@ -5437,17 +5437,17 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %.042 = phi i64 [ %101, %98 ], [ %138, %173 ]
   %.040 = phi i64 [ %.pre, %98 ], [ %137, %173 ]
   %126 = load ptr, ptr @output_message, align 8
-  %127 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %128 = sext i32 %127 to i64
   %129 = getelementptr i8, ptr %126, i64 %128
   %130 = load ptr, ptr @xlogreader, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 1224
   %132 = load i32, ptr %131, align 8
   %133 = call i64 @WALReadFromBuffers(ptr noundef %129, i64 noundef %.040, i64 noundef %.042, i32 noundef %132) #16
-  %134 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %135 = trunc i64 %133 to i32
   %136 = add i32 %134, %135
-  store i32 %136, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  store i32 %136, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %137 = add i64 %133, %.040
   %138 = sub i64 %.042, %133
   %.not52 = icmp eq i64 %138, 0
@@ -5512,10 +5512,10 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   br label %125
 
 174:                                              ; preds = %164, %168, %148
-  %175 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %176 = trunc i64 %138 to i32
   %177 = add i32 %175, %176
-  store i32 %177, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  store i32 %177, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %178 = load ptr, ptr @output_message, align 8
   %179 = sext i32 %177 to i64
   %180 = getelementptr i8, ptr %178, i64 %179
@@ -5526,12 +5526,12 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %182 = call i64 @llvm.bswap.i64(i64 %181)
   %183 = load ptr, ptr @tmpbuf, align 8, !alias.scope !105
-  %184 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @tmpbuf, i64 0, i32 1), align 8, !alias.scope !105
+  %184 = load i32, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
   %185 = sext i32 %184 to i64
   %186 = getelementptr i8, ptr %183, i64 %185
   store i64 %182, ptr %186, align 1, !noalias !105
   %187 = add i32 %184, 8
-  store i32 %187, ptr getelementptr inbounds (%struct.StringInfoData, ptr @tmpbuf, i64 0, i32 1), align 8, !alias.scope !105
+  store i32 %187, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
   %188 = load ptr, ptr @output_message, align 8
   %189 = getelementptr i8, ptr %188, i64 17
   %190 = load ptr, ptr @tmpbuf, align 8
@@ -5541,7 +5541,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %193 = getelementptr inbounds i8, ptr %192, i64 40
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr @output_message, align 8
-  %196 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @output_message, i64 0, i32 1), align 8
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
   %197 = sext i32 %196 to i64
   call void %194(i8 noundef signext 100, ptr noundef %195, i64 noundef %197) #16
   store i64 %.041, ptr @sentPtr, align 8

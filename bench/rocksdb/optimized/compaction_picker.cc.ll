@@ -417,7 +417,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb16CompactionPickerC2ERKNS_16ImmutableOptionsEPKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef %icmp) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16CompactionPickerE, i64 16), ptr %this, align 8
   %ioptions_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ioptions, ptr %ioptions_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -449,7 +449,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb16CompactionPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16CompactionPickerE, i64 16), ptr %this, align 8
   %compactions_in_progress_ = getelementptr inbounds i8, ptr %this, i64 64
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -2174,7 +2174,7 @@ call.i43.noexc:                                   ; preds = %if.then47
           to label %.noexc46 unwind label %lpad49
 
 .noexc46:                                         ; preds = %call.i43.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([62 x i8], ptr @.str.2, i64 0, i64 61))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 61))
           to label %invoke.cont50 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc46
@@ -2984,7 +2984,7 @@ if.then110:                                       ; preds = %land.lhs.true103, %
   %sub.ptr.rhs.cast.i.i176 = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i.i177 = sub i64 %sub.ptr.lhs.cast.i.i175, %sub.ptr.rhs.cast.i.i176
   %sub.ptr.div.i.i178 = ashr exact i64 %sub.ptr.sub.i.i177, 3
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %46, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.5, i64 0, i64 93), ptr noundef %call113, i32 noundef %0, i64 noundef %sub.ptr.div.i.i166, i64 noundef %sub.ptr.div.i.i172, i64 noundef %call26, i64 noundef %call23, i64 noundef %sub.ptr.div.i.i178, i64 noundef %sub.ptr.div.i.i172, i64 noundef %expanded_inputs_size.0197, i64 noundef %call23)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %46, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), ptr noundef %call113, i32 noundef %0, i64 noundef %sub.ptr.div.i.i166, i64 noundef %sub.ptr.div.i.i172, i64 noundef %call26, i64 noundef %call23, i64 noundef %sub.ptr.div.i.i178, i64 noundef %sub.ptr.div.i.i172, i64 noundef %expanded_inputs_size.0197, i64 noundef %call23)
           to label %invoke.cont122 unwind label %lpad32
 
 invoke.cont122:                                   ; preds = %if.then110

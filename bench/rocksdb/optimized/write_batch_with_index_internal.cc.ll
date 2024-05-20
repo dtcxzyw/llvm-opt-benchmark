@@ -175,7 +175,7 @@ define void @_ZN7rocksdb17BaseDeltaIteratorC2EPNS_18ColumnFamilyHandleEPNS_8Iter
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 16), ptr %this, align 8
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %forward_, align 8
   %current_at_base_ = getelementptr inbounds i8, ptr %this, i64 41
@@ -2409,7 +2409,7 @@ if.end:                                           ; preds = %_ZN7rocksdb6StatusD
 land.rhs.i:                                       ; preds = %if.end
   %size_.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i64, ptr %size_.i.i.i, align 8
-  %24 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   %cmp.i.i = icmp eq i64 %23, %24
   br i1 %cmp.i.i, label %_ZN7rocksdb17WideColumnsHelper16HasDefaultColumnERKSt6vectorINS_10WideColumnESaIS2_EE.exit, label %return
 
@@ -2638,7 +2638,7 @@ if.then63:                                        ; preds = %if.then62
 land.rhs.i85:                                     ; preds = %if.then63
   %size_.i.i.i86 = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load i64, ptr %size_.i.i.i86, align 8
-  %65 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   %cmp.i.i87 = icmp eq i64 %64, %65
   br i1 %cmp.i.i87, label %_ZN7rocksdb17WideColumnsHelper20HasDefaultColumnOnlyERKSt6vectorINS_10WideColumnESaIS2_EE.exit, label %if.else83
 
@@ -2904,7 +2904,7 @@ if.end130:                                        ; preds = %_ZN7rocksdb6StatusD
 land.rhs.i178:                                    ; preds = %if.end130
   %size_.i.i.i179 = getelementptr inbounds i8, ptr %110, i64 8
   %112 = load i64, ptr %size_.i.i.i179, align 8
-  %113 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  %113 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   %cmp.i.i180 = icmp eq i64 %112, %113
   br i1 %cmp.i.i180, label %_ZN7rocksdb17WideColumnsHelper16HasDefaultColumnERKSt6vectorINS_10WideColumnESaIS2_EE.exit184, label %return
 
@@ -6745,7 +6745,7 @@ _ZN7rocksdb6StatusD2Ev.exit12:                    ; preds = %cleanup, %_ZNKSt14d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17BaseDeltaIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 16), ptr %this, align 8
   %columns_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %columns_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

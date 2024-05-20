@@ -100,7 +100,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_add_dynid(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) #0 align 16 {
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 56) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %27, label %12
@@ -533,7 +533,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
 
 31:                                               ; preds = %22
   %32 = zext nneg i32 %26 to i64
-  %33 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %32) #15, !srcloc !12
+  %33 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %32) #15, !srcloc !12
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
@@ -893,7 +893,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   br i1 %19, label %41, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %22 = call noalias align 8 dereferenceable_or_null(2080) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 2080) #14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
@@ -960,7 +960,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   %62 = load i32, ptr %7, align 4
   %63 = load i32, ptr %8, align 4
   %64 = load i32, ptr %9, align 4
-  %65 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %66 = call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 3520, i64 noundef 56) #14
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68

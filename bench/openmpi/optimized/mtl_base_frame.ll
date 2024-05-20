@@ -27,18 +27,18 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   %6 = alloca i32, align 4
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
-  %8 = call i32 @mca_base_select(ptr noundef nonnull @.str, i32 noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 12), ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #2
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
+  %8 = call i32 @mca_base_select(ptr noundef nonnull @.str, i32 noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 80), ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #2
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %51
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %11 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %10) #2
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = getelementptr inbounds i8, ptr %14, i64 84
@@ -52,7 +52,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   %21 = getelementptr inbounds i8, ptr %18, i64 272
   %22 = call ptr %20(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef nonnull %21) #2
   %23 = icmp eq ptr %22, null
-  %24 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %25 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %24) #2
   br i1 %23, label %26, label %31
 
@@ -60,7 +60,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   br i1 %25, label %27, label %38
 
 27:                                               ; preds = %26
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %28, ptr noundef nonnull @.str.2, ptr noundef nonnull %30) #2
@@ -70,7 +70,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   br i1 %25, label %32, label %34
 
 32:                                               ; preds = %31
-  %33 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %33, ptr noundef nonnull @.str.3) #2
   br label %34
 
@@ -87,7 +87,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   %.0 = phi i32 [ -13, %27 ], [ -13, %26 ], [ 0, %34 ]
   %39 = load ptr, ptr @ompi_mtl, align 8
   %40 = icmp eq ptr %39, null
-  %41 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %42 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %41) #2
   br i1 %40, label %43, label %46
 
@@ -95,7 +95,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   br i1 %42, label %44, label %51
 
 44:                                               ; preds = %43
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %45, ptr noundef nonnull @.str.4) #2
   br label %51
 
@@ -103,7 +103,7 @@ define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 nou
   br i1 %42, label %47, label %51
 
 47:                                               ; preds = %46
-  %48 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i64 0, i32 11), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 76), align 4
   %49 = load ptr, ptr @ompi_mtl_base_selected_component, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %48, ptr noundef nonnull @.str.5, ptr noundef nonnull %50) #2

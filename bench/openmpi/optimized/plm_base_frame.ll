@@ -40,18 +40,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_plm_base_register(i32 %0) #0 {
-  store i64 1024, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 5), align 8
-  %2 = tail call i32 @pmix_mca_base_framework_var_register(ptr noundef nonnull @prte_plm_base_framework, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 5)) #4
+  store i64 1024, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 80), align 8
+  %2 = tail call i32 @pmix_mca_base_framework_var_register(ptr noundef nonnull @prte_plm_base_framework, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_plm_globals, i64 80)) #4
   %3 = tail call i32 @pmix_mca_base_alias_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0) #4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_plm_base_open(i32 noundef %0) #0 {
-  store i32 1, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 4), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 72), align 8
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -60,10 +60,10 @@ define internal i32 @prte_plm_base_open(i32 noundef %0) #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 0, i32 3), i8 0, i64 64, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 128), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 136), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_plm_globals, i64 144), i8 0, i64 64, i1 false)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
   br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -71,7 +71,7 @@ define internal i32 @prte_plm_base_open(i32 noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
   %.02.i = phi ptr [ %9, %.lr.ph.i ], [ %6, %5 ]
-  tail call void %8(ptr noundef nonnull getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6)) #4
+  tail call void %8(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_plm_globals, i64 88)) #4
   %9 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -84,7 +84,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_plm_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_plm_base_module_1_0_0_t, ptr @prte_plm, i64 0, i32 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_plm, i64 64), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
@@ -93,7 +93,7 @@ define internal i32 @prte_plm_base_close() #0 {
   br label %4
 
 4:                                                ; preds = %2, %0
-  %5 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
   %6 = and i8 %5, 4
   %.not7 = icmp eq i8 %6, 0
   br i1 %.not7, label %11, label %7
@@ -120,19 +120,19 @@ define internal i32 @prte_plm_base_close() #0 {
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = load volatile i64, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 2), align 8
+  %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %._crit_edge, label %pmix_list_remove_first.exit.preheader
 
 pmix_list_remove_first.exit.preheader:            ; preds = %14
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 1, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 328), align 8
   br label %pmix_list_remove_first.exit
 
 pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_first.exit.preheader, %pmix_list_remove_first.exit
   %17 = phi ptr [ %.pre, %pmix_list_remove_first.exit.preheader ], [ %25, %pmix_list_remove_first.exit ]
-  %18 = load volatile i64, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 2), align 8
+  %18 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %19 = add i64 %18, -1
-  store volatile i64 %19, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 2), align 8
+  store volatile i64 %19, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 128
   %21 = load volatile ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %17, i64 120
@@ -140,13 +140,13 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   %24 = getelementptr inbounds i8, ptr %23, i64 128
   store volatile ptr %21, ptr %24, align 8
   %25 = load volatile ptr, ptr %22, align 8
-  store ptr %25, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 1, i32 1), align 8
-  %26 = load volatile i64, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 2), align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 328), align 8
+  %26 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %._crit_edge, label %pmix_list_remove_first.exit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %pmix_list_remove_first.exit, %14
-  %28 = load ptr, ptr getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6, i32 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 128), align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -156,7 +156,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %._crit_edge ]
   %.02.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %._crit_edge ]
-  tail call void %32(ptr noundef nonnull getelementptr inbounds (%struct.prte_plm_globals_t, ptr @prte_plm_globals, i64 0, i32 6)) #4
+  tail call void %32(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_plm_globals, i64 88)) #4
   %33 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null

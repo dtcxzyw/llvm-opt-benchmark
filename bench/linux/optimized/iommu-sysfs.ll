@@ -36,7 +36,7 @@ define internal i32 @iommu_dev_init() #0 section ".init.text" align 16 {
 define dso_local i32 @iommu_device_sysfs_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) #1 align 16 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 728) #8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %7, ptr %8, align 8

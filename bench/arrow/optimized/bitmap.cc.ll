@@ -221,7 +221,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !6
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %0 = load ptr, ptr %this, align 8, !noalias !6
   %1 = load i64, ptr %length_, align 8, !noalias !6
@@ -253,7 +253,7 @@ call5.i.i.i3.i.i.i.i7.noexc:                      ; preds = %_ZSt11make_sharedIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i713, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i713, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i713, align 8, !noalias !9
   %_M_impl.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i713, i64 16
   %3 = load ptr, ptr %other, align 8, !noalias !9
   %4 = load i64, ptr %length_3, align 8, !noalias !9
@@ -283,7 +283,7 @@ call5.i.i.i3.i.i.i.i15.noexc:                     ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i16, align 8, !noalias !12
   %_M_weak_count.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1520, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i17, align 4, !noalias !12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i1520, align 8, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i1520, align 8, !noalias !12
   %_M_impl.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1520, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12BooleanArrayEJRKlRSt10shared_ptrINS0_6BufferEEDniS3_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(8) %length_, ptr noundef nonnull align 8 dereferenceable(16) %this_buf, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %offset_)
           to label %invoke.cont7 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !12
@@ -311,7 +311,7 @@ call5.i.i.i3.i.i.i.i22.noexc:                     ; preds = %invoke.cont7
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i23, align 8, !noalias !15
   %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2228, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i24, align 4, !noalias !15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2228, align 8, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i2228, align 8, !noalias !15
   %_M_impl.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2228, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12BooleanArrayEJRKlRSt10shared_ptrINS0_6BufferEEDniS3_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i25, ptr noundef nonnull align 8 dereferenceable(8) %length_3, ptr noundef nonnull align 8 dereferenceable(16) %other_buf, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %offset_11)
           to label %invoke.cont13 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i26, !noalias !15
@@ -964,7 +964,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr void @_ZN5arrow6BufferC2EPKhl(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.10", align 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6BufferE, i64 16), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_mutable_, align 8
   %is_cpu_ = getelementptr inbounds i8, ptr %this, i64 9
@@ -1256,7 +1256,7 @@ _ZNSt12__shared_ptrIN5arrow13MemoryManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6BufferE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

@@ -82,16 +82,16 @@ define dso_local range(i64 0, -9223372036854775808) i64 @si_mem_available() #0 a
   %14 = load volatile i64, ptr @vm_zone_stat, align 16
   %15 = tail call i64 @llvm.smax.i64(i64 %14, i64 0)
   %16 = load i64, ptr @totalreserve_pages, align 8
-  %17 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 3), align 8
+  %17 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
   %18 = tail call i64 @llvm.smax.i64(i64 %17, i64 0)
-  %19 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 2), align 16
+  %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
   %20 = tail call i64 @llvm.smax.i64(i64 %19, i64 0)
   %21 = add nuw i64 %20, %18
   %22 = lshr i64 %21, 1
   %23 = tail call i64 @llvm.umin.i64(i64 %22, i64 %13)
-  %24 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 5), align 8
+  %24 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 40), align 8
   %25 = tail call i64 @llvm.smax.i64(i64 %24, i64 0)
-  %26 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 34), align 16
+  %26 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 272), align 16
   %27 = tail call i64 @llvm.smax.i64(i64 %26, i64 0)
   %28 = add nuw i64 %27, %25
   %29 = lshr i64 %28, 1
@@ -122,7 +122,7 @@ define dso_local void @si_meminfo(ptr nocapture noundef writeonly %0) #0 align 1
   %2 = load volatile i64, ptr @_totalram_pages, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %2, ptr %3, align 8
-  %4 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 23), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 184), align 8
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %5, ptr %6, align 8
@@ -284,43 +284,43 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 .loopexit40:                                      ; preds = %.thread, %3
   %74 = phi i64 [ 0, %3 ], [ %71, %.thread ]
-  %75 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 1), align 8
+  %75 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 8), align 8
   %76 = tail call i64 @llvm.smax.i64(i64 %75, i64 0)
   %77 = load volatile i64, ptr @vm_node_stat, align 16
   %78 = tail call i64 @llvm.smax.i64(i64 %77, i64 0)
-  %79 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 7), align 8
+  %79 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 56), align 8
   %80 = tail call i64 @llvm.smax.i64(i64 %79, i64 0)
-  %81 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 3), align 8
+  %81 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
   %82 = tail call i64 @llvm.smax.i64(i64 %81, i64 0)
-  %83 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 2), align 16
+  %83 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
   %84 = tail call i64 @llvm.smax.i64(i64 %83, i64 0)
-  %85 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 8), align 16
+  %85 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 64), align 16
   %86 = tail call i64 @llvm.smax.i64(i64 %85, i64 0)
-  %87 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 4), align 16
+  %87 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 32), align 16
   %88 = tail call i64 @llvm.smax.i64(i64 %87, i64 0)
-  %89 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 20), align 16
+  %89 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 160), align 16
   %90 = tail call i64 @llvm.smax.i64(i64 %89, i64 0)
-  %91 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 21), align 8
+  %91 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 168), align 8
   %92 = tail call i64 @llvm.smax.i64(i64 %91, i64 0)
-  %93 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 5), align 8
+  %93 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 40), align 8
   %94 = tail call i64 @llvm.smax.i64(i64 %93, i64 0)
-  %95 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 6), align 16
+  %95 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 48), align 16
   %96 = tail call i64 @llvm.smax.i64(i64 %95, i64 0)
-  %97 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 18), align 16
+  %97 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 144), align 16
   %98 = tail call i64 @llvm.smax.i64(i64 %97, i64 0)
-  %99 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 23), align 8
+  %99 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 184), align 8
   %100 = tail call i64 @llvm.smax.i64(i64 %99, i64 0)
-  %101 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 38), align 16
+  %101 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 304), align 16
   %102 = tail call i64 @llvm.smax.i64(i64 %101, i64 0)
-  %103 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 39), align 8
+  %103 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 312), align 8
   %104 = tail call i64 @llvm.smax.i64(i64 %103, i64 0)
-  %105 = load volatile i64, ptr getelementptr inbounds ([10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 8), align 16
+  %105 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_zone_stat, i64 64), align 16
   %106 = tail call i64 @llvm.smax.i64(i64 %105, i64 0)
-  %107 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 34), align 16
+  %107 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 272), align 16
   %108 = tail call i64 @llvm.smax.i64(i64 %107, i64 0)
   %109 = load volatile i64, ptr @vm_zone_stat, align 16
   %110 = tail call i64 @llvm.smax.i64(i64 %109, i64 0)
-  %111 = load volatile i64, ptr getelementptr inbounds ([10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 9), align 8
+  %111 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_zone_stat, i64 72), align 8
   %112 = tail call i64 @llvm.smax.i64(i64 %111, i64 0)
   %113 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %76, i64 noundef %78, i64 noundef %80, i64 noundef %82, i64 noundef %84, i64 noundef %86, i64 noundef %88, i64 noundef %90, i64 noundef %92, i64 noundef %94, i64 noundef %96, i64 noundef %98, i64 noundef %100, i64 noundef %102, i64 noundef %104, i64 noundef %106, i64 noundef %108, i64 noundef %110, i64 noundef %74, i64 noundef %112) #8
   %114 = tail call ptr @first_online_pgdat() #7
@@ -790,7 +790,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %442, label %.loopexit34, label %340, !llvm.loop !26
 
 .loopexit34:                                      ; preds = %440, %.loopexit35
-  %443 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  %443 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %444 = icmp eq i64 %443, 0
   br i1 %444, label %.thread31, label %445
 
@@ -814,7 +814,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 455:                                              ; preds = %.split.us
   %456 = add nuw nsw i32 %453, 1
-  %457 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  %457 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %458 = zext nneg i32 %456 to i64
   %459 = shl nsw i64 -1, %458
   %460 = and i64 %457, %459
@@ -856,7 +856,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 480:                                              ; preds = %478
   %481 = add nuw nsw i32 %466, 1
-  %482 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  %482 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %483 = zext nneg i32 %481 to i64
   %484 = shl nsw i64 -1, %483
   %485 = and i64 %482, %484
@@ -870,7 +870,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %490, label %.split, label %.thread31, !llvm.loop !28
 
 .thread31:                                        ; preds = %487, %478, %480, %462, %455, %.split.us, %.loopexit34, %445
-  %491 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 19), align 8
+  %491 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 152), align 8
   %492 = call i64 @llvm.smax.i64(i64 %491, i64 0)
   %493 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i64 noundef %492) #8
   call void @show_swap_cache_info() #7

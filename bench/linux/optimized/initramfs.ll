@@ -314,9 +314,9 @@ define internal void @do_populate_rootfs(ptr nocapture readnone %0, i64 %1) #1 s
 35:                                               ; preds = %30
   %36 = load i64, ptr @initrd_end, align 8
   %37 = sub i64 %36, %31
-  store i64 %37, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 1), align 8
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @bin_attr_initrd, i64 16), align 8
   %38 = inttoptr i64 %31 to ptr
-  store ptr %38, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 2), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @bin_attr_initrd, i64 24), align 8
   %39 = load ptr, ptr @firmware_kobj, align 8
   %40 = tail call i32 @sysfs_create_bin_file(ptr noundef %39, ptr noundef nonnull @bin_attr_initrd) #21
   %41 = icmp eq i32 %40, 0
@@ -341,12 +341,12 @@ declare dso_local i64 @async_schedule_node_domain(ptr noundef, ptr noundef, i32 
 define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unnamed_addr #1 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(110) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 110) #25
   store ptr %5, ptr @header_buf, align 8
   %6 = tail call noalias align 4096 dereferenceable_or_null(8195) ptr @kmalloc_large(i64 noundef 8195, i32 noundef 3264) #26
   store ptr %6, ptr @symlink_buf, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(4098) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 4098) #25
   store ptr %8, ptr @name_buf, align 8
   %9 = load ptr, ptr @header_buf, align 8
@@ -503,7 +503,7 @@ define internal fastcc noundef zeroext i1 @kexec_free_initrd() unnamed_addr #1 s
   %1 = load i64, ptr @crashk_res, align 8
   %2 = load i64, ptr @page_offset_base, align 8
   %3 = add i64 %2, %1
-  %4 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @crashk_res, i64 8), align 8
   %5 = add i64 %4, %2
   %6 = load i64, ptr @initrd_start, align 8
   %7 = icmp ult i64 %6, %5
@@ -1337,7 +1337,7 @@ define internal fastcc void @free_hash() unnamed_addr #1 section ".init.text" al
 
 .loopexit:                                        ; preds = %.preheader, %1
   %10 = getelementptr i8, ptr %2, i64 8
-  %11 = icmp ult ptr %10, getelementptr inbounds ([32 x ptr], ptr @head, i64 1, i64 0)
+  %11 = icmp ult ptr %10, getelementptr inbounds (i8, ptr @head, i64 256)
   br i1 %11, label %1, label %12, !llvm.loop !18
 
 12:                                               ; preds = %.loopexit
@@ -1530,7 +1530,7 @@ define internal fastcc ptr @find_link(i32 noundef %0, i32 noundef %1, i32 nounde
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
   %39 = phi ptr [ %13, %5 ], [ %38, %.loopexit.loopexit ]
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(4128) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 4128) #25
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44

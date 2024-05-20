@@ -2946,7 +2946,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN34btDeformableBackwardEulerObjectiveC2ER20btAlignedObjectArrayIP10btSoftBodyERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(25) %softBodies, ptr noundef nonnull align 8 dereferenceable(25) %backup_v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableBackwardEulerObjective, i64 16), ptr %this, align 8
   %m_lf = getelementptr inbounds i8, ptr %this, i64 16
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -2959,7 +2959,7 @@ invoke.cont3:
   %m_softBodies = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %softBodies, ptr %m_softBodies, align 8
   %m_projection = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i64 0, i32 0, i64 2), ptr %m_projection, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactProjection, i64 16), ptr %m_projection, align 8
   %m_softBodies.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %softBodies, ptr %m_softBodies.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -3066,7 +3066,7 @@ invoke.cont3:
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MassPreconditioner, i64 16), ptr %call, align 8
   %m_ownsMemory.i.i.i9 = getelementptr inbounds i8, ptr %call, i64 32
   store i8 1, ptr %m_ownsMemory.i.i.i9, align 8
   %m_data.i.i.i10 = getelementptr inbounds i8, ptr %call, i64 24
@@ -3084,7 +3084,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
 
 invoke.cont16:                                    ; preds = %invoke.cont8
   %m_dt = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i64 0, i32 0, i64 2), ptr %call10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17KKTPreconditioner, i64 16), ptr %call10, align 8
   %m_softBodies.i14 = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %softBodies, ptr %m_softBodies.i14, align 8
   %m_projections.i = getelementptr inbounds i8, ptr %call10, i64 16
@@ -3172,7 +3172,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29btDeformableContactProjectionD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactProjection, i64 16), ptr %this, align 8
   %m_nodeAnchorConstraints = getelementptr inbounds i8, ptr %this, i64 336
   invoke void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeAnchorConstraints)
           to label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEED2Ev.exit unwind label %terminate.lpad.i
@@ -3337,7 +3337,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN34btDeformableBackwardEulerObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableBackwardEulerObjective, i64 16), ptr %this, align 8
   %m_KKTPreconditioner = getelementptr inbounds i8, ptr %this, i64 496
   %0 = load ptr, ptr %m_KKTPreconditioner, align 8
   %isnull = icmp eq ptr %0, null
@@ -6409,7 +6409,7 @@ if.end:                                           ; preds = %for.inc11, %_ZN20bt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18MassPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MassPreconditioner, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6446,7 +6446,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18MassPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MassPreconditioner, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6920,7 +6920,7 @@ for.end78:                                        ; preds = %for.inc76, %_ZN17KK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17KKTPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17KKTPreconditioner, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6987,7 +6987,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit11: ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17KKTPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17KKTPreconditioner, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

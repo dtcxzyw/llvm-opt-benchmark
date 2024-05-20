@@ -1791,9 +1791,9 @@ _ZN5QListI7QStringElsEOS0_.exit334:               ; preds = %653
   store ptr %659, ptr @_ZL19libpcap_primitives_, align 8
   %660 = getelementptr inbounds i8, ptr %83, i64 8
   %661 = load ptr, ptr %660, align 8
-  store ptr %661, ptr getelementptr inbounds (%class.QList, ptr @_ZL19libpcap_primitives_, i64 0, i32 0, i32 1), align 8
+  store ptr %661, ptr getelementptr inbounds (i8, ptr @_ZL19libpcap_primitives_, i64 8), align 8
   %662 = load i64, ptr %171, align 8
-  store i64 %662, ptr getelementptr inbounds (%class.QList, ptr @_ZL19libpcap_primitives_, i64 0, i32 0, i32 2), align 8
+  store i64 %662, ptr getelementptr inbounds (i8, ptr @_ZL19libpcap_primitives_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %659, null
   br i1 %.not.i.i.i, label %_ZN5QListI7QStringEC2ERKS1_.exit, label %663
 
@@ -4916,9 +4916,9 @@ define void @_ZN17CaptureFilterEditC2EP7QWidgetb(ptr noundef nonnull align 8 der
   %51 = alloca %"class.QMetaObject::Connection", align 8
   %52 = zext i1 %2 to i8
   tail call void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 16), ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i64 0, i32 1, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 464), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 185
   store i8 %52, ptr %54, align 1
   %55 = getelementptr inbounds i8, ptr %0, i64 186
@@ -5722,7 +5722,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i202:   ; preds = %_ZN7QStringD2Ev.exi
           to label %307 unwind label %345
 
 307:                                              ; preds = %306
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV25CaptureFilterSyntaxWorker, i64 0, i32 0, i64 2), ptr %305, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25CaptureFilterSyntaxWorker, i64 16), ptr %305, align 8
   %308 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %305, ptr %308, align 8
   %309 = load ptr, ptr %304, align 8
@@ -6681,7 +6681,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77:    ; preds = %134
           to label %149 unwind label %98
 
 149:                                              ; preds = %148, %.thread
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterListModel, i64 16), ptr %7, align 8
   %150 = getelementptr inbounds i8, ptr %7, i64 24
   %151 = load ptr, ptr %150, align 8
   %.not.i.i.i.i = icmp eq ptr %151, null
@@ -7724,7 +7724,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3.i:   ; preds = %273
 
 279:                                              ; preds = %271, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %268
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterListModel, i64 16), ptr %18, align 8
   %280 = getelementptr inbounds i8, ptr %18, i64 24
   %281 = load ptr, ptr %280, align 8
   %.not.i.i.i.i157 = icmp eq ptr %281, null
@@ -7956,9 +7956,9 @@ declare void @_ZN7QThread5startENS_8PriorityE(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14SyntaxLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SyntaxLineEdit, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SyntaxLineEdit, i64 464), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -8045,9 +8045,9 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17CaptureFilterEditD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 464), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZN7QThread4quitEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -8534,7 +8534,7 @@ declare void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15FilterListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterListModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -8820,7 +8820,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %_ZN7QStringD2Ev.exi
           to label %65 unwind label %63
 
 65:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterListModel, i64 16), ptr %6, align 8
   %66 = getelementptr inbounds i8, ptr %6, i64 24
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i = icmp eq ptr %67, null
@@ -9409,10 +9409,10 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN5QListI7QStringE
   %116 = load ptr, ptr @_ZL19libpcap_primitives_, align 8
   store ptr %116, ptr %15, align 8
   %117 = getelementptr inbounds i8, ptr %15, i64 8
-  %118 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL19libpcap_primitives_, i64 0, i32 0, i32 1), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19libpcap_primitives_, i64 8), align 8
   store ptr %118, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %15, i64 16
-  %120 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL19libpcap_primitives_, i64 0, i32 0, i32 2), align 8
+  %120 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19libpcap_primitives_, i64 16), align 8
   store i64 %120, ptr %119, align 8
   %.not.i.i.i44 = icmp eq ptr %116, null
   br i1 %.not.i.i.i44, label %_ZN5QListI7QStringEC2ERKS1_.exit, label %121
@@ -9611,7 +9611,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i74: ; preds = %_
   br label %_ZN5QListI7QStringED2Ev.exit75
 
 _ZN5QListI7QStringED2Ev.exit75:                   ; preds = %174, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i63, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i74
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterListModel, i64 16), ptr %9, align 8
   %187 = getelementptr inbounds i8, ptr %9, i64 24
   %188 = load ptr, ptr %187, align 8
   %.not.i.i.i.i76 = icmp eq ptr %188, null
@@ -11958,7 +11958,7 @@ define internal void @_GLOBAL__sub_I_capture_filter_edit.cpp() #2 section ".text
   store <2 x ptr> %2, ptr @_ZL24libpcap_primitive_chars_, align 16
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 16
-  store i64 %4, ptr getelementptr inbounds (%class.QString, ptr @_ZL24libpcap_primitive_chars_, i64 0, i32 0, i32 2), align 16
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @_ZL24libpcap_primitive_chars_, i64 16), align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZL24libpcap_primitive_chars_, ptr nonnull @__dso_handle) #19
   call fastcc void @__cxx_global_var_init.1()

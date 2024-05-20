@@ -157,8 +157,8 @@ delete.notnull:                                   ; preds = %entry
 invoke.cont:                                      ; preds = %entry, %delete.notnull
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_14g_muE)
   store ptr null, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10__weak_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, label %if.then.i.i.i
 
@@ -230,8 +230,8 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10__weak_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, label %if.then.i.i.i
 
@@ -320,7 +320,7 @@ invoke.cont:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_14g_muE)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8, !noalias !13
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8, !noalias !13
   store ptr %0, ptr %_M_refcount.i.i.i, align 8, !alias.scope !13
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %cleanup.cont.critedge.thread35, label %land.lhs.true.i.i.i.i
@@ -365,7 +365,7 @@ _ZNKSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEE4lockEv.exit: ;
   br i1 %cmp.i.not, label %if.then.i.i.i, label %if.then
 
 if.then:                                          ; preds = %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEE4lockEv.exit
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_event_engine_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %_ZNKSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit, label %cleanup37
 
@@ -496,7 +496,7 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngineEEclEPS2_.
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngineESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont18, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngineEEclEPS2_.exit.i
   store ptr null, ptr %ref.tmp, align 8
-  %25 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_event_engine_trace, i64 16) monotonic, align 8
   %tobool.i.i.i7 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i7, label %if.then22, label %if.end29
 
@@ -553,7 +553,7 @@ if.else.i.i.i.i.i27:                              ; preds = %if.then.i.i.i16
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i.i.i27, %if.then.i.i.i.i.i18, %if.end29
-  %36 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
   %cmp3.not.i.i.i = icmp eq ptr %36, null
   br i1 %cmp3.not.i.i.i, label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit, label %if.then4.i.i.i
 
@@ -586,7 +586,7 @@ if.then.i.i.i.i24:                                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit
 
 _ZNSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit: ; preds = %if.end.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21, %if.then.i.i.i.i24
-  store ptr %32, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.0", ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 0, i32 0, i64 8), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_114g_event_engineE, i64 8), align 8
   br label %cleanup37
 
 cleanup37:                                        ; preds = %_ZNKSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit, %if.then, %_ZNSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit
@@ -1297,7 +1297,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN17grpc_event_engine12experimental11EventEngineESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN17grpc_event_engine12experimental11EventEngineESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8

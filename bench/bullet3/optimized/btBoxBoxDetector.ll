@@ -27,7 +27,7 @@ $_ZTI36btDiscreteCollisionDetectorInterface = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16btBoxBoxDetectorC2EPK10btBoxShapeS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %box1, ptr noundef %box2) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16btBoxBoxDetector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16btBoxBoxDetector, i64 16), ptr %this, align 8
   %m_box1 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %box1, ptr %m_box1, align 8
   %m_box2 = getelementptr inbounds i8, ptr %this, i64 16

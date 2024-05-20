@@ -52,7 +52,7 @@ declare void @CacheRegisterRelcacheCallback(ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal void @PlanCacheRelCallback(i64 %0, i32 noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   %.not = icmp eq ptr %3, null
   %.not497181 = icmp eq ptr %3, @saved_plan_list
   %.not4971 = or i1 %.not, %.not497181
@@ -258,7 +258,7 @@ define internal void @PlanCacheRelCallback(i64 %0, i32 noundef %1) #0 {
   br i1 %.not49, label %select.unfold._crit_edge, label %.lr.ph73.split, !llvm.loop !5
 
 select.unfold._crit_edge:                         ; preds = %.thread, %.thread.us, %2
-  %98 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   %.not50 = icmp eq ptr %98, null
   %.not517882 = icmp eq ptr %98, @cached_expression_list
   %.not5178 = or i1 %.not50, %.not517882
@@ -322,7 +322,7 @@ declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
   %.not83137160 = icmp eq ptr %4, @saved_plan_list
   %.not83137 = or i1 %.not, %.not83137160
@@ -542,7 +542,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
   br i1 %.not83, label %select.unfold._crit_edge, label %6, !llvm.loop !8
 
 select.unfold._crit_edge:                         ; preds = %.thread103, %3
-  %100 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   %.not84 = icmp eq ptr %100, null
   %.not85153161 = icmp eq ptr %100, @cached_expression_list
   %.not85153 = or i1 %.not84, %.not85153161
@@ -662,7 +662,7 @@ select.unfold110._crit_edge:                      ; preds = %.thread112, %.threa
 
 ; Function Attrs: nounwind uwtable
 define internal void @PlanCacheSysCallback(i64 %0, i32 %1, i32 %2) #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   %.not.i = icmp eq ptr %4, null
   %.not222934.i = icmp eq ptr %4, @saved_plan_list
   %.not2229.i = or i1 %.not.i, %.not222934.i
@@ -704,7 +704,7 @@ select.unfold.i:                                  ; preds = %16, %13, %11, %8, %
   br i1 %.not22.i, label %select.unfold._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %3
-  %20 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   %.not23.i = icmp eq ptr %20, null
   %.not243135.i = icmp eq ptr %20, @cached_expression_list
   %.not2431.i = or i1 %.not23.i, %.not243135.i
@@ -1037,7 +1037,7 @@ ReleaseGenericPlan.exit:                          ; preds = %8, %11, %16, %20
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @MemoryContextSetParent(ptr noundef %24, ptr noundef %25) #8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %ReleaseGenericPlan.exit.dlist_push_tail.exit_crit_edge
 
@@ -1046,7 +1046,7 @@ ReleaseGenericPlan.exit.dlist_push_tail.exit_crit_edge: ; preds = %ReleaseGeneri
   br label %dlist_push_tail.exit
 
 28:                                               ; preds = %ReleaseGenericPlan.exit
-  store ptr @saved_plan_list, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  store ptr @saved_plan_list, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %ReleaseGenericPlan.exit.dlist_push_tail.exit_crit_edge, %28
@@ -2734,7 +2734,7 @@ define dso_local noundef ptr @GetCachedExpression(ptr noundef %0) local_unnamed_
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %19 = load ptr, ptr @CacheMemoryContext, align 8
   call void @MemoryContextSetParent(ptr noundef %6, ptr noundef %19) #8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %.dlist_push_tail.exit_crit_edge
 
@@ -2743,7 +2743,7 @@ define dso_local noundef ptr @GetCachedExpression(ptr noundef %0) local_unnamed_
   br label %dlist_push_tail.exit
 
 22:                                               ; preds = %1
-  store ptr @cached_expression_list, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  store ptr @cached_expression_list, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %.dlist_push_tail.exit_crit_edge, %22
@@ -2778,7 +2778,7 @@ define dso_local void @FreeCachedExpression(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResetPlanCache() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @saved_plan_list, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_plan_list, i64 8), align 8
   %.not = icmp eq ptr %1, null
   %.not222934 = icmp eq ptr %1, @saved_plan_list
   %.not2229 = or i1 %.not, %.not222934
@@ -2820,7 +2820,7 @@ select.unfold:                                    ; preds = %10, %13, %5, %8, %.
   br i1 %.not22, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !10
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
-  %17 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @cached_expression_list, i64 0, i32 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @cached_expression_list, i64 8), align 8
   %.not23 = icmp eq ptr %17, null
   %.not243135 = icmp eq ptr %17, @cached_expression_list
   %.not2431 = or i1 %.not23, %.not243135

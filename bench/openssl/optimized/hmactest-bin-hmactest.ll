@@ -123,9 +123,9 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_hmac_single_shot() #0 {
 entry:
   %call = tail call ptr @EVP_sha1() #5
-  %0 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 468), align 4
   %conv = sext i32 %0 to i64
-  %call1 = tail call ptr @HMAC(ptr noundef %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv, ptr noundef null, ptr noundef null) #5
+  %call1 = tail call ptr @HMAC(ptr noundef %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 404), i64 noundef %conv, ptr noundef null, ptr noundef null) #5
   %cmp.i = icmp eq ptr %call1, null
   br i1 %cmp.i, label %pt.exit, label %for.body.i
 
@@ -148,7 +148,7 @@ pt.exit:                                          ; preds = %for.body.i, %entry
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %pt.exit
-  %2 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 472), align 8
   %call4 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 211, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19, ptr noundef %retval.0.i, ptr noundef %2) #5
   %tobool5.not = icmp ne i32 %call4, 0
   %spec.select = zext i1 %tobool5.not to i32
@@ -182,9 +182,9 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %0 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 468), align 4
   %conv10 = sext i32 %0 to i64
-  %call11 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv10) #5
+  %call11 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 404), i64 noundef %conv10) #5
   %cmp12 = icmp ne i32 %call11, 0
   %conv13 = zext i1 %cmp12 to i32
   %call14 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 116, ptr noundef nonnull @.str.23, i32 noundef %conv13) #5
@@ -201,9 +201,9 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false9
   br i1 %tobool22.not, label %err, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false16
-  %1 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 468), align 4
   %conv24 = sext i32 %1 to i64
-  %call25 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv24) #5
+  %call25 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 404), i64 noundef %conv24) #5
   %cmp26 = icmp ne i32 %call25, 0
   %conv27 = zext i1 %cmp26 to i32
   %call28 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 118, ptr noundef nonnull @.str.23, i32 noundef %conv27) #5
@@ -248,9 +248,9 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
-  %0 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 468), align 4
   %conv13 = sext i32 %0 to i64
-  %call14 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv13) #5
+  %call14 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 404), i64 noundef %conv13) #5
   %cmp15 = icmp ne i32 %call14, 0
   %conv16 = zext i1 %cmp15 to i32
   %call17 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 142, ptr noundef nonnull @.str.23, i32 noundef %conv16) #5
@@ -259,7 +259,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false8
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false12
   %call20 = tail call ptr @EVP_sha1() #5
-  %call21 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4), i32 noundef -1, ptr noundef %call20, ptr noundef null) #5
+  %call21 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 384), i32 noundef -1, ptr noundef %call20, ptr noundef null) #5
   %cmp22 = icmp ne i32 %call21, 0
   %conv23 = zext i1 %cmp22 to i32
   %call24 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 143, ptr noundef nonnull @.str.26, i32 noundef %conv23) #5
@@ -267,9 +267,9 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false12
   br i1 %tobool25.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %lor.lhs.false19
-  %1 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 1), align 16
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 400), align 16
   %call28 = tail call ptr @EVP_sha1() #5
-  %call29 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4), i32 noundef %1, ptr noundef %call28, ptr noundef null) #5
+  %call29 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 384), i32 noundef %1, ptr noundef %call28, ptr noundef null) #5
   %cmp30 = icmp ne i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i32
   %call32 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 146, ptr noundef nonnull @.str.27, i32 noundef %conv31) #5
@@ -277,9 +277,9 @@ if.end27:                                         ; preds = %lor.lhs.false19
   br i1 %tobool33.not, label %err, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %if.end27
-  %2 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 468), align 4
   %conv35 = sext i32 %2 to i64
-  %call36 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv35) #5
+  %call36 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 404), i64 noundef %conv35) #5
   %cmp37 = icmp ne i32 %call36, 0
   %conv38 = zext i1 %cmp37 to i32
   %call39 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 147, ptr noundef nonnull @.str.23, i32 noundef %conv38) #5
@@ -302,7 +302,7 @@ if.end48:                                         ; preds = %lor.lhs.false41
   br i1 %tobool52.not, label %err, label %lor.lhs.false53
 
 lor.lhs.false53:                                  ; preds = %if.end48
-  %4 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 472), align 8
   %call54 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 152, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19, ptr noundef %call50, ptr noundef %4) #5
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %if.end57
@@ -317,9 +317,9 @@ if.end57:                                         ; preds = %lor.lhs.false53
   br i1 %tobool63.not, label %err, label %if.end65
 
 if.end65:                                         ; preds = %if.end57
-  %5 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 5, i32 1), align 16
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 496), align 16
   %call66 = call ptr @EVP_sha256() #5
-  %call67 = call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 5), i32 noundef %5, ptr noundef %call66, ptr noundef null) #5
+  %call67 = call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 480), i32 noundef %5, ptr noundef %call66, ptr noundef null) #5
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 158, ptr noundef nonnull @.str.30, i32 noundef %conv69) #5
@@ -334,9 +334,9 @@ lor.lhs.false72:                                  ; preds = %if.end65
   br i1 %tobool76.not, label %err, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %lor.lhs.false72
-  %6 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 5, i32 3), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 564), align 4
   %conv78 = sext i32 %6 to i64
-  %call79 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 5, i32 2), i64 noundef %conv78) #5
+  %call79 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 500), i64 noundef %conv78) #5
   %cmp80 = icmp ne i32 %call79, 0
   %conv81 = zext i1 %cmp80 to i32
   %call82 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 160, ptr noundef nonnull @.str.32, i32 noundef %conv81) #5
@@ -359,14 +359,14 @@ if.end92:                                         ; preds = %lor.lhs.false84
   br i1 %tobool96.not, label %err, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %if.end92
-  %8 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 5, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 568), align 8
   %call98 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 165, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.33, ptr noundef %call94, ptr noundef %8) #5
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %err, label %if.end101
 
 if.end101:                                        ; preds = %lor.lhs.false97
-  %9 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 1), align 16
-  %call102 = call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6), i32 noundef %9, ptr noundef null, ptr noundef null) #5
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 592), align 16
+  %call102 = call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 576), i32 noundef %9, ptr noundef null, ptr noundef null) #5
   %cmp103 = icmp ne i32 %call102, 0
   %conv104 = zext i1 %cmp103 to i32
   %call105 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 168, ptr noundef nonnull @.str.34, i32 noundef %conv104) #5
@@ -374,9 +374,9 @@ if.end101:                                        ; preds = %lor.lhs.false97
   br i1 %tobool106.not, label %err, label %lor.lhs.false107
 
 lor.lhs.false107:                                 ; preds = %if.end101
-  %10 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 3), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 660), align 4
   %conv108 = sext i32 %10 to i64
-  %call109 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 2), i64 noundef %conv108) #5
+  %call109 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 596), i64 noundef %conv108) #5
   %cmp110 = icmp ne i32 %call109, 0
   %conv111 = zext i1 %cmp110 to i32
   %call112 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 169, ptr noundef nonnull @.str.35, i32 noundef %conv111) #5
@@ -399,7 +399,7 @@ if.end122:                                        ; preds = %lor.lhs.false114
   br i1 %tobool126.not, label %err, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %if.end122
-  %12 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 664), align 8
   %call128 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 173, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36, ptr noundef %call124, ptr noundef %12) #5
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %err, label %if.end131
@@ -413,9 +413,9 @@ if.end131:                                        ; preds = %lor.lhs.false127
   br i1 %tobool136.not, label %err, label %lor.lhs.false137
 
 lor.lhs.false137:                                 ; preds = %if.end131
-  %13 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 3), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 660), align 4
   %conv138 = sext i32 %13 to i64
-  %call139 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 2), i64 noundef %conv138) #5
+  %call139 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 596), i64 noundef %conv138) #5
   %cmp140 = icmp ne i32 %call139, 0
   %conv141 = zext i1 %cmp140 to i32
   %call142 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 178, ptr noundef nonnull @.str.35, i32 noundef %conv141) #5
@@ -438,7 +438,7 @@ if.end152:                                        ; preds = %lor.lhs.false144
   br i1 %tobool156.not, label %err, label %lor.lhs.false157
 
 lor.lhs.false157:                                 ; preds = %if.end152
-  %15 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 4), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 664), align 8
   %call158 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 182, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36, ptr noundef %call154, ptr noundef %15) #5
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %err, label %if.end161
@@ -453,9 +453,9 @@ if.end161:                                        ; preds = %lor.lhs.false157
   br i1 %tobool167.not, label %err, label %lor.lhs.false168
 
 lor.lhs.false168:                                 ; preds = %if.end161
-  %16 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 3), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 660), align 4
   %conv169 = sext i32 %16 to i64
-  %call170 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 2), i64 noundef %conv169) #5
+  %call170 = call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 596), i64 noundef %conv169) #5
   %cmp171 = icmp ne i32 %call170, 0
   %conv172 = zext i1 %cmp171 to i32
   %call173 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 190, ptr noundef nonnull @.str.35, i32 noundef %conv172) #5
@@ -478,7 +478,7 @@ if.end183:                                        ; preds = %lor.lhs.false175
   br i1 %tobool187.not, label %err, label %lor.lhs.false188
 
 lor.lhs.false188:                                 ; preds = %if.end183
-  %18 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 6, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 664), align 8
   %call189 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36, ptr noundef %call185, ptr noundef %18) #5
   %tobool190.not = icmp ne i32 %call189, 0
   %spec.select = zext i1 %tobool190.not to i32
@@ -511,9 +511,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %0 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 7, i32 1), align 16
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 688), align 16
   %call5 = tail call ptr @EVP_sha1() #5
-  %call6 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 7), i32 noundef %0, ptr noundef %call5, ptr noundef null) #5
+  %call6 = tail call i32 @HMAC_Init_ex(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 672), i32 noundef %0, ptr noundef %call5, ptr noundef null) #5
   %cmp = icmp ne i32 %call6, 0
   %conv = zext i1 %cmp to i32
   %call7 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 231, ptr noundef nonnull @.str.38, i32 noundef %conv) #5
@@ -521,9 +521,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 7, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 756), align 4
   %conv10 = sext i32 %1 to i64
-  %call11 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 7, i32 2), i64 noundef %conv10) #5
+  %call11 = tail call i32 @HMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 692), i64 noundef %conv10) #5
   %cmp12 = icmp ne i32 %call11, 0
   %conv13 = zext i1 %cmp12 to i32
   %call14 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 232, ptr noundef nonnull @.str.39, i32 noundef %conv13) #5
@@ -574,7 +574,7 @@ pt.exit:                                          ; preds = %for.body.i, %if.end
   br i1 %tobool33.not, label %err, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %pt.exit
-  %4 = load ptr, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 7, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 760), align 8
   %call35 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.42, ptr noundef nonnull @pt.buf, ptr noundef %4) #5
   %tobool36.not = icmp ne i32 %call35, 0
   %spec.select = zext i1 %tobool36.not to i32

@@ -42,7 +42,7 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %callable, ptr noundef %co
 entry:
   %0 = getelementptr i8, ptr %converters, i64 16
   %converters.val = load i64, ptr %0, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ctypes_state, ptr @global_state, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 24), align 8
   %call.i = tail call ptr @_PyObject_GC_NewVar(ptr noundef %1, i64 noundef %converters.val) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i

@@ -307,7 +307,7 @@ ehcleanup37:                                      ; preds = %lpad19, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -609,14 +609,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %rect, i64 8
   store i64 %rect.coerce1, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %1, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %DebugName.i, align 8, !tbaa !73
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 456
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !64
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rect)
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 1, i64 3), ptr %1, align 8, !tbaa !4
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rect)
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV8GUIScene, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV8GUIScene, i64 336), ptr %1, align 8, !tbaa !4
   %m_target = getelementptr inbounds i8, ptr %this, i64 336
   %m_cam_distance = getelementptr inbounds i8, ptr %this, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_target, i8 0, i64 16, i1 false)
@@ -702,7 +702,7 @@ lpad19:                                           ; preds = %invoke.cont13
 
 ehcleanup37:                                      ; preds = %lpad19, %lpad2
   %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %10, %lpad19 ]
-  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1)) #29
+  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8)) #29
   resume { ptr, i32 } %.pn
 }
 
@@ -865,9 +865,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8GUISceneD1Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV8GUIScene, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV8GUIScene, i64 336), ptr %add.ptr.i, align 8, !tbaa !4
   %m_mesh.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load ptr, ptr %m_mesh.i.i, align 8, !tbaa !74
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -913,7 +913,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN8GUISceneD2Ev.exit:                            ; preds = %delete.notnull.i.i, %invoke.cont.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1)) #29
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8)) #29
   ret void
 }
 
@@ -924,9 +924,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV8GUIScene, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV8GUIScene, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_mesh.i.i.i = getelementptr inbounds i8, ptr %3, i64 344
   %4 = load ptr, ptr %m_mesh.i.i.i, align 8, !tbaa !74
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -972,16 +972,16 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN8GUISceneD1Ev.exit:                            ; preds = %delete.notnull.i.i.i, %invoke.cont.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1)) #29
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8)) #29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8GUISceneD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV8GUIScene, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV8GUIScene, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_mesh.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load ptr, ptr %m_mesh.i.i.i, align 8, !tbaa !74
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1027,7 +1027,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN8GUISceneD1Ev.exit:                            ; preds = %delete.notnull.i.i.i, %invoke.cont.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1)) #29
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8)) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -1042,9 +1042,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV8GUIScene, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV8GUIScene, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV8GUIScene, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !4
   %m_mesh.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 344
   %4 = load ptr, ptr %m_mesh.i.i.i.i, align 8, !tbaa !74
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
@@ -1090,7 +1090,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN8GUISceneD0Ev.exit:                            ; preds = %delete.notnull.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT8GUIScene, i64 0, i64 1)) #29
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT8GUIScene, i64 8)) #29
   tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   ret void
 }

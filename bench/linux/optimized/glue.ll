@@ -66,8 +66,8 @@ define dso_local noundef range(i32 -19, 1) i32 @register_acpi_bus_type(ptr nound
 
 14:                                               ; preds = %10
   tail call void @down_write(ptr noundef nonnull @bus_type_sem) #9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @bus_type_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @bus_type_list, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @bus_type_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @bus_type_list, i64 8), align 8
   store ptr @bus_type_list, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
@@ -204,7 +204,7 @@ select.unfold:                                    ; preds = %10, %2
   %17 = getelementptr inbounds i8, ptr %14, i64 616
   %18 = tail call ptr @get_device(ptr noundef %17) #9
   %19 = tail call ptr @get_device(ptr noundef %0) #9
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 40) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %83, label %23

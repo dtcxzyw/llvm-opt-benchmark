@@ -160,8 +160,8 @@ declare ptr @hash_to_hex(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sha1_pack_name(ptr noundef %sha1) local_unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %odb_pack_name.exit, label %if.then4.i.i
 
@@ -173,15 +173,15 @@ odb_pack_name.exit:                               ; preds = %entry, %if.then4.i.
   %call.i = tail call ptr @get_object_directory() #18
   %call1.i = tail call ptr @hash_to_hex(ptr noundef %sha1) #18
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @sha1_pack_name.buf, ptr noundef nonnull @.str, ptr noundef %call.i, ptr noundef %call1.i, ptr noundef nonnull @.str.1) #18
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 16), align 8
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sha1_pack_index_name(ptr noundef %sha1) local_unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %odb_pack_name.exit, label %if.then4.i.i
 
@@ -193,7 +193,7 @@ odb_pack_name.exit:                               ; preds = %entry, %if.then4.i.
   %call.i = tail call ptr @get_object_directory() #18
   %call1.i = tail call ptr @hash_to_hex(ptr noundef %sha1) #18
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @sha1_pack_index_name.buf, ptr noundef nonnull @.str, ptr noundef %call.i, ptr noundef %call1.i, ptr noundef nonnull @.str.2) #18
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 16), align 8
   ret ptr %1
 }
 
@@ -511,8 +511,8 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @parse_pack_index(ptr noundef %sha1, ptr noundef %idx_path) local_unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %sha1_pack_name.exit, label %if.then4.i.i.i
 
@@ -524,7 +524,7 @@ sha1_pack_name.exit:                              ; preds = %entry, %if.then4.i.
   %call.i.i = tail call ptr @get_object_directory() #18
   %call1.i.i = tail call ptr @hash_to_hex(ptr noundef %sha1) #18
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @sha1_pack_name.buf, ptr noundef nonnull @.str, ptr noundef %call.i.i, ptr noundef %call1.i.i, ptr noundef nonnull @.str.1) #18
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_name.buf, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_name.buf, i64 16), align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %cmp.i = icmp eq i64 %call1, -1
   br i1 %cmp.i, label %if.then.i, label %st_add.exit
@@ -3253,7 +3253,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %sizep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %get_delta_base_cache_entry.exit.thread.i, label %get_delta_base_cache_entry.exit.i
 
@@ -3947,7 +3947,7 @@ if.else73:                                        ; preds = %if.then63
 if.end76:                                         ; preds = %get_delta_base_oid.exit, %if.else73, %if.end61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i101)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i102)
-  %88 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i64 0, i32 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i103 = icmp eq ptr %88, null
   br i1 %tobool.not.i.i103, label %in_delta_base_cache.exit.thread, label %in_delta_base_cache.exit
 
@@ -4030,9 +4030,9 @@ entry:
   %base_oid = alloca %struct.object_id, align 4
   %oi = alloca %struct.object_info, align 8
   store ptr null, ptr %w_curs, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @write_pack_access_log.pack_access, i64 0, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @write_pack_access_log.pack_access, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %0, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @write_pack_access_log.pack_access, i64 0, i32 2), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @write_pack_access_log.pack_access, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not1.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not1.i, i1 false
@@ -4058,7 +4058,7 @@ for.cond:                                         ; preds = %if.end69, %write_pa
   %delta_stack.0 = phi ptr [ %delta_stack.1, %if.end69 ], [ %small_delta_stack, %write_pack_access_log.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i77 = icmp eq ptr %2, null
   br i1 %tobool.not.i77, label %get_delta_base_cache_entry.exit.thread, label %get_delta_base_cache_entry.exit
 
@@ -4645,7 +4645,7 @@ if.then138:                                       ; preds = %if.end136
   %80 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i.i)
-  %81 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i64 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i.i = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i, label %in_delta_base_cache.exit.thread.i, label %in_delta_base_cache.exit.i
 
@@ -4726,14 +4726,14 @@ for.end.i:                                        ; preds = %if.end3.i, %for.bod
   %size.i157 = getelementptr inbounds i8, ptr %call5.i, i64 56
   store i64 %79, ptr %size.i157, align 8
   %lru10.i = getelementptr inbounds i8, ptr %call5.i, i64 32
-  %90 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @delta_base_cache_lru, i64 0, i32 1), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache_lru, i64 8), align 8
   store ptr %lru10.i, ptr %90, align 8
   store ptr @delta_base_cache_lru, ptr %lru10.i, align 8
-  %91 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @delta_base_cache_lru, i64 0, i32 1), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache_lru, i64 8), align 8
   %prev3.i.i = getelementptr inbounds i8, ptr %call5.i, i64 40
   store ptr %91, ptr %prev3.i.i, align 8
-  store ptr %lru10.i, ptr getelementptr inbounds (%struct.list_head, ptr @delta_base_cache_lru, i64 0, i32 1), align 8
-  %92 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i64 0, i32 1), align 8
+  store ptr %lru10.i, ptr getelementptr inbounds (i8, ptr @delta_base_cache_lru, i64 8), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool11.not.i = icmp eq ptr %92, null
   br i1 %tobool11.not.i, label %if.then12.i, label %if.end13.i
 
@@ -5724,8 +5724,8 @@ entry:
 define dso_local range(i32 0, 2) i32 @has_pack_index(ptr noundef %sha1) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %sha1_pack_index_name.exit, label %if.then4.i.i.i
 
@@ -5737,7 +5737,7 @@ sha1_pack_index_name.exit:                        ; preds = %entry, %if.then4.i.
   %call.i.i = tail call ptr @get_object_directory() #18
   %call1.i.i = tail call ptr @hash_to_hex(ptr noundef %sha1) #18
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @sha1_pack_index_name.buf, ptr noundef nonnull @.str, ptr noundef %call.i.i, ptr noundef %call1.i.i, ptr noundef nonnull @.str.2) #18
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @sha1_pack_index_name.buf, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sha1_pack_index_name.buf, i64 16), align 8
   %call1 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %st) #18
   %tobool.not = icmp eq i32 %call1, 0
   %. = zext i1 %tobool.not to i32

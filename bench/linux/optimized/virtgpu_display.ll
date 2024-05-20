@@ -234,7 +234,7 @@ define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, 
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 200) #7
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %22

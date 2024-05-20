@@ -678,12 +678,12 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i
   %80 = load ptr, ptr %65, align 8
   %81 = call i64 @wtap_file_size(ptr noundef %80, ptr noundef null) #21
   store volatile ptr null, ptr %17, align 8
-  %82 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 79), align 8
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 440), align 8
   %.not104 = icmp eq i32 %82, 0
   br i1 %.not104, label %86, label %83
 
 83:                                               ; preds = %78
-  %84 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 80), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 444), align 4
   call void @fifo_string_cache_init(ptr noundef nonnull %16, i32 noundef %84, ptr noundef nonnull @g_free) #21
   %85 = call ptr @g_checksum_new(i32 noundef 2) #21
   store volatile ptr %85, ptr %17, align 8
@@ -3013,7 +3013,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 28:                                               ; preds = %25
   %29 = tail call noalias dereferenceable_or_null(257) ptr @g_malloc(i64 noundef 257) #25
   store ptr %29, ptr %8, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %._crit_edge.thread
 
@@ -3041,7 +3041,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %.179 = phi i32 [ %.078101, %.lr.ph ], [ %spec.select, %35 ]
   %.177 = phi i32 [ %.076102, %.lr.ph ], [ %spec.select98, %35 ]
   %42 = add nuw nsw i32 %.083100, 1
-  %43 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %44 = icmp slt i32 %42, %43
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
@@ -4474,7 +4474,7 @@ define internal fastcc range(i32 0, 2) i32 @find_packet(ptr noundef %0, ptr noca
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
-  %39 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 35), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 200), align 8
   %.not67 = icmp eq i32 %39, 0
   br i1 %.not67, label %42, label %40
 
@@ -4497,7 +4497,7 @@ define internal fastcc range(i32 0, 2) i32 @find_packet(ptr noundef %0, ptr noca
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
-  %49 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 35), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 200), align 8
   %.not66 = icmp eq i32 %49, 0
   br i1 %.not66, label %51, label %50
 

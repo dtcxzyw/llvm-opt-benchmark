@@ -30,8 +30,8 @@ define hidden void @tm_init_genrand(i64 noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %3
   store ptr @x, ptr @p0, align 8
-  store ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), ptr @p1, align 8
-  store ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), ptr @pm, align 8
+  store ptr getelementptr inbounds (i8, ptr @x, i64 8), ptr @p1, align 8
+  store ptr getelementptr inbounds (i8, ptr @x, i64 3176), ptr @pm, align 8
   ret void
 }
 
@@ -56,8 +56,8 @@ define hidden void @init_by_array(ptr nocapture noundef readonly %0, i32 noundef
 
 tm_init_genrand.exit:                             ; preds = %3
   store ptr @x, ptr @p0, align 8
-  store ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), ptr @p1, align 8
-  store ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), ptr @pm, align 8
+  store ptr getelementptr inbounds (i8, ptr @x, i64 8), ptr @p1, align 8
+  store ptr getelementptr inbounds (i8, ptr @x, i64 3176), ptr @pm, align 8
   %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 624)
   br label %12
 
@@ -88,7 +88,7 @@ tm_init_genrand.exit:                             ; preds = %3
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %12
-  %33 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 623), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @x, i64 4984), align 8
   store i64 %33, ptr @x, align 16
   br label %34
 
@@ -123,7 +123,7 @@ tm_init_genrand.exit:                             ; preds = %3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.preheader
-  %53 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 623), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @x, i64 4984), align 8
   store i64 %53, ptr @x, align 16
   br label %54
 
@@ -170,10 +170,10 @@ define hidden i64 @tm_genrand_int32() local_unnamed_addr #2 {
   br i1 %exitcond.not.i, label %tm_init_genrand.exit, label %4, !llvm.loop !4
 
 tm_init_genrand.exit:                             ; preds = %4, %._crit_edge
-  %12 = phi ptr [ %.pre10, %._crit_edge ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10, %._crit_edge ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr @pm, align 8
   %17 = load i64, ptr %15, align 8
@@ -190,7 +190,7 @@ tm_init_genrand.exit:                             ; preds = %4, %._crit_edge
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %27, ptr @p1, align 8
   store ptr %12, ptr @p0, align 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %tm_init_genrand.exit
@@ -198,7 +198,7 @@ tm_init_genrand.exit:                             ; preds = %4, %._crit_edge
   br label %30
 
 30:                                               ; preds = %29, %tm_init_genrand.exit
-  %31 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %31 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
@@ -251,10 +251,10 @@ define hidden range(i64 0, -9223372036854775808) i64 @tm_genrand_int31() local_u
   br i1 %exitcond.not.i.i, label %tm_init_genrand.exit.i, label %4, !llvm.loop !4
 
 tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
-  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge.i ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge.i ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr @pm, align 8
   %17 = load i64, ptr %15, align 8
@@ -271,7 +271,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %27, ptr @p1, align 8
   store ptr %12, ptr @p0, align 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %tm_init_genrand.exit.i
@@ -279,7 +279,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   br label %30
 
 30:                                               ; preds = %29, %tm_init_genrand.exit.i
-  %31 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %31 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %31, label %32, label %tm_genrand_int32.exit
 
 32:                                               ; preds = %30
@@ -333,10 +333,10 @@ define hidden double @tm_genrand_real1() local_unnamed_addr #2 {
   br i1 %exitcond.not.i.i, label %tm_init_genrand.exit.i, label %4, !llvm.loop !4
 
 tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
-  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge.i ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge.i ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr @pm, align 8
   %17 = load i64, ptr %15, align 8
@@ -353,7 +353,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %27, ptr @p1, align 8
   store ptr %12, ptr @p0, align 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %tm_init_genrand.exit.i
@@ -361,7 +361,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   br label %30
 
 30:                                               ; preds = %29, %tm_init_genrand.exit.i
-  %31 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %31 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %31, label %32, label %tm_genrand_int32.exit
 
 32:                                               ; preds = %30
@@ -416,10 +416,10 @@ define hidden double @tm_genrand_real2() local_unnamed_addr #2 {
   br i1 %exitcond.not.i.i, label %tm_init_genrand.exit.i, label %4, !llvm.loop !4
 
 tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
-  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge.i ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge.i ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr @pm, align 8
   %17 = load i64, ptr %15, align 8
@@ -436,7 +436,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %27, ptr @p1, align 8
   store ptr %12, ptr @p0, align 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %tm_init_genrand.exit.i
@@ -444,7 +444,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   br label %30
 
 30:                                               ; preds = %29, %tm_init_genrand.exit.i
-  %31 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %31 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %31, label %32, label %tm_genrand_int32.exit
 
 32:                                               ; preds = %30
@@ -499,10 +499,10 @@ define hidden double @tm_genrand_real3() local_unnamed_addr #2 {
   br i1 %exitcond.not.i.i, label %tm_init_genrand.exit.i, label %4, !llvm.loop !4
 
 tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
-  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge.i ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge.i ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %16, ptr @pm, align 8
   %17 = load i64, ptr %15, align 8
@@ -519,7 +519,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %27, ptr @p1, align 8
   store ptr %12, ptr @p0, align 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %tm_init_genrand.exit.i
@@ -527,7 +527,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   br label %30
 
 30:                                               ; preds = %29, %tm_init_genrand.exit.i
-  %31 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %31 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %31, label %32, label %tm_genrand_int32.exit
 
 32:                                               ; preds = %30
@@ -583,10 +583,10 @@ define hidden double @tm_genrand_res53() local_unnamed_addr #2 {
   br i1 %exitcond.not.i.i, label %tm_init_genrand.exit.i, label %4, !llvm.loop !4
 
 tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
-  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 1), %4 ]
+  %12 = phi ptr [ %.pre10.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 8), %4 ]
   %13 = phi i64 [ %2, %._crit_edge.i ], [ 0, %4 ]
   %14 = phi ptr [ %1, %._crit_edge.i ], [ @x, %4 ]
-  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds ([624 x i64], ptr @x, i64 0, i64 397), %4 ]
+  %15 = phi ptr [ %.pre.i, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @x, i64 3176), %4 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i64, ptr %15, align 8
   %18 = load i64, ptr %12, align 8
@@ -600,9 +600,9 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %26 = xor i64 %22, %25
   store i64 %26, ptr %14, align 8
   %27 = getelementptr inbounds i8, ptr %12, i64 8
-  %28 = icmp eq ptr %16, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %28 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @x, i64 4992)
   %spec.select = select i1 %28, ptr @x, ptr %16
-  %29 = icmp eq ptr %27, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %29 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @x, i64 4992)
   %.pre10.i6 = select i1 %29, ptr @x, ptr %27
   %.pre9.i5 = load i64, ptr %12, align 8
   %30 = and i64 %.pre9.i5, 2147483648
@@ -622,7 +622,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   %42 = getelementptr inbounds i8, ptr %.pre10.i6, i64 8
   store ptr %42, ptr @p1, align 8
   store ptr %.pre10.i6, ptr @p0, align 8
-  %43 = icmp eq ptr %31, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %43 = icmp eq ptr %31, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %tm_init_genrand.exit.i
@@ -630,7 +630,7 @@ tm_init_genrand.exit.i:                           ; preds = %4, %._crit_edge.i
   br label %45
 
 45:                                               ; preds = %44, %tm_init_genrand.exit.i
-  %46 = icmp eq ptr %42, getelementptr inbounds ([624 x i64], ptr @x, i64 1, i64 0)
+  %46 = icmp eq ptr %42, getelementptr inbounds (i8, ptr @x, i64 4992)
   br i1 %46, label %47, label %tm_genrand_int32.exit11
 
 47:                                               ; preds = %45

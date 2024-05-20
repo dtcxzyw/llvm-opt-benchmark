@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define { ptr, i64 } @"_ZN6intern19Interned$LT$str$GT$7new_str17h2116fc579227f329E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, i64 } }, {} }, { { {} } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !4
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 24) acquire, align 8, !noalias !4
   %.not.i.i = icmp eq i32 %4, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h11701b3f5226a983E.exit.i", label %5
 
@@ -90,10 +90,10 @@ define { ptr, i64 } @"_ZN6intern19Interned$LT$str$GT$7new_str17h2116fc579227f329
   %35 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i, i64 %.3.i.i.i.i, i64 5)
   %36 = xor i64 %35, 255
   %37 = mul i64 %36, -4728538181899302272
-  %38 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 0, i32 0, i64 16), align 8, !noalias !4, !noundef !31
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 16), align 8, !noalias !4, !noundef !31
   %39 = and i64 %38, 63
   %40 = lshr i64 %37, %39
-  %41 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 0, i32 0, i64 8), align 8, !noalias !4, !noundef !31
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", i64 8), align 8, !noalias !4, !noundef !31
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %43, label %49, !prof !32
 

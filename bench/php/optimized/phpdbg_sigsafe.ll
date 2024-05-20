@@ -45,26 +45,26 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @phpdbg_set_sigsafe_mem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zend_mm_handlers, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @__const.phpdbg_set_sigsafe_mem.phpdbg_handlers, i64 32, i1 false)
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2136), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2144), align 8
   %3 = call ptr @zend_mm_startup_ex(ptr noundef nonnull %2, ptr noundef null, i64 noundef 0) #7
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 2), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2152), align 8
   %4 = call ptr @zend_mm_set_heap(ptr noundef %3) #7
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 3), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2160), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_mm_mem_alloc(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = icmp ugt i64 %1, 4194304
-  %5 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 1), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2144), align 8
   %6 = trunc i8 %5 to i1
   %.not4 = select i1 %4, i1 true, i1 %6
   br i1 %.not4, label %14, label %7
 
 7:                                                ; preds = %3
-  store i8 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2144), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2136), align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = sub i64 0, %2
   %11 = and i64 %9, %10
@@ -73,9 +73,9 @@ define internal ptr @zend_mm_mem_alloc(ptr nocapture readnone %0, i64 noundef %1
   br label %22
 
 14:                                               ; preds = %3
-  %15 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1504), align 8
   %16 = tail call i64 @write(i32 noundef %15, ptr noundef nonnull @.str, i64 noundef 139) #7
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18
 
@@ -84,7 +84,7 @@ define internal ptr @zend_mm_mem_alloc(ptr nocapture readnone %0, i64 noundef %1
   unreachable
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1504), align 8
   %21 = tail call i64 @write(i32 noundef %20, ptr noundef nonnull @.str.1, i64 noundef 56) #7
   br label %22
 
@@ -107,21 +107,21 @@ declare ptr @zend_mm_set_heap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @phpdbg_original_heap_sigsafe_mem() local_unnamed_addr #4 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2160), align 8
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_clear_sigsafe_mem() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2160), align 8
   %2 = tail call ptr @zend_mm_set_heap(ptr noundef %1) #7
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2136), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @phpdbg_active_sigsafe_mem() local_unnamed_addr #4 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2136), align 8
   %2 = icmp ne ptr %1, null
   ret i1 %2
 }

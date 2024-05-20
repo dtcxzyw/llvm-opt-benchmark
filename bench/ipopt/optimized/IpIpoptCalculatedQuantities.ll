@@ -414,7 +414,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define void @_ZN5Ipopt25IpoptCalculatedQuantitiesC2ERKNS_8SmartPtrINS_8IpoptNLPEEERKNS1_INS_9IpoptDataEEE(ptr noundef nonnull align 8 dereferenceable(2185) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -488,499 +488,499 @@ define void @_ZN5Ipopt25IpoptCalculatedQuantitiesC2ERKNS_8SmartPtrINS_8IpoptNLPE
   %43 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 1, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 1, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 1, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 1, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 1, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 1, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr null, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 1, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 264
   %68 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 2, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 320
   store i32 5, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 336
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %74, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 344
   store i32 2, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 360
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 368
   store i32 1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr null, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 392
   store i32 2, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 400
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 416
   store i32 5, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 424
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 440
   store i32 1, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 448
   store ptr null, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 464
   store i32 1, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 472
   store ptr null, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 480
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %92, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 1, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 496
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 504
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %95, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 512
   store i32 1, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 520
   store ptr null, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 528
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %98, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 536
   store i32 1, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 552
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %101, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 560
   store i32 2, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 568
   store ptr null, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 576
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 584
   store i32 1, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 592
   store ptr null, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 600
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %107, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 608
   store i32 2, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 616
   store ptr null, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 624
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %110, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 632
   store i32 1, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 640
   store ptr null, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 648
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %113, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 656
   store i32 1, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 664
   store ptr null, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 672
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %116, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %0, i64 680
   store i32 1, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 688
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 696
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %119, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 1, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr null, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %122, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %0, i64 728
   store i32 1, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %0, i64 736
   store ptr null, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %0, i64 752
   store i32 1, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 760
   store ptr null, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %0, i64 768
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %128, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %0, i64 776
   store i32 2, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %0, i64 784
   store ptr null, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %131, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 800
   store i32 1, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 808
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 816
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %134, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %0, i64 824
   store i32 2, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 832
   store ptr null, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %0, i64 840
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %0, i64 848
   store i32 1, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %0, i64 856
   store ptr null, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %0, i64 864
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %140, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 872
   store i32 1, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %0, i64 880
   store ptr null, ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %0, i64 888
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %143, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %0, i64 896
   store i32 1, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %0, i64 904
   store ptr null, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 912
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %146, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 2, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr null, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %0, i64 936
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %0, i64 944
   store i32 5, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %0, i64 952
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %0, i64 960
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %0, i64 968
   store i32 3, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %0, i64 976
   store ptr null, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %0, i64 984
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %0, i64 992
   store i32 3, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 1000
   store ptr null, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 1008
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %158, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %0, i64 1016
   store i32 3, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %0, i64 1024
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %0, i64 1032
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %161, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %161, align 8
   %162 = getelementptr inbounds i8, ptr %0, i64 1040
   store i32 1, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %0, i64 1048
   store ptr null, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %0, i64 1064
   store i32 1, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %0, i64 1072
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %0, i64 1080
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %167, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 1088
   store i32 1, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %0, i64 1096
   store ptr null, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %0, i64 1104
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %170, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %0, i64 1112
   store i32 1, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %0, i64 1120
   store ptr null, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %0, i64 1128
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %173, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %0, i64 1136
   store i32 1, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %0, i64 1144
   store ptr null, ptr %175, align 8
   %176 = getelementptr inbounds i8, ptr %0, i64 1152
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %176, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %176, align 8
   %177 = getelementptr inbounds i8, ptr %0, i64 1160
   store i32 0, ptr %177, align 8
   %178 = getelementptr inbounds i8, ptr %0, i64 1168
   store ptr null, ptr %178, align 8
   %179 = getelementptr inbounds i8, ptr %0, i64 1176
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %179, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %0, i64 1184
   store i32 0, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %0, i64 1192
   store ptr null, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %0, i64 1200
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %182, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %182, align 8
   %183 = getelementptr inbounds i8, ptr %0, i64 1208
   store i32 1, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %0, i64 1216
   store ptr null, ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 1224
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %185, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds i8, ptr %0, i64 1232
   store i32 1, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %0, i64 1240
   store ptr null, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 1248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %188, align 8
   %189 = getelementptr inbounds i8, ptr %0, i64 1256
   store i32 1, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %0, i64 1264
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %191, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %0, i64 1280
   store i32 1, ptr %192, align 8
   %193 = getelementptr inbounds i8, ptr %0, i64 1288
   store ptr null, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 1296
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %0, i64 1304
   store i32 1, ptr %195, align 8
   %196 = getelementptr inbounds i8, ptr %0, i64 1312
   store ptr null, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 1320
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %197, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %0, i64 1328
   store i32 1, ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 1336
   store ptr null, ptr %199, align 8
   %200 = getelementptr inbounds i8, ptr %0, i64 1344
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %200, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %0, i64 1352
   store i32 1, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %0, i64 1360
   store ptr null, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %0, i64 1368
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %203, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %0, i64 1376
   store i32 1, ptr %204, align 8
   %205 = getelementptr inbounds i8, ptr %0, i64 1384
   store ptr null, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %0, i64 1392
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %206, align 8
   %207 = getelementptr inbounds i8, ptr %0, i64 1400
   store i32 1, ptr %207, align 8
   %208 = getelementptr inbounds i8, ptr %0, i64 1408
   store ptr null, ptr %208, align 8
   %209 = getelementptr inbounds i8, ptr %0, i64 1416
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %209, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %209, align 8
   %210 = getelementptr inbounds i8, ptr %0, i64 1424
   store i32 1, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %0, i64 1432
   store ptr null, ptr %211, align 8
   %212 = getelementptr inbounds i8, ptr %0, i64 1440
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %212, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %212, align 8
   %213 = getelementptr inbounds i8, ptr %0, i64 1448
   store i32 1, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %0, i64 1456
   store ptr null, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %0, i64 1464
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %215, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %0, i64 1472
   store i32 1, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %0, i64 1480
   store ptr null, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %0, i64 1488
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %218, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %0, i64 1496
   store i32 3, ptr %219, align 8
   %220 = getelementptr inbounds i8, ptr %0, i64 1504
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds i8, ptr %0, i64 1512
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %221, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %0, i64 1520
   store i32 3, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %0, i64 1528
   store ptr null, ptr %223, align 8
   %224 = getelementptr inbounds i8, ptr %0, i64 1536
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %224, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %224, align 8
   %225 = getelementptr inbounds i8, ptr %0, i64 1544
   store i32 3, ptr %225, align 8
   %226 = getelementptr inbounds i8, ptr %0, i64 1552
   store ptr null, ptr %226, align 8
   %227 = getelementptr inbounds i8, ptr %0, i64 1560
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %227, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %227, align 8
   %228 = getelementptr inbounds i8, ptr %0, i64 1568
   store i32 3, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %0, i64 1576
   store ptr null, ptr %229, align 8
   %230 = getelementptr inbounds i8, ptr %0, i64 1584
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %230, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %0, i64 1592
   store i32 3, ptr %231, align 8
   %232 = getelementptr inbounds i8, ptr %0, i64 1600
   store ptr null, ptr %232, align 8
   %233 = getelementptr inbounds i8, ptr %0, i64 1608
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %233, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %233, align 8
   %234 = getelementptr inbounds i8, ptr %0, i64 1616
   store i32 6, ptr %234, align 8
   %235 = getelementptr inbounds i8, ptr %0, i64 1624
   store ptr null, ptr %235, align 8
   %236 = getelementptr inbounds i8, ptr %0, i64 1632
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %236, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %0, i64 1640
   store i32 6, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %0, i64 1648
   store ptr null, ptr %238, align 8
   %239 = getelementptr inbounds i8, ptr %0, i64 1656
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %239, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %239, align 8
   %240 = getelementptr inbounds i8, ptr %0, i64 1664
   store i32 1, ptr %240, align 8
   %241 = getelementptr inbounds i8, ptr %0, i64 1672
   store ptr null, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %0, i64 1680
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %242, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds i8, ptr %0, i64 1688
   store i32 1, ptr %243, align 8
   %244 = getelementptr inbounds i8, ptr %0, i64 1696
   store ptr null, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %0, i64 1704
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %245, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %245, align 8
   %246 = getelementptr inbounds i8, ptr %0, i64 1712
   store i32 1, ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %0, i64 1720
   store ptr null, ptr %247, align 8
   %248 = getelementptr inbounds i8, ptr %0, i64 1728
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %248, align 8
   %249 = getelementptr inbounds i8, ptr %0, i64 1736
   store i32 1, ptr %249, align 8
   %250 = getelementptr inbounds i8, ptr %0, i64 1744
   store ptr null, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 1752
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %251, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %251, align 8
   %252 = getelementptr inbounds i8, ptr %0, i64 1760
   store i32 1, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %0, i64 1768
   store ptr null, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %0, i64 1776
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %254, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %254, align 8
   %255 = getelementptr inbounds i8, ptr %0, i64 1784
   store i32 3, ptr %255, align 8
   %256 = getelementptr inbounds i8, ptr %0, i64 1792
   store ptr null, ptr %256, align 8
   %257 = getelementptr inbounds i8, ptr %0, i64 1800
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %257, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %257, align 8
   %258 = getelementptr inbounds i8, ptr %0, i64 1808
   store i32 1, ptr %258, align 8
   %259 = getelementptr inbounds i8, ptr %0, i64 1816
   store ptr null, ptr %259, align 8
   %260 = getelementptr inbounds i8, ptr %0, i64 1824
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %260, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %0, i64 1832
   store i32 1, ptr %261, align 8
   %262 = getelementptr inbounds i8, ptr %0, i64 1840
   store ptr null, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %0, i64 1848
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %263, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %263, align 8
   %264 = getelementptr inbounds i8, ptr %0, i64 1856
   store i32 1, ptr %264, align 8
   %265 = getelementptr inbounds i8, ptr %0, i64 1864
   store ptr null, ptr %265, align 8
   %266 = getelementptr inbounds i8, ptr %0, i64 1872
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %266, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds i8, ptr %0, i64 1880
   store i32 1, ptr %267, align 8
   %268 = getelementptr inbounds i8, ptr %0, i64 1888
   store ptr null, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %0, i64 1896
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %269, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %0, i64 1904
   store i32 1, ptr %270, align 8
   %271 = getelementptr inbounds i8, ptr %0, i64 1912
   store ptr null, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %0, i64 1920
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %272, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %272, align 8
   %273 = getelementptr inbounds i8, ptr %0, i64 1928
   store i32 5, ptr %273, align 8
   %274 = getelementptr inbounds i8, ptr %0, i64 1936
   store ptr null, ptr %274, align 8
   %275 = getelementptr inbounds i8, ptr %0, i64 1944
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %275, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %275, align 8
   %276 = getelementptr inbounds i8, ptr %0, i64 1952
   store i32 5, ptr %276, align 8
   %277 = getelementptr inbounds i8, ptr %0, i64 1960
   store ptr null, ptr %277, align 8
   %278 = getelementptr inbounds i8, ptr %0, i64 1968
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %278, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds i8, ptr %0, i64 1976
   store i32 1, ptr %279, align 8
   %280 = getelementptr inbounds i8, ptr %0, i64 1984
   store ptr null, ptr %280, align 8
   %281 = getelementptr inbounds i8, ptr %0, i64 1992
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %281, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %281, align 8
   %282 = getelementptr inbounds i8, ptr %0, i64 2000
   store i32 1, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %0, i64 2008
   store ptr null, ptr %283, align 8
   %284 = getelementptr inbounds i8, ptr %0, i64 2016
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %284, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %284, align 8
   %285 = getelementptr inbounds i8, ptr %0, i64 2024
   store i32 1, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %0, i64 2032
   store ptr null, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %0, i64 2040
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %287, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %287, align 8
   %288 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 1, ptr %288, align 8
   %289 = getelementptr inbounds i8, ptr %0, i64 2056
   store ptr null, ptr %289, align 8
   %290 = getelementptr inbounds i8, ptr %0, i64 2064
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %290, align 8
   %291 = getelementptr inbounds i8, ptr %0, i64 2072
   store i32 1, ptr %291, align 8
   %292 = getelementptr inbounds i8, ptr %0, i64 2080
@@ -992,7 +992,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1052,7 +1052,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit: ; preds = %.l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1112,7 +1112,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1172,7 +1172,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1232,7 +1232,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1292,7 +1292,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1352,7 +1352,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt25IpoptCalculatedQuantitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1642,7 +1642,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit20:       ; preds = %_ZN5Ipopt8SmartPtrI
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit22:       ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit20, %158, %166
   %170 = getelementptr inbounds i8, ptr %0, i64 2064
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %170, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %0, i64 2080
   %172 = load ptr, ptr %171, align 8
   %.not.i = icmp eq ptr %172, null
@@ -1702,7 +1702,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i: ; preds = %
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit22, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i
   %184 = getelementptr inbounds i8, ptr %0, i64 2040
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %184, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 2056
   %186 = load ptr, ptr %185, align 8
   %.not.i23 = icmp eq ptr %186, null
@@ -1762,7 +1762,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i41: ; preds =
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit42:           ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit, %._crit_edge.i34, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i41
   %198 = getelementptr inbounds i8, ptr %0, i64 2016
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %198, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 2032
   %200 = load ptr, ptr %199, align 8
   %.not.i43 = icmp eq ptr %200, null
@@ -1822,7 +1822,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i61: ; preds =
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit62:           ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit42, %._crit_edge.i54, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i61
   %212 = getelementptr inbounds i8, ptr %0, i64 1992
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %212, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %212, align 8
   %213 = getelementptr inbounds i8, ptr %0, i64 2008
   %214 = load ptr, ptr %213, align 8
   %.not.i63 = icmp eq ptr %214, null
@@ -1882,7 +1882,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit62, %._crit_edge.i74, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i
   %226 = getelementptr inbounds i8, ptr %0, i64 1968
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %226, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %226, align 8
   %227 = getelementptr inbounds i8, ptr %0, i64 1984
   %228 = load ptr, ptr %227, align 8
   %.not.i81 = icmp eq ptr %228, null
@@ -1942,7 +1942,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit, %._crit_edge.i92, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i99
   %240 = getelementptr inbounds i8, ptr %0, i64 1944
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %240, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %240, align 8
   %241 = getelementptr inbounds i8, ptr %0, i64 1960
   %242 = load ptr, ptr %241, align 8
   %.not.i101 = icmp eq ptr %242, null
@@ -2002,7 +2002,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit120:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100, %._crit_edge.i112, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119
   %254 = getelementptr inbounds i8, ptr %0, i64 1920
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %254, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %254, align 8
   %255 = getelementptr inbounds i8, ptr %0, i64 1936
   %256 = load ptr, ptr %255, align 8
   %.not.i121 = icmp eq ptr %256, null
@@ -2062,7 +2062,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit140:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit120, %._crit_edge.i132, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139
   %268 = getelementptr inbounds i8, ptr %0, i64 1896
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %268, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %0, i64 1912
   %270 = load ptr, ptr %269, align 8
   %.not.i141 = icmp eq ptr %270, null
@@ -2122,7 +2122,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i159: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit160:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit140, %._crit_edge.i152, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i159
   %282 = getelementptr inbounds i8, ptr %0, i64 1872
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %282, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %0, i64 1888
   %284 = load ptr, ptr %283, align 8
   %.not.i161 = icmp eq ptr %284, null
@@ -2182,7 +2182,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit160, %._crit_edge.i172, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i
   %296 = getelementptr inbounds i8, ptr %0, i64 1848
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %296, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %0, i64 1864
   %298 = load ptr, ptr %297, align 8
   %.not.i179 = icmp eq ptr %298, null
@@ -2242,7 +2242,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit, %._crit_edge.i190, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i197
   %310 = getelementptr inbounds i8, ptr %0, i64 1824
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %310, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %310, align 8
   %311 = getelementptr inbounds i8, ptr %0, i64 1840
   %312 = load ptr, ptr %311, align 8
   %.not.i199 = icmp eq ptr %312, null
@@ -2302,7 +2302,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i217: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit218:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198, %._crit_edge.i210, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i217
   %324 = getelementptr inbounds i8, ptr %0, i64 1800
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %324, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %324, align 8
   %325 = getelementptr inbounds i8, ptr %0, i64 1816
   %326 = load ptr, ptr %325, align 8
   %.not.i219 = icmp eq ptr %326, null
@@ -2362,7 +2362,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEE
 
 _ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit218, %._crit_edge.i230, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i
   %338 = getelementptr inbounds i8, ptr %0, i64 1776
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %338, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %0, i64 1792
   %340 = load ptr, ptr %339, align 8
   %.not.i237 = icmp eq ptr %340, null
@@ -2422,7 +2422,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i255: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit256:          ; preds = %_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit, %._crit_edge.i248, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i255
   %352 = getelementptr inbounds i8, ptr %0, i64 1752
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %352, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %352, align 8
   %353 = getelementptr inbounds i8, ptr %0, i64 1768
   %354 = load ptr, ptr %353, align 8
   %.not.i257 = icmp eq ptr %354, null
@@ -2482,7 +2482,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i275: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit276:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit256, %._crit_edge.i268, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i275
   %366 = getelementptr inbounds i8, ptr %0, i64 1728
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %366, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %366, align 8
   %367 = getelementptr inbounds i8, ptr %0, i64 1744
   %368 = load ptr, ptr %367, align 8
   %.not.i277 = icmp eq ptr %368, null
@@ -2542,7 +2542,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i295: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit296:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit276, %._crit_edge.i288, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i295
   %380 = getelementptr inbounds i8, ptr %0, i64 1704
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %380, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %380, align 8
   %381 = getelementptr inbounds i8, ptr %0, i64 1720
   %382 = load ptr, ptr %381, align 8
   %.not.i297 = icmp eq ptr %382, null
@@ -2602,7 +2602,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i315: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit316:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit296, %._crit_edge.i308, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i315
   %394 = getelementptr inbounds i8, ptr %0, i64 1680
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %394, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %394, align 8
   %395 = getelementptr inbounds i8, ptr %0, i64 1696
   %396 = load ptr, ptr %395, align 8
   %.not.i317 = icmp eq ptr %396, null
@@ -2662,7 +2662,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i335: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit336:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit316, %._crit_edge.i328, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i335
   %408 = getelementptr inbounds i8, ptr %0, i64 1656
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %408, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %0, i64 1672
   %410 = load ptr, ptr %409, align 8
   %.not.i337 = icmp eq ptr %410, null
@@ -2722,7 +2722,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i355: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit356:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit336, %._crit_edge.i348, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i355
   %422 = getelementptr inbounds i8, ptr %0, i64 1632
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %422, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %422, align 8
   %423 = getelementptr inbounds i8, ptr %0, i64 1648
   %424 = load ptr, ptr %423, align 8
   %.not.i357 = icmp eq ptr %424, null
@@ -2782,7 +2782,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i375: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit376:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit356, %._crit_edge.i368, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i375
   %436 = getelementptr inbounds i8, ptr %0, i64 1608
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %436, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %436, align 8
   %437 = getelementptr inbounds i8, ptr %0, i64 1624
   %438 = load ptr, ptr %437, align 8
   %.not.i377 = icmp eq ptr %438, null
@@ -2842,7 +2842,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i395: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit396:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit376, %._crit_edge.i388, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i395
   %450 = getelementptr inbounds i8, ptr %0, i64 1584
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %450, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %450, align 8
   %451 = getelementptr inbounds i8, ptr %0, i64 1600
   %452 = load ptr, ptr %451, align 8
   %.not.i397 = icmp eq ptr %452, null
@@ -2902,7 +2902,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i415: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit416:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit396, %._crit_edge.i408, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i415
   %464 = getelementptr inbounds i8, ptr %0, i64 1560
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %464, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %464, align 8
   %465 = getelementptr inbounds i8, ptr %0, i64 1576
   %466 = load ptr, ptr %465, align 8
   %.not.i417 = icmp eq ptr %466, null
@@ -2962,7 +2962,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i435: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit436:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit416, %._crit_edge.i428, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i435
   %478 = getelementptr inbounds i8, ptr %0, i64 1536
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %478, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %478, align 8
   %479 = getelementptr inbounds i8, ptr %0, i64 1552
   %480 = load ptr, ptr %479, align 8
   %.not.i437 = icmp eq ptr %480, null
@@ -3022,7 +3022,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i455: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit456:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit436, %._crit_edge.i448, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i455
   %492 = getelementptr inbounds i8, ptr %0, i64 1512
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %492, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %492, align 8
   %493 = getelementptr inbounds i8, ptr %0, i64 1528
   %494 = load ptr, ptr %493, align 8
   %.not.i457 = icmp eq ptr %494, null
@@ -3082,7 +3082,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i475: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit476:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit456, %._crit_edge.i468, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i475
   %506 = getelementptr inbounds i8, ptr %0, i64 1488
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %506, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %506, align 8
   %507 = getelementptr inbounds i8, ptr %0, i64 1504
   %508 = load ptr, ptr %507, align 8
   %.not.i477 = icmp eq ptr %508, null
@@ -3142,7 +3142,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i495: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit496:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit476, %._crit_edge.i488, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i495
   %520 = getelementptr inbounds i8, ptr %0, i64 1464
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %520, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %520, align 8
   %521 = getelementptr inbounds i8, ptr %0, i64 1480
   %522 = load ptr, ptr %521, align 8
   %.not.i497 = icmp eq ptr %522, null
@@ -3202,7 +3202,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit496, %._crit_edge.i508, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i515
   %534 = getelementptr inbounds i8, ptr %0, i64 1440
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %534, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %534, align 8
   %535 = getelementptr inbounds i8, ptr %0, i64 1456
   %536 = load ptr, ptr %535, align 8
   %.not.i517 = icmp eq ptr %536, null
@@ -3262,7 +3262,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516, %._crit_edge.i528, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i535
   %548 = getelementptr inbounds i8, ptr %0, i64 1416
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %548, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %548, align 8
   %549 = getelementptr inbounds i8, ptr %0, i64 1432
   %550 = load ptr, ptr %549, align 8
   %.not.i537 = icmp eq ptr %550, null
@@ -3322,7 +3322,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536, %._crit_edge.i548, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i555
   %562 = getelementptr inbounds i8, ptr %0, i64 1392
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %562, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %562, align 8
   %563 = getelementptr inbounds i8, ptr %0, i64 1408
   %564 = load ptr, ptr %563, align 8
   %.not.i557 = icmp eq ptr %564, null
@@ -3382,7 +3382,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556, %._crit_edge.i568, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i575
   %576 = getelementptr inbounds i8, ptr %0, i64 1368
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %576, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %576, align 8
   %577 = getelementptr inbounds i8, ptr %0, i64 1384
   %578 = load ptr, ptr %577, align 8
   %.not.i577 = icmp eq ptr %578, null
@@ -3442,7 +3442,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576, %._crit_edge.i588, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i595
   %590 = getelementptr inbounds i8, ptr %0, i64 1344
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %590, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %590, align 8
   %591 = getelementptr inbounds i8, ptr %0, i64 1360
   %592 = load ptr, ptr %591, align 8
   %.not.i597 = icmp eq ptr %592, null
@@ -3502,7 +3502,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596, %._crit_edge.i608, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i615
   %604 = getelementptr inbounds i8, ptr %0, i64 1320
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %604, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %604, align 8
   %605 = getelementptr inbounds i8, ptr %0, i64 1336
   %606 = load ptr, ptr %605, align 8
   %.not.i617 = icmp eq ptr %606, null
@@ -3562,7 +3562,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616, %._crit_edge.i628, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i635
   %618 = getelementptr inbounds i8, ptr %0, i64 1296
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %618, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %618, align 8
   %619 = getelementptr inbounds i8, ptr %0, i64 1312
   %620 = load ptr, ptr %619, align 8
   %.not.i637 = icmp eq ptr %620, null
@@ -3622,7 +3622,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636, %._crit_edge.i648, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i655
   %632 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %632, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %632, align 8
   %633 = getelementptr inbounds i8, ptr %0, i64 1288
   %634 = load ptr, ptr %633, align 8
   %.not.i657 = icmp eq ptr %634, null
@@ -3682,7 +3682,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656, %._crit_edge.i668, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i675
   %646 = getelementptr inbounds i8, ptr %0, i64 1248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %646, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %646, align 8
   %647 = getelementptr inbounds i8, ptr %0, i64 1264
   %648 = load ptr, ptr %647, align 8
   %.not.i677 = icmp eq ptr %648, null
@@ -3742,7 +3742,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676, %._crit_edge.i688, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i695
   %660 = getelementptr inbounds i8, ptr %0, i64 1224
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %660, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %660, align 8
   %661 = getelementptr inbounds i8, ptr %0, i64 1240
   %662 = load ptr, ptr %661, align 8
   %.not.i697 = icmp eq ptr %662, null
@@ -3802,7 +3802,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696, %._crit_edge.i708, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i715
   %674 = getelementptr inbounds i8, ptr %0, i64 1200
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %674, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %674, align 8
   %675 = getelementptr inbounds i8, ptr %0, i64 1216
   %676 = load ptr, ptr %675, align 8
   %.not.i717 = icmp eq ptr %676, null
@@ -3862,7 +3862,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716, %._crit_edge.i728, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i735
   %688 = getelementptr inbounds i8, ptr %0, i64 1176
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %688, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %688, align 8
   %689 = getelementptr inbounds i8, ptr %0, i64 1192
   %690 = load ptr, ptr %689, align 8
   %.not.i737 = icmp eq ptr %690, null
@@ -3922,7 +3922,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736, %._crit_edge.i748, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i755
   %702 = getelementptr inbounds i8, ptr %0, i64 1152
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %702, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %702, align 8
   %703 = getelementptr inbounds i8, ptr %0, i64 1168
   %704 = load ptr, ptr %703, align 8
   %.not.i757 = icmp eq ptr %704, null
@@ -3982,7 +3982,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756, %._crit_edge.i768, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i775
   %716 = getelementptr inbounds i8, ptr %0, i64 1128
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %716, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %716, align 8
   %717 = getelementptr inbounds i8, ptr %0, i64 1144
   %718 = load ptr, ptr %717, align 8
   %.not.i777 = icmp eq ptr %718, null
@@ -4042,7 +4042,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776, %._crit_edge.i788, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i795
   %730 = getelementptr inbounds i8, ptr %0, i64 1104
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %730, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %730, align 8
   %731 = getelementptr inbounds i8, ptr %0, i64 1120
   %732 = load ptr, ptr %731, align 8
   %.not.i797 = icmp eq ptr %732, null
@@ -4102,7 +4102,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796, %._crit_edge.i808, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i815
   %744 = getelementptr inbounds i8, ptr %0, i64 1080
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %744, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %744, align 8
   %745 = getelementptr inbounds i8, ptr %0, i64 1096
   %746 = load ptr, ptr %745, align 8
   %.not.i817 = icmp eq ptr %746, null
@@ -4162,7 +4162,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816, %._crit_edge.i828, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i835
   %758 = getelementptr inbounds i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %758, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %758, align 8
   %759 = getelementptr inbounds i8, ptr %0, i64 1072
   %760 = load ptr, ptr %759, align 8
   %.not.i837 = icmp eq ptr %760, null
@@ -4222,7 +4222,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836, %._crit_edge.i848, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i855
   %772 = getelementptr inbounds i8, ptr %0, i64 1032
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %772, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %772, align 8
   %773 = getelementptr inbounds i8, ptr %0, i64 1048
   %774 = load ptr, ptr %773, align 8
   %.not.i857 = icmp eq ptr %774, null
@@ -4282,7 +4282,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEES
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856, %._crit_edge.i868, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i
   %786 = getelementptr inbounds i8, ptr %0, i64 1008
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %786, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %786, align 8
   %787 = getelementptr inbounds i8, ptr %0, i64 1024
   %788 = load ptr, ptr %787, align 8
   %.not.i875 = icmp eq ptr %788, null
@@ -4342,7 +4342,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i893: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit894:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit, %._crit_edge.i886, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i893
   %800 = getelementptr inbounds i8, ptr %0, i64 984
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %800, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %800, align 8
   %801 = getelementptr inbounds i8, ptr %0, i64 1000
   %802 = load ptr, ptr %801, align 8
   %.not.i895 = icmp eq ptr %802, null
@@ -4402,7 +4402,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i913: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit914:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit894, %._crit_edge.i906, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i913
   %814 = getelementptr inbounds i8, ptr %0, i64 960
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %814, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %814, align 8
   %815 = getelementptr inbounds i8, ptr %0, i64 976
   %816 = load ptr, ptr %815, align 8
   %.not.i915 = icmp eq ptr %816, null
@@ -4462,7 +4462,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i933: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit934:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit914, %._crit_edge.i926, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i933
   %828 = getelementptr inbounds i8, ptr %0, i64 936
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %828, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %828, align 8
   %829 = getelementptr inbounds i8, ptr %0, i64 952
   %830 = load ptr, ptr %829, align 8
   %.not.i935 = icmp eq ptr %830, null
@@ -4522,7 +4522,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i953: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit954:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit934, %._crit_edge.i946, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i953
   %842 = getelementptr inbounds i8, ptr %0, i64 912
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %842, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %842, align 8
   %843 = getelementptr inbounds i8, ptr %0, i64 928
   %844 = load ptr, ptr %843, align 8
   %.not.i955 = icmp eq ptr %844, null
@@ -4582,7 +4582,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i973: ; preds 
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit974:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit954, %._crit_edge.i966, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i973
   %856 = getelementptr inbounds i8, ptr %0, i64 888
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %856, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %856, align 8
   %857 = getelementptr inbounds i8, ptr %0, i64 904
   %858 = load ptr, ptr %857, align 8
   %.not.i975 = icmp eq ptr %858, null
@@ -4642,7 +4642,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit974, %._crit_edge.i986, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i993
   %870 = getelementptr inbounds i8, ptr %0, i64 864
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %870, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %870, align 8
   %871 = getelementptr inbounds i8, ptr %0, i64 880
   %872 = load ptr, ptr %871, align 8
   %.not.i995 = icmp eq ptr %872, null
@@ -4702,7 +4702,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994, %._crit_edge.i1006, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1013
   %884 = getelementptr inbounds i8, ptr %0, i64 840
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %884, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %884, align 8
   %885 = getelementptr inbounds i8, ptr %0, i64 856
   %886 = load ptr, ptr %885, align 8
   %.not.i1015 = icmp eq ptr %886, null
@@ -4762,7 +4762,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014, %._crit_edge.i1026, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1033
   %898 = getelementptr inbounds i8, ptr %0, i64 816
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %898, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %898, align 8
   %899 = getelementptr inbounds i8, ptr %0, i64 832
   %900 = load ptr, ptr %899, align 8
   %.not.i1035 = icmp eq ptr %900, null
@@ -4822,7 +4822,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034, %._crit_edge.i1046, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1053
   %912 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %912, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %912, align 8
   %913 = getelementptr inbounds i8, ptr %0, i64 808
   %914 = load ptr, ptr %913, align 8
   %.not.i1055 = icmp eq ptr %914, null
@@ -4882,7 +4882,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054, %._crit_edge.i1066, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1073
   %926 = getelementptr inbounds i8, ptr %0, i64 768
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %926, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %926, align 8
   %927 = getelementptr inbounds i8, ptr %0, i64 784
   %928 = load ptr, ptr %927, align 8
   %.not.i1075 = icmp eq ptr %928, null
@@ -4942,7 +4942,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074, %._crit_edge.i1086, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1093
   %940 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %940, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %940, align 8
   %941 = getelementptr inbounds i8, ptr %0, i64 760
   %942 = load ptr, ptr %941, align 8
   %.not.i1095 = icmp eq ptr %942, null
@@ -5002,7 +5002,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094, %._crit_edge.i1106, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i
   %954 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %954, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %954, align 8
   %955 = getelementptr inbounds i8, ptr %0, i64 736
   %956 = load ptr, ptr %955, align 8
   %.not.i1113 = icmp eq ptr %956, null
@@ -5062,7 +5062,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit, %._crit_edge.i1124, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1131
   %968 = getelementptr inbounds i8, ptr %0, i64 696
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %968, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %968, align 8
   %969 = getelementptr inbounds i8, ptr %0, i64 712
   %970 = load ptr, ptr %969, align 8
   %.not.i1133 = icmp eq ptr %970, null
@@ -5122,7 +5122,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132, %._crit_edge.i1144, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1151
   %982 = getelementptr inbounds i8, ptr %0, i64 672
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %982, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %982, align 8
   %983 = getelementptr inbounds i8, ptr %0, i64 688
   %984 = load ptr, ptr %983, align 8
   %.not.i1153 = icmp eq ptr %984, null
@@ -5182,7 +5182,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152, %._crit_edge.i1164, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1171
   %996 = getelementptr inbounds i8, ptr %0, i64 648
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %996, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %996, align 8
   %997 = getelementptr inbounds i8, ptr %0, i64 664
   %998 = load ptr, ptr %997, align 8
   %.not.i1173 = icmp eq ptr %998, null
@@ -5242,7 +5242,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172, %._crit_edge.i1184, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1191
   %1010 = getelementptr inbounds i8, ptr %0, i64 624
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1010, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1010, align 8
   %1011 = getelementptr inbounds i8, ptr %0, i64 640
   %1012 = load ptr, ptr %1011, align 8
   %.not.i1193 = icmp eq ptr %1012, null
@@ -5302,7 +5302,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192, %._crit_edge.i1204, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1211
   %1024 = getelementptr inbounds i8, ptr %0, i64 600
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1024, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1024, align 8
   %1025 = getelementptr inbounds i8, ptr %0, i64 616
   %1026 = load ptr, ptr %1025, align 8
   %.not.i1213 = icmp eq ptr %1026, null
@@ -5362,7 +5362,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212, %._crit_edge.i1224, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1231
   %1038 = getelementptr inbounds i8, ptr %0, i64 576
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1038, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1038, align 8
   %1039 = getelementptr inbounds i8, ptr %0, i64 592
   %1040 = load ptr, ptr %1039, align 8
   %.not.i1233 = icmp eq ptr %1040, null
@@ -5422,7 +5422,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232, %._crit_edge.i1244, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1251
   %1052 = getelementptr inbounds i8, ptr %0, i64 552
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1052, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1052, align 8
   %1053 = getelementptr inbounds i8, ptr %0, i64 568
   %1054 = load ptr, ptr %1053, align 8
   %.not.i1253 = icmp eq ptr %1054, null
@@ -5482,7 +5482,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252, %._crit_edge.i1264, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1271
   %1066 = getelementptr inbounds i8, ptr %0, i64 528
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1066, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1066, align 8
   %1067 = getelementptr inbounds i8, ptr %0, i64 544
   %1068 = load ptr, ptr %1067, align 8
   %.not.i1273 = icmp eq ptr %1068, null
@@ -5542,7 +5542,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272, %._crit_edge.i1284, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1291
   %1080 = getelementptr inbounds i8, ptr %0, i64 504
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1080, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1080, align 8
   %1081 = getelementptr inbounds i8, ptr %0, i64 520
   %1082 = load ptr, ptr %1081, align 8
   %.not.i1293 = icmp eq ptr %1082, null
@@ -5602,7 +5602,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292, %._crit_edge.i1304, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1311
   %1094 = getelementptr inbounds i8, ptr %0, i64 480
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1094, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1094, align 8
   %1095 = getelementptr inbounds i8, ptr %0, i64 496
   %1096 = load ptr, ptr %1095, align 8
   %.not.i1313 = icmp eq ptr %1096, null
@@ -5662,7 +5662,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312, %._crit_edge.i1324, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1331
   %1108 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1108, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1108, align 8
   %1109 = getelementptr inbounds i8, ptr %0, i64 472
   %1110 = load ptr, ptr %1109, align 8
   %.not.i1333 = icmp eq ptr %1110, null
@@ -5722,7 +5722,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332, %._crit_edge.i1344, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1351
   %1122 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1122, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1122, align 8
   %1123 = getelementptr inbounds i8, ptr %0, i64 448
   %1124 = load ptr, ptr %1123, align 8
   %.not.i1353 = icmp eq ptr %1124, null
@@ -5782,7 +5782,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352, %._crit_edge.i1364, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1371
   %1136 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %1136, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %1136, align 8
   %1137 = getelementptr inbounds i8, ptr %0, i64 424
   %1138 = load ptr, ptr %1137, align 8
   %.not.i1373 = icmp eq ptr %1138, null
@@ -5842,7 +5842,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1391: ; preds
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1392:         ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372, %._crit_edge.i1384, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1391
   %1150 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %1150, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %1150, align 8
   %1151 = getelementptr inbounds i8, ptr %0, i64 400
   %1152 = load ptr, ptr %1151, align 8
   %.not.i1393 = icmp eq ptr %1152, null
@@ -5902,7 +5902,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1411: ; preds
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1412:         ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1392, %._crit_edge.i1404, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1411
   %1164 = getelementptr inbounds i8, ptr %0, i64 360
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1164, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1164, align 8
   %1165 = getelementptr inbounds i8, ptr %0, i64 376
   %1166 = load ptr, ptr %1165, align 8
   %.not.i1413 = icmp eq ptr %1166, null
@@ -5962,7 +5962,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1412, %._crit_edge.i1424, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1431
   %1178 = getelementptr inbounds i8, ptr %0, i64 336
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1178, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %1178, align 8
   %1179 = getelementptr inbounds i8, ptr %0, i64 352
   %1180 = load ptr, ptr %1179, align 8
   %.not.i1433 = icmp eq ptr %1180, null
@@ -6022,7 +6022,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432, %._crit_edge.i1444, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1451
   %1192 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %1192, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %1192, align 8
   %1193 = getelementptr inbounds i8, ptr %0, i64 328
   %1194 = load ptr, ptr %1193, align 8
   %.not.i1453 = icmp eq ptr %1194, null
@@ -6082,7 +6082,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1471: ; preds
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1472:         ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452, %._crit_edge.i1464, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1471
   %1206 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %1206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %1206, align 8
   %1207 = getelementptr inbounds i8, ptr %0, i64 304
   %1208 = load ptr, ptr %1207, align 8
   %.not.i1473 = icmp eq ptr %1208, null
@@ -6142,7 +6142,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1491: ; preds
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1492:         ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1472, %._crit_edge.i1484, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1491
   %1220 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1220, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1220, align 8
   %1221 = getelementptr inbounds i8, ptr %0, i64 264
   %1222 = load ptr, ptr %1221, align 8
   %.not.i1493 = icmp eq ptr %1222, null
@@ -6202,7 +6202,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1492, %._crit_edge.i1504, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1511
   %1234 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1234, align 8
   %1235 = getelementptr inbounds i8, ptr %0, i64 240
   %1236 = load ptr, ptr %1235, align 8
   %.not.i1513 = icmp eq ptr %1236, null
@@ -6262,7 +6262,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512, %._crit_edge.i1524, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1531
   %1248 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1248, align 8
   %1249 = getelementptr inbounds i8, ptr %0, i64 216
   %1250 = load ptr, ptr %1249, align 8
   %.not.i1533 = icmp eq ptr %1250, null
@@ -6322,7 +6322,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532, %._crit_edge.i1544, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1551
   %1262 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1262, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1262, align 8
   %1263 = getelementptr inbounds i8, ptr %0, i64 192
   %1264 = load ptr, ptr %1263, align 8
   %.not.i1553 = icmp eq ptr %1264, null
@@ -6382,7 +6382,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552, %._crit_edge.i1564, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1571
   %1276 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1276, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1276, align 8
   %1277 = getelementptr inbounds i8, ptr %0, i64 168
   %1278 = load ptr, ptr %1277, align 8
   %.not.i1573 = icmp eq ptr %1278, null
@@ -6442,7 +6442,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572, %._crit_edge.i1584, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1591
   %1290 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1290, align 8
   %1291 = getelementptr inbounds i8, ptr %0, i64 144
   %1292 = load ptr, ptr %1291, align 8
   %.not.i1593 = icmp eq ptr %1292, null
@@ -6502,7 +6502,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592, %._crit_edge.i1604, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1611
   %1304 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1304, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1304, align 8
   %1305 = getelementptr inbounds i8, ptr %0, i64 120
   %1306 = load ptr, ptr %1305, align 8
   %.not.i1613 = icmp eq ptr %1306, null
@@ -6562,7 +6562,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1632: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612, %._crit_edge.i1624, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1631
   %1318 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %1318, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %1318, align 8
   %1319 = getelementptr inbounds i8, ptr %0, i64 96
   %1320 = load ptr, ptr %1319, align 8
   %.not.i1633 = icmp eq ptr %1320, null
@@ -6693,7 +6693,7 @@ _ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit:      ; preds = %_ZN5Ipopt8SmartPtrI
   br label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit:       ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit, %1362, %1370
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6760,7 +6760,7 @@ define void @_ZN5Ipopt25IpoptCalculatedQuantities15RegisterOptionsENS_8SmartPtrI
           to label %.noexc61 unwind label %147
 
 .noexc61:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %48
 
 48:                                               ; preds = %.noexc61
@@ -6789,7 +6789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc63 unwind label %151
 
 .noexc63:                                         ; preds = %.noexc62
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.1, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66 unwind label %56
 
 56:                                               ; preds = %.noexc63
@@ -6808,7 +6808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66: ; 
           to label %.noexc68 unwind label %153
 
 .noexc68:                                         ; preds = %.noexc67
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([37 x i8], ptr @.str.2, i64 0, i64 36))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 36))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71 unwind label %59
 
 59:                                               ; preds = %.noexc68
@@ -6827,7 +6827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71: ; 
           to label %.noexc73 unwind label %155
 
 .noexc73:                                         ; preds = %.noexc72
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([58 x i8], ptr @.str.3, i64 0, i64 57))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 57))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76 unwind label %62
 
 62:                                               ; preds = %.noexc73
@@ -6860,7 +6860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76: ; 
           to label %.noexc78 unwind label %159
 
 .noexc78:                                         ; preds = %.noexc77
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.4, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81 unwind label %70
 
 70:                                               ; preds = %.noexc78
@@ -6889,7 +6889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
           to label %.noexc83 unwind label %163
 
 .noexc83:                                         ; preds = %.noexc82
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.5, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86 unwind label %78
 
 78:                                               ; preds = %.noexc83
@@ -6908,7 +6908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; 
           to label %.noexc88 unwind label %165
 
 .noexc88:                                         ; preds = %.noexc87
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([61 x i8], ptr @.str.6, i64 0, i64 60))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 60))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91 unwind label %81
 
 81:                                               ; preds = %.noexc88
@@ -6927,7 +6927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91: ; 
           to label %.noexc93 unwind label %167
 
 .noexc93:                                         ; preds = %.noexc92
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.7, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 40))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit96 unwind label %84
 
 84:                                               ; preds = %.noexc93
@@ -6960,7 +6960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit96: ; 
           to label %.noexc98 unwind label %171
 
 .noexc98:                                         ; preds = %.noexc97
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.8, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101 unwind label %92
 
 92:                                               ; preds = %.noexc98
@@ -6989,7 +6989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101: ;
           to label %.noexc103 unwind label %175
 
 .noexc103:                                        ; preds = %.noexc102
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.9, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106 unwind label %100
 
 100:                                              ; preds = %.noexc103
@@ -7008,7 +7008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106: ;
           to label %.noexc108 unwind label %177
 
 .noexc108:                                        ; preds = %.noexc107
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([39 x i8], ptr @.str.10, i64 0, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 38))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111 unwind label %103
 
 103:                                              ; preds = %.noexc108
@@ -7027,7 +7027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
           to label %.noexc113 unwind label %179
 
 .noexc113:                                        ; preds = %.noexc112
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([403 x i8], ptr @.str.11, i64 0, i64 402))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 402))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit116 unwind label %106
 
 106:                                              ; preds = %.noexc113
@@ -7060,7 +7060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit116: ;
           to label %.noexc118 unwind label %183
 
 .noexc118:                                        ; preds = %.noexc117
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([31 x i8], ptr @.str.12, i64 0, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 30))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit121 unwind label %114
 
 114:                                              ; preds = %.noexc118
@@ -7079,7 +7079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit121: ;
           to label %.noexc123 unwind label %185
 
 .noexc123:                                        ; preds = %.noexc122
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([65 x i8], ptr @.str.13, i64 0, i64 64))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 64))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126 unwind label %117
 
 117:                                              ; preds = %.noexc123
@@ -7098,7 +7098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126: ;
           to label %.noexc128 unwind label %187
 
 .noexc128:                                        ; preds = %.noexc127
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.14, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131 unwind label %120
 
 120:                                              ; preds = %.noexc128
@@ -7117,7 +7117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
           to label %.noexc133 unwind label %189
 
 .noexc133:                                        ; preds = %.noexc132
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.14, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit136 unwind label %123
 
 123:                                              ; preds = %.noexc133
@@ -7136,7 +7136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit136: ;
           to label %.noexc138 unwind label %191
 
 .noexc138:                                        ; preds = %.noexc137
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([15 x i8], ptr @.str.15, i64 0, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 14))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141 unwind label %126
 
 126:                                              ; preds = %.noexc138
@@ -7155,7 +7155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141: ;
           to label %.noexc143 unwind label %193
 
 .noexc143:                                        ; preds = %.noexc142
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.16, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146 unwind label %129
 
 129:                                              ; preds = %.noexc143
@@ -7174,7 +7174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146: ;
           to label %.noexc148 unwind label %195
 
 .noexc148:                                        ; preds = %.noexc147
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([15 x i8], ptr @.str.17, i64 0, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 14))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit151 unwind label %132
 
 132:                                              ; preds = %.noexc148
@@ -7193,7 +7193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit151: ;
           to label %.noexc153 unwind label %197
 
 .noexc153:                                        ; preds = %.noexc152
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.18, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit156 unwind label %135
 
 135:                                              ; preds = %.noexc153
@@ -7212,7 +7212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit156: ;
           to label %.noexc158 unwind label %199
 
 .noexc158:                                        ; preds = %.noexc157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.19, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit161 unwind label %138
 
 138:                                              ; preds = %.noexc158
@@ -7231,7 +7231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit161: ;
           to label %.noexc163 unwind label %201
 
 .noexc163:                                        ; preds = %.noexc162
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds ([110 x i8], ptr @.str.20, i64 0, i64 109))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 109))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166 unwind label %141
 
 141:                                              ; preds = %.noexc163
@@ -7552,7 +7552,7 @@ define noundef zeroext i1 @_ZN5Ipopt25IpoptCalculatedQuantities10InitializeERKNS
           to label %.noexc38 unwind label %244
 
 .noexc38:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.1, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
 19:                                               ; preds = %.noexc38
@@ -7581,7 +7581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc40 unwind label %248
 
 .noexc40:                                         ; preds = %.noexc39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.5, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43 unwind label %28
 
 28:                                               ; preds = %.noexc40
@@ -7610,7 +7610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43: ; 
           to label %.noexc45 unwind label %252
 
 .noexc45:                                         ; preds = %.noexc44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.9, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48 unwind label %37
 
 37:                                               ; preds = %.noexc45
@@ -7639,7 +7639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; 
           to label %.noexc50 unwind label %256
 
 .noexc50:                                         ; preds = %.noexc49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([31 x i8], ptr @.str.12, i64 0, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 30))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53 unwind label %46
 
 46:                                               ; preds = %.noexc50
@@ -7670,7 +7670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53: ; 
           to label %.noexc55 unwind label %260
 
 .noexc55:                                         ; preds = %.noexc54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds ([26 x i8], ptr @.str.21, i64 0, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 25))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58 unwind label %56
 
 56:                                               ; preds = %.noexc55
@@ -7699,7 +7699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58: ; 
           to label %.noexc60 unwind label %264
 
 .noexc60:                                         ; preds = %.noexc59
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.22, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63 unwind label %65
 
 65:                                               ; preds = %.noexc60
@@ -68837,7 +68837,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -69078,7 +69078,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -69143,7 +69143,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %1, %._crit_edge.i, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -69208,7 +69208,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %1, %._
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -69273,7 +69273,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit: ; preds = %1, %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -69338,7 +69338,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit: ; preds = %1, %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -69403,7 +69403,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit: ; preds = %1,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -70009,7 +70009,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEEC2ERKS3_RKSt6vectorIPKNS_12TaggedObjectESaISA_EERKS7_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -70403,7 +70403,7 @@ _ZNK5Ipopt7Subject14AttachObserverENS_8Observer10NotifyTypeEPS1_.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -70448,7 +70448,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %10, %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -70516,7 +70516,7 @@ define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -70847,7 +70847,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 define linkonce_odr void @_ZN5Ipopt15DependentResultIdEC2ERKdRKSt6vectorIPKNS_12TaggedObjectESaIS7_EERKS4_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultIdEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultIdEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -71039,7 +71039,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %88, %_ZNSt6vectorId
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultIdED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultIdEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultIdEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -71060,7 +71060,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -71130,7 +71130,7 @@ define linkonce_odr void @_ZN5Ipopt15DependentResultIdE19ReceiveNotificationENS_
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEEC2ERKS4_RKSt6vectorIPKNS_12TaggedObjectESaISB_EERKS8_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -71377,7 +71377,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %115, %107, %_ZNSt6v
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -71422,7 +71422,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %10, %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -72281,7 +72281,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEEC2ERKS4_RKSt6vectorIPKNS_12TaggedObjectESaISB_EERKS8_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -72528,7 +72528,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %115, %107, %_ZNSt6v
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -72573,7 +72573,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %10, %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -73214,7 +73214,7 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
 define linkonce_odr void @_ZN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EEC2ERKS5_RKSt6vectorIPKNS_12TaggedObjectESaISC_EERKS9_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -73475,7 +73475,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %124, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -73544,7 +73544,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit.i:       ; preds = %19, %11, %_ZNSt6vec
   br label %_ZNSt4pairIN5Ipopt8SmartPtrINS0_6VectorEEES3_ED2Ev.exit
 
 _ZNSt4pairIN5Ipopt8SmartPtrINS0_6VectorEEES3_ED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit.i, %24, %32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -73614,7 +73614,7 @@ define linkonce_odr void @_ZN5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6Ve
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEEC2ERKS4_RKSt6vectorIPKNS_12TaggedObjectESaISB_EERKS8_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -73861,7 +73861,7 @@ _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit:     ; preds = %115, %107, %_ZNSt6v
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -73906,7 +73906,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit:     ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %10, %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt8ObserverE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8

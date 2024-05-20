@@ -4296,7 +4296,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
 
 21:                                               ; preds = %17, %4
   tail call void @__rcu_read_lock() #16
-  %22 = load volatile ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 41), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 2536), align 8
   %23 = getelementptr [0 x ptr], ptr %22, i64 0, i64 %8
   %24 = load ptr, ptr %23, align 8
   tail call void @__rcu_read_unlock() #16

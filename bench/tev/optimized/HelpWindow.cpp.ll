@@ -366,7 +366,7 @@ define dso_local void @_ZN3tev10HelpWindowC2EPN7nanogui6WidgetEbNSt3__18function
 
 159:                                              ; preds = %4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3tev10HelpWindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %160 = getelementptr inbounds i8, ptr %0, i64 176
   %161 = getelementptr inbounds i8, ptr %3, i64 32
   %162 = load ptr, ptr %161, align 16
@@ -477,7 +477,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__18functionI
 
 209:                                              ; preds = %207
   %210 = getelementptr inbounds i8, ptr %208, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i64 0, i32 0, i64 2), ptr %208, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %208, align 8
   store <4 x i32> <i32 0, i32 15, i32 6, i32 14>, ptr %210, align 4
   %211 = getelementptr inbounds i8, ptr %208, i64 24
   store i32 20, ptr %211, align 8
@@ -564,7 +564,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 237:                                              ; preds = %235
   %238 = getelementptr inbounds i8, ptr %236, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i64 0, i32 0, i64 2), ptr %236, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %236, align 8
   store <4 x i32> <i32 0, i32 15, i32 6, i32 14>, ptr %238, align 4
   %239 = getelementptr inbounds i8, ptr %236, i64 24
   store i32 20, ptr %239, align 8
@@ -666,7 +666,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit375: ; preds = %256, %261
   %265 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !5
   %266 = and i8 %265, 1
   %.not.i.i376 = icmp eq i8 %266, 0
-  %267 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !5
+  %267 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !5
   %268 = lshr i8 %265, 1
   %269 = zext nneg i8 %268 to i64
   %270 = select i1 %.not.i.i376, i64 %269, i64 %267
@@ -708,8 +708,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 287:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i
   %288 = phi ptr [ %280, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread ], [ %286, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i ]
-  %289 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !5
-  %290 = select i1 %.not.i.i376, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %289
+  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !5
+  %290 = select i1 %.not.i.i376, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %289
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %288, ptr align 1 %290, i64 %270, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
 
@@ -733,7 +733,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %295 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !8
   %296 = and i8 %295, 1
   %.not.i.i381 = icmp eq i8 %296, 0
-  %297 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !8
+  %297 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !8
   %298 = lshr i8 %295, 1
   %299 = zext nneg i8 %298 to i64
   %300 = select i1 %.not.i.i381, i64 %299, i64 %297
@@ -775,8 +775,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 317:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i384.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i384
   %318 = phi ptr [ %310, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i384.thread ], [ %316, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i384 ]
-  %319 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !8
-  %320 = select i1 %.not.i.i381, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %319
+  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !8
+  %320 = select i1 %.not.i.i381, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %319
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %318, ptr align 1 %320, i64 %300, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i387
 
@@ -800,7 +800,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %325 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !11
   %326 = and i8 %325, 1
   %.not.i.i394 = icmp eq i8 %326, 0
-  %327 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !11
+  %327 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !11
   %328 = lshr i8 %325, 1
   %329 = zext nneg i8 %328 to i64
   %330 = select i1 %.not.i.i394, i64 %329, i64 %327
@@ -842,8 +842,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 347:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i397.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i397
   %348 = phi ptr [ %340, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i397.thread ], [ %346, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i397 ]
-  %349 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !11
-  %350 = select i1 %.not.i.i394, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %349
+  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !11
+  %350 = select i1 %.not.i.i394, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %349
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %348, ptr align 1 %350, i64 %330, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i400
 
@@ -866,7 +866,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %355 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !14
   %356 = and i8 %355, 1
   %.not.i.i407 = icmp eq i8 %356, 0
-  %357 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !14
+  %357 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !14
   %358 = lshr i8 %355, 1
   %359 = zext nneg i8 %358 to i64
   %360 = select i1 %.not.i.i407, i64 %359, i64 %357
@@ -895,7 +895,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
   store ptr %370, ptr %372, align 8, !alias.scope !15
   %373 = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %361, ptr %373, align 8, !alias.scope !15
-  %.pre846 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !14
+  %.pre846 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !14
   br label %377
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410: ; preds = %363
@@ -905,17 +905,17 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
   store i8 %375, ptr %21, align 8, !alias.scope !15
   %376 = getelementptr inbounds i8, ptr %21, i64 1
   %.not.i.i.i.i.i.i.i.i.i.i412 = icmp eq i64 %360, 0
-  %.pre = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !14
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !14
   br i1 %.not.i.i.i.i.i.i.i.i.i.i412, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410._ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i413_crit_edge, label %377
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410._ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i413_crit_edge: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410
-  %.pre837 = select i1 %.not.i.i407, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %.pre
+  %.pre837 = select i1 %.not.i.i407, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %.pre
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i413
 
 377:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410
   %.pre847 = phi ptr [ %.pre846, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410.thread ], [ %.pre, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410 ]
   %378 = phi ptr [ %370, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410.thread ], [ %376, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i410 ]
-  %379 = select i1 %.not.i.i407, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %.pre847
+  %379 = select i1 %.not.i.i407, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %.pre847
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %378, ptr align 1 %379, i64 %360, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i413
 
@@ -954,7 +954,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %388 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !24
   %389 = and i8 %388, 1
   %.not.i.i423 = icmp eq i8 %389, 0
-  %390 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !24
+  %390 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !24
   %391 = lshr i8 %388, 1
   %392 = zext nneg i8 %391 to i64
   %393 = select i1 %.not.i.i423, i64 %392, i64 %390
@@ -996,8 +996,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 410:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i426.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i426
   %411 = phi ptr [ %403, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i426.thread ], [ %409, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i426 ]
-  %412 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !24
-  %413 = select i1 %.not.i.i423, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %412
+  %412 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !24
+  %413 = select i1 %.not.i.i423, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %412
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %411, ptr align 1 %413, i64 %393, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i429
 
@@ -1021,7 +1021,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %418 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !27
   %419 = and i8 %418, 1
   %.not.i.i436 = icmp eq i8 %419, 0
-  %420 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !27
+  %420 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !27
   %421 = lshr i8 %418, 1
   %422 = zext nneg i8 %421 to i64
   %423 = select i1 %.not.i.i436, i64 %422, i64 %420
@@ -1063,8 +1063,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 440:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i439.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i439
   %441 = phi ptr [ %433, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i439.thread ], [ %439, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i439 ]
-  %442 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !27
-  %443 = select i1 %.not.i.i436, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %442
+  %442 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !27
+  %443 = select i1 %.not.i.i436, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %442
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %441, ptr align 1 %443, i64 %423, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i442
 
@@ -1088,7 +1088,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %448 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !30
   %449 = and i8 %448, 1
   %.not.i.i449 = icmp eq i8 %449, 0
-  %450 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !30
+  %450 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !30
   %451 = lshr i8 %448, 1
   %452 = zext nneg i8 %451 to i64
   %453 = select i1 %.not.i.i449, i64 %452, i64 %450
@@ -1130,8 +1130,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 470:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i452.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i452
   %471 = phi ptr [ %463, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i452.thread ], [ %469, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i452 ]
-  %472 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !30
-  %473 = select i1 %.not.i.i449, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %472
+  %472 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !30
+  %473 = select i1 %.not.i.i449, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %472
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %471, ptr align 1 %473, i64 %453, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i455
 
@@ -1155,7 +1155,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %478 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !33
   %479 = and i8 %478, 1
   %.not.i.i462 = icmp eq i8 %479, 0
-  %480 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !33
+  %480 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !33
   %481 = lshr i8 %478, 1
   %482 = zext nneg i8 %481 to i64
   %483 = select i1 %.not.i.i462, i64 %482, i64 %480
@@ -1197,8 +1197,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 500:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i465.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i465
   %501 = phi ptr [ %493, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i465.thread ], [ %499, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i465 ]
-  %502 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !33
-  %503 = select i1 %.not.i.i462, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %502
+  %502 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !33
+  %503 = select i1 %.not.i.i462, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %502
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %501, ptr align 1 %503, i64 %483, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i468
 
@@ -1222,7 +1222,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %508 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !36
   %509 = and i8 %508, 1
   %.not.i.i475 = icmp eq i8 %509, 0
-  %510 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !36
+  %510 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !36
   %511 = lshr i8 %508, 1
   %512 = zext nneg i8 %511 to i64
   %513 = select i1 %.not.i.i475, i64 %512, i64 %510
@@ -1264,8 +1264,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 530:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i478.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i478
   %531 = phi ptr [ %523, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i478.thread ], [ %529, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i478 ]
-  %532 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !36
-  %533 = select i1 %.not.i.i475, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %532
+  %532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !36
+  %533 = select i1 %.not.i.i475, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %532
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %531, ptr align 1 %533, i64 %513, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i481
 
@@ -1479,7 +1479,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %569 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !45
   %570 = and i8 %569, 1
   %.not.i.i529 = icmp eq i8 %570, 0
-  %571 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !45
+  %571 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !45
   %572 = lshr i8 %569, 1
   %573 = zext nneg i8 %572 to i64
   %574 = select i1 %.not.i.i529, i64 %573, i64 %571
@@ -1521,8 +1521,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 591:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i532.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i532
   %592 = phi ptr [ %584, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i532.thread ], [ %590, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i532 ]
-  %593 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !45
-  %594 = select i1 %.not.i.i529, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %593
+  %593 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !45
+  %594 = select i1 %.not.i.i529, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %593
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %592, ptr align 1 %594, i64 %574, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i535
 
@@ -1546,7 +1546,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %599 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !48
   %600 = and i8 %599, 1
   %.not.i.i542 = icmp eq i8 %600, 0
-  %601 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !48
+  %601 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !48
   %602 = lshr i8 %599, 1
   %603 = zext nneg i8 %602 to i64
   %604 = select i1 %.not.i.i542, i64 %603, i64 %601
@@ -1588,8 +1588,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 621:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i545.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i545
   %622 = phi ptr [ %614, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i545.thread ], [ %620, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i545 ]
-  %623 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !48
-  %624 = select i1 %.not.i.i542, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %623
+  %623 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !48
+  %624 = select i1 %.not.i.i542, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %623
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %622, ptr align 1 %624, i64 %604, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i548
 
@@ -2617,7 +2617,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit657: ; preds = %862, %867
   %871 = load i8, ptr @_ZN3tev10HelpWindow3ALTE, align 8, !noalias !51
   %872 = and i8 %871, 1
   %.not.i.i658 = icmp eq i8 %872, 0
-  %873 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, [20 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow3ALTE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3, i64 4), align 8, !noalias !51
+  %873 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow3ALTE, i64 8), align 8, !noalias !51
   %874 = lshr i8 %871, 1
   %875 = zext nneg i8 %874 to i64
   %876 = select i1 %.not.i.i658, i64 %875, i64 %873
@@ -2659,8 +2659,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 893:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i661.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i661
   %894 = phi ptr [ %886, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i661.thread ], [ %892, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i661 ]
-  %895 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, [20 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow3ALTE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3, i64 12), align 8, !noalias !51
-  %896 = select i1 %.not.i.i658, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, [20 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow3ALTE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %895
+  %895 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow3ALTE, i64 16), align 8, !noalias !51
+  %896 = select i1 %.not.i.i658, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow3ALTE, i64 1), ptr %895
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %894, ptr align 1 %896, i64 %876, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i664
 
@@ -2684,7 +2684,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %901 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !54
   %902 = and i8 %901, 1
   %.not.i.i671 = icmp eq i8 %902, 0
-  %903 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !54
+  %903 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !54
   %904 = lshr i8 %901, 1
   %905 = zext nneg i8 %904 to i64
   %906 = select i1 %.not.i.i671, i64 %905, i64 %903
@@ -2726,8 +2726,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 923:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i674.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i674
   %924 = phi ptr [ %916, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i674.thread ], [ %922, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i674 ]
-  %925 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !54
-  %926 = select i1 %.not.i.i671, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %925
+  %925 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !54
+  %926 = select i1 %.not.i.i671, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %925
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %924, ptr align 1 %926, i64 %906, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i677
 
@@ -2765,7 +2765,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %932 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !57
   %933 = and i8 %932, 1
   %.not.i.i688 = icmp eq i8 %933, 0
-  %934 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !57
+  %934 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !57
   %935 = lshr i8 %932, 1
   %936 = zext nneg i8 %935 to i64
   %937 = select i1 %.not.i.i688, i64 %936, i64 %934
@@ -2807,8 +2807,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 954:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i691.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i691
   %955 = phi ptr [ %947, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i691.thread ], [ %953, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i691 ]
-  %956 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !57
-  %957 = select i1 %.not.i.i688, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %956
+  %956 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !57
+  %957 = select i1 %.not.i.i688, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %956
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %955, ptr align 1 %957, i64 %937, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i694
 
@@ -2846,7 +2846,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %963 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !60
   %964 = and i8 %963, 1
   %.not.i.i705 = icmp eq i8 %964, 0
-  %965 = load i64, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 3), align 8, !noalias !60
+  %965 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !60
   %966 = lshr i8 %963, 1
   %967 = zext nneg i8 %966 to i64
   %968 = select i1 %.not.i.i705, i64 %967, i64 %965
@@ -2896,8 +2896,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 986:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i708.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i708
   %987 = phi ptr [ %979, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i708.thread ], [ %985, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i708 ]
-  %988 = load ptr, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i64 11), align 8, !noalias !60
-  %989 = select i1 %.not.i.i705, ptr getelementptr inbounds ({ { { { { %struct.anon, [0 x i8], <{ i8, i8, i8, i8, [19 x i8] }> } } } } }, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), ptr %988
+  %988 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !60
+  %989 = select i1 %.not.i.i705, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %988
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %987, ptr align 1 %989, i64 %968, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i711
 
@@ -2930,7 +2930,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 998:                                              ; preds = %996
   %999 = getelementptr inbounds i8, ptr %997, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i64 0, i32 0, i64 2), ptr %997, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %997, align 8
   store <4 x i32> <i32 0, i32 15, i32 6, i32 14>, ptr %999, align 4
   %1000 = getelementptr inbounds i8, ptr %997, i64 24
   store i32 20, ptr %1000, align 8
@@ -3337,7 +3337,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc822
   %1059 = getelementptr inbounds i8, ptr %158, i64 32
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 0, i32 0, i64 2), ptr %158, align 16
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %158, align 16
   %1060 = getelementptr inbounds i8, ptr %158, i64 8
   %1061 = ptrtoint ptr %222 to i64
   store i64 %1061, ptr %1060, align 8
@@ -3346,7 +3346,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc822
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %1063 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %5, ptr %1063, align 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 0, i32 0, i64 2), ptr %5, align 16
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
   %1064 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1061, ptr %1064, align 8
   call void @_ZNSt3__110__function12__value_funcIFviEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) %1062) #17
@@ -4262,7 +4262,7 @@ _ZNSt3__18functionIFviEED2Ev.exit:                ; preds = %1074, %.sink.split.
 
 _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %.sink.split.i.i835, %1347, %635
   %.pn350.pn = phi { ptr, i32 } [ %636, %635 ], [ %.pn350, %1347 ], [ %.pn350, %.sink.split.i.i835 ]
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %1351 = getelementptr inbounds i8, ptr %0, i64 136
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1351) #17
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #17
@@ -4695,7 +4695,7 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget14keyboard_eventEiiii(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3tev10HelpWindowD2Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3tev10HelpWindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 16
@@ -4715,7 +4715,7 @@ define linkonce_odr dso_local void @_ZN3tev10HelpWindowD2Ev(ptr noundef nonnull 
   br label %_ZNSt3__18functionIFvvEED2Ev.exit
 
 _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %6, %.sink.split.i.i
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #17
@@ -4724,7 +4724,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %6, %.sink.split.i.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3tev10HelpWindowD0Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3tev10HelpWindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 16
@@ -4744,7 +4744,7 @@ define linkonce_odr dso_local void @_ZN3tev10HelpWindowD0Ev(ptr noundef nonnull 
   br label %_ZN3tev10HelpWindowD2Ev.exit
 
 _ZN3tev10HelpWindowD2Ev.exit:                     ; preds = %6, %.sink.split.i.i.i
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #17
@@ -4940,7 +4940,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5094,7 +5094,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISB_EEFviEEENS_22__allocator_destructorINSC_ISF_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -5104,7 +5104,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEE7__cloneEPNS0_6__baseISD_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -5155,7 +5155,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() local_unnamed_addr #9 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__117bad_function_callE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTINSt3__117bad_function_callE, ptr nonnull @_ZNSt3__117bad_function_callD2Ev) #21
   unreachable
 }

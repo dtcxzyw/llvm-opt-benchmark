@@ -532,14 +532,14 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 define dso_local void @_ZN4node11StatWatcherC2EPNS_2fs11BindingDataEN2v85LocalINS4_6ObjectEEEb(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %binding_data, ptr %wrap.coerce, i1 noundef zeroext %use_bigint) unnamed_addr #3 align 2 {
 _ZNK4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EE12pointer_dataEv.exit.i:
   %frombool = zext i1 %use_bigint to i8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11StatWatcherE, i64 16), ptr %this, align 8
   %realm_.i = getelementptr inbounds i8, ptr %binding_data, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load ptr, ptr %env_.i.i, align 8
   %watcher_ = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %1, ptr %wrap.coerce, ptr noundef nonnull %watcher_, i32 noundef 36) #14
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11StatWatcherE, i64 16), ptr %this, align 8
   %use_bigint_ = getelementptr inbounds i8, ptr %this, i64 192
   store i8 %frombool, ptr %use_bigint_, align 8
   %binding_data_ = getelementptr inbounds i8, ptr %this, i64 200
@@ -1054,7 +1054,7 @@ declare i32 @uv_fs_poll_start(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node11StatWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11StatWatcherE, i64 16), ptr %this, align 8
   %binding_data_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %binding_data_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1065,7 +1065,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EED2Ev.exit: ; preds = %entry, %if.then.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i, align 8
@@ -1083,7 +1083,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node11StatWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11StatWatcherE, i64 16), ptr %this, align 8
   %binding_data_.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %binding_data_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1094,7 +1094,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node11StatWatcherD2Ev.exit
 
 _ZN4node11StatWatcherD2Ev.exit:                   ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i, align 8

@@ -1466,7 +1466,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @jobcomp_p_set_location() local_unnamed_addr #0 {
   %1 = alloca %struct.stat, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 

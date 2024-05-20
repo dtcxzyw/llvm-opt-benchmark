@@ -205,8 +205,8 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 .thread22:                                        ; preds = %.loopexit25, %104, %105
   %107 = phi i1 [ true, %105 ], [ false, %104 ], [ false, %.loopexit25 ]
   %108 = phi i32 [ 256, %105 ], [ -1, %104 ], [ 19, %.loopexit25 ]
-  %109 = phi ptr [ getelementptr ([31 x i16], ptr @zlib_inflate_table.lext, i64 -9, i64 22), %105 ], [ @zlib_inflate_table.dext, %104 ], [ %5, %.loopexit25 ]
-  %110 = phi ptr [ getelementptr ([31 x i16], ptr @zlib_inflate_table.lbase, i64 -9, i64 22), %105 ], [ @zlib_inflate_table.dbase, %104 ], [ %5, %.loopexit25 ]
+  %109 = phi ptr [ getelementptr (i8, ptr @zlib_inflate_table.lext, i64 -514), %105 ], [ @zlib_inflate_table.dext, %104 ], [ %5, %.loopexit25 ]
+  %110 = phi ptr [ getelementptr (i8, ptr @zlib_inflate_table.lbase, i64 -514), %105 ], [ @zlib_inflate_table.dbase, %104 ], [ %5, %.loopexit25 ]
   %111 = shl nuw i32 1, %55
   %112 = add i32 %111, -1
   %113 = load ptr, ptr %3, align 8

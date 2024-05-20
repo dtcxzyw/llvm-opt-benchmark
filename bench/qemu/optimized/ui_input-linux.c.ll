@@ -89,7 +89,7 @@ if.then1:                                         ; preds = %do.body
   br label %if.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %2, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
@@ -376,11 +376,11 @@ if.else120:                                       ; preds = %if.end115
 do.body:                                          ; preds = %if.then119, %if.else120
   %next = getelementptr inbounds i8, ptr %call.i, i64 896
   store ptr null, ptr %next, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 904
   store ptr %38, ptr %tql_prev, align 8
   store ptr %call.i, ptr %38, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
   %initialized = getelementptr inbounds i8, ptr %call.i, i64 832
   store i8 1, ptr %initialized, align 8
   br label %return

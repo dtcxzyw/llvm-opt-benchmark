@@ -541,9 +541,9 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %101, i32 noundef 1) #13
   %104 = and i32 %14, -12320769
   store volatile i32 %104, ptr %13, align 4
-  %105 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   %106 = add i64 %105, 1
-  store i64 %106, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   br label %107
 
 107:                                              ; preds = %86, %84
@@ -813,9 +813,9 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge, %._crit_edge82
   store i32 %.078, ptr %6, align 4
-  %128 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %128 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   %129 = add i64 %128, %.pre-phi
-  store i64 %129, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  store i64 %129, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   ret i32 %33
 }
 
@@ -870,9 +870,9 @@ define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 6), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 8
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 6), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 8
   br label %11
 
 11:                                               ; preds = %8, %1

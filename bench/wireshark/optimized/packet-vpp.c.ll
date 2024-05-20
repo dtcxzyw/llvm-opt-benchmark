@@ -139,16 +139,16 @@ define hidden void @proto_register_vpp() local_unnamed_addr #0 {
   %16 = load i32, ptr @proto_vpp_trace, align 4
   %17 = tail call ptr @register_dissector(ptr noundef nonnull @.str.42, ptr noundef nonnull @dissect_vpp_trace, i32 noundef %16) #3
   %18 = tail call ptr @find_dissector(ptr noundef nonnull @.str.43) #3
-  store ptr %18, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 1), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 8), align 8
   %19 = tail call ptr @find_dissector(ptr noundef nonnull @.str.44) #3
-  store ptr %19, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 2), align 16
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 16), align 16
   %20 = tail call ptr @find_dissector(ptr noundef nonnull @.str.45) #3
-  store ptr %20, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 3), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 24), align 8
   %21 = tail call ptr @find_dissector(ptr noundef nonnull @.str.46) #3
-  store ptr %21, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 4), align 16
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 32), align 16
   %22 = tail call ptr @find_dissector(ptr noundef nonnull @.str.47) #3
-  store ptr %22, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 5), align 8
-  %23 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 1), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 40), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 8), align 8
   store ptr %23, ptr @next_dissectors, align 16
   ret void
 }
@@ -262,11 +262,11 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 74:                                               ; preds = %72
-  %75 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 2), align 16
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 16), align 16
   br label %78
 
 76:                                               ; preds = %72
-  %77 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 3), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @next_dissectors, i64 24), align 8
   br label %78
 
 78:                                               ; preds = %74, %76, %72, %66

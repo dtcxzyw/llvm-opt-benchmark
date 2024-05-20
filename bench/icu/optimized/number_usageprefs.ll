@@ -946,7 +946,7 @@ declare void @abort() local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl17UsagePrefsHandlerC2ERKNS_6LocaleERKNS_11MeasureUnitENS_11StringPieceEPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(19) %inputUnit, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 16), ptr %this, align 8
   %fUnitsRouter = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_755units11UnitsRouterC1ERKNS_11MeasureUnitERKNS_6LocaleENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) %fUnitsRouter, ptr noundef nonnull align 8 dereferenceable(19) %inputUnit, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fParent = getelementptr inbounds i8, ptr %this, i64 184
@@ -1271,7 +1271,7 @@ entry:
   %tempInput = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %tempOutput = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %conversionRates = alloca %"class.icu_75::units::ConversionRates", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 16), ptr %this, align 8
   %fOutputUnit = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7511MeasureUnitC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %fOutputUnit, ptr noundef nonnull align 8 dereferenceable(19) %targetUnit)
   %fUnitConverter = getelementptr inbounds i8, ptr %this, i64 32
@@ -1997,7 +1997,7 @@ _ZN6icu_7510MemoryPoolINS_7MeasureELi8EED2Ev.exit: ; preds = %for.end.i, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17UsagePrefsHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 16), ptr %this, align 8
   %fUnitsRouter = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_755units11UnitsRouterD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %fUnitsRouter) #11
   ret void
@@ -2006,7 +2006,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17UsagePrefsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 16), ptr %this, align 8
   %fUnitsRouter.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_755units11UnitsRouterD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %fUnitsRouter.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #11
@@ -2016,7 +2016,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl21UnitConversionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 16), ptr %this, align 8
   %fUnitConverter = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7512LocalPointerINS_5units21ComplexUnitsConverterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fUnitConverter) #11
   %fOutputUnit = getelementptr inbounds i8, ptr %this, i64 8
@@ -2027,7 +2027,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl21UnitConversionHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21UnitConversionHandlerE, i64 16), ptr %this, align 8
   %fUnitConverter.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7512LocalPointerINS_5units21ComplexUnitsConverterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fUnitConverter.i) #11
   %fOutputUnit.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -153,7 +153,7 @@ _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %_ZN5GlucoL5matchIPK
   br label %_ZN5Gluco6Option13getOptionListEv.exit
 
 _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit, %45, %47
-  %49 = load i32, ptr getelementptr inbounds (%"class.Gluco::vec", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv, %50
   br i1 %51, label %52, label %.critedge
@@ -263,7 +263,7 @@ define void @_ZN5Gluco17printUsageAndExitEiPPcb(i32 %0, ptr nocapture noundef re
 
 _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %9, %12, %14
   %16 = load ptr, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, align 8
-  %17 = load i32, ptr getelementptr inbounds (%"class.Gluco::vec", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
   tail call void @_ZN5Gluco4sortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_(ptr noundef %16, i32 noundef %17)
   br label %18
 
@@ -287,7 +287,7 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %9, %12, %14
   br label %_ZN5Gluco6Option13getOptionListEv.exit23
 
 _ZN5Gluco6Option13getOptionListEv.exit23:         ; preds = %18, %21, %23
-  %25 = load i32, ptr getelementptr inbounds (%"class.Gluco::vec", ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 0, i32 1), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 8), align 8
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv, %26
   br i1 %27, label %28, label %92

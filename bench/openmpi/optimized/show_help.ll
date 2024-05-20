@@ -71,7 +71,7 @@ define noundef i32 @opal_show_help_init() local_unnamed_addr #0 {
   store i8 1, ptr @opal_help_want_aggregate, align 1
   %2 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 2, ptr noundef nonnull @opal_help_want_aggregate) #15
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_output_stream_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -83,7 +83,7 @@ define noundef i32 @opal_show_help_init() local_unnamed_addr #0 {
   store ptr @opal_output_stream_t_class, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_output_stream_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -102,7 +102,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   store i8 1, ptr %13, align 1
   %14 = call i32 @opal_output_open(ptr noundef nonnull %1) #15
   store i32 %14, ptr @output_stream, align 4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 14), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
   %16 = call i32 @opal_argv_append_nosize(ptr noundef nonnull @search_dirs, ptr noundef %15) #15
   call void @opal_finalize_append_cleanup(ptr noundef nonnull @opal_show_help_finalize, ptr noundef nonnull @.str.4, ptr noundef null) #15
   ret i32 0

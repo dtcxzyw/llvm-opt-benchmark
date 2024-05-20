@@ -94,7 +94,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
   %add.ptr = getelementptr inbounds i8, ptr %ciphertext, i64 64
-  call void @AES_ige_encrypt(ptr noundef nonnull getelementptr inbounds ([10240 x i8], ptr @plaintext, i64 0, i64 64), ptr noundef nonnull %add.ptr, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
+  call void @AES_ige_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @plaintext, i64 64), ptr noundef nonnull %add.ptr, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
   %call5 = call i32 @AES_set_decrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull %ciphertext, ptr noundef nonnull %checktext, i64 noundef 128, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 0) #3
@@ -113,7 +113,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
   %add.ptr = getelementptr inbounds i8, ptr %ciphertext, i64 64
-  call void @AES_ige_encrypt(ptr noundef nonnull getelementptr inbounds ([10240 x i8], ptr @plaintext, i64 0, i64 64), ptr noundef nonnull %add.ptr, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
+  call void @AES_ige_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @plaintext, i64 64), ptr noundef nonnull %add.ptr, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
   %call5 = call i32 @AES_set_decrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull %ciphertext, ptr noundef nonnull %checktext, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 0) #3

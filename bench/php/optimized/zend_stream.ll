@@ -559,7 +559,7 @@ define void @zend_destroy_file_handle(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  tail call void @zend_llist_del_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13), ptr noundef nonnull %0, ptr noundef nonnull @zend_compare_file_handles) #16
+  tail call void @zend_llist_del_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), ptr noundef nonnull %0, ptr noundef nonnull @zend_compare_file_handles) #16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %8
@@ -751,7 +751,7 @@ define internal void @zend_file_handle_dtor(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_stream_init() local_unnamed_addr #0 {
-  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13), i64 noundef 80, ptr noundef nonnull @zend_file_handle_dtor, i8 noundef zeroext 0) #16
+  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), i64 noundef 80, ptr noundef nonnull @zend_file_handle_dtor, i8 noundef zeroext 0) #16
   ret void
 }
 
@@ -759,7 +759,7 @@ declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_stream_shutdown() local_unnamed_addr #0 {
-  tail call void @zend_llist_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13)) #16
+  tail call void @zend_llist_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88)) #16
   ret void
 }
 

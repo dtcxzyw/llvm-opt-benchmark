@@ -640,8 +640,8 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
+  tail call void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -1910,7 +1910,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.6, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 1))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2607,11 +2607,11 @@ call3.i.i.noexc:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i.i1, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %call3.i.i.noexc
-  invoke void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0))
+  invoke void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8))
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call3.i.i.noexc, %if.end, %.noexc
@@ -3261,8 +3261,8 @@ land.lhs.true.i.i:                                ; preds = %if.end
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
+  tail call void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_statistics_recorder_E, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_statistics_recorder_E, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18StatisticsRecorderENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %if.end, %land.lhs.true.i.i, %if.then.i.i

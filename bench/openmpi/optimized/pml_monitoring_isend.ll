@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 10), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 80), align 8
   %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #3
   ret i32 %10
 }
@@ -103,7 +103,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %55
 
 55:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %56 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 11), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 88), align 8
   %57 = call i32 %56(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7) #3
   ret i32 %57
 }
@@ -197,7 +197,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %54
 
 54:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %55 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 12), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 96), align 8
   %56 = call i32 %55(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6) #3
   ret i32 %56
 }

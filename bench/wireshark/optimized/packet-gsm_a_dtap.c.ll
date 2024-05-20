@@ -2476,7 +2476,7 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
 
 16:                                               ; preds = %.lr.ph
   %17 = zext i8 %14 to i32
-  %18 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 54), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 216), align 8
   %19 = zext i8 %8 to i32
   %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %15, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.182, i32 noundef %19) #6
   tail call void @proto_tree_add_bitmask_list(ptr noundef %20, ptr noundef %0, i32 noundef %15, i32 noundef 1, ptr noundef nonnull @de_sup_codec_list.oct1_flags, i32 noundef 0) #6
@@ -2549,7 +2549,7 @@ define internal noundef zeroext i16 @de_auth_param_rand(ptr noundef %0, ptr noun
 define internal noundef zeroext i16 @de_auth_param_autn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_dtap_autn, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 4), align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #6
   %12 = icmp eq i32 %4, 16
   br i1 %12, label %13, label %22
@@ -2593,7 +2593,7 @@ define internal noundef zeroext i16 @de_auth_resp_param_ext(ptr noundef %0, ptr 
 define internal noundef zeroext i16 @de_auth_fail_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_dtap_auts, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 4), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 16), align 16
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #6
   %12 = icmp eq i32 %4, 14
   br i1 %12, label %13, label %19
@@ -2809,7 +2809,7 @@ define internal noundef zeroext i16 @de_emerg_num_list(ptr noundef %0, ptr nound
   %14 = add nuw nsw i32 %13, 1
   %15 = zext i8 %.04648 to i32
   %16 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.049, i32 noundef %14, i32 noundef %15) #6
-  %17 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 16), align 16
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 64), align 16
   %18 = call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #6
   %19 = load i32, ptr @hf_gsm_a_dtap_emerg_num_info_length, align 4
   %20 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %.049, i32 noundef 1, i32 noundef 0) #6
@@ -3004,7 +3004,7 @@ define internal noundef zeroext i16 @de_cc_cap(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_call_state(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
-  %8 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 22), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 88), align 8
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 22, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %8, ptr noundef null, ptr noundef %9) #6
   %11 = load i32, ptr @hf_gsm_a_dtap_coding_standard, align 4
@@ -3385,7 +3385,7 @@ define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr nounde
 
 103:                                              ; preds = %101
   %104 = sub i32 %4, %102
-  %105 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 27), align 4
+  %105 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 108), align 4
   %106 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %97, i32 noundef %104, i32 noundef %105, ptr noundef null, ptr noundef nonnull @.str.898) #6
   %107 = and i8 %.0136.fr, 111
   %108 = icmp eq i8 %107, 34
@@ -3759,7 +3759,7 @@ define internal noundef zeroext i16 @de_u2u(ptr noundef %0, ptr noundef %1, ptr 
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #6
   %11 = add i32 %3, 1
   %12 = add i32 %4, -1
-  %13 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 48), align 16
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 192), align 16
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.922) #6
   %15 = load i32, ptr @hf_gsm_a_dtap_data, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %11, i32 noundef %12, i32 noundef 0) #6
@@ -5688,7 +5688,7 @@ define internal void @dtap_gcc_imm_setup(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -6023,7 +6023,7 @@ define internal void @dtap_bcc_imm_setup(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -6334,7 +6334,7 @@ define internal void @dtap_bcc_imm_setup2(ptr noundef %0, ptr noundef %1, ptr no
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -7471,7 +7471,7 @@ define internal void @dtap_cc_congestion_control(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 30), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 120), align 8
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 30, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_dtap_congestion_level, align 4
@@ -7953,7 +7953,7 @@ define internal void @dtap_mm_loc_upd_req(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca ptr, align 8
   store i1 true, ptr @is_uplink, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
-  %8 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %8 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %8, ptr noundef null, ptr noundef %9) #6
   %11 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -7974,7 +7974,7 @@ define internal void @dtap_mm_loc_upd_req(ptr noundef %0, ptr noundef %1, ptr no
   br label %21
 
 21:                                               ; preds = %19, %17
-  %22 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 7), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 28), align 4
   %23 = tail call ptr @val_to_str_ext_const(i32 noundef 7, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %24 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %23) #6
   %25 = load i32, ptr @hf_gsm_a_dtap_follow_on_request, align 4
@@ -8106,7 +8106,7 @@ define internal void @dtap_mm_auth_req(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -8264,7 +8264,7 @@ define internal void @dtap_mm_id_req(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %7 = shl i32 %3, 3
   %8 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
-  %9 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 6), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 24), align 8
   %10 = tail call ptr @val_to_str_ext_const(i32 noundef 6, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef %10) #6
   %12 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -8451,7 +8451,7 @@ define internal void @dtap_mm_cm_srvc_rej(ptr noundef %0, ptr noundef %1, ptr no
 define internal void @dtap_mm_cm_srvc_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
   store i1 true, ptr @is_uplink, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
-  %7 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %7 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %8 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %7, ptr noundef null, ptr noundef %8) #6
   %10 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -8472,7 +8472,7 @@ define internal void @dtap_mm_cm_srvc_req(ptr noundef %0, ptr noundef %1, ptr no
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = load i32, ptr getelementptr inbounds ([97 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 5), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 20), align 4
   %22 = tail call ptr @val_to_str_ext_const(i32 noundef 5, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %23 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %21, ptr noundef null, ptr noundef %22) #6
   %24 = load i32, ptr @hf_gsm_a_dtap_service_type, align 4
@@ -8601,7 +8601,7 @@ define internal void @dtap_mm_cm_reestab_req(ptr noundef %0, ptr noundef %1, ptr
   %7 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %8 = shl i32 %3, 3
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_common_elem, i64 0, i64 1), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @ett_gsm_common_elem, i64 4), align 4
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef 1, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.819) #6
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef %11) #6
   %13 = load i32, ptr @hf_gsm_a_spare_bits, align 4

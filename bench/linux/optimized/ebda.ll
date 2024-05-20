@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @reserve_bios_regions() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 104), align 8
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %25, label %3
 

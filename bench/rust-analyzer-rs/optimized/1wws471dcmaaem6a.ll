@@ -1222,7 +1222,7 @@ define hidden void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h3b8cfd
   br i1 %trunc.i.i.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i", label %8
 
 8:                                                ; preds = %2
-  %9 = load i8, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 1), align 8, !range !58, !noalias !59, !noundef !11
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !59, !noundef !11
   switch i8 %9, label %default.unreachable [
     i8 0, label %10
     i8 1, label %11
@@ -1234,16 +1234,16 @@ default.unreachable:                              ; preds = %8
 
 10:                                               ; preds = %8
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17h8135a7c955e2ce6fE(ptr noundef nonnull @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, ptr noundef nonnull @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h78682af5b0f082c6E), !noalias !59
-  store i8 1, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 1), align 8, !noalias !59
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !59
   br label %11
 
 11:                                               ; preds = %10, %8
   %12 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h10325eb85735868bE(), !noalias !62
   %13 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h512c4dd581be1d85E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12), !noalias !62
   %14 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, align 8, !range !52, !noalias !67, !noundef !11
-  %15 = load ptr, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !67
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noalias !67
   store i64 1, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, align 8, !noalias !67
-  store ptr %13, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !67
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noalias !67
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i.i", label %17
 
@@ -1271,7 +1271,7 @@ default.unreachable:                              ; preds = %8
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i": ; preds = %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i.i", %2
-  %.07.val.i.i = load ptr, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noundef !11
+  %.07.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noundef !11
   %28 = getelementptr i8, ptr %.07.val.i.i, i64 2072
   %.07.val.val.i.i = load i64, ptr %28, align 8, !noundef !11
   br label %_ZN15crossbeam_epoch7default11with_handle17h3c673f838c1b7cc7E.exit
@@ -1400,7 +1400,7 @@ define internal fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h
   br i1 %trunc.i.i.i, label %24, label %4
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 1), align 8, !range !58, !noalias !80, !noundef !11
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !80, !noundef !11
   switch i8 %5, label %default.unreachable [
     i8 0, label %6
     i8 1, label %7
@@ -1412,16 +1412,16 @@ default.unreachable:                              ; preds = %4
 
 6:                                                ; preds = %4
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17h8135a7c955e2ce6fE(ptr noundef nonnull @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, ptr noundef nonnull @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h78682af5b0f082c6E), !noalias !80
-  store i8 1, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 1), align 8, !noalias !80
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !80
   br label %7
 
 7:                                                ; preds = %6, %4
   %8 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h10325eb85735868bE(), !noalias !83
   %9 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h512c4dd581be1d85E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !83
   %10 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, align 8, !range !52, !noalias !88, !noundef !11
-  %11 = load ptr, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !88
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noalias !88
   store i64 1, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, align 8, !noalias !88
-  store ptr %9, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !88
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noalias !88
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i", label %13
 
@@ -1449,7 +1449,7 @@ default.unreachable:                              ; preds = %4
   br label %24
 
 24:                                               ; preds = %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i", %0
-  %.0.val.i = load ptr, ptr getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noundef !11
+  %.0.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.0.val.i, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %.0.val.i, i64 2072
@@ -11013,7 +11013,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17hf298834eb0b62a1fE.
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17142,7 +17142,7 @@ define void @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$20
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
-  %8 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$20request_cancellation10__CALLSITE17ha298cb841e194e63E", i64 0, i32 1, i64 8) monotonic, align 8
+  %8 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$20request_cancellation10__CALLSITE17ha298cb841e194e63E", i64 16) monotonic, align 8
   switch i8 %8, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17287,7 +17287,7 @@ define void @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12
   br label %.body84.thread
 
 26:                                               ; preds = %2
-  %27 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12apply_change10__CALLSITE17h8628024d5d62f22fE", i64 0, i32 1, i64 8) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12apply_change10__CALLSITE17h8628024d5d62f22fE", i64 16) monotonic, align 8
   switch i8 %27, label %28 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17378,7 +17378,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %50
-  %54 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12apply_change10__CALLSITE17h9010015fd01ec4fcE", i64 0, i32 1, i64 8) monotonic, align 8
+  %54 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12apply_change10__CALLSITE17h9010015fd01ec4fcE", i64 16) monotonic, align 8
   switch i8 %54, label %55 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit90.thread
@@ -33864,7 +33864,7 @@ define void @_ZN6ide_db6search10FindUsages6search17he52ce73366546c1dE(ptr noalia
   unreachable
 
 119:                                              ; preds = %3
-  %120 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db6search10FindUsages6search10__CALLSITE17hf2c61cdd95172788E, i64 0, i32 1, i64 8) monotonic, align 8
+  %120 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db6search10FindUsages6search10__CALLSITE17hf2c61cdd95172788E, i64 16) monotonic, align 8
   switch i8 %120, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread1269
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

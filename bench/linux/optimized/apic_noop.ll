@@ -21,7 +21,7 @@ define internal void @noop_apic_eoi() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @noop_apic_write(i32 %0, i32 %1) #1 align 16 {
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %4 = and i64 %3, 512
   %5 = icmp ne i64 %4, 0
   %6 = load i8, ptr @apic_is_disabled, align 1, !range !5
@@ -41,7 +41,7 @@ define internal void @noop_apic_write(i32 %0, i32 %1) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @noop_apic_read(i32 %0) #1 align 16 {
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %3 = and i64 %2, 512
   %4 = icmp ne i64 %3, 0
   %5 = load i8, ptr @apic_is_disabled, align 1, !range !5

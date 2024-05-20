@@ -369,11 +369,11 @@ lex.exit408:                                      ; preds = %108, %110
   br label %.preheader864
 
 114:                                              ; preds = %lex.exit408.thread796, %lex.exit408
-  %115 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not350 = icmp eq i32 %115, 0
   %116 = add nsw i32 %115, 1
   %storemerge = select i1 %.not350, i32 2, i32 %116
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.preheader864.backedge
 
 117:                                              ; preds = %lex.exit408
@@ -471,17 +471,17 @@ lex.exit425:                                      ; preds = %143, %145
   ]
 
 149:                                              ; preds = %lex.exit425.thread799, %lex.exit425
-  %150 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not349 = icmp eq i32 %150, 0
   br i1 %.not349, label %153, label %151
 
 151:                                              ; preds = %149
   %152 = add nsw i32 %150, 1
-  store i32 %152, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %152, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.preheader864.backedge
 
 153:                                              ; preds = %149
-  store i32 2, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.preheader864.backedge
 
 154:                                              ; preds = %lex.exit425
@@ -585,11 +585,11 @@ lex.exit442:                                      ; preds = %184, %186
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lex.exit442, %.loopexit.sink.split, %lex.exit
-  %190 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %190 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not347 = icmp eq i32 %190, 0
   %191 = add nsw i32 %190, 1
   %.sink1404 = select i1 %.not347, i32 2, i32 %191
-  store i32 %.sink1404, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %.sink1404, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.backedge874.backedge
 
 192:                                              ; preds = %lex.exit, %lex.exit, %lex.exit
@@ -1100,11 +1100,11 @@ lex.exit479.thread:                               ; preds = %.loopexit.i467, %le
   br label %lex.exit.thread
 
 .sink.split:                                      ; preds = %lex.exit479.thread812, %lex.exit479
-  %380 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %380 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not342 = icmp eq i32 %380, 0
   %381 = add nsw i32 %380, 1
   %.sink = select i1 %.not342, i32 2, i32 %381
-  store i32 %.sink, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %382
 
 382:                                              ; preds = %.sink.split, %lex.exit479
@@ -2499,15 +2499,15 @@ agxbputc.exit697.backedge:                        ; preds = %855, %860
   %883 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %882, ptr noundef nonnull dereferenceable(1) %871) #14
   %884 = getelementptr inbounds i8, ptr %878, i64 16
   store i64 287, ptr %884, align 8
-  %885 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 8), align 4
+  %885 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 108), align 4
   %886 = sext i32 %885 to i64
   %887 = getelementptr inbounds i8, ptr %878, i64 72
   store i64 %886, ptr %887, align 8
-  %888 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  %888 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   %889 = add i32 %888, %885
-  store i32 %889, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
+  store i32 %889, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
   %890 = icmp ne i32 %.032.i676, 58
-  %891 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 2), align 4
+  %891 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
   %892 = icmp ne i32 %891, 0
   %or.cond23 = select i1 %890, i1 true, i1 %892
   br i1 %or.cond23, label %898, label %893
@@ -2554,12 +2554,12 @@ agxbputc.exit697.backedge:                        ; preds = %855, %860
 911:                                              ; preds = %906
   %912 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   store ptr @exbuiltin, ptr @ex_lval, align 8
-  %.pre1194 = load i64, ptr getelementptr inbounds ([0 x %struct.Exid_s], ptr @exbuiltin, i64 0, i64 0, i32 1), align 8
+  %.pre1194 = load i64, ptr getelementptr inbounds (i8, ptr @exbuiltin, i64 16), align 8
   br label %.loopexit873
 
 913:                                              ; preds = %902
   %914 = icmp ne i32 %.032.i676, 58
-  %915 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 2), align 4
+  %915 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
   %916 = icmp ne i32 %915, 0
   %or.cond25 = select i1 %914, i1 true, i1 %916
   br i1 %or.cond25, label %.loopexit873, label %1168
@@ -2705,11 +2705,11 @@ lex.exit717:                                      ; preds = %948, %950
   ]
 
 954:                                              ; preds = %lex.exit717.thread834, %lex.exit717
-  %955 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %955 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not370 = icmp eq i32 %955, 0
   %956 = add nsw i32 %955, 1
   %storemerge371 = select i1 %.not370, i32 2, i32 %956
-  store i32 %storemerge371, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge371, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.preheader852.backedge
 
 .preheader852.backedge:                           ; preds = %954, %959, %962, %957
@@ -2725,11 +2725,11 @@ lex.exit717:                                      ; preds = %948, %950
   ]
 
 959:                                              ; preds = %957
-  %960 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %960 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not368 = icmp eq i32 %960, 0
   %961 = add nsw i32 %960, 1
   %storemerge369 = select i1 %.not368, i32 2, i32 %961
-  store i32 %storemerge369, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge369, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %.preheader852.backedge
 
 962:                                              ; preds = %957
@@ -2758,11 +2758,11 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   ]
 
 970:                                              ; preds = %.preheader855
-  %971 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %971 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not365 = icmp eq i32 %971, 0
   %972 = add nsw i32 %971, 1
   %storemerge366 = select i1 %.not365, i32 2, i32 %972
-  store i32 %storemerge366, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge366, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 10)
   br label %1126
 
@@ -2773,11 +2773,11 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   br label %1126
 
 975:                                              ; preds = %lex.exit790
-  %976 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %976 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not362 = icmp eq i32 %976, 0
   %977 = add nsw i32 %976, 1
   %storemerge363 = select i1 %.not362, i32 2, i32 %977
-  store i32 %storemerge363, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %storemerge363, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 10)
   br label %1126
 
@@ -3120,11 +3120,11 @@ lex.exit762.thread:                               ; preds = %.loopexit.i750, %le
   br label %lex.exit.thread
 
 .sink.split1401:                                  ; preds = %lex.exit762.thread837, %lex.exit762
-  %1098 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  %1098 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   %.not357 = icmp eq i32 %1098, 0
   %1099 = add nsw i32 %1098, 1
   %.sink1402 = select i1 %.not357, i32 2, i32 %1099
-  store i32 %.sink1402, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i64 0, i32 2), align 8
+  store i32 %.sink1402, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
   br label %1100
 
 1100:                                             ; preds = %.sink.split1401, %lex.exit762

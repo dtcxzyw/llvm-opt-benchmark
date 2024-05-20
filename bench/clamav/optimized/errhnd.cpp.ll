@@ -745,9 +745,9 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, %.sink.split.i
-  %12 = load i32, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i64 0, i32 1), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 4), align 4
   %13 = add i32 %12, 1
-  store i32 %13, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i64 0, i32 1), align 4
+  store i32 %13, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 4), align 4
   ret void
 }
 
@@ -796,8 +796,8 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %.split3, %.sink.spl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z13ProcessSignali(i32 %0) #8 {
-  store i8 1, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i64 0, i32 6), align 4
-  store i8 1, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i64 0, i32 4), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 12), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 10), align 2
   %2 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
   %3 = add i32 %2, 1
   store i32 %3, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4

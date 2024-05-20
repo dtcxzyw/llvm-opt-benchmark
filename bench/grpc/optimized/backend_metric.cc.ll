@@ -56,7 +56,7 @@ entry:
   %ref.tmp19 = alloca %"class.std::map", align 8
   %ref.tmp22 = alloca %"class.std::map", align 8
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @xds__data__orca__v3__OrcaLoadReport_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @xds__data__orca__v3__OrcaLoadReport_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %0 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23

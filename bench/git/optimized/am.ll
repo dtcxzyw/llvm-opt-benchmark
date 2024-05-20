@@ -2475,8 +2475,8 @@ if.end.i140:                                      ; preds = %is_null_oid.exit.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i140
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 1), align 8
-  %157 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 8), align 8
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %157, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %msgnum.exit.i, label %if.then4.i.i.i
 
@@ -2489,7 +2489,7 @@ msgnum.exit.i:                                    ; preds = %if.then4.i.i.i, %sw
   %cur.i.i = getelementptr inbounds i8, ptr %state, i64 8
   %159 = load i32, ptr %cur.i.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %158, i32 noundef %159) #21
-  %160 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   %state.val.i147 = load ptr, ptr %state, align 8
   %call.i7.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.82, ptr noundef %state.val.i147, ptr noundef %160) #21
   br label %sw.epilog.i141
@@ -3326,8 +3326,8 @@ while.body.lr.ph:                                 ; preds = %if.end7
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end96
   %resume.addr.0248 = phi i1 [ %5, %while.body.lr.ph ], [ true, %if.end96 ]
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %9, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %msgnum.exit, label %if.then4.i.i
 
@@ -3339,7 +3339,7 @@ msgnum.exit:                                      ; preds = %while.body, %if.the
   %10 = load i32, ptr %prec.i, align 4
   %11 = load i32, ptr %cur, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %10, i32 noundef %11) #21
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   %state.val52 = load ptr, ptr %state, align 8
   %call.i58 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.82, ptr noundef %state.val52, ptr noundef %12) #21
   call void @reset_ident_date() #21
@@ -5381,8 +5381,8 @@ declare i32 @repo_index_has_changes(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @msgnum(ptr nocapture noundef readonly %state) unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -5396,7 +5396,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %cur = getelementptr inbounds i8, ptr %state, i64 8
   %2 = load i32, ptr %cur, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %1, i32 noundef %2) #21
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
   ret ptr %3
 }
 

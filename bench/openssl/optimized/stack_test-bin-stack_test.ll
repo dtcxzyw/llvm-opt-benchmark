@@ -284,7 +284,7 @@ for.inc148:                                       ; preds = %for.body136
 
 for.end150:                                       ; preds = %for.inc148
   %call.i68 = tail call ptr @OPENSSL_sk_shift(ptr noundef %call.i) #3
-  %call152 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 159, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %call.i68, ptr noundef nonnull getelementptr inbounds ([9 x i32], ptr @test_int_stack.v, i64 0, i64 6)) #3
+  %call152 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 159, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %call.i68, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_int_stack.v, i64 24)) #3
   %tobool153.not = icmp ne i32 %call152, 0
   %spec.select = zext i1 %tobool153.not to i32
   br label %end
@@ -396,8 +396,8 @@ if.end49:                                         ; preds = %for.end44
 
 if.end54:                                         ; preds = %if.end49
   %call.i54 = tail call i32 @OPENSSL_sk_insert(ptr noundef %call.i49, ptr noundef nonnull @test_uchar_stack.v, i32 noundef 0) #3
-  %call.i55 = tail call i32 @OPENSSL_sk_insert(ptr noundef %call.i49, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @test_uchar_stack.v, i64 0, i64 2), i32 noundef -1) #3
-  %call.i56 = tail call i32 @OPENSSL_sk_insert(ptr noundef %call.i49, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @test_uchar_stack.v, i64 0, i64 1), i32 noundef 1) #3
+  %call.i55 = tail call i32 @OPENSSL_sk_insert(ptr noundef %call.i49, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 2), i32 noundef -1) #3
+  %call.i56 = tail call i32 @OPENSSL_sk_insert(ptr noundef %call.i49, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1), i32 noundef 1) #3
   br label %for.body61
 
 for.body61:                                       ; preds = %if.end54, %for.inc69
@@ -426,12 +426,12 @@ for.end71:                                        ; preds = %for.inc69
 
 if.end76:                                         ; preds = %for.end71
   %call.i59 = tail call ptr @OPENSSL_sk_delete(ptr noundef %call.i49, i32 noundef 1) #3
-  %call78 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 240, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %call.i59, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @test_uchar_stack.v, i64 0, i64 1)) #3
+  %call78 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 240, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %call.i59, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1)) #3
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %end, label %if.end81
 
 if.end81:                                         ; preds = %if.end76
-  %call.i60 = tail call ptr @OPENSSL_sk_set(ptr noundef %call.i49, i32 noundef 1, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @test_uchar_stack.v, i64 0, i64 1)) #3
+  %call.i60 = tail call ptr @OPENSSL_sk_set(ptr noundef %call.i49, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1)) #3
   br label %for.body86
 
 for.body86:                                       ; preds = %if.end81, %for.inc94

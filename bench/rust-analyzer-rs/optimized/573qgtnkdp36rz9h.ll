@@ -1253,7 +1253,7 @@ define noundef zeroext i1 @_ZN3vfs3Vfs17set_file_contents17hcb6bdaab284509eeE(pt
   br label %14
 
 19:                                               ; preds = %3
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3vfs3Vfs17set_file_contents10__CALLSITE17hca010b45f7352f72E, i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3vfs3Vfs17set_file_contents10__CALLSITE17hca010b45f7352f72E, i64 16) monotonic, align 8
   switch i8 %20, label %21 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -1600,7 +1600,7 @@ define void @_ZN3vfs3Vfs12take_changes17h24401fb95b116d49E(ptr noalias nocapture
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3vfs3Vfs12take_changes10__CALLSITE17hd30601d46c68a29fE, i64 0, i32 1, i64 8) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3vfs3Vfs12take_changes10__CALLSITE17hd30601d46c68a29fE, i64 16) monotonic, align 8
   switch i8 %13, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

@@ -58,7 +58,7 @@ declare void @replay_put_qword(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_read_next_clock(i32 noundef %kind) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %sub = add i32 %0, -28
   %cmp = icmp eq i32 %sub, %kind
   br i1 %cmp, label %if.end, label %if.else
@@ -114,7 +114,7 @@ do.end.if.end3_crit_edge:                         ; preds = %do.end
   br label %if.end3
 
 if.then2:                                         ; preds = %do.end
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %sub.i = add i32 %1, -28
   %cmp.i = icmp eq i32 %sub.i, %kind
   br i1 %cmp.i, label %replay_read_next_clock.exit, label %if.else.i

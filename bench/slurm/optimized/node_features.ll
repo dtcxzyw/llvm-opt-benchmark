@@ -85,7 +85,7 @@ define range(i32 -1, 1) i32 @node_features_g_init() local_unnamed_addr #0 {
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 108), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 736), align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #8
   store ptr %11, ptr @node_features_plugin_list, align 8
   store i32 0, ptr @g_context_cnt, align 4

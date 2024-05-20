@@ -644,7 +644,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %13 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethodDescr_Type, i64 272), align 8
   %14 = getelementptr i8, ptr %12, i64 8
   %.val14 = load ptr, ptr %14, align 8
   %call10 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %.val14) #4

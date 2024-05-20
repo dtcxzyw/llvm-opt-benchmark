@@ -182,7 +182,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue223ConstructLiteralVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %this, align 8
   %repeat_stack = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %repeat_stack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -254,7 +254,7 @@ declare void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue223ConstructLiteralVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %this, align 8
   %repeat_stack.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %repeat_stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond18, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %vis, align 8
   %lit.i = getelementptr inbounds i8, ptr %vis, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #16
   %nocase.i.i = getelementptr inbounds i8, ptr %vis, i64 40
@@ -423,7 +423,7 @@ do.end34:                                         ; preds = %land.lhs.true.do.en
 
 cleanup:                                          ; preds = %do.end34, %land.lhs.true, %try.cont, %catch
   %retval.0 = phi i1 [ false, %catch ], [ false, %try.cont ], [ false, %land.lhs.true ], [ %call39, %do.end34 ]
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %vis, align 8
   %20 = load ptr, ptr %repeat_stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt5stackImSt5dequeImSaImEEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -673,7 +673,7 @@ invoke.cont:                                      ; preds = %if.then8
           to label %invoke.cont11 unwind label %ehcleanup
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue210ParseErrorE, i64 16), ptr %exception9, align 8
   invoke void @__cxa_throw(ptr nonnull %exception9, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #18
           to label %unreachable unwind label %ehcleanup
 

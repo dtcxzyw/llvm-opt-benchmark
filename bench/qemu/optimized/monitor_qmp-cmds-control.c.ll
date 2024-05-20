@@ -239,7 +239,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %do.end, %land.lhs.true.i, %if.then5.i
   call void @visit_free(ptr noundef %call1) #8
-  %2 = load i32, ptr getelementptr inbounds (%struct.CompatPolicy, ptr @compat_policy, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @compat_policy, i64 12), align 4
   %cmp = icmp eq i32 %2, 1
   %3 = load ptr, ptr %schema, align 8
   br i1 %cmp, label %if.then5, label %return

@@ -25,7 +25,7 @@ invoke.cont:
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
   %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 16), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
   ret void
 }
@@ -62,7 +62,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
   %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 16), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
   ret void
 }
@@ -75,7 +75,7 @@ entry:
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
   %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 16), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
   ret void
 }
@@ -198,7 +198,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb14StopWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
   %1 = atomicrmw sub ptr %0, i32 1 seq_cst, align 4
@@ -216,7 +216,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb15DelayWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
   %total_delayed_ = getelementptr inbounds i8, ptr %0, i64 4
@@ -235,7 +235,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb23CompactionPressureTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
   %total_compaction_pressure_ = getelementptr inbounds i8, ptr %0, i64 8

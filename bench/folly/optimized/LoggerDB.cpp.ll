@@ -534,7 +534,7 @@ entry:
   %ref.tmp114 = alloca %"struct.std::equal_to", align 1
   %ref.tmp115 = alloca %"class.std::allocator.113", align 1
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactoryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !7
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5folly20StreamHandlerFactoryE, i64 16), ptr %call.i, align 8, !tbaa !10, !noalias !7
   store ptr %call.i, ptr %agg.tmp, align 8, !tbaa !13
   invoke void @_ZN5folly8LoggerDB22registerHandlerFactoryESt10unique_ptrINS_17LogHandlerFactoryESt14default_deleteIS2_EEb(ptr noundef nonnull align 8 dereferenceable(232) %db, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
@@ -577,7 +577,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont7
-  invoke void @_ZN5folly16LogHandlerConfigC1ENS_5RangeIPKcEESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(96) %defaultHandlerConfig, ptr nonnull @.str, ptr nonnull getelementptr inbounds ([7 x i8], ptr @.str, i64 0, i64 6), ptr noundef nonnull %agg.tmp2)
+  invoke void @_ZN5folly16LogHandlerConfigC1ENS_5RangeIPKcEESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(96) %defaultHandlerConfig, ptr nonnull @.str, ptr nonnull getelementptr inbounds (i8, ptr @.str, i64 6), ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -4607,7 +4607,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.8)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !10
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !10
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #30
           to label %invoke.cont unwind label %lpad
 
@@ -4640,7 +4640,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !10
   ret void
 }
 
@@ -8858,7 +8858,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.208" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
   %tobool.not.i149 = icmp eq i64 %13, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !139
 
@@ -8868,7 +8868,7 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #26
-  %14 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.208" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
+  %14 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
   %15 = load i32, ptr %cpu.i, align 4, !tbaa !78
@@ -10424,97 +10424,97 @@ if.then.i.i575:                                   ; preds = %for.inc.i.18.i, %fo
   br label %call.i.i.i.i.i.noexc
 
 for.inc.i.i:                                      ; preds = %while.body.i
-  %142 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 1), align 8, !tbaa !47
+  %142 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 8), align 8, !tbaa !47
   %cmp1.i.1.i = icmp ugt i64 %142, %anonymousNameIndex.2
   br i1 %cmp1.i.1.i, label %if.then.i.i575, label %for.inc.i.1.i, !prof !139
 
 for.inc.i.1.i:                                    ; preds = %for.inc.i.i
-  %143 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 2), align 8, !tbaa !47
+  %143 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 16), align 8, !tbaa !47
   %cmp1.i.2.i = icmp ugt i64 %143, %anonymousNameIndex.2
   br i1 %cmp1.i.2.i, label %if.then.i.i575, label %for.inc.i.2.i, !prof !139
 
 for.inc.i.2.i:                                    ; preds = %for.inc.i.1.i
-  %144 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 3), align 8, !tbaa !47
+  %144 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 24), align 8, !tbaa !47
   %cmp1.i.3.i = icmp ugt i64 %144, %anonymousNameIndex.2
   br i1 %cmp1.i.3.i, label %if.then.i.i575, label %for.inc.i.3.i, !prof !139
 
 for.inc.i.3.i:                                    ; preds = %for.inc.i.2.i
-  %145 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 4), align 8, !tbaa !47
+  %145 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 32), align 8, !tbaa !47
   %cmp1.i.4.i = icmp ugt i64 %145, %anonymousNameIndex.2
   br i1 %cmp1.i.4.i, label %if.then.i.i575, label %for.inc.i.4.i, !prof !139
 
 for.inc.i.4.i:                                    ; preds = %for.inc.i.3.i
-  %146 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 5), align 8, !tbaa !47
+  %146 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 40), align 8, !tbaa !47
   %cmp1.i.5.i = icmp ugt i64 %146, %anonymousNameIndex.2
   br i1 %cmp1.i.5.i, label %if.then.i.i575, label %for.inc.i.5.i, !prof !139
 
 for.inc.i.5.i:                                    ; preds = %for.inc.i.4.i
-  %147 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 6), align 8, !tbaa !47
+  %147 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 48), align 8, !tbaa !47
   %cmp1.i.6.i = icmp ugt i64 %147, %anonymousNameIndex.2
   br i1 %cmp1.i.6.i, label %if.then.i.i575, label %for.inc.i.6.i, !prof !139
 
 for.inc.i.6.i:                                    ; preds = %for.inc.i.5.i
-  %148 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 7), align 8, !tbaa !47
+  %148 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 56), align 8, !tbaa !47
   %cmp1.i.7.i = icmp ugt i64 %148, %anonymousNameIndex.2
   br i1 %cmp1.i.7.i, label %if.then.i.i575, label %for.inc.i.7.i, !prof !139
 
 for.inc.i.7.i:                                    ; preds = %for.inc.i.6.i
-  %149 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 8), align 8, !tbaa !47
+  %149 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 64), align 8, !tbaa !47
   %cmp1.i.8.i = icmp ugt i64 %149, %anonymousNameIndex.2
   br i1 %cmp1.i.8.i, label %if.then.i.i575, label %for.inc.i.8.i, !prof !139
 
 for.inc.i.8.i:                                    ; preds = %for.inc.i.7.i
-  %150 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 9), align 8, !tbaa !47
+  %150 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 72), align 8, !tbaa !47
   %cmp1.i.9.i = icmp ugt i64 %150, %anonymousNameIndex.2
   br i1 %cmp1.i.9.i, label %if.then.i.i575, label %for.inc.i.9.i, !prof !139
 
 for.inc.i.9.i:                                    ; preds = %for.inc.i.8.i
-  %151 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 10), align 8, !tbaa !47
+  %151 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 80), align 8, !tbaa !47
   %cmp1.i.10.i = icmp ugt i64 %151, %anonymousNameIndex.2
   br i1 %cmp1.i.10.i, label %if.then.i.i575, label %for.inc.i.10.i, !prof !139
 
 for.inc.i.10.i:                                   ; preds = %for.inc.i.9.i
-  %152 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 11), align 8, !tbaa !47
+  %152 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 88), align 8, !tbaa !47
   %cmp1.i.11.i = icmp ugt i64 %152, %anonymousNameIndex.2
   br i1 %cmp1.i.11.i, label %if.then.i.i575, label %for.inc.i.11.i, !prof !139
 
 for.inc.i.11.i:                                   ; preds = %for.inc.i.10.i
-  %153 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 12), align 8, !tbaa !47
+  %153 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 96), align 8, !tbaa !47
   %cmp1.i.12.i = icmp ugt i64 %153, %anonymousNameIndex.2
   br i1 %cmp1.i.12.i, label %if.then.i.i575, label %for.inc.i.12.i, !prof !139
 
 for.inc.i.12.i:                                   ; preds = %for.inc.i.11.i
-  %154 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 13), align 8, !tbaa !47
+  %154 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 104), align 8, !tbaa !47
   %cmp1.i.13.i = icmp ugt i64 %154, %anonymousNameIndex.2
   br i1 %cmp1.i.13.i, label %if.then.i.i575, label %for.inc.i.13.i, !prof !139
 
 for.inc.i.13.i:                                   ; preds = %for.inc.i.12.i
-  %155 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 14), align 8, !tbaa !47
+  %155 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 112), align 8, !tbaa !47
   %cmp1.i.14.i = icmp ugt i64 %155, %anonymousNameIndex.2
   br i1 %cmp1.i.14.i, label %if.then.i.i575, label %for.inc.i.14.i, !prof !139
 
 for.inc.i.14.i:                                   ; preds = %for.inc.i.13.i
-  %156 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 15), align 8, !tbaa !47
+  %156 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 120), align 8, !tbaa !47
   %cmp1.i.15.i = icmp ugt i64 %156, %anonymousNameIndex.2
   br i1 %cmp1.i.15.i, label %if.then.i.i575, label %for.inc.i.15.i, !prof !139
 
 for.inc.i.15.i:                                   ; preds = %for.inc.i.14.i
-  %157 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 16), align 8, !tbaa !47
+  %157 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 128), align 8, !tbaa !47
   %cmp1.i.16.i = icmp ugt i64 %157, %anonymousNameIndex.2
   br i1 %cmp1.i.16.i, label %if.then.i.i575, label %for.inc.i.16.i, !prof !139
 
 for.inc.i.16.i:                                   ; preds = %for.inc.i.15.i
-  %158 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 17), align 8, !tbaa !47
+  %158 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 136), align 8, !tbaa !47
   %cmp1.i.17.i = icmp ugt i64 %158, %anonymousNameIndex.2
   br i1 %cmp1.i.17.i, label %if.then.i.i575, label %for.inc.i.17.i, !prof !139
 
 for.inc.i.17.i:                                   ; preds = %for.inc.i.16.i
-  %159 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 18), align 8, !tbaa !47
+  %159 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 144), align 8, !tbaa !47
   %cmp1.i.18.i = icmp ugt i64 %159, %anonymousNameIndex.2
   br i1 %cmp1.i.18.i, label %if.then.i.i575, label %for.inc.i.18.i, !prof !139
 
 for.inc.i.18.i:                                   ; preds = %for.inc.i.17.i
-  %160 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 19), align 8, !tbaa !47
+  %160 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 152), align 8, !tbaa !47
   %cmp1.i.19.i = icmp ugt i64 %160, %anonymousNameIndex.2
   br i1 %cmp1.i.19.i, label %if.then.i.i575, label %call.i.i.i.i.i.noexc, !prof !139
 
@@ -10548,97 +10548,97 @@ call2.i.i.i.i.i.noexc:                            ; preds = %_ZN5folly8toAppendI
   br i1 %cmp1.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.i, !prof !139
 
 for.inc.i.i.i:                                    ; preds = %call2.i.i.i.i.i.noexc
-  %164 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 1), align 8, !tbaa !47
+  %164 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 8), align 8, !tbaa !47
   %cmp1.i.i.1.i = icmp ugt i64 %164, %anonymousNameIndex.2
   br i1 %cmp1.i.i.1.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.1.i, !prof !139
 
 for.inc.i.i.1.i:                                  ; preds = %for.inc.i.i.i
-  %165 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 2), align 8, !tbaa !47
+  %165 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 16), align 8, !tbaa !47
   %cmp1.i.i.2.i = icmp ugt i64 %165, %anonymousNameIndex.2
   br i1 %cmp1.i.i.2.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.2.i, !prof !139
 
 for.inc.i.i.2.i:                                  ; preds = %for.inc.i.i.1.i
-  %166 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 3), align 8, !tbaa !47
+  %166 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 24), align 8, !tbaa !47
   %cmp1.i.i.3.i = icmp ugt i64 %166, %anonymousNameIndex.2
   br i1 %cmp1.i.i.3.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.3.i, !prof !139
 
 for.inc.i.i.3.i:                                  ; preds = %for.inc.i.i.2.i
-  %167 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 4), align 8, !tbaa !47
+  %167 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 32), align 8, !tbaa !47
   %cmp1.i.i.4.i = icmp ugt i64 %167, %anonymousNameIndex.2
   br i1 %cmp1.i.i.4.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.4.i, !prof !139
 
 for.inc.i.i.4.i:                                  ; preds = %for.inc.i.i.3.i
-  %168 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 5), align 8, !tbaa !47
+  %168 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 40), align 8, !tbaa !47
   %cmp1.i.i.5.i = icmp ugt i64 %168, %anonymousNameIndex.2
   br i1 %cmp1.i.i.5.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.5.i, !prof !139
 
 for.inc.i.i.5.i:                                  ; preds = %for.inc.i.i.4.i
-  %169 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 6), align 8, !tbaa !47
+  %169 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 48), align 8, !tbaa !47
   %cmp1.i.i.6.i = icmp ugt i64 %169, %anonymousNameIndex.2
   br i1 %cmp1.i.i.6.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.6.i, !prof !139
 
 for.inc.i.i.6.i:                                  ; preds = %for.inc.i.i.5.i
-  %170 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 7), align 8, !tbaa !47
+  %170 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 56), align 8, !tbaa !47
   %cmp1.i.i.7.i = icmp ugt i64 %170, %anonymousNameIndex.2
   br i1 %cmp1.i.i.7.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.7.i, !prof !139
 
 for.inc.i.i.7.i:                                  ; preds = %for.inc.i.i.6.i
-  %171 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 8), align 8, !tbaa !47
+  %171 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 64), align 8, !tbaa !47
   %cmp1.i.i.8.i = icmp ugt i64 %171, %anonymousNameIndex.2
   br i1 %cmp1.i.i.8.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.8.i, !prof !139
 
 for.inc.i.i.8.i:                                  ; preds = %for.inc.i.i.7.i
-  %172 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 9), align 8, !tbaa !47
+  %172 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 72), align 8, !tbaa !47
   %cmp1.i.i.9.i = icmp ugt i64 %172, %anonymousNameIndex.2
   br i1 %cmp1.i.i.9.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.9.i, !prof !139
 
 for.inc.i.i.9.i:                                  ; preds = %for.inc.i.i.8.i
-  %173 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 10), align 8, !tbaa !47
+  %173 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 80), align 8, !tbaa !47
   %cmp1.i.i.10.i = icmp ugt i64 %173, %anonymousNameIndex.2
   br i1 %cmp1.i.i.10.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.10.i, !prof !139
 
 for.inc.i.i.10.i:                                 ; preds = %for.inc.i.i.9.i
-  %174 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 11), align 8, !tbaa !47
+  %174 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 88), align 8, !tbaa !47
   %cmp1.i.i.11.i = icmp ugt i64 %174, %anonymousNameIndex.2
   br i1 %cmp1.i.i.11.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.11.i, !prof !139
 
 for.inc.i.i.11.i:                                 ; preds = %for.inc.i.i.10.i
-  %175 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 12), align 8, !tbaa !47
+  %175 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 96), align 8, !tbaa !47
   %cmp1.i.i.12.i = icmp ugt i64 %175, %anonymousNameIndex.2
   br i1 %cmp1.i.i.12.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.12.i, !prof !139
 
 for.inc.i.i.12.i:                                 ; preds = %for.inc.i.i.11.i
-  %176 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 13), align 8, !tbaa !47
+  %176 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 104), align 8, !tbaa !47
   %cmp1.i.i.13.i = icmp ugt i64 %176, %anonymousNameIndex.2
   br i1 %cmp1.i.i.13.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.13.i, !prof !139
 
 for.inc.i.i.13.i:                                 ; preds = %for.inc.i.i.12.i
-  %177 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 14), align 8, !tbaa !47
+  %177 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 112), align 8, !tbaa !47
   %cmp1.i.i.14.i = icmp ugt i64 %177, %anonymousNameIndex.2
   br i1 %cmp1.i.i.14.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.14.i, !prof !139
 
 for.inc.i.i.14.i:                                 ; preds = %for.inc.i.i.13.i
-  %178 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 15), align 8, !tbaa !47
+  %178 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 120), align 8, !tbaa !47
   %cmp1.i.i.15.i = icmp ugt i64 %178, %anonymousNameIndex.2
   br i1 %cmp1.i.i.15.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.15.i, !prof !139
 
 for.inc.i.i.15.i:                                 ; preds = %for.inc.i.i.14.i
-  %179 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 16), align 8, !tbaa !47
+  %179 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 128), align 8, !tbaa !47
   %cmp1.i.i.16.i = icmp ugt i64 %179, %anonymousNameIndex.2
   br i1 %cmp1.i.i.16.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.16.i, !prof !139
 
 for.inc.i.i.16.i:                                 ; preds = %for.inc.i.i.15.i
-  %180 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 17), align 8, !tbaa !47
+  %180 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 136), align 8, !tbaa !47
   %cmp1.i.i.17.i = icmp ugt i64 %180, %anonymousNameIndex.2
   br i1 %cmp1.i.i.17.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.17.i, !prof !139
 
 for.inc.i.i.17.i:                                 ; preds = %for.inc.i.i.16.i
-  %181 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 18), align 8, !tbaa !47
+  %181 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 144), align 8, !tbaa !47
   %cmp1.i.i.18.i = icmp ugt i64 %181, %anonymousNameIndex.2
   br i1 %cmp1.i.i.18.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %for.inc.i.i.18.i, !prof !139
 
 for.inc.i.i.18.i:                                 ; preds = %for.inc.i.i.17.i
-  %182 = load i64, ptr getelementptr inbounds (%"struct.folly::c_array", ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i32 0, i64 19), align 8, !tbaa !47
+  %182 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 152), align 8, !tbaa !47
   %cmp1.i.i.19.i = icmp ugt i64 %182, %anonymousNameIndex.2
   br i1 %cmp1.i.i.19.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, label %while.body.i.preheader.i, !prof !139
 
@@ -24448,7 +24448,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !10
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !10
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #30
           to label %invoke.cont unwind label %lpad
 
@@ -24467,7 +24467,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #13 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !10
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !10
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #28
   unreachable
 }
@@ -24493,7 +24493,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12length_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %this, align 8, !tbaa !10
   ret void
 }
 

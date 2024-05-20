@@ -37,7 +37,7 @@ $_ZTIN8proxygen13HTTPErrorPageE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 16), ptr %this, align 8
   %content_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %content, align 8
   store i64 %0, ptr %content_, align 8
@@ -106,7 +106,7 @@ declare void @_ZNK5folly5IOBuf5cloneEv(ptr sret(%"class.std::unique_ptr") align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen19HTTPStaticErrorPageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 16), ptr %this, align 8
   %contentType_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contentType_) #5
   %content_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -127,7 +127,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen19HTTPStaticErrorPageD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 16), ptr %this, align 8
   %contentType_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contentType_.i) #5
   %content_.i = getelementptr inbounds i8, ptr %this, i64 8

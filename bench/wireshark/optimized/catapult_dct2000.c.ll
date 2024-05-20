@@ -468,7 +468,7 @@ thread-pre-split.i:                               ; preds = %38
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %38
   %.1 = phi i32 [ %44, %thread-pre-split.i ], [ %36, %38 ]
   %45 = zext nneg i32 %.1 to i64
-  %gep = getelementptr i8, ptr getelementptr ([131073 x i8], ptr @catapult_dct2000_read.linebuff, i64 -1, i64 131072), i64 %45
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @catapult_dct2000_read.linebuff, i64 -1), i64 %45
   %46 = load i8, ptr %gep, align 1
   %47 = icmp eq i8 %46, 13
   br i1 %47, label %48, label %51

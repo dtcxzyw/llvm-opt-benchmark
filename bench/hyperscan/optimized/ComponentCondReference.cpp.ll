@@ -49,7 +49,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define hidden void @_ZN3ue222ComponentCondReferenceC2Ej(ptr noundef nonnull align 8 dereferenceable(137) %this, i32 noundef %ref) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %kind = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %kind, align 8
   %ref_id = getelementptr inbounds i8, ptr %this, i64 92
@@ -72,7 +72,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define hidden void @_ZN3ue222ComponentCondReferenceC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %kind = getelementptr inbounds i8, ptr %this, i64 88
   store i32 1, ptr %kind, align 8
   %ref_id = getelementptr inbounds i8, ptr %this, i64 92
@@ -106,7 +106,7 @@ declare void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN3ue222ComponentCondReferenceC2ESt10unique_ptrINS_9ComponentESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr nocapture noundef %c) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %kind = getelementptr inbounds i8, ptr %this, i64 88
   store i32 2, ptr %kind, align 8
   %ref_id = getelementptr inbounds i8, ptr %this, i64 92
@@ -125,7 +125,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue222ComponentCondReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %assertion = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %assertion, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -152,7 +152,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue222ComponentCondReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %assertion.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %assertion.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -181,7 +181,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define hidden void @_ZN3ue222ComponentCondReferenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(137) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %kind = getelementptr inbounds i8, ptr %this, i64 88
   %kind2 = getelementptr inbounds i8, ptr %other, i64 88
   %0 = load i32, ptr %kind2, align 8
@@ -779,7 +779,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.3, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 1))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -793,10 +793,10 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue210ParseErrorE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217LocatedParseErrorE, i64 16), ptr %this, align 8
   %finalized = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized, align 8
   %reason = getelementptr inbounds i8, ptr %this, i64 8

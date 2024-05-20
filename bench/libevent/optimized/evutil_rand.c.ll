@@ -55,7 +55,7 @@ do.end.thread:                                    ; preds = %entry
   br label %do.end6
 
 do.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr @arc4rand_lock, align 8
   store ptr %fname, ptr @arc4random_urandom_filename, align 8
@@ -63,7 +63,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %do.end6, label %if.then3
 
 if.then3:                                         ; preds = %do.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call4 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #7
   br label %do.end6
 
@@ -79,7 +79,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end
 
@@ -90,7 +90,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool4.not, label %do.end8, label %if.then5
 
 if.then5:                                         ; preds = %do.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call6 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #7
   br label %do.end8
 
@@ -112,7 +112,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
   %conv.i = trunc i64 %indvars.iv.i to i8
-  %arrayidx.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %indvars.iv.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -120,7 +120,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 arc4_init.exit:                                   ; preds = %for.body.i
   store i8 0, ptr @rs, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   store i1 true, ptr @rs_initialized, align 4
   br label %if.end
 
@@ -144,7 +144,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %0 = load i8, ptr @rs, align 1
   %dec.i.i.i = add i8 %0, -1
-  %.promoted.i.i.i = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.end.i.i
@@ -153,7 +153,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %add867.i.i.i = phi i8 [ %.promoted.i.i.i, %for.end.i.i ], [ %add8.i.i.i, %for.body.i.i.i ]
   %add.i.i.i = add i8 %add58.i.i.i, 1
   %idxprom.i.i.i = zext i8 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %add4.i.i.i = add i8 %1, %add867.i.i.i
   %rem.i.i.i = and i32 %n.09.i.i.i, 31
@@ -162,7 +162,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %2 = load i8, ptr %arrayidx6.i.i.i, align 1
   %add8.i.i.i = add i8 %add4.i.i.i, %2
   %idxprom10.i.i.i = zext i8 %add8.i.i.i to i64
-  %arrayidx11.i.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom10.i.i.i
+  %arrayidx11.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i.i
   %3 = load i8, ptr %arrayidx11.i.i.i, align 1
   store i8 %3, ptr %arrayidx.i.i.i, align 1
   store i8 %1, ptr %arrayidx11.i.i.i, align 1
@@ -176,7 +176,7 @@ arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i
 
 4:                                                ; preds = %for.body.i.i.i
   store i8 %add.i.i.i, ptr @rs, align 1
-  store i8 %add.i.i.i, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   call void @evutil_memclear_(ptr noundef nonnull %buf.i.i, i64 noundef 32) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i)
   br label %5
@@ -291,7 +291,7 @@ if.end36.i.i:                                     ; preds = %for.end.i16.i
   %div3815.i.i = lshr i32 %nybbles.1.i.i, 1
   %15 = load i8, ptr @rs, align 1
   %dec.i.i17.i = add i8 %15, -1
-  %.promoted.i.i18.i = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted.i.i18.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body.i.i19.i
 
 for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %if.end36.i.i
@@ -300,7 +300,7 @@ for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %
   %add867.i.i22.i = phi i8 [ %.promoted.i.i18.i, %if.end36.i.i ], [ %add8.i.i30.i, %for.body.i.i19.i ]
   %add.i.i23.i = add i8 %add58.i.i21.i, 1
   %idxprom.i.i24.i = zext i8 %add.i.i23.i to i64
-  %arrayidx.i.i25.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i.i24.i
+  %arrayidx.i.i25.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i24.i
   %16 = load i8, ptr %arrayidx.i.i25.i, align 1
   %add4.i.i26.i = add i8 %16, %add867.i.i22.i
   %rem.i.i27.i = urem i32 %n.09.i.i20.i, %div3815.i.i
@@ -309,7 +309,7 @@ for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %
   %17 = load i8, ptr %arrayidx6.i.i29.i, align 1
   %add8.i.i30.i = add i8 %add4.i.i26.i, %17
   %idxprom10.i.i31.i = zext i8 %add8.i.i30.i to i64
-  %arrayidx11.i.i32.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom10.i.i31.i
+  %arrayidx11.i.i32.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i31.i
   %18 = load i8, ptr %arrayidx11.i.i32.i, align 1
   store i8 %18, ptr %arrayidx.i.i25.i, align 1
   store i8 %16, ptr %arrayidx11.i.i32.i, align 1
@@ -319,7 +319,7 @@ for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %
 
 arc4_addrandom.exit.i35.i:                        ; preds = %for.body.i.i19.i
   store i8 %add.i.i23.i, ptr @rs, align 1
-  store i8 %add.i.i23.i, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add.i.i23.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %add.i36.i = add nuw nsw i32 %div3815.i.i, %bytes.018.i.i
   %cmp.i37.i = icmp ult i32 %add.i36.i, 32
   br i1 %cmp.i37.i, label %for.body.i9.i, label %arc4_seed.exit.thread, !llvm.loop !11
@@ -342,7 +342,7 @@ arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.e
 
 for.cond.preheader:                               ; preds = %arc4_seed.exit.thread, %arc4_seed.exit
   %rs.promoted = load i8, ptr @rs, align 1
-  %.promoted = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -351,11 +351,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add4.i78 = phi i8 [ %.promoted, %for.cond.preheader ], [ %add4.i, %for.body ]
   %add.i = add i8 %add.i69, 1
   %idxprom.i = zext i8 %add.i to i64
-  %arrayidx.i2 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i2 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
   %19 = load i8, ptr %arrayidx.i2, align 1
   %add4.i = add i8 %add4.i78, %19
   %idxprom6.i = zext i8 %add4.i to i64
-  %arrayidx7.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i
   %20 = load i8, ptr %arrayidx7.i, align 1
   store i8 %20, ptr %arrayidx.i2, align 1
   store i8 %19, ptr %arrayidx7.i, align 1
@@ -366,61 +366,61 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body
   %add.i.i3 = add i8 %add.i69, 2
   %idxprom.i.i = zext i8 %add.i.i3 to i64
-  %arrayidx.i.i4 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i4 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
   %21 = load i8, ptr %arrayidx.i.i4, align 1
   %add4.i.i = add i8 %add4.i, %21
   %idxprom6.i.i = zext i8 %add4.i.i to i64
-  %arrayidx7.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i.i
+  %arrayidx7.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i
   %22 = load i8, ptr %arrayidx7.i.i, align 1
   store i8 %22, ptr %arrayidx.i.i4, align 1
   store i8 %21, ptr %arrayidx7.i.i, align 1
   %add.i4.i = add i8 %add.i69, 3
   %idxprom.i5.i = zext i8 %add.i4.i to i64
-  %arrayidx.i6.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i5.i
+  %arrayidx.i6.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i5.i
   %23 = load i8, ptr %arrayidx.i6.i, align 1
   %add4.i7.i = add i8 %23, %add4.i.i
   %idxprom6.i8.i = zext i8 %add4.i7.i to i64
-  %arrayidx7.i9.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i8.i
+  %arrayidx7.i9.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i8.i
   %24 = load i8, ptr %arrayidx7.i9.i, align 1
   store i8 %24, ptr %arrayidx.i6.i, align 1
   store i8 %23, ptr %arrayidx7.i9.i, align 1
   %add14.narrow.i10.i = add i8 %24, %23
   %idxprom15.i11.i = zext i8 %add14.narrow.i10.i to i64
-  %arrayidx16.i12.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom15.i11.i
+  %arrayidx16.i12.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i11.i
   %25 = load i8, ptr %arrayidx16.i12.i, align 1
   %conv2.i = zext i8 %25 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %add.i13.i = add i8 %add.i69, 4
   %idxprom.i14.i = zext i8 %add.i13.i to i64
-  %arrayidx.i15.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i14.i
+  %arrayidx.i15.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i14.i
   %26 = load i8, ptr %arrayidx.i15.i, align 1
   %add4.i16.i = add i8 %26, %add4.i7.i
   %idxprom6.i17.i = zext i8 %add4.i16.i to i64
-  %arrayidx7.i18.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i17.i
+  %arrayidx7.i18.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i17.i
   %27 = load i8, ptr %arrayidx7.i18.i, align 1
   store i8 %27, ptr %arrayidx.i15.i, align 1
   store i8 %26, ptr %arrayidx7.i18.i, align 1
   %add14.narrow.i19.i = add i8 %27, %26
   %idxprom15.i20.i = zext i8 %add14.narrow.i19.i to i64
-  %arrayidx16.i21.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom15.i20.i
+  %arrayidx16.i21.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i20.i
   %28 = load i8, ptr %arrayidx16.i21.i, align 1
   %conv5.i = zext i8 %28 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %add.i22.i = add i8 %add.i69, 5
   store i8 %add.i22.i, ptr @rs, align 1
   %idxprom.i23.i = zext i8 %add.i22.i to i64
-  %arrayidx.i24.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i23.i
+  %arrayidx.i24.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i23.i
   %29 = load i8, ptr %arrayidx.i24.i, align 1
   %add4.i25.i = add i8 %29, %add4.i16.i
-  store i8 %add4.i25.i, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add4.i25.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %idxprom6.i26.i = zext i8 %add4.i25.i to i64
-  %arrayidx7.i27.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i26.i
+  %arrayidx7.i27.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i26.i
   %30 = load i8, ptr %arrayidx7.i27.i, align 1
   store i8 %30, ptr %arrayidx.i24.i, align 1
   store i8 %29, ptr %arrayidx7.i27.i, align 1
   %add14.narrow.i28.i = add i8 %30, %29
   %idxprom15.i29.i = zext i8 %add14.narrow.i28.i to i64
-  %arrayidx16.i30.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom15.i29.i
+  %arrayidx16.i30.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i29.i
   %31 = load i8, ptr %arrayidx16.i30.i, align 1
   %conv9.i = zext i8 %31 to i32
   %shl3.i.masked = and i32 %shl3.i, 983040
@@ -443,7 +443,7 @@ entry:
   br i1 %tobool.not.i.i, label %do.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end.i.i
 
@@ -491,19 +491,19 @@ if.end5.i.i:                                      ; preds = %if.then3.i.i, %whil
   %add.i.i.i = add i8 %6, 1
   store i8 %add.i.i.i, ptr @rs, align 1
   %idxprom.i.i.i = zext i8 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
-  %8 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %add4.i.i.i = add i8 %8, %7
-  store i8 %add4.i.i.i, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add4.i.i.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %idxprom6.i.i.i = zext i8 %add4.i.i.i to i64
-  %arrayidx7.i.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom6.i.i.i
+  %arrayidx7.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i.i
   %9 = load i8, ptr %arrayidx7.i.i.i, align 1
   store i8 %9, ptr %arrayidx.i.i.i, align 1
   store i8 %7, ptr %arrayidx7.i.i.i, align 1
   %add14.narrow.i.i.i = add i8 %9, %7
   %idxprom15.i.i.i = zext i8 %add14.narrow.i.i.i to i64
-  %arrayidx16.i.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom15.i.i.i
+  %arrayidx16.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i.i.i
   %10 = load i8, ptr %arrayidx16.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buf, i64 %dec5.i.i
   store i8 %10, ptr %arrayidx.i.i, align 1
@@ -516,7 +516,7 @@ do.body7.i.i:                                     ; preds = %if.end5.i.i, %arc4_
   br i1 %tobool8.not.i.i, label %ev_arc4random_buf.exit, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %do.body7.i.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call10.i.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #7
   br label %ev_arc4random_buf.exit
 
@@ -534,7 +534,7 @@ entry:
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   br label %do.end.i
 
@@ -551,7 +551,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %do.end
   br i1 %cmp8.i.not, label %do.body5.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end4.i
-  %.promoted.i = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %rs.promoted.i = load i8, ptr @rs, align 1
   %2 = add i8 %rs.promoted.i, -1
   br label %for.body.i
@@ -571,7 +571,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add867.i.i = phi i8 [ %add.i.lcssa79.i, %for.body.i ], [ %add8.i.i, %for.body.i.i ]
   %add.i.i = add i8 %add58.i.i, 1
   %idxprom.i.i = zext i8 %add.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %add4.i.i = add i8 %5, %add867.i.i
   %rem.i.i = srem i32 %n.09.i.i, %4
@@ -580,7 +580,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %6 = load i8, ptr %arrayidx6.i.i, align 1
   %add8.i.i = add i8 %add4.i.i, %6
   %idxprom10.i.i = zext i8 %add8.i.i to i64
-  %arrayidx11.i.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom10.i.i
+  %arrayidx11.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i
   %7 = load i8, ptr %arrayidx11.i.i, align 1
   store i8 %7, ptr %arrayidx.i.i, align 1
   store i8 %5, ptr %arrayidx11.i.i, align 1
@@ -595,7 +595,7 @@ arc4_addrandom.exit.i:                            ; preds = %for.body.i.i
 
 for.cond.do.body5_crit_edge.i:                    ; preds = %arc4_addrandom.exit.i
   store i8 %add.i.lcssa610.i, ptr @rs, align 1
-  store i8 %add.i.lcssa610.i, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add.i.lcssa610.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %do.body5.i
 
 do.body5.i:                                       ; preds = %for.cond.do.body5_crit_edge.i, %if.end4.i
@@ -604,7 +604,7 @@ do.body5.i:                                       ; preds = %for.cond.do.body5_c
   br i1 %tobool6.not.i, label %arc4random_addrandom.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %do.body5.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call8.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #7
   br label %arc4random_addrandom.exit
 
@@ -620,7 +620,7 @@ entry:
   br i1 %cmp.not.i, label %evutil_free_secure_rng_globals_locks.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %do.end.i, label %if.then2.i
 
@@ -673,7 +673,7 @@ read_all.exit:                                    ; preds = %while.cond.i
 if.end5:                                          ; preds = %read_all.exit
   %0 = load i8, ptr @rs, align 1
   %dec.i = add i8 %0, -1
-  %.promoted.i = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end5
@@ -682,7 +682,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %add867.i = phi i8 [ %.promoted.i, %if.end5 ], [ %add8.i, %for.body.i ]
   %add.i3 = add i8 %add58.i, 1
   %idxprom.i = zext i8 %add.i3 to i64
-  %arrayidx.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %add4.i = add i8 %1, %add867.i
   %rem.i = and i32 %n.09.i, 31
@@ -691,7 +691,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %2 = load i8, ptr %arrayidx6.i, align 1
   %add8.i = add i8 %add4.i, %2
   %idxprom10.i = zext i8 %add8.i to i64
-  %arrayidx11.i = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i
   %3 = load i8, ptr %arrayidx11.i, align 1
   store i8 %3, ptr %arrayidx.i, align 1
   store i8 %1, ptr %arrayidx11.i, align 1
@@ -701,7 +701,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 arc4_addrandom.exit:                              ; preds = %for.body.i
   store i8 %add.i3, ptr @rs, align 1
-  store i8 %add.i3, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %add.i3, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   call void @evutil_memclear_(ptr noundef nonnull %buf, i64 noundef 32) #7
   br label %return
 

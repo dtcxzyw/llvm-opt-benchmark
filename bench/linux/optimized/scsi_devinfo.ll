@@ -397,7 +397,7 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br label %77
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %23 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 56) #11
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -879,7 +879,7 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
   br i1 %12, label %.thread, label %23
 
 .thread:                                          ; preds = %3, %11
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 48) #11
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
@@ -896,8 +896,8 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   store i32 %0, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @scsi_dev_info_list, i64 0, i32 1), align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.list_head, ptr @scsi_dev_info_list, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @scsi_dev_info_list, i64 8), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @scsi_dev_info_list, i64 8), align 8
   store ptr @scsi_dev_info_list, ptr %14, align 8
   store ptr %22, ptr %17, align 8
   store volatile ptr %14, ptr %22, align 8
@@ -1105,7 +1105,7 @@ declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @devinfo_seq_start(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 16) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6

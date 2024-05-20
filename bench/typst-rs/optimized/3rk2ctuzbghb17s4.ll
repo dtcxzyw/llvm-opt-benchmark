@@ -2749,7 +2749,7 @@ define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__g
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h14e5309ee18046b5E.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h14e5309ee18046b5E.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -13482,7 +13482,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN5typst4util4pico8INTERNER28_$u7b$$u7b$closure$u7d$$u7d$17h0a22397701f48d41E.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i
-  %.0.i.i3.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i3.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8, !alias.scope !3343
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -28406,7 +28406,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit
-  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2 = phi ptr [ %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %0 ]
   %6 = load i64, ptr %.0.i.i2, align 8, !noalias !6953, !noundef !12
   %7 = getelementptr inbounds i8, ptr %.0.i.i2, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !6953, !noundef !12
@@ -29439,7 +29439,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h79d761a14dbde5e3E.llvm.11057974413330164255.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i
-  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !7149
   %9 = extractelement <2 x i64> %8, i64 0
@@ -29468,7 +29468,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h79d761a14dbde5e3E.llvm.11057974413330164255.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i
-  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !7161
   %9 = extractelement <2 x i64> %8, i64 0
@@ -29497,7 +29497,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h79d761a14dbde5e3E.llvm.11057974413330164255.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i
-  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !7173
   %9 = extractelement <2 x i64> %8, i64 0
@@ -96293,7 +96293,7 @@ default.unreachable91:                            ; preds = %3
   %124 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sroa.3.0.i.i.i, ptr %124, align 8, !noalias !24148
   %125 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds (<{ [15 x i8] }>, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.263, i64 0, i32 0, i64 1), ptr %125, align 8, !noalias !24148
+  store ptr getelementptr inbounds (i8, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.263, i64 1), ptr %125, align 8, !noalias !24148
   %126 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 14, ptr %126, align 8, !noalias !24148
   %127 = icmp ugt i64 %.sroa.3.0.i.i.i, 78
@@ -98168,7 +98168,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit
-  %.0.i.i48 = phi ptr [ %7, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i48 = phi ptr [ %7, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
@@ -98214,7 +98214,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 .noexc.thread:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit", %.noexc
-  %.0.i.i3454 = phi ptr [ %16, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit" ]
+  %.0.i.i3454 = phi ptr [ %16, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit" ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %22 = load <2 x i64>, ptr %.0.i.i3454, align 8, !noalias !24547
   %23 = extractelement <2 x i64> %22, i64 0
@@ -98255,7 +98255,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 .noexc28.thread:                                  ; preds = %.noexc.thread, %.noexc28
-  %.0.i.i3860 = phi ptr [ %29, %.noexc28 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %.noexc.thread ]
+  %.0.i.i3860 = phi ptr [ %29, %.noexc28 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %.noexc.thread ]
   %.sroa.58.sroa.0.7..sroa_idx = getelementptr inbounds i8, ptr %.sroa.58.sroa.0, i64 7
   %34 = getelementptr inbounds i8, ptr %0, i64 144
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -98438,7 +98438,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit
-  %.0.i.i9 = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i9 = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -98471,7 +98471,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb02f8fad9246607bE.llvm.11057974413330164255.exit": ; preds = %2, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit
-  %.0.i.i6 = phi ptr [ %5, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i6 = phi ptr [ %5, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.11057974413330164255.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -106001,61 +106001,61 @@ define void @_ZN5typst5model6define17hb23830f1ec01a7edE(ptr noalias noundef alig
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @_ZN5typst5model5MODEL4DATA17hb8257d4c1162ca35E, ptr %4, align 8, !alias.scope !25945, !noalias !25948
   %5 = load ptr, ptr @"_ZN5typst5model8document1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..document..DocumentElem$GT$4data4DATA17h590b3ec1bb78af81E.llvm.13383457361836014260", align 8, !noalias !25950, !nonnull !12, !align !235, !noundef !12
-  %6 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model8document1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..document..DocumentElem$GT$4data4DATA17h590b3ec1bb78af81E.llvm.13383457361836014260", i64 0, i32 1, i64 0), align 8, !noalias !25950, !noundef !12
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model8document1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..document..DocumentElem$GT$4data4DATA17h590b3ec1bb78af81E.llvm.13383457361836014260", i64 8), align 8, !noalias !25950, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noundef nonnull align 8 @"_ZN5typst5model8document1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..document..DocumentElem$GT$4data4DATA17h590b3ec1bb78af81E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %7 = load ptr, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", align 8, !noalias !25953, !nonnull !12, !align !235, !noundef !12
-  %8 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", i64 0, i32 1, i64 0), align 8, !noalias !25953, !noundef !12
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", i64 8), align 8, !noalias !25953, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, ptr noundef nonnull align 8 @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %9 = load ptr, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", align 8, !noalias !25956, !nonnull !12, !align !235, !noundef !12
-  %10 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", i64 0, i32 1, i64 0), align 8, !noalias !25956, !noundef !12
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", i64 8), align 8, !noalias !25956, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %10, ptr noundef nonnull align 8 @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %11 = load ptr, ptr @"_ZN5typst5model7outline1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..outline..OutlineElem$GT$4data4DATA17haf52cf6c0cff84b6E.llvm.5857379167208991996", align 8, !noalias !25959, !nonnull !12, !align !235, !noundef !12
-  %12 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, [16 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model7outline1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..outline..OutlineElem$GT$4data4DATA17haf52cf6c0cff84b6E.llvm.5857379167208991996", i64 0, i32 1, i64 0), align 8, !noalias !25959, !noundef !12
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model7outline1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..outline..OutlineElem$GT$4data4DATA17haf52cf6c0cff84b6E.llvm.5857379167208991996", i64 8), align 8, !noalias !25959, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %12, ptr noundef nonnull align 8 @"_ZN5typst5model7outline1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..outline..OutlineElem$GT$4data4DATA17haf52cf6c0cff84b6E.llvm.5857379167208991996", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %13 = load ptr, ptr @"_ZN5typst5model7heading1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..heading..HeadingElem$GT$4data4DATA17hea2039c21598b9daE.llvm.11057974413330164255", align 8, !noalias !25962, !nonnull !12, !align !235, !noundef !12
-  %14 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, [16 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model7heading1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..heading..HeadingElem$GT$4data4DATA17hea2039c21598b9daE.llvm.11057974413330164255", i64 0, i32 1, i64 0), align 8, !noalias !25962, !noundef !12
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model7heading1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..heading..HeadingElem$GT$4data4DATA17hea2039c21598b9daE.llvm.11057974413330164255", i64 8), align 8, !noalias !25962, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst5model7heading1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..heading..HeadingElem$GT$4data4DATA17hea2039c21598b9daE.llvm.11057974413330164255", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %15 = load ptr, ptr @"_ZN5typst5model6figure1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureElem$GT$4data4DATA17ha487504e1c8deac3E.llvm.11057974413330164255", align 8, !noalias !25965, !nonnull !12, !align !235, !noundef !12
-  %16 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model6figure1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureElem$GT$4data4DATA17ha487504e1c8deac3E.llvm.11057974413330164255", i64 0, i32 1, i64 0), align 8, !noalias !25965, !noundef !12
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model6figure1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureElem$GT$4data4DATA17ha487504e1c8deac3E.llvm.11057974413330164255", i64 8), align 8, !noalias !25965, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16, ptr noundef nonnull align 8 @"_ZN5typst5model6figure1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureElem$GT$4data4DATA17ha487504e1c8deac3E.llvm.11057974413330164255", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %17 = load ptr, ptr @"_ZN5typst5model8footnote1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteElem$GT$4data4DATA17hf49d2955f23bdd1cE.llvm.11057974413330164255", align 8, !noalias !25968, !nonnull !12, !align !235, !noundef !12
-  %18 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model8footnote1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteElem$GT$4data4DATA17hf49d2955f23bdd1cE.llvm.11057974413330164255", i64 0, i32 1, i64 0), align 8, !noalias !25968, !noundef !12
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model8footnote1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteElem$GT$4data4DATA17hf49d2955f23bdd1cE.llvm.11057974413330164255", i64 8), align 8, !noalias !25968, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noundef nonnull align 8 @"_ZN5typst5model8footnote1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteElem$GT$4data4DATA17hf49d2955f23bdd1cE.llvm.11057974413330164255", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %19 = load ptr, ptr @"_ZN5typst5model5quote1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..quote..QuoteElem$GT$4data4DATA17h1d64e1e6212c1c0cE.llvm.13383457361836014260", align 8, !noalias !25971, !nonnull !12, !align !235, !noundef !12
-  %20 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model5quote1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..quote..QuoteElem$GT$4data4DATA17h1d64e1e6212c1c0cE.llvm.13383457361836014260", i64 0, i32 1, i64 0), align 8, !noalias !25971, !noundef !12
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5quote1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..quote..QuoteElem$GT$4data4DATA17h1d64e1e6212c1c0cE.llvm.13383457361836014260", i64 8), align 8, !noalias !25971, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20, ptr noundef nonnull align 8 @"_ZN5typst5model5quote1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..quote..QuoteElem$GT$4data4DATA17h1d64e1e6212c1c0cE.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %21 = load ptr, ptr @"_ZN5typst5model4cite1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..cite..CiteElem$GT$4data4DATA17h92c0d0d5e15de55cE.llvm.13383457361836014260", align 8, !noalias !25974, !nonnull !12, !align !235, !noundef !12
-  %22 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model4cite1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..cite..CiteElem$GT$4data4DATA17h92c0d0d5e15de55cE.llvm.13383457361836014260", i64 0, i32 1, i64 0), align 8, !noalias !25974, !noundef !12
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4cite1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..cite..CiteElem$GT$4data4DATA17h92c0d0d5e15de55cE.llvm.13383457361836014260", i64 8), align 8, !noalias !25974, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %22, ptr noundef nonnull align 8 @"_ZN5typst5model4cite1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..cite..CiteElem$GT$4data4DATA17h92c0d0d5e15de55cE.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %23 = load ptr, ptr @"_ZN5typst5model12bibliography1_117_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..bibliography..BibliographyElem$GT$4data4DATA17h1f9ffeea42289a00E.llvm.13383457361836014260", align 8, !noalias !25977, !nonnull !12, !align !235, !noundef !12
-  %24 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, [16 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model12bibliography1_117_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..bibliography..BibliographyElem$GT$4data4DATA17h1f9ffeea42289a00E.llvm.13383457361836014260", i64 0, i32 1, i64 0), align 8, !noalias !25977, !noundef !12
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model12bibliography1_117_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..bibliography..BibliographyElem$GT$4data4DATA17h1f9ffeea42289a00E.llvm.13383457361836014260", i64 8), align 8, !noalias !25977, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noundef nonnull align 8 @"_ZN5typst5model12bibliography1_117_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..bibliography..BibliographyElem$GT$4data4DATA17h1f9ffeea42289a00E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %25 = load ptr, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", align 8, !noalias !25980, !nonnull !12, !align !235, !noundef !12
-  %26 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", i64 0, i32 1, i64 0), align 8, !noalias !25980, !noundef !12
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", i64 8), align 8, !noalias !25980, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26, ptr noundef nonnull align 8 @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %27 = load ptr, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListElem$GT$4data4DATA17h2393d08777e6c4ceE.llvm.12850028421071809815", align 8, !noalias !25983, !nonnull !12, !align !235, !noundef !12
-  %28 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListElem$GT$4data4DATA17h2393d08777e6c4ceE.llvm.12850028421071809815", i64 0, i32 1, i64 0), align 8, !noalias !25983, !noundef !12
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListElem$GT$4data4DATA17h2393d08777e6c4ceE.llvm.12850028421071809815", i64 8), align 8, !noalias !25983, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %28, ptr noundef nonnull align 8 @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListElem$GT$4data4DATA17h2393d08777e6c4ceE.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %29 = load ptr, ptr @"_ZN5typst5model3par1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParbreakElem$GT$4data4DATA17hd632b953d8feb0e9E.llvm.12850028421071809815", align 8, !noalias !25986, !nonnull !12, !align !235, !noundef !12
-  %30 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model3par1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParbreakElem$GT$4data4DATA17hd632b953d8feb0e9E.llvm.12850028421071809815", i64 0, i32 1, i64 0), align 8, !noalias !25986, !noundef !12
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model3par1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParbreakElem$GT$4data4DATA17hd632b953d8feb0e9E.llvm.12850028421071809815", i64 8), align 8, !noalias !25986, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %30, ptr noundef nonnull align 8 @"_ZN5typst5model3par1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParbreakElem$GT$4data4DATA17hd632b953d8feb0e9E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %31 = load ptr, ptr @"_ZN5typst5model3par1_99_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParElem$GT$4data4DATA17h36ec998510842b56E.llvm.12850028421071809815", align 8, !noalias !25989, !nonnull !12, !align !235, !noundef !12
-  %32 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model3par1_99_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParElem$GT$4data4DATA17h36ec998510842b56E.llvm.12850028421071809815", i64 0, i32 1, i64 0), align 8, !noalias !25989, !noundef !12
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model3par1_99_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParElem$GT$4data4DATA17h36ec998510842b56E.llvm.12850028421071809815", i64 8), align 8, !noalias !25989, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %32, ptr noundef nonnull align 8 @"_ZN5typst5model3par1_99_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..par..ParElem$GT$4data4DATA17h36ec998510842b56E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %33 = load ptr, ptr @"_ZN5typst5model5table1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..table..TableElem$GT$4data4DATA17h72bf0d4347025767E.llvm.5857379167208991996", align 8, !noalias !25992, !nonnull !12, !align !235, !noundef !12
-  %34 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, [16 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model5table1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..table..TableElem$GT$4data4DATA17h72bf0d4347025767E.llvm.5857379167208991996", i64 0, i32 1, i64 0), align 8, !noalias !25992, !noundef !12
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5table1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..table..TableElem$GT$4data4DATA17h72bf0d4347025767E.llvm.5857379167208991996", i64 8), align 8, !noalias !25992, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %34, ptr noundef nonnull align 8 @"_ZN5typst5model5table1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..table..TableElem$GT$4data4DATA17h72bf0d4347025767E.llvm.5857379167208991996", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %35 = load ptr, ptr @"_ZN5typst5model5terms1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermsElem$GT$4data4DATA17hd7cf577f5341d159E.llvm.7889846851399105414", align 8, !noalias !25995, !nonnull !12, !align !235, !noundef !12
-  %36 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model5terms1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermsElem$GT$4data4DATA17hd7cf577f5341d159E.llvm.7889846851399105414", i64 0, i32 1, i64 0), align 8, !noalias !25995, !noundef !12
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5terms1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermsElem$GT$4data4DATA17hd7cf577f5341d159E.llvm.7889846851399105414", i64 8), align 8, !noalias !25995, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %36, ptr noundef nonnull align 8 @"_ZN5typst5model5terms1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermsElem$GT$4data4DATA17hd7cf577f5341d159E.llvm.7889846851399105414", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %37 = load ptr, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", align 8, !noalias !25998, !nonnull !12, !align !235, !noundef !12
-  %38 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", i64 0, i32 1, i64 0), align 8, !noalias !25998, !noundef !12
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", i64 8), align 8, !noalias !25998, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %38, ptr noundef nonnull align 8 @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
   %39 = load ptr, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", align 8, !noalias !26001, !nonnull !12, !align !235, !noundef !12
-  %40 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", i64 0, i32 1, i64 0), align 8, !noalias !26001, !noundef !12
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", i64 8), align 8, !noalias !26001, !noundef !12
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %40, ptr noundef nonnull align 8 @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
-  %41 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @"_ZN92_$LT$typst..model..numbering_..numbering$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h700516203cc4b808E.llvm.4930786928582598558", i64 0, i32 1), align 8, !noalias !26004, !nonnull !12, !align !235, !noundef !12
-  %42 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @"_ZN92_$LT$typst..model..numbering_..numbering$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h700516203cc4b808E.llvm.4930786928582598558", i64 0, i32 2, i64 0), align 8, !noalias !26004, !noundef !12
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$typst..model..numbering_..numbering$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h700516203cc4b808E.llvm.4930786928582598558", i64 8), align 8, !noalias !26004, !nonnull !12, !align !235, !noundef !12
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$typst..model..numbering_..numbering$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h700516203cc4b808E.llvm.4930786928582598558", i64 16), align 8, !noalias !26004, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !26004
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26007)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26010)
@@ -157411,7 +157411,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %10 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr null, ptr %10, align 8, !alias.scope !40809
   %11 = load ptr, ptr @"_ZN5typst5model8footnote1_110_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteEntry$GT$4data4DATA17h3ce9252f74272b41E.llvm.11057974413330164255", align 8, !noalias !40819, !nonnull !12, !align !235, !noundef !12
-  %12 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model8footnote1_110_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteEntry$GT$4data4DATA17h3ce9252f74272b41E.llvm.11057974413330164255", i64 0, i32 1, i64 0), align 8, !noalias !40819, !noundef !12
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model8footnote1_110_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteEntry$GT$4data4DATA17h3ce9252f74272b41E.llvm.11057974413330164255", i64 8), align 8, !noalias !40819, !noundef !12
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %12, ptr noundef nonnull align 8 @"_ZN5typst5model8footnote1_110_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..footnote..FootnoteEntry$GT$4data4DATA17h3ce9252f74272b41E.llvm.11057974413330164255", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hc3d3fb489e1dfdb7E.exit unwind label %13
 
@@ -157946,7 +157946,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %10 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr null, ptr %10, align 8, !alias.scope !40885
   %11 = load ptr, ptr @"_ZN5typst5model6figure1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureCaption$GT$4data4DATA17h0edf50226922c221E.llvm.11057974413330164255", align 8, !noalias !40895, !nonnull !12, !align !235, !noundef !12
-  %12 = load i64, ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr }>, ptr @"_ZN5typst5model6figure1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureCaption$GT$4data4DATA17h0edf50226922c221E.llvm.11057974413330164255", i64 0, i32 1, i64 0), align 8, !noalias !40895, !noundef !12
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model6figure1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureCaption$GT$4data4DATA17h0edf50226922c221E.llvm.11057974413330164255", i64 8), align 8, !noalias !40895, !noundef !12
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %12, ptr noundef nonnull align 8 @"_ZN5typst5model6figure1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..figure..FigureCaption$GT$4data4DATA17h0edf50226922c221E.llvm.11057974413330164255", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hb50acb5c771342d9E.exit unwind label %13
 
@@ -159457,8 +159457,8 @@ define void @"_ZN88_$LT$typst..layout..length..Length$u20$as$u20$typst..foundati
   store i8 1, ptr %22, align 8, !alias.scope !41209
   %23 = getelementptr inbounds i8, ptr %14, i64 72
   store ptr null, ptr %23, align 8, !alias.scope !41209
-  %24 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_pt_data4DATA17h0b33e826cc26b9caE, i64 0, i32 1), align 8, !noalias !41219, !nonnull !12, !align !235, !noundef !12
-  %25 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_pt_data4DATA17h0b33e826cc26b9caE, i64 0, i32 2, i64 0), align 8, !noalias !41219, !noundef !12
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_pt_data4DATA17h0b33e826cc26b9caE, i64 8), align 8, !noalias !41219, !nonnull !12, !align !235, !noundef !12
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_pt_data4DATA17h0b33e826cc26b9caE, i64 16), align 8, !noalias !41219, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !41219
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41225)
@@ -159493,8 +159493,8 @@ define void @"_ZN88_$LT$typst..layout..length..Length$u20$as$u20$typst..foundati
 
 34:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !41219
-  %35 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_mm_data4DATA17h556ee2108a025ef7E, i64 0, i32 1), align 8, !noalias !41230, !nonnull !12, !align !235, !noundef !12
-  %36 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_mm_data4DATA17h556ee2108a025ef7E, i64 0, i32 2, i64 0), align 8, !noalias !41230, !noundef !12
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_mm_data4DATA17h556ee2108a025ef7E, i64 8), align 8, !noalias !41230, !nonnull !12, !align !235, !noundef !12
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_mm_data4DATA17h556ee2108a025ef7E, i64 16), align 8, !noalias !41230, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !41230
   call void @llvm.experimental.noalias.scope.decl(metadata !41233)
   call void @llvm.experimental.noalias.scope.decl(metadata !41236)
@@ -159529,8 +159529,8 @@ define void @"_ZN88_$LT$typst..layout..length..Length$u20$as$u20$typst..foundati
 
 45:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i1"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !41230
-  %46 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_cm_data4DATA17h2197dc5b9c4ae3b9E, i64 0, i32 1), align 8, !noalias !41241, !nonnull !12, !align !235, !noundef !12
-  %47 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length10to_cm_data4DATA17h2197dc5b9c4ae3b9E, i64 0, i32 2, i64 0), align 8, !noalias !41241, !noundef !12
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_cm_data4DATA17h2197dc5b9c4ae3b9E, i64 8), align 8, !noalias !41241, !nonnull !12, !align !235, !noundef !12
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length10to_cm_data4DATA17h2197dc5b9c4ae3b9E, i64 16), align 8, !noalias !41241, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !41241
   call void @llvm.experimental.noalias.scope.decl(metadata !41244)
   call void @llvm.experimental.noalias.scope.decl(metadata !41247)
@@ -159565,8 +159565,8 @@ define void @"_ZN88_$LT$typst..layout..length..Length$u20$as$u20$typst..foundati
 
 56:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i5"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !41241
-  %57 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length14to_inches_data4DATA17h07d65003b78f1eefE, i64 0, i32 1), align 8, !noalias !41252, !nonnull !12, !align !235, !noundef !12
-  %58 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length14to_inches_data4DATA17h07d65003b78f1eefE, i64 0, i32 2, i64 0), align 8, !noalias !41252, !noundef !12
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length14to_inches_data4DATA17h07d65003b78f1eefE, i64 8), align 8, !noalias !41252, !nonnull !12, !align !235, !noundef !12
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length14to_inches_data4DATA17h07d65003b78f1eefE, i64 16), align 8, !noalias !41252, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !41252
   call void @llvm.experimental.noalias.scope.decl(metadata !41255)
   call void @llvm.experimental.noalias.scope.decl(metadata !41258)
@@ -159601,8 +159601,8 @@ define void @"_ZN88_$LT$typst..layout..length..Length$u20$as$u20$typst..foundati
 
 67:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i9"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !41252
-  %68 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length16to_absolute_data4DATA17hd19773ab3cacab99E, i64 0, i32 1), align 8, !noalias !41263, !nonnull !12, !align !235, !noundef !12
-  %69 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout6length6Length16to_absolute_data4DATA17hd19773ab3cacab99E, i64 0, i32 2, i64 0), align 8, !noalias !41263, !noundef !12
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length16to_absolute_data4DATA17hd19773ab3cacab99E, i64 8), align 8, !noalias !41263, !nonnull !12, !align !235, !noundef !12
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout6length6Length16to_absolute_data4DATA17hd19773ab3cacab99E, i64 16), align 8, !noalias !41263, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !41263
   call void @llvm.experimental.noalias.scope.decl(metadata !41266)
   call void @llvm.experimental.noalias.scope.decl(metadata !41269)
@@ -160877,8 +160877,8 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
           to label %24 unwind label %15
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout5align9Alignment9axis_data4DATA17hf737e07a5536afecE, i64 0, i32 1), align 8, !noalias !41456, !nonnull !12, !align !235, !noundef !12
-  %26 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout5align9Alignment9axis_data4DATA17hf737e07a5536afecE, i64 0, i32 2, i64 0), align 8, !noalias !41456, !noundef !12
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout5align9Alignment9axis_data4DATA17hf737e07a5536afecE, i64 8), align 8, !noalias !41456, !nonnull !12, !align !235, !noundef !12
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout5align9Alignment9axis_data4DATA17hf737e07a5536afecE, i64 16), align 8, !noalias !41456, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !41456
   call void @llvm.experimental.noalias.scope.decl(metadata !41459)
   call void @llvm.experimental.noalias.scope.decl(metadata !41462)
@@ -160913,8 +160913,8 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
 
 35:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !41456
-  %36 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout5align9Alignment8inv_data4DATA17h72f5461e5e2f0387E, i64 0, i32 1), align 8, !noalias !41467, !nonnull !12, !align !235, !noundef !12
-  %37 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst6layout5align9Alignment8inv_data4DATA17h72f5461e5e2f0387E, i64 0, i32 2, i64 0), align 8, !noalias !41467, !noundef !12
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout5align9Alignment8inv_data4DATA17h72f5461e5e2f0387E, i64 8), align 8, !noalias !41467, !nonnull !12, !align !235, !noundef !12
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst6layout5align9Alignment8inv_data4DATA17h72f5461e5e2f0387E, i64 16), align 8, !noalias !41467, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !41467
   call void @llvm.experimental.noalias.scope.decl(metadata !41470)
   call void @llvm.experimental.noalias.scope.decl(metadata !41473)
@@ -163094,8 +163094,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
   store i8 1, ptr %24, align 8, !alias.scope !41701
   %25 = getelementptr inbounds i8, ptr %16, i64 72
   store ptr null, ptr %25, align 8, !alias.scope !41701
-  %26 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter8get_data4DATA17h42ba7915f74de838E, i64 0, i32 1), align 8, !noalias !41711, !nonnull !12, !align !235, !noundef !12
-  %27 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter8get_data4DATA17h42ba7915f74de838E, i64 0, i32 2, i64 0), align 8, !noalias !41711, !noundef !12
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter8get_data4DATA17h42ba7915f74de838E, i64 8), align 8, !noalias !41711, !nonnull !12, !align !235, !noundef !12
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter8get_data4DATA17h42ba7915f74de838E, i64 16), align 8, !noalias !41711, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !41711
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41714)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41717)
@@ -163130,8 +163130,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
 
 36:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !41711
-  %37 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter12display_data4DATA17h6ca10b1829e61da7E, i64 0, i32 1), align 8, !noalias !41722, !nonnull !12, !align !235, !noundef !12
-  %38 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter12display_data4DATA17h6ca10b1829e61da7E, i64 0, i32 2, i64 0), align 8, !noalias !41722, !noundef !12
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter12display_data4DATA17h6ca10b1829e61da7E, i64 8), align 8, !noalias !41722, !nonnull !12, !align !235, !noundef !12
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter12display_data4DATA17h6ca10b1829e61da7E, i64 16), align 8, !noalias !41722, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !41722
   call void @llvm.experimental.noalias.scope.decl(metadata !41725)
   call void @llvm.experimental.noalias.scope.decl(metadata !41728)
@@ -163166,8 +163166,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
 
 47:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i1"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !41722
-  %48 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter7at_data4DATA17h3807b5a6375d5da2E, i64 0, i32 1), align 8, !noalias !41733, !nonnull !12, !align !235, !noundef !12
-  %49 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter7at_data4DATA17h3807b5a6375d5da2E, i64 0, i32 2, i64 0), align 8, !noalias !41733, !noundef !12
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter7at_data4DATA17h3807b5a6375d5da2E, i64 8), align 8, !noalias !41733, !nonnull !12, !align !235, !noundef !12
+  %49 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter7at_data4DATA17h3807b5a6375d5da2E, i64 16), align 8, !noalias !41733, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !41733
   call void @llvm.experimental.noalias.scope.decl(metadata !41736)
   call void @llvm.experimental.noalias.scope.decl(metadata !41739)
@@ -163202,8 +163202,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
 
 58:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i5"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !41733
-  %59 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter11final__data4DATA17h358bb3983507a2c9E, i64 0, i32 1), align 8, !noalias !41744, !nonnull !12, !align !235, !noundef !12
-  %60 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter11final__data4DATA17h358bb3983507a2c9E, i64 0, i32 2, i64 0), align 8, !noalias !41744, !noundef !12
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter11final__data4DATA17h358bb3983507a2c9E, i64 8), align 8, !noalias !41744, !nonnull !12, !align !235, !noundef !12
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter11final__data4DATA17h358bb3983507a2c9E, i64 16), align 8, !noalias !41744, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !41744
   call void @llvm.experimental.noalias.scope.decl(metadata !41747)
   call void @llvm.experimental.noalias.scope.decl(metadata !41750)
@@ -163238,8 +163238,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
 
 69:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i9"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !41744
-  %70 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter9step_data4DATA17h08289c50a60b1005E, i64 0, i32 1), align 8, !noalias !41755, !nonnull !12, !align !235, !noundef !12
-  %71 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter9step_data4DATA17h08289c50a60b1005E, i64 0, i32 2, i64 0), align 8, !noalias !41755, !noundef !12
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter9step_data4DATA17h08289c50a60b1005E, i64 8), align 8, !noalias !41755, !nonnull !12, !align !235, !noundef !12
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter9step_data4DATA17h08289c50a60b1005E, i64 16), align 8, !noalias !41755, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !41755
   call void @llvm.experimental.noalias.scope.decl(metadata !41758)
   call void @llvm.experimental.noalias.scope.decl(metadata !41761)
@@ -163274,8 +163274,8 @@ define void @"_ZN97_$LT$typst..introspection..counter..Counter$u20$as$u20$typst.
 
 80:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i13"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !41755
-  %81 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter11update_data4DATA17h0af728f86f158f2aE, i64 0, i32 1), align 8, !noalias !41766, !nonnull !12, !align !235, !noundef !12
-  %82 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst13introspection7counter7Counter11update_data4DATA17h0af728f86f158f2aE, i64 0, i32 2, i64 0), align 8, !noalias !41766, !noundef !12
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter11update_data4DATA17h0af728f86f158f2aE, i64 8), align 8, !noalias !41766, !nonnull !12, !align !235, !noundef !12
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst13introspection7counter7Counter11update_data4DATA17h0af728f86f158f2aE, i64 16), align 8, !noalias !41766, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !41766
   call void @llvm.experimental.noalias.scope.decl(metadata !41769)
   call void @llvm.experimental.noalias.scope.decl(metadata !41772)
@@ -166872,8 +166872,8 @@ define void @"_ZN91_$LT$typst..foundations..bytes..Bytes$u20$as$u20$typst..found
   store i8 1, ptr %18, align 8, !alias.scope !42425
   %19 = getelementptr inbounds i8, ptr %10, i64 72
   store ptr null, ptr %19, align 8, !alias.scope !42425
-  %20 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes8len_data4DATA17h2830f2d299073deeE, i64 0, i32 1), align 8, !noalias !42435, !nonnull !12, !align !235, !noundef !12
-  %21 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes8len_data4DATA17h2830f2d299073deeE, i64 0, i32 2, i64 0), align 8, !noalias !42435, !noundef !12
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes8len_data4DATA17h2830f2d299073deeE, i64 8), align 8, !noalias !42435, !nonnull !12, !align !235, !noundef !12
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes8len_data4DATA17h2830f2d299073deeE, i64 16), align 8, !noalias !42435, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !42435
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42441)
@@ -166908,8 +166908,8 @@ define void @"_ZN91_$LT$typst..foundations..bytes..Bytes$u20$as$u20$typst..found
 
 30:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !42435
-  %31 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes7at_data4DATA17hbb60b0f2ca5b652eE, i64 0, i32 1), align 8, !noalias !42446, !nonnull !12, !align !235, !noundef !12
-  %32 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes7at_data4DATA17hbb60b0f2ca5b652eE, i64 0, i32 2, i64 0), align 8, !noalias !42446, !noundef !12
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes7at_data4DATA17hbb60b0f2ca5b652eE, i64 8), align 8, !noalias !42446, !nonnull !12, !align !235, !noundef !12
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes7at_data4DATA17hbb60b0f2ca5b652eE, i64 16), align 8, !noalias !42446, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !42446
   call void @llvm.experimental.noalias.scope.decl(metadata !42449)
   call void @llvm.experimental.noalias.scope.decl(metadata !42452)
@@ -166944,8 +166944,8 @@ define void @"_ZN91_$LT$typst..foundations..bytes..Bytes$u20$as$u20$typst..found
 
 41:                                               ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i1"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !42446
-  %42 = load ptr, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes10slice_data4DATA17h37013dd599f73383E, i64 0, i32 1), align 8, !noalias !42457, !nonnull !12, !align !235, !noundef !12
-  %43 = load i64, ptr getelementptr inbounds (<{ ptr, ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [24 x i8], [80 x i8], ptr, [16 x i8], [16 x i8], ptr, [1 x i8], [47 x i8], [8 x i8], ptr, [1 x i8], [7 x i8] }>, ptr @_ZN5typst11foundations5bytes5Bytes10slice_data4DATA17h37013dd599f73383E, i64 0, i32 2, i64 0), align 8, !noalias !42457, !noundef !12
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes10slice_data4DATA17h37013dd599f73383E, i64 8), align 8, !noalias !42457, !nonnull !12, !align !235, !noundef !12
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5typst11foundations5bytes5Bytes10slice_data4DATA17h37013dd599f73383E, i64 16), align 8, !noalias !42457, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !42457
   call void @llvm.experimental.noalias.scope.decl(metadata !42460)
   call void @llvm.experimental.noalias.scope.decl(metadata !42463)

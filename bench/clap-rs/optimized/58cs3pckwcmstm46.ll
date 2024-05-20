@@ -14058,7 +14058,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12clap_builder4util11str_to_bool11st
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6892
   store ptr @anon.0c5ede540248ec3ae8fc90625720052f.28.llvm.13290713768692451428, ptr %4, align 8, !noalias !6892
   %10 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.0c5ede540248ec3ae8fc90625720052f.28.llvm.13290713768692451428, i64 1, i32 0), ptr %10, align 8, !noalias !6892
+  store ptr getelementptr inbounds (i8, ptr @anon.0c5ede540248ec3ae8fc90625720052f.28.llvm.13290713768692451428, i64 96), ptr %10, align 8, !noalias !6892
   br label %11
 
 11:                                               ; preds = %.noexc5, %2
@@ -14115,7 +14115,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12clap_builder4util11str_to_bool11st
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6924
   store ptr @anon.0c5ede540248ec3ae8fc90625720052f.35.llvm.13290713768692451428, ptr %3, align 8, !noalias !6924
   %23 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.0c5ede540248ec3ae8fc90625720052f.35.llvm.13290713768692451428, i64 1, i32 0), ptr %23, align 8, !noalias !6924
+  store ptr getelementptr inbounds (i8, ptr @anon.0c5ede540248ec3ae8fc90625720052f.35.llvm.13290713768692451428, i64 96), ptr %23, align 8, !noalias !6924
   br label %24
 
 24:                                               ; preds = %.noexc8, %22

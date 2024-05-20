@@ -1953,7 +1953,7 @@ show_pdcp_config.exit:                            ; preds = %344, %345, %348
   %418 = load i32, ptr %417, align 4
   store i64 0, ptr @get_ueid_frame_hash_key.key, align 8
   store i32 %418, ptr @get_ueid_frame_hash_key.key, align 8
-  store i16 %416, ptr getelementptr inbounds (%struct.ueid_frame_t, ptr @get_ueid_frame_hash_key.key, i64 0, i32 1), align 4
+  store i16 %416, ptr getelementptr inbounds (i8, ptr @get_ueid_frame_hash_key.key, i64 4), align 4
   %419 = tail call ptr @wmem_map_lookup(ptr noundef %414, ptr noundef nonnull @get_ueid_frame_hash_key.key) #13
   %.not372 = icmp eq ptr %419, null
   br i1 %.not372, label %473, label %420
@@ -2336,13 +2336,13 @@ proto_item_set_generated.exit426:                 ; preds = %proto_item_set_gene
   %608 = zext nneg i8 %607 to i32
   %609 = shl nuw nsw i32 %608, 20
   %610 = or disjoint i32 %609, %604
-  store i32 %610, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %610, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %611 = load i8, ptr %.0325, align 8
   %612 = and i8 %611, 1
   %613 = zext nneg i8 %612 to i32
   %614 = shl nuw nsw i32 %613, 25
   %615 = or disjoint i32 %614, %610
-  store i32 %615, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %615, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %616 = call ptr @wmem_map_lookup(ptr noundef %598, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not101.i = icmp eq ptr %616, null
   br i1 %.not101.i, label %.critedge, label %.sink.split.i
@@ -2512,13 +2512,13 @@ proto_item_set_generated.exit426:                 ; preds = %proto_item_set_gene
   %715 = zext nneg i8 %714 to i32
   %716 = shl nuw nsw i32 %715, 20
   %717 = or disjoint i32 %716, %712
-  store i32 %717, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %717, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %718 = load i8, ptr %.0325, align 8
   %719 = and i8 %718, 1
   %720 = zext nneg i8 %719 to i32
   %721 = shl nuw nsw i32 %720, 25
   %722 = or disjoint i32 %721, %717
-  store i32 %722, ptr getelementptr inbounds (%struct.pdcp_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %722, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %723 = call ptr @wmem_map_lookup(ptr noundef %707, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not100.i428 = icmp eq ptr %723, null
   br i1 %.not100.i428, label %727, label %724

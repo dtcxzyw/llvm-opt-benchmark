@@ -4788,7 +4788,7 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  store ptr %3, ptr getelementptr inbounds (%union.AudioStateHead, ptr @audio_states, i64 0, i32 0, i32 1), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @audio_states, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -5040,9 +5040,9 @@ qobject_unref_impl.exit:                          ; preds = %if.then, %land.lhs.
   store ptr %4, ptr %call.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @default_audiodevs, i64 8), align 8
   store ptr %call.i, ptr %5, align 8
-  store ptr %next.i, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i64 0, i32 1), align 8
+  store ptr %next.i, ptr getelementptr inbounds (i8, ptr @default_audiodevs, i64 8), align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %qobject_unref_impl.exit
@@ -5134,9 +5134,9 @@ entry:
   store ptr %dev, ptr %call, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_audiodevs, i64 8), align 8
   store ptr %call, ptr %0, align 8
-  store ptr %next, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i64 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @default_audiodevs, i64 8), align 8
   ret void
 }
 
@@ -5242,7 +5242,7 @@ if.end30:                                         ; preds = %if.end30.lr.ph, %if
   br i1 %cmp, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end30
-  store ptr @default_audiodevs, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i64 0, i32 1), align 8
+  store ptr @default_audiodevs, ptr getelementptr inbounds (i8, ptr @default_audiodevs, i64 8), align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.end30
@@ -5284,11 +5284,11 @@ if.then56:                                        ; preds = %if.end47
 do.body58:                                        ; preds = %if.end47, %if.then56
   %list = getelementptr inbounds i8, ptr %call, i64 104
   store ptr null, ptr %list, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%union.AudioStateHead, ptr @audio_states, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @audio_states, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 112
   store ptr %10, ptr %tql_prev, align 8
   store ptr %call, ptr %10, align 8
-  store ptr %list, ptr getelementptr inbounds (%union.AudioStateHead, ptr @audio_states, i64 0, i32 0, i32 1), align 8
+  store ptr %list, ptr getelementptr inbounds (i8, ptr @audio_states, i64 8), align 8
   %card_head = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %card_head, align 8
   %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_audio, ptr noundef nonnull %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #22
@@ -6444,9 +6444,9 @@ if.end:                                           ; preds = %is_help_option.exit
   store ptr %4, ptr %call.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @audiodevs, i64 8), align 8
   store ptr %call.i, ptr %5, align 8
-  store ptr %next.i, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i64 0, i32 1), align 8
+  store ptr %next.i, ptr getelementptr inbounds (i8, ptr @audiodevs, i64 8), align 8
   ret void
 }
 
@@ -6463,9 +6463,9 @@ entry:
   store ptr %dev, ptr %call, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @audiodevs, i64 8), align 8
   store ptr %call, ptr %0, align 8
-  store ptr %next, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i64 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @audiodevs, i64 8), align 8
   ret void
 }
 

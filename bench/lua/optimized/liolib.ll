@@ -167,7 +167,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %entry
-  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.2, i64 0, i64 4)) #10
+  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4)) #10
   br label %getiofile.exit
 
 getiofile.exit:                                   ; preds = %entry, %if.then.i
@@ -356,7 +356,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %entry
-  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str, i64 0, i64 4)) #10
+  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4)) #10
   br label %getiofile.exit
 
 getiofile.exit:                                   ; preds = %entry, %if.then.i
@@ -429,7 +429,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %entry
-  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.2, i64 0, i64 4)) #10
+  %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 4)) #10
   br label %getiofile.exit
 
 getiofile.exit:                                   ; preds = %entry, %if.then.i

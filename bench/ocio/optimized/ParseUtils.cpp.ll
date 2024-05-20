@@ -244,7 +244,7 @@ entry:
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 1, i64 0), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 240), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #21
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN19OpenColorIO_v2_4devL4eltsE
@@ -4927,33 +4927,33 @@ entry:
           to label %invoke.cont.i unwind label %ehcleanup19.thread.i
 
 invoke.cont.i:                                    ; preds = %entry
-  store i8 34, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 0, i32 1), align 16
+  store i8 34, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 32), align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 1), ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 40), ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  store i8 39, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 1, i32 1), align 8
+  store i8 39, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 72), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 2), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 80), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  store i8 60, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 2, i32 1), align 16
+  store i8 60, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 112), align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 3), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 120), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont6.i
-  store i8 62, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 3, i32 1), align 8
+  store i8 62, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 152), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 4), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 160), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont9.i
-  store i8 38, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 4, i32 1), align 16
+  store i8 38, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 192), align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 5), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 200), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
           to label %__cxx_global_var_init.2.exit unwind label %lpad14.i
 
 ehcleanup19.thread.i:                             ; preds = %entry
@@ -4989,25 +4989,25 @@ lpad14.i:                                         ; preds = %invoke.cont12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad14.i, %lpad11.i
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 5), %lpad14.i ], [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 4), %lpad11.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 200), %lpad14.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 160), %lpad11.i ]
   %.pn.i = phi { ptr, i32 } [ %7, %lpad14.i ], [ %6, %lpad11.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #21
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %ehcleanup.i, %lpad8.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 3), %lpad8.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 120), %lpad8.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %5, %lpad8.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #21
   br label %ehcleanup17.i
 
 ehcleanup17.i:                                    ; preds = %ehcleanup16.i, %lpad5.i
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup16.i ], [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 2), %lpad5.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup16.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 80), %lpad5.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup16.i ], [ %4, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #21
   br label %ehcleanup19.i
 
 ehcleanup19.i:                                    ; preds = %ehcleanup17.i, %lpad2.i
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup17.i ], [ getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 1), %lpad2.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup17.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 40), %lpad2.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup17.i ], [ %3, %lpad2.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21
@@ -5025,7 +5025,7 @@ eh.resume.i:                                      ; preds = %arraydestroy.body.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn9.i
 
 __cxx_global_var_init.2.exit:                     ; preds = %invoke.cont12.i
-  store i8 32, ptr getelementptr inbounds ([6 x %"struct.OpenColorIO_v2_4dev::Element"], ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 0, i64 5, i32 1), align 8
+  store i8 32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 232), align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #21

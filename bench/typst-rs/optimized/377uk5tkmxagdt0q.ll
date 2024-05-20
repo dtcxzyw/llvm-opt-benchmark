@@ -11079,7 +11079,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   unreachable
 
 62:                                               ; preds = %41, %.noexc15
-  %.0.i.i2.i = phi ptr [ %57, %.noexc15 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %41 ]
+  %.0.i.i2.i = phi ptr [ %57, %.noexc15 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %41 ]
   %63 = getelementptr inbounds i8, ptr %16, i64 344
   %64 = getelementptr inbounds i8, ptr %16, i64 400
   %65 = getelementptr inbounds i8, ptr %16, i64 72

@@ -92,11 +92,11 @@ define void @_Z18register_extensionPKcSt8functionIFP11extension_tvEE(ptr noundef
   br i1 %.not.i, label %_ZL10extensionsB5cxx11v.exit, label %10
 
 10:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 40), align 8
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFP11extension_tvEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev, ptr nonnull @_ZZL10extensionsB5cxx11vE1vB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10extensionsB5cxx11vE1vB5cxx11) #19
   br label %_ZL10extensionsB5cxx11v.exit
@@ -450,11 +450,11 @@ define void @_Z14find_extensionPKc(ptr dead_on_unwind noalias writable sret(%"cl
   br i1 %.not.i, label %_ZL10extensionsB5cxx11v.exit, label %19
 
 19:                                               ; preds = %17
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 40), align 8
   %20 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFP11extension_tvEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev, ptr nonnull @_ZZL10extensionsB5cxx11vE1vB5cxx11, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10extensionsB5cxx11vE1vB5cxx11) #19
   br label %_ZL10extensionsB5cxx11v.exit
@@ -465,7 +465,7 @@ _ZL10extensionsB5cxx11v.exit:                     ; preds = %2, %17, %19
           to label %21 unwind label %77
 
 21:                                               ; preds = %_ZL10extensionsB5cxx11v.exit
-  %22 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
   %.not10.i.i.i = icmp eq ptr %22, null
   %.pre = load ptr, ptr %3, align 8
   br i1 %.not10.i.i.i, label %44, label %.lr.ph.i.i.i
@@ -477,7 +477,7 @@ _ZL10extensionsB5cxx11v.exit:                     ; preds = %2, %17, %19
 
 25:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
-  %.0811.i.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %.0811.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %27 = load i64, ptr %26, align 8
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %24, i64 %27)
@@ -509,7 +509,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %25, !llvm.loop !10
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %34 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %34 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8)
   br i1 %34, label %44, label %35
 
 35:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
@@ -536,12 +536,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %41, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %43 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %43, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr %.19.i.i.i
+  %spec.select.i.i = select i1 %43, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr %.19.i.i.i
   br label %44
 
 44:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %21
-  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %21 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
-  %.not83 = icmp eq ptr %.sroa.0.0.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %21 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.not83 = icmp eq ptr %.sroa.0.0.i.i, getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8)
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = icmp eq ptr %.pre, %45
   br i1 %46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -687,11 +687,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br i1 %.not.i36, label %_ZL10extensionsB5cxx11v.exit37, label %94
 
 94:                                               ; preds = %92
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 40), align 8
   %95 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFP11extension_tvEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev, ptr nonnull @_ZZL10extensionsB5cxx11vE1vB5cxx11, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL10extensionsB5cxx11vE1vB5cxx11) #19
   br label %_ZL10extensionsB5cxx11v.exit37
@@ -702,7 +702,7 @@ _ZL10extensionsB5cxx11v.exit37:                   ; preds = %89, %92, %94
           to label %96 unwind label %131
 
 96:                                               ; preds = %_ZL10extensionsB5cxx11v.exit37
-  %97 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
   %.not10.i.i.i38 = icmp eq ptr %97, null
   %.pre84 = load ptr, ptr %11, align 8
   br i1 %.not10.i.i.i38, label %119, label %.lr.ph.i.i.i39
@@ -714,7 +714,7 @@ _ZL10extensionsB5cxx11v.exit37:                   ; preds = %89, %92, %94
 
 100:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i45, %.lr.ph.i.i.i39
   %.012.i.i.i40 = phi ptr [ %97, %.lr.ph.i.i.i39 ], [ %.1.i.i.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i45 ]
-  %.0811.i.i.i41 = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %.lr.ph.i.i.i39 ], [ %.19.i.i.i47, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i45 ]
+  %.0811.i.i.i41 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %.lr.ph.i.i.i39 ], [ %.19.i.i.i47, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i45 ]
   %101 = getelementptr inbounds i8, ptr %.012.i.i.i40, i64 40
   %102 = load i64, ptr %101, align 8
   %.sroa.speculated.i.i.i.i.i.i42 = call i64 @llvm.umin.i64(i64 %99, i64 %102)
@@ -746,7 +746,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i51, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52, label %100, !llvm.loop !10
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i45
-  %109 = icmp eq ptr %.19.i.i.i47, getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %109 = icmp eq ptr %.19.i.i.i47, getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8)
   br i1 %109, label %119, label %110
 
 110:                                              ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52
@@ -773,12 +773,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i60: ; preds = %_ZNSt1
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i56: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i60, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
   %.0.i.i.i.i.i57 = phi i32 [ %116, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54 ], [ %.0.i6.i.i.i.i.i63, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i60 ]
   %118 = icmp slt i32 %.0.i.i.i.i.i57, 0
-  %spec.select.i.i58 = select i1 %118, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr %.19.i.i.i47
+  %spec.select.i.i58 = select i1 %118, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr %.19.i.i.i47
   br label %119
 
 119:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i56, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52, %96
-  %.sroa.0.0.i.i59 = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %96 ], [ %spec.select.i.i58, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i56 ]
-  %.not = icmp eq ptr %.sroa.0.0.i.i59, getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.sroa.0.0.i.i59 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFP11extension_tvEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i52 ], [ getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), %96 ], [ %spec.select.i.i58, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i56 ]
+  %.not = icmp eq ptr %.sroa.0.0.i.i59, getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8)
   %120 = getelementptr inbounds i8, ptr %11, i64 16
   %121 = icmp eq ptr %.pre84, %120
   br i1 %121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
@@ -870,11 +870,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   br i1 %.not.i78, label %_ZL10extensionsB5cxx11v.exit79, label %152
 
 152:                                              ; preds = %150
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZL10extensionsB5cxx11vE1vB5cxx11, i64 40), align 8
   %153 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFP11extension_tvEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev, ptr nonnull @_ZZL10extensionsB5cxx11vE1vB5cxx11, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL10extensionsB5cxx11vE1vB5cxx11) #19
   br label %_ZL10extensionsB5cxx11v.exit79

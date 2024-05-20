@@ -591,7 +591,7 @@ return:                                           ; preds = %_ZNSt5dequeISt4pair
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManagerC2EPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %this, align 8
   %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i64 noundef 0)
@@ -632,7 +632,7 @@ declare void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %this, align 8
   %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_) #15
   %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -673,7 +673,7 @@ _ZN3net25QuicReceivedPacketManager14EntropyTrackerD2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %this, align 8
   %ack_frame_.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_.i) #15
   %entropy_tracker_.i = getelementptr inbounds i8, ptr %this, i64 8

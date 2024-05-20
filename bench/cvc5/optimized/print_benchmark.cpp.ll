@@ -5050,7 +5050,7 @@ ehcleanup90:                                      ; preds = %ehcleanup88, %lpad7
   br label %eh.resume
 
 if.else93:                                        ; preds = %if.else, %cleanup.done49
-  %104 = load ptr, ptr getelementptr inbounds (%"class.cvc5::internal::WarningC", ptr @_ZN4cvc58internal14WarningChannelE, i64 0, i32 1), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4cvc58internal14WarningChannelE, i64 48), align 8
   %cmp.i535.not = icmp eq ptr %104, @_ZN4cvc58internal7null_osE
   %cmp.not.i538 = icmp eq ptr %104, null
   %or.cond = or i1 %cmp.i535.not, %cmp.not.i538

@@ -73,15 +73,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local i32 @acpi_hw_extended_sleep(i8 noundef zeroext %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  %3 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 53, i32 4), align 1
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 248), align 1
   %4 = icmp ne i64 %3, 0
-  %5 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 54, i32 4), align 1
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 260), align 1
   %6 = icmp ne i64 %5, 0
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @acpi_write(i64 noundef 128, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 54)) #4
+  %9 = tail call i32 @acpi_write(i64 noundef 128, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 256)) #4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.loopexit
 
@@ -96,7 +96,7 @@ define dso_local i32 @acpi_hw_extended_sleep(i8 noundef zeroext %0) local_unname
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11)) #4
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #4
           to label %19 [label %19, label %18], !srcloc !6
 
 18:                                               ; preds = %17
@@ -116,12 +116,12 @@ define dso_local i32 @acpi_hw_extended_sleep(i8 noundef zeroext %0) local_unname
 
 23:                                               ; preds = %19
   %24 = zext nneg i8 %15 to i64
-  %25 = tail call i32 @acpi_write(i64 noundef %24, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 53)) #4
+  %25 = tail call i32 @acpi_write(i64 noundef %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 244)) #4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23, %29
-  %27 = call i32 @acpi_read(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 54)) #4
+  %27 = call i32 @acpi_read(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 256)) #4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.loopexit
 
@@ -157,7 +157,7 @@ define dso_local noundef i32 @acpi_hw_extended_wake_prep(i8 noundef zeroext %0) 
   %6 = and i8 %5, 28
   %7 = or disjoint i8 %6, 32
   %8 = zext nneg i8 %7 to i64
-  %9 = tail call i32 @acpi_write(i64 noundef %8, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 53)) #4
+  %9 = tail call i32 @acpi_write(i64 noundef %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 244)) #4
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -220,7 +220,7 @@ define dso_local noundef i32 @acpi_hw_extended_wake(i8 noundef zeroext %0) local
 18:                                               ; preds = %17, %12, %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  %19 = call i32 @acpi_write(i64 noundef 128, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 54)) #4
+  %19 = call i32 @acpi_write(i64 noundef 128, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 256)) #4
   store i8 1, ptr @acpi_gbl_system_awake_and_running, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
   store i64 0, ptr %2, align 8, !annotation !5

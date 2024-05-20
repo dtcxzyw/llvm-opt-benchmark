@@ -780,12 +780,12 @@ if.then4.i3:                                      ; preds = %land.lhs.true.i2, %
 
 _ZN6icu_75L14initStaticSetsER10UErrorCode.exit:   ; preds = %new.cont.i, %land.lhs.true.i2, %if.then4.i3
   %6 = phi i32 [ %2, %new.cont.i ], [ %.pre.i, %land.lhs.true.i2 ], [ 7, %if.then4.i3 ]
-  store i32 %6, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 0, i32 1), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7519gStaticSetsInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %7 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %7, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

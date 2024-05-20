@@ -2233,7 +2233,7 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
 89:                                               ; preds = %cr_add_interval.exit.thread, %.thread, %58
   %90 = phi i32 [ %57, %.thread ], [ %63, %58 ], [ %63, %cr_add_interval.exit.thread ]
   %.2230 = phi ptr [ %.1, %.thread ], [ %59, %58 ], [ %59, %cr_add_interval.exit.thread ]
-  %91 = icmp ult ptr %.2230, getelementptr inbounds ([2720 x i8], ptr @unicode_script_table, i64 1, i64 0)
+  %91 = icmp ult ptr %.2230, getelementptr inbounds (i8, ptr @unicode_script_table, i64 2720)
   br i1 %91, label %30, label %92, !llvm.loop !24
 
 92:                                               ; preds = %89
@@ -2327,7 +2327,7 @@ cr_add_interval.exit136.thread.us:                ; preds = %123, %120
   %.sroa.22.6.us = phi ptr [ %.sroa.22.1266.us, %115 ], [ %.sroa.22.2.us, %cr_add_interval.exit136.thread.us ]
   %135 = zext i8 %119 to i64
   %136 = getelementptr i8, ptr %118, i64 %135
-  %137 = icmp ult ptr %136, getelementptr inbounds ([828 x i8], ptr @unicode_script_ext_table, i64 1, i64 0)
+  %137 = icmp ult ptr %136, getelementptr inbounds (i8, ptr @unicode_script_ext_table, i64 828)
   br i1 %137, label %.preheader250.split.us, label %.split.us, !llvm.loop !25
 
 .preheader250.split:                              ; preds = %.preheader250, %.loopexit249
@@ -2426,7 +2426,7 @@ cr_add_interval.exit145.thread:                   ; preds = %169, %172
   %.sroa.22.6 = phi ptr [ %.sroa.22.4, %cr_add_interval.exit145.thread ], [ %.sroa.22.1266, %.preheader ], [ %.sroa.22.1266, %164 ]
   %183 = zext i8 %163 to i64
   %184 = getelementptr i8, ptr %162, i64 %183
-  %185 = icmp ult ptr %184, getelementptr inbounds ([828 x i8], ptr @unicode_script_ext_table, i64 1, i64 0)
+  %185 = icmp ult ptr %184, getelementptr inbounds (i8, ptr @unicode_script_ext_table, i64 828)
   br i1 %185, label %.preheader250.split, label %.split.us, !llvm.loop !25
 
 .split.us:                                        ; preds = %134, %.loopexit249
@@ -3675,7 +3675,7 @@ cr_add_interval.exit60.thread:                    ; preds = %._crit_edge.i52, %c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %45, %cr_add_interval.exit60.thread, %44, %75
-  %102 = icmp ult ptr %.1, getelementptr inbounds ([3948 x i8], ptr @unicode_gc_table, i64 1, i64 0)
+  %102 = icmp ult ptr %.1, getelementptr inbounds (i8, ptr @unicode_gc_table, i64 3948)
   br i1 %102, label %8, label %cr_add_interval.exit, !llvm.loop !35
 
 cr_add_interval.exit:                             ; preds = %83, %.loopexit, %53

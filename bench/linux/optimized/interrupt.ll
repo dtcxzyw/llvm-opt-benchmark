@@ -457,7 +457,7 @@ select.unfold:                                    ; preds = %21, %7
   ]
 
 250:                                              ; preds = %245
-  %251 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %252 = tail call noalias noundef align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %251, i32 noundef 3520, i64 noundef 12) #8
   store ptr %252, ptr %241, align 8
   %253 = icmp eq ptr %252, null

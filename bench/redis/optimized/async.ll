@@ -65,7 +65,7 @@ if.end4.i:                                        ; preds = %if.end.i
   store ptr @callbackDict, ptr %type1.i.i35.i, align 8
   %privdata.i.i36.i = getelementptr inbounds i8, ptr %call.i.i31.i, i64 40
   store ptr null, ptr %privdata.i.i36.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 16), align 8
   %call.i.i = call ptr %3(ptr noundef nonnull %call, i64 noundef 464) #14
   %cmp6.i = icmp eq ptr %call.i.i, null
   br i1 %cmp6.i, label %if.then28.i, label %__redisAsyncCopyError.exit
@@ -126,7 +126,7 @@ if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i
   br label %if.end14.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.then10.i.i.i, %if.end7.i.i.i
-  %18 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %18(ptr noundef nonnull %he.0.i.i.i) #14
   %19 = load i64, ptr %used.i.i.i, align 8
   %dec.i.i.i = add i64 %19, -1
@@ -147,11 +147,11 @@ for.inc.i.i.i:                                    ; preds = %for.inc.loopexit.i.
 
 if.end29.i:                                       ; preds = %for.inc.i.i.i, %land.rhs.i.i.i, %if.then28.i
   %22 = load ptr, ptr %call.i.i.i, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %23(ptr noundef %22) #14
   store ptr null, ptr %call.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i.i.i, i8 0, i64 24, i1 false)
-  %24 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %24(ptr noundef nonnull %call.i.i.i) #14
   br i1 %cmp.i32.i, label %if.then6, label %if.then31.i
 
@@ -214,7 +214,7 @@ if.then10.i.i62.i:                                ; preds = %if.end7.i.i59.i
   br label %if.end14.i.i64.i
 
 if.end14.i.i64.i:                                 ; preds = %if.then10.i.i62.i, %if.end7.i.i59.i
-  %39 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %39(ptr noundef nonnull %he.0.i.i53.i) #14
   %40 = load i64, ptr %used.i.i39.i, align 8
   %dec.i.i65.i = add i64 %40, -1
@@ -235,11 +235,11 @@ for.inc.i.i69.i:                                  ; preds = %for.inc.loopexit.i.
 
 dictRelease.exit72.i:                             ; preds = %for.inc.i.i69.i, %land.rhs.i.i46.i, %if.then31.i
   %43 = load ptr, ptr %call.i.i31.i, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %44(ptr noundef %43) #14
   store ptr null, ptr %call.i.i31.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i40.i, i8 0, i64 24, i1 false)
-  %45 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %45(ptr noundef nonnull %call.i.i31.i) #14
   br label %if.then6
 
@@ -627,7 +627,7 @@ while.body:                                       ; preds = %if.then.i, %if.then
   %cb.sroa.2.0.copyload = load ptr, ptr %cb.sroa.2.0..sroa_idx, align 8
   %cb.sroa.6142.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   %cb.sroa.6142.0.copyload = load ptr, ptr %cb.sroa.6142.0..sroa_idx, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %5(ptr noundef nonnull %2) #14
   %cmp.not.i28 = icmp eq ptr %cb.sroa.2.0.copyload, null
   br i1 %cmp.not.i28, label %__redisRunCallback.exit, label %if.then.i29
@@ -664,7 +664,7 @@ while.body6:                                      ; preds = %if.then.i32, %if.th
   %cb.sroa.2.0.copyload137 = load ptr, ptr %cb.sroa.2.0..sroa_idx136, align 8
   %cb.sroa.6142.0..sroa_idx143 = getelementptr inbounds i8, ptr %9, i64 24
   %cb.sroa.6142.0.copyload144 = load ptr, ptr %cb.sroa.6142.0..sroa_idx143, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %12(ptr noundef nonnull %9) #14
   %cmp.not.i40 = icmp eq ptr %cb.sroa.2.0.copyload137, null
   br i1 %cmp.not.i40, label %__redisRunCallback.exit47, label %if.then.i41
@@ -808,7 +808,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %41 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %41(ptr noundef nonnull %he.0.i.i) #14
   %42 = load i64, ptr %used.i.i, align 8
   %dec.i.i = add i64 %42, -1
@@ -829,11 +829,11 @@ for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.
 
 dictRelease.exit:                                 ; preds = %land.rhs.i.i, %for.inc.i.i, %while.end15
   %45 = load ptr, ptr %26, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %46(ptr noundef %45) #14
   store ptr null, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i, i8 0, i64 24, i1 false)
-  %47 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %47(ptr noundef nonnull %26) #14
   br label %if.end
 
@@ -961,7 +961,7 @@ if.then10.i.i115:                                 ; preds = %if.end7.i.i112
   br label %if.end14.i.i117
 
 if.end14.i.i117:                                  ; preds = %if.then10.i.i115, %if.end7.i.i112
-  %73 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %73(ptr noundef nonnull %he.0.i.i106) #14
   %74 = load i64, ptr %used.i.i92, align 8
   %dec.i.i118 = add i64 %74, -1
@@ -982,11 +982,11 @@ for.inc.i.i122:                                   ; preds = %for.inc.loopexit.i.
 
 dictRelease.exit125:                              ; preds = %land.rhs.i.i99, %for.inc.i.i122, %while.end28
   %77 = load ptr, ptr %58, align 8
-  %78 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %78(ptr noundef %77) #14
   store ptr null, ptr %58, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i93, i8 0, i64 24, i1 false)
-  %79 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %79(ptr noundef nonnull %58) #14
   br label %do.body
 
@@ -1102,7 +1102,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end.i10
 
 if.end.i10:                                       ; preds = %if.then3.i, %if.then.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %5(ptr noundef nonnull %2) #14
   br label %do.body
 
@@ -1423,7 +1423,7 @@ __redisShiftCallback.exit.thread:                 ; preds = %if.then.i36, %if.th
   %32 = load i64, ptr %cb.sroa.8.0..sroa_idx, align 8
   %cb.sroa.8150.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 24
   %cb.sroa.8150.0.copyload = load ptr, ptr %cb.sroa.8150.0..sroa_idx, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %33(ptr noundef nonnull %29) #14
   br label %if.end40
 
@@ -1466,7 +1466,7 @@ if.then3.i.i69:                                   ; preds = %if.then.i.i65
   br label %if.end.i10.i68
 
 if.end.i10.i68:                                   ; preds = %if.then3.i.i69, %if.then.i.i65
-  %43 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %43(ptr noundef nonnull %40) #14
   br label %do.body.i52
 
@@ -1790,7 +1790,7 @@ if.then31.i.i:                                    ; preds = %if.end28.i.i
   br label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.then31.i.i, %if.end28.i.i
-  %107 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %107(ptr noundef nonnull %.us-phi3649.i.i) #14
   %used.i.i = getelementptr inbounds i8, ptr %callbacks.0.i, i64 32
   %108 = load i64, ptr %used.i.i, align 8
@@ -1854,7 +1854,7 @@ if.then3.i.i81:                                   ; preds = %if.then.i.i78
 
 while.body.i:                                     ; preds = %if.then3.i.i81, %if.then.i.i78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cb94.i, ptr noundef nonnull align 8 dereferenceable(32) %119, i64 32, i1 false)
-  %122 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %122(ptr noundef nonnull %119) #14
   %123 = load ptr, ptr @hiredisAllocFns, align 8
   %call.i.i.i = call ptr %123(i64 noundef 32) #14
@@ -1917,7 +1917,7 @@ if.end.i67.i:                                     ; preds = %if.then3.i70.i, %if
   %130 = load i64, ptr %cb.sroa.8.0..sroa_idx149, align 8
   %cb.sroa.8150.0..sroa_idx153 = getelementptr inbounds i8, ptr %127, i64 24
   %cb.sroa.8150.0.copyload154 = load ptr, ptr %cb.sroa.8150.0..sroa_idx153, align 8
-  %131 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %131(ptr noundef nonnull %127) #14
   br label %__redisGetSubscribeCallback.exit
 
@@ -2071,7 +2071,7 @@ if.then3.i.i134:                                  ; preds = %if.then.i.i130
   br label %if.end.i10.i133
 
 if.end.i10.i133:                                  ; preds = %if.then3.i.i134, %if.then.i.i130
-  %153 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %153(ptr noundef nonnull %150) #14
   br label %do.body.i117
 
@@ -2164,7 +2164,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i10.i
 
 if.end.i10.i:                                     ; preds = %if.then3.i.i, %if.then.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %5(ptr noundef nonnull %2) #14
   br label %do.body.i
 
@@ -2518,7 +2518,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i10.i
 
 if.end.i10.i:                                     ; preds = %if.then3.i.i, %if.then.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %5(ptr noundef nonnull %2) #14
   br label %do.body.i
 
@@ -2871,7 +2871,7 @@ while.body:                                       ; preds = %if.then.i, %if.then
   %cb.sroa.1.0.copyload = load ptr, ptr %cb.sroa.1.0..sroa_idx, align 8
   %cb.sroa.331.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
   %cb.sroa.331.0.copyload = load ptr, ptr %cb.sroa.331.0..sroa_idx, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %16(ptr noundef nonnull %13) #14
   %cmp.not.i17 = icmp eq ptr %cb.sroa.1.0.copyload, null
   br i1 %cmp.not.i17, label %__redisRunCallback.exit, label %if.then.i18
@@ -2949,7 +2949,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
   %call1 = call fastcc i32 @__redisAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %0, i64 noundef %conv)
   %1 = load ptr, ptr %cmd, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %2(ptr noundef %1) #14
   br label %return
 
@@ -3153,7 +3153,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_dictNextPower.exit
   %27 = load ptr, ptr %type.i.i.i.i.i, align 8
   %privdata.i.i.i.i.i = getelementptr inbounds i8, ptr %cbdict.0, i64 40
   %28 = load ptr, ptr %privdata.i.i.i.i.i, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i.i.i.i.i = call ptr %29(i64 noundef 4, i64 noundef 8) #14
   %cmp5.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %cmp5.i.i.i.i.i, label %if.end.i64, label %if.end7.i.i.i.i.i
@@ -3211,7 +3211,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.loopexit.i.
 
 for.end.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end7.i.i.i.i.i
   %44 = load ptr, ptr %cbdict.0, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %45(ptr noundef %44) #14
   store ptr %call.i.i.i.i.i.i, ptr %cbdict.0, align 8
   store ptr %27, ptr %type.i.i.i.i.i, align 8
@@ -3253,7 +3253,7 @@ if.end.i13.i.i.i.i:                               ; preds = %_dictNextPower.exit
   br i1 %mul.ov.i.i17.i.i.i.i, label %if.end.i64, label %hi_calloc.exit.i18.i.i.i.i
 
 hi_calloc.exit.i18.i.i.i.i:                       ; preds = %if.end.i13.i.i.i.i
-  %48 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i19.i.i.i.i = call ptr %48(i64 noundef %i.0.i.i7.i.i.i.i, i64 noundef 8) #14
   %cmp5.i20.i.i.i.i = icmp eq ptr %call.i.i19.i.i.i.i, null
   br i1 %cmp5.i20.i.i.i.i, label %if.end.i64, label %if.end7.i21.i.i.i.i
@@ -3315,7 +3315,7 @@ for.inc.i42.i.i.i.i:                              ; preds = %for.inc.loopexit.i4
 
 for.end.i45.i.i.i.i:                              ; preds = %for.inc.i42.i.i.i.i, %land.rhs.i25.i.i.i.i, %if.end7.i21.i.i.i.i
   %64 = load ptr, ptr %cbdict.0, align 8
-  %65 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %65(ptr noundef %64) #14
   store ptr %call.i.i19.i.i.i.i, ptr %cbdict.0, align 8
   store ptr %46, ptr %type.i, align 8
@@ -3966,7 +3966,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
   %call1.i = call fastcc i32 @__redisAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %0, i64 noundef %conv.i)
   %1 = load ptr, ptr %cmd.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %2(ptr noundef %1) #14
   br label %redisvAsyncCommand.exit
 
@@ -4023,7 +4023,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i = tail call ptr %1(i64 noundef 1, i64 noundef 16) #14
   store ptr %call.i, ptr %command_timeout, align 8
   %cmp = icmp eq ptr %call.i, null
@@ -4261,7 +4261,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @callbackValDestructor(ptr nocapture readnone %privdata, ptr noundef %val) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %0(ptr noundef %val) #14
   ret void
 }
@@ -4359,7 +4359,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i10.i
 
 if.end.i10.i:                                     ; preds = %if.then3.i.i, %if.then.i.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %9(ptr noundef nonnull %6) #14
   br label %do.body.i
 

@@ -399,7 +399,7 @@ CORD__call_oom_fn.exit102:                        ; preds = %80, %82
 
 101:                                              ; preds = %100
   store i64 1, ptr @min_len, align 16
-  store i64 2, ptr getelementptr inbounds ([48 x i64], ptr @min_len, i64 0, i64 1), align 8
+  store i64 2, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
   br label %102
 
 102:                                              ; preds = %102, %101
@@ -517,7 +517,7 @@ define ptr @CORD_balance(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %6
   store i64 1, ptr @min_len, align 16
-  store i64 2, ptr getelementptr inbounds ([48 x i64], ptr @min_len, i64 0, i64 1), align 8
+  store i64 2, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %8, %7
@@ -1710,7 +1710,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
 .preheader:                                       ; preds = %tailrecurse, %3
   %.tr.lcssa = phi ptr [ %0, %3 ], [ %74, %tailrecurse ]
   %.tr43.lcssa = phi i64 [ %1, %3 ], [ %75, %tailrecurse ]
-  %5 = load i64, ptr getelementptr inbounds ([48 x i64], ptr @min_len, i64 0, i64 1), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
   %6 = icmp ult i64 %5, %.tr43.lcssa
   br i1 %6, label %.lr.ph55, label %._crit_edge
 
@@ -1862,7 +1862,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   br i1 %.not, label %.lr.ph, label %.preheader
 
 77:                                               ; preds = %40, %.lr.ph
-  %78 = load i64, ptr getelementptr inbounds ([48 x i64], ptr @min_len, i64 0, i64 1), align 8
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
   %79 = icmp ult i64 %78, %.tr4350
   br i1 %79, label %.lr.ph72, label %._crit_edge73
 

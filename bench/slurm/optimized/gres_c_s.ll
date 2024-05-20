@@ -54,7 +54,7 @@ declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #1
 define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 64
   %.not = icmp eq i64 %8, 0
   %. = select i1 %.not, i32 5, i32 4
@@ -86,7 +86,7 @@ define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %17, %15
   store ptr null, ptr %1, align 8
-  %.pre = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %.pre73 = and i64 %.pre, 64
   br label %19
 

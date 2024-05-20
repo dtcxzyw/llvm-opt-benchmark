@@ -195,7 +195,7 @@ define dso_local i32 @intel_pt_validate_hw_cap(i32 noundef %0) #0 align 16 {
   %9 = zext i8 %8 to i32
   %10 = add i32 %6, %9
   %11 = zext i32 %10 to i64
-  %12 = getelementptr i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1), i64 %11
+  %12 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 304), i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i32, ptr %14, align 8
@@ -240,7 +240,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #2 align 16 {
   %23 = lshr i64 %12, 32
   %24 = trunc nuw i64 %23 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %22, i32 %24) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %26 [label %25], !srcloc !9
 
 25:                                               ; preds = %21
@@ -271,7 +271,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #2 align 16 {
   %39 = extractvalue { i64, i64 } %37, 1
   %40 = shl i64 %39, 32
   %41 = or i64 %40, %38
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %43 [label %42], !srcloc !9
 
 42:                                               ; preds = %36
@@ -295,7 +295,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #2 align 16 {
   %53 = extractvalue { i64, i64 } %51, 1
   %54 = shl i64 %53, 32
   %55 = or i64 %54, %52
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %57 [label %56], !srcloc !9
 
 56:                                               ; preds = %50
@@ -504,7 +504,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #2 align 16 {
   %196 = lshr i64 %188, 32
   %197 = trunc nuw i64 %196 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %195, i32 %197) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %199 [label %198], !srcloc !9
 
 198:                                              ; preds = %194
@@ -530,7 +530,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #2 al
   %5 = extractvalue { i64, i64 } %3, 1
   %6 = shl i64 %5, 32
   %7 = or i64 %6, %4
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %9 [label %8], !srcloc !9
 
 8:                                                ; preds = %1
@@ -569,7 +569,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #2 al
   br i1 %27, label %28, label %58
 
 28:                                               ; preds = %23
-  %29 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %30 = and i32 %29, 2
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %57, label %32
@@ -614,7 +614,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #2 al
 58:                                               ; preds = %57, %47, %23, %19
   %59 = phi i64 [ %24, %23 ], [ %24, %57 ], [ %24, %47 ], [ %20, %19 ]
   %60 = phi i1 [ true, %23 ], [ false, %57 ], [ true, %47 ], [ true, %19 ]
-  %61 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %62 = and i32 %61, 2
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %113
@@ -723,7 +723,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #2 al
   %133 = lshr i64 %59, 32
   %134 = trunc nuw i64 %133 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1393, i32 %132, i32 %134) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %136 [label %135], !srcloc !9
 
 135:                                              ; preds = %131
@@ -791,7 +791,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pt_buffer_reset_markers(pt
   br label %149
 
 38:                                               ; preds = %27
-  %39 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %40 = and i32 %39, 2
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %149, label %42
@@ -1004,7 +1004,7 @@ define internal fastcc void @pt_config_buffer(ptr nocapture noundef readonly %0)
   %39 = lshr i64 %33, 32
   %40 = trunc nuw i64 %39 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1376, i32 %38, i32 %40) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %42 [label %41], !srcloc !9
 
 41:                                               ; preds = %37
@@ -1029,7 +1029,7 @@ define internal fastcc void @pt_config_buffer(ptr nocapture noundef readonly %0)
   %54 = lshr i64 %47, 32
   %55 = trunc nuw i64 %54 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1377, i32 %53, i32 %55) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %57 [label %56], !srcloc !9
 
 56:                                               ; preds = %52
@@ -1045,7 +1045,7 @@ define dso_local void @intel_pt_handle_vmx(i32 noundef %0) #2 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @pt_ctx) #18, !srcloc !24
   %4 = inttoptr i64 %3 to ptr
-  %5 = load i8, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 2), align 8, !range !12, !noundef !13
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 336), align 8, !range !12, !noundef !13
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %23
 
@@ -1074,7 +1074,7 @@ define dso_local void @intel_pt_handle_vmx(i32 noundef %0) #2 align 16 {
   %17 = lshr i64 %15, 32
   %18 = trunc nuw i64 %17 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %16, i32 %18) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %.thread [label %19], !srcloc !9
 
 19:                                               ; preds = %13
@@ -1139,7 +1139,7 @@ define internal void @pt_event_stop(ptr noundef %0, i32 noundef %1) #2 align 16 
   %19 = lshr i64 %8, 32
   %20 = trunc nuw i64 %19 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %18, i32 %20) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %22 [label %21], !srcloc !9
 
 21:                                               ; preds = %17
@@ -1193,7 +1193,7 @@ define internal void @pt_event_stop(ptr noundef %0, i32 noundef %1) #2 align 16 
   %46 = extractvalue { i64, i64 } %44, 1
   %47 = shl i64 %46, 32
   %48 = or i64 %47, %45
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %50 [label %49], !srcloc !9
 
 49:                                               ; preds = %43
@@ -1217,7 +1217,7 @@ define internal void @pt_event_stop(ptr noundef %0, i32 noundef %1) #2 align 16 
   %60 = extractvalue { i64, i64 } %58, 1
   %61 = shl i64 %60, 32
   %62 = or i64 %61, %59
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %64 [label %63], !srcloc !9
 
 63:                                               ; preds = %57
@@ -1356,7 +1356,7 @@ define dso_local range(i32 0, 2) i32 @is_intel_pt_event(ptr nocapture noundef re
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @pt_init() #5 section ".init.text" align 16 {
   %1 = alloca i64, align 8
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 24), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
   %3 = and i64 %2, 144115188075855872
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %49, label %5
@@ -1413,7 +1413,7 @@ define internal i32 @pt_init() #5 section ".init.text" align 16 {
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %32
-  %36 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %37 = and i32 %36, 1
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %41
@@ -1425,26 +1425,26 @@ define internal i32 @pt_init() #5 section ".init.text" align 16 {
 41:                                               ; preds = %35
   %42 = and i32 %36, 2
   %43 = icmp eq i32 %42, 0
-  %.pre = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 8), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 68), align 4
   %44 = or i32 %.pre, 48
   %45 = select i1 %43, i32 52, i32 %44
-  store i32 %45, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 8), align 4
-  store ptr @pt_attr_groups, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 12), align 4
-  store ptr @pt_event_init, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 17), align 8
-  store ptr @pt_event_add, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 20), align 8
-  store ptr @pt_event_del, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 21), align 8
-  store ptr @pt_event_start, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 22), align 8
-  store ptr @pt_event_stop, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 23), align 8
-  store ptr @pt_event_snapshot_aux, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 34), align 8
-  store ptr @pt_event_read, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 24), align 8
-  store ptr @pt_buffer_setup_aux, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 32), align 8
-  store ptr @pt_buffer_free_aux, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 33), align 8
-  store ptr @pt_event_addr_filters_sync, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 36), align 8
-  store ptr @pt_event_addr_filters_validate, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 35), align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 4), align 8
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 68), align 4
+  store ptr @pt_attr_groups, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 92), align 4
+  store ptr @pt_event_init, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 120), align 8
+  store ptr @pt_event_add, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 144), align 8
+  store ptr @pt_event_del, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 152), align 8
+  store ptr @pt_event_start, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 160), align 8
+  store ptr @pt_event_stop, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 168), align 8
+  store ptr @pt_event_snapshot_aux, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 256), align 8
+  store ptr @pt_event_read, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 176), align 8
+  store ptr @pt_buffer_setup_aux, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 240), align 8
+  store ptr @pt_buffer_free_aux, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 248), align 8
+  store ptr @pt_event_addr_filters_sync, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 272), align 8
+  store ptr @pt_event_addr_filters_validate, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 264), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 320), align 8
   %47 = and i32 %46, 7
-  store i32 %47, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 14), align 4
+  store i32 %47, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 100), align 4
   %48 = call i32 @perf_pmu_register(ptr noundef nonnull @pt_pmu, ptr noundef nonnull @.str.22, i32 noundef -1) #19
   br label %49
 
@@ -1617,7 +1617,7 @@ declare dso_local i32 @x86_add_exclusive(i32 noundef) local_unnamed_addr #3
 define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_addr #5 section ".init.text" align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 206) #19, !srcloc !14
   %2 = extractvalue { i64, i64 } %1, 0
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %7 [label %3], !srcloc !9
 
 3:                                                ; preds = %0
@@ -1630,8 +1630,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
 7:                                                ; preds = %3, %0
   %8 = lshr i64 %2, 8
   %9 = and i64 %8, 255
-  store i64 %9, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 4), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 10), align 4
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 344), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
   %11 = icmp sgt i32 %10, 20
   br i1 %11, label %12, label %16
 
@@ -1639,12 +1639,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   %13 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 21, i32 0) #19, !srcloc !55
   %14 = extractvalue { i32, i32, i32, i32 } %13, 0
   %15 = extractvalue { i32, i32, i32, i32 } %13, 1
-  store i32 %15, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 5), align 8
-  store i32 %14, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 6), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 352), align 8
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 356), align 4
   br label %16
 
 16:                                               ; preds = %12, %7
-  %17 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
   switch i8 %17, label %19 [
     i8 61, label %18
     i8 86, label %18
@@ -1653,11 +1653,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   ]
 
 18:                                               ; preds = %16, %16, %16, %16
-  store i8 1, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 3), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 337), align 1
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %21 = and i64 %20, 32
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.preheader1, label %23
@@ -1665,7 +1665,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
 23:                                               ; preds = %19
   %24 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1157) #19, !srcloc !14
   %25 = extractvalue { i64, i64 } %24, 0
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %30 [label %26], !srcloc !9
 
 26:                                               ; preds = %23
@@ -1681,7 +1681,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   br i1 %32, label %.preheader1, label %33
 
 33:                                               ; preds = %30
-  store i8 1, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 336), align 8
   br label %.preheader1
 
 .preheader1:                                      ; preds = %33, %30, %19
@@ -1713,13 +1713,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   br i1 %35, label %34, label %51, !llvm.loop !56
 
 51:                                               ; preds = %34
-  %52 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %53 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %52, i32 noundef 3520, i64 noundef 152) #22
   %54 = icmp eq ptr %53, null
   br i1 %54, label %71, label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %57 = tail call noalias align 8 dereferenceable_or_null(760) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 760) #22
   %58 = icmp eq ptr %57, null
   br i1 %58, label %71, label %.preheader
@@ -1744,7 +1744,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   br i1 %69, label %70, label %.preheader, !llvm.loop !57
 
 70:                                               ; preds = %.preheader
-  store ptr %53, ptr getelementptr inbounds (%struct.attribute_group, ptr @pt_cap_group, i64 0, i32 3), align 8
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @pt_cap_group, i64 24), align 8
   br label %72
 
 71:                                               ; preds = %55, %51
@@ -1760,7 +1760,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
 define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 7), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 64), align 8
   %5 = icmp eq i32 %3, %4
   br i1 %5, label %6, label %133
 
@@ -1777,13 +1777,13 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %13, label %39, label %14
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %16 = and i32 %15, 2
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %133, label %18
 
 18:                                               ; preds = %14
-  %19 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 5), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 324), align 4
   %20 = lshr i64 %8, 24
   %21 = and i64 %20, 15
   %22 = icmp eq i64 %21, 0
@@ -1817,13 +1817,13 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %41, label %57, label %42
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %44 = and i32 %43, 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %133, label %46
 
 46:                                               ; preds = %42
-  %47 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 4), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 320), align 8
   %48 = icmp ult i32 %47, 65536
   br i1 %48, label %133, label %49
 
@@ -1843,7 +1843,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %62 = and i32 %61, 32
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %133, label %64
@@ -1854,7 +1854,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %69 = and i32 %68, 128
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %133, label %71
@@ -1864,7 +1864,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %71
-  %74 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %75 = and i32 %74, 256
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %133, label %77
@@ -1875,7 +1875,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %79, label %86, label %80
 
 80:                                               ; preds = %77
-  %81 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 1), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 308), align 4
   %82 = and i32 %81, 16
   %83 = icmp eq i32 %82, 0
   %84 = icmp eq i64 %78, 32
@@ -1888,7 +1888,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %88, label %95, label %89
 
 89:                                               ; preds = %86
-  %90 = load i8, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 3), align 1, !range !12, !noundef !13
+  %90 = load i8, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 337), align 1, !range !12, !noundef !13
   %91 = icmp ne i8 %90, 0
   %92 = and i64 %8, 8192
   %93 = icmp eq i64 %92, 0
@@ -1922,13 +1922,13 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
 
 112:                                              ; preds = %105, %101
   %113 = phi i32 [ %111, %105 ], [ -1, %101 ]
-  %114 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 4), align 8
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 320), align 8
   %115 = and i32 %114, 7
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %131, label %117
 
 117:                                              ; preds = %112
-  %118 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %119 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_node_trace(ptr noundef %118, i32 noundef 3520, i32 noundef %113, i64 noundef 104) #23
   %120 = icmp eq ptr %119, null
   br i1 %120, label %130, label %121
@@ -2099,7 +2099,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #2 align 16 {
 70:                                               ; preds = %61
   tail call void @perf_event_itrace_started(ptr noundef %0) #19
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1393, i32 0, i32 0) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %72 [label %71], !srcloc !9
 
 71:                                               ; preds = %70
@@ -2143,7 +2143,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #2 align 16 {
   %97 = lshr i64 %90, 32
   %98 = trunc nuw i64 %97 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %95, i32 %96, i32 %98) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %100 [label %99], !srcloc !9
 
 99:                                               ; preds = %92
@@ -2171,7 +2171,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #2 align 16 {
   %113 = lshr i64 %106, 32
   %114 = trunc nuw i64 %113 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %111, i32 %112, i32 %114) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %116 [label %115], !srcloc !9
 
 115:                                              ; preds = %108
@@ -2239,7 +2239,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #2 align 16 {
   %162 = lshr i64 %149, 32
   %163 = trunc nuw i64 %162 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %161, i32 %163) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %165 [label %164], !srcloc !9
 
 164:                                              ; preds = %160
@@ -2316,7 +2316,7 @@ define internal i64 @pt_event_snapshot_aux(ptr noundef %0, ptr noundef %1, i64 n
   %32 = lshr i64 %21, 32
   %33 = trunc nuw i64 %32 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %31, i32 %33) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %35 [label %34], !srcloc !9
 
 34:                                               ; preds = %30
@@ -2342,7 +2342,7 @@ define internal i64 @pt_event_snapshot_aux(ptr noundef %0, ptr noundef %1, i64 n
   %45 = extractvalue { i64, i64 } %43, 1
   %46 = shl i64 %45, 32
   %47 = or i64 %46, %44
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %49 [label %48], !srcloc !9
 
 48:                                               ; preds = %42
@@ -2366,7 +2366,7 @@ define internal i64 @pt_event_snapshot_aux(ptr noundef %0, ptr noundef %1, i64 n
   %59 = extractvalue { i64, i64 } %57, 1
   %60 = shl i64 %59, 32
   %61 = or i64 %60, %58
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %63 [label %62], !srcloc !9
 
 62:                                               ; preds = %56
@@ -2507,7 +2507,7 @@ define internal i64 @pt_event_snapshot_aux(ptr noundef %0, ptr noundef %1, i64 n
   %156 = lshr i64 %148, 32
   %157 = trunc nuw i64 %156 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1392, i32 %155, i32 %157) #19, !srcloc !8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #19
           to label %159 [label %158], !srcloc !9
 
 158:                                              ; preds = %154
@@ -2548,7 +2548,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #19, !srcloc !70
+  %17 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !70
   br label %18
 
 18:                                               ; preds = %16, %14
@@ -2559,7 +2559,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %23 = add i64 %22, ptrtoint (ptr @numa_node to i64)
   %24 = inttoptr i64 %23 to ptr
   %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_node_trace(ptr noundef %26, i32 noundef 3520, i32 noundef %25, i64 noundef 128) #23
   %28 = icmp eq ptr %27, null
   br i1 %28, label %371, label %29
@@ -2590,7 +2590,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   br i1 %3, label %47, label %69
 
 47:                                               ; preds = %29
-  %48 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %49 = and i32 %48, 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %69, label %51
@@ -2653,7 +2653,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %90 = getelementptr inbounds i8, ptr %89, i64 4056
   %91 = getelementptr inbounds i8, ptr %89, i64 4088
   store i32 0, ptr %91, align 8
-  %92 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %93 = and i32 %92, 2
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %102
@@ -2702,7 +2702,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %120 = getelementptr inbounds i8, ptr %89, i64 4072
   store i64 %119, ptr %120, align 8
   store ptr %90, ptr %105, align 8
-  %121 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %121 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %122 = and i32 %121, 2
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %144, label %124
@@ -2777,7 +2777,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
 
 175:                                              ; preds = %171, %150
   %176 = phi i32 [ %174, %171 ], [ 0, %150 ]
-  %177 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %178 = and i32 %177, 2
   %179 = icmp eq i32 %178, 0
   %180 = getelementptr inbounds i8, ptr %152, i64 32
@@ -2816,7 +2816,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %205 = getelementptr inbounds i8, ptr %204, i64 4056
   %206 = getelementptr inbounds i8, ptr %204, i64 4088
   store i32 0, ptr %206, align 8
-  %207 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %207 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %208 = and i32 %207, 2
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %217
@@ -2862,7 +2862,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %232 = getelementptr inbounds i8, ptr %204, i64 4072
   store i64 %231, ptr %232, align 8
   store ptr %205, ptr %105, align 8
-  %233 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %233 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %234 = and i32 %233, 2
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %256, label %236
@@ -2952,7 +2952,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   br i1 %299, label %300, label %315
 
 300:                                              ; preds = %277
-  %301 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %301 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %302 = and i32 %301, 2
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %304, label %315
@@ -3011,7 +3011,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   br i1 %338, label %.thread, label %.preheader, !llvm.loop !74
 
 .loopexit:                                        ; preds = %315, %144
-  %339 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 2), align 8
+  %339 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 312), align 8
   %340 = and i32 %339, 2
   %341 = icmp eq i32 %340, 0
   br i1 %341, label %371, label %342
@@ -3123,7 +3123,7 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 ali
   %25 = add i64 %22, -1
   %26 = add i64 %25, %.pre
   %27 = select i1 %24, i64 -1, i64 %26
-  %28 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 6), align 4
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 28), align 4
   %29 = zext i8 %28 to i64
   %30 = sub nsw i64 64, %29
   %31 = and i64 %30, 4294967295
@@ -3174,7 +3174,7 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 ali
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal noundef range(i32 -95, 1) i32 @pt_event_addr_filters_validate(ptr noundef readonly %0) #10 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 320), align 8
   %3 = and i32 %2, 7
   br label %4
 
@@ -3223,7 +3223,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_cap_show(ptr 
   %14 = zext i8 %13 to i32
   %15 = add i32 %11, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1), i64 %16
+  %17 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 304), i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds i8, ptr %8, i64 16
   %20 = load i32, ptr %19, align 8
@@ -3343,14 +3343,14 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_timing_attr_s
   ]
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 4), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 344), align 8
   %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.55, i64 noundef %7) #19
   %9 = sext i32 %8 to i64
   br label %15
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 5), align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 6), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 352), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pt_pmu, i64 356), align 4
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %11, i32 noundef %12) #19
   %14 = sext i32 %13 to i64
   br label %15

@@ -79404,7 +79404,7 @@ drmp3_L3_antialias.exit.i.thread:                 ; preds = %1612
   %1625 = load <4 x float>, ptr %1624, align 1
   %1626 = getelementptr inbounds float, ptr @drmp3_L3_antialias.g_aa, i64 %.049.i.i
   %1627 = load <4 x float>, ptr %1626, align 16
-  %1628 = getelementptr inbounds float, ptr getelementptr inbounds ([2 x [8 x float]], ptr @drmp3_L3_antialias.g_aa, i64 0, i64 1), i64 %.049.i.i
+  %1628 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @drmp3_L3_antialias.g_aa, i64 32), i64 %.049.i.i
   %1629 = load <4 x float>, ptr %1628, align 16
   %1630 = shufflevector <4 x float> %1625, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %1631 = fmul <4 x float> %1622, %1627
@@ -92716,7 +92716,7 @@ define internal fastcc noundef zeroext i1 @jar_mod_load(ptr noundef %0, ptr noun
 memcopy.exit:                                     ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %0, i64 4728
   store i16 0, ptr %12, align 8
-  %13 = load i32, ptr getelementptr inbounds ([20 x %struct.modtype_], ptr @modlist, i64 0, i64 0, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @modlist, i64 8), align 8
   %.not134 = icmp eq i32 %13, 0
   br i1 %.not134, label %._crit_edge.thread, label %.lr.ph
 
@@ -93148,13 +93148,13 @@ define void @InitAudioDevice() local_unnamed_addr #5 {
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr @OnSendAudioDataToDevice, ptr %14, align 8
-  %15 = call i32 @ma_device_init(ptr noundef nonnull @AUDIO, ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1))
+  %15 = call i32 @ma_device_init(ptr noundef nonnull @AUDIO, ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 1016))
   %.not3 = icmp eq i32 %15, 0
   br i1 %.not3, label %33, label %16
 
 16:                                               ; preds = %5
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.222) #68
-  %17 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 8), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %20, label %18
 
@@ -93163,34 +93163,34 @@ define void @InitAudioDevice() local_unnamed_addr #5 {
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 8, i32 0, i32 0)) #68
-  %22 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 9, i32 0, i32 0)) #68
-  %23 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 13), align 8
+  %21 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 320)) #68
+  %22 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 360)) #68
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 416), align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %ma_free.exit.i, label %25
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 3), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 312), align 8
   %.not9.i.i = icmp eq ptr %26, null
   br i1 %.not9.i.i, label %ma_free.exit.i, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 0), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 288), align 8
   call void %26(ptr noundef nonnull %23, ptr noundef %28) #68
   br label %ma_free.exit.i
 
 ma_free.exit.i:                                   ; preds = %27, %25, %20
-  %29 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 2), align 8
-  %30 = icmp eq ptr %29, getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 0, i64 0, i32 0)
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 112), align 8
+  %30 = icmp eq ptr %29, getelementptr inbounds (i8, ptr @AUDIO, i64 120)
   br i1 %30, label %31, label %ma_context_uninit.exit
 
 31:                                               ; preds = %ma_free.exit.i
-  %32 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 3, i32 0, i32 0)) #68
+  %32 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 224)) #68
   br label %ma_context_uninit.exit
 
 33:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2), i8 0, i64 40, i1 false)
-  %34 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2), ptr noundef null) #68
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @AUDIO, i64 4792), i8 0, i64 40, i1 false)
+  %34 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792), ptr noundef null) #68
   %.not.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i, label %ma_mutex_init.exit.thread, label %ma_mutex_init.exit
 
@@ -93201,8 +93201,8 @@ ma_mutex_init.exit:                               ; preds = %33
 
 36:                                               ; preds = %ma_mutex_init.exit
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.223) #68
-  call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1))
-  %37 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 1016))
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 8), align 8
   %.not.i6 = icmp eq ptr %37, null
   br i1 %.not.i6, label %40, label %38
 
@@ -93211,40 +93211,40 @@ ma_mutex_init.exit:                               ; preds = %33
   br label %40
 
 40:                                               ; preds = %38, %36
-  %41 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 8, i32 0, i32 0)) #68
-  %42 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 9, i32 0, i32 0)) #68
-  %43 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 13), align 8
+  %41 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 320)) #68
+  %42 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 360)) #68
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 416), align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %ma_free.exit.i8, label %45
 
 45:                                               ; preds = %40
-  %46 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 3), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 312), align 8
   %.not9.i.i7 = icmp eq ptr %46, null
   br i1 %.not9.i.i7, label %ma_free.exit.i8, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 0), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 288), align 8
   call void %46(ptr noundef nonnull %43, ptr noundef %48) #68
   br label %ma_free.exit.i8
 
 ma_free.exit.i8:                                  ; preds = %47, %45, %40
-  %49 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 2), align 8
-  %50 = icmp eq ptr %49, getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 0, i64 0, i32 0)
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 112), align 8
+  %50 = icmp eq ptr %49, getelementptr inbounds (i8, ptr @AUDIO, i64 120)
   br i1 %50, label %51, label %ma_context_uninit.exit
 
 51:                                               ; preds = %ma_free.exit.i8
-  %52 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 3, i32 0, i32 0)) #68
+  %52 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 224)) #68
   br label %ma_context_uninit.exit
 
 ma_mutex_init.exit.thread:                        ; preds = %33, %ma_mutex_init.exit
-  %53 = call i32 @ma_device_start(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1))
+  %53 = call i32 @ma_device_start(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 1016))
   %.not5 = icmp eq i32 %53, 0
   br i1 %.not5, label %71, label %54
 
 54:                                               ; preds = %ma_mutex_init.exit.thread
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.224) #68
-  call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1))
-  %55 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 1016))
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 8), align 8
   %.not.i11 = icmp eq ptr %55, null
   br i1 %.not.i11, label %58, label %56
 
@@ -93253,34 +93253,34 @@ ma_mutex_init.exit.thread:                        ; preds = %33, %ma_mutex_init.
   br label %58
 
 58:                                               ; preds = %56, %54
-  %59 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 8, i32 0, i32 0)) #68
-  %60 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 9, i32 0, i32 0)) #68
-  %61 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 13), align 8
+  %59 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 320)) #68
+  %60 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 360)) #68
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 416), align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %ma_free.exit.i13, label %63
 
 63:                                               ; preds = %58
-  %64 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 3), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 312), align 8
   %.not9.i.i12 = icmp eq ptr %64, null
   br i1 %.not9.i.i12, label %ma_free.exit.i13, label %65
 
 65:                                               ; preds = %63
-  %66 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 0), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 288), align 8
   call void %64(ptr noundef nonnull %61, ptr noundef %66) #68
   br label %ma_free.exit.i13
 
 ma_free.exit.i13:                                 ; preds = %65, %63, %58
-  %67 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 2), align 8
-  %68 = icmp eq ptr %67, getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 0, i64 0, i32 0)
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 112), align 8
+  %68 = icmp eq ptr %67, getelementptr inbounds (i8, ptr @AUDIO, i64 120)
   br i1 %68, label %69, label %ma_context_uninit.exit
 
 69:                                               ; preds = %ma_free.exit.i13
-  %70 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 3, i32 0, i32 0)) #68
+  %70 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 224)) #68
   br label %ma_context_uninit.exit
 
 71:                                               ; preds = %ma_mutex_init.exit.thread
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.225) #68
-  %72 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 1), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 104), align 8
   %73 = icmp ugt i32 %72, 14
   br i1 %73, label %ma_get_backend_name.exit, label %74
 
@@ -93293,7 +93293,7 @@ ma_free.exit.i13:                                 ; preds = %65, %63, %58
 ma_get_backend_name.exit:                         ; preds = %71, %74
   %.0.i16 = phi ptr [ %77, %74 ], [ @.str.9, %71 ]
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.226, ptr noundef %.0.i16) #68
-  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 4), align 4
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2132), align 4
   %79 = icmp ult i32 %78, 6
   br i1 %79, label %switch.lookup, label %ma_get_format_name.exit
 
@@ -93305,7 +93305,7 @@ switch.lookup:                                    ; preds = %ma_get_backend_name
 
 ma_get_format_name.exit:                          ; preds = %ma_get_backend_name.exit, %switch.lookup
   %.0.i17 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.168, %ma_get_backend_name.exit ]
-  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 7), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2396), align 4
   %82 = icmp ult i32 %81, 6
   br i1 %82, label %switch.lookup22, label %ma_get_format_name.exit19
 
@@ -93318,17 +93318,17 @@ switch.lookup22:                                  ; preds = %ma_get_format_name.
 ma_get_format_name.exit19:                        ; preds = %ma_get_format_name.exit, %switch.lookup22
   %.0.i18 = phi ptr [ %switch.load24, %switch.lookup22 ], [ @.str.168, %ma_get_format_name.exit ]
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.227, ptr noundef nonnull %.0.i17, ptr noundef nonnull %.0.i18) #68
-  %84 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 5), align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 8), align 8
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2136), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2400), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.228, i32 noundef %84, i32 noundef %85) #68
-  %86 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
-  %87 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 9), align 4
+  %86 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2404), align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.229, i32 noundef %86, i32 noundef %87) #68
-  %88 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8
-  %89 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 12), align 4
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2668), align 4
   %90 = mul i32 %89, %88
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.230, i32 noundef %90) #68
-  store i8 1, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 3), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4832), align 8
   br label %ma_context_uninit.exit
 
 ma_context_uninit.exit:                           ; preds = %69, %ma_free.exit.i13, %51, %ma_free.exit.i8, %31, %ma_free.exit.i, %ma_get_format_name.exit19, %4
@@ -93356,8 +93356,8 @@ define internal void @OnSendAudioDataToDevice(ptr nocapture noundef readonly %0,
   %19 = mul i32 %13, %18
   %20 = zext i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %20, i1 false)
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
-  %.04787 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), align 8
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
+  %.04787 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), align 8
   %.not88 = icmp eq ptr %.04787, null
   br i1 %.not88, label %.preheader, label %.lr.ph92
 
@@ -93366,7 +93366,7 @@ define internal void @OnSendAudioDataToDevice(ptr nocapture noundef readonly %0,
   br label %23
 
 .preheader:                                       ; preds = %.loopexit, %4
-  %.093 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), align 8
+  %.093 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4880), align 8
   %.not5494 = icmp eq ptr %.093, null
   br i1 %.not5494, label %._crit_edge97, label %.lr.ph96
 
@@ -93700,7 +93700,7 @@ ReadAudioBufferFramesInMixingFormat.exit:         ; preds = %60, %ReadAudioBuffe
   br i1 %.not57, label %239, label %199
 
 199:                                              ; preds = %ReadAudioBufferFramesInMixingFormat.exit
-  %200 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 5), align 8
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2136), align 8
   %201 = mul i32 %200, %.180
   %202 = zext i32 %201 to i64
   %203 = getelementptr inbounds float, ptr %1, i64 %202
@@ -93718,7 +93718,7 @@ ReadAudioBufferFramesInMixingFormat.exit:         ; preds = %60, %ReadAudioBuffe
   br i1 %.not58, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 5), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2136), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %199
@@ -93853,20 +93853,20 @@ StopAudioBuffer.exit:                             ; preds = %.backedge, %239, %5
   br i1 %.not54, label %._crit_edge97, label %.lr.ph96
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %.preheader
-  %254 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %254 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @CloseAudioDevice() local_unnamed_addr #5 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 3), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4832), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %22
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
-  tail call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1))
-  %5 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
+  tail call void @ma_device_uninit(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 1016))
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 8), align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %8, label %6
 
@@ -93875,36 +93875,36 @@ define void @CloseAudioDevice() local_unnamed_addr #5 {
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 8, i32 0, i32 0)) #68
-  %10 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 9, i32 0, i32 0)) #68
-  %11 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 13), align 8
+  %9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 320)) #68
+  %10 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 360)) #68
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 416), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %ma_free.exit.i, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 312), align 8
   %.not9.i.i = icmp eq ptr %14, null
   br i1 %.not9.i.i, label %ma_free.exit.i, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 7, i32 0), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 288), align 8
   tail call void %14(ptr noundef nonnull %11, ptr noundef %16) #68
   br label %ma_free.exit.i
 
 ma_free.exit.i:                                   ; preds = %15, %13, %8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 2), align 8
-  %18 = icmp eq ptr %17, getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 0, i64 0, i32 0)
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 112), align 8
+  %18 = icmp eq ptr %17, getelementptr inbounds (i8, ptr @AUDIO, i64 120)
   br i1 %18, label %19, label %ma_context_uninit.exit
 
 19:                                               ; preds = %ma_free.exit.i
-  %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 0, i32 3, i32 3, i32 0, i32 0)) #68
+  %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 224)) #68
   br label %ma_context_uninit.exit
 
 ma_context_uninit.exit:                           ; preds = %ma_free.exit.i, %19
-  store i8 0, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 3), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4832), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   tail call void @free(ptr noundef %21) #68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 4), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @AUDIO, i64 4840), i8 0, i64 16, i1 false)
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.231) #68
   br label %23
 
@@ -93918,7 +93918,7 @@ ma_context_uninit.exit:                           ; preds = %ma_free.exit.i, %19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsAudioDeviceReady() local_unnamed_addr #60 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 3), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4832), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -93930,7 +93930,7 @@ define void @SetMasterVolume(float noundef %0) local_unnamed_addr #61 {
 
 3:                                                ; preds = %1
   %4 = bitcast float %0 to i32
-  store atomic volatile i32 %4, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 19, i32 0) seq_cst, align 4
+  store atomic volatile i32 %4, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1420) seq_cst, align 4
   br label %ma_device_set_master_volume.exit
 
 ma_device_set_master_volume.exit:                 ; preds = %1, %3
@@ -93939,7 +93939,7 @@ ma_device_set_master_volume.exit:                 ; preds = %1, %3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define float @GetMasterVolume() local_unnamed_addr #62 {
-  %1 = load atomic volatile i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 19, i32 0) seq_cst, align 4
+  %1 = load atomic volatile i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1420) seq_cst, align 4
   %2 = bitcast i32 %1 to float
   ret float %2
 }
@@ -93973,7 +93973,7 @@ define hidden noundef ptr @LoadAudioBuffer(i32 noundef %0, i32 noundef %1, i32 n
   br label %21
 
 21:                                               ; preds = %12, %11
-  %22 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %23 = getelementptr inbounds i8, ptr %7, i64 24
   %24 = getelementptr inbounds i8, ptr %7, i64 64
   %25 = getelementptr inbounds i8, ptr %7, i64 112
@@ -94055,27 +94055,27 @@ ma_data_converter_get_heap_size.exit.i:           ; preds = %21
   store i8 1, ptr %53, align 4
   %54 = getelementptr inbounds i8, ptr %8, i64 349
   store i8 1, ptr %54, align 1
-  %55 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
-  %56 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), align 8
+  %55 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %42
-  store ptr %8, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), align 8
   br label %TrackAudioBuffer.exit
 
 59:                                               ; preds = %42
-  %60 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 376
   store ptr %8, ptr %61, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
   %63 = getelementptr inbounds i8, ptr %8, i64 384
   store ptr %62, ptr %63, align 8
   br label %TrackAudioBuffer.exit
 
 TrackAudioBuffer.exit:                            ; preds = %58, %59
-  store ptr %8, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
+  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   br label %65
 
 65:                                               ; preds = %TrackAudioBuffer.exit, %41, %10
@@ -94088,27 +94088,27 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @TrackAudioBuffer(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
-  %3 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), align 8
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  store ptr %0, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), align 8
   br label %11
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 376
   store ptr %0, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %9, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %6, %5
-  store ptr %0, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), align 8
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), align 8
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
@@ -94189,22 +94189,22 @@ ma_channel_converter_uninit.exit.i:               ; preds = %31, %27, %ma_resamp
   br label %ma_data_converter_uninit.exit
 
 ma_data_converter_uninit.exit:                    ; preds = %ma_channel_converter_uninit.exit.i, %34, %38
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %40 = getelementptr inbounds i8, ptr %0, i64 384
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   %43 = getelementptr inbounds i8, ptr %0, i64 376
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 376
-  %.sink.i = select i1 %42, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), ptr %45
+  %.sink.i = select i1 %42, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), ptr %45
   store ptr %44, ptr %.sink.i, align 8
   %46 = icmp eq ptr %44, null
   %47 = load ptr, ptr %40, align 8
   %48 = getelementptr inbounds i8, ptr %44, i64 384
-  %.sink11.i = select i1 %46, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), ptr %48
+  %.sink11.i = select i1 %46, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), ptr %48
   store ptr %47, ptr %.sink11.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %50 = getelementptr inbounds i8, ptr %0, i64 368
   %51 = load ptr, ptr %50, align 8
   tail call void @free(ptr noundef %51) #68
@@ -94217,23 +94217,23 @@ ma_data_converter_uninit.exit:                    ; preds = %ma_channel_converte
 
 ; Function Attrs: nounwind uwtable
 define hidden void @UntrackAudioBuffer(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds i8, ptr %0, i64 376
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 376
-  %.sink = select i1 %5, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), ptr %8
+  %.sink = select i1 %5, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), ptr %8
   store ptr %7, ptr %.sink, align 8
   %9 = icmp eq ptr %7, null
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 384
-  %.sink11 = select i1 %9, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), ptr %11
+  %.sink11 = select i1 %9, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), ptr %11
   store ptr %10, ptr %.sink11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
@@ -94825,7 +94825,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias nocapture writable wri
   %12 = select i1 %11, i32 2, i32 5
   %13 = select i1 %10, i32 1, i32 %12
   %14 = load i32, ptr %1, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
@@ -94873,7 +94873,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias nocapture writable wri
 
 .split:                                           ; preds = %7, %.split12
   %.sink27 = phi i32 [ 0, %.split12 ], [ %22, %7 ]
-  %24 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %25 = call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %24, i32 noundef %.sink27, i32 noundef 0)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -94886,7 +94886,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias nocapture writable wri
   %29 = getelementptr inbounds i8, ptr %25, i64 368
   %30 = load ptr, ptr %29, align 8
   %31 = and i64 %21, 4294967295
-  %32 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3)
   %.sroa.7.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i13, i8 0, i64 16, i1 false)
@@ -94930,7 +94930,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias nocapture writable wri
 37:                                               ; preds = %36, %28
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %34, ptr %38, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 20
@@ -94962,7 +94962,7 @@ define void @LoadSoundAlias(ptr dead_on_unwind noalias nocapture writable writeo
   br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %8 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %7, i32 noundef 0, i32 noundef 0)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -94987,7 +94987,7 @@ define void @LoadSoundAlias(ptr dead_on_unwind noalias nocapture writable writeo
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %21, ptr %22, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 20
@@ -95115,22 +95115,22 @@ ma_channel_converter_uninit.exit.i:               ; preds = %32, %28, %ma_resamp
   br label %ma_data_converter_uninit.exit
 
 ma_data_converter_uninit.exit:                    ; preds = %ma_channel_converter_uninit.exit.i, %35, %39
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %41 = getelementptr inbounds i8, ptr %2, i64 384
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   %44 = getelementptr inbounds i8, ptr %2, i64 376
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %42, i64 376
-  %.sink.i = select i1 %43, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1), ptr %46
+  %.sink.i = select i1 %43, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4856), ptr %46
   store ptr %45, ptr %.sink.i, align 8
   %47 = icmp eq ptr %45, null
   %48 = load ptr, ptr %41, align 8
   %49 = getelementptr inbounds i8, ptr %45, i64 384
-  %.sink11.i = select i1 %47, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 1), ptr %49
+  %.sink11.i = select i1 %47, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4864), ptr %49
   store ptr %48, ptr %.sink11.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   tail call void @free(ptr noundef nonnull %2) #68
   br label %51
 
@@ -96194,13 +96194,13 @@ drwav_init_file.exit.thread:                      ; preds = %.sink.split.i.i.i, 
   %35 = icmp eq i16 %narrow, 16
   %36 = select i1 %35, i32 2, i32 5
   %37 = select i1 %34, i32 1, i32 %36
-  %38 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !254
-  %39 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !254
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !254
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !254
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %23
-  %42 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !254
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !254
   %43 = udiv i32 %42, 30
   br label %44
 
@@ -96279,13 +96279,13 @@ stb_vorbis_open_filename.exit:                    ; preds = %60
   %74 = getelementptr inbounds i8, ptr %71, i64 4
   %75 = load i32, ptr %74, align 4, !noalias !257
   %76 = load i32, ptr %71, align 8, !noalias !257
-  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !260
-  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !260
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !260
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !260
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %73
-  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !260
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !260
   %82 = udiv i32 %81, 30
   br label %83
 
@@ -96407,13 +96407,13 @@ drmp3_init_file.exit.thread:                      ; preds = %121, %98, %101
   store i32 4, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %99, ptr %133, align 8
-  %134 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !263
-  %135 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !263
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !263
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !263
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %125
-  %138 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !263
+  %138 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !263
   %139 = udiv i32 %138, 30
   br label %140
 
@@ -96481,13 +96481,13 @@ LoadAudioStream.exit55:                           ; preds = %144, %148
   %164 = getelementptr inbounds i8, ptr %158, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = load i32, ptr %158, align 8
-  %167 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !266
-  %168 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !266
+  %167 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !266
+  %168 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !266
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %163
-  %171 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !266
+  %171 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !266
   %172 = udiv i32 %171, 30
   br label %173
 
@@ -96537,7 +96537,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
 
 188:                                              ; preds = %186
   store ptr null, ptr %4, align 8
-  %189 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %189 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %190 = call i32 @jar_xm_create_context_from_file(ptr noundef nonnull %4, i32 noundef %189, ptr noundef %1)
   %191 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 6, ptr %191, align 8
@@ -96550,7 +96550,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
 195:                                              ; preds = %188
   %196 = getelementptr inbounds i8, ptr %192, i64 409
   store i8 0, ptr %196, align 1
-  %197 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %197 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   call void @LoadAudioStream(ptr dead_on_unwind nonnull writable sret(%struct.AudioStream) align 8 %5, i32 noundef %197, i32 noundef 32, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %198 = tail call i64 @jar_xm_get_remaining_samples(ptr noundef %192)
@@ -96578,7 +96578,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
   br i1 %.not, label %217, label %210
 
 210:                                              ; preds = %204
-  %211 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %211 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   call void @LoadAudioStream(ptr dead_on_unwind nonnull writable sret(%struct.AudioStream) align 8 %6, i32 noundef %211, i32 noundef 16, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %212 = tail call i64 @jar_mod_max_samples(ptr noundef %205)
@@ -96819,13 +96819,13 @@ define void @LoadAudioStream(ptr dead_on_unwind noalias nocapture writable write
   %10 = icmp eq i32 %2, 16
   %11 = select i1 %10, i32 2, i32 5
   %12 = select i1 %9, i32 1, i32 %11
-  %13 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %18 = udiv i32 %17, 30
   br label %19
 
@@ -96927,13 +96927,13 @@ drwav_init_memory.exit:                           ; preds = %15
   %40 = icmp eq i16 %narrow, 16
   %41 = select i1 %40, i32 2, i32 5
   %42 = select i1 %39, i32 1, i32 %41
-  %43 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !269
-  %44 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !269
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !269
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !269
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %30
-  %47 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !269
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !269
   %48 = udiv i32 %47, 30
   br label %49
 
@@ -97001,13 +97001,13 @@ LoadAudioStream.exit:                             ; preds = %53, %57
   %74 = getelementptr inbounds i8, ptr %71, i64 4
   %75 = load i32, ptr %74, align 4, !noalias !272
   %76 = load i32, ptr %71, align 8, !noalias !272
-  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !275
-  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !275
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !275
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !275
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %73
-  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !275
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !275
   %82 = udiv i32 %81, 30
   br label %83
 
@@ -97134,13 +97134,13 @@ drmp3_init_memory.exit.thread:                    ; preds = %102, %106, %120, %1
   store i32 4, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %103, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !278
-  %140 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !278
+  %139 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 2664), align 8, !noalias !278
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8, !noalias !278
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %130
-  %143 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !278
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4, !noalias !278
   %144 = udiv i32 %143, 30
   br label %145
 
@@ -97243,7 +97243,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
 189:                                              ; preds = %186, %183
   store ptr null, ptr %7, align 8
   %190 = sext i32 %3 to i64
-  %191 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   %192 = call i32 @jar_xm_create_context_safe(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %190, i32 noundef %191)
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %.critedge
@@ -97254,7 +97254,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
   %196 = load ptr, ptr %7, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 409
   store i8 0, ptr %197, align 1
-  %198 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %198 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   call void @LoadAudioStream(ptr dead_on_unwind nonnull writable sret(%struct.AudioStream) align 8 %8, i32 noundef %198, i32 noundef 32, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %199 = tail call i64 @jar_xm_get_remaining_samples(ptr noundef %196)
@@ -97309,7 +97309,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
 223:                                              ; preds = %219
   %224 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 7, ptr %224, align 8
-  %225 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
+  %225 = load i32, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 1028), align 4
   call void @LoadAudioStream(ptr dead_on_unwind nonnull writable sret(%struct.AudioStream) align 8 %9, i32 noundef %225, i32 noundef 16, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %226 = tail call i64 @jar_mod_max_samples(ptr noundef nonnull %211)
@@ -98241,17 +98241,17 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
   %12 = mul i32 %11, %9
   %13 = lshr i32 %12, 3
   %14 = mul i32 %13, %7
-  %15 = load i64, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 4), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4840), align 8
   %16 = zext i32 %14 to i64
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   tail call void @free(ptr noundef %19) #68
   %20 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %16) #89
-  store ptr %20, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
-  store i64 %16, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 4), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4840), align 8
   br label %21
 
 21:                                               ; preds = %18, %4
@@ -98316,7 +98316,7 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
 
 .preheader86:                                     ; preds = %61
   %64 = sext i32 %.053 to i64
-  %65 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %66 = tail call i64 @drmp3_read_pcm_frames_f32(ptr noundef %32, i64 noundef %64, ptr noundef %65)
   %67 = trunc i64 %66 to i32
   %68 = sub nsw i32 %.053, %67
@@ -98324,7 +98324,7 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
   br i1 %69, label %.loopexit, label %.lr.ph
 
 .preheader84:                                     ; preds = %61
-  %70 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %71 = mul i32 %.053, %9
   %72 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %32, i32 noundef %9, ptr noundef %70, i32 noundef %71)
   %73 = sub nsw i32 %.053, %72
@@ -98339,7 +98339,7 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
 
 .preheader82:                                     ; preds = %75
   %76 = sext i32 %.053 to i64
-  %77 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %78 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef %32, i64 noundef %76, ptr noundef %77)
   %79 = trunc i64 %78 to i32
   %80 = sub nsw i32 %.053, %79
@@ -98348,7 +98348,7 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
 
 .preheader:                                       ; preds = %75
   %82 = sext i32 %.053 to i64
-  %83 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %84 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef %32, i64 noundef %82, ptr noundef %83)
   %85 = trunc i64 %84 to i32
   %86 = sub nsw i32 %.053, %85
@@ -98396,7 +98396,7 @@ define void @UpdateMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
 
 drwav_seek_to_first_pcm_frame.exit:               ; preds = %.lr.ph94, %92, %102
   %104 = sext i32 %88 to i64
-  %105 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %106 = mul nsw i32 %90, %13
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %105, i64 %107
@@ -98447,7 +98447,7 @@ drwav_seek_to_first_pcm_frame.exit:               ; preds = %.lr.ph94, %92, %102
 
 drwav_seek_to_first_pcm_frame.exit73:             ; preds = %.lr.ph92, %117, %127
   %129 = sext i32 %113 to i64
-  %130 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %131 = mul nsw i32 %115, %13
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i8, ptr %130, i64 %132
@@ -98463,7 +98463,7 @@ drwav_seek_to_first_pcm_frame.exit73:             ; preds = %.lr.ph92, %117, %12
   %.25789 = phi i32 [ %140, %.lr.ph90 ], [ 0, %.preheader84 ]
   %140 = add nsw i32 %139, %.25789
   %141 = tail call i32 @stb_vorbis_seek_start(ptr noundef %32)
-  %142 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %143 = mul nsw i32 %140, %13
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds i8, ptr %142, i64 %144
@@ -98497,7 +98497,7 @@ drwav_seek_to_first_pcm_frame.exit73:             ; preds = %.lr.ph92, %117, %12
 
 drmp3_seek_to_start_of_stream.exit:               ; preds = %.lr.ph, %156
   %159 = sext i32 %150 to i64
-  %160 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %161 = mul nsw i32 %152, %13
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i8, ptr %160, i64 %162
@@ -98508,24 +98508,24 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %.lr.ph, %156
   br i1 %167, label %.loopexit, label %.lr.ph
 
 168:                                              ; preds = %61
-  %169 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %170 = tail call i32 @qoaplay_decode(ptr noundef %32, ptr noundef %169, i32 noundef %.053)
   br label %.loopexit
 
 171:                                              ; preds = %61
-  %172 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %173 = zext nneg i32 %.053 to i64
   tail call void @jar_xm_generate_samples(ptr noundef %32, ptr noundef %172, i64 noundef %173)
   br label %.loopexit
 
 174:                                              ; preds = %61
-  %175 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %176 = zext nneg i32 %.053 to i64
   tail call fastcc void @jar_mod_fillbuffer.specialized.1(ptr noundef %32, ptr noundef %175, i64 noundef %176)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %drmp3_seek_to_start_of_stream.exit, %.lr.ph90, %drwav_seek_to_first_pcm_frame.exit73, %drwav_seek_to_first_pcm_frame.exit, %.preheader86, %.preheader84, %.preheader82, %.preheader, %168, %171, %174, %61, %75
-  %177 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
+  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4848), align 8
   %178 = load i8, ptr %22, align 4
   %179 = trunc i8 %178 to i1
   %180 = load i8, ptr %51, align 1
@@ -99102,7 +99102,7 @@ SetAudioBufferPan.exit:                           ; preds = %8, %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetAudioStreamBufferSizeDefault(i32 noundef %0) local_unnamed_addr #65 {
-  store i32 %0, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4872), align 8
   ret void
 }
 
@@ -99123,7 +99123,7 @@ define void @SetAudioStreamCallback(ptr nocapture noundef readonly byval(%struct
 
 ; Function Attrs: nounwind uwtable
 define void @AttachAudioStreamProcessor(ptr nocapture noundef readonly byval(%struct.AudioStream) align 8 %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #89
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -99151,13 +99151,13 @@ define void @AttachAudioStreamProcessor(ptr nocapture noundef readonly byval(%st
 .critedge13:                                      ; preds = %8, %.critedge
   %.sink = phi ptr [ %12, %.critedge ], [ %6, %8 ]
   store ptr %4, ptr %.sink, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @DetachAudioStreamProcessor(ptr nocapture noundef readonly byval(%struct.AudioStream) align 8 %0, ptr noundef readnone %1) local_unnamed_addr #5 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 320
   %6 = load ptr, ptr %5, align 8
@@ -99210,16 +99210,16 @@ define void @DetachAudioStreamProcessor(ptr nocapture noundef readonly byval(%st
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24, %2
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @AttachAudioMixedProcessor(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #89
   store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4880), align 8
   br label %5
 
 5:                                                ; preds = %6, %1
@@ -99240,16 +99240,16 @@ define void @AttachAudioMixedProcessor(ptr noundef %0) local_unnamed_addr #5 {
   br label %.critedge13
 
 .critedge13:                                      ; preds = %5, %.critedge
-  %.sink = phi ptr [ %9, %.critedge ], [ getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), %5 ]
+  %.sink = phi ptr [ %9, %.critedge ], [ getelementptr inbounds (i8, ptr @AUDIO, i64 4880), %5 ]
   store ptr %3, ptr %.sink, align 8
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @DetachAudioMixedProcessor(ptr noundef readnone %0) local_unnamed_addr #5 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
-  %3 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), align 8
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4880), align 8
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -99264,12 +99264,12 @@ define void @DetachAudioMixedProcessor(ptr noundef readnone %0) local_unnamed_ad
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %.lr.ph
-  %11 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4880), align 8
   %12 = icmp eq ptr %11, %.020
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  store ptr %5, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 2), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @AUDIO, i64 4880), align 8
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -99299,7 +99299,7 @@ define void @DetachAudioMixedProcessor(ptr noundef readnone %0) local_unnamed_ad
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %21, %1
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 2)) #68
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @AUDIO, i64 4792)) #68
   ret void
 }
 
@@ -120385,7 +120385,7 @@ define internal fastcc void @drmp3_L3_imdct36(ptr nocapture noundef %0, ptr noca
   %177 = load <4 x float>, ptr %.1.sroa.phi, align 1
   %178 = getelementptr inbounds float, ptr @drmp3_L3_imdct36.g_twid9, i64 %.1
   %179 = load <4 x float>, ptr %178, align 16
-  %180 = getelementptr inbounds float, ptr getelementptr inbounds ([18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 9), i64 %.1
+  %180 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @drmp3_L3_imdct36.g_twid9, i64 36), i64 %.1
   %181 = load <4 x float>, ptr %180, align 4
   %182 = getelementptr inbounds float, ptr %2, i64 %.1
   %183 = load <4 x float>, ptr %182, align 1

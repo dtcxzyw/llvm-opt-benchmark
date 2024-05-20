@@ -65,7 +65,7 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 deref
   br i1 %.not1830, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 74), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
   %.not.i = icmp ne i32 %7, 0
   br label %8
 
@@ -136,7 +136,7 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 deref
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 1
   %31 = icmp ne i32 %30, 0
-  %32 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 74), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
   %.not.i24 = icmp eq i32 %32, 0
   %33 = select i1 %31, i1 %.not.i24, i1 false
   br i1 %33, label %40, label %.thread
@@ -201,7 +201,7 @@ define noundef zeroext i1 @_ZN9ProtoNode8isHiddenEP11_proto_node(ptr noundef rea
 
 _ZL20proto_item_is_hiddenP11_proto_node.exit:     ; preds = %1, %2, %5
   %.0.i = phi i1 [ %9, %5 ], [ false, %2 ], [ false, %1 ]
-  %10 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 74), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
   %.not = icmp eq i32 %10, 0
   %11 = select i1 %.0.i, i1 %.not, i1 false
   ret i1 %11
@@ -849,7 +849,7 @@ define ptr @_ZNK9ProtoNode8childrenEv(ptr nocapture noundef nonnull readonly ali
   br i1 %.not8, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 74), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
   %.fr = freeze i32 %4
   %.not.i = icmp eq i32 %.fr, 0
   br i1 %.not.i, label %.lr.ph.split, label %.critedge
@@ -928,7 +928,7 @@ _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %6
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
   %12 = icmp ne i32 %11, 0
-  %13 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 74), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
   %.not.i = icmp eq i32 %13, 0
   %14 = select i1 %12, i1 %.not.i, i1 false
   br i1 %14, label %2, label %.critedge, !llvm.loop !10

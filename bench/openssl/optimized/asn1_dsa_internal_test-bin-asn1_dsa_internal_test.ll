@@ -59,7 +59,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %pder, align 8
-  %call3 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 97, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @t_dsa_sig, i64 1, i64 0)) #2
+  %call3 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 97, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @t_dsa_sig, i64 8)) #2
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false4
 
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %lor.lhs.false7
 
 lor.lhs.false12:                                  ; preds = %if.end
   %1 = load ptr, ptr %pder, align 8
-  %call13 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @t_dsa_sig_extra, i64 0, i64 8)) #2
+  %call13 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @t_dsa_sig_extra, i64 8)) #2
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then21, label %lor.lhs.false15
 
@@ -115,7 +115,7 @@ if.end22:                                         ; preds = %lor.lhs.false18
 
 lor.lhs.false25:                                  ; preds = %if.end22
   %2 = load ptr, ptr %pder, align 8
-  %call26 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef %2, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @t_dsa_sig_msb, i64 1, i64 0)) #2
+  %call26 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @t_dsa_sig_msb, i64 10)) #2
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.then34, label %lor.lhs.false28
 
@@ -143,7 +143,7 @@ if.end35:                                         ; preds = %lor.lhs.false31
 
 lor.lhs.false38:                                  ; preds = %if.end35
   %3 = load ptr, ptr %pder, align 8
-  %call39 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @t_dsa_sig_two, i64 1, i64 0)) #2
+  %call39 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @t_dsa_sig_two, i64 10)) #2
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then47, label %lor.lhs.false41
 

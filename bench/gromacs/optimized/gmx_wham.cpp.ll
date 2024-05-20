@@ -818,7 +818,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %121 = getelementptr inbounds i8, ptr %83, i64 12
   store i32 2, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %83, i64 16
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), ptr %122, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), ptr %122, align 16
   %123 = getelementptr inbounds i8, ptr %83, i64 24
   store ptr @.str.138, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %83, i64 32
@@ -828,7 +828,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %126 = getelementptr inbounds i8, ptr %83, i64 44
   store i32 2, ptr %126, align 4
   %127 = getelementptr inbounds i8, ptr %83, i64 48
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), ptr %127, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), ptr %127, align 16
   %128 = getelementptr inbounds i8, ptr %83, i64 56
   store ptr @.str.140, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %83, i64 64
@@ -838,7 +838,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %131 = getelementptr inbounds i8, ptr %83, i64 76
   store i32 5, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %83, i64 80
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 27), ptr %132, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 115), ptr %132, align 16
   %133 = getelementptr inbounds i8, ptr %83, i64 88
   store ptr @.str.142, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %83, i64 96
@@ -848,7 +848,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %136 = getelementptr inbounds i8, ptr %83, i64 108
   store i32 0, ptr %136, align 4
   %137 = getelementptr inbounds i8, ptr %83, i64 112
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), ptr %137, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), ptr %137, align 16
   %138 = getelementptr inbounds i8, ptr %83, i64 120
   store ptr @.str.144, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %83, i64 128
@@ -858,7 +858,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %141 = getelementptr inbounds i8, ptr %83, i64 140
   store i32 2, ptr %141, align 4
   %142 = getelementptr inbounds i8, ptr %83, i64 144
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), ptr %142, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), ptr %142, align 16
   %143 = getelementptr inbounds i8, ptr %83, i64 152
   store ptr @.str.146, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %83, i64 160
@@ -868,7 +868,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %146 = getelementptr inbounds i8, ptr %83, i64 172
   store i32 2, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %83, i64 176
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), ptr %147, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), ptr %147, align 16
   %148 = getelementptr inbounds i8, ptr %83, i64 184
   store ptr @.str.148, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %83, i64 192
@@ -878,7 +878,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %151 = getelementptr inbounds i8, ptr %83, i64 204
   store i32 5, ptr %151, align 4
   %152 = getelementptr inbounds i8, ptr %83, i64 208
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), ptr %152, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), ptr %152, align 16
   %153 = getelementptr inbounds i8, ptr %83, i64 216
   store ptr @.str.150, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %83, i64 224
@@ -888,7 +888,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %156 = getelementptr inbounds i8, ptr %83, i64 236
   store i32 2, ptr %156, align 4
   %157 = getelementptr inbounds i8, ptr %83, i64 240
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 6), ptr %157, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 36), ptr %157, align 16
   %158 = getelementptr inbounds i8, ptr %83, i64 248
   store ptr @.str.152, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %83, i64 256
@@ -898,7 +898,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %161 = getelementptr inbounds i8, ptr %83, i64 268
   store i32 2, ptr %161, align 4
   %162 = getelementptr inbounds i8, ptr %83, i64 272
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 7), ptr %162, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 40), ptr %162, align 16
   %163 = getelementptr inbounds i8, ptr %83, i64 280
   store ptr @.str.154, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %83, i64 288
@@ -908,7 +908,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %166 = getelementptr inbounds i8, ptr %83, i64 300
   store i32 2, ptr %166, align 4
   %167 = getelementptr inbounds i8, ptr %83, i64 304
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 8), ptr %167, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 44), ptr %167, align 16
   %168 = getelementptr inbounds i8, ptr %83, i64 312
   store ptr @.str.156, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %83, i64 320
@@ -918,7 +918,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %171 = getelementptr inbounds i8, ptr %83, i64 332
   store i32 5, ptr %171, align 4
   %172 = getelementptr inbounds i8, ptr %83, i64 336
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 26), ptr %172, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 114), ptr %172, align 16
   %173 = getelementptr inbounds i8, ptr %83, i64 344
   store ptr @.str.158, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %83, i64 352
@@ -928,7 +928,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %176 = getelementptr inbounds i8, ptr %83, i64 364
   store i32 5, ptr %176, align 4
   %177 = getelementptr inbounds i8, ptr %83, i64 368
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 25), ptr %177, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 113), ptr %177, align 16
   %178 = getelementptr inbounds i8, ptr %83, i64 376
   store ptr @.str.160, ptr %178, align 8
   %179 = getelementptr inbounds i8, ptr %83, i64 384
@@ -938,7 +938,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %181 = getelementptr inbounds i8, ptr %83, i64 396
   store i32 5, ptr %181, align 4
   %182 = getelementptr inbounds i8, ptr %83, i64 400
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 20), ptr %182, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), ptr %182, align 16
   %183 = getelementptr inbounds i8, ptr %83, i64 408
   store ptr @.str.162, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %83, i64 416
@@ -958,7 +958,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %191 = getelementptr inbounds i8, ptr %83, i64 460
   store i32 2, ptr %191, align 4
   %192 = getelementptr inbounds i8, ptr %83, i64 464
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 23), ptr %192, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 108), ptr %192, align 16
   %193 = getelementptr inbounds i8, ptr %83, i64 472
   store ptr @.str.166, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %83, i64 480
@@ -968,7 +968,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %196 = getelementptr inbounds i8, ptr %83, i64 492
   store i32 5, ptr %196, align 4
   %197 = getelementptr inbounds i8, ptr %83, i64 496
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), ptr %197, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), ptr %197, align 16
   %198 = getelementptr inbounds i8, ptr %83, i64 504
   store ptr @.str.168, ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %83, i64 512
@@ -978,7 +978,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %201 = getelementptr inbounds i8, ptr %83, i64 524
   store i32 5, ptr %201, align 4
   %202 = getelementptr inbounds i8, ptr %83, i64 528
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 22), ptr %202, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 104), ptr %202, align 16
   %203 = getelementptr inbounds i8, ptr %83, i64 536
   store ptr @.str.170, ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %83, i64 544
@@ -988,7 +988,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %206 = getelementptr inbounds i8, ptr %83, i64 556
   store i32 5, ptr %206, align 4
   %207 = getelementptr inbounds i8, ptr %83, i64 560
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 36), ptr %207, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 152), ptr %207, align 16
   %208 = getelementptr inbounds i8, ptr %83, i64 568
   store ptr @.str.172, ptr %208, align 8
   %209 = getelementptr inbounds i8, ptr %83, i64 576
@@ -998,7 +998,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %211 = getelementptr inbounds i8, ptr %83, i64 588
   store i32 5, ptr %211, align 4
   %212 = getelementptr inbounds i8, ptr %83, i64 592
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), ptr %212, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), ptr %212, align 16
   %213 = getelementptr inbounds i8, ptr %83, i64 600
   store ptr @.str.174, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %83, i64 608
@@ -1008,7 +1008,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %216 = getelementptr inbounds i8, ptr %83, i64 620
   store i32 2, ptr %216, align 4
   %217 = getelementptr inbounds i8, ptr %83, i64 624
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 33), ptr %217, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 140), ptr %217, align 16
   %218 = getelementptr inbounds i8, ptr %83, i64 632
   store ptr @.str.176, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %83, i64 640
@@ -1018,7 +1018,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %221 = getelementptr inbounds i8, ptr %83, i64 652
   store i32 2, ptr %221, align 4
   %222 = getelementptr inbounds i8, ptr %83, i64 656
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 35), ptr %222, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 148), ptr %222, align 16
   %223 = getelementptr inbounds i8, ptr %83, i64 664
   store ptr @.str.178, ptr %223, align 8
   %224 = getelementptr inbounds i8, ptr %83, i64 672
@@ -1028,7 +1028,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %226 = getelementptr inbounds i8, ptr %83, i64 684
   store i32 5, ptr %226, align 4
   %227 = getelementptr inbounds i8, ptr %83, i64 688
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 34), ptr %227, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 144), ptr %227, align 16
   %228 = getelementptr inbounds i8, ptr %83, i64 696
   store ptr @.str.180, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %83, i64 704
@@ -1038,7 +1038,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %231 = getelementptr inbounds i8, ptr %83, i64 716
   store i32 0, ptr %231, align 4
   %232 = getelementptr inbounds i8, ptr %83, i64 720
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), ptr %232, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), ptr %232, align 16
   %233 = getelementptr inbounds i8, ptr %83, i64 728
   store ptr @.str.182, ptr %233, align 8
   %234 = getelementptr inbounds i8, ptr %83, i64 736
@@ -1058,7 +1058,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %241 = getelementptr inbounds i8, ptr %83, i64 780
   store i32 2, ptr %241, align 4
   %242 = getelementptr inbounds i8, ptr %83, i64 784
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), ptr %242, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), ptr %242, align 16
   %243 = getelementptr inbounds i8, ptr %83, i64 792
   store ptr @.str.186, ptr %243, align 8
   %244 = getelementptr inbounds i8, ptr %83, i64 800
@@ -1068,7 +1068,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %246 = getelementptr inbounds i8, ptr %83, i64 812
   store i32 0, ptr %246, align 4
   %247 = getelementptr inbounds i8, ptr %83, i64 816
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 41), ptr %247, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 172), ptr %247, align 16
   %248 = getelementptr inbounds i8, ptr %83, i64 824
   store ptr @.str.188, ptr %248, align 8
   %249 = getelementptr inbounds i8, ptr %83, i64 832
@@ -1078,7 +1078,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %251 = getelementptr inbounds i8, ptr %83, i64 844
   store i32 0, ptr %251, align 4
   %252 = getelementptr inbounds i8, ptr %83, i64 848
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 40), ptr %252, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 168), ptr %252, align 16
   %253 = getelementptr inbounds i8, ptr %83, i64 856
   store ptr @.str.190, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %83, i64 864
@@ -1088,7 +1088,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %256 = getelementptr inbounds i8, ptr %83, i64 876
   store i32 5, ptr %256, align 4
   %257 = getelementptr inbounds i8, ptr %83, i64 880
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 42), ptr %257, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), ptr %257, align 16
   %258 = getelementptr inbounds i8, ptr %83, i64 888
   store ptr @.str.192, ptr %258, align 8
   %259 = getelementptr inbounds i8, ptr %83, i64 896
@@ -1098,7 +1098,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %261 = getelementptr inbounds i8, ptr %83, i64 908
   store i32 0, ptr %261, align 4
   %262 = getelementptr inbounds i8, ptr %83, i64 912
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 29), ptr %262, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), ptr %262, align 16
   %263 = getelementptr inbounds i8, ptr %83, i64 920
   store ptr @.str.194, ptr %263, align 8
   %264 = getelementptr inbounds i8, ptr %83, i64 928
@@ -1108,7 +1108,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   %266 = getelementptr inbounds i8, ptr %83, i64 940
   store i32 0, ptr %266, align 4
   %267 = getelementptr inbounds i8, ptr %83, i64 944
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 10), ptr %267, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 52), ptr %267, align 16
   %268 = getelementptr inbounds i8, ptr %83, i64 952
   store ptr @.str.196, ptr %268, align 8
   store i32 31, ptr %84, align 16
@@ -1220,36 +1220,36 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   store i64 10, ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %84, i64 592
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %322, i8 0, i64 24, i1 false)
-  store i32 200, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 26), align 2
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
-  store <2 x float> <float 5.000000e+01, float 0x4415AF1D80000000>, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 6), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 8), align 4
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 27), align 1
-  store i32 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
-  store i32 2, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 41), align 4
-  store i32 8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 40), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 42), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 20), align 1
-  store i32 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 21), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 23), align 4
-  store <2 x float> <float 2.980000e+02, float 0x3EB0C6F7A0000000>, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 25), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 22), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 33), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 34), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 9), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 35), align 4
-  store i32 100, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 29), align 8
-  store i32 100, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 10), align 4
-  %323 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef nonnull %79, ptr noundef %1, i64 noundef 0, i32 noundef 11, ptr noundef nonnull %84, i32 noundef 30, ptr noundef nonnull %83, i32 noundef 148, ptr noundef nonnull %80, i32 noundef 0, ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30))
+  store i32 200, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 114), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
+  store <2 x float> <float 5.000000e+01, float 0x4415AF1D80000000>, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 36), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 44), align 4
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 115), align 1
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 172), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 168), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), align 1
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 100), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 108), align 4
+  store <2 x float> <float 2.980000e+02, float 0x3EB0C6F7A0000000>, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 113), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 140), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 144), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 48), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 148), align 4
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), align 8
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 52), align 4
+  %323 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef nonnull %79, ptr noundef %1, i64 noundef 0, i32 noundef 11, ptr noundef nonnull %84, i32 noundef 30, ptr noundef nonnull %83, i32 noundef 148, ptr noundef nonnull %80, i32 noundef 0, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128))
           to label %324 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 324:                                              ; preds = %119
@@ -1346,48 +1346,48 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
           to label %329 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 329:                                              ; preds = %327
-  store i32 %328, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 21), align 4
+  store i32 %328, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 100), align 4
   %330 = invoke noundef i32 @_Z5nenumPKPKc(ptr noundef nonnull %82)
           to label %331 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 331:                                              ; preds = %329
-  store i32 %330, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  store i32 %330, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   %332 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef nonnull @.str.165, i32 noundef 30, ptr noundef nonnull %83)
           to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 333:                                              ; preds = %331
   %334 = zext i1 %332 to i8
-  store i8 %334, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 24), align 8
+  store i8 %334, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 112), align 8
   %335 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.217, i32 noundef 11, ptr noundef nonnull %84)
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %333
   %337 = zext i1 %335 to i8
-  store i8 %337, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 43), align 1
+  store i8 %337, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 177), align 1
   %338 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.197, i32 noundef 11, ptr noundef nonnull %84)
           to label %339 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 339:                                              ; preds = %336
   %340 = zext i1 %338 to i8
-  store i8 %340, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 5), align 1
+  store i8 %340, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 33), align 1
   %341 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.199, i32 noundef 11, ptr noundef nonnull %84)
           to label %342 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 342:                                              ; preds = %339
   %343 = zext i1 %341 to i8
-  store i8 %343, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  store i8 %343, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %344 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.211, i32 noundef 11, ptr noundef nonnull %84)
           to label %345 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 345:                                              ; preds = %342
   %346 = zext i1 %344 to i8
-  store i8 %346, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 31), align 8
-  %347 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 43), align 1
+  store i8 %346, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 136), align 8
+  %347 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 177), align 1
   %348 = trunc i8 %347 to i1
   br i1 %348, label %349, label %357
 
 349:                                              ; preds = %345
-  %350 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %350 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %351 = trunc i8 %350 to i1
   br i1 %351, label %352, label %357
 
@@ -1409,9 +1409,9 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   br label %.body
 
 357:                                              ; preds = %349, %345
-  %358 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 5), align 1
+  %358 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 33), align 1
   %359 = trunc i8 %358 to i1
-  %360 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %360 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %361 = trunc i8 %360 to i1
   br i1 %359, label %363, label %362
 
@@ -1448,17 +1448,17 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
           to label %373 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 373:                                              ; preds = %371
-  store ptr %372, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 1), align 8
+  store ptr %372, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 8), align 8
   %374 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.197, i32 noundef 11, ptr noundef nonnull %84)
           to label %375 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 375:                                              ; preds = %373
-  store ptr %374, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 3), align 8
+  store ptr %374, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 24), align 8
   %376 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef nonnull @.str.203, i32 noundef 11, ptr noundef nonnull %84)
           to label %377 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 377:                                              ; preds = %375
-  store ptr %376, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 2), align 8
+  store ptr %376, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 16), align 8
   %378 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef nonnull @.str.137, i32 noundef 30, ptr noundef nonnull %83)
           to label %379 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1517,22 +1517,22 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %378, label %397, label %401
 
 397:                                              ; preds = %396
-  %398 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 27), align 1
+  %398 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 115), align 1
   %399 = trunc i8 %398 to i1
   br i1 %399, label %400, label %401
 
 400:                                              ; preds = %397
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 27), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 115), align 1
   br label %401
 
 401:                                              ; preds = %400, %397, %396
-  %402 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 31), align 8
+  %402 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 136), align 8
   %403 = trunc i8 %402 to i1
   br i1 %403, label %404, label %412
 
 404:                                              ; preds = %401
-  %405 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %405 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %406 = trunc i8 %405 to i1
   br i1 %406, label %407, label %412
 
@@ -1554,7 +1554,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   br label %.body
 
 412:                                              ; preds = %404, %401
-  %413 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), align 4
+  %413 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), align 4
   %414 = fcmp ogt float %413, 0.000000e+00
   br i1 %414, label %415, label %423
 
@@ -1583,7 +1583,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) local_unname
   br label %.body
 
 thread-pre-split:                                 ; preds = %417
-  %.pr = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), align 4
+  %.pr = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), align 4
   br label %423
 
 423:                                              ; preds = %thread-pre-split, %412
@@ -1621,10 +1621,10 @@ thread-pre-split:                                 ; preds = %417
           to label %436 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 436:                                              ; preds = %434
-  %437 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %437 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %438 = trunc i8 %437 to i1
-  %439 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 1), align 8
-  %440 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 3), align 8
+  %439 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 8), align 8
+  %440 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 24), align 8
   %441 = select i1 %438, ptr %439, ptr %440
   invoke fastcc void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %441, ptr noundef nonnull %89, ptr noundef nonnull %86)
           to label %442 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1632,7 +1632,7 @@ thread-pre-split:                                 ; preds = %417
 442:                                              ; preds = %436
   %443 = load i32, ptr %85, align 4
   %444 = load i32, ptr %86, align 4
-  %445 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %445 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %446 = trunc i8 %445 to i1
   %447 = select i1 %446, ptr @.str.229, ptr @.str.230
   %448 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
@@ -1659,7 +1659,7 @@ thread-pre-split:                                 ; preds = %417
   br label %.body
 
 456:                                              ; preds = %442
-  %457 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 2), align 8
+  %457 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 16), align 8
   %.not98 = icmp eq ptr %457, null
   br i1 %.not98, label %579, label %458
 
@@ -1670,7 +1670,7 @@ thread-pre-split:                                 ; preds = %417
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %78)
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 2), i8 noundef zeroext 2)
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 16), i8 noundef zeroext 2)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %458
@@ -1690,7 +1690,7 @@ thread-pre-split:                                 ; preds = %417
 _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %464, %461
   store ptr null, ptr %462, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #19
-  store ptr null, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %465 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.219, i32 noundef 2784, i64 noundef 4096, i64 noundef 1)
           to label %.noexc118 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1797,7 +1797,7 @@ _ZL9wordcountPc.exit.i:                           ; preds = %.lr.ph._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
   %500 = sext i32 %.05813.i to i64
   %.not69.i = icmp slt i64 %indvars.iv27.i, %500
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   br i1 %.not69.i, label %507, label %501
 
 501:                                              ; preds = %_ZL9wordcountPc.exit.i
@@ -1807,7 +1807,7 @@ _ZL9wordcountPc.exit.i:                           ; preds = %.lr.ph._crit_edge.i
           to label %.noexc121 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc121:                                        ; preds = %501
-  store ptr %504, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  store ptr %504, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   br label %507
 
 505:                                              ; preds = %.noexc
@@ -1820,10 +1820,10 @@ _ZL9wordcountPc.exit.i:                           ; preds = %.lr.ph._crit_edge.i
   %.1.i = phi i32 [ %502, %.noexc121 ], [ %.05813.i, %_ZL9wordcountPc.exit.i ]
   %509 = getelementptr inbounds %struct.t_coordselection, ptr %508, i64 %indvars.iv27.i
   store i32 %.015.i75.i, ptr %509, align 8
-  %510 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %510 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %511 = getelementptr inbounds %struct.t_coordselection, ptr %510, i64 %indvars.iv27.i, i32 1
   store i32 0, ptr %511, align 4
-  %512 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %512 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %513 = sext i32 %.015.i75.i to i64
   %514 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.219, i32 noundef 2799, i64 noundef %513, i64 noundef 1)
           to label %.noexc122 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1852,13 +1852,13 @@ _ZL9wordcountPc.exit.i:                           ; preds = %.lr.ph._crit_edge.i
 519:                                              ; preds = %.lr.ph.i
   %520 = load i32, ptr %74, align 4
   %521 = icmp sgt i32 %520, 0
-  %522 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %522 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %523 = getelementptr inbounds %struct.t_coordselection, ptr %522, i64 %indvars.iv27.i, i32 2
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds i8, ptr %524, i64 %indvars.iv23.i
   %526 = zext i1 %521 to i8
   store i8 %526, ptr %525, align 1
-  %527 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %527 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %528 = getelementptr inbounds %struct.t_coordselection, ptr %527, i64 %indvars.iv27.i
   %529 = getelementptr inbounds i8, ptr %528, i64 8
   %530 = load ptr, ptr %529, align 8
@@ -1895,7 +1895,7 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i:         ; preds = %._crit_edge.i
 
 _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i, %.noexc118
   %.061.lcssa.i = phi i32 [ 0, %.noexc118 ], [ %542, %_ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i ]
-  store i32 %.061.lcssa.i, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
+  store i32 %.061.lcssa.i, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
   %.not66.i = icmp eq i32 %.061.lcssa.i, %443
   br i1 %.not66.i, label %549, label %543
 
@@ -1904,8 +1904,8 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FIL
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc123:                                        ; preds = %543
-  %544 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
-  %545 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 2), align 8
+  %544 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
+  %545 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 16), align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %78, i32 noundef 2821, ptr noundef nonnull @.str.260, i32 noundef %443, i32 noundef %544, ptr noundef %545) #25
           to label %546 unwind label %547
 
@@ -1930,13 +1930,13 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FIL
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph20.preheader.i ], [ %indvars.iv.next36.i, %._crit_edge17.i ]
   %551 = getelementptr inbounds ptr, ptr %459, i64 %indvars.iv35.i
   %552 = load ptr, ptr %551, align 8
-  %553 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %553 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %554 = getelementptr inbounds %struct.t_coordselection, ptr %553, i64 %indvars.iv35.i
   %555 = getelementptr inbounds i8, ptr %554, i64 4
   %556 = load i32, ptr %555, align 4
   %557 = load i32, ptr %554, align 8
   %558 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.262, ptr noundef %552, i32 noundef %556, i32 noundef %557)
-  %559 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %559 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %560 = getelementptr inbounds %struct.t_coordselection, ptr %559, i64 %indvars.iv35.i
   %561 = load i32, ptr %560, align 8
   %562 = icmp sgt i32 %561, 0
@@ -1956,7 +1956,7 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FIL
 570:                                              ; preds = %.lr.ph16.i
   %571 = trunc nuw nsw i64 %569 to i32
   %572 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.263, i32 noundef %571)
-  %.pre41.i = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %.pre41.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   br label %.lr.ph16._crit_edge.i
 
 .lr.ph16._crit_edge.i:                            ; preds = %570, %.lr.ph16.i
@@ -2030,13 +2030,13 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72)
   %589 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.266, i32 noundef %580)
-  %590 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 27), align 1
+  %590 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 115), align 1
   %591 = trunc i8 %590 to i1
   br i1 %591, label %592, label %643
 
 592:                                              ; preds = %_ZL19initUmbrellaWindowsi.exit
   %puts.i135 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  store <2 x float> <float 0x4415AF1D80000000, float 0xC415AF1D80000000>, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  store <2 x float> <float 0x4415AF1D80000000, float 0xC415AF1D80000000>, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   br i1 %583, label %.lr.ph.preheader.i137, label %._crit_edge.i136
 
 .lr.ph.preheader.i137:                            ; preds = %592
@@ -2073,9 +2073,9 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
 
 601:                                              ; preds = %.noexc143
   %602 = load ptr, ptr %593, align 8
-  %603 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
+  %603 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
   %604 = icmp sgt i32 %603, 0
-  %605 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %605 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %606 = getelementptr inbounds %struct.t_coordselection, ptr %605, i64 %indvars.iv.i140
   %607 = select i1 %604, ptr %606, ptr null
   invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection(ptr noundef %602, ptr noundef nonnull %87, ptr noundef %607)
@@ -2110,9 +2110,9 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
 
 616:                                              ; preds = %.noexc146
   %617 = load ptr, ptr %608, align 8
-  %618 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
+  %618 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
   %619 = icmp sgt i32 %618, 0
-  %620 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %620 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %621 = getelementptr inbounds %struct.t_coordselection, ptr %620, i64 %indvars.iv.i140
   %622 = select i1 %619, ptr %621, ptr null
   invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection(ptr noundef %617, ptr noundef nonnull %87, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %622)
@@ -2120,23 +2120,23 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
 
 .noexc148:                                        ; preds = %616
   %623 = load float, ptr %67, align 4
-  %624 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %624 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %625 = fcmp ogt float %623, %624
   br i1 %625, label %626, label %627
 
 626:                                              ; preds = %.noexc148
-  store float %623, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  store float %623, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   br label %627
 
 627:                                              ; preds = %626, %.noexc148
   %628 = phi float [ %623, %626 ], [ %624, %.noexc148 ]
   %629 = load float, ptr %66, align 4
-  %630 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %630 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %631 = fcmp olt float %629, %630
   br i1 %631, label %632, label %633
 
 632:                                              ; preds = %627
-  store float %629, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  store float %629, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   br label %633
 
 633:                                              ; preds = %632, %627
@@ -2154,7 +2154,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
   %637 = phi double [ %636, %._crit_edge.loopexit.i ], [ 0xC415AF1D80000000, %592 ]
   %638 = phi double [ %635, %._crit_edge.loopexit.i ], [ 0x4415AF1D80000000, %592 ]
   %639 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.270, double noundef %638, double noundef %637)
-  %640 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 25), align 1
+  %640 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 113), align 1
   %641 = trunc i8 %640 to i1
   br i1 %641, label %642, label %643
 
@@ -2164,13 +2164,13 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
   unreachable
 
 643:                                              ; preds = %._crit_edge.i136, %_ZL19initUmbrellaWindowsi.exit
-  %644 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
-  %645 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %644 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
+  %645 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %646 = fsub float %644, %645
-  %647 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %647 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %648 = sitofp i32 %647 to float
   %649 = fdiv float %646, %648
-  store float %649, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  store float %649, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   br i1 %583, label %.lr.ph11.preheader.i, label %.critedge.i
 
 .lr.ph11.preheader.i:                             ; preds = %643
@@ -2212,9 +2212,9 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
 
 658:                                              ; preds = %.noexc149
   %659 = load ptr, ptr %650, align 8
-  %660 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
+  %660 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
   %661 = icmp sgt i32 %660, 0
-  %662 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %662 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %663 = getelementptr inbounds %struct.t_coordselection, ptr %662, i64 %indvars.iv21.i
   %664 = select i1 %661, ptr %663, ptr null
   invoke fastcc void @_ZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselection(ptr noundef %659, ptr noundef nonnull %87, ptr noundef %664)
@@ -2250,9 +2250,9 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
 673:                                              ; preds = %.noexc152
   %674 = load ptr, ptr %665, align 8
   %675 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %582, i64 %indvars.iv21.i
-  %676 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 11), align 8
+  %676 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
   %677 = icmp sgt i32 %676, 0
-  %678 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 12), align 8
+  %678 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 64), align 8
   %679 = getelementptr inbounds %struct.t_coordselection, ptr %678, i64 %indvars.iv21.i
   %680 = select i1 %677, ptr %679, ptr null
   invoke fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptionsbPfS7_P16t_coordselection(ptr noundef %674, ptr noundef nonnull %87, ptr noundef %675, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %680)
@@ -2344,7 +2344,7 @@ _ZL19initUmbrellaWindowsi.exit:                   ; preds = %.lr.ph.i128, %.noex
   %699 = load ptr, ptr %698, align 8
   %700 = getelementptr inbounds i8, ptr %699, i64 36
   %701 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) @.str.232, ptr noundef nonnull %700) #19
-  %702 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 36), align 8
+  %702 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 152), align 8
   %703 = trunc i8 %702 to i1
   br i1 %703, label %.preheader.lr.ph.i, label %_ZL19enforceEqualWeightsP16t_UmbrellaWindowi.exit
 
@@ -2456,7 +2456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc173 unwind label %791
 
 .noexc173:                                        ; preds = %.noexc172
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.234, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.234, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176 unwind label %752
 
 752:                                              ; preds = %.noexc173
@@ -2466,7 +2466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body174
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ; preds = %.noexc173
-  %754 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %754 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %755 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull @.str.233, ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef %754)
           to label %756 unwind label %793
 
@@ -2487,7 +2487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
   store ptr null, ptr %757, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #19
-  %760 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %760 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %761 = icmp sgt i32 %760, 0
   br i1 %761, label %.lr.ph450, label %._crit_edge451
 
@@ -2504,8 +2504,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
   %765 = fadd double %764, 5.000000e-01
   %766 = sitofp i32 %762 to double
   %767 = fdiv double %765, %766
-  %768 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
-  %769 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %768 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
+  %769 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %770 = fsub float %768, %769
   %771 = fpext float %770 to double
   %772 = fpext float %769 to double
@@ -2574,7 +2574,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
 ._crit_edge448:                                   ; preds = %._crit_edge
   %fputc = call i32 @fputc(i32 10, ptr %755)
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
-  %795 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %795 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %796 = sext i32 %795 to i64
   %797 = icmp slt i64 %indvars.iv.next497, %796
   br i1 %797, label %.preheader.lr.ph, label %._crit_edge451, !llvm.loop !22
@@ -2589,7 +2589,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
 
 800:                                              ; preds = %798
   %801 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.237, ptr noundef %799)
-  %802 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 26), align 2
+  %802 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 114), align 2
   %803 = trunc i8 %802 to i1
   br i1 %803, label %804, label %808
 
@@ -2602,7 +2602,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
   br label %1852
 
 808:                                              ; preds = %800
-  %809 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 43), align 1
+  %809 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 177), align 1
   %810 = trunc i8 %809 to i1
   br i1 %810, label %811, label %887
 
@@ -2640,7 +2640,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %756, %759
 _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
   store ptr null, ptr %817, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #19
-  store i32 %815, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 49), align 8
+  store i32 %815, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 224), align 8
   %820 = load i32, ptr %60, align 4
   %.not.i181 = icmp eq i32 %820, 2
   br i1 %.not.i181, label %829, label %821
@@ -2672,17 +2672,17 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
   %830 = load ptr, ptr %61, align 8
   %831 = load ptr, ptr %830, align 8
   %832 = load double, ptr %831, align 8
-  store double %832, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 46), align 8
+  store double %832, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 200), align 8
   %833 = load ptr, ptr %830, align 8
   %834 = add nsw i32 %815, -1
   %835 = sext i32 %834 to i64
   %836 = getelementptr inbounds double, ptr %833, i64 %835
   %837 = load double, ptr %836, align 8
-  store double %837, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 47), align 8
+  store double %837, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 208), align 8
   %838 = fsub double %837, %832
   %839 = sitofp i32 %834 to double
   %840 = fdiv double %838, %839
-  store double %840, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 48), align 8
+  store double %840, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 216), align 8
   %841 = fcmp ugt double %840, 0.000000e+00
   br i1 %841, label %.preheader.i182, label %843
 
@@ -2750,12 +2750,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
           to label %.noexc194 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc194:                                        ; preds = %864
-  store ptr %866, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 45), align 8
+  store ptr %866, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 192), align 8
   %867 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.219, i32 noundef 421, i64 noundef %865, i64 noundef 8)
           to label %.noexc195 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc195:                                        ; preds = %.noexc194
-  store ptr %867, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 44), align 8
+  store ptr %867, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 184), align 8
   %868 = icmp sgt i32 %815, 0
   br i1 %868, label %.lr.ph.preheader.i188, label %_ZL9setup_tabPKcP15UmbrellaOptions.exit
 
@@ -2769,7 +2769,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
   %870 = load ptr, ptr %869, align 8
   %871 = getelementptr inbounds double, ptr %870, i64 %indvars.iv3.i
   %872 = load double, ptr %871, align 8
-  %873 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 44), align 8
+  %873 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 184), align 8
   %874 = getelementptr inbounds double, ptr %873, i64 %indvars.iv3.i
   store double %872, ptr %874, align 8
   %875 = load ptr, ptr %61, align 8
@@ -2777,7 +2777,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
   %877 = load ptr, ptr %876, align 8
   %878 = getelementptr inbounds double, ptr %877, i64 %indvars.iv3.i
   %879 = load double, ptr %878, align 8
-  %880 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 45), align 8
+  %880 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 192), align 8
   %881 = getelementptr inbounds double, ptr %880, i64 %indvars.iv3.i
   store double %879, ptr %881, align 8
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 1
@@ -2791,9 +2791,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i180:     ; preds = %819, %816
   br label %.body
 
 _ZL9setup_tabPKcP15UmbrellaOptions.exit:          ; preds = %.lr.ph.i189, %.noexc195
-  %883 = load double, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 46), align 8
-  %884 = load double, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 47), align 8
-  %885 = load double, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 48), align 8
+  %883 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 200), align 8
+  %884 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 208), align 8
+  %885 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 216), align 8
   %886 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.341, double noundef %883, double noundef %884, double noundef %885)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60)
@@ -2805,7 +2805,7 @@ _ZL9setup_tabPKcP15UmbrellaOptions.exit:          ; preds = %.lr.ph.i189, %.noex
   br label %887
 
 887:                                              ; preds = %_ZL9setup_tabPKcP15UmbrellaOptions.exit, %808
-  %888 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 31), align 8
+  %888 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 136), align 8
   %889 = trunc i8 %888 to i1
   br i1 %889, label %890, label %944
 
@@ -2957,7 +2957,7 @@ _ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc.exit: ; preds = %
   br label %944
 
 944:                                              ; preds = %_ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc.exit, %887
-  %945 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %945 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %946 = trunc i8 %945 to i1
   br i1 %946, label %947, label %1262
 
@@ -2980,7 +2980,7 @@ _ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc.exit: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %52)
   store ptr %948, ptr %40, align 8
-  %950 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %950 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %951 = trunc i8 %950 to i1
   br i1 %951, label %952, label %.lr.ph55.i
 
@@ -3015,7 +3015,7 @@ _ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc.exit: ; preds = %
           to label %960 unwind label %.body358
 
 960:                                              ; preds = %958
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %959, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.348, i64 0, i64 9)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %959, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.348, i64 9)) #19
   store ptr null, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %42, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body358
@@ -3038,7 +3038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %.noexc212.i unwind label %973
 
 .noexc212.i:                                      ; preds = %.noexc211.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.349, ptr noundef nonnull getelementptr inbounds ([25 x i8], ptr @.str.349, i64 0, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.349, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.349, i64 24))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit215.i unwind label %963
 
 963:                                              ; preds = %.noexc212.i
@@ -3048,7 +3048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %.body213.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit215.i: ; preds = %.noexc212.i
-  %965 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %965 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %966 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull @.str.347, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef %965)
           to label %967 unwind label %975
 
@@ -3166,7 +3166,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i232:     ; preds = %970, %967
   br i1 %1009, label %.lr.ph51.i, label %._crit_edge52.i
 
 .lr.ph51.i:                                       ; preds = %.noexc237
-  %1010 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 35), align 4
+  %1010 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 148), align 4
   %1011 = fdiv float %1010, %1003
   %1012 = call float @llvm.rint.f32(float %1011)
   %1013 = fptosi float %1012 to i32
@@ -3318,7 +3318,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i232:     ; preds = %970, %967
   br i1 %exitcond110.not.i, label %._crit_edge41.i, label %.lr.ph40.i, !llvm.loop !33
 
 ._crit_edge41.i:                                  ; preds = %.lr.ph40.i
-  %1076 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1076 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1077 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1076)
           to label %.noexc239 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3437,7 +3437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit220.i:
           to label %1112 unwind label %.body356
 
 1112:                                             ; preds = %1110
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1111, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.360, i64 0, i64 9)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1111, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.360, i64 9)) #19
   store ptr null, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit225.i unwind label %.body356
@@ -3451,7 +3451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit220.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit225.i: ; preds = %1112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %1114 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1114 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1115 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull @.str.359, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef %1114)
           to label %1116 unwind label %1142
 
@@ -3472,7 +3472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit225.i:
 _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1119, %1116
   store ptr null, ptr %1117, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #19
-  %1120 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1121 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1120)
           to label %.noexc244 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3578,14 +3578,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1119, %1116
   br i1 %exitcond139.not.i, label %._crit_edge68.i, label %.preheader13.i, !llvm.loop !40
 
 ._crit_edge68.i:                                  ; preds = %._crit_edge66.i
-  %1160 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 33), align 4
+  %1160 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 140), align 4
   %1161 = fcmp ogt float %1160, 0.000000e+00
   br i1 %1161, label %.lr.ph.split.us.preheader.i.i, label %.loopexit.i
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %._crit_edge68.i
   %1162 = fpext float %1160 to double
   %1163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.366, double noundef %1162)
-  %1164 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 33), align 4
+  %1164 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 140), align 4
   %1165 = fpext float %1164 to double
   %1166 = fmul double %1165, 3.000000e+00
   %1167 = fmul double %1166, %1166
@@ -3717,7 +3717,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1119, %1116
 
 ._crit_edge8.us.us.i.i:                           ; preds = %._crit_edge.us.us.i.i
   %1231 = fdiv double %.1.lcssa.us.us.i.i, %.164.lcssa.us.us.i.i
-  %1232 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 34), align 8
+  %1232 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 144), align 8
   %1233 = trunc i8 %1232 to i1
   br i1 %1233, label %._crit_edge8.us.us._crit_edge.i.i, label %1187
 
@@ -3726,14 +3726,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit227.i:     ; preds = %1119, %1116
   br label %1193
 
 _ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds = %._crit_edge14.split.us.us.i.i
-  %1234 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1235 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1234)
           to label %.noexc246 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc246:                                        ; preds = %_ZL10smoothIactP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i
   %1236 = select i1 %1235, ptr @.str.357, ptr @.str.4
   %1237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1115, ptr noundef nonnull @.str.356, ptr noundef nonnull %1236) #19
-  %1238 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1239 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1238)
           to label %.noexc247 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3809,9 +3809,9 @@ _ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKc
   br label %1262
 
 1262:                                             ; preds = %_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_.exit, %944
-  %1263 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %1263 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %1264 = icmp ne i32 %1263, 0
-  %1265 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %1265 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   %1266 = icmp eq i32 %1265, 4
   %or.cond = select i1 %1264, i1 %1266, i1 false
   br i1 %or.cond, label %.lr.ph88.i, label %_ZL12averageSigmaP16t_UmbrellaWindowi.exit
@@ -3985,7 +3985,7 @@ _ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKc
   br i1 %exitcond114.not.i, label %_ZL12averageSigmaP16t_UmbrellaWindowi.exit, label %.lr.ph88.i, !llvm.loop !50
 
 _ZL12averageSigmaP16t_UmbrellaWindowi.exit:       ; preds = %._crit_edge84.i, %1262
-  %1363 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 9), align 8
+  %1363 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 48), align 8
   %1364 = trunc i8 %1363 to i1
   br i1 %1364, label %.lr.ph10.i.i, label %1605
 
@@ -3995,19 +3995,19 @@ _ZL12averageSigmaP16t_UmbrellaWindowi.exit:       ; preds = %._crit_edge84.i, %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39)
-  %1365 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  %1366 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1365 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  %1366 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1367 = fpext float %1366 to double
-  %1368 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1368 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1369 = fpext float %1368 to double
   %1370 = fsub double %1369, %1367
   %1371 = sitofp i32 %1365 to double
   %1372 = fdiv double %1370, %1371
   %puts.i256 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %1373 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  %1374 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1373 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  %1374 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1375 = fpext float %1374 to double
-  %1376 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1376 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1377 = fpext float %1376 to double
   %1378 = fsub double %1377, %1375
   %1379 = sitofp i32 %1373 to double
@@ -4040,7 +4040,7 @@ _ZL12averageSigmaP16t_UmbrellaWindowi.exit:       ; preds = %._crit_edge84.i, %1
 
 .preheader.i.i279:                                ; preds = %._crit_edge.i.i, %.preheader.lr.ph.i.i
   %indvars.iv20.i.i280 = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next21.i.i281, %._crit_edge.i.i ]
-  %1395 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1395 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1396 = icmp sgt i32 %1395, 0
   br i1 %1396, label %.lr.ph.i.i282, label %._crit_edge.i.i
 
@@ -4048,7 +4048,7 @@ _ZL12averageSigmaP16t_UmbrellaWindowi.exit:       ; preds = %._crit_edge84.i, %1
   %1397 = load ptr, ptr %1391, align 8
   %1398 = getelementptr inbounds double, ptr %1397, i64 %indvars.iv20.i.i280
   %1399 = load double, ptr %1398, align 8
-  %1400 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
+  %1400 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
   %1401 = trunc i8 %1400 to i1
   %1402 = load ptr, ptr %1392, align 8
   %1403 = getelementptr inbounds ptr, ptr %1402, i64 %indvars.iv20.i.i280
@@ -4154,7 +4154,7 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
           to label %.noexc291 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc291:                                        ; preds = %.noexc290
-  %1456 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1456 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1457 = icmp sgt i32 %1456, 0
   br i1 %1457, label %.lr.ph36.i, label %._crit_edge39.i
 
@@ -4269,7 +4269,7 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
   %1501 = getelementptr inbounds double, ptr %1455, i64 %indvars.iv58.i
   store double %.3.i, ptr %1501, align 8
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %1502 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1502 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1503 = sext i32 %1502 to i64
   %1504 = icmp slt i64 %indvars.iv.next59.i, %1503
   br i1 %1504, label %1461, label %.preheader.i265, !llvm.loop !56
@@ -4286,14 +4286,14 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
   %1512 = getelementptr inbounds double, ptr %1454, i64 %indvars.iv61.i
   store double %1511, ptr %1512, align 8
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %1513 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1513 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1514 = sext i32 %1513 to i64
   %1515 = icmp slt i64 %indvars.iv.next62.i, %1514
   br i1 %1515, label %1505, label %._crit_edge39.i, !llvm.loop !57
 
 ._crit_edge39.i:                                  ; preds = %1505, %.preheader.i265, %.noexc291
   %1516 = phi i32 [ %1502, %.preheader.i265 ], [ %1456, %.noexc291 ], [ %1513, %1505 ]
-  %1517 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
+  %1517 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
   %1518 = trunc i8 %1517 to i1
   br i1 %1518, label %1519, label %.loopexit.i257
 
@@ -4319,14 +4319,14 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
   %1534 = call double @llvm.fmuladd.f64(double %1533, double %1527, double %1532)
   store double %1534, ptr %1531, align 8
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %1535 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1535 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1536 = sext i32 %1535 to i64
   %1537 = icmp slt i64 %indvars.iv.next65.i, %1536
   br i1 %1537, label %.lr.ph42.i, label %.loopexit.i257, !llvm.loop !58
 
 .loopexit.i257:                                   ; preds = %.lr.ph42.i, %1519, %._crit_edge39.i
   %1538 = phi i32 [ %1516, %1519 ], [ %1516, %._crit_edge39.i ], [ %1535, %.lr.ph42.i ]
-  %1539 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %1539 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %1540 = trunc i8 %1539 to i1
   br i1 %1540, label %1541, label %1583
 
@@ -4382,7 +4382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i261:
           to label %1554 unwind label %.body361
 
 1554:                                             ; preds = %1552
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1553, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.378, i64 0, i64 12)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1553, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.378, i64 12)) #19
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 12)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117.i unwind label %.body361
@@ -4396,7 +4396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i261:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117.i: ; preds = %1554
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %1556 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1556 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1557 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull @.str.377, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef %1556)
           to label %1558 unwind label %1580
 
@@ -4417,7 +4417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117.i:
 _ZNSt10filesystem7__cxx114pathD2Ev.exit.i264:     ; preds = %1561, %1558
   store ptr null, ptr %1559, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %1562 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1562 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1563 = icmp sgt i32 %1562, 0
   br i1 %1563, label %.lr.ph44.i, label %._crit_edge45.i
 
@@ -4426,14 +4426,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i264:     ; preds = %1561, %1558
   %1564 = trunc nuw nsw i64 %indvars.iv67.i to i32
   %1565 = uitofp nneg i32 %1564 to double
   %1566 = fadd double %1565, 5.000000e-01
-  %1567 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1567 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1568 = fpext float %1567 to double
   %1569 = call double @llvm.fmuladd.f64(double %1566, double %1372, double %1568)
   %1570 = getelementptr inbounds double, ptr %1454, i64 %indvars.iv67.i
   %1571 = load double, ptr %1570, align 8
   %1572 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1557, ptr noundef nonnull @.str.355, double noundef %1569, double noundef %1571) #19
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %1573 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1573 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1574 = sext i32 %1573 to i64
   %1575 = icmp slt i64 %indvars.iv.next68.i, %1574
   br i1 %1575, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !59
@@ -4472,7 +4472,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i264:     ; preds = %1561, %1558
 
 .noexc295:                                        ; preds = %._crit_edge45.i
   %1582 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.379, ptr noundef nonnull @.str.376)
-  %.pre73.i = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %.pre73.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   br label %1583
 
 1583:                                             ; preds = %.noexc295, %.loopexit.i257
@@ -4485,14 +4485,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i264:     ; preds = %1561, %1558
   %1586 = getelementptr inbounds double, ptr %1454, i64 %indvars.iv70.i
   %1587 = load double, ptr %1586, align 8
   %1588 = fneg double %1587
-  %1589 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
+  %1589 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
   %1590 = fpext float %1589 to double
   %1591 = fmul double %1590, 0x3F81072C483AF26D
   %1592 = fdiv double %1588, %1591
   %1593 = call double @exp(double noundef %1592) #19
   store double %1593, ptr %1586, align 8
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %1594 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1594 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1595 = sext i32 %1594 to i64
   %1596 = icmp slt i64 %indvars.iv.next71.i, %1595
   br i1 %1596, label %.lr.ph48.i, label %._crit_edge49.i, !llvm.loop !60
@@ -4513,14 +4513,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i264:     ; preds = %1561, %1558
   store i32 %580, ptr %27, align 4
   store ptr @_ZZ8gmx_whamiPPcE3opt, ptr %28, align 8
   store i8 1, ptr %29, align 1
-  %1597 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1597 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1598 = fpext float %1597 to double
   store double %1598, ptr %30, align 8
-  %1599 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1599 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1600 = fpext float %1599 to double
   store double %1600, ptr %31, align 8
   store double -1.000000e+20, ptr %34, align 8
-  %1601 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1601 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1602 = fsub float %1601, %1597
   %1603 = fpext float %1602 to double
   store double %1603, ptr %33, align 8
@@ -4553,13 +4553,13 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
   br label %1605
 
 1605:                                             ; preds = %_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit, %_ZL12averageSigmaP16t_UmbrellaWindowi.exit
-  %1606 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1606 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1607 = sext i32 %1606 to i64
   %1608 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.219, i32 noundef 2609, i64 noundef %1607, i64 noundef 4)
           to label %.noexc308 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc308:                                        ; preds = %1605
-  %1609 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1609 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1610 = icmp sgt i32 %1609, 0
   br i1 %1610, label %.preheader5.us.i, label %._crit_edge11.i
 
@@ -4608,7 +4608,7 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
   %1629 = load float, ptr %1611, align 4
   %1630 = fadd float %.04110.us.i, %1629
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %1631 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1631 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1632 = sext i32 %1631 to i64
   %1633 = icmp slt i64 %indvars.iv.next25.i, %1632
   br i1 %1633, label %.preheader5.us.i, label %._crit_edge11.i, !llvm.loop !63
@@ -4625,8 +4625,8 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
   %1638 = zext nneg i32 %1637 to i64
   %wide.trip.count30.i = zext nneg i32 %1606 to i64
   %invariant.op.i = sub nsw i64 %1607, %1638
-  %.pre503 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
-  %.pre505 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %.pre503 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
+  %.pre505 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   br label %1639
 
 1639:                                             ; preds = %1662, %.lr.ph.i299
@@ -4660,8 +4660,8 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
   %1659 = load ptr, ptr @stderr, align 8
   %1660 = fpext float %1650 to double
   %1661 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1659, ptr noundef nonnull %.str.381.sink.i, i32 noundef %1644, double noundef %1660) #28
-  %.pre502 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
-  %.pre504 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %.pre502 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
+  %.pre504 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   br label %1662
 
 1662:                                             ; preds = %.sink.split.i, %1652
@@ -4676,18 +4676,18 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
           to label %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %._crit_edge.i298
-  %1665 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1665 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1666 = sext i32 %1665 to i64
   %1667 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.219, i32 noundef 3327, i64 noundef %1666, i64 noundef 8)
           to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions.exit
-  %1668 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %1668 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %1669 = trunc i8 %1668 to i1
   br i1 %1669, label %1670, label %.preheader580
 
 1670:                                             ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit
-  store i32 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 29), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), align 8
   br label %.preheader580
 
 .preheader580:                                    ; preds = %1670, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit
@@ -4697,7 +4697,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   %.093 = phi double [ %1710, %1700 ], [ 1.000000e+20, %.preheader580 ]
   %.189 = phi i32 [ %1701, %1700 ], [ 0, %.preheader580 ]
   %.086 = phi i8 [ %.187, %1700 ], [ 0, %.preheader580 ]
-  %1672 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 10), align 4
+  %1672 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 52), align 4
   %1673 = srem i32 %.189, %1672
   %1674 = icmp eq i32 %1673, 0
   br i1 %1674, label %1675, label %1676
@@ -4707,7 +4707,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
           to label %1676 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1676:                                             ; preds = %1675, %1671
-  %1677 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), align 4
+  %1677 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), align 4
   %1678 = fpext float %1677 to double
   %1679 = fcmp olt double %.093, %1678
   br i1 %1679, label %1680, label %1682
@@ -4734,13 +4734,13 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   store ptr @_ZZ8gmx_whamiPPcE3opt, ptr %19, align 8
   %1684 = and i8 %.187, 1
   store i8 %1684, ptr %20, align 1
-  %1685 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1685 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1686 = fpext float %1685 to double
   store double %1686, ptr %23, align 8
-  %1687 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1687 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1688 = fpext float %1687 to double
   store double %1688, ptr %24, align 8
-  %1689 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1689 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1690 = fsub float %1689, %1685
   %1691 = fpext float %1690 to double
   store double %1691, ptr %22, align 8
@@ -4756,7 +4756,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %1693 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 29), align 8
+  %1693 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), align 8
   %1694 = srem i32 %.189, %1693
   %1695 = icmp eq i32 %1694, 0
   %1696 = icmp eq i32 %.189, 1
@@ -4786,14 +4786,14 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   store i32 %580, ptr %8, align 4
   store ptr @_ZZ8gmx_whamiPPcE3opt, ptr %9, align 8
   store i8 %1684, ptr %10, align 1
-  %1702 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1702 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1703 = fpext float %1702 to double
   store double %1703, ptr %11, align 8
-  %1704 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1704 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1705 = fpext float %1704 to double
   store double %1705, ptr %12, align 8
   store double -1.000000e+20, ptr %15, align 8
-  %1706 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1706 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1707 = fsub float %1706, %1702
   %1708 = fpext float %1707 to double
   store double %1708, ptr %14, align 8
@@ -4811,7 +4811,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %1711 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), align 4
+  %1711 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), align 4
   %1712 = fpext float %1711 to double
   %1713 = fcmp ule double %1710, %1712
   %.not102 = and i1 %1713, %1683
@@ -4819,7 +4819,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
 
 1714:                                             ; preds = %1700
   %1715 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.241, i32 noundef %1701, double noundef %1710)
-  %1716 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 20), align 1
+  %1716 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), align 1
   %1717 = trunc i8 %1716 to i1
   br i1 %1717, label %1718, label %1725
 
@@ -4828,7 +4828,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
           to label %1719 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1719:                                             ; preds = %1718
-  %1720 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 21), align 4
+  %1720 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 100), align 4
   %1721 = sext i32 %1720 to i64
   %1722 = getelementptr inbounds [5 x ptr], ptr @__const._Z8gmx_whamiPPc.en_unit_label, i64 0, i64 %1721
   %1723 = load ptr, ptr %1722, align 8
@@ -4842,7 +4842,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
   br label %1726
 
 1726:                                             ; preds = %1725, %1719
-  %1727 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 22), align 8
+  %1727 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 104), align 8
   %1728 = trunc i8 %1727 to i1
   br i1 %1728, label %1729, label %1730
 
@@ -4902,7 +4902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit315: ;
   br label %.body318
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit320: ; preds = %.noexc317
-  %1744 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1744 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1745 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef %1744)
           to label %1746 unwind label %1774
 
@@ -4923,7 +4923,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit320: ;
 _ZNSt10filesystem7__cxx114pathD2Ev.exit322:       ; preds = %1746, %1749
   store ptr null, ptr %1747, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #19
-  %1750 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1750 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1751 = icmp sgt i32 %1750, 0
   br i1 %1751, label %.lr.ph453, label %._crit_edge454
 
@@ -4935,8 +4935,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit322:       ; preds = %1746, %1749
   %1755 = fadd double %1754, 5.000000e-01
   %1756 = sitofp i32 %1752 to double
   %1757 = fdiv double %1755, %1756
-  %1758 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
-  %1759 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1758 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
+  %1759 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1760 = fsub float %1758, %1759
   %1761 = fpext float %1760 to double
   %1762 = fpext float %1759 to double
@@ -4945,7 +4945,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit322:       ; preds = %1746, %1749
   %1765 = load double, ptr %1764, align 8
   %1766 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1745, ptr noundef nonnull @.str.244, double noundef %1763, double noundef %1765) #19
   %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
-  %1767 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1767 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1768 = sext i32 %1767 to i64
   %1769 = icmp slt i64 %indvars.iv.next500, %1768
   br i1 %1769, label %.lr.ph453, label %._crit_edge454, !llvm.loop !66
@@ -4988,7 +4988,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit322:       ; preds = %1746, %1749
 
 1778:                                             ; preds = %1776
   %1779 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.237, ptr noundef %1777)
-  %1780 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %1780 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %.not106 = icmp eq i32 %1780, 0
   br i1 %.not106, label %1788, label %1781
 
@@ -5548,7 +5548,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %9, %12
   %37 = getelementptr inbounds ptr, ptr %.15, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %5) #19
-  %40 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %46
 
@@ -5675,9 +5675,9 @@ declare void @_Z9xvgrcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %5 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %5 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %6 = fpext float %5 to double
-  %7 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %7 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %8 = fpext float %7 to double
   %.b115 = load i1, ptr @_ZZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptionsE6bFirst, align 4
   br i1 %.b115, label %17, label %.preheader1
@@ -5706,14 +5706,14 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader1
   %.0105.lcssa = phi float [ 0.000000e+00, %.preheader1 ], [ %13, %._crit_edge.loopexit ]
-  %14 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), align 4
+  %14 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), align 4
   %15 = fdiv float %14, %.0105.lcssa
   %16 = fpext float %15 to double
   store double %16, ptr @_ZZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptionsE16wham_contrib_lim, align 8
   br label %17
 
 17:                                               ; preds = %._crit_edge, %3
-  %18 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %18 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %19 = fsub float %18, %5
   %20 = fpext float %19 to double
   %21 = fmul double %20, 5.000000e-01
@@ -5752,7 +5752,7 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
   %36 = getelementptr inbounds i8, ptr %25, i64 32
   %37 = getelementptr inbounds i8, ptr %25, i64 56
   %38 = getelementptr inbounds i8, ptr %25, i64 48
-  %.pre62.pre = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %.pre62.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   br label %39
 
 39:                                               ; preds = %.lr.ph28, %.loopexit
@@ -5770,7 +5770,7 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
   %44 = sext i32 %.pre62 to i64
   %45 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.384, ptr noundef nonnull @.str.219, i32 noundef 559, i64 noundef %44, i64 noundef 1)
   store ptr %45, ptr %41, align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   br label %46
 
 46:                                               ; preds = %43, %39
@@ -5791,7 +5791,7 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
   %53 = getelementptr inbounds double, ptr %52, i64 %indvars.iv54
   %54 = load double, ptr %53, align 8
   %55 = fsub double %51, %54
-  %56 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
+  %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %66
 
@@ -5813,7 +5813,7 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
 
 66:                                               ; preds = %60, %64, %62, %.lr.ph17
   %.0104 = phi double [ %61, %60 ], [ %65, %64 ], [ %55, %62 ], [ %55, %.lr.ph17 ]
-  %67 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 43), align 1
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 177), align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %76, label %69
 
@@ -5828,15 +5828,15 @@ define internal fastcc void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15Umbrel
 
 76:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %77 = load double, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 46), align 8
+  %77 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 200), align 8
   %78 = fsub double %.0104, %77
-  %79 = load double, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 48), align 8
+  %79 = load double, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 216), align 8
   %80 = fdiv double %78, %79
   %81 = tail call double @llvm.floor.f64(double %80)
   %82 = fptosi double %81 to i32
   %83 = add nsw i32 %82, 1
   %84 = icmp sgt i32 %82, -1
-  %85 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 49), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 224), align 8
   %.not.i = icmp slt i32 %83, %85
   %or.cond = select i1 %84, i1 %.not.i, i1 false
   br i1 %or.cond, label %_ZL13tabulated_potdP15UmbrellaOptions.exit, label %86
@@ -5867,14 +5867,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %88, %92
   resume { ptr, i32 } %89
 
 _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
-  %93 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 45), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 192), align 8
   %94 = zext nneg i32 %82 to i64
   %95 = getelementptr inbounds double, ptr %93, i64 %94
   %96 = load double, ptr %95, align 8
   %97 = zext nneg i32 %83 to i64
   %98 = getelementptr inbounds double, ptr %93, i64 %97
   %99 = load double, ptr %98, align 8
-  %100 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 44), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 184), align 8
   %101 = getelementptr inbounds double, ptr %100, i64 %94
   %102 = load double, ptr %101, align 8
   %103 = fsub double %.0104, %102
@@ -5890,7 +5890,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
   %108 = getelementptr inbounds double, ptr %0, i64 %indvars.iv49
   %109 = load double, ptr %108, align 8
   %110 = fneg double %.0111
-  %111 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
+  %111 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
   %112 = fpext float %111 to double
   %113 = fmul double %112, 0x3F81072C483AF26D
   %114 = fdiv double %110, %113
@@ -5900,7 +5900,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
   %118 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv54
   %119 = load i32, ptr %118, align 4
   %120 = sitofp i32 %119 to double
-  %121 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
+  %121 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
   %122 = fpext float %121 to double
   %123 = fmul double %122, 0x3F81072C483AF26D
   %124 = load ptr, ptr %38, align 8
@@ -5932,7 +5932,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
   %spec.select = add nsw i32 %.213, %143
   %144 = add nsw i32 %.211012, 1
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %145 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %145 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next50, %146
   br i1 %147, label %.lr.ph17, label %._crit_edge18, !llvm.loop !74
@@ -5950,7 +5950,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
   %152 = getelementptr inbounds i8, ptr %151, i64 %indvars.iv51
   store i8 1, ptr %152, align 1
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %153 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next52, %154
   br i1 %155, label %.lr.ph23, label %.loopexit, !llvm.loop !75
@@ -5989,7 +5989,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
 162:                                              ; preds = %._crit_edge37.loopexit, %159, %._crit_edge37
   %.0106.lcssa83 = phi i32 [ %.1107.lcssa, %._crit_edge37.loopexit ], [ %.0106.lcssa82, %159 ], [ 0, %._crit_edge37 ]
   %.0108.lcssa81 = phi i32 [ %.1109.lcssa, %._crit_edge37.loopexit ], [ %.0108.lcssa80, %159 ], [ 0, %._crit_edge37 ]
-  %163 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %163 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %164 = trunc i8 %163 to i1
   br i1 %164, label %165, label %167
 
@@ -6005,13 +6005,13 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %76
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  %4 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 20), align 1
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 21), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 100), align 4
   switch i32 %7, label %16 [
     i32 3, label %20
     i32 1, label %8
@@ -6019,13 +6019,13 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
   ]
 
 8:                                                ; preds = %6
-  %9 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
+  %9 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
   %10 = fpext float %9 to double
   %11 = fmul double %10, 0x3F81072C483AF26D
   br label %20
 
 12:                                               ; preds = %6
-  %13 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 17), align 8
+  %13 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 88), align 8
   %14 = fpext float %13 to double
   %15 = fmul double %14, 0x3F60477829A487D3
   br label %20
@@ -6073,15 +6073,15 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %29, %20
-  %30 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 24), align 8
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 112), align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %._crit_edge
-  %33 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 23), align 4
-  %34 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %33 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 108), align 4
+  %34 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %35 = fsub float %33, %34
-  %36 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %36 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %37 = fdiv float %35, %36
   %38 = fptosi float %37 to i32
   %39 = icmp slt i32 %38, 0
@@ -6122,11 +6122,11 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  %4 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  %4 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %5 = fpext float %4 to double
-  %6 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
-  %7 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %6 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
+  %7 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %8 = fpext float %7 to double
   %9 = fcmp ogt float %4, 0.000000e+00
   %10 = fcmp olt float %6, 0.000000e+00
@@ -6135,9 +6135,9 @@ define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noca
 
 11:                                               ; preds = %1
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-  %12 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %12 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %13 = fpext float %12 to double
-  %14 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %14 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %15 = fpext float %14 to double
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 800, ptr noundef nonnull @.str.389, double noundef %13, double noundef %15) #25
           to label %16 unwind label %17
@@ -6303,25 +6303,25 @@ define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaW
   %89 = alloca %"class.std::allocator.0", align 1
   store ptr %0, ptr %77, align 8
   store ptr %1, ptr %78, align 8
-  %90 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 41), align 4
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 172), align 4
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %8
   %93 = tail call noundef i64 @_ZN3gmx14makeRandomSeedEv()
   %94 = trunc i64 %93 to i32
-  store i32 %94, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 41), align 4
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 172), align 4
   br label %95
 
 95:                                               ; preds = %92, %8
   %96 = phi i32 [ %94, %92 ], [ %90, %8 ]
   %97 = sext i32 %96 to i64
-  store i64 %97, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
-  tail call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), i64 noundef 63)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
-  %98 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
-  %99 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  store i64 %97, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
+  tail call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), i64 noundef 63)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), i8 0, i64 16, i1 false)
+  %98 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
+  %99 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %100 = xor i64 %98, %99
   %101 = xor i64 %100, 2004413935125273122
   %102 = add i64 %99, %98
@@ -6372,16 +6372,16 @@ define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaW
   %147 = add i64 %144, %146
   %148 = tail call i64 @llvm.fshl.i64(i64 %146, i64 %146, i64 16)
   %149 = xor i64 %148, %147
-  store i64 %147, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %149, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  %150 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  store i64 %147, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %149, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %151 = sext i32 %150 to i64
   %152 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.391, ptr noundef nonnull @.str.219, i32 noundef 1298, i64 noundef %151, i64 noundef 8)
-  %153 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %154 = sext i32 %153 to i64
   %155 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.219, i32 noundef 1299, i64 noundef %154, i64 noundef 8)
-  %156 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %156 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %157 = sext i32 %156 to i64
   %158 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.393, ptr noundef nonnull @.str.219, i32 noundef 1300, i64 noundef %157, i64 noundef 8)
   %159 = icmp sgt i32 %7, 0
@@ -6461,19 +6461,19 @@ define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaW
   %indvars.iv148 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next149, %189 ]
   %179 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %177, i64 %indvars.iv148
   store i32 1, ptr %179, align 8
-  %180 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %180 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %181 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %177, i64 %indvars.iv148, i32 3
   store i32 %180, ptr %181, align 8
   %182 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %177, i64 %indvars.iv148, i32 1
   %183 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.397, ptr noundef nonnull @.str.219, i32 noundef 1330, i64 noundef 1, i64 noundef 8)
   store ptr %183, ptr %182, align 8
-  %184 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %184 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   %.off = add i32 %184, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %185, label %189
 
 185:                                              ; preds = %.lr.ph88
-  %186 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %187 = sext i32 %186 to i64
   %188 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.398, ptr noundef nonnull @.str.219, i32 noundef 1333, i64 noundef %187, i64 noundef 8)
   store ptr %188, ptr %183, align 8
@@ -6506,7 +6506,7 @@ define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaW
   br i1 %exitcond152.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !84
 
 ._crit_edge89:                                    ; preds = %189, %._crit_edge85
-  %204 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %204 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   switch i32 %204, label %460 [
     i32 2, label %205
     i32 1, label %.preheader
@@ -6625,7 +6625,7 @@ define internal fastcc void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaW
   unreachable
 
 _ZNSt10filesystem7__cxx114pathC2Ev.exit.i:        ; preds = %263
-  %268 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 42), align 8
+  %268 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8
   %269 = trunc i8 %268 to i1
   br i1 %269, label %270, label %331
 
@@ -6660,7 +6660,7 @@ _ZNSt10filesystem7__cxx114pathC2Ev.exit.i:        ; preds = %263
           to label %279 unwind label %.body265
 
 279:                                              ; preds = %277
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %278, ptr noundef nonnull @.str.417, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.417, i64 0, i64 6)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %278, ptr noundef nonnull @.str.417, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.417, i64 6)) #19
   store ptr null, ptr %22, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 noundef 6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body265
@@ -6793,7 +6793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101.i:
           to label %313 unwind label %.body263
 
 313:                                              ; preds = %311
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %312, ptr noundef nonnull @.str.419, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.419, i64 0, i64 3)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %312, ptr noundef nonnull @.str.419, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.419, i64 3)) #19
   store ptr null, ptr %23, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %74, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106.i unwind label %.body263
@@ -6807,7 +6807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106.i: ; preds = %313
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  %315 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %315 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %316 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull @.str.418, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef %315)
           to label %317 unwind label %329
 
@@ -6892,7 +6892,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit108.i:     ; preds = %320, %317
 
 331:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit108.i, %_ZNSt10filesystem7__cxx114pathC2Ev.exit.i
   %.076.i = phi ptr [ %316, %_ZNSt10filesystem7__cxx114pathD2Ev.exit108.i ], [ null, %_ZNSt10filesystem7__cxx114pathC2Ev.exit.i ]
-  %332 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %332 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %.fr.i = freeze i32 %332
   br i1 %159, label %.lr.ph18.i, label %._crit_edge19.i
 
@@ -7107,7 +7107,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i:       ; preds = %.lr.ph18.split.i
 
 ._crit_edge19.i:                                  ; preds = %._crit_edge14.split.i, %._crit_edge14.split.us.split.us21.i, %._crit_edge14.split.us.split.us.us.us.i, %331
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
-  %419 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 42), align 8
+  %419 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8
   %420 = trunc i8 %419 to i1
   br i1 %420, label %.preheader1.i, label %457
 
@@ -7126,10 +7126,10 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i:       ; preds = %.lr.ph18.split.i
 
 .preheader.lr.ph.us.i:                            ; preds = %._crit_edge33.us.i, %.preheader.lr.ph.us.preheader.i
   %indvars.iv85.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next86.i, %._crit_edge33.us.i ]
-  %422 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %422 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %423 = trunc nuw nsw i64 %indvars.iv85.i to i32
   %424 = uitofp nneg i32 %423 to float
-  %425 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %425 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %426 = call float @llvm.fmuladd.f32(float %424, float %425, float %422)
   %427 = fpext float %426 to double
   %428 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.076.i, ptr noundef nonnull @.str.423, double noundef %427) #19
@@ -7173,9 +7173,9 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.i:       ; preds = %.lr.ph18.split.i
 
 .lr.ph36.split.i:                                 ; preds = %.lr.ph36.i, %.lr.ph36.split.i
   %.28335.i = phi i32 [ %449, %.lr.ph36.split.i ], [ 0, %.lr.ph36.i ]
-  %443 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %443 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %444 = uitofp nneg i32 %.28335.i to float
-  %445 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %445 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %446 = call float @llvm.fmuladd.f32(float %444, float %445, float %443)
   %447 = fpext float %446 to double
   %448 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.076.i, ptr noundef nonnull @.str.423, double noundef %447) #19
@@ -7323,7 +7323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit208 unwind label %477
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit208: ; preds = %479
-  %482 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %482 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %483 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull @.str.409, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef %482)
           to label %484 unwind label %507
 
@@ -7344,7 +7344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit208: ;
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %484, %487
   store ptr null, ptr %485, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #19
-  %488 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %488 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %489 = icmp sgt i32 %488, 0
   br i1 %489, label %.lr.ph103, label %._crit_edge104
 
@@ -7369,7 +7369,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %484, %487
   %.0101 = phi ptr [ null, %.lr.ph103 ], [ %.1, %._crit_edge100 ]
   %500 = add nuw nsw i32 %.0183102, 1
   %501 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.410, i32 noundef %500)
-  %502 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %502 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   switch i32 %502, label %.loopexit [
     i32 2, label %509
     i32 1, label %684
@@ -7407,7 +7407,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %484, %487
 
 509:                                              ; preds = %499
   %510 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.219, i32 noundef 1377, ptr noundef %.0101, i64 noundef %163, i64 noundef 4)
-  %511 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 40), align 8
+  %511 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 168), align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62)
   %512 = add nsw i32 %511, -1
   %.not.i.i.i209 = icmp slt i32 %511, 1
@@ -7463,12 +7463,12 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
   %527 = zext i1 %526 to i32
   %528 = add i32 %524, %527
   %529 = zext i32 %528 to i64
-  %.promoted.i = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  %.promoted8.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
-  %.sroa.020.0.copyload.i.i.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %530 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  %.promoted.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  %.promoted8.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
+  %.sroa.020.0.copyload.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %530 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %531 = add i64 %530, %.sroa.020.0.copyload.i.i.i
-  %532 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %532 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %533 = xor i64 %530, %532
   %534 = xor i64 %533, 2004413935125273122
   %535 = add i64 %534, 1
@@ -7490,7 +7490,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
 
 ._crit_edge.i.i:                                  ; preds = %543
   %.phi.trans.insert1.i.i = zext nneg i32 %540 to i64
-  %.phi.trans.insert2.i.i = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i.i
+  %.phi.trans.insert2.i.i = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i.i
   %.pre.i.i = load i64, ptr %.phi.trans.insert2.i.i, align 8
   %545 = add nuw nsw i32 %540, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit.i
@@ -7500,7 +7500,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61)
   %547 = add i64 %539, 1
-  store i64 %547, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  store i64 %547, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %548 = icmp eq i64 %547, 0
   br i1 %548, label %549, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i
 
@@ -7514,8 +7514,8 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
           to label %552 unwind label %.thread22.i.i
 
 552:                                              ; preds = %551
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %59, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %61, align 8
   %553 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %553, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %61, i64 16
@@ -7607,15 +7607,15 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.
   %604 = add i64 %602, %603
   %605 = call i64 @llvm.fshl.i64(i64 %603, i64 %603, i64 16)
   %606 = xor i64 %605, %604
-  store i64 %604, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %606, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %604, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %606, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit.i
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit.i: ; preds = %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i, %._crit_edge.i.i
   %607 = phi i64 [ %547, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i ], [ %539, %._crit_edge.i.i ]
   %608 = phi i64 [ %604, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %609 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i ], [ %545, %._crit_edge.i.i ]
-  store i32 %609, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  store i32 %609, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit.i, %538
@@ -7754,24 +7754,24 @@ _ZN3gmx23UniformRealDistributionIfEC2Eff.exit.i:  ; preds = %684
 
 .lr.ph.i216:                                      ; preds = %_ZN3gmx23UniformRealDistributionIfEC2Eff.exit.i, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
   %indvars.iv.i217 = phi i64 [ %indvars.iv.next.i218, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit ], [ 0, %_ZN3gmx23UniformRealDistributionIfEC2Eff.exit.i ]
-  %687 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  %687 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %688 = icmp ugt i32 %687, 1
   br i1 %688, label %690, label %._crit_edge.i268
 
 ._crit_edge.i268:                                 ; preds = %.lr.ph.i216
   %.phi.trans.insert1.i = zext nneg i32 %687 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i
   %.pre.i269 = load i64, ptr %.phi.trans.insert2.i, align 8
   %689 = add nuw nsw i32 %687, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
 
 690:                                              ; preds = %.lr.ph.i216
-  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0))
-  %.sroa.020.0.copyload.i.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %.sroa.49.0.copyload.i.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
-  %691 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248))
+  %.sroa.020.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %.sroa.49.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
+  %691 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %692 = add i64 %691, %.sroa.020.0.copyload.i.i
-  %693 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %693 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %694 = xor i64 %691, %693
   %695 = xor i64 %694, 2004413935125273122
   %696 = add i64 %693, %.sroa.49.0.copyload.i.i
@@ -7823,14 +7823,14 @@ _ZN3gmx23UniformRealDistributionIfEC2Eff.exit.i:  ; preds = %684
   %742 = add i64 %739, %741
   %743 = call i64 @llvm.fshl.i64(i64 %741, i64 %741, i64 16)
   %744 = xor i64 %743, %742
-  store i64 %742, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %744, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %742, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %744, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i268, %690
   %745 = phi i64 [ %742, %690 ], [ %.pre.i269, %._crit_edge.i268 ]
   %746 = phi i32 [ 1, %690 ], [ %689, %._crit_edge.i268 ]
-  store i32 %746, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  store i32 %746, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %747 = uitofp i64 %745 to float
   %748 = fmul float %747, 0x3BF0000000000000
   %749 = fcmp oeq float %748, 1.000000e+00
@@ -7926,7 +7926,7 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
   %789 = getelementptr inbounds i8, ptr %783, i64 24
   %790 = load i32, ptr %789, align 8
   %.fr15.i = freeze i32 %790
-  %791 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), align 4
+  %791 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), align 4
   %792 = fcmp ogt float %791, 0.000000e+00
   br i1 %792, label %793, label %798
 
@@ -7938,12 +7938,12 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
   br label %815
 
 798:                                              ; preds = %.lr.ph94
-  %799 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 31), align 8
+  %799 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 136), align 8
   %800 = trunc i8 %799 to i1
   br i1 %800, label %804, label %801
 
 801:                                              ; preds = %798
-  %802 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %802 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %803 = trunc i8 %802 to i1
   br i1 %803, label %804, label %811
 
@@ -8039,7 +8039,7 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
   br i1 %exitcond.not.i231, label %._crit_edge.i222, label %856, !llvm.loop !106
 
 ._crit_edge.i222:                                 ; preds = %856, %815
-  %860 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %860 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   %861 = icmp eq i32 %860, 4
   br i1 %861, label %862, label %873
 
@@ -8064,23 +8064,23 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
   %876 = fneg double %875
   %877 = call double @llvm.fmuladd.f64(double %876, double %875, double 1.000000e+00)
   %878 = call double @sqrt(double noundef %877) #19
-  %879 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  %879 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   %880 = icmp ult i32 %879, 14
   br i1 %880, label %882, label %._crit_edge.i.i.i223
 
 ._crit_edge.i.i.i223:                             ; preds = %873
-  %.pre.i.i.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
+  %.pre.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
   %881 = add i32 %879, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
 
 882:                                              ; preds = %873
-  %883 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  %883 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %884 = icmp ugt i32 %883, 1
   br i1 %884, label %886, label %._crit_edge.i291
 
 ._crit_edge.i291:                                 ; preds = %882
   %.phi.trans.insert1.i292 = zext nneg i32 %883 to i64
-  %.phi.trans.insert2.i293 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i292
+  %.phi.trans.insert2.i293 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i292
   %.pre.i294 = load i64, ptr %.phi.trans.insert2.i293, align 8
   %885 = add nuw nsw i32 %883, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit297
@@ -8089,9 +8089,9 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %887 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  %887 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %888 = add i64 %887, 1
-  store i64 %888, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  store i64 %888, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %889 = icmp eq i64 %888, 0
   br i1 %889, label %890, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit324
 
@@ -8105,8 +8105,8 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %7
           to label %893 unwind label %.thread22.i320
 
 893:                                              ; preds = %892
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
   %894 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %894, align 8
   %.sroa.2.0..sroa_idx.i321 = getelementptr inbounds i8, ptr %11, i64 16
@@ -8152,10 +8152,10 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  %.sroa.020.0.copyload.i.i295 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %902 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  %.sroa.020.0.copyload.i.i295 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %902 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %903 = add i64 %902, %.sroa.020.0.copyload.i.i295
-  %904 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %904 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %905 = xor i64 %902, %904
   %906 = xor i64 %905, 2004413935125273122
   %907 = add i64 %904, %888
@@ -8207,16 +8207,16 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   %953 = add i64 %950, %952
   %954 = call i64 @llvm.fshl.i64(i64 %952, i64 %952, i64 16)
   %955 = xor i64 %954, %953
-  store i64 %953, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %955, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %953, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %955, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit297
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit297: ; preds = %._crit_edge.i291, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit324
   %956 = phi i64 [ %953, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit324 ], [ %.pre.i294, %._crit_edge.i291 ]
   %957 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit324 ], [ %885, %._crit_edge.i291 ]
-  store i32 %957, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  store i64 %956, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  store i32 %957, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  store i64 %956, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i: ; preds = %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit297, %._crit_edge.i.i.i223
@@ -8226,13 +8226,13 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %960 = getelementptr inbounds [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %959
   %961 = load float, ptr %960, align 4
   %962 = lshr i64 %958, 14
-  store i64 %962, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 %.pre23.i, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
-  %963 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52), align 8
-  %964 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 0, i32 1), align 4
+  store i64 %962, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 %.pre23.i, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
+  %963 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 288), align 8
+  %964 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 292), align 4
   %965 = call noundef float @llvm.fmuladd.f32(float %961, float %964, float %963)
   %966 = fpext float %965 to double
-  %967 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %967 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   switch i32 %967, label %1333 [
     i32 3, label %.preheader.i
     i32 4, label %.preheader5.i
@@ -8262,23 +8262,23 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 .lr.ph14.split.us.i:                              ; preds = %.lr.ph14.i, %_ZL16searchCumulativePKdidPi.exit.us.i
   %.113.us.i = phi i32 [ %1095, %_ZL16searchCumulativePKdidPi.exit.us.i ], [ 0, %.lr.ph14.i ]
   %.010412.us.i = phi double [ %1067, %_ZL16searchCumulativePKdidPi.exit.us.i ], [ %966, %.lr.ph14.i ]
-  %977 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  %977 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   %978 = icmp ult i32 %977, 14
   br i1 %978, label %980, label %._crit_edge.i.i115.us.i
 
 ._crit_edge.i.i115.us.i:                          ; preds = %.lr.ph14.split.us.i
-  %.pre.i.i116.us.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
+  %.pre.i.i116.us.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
   %979 = add i32 %977, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.us.i
 
 980:                                              ; preds = %.lr.ph14.split.us.i
-  %981 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  %981 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %982 = icmp ugt i32 %981, 1
   br i1 %982, label %984, label %._crit_edge.i284
 
 ._crit_edge.i284:                                 ; preds = %980
   %.phi.trans.insert1.i285 = zext nneg i32 %981 to i64
-  %.phi.trans.insert2.i286 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i285
+  %.phi.trans.insert2.i286 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i285
   %.pre.i287 = load i64, ptr %.phi.trans.insert2.i286, align 8
   %983 = add nuw nsw i32 %981, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit290
@@ -8287,9 +8287,9 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %985 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  %985 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %986 = add i64 %985, 1
-  store i64 %986, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  store i64 %986, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %987 = icmp eq i64 %986, 0
   br i1 %987, label %988, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit316
 
@@ -8303,8 +8303,8 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
           to label %991 unwind label %.thread22.i312
 
 991:                                              ; preds = %990
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
   %992 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %992, align 8
   %.sroa.2.0..sroa_idx.i313 = getelementptr inbounds i8, ptr %14, i64 16
@@ -8350,10 +8350,10 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %.sroa.020.0.copyload.i.i288 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %1000 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  %.sroa.020.0.copyload.i.i288 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %1000 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %1001 = add i64 %1000, %.sroa.020.0.copyload.i.i288
-  %1002 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %1002 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %1003 = xor i64 %1000, %1002
   %1004 = xor i64 %1003, 2004413935125273122
   %1005 = add i64 %1002, %986
@@ -8405,16 +8405,16 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   %1051 = add i64 %1048, %1050
   %1052 = call i64 @llvm.fshl.i64(i64 %1050, i64 %1050, i64 16)
   %1053 = xor i64 %1052, %1051
-  store i64 %1051, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %1053, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %1051, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %1053, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit290
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit290: ; preds = %._crit_edge.i284, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit316
   %1054 = phi i64 [ %1051, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit316 ], [ %.pre.i287, %._crit_edge.i284 ]
   %1055 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit316 ], [ %983, %._crit_edge.i284 ]
-  store i32 %1055, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  store i64 %1054, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  store i32 %1055, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  store i64 %1054, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.us.i
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.us.i: ; preds = %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit290, %._crit_edge.i.i115.us.i
@@ -8424,10 +8424,10 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1059 = getelementptr inbounds [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1058
   %1060 = load float, ptr %1059, align 4
   %1061 = lshr i64 %1057, 14
-  store i64 %1061, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 %1056, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
-  %1062 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52), align 8
-  %1063 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 0, i32 1), align 4
+  store i64 %1061, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 %1056, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
+  %1062 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 288), align 8
+  %1063 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 292), align 4
   %1064 = call noundef float @llvm.fmuladd.f32(float %1060, float %1063, float %1062)
   %1065 = fpext float %1064 to double
   %1066 = fmul double %878, %1065
@@ -8487,23 +8487,23 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
 .lr.ph14.split.i:                                 ; preds = %.lr.ph14.i, %_ZL16searchCumulativePKdidPi.exit.i
   %.113.i = phi i32 [ %1210, %_ZL16searchCumulativePKdidPi.exit.i ], [ 0, %.lr.ph14.i ]
   %.010412.i = phi double [ %1188, %_ZL16searchCumulativePKdidPi.exit.i ], [ %966, %.lr.ph14.i ]
-  %1098 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  %1098 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   %1099 = icmp ult i32 %1098, 14
   br i1 %1099, label %1101, label %._crit_edge.i.i115.i
 
 ._crit_edge.i.i115.i:                             ; preds = %.lr.ph14.split.i
-  %.pre.i.i116.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
+  %.pre.i.i116.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
   %1100 = add i32 %1098, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.i
 
 1101:                                             ; preds = %.lr.ph14.split.i
-  %1102 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  %1102 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %1103 = icmp ugt i32 %1102, 1
   br i1 %1103, label %1105, label %._crit_edge.i277
 
 ._crit_edge.i277:                                 ; preds = %1101
   %.phi.trans.insert1.i278 = zext nneg i32 %1102 to i64
-  %.phi.trans.insert2.i279 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i278
+  %.phi.trans.insert2.i279 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i278
   %.pre.i280 = load i64, ptr %.phi.trans.insert2.i279, align 8
   %1104 = add nuw nsw i32 %1102, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit283
@@ -8512,9 +8512,9 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %1106 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  %1106 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %1107 = add i64 %1106, 1
-  store i64 %1107, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  store i64 %1107, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %1108 = icmp eq i64 %1107, 0
   br i1 %1108, label %1109, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit308
 
@@ -8528,8 +8528,8 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
           to label %1112 unwind label %.thread22.i304
 
 1112:                                             ; preds = %1111
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8
   %1113 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %1113, align 8
   %.sroa.2.0..sroa_idx.i305 = getelementptr inbounds i8, ptr %17, i64 16
@@ -8575,10 +8575,10 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  %.sroa.020.0.copyload.i.i281 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %1121 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  %.sroa.020.0.copyload.i.i281 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %1121 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %1122 = add i64 %1121, %.sroa.020.0.copyload.i.i281
-  %1123 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %1123 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %1124 = xor i64 %1121, %1123
   %1125 = xor i64 %1124, 2004413935125273122
   %1126 = add i64 %1123, %1107
@@ -8630,16 +8630,16 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit3
   %1172 = add i64 %1169, %1171
   %1173 = call i64 @llvm.fshl.i64(i64 %1171, i64 %1171, i64 16)
   %1174 = xor i64 %1173, %1172
-  store i64 %1172, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %1174, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %1172, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %1174, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit283
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit283: ; preds = %._crit_edge.i277, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit308
   %1175 = phi i64 [ %1172, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit308 ], [ %.pre.i280, %._crit_edge.i277 ]
   %1176 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit308 ], [ %1104, %._crit_edge.i277 ]
-  store i32 %1176, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  store i64 %1175, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  store i32 %1176, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  store i64 %1175, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.i
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.i: ; preds = %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit283, %._crit_edge.i.i115.i
@@ -8649,10 +8649,10 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1180 = getelementptr inbounds [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1179
   %1181 = load float, ptr %1180, align 4
   %1182 = lshr i64 %1178, 14
-  store i64 %1182, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 %1177, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
-  %1183 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52), align 8
-  %1184 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 0, i32 1), align 4
+  store i64 %1182, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 %1177, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
+  %1183 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 288), align 8
+  %1184 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 292), align 4
   %1185 = call noundef float @llvm.fmuladd.f32(float %1181, float %1184, float %1183)
   %1186 = fpext float %1185 to double
   %1187 = fmul double %878, %1186
@@ -8699,18 +8699,18 @@ _ZL16searchCumulativePKdidPi.exit.i:              ; preds = %1203, %1198, %_ZN3g
   br i1 %1213, label %1215, label %._crit_edge.i.i118.i
 
 ._crit_edge.i.i118.i:                             ; preds = %1211
-  %.pre.i.i119.i = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
+  %.pre.i.i119.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
   %1214 = add i32 %1212, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i
 
 1215:                                             ; preds = %1211
-  %1216 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
+  %1216 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
   %1217 = icmp ugt i32 %1216, 1
   br i1 %1217, label %1219, label %._crit_edge.i270
 
 ._crit_edge.i270:                                 ; preds = %1215
   %.phi.trans.insert1.i271 = zext nneg i32 %1216 to i64
-  %.phi.trans.insert2.i272 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), i64 0, i64 %.phi.trans.insert1.i271
+  %.phi.trans.insert2.i272 = getelementptr inbounds [2 x i64], ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i271
   %.pre.i273 = load i64, ptr %.phi.trans.insert2.i272, align 8
   %1218 = add nuw nsw i32 %1216, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit276
@@ -8719,9 +8719,9 @@ _ZL16searchCumulativePKdidPi.exit.i:              ; preds = %1203, %1198, %_ZN3g
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  %1220 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  %1220 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %1221 = add i64 %1220, 1
-  store i64 %1221, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 1), align 8
+  store i64 %1221, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 256), align 8
   %1222 = icmp eq i64 %1221, 0
   br i1 %1222, label %1223, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit
 
@@ -8735,8 +8735,8 @@ _ZL16searchCumulativePKdidPi.exit.i:              ; preds = %1203, %1198, %_ZN3g
           to label %1226 unwind label %.thread22.i
 
 1226:                                             ; preds = %1225
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %20, align 8
   %1227 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %1227, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 16
@@ -8782,10 +8782,10 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  %.sroa.020.0.copyload.i.i274 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 1, i32 0, i64 0), align 8
-  %1235 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51), align 8
+  %.sroa.020.0.copyload.i.i274 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 248), align 8
+  %1235 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 232), align 8
   %1236 = add i64 %1235, %.sroa.020.0.copyload.i.i274
-  %1237 = load i64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 0, i32 0, i64 1), align 8
+  %1237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 240), align 8
   %1238 = xor i64 %1235, %1237
   %1239 = xor i64 %1238, 2004413935125273122
   %1240 = add i64 %1237, %1221
@@ -8837,16 +8837,16 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit:
   %1286 = add i64 %1283, %1285
   %1287 = call i64 @llvm.fshl.i64(i64 %1285, i64 %1285, i64 16)
   %1288 = xor i64 %1287, %1286
-  store i64 %1286, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 0), align 8
-  store i64 %1288, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 2, i32 0, i64 1), align 8
+  store i64 %1286, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), align 8
+  store i64 %1288, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 272), align 8
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit276
 
 _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit276: ; preds = %._crit_edge.i270, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit
   %1289 = phi i64 [ %1286, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i273, %._crit_edge.i270 ]
   %1290 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %1218, %._crit_edge.i270 ]
-  store i32 %1290, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 51, i32 0, i32 3), align 8
-  store i64 %1289, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 64, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  store i32 %1290, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8
+  store i64 %1289, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i: ; preds = %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit276, %._crit_edge.i.i118.i
@@ -8856,24 +8856,24 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1294 = getelementptr inbounds [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1293
   %1295 = load float, ptr %1294, align 4
   %1296 = lshr i64 %1292, 14
-  store i64 %1296, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 1), align 8
-  store i32 %1291, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
-  %1297 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52), align 8
-  %1298 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 0, i32 1), align 4
+  store i64 %1296, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8
+  store i32 %1291, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
+  %1297 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 288), align 8
+  %1298 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 292), align 4
   %1299 = call noundef float @llvm.fmuladd.f32(float %1295, float %1298, float %1297)
   %1300 = fpext float %1299 to double
   %1301 = fmul double %878, %1300
   %1302 = call double @llvm.fmuladd.f64(double %875, double %.11059.i, double %1301)
   %1303 = call double @llvm.fmuladd.f64(double %1302, double %.099.i, double %.097.i)
-  %1304 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1304 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1305 = fpext float %1304 to double
   %1306 = fsub double %1303, %1305
-  %1307 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1307 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1308 = fpext float %1307 to double
   %1309 = fdiv double %1306, %1308
   %1310 = call double @llvm.floor.f64(double %1309)
   %1311 = fptosi double %1310 to i32
-  %1312 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
+  %1312 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
   %1313 = trunc i8 %1312 to i1
   br i1 %1313, label %1314, label %.loopexit2.i
 
@@ -8913,7 +8913,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1328 = fadd double %1327, 1.000000e+00
   store double %1328, ptr %1326, align 8
   %1329 = add nsw i32 %.210.i, 1
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 52, i32 2), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 304), align 8
   br label %1330
 
 1330:                                             ; preds = %1322, %.loopexit2.i
@@ -8924,7 +8924,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 
 1333:                                             ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-  %1334 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 38), align 8
+  %1334 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 160), align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %58, i32 noundef 1185, ptr noundef nonnull @.str.435, i32 noundef %1334) #25
           to label %1335 unwind label %1336
 
@@ -8952,7 +8952,7 @@ _ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit: ; pre
 
 .loopexit:                                        ; preds = %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, %.lr.ph96, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread, %776, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit, %499
   %.1 = phi ptr [ %.0101, %499 ], [ %.0101, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit ], [ %510, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit ], [ %.0101, %776 ], [ %510, %_ZL17getRandomIntArrayiiPiPN3gmx16ThreeFry2x64FastILj64EEE.exit.thread ], [ %510, %.lr.ph96 ], [ %.0101, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit ]
-  %1339 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 42), align 8
+  %1339 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8
   %1340 = trunc i8 %1339 to i1
   br i1 %1340, label %1341, label %1436
 
@@ -9118,7 +9118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i235:
           to label %1381 unwind label %.body298
 
 1381:                                             ; preds = %1379
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1380, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.234, i64 0, i64 5)) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1380, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.234, i64 5)) #19
   store ptr null, ptr %21, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i unwind label %.body298
@@ -9132,7 +9132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i235:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: ; preds = %1381
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %1383 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1383 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1384 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef %1368, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef %1383)
           to label %1385 unwind label %1424
 
@@ -9141,7 +9141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #19
-  %1386 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1386 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1387 = icmp sgt i32 %1386, 0
   br i1 %1387, label %.lr.ph6.i, label %._crit_edge7.i
 
@@ -9157,9 +9157,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
   %1388 = trunc nuw nsw i64 %indvars.iv14.i to i32
   %1389 = uitofp nneg i32 %1388 to double
   %1390 = fadd double %1389, 5.000000e-01
-  %1391 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1391 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1392 = fpext float %1391 to double
-  %1393 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1393 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1394 = fpext float %1393 to double
   %1395 = call double @llvm.fmuladd.f64(double %1390, double %1392, double %1394)
   %1396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1384, ptr noundef nonnull @.str.235, double noundef %1395) #19
@@ -9205,9 +9205,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
   %.0344.i = phi i32 [ %1419, %.lr.ph6.split.i ], [ 0, %.lr.ph6.i ]
   %1411 = uitofp nneg i32 %.0344.i to double
   %1412 = fadd double %1411, 5.000000e-01
-  %1413 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1413 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1414 = fpext float %1413 to double
-  %1415 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1415 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1416 = fpext float %1415 to double
   %1417 = call double @llvm.fmuladd.f64(double %1412, double %1414, double %1416)
   %1418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1384, ptr noundef nonnull @.str.235, double noundef %1417) #19
@@ -9300,7 +9300,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   br label %1436
 
 1436:                                             ; preds = %_ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit, %.loopexit
-  %1437 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1437 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1438 = sext i32 %1437 to i64
   %1439 = shl nsw i64 %1438, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %5, i64 %1439, i1 false)
@@ -9310,7 +9310,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   %.0190 = phi double [ 1.000000e+20, %1436 ], [ %1476, %1456 ]
   %.6 = phi i32 [ 0, %1436 ], [ %1467, %1456 ]
   %.0178 = phi i8 [ 0, %1436 ], [ %.1179, %1456 ]
-  %1441 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 10), align 4
+  %1441 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 52), align 4
   %1442 = srem i32 %.6, %1441
   %1443 = icmp eq i32 %1442, 0
   br i1 %1443, label %1444, label %1445
@@ -9320,11 +9320,11 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   br label %1445
 
 1445:                                             ; preds = %1444, %1440
-  %1446 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), align 4
+  %1446 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), align 4
   %1447 = fpext float %1446 to double
   %1448 = fcmp olt double %.0190, %1447
   %.1179 = select i1 %1448, i8 1, i8 %.0178
-  %1449 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 29), align 8
+  %1449 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 120), align 8
   %1450 = srem i32 %.6, %1449
   %1451 = icmp eq i32 %1450, 0
   %1452 = icmp eq i32 %.6, 1
@@ -9354,13 +9354,13 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   store ptr @_ZZ8gmx_whamiPPcE3opt, ptr %37, align 8
   %1458 = and i8 %.1179, 1
   store i8 %1458, ptr %38, align 1
-  %1459 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1459 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1460 = fpext float %1459 to double
   store double %1460, ptr %41, align 8
-  %1461 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1461 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1462 = fpext float %1461 to double
   store double %1462, ptr %42, align 8
-  %1463 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1463 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1464 = fsub float %1463, %1459
   %1465 = fpext float %1464 to double
   store double %1465, ptr %40, align 8
@@ -9392,14 +9392,14 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   store i32 %.0180.lcssa, ptr %26, align 4
   store ptr @_ZZ8gmx_whamiPPcE3opt, ptr %27, align 8
   store i8 %1458, ptr %28, align 1
-  %1468 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1468 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1469 = fpext float %1468 to double
   store double %1469, ptr %29, align 8
-  %1470 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1470 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1471 = fpext float %1470 to double
   store double %1471, ptr %30, align 8
   store double -1.000000e+20, ptr %33, align 8
-  %1472 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %1472 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %1473 = fsub float %1472, %1468
   %1474 = fpext float %1473 to double
   store double %1474, ptr %32, align 8
@@ -9417,7 +9417,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  %1477 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 18), align 4
+  %1477 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 92), align 4
   %1478 = fpext float %1477 to double
   %1479 = fcmp ule double %1476, %1478
   %.not200 = and i1 %1479, %1457
@@ -9425,7 +9425,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
 
 1480:                                             ; preds = %1456
   %1481 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.412, i32 noundef %1467, double noundef %1476)
-  %1482 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 20), align 1
+  %1482 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 97), align 1
   %1483 = trunc i8 %1482 to i1
   br i1 %1483, label %1484, label %1485
 
@@ -9434,7 +9434,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   br label %1485
 
 1485:                                             ; preds = %1484, %1480
-  %1486 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 22), align 8
+  %1486 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 104), align 8
   %1487 = trunc i8 %1486 to i1
   br i1 %1487, label %1488, label %1489
 
@@ -9443,7 +9443,7 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   br label %1489
 
 1489:                                             ; preds = %1488, %1485
-  %1490 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1490 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1491 = icmp sgt i32 %1490, 0
   br i1 %1491, label %.lr.ph99, label %._crit_edge100
 
@@ -9462,24 +9462,24 @@ _ZL16print_histogramsPKcP16t_UmbrellaWindowiiP15UmbrellaOptionsS0_.exit: ; preds
   %1500 = trunc nuw nsw i64 %indvars.iv168 to i32
   %1501 = uitofp nneg i32 %1500 to double
   %1502 = fadd double %1501, 5.000000e-01
-  %1503 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1503 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1504 = fpext float %1503 to double
-  %1505 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1505 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1506 = fpext float %1505 to double
   %1507 = call double @llvm.fmuladd.f64(double %1502, double %1504, double %1506)
   %1508 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.244, double noundef %1507, double noundef %1493) #19
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %1509 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1509 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1510 = sext i32 %1509 to i64
   %1511 = icmp slt i64 %indvars.iv.next169, %1510
   br i1 %1511, label %.lr.ph99, label %._crit_edge100, !llvm.loop !123
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %1489
-  %1512 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1512 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1513 = call noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1512)
   %1514 = select i1 %1513, ptr @.str.357, ptr @.str.4
   %1515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.356, ptr noundef nonnull %1514) #19
-  %1516 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %1516 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %1517 = icmp slt i32 %500, %1516
   br i1 %1517, label %499, label %._crit_edge104, !llvm.loop !124
 
@@ -9528,7 +9528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255: ;
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit260 unwind label %1524
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit260: ; preds = %.noexc257
-  %1528 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1528 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1529 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.413, ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef %1528)
           to label %1530 unwind label %1542
 
@@ -9549,7 +9549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit260: ;
 _ZNSt10filesystem7__cxx114pathD2Ev.exit262:       ; preds = %1530, %1533
   store ptr null, ptr %1531, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #19
-  %1534 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 30), align 8
+  %1534 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 128), align 8
   %1535 = call noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %1534)
   br i1 %1535, label %1536, label %1544
 
@@ -9586,19 +9586,19 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262:       ; preds = %1530, %1533
   br label %common.resume
 
 1544:                                             ; preds = %1536, %_ZNSt10filesystem7__cxx114pathD2Ev.exit262
-  %1545 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1545 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1546 = icmp sgt i32 %1545, 0
   br i1 %1546, label %.lr.ph107, label %._crit_edge108
 
 .lr.ph107:                                        ; preds = %1544, %1563
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %1563 ], [ 0, %1544 ]
-  %1547 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %1547 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %1548 = sitofp i32 %1547 to double
   %1549 = getelementptr inbounds double, ptr %155, i64 %indvars.iv171
   %1550 = load double, ptr %1549, align 8
   %1551 = fdiv double %1550, %1548
   store double %1551, ptr %1549, align 8
-  %1552 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %1552 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %1553 = sitofp i32 %1552 to double
   %1554 = getelementptr inbounds double, ptr %158, i64 %indvars.iv171
   %1555 = load double, ptr %1554, align 8
@@ -9621,14 +9621,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262:       ; preds = %1530, %1533
   %1566 = trunc nuw nsw i64 %indvars.iv171 to i32
   %1567 = uitofp nneg i32 %1566 to double
   %1568 = fadd double %1567, 5.000000e-01
-  %1569 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 16), align 4
+  %1569 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 84), align 4
   %1570 = fpext float %1569 to double
-  %1571 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
+  %1571 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
   %1572 = fpext float %1571 to double
   %1573 = call double @llvm.fmuladd.f64(double %1568, double %1570, double %1572)
   %1574 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1529, ptr noundef nonnull @.str.415, double noundef %1573, double noundef %1564, double noundef %1565) #19
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %1575 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
+  %1575 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
   %1576 = sext i32 %1575 to i64
   %1577 = icmp slt i64 %indvars.iv.next172, %1576
   br i1 %1577, label %.lr.ph107, label %._crit_edge108, !llvm.loop !125
@@ -9696,8 +9696,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
           to label %13 unwind label %.thread47
 
 13:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_, ptr %14, align 8
   %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -9750,8 +9750,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
           to label %29 unwind label %.thread54
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_, ptr %30, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
@@ -9811,7 +9811,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -9859,7 +9859,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -9916,7 +9916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10755,7 +10755,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %52
   br i1 %exitcond.not, label %._crit_edge, label %186, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %304, %_ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit, %.preheader
-  %305 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %305 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %306 = trunc i8 %305 to i1
   %.b182 = load i1, ptr @_ZZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselectionE5first, align 4
   %not..b182 = xor i1 %.b182, true
@@ -10883,7 +10883,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %52
   %389 = trunc i8 %388 to i1
   %390 = select i1 %389, ptr @.str.4, ptr @.str.300
   %391 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.299, ptr noundef nonnull %390)
-  %.pre92 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %.pre92 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %.b.pre = load i1, ptr @_ZZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselectionE5first, align 4
   br label %392
 
@@ -10934,7 +10934,7 @@ define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_Umbrell
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %7
-  %21 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 5), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 33), align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %27
 
@@ -10961,7 +10961,7 @@ define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_Umbrell
   %34 = load i32, ptr %1, align 8
   %35 = sext i32 %34 to i64
   %36 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.219, i32 noundef 1770, i64 noundef %35, i64 noundef 4)
-  %37 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 5), align 1
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 33), align 1
   %38 = trunc i8 %37 to i1
   %39 = load i32, ptr %1, align 8
   %40 = icmp sgt i32 %39, 0
@@ -11067,7 +11067,7 @@ define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_Umbrell
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   store ptr null, ptr %82, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
-  %85 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 5), align 1
+  %85 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 33), align 1
   %86 = trunc i8 %85 to i1
   %87 = select i1 %86, ptr @.str.230, ptr @.str.229
   %88 = icmp slt i32 %80, 1
@@ -11097,7 +11097,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %.b, label %97, label %100
 
 97:                                               ; preds = %96
-  %98 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %131
 
@@ -11187,9 +11187,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %3, label %.lr.ph80, label %140
 
 140:                                              ; preds = %139
-  %141 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 13), align 8
-  %142 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 14), align 4
-  %143 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 15), align 8
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 72), align 8
+  %142 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 76), align 4
+  %143 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 80), align 8
   %.not300 = icmp eq i32 %80, 1
   br i1 %.not300, label %152, label %144
 
@@ -11205,9 +11205,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %160
 
 152:                                              ; preds = %140
-  %153 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 37), align 4
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 156), align 4
   %.not301 = icmp ne i32 %153, 0
-  %154 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 39), align 4
+  %154 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 164), align 4
   %155 = fcmp une float %154, 0.000000e+00
   %or.cond = select i1 %.not301, i1 %155, i1 false
   br i1 %or.cond, label %156, label %160
@@ -11294,7 +11294,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   store ptr %204, ptr %201, align 8
   %205 = getelementptr inbounds i8, ptr %2, i64 104
   store ptr null, ptr %205, align 8
-  %206 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %206 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %207 = trunc i8 %206 to i1
   br i1 %207, label %208, label %212
 
@@ -11350,7 +11350,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   %236 = getelementptr inbounds ptr, ptr %235, i64 %indvars.iv117
   %237 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.328, ptr noundef nonnull @.str.219, i32 noundef 1923, i64 noundef %219, i64 noundef 8)
   store ptr %237, ptr %236, align 8
-  %238 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %238 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %239 = trunc i8 %238 to i1
   br i1 %239, label %240, label %243
 
@@ -11452,7 +11452,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
 
 295:                                              ; preds = %284
   %296 = fsub double %293, %.024678
-  %297 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 8), align 4
+  %297 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 44), align 4
   %298 = fcmp ogt float %297, 0.000000e+00
   br i1 %298, label %299, label %304
 
@@ -11485,14 +11485,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %310, label %311, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %308
-  %.pre157 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 7), align 8
+  %.pre157 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 40), align 8
   br label %.critedge
 
 311:                                              ; preds = %308
-  %312 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 6), align 4
+  %312 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 36), align 4
   %313 = fpext float %312 to double
   %314 = fcmp ult double %293, %313
-  %.pre158 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 7), align 8
+  %.pre158 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 40), align 8
   %315 = fpext float %.pre158 to double
   %316 = fcmp ugt double %293, %315
   %or.cond180 = select i1 %314, i1 true, i1 %316
@@ -11507,7 +11507,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %3, label %.lr.ph68.split.us, label %.lr.ph68.split
 
 .lr.ph68.split.us:                                ; preds = %.lr.ph68
-  %319 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %319 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %.fr88 = freeze i8 %319
   %320 = trunc i8 %.fr88 to i1
   %invariant.gep = getelementptr inbounds i8, ptr %285, i64 8
@@ -11627,7 +11627,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
 
 373:                                              ; preds = %368, %.lr.ph68.split
   %374 = add nsw i32 %.226364, 1
-  %375 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 4), align 8
+  %375 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 32), align 8
   %376 = trunc i8 %375 to i1
   br i1 %376, label %377, label %.preheader17
 
@@ -11695,7 +11695,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %490
 
 410:                                              ; preds = %403
-  %411 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 32), align 1
+  %411 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 137), align 1
   %412 = trunc i8 %411 to i1
   br i1 %412, label %413, label %434
 
@@ -11736,7 +11736,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   %437 = fmul double %436, %281
   %438 = call double @llvm.floor.f64(double %437)
   %439 = fptosi double %438 to i32
-  %440 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 19), align 8
+  %440 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8
   %441 = trunc i8 %440 to i1
   br i1 %441, label %442, label %.loopexit
 
@@ -11813,7 +11813,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %474, label %475, label %.loopexit19
 
 475:                                              ; preds = %.critedge
-  %476 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i64 0, i32 28), align 4
+  %476 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 116), align 4
   %477 = trunc i8 %476 to i1
   br i1 %477, label %478, label %.loopexit20
 
@@ -13006,8 +13006,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EE
           to label %12 unwind label %.thread22
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16

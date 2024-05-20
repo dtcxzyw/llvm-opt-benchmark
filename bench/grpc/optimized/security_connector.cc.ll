@@ -83,7 +83,7 @@ entry:
   store i64 %url_scheme.coerce0, ptr %url_scheme_.i, align 8
   %url_scheme.sroa.2.0.url_scheme_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %url_scheme.coerce1, ptr %url_scheme.sroa.2.0.url_scheme_.sroa_idx.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_creds_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %channel_creds_, align 8
   %0 = load ptr, ptr %channel_creds, align 8
@@ -199,7 +199,7 @@ entry:
   store i64 %url_scheme.coerce0, ptr %url_scheme_.i, align 8
   %url_scheme.sroa.2.0.url_scheme_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %url_scheme.coerce1, ptr %url_scheme.sroa.2.0.url_scheme_.sroa_idx.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %server_creds_, align 8
   %0 = load ptr, ptr %server_creds, align 8
@@ -348,7 +348,7 @@ return:                                           ; preds = %_Z32grpc_security_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %channel_args_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -413,7 +413,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN30grpc_server_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %server_creds_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -452,7 +452,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

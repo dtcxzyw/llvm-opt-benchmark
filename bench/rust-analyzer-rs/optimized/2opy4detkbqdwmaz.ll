@@ -4630,7 +4630,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h24f3626b9beade0a
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17059,7 +17059,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit60.i: ; pr
 209:                                              ; preds = %207
   %210 = icmp ult i64 %208, 5
   call void @llvm.assume(i1 %210)
-  %211 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN15ide_diagnostics8handlers16json_is_not_rust5State12serde_derive10__CALLSITE17h0399fdf9aa81c3d7E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !4446
+  %211 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15ide_diagnostics8handlers16json_is_not_rust5State12serde_derive10__CALLSITE17h0399fdf9aa81c3d7E, i64 16) monotonic, align 8, !noalias !4446
   switch i8 %211, label %212 [
     i8 0, label %.critedge46.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

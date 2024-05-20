@@ -3475,7 +3475,7 @@ default.unreachable29:                            ; preds = %228, %211, %181, %1
   br i1 %415, label %416, label %.thread104.i.i.i.i.i
 
 416:                                              ; preds = %403
-  %417 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN11aws_runtime10env_config6source4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9fbfa51af5962fc1E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !528
+  %417 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11aws_runtime10env_config6source4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9fbfa51af5962fc1E", i64 16) monotonic, align 8, !noalias !528
   switch i8 %417, label %418 [
     i8 0, label %.thread104.i.i.i.i.i
     i8 1, label %.thread101.i.i.i.i.i
@@ -4114,7 +4114,7 @@ default.unreachable29:                            ; preds = %228, %211, %181, %1
   br i1 %617, label %618, label %.thread179.i.i.i
 
 618:                                              ; preds = %615
-  %619 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config15provider_config14ProviderConfig11try_profile28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc695f7a3f08dc650E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !508
+  %619 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config15provider_config14ProviderConfig11try_profile28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc695f7a3f08dc650E", i64 16) monotonic, align 8, !noalias !508
   switch i8 %619, label %620 [
     i8 0, label %.thread179.i.i.i
     i8 1, label %.thread176.i.i.i
@@ -4898,7 +4898,7 @@ default.unreachable18:                            ; preds = %27, %3
   br i1 %78, label %79, label %.thread75.i
 
 79:                                               ; preds = %76
-  %80 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config4meta6region19RegionProviderChain6region28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17heb36aab68575eb11E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !770
+  %80 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config4meta6region19RegionProviderChain6region28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17heb36aab68575eb11E", i64 16) monotonic, align 8, !noalias !770
   switch i8 %80, label %81 [
     i8 0, label %.thread75.i
     i8 1, label %.thread.i
@@ -5580,7 +5580,7 @@ default.unreachable1019:                          ; preds = %2560, %2291, %1973,
   br i1 %307, label %308, label %.thread929
 
 308:                                              ; preds = %305
-  %309 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config6loader12ConfigLoader4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he7eda98d5164e9dbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %309 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config6loader12ConfigLoader4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he7eda98d5164e9dbE", i64 16) monotonic, align 8
   switch i8 %309, label %310 [
     i8 0, label %.thread929
     i8 1, label %.thread
@@ -6442,7 +6442,7 @@ default.unreachable1019:                          ; preds = %2560, %2291, %1973,
           to label %.body.i unwind label %699, !noalias !951
 
 612:                                              ; preds = %607
-  %613 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config16default_provider8use_fips17use_fips_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb060587bc73c7963E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !955
+  %613 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config16default_provider8use_fips17use_fips_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb060587bc73c7963E", i64 16) monotonic, align 8, !noalias !955
   switch i8 %613, label %614 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread133.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i.i
@@ -7037,7 +7037,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
           to label %.body.i291 unwind label %889, !noalias !980
 
 802:                                              ; preds = %797
-  %803 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config16default_provider14use_dual_stack23use_dual_stack_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h04424d1f724bfd5cE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !984
+  %803 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config16default_provider14use_dual_stack23use_dual_stack_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h04424d1f724bfd5cE", i64 16) monotonic, align 8, !noalias !984
   switch i8 %803, label %804 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread133.i.i.i293
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i.i313
@@ -8685,7 +8685,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %.body.i385 unwind label %1410, !noalias !1134
 
 1314:                                             ; preds = %1309
-  %1315 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config16default_provider8app_name7Builder8app_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9f1e3c466076cb80E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1131
+  %1315 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config16default_provider8app_name7Builder8app_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9f1e3c466076cb80E", i64 16) monotonic, align 8, !noalias !1131
   switch i8 %1315, label %1316 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread133.i.i.i391
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i.i410
@@ -11889,7 +11889,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %.body.i526 unwind label %2444, !noalias !1449
 
 2357:                                             ; preds = %2352
-  %2358 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config16default_provider31ignore_configured_endpoint_urls40ignore_configured_endpoint_urls_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h338e144e4de2e9c6E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1453
+  %2358 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config16default_provider31ignore_configured_endpoint_urls40ignore_configured_endpoint_urls_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h338e144e4de2e9c6E", i64 16) monotonic, align 8, !noalias !1453
   switch i8 %2358, label %2359 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread133.i.i.i528
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i.i548
@@ -12304,7 +12304,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %2477, label %2478, label %.thread981
 
 2478:                                             ; preds = %2475
-  %2479 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config6loader12ConfigLoader4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h63cb4ee123b03860E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2479 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config6loader12ConfigLoader4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h63cb4ee123b03860E", i64 16) monotonic, align 8
   switch i8 %2479, label %2480 [
     i8 0, label %.thread981
     i8 1, label %.thread978
@@ -12752,7 +12752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %.body.i624 unwind label %2713, !noalias !1533
 
 2626:                                             ; preds = %2621
-  %2627 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10aws_config16default_provider12endpoint_url33endpoint_url_provider_with_origin28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5d12936abec119fbE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1530
+  %2627 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10aws_config16default_provider12endpoint_url33endpoint_url_provider_with_origin28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5d12936abec119fbE", i64 16) monotonic, align 8, !noalias !1530
   switch i8 %2627, label %2628 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread133.i.i.i625
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i.i647
@@ -23036,10 +23036,10 @@ define hidden void @_ZN5tokio7runtime4park16CachedParkThread8block_on17h0e559bc1
   br label %20
 
 20:                                               ; preds = %.noexc17, %17
-  %21 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !10, !noundef !4
-  %22 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
-  store i8 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4
-  store i8 -128, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !range !10, !noundef !4
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
   br label %.noexc
 
 .noexc:                                           ; preds = %20, %17
@@ -23193,10 +23193,10 @@ define hidden void @_ZN5tokio7runtime4park16CachedParkThread8block_on17h6d2cf355
   br label %22
 
 22:                                               ; preds = %.noexc14, %19
-  %23 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !10, !noundef !4
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
-  store i8 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4
-  store i8 -128, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !range !10, !noundef !4
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
   br label %.noexc
 
 .noexc:                                           ; preds = %22, %19
@@ -24088,9 +24088,9 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %9
 
 9:                                                ; preds = %.noexc, %3
-  %10 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !10, !noundef !4
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !range !10, !noundef !4
   %11 = trunc nuw i8 %10 to i1
-  %12 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
   br i1 %11, label %13, label %.thread.i.i.i
 
 13:                                               ; preds = %9
@@ -24111,7 +24111,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread.i.i.i:                                    ; preds = %13, %9
   %.sroa.5.03.i.i.i = phi i8 [ %spec.select124.i.i.i, %13 ], [ %12, %9 ]
-  store i8 %.sroa.5.03.i.i.i, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1
+  store i8 %.sroa.5.03.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
   br label %21
 
 .thread23:                                        ; preds = %8, %14, %21

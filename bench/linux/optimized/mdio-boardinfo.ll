@@ -84,8 +84,8 @@ define dso_local noundef range(i32 -12, 1) i32 @mdiobus_register_board_info(ptr 
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %12, ptr noundef align 8 dereferenceable(56) %11, i64 56, i1 false)
   tail call void @mutex_lock(ptr noundef nonnull @mdio_board_lock) #5
-  %13 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mdio_board_list, i64 0, i32 1), align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.list_head, ptr @mdio_board_list, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mdio_board_list, i64 8), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @mdio_board_list, i64 8), align 8
   store ptr @mdio_board_list, ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %13, ptr %14, align 8

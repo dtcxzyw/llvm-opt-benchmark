@@ -72,7 +72,7 @@ entry:
   %0 = load i32, ptr @ident_config_given, align 4
   %and = and i32 %0, 1
   %tobool = icmp ne i32 %and, 0
-  %1 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %tobool1 = icmp ne i64 %1, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end, label %if.then
@@ -92,7 +92,7 @@ if.then.xgetpwuid_self.exit_crit_edge:            ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.passwd, ptr @xgetpwuid_self.fallback, i64 0, i32 4), align 8
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   store i1 true, ptr @default_name_is_bogus, align 4
   br label %xgetpwuid_self.exit
 
@@ -116,26 +116,26 @@ if.then.i1:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then.i1
-  %5 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i1
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
-  %.pre.i.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %6 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %5, %strbuf_avail.exit.i.i ]
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 %3, ptr %arrayidx.i.i, align 1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %8, i64 %9
   store i8 0, ptr %arrayidx3.i.i, align 1
   br label %for.inc.i
@@ -155,26 +155,26 @@ if.else.i:                                        ; preds = %for.cond.i
   br i1 %tobool.not.i.i10.i, label %if.then.i17.i, label %strbuf_avail.exit.i11.i
 
 strbuf_avail.exit.i11.i:                          ; preds = %if.else.i
-  %15 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i12.i = add i64 %15, 1
   %tobool.not.i13.i = icmp eq i64 %14, %.neg.i12.i
   br i1 %tobool.not.i13.i, label %if.then.i17.i, label %strbuf_addch.exit20.i
 
 if.then.i17.i:                                    ; preds = %strbuf_avail.exit.i11.i, %if.else.i
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
-  %.pre.i18.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %.pre.i18.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.pre8.i19.i = add i64 %.pre.i18.i, 1
   br label %strbuf_addch.exit20.i
 
 strbuf_addch.exit20.i:                            ; preds = %if.then.i17.i, %strbuf_avail.exit.i11.i
   %inc.pre-phi.i14.i = phi i64 [ %.pre8.i19.i, %if.then.i17.i ], [ %.neg.i12.i, %strbuf_avail.exit.i11.i ]
   %16 = phi i64 [ %.pre.i18.i, %if.then.i17.i ], [ %15, %strbuf_avail.exit.i11.i ]
-  %17 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx.i15.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %spec.select.i.i, ptr %arrayidx.i15.i, align 1
-  %18 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx3.i16.i = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 0, ptr %arrayidx3.i16.i, align 1
   %20 = load ptr, ptr %pw.0.i, align 8
@@ -192,7 +192,7 @@ copy_gecos.exit:                                  ; preds = %for.cond.i, %for.co
   br label %if.end
 
 if.end:                                           ; preds = %copy_gecos.exit, %entry
-  %21 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   ret ptr %21
 }
 
@@ -208,7 +208,7 @@ entry:
   %0 = load i32, ptr @ident_config_given, align 4
   %and = and i32 %0, 2
   %tobool = icmp ne i32 %and, 0
-  %1 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
   %tobool1 = icmp ne i64 %1, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end15, label %if.then
@@ -248,7 +248,7 @@ if.else.xgetpwuid_self.exit_crit_edge:            ; preds = %if.else
 
 if.then.i:                                        ; preds = %if.else
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.passwd, ptr @xgetpwuid_self.fallback, i64 0, i32 4), align 8
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   store i1 true, ptr @default_email_is_bogus, align 4
   br label %xgetpwuid_self.exit
 
@@ -261,26 +261,26 @@ xgetpwuid_self.exit:                              ; preds = %if.else.xgetpwuid_s
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %xgetpwuid_self.exit
-  %6 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
   %.neg.i.i = add i64 %6, 1
   %tobool.not.i.i = icmp eq i64 %5, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %xgetpwuid_self.exit
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_email, i64 noundef 1) #18
-  %.pre.i.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %7 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %6, %strbuf_avail.exit.i.i ]
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
+  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 64, ptr %arrayidx.i.i, align 1
-  %9 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 2), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 0, ptr %arrayidx3.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %mailnamebuf.i.i)
@@ -398,7 +398,7 @@ if.end14:                                         ; preds = %add_domainname.exit
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %entry
-  %13 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
   ret ptr %13
 }
 
@@ -408,8 +408,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @reset_ident_date() local_unnamed_addr #3 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -761,20 +761,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp = icmp eq i32 %whose_ident, 1
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 8), align 8
   %tobool9 = icmp ne i64 %3, 0
   %or.cond = select i1 %cmp, i1 %tobool9, i1 false
   br i1 %or.cond, label %if.end17, label %if.else
 
 if.else:                                          ; preds = %if.then
   %cmp11 = icmp eq i32 %whose_ident, 2
-  %4 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 8), align 8
   %tobool14 = icmp ne i64 %4, 0
   %or.cond1 = select i1 %cmp11, i1 %tobool14, i1 false
   br i1 %or.cond1, label %if.end17, label %if.then19
 
 if.end17:                                         ; preds = %if.then, %if.else
-  %email.addr.0.in = phi ptr [ getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i64 0, i32 2), %if.else ], [ getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i64 0, i32 2), %if.then ]
+  %email.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_email, i64 16), %if.else ], [ getelementptr inbounds (i8, ptr @git_author_email, i64 16), %if.then ]
   %email.addr.0 = load ptr, ptr %email.addr.0.in, align 8
   %tobool18.not = icmp eq ptr %email.addr.0, null
   br i1 %tobool18.not, label %if.then19, label %if.end35
@@ -820,20 +820,20 @@ if.then37:                                        ; preds = %if.end35
 
 if.then39:                                        ; preds = %if.then37
   %cmp40 = icmp eq i32 %whose_ident, 1
-  %7 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 8), align 8
   %tobool43 = icmp ne i64 %7, 0
   %or.cond4 = select i1 %cmp40, i1 %tobool43, i1 false
   br i1 %or.cond4, label %if.end53, label %if.else45
 
 if.else45:                                        ; preds = %if.then39
   %cmp46 = icmp eq i32 %whose_ident, 2
-  %8 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i64 0, i32 1), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 8), align 8
   %tobool49 = icmp ne i64 %8, 0
   %or.cond5 = select i1 %cmp46, i1 %tobool49, i1 false
   br i1 %or.cond5, label %if.end53, label %if.then55
 
 if.end53:                                         ; preds = %if.then39, %if.else45
-  %name.addr.0.in = phi ptr [ getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i64 0, i32 2), %if.else45 ], [ getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i64 0, i32 2), %if.then39 ]
+  %name.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds (i8, ptr @git_author_name, i64 16), %if.then39 ]
   %name.addr.0 = load ptr, ptr %name.addr.0.in, align 8
   %tobool54.not.not = icmp eq ptr %name.addr.0, null
   br i1 %tobool54.not.not, label %if.then55, label %if.end72
@@ -906,7 +906,7 @@ if.end81.if.end83.thread_crit_edge:               ; preds = %if.end81
 
 if.then.i:                                        ; preds = %if.end81
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.passwd, ptr @xgetpwuid_self.fallback, i64 0, i32 4), align 8
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   br label %if.end91
 
 if.end83:                                         ; preds = %if.end72
@@ -1044,7 +1044,7 @@ if.then109:                                       ; preds = %if.then105
   unreachable
 
 if.else112:                                       ; preds = %land.lhs.true101, %strbuf_addch.exit66
-  %28 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i64 0, i32 1), align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 8), align 8
   %tobool.not.i67 = icmp eq i64 %28, 0
   br i1 %tobool.not.i67, label %if.then.i68, label %ident_default_date.exit
 
@@ -1053,7 +1053,7 @@ if.then.i68:                                      ; preds = %if.else112
   br label %ident_default_date.exit
 
 ident_default_date.exit:                          ; preds = %if.else112, %if.then.i68
-  %29 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i64 0, i32 2), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 16), align 8
   %call.i69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #19
   tail call void @strbuf_add(ptr noundef nonnull %arrayidx, ptr noundef %29, i64 noundef %call.i69) #18
   br label %if.end115
@@ -1371,8 +1371,8 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %return
 
 if.end.i:                                         ; preds = %if.then.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -1405,8 +1405,8 @@ if.then11.i:                                      ; preds = %if.then9.i
   br label %return
 
 if.end14.i:                                       ; preds = %if.then9.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i64 0, i32 1), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 16), align 8
   %cmp3.not.i23.i = icmp eq ptr %3, @strbuf_slopbuf
   br i1 %cmp3.not.i23.i, label %strbuf_setlen.exit25.i, label %if.then4.i24.i
 
@@ -1439,8 +1439,8 @@ if.then22.i:                                      ; preds = %if.then20.i
   br label %return
 
 if.end25.i:                                       ; preds = %if.then20.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i64 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 16), align 8
   %cmp3.not.i27.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i27.i, label %strbuf_setlen.exit29.i, label %if.then4.i28.i
 
@@ -1473,8 +1473,8 @@ if.then33.i:                                      ; preds = %if.then31.i
   br label %return
 
 if.end36.i:                                       ; preds = %if.then31.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i64 0, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 16), align 8
   %cmp3.not.i31.i = icmp eq ptr %9, @strbuf_slopbuf
   br i1 %cmp3.not.i31.i, label %strbuf_setlen.exit33.i, label %if.then4.i32.i
 
@@ -1507,8 +1507,8 @@ if.then44.i:                                      ; preds = %if.then42.i
   br label %return
 
 if.end47.i:                                       ; preds = %if.then42.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   %cmp3.not.i35.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i35.i, label %strbuf_setlen.exit37.i, label %if.then4.i36.i
 
@@ -1544,8 +1544,8 @@ if.then56.i:                                      ; preds = %if.then54.i
   br label %return
 
 if.end59.i:                                       ; preds = %if.then54.i
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
   %cmp3.not.i39.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %cmp3.not.i39.i, label %strbuf_setlen.exit41.i, label %if.then4.i40.i
 

@@ -606,18 +606,18 @@ define internal noundef i32 @zm_activate_libxml(i32 %0, i32 %1) #0 {
   br label %6
 
 6:                                                ; preds = %3, %2
-  store i8 0, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %33, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 64), align 8
   %.not20 = icmp eq ptr %5, null
   br i1 %.not20, label %18, label %6
 
@@ -646,8 +646,8 @@ define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
   br label %18
 
 18:                                               ; preds = %11, %17, %12, %4
-  tail call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3)) #17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 4), align 8
+  tail call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds (i8, ptr @libxml_globals, i64 40)) #17
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 72), align 8
   %.not21 = icmp eq ptr %19, null
   br i1 %.not21, label %32, label %20
 
@@ -676,7 +676,7 @@ define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
   br label %32
 
 32:                                               ; preds = %25, %31, %26, %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @libxml_globals, i64 40), ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
   br label %33
 
 33:                                               ; preds = %32, %2
@@ -722,8 +722,8 @@ define internal noundef i32 @php_libxml_post_deactivate() #0 {
 
 4:                                                ; preds = %1, %0
   tail call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef null) #17
-  store i32 0, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %6
 
@@ -748,20 +748,20 @@ define internal noundef i32 @php_libxml_post_deactivate() #0 {
   br label %16
 
 16:                                               ; preds = %10, %15, %6
-  store ptr null, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   br label %17
 
 17:                                               ; preds = %16, %4
-  store i64 0, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1, i32 1), align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 24), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %21, label %19
 
 19:                                               ; preds = %17
   tail call void @zend_llist_destroy(ptr noundef nonnull %18) #17
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   tail call void @_efree(ptr noundef %20) #17
-  store ptr null, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -1374,7 +1374,7 @@ php_libxml_set_old_ns_list.exit:                  ; preds = %149, %164
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_libxml_get_stream_context() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %6, label %3
 
@@ -1384,13 +1384,13 @@ define ptr @php_libxml_get_stream_context() local_unnamed_addr #0 {
   br label %10
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = tail call ptr @php_stream_context_alloc() #17
-  store ptr %9, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %10
 
 10:                                               ; preds = %6, %8, %3
@@ -1407,7 +1407,7 @@ declare ptr @php_stream_context_alloc() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @php_libxml_issue_error(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._xmlError, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
@@ -1423,7 +1423,7 @@ define void @php_libxml_issue_error(i32 noundef %0, ptr noundef %1) local_unname
   %9 = tail call ptr @xmlStrdup(ptr noundef %1) #17
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   call void @zend_llist_add_element(ptr noundef %11, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
   br label %13
@@ -1444,7 +1444,7 @@ define void @php_libxml_pretend_ctx_error_ex(ptr nocapture noundef readonly %0, 
   call void @llvm.va_start.p0(ptr nonnull %5)
   call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef null, ptr %3, ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %17, label %7
 
@@ -1512,7 +1512,7 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %20 = load ptr, ptr %7, align 8
   %sext = shl i64 %8, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %.not56 = icmp eq ptr %22, null
   br i1 %.not56, label %28, label %23
 
@@ -1520,14 +1520,14 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %21
-  %27 = load i64, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1, i32 1), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 24), align 8
   %.not57 = icmp ult i64 %26, %27
   br i1 %.not57, label %29, label %28
 
 28:                                               ; preds = %.critedge, %23
   %.052 = phi i64 [ %21, %.critedge ], [ %26, %23 ]
-  call void @smart_str_erealloc(ptr noundef nonnull getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), i64 noundef %.052) #17
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  call void @smart_str_erealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @libxml_globals, i64 16), i64 noundef %.052) #17
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre5 = load i64, ptr %.phi.trans.insert, align 8
   br label %29
@@ -1539,7 +1539,7 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = getelementptr inbounds i8, ptr %32, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %20, i64 %21, i1 false)
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   store i64 %.1, ptr %35, align 8
   %36 = load ptr, ptr %7, align 8
@@ -1547,12 +1547,12 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   br i1 %.lcssa, label %37, label %88
 
 37:                                               ; preds = %29
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not58 = icmp eq ptr %38, null
   br i1 %.not58, label %49, label %39
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
@@ -1567,18 +1567,18 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %46 = call ptr @xmlStrdup(ptr noundef nonnull %41) #17
   %47 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   call void @zend_llist_add_element(ptr noundef %48, ptr noundef nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   br label %php_libxml_ctx_error_level.exit
 
 49:                                               ; preds = %37
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not59 = icmp eq ptr %50, null
   br i1 %.not59, label %51, label %php_libxml_ctx_error_level.exit
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   switch i32 %0, label %74 [
     i32 1, label %54
@@ -1646,7 +1646,7 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   br label %php_libxml_ctx_error_level.exit
 
 php_libxml_ctx_error_level.exit:                  ; preds = %73, %72, %71, %63, %62, %61, %49, %74, %39
-  %75 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   %.not60 = icmp eq ptr %75, null
   br i1 %.not60, label %87, label %76
 
@@ -1671,11 +1671,11 @@ php_libxml_ctx_error_level.exit:                  ; preds = %73, %72, %71, %63, 
   br label %86
 
 86:                                               ; preds = %80, %85, %76
-  store ptr null, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 16), align 8
   br label %87
 
 87:                                               ; preds = %86, %php_libxml_ctx_error_level.exit
-  store i64 0, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 1, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 24), align 8
   br label %88
 
 88:                                               ; preds = %87, %29
@@ -1788,14 +1788,14 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   br i1 %8, label %9, label %130
 
 9:                                                ; preds = %3
-  %10 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 49), align 8
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 480), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %130
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %17
 
@@ -1919,7 +1919,7 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   br label %69
 
 69:                                               ; preds = %68, %67
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, 262144
@@ -1928,7 +1928,7 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
 
 74:                                               ; preds = %69
   %75 = call noalias ptr @_emalloc_256() #17
-  %76 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %75, ptr noundef nonnull align 8 dereferenceable(240) %76, i64 240, i1 false)
   %77 = getelementptr inbounds i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8
@@ -1946,8 +1946,8 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
 
 85:                                               ; preds = %82, %74, %69
   %.0195.i = phi ptr [ %75, %82 ], [ %70, %69 ], [ %75, %74 ]
-  %86 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 3), align 8
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 2), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 64), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 56), align 8
   call void @zend_call_known_function(ptr noundef nonnull %.0195.i, ptr noundef %86, ptr noundef %87, ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null) #17
   %88 = getelementptr inbounds i8, ptr %4, i64 8
   %89 = load i8, ptr %88, align 8
@@ -1959,7 +1959,7 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   ]
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 24
@@ -1974,7 +1974,7 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %95
-  %101 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 24
@@ -2092,7 +2092,7 @@ define void @php_libxml_switch_context(ptr noundef readonly %0, ptr noundef writ
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @libxml_globals, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   store ptr %4, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %5, ptr %6, align 8
@@ -2107,7 +2107,7 @@ define void @php_libxml_switch_context(ptr noundef readonly %0, ptr noundef writ
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   store ptr %9, ptr @libxml_globals, align 8
-  store i32 %11, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   br label %12
 
 12:                                               ; preds = %8, %7
@@ -2141,7 +2141,7 @@ define hidden void @zif_libxml_set_streams_context(ptr noundef %0, ptr nocapture
   br label %22
 
 11:                                               ; preds = %6
-  %12 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %15, label %14
 
@@ -2153,7 +2153,7 @@ define hidden void @zif_libxml_set_streams_context(ptr noundef %0, ptr nocapture
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 8
   store ptr %16, ptr @libxml_globals, align 8
-  store i32 %17, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   %18 = and i32 %17, 65280
   %.not57 = icmp eq i32 %18, 0
   br i1 %.not57, label %22, label %19
@@ -2250,26 +2250,26 @@ define hidden void @zif_libxml_use_internal_errors(ptr noundef %0, ptr nocapture
 
 28:                                               ; preds = %23
   call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef null) #17
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not72 = icmp eq ptr %29, null
   br i1 %.not72, label %37, label %30
 
 30:                                               ; preds = %28
   call void @zend_llist_destroy(ptr noundef nonnull %29) #17
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   call void @_efree(ptr noundef %31) #17
-  store ptr null, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   br label %37
 
 32:                                               ; preds = %23
   call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef nonnull @php_libxml_structured_error_handler) #17
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
   %36 = call noalias ptr @_emalloc_56() #17
-  store ptr %36, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   call void @zend_llist_init(ptr noundef %36, i64 noundef 88, ptr noundef nonnull @_php_libxml_free_error, i8 noundef zeroext 0) #17
   br label %37
 
@@ -2313,7 +2313,7 @@ define internal void @php_libxml_structured_error_handler(ptr nocapture readnone
   br label %13
 
 13:                                               ; preds = %.critedge.i, %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   call void @zend_llist_add_element(ptr noundef %14, ptr noundef nonnull %3) #17
   br label %_php_list_set_error_structure.exit
 
@@ -2431,7 +2431,7 @@ define hidden void @zif_libxml_get_errors(ptr nocapture noundef readonly %0, ptr
   br label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %42, label %9
 
@@ -2440,7 +2440,7 @@ define hidden void @zif_libxml_get_errors(ptr nocapture noundef readonly %0, ptr
   store ptr %10, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %13 = tail call ptr @zend_llist_get_first_ex(ptr noundef %12, ptr noundef null) #17
   %.not2528 = icmp eq ptr %13, null
   br i1 %.not2528, label %.loopexit, label %.lr.ph
@@ -2495,7 +2495,7 @@ define hidden void @zif_libxml_get_errors(ptr nocapture noundef readonly %0, ptr
   call void @add_property_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i64 noundef 4, i64 noundef %37) #17
   %38 = load ptr, ptr %1, align 8
   %39 = call ptr @zend_hash_next_index_insert(ptr noundef %38, ptr noundef nonnull %3) #17
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %41 = call ptr @zend_llist_get_next_ex(ptr noundef %40, ptr noundef null) #17
   %.not25 = icmp eq ptr %41, null
   br i1 %.not25, label %.loopexit, label %.lr.ph
@@ -2531,7 +2531,7 @@ define hidden void @zif_libxml_clear_errors(ptr nocapture noundef readonly %0, p
 
 6:                                                ; preds = %2
   tail call void @xmlResetLastError() #17
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %9, label %8
 
@@ -2550,9 +2550,9 @@ declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @php_libxml_disable_entity_loader(i1 noundef zeroext %0) local_unnamed_addr #7 {
   %2 = zext i1 %0 to i8
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   %4 = trunc i8 %3 to i1
-  store i8 %2, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  store i8 %2, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   ret i1 %4
 }
 
@@ -2605,9 +2605,9 @@ define hidden void @zif_libxml_disable_entity_loader(ptr noundef %0, ptr nocaptu
 
 .thread80:                                        ; preds = %10, %13, %..thread80_crit_edge, %8
   %18 = phi i8 [ %17, %..thread80_crit_edge ], [ 1, %8 ], [ 0, %13 ], [ 1, %10 ]
-  %19 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   %20 = trunc i8 %19 to i1
-  store i8 %18, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  store i8 %18, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   %21 = select i1 %20, i32 3, i32 2
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %21, ptr %22, align 8
@@ -2667,12 +2667,12 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   br label %72
 
 20:                                               ; preds = %14, %15
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %.not89 = icmp eq ptr %21, null
   br i1 %.not89, label %51, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 3), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 64), align 8
   %.not90 = icmp eq ptr %23, null
   br i1 %.not90, label %36, label %24
 
@@ -2701,8 +2701,8 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   br label %36
 
 36:                                               ; preds = %29, %35, %30, %22
-  call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3)) #17
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 4), align 8
+  call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds (i8, ptr @libxml_globals, i64 40)) #17
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 72), align 8
   %.not91 = icmp eq ptr %37, null
   br i1 %.not91, label %50, label %38
 
@@ -2731,7 +2731,7 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   br label %50
 
 50:                                               ; preds = %43, %49, %44, %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @libxml_globals, i64 40), ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
   br label %51
 
 51:                                               ; preds = %50, %20
@@ -2740,22 +2740,22 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   br i1 %.not92, label %70, label %53
 
 53:                                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8, !nonnull !4, !noundef !4
-  %55 = icmp eq ptr %54, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @libxml_globals, i64 40), ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8, !nonnull !4, !noundef !4
+  %55 = icmp eq ptr %54, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = call noalias ptr @_emalloc_256() #17
-  %58 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %57, ptr noundef nonnull align 8 dereferenceable(240) %58, i64 240, i1 false)
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr null, ptr %59, align 8
-  store ptr %57, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   br label %60
 
 60:                                               ; preds = %56, %53
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 3), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 64), align 8
   %.not93 = icmp eq ptr %61, null
   br i1 %.not93, label %65, label %62
 
@@ -2766,7 +2766,7 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   br label %65
 
 65:                                               ; preds = %62, %60
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3, i32 4), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 72), align 8
   %.not94 = icmp eq ptr %66, null
   br i1 %.not94, label %70, label %67
 
@@ -2797,12 +2797,12 @@ define hidden void @zif_libxml_get_external_entity_loader(ptr nocapture noundef 
   br label %11
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 40), align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @zend_get_callable_zval_from_fcc(ptr noundef nonnull getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), ptr noundef %1) #17
+  tail call void @zend_get_callable_zval_from_fcc(ptr noundef nonnull getelementptr inbounds (i8, ptr @libxml_globals, i64 40), ptr noundef %1) #17
   br label %11
 
 9:                                                ; preds = %6
@@ -2930,7 +2930,7 @@ php_libxml_initialize.exit:                       ; preds = %2, %4
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %php_libxml_initialize.exit
-  %11 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @php_libxml_exports, i64 0, i32 0, i32 1), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @php_libxml_exports, i64 4), align 4
   %12 = and i32 %11, 128
   %.not48 = icmp eq i32 %12, 0
   br i1 %.not48, label %15, label %13
@@ -3656,7 +3656,7 @@ declare ptr @xmlParserInputBufferCreateFilenameDefault(ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @php_libxml_input_buffer_create_filename(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 4), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 80), align 8
   %4 = trunc i8 %3 to i1
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4
@@ -3876,7 +3876,7 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, p
   br label %56
 
 36:                                               ; preds = %29, %25, %21
-  %37 = load i8, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 0, i32 1), align 8
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 8), align 8
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %42, label %39
 
@@ -3886,13 +3886,13 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, p
   br label %php_libxml_get_stream_context.exit
 
 42:                                               ; preds = %36
-  %43 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %44, label %php_libxml_get_stream_context.exit
 
 44:                                               ; preds = %42
   %45 = call ptr @php_stream_context_alloc() #17
-  store ptr %45, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %php_libxml_get_stream_context.exit
 
 php_libxml_get_stream_context.exit:               ; preds = %39, %42, %44

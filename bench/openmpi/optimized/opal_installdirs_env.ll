@@ -41,7 +41,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 4:                                                ; preds = %2, %0
   %.082 = phi ptr [ %spec.store.select, %2 ], [ null, %0 ]
-  store ptr %.082, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2), align 8
+  store ptr %.082, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 264), align 8
   %5 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #2
   %.not116 = icmp eq ptr %5, null
   br i1 %.not116, label %8, label %6
@@ -54,7 +54,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 8:                                                ; preds = %6, %4
   %.081 = phi ptr [ %spec.store.select1, %6 ], [ null, %4 ]
-  store ptr %.081, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 1), align 8
+  store ptr %.081, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 272), align 8
   %9 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #2
   %.not117 = icmp eq ptr %9, null
   br i1 %.not117, label %12, label %10
@@ -67,7 +67,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 12:                                               ; preds = %10, %8
   %.080 = phi ptr [ %spec.store.select2, %10 ], [ null, %8 ]
-  store ptr %.080, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 2), align 8
+  store ptr %.080, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 280), align 8
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #2
   %.not118 = icmp eq ptr %13, null
   br i1 %.not118, label %16, label %14
@@ -80,7 +80,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 16:                                               ; preds = %14, %12
   %.079 = phi ptr [ %spec.store.select3, %14 ], [ null, %12 ]
-  store ptr %.079, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 3), align 8
+  store ptr %.079, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 288), align 8
   %17 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #2
   %.not119 = icmp eq ptr %17, null
   br i1 %.not119, label %20, label %18
@@ -93,7 +93,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 20:                                               ; preds = %18, %16
   %.078 = phi ptr [ %spec.store.select4, %18 ], [ null, %16 ]
-  store ptr %.078, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 4), align 8
+  store ptr %.078, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 296), align 8
   %21 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #2
   %.not120 = icmp eq ptr %21, null
   br i1 %.not120, label %24, label %22
@@ -106,7 +106,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 24:                                               ; preds = %22, %20
   %.077 = phi ptr [ %spec.store.select5, %22 ], [ null, %20 ]
-  store ptr %.077, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 5), align 8
+  store ptr %.077, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 304), align 8
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #2
   %.not121 = icmp eq ptr %25, null
   br i1 %.not121, label %28, label %26
@@ -119,7 +119,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 28:                                               ; preds = %26, %24
   %.076 = phi ptr [ %spec.store.select6, %26 ], [ null, %24 ]
-  store ptr %.076, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 6), align 8
+  store ptr %.076, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 312), align 8
   %29 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #2
   %.not122 = icmp eq ptr %29, null
   br i1 %.not122, label %32, label %30
@@ -132,7 +132,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 32:                                               ; preds = %30, %28
   %.075 = phi ptr [ %spec.store.select7, %30 ], [ null, %28 ]
-  store ptr %.075, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 7), align 8
+  store ptr %.075, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 320), align 8
   %33 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #2
   %.not123 = icmp eq ptr %33, null
   br i1 %.not123, label %36, label %34
@@ -145,7 +145,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 36:                                               ; preds = %34, %32
   %.074 = phi ptr [ %spec.store.select8, %34 ], [ null, %32 ]
-  store ptr %.074, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 8), align 8
+  store ptr %.074, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 328), align 8
   %37 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #2
   %.not124 = icmp eq ptr %37, null
   br i1 %.not124, label %40, label %38
@@ -158,7 +158,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 40:                                               ; preds = %38, %36
   %.073 = phi ptr [ %spec.store.select9, %38 ], [ null, %36 ]
-  store ptr %.073, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 9), align 8
+  store ptr %.073, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 336), align 8
   %41 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #2
   %.not125 = icmp eq ptr %41, null
   br i1 %.not125, label %44, label %42
@@ -171,7 +171,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 44:                                               ; preds = %42, %40
   %.072 = phi ptr [ %spec.store.select10, %42 ], [ null, %40 ]
-  store ptr %.072, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 10), align 8
+  store ptr %.072, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 344), align 8
   %45 = tail call ptr @getenv(ptr noundef nonnull @.str.11) #2
   %.not126 = icmp eq ptr %45, null
   br i1 %.not126, label %48, label %46
@@ -184,7 +184,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 48:                                               ; preds = %46, %44
   %.071 = phi ptr [ %spec.store.select11, %46 ], [ null, %44 ]
-  store ptr %.071, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 11), align 8
+  store ptr %.071, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 352), align 8
   %49 = tail call ptr @getenv(ptr noundef nonnull @.str.12) #2
   %.not127 = icmp eq ptr %49, null
   br i1 %.not127, label %52, label %50
@@ -197,7 +197,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 52:                                               ; preds = %50, %48
   %.070 = phi ptr [ %spec.store.select12, %50 ], [ null, %48 ]
-  store ptr %.070, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 12), align 8
+  store ptr %.070, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 360), align 8
   %53 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #2
   %.not128 = icmp eq ptr %53, null
   br i1 %.not128, label %56, label %54
@@ -210,7 +210,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 56:                                               ; preds = %54, %52
   %.069 = phi ptr [ %spec.store.select13, %54 ], [ null, %52 ]
-  store ptr %.069, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 13), align 8
+  store ptr %.069, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 368), align 8
   %57 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #2
   %.not129 = icmp eq ptr %57, null
   br i1 %.not129, label %60, label %58
@@ -223,7 +223,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 60:                                               ; preds = %58, %56
   %.068 = phi ptr [ %spec.store.select14, %58 ], [ null, %56 ]
-  store ptr %.068, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 14), align 8
+  store ptr %.068, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 376), align 8
   %61 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #2
   %.not130 = icmp eq ptr %61, null
   br i1 %.not130, label %64, label %62
@@ -236,7 +236,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 64:                                               ; preds = %62, %60
   %.067 = phi ptr [ %spec.store.select15, %62 ], [ null, %60 ]
-  store ptr %.067, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 15), align 8
+  store ptr %.067, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 384), align 8
   %65 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #2
   %.not131 = icmp eq ptr %65, null
   br i1 %.not131, label %68, label %66
@@ -249,7 +249,7 @@ define internal noundef i32 @installdirs_env_open() #0 {
 
 68:                                               ; preds = %66, %64
   %.0 = phi ptr [ %spec.store.select16, %66 ], [ null, %64 ]
-  store ptr %.0, ptr getelementptr inbounds (%struct.opal_installdirs_base_component_2_0_0_t, ptr @mca_installdirs_env_component, i64 0, i32 2, i32 16), align 8
+  store ptr %.0, ptr getelementptr inbounds (i8, ptr @mca_installdirs_env_component, i64 392), align 8
   ret i32 0
 }
 

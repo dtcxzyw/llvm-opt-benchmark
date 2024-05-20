@@ -457,7 +457,7 @@ define i32 @ws_log_parse_args(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   ]
 
 13:                                               ; preds = %11
-  %exitcond = icmp eq ptr %.0.i, getelementptr inbounds ([12 x i8], ptr @.str.45, i64 0, i64 11)
+  %exitcond = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @.str.45, i64 11)
   br i1 %exitcond, label %.critedge.i, label %14
 
 14:                                               ; preds = %13
@@ -494,7 +494,7 @@ optequal.exit.thread:                             ; preds = %optequal.exit.threa
   ]
 
 21:                                               ; preds = %optequal.exit.thread
-  %exitcond380 = icmp eq ptr %.0.i96, getelementptr inbounds ([13 x i8], ptr @.str.46, i64 0, i64 12)
+  %exitcond380 = icmp eq ptr %.0.i96, getelementptr inbounds (i8, ptr @.str.46, i64 12)
   br i1 %exitcond380, label %.critedge.i102, label %22
 
 22:                                               ; preds = %21
@@ -531,7 +531,7 @@ optequal.exit105.thread:                          ; preds = %optequal.exit105.th
   ]
 
 29:                                               ; preds = %optequal.exit105.thread
-  %exitcond381 = icmp eq ptr %.0.i107, getelementptr inbounds ([14 x i8], ptr @.str.47, i64 0, i64 13)
+  %exitcond381 = icmp eq ptr %.0.i107, getelementptr inbounds (i8, ptr @.str.47, i64 13)
   br i1 %exitcond381, label %.critedge.i113, label %30
 
 30:                                               ; preds = %29
@@ -568,7 +568,7 @@ optequal.exit116.thread:                          ; preds = %optequal.exit116.th
   ]
 
 37:                                               ; preds = %optequal.exit116.thread
-  %exitcond382 = icmp eq ptr %.0.i118, getelementptr inbounds ([19 x i8], ptr @.str.48, i64 0, i64 18)
+  %exitcond382 = icmp eq ptr %.0.i118, getelementptr inbounds (i8, ptr @.str.48, i64 18)
   br i1 %exitcond382, label %.critedge.i124, label %38
 
 38:                                               ; preds = %37
@@ -605,7 +605,7 @@ optequal.exit127.thread:                          ; preds = %optequal.exit127.th
   ]
 
 45:                                               ; preds = %optequal.exit127.thread
-  %exitcond383 = icmp eq ptr %.0.i129, getelementptr inbounds ([20 x i8], ptr @.str.49, i64 0, i64 19)
+  %exitcond383 = icmp eq ptr %.0.i129, getelementptr inbounds (i8, ptr @.str.49, i64 19)
   br i1 %exitcond383, label %.critedge.i135, label %46
 
 46:                                               ; preds = %45
@@ -642,7 +642,7 @@ optequal.exit138.thread:                          ; preds = %optequal.exit138.th
   ]
 
 53:                                               ; preds = %optequal.exit138.thread
-  %exitcond384 = icmp eq ptr %.0.i140, getelementptr inbounds ([11 x i8], ptr @.str.50, i64 0, i64 10)
+  %exitcond384 = icmp eq ptr %.0.i140, getelementptr inbounds (i8, ptr @.str.50, i64 10)
   br i1 %exitcond384, label %.critedge.i146, label %54
 
 54:                                               ; preds = %53
@@ -679,7 +679,7 @@ optequal.exit149.thread:                          ; preds = %optequal.exit149.th
   ]
 
 61:                                               ; preds = %optequal.exit149.thread
-  %exitcond385 = icmp eq ptr %.0.i151, getelementptr inbounds ([12 x i8], ptr @.str.51, i64 0, i64 11)
+  %exitcond385 = icmp eq ptr %.0.i151, getelementptr inbounds (i8, ptr @.str.51, i64 11)
   br i1 %exitcond385, label %.critedge.i157, label %62
 
 62:                                               ; preds = %61
@@ -716,7 +716,7 @@ optequal.exit160.thread:                          ; preds = %optequal.exit160.th
   ]
 
 69:                                               ; preds = %optequal.exit160.thread
-  %exitcond386 = icmp eq ptr %.0.i162, getelementptr inbounds ([12 x i8], ptr @.str.52, i64 0, i64 11)
+  %exitcond386 = icmp eq ptr %.0.i162, getelementptr inbounds (i8, ptr @.str.52, i64 11)
   br i1 %exitcond386, label %.critedge.i168, label %70
 
 70:                                               ; preds = %69
@@ -753,7 +753,7 @@ optequal.exit171.thread:                          ; preds = %optequal.exit171.th
   ]
 
 77:                                               ; preds = %optequal.exit171.thread
-  %exitcond387 = icmp eq ptr %.0.i173, getelementptr inbounds ([12 x i8], ptr @.str.53, i64 0, i64 11)
+  %exitcond387 = icmp eq ptr %.0.i173, getelementptr inbounds (i8, ptr @.str.53, i64 11)
   br i1 %exitcond387, label %.critedge.i179, label %78
 
 78:                                               ; preds = %77

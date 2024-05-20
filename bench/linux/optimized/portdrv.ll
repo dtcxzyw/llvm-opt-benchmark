@@ -562,7 +562,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 151:                                              ; preds = %144
   %152 = getelementptr [5 x i32], ptr %5, i64 0, i64 %145
   %153 = load i32, ptr %152, align 4
-  %154 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %155 = call noalias noundef align 8 dereferenceable_or_null(760) ptr @kmalloc_trace(ptr noundef %154, i32 noundef 3520, i64 noundef 760) #15
   %156 = icmp eq ptr %155, null
   br i1 %156, label %188, label %157

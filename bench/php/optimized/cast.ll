@@ -148,7 +148,7 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (%struct._php_stream_ops, ptr @php_stream_stdio_ops, i64 0, i32 6), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @php_stream_stdio_ops, i64 48), align 8
   %.not79 = icmp eq ptr %36, null
   br i1 %.not79, label %47, label %37
 

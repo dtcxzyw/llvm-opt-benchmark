@@ -77,9 +77,9 @@ define internal noundef i32 @mca_pml_v_component_close() #0 {
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, i64 280, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4), ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, i64 192, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 5), ptr noundef nonnull align 8 dereferenceable(64) @ompi_request_functions, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds (i8, ptr @mca_pml_v, i64 24), ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, i64 280, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) getelementptr inbounds (i8, ptr @mca_pml_v, i64 304), ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, i64 192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @mca_pml_v, i64 496), ptr noundef nonnull align 8 dereferenceable(64) @ompi_request_functions, i64 64, i1 false)
   %5 = load i8, ptr %2, align 1
   %.not2 = icmp eq i8 %5, 0
   br i1 %.not2, label %6, label %9
@@ -87,22 +87,22 @@ define internal noundef i32 @mca_pml_v_component_close() #0 {
 6:                                                ; preds = %4
   %7 = tail call i32 @mca_base_framework_close(ptr noundef nonnull @ompi_vprotocol_base_framework) #7
   tail call void @ompi_pml_v_output_close() #7
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 320), align 8
   br label %.sink.split
 
 9:                                                ; preds = %4
   tail call void @ompi_pml_v_output_close() #7
-  %10 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 3, i32 0, i32 11), ptr noundef nonnull getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 11)) #7
+  %10 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_v, i64 108), ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_component, i64 84)) #7
   %11 = load ptr, ptr %1, align 8
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_base_component_2_1_0_t, ptr @mca_pml_base_selected_component, i64 0, i32 0, i32 11), ptr noundef %11, i64 noundef 64) #7
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_selected_component, i64 84), ptr noundef %11, i64 noundef 64) #7
   %12 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %12) #7
-  store ptr @mca_pml_v_component_parasite_finalize, ptr getelementptr inbounds (%struct.mca_pml_base_component_2_1_0_t, ptr @mca_pml_base_selected_component, i64 0, i32 3), align 8
+  store ptr @mca_pml_v_component_parasite_finalize, ptr getelementptr inbounds (i8, ptr @mca_pml_base_selected_component, i64 272), align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %9
   %mca_pml_v_enable.sink = phi ptr [ @mca_pml_v_enable, %9 ], [ %8, %6 ]
-  store ptr %mca_pml_v_enable.sink, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 2), align 8
+  store ptr %mca_pml_v_enable.sink, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 16), align 8
   br label %13
 
 13:                                               ; preds = %.sink.split, %0
@@ -151,11 +151,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_pml_v_component_parasite_close() #0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 3), i64 280, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds (i8, ptr @mca_pml_v, i64 24), i64 280, i1 false)
   %1 = tail call i32 @mca_base_framework_close(ptr noundef nonnull @ompi_vprotocol_base_framework) #7
   tail call void @ompi_pml_v_output_close() #7
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 2), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 320), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 16), align 8
   ret i32 0
 }
 
@@ -168,11 +168,11 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_pml_v_component_parasite_finalize() #0 {
-  store ptr @mca_pml_v_component_parasite_close, ptr getelementptr inbounds (%struct.mca_pml_base_component_2_1_0_t, ptr @mca_pml_v_component, i64 0, i32 0, i32 16), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 8), align 8
+  store ptr @mca_pml_v_component_parasite_close, ptr getelementptr inbounds (i8, ptr @mca_pml_v_component, i64 168), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 56), align 8
   %2 = tail call noalias ptr @malloc(i64 noundef %1) #8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %3, %4
   br i1 %.not.i, label %6, label %5
 
@@ -188,7 +188,7 @@ define internal i32 @mca_pml_v_component_parasite_finalize() #0 {
   store ptr @mca_base_component_list_item_t_class, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -205,29 +205,29 @@ define internal i32 @mca_pml_v_component_parasite_finalize() #0 {
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
   %14 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr @mca_pml_v_component, ptr %14, align 8
-  %15 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   store volatile ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  store volatile ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1), ptr %17, align 8
-  %18 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 96), ptr %17, align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   store volatile ptr %2, ptr %19, align 8
-  store volatile ptr %2, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %20 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 2), align 8
+  store volatile ptr %2, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
+  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 136), align 8
   %21 = add i64 %20, 1
-  store volatile i64 %21, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 2), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 8), align 8
+  store volatile i64 %21, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 136), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_component, i64 72), align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %opal_obj_new.exit
-  %24 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 3), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_component, i64 272), align 8
   %25 = tail call i32 %24() #7
   br label %26
 
 26:                                               ; preds = %23, %opal_obj_new.exit
-  %27 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 3, i32 3), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 296), align 8
   %.not3 = icmp eq ptr %27, null
   br i1 %.not3, label %30, label %28
 
@@ -242,7 +242,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 320), align 8
   %3 = tail call i32 %2(i1 noundef zeroext %0) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %17
@@ -251,7 +251,7 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
   br i1 %0, label %5, label %16
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 8), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_component, i64 72), align 8
   %.not12 = icmp eq i32 %6, 0
   br i1 %.not12, label %7, label %.thread
 
@@ -259,7 +259,7 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
   %8 = load i8, ptr @ompi_mpi_thread_multiple, align 1
   %9 = trunc i8 %8 to i1
   %10 = tail call i32 @mca_vprotocol_base_select(i1 noundef zeroext false, i1 noundef zeroext %9) #7
-  %.pr = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 8), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_component, i64 72), align 8
   %.not13 = icmp eq i32 %.pr, 0
   br i1 %.not13, label %16, label %.thread
 
@@ -269,7 +269,7 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
   br i1 %.not14, label %12, label %17
 
 12:                                               ; preds = %.thread
-  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 16), align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %17, label %14
 
@@ -278,9 +278,9 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
   br label %17
 
 16:                                               ; preds = %7, %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4), i64 192, i1 false)
-  store ptr @mca_pml_v_enable, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @ompi_request_functions, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 5), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) getelementptr inbounds (i8, ptr @mca_pml_v, i64 304), i64 192, i1 false)
+  store ptr @mca_pml_v_enable, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 16), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @ompi_request_functions, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @mca_pml_v, i64 496), i64 64, i1 false)
   br label %17
 
 17:                                               ; preds = %12, %.thread, %1, %16, %14

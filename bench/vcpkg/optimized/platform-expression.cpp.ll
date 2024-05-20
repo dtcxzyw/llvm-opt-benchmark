@@ -1197,7 +1197,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg18PlatformExpression4Expr8evaluat
           to label %.noexc22 unwind label %56
 
 .noexc22:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %20
 
 20:                                               ; preds = %.noexc22
@@ -1900,13 +1900,13 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaIS
   br label %219
 
 219:                                              ; preds = %217, %146, %139
-  %220 = load ptr, ptr getelementptr inbounds (%"class.std::map.43", ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %220, null
   br i1 %.not10.i.i.i.i, label %_ZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewE.exit.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %219, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %220, %219 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map.43", ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %219 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 8), %219 ]
   %221 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i.i = load ptr, ptr %221, align 8
   %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
@@ -1920,7 +1920,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaIS
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_NS0_18PlatformExpression10IdentifierEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !52
 
 _ZNKSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_NS0_18PlatformExpression10IdentifierEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %223 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map.43", ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %223 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewEE6id_map, i64 8)
   br i1 %223, label %_ZN5vcpkg18PlatformExpressionL17string2identifierENS_10StringViewE.exit.thread, label %224
 
 224:                                              ; preds = %_ZNKSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_NS0_18PlatformExpression10IdentifierEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i

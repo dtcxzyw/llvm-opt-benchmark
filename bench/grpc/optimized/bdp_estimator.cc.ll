@@ -97,7 +97,7 @@ entry:
   %cond = select i1 %cmp, double %div, double 0.000000e+00
   %inter_ping_delay_ = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i64, ptr %inter_ping_delay_, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_bdp_estimator_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -176,7 +176,7 @@ if.then25:                                        ; preds = %land.lhs.true
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %19, i64 %mul)
   store i64 %.sroa.speculated, ptr %estimate_20, align 8
   store double %cond, ptr %bw_est_23, align 8
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_bdp_estimator_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i11 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i11, label %if.then35, label %if.end47
 
@@ -272,7 +272,7 @@ if.end73:                                         ; preds = %if.end73.sink.split
 if.then78:                                        ; preds = %if.end73
   %stable_estimate_count_79 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %stable_estimate_count_79, align 8
-  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_bdp_estimator_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i20 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i20, label %if.then82, label %if.end97
 

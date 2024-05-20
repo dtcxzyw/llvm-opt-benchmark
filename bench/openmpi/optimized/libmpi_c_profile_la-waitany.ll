@@ -114,16 +114,16 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 42:                                               ; preds = %41
   %43 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %43, ptr %3, align 8
-  %44 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %44, ptr %45, align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %47 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %46, ptr %47, align 4
   br label %55
 
 48:                                               ; preds = %39
-  %49 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 5), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 40), align 8
   %50 = sext i32 %0 to i64
   %51 = tail call i32 %49(i64 noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2
   %52 = icmp eq i32 %51, 0

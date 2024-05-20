@@ -737,7 +737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55: ; 
           to label %.noexc57 unwind label %81
 
 .noexc57:                                         ; preds = %.noexc56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60 unwind label %72
 
 72:                                               ; preds = %.noexc57
@@ -830,7 +830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65: ; 
           to label %.noexc67 unwind label %121
 
 .noexc67:                                         ; preds = %.noexc66
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70 unwind label %98
 
 98:                                               ; preds = %.noexc67
@@ -1078,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc13 unwind label %28
 
 .noexc13:                                         ; preds = %.noexc12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16 unwind label %22
 
 22:                                               ; preds = %.noexc13
@@ -1188,7 +1188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc13 unwind label %28
 
 .noexc13:                                         ; preds = %.noexc12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16 unwind label %22
 
 22:                                               ; preds = %.noexc13
@@ -1898,7 +1898,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIbEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIbEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -2163,7 +2163,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetI11VOptionBoolEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl9ActionSetI11VOptionBoolEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -2428,7 +2428,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIiEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIiEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -2693,7 +2693,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -2958,7 +2958,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionFOnOffIbEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl12ActionFOnOffIbEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -3223,7 +3223,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffIbEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffIbEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -3488,7 +3488,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %2, ptr %16, align 8
   store ptr %14, ptr %4, align 8
@@ -3830,7 +3830,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -3841,7 +3841,7 @@ _ZN14V3OptionParser4Impl12ActionCbCallC2ESt8functionIFvvEE.exit: ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8
@@ -4200,7 +4200,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZNSt8functionIFvbEEC2EOS1_.exit.thread:          ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -4211,7 +4211,7 @@ _ZN14V3OptionParser4Impl14ActionCbFOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8
@@ -4570,7 +4570,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZNSt8functionIFvbEEC2EOS1_.exit.thread:          ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -4581,7 +4581,7 @@ _ZN14V3OptionParser4Impl13ActionCbOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8
@@ -4940,7 +4940,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZNSt8functionIFviEEC2EOS1_.exit.thread:          ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -4951,7 +4951,7 @@ _ZN14V3OptionParser4Impl11ActionCbValIiEC2ESt8functionIFviEE.exit: ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8
@@ -5310,7 +5310,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZNSt8functionIFvPKcEEC2EOS3_.exit.thread:        ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -5321,7 +5321,7 @@ _ZN14V3OptionParser4Impl11ActionCbValIPKcEC2ESt8functionIFvS3_EE.exit: ; preds =
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8
@@ -5775,7 +5775,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN14V3OptionPa
 _ZN14V3OptionParser4Impl20ActionCbPartialMatchC2ESt8functionIFvPKcEE.exit: ; preds = %23, %.noexc
   %26 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl20ActionCbPartialMatchE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl20ActionCbPartialMatchE, i64 16), ptr %14, align 8
   %27 = getelementptr inbounds i8, ptr %14, i64 16
   %28 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZNK14V3OptionParser12AppendHelperclES1_NS4_14CbPartialMatchESt8functionIS2_EE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %28, align 8
@@ -6235,7 +6235,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN14V3OptionPa
 _ZN14V3OptionParser4Impl23ActionCbPartialMatchValC2ESt8functionIFvPKcS4_EE.exit: ; preds = %23, %.noexc
   %26 = getelementptr inbounds i8, ptr %14, i64 8
   store i8 0, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl23ActionCbPartialMatchValE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN14V3OptionParser4Impl23ActionCbPartialMatchValE, i64 16), ptr %14, align 8
   %27 = getelementptr inbounds i8, ptr %14, i64 16
   %28 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvPKcS1_EZNK14V3OptionParser12AppendHelperclES1_NS4_17CbPartialMatchValESt8functionIS2_EE3$_0E9_M_invokeERKSt9_Any_dataOS1_SD_", ptr %28, align 8

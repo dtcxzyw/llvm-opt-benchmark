@@ -24,7 +24,7 @@ $_ZN5folly15LogStreamBufferD0Ev = comdat any
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15LogStreamBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %this, align 8, !tbaa !7
   %str_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %str_, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 80
@@ -43,7 +43,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_buf_locale.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i) #11
   ret void
@@ -52,7 +52,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15LogStreamBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %this, align 8, !tbaa !7
   %str_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %str_.i, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 80
@@ -71,7 +71,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN5folly15LogStreamBufferD2Ev.exit
 
 _ZN5folly15LogStreamBufferD2Ev.exit:              ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_buf_locale.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
@@ -185,11 +185,11 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #4 align 2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly9LogStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 24), ptr %this, align 8, !tbaa !7
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 64), ptr %add.ptr.i, align 8, !tbaa !7
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_.i, align 8, !tbaa !7
   %str_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %str_.i.i, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 88
@@ -208,7 +208,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN5folly9LogStreamD2Ev.exit
 
 _ZN5folly9LogStreamD2Ev.exit:                     ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_.i, align 8, !tbaa !7
   %_M_buf_locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i) #11
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i) #11
@@ -218,11 +218,11 @@ _ZN5folly9LogStreamD2Ev.exit:                     ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 24), ptr %this, align 8, !tbaa !7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !7
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_.i.i, align 8, !tbaa !7
   %str_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %str_.i.i.i, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 88
@@ -241,7 +241,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZN5folly9LogStreamD1Ev.exit
 
 _ZN5folly9LogStreamD1Ev.exit:                     ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_.i.i, align 8, !tbaa !7
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #11
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i) #11
@@ -256,11 +256,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 24), ptr %3, align 8, !tbaa !7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !7
   %buffer_.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_.i.i, align 8, !tbaa !7
   %str_.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %str_.i.i.i, align 8, !tbaa !10
   %5 = getelementptr inbounds i8, ptr %3, i64 88
@@ -279,7 +279,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZN5folly9LogStreamD1Ev.exit
 
 _ZN5folly9LogStreamD1Ev.exit:                     ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_.i.i, align 8, !tbaa !7
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #11
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i) #11
@@ -293,11 +293,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 24), ptr %3, align 8, !tbaa !7
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !7
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_.i.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_.i.i.i, align 8, !tbaa !7
   %str_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %str_.i.i.i.i, align 8, !tbaa !10
   %5 = getelementptr inbounds i8, ptr %3, i64 88
@@ -316,7 +316,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   br label %_ZN5folly9LogStreamD0Ev.exit
 
 _ZN5folly9LogStreamD0Ev.exit:                     ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_.i.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_.i.i.i, align 8, !tbaa !7
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #11
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i.i) #11
@@ -358,12 +358,12 @@ invoke.cont:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !7
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %_M_in_beg.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_buf_locale.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_M_in_beg.i.i, i8 0, i64 48, i1 false)
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #11
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %str_.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %7, ptr %str_.i, align 8, !tbaa !23
@@ -409,21 +409,21 @@ entry:
   store i8 0, ptr %_M_fill_init.i, align 1, !tbaa !37
   %_M_streambuf.i = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_streambuf.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5folly9LogStreamE0_So, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !7
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5folly9LogStreamE0_So, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5folly9LogStreamE0_So, i64 24), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5folly9LogStreamE0_So, i64 64), ptr %0, align 8, !tbaa !7
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef null)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !7
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9LogStreamE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 24), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN5folly9LogStreamE, i64 64), ptr %0, align 8, !tbaa !7
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %_M_in_beg.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_buf_locale.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_M_in_beg.i.i, i8 0, i64 48, i1 false)
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #11
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %str_.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %1, ptr %str_.i, align 8, !tbaa !23
@@ -477,7 +477,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !7
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN5folly15LogStreamBufferE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5folly15LogStreamBufferE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %str_.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %str_.i, align 8, !tbaa !10
   %4 = getelementptr inbounds i8, ptr %this, i64 88
@@ -496,7 +496,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN5folly15LogStreamBufferD2Ev.exit
 
 _ZN5folly15LogStreamBufferD2Ev.exit:              ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %buffer_, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %buffer_, align 8, !tbaa !7
   %_M_buf_locale.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #11
   ret void

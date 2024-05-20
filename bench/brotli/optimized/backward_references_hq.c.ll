@@ -1997,7 +1997,7 @@ FastLog2.exit47:                                  ; preds = %if.end.i42, %if.the
   br i1 %cmp25, label %for.body27, label %FastLog2.exit, !llvm.loop !31
 
 FastLog2.exit:                                    ; preds = %FastLog2.exit47, %for.cond23.preheader
-  %10 = load double, ptr getelementptr inbounds ([256 x double], ptr @kBrotliLog2Table, i64 0, i64 11), align 8
+  %10 = load double, ptr getelementptr inbounds (i8, ptr @kBrotliLog2Table, i64 88), align 8
   %conv38 = fptrunc double %10 to float
   %min_cost_cmd_ = getelementptr inbounds i8, ptr %self, i64 2840
   store float %conv38, ptr %min_cost_cmd_, align 8

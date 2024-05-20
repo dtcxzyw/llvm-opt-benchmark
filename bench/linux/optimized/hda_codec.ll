@@ -1176,7 +1176,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 define dso_local noundef ptr @snd_hda_codec_pcm_new(ptr noundef %0, ptr noundef %1, ...) #0 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(240) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 240) #27
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
@@ -1703,7 +1703,7 @@ define dso_local ptr @snd_hda_codec_device_init(ptr noundef %0, i32 noundef %1, 
   br i1 %8, label %55, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(1648) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 1648) #27
   %12 = icmp eq ptr %11, null
   br i1 %12, label %55, label %13
@@ -4611,7 +4611,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr nounde
   br i1 %172, label %.thread19, label %.thread27
 
 .thread27:                                        ; preds = %.loopexit.split, %.loopexit.split.us.us, %108, %.split36.us
-  %173 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %174 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %173, i32 noundef 3520, i64 noundef 1224) #27
   %175 = icmp eq ptr %174, null
   br i1 %175, label %181, label %176
@@ -4804,7 +4804,7 @@ define internal range(i32 0, -2147483648) i32 @init_follower_0dB(ptr noundef %0,
   br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %98
-  %105 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %106 = call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %105, i32 noundef 3520, i64 noundef 1224) #27
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.thread, label %108
@@ -4829,7 +4829,7 @@ define internal range(i32 0, -2147483648) i32 @init_follower_0dB(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @init_follower_unmute(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 1224) #27
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7

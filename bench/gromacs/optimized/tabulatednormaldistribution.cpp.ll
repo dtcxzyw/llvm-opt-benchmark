@@ -76,7 +76,7 @@ __cxx_global_var_init.exit:                       ; preds = %18
   %27 = fptrunc double %26 to float
   %28 = fneg float %27
   store float %28, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, align 4, !alias.scope !5
-  store float %27, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i32 0, i64 16383), align 4, !alias.scope !5
+  store float %27, ptr getelementptr inbounds (i8, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 65532), align 4, !alias.scope !5
   ret void
 }
 

@@ -757,14 +757,14 @@ invoke.cont:
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.21)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11)
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 1), i64 23), align 1
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 47), align 1
   %tobool.i.i.i8 = icmp slt i8 %2, 0
-  %3 = load ptr, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 1), align 8
-  %spec.select.i.i9 = select i1 %tobool.i.i.i8, ptr %3, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 1)
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 2), i64 23), align 1
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24), align 8
+  %spec.select.i.i9 = select i1 %tobool.i.i.i8, ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24)
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 71), align 1
   %tobool.i.i.i10 = icmp slt i8 %4, 0
-  %5 = load ptr, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 2), align 8
-  %spec.select.i.i11 = select i1 %tobool.i.i.i10, ptr %5, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 2)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48), align 8
+  %spec.select.i.i11 = select i1 %tobool.i.i.i10, ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %spec.select.i.i9, ptr noundef %spec.select.i.i11, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.26)
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sTestTypeLast, i64 23
@@ -773,7 +773,7 @@ invoke.cont:
   %mRemainingSizeField.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %sTestTypeTemp, i64 23
   store i8 0, ptr %sTestTypeTemp, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i12, align 1
-  %6 = load ptr, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 8), align 8
   %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %sTestTypeTemp, i64 8
   %mnSize.i.i.i6.i.i = getelementptr inbounds i8, ptr %sTestTypeLast, i64 8
   br label %for.cond
@@ -959,7 +959,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   br i1 %cmp6.i.i.not, label %if.end30, label %if.then19
 
 if.then19:                                        ; preds = %invoke.cont15, %invoke.cont17
-  %31 = load ptr, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 8), align 8
   %cmp.i32.not = icmp eq ptr %it.sroa.0.0, %31
   br i1 %cmp.i32.not, label %if.end27, label %if.then25
 
@@ -989,11 +989,11 @@ if.else.i.i71:                                    ; preds = %for.cond
   %mRemainingSizeField.i.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %resultSum, i64 87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mTime1.i, i8 0, i64 33, i1 false)
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i1.i, align 1
-  %call19.i.i79 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %resultSum, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.27, i64 0, i64 3))
+  %call19.i.i79 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %resultSum, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 3))
           to label %invoke.cont37 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.else.i.i71
-  %32 = load ptr, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 8), align 8
   %mTime251 = getelementptr inbounds i8, ptr %resultSum, i64 48
   br label %for.cond41
 
@@ -1074,16 +1074,16 @@ invoke.cont66:                                    ; preds = %invoke.cont65
           to label %invoke.cont67 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont67:                                    ; preds = %invoke.cont66
-  %39 = load ptr, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 2), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 16), align 8
   invoke void @_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) @_ZN9Benchmark10gResultSetE, ptr noundef %39)
           to label %invoke.cont68 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %invoke.cont67
   store ptr @_ZN9Benchmark10gResultSetE, ptr @_ZN9Benchmark10gResultSetE, align 8
-  store ptr @_ZN9Benchmark10gResultSetE, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 1), align 8
+  store ptr @_ZN9Benchmark10gResultSetE, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 32), align 8
   invoke void @_ZN9Benchmark11Environment5clearEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN9Benchmark12gEnvironmentE)
           to label %invoke.cont69 unwind label %lpad36.loopexit.split-lp
 
@@ -2434,16 +2434,16 @@ define internal void @_GLOBAL__sub_I_EASTLBenchmark.cpp() #11 section ".text.sta
 entry:
   store i8 0, ptr @_ZN9Benchmark12gEnvironmentE, align 8
   store i8 23, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 23), align 1
-  store i8 0, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24), align 8
   store i8 23, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 47), align 1
-  store i8 0, ptr getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48), align 8
   store i8 23, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 71), align 1
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN9Benchmark11EnvironmentD2Ev, ptr nonnull @_ZN9Benchmark12gEnvironmentE, ptr nonnull @__dso_handle) #17
-  store i64 0, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 3), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 24), align 8
   store ptr @_ZN9Benchmark10gResultSetE, ptr @_ZN9Benchmark10gResultSetE, align 8
-  store ptr @_ZN9Benchmark10gResultSetE, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 0, i32 2), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.eastl::set", ptr @_ZN9Benchmark10gResultSetE, i64 0, i32 0, i32 1), align 8
+  store ptr @_ZN9Benchmark10gResultSetE, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark10gResultSetE, i64 32), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5eastl3setIN9Benchmark6ResultENS_4lessIS2_EENS_9allocatorEED2Ev, ptr nonnull @_ZN9Benchmark10gResultSetE, ptr nonnull @__dso_handle) #17
   ret void
 }

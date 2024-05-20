@@ -612,8 +612,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i.i.i.i.i, i64 %spec.select.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i
   %sub.i1.i.i.i.i.i = sub nsw i64 0, %retval.0.i.i.i.i.i.i.i.i
-  store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1, i32 0, i64 0), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
+  store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8) to i64), ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i

@@ -914,7 +914,7 @@ lor.rhs:                                          ; preds = %do.end24
 cleanup:                                          ; preds = %lor.rhs, %do.end24
   %retval.sroa.0.0 = phi i16 [ 0, %do.end24 ], [ %spec.select, %lor.rhs ]
   call void @uv_mutex_unlock(ptr noundef %call3) #17
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %m_pkey, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %m_pkey, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %m_pkey, i64 24
   %13 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %13, null
@@ -1168,7 +1168,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i.sroa.0.0 = phi ptr [ %23, %if.then.i ], [ %24, %if.end.i ]
   %call12 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #17
   store i32 1, ptr %offset, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE, i64 0, i32 0, i64 2), ptr %params, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE, i64 16), ptr %params, align 8
   %public_key_encoding.i = getelementptr inbounds i8, ptr %params, i64 8
   store i8 0, ptr %public_key_encoding.i, align 8
   %format_.i.i = getelementptr inbounds i8, ptr %params, i64 12
@@ -1186,7 +1186,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %value_.i.i.i = getelementptr inbounds i8, ptr %params, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i, i8 0, i64 24, i1 false)
   %key.i = getelementptr inbounds i8, ptr %params, i64 80
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %key.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %key.i, align 8
   %pkey_.i.i = getelementptr inbounds i8, ptr %params, i64 88
   store ptr null, ptr %pkey_.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -1195,7 +1195,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !5
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i.i, align 8, !noalias !5
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 16
   %call.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i.i) #17, !noalias !5
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i, 0
@@ -1212,7 +1212,7 @@ _ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit: ; preds = %
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !5
   store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %mutex_.i.i, align 8, !alias.scope !5
   %params.i = getelementptr inbounds i8, ptr %params, i64 112
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16DsaKeyPairParamsE, i64 0, i32 0, i64 2), ptr %params.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16DsaKeyPairParamsE, i64 16), ptr %params.i, align 8
   %call13 = call i16 @_ZN4node6crypto16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEE16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS5_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(i32 noundef %call12, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
   %tobool.i = trunc i16 %call13 to i1
   br i1 %tobool.i, label %if.end16, label %cleanup
@@ -1223,9 +1223,9 @@ if.end16:                                         ; preds = %_ZN4node6crypto16Ke
   %25 = load ptr, ptr %values_.i73, align 8
   %add.ptr.i74 = getelementptr inbounds i8, ptr %25, i64 -8
   call void @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEC2EPNS_11EnvironmentEN2v85LocalINS8_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(ptr noundef nonnull align 8 dereferenceable(376) %call17, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i74, i32 noundef 51, i32 noundef %call12, ptr noundef nonnull align 8 dereferenceable(128) %params)
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %call17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %call17, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call17, i64 56
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 200), ptr %add.ptr.i, align 8
   %status_.i = getelementptr inbounds i8, ptr %call17, i64 376
   store i32 1, ptr %status_.i, align 8
   br label %cleanup
@@ -1869,7 +1869,7 @@ entry:
   %call = tail call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey5mutexEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
   tail call void @uv_mutex_lock(ptr noundef nonnull %call) #17
   tail call void @uv_mutex_unlock(ptr noundef %call) #17
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %key, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %key, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -2091,7 +2091,7 @@ _ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit: ; preds = %_ZN4no
 if.then.i:                                        ; preds = %_ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -2799,7 +2799,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3385,7 +3385,7 @@ define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTr
 entry:
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %env, ptr %object.coerce, i32 noundef %type, double noundef -1.000000e+00) #17
   %0 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %0, align 8
   %env_.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %env, ptr %env_.i, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -3399,16 +3399,16 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %0, align 8
   %mode_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %mode, ptr %mode_, align 8
   %errors_ = getelementptr inbounds i8, ptr %this, i64 216
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, i32 0, i64 2), ptr %errors_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_, align 8
   %errors_.i = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i, i8 0, i64 24, i1 false)
   %params_ = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE, i64 0, i32 0, i64 2), ptr %params_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE, i64 16), ptr %params_, align 8
   %public_key_encoding.i = getelementptr inbounds i8, ptr %this, i64 256
   %public_key_encoding2.i = getelementptr inbounds i8, ptr %params, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %public_key_encoding.i, ptr noundef nonnull align 8 dereferenceable(16) %public_key_encoding2.i, i64 16, i1 false)
@@ -3431,7 +3431,7 @@ _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit: ; preds = %entry
   %key4.i = getelementptr inbounds i8, ptr %params, i64 80
   tail call void @_ZN4node6crypto14ManagedEVPPKeyC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %key.i, ptr noundef nonnull align 8 dereferenceable(32) %key4.i) #17
   %params.i = getelementptr inbounds i8, ptr %this, i64 360
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16DsaKeyPairParamsE, i64 0, i32 0, i64 2), ptr %params.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16DsaKeyPairParamsE, i64 16), ptr %params.i, align 8
   %modulus_bits.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %modulus_bits2.i.i = getelementptr inbounds i8, ptr %params, i64 120
   %3 = load i64, ptr %modulus_bits2.i.i, align 8
@@ -3450,9 +3450,9 @@ if.end:                                           ; preds = %if.then, %_ZN4node1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %add.ptr.i, align 8
   %params_.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_.i) #17
   %errors_.i.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -3490,9 +3490,9 @@ _ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED2Ev.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %add.ptr.i.i, align 8
   %params_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_.i.i) #17
   %errors_.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -4179,8 +4179,8 @@ sw.epilog:                                        ; preds = %sw.bb4, %_ZN4node6c
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED1Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %this, align 8
   %params_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_.i.i) #17
   %errors_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4219,8 +4219,8 @@ _ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED2Ev.e
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED0Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %this, align 8
   %params_.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_.i.i.i) #17
   %errors_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4279,9 +4279,9 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %add.ptr, align 8
   %params_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_) #17
   %errors_.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -4327,8 +4327,8 @@ entry:
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEED1Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15DsaKeyGenTraitsEEEEE, i64 192), ptr %this, align 8
   %params_.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %params_.i) #17
   %errors_.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4538,7 +4538,7 @@ if.end4:                                          ; preds = %if.end
   call void @_ZN4node6crypto14ManagedEVPPKeyC1EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5) #17
   %key = getelementptr inbounds i8, ptr %params, i64 80
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -5172,7 +5172,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit: ; preds = %if.end83, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call84, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i462, i32 noundef 53, double noundef -1.000000e+00) #17
   %64 = getelementptr inbounds i8, ptr %call84, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %64, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %call84, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds i8, ptr %call84, i64 200
@@ -5186,16 +5186,16 @@ do.body4.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIN
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 0, i64 2), ptr %call84, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 1, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 16), ptr %call84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 192), ptr %64, align 8
   %mode_.i.i = getelementptr inbounds i8, ptr %call84, i64 208
   store i32 %call12, ptr %mode_.i.i, align 8
   %errors_.i.i = getelementptr inbounds i8, ptr %call84, i64 216
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, i32 0, i64 2), ptr %errors_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
   %errors_.i.i.i = getelementptr inbounds i8, ptr %call84, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i.i.i, i8 0, i64 24, i1 false)
   %params_.i.i = getelementptr inbounds i8, ptr %call84, i64 248
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto18DSAKeyExportConfigE, i64 0, i32 0, i64 2), ptr %params_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto18DSAKeyExportConfigE, i64 16), ptr %params_.i.i, align 8
   %cmp.i.i33 = icmp eq i32 %call12, 1
   br i1 %cmp.i.i33, label %if.then.i.i34, label %_ZN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_18DSAKeyExportConfigE.exit.i
 
@@ -5204,8 +5204,8 @@ if.then.i.i34:                                    ; preds = %_ZN4node14ThreadPoo
   br label %_ZN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_18DSAKeyExportConfigE.exit.i
 
 _ZN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_18DSAKeyExportConfigE.exit.i: ; preds = %if.then.i.i34, %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 0, i64 2), ptr %call84, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 1, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18DSAKeyExportTraitsEEE, i64 16), ptr %call84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18DSAKeyExportTraitsEEE, i64 200), ptr %64, align 8
   %key_.i = getelementptr inbounds i8, ptr %call84, i64 256
   store ptr %59, ptr %key_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call84, i64 264
@@ -5551,9 +5551,9 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 192), ptr %add.ptr.i, align 8
   %errors_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %11 = load ptr, ptr %errors_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -5606,7 +5606,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -6196,9 +6196,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 192), ptr %add.ptr, align 8
   %errors_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %errors_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -6457,8 +6457,8 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit52: ; preds
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEED1Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_18DSAKeyExportTraitsEEE, i64 192), ptr %this, align 8
   %errors_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %errors_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 176

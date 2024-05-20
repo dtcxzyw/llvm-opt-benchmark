@@ -992,10 +992,10 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
   br i1 %.not86, label %17, label %23
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %18)
   %20 = load ptr, ptr %10, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %22 = tail call ptr @xstrdup(ptr noundef %21) #20
   tail call void @list_append(ptr noundef %20, ptr noundef %22) #20
   br label %23
@@ -1565,9 +1565,9 @@ define dso_local i32 @sacctmgr_update_qos_usage(ptr noundef %0, x86_fp80 noundef
   br i1 %.not56, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %11)
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %14 = tail call ptr @xstrdup(ptr noundef %13) #20
   tail call void @list_append(ptr noundef %.045, ptr noundef %14) #20
   br label %15

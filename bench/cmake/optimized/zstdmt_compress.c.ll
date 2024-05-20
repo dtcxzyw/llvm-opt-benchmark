@@ -1412,7 +1412,7 @@ ZSTD_customMalloc.exit:                           ; preds = %335, %338
   store i32 2, ptr %390, align 8
   %391 = getelementptr inbounds i8, ptr %0, i64 580
   store i32 2, ptr %391, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %386, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %386, align 8
   %392 = getelementptr inbounds i8, ptr %0, i64 592
   %393 = load ptr, ptr %392, align 8
   %394 = icmp eq ptr %393, null

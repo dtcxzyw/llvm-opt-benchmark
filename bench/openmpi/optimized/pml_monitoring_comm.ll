@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_add_comm(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 32), align 8
   %3 = tail call i32 %2(ptr noundef %0) #2
   ret i32 %3
 }
@@ -17,7 +17,7 @@ define i32 @mca_pml_monitoring_add_comm(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_del_comm(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @mca_common_monitoring_coll_cache_name(ptr noundef %0) #2
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 40), align 8
   %4 = tail call i32 %3(ptr noundef %0) #2
   ret i32 %4
 }
@@ -26,7 +26,7 @@ declare i32 @mca_common_monitoring_coll_cache_name(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_revoke_comm(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 6), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 48), align 8
   %4 = tail call i32 %3(ptr noundef %0, i1 noundef zeroext %1) #2
   ret i32 %4
 }

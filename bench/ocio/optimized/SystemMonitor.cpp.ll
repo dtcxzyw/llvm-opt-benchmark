@@ -140,9 +140,9 @@ dynamic_cast.end.i.i:                             ; preds = %if.then
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !5
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18SystemMonitorsImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18SystemMonitorsImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1, align 8, !noalias !5
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
   %m_monitors.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_monitors.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !5
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %_M_impl.i.i.i.i.i.i, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev14SystemMonitorsE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 0) #14, !noalias !8
@@ -229,7 +229,7 @@ if.end8.sink.split.i.i.i.i33:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18SystemMonitorsImplEED2Ev.exit42: ; preds = %dynamic_cast.end.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30, %if.end8.sink.split.i.i.i.i33
   store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 8
-  %17 = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 0, i32 1, i32 0), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
   %cmp.not.i.i.i44 = icmp eq ptr %call5.i.i.i2.i.i.i.i1, %17
   br i1 %cmp.not.i.i.i44, label %if.then.i.i.i76, label %if.then4.i.i.i
 
@@ -246,7 +246,7 @@ if.then.i.i.i.i.i47:                              ; preds = %if.then4.i.i.i
 
 if.else.i.i.i.i.i73:                              ; preds = %if.then4.i.i.i
   %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %.pr.i.i.i.pre = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 0, i32 1, i32 0), align 8
+  %.pr.i.i.i.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i.i47, %if.else.i.i.i.i.i73
@@ -323,7 +323,7 @@ if.end8.sink.split.i.i.i.i65:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.i.i.i.i65, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i52, %if.end.i.i.i
-  store ptr %call5.i.i.i2.i.i.i.i1, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 0, i32 1, i32 0), align 8
+  store ptr %call5.i.i.i2.i.i.i.i1, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
   br label %if.then.i.i.i76
 
 if.then.i.i.i76:                                  ; preds = %if.end9.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18SystemMonitorsImplEED2Ev.exit42
@@ -395,7 +395,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
   %41 = load ptr, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 8
   store ptr %41, ptr %agg.result, align 8
   %_M_refcount.i.i105 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %42 = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 0, i32 1, i32 0), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
   store ptr %42, ptr %_M_refcount.i.i105, align 8
   %cmp.not.i.i.i106 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i106, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14SystemMonitorsEEC2ERKS3_.exit, label %if.then.i.i.i107
@@ -1162,7 +1162,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18SystemMonitorsImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 16), ptr %this, align 8
   %m_monitors = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_monitors, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1199,7 +1199,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev18SystemMonitorsImpl11MonitorInfoESaIS2_EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18SystemMonitorsImplD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18SystemMonitorsImplE, i64 16), ptr %this, align 8
   %m_monitors.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_monitors.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16

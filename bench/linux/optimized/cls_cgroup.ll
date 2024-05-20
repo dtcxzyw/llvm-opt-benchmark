@@ -37,7 +37,7 @@ define dso_local i32 @cls_cgroup_classify(ptr noundef %0, ptr noundef %1, ptr no
   %8 = tail call ptr @task_cls_state(ptr noundef %7) #10
   %9 = getelementptr inbounds i8, ptr %8, i64 200
   %10 = load i32, ptr %9, align 8
-  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !6
+  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !6
   %12 = and i32 %11, 256
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %36, label %14
@@ -265,7 +265,7 @@ define internal range(i32 -2147483648, 1) i32 @cls_cgroup_change(ptr noundef %0,
   br i1 %23, label %24, label %59
 
 24:                                               ; preds = %21, %20
-  %25 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %26 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 128) #12
   %27 = icmp eq ptr %26, null
   br i1 %27, label %59, label %28

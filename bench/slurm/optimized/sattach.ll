@@ -133,9 +133,9 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   unreachable
 
 28:                                               ; preds = %_set_exit_code.exit
-  %29 = load i32, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 10), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 56), align 8
   %30 = icmp ne i32 %29, 0
-  %31 = load i32, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 9), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 52), align 4
   %32 = icmp ne i32 %31, 0
   %or.cond = select i1 %30, i1 true, i1 %32
   br i1 %or.cond, label %33, label %39
@@ -162,7 +162,7 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   unreachable
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 7), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = tail call ptr @slurm_job_step_layout_get(ptr noundef nonnull %46) #14
   %48 = icmp eq ptr %47, null
@@ -175,7 +175,7 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   unreachable
 
 52:                                               ; preds = %44
-  %53 = load i8, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 14), align 8
+  %53 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 112), align 8
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %56
 
@@ -185,7 +185,7 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   unreachable
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 7), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %57, i64 16
@@ -211,12 +211,12 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   unreachable
 
 _mpir_init.exit:                                  ; preds = %56
-  %71 = load i8, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 17), align 8
+  %71 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 120), align 8
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %95
 
 73:                                               ; preds = %_mpir_init.exit
-  %74 = load i32, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 13, i32 0, i32 1), align 8
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 80), align 8
   %75 = getelementptr inbounds i8, ptr %47, i64 40
   %76 = load i32, ptr %75, align 8
   %.not.i40 = icmp eq i32 %76, 0
@@ -272,7 +272,7 @@ _mpir_init.exit:                                  ; preds = %56
 
 _nodeid_from_layout.exit:                         ; preds = %._crit_edge.i, %73, %90, %94
   %.015.i = phi i32 [ %91, %94 ], [ %91, %90 ], [ -1, %73 ], [ -1, %._crit_edge.i ]
-  store i32 %.015.i, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 13, i32 0, i32 2), align 4
+  store i32 %.015.i, ptr getelementptr inbounds (i8, ptr @opt, i64 84), align 4
   br label %95
 
 95:                                               ; preds = %_nodeid_from_layout.exit, %_mpir_init.exit
@@ -288,9 +288,9 @@ _nodeid_from_layout.exit:                         ; preds = %._crit_edge.i, %73,
 
 101:                                              ; preds = %95, %98
   %.0 = phi ptr [ %100, %98 ], [ %97, %95 ]
-  %102 = load ptr, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 7), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %104 = load i32, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 2), align 8
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 16), align 8
   %105 = getelementptr inbounds i8, ptr %47, i64 40
   %106 = load i32, ptr %105, align 8
   %.sroa.04.0.copyload = load i64, ptr %103, align 4
@@ -502,12 +502,12 @@ _msg_thr_create.exit:                             ; preds = %162, %193, %195
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   %198 = load i32, ptr %62, align 8
   %199 = load i32, ptr %105, align 8
-  %200 = load i8, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 12), align 8
+  %200 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 72), align 8
   %201 = trunc i8 %200 to i1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 13), i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (i8, ptr @opt, i64 76), i64 36, i1 false)
   %202 = call ptr @client_io_handler_create(ptr noundef nonnull byval(%struct.slurm_step_io_fds) align 8 %10, i32 noundef %198, i32 noundef %199, ptr noundef %125, i1 noundef zeroext %201, i32 noundef -2, i32 noundef -2) #14
   call void @client_io_handler_start(ptr noundef %202) #14
-  %203 = load i8, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 22), align 1
+  %203 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 137), align 1
   %204 = trunc i8 %203 to i1
   br i1 %204, label %205, label %211
 
@@ -522,7 +522,7 @@ _msg_thr_create.exit:                             ; preds = %162, %193, %195
   br label %211
 
 211:                                              ; preds = %205, %_msg_thr_create.exit
-  %212 = load ptr, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 7), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 8
   %214 = getelementptr inbounds i8, ptr %.0.i, i64 120
   %215 = load i16, ptr %214, align 8
@@ -539,7 +539,7 @@ _msg_thr_create.exit:                             ; preds = %162, %193, %195
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %224 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %224 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %225 = zext i16 %224 to i32
   %226 = mul nuw nsw i32 %225, 1000
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #14
@@ -598,7 +598,7 @@ _attach_to_tasks.exit:                            ; preds = %247, %249
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   store volatile i32 1, ptr @MPIR_debug_state, align 4
   call void @MPIR_Breakpoint() #14
-  %250 = load i8, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 15), align 1
+  %250 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 113), align 1
   %251 = trunc i8 %250 to i1
   %252 = load i32, ptr @MPIR_proctable_size, align 4
   %253 = icmp sgt i32 %252, 0
@@ -1184,7 +1184,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @auth_g_get_uid(ptr noundef %5) #14
-  %7 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %8 = icmp eq i32 %6, %7
   %9 = icmp eq i32 %6, 0
   %or.cond.not23 = or i1 %9, %8
@@ -1289,7 +1289,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %.val14 = load ptr, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %.val14, i64 20
   %53 = load i32, ptr %52, align 4
-  %54 = load ptr, ptr getelementptr inbounds (%struct.sbatch_options, ptr @opt, i64 0, i32 7), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 4
   %.not.i15 = icmp eq i32 %53, %56

@@ -49,10 +49,10 @@ define noundef i32 @ompi_hook_base_register_callbacks(ptr noundef %0) local_unna
   br i1 %9, label %.loopexit, label %5
 
 ._crit_edge:                                      ; preds = %5, %1
-  %10 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 8), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 56), align 8
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #5
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 4), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %12, %13
   br i1 %.not.i, label %15, label %14
 
@@ -68,7 +68,7 @@ define noundef i32 @ompi_hook_base_register_callbacks(ptr noundef %0) local_unna
   store ptr @mca_base_component_list_item_t_class, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 8
   store volatile i32 1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 6), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %19 = load ptr, ptr %18, align 8
   %.not6.i.i = icmp eq ptr %19, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -202,11 +202,11 @@ define internal noundef i32 @ompi_hook_base_register(i32 %0) #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_hook_base_open(i32 noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 8), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 56), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #5
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -222,7 +222,7 @@ define internal i32 @ompi_hook_base_open(i32 noundef %0) #0 {
   store ptr @opal_list_t_class, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -261,14 +261,14 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
   br i1 %.not26, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph37
-  %.01931 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not27.not32 = icmp eq ptr %.01931, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.01931 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not27.not32 = icmp eq ptr %.01931, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not27.not32, label %.critedge, label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds i8, ptr %.01933, i64 16
   %.019 = load volatile ptr, ptr %24, align 8
-  %.not27.not = icmp eq ptr %.019, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not27.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not27.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %23
@@ -280,7 +280,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 
 .critedge:                                        ; preds = %.preheader, %23
   %28 = load ptr, ptr @opal_show_help, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 8), align 8
   %30 = getelementptr inbounds i8, ptr %19, i64 84
   %31 = tail call i32 (ptr, ptr, i32, ...) %28(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef %29, ptr noundef nonnull %30) #6
   br label %34
@@ -378,8 +378,8 @@ define void @ompi_hook_base_mpi_initialized_top(ptr noundef %0) #0 {
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %1
-  %.02040 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02040 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2841, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.preheader, %8
@@ -400,7 +400,7 @@ define void @ompi_hook_base_mpi_initialized_top(ptr noundef %0) #0 {
 8:                                                ; preds = %.lr.ph43, %7
   %9 = getelementptr inbounds i8, ptr %.02042, i64 16
   %.020 = load volatile ptr, ptr %9, align 8
-  %.not28 = icmp eq ptr %.020, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not28 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not28, label %._crit_edge, label %.lr.ph43, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %8, %.preheader
@@ -472,8 +472,8 @@ define void @ompi_hook_base_mpi_initialized_bottom(ptr noundef %0) #0 {
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %1
-  %.02040 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02040 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2841, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.preheader, %8
@@ -494,7 +494,7 @@ define void @ompi_hook_base_mpi_initialized_bottom(ptr noundef %0) #0 {
 8:                                                ; preds = %.lr.ph43, %7
   %9 = getelementptr inbounds i8, ptr %.02042, i64 16
   %.020 = load volatile ptr, ptr %9, align 8
-  %.not28 = icmp eq ptr %.020, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not28 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not28, label %._crit_edge, label %.lr.ph43, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %8, %.preheader
@@ -566,8 +566,8 @@ define void @ompi_hook_base_mpi_init_thread_top(ptr noundef %0, ptr noundef %1, 
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -588,7 +588,7 @@ define void @ompi_hook_base_mpi_init_thread_top(ptr noundef %0, ptr noundef %1, 
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -660,8 +660,8 @@ define void @ompi_hook_base_mpi_init_thread_bottom(ptr noundef %0, ptr noundef %
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -682,7 +682,7 @@ define void @ompi_hook_base_mpi_init_thread_bottom(ptr noundef %0, ptr noundef %
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -754,8 +754,8 @@ define void @ompi_hook_base_mpi_finalized_top(ptr noundef %0) #0 {
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %1
-  %.02040 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02040 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2841, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.preheader, %8
@@ -776,7 +776,7 @@ define void @ompi_hook_base_mpi_finalized_top(ptr noundef %0) #0 {
 8:                                                ; preds = %.lr.ph43, %7
   %9 = getelementptr inbounds i8, ptr %.02042, i64 16
   %.020 = load volatile ptr, ptr %9, align 8
-  %.not28 = icmp eq ptr %.020, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not28 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not28, label %._crit_edge, label %.lr.ph43, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %8, %.preheader
@@ -848,8 +848,8 @@ define void @ompi_hook_base_mpi_finalized_bottom(ptr noundef %0) #0 {
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %1
-  %.02040 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02040 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2841 = icmp eq ptr %.02040, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2841, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.preheader, %8
@@ -870,7 +870,7 @@ define void @ompi_hook_base_mpi_finalized_bottom(ptr noundef %0) #0 {
 8:                                                ; preds = %.lr.ph43, %7
   %9 = getelementptr inbounds i8, ptr %.02042, i64 16
   %.020 = load volatile ptr, ptr %9, align 8
-  %.not28 = icmp eq ptr %.020, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not28 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not28, label %._crit_edge, label %.lr.ph43, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %8, %.preheader
@@ -942,8 +942,8 @@ define void @ompi_hook_base_mpi_init_top(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -964,7 +964,7 @@ define void @ompi_hook_base_mpi_init_top(i32 noundef %0, ptr noundef %1, i32 nou
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -1036,8 +1036,8 @@ define void @ompi_hook_base_mpi_init_top_post_opal(i32 noundef %0, ptr noundef %
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -1058,7 +1058,7 @@ define void @ompi_hook_base_mpi_init_top_post_opal(i32 noundef %0, ptr noundef %
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -1130,8 +1130,8 @@ define void @ompi_hook_base_mpi_init_bottom(i32 noundef %0, ptr noundef %1, i32 
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -1152,7 +1152,7 @@ define void @ompi_hook_base_mpi_init_bottom(i32 noundef %0, ptr noundef %1, i32 
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -1224,8 +1224,8 @@ define void @ompi_hook_base_mpi_init_error(i32 noundef %0, ptr noundef %1, i32 n
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.02949 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.02949 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not3750 = icmp eq ptr %.02949, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not3750, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader, %11
@@ -1246,7 +1246,7 @@ define void @ompi_hook_base_mpi_init_error(i32 noundef %0, ptr noundef %1, i32 n
 11:                                               ; preds = %.lr.ph52, %10
   %12 = getelementptr inbounds i8, ptr %.02951, i64 16
   %.029 = load volatile ptr, ptr %12, align 8
-  %.not37 = icmp eq ptr %.029, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.029, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %11, %.preheader
@@ -1318,8 +1318,8 @@ define void @ompi_hook_base_mpi_finalize_top() #0 {
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %0
-  %.01737 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2538 = icmp eq ptr %.01737, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.01737 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2538 = icmp eq ptr %.01737, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2538, label %._crit_edge, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader, %7
@@ -1340,7 +1340,7 @@ define void @ompi_hook_base_mpi_finalize_top() #0 {
 7:                                                ; preds = %.lr.ph40, %6
   %8 = getelementptr inbounds i8, ptr %.01739, i64 16
   %.017 = load volatile ptr, ptr %8, align 8
-  %.not25 = icmp eq ptr %.017, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not25 = icmp eq ptr %.017, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not25, label %._crit_edge, label %.lr.ph40, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %7, %.preheader
@@ -1412,8 +1412,8 @@ define void @ompi_hook_base_mpi_finalize_bottom() #0 {
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %0
-  %.01737 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2538 = icmp eq ptr %.01737, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.01737 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 112), align 8
+  %.not2538 = icmp eq ptr %.01737, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not2538, label %._crit_edge, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader, %7
@@ -1434,7 +1434,7 @@ define void @ompi_hook_base_mpi_finalize_bottom() #0 {
 7:                                                ; preds = %.lr.ph40, %6
   %8 = getelementptr inbounds i8, ptr %.01739, i64 16
   %.017 = load volatile ptr, ptr %8, align 8
-  %.not25 = icmp eq ptr %.017, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 12, i32 1)
+  %.not25 = icmp eq ptr %.017, getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 96)
   br i1 %.not25, label %._crit_edge, label %.lr.ph40, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %7, %.preheader

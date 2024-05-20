@@ -87,7 +87,7 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   store i16 256, ptr %13, align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 207), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
   %15 = and i32 %14, 1
   %.not15 = icmp eq i32 %15, 0
   %spec.store.select = select i1 %.not15, i16 256, i16 257
@@ -1222,7 +1222,7 @@ _validate_map.exit:                               ; preds = %162, %164, %167, %1
   br i1 %233, label %254, label %234
 
 234:                                              ; preds = %231
-  %235 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 207), align 8
+  %235 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
   %236 = and i32 %235, 16384
   %.not124 = icmp eq i32 %236, 0
   br i1 %.not124, label %237, label %254
@@ -1335,7 +1335,7 @@ _validate_map.exit:                               ; preds = %162, %164, %167, %1
   br label %506
 
 286:                                              ; preds = %274, %274, %274, %274
-  %287 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 165), align 8
+  %287 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %288 = and i16 %287, 4096
   %.not128 = icmp eq i16 %288, 0
   br i1 %.not128, label %297, label %289

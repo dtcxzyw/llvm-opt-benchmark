@@ -163,11 +163,11 @@ entry:
   store ptr %used, ptr %tql_prev7, align 8
   %next = getelementptr inbounds i8, ptr %bus, i64 176
   store ptr null, ptr %next, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%union.anon.2, ptr @busses, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @busses, i64 8), align 8
   %tql_prev11 = getelementptr inbounds i8, ptr %bus, i64 184
   store ptr %1, ptr %tql_prev11, align 8
   store ptr %bus, ptr %1, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon.2, ptr @busses, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @busses, i64 8), align 8
   ret void
 }
 
@@ -201,7 +201,7 @@ if.then2:                                         ; preds = %do.body
   br label %if.end10
 
 if.else7:                                         ; preds = %do.body
-  store ptr %2, ptr getelementptr inbounds (%union.anon.2, ptr @busses, i64 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @busses, i64 8), align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else7, %if.then2

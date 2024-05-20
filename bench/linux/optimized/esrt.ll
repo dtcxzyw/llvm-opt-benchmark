@@ -86,22 +86,22 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %4 = and i64 %3, 16
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %0
-  %7 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %8 = and i64 %7, 64
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %76, label %10
 
 10:                                               ; preds = %6, %0
-  %11 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %11 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %12 = and i64 %11, 4
   %13 = icmp eq i64 %12, 0
-  %14 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   %15 = icmp eq i64 %14, -1
   %16 = select i1 %13, i1 true, i1 %15
   br i1 %16, label %76, label %17
@@ -134,7 +134,7 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
 
 29:                                               ; preds = %25, %25, %25, %25, %20
   %30 = call i64 @efi_mem_desc_end(ptr noundef nonnull %1) #11
-  %31 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   %32 = sub i64 %30, %31
   %33 = icmp ult i64 %32, 16
   br i1 %33, label %34, label %36
@@ -149,7 +149,7 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   %41 = inttoptr i64 %40 to ptr
   %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %41, i64 noundef 16) #12
   br label %76
@@ -199,7 +199,7 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
   br label %76
 
 67:                                               ; preds = %.thread
-  %68 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   store i64 %68, ptr @esrt_data, align 8
   store i64 %63, ptr @esrt_data_size, align 8
   %69 = add i64 %68, %63
@@ -362,10 +362,10 @@ declare dso_local ptr @kset_create_and_add(ptr noundef, ptr noundef, ptr noundef
 define internal fastcc noundef i32 @register_entries() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @esrt, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %4 = and i64 %3, 4
   %5 = icmp eq i64 %4, 0
-  %6 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   %7 = icmp eq i64 %6, -1
   %8 = select i1 %5, i1 true, i1 %7
   br i1 %8, label %.loopexit, label %9
@@ -393,7 +393,7 @@ define internal fastcc noundef i32 @register_entries() unnamed_addr #0 section "
 22:                                               ; preds = %.preheader
   %23 = sext i32 %18 to i64
   %24 = getelementptr %struct.efi_system_resource_entry_v1, ptr %2, i64 %23
-  %25 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 88) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
@@ -417,8 +417,8 @@ define internal fastcc noundef i32 @register_entries() unnamed_addr #0 section "
 
 .thread5:                                         ; preds = %28, %36
   %39 = getelementptr inbounds i8, ptr %26, i64 72
-  %40 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @entry_list, i64 0, i32 1), align 8
-  store ptr %39, ptr getelementptr inbounds (%struct.list_head, ptr @entry_list, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @entry_list, i64 8), align 8
+  store ptr %39, ptr getelementptr inbounds (i8, ptr @entry_list, i64 8), align 8
   store ptr @entry_list, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %26, i64 80
   store ptr %40, ptr %41, align 8
@@ -458,10 +458,10 @@ declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
 define internal zeroext i16 @esrt_attr_is_visible(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2) #5 align 16 {
-  %4 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %5 = and i64 %4, 4
   %6 = icmp eq i64 %5, 0
-  %7 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 7), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 48), align 8
   %8 = icmp eq i64 %7, -1
   %9 = select i1 %6, i1 true, i1 %8
   br i1 %9, label %13, label %10

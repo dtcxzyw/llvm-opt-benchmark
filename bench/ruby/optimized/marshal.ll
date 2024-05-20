@@ -8426,7 +8426,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %5, %10
 
 name_equal.exit:                                  ; preds = %13
   %15 = getelementptr i8, ptr %.sroa.3.0, i64 1
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %15, ptr noundef nonnull readonly dereferenceable(7) getelementptr inbounds ([8 x i8], ptr @sym2encidx.name_encoding, i64 0, i64 1), i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %15, ptr noundef nonnull readonly dereferenceable(7) getelementptr inbounds (i8, ptr @sym2encidx.name_encoding, i64 1), i64 7)
   %.not27 = icmp eq i32 %bcmp.i, 0
   br i1 %.not27, label %16, label %name_equal.exit19.thread
 

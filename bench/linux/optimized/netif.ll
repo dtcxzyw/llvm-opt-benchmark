@@ -134,7 +134,7 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   br i1 %33, label %34, label %52
 
 34:                                               ; preds = %.thread
-  %35 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %36 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 2336, i64 noundef 48) #6
   %37 = icmp eq ptr %36, null
   br i1 %37, label %52, label %38

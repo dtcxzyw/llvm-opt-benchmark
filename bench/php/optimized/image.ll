@@ -798,7 +798,7 @@ define internal fastcc void @php_getimagesize_from_any(ptr noundef %0, ptr nound
 
 43:                                               ; preds = %37
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.36) #13
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp ne ptr %44, null
   call void @llvm.assume(i1 %45)
   br label %612
@@ -840,7 +840,7 @@ define internal fastcc void @php_getimagesize_from_any(ptr noundef %0, ptr nound
   br label %.thread130
 
 65:                                               ; preds = %57
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %612

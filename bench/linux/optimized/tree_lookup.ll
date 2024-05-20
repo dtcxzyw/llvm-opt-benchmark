@@ -40,7 +40,7 @@ define dso_local void @mod_tree_insert(ptr noundef %0) local_unnamed_addr #0 ali
   %14 = add i32 %13, 1
   store i32 %14, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  %15 = load ptr, ptr getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mod_tree, i64 8), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %17
 
@@ -65,20 +65,20 @@ define dso_local void @mod_tree_insert(ptr noundef %0) local_unnamed_addr #0 ali
   br label %31
 
 31:                                               ; preds = %28, %11
-  %32 = phi ptr [ %29, %28 ], [ getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0), %11 ]
+  %32 = phi ptr [ %29, %28 ], [ getelementptr inbounds (i8, ptr @mod_tree, i64 8), %11 ]
   %33 = phi i64 [ %30, %28 ], [ 0, %11 ]
   store i64 %33, ptr %12, align 8
   %34 = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   store volatile ptr %12, ptr %32, align 8
-  tail call void @rb_insert_color(ptr noundef %12, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  tail call void @rb_insert_color(ptr noundef %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 8)) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
   %35 = load i32, ptr @mod_tree, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  %37 = load ptr, ptr getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mod_tree, i64 16), align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %__mod_tree_insert.exit, label %39
 
@@ -103,7 +103,7 @@ define dso_local void @mod_tree_insert(ptr noundef %0) local_unnamed_addr #0 ali
   br label %__mod_tree_insert.exit
 
 __mod_tree_insert.exit:                           ; preds = %31, %50
-  %53 = phi ptr [ %51, %50 ], [ getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1), %31 ]
+  %53 = phi ptr [ %51, %50 ], [ getelementptr inbounds (i8, ptr @mod_tree, i64 16), %31 ]
   %54 = phi i64 [ %52, %50 ], [ 0, %31 ]
   %55 = getelementptr i8, ptr %6, i64 48
   store i64 %54, ptr %55, align 8
@@ -111,7 +111,7 @@ __mod_tree_insert.exit:                           ; preds = %31, %50
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   store volatile ptr %55, ptr %53, align 8
-  tail call void @rb_insert_color(ptr noundef %55, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
+  tail call void @rb_insert_color(ptr noundef %55, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 16)) #3
   br label %57
 
 57:                                               ; preds = %__mod_tree_insert.exit, %4
@@ -150,14 +150,14 @@ define dso_local void @mod_tree_remove_init(ptr noundef %0) local_unnamed_addr #
   %18 = add i32 %17, 1
   store i32 %18, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 8)) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
   %19 = load i32, ptr @mod_tree, align 8
   %20 = add i32 %19, 1
   store i32 %20, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
   %21 = getelementptr i8, ptr %11, i64 48
-  tail call void @rb_erase(ptr noundef %21, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
+  tail call void @rb_erase(ptr noundef %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 16)) #3
   br label %22
 
 22:                                               ; preds = %15, %10, %4
@@ -189,14 +189,14 @@ define dso_local void @mod_tree_remove(ptr noundef %0) local_unnamed_addr #0 ali
   %13 = add i32 %12, 1
   store i32 %13, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  tail call void @rb_erase(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  tail call void @rb_erase(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 8)) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
   %14 = load i32, ptr @mod_tree, align 8
   %15 = add i32 %14, 1
   store i32 %15, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
   %16 = getelementptr i8, ptr %6, i64 48
-  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
+  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @mod_tree, i64 16)) #3
   br label %17
 
 17:                                               ; preds = %10, %4

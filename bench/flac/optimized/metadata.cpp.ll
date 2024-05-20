@@ -60,7 +60,7 @@ $__clang_call_terminate = comdat any
 @_ZTIN4FLAC8Metadata5ChainE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata5ChainE }, align 8
 @_ZTSN4FLAC8Metadata8IteratorE = constant [26 x i8] c"N4FLAC8Metadata8IteratorE\00", align 1
 @_ZTIN4FLAC8Metadata8IteratorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata8IteratorE }, align 8
-@switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv = private unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, i32 0, i64 2)], align 8
+@switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv = private unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16)], align 8
 
 @_ZN4FLAC8Metadata9PrototypeC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata9PrototypeC2ERKS1_
 @_ZN4FLAC8Metadata9PrototypeC1ERK20FLAC__StreamMetadata = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata
@@ -125,7 +125,7 @@ switch.lookup:                                    ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %switch.lookup
-  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, i32 0, i64 2), %if.end ]
+  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end ]
   store ptr %.sink, ptr %call25, align 8
   br label %return
 
@@ -162,7 +162,7 @@ dynamic_cast.end21:                               ; preds = %entry
 
 if.then:                                          ; preds = %dynamic_cast.end21
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call, align 8
   %object_2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %object_2.i.i, align 8
   %call.i.i24 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %9)
@@ -173,7 +173,7 @@ _ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit:       ; preds = %if.then
   store ptr %call.i.i24, ptr %object_.i.i, align 8
   %is_reference_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %call, align 8
   br label %return
 
 lpad:                                             ; preds = %if.then
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %dynamic_cast.end21
 
 if.then23:                                        ; preds = %if.end
   %call24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call24, align 8
   %object_2.i.i26 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %object_2.i.i26, align 8
   %call.i.i28 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %11)
@@ -198,7 +198,7 @@ _ZN4FLAC8Metadata7PaddingC2ERKS1_.exit:           ; preds = %if.then23
   store ptr %call.i.i28, ptr %object_.i.i25, align 8
   %is_reference_.i.i27 = getelementptr inbounds i8, ptr %call24, i64 16
   store i8 0, ptr %is_reference_.i.i27, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %call24, align 8
   br label %return
 
 lpad25:                                           ; preds = %if.then23
@@ -212,7 +212,7 @@ if.end27:                                         ; preds = %if.end
 
 if.then29:                                        ; preds = %if.end27
   %call30 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call30, align 8
   %object_2.i.i30 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load ptr, ptr %object_2.i.i30, align 8
   %call.i.i32 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %13)
@@ -223,7 +223,7 @@ _ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit:      ; preds = %if.then29
   store ptr %call.i.i32, ptr %object_.i.i29, align 8
   %is_reference_.i.i31 = getelementptr inbounds i8, ptr %call30, i64 16
   store i8 0, ptr %is_reference_.i.i31, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 0, i32 0, i64 2), ptr %call30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %call30, align 8
   br label %return
 
 lpad31:                                           ; preds = %if.then29
@@ -237,7 +237,7 @@ if.end33:                                         ; preds = %if.end27
 
 if.then35:                                        ; preds = %if.end33
   %call36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call36, align 8
   %object_2.i.i34 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load ptr, ptr %object_2.i.i34, align 8
   %call.i.i36 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %15)
@@ -248,7 +248,7 @@ _ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit:         ; preds = %if.then35
   store ptr %call.i.i36, ptr %object_.i.i33, align 8
   %is_reference_.i.i35 = getelementptr inbounds i8, ptr %call36, i64 16
   store i8 0, ptr %is_reference_.i.i35, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 0, i32 0, i64 2), ptr %call36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %call36, align 8
   br label %return
 
 lpad37:                                           ; preds = %if.then35
@@ -262,7 +262,7 @@ if.end39:                                         ; preds = %if.end33
 
 if.then41:                                        ; preds = %if.end39
   %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call42, align 8
   %object_2.i.i38 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %object_2.i.i38, align 8
   %call.i.i40 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %17)
@@ -273,7 +273,7 @@ _ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit:    ; preds = %if.then41
   store ptr %call.i.i40, ptr %object_.i.i37, align 8
   %is_reference_.i.i39 = getelementptr inbounds i8, ptr %call42, i64 16
   store i8 0, ptr %is_reference_.i.i39, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, i32 0, i64 2), ptr %call42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %call42, align 8
   br label %return
 
 lpad43:                                           ; preds = %if.then41
@@ -287,7 +287,7 @@ if.end45:                                         ; preds = %if.end39
 
 if.then47:                                        ; preds = %if.end45
   %call48 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call48, align 8
   %object_2.i.i42 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %object_2.i.i42, align 8
   %call.i.i44 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %19)
@@ -298,7 +298,7 @@ _ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit:          ; preds = %if.then47
   store ptr %call.i.i44, ptr %object_.i.i41, align 8
   %is_reference_.i.i43 = getelementptr inbounds i8, ptr %call48, i64 16
   store i8 0, ptr %is_reference_.i.i43, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %call48, align 8
   br label %return
 
 lpad49:                                           ; preds = %if.then47
@@ -312,7 +312,7 @@ if.end51:                                         ; preds = %if.end45
 
 if.then53:                                        ; preds = %if.end51
   %call54 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call54, align 8
   %object_2.i.i46 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = load ptr, ptr %object_2.i.i46, align 8
   %call.i.i48 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %21)
@@ -323,7 +323,7 @@ _ZN4FLAC8Metadata7PictureC2ERKS1_.exit:           ; preds = %if.then53
   store ptr %call.i.i48, ptr %object_.i.i45, align 8
   %is_reference_.i.i47 = getelementptr inbounds i8, ptr %call54, i64 16
   store i8 0, ptr %is_reference_.i.i47, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, i32 0, i64 2), ptr %call54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %call54, align 8
   br label %return
 
 lpad55:                                           ; preds = %if.then53
@@ -337,7 +337,7 @@ if.end57:                                         ; preds = %if.end51
 
 if.then59:                                        ; preds = %if.end57
   %call60 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %call60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call60, align 8
   %object_2.i.i50 = getelementptr inbounds i8, ptr %8, i64 8
   %23 = load ptr, ptr %object_2.i.i50, align 8
   %call.i.i52 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %23)
@@ -348,7 +348,7 @@ _ZN4FLAC8Metadata7UnknownC2ERKS1_.exit:           ; preds = %if.then59
   store ptr %call.i.i52, ptr %object_.i.i49, align 8
   %is_reference_.i.i51 = getelementptr inbounds i8, ptr %call60, i64 16
   store i8 0, ptr %is_reference_.i.i51, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, i32 0, i64 2), ptr %call60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %call60, align 8
   br label %return
 
 lpad61:                                           ; preds = %if.then59
@@ -373,7 +373,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #3
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %object) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %object_2 = getelementptr inbounds i8, ptr %object, i64 8
   %0 = load ptr, ptr %object_2, align 8
@@ -389,7 +389,7 @@ declare ptr @FLAC__metadata_object_clone(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
   store ptr %call, ptr %object_, align 8
@@ -401,7 +401,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %object) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
   store ptr %call, ptr %object_, align 8
@@ -413,7 +413,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %object, i1 noundef zeroext %copy) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   br i1 %copy, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -432,7 +432,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -618,7 +618,7 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -627,7 +627,7 @@ declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata10StreamInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -853,7 +853,7 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -865,7 +865,7 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %this, align 8
   %length2.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %length, ptr %length2.i, align 8
   ret void
@@ -884,7 +884,7 @@ entry:
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata7PaddingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -928,14 +928,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata11ApplicationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1032,14 +1032,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata9SeekTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1233,7 +1233,7 @@ declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1269,7 +1269,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field, i32 noundef %field_length) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1388,7 +1388,7 @@ if.end:                                           ; preds = %if.then4.i, %if.the
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1465,7 +1465,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_name_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -1624,7 +1624,7 @@ if.end:                                           ; preds = %_ZN4FLAC8Metadata13
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1721,7 +1721,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry,
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1932,7 +1932,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2636,14 +2636,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisCommentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2854,7 +2854,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr nou
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_new()
   store ptr %call, ptr %object_, align 8
@@ -2866,7 +2866,7 @@ declare ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #4
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %track) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %track)
   store ptr %call, ptr %object_, align 8
@@ -2878,7 +2878,7 @@ declare ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef) local_unnam
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %object_2 = getelementptr inbounds i8, ptr %track, i64 8
   %0 = load ptr, ptr %object_2, align 8
@@ -2912,7 +2912,7 @@ declare void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef) local_unn
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -3016,14 +3016,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata8CueSheetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3309,14 +3309,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata7PictureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3548,14 +3548,14 @@ entry:
   store ptr %call, ptr %object_.i, align 8
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata7UnknownD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3663,7 +3663,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %0, ptr %object_.i.i, align 8
   %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %call1, align 8
   store ptr %call1, ptr %tags, align 8
   br label %return
 
@@ -3712,7 +3712,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %0, ptr %object_.i.i, align 8
   %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %call1, align 8
   store ptr %call1, ptr %cuesheet, align 8
   br label %return
 
@@ -3761,7 +3761,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %0, ptr %object_.i.i, align 8
   %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %call1, align 8
   store ptr %call1, ptr %picture, align 8
   br label %return
 
@@ -3797,7 +3797,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
   %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_simple_iterator_new()
   store ptr %call, ptr %iterator_, align 8
@@ -3809,7 +3809,7 @@ declare ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4011,7 +4011,7 @@ switch.lookup:                                    ; preds = %if.end.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end.i, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, i32 0, i64 2), %if.end.i ]
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end.i ]
   store ptr %.sink.i, ptr %call25.i, align 8
   br label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit
 
@@ -4068,7 +4068,7 @@ declare i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef, i32 nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
   %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_chain_new()
   store ptr %call, ptr %chain_, align 8
@@ -4080,7 +4080,7 @@ declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
   %chain_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4277,7 +4277,7 @@ declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
   %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_iterator_new()
   store ptr %call, ptr %iterator_, align 8
@@ -4289,7 +4289,7 @@ declare ptr @FLAC__metadata_iterator_new() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4420,7 +4420,7 @@ switch.lookup:                                    ; preds = %if.end.i
   br label %if.then
 
 if.then:                                          ; preds = %if.end.i, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, i32 0, i64 2), %if.end.i ]
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end.i ]
   store ptr %.sink.i, ptr %call25.i, align 8
   store i8 1, ptr %is_reference_.i.i24.i, align 8
   br label %if.end

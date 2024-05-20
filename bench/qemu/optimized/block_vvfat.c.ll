@@ -191,7 +191,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 define internal void @bdrv_vvfat_init() #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @child_vvfat_qcow, ptr noundef nonnull align 8 dereferenceable(128) @child_of_bds, i64 128, i1 false)
-  store ptr @vvfat_qcow_options, ptr getelementptr inbounds (%struct.BdrvChildClass, ptr @child_vvfat_qcow, i64 0, i32 2), align 8
+  store ptr @vvfat_qcow_options, ptr getelementptr inbounds (i8, ptr @child_vvfat_qcow, i64 8), align 8
   tail call void @bdrv_register(ptr noundef nonnull @bdrv_vvfat) #18
   ret void
 }

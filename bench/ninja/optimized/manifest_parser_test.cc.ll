@@ -2765,7 +2765,7 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %122, %_ZNKSt14defau
           to label %.noexc54 unwind label %138
 
 .noexc54:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.18, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %126
 
 126:                                              ; preds = %.noexc54
@@ -3380,7 +3380,7 @@ _ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %129, %_ZNKSt14defau
           to label %.noexc65 unwind label %145
 
 .noexc65:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.29, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %136
 
 136:                                              ; preds = %.noexc65
@@ -3524,7 +3524,7 @@ _ZN7testing15AssertionResultD2Ev.exit74:          ; preds = %173, %_ZNKSt14defau
           to label %.noexc76 unwind label %184
 
 .noexc76:                                         ; preds = %.noexc75
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.33, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.33, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79 unwind label %176
 
 176:                                              ; preds = %.noexc76
@@ -3770,7 +3770,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
           to label %.noexc21 unwind label %50
 
 .noexc21:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.42, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %40
 
 40:                                               ; preds = %.noexc21
@@ -4271,7 +4271,7 @@ _ZN7testing15AssertionResultD2Ev.exit75:          ; preds = %134, %_ZNKSt14defau
           to label %.noexc76 unwind label %150
 
 .noexc76:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.18, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %138
 
 138:                                              ; preds = %.noexc76
@@ -4435,7 +4435,7 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %181, %_ZNKSt14defau
           to label %.noexc91 unwind label %197
 
 .noexc91:                                         ; preds = %.noexc90
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.54, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94 unwind label %185
 
 185:                                              ; preds = %.noexc91
@@ -4599,7 +4599,7 @@ _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %228, %_ZNKSt14defau
           to label %.noexc109 unwind label %244
 
 .noexc109:                                        ; preds = %.noexc108
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.58, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 15))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112 unwind label %232
 
 232:                                              ; preds = %.noexc109
@@ -5098,7 +5098,7 @@ _ZN7testing15AssertionResultD2Ev.exit59:          ; preds = %126, %_ZNKSt14defau
           to label %.noexc60 unwind label %142
 
 .noexc60:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.18, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %130
 
 130:                                              ; preds = %.noexc60
@@ -5726,7 +5726,7 @@ _ZN7testing15AssertionResultD2Ev.exit59:          ; preds = %128, %_ZNKSt14defau
           to label %.noexc61 unwind label %143
 
 .noexc61:                                         ; preds = %.noexc60
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.78, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %132
 
 132:                                              ; preds = %.noexc61
@@ -6793,7 +6793,7 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %122, %_ZNKSt14defau
           to label %.noexc54 unwind label %138
 
 .noexc54:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.18, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %126
 
 126:                                              ; preds = %.noexc54
@@ -7061,7 +7061,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
           to label %.noexc31 unwind label %56
 
 .noexc31:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.106, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %47
 
 47:                                               ; preds = %.noexc31
@@ -7216,7 +7216,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %87, %_ZNKSt14defaul
           to label %.noexc43 unwind label %101
 
 .noexc43:                                         ; preds = %.noexc42
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.110, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit46 unwind label %91
 
 91:                                               ; preds = %.noexc43
@@ -7473,7 +7473,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
           to label %.noexc21 unwind label %50
 
 .noexc21:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.106, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %40
 
 40:                                               ; preds = %.noexc21
@@ -7730,7 +7730,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
           to label %.noexc26 unwind label %54
 
 .noexc26:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.124, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc26
@@ -10287,7 +10287,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN14ManifestParser9ParseTestE
           to label %.noexc6 unwind label %14
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.525, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.525, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.525, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.525, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc6
@@ -10352,7 +10352,7 @@ define dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_Test8TestBody
           to label %.noexc25 unwind label %39
 
 .noexc25:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.183, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.183, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.183, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.183, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %20
 
 20:                                               ; preds = %.noexc25
@@ -10371,7 +10371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc27 unwind label %41
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds ([104 x i8], ptr @.str.184, i64 0, i64 103))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.184, i64 103))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %23
 
 23:                                               ; preds = %.noexc27
@@ -12202,7 +12202,7 @@ _ZN7testing15AssertionResultD2Ev.exit779:         ; preds = %497, %_ZNKSt14defau
           to label %.noexc781 unwind label %515
 
 .noexc781:                                        ; preds = %.noexc780
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.209, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.209, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.209, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.209, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %502
 
 502:                                              ; preds = %.noexc781
@@ -12478,7 +12478,7 @@ _ZN7testing15AssertionResultD2Ev.exit803:         ; preds = %578, %_ZNKSt14defau
           to label %.noexc805 unwind label %596
 
 .noexc805:                                        ; preds = %.noexc804
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.213, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.213, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.213, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.213, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit808 unwind label %583
 
 583:                                              ; preds = %.noexc805
@@ -12754,7 +12754,7 @@ _ZN7testing15AssertionResultD2Ev.exit831:         ; preds = %659, %_ZNKSt14defau
           to label %.noexc833 unwind label %677
 
 .noexc833:                                        ; preds = %.noexc832
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.217, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.217, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.217, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit836 unwind label %664
 
 664:                                              ; preds = %.noexc833
@@ -13030,7 +13030,7 @@ _ZN7testing15AssertionResultD2Ev.exit858:         ; preds = %740, %_ZNKSt14defau
           to label %.noexc860 unwind label %758
 
 .noexc860:                                        ; preds = %.noexc859
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.221, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit863 unwind label %745
 
 745:                                              ; preds = %.noexc860
@@ -13306,7 +13306,7 @@ _ZN7testing15AssertionResultD2Ev.exit886:         ; preds = %821, %_ZNKSt14defau
           to label %.noexc888 unwind label %839
 
 .noexc888:                                        ; preds = %.noexc887
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull @.str.225, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.225, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull @.str.225, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.225, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit891 unwind label %826
 
 826:                                              ; preds = %.noexc888
@@ -13582,7 +13582,7 @@ _ZN7testing15AssertionResultD2Ev.exit913:         ; preds = %902, %_ZNKSt14defau
           to label %.noexc915 unwind label %920
 
 .noexc915:                                        ; preds = %.noexc914
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.229, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.229, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit918 unwind label %907
 
 907:                                              ; preds = %.noexc915
@@ -13858,7 +13858,7 @@ _ZN7testing15AssertionResultD2Ev.exit940:         ; preds = %983, %_ZNKSt14defau
           to label %.noexc942 unwind label %1001
 
 .noexc942:                                        ; preds = %.noexc941
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull @.str.233, ptr noundef nonnull getelementptr inbounds ([15 x i8], ptr @.str.233, i64 0, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull @.str.233, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.233, i64 14))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit945 unwind label %988
 
 988:                                              ; preds = %.noexc942
@@ -14134,7 +14134,7 @@ _ZN7testing15AssertionResultD2Ev.exit967:         ; preds = %1064, %_ZNKSt14defa
           to label %.noexc969 unwind label %1082
 
 .noexc969:                                        ; preds = %.noexc968
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull @.str.237, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.237, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull @.str.237, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.237, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit972 unwind label %1069
 
 1069:                                             ; preds = %.noexc969
@@ -14410,7 +14410,7 @@ _ZN7testing15AssertionResultD2Ev.exit994:         ; preds = %1145, %_ZNKSt14defa
           to label %.noexc996 unwind label %1163
 
 .noexc996:                                        ; preds = %.noexc995
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull @.str.241, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.241, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull @.str.241, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.241, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit999 unwind label %1150
 
 1150:                                             ; preds = %.noexc996
@@ -14686,7 +14686,7 @@ _ZN7testing15AssertionResultD2Ev.exit1021:        ; preds = %1226, %_ZNKSt14defa
           to label %.noexc1023 unwind label %1244
 
 .noexc1023:                                       ; preds = %.noexc1022
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull @.str.245, ptr noundef nonnull getelementptr inbounds ([15 x i8], ptr @.str.245, i64 0, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull @.str.245, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.245, i64 14))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1026 unwind label %1231
 
 1231:                                             ; preds = %.noexc1023
@@ -14962,7 +14962,7 @@ _ZN7testing15AssertionResultD2Ev.exit1048:        ; preds = %1307, %_ZNKSt14defa
           to label %.noexc1050 unwind label %1325
 
 .noexc1050:                                       ; preds = %.noexc1049
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull @.str.249, ptr noundef nonnull getelementptr inbounds ([47 x i8], ptr @.str.249, i64 0, i64 46))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull @.str.249, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.249, i64 46))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1053 unwind label %1312
 
 1312:                                             ; preds = %.noexc1050
@@ -15238,7 +15238,7 @@ _ZN7testing15AssertionResultD2Ev.exit1075:        ; preds = %1388, %_ZNKSt14defa
           to label %.noexc1077 unwind label %1406
 
 .noexc1077:                                       ; preds = %.noexc1076
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull @.str.253, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.253, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull @.str.253, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.253, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1080 unwind label %1393
 
 1393:                                             ; preds = %.noexc1077
@@ -15514,7 +15514,7 @@ _ZN7testing15AssertionResultD2Ev.exit1102:        ; preds = %1469, %_ZNKSt14defa
           to label %.noexc1104 unwind label %1487
 
 .noexc1104:                                       ; preds = %.noexc1103
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull @.str.257, ptr noundef nonnull getelementptr inbounds ([53 x i8], ptr @.str.257, i64 0, i64 52))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull @.str.257, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.257, i64 52))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1107 unwind label %1474
 
 1474:                                             ; preds = %.noexc1104
@@ -15790,7 +15790,7 @@ _ZN7testing15AssertionResultD2Ev.exit1129:        ; preds = %1550, %_ZNKSt14defa
           to label %.noexc1131 unwind label %1568
 
 .noexc1131:                                       ; preds = %.noexc1130
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull @.str.261, ptr noundef nonnull getelementptr inbounds ([47 x i8], ptr @.str.261, i64 0, i64 46))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull @.str.261, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.261, i64 46))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1134 unwind label %1555
 
 1555:                                             ; preds = %.noexc1131
@@ -16066,7 +16066,7 @@ _ZN7testing15AssertionResultD2Ev.exit1156:        ; preds = %1631, %_ZNKSt14defa
           to label %.noexc1158 unwind label %1649
 
 .noexc1158:                                       ; preds = %.noexc1157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull @.str.265, ptr noundef nonnull getelementptr inbounds ([40 x i8], ptr @.str.265, i64 0, i64 39))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull @.str.265, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.265, i64 39))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1161 unwind label %1636
 
 1636:                                             ; preds = %.noexc1158
@@ -16342,7 +16342,7 @@ _ZN7testing15AssertionResultD2Ev.exit1183:        ; preds = %1712, %_ZNKSt14defa
           to label %.noexc1185 unwind label %1730
 
 .noexc1185:                                       ; preds = %.noexc1184
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull @.str.269, ptr noundef nonnull getelementptr inbounds ([44 x i8], ptr @.str.269, i64 0, i64 43))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull @.str.269, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.269, i64 43))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1188 unwind label %1717
 
 1717:                                             ; preds = %.noexc1185
@@ -16618,7 +16618,7 @@ _ZN7testing15AssertionResultD2Ev.exit1210:        ; preds = %1793, %_ZNKSt14defa
           to label %.noexc1212 unwind label %1811
 
 .noexc1212:                                       ; preds = %.noexc1211
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds ([43 x i8], ptr @.str.273, i64 0, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.273, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1215 unwind label %1798
 
 1798:                                             ; preds = %.noexc1212
@@ -16894,7 +16894,7 @@ _ZN7testing15AssertionResultD2Ev.exit1237:        ; preds = %1874, %_ZNKSt14defa
           to label %.noexc1239 unwind label %1892
 
 .noexc1239:                                       ; preds = %.noexc1238
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull @.str.277, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.277, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull @.str.277, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.277, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1242 unwind label %1879
 
 1879:                                             ; preds = %.noexc1239
@@ -17170,7 +17170,7 @@ _ZN7testing15AssertionResultD2Ev.exit1264:        ; preds = %1955, %_ZNKSt14defa
           to label %.noexc1266 unwind label %1973
 
 .noexc1266:                                       ; preds = %.noexc1265
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull @.str.281, ptr noundef nonnull getelementptr inbounds ([42 x i8], ptr @.str.281, i64 0, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull @.str.281, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.281, i64 41))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1269 unwind label %1960
 
 1960:                                             ; preds = %.noexc1266
@@ -17446,7 +17446,7 @@ _ZN7testing15AssertionResultD2Ev.exit1291:        ; preds = %2036, %_ZNKSt14defa
           to label %.noexc1293 unwind label %2054
 
 .noexc1293:                                       ; preds = %.noexc1292
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull @.str.285, ptr noundef nonnull getelementptr inbounds ([45 x i8], ptr @.str.285, i64 0, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull @.str.285, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.285, i64 44))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1296 unwind label %2041
 
 2041:                                             ; preds = %.noexc1293
@@ -17722,7 +17722,7 @@ _ZN7testing15AssertionResultD2Ev.exit1318:        ; preds = %2117, %_ZNKSt14defa
           to label %.noexc1320 unwind label %2135
 
 .noexc1320:                                       ; preds = %.noexc1319
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull @.str.289, ptr noundef nonnull getelementptr inbounds ([33 x i8], ptr @.str.289, i64 0, i64 32))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull @.str.289, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.289, i64 32))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1323 unwind label %2122
 
 2122:                                             ; preds = %.noexc1320
@@ -17998,7 +17998,7 @@ _ZN7testing15AssertionResultD2Ev.exit1346:        ; preds = %2198, %_ZNKSt14defa
           to label %.noexc1348 unwind label %2216
 
 .noexc1348:                                       ; preds = %.noexc1347
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull @.str.293, ptr noundef nonnull getelementptr inbounds ([44 x i8], ptr @.str.293, i64 0, i64 43))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull @.str.293, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.293, i64 43))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1351 unwind label %2203
 
 2203:                                             ; preds = %.noexc1348
@@ -18274,7 +18274,7 @@ _ZN7testing15AssertionResultD2Ev.exit1373:        ; preds = %2279, %_ZNKSt14defa
           to label %.noexc1375 unwind label %2297
 
 .noexc1375:                                       ; preds = %.noexc1374
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull @.str.297, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.297, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull @.str.297, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.297, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1378 unwind label %2284
 
 2284:                                             ; preds = %.noexc1375
@@ -18550,7 +18550,7 @@ _ZN7testing15AssertionResultD2Ev.exit1400:        ; preds = %2360, %_ZNKSt14defa
           to label %.noexc1402 unwind label %2378
 
 .noexc1402:                                       ; preds = %.noexc1401
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull @.str.301, ptr noundef nonnull getelementptr inbounds ([21 x i8], ptr @.str.301, i64 0, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull @.str.301, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.301, i64 20))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1405 unwind label %2365
 
 2365:                                             ; preds = %.noexc1402
@@ -18826,7 +18826,7 @@ _ZN7testing15AssertionResultD2Ev.exit1427:        ; preds = %2441, %_ZNKSt14defa
           to label %.noexc1429 unwind label %2459
 
 .noexc1429:                                       ; preds = %.noexc1428
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull @.str.305, ptr noundef nonnull getelementptr inbounds ([44 x i8], ptr @.str.305, i64 0, i64 43))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull @.str.305, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.305, i64 43))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1432 unwind label %2446
 
 2446:                                             ; preds = %.noexc1429
@@ -19102,7 +19102,7 @@ _ZN7testing15AssertionResultD2Ev.exit1454:        ; preds = %2522, %_ZNKSt14defa
           to label %.noexc1456 unwind label %2540
 
 .noexc1456:                                       ; preds = %.noexc1455
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull @.str.309, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.309, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull @.str.309, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.309, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1459 unwind label %2527
 
 2527:                                             ; preds = %.noexc1456
@@ -19378,7 +19378,7 @@ _ZN7testing15AssertionResultD2Ev.exit1481:        ; preds = %2603, %_ZNKSt14defa
           to label %.noexc1483 unwind label %2621
 
 .noexc1483:                                       ; preds = %.noexc1482
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %330, ptr noundef nonnull @.str.313, ptr noundef nonnull getelementptr inbounds ([37 x i8], ptr @.str.313, i64 0, i64 36))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %330, ptr noundef nonnull @.str.313, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.313, i64 36))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1486 unwind label %2608
 
 2608:                                             ; preds = %.noexc1483
@@ -19654,7 +19654,7 @@ _ZN7testing15AssertionResultD2Ev.exit1508:        ; preds = %2684, %_ZNKSt14defa
           to label %.noexc1510 unwind label %2702
 
 .noexc1510:                                       ; preds = %.noexc1509
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull @.str.317, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.317, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull @.str.317, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.317, i64 40))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1513 unwind label %2689
 
 2689:                                             ; preds = %.noexc1510
@@ -19930,7 +19930,7 @@ _ZN7testing15AssertionResultD2Ev.exit1535:        ; preds = %2765, %_ZNKSt14defa
           to label %.noexc1537 unwind label %2783
 
 .noexc1537:                                       ; preds = %.noexc1536
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull @.str.321, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.321, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull @.str.321, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.321, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1540 unwind label %2770
 
 2770:                                             ; preds = %.noexc1537
@@ -20206,7 +20206,7 @@ _ZN7testing15AssertionResultD2Ev.exit1562:        ; preds = %2846, %_ZNKSt14defa
           to label %.noexc1564 unwind label %2864
 
 .noexc1564:                                       ; preds = %.noexc1563
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef nonnull @.str.325, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.325, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef nonnull @.str.325, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.325, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1567 unwind label %2851
 
 2851:                                             ; preds = %.noexc1564
@@ -20482,7 +20482,7 @@ _ZN7testing15AssertionResultD2Ev.exit1589:        ; preds = %2927, %_ZNKSt14defa
           to label %.noexc1591 unwind label %2945
 
 .noexc1591:                                       ; preds = %.noexc1590
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef nonnull @.str.329, ptr noundef nonnull getelementptr inbounds ([31 x i8], ptr @.str.329, i64 0, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef nonnull @.str.329, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.329, i64 30))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1594 unwind label %2932
 
 2932:                                             ; preds = %.noexc1591
@@ -20758,7 +20758,7 @@ _ZN7testing15AssertionResultD2Ev.exit1617:        ; preds = %3008, %_ZNKSt14defa
           to label %.noexc1619 unwind label %3026
 
 .noexc1619:                                       ; preds = %.noexc1618
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %390, ptr noundef nonnull @.str.333, ptr noundef nonnull getelementptr inbounds ([23 x i8], ptr @.str.333, i64 0, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %390, ptr noundef nonnull @.str.333, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.333, i64 22))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1622 unwind label %3013
 
 3013:                                             ; preds = %.noexc1619
@@ -21034,7 +21034,7 @@ _ZN7testing15AssertionResultD2Ev.exit1644:        ; preds = %3089, %_ZNKSt14defa
           to label %.noexc1646 unwind label %3107
 
 .noexc1646:                                       ; preds = %.noexc1645
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %402, ptr noundef nonnull @.str.337, ptr noundef nonnull getelementptr inbounds ([20 x i8], ptr @.str.337, i64 0, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %402, ptr noundef nonnull @.str.337, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.337, i64 19))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1649 unwind label %3094
 
 3094:                                             ; preds = %.noexc1646
@@ -21310,7 +21310,7 @@ _ZN7testing15AssertionResultD2Ev.exit1672:        ; preds = %3170, %_ZNKSt14defa
           to label %.noexc1674 unwind label %3188
 
 .noexc1674:                                       ; preds = %.noexc1673
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %414, ptr noundef nonnull @.str.341, ptr noundef nonnull getelementptr inbounds ([67 x i8], ptr @.str.341, i64 0, i64 66))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %414, ptr noundef nonnull @.str.341, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.341, i64 66))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1677 unwind label %3175
 
 3175:                                             ; preds = %.noexc1674
@@ -21607,7 +21607,7 @@ define linkonce_odr dso_local void @_ZN5StateD2Ev(ptr noundef nonnull align 8 de
 
 _ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit:             ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10BindingEnv, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
@@ -21722,7 +21722,7 @@ define dso_local void @_ZN28ParserTest_MissingInput_Test8TestBodyEv(ptr noundef 
           to label %.noexc20 unwind label %28
 
 .noexc20:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.347, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.347, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.347, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.347, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %17
 
 17:                                               ; preds = %.noexc20
@@ -22022,7 +22022,7 @@ define dso_local void @_ZN31ParserTest_MultipleOutputs_Test8TestBodyEv(ptr nocap
           to label %.noexc19 unwind label %26
 
 .noexc19:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.353, ptr noundef nonnull getelementptr inbounds ([64 x i8], ptr @.str.353, i64 0, i64 63))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.353, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.353, i64 63))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc19
@@ -22319,7 +22319,7 @@ define dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_Test8TestBodyEv(p
           to label %.noexc19 unwind label %26
 
 .noexc19:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.357, ptr noundef nonnull getelementptr inbounds ([61 x i8], ptr @.str.357, i64 0, i64 60))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.357, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.357, i64 60))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc19
@@ -22639,7 +22639,7 @@ define dso_local void @_ZN24ParserTest_SubNinja_Test8TestBodyEv(ptr noundef nonn
           to label %.noexc64 unwind label %55
 
 .noexc64:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.361, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.361, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc64
@@ -22658,7 +22658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc66 unwind label %57
 
 .noexc66:                                         ; preds = %.noexc65
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds ([43 x i8], ptr @.str.362, i64 0, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.362, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69 unwind label %47
 
 47:                                               ; preds = %.noexc66
@@ -23716,7 +23716,7 @@ define dso_local void @_ZN31ParserTest_MissingSubNinja_Test8TestBodyEv(ptr nound
           to label %.noexc18 unwind label %25
 
 .noexc18:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds ([20 x i8], ptr @.str.380, i64 0, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.380, i64 19))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc18
@@ -23998,7 +23998,7 @@ define dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubninjas_Test8Te
           to label %.noexc20 unwind label %30
 
 .noexc20:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.361, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.361, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc20
@@ -24017,7 +24017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc22 unwind label %32
 
 .noexc22:                                         ; preds = %.noexc21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds ([26 x i8], ptr @.str.386, i64 0, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.386, i64 25))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25 unwind label %19
 
 19:                                               ; preds = %.noexc22
@@ -24047,7 +24047,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25: ; 
           to label %.noexc27 unwind label %36
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.387, ptr noundef nonnull getelementptr inbounds ([46 x i8], ptr @.str.387, i64 0, i64 45))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.387, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.387, i64 45))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %24
 
 24:                                               ; preds = %.noexc27
@@ -24245,7 +24245,7 @@ define dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubninjasWithIncl
           to label %.noexc25 unwind label %41
 
 .noexc25:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.391, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.391, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.391, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.391, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %20
 
 20:                                               ; preds = %.noexc25
@@ -24264,7 +24264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc27 unwind label %43
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds ([26 x i8], ptr @.str.386, i64 0, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.386, i64 25))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %23
 
 23:                                               ; preds = %.noexc27
@@ -24291,7 +24291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %.noexc32 unwind label %47
 
 .noexc32:                                         ; preds = %.noexc31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.361, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.361, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35 unwind label %27
 
 27:                                               ; preds = %.noexc32
@@ -24310,7 +24310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; 
           to label %.noexc37 unwind label %49
 
 .noexc37:                                         ; preds = %.noexc36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.392, ptr noundef nonnull getelementptr inbounds ([35 x i8], ptr @.str.392, i64 0, i64 34))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.392, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.392, i64 34))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40 unwind label %30
 
 30:                                               ; preds = %.noexc37
@@ -24340,7 +24340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40: ; 
           to label %.noexc42 unwind label %53
 
 .noexc42:                                         ; preds = %.noexc41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.393, ptr noundef nonnull getelementptr inbounds ([55 x i8], ptr @.str.393, i64 0, i64 54))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.393, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.393, i64 54))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45 unwind label %35
 
 35:                                               ; preds = %.noexc42
@@ -24570,7 +24570,7 @@ define dso_local void @_ZN23ParserTest_Include_Test8TestBodyEv(ptr noundef nonnu
           to label %.noexc35 unwind label %36
 
 .noexc35:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.397, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.397, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %25
 
 25:                                               ; preds = %.noexc35
@@ -24589,7 +24589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc37 unwind label %38
 
 .noexc37:                                         ; preds = %.noexc36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.398, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.398, i64 0, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.398, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.398, i64 12))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40 unwind label %28
 
 28:                                               ; preds = %.noexc37
@@ -24942,7 +24942,7 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %138, %_ZNKSt14defau
           to label %.noexc64 unwind label %153
 
 .noexc64:                                         ; preds = %.noexc63
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.405, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.405, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.405, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.405, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67 unwind label %142
 
 142:                                              ; preds = %.noexc64
@@ -25132,7 +25132,7 @@ define dso_local void @_ZN29ParserTest_BrokenInclude_Test8TestBodyEv(ptr noundef
           to label %.noexc25 unwind label %36
 
 .noexc25:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.397, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.397, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
 19:                                               ; preds = %.noexc25
@@ -25151,7 +25151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc27 unwind label %38
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.237, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.237, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.237, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.237, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %22
 
 22:                                               ; preds = %.noexc27
@@ -25181,7 +25181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %.noexc32 unwind label %42
 
 .noexc32:                                         ; preds = %.noexc31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.408, ptr noundef nonnull getelementptr inbounds ([23 x i8], ptr @.str.408, i64 0, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.408, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.408, i64 22))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35 unwind label %27
 
 27:                                               ; preds = %.noexc32
@@ -27468,7 +27468,7 @@ define dso_local void @_ZN32ParserTest_NoExplicitOutput_Test8TestBodyEv(ptr noun
           to label %.noexc13 unwind label %18
 
 .noexc13:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.451, ptr noundef nonnull getelementptr inbounds ([59 x i8], ptr @.str.451, i64 0, i64 58))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.451, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.451, i64 58))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %12
 
 12:                                               ; preds = %.noexc13
@@ -29171,7 +29171,7 @@ define dso_local void @_ZN20ParserTest_CRLF_Test8TestBodyEv(ptr nocapture nonnul
           to label %.noexc36 unwind label %35
 
 .noexc36:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.485, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.485, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.485, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.485, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %25
 
 25:                                               ; preds = %.noexc36
@@ -29315,7 +29315,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %63, %_ZNKSt14defaul
           to label %.noexc42 unwind label %75
 
 .noexc42:                                         ; preds = %.noexc41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.487, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.487, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.487, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.487, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45 unwind label %66
 
 66:                                               ; preds = %.noexc42
@@ -29459,7 +29459,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %103, %_ZNKSt14defau
           to label %.noexc56 unwind label %113
 
 .noexc56:                                         ; preds = %.noexc55
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.489, ptr noundef nonnull getelementptr inbounds ([96 x i8], ptr @.str.489, i64 0, i64 95))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.489, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.489, i64 95))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59 unwind label %106
 
 106:                                              ; preds = %.noexc56
@@ -29833,7 +29833,7 @@ define dso_local void @_ZN30ParserTest_DyndepNotInput_Test8TestBodyEv(ptr nocapt
           to label %.noexc19 unwind label %27
 
 .noexc19:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.498, ptr noundef nonnull getelementptr inbounds ([72 x i8], ptr @.str.498, i64 0, i64 71))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.498, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.498, i64 71))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc19
@@ -31748,7 +31748,7 @@ _ZN7testing7MessageD2Ev.exit34:                   ; preds = %_ZNKSt14default_del
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21ParserTest_Empty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31759,7 +31759,7 @@ define linkonce_odr dso_local void @_ZN21ParserTest_Empty_TestD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21ParserTest_Empty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31780,7 +31780,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21ParserTest_Rules_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31791,7 +31791,7 @@ define linkonce_odr dso_local void @_ZN21ParserTest_Rules_TestD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21ParserTest_Rules_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31803,7 +31803,7 @@ define linkonce_odr dso_local void @_ZN21ParserTest_Rules_TestD0Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_RuleAttributes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31814,7 +31814,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_RuleAttributes_TestD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_RuleAttributes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31826,7 +31826,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_RuleAttributes_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN38ParserTest_IgnoreIndentedComments_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31837,7 +31837,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_IgnoreIndentedComments_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN38ParserTest_IgnoreIndentedComments_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31849,7 +31849,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_IgnoreIndentedComments_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN40ParserTest_IgnoreIndentedBlankLines_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31860,7 +31860,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_IgnoreIndentedBlankLines_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN40ParserTest_IgnoreIndentedBlankLines_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31872,7 +31872,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_IgnoreIndentedBlankLines_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_ResponseFiles_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31883,7 +31883,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ResponseFiles_TestD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_ResponseFiles_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31895,7 +31895,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ResponseFiles_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_InNewline_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31906,7 +31906,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_InNewline_TestD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_InNewline_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31918,7 +31918,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_InNewline_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_Variables_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31929,7 +31929,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Variables_TestD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_Variables_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31941,7 +31941,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Variables_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_VariableScope_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31952,7 +31952,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_VariableScope_TestD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_VariableScope_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31964,7 +31964,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_VariableScope_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_Continuation_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31975,7 +31975,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_Continuation_TestD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_Continuation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31987,7 +31987,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_Continuation_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_Backslash_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31998,7 +31998,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Backslash_TestD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_Backslash_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32010,7 +32010,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Backslash_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Comment_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32021,7 +32021,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Comment_TestD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Comment_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32033,7 +32033,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Comment_TestD0Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Dollars_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32044,7 +32044,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Dollars_TestD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Dollars_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32056,7 +32056,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Dollars_TestD0Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_EscapeSpaces_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32067,7 +32067,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_EscapeSpaces_TestD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_EscapeSpaces_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32079,7 +32079,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_EscapeSpaces_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32ParserTest_CanonicalizeFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32090,7 +32090,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_CanonicalizeFile_TestD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32ParserTest_CanonicalizeFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32102,7 +32102,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_CanonicalizeFile_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_PathVariables_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32113,7 +32113,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_PathVariables_TestD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_PathVariables_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32125,7 +32125,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_PathVariables_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33ParserTest_CanonicalizePaths_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32136,7 +32136,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_CanonicalizePaths_TestD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33ParserTest_CanonicalizePaths_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32148,7 +32148,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_CanonicalizePaths_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32159,7 +32159,7 @@ define linkonce_odr dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOut
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32171,7 +32171,7 @@ define linkonce_odr dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOut
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32182,7 +32182,7 @@ define linkonce_odr dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32194,7 +32194,7 @@ define linkonce_odr dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN41ParserTest_PhonySelfReferenceIgnored_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32205,7 +32205,7 @@ define linkonce_odr dso_local void @_ZN41ParserTest_PhonySelfReferenceIgnored_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN41ParserTest_PhonySelfReferenceIgnored_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32217,7 +32217,7 @@ define linkonce_odr dso_local void @_ZN41ParserTest_PhonySelfReferenceIgnored_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32228,7 +32228,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32240,7 +32240,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_ReservedWords_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32251,7 +32251,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ReservedWords_TestD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_ReservedWords_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32263,7 +32263,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ReservedWords_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ParserTest_Errors_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32274,7 +32274,7 @@ define linkonce_odr dso_local void @_ZN22ParserTest_Errors_TestD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ParserTest_Errors_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32286,7 +32286,7 @@ define linkonce_odr dso_local void @_ZN22ParserTest_Errors_TestD0Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_MissingInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32297,7 +32297,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_MissingInput_TestD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28ParserTest_MissingInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32309,7 +32309,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_MissingInput_TestD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_MultipleOutputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32320,7 +32320,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MultipleOutputs_TestD2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_MultipleOutputs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32332,7 +32332,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MultipleOutputs_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32343,7 +32343,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32355,7 +32355,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24ParserTest_SubNinja_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32366,7 +32366,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_SubNinja_TestD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24ParserTest_SubNinja_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32378,7 +32378,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_SubNinja_TestD0Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_MissingSubNinja_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32389,7 +32389,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MissingSubNinja_TestD2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_MissingSubNinja_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32401,7 +32401,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MissingSubNinja_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubninjas_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32412,7 +32412,7 @@ define linkonce_odr dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubninjas_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32424,7 +32424,7 @@ define linkonce_odr dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32435,7 +32435,7 @@ define linkonce_odr dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32447,7 +32447,7 @@ define linkonce_odr dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Include_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32458,7 +32458,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Include_TestD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ParserTest_Include_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32470,7 +32470,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Include_TestD0Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_BrokenInclude_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32481,7 +32481,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_BrokenInclude_TestD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29ParserTest_BrokenInclude_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32493,7 +32493,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_BrokenInclude_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24ParserTest_Implicit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32504,7 +32504,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_Implicit_TestD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24ParserTest_Implicit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32516,7 +32516,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_Implicit_TestD0Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_OrderOnly_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32527,7 +32527,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_OrderOnly_TestD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ParserTest_OrderOnly_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32539,7 +32539,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_OrderOnly_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27ParserTest_Validations_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32550,7 +32550,7 @@ define linkonce_odr dso_local void @_ZN27ParserTest_Validations_TestD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27ParserTest_Validations_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32562,7 +32562,7 @@ define linkonce_odr dso_local void @_ZN27ParserTest_Validations_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_ImplicitOutput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32573,7 +32573,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_ImplicitOutput_TestD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_ImplicitOutput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32585,7 +32585,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_ImplicitOutput_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_ImplicitOutputEmpty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32596,7 +32596,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_ImplicitOutputEmpty_TestD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_ImplicitOutputEmpty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32608,7 +32608,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_ImplicitOutputEmpty_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32619,7 +32619,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32631,7 +32631,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32642,7 +32642,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32654,7 +32654,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32ParserTest_NoExplicitOutput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32665,7 +32665,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_NoExplicitOutput_TestD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32ParserTest_NoExplicitOutput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32677,7 +32677,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_NoExplicitOutput_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_DefaultDefault_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32688,7 +32688,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DefaultDefault_TestD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_DefaultDefault_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32700,7 +32700,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DefaultDefault_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DefaultDefaultCycle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32711,7 +32711,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DefaultDefaultCycle_TestD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DefaultDefaultCycle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32723,7 +32723,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DefaultDefaultCycle_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33ParserTest_DefaultStatements_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32734,7 +32734,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_DefaultStatements_TestD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33ParserTest_DefaultStatements_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32746,7 +32746,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_DefaultStatements_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20ParserTest_UTF8_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32757,7 +32757,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_UTF8_TestD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20ParserTest_UTF8_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32769,7 +32769,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_UTF8_TestD0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20ParserTest_CRLF_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32780,7 +32780,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_CRLF_TestD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20ParserTest_CRLF_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32792,7 +32792,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_CRLF_TestD0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34ParserTest_DyndepNotSpecified_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32803,7 +32803,7 @@ define linkonce_odr dso_local void @_ZN34ParserTest_DyndepNotSpecified_TestD2Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34ParserTest_DyndepNotSpecified_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32815,7 +32815,7 @@ define linkonce_odr dso_local void @_ZN34ParserTest_DyndepNotSpecified_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_DyndepNotInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32826,7 +32826,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DyndepNotInput_TestD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30ParserTest_DyndepNotInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32838,7 +32838,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DyndepNotInput_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DyndepExplicitInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32849,7 +32849,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepExplicitInput_TestD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DyndepExplicitInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32861,7 +32861,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepExplicitInput_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DyndepImplicitInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32872,7 +32872,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepImplicitInput_TestD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35ParserTest_DyndepImplicitInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32884,7 +32884,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepImplicitInput_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN36ParserTest_DyndepOrderOnlyInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32895,7 +32895,7 @@ define linkonce_odr dso_local void @_ZN36ParserTest_DyndepOrderOnlyInput_TestD2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN36ParserTest_DyndepOrderOnlyInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32907,7 +32907,7 @@ define linkonce_odr dso_local void @_ZN36ParserTest_DyndepOrderOnlyInput_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_DyndepRuleInput_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32918,7 +32918,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_DyndepRuleInput_TestD2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31ParserTest_DyndepRuleInput_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -32948,7 +32948,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -32961,7 +32961,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -32996,7 +32996,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Empty_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21ParserTest_Empty_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33022,7 +33022,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ParserTestD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -33050,7 +33050,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -33220,7 +33220,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33233,7 +33233,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33268,7 +33268,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Rules_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21ParserTest_Rules_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33300,7 +33300,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33313,7 +33313,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33348,7 +33348,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_RuleAttributes_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30ParserTest_RuleAttributes_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33380,7 +33380,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33393,7 +33393,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33428,7 +33428,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_IgnoreIndentedComments_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV38ParserTest_IgnoreIndentedComments_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33463,7 +33463,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33476,7 +33476,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33511,7 +33511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_IgnoreIndentedBlankLines_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV40ParserTest_IgnoreIndentedBlankLines_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33543,7 +33543,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33556,7 +33556,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33591,7 +33591,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ResponseFiles_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ParserTest_ResponseFiles_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33623,7 +33623,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33636,7 +33636,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33671,7 +33671,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_InNewline_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25ParserTest_InNewline_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33703,7 +33703,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33716,7 +33716,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33751,7 +33751,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Variables_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25ParserTest_Variables_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33783,7 +33783,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33796,7 +33796,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33831,7 +33831,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_VariableScope_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ParserTest_VariableScope_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33863,7 +33863,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33876,7 +33876,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33911,7 +33911,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_Continuation_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28ParserTest_Continuation_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -33943,7 +33943,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -33956,7 +33956,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -33991,7 +33991,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Backslash_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25ParserTest_Backslash_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34023,7 +34023,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34036,7 +34036,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34071,7 +34071,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Comment_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23ParserTest_Comment_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34103,7 +34103,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34116,7 +34116,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34151,7 +34151,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Dollars_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23ParserTest_Dollars_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34183,7 +34183,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34196,7 +34196,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34231,7 +34231,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_EscapeSpaces_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28ParserTest_EscapeSpaces_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34263,7 +34263,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34276,7 +34276,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34311,7 +34311,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_CanonicalizeFile_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV32ParserTest_CanonicalizeFile_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34343,7 +34343,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34356,7 +34356,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34391,7 +34391,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_PathVariables_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ParserTest_PathVariables_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34423,7 +34423,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34436,7 +34436,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34471,7 +34471,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_CanonicalizePaths_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV33ParserTest_CanonicalizePaths_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34503,7 +34503,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34516,7 +34516,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34551,7 +34551,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV53ParserTest_DuplicateEdgeWithMultipleOutputsError_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV53ParserTest_DuplicateEdgeWithMultipleOutputsError_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34583,7 +34583,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34596,7 +34596,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34631,7 +34631,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43ParserTest_DuplicateEdgeInIncludedFile_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV43ParserTest_DuplicateEdgeInIncludedFile_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34663,7 +34663,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34676,7 +34676,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34711,7 +34711,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41ParserTest_PhonySelfReferenceIgnored_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV41ParserTest_PhonySelfReferenceIgnored_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34743,7 +34743,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34756,7 +34756,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34791,7 +34791,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_PhonySelfReferenceKept_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV38ParserTest_PhonySelfReferenceKept_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34823,7 +34823,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34836,7 +34836,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34871,7 +34871,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ReservedWords_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ParserTest_ReservedWords_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -34903,7 +34903,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -34916,7 +34916,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -34951,7 +34951,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22ParserTest_Errors_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ParserTest_Errors_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35051,7 +35051,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35064,7 +35064,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35099,7 +35099,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_MissingInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28ParserTest_MissingInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35131,7 +35131,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35144,7 +35144,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35179,7 +35179,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MultipleOutputs_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31ParserTest_MultipleOutputs_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35211,7 +35211,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35224,7 +35224,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35259,7 +35259,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_MultipleOutputsWithDeps_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV39ParserTest_MultipleOutputsWithDeps_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35291,7 +35291,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35304,7 +35304,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35339,7 +35339,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_SubNinja_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24ParserTest_SubNinja_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35371,7 +35371,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35384,7 +35384,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35419,7 +35419,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MissingSubNinja_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31ParserTest_MissingSubNinja_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35451,7 +35451,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35464,7 +35464,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35499,7 +35499,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49ParserTest_DuplicateRuleInDifferentSubninjas_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV49ParserTest_DuplicateRuleInDifferentSubninjas_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35531,7 +35531,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35544,7 +35544,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35579,7 +35579,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35611,7 +35611,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35624,7 +35624,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35659,7 +35659,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Include_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23ParserTest_Include_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35691,7 +35691,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35704,7 +35704,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35739,7 +35739,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_BrokenInclude_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ParserTest_BrokenInclude_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35771,7 +35771,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35784,7 +35784,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35819,7 +35819,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_Implicit_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24ParserTest_Implicit_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35851,7 +35851,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35864,7 +35864,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35899,7 +35899,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_OrderOnly_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25ParserTest_OrderOnly_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -35931,7 +35931,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -35944,7 +35944,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -35979,7 +35979,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27ParserTest_Validations_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27ParserTest_Validations_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36011,7 +36011,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36024,7 +36024,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36059,7 +36059,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_ImplicitOutput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30ParserTest_ImplicitOutput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36091,7 +36091,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36104,7 +36104,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36139,7 +36139,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_ImplicitOutputEmpty_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35ParserTest_ImplicitOutputEmpty_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36171,7 +36171,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36184,7 +36184,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36219,7 +36219,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_ImplicitOutputDupeError_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV39ParserTest_ImplicitOutputDupeError_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36251,7 +36251,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36264,7 +36264,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36299,7 +36299,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_ImplicitOutputDupesError_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV40ParserTest_ImplicitOutputDupesError_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36331,7 +36331,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36344,7 +36344,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36379,7 +36379,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_NoExplicitOutput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV32ParserTest_NoExplicitOutput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36411,7 +36411,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36424,7 +36424,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36459,7 +36459,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DefaultDefault_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30ParserTest_DefaultDefault_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36491,7 +36491,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36504,7 +36504,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36539,7 +36539,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DefaultDefaultCycle_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35ParserTest_DefaultDefaultCycle_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36571,7 +36571,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36584,7 +36584,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36619,7 +36619,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_DefaultStatements_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV33ParserTest_DefaultStatements_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36651,7 +36651,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36664,7 +36664,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36699,7 +36699,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_UTF8_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20ParserTest_UTF8_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36731,7 +36731,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36744,7 +36744,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36779,7 +36779,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_CRLF_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20ParserTest_CRLF_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36811,7 +36811,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36824,7 +36824,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36859,7 +36859,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34ParserTest_DyndepNotSpecified_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV34ParserTest_DyndepNotSpecified_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36891,7 +36891,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36904,7 +36904,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -36939,7 +36939,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DyndepNotInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30ParserTest_DyndepNotInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -36971,7 +36971,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -36984,7 +36984,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -37019,7 +37019,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepExplicitInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35ParserTest_DyndepExplicitInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -37051,7 +37051,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -37064,7 +37064,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -37099,7 +37099,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepImplicitInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35ParserTest_DyndepImplicitInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -37131,7 +37131,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -37144,7 +37144,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -37179,7 +37179,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36ParserTest_DyndepOrderOnlyInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV36ParserTest_DyndepOrderOnlyInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -37211,7 +37211,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ParserTest, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3)
           to label %6 unwind label %4
@@ -37224,7 +37224,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17VirtualFileSystem, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 288
   %9 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 0, ptr %9, align 8
@@ -37259,7 +37259,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 480
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_DyndepRuleInput_Test, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31ParserTest_DyndepRuleInput_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 25:                                               ; preds = %1
@@ -42063,7 +42063,7 @@ define internal void @_GLOBAL__sub_I_manifest_parser_test.cc() #13 section ".tex
           to label %.noexc7.i unwind label %167
 
 .noexc7.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %156
 
 156:                                              ; preds = %.noexc7.i
@@ -42091,7 +42091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %165 unwind label %171
 
 165:                                              ; preds = %163
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Empty_TestEE, i64 0, i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Empty_TestEE, i64 16), ptr %164, align 8
   %166 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %151, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %160, ptr noundef %162, ptr noundef nonnull %164)
           to label %__cxx_global_var_init.1.exit unwind label %171
 
@@ -42142,7 +42142,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %165
           to label %.noexc5.i unwind label %186
 
 .noexc5.i:                                        ; preds = %.noexc.i3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4 unwind label %175
 
 175:                                              ; preds = %.noexc5.i
@@ -42170,7 +42170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
           to label %184 unwind label %190
 
 184:                                              ; preds = %182
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Rules_TestEE, i64 0, i32 0, i64 2), ptr %183, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Rules_TestEE, i64 16), ptr %183, align 8
   %185 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef null, ptr noundef nonnull %148, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %179, ptr noundef %181, ptr noundef nonnull %183)
           to label %__cxx_global_var_init.6.exit unwind label %190
 
@@ -42215,7 +42215,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %184
           to label %.noexc5.i8 unwind label %205
 
 .noexc5.i8:                                       ; preds = %.noexc.i7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9 unwind label %194
 
 194:                                              ; preds = %.noexc5.i8
@@ -42243,7 +42243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
           to label %203 unwind label %209
 
 203:                                              ; preds = %201
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_RuleAttributes_TestEE, i64 0, i32 0, i64 2), ptr %202, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_RuleAttributes_TestEE, i64 16), ptr %202, align 8
   %204 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef null, ptr noundef nonnull %145, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %198, ptr noundef %200, ptr noundef nonnull %202)
           to label %__cxx_global_var_init.19.exit unwind label %209
 
@@ -42288,7 +42288,7 @@ __cxx_global_var_init.19.exit:                    ; preds = %203
           to label %.noexc5.i14 unwind label %224
 
 .noexc5.i14:                                      ; preds = %.noexc.i13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15 unwind label %213
 
 213:                                              ; preds = %.noexc5.i14
@@ -42316,7 +42316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
           to label %222 unwind label %228
 
 222:                                              ; preds = %220
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_IgnoreIndentedComments_TestEE, i64 0, i32 0, i64 2), ptr %221, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_IgnoreIndentedComments_TestEE, i64 16), ptr %221, align 8
   %223 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, ptr noundef nonnull %142, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %217, ptr noundef %219, ptr noundef nonnull %221)
           to label %__cxx_global_var_init.23.exit unwind label %228
 
@@ -42361,7 +42361,7 @@ __cxx_global_var_init.23.exit:                    ; preds = %222
           to label %.noexc5.i20 unwind label %243
 
 .noexc5.i20:                                      ; preds = %.noexc.i19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21 unwind label %232
 
 232:                                              ; preds = %.noexc5.i20
@@ -42389,7 +42389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
           to label %241 unwind label %247
 
 241:                                              ; preds = %239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_IgnoreIndentedBlankLines_TestEE, i64 0, i32 0, i64 2), ptr %240, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_IgnoreIndentedBlankLines_TestEE, i64 16), ptr %240, align 8
   %242 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %139, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %236, ptr noundef %238, ptr noundef nonnull %240)
           to label %__cxx_global_var_init.35.exit unwind label %247
 
@@ -42434,7 +42434,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %241
           to label %.noexc5.i26 unwind label %262
 
 .noexc5.i26:                                      ; preds = %.noexc.i25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27 unwind label %251
 
 251:                                              ; preds = %.noexc5.i26
@@ -42462,7 +42462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
           to label %260 unwind label %266
 
 260:                                              ; preds = %258
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ResponseFiles_TestEE, i64 0, i32 0, i64 2), ptr %259, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ResponseFiles_TestEE, i64 16), ptr %259, align 8
   %261 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef nonnull %136, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %255, ptr noundef %257, ptr noundef nonnull %259)
           to label %__cxx_global_var_init.43.exit unwind label %266
 
@@ -42507,7 +42507,7 @@ __cxx_global_var_init.43.exit:                    ; preds = %260
           to label %.noexc5.i32 unwind label %281
 
 .noexc5.i32:                                      ; preds = %.noexc.i31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33 unwind label %270
 
 270:                                              ; preds = %.noexc5.i32
@@ -42535,7 +42535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
           to label %279 unwind label %285
 
 279:                                              ; preds = %277
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_InNewline_TestEE, i64 0, i32 0, i64 2), ptr %278, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_InNewline_TestEE, i64 16), ptr %278, align 8
   %280 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.60, ptr noundef null, ptr noundef null, ptr noundef nonnull %133, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %274, ptr noundef %276, ptr noundef nonnull %278)
           to label %__cxx_global_var_init.59.exit unwind label %285
 
@@ -42580,7 +42580,7 @@ __cxx_global_var_init.59.exit:                    ; preds = %279
           to label %.noexc5.i38 unwind label %300
 
 .noexc5.i38:                                      ; preds = %.noexc.i37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39 unwind label %289
 
 289:                                              ; preds = %.noexc5.i38
@@ -42608,7 +42608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
           to label %298 unwind label %304
 
 298:                                              ; preds = %296
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Variables_TestEE, i64 0, i32 0, i64 2), ptr %297, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Variables_TestEE, i64 16), ptr %297, align 8
   %299 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull %130, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %293, ptr noundef %295, ptr noundef nonnull %297)
           to label %__cxx_global_var_init.68.exit unwind label %304
 
@@ -42653,7 +42653,7 @@ __cxx_global_var_init.68.exit:                    ; preds = %298
           to label %.noexc5.i44 unwind label %319
 
 .noexc5.i44:                                      ; preds = %.noexc.i43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45 unwind label %308
 
 308:                                              ; preds = %.noexc5.i44
@@ -42681,7 +42681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: 
           to label %317 unwind label %323
 
 317:                                              ; preds = %315
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_VariableScope_TestEE, i64 0, i32 0, i64 2), ptr %316, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_VariableScope_TestEE, i64 16), ptr %316, align 8
   %318 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef null, ptr noundef nonnull %127, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %312, ptr noundef %314, ptr noundef nonnull %316)
           to label %__cxx_global_var_init.81.exit unwind label %323
 
@@ -42726,7 +42726,7 @@ __cxx_global_var_init.81.exit:                    ; preds = %317
           to label %.noexc5.i50 unwind label %338
 
 .noexc5.i50:                                      ; preds = %.noexc.i49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51 unwind label %327
 
 327:                                              ; preds = %.noexc5.i50
@@ -42754,7 +42754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: 
           to label %336 unwind label %342
 
 336:                                              ; preds = %334
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_Continuation_TestEE, i64 0, i32 0, i64 2), ptr %335, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_Continuation_TestEE, i64 16), ptr %335, align 8
   %337 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef null, ptr noundef nonnull %124, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %331, ptr noundef %333, ptr noundef nonnull %335)
           to label %__cxx_global_var_init.91.exit unwind label %342
 
@@ -42799,7 +42799,7 @@ __cxx_global_var_init.91.exit:                    ; preds = %336
           to label %.noexc5.i56 unwind label %357
 
 .noexc5.i56:                                      ; preds = %.noexc.i55
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57 unwind label %346
 
 346:                                              ; preds = %.noexc5.i56
@@ -42827,7 +42827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57: 
           to label %355 unwind label %361
 
 355:                                              ; preds = %353
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Backslash_TestEE, i64 0, i32 0, i64 2), ptr %354, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Backslash_TestEE, i64 16), ptr %354, align 8
   %356 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef null, ptr noundef nonnull %121, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %350, ptr noundef %352, ptr noundef nonnull %354)
           to label %__cxx_global_var_init.99.exit unwind label %361
 
@@ -42872,7 +42872,7 @@ __cxx_global_var_init.99.exit:                    ; preds = %355
           to label %.noexc5.i62 unwind label %376
 
 .noexc5.i62:                                      ; preds = %.noexc.i61
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63 unwind label %365
 
 365:                                              ; preds = %.noexc5.i62
@@ -42900,7 +42900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63: 
           to label %374 unwind label %380
 
 374:                                              ; preds = %372
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Comment_TestEE, i64 0, i32 0, i64 2), ptr %373, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Comment_TestEE, i64 16), ptr %373, align 8
   %375 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %369, ptr noundef %371, ptr noundef nonnull %373)
           to label %__cxx_global_var_init.111.exit unwind label %380
 
@@ -42945,7 +42945,7 @@ __cxx_global_var_init.111.exit:                   ; preds = %374
           to label %.noexc5.i68 unwind label %395
 
 .noexc5.i68:                                      ; preds = %.noexc.i67
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69 unwind label %384
 
 384:                                              ; preds = %.noexc5.i68
@@ -42973,7 +42973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
           to label %393 unwind label %399
 
 393:                                              ; preds = %391
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Dollars_TestEE, i64 0, i32 0, i64 2), ptr %392, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Dollars_TestEE, i64 16), ptr %392, align 8
   %394 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.118, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %388, ptr noundef %390, ptr noundef nonnull %392)
           to label %__cxx_global_var_init.117.exit unwind label %399
 
@@ -43018,7 +43018,7 @@ __cxx_global_var_init.117.exit:                   ; preds = %393
           to label %.noexc5.i74 unwind label %414
 
 .noexc5.i74:                                      ; preds = %.noexc.i73
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75 unwind label %403
 
 403:                                              ; preds = %.noexc5.i74
@@ -43046,7 +43046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75: 
           to label %412 unwind label %418
 
 412:                                              ; preds = %410
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_EscapeSpaces_TestEE, i64 0, i32 0, i64 2), ptr %411, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_EscapeSpaces_TestEE, i64 16), ptr %411, align 8
   %413 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.128, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %407, ptr noundef %409, ptr noundef nonnull %411)
           to label %__cxx_global_var_init.127.exit unwind label %418
 
@@ -43091,7 +43091,7 @@ __cxx_global_var_init.127.exit:                   ; preds = %412
           to label %.noexc5.i80 unwind label %433
 
 .noexc5.i80:                                      ; preds = %.noexc.i79
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i81 unwind label %422
 
 422:                                              ; preds = %.noexc5.i80
@@ -43119,7 +43119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i81: 
           to label %431 unwind label %437
 
 431:                                              ; preds = %429
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_CanonicalizeFile_TestEE, i64 0, i32 0, i64 2), ptr %430, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_CanonicalizeFile_TestEE, i64 16), ptr %430, align 8
   %432 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.144, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %426, ptr noundef %428, ptr noundef nonnull %430)
           to label %__cxx_global_var_init.143.exit unwind label %437
 
@@ -43164,7 +43164,7 @@ __cxx_global_var_init.143.exit:                   ; preds = %431
           to label %.noexc5.i86 unwind label %452
 
 .noexc5.i86:                                      ; preds = %.noexc.i85
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i87 unwind label %441
 
 441:                                              ; preds = %.noexc5.i86
@@ -43192,7 +43192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i87: 
           to label %450 unwind label %456
 
 450:                                              ; preds = %448
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_PathVariables_TestEE, i64 0, i32 0, i64 2), ptr %449, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_PathVariables_TestEE, i64 16), ptr %449, align 8
   %451 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.156, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %445, ptr noundef %447, ptr noundef nonnull %449)
           to label %__cxx_global_var_init.155.exit unwind label %456
 
@@ -43237,7 +43237,7 @@ __cxx_global_var_init.155.exit:                   ; preds = %450
           to label %.noexc5.i92 unwind label %471
 
 .noexc5.i92:                                      ; preds = %.noexc.i91
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i93 unwind label %460
 
 460:                                              ; preds = %.noexc5.i92
@@ -43265,7 +43265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i93: 
           to label %469 unwind label %475
 
 469:                                              ; preds = %467
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_CanonicalizePaths_TestEE, i64 0, i32 0, i64 2), ptr %468, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_CanonicalizePaths_TestEE, i64 16), ptr %468, align 8
   %470 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %464, ptr noundef %466, ptr noundef nonnull %468)
           to label %__cxx_global_var_init.163.exit unwind label %475
 
@@ -43310,7 +43310,7 @@ __cxx_global_var_init.163.exit:                   ; preds = %469
           to label %.noexc5.i98 unwind label %490
 
 .noexc5.i98:                                      ; preds = %.noexc.i97
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i99 unwind label %479
 
 479:                                              ; preds = %.noexc5.i98
@@ -43338,7 +43338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i99: 
           to label %488 unwind label %494
 
 488:                                              ; preds = %486
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestEE, i64 0, i32 0, i64 2), ptr %487, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestEE, i64 16), ptr %487, align 8
   %489 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %483, ptr noundef %485, ptr noundef nonnull %487)
           to label %__cxx_global_var_init.175.exit unwind label %494
 
@@ -43383,7 +43383,7 @@ __cxx_global_var_init.175.exit:                   ; preds = %488
           to label %.noexc5.i104 unwind label %509
 
 .noexc5.i104:                                     ; preds = %.noexc.i103
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i105 unwind label %498
 
 498:                                              ; preds = %.noexc5.i104
@@ -43411,7 +43411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i105:
           to label %507 unwind label %513
 
 507:                                              ; preds = %505
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43ParserTest_DuplicateEdgeInIncludedFile_TestEE, i64 0, i32 0, i64 2), ptr %506, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI43ParserTest_DuplicateEdgeInIncludedFile_TestEE, i64 16), ptr %506, align 8
   %508 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.182, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %502, ptr noundef %504, ptr noundef nonnull %506)
           to label %__cxx_global_var_init.181.exit unwind label %513
 
@@ -43456,7 +43456,7 @@ __cxx_global_var_init.181.exit:                   ; preds = %507
           to label %.noexc5.i110 unwind label %528
 
 .noexc5.i110:                                     ; preds = %.noexc.i109
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i111 unwind label %517
 
 517:                                              ; preds = %.noexc5.i110
@@ -43484,7 +43484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i111:
           to label %526 unwind label %532
 
 526:                                              ; preds = %524
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41ParserTest_PhonySelfReferenceIgnored_TestEE, i64 0, i32 0, i64 2), ptr %525, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI41ParserTest_PhonySelfReferenceIgnored_TestEE, i64 16), ptr %525, align 8
   %527 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.188, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %521, ptr noundef %523, ptr noundef nonnull %525)
           to label %__cxx_global_var_init.187.exit unwind label %532
 
@@ -43529,7 +43529,7 @@ __cxx_global_var_init.187.exit:                   ; preds = %526
           to label %.noexc5.i116 unwind label %547
 
 .noexc5.i116:                                     ; preds = %.noexc.i115
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117 unwind label %536
 
 536:                                              ; preds = %.noexc5.i116
@@ -43557,7 +43557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117:
           to label %545 unwind label %551
 
 545:                                              ; preds = %543
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_PhonySelfReferenceKept_TestEE, i64 0, i32 0, i64 2), ptr %544, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_PhonySelfReferenceKept_TestEE, i64 16), ptr %544, align 8
   %546 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.194, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %540, ptr noundef %542, ptr noundef nonnull %544)
           to label %__cxx_global_var_init.193.exit unwind label %551
 
@@ -43602,7 +43602,7 @@ __cxx_global_var_init.193.exit:                   ; preds = %545
           to label %.noexc5.i122 unwind label %566
 
 .noexc5.i122:                                     ; preds = %.noexc.i121
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i123 unwind label %555
 
 555:                                              ; preds = %.noexc5.i122
@@ -43630,7 +43630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i123:
           to label %564 unwind label %570
 
 564:                                              ; preds = %562
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ReservedWords_TestEE, i64 0, i32 0, i64 2), ptr %563, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ReservedWords_TestEE, i64 16), ptr %563, align 8
   %565 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %559, ptr noundef %561, ptr noundef nonnull %563)
           to label %__cxx_global_var_init.199.exit unwind label %570
 
@@ -43675,7 +43675,7 @@ __cxx_global_var_init.199.exit:                   ; preds = %564
           to label %.noexc5.i128 unwind label %585
 
 .noexc5.i128:                                     ; preds = %.noexc.i127
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i129 unwind label %574
 
 574:                                              ; preds = %.noexc5.i128
@@ -43703,7 +43703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i129:
           to label %583 unwind label %589
 
 583:                                              ; preds = %581
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22ParserTest_Errors_TestEE, i64 0, i32 0, i64 2), ptr %582, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI22ParserTest_Errors_TestEE, i64 16), ptr %582, align 8
   %584 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %578, ptr noundef %580, ptr noundef nonnull %582)
           to label %__cxx_global_var_init.203.exit unwind label %589
 
@@ -43748,7 +43748,7 @@ __cxx_global_var_init.203.exit:                   ; preds = %583
           to label %.noexc5.i134 unwind label %604
 
 .noexc5.i134:                                     ; preds = %.noexc.i133
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135 unwind label %593
 
 593:                                              ; preds = %.noexc5.i134
@@ -43776,7 +43776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135:
           to label %602 unwind label %608
 
 602:                                              ; preds = %600
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_MissingInput_TestEE, i64 0, i32 0, i64 2), ptr %601, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_MissingInput_TestEE, i64 16), ptr %601, align 8
   %603 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %597, ptr noundef %599, ptr noundef nonnull %601)
           to label %__cxx_global_var_init.345.exit unwind label %608
 
@@ -43821,7 +43821,7 @@ __cxx_global_var_init.345.exit:                   ; preds = %602
           to label %.noexc5.i140 unwind label %623
 
 .noexc5.i140:                                     ; preds = %.noexc.i139
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i141 unwind label %612
 
 612:                                              ; preds = %.noexc5.i140
@@ -43849,7 +43849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i141:
           to label %621 unwind label %627
 
 621:                                              ; preds = %619
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MultipleOutputs_TestEE, i64 0, i32 0, i64 2), ptr %620, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MultipleOutputs_TestEE, i64 16), ptr %620, align 8
   %622 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.352, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %616, ptr noundef %618, ptr noundef nonnull %620)
           to label %__cxx_global_var_init.351.exit unwind label %627
 
@@ -43894,7 +43894,7 @@ __cxx_global_var_init.351.exit:                   ; preds = %621
           to label %.noexc5.i146 unwind label %642
 
 .noexc5.i146:                                     ; preds = %.noexc.i145
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i147 unwind label %631
 
 631:                                              ; preds = %.noexc5.i146
@@ -43922,7 +43922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i147:
           to label %640 unwind label %646
 
 640:                                              ; preds = %638
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_MultipleOutputsWithDeps_TestEE, i64 0, i32 0, i64 2), ptr %639, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_MultipleOutputsWithDeps_TestEE, i64 16), ptr %639, align 8
   %641 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.356, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %635, ptr noundef %637, ptr noundef nonnull %639)
           to label %__cxx_global_var_init.355.exit unwind label %646
 
@@ -43967,7 +43967,7 @@ __cxx_global_var_init.355.exit:                   ; preds = %640
           to label %.noexc5.i152 unwind label %661
 
 .noexc5.i152:                                     ; preds = %.noexc.i151
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i153 unwind label %650
 
 650:                                              ; preds = %.noexc5.i152
@@ -43995,7 +43995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i153:
           to label %659 unwind label %665
 
 659:                                              ; preds = %657
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_SubNinja_TestEE, i64 0, i32 0, i64 2), ptr %658, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_SubNinja_TestEE, i64 16), ptr %658, align 8
   %660 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %654, ptr noundef %656, ptr noundef nonnull %658)
           to label %__cxx_global_var_init.359.exit unwind label %665
 
@@ -44040,7 +44040,7 @@ __cxx_global_var_init.359.exit:                   ; preds = %659
           to label %.noexc5.i158 unwind label %680
 
 .noexc5.i158:                                     ; preds = %.noexc.i157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i159 unwind label %669
 
 669:                                              ; preds = %.noexc5.i158
@@ -44068,7 +44068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i159:
           to label %678 unwind label %684
 
 678:                                              ; preds = %676
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MissingSubNinja_TestEE, i64 0, i32 0, i64 2), ptr %677, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MissingSubNinja_TestEE, i64 16), ptr %677, align 8
   %679 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %673, ptr noundef %675, ptr noundef nonnull %677)
           to label %__cxx_global_var_init.378.exit unwind label %684
 
@@ -44113,7 +44113,7 @@ __cxx_global_var_init.378.exit:                   ; preds = %678
           to label %.noexc5.i164 unwind label %699
 
 .noexc5.i164:                                     ; preds = %.noexc.i163
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i165 unwind label %688
 
 688:                                              ; preds = %.noexc5.i164
@@ -44141,7 +44141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i165:
           to label %697 unwind label %703
 
 697:                                              ; preds = %695
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49ParserTest_DuplicateRuleInDifferentSubninjas_TestEE, i64 0, i32 0, i64 2), ptr %696, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI49ParserTest_DuplicateRuleInDifferentSubninjas_TestEE, i64 16), ptr %696, align 8
   %698 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.385, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %692, ptr noundef %694, ptr noundef nonnull %696)
           to label %__cxx_global_var_init.384.exit unwind label %703
 
@@ -44186,7 +44186,7 @@ __cxx_global_var_init.384.exit:                   ; preds = %697
           to label %.noexc5.i170 unwind label %718
 
 .noexc5.i170:                                     ; preds = %.noexc.i169
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i171 unwind label %707
 
 707:                                              ; preds = %.noexc5.i170
@@ -44214,7 +44214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i171:
           to label %716 unwind label %722
 
 716:                                              ; preds = %714
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestEE, i64 0, i32 0, i64 2), ptr %715, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestEE, i64 16), ptr %715, align 8
   %717 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.390, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %711, ptr noundef %713, ptr noundef nonnull %715)
           to label %__cxx_global_var_init.389.exit unwind label %722
 
@@ -44259,7 +44259,7 @@ __cxx_global_var_init.389.exit:                   ; preds = %716
           to label %.noexc5.i176 unwind label %737
 
 .noexc5.i176:                                     ; preds = %.noexc.i175
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i177 unwind label %726
 
 726:                                              ; preds = %.noexc5.i176
@@ -44287,7 +44287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i177:
           to label %735 unwind label %741
 
 735:                                              ; preds = %733
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Include_TestEE, i64 0, i32 0, i64 2), ptr %734, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Include_TestEE, i64 16), ptr %734, align 8
   %736 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.396, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %730, ptr noundef %732, ptr noundef nonnull %734)
           to label %__cxx_global_var_init.395.exit unwind label %741
 
@@ -44332,7 +44332,7 @@ __cxx_global_var_init.395.exit:                   ; preds = %735
           to label %.noexc5.i182 unwind label %756
 
 .noexc5.i182:                                     ; preds = %.noexc.i181
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183 unwind label %745
 
 745:                                              ; preds = %.noexc5.i182
@@ -44360,7 +44360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
           to label %754 unwind label %760
 
 754:                                              ; preds = %752
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_BrokenInclude_TestEE, i64 0, i32 0, i64 2), ptr %753, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_BrokenInclude_TestEE, i64 16), ptr %753, align 8
   %755 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.407, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %749, ptr noundef %751, ptr noundef nonnull %753)
           to label %__cxx_global_var_init.406.exit unwind label %760
 
@@ -44405,7 +44405,7 @@ __cxx_global_var_init.406.exit:                   ; preds = %754
           to label %.noexc5.i188 unwind label %775
 
 .noexc5.i188:                                     ; preds = %.noexc.i187
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i189 unwind label %764
 
 764:                                              ; preds = %.noexc5.i188
@@ -44433,7 +44433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i189:
           to label %773 unwind label %779
 
 773:                                              ; preds = %771
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_Implicit_TestEE, i64 0, i32 0, i64 2), ptr %772, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_Implicit_TestEE, i64 16), ptr %772, align 8
   %774 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.413, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %768, ptr noundef %770, ptr noundef nonnull %772)
           to label %__cxx_global_var_init.412.exit unwind label %779
 
@@ -44478,7 +44478,7 @@ __cxx_global_var_init.412.exit:                   ; preds = %773
           to label %.noexc5.i194 unwind label %794
 
 .noexc5.i194:                                     ; preds = %.noexc.i193
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i195 unwind label %783
 
 783:                                              ; preds = %.noexc5.i194
@@ -44506,7 +44506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i195:
           to label %792 unwind label %798
 
 792:                                              ; preds = %790
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_OrderOnly_TestEE, i64 0, i32 0, i64 2), ptr %791, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_OrderOnly_TestEE, i64 16), ptr %791, align 8
   %793 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.418, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %787, ptr noundef %789, ptr noundef nonnull %791)
           to label %__cxx_global_var_init.417.exit unwind label %798
 
@@ -44551,7 +44551,7 @@ __cxx_global_var_init.417.exit:                   ; preds = %792
           to label %.noexc5.i200 unwind label %813
 
 .noexc5.i200:                                     ; preds = %.noexc.i199
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i201 unwind label %802
 
 802:                                              ; preds = %.noexc5.i200
@@ -44579,7 +44579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i201:
           to label %811 unwind label %817
 
 811:                                              ; preds = %809
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27ParserTest_Validations_TestEE, i64 0, i32 0, i64 2), ptr %810, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI27ParserTest_Validations_TestEE, i64 16), ptr %810, align 8
   %812 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.423, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %806, ptr noundef %808, ptr noundef nonnull %810)
           to label %__cxx_global_var_init.422.exit unwind label %817
 
@@ -44624,7 +44624,7 @@ __cxx_global_var_init.422.exit:                   ; preds = %811
           to label %.noexc5.i206 unwind label %832
 
 .noexc5.i206:                                     ; preds = %.noexc.i205
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i207 unwind label %821
 
 821:                                              ; preds = %.noexc5.i206
@@ -44652,7 +44652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i207:
           to label %830 unwind label %836
 
 830:                                              ; preds = %828
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_ImplicitOutput_TestEE, i64 0, i32 0, i64 2), ptr %829, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_ImplicitOutput_TestEE, i64 16), ptr %829, align 8
   %831 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.431, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %825, ptr noundef %827, ptr noundef nonnull %829)
           to label %__cxx_global_var_init.430.exit unwind label %836
 
@@ -44697,7 +44697,7 @@ __cxx_global_var_init.430.exit:                   ; preds = %830
           to label %.noexc5.i212 unwind label %851
 
 .noexc5.i212:                                     ; preds = %.noexc.i211
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i213 unwind label %840
 
 840:                                              ; preds = %.noexc5.i212
@@ -44725,7 +44725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i213:
           to label %849 unwind label %855
 
 849:                                              ; preds = %847
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_ImplicitOutputEmpty_TestEE, i64 0, i32 0, i64 2), ptr %848, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_ImplicitOutputEmpty_TestEE, i64 16), ptr %848, align 8
   %850 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.439, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %844, ptr noundef %846, ptr noundef nonnull %848)
           to label %__cxx_global_var_init.438.exit unwind label %855
 
@@ -44770,7 +44770,7 @@ __cxx_global_var_init.438.exit:                   ; preds = %849
           to label %.noexc5.i218 unwind label %870
 
 .noexc5.i218:                                     ; preds = %.noexc.i217
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i219 unwind label %859
 
 859:                                              ; preds = %.noexc5.i218
@@ -44798,7 +44798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i219:
           to label %868 unwind label %874
 
 868:                                              ; preds = %866
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_ImplicitOutputDupeError_TestEE, i64 0, i32 0, i64 2), ptr %867, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_ImplicitOutputDupeError_TestEE, i64 16), ptr %867, align 8
   %869 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.444, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %863, ptr noundef %865, ptr noundef nonnull %867)
           to label %__cxx_global_var_init.443.exit unwind label %874
 
@@ -44843,7 +44843,7 @@ __cxx_global_var_init.443.exit:                   ; preds = %868
           to label %.noexc5.i224 unwind label %889
 
 .noexc5.i224:                                     ; preds = %.noexc.i223
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i225 unwind label %878
 
 878:                                              ; preds = %.noexc5.i224
@@ -44871,7 +44871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i225:
           to label %887 unwind label %893
 
 887:                                              ; preds = %885
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_ImplicitOutputDupesError_TestEE, i64 0, i32 0, i64 2), ptr %886, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_ImplicitOutputDupesError_TestEE, i64 16), ptr %886, align 8
   %888 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.448, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %882, ptr noundef %884, ptr noundef nonnull %886)
           to label %__cxx_global_var_init.447.exit unwind label %893
 
@@ -44916,7 +44916,7 @@ __cxx_global_var_init.447.exit:                   ; preds = %887
           to label %.noexc5.i230 unwind label %908
 
 .noexc5.i230:                                     ; preds = %.noexc.i229
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i231 unwind label %897
 
 897:                                              ; preds = %.noexc5.i230
@@ -44944,7 +44944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i231:
           to label %906 unwind label %912
 
 906:                                              ; preds = %904
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_NoExplicitOutput_TestEE, i64 0, i32 0, i64 2), ptr %905, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_NoExplicitOutput_TestEE, i64 16), ptr %905, align 8
   %907 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.450, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %901, ptr noundef %903, ptr noundef nonnull %905)
           to label %__cxx_global_var_init.449.exit unwind label %912
 
@@ -44989,7 +44989,7 @@ __cxx_global_var_init.449.exit:                   ; preds = %906
           to label %.noexc5.i236 unwind label %927
 
 .noexc5.i236:                                     ; preds = %.noexc.i235
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i237 unwind label %916
 
 916:                                              ; preds = %.noexc5.i236
@@ -45017,7 +45017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i237:
           to label %925 unwind label %931
 
 925:                                              ; preds = %923
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DefaultDefault_TestEE, i64 0, i32 0, i64 2), ptr %924, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DefaultDefault_TestEE, i64 16), ptr %924, align 8
   %926 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %920, ptr noundef %922, ptr noundef nonnull %924)
           to label %__cxx_global_var_init.453.exit unwind label %931
 
@@ -45062,7 +45062,7 @@ __cxx_global_var_init.453.exit:                   ; preds = %925
           to label %.noexc5.i242 unwind label %946
 
 .noexc5.i242:                                     ; preds = %.noexc.i241
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i243 unwind label %935
 
 935:                                              ; preds = %.noexc5.i242
@@ -45090,7 +45090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i243:
           to label %944 unwind label %950
 
 944:                                              ; preds = %942
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DefaultDefaultCycle_TestEE, i64 0, i32 0, i64 2), ptr %943, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DefaultDefaultCycle_TestEE, i64 16), ptr %943, align 8
   %945 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.460, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %939, ptr noundef %941, ptr noundef nonnull %943)
           to label %__cxx_global_var_init.459.exit unwind label %950
 
@@ -45135,7 +45135,7 @@ __cxx_global_var_init.459.exit:                   ; preds = %944
           to label %.noexc5.i248 unwind label %965
 
 .noexc5.i248:                                     ; preds = %.noexc.i247
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i249 unwind label %954
 
 954:                                              ; preds = %.noexc5.i248
@@ -45163,7 +45163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i249:
           to label %963 unwind label %969
 
 963:                                              ; preds = %961
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_DefaultStatements_TestEE, i64 0, i32 0, i64 2), ptr %962, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_DefaultStatements_TestEE, i64 16), ptr %962, align 8
   %964 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %958, ptr noundef %960, ptr noundef nonnull %962)
           to label %__cxx_global_var_init.466.exit unwind label %969
 
@@ -45208,7 +45208,7 @@ __cxx_global_var_init.466.exit:                   ; preds = %963
           to label %.noexc5.i254 unwind label %984
 
 .noexc5.i254:                                     ; preds = %.noexc.i253
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i255 unwind label %973
 
 973:                                              ; preds = %.noexc5.i254
@@ -45236,7 +45236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i255:
           to label %982 unwind label %988
 
 982:                                              ; preds = %980
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_UTF8_TestEE, i64 0, i32 0, i64 2), ptr %981, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_UTF8_TestEE, i64 16), ptr %981, align 8
   %983 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.480, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %977, ptr noundef %979, ptr noundef nonnull %981)
           to label %__cxx_global_var_init.479.exit unwind label %988
 
@@ -45281,7 +45281,7 @@ __cxx_global_var_init.479.exit:                   ; preds = %982
           to label %.noexc5.i260 unwind label %1003
 
 .noexc5.i260:                                     ; preds = %.noexc.i259
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i261 unwind label %992
 
 992:                                              ; preds = %.noexc5.i260
@@ -45309,7 +45309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i261:
           to label %1001 unwind label %1007
 
 1001:                                             ; preds = %999
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_CRLF_TestEE, i64 0, i32 0, i64 2), ptr %1000, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_CRLF_TestEE, i64 16), ptr %1000, align 8
   %1002 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.484, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %996, ptr noundef %998, ptr noundef nonnull %1000)
           to label %__cxx_global_var_init.483.exit unwind label %1007
 
@@ -45354,7 +45354,7 @@ __cxx_global_var_init.483.exit:                   ; preds = %1001
           to label %.noexc5.i266 unwind label %1022
 
 .noexc5.i266:                                     ; preds = %.noexc.i265
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i267 unwind label %1011
 
 1011:                                             ; preds = %.noexc5.i266
@@ -45382,7 +45382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i267:
           to label %1020 unwind label %1026
 
 1020:                                             ; preds = %1018
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34ParserTest_DyndepNotSpecified_TestEE, i64 0, i32 0, i64 2), ptr %1019, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI34ParserTest_DyndepNotSpecified_TestEE, i64 16), ptr %1019, align 8
   %1021 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.492, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1015, ptr noundef %1017, ptr noundef nonnull %1019)
           to label %__cxx_global_var_init.491.exit unwind label %1026
 
@@ -45427,7 +45427,7 @@ __cxx_global_var_init.491.exit:                   ; preds = %1020
           to label %.noexc5.i272 unwind label %1041
 
 .noexc5.i272:                                     ; preds = %.noexc.i271
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i273 unwind label %1030
 
 1030:                                             ; preds = %.noexc5.i272
@@ -45455,7 +45455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i273:
           to label %1039 unwind label %1045
 
 1039:                                             ; preds = %1037
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DyndepNotInput_TestEE, i64 0, i32 0, i64 2), ptr %1038, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DyndepNotInput_TestEE, i64 16), ptr %1038, align 8
   %1040 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.497, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1034, ptr noundef %1036, ptr noundef nonnull %1038)
           to label %__cxx_global_var_init.496.exit unwind label %1045
 
@@ -45500,7 +45500,7 @@ __cxx_global_var_init.496.exit:                   ; preds = %1039
           to label %.noexc5.i278 unwind label %1060
 
 .noexc5.i278:                                     ; preds = %.noexc.i277
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i279 unwind label %1049
 
 1049:                                             ; preds = %.noexc5.i278
@@ -45528,7 +45528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i279:
           to label %1058 unwind label %1064
 
 1058:                                             ; preds = %1056
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepExplicitInput_TestEE, i64 0, i32 0, i64 2), ptr %1057, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepExplicitInput_TestEE, i64 16), ptr %1057, align 8
   %1059 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.503, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1053, ptr noundef %1055, ptr noundef nonnull %1057)
           to label %__cxx_global_var_init.502.exit unwind label %1064
 
@@ -45573,7 +45573,7 @@ __cxx_global_var_init.502.exit:                   ; preds = %1058
           to label %.noexc5.i284 unwind label %1079
 
 .noexc5.i284:                                     ; preds = %.noexc.i283
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i285 unwind label %1068
 
 1068:                                             ; preds = %.noexc5.i284
@@ -45601,7 +45601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i285:
           to label %1077 unwind label %1083
 
 1077:                                             ; preds = %1075
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepImplicitInput_TestEE, i64 0, i32 0, i64 2), ptr %1076, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepImplicitInput_TestEE, i64 16), ptr %1076, align 8
   %1078 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.511, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1072, ptr noundef %1074, ptr noundef nonnull %1076)
           to label %__cxx_global_var_init.510.exit unwind label %1083
 
@@ -45646,7 +45646,7 @@ __cxx_global_var_init.510.exit:                   ; preds = %1077
           to label %.noexc5.i290 unwind label %1098
 
 .noexc5.i290:                                     ; preds = %.noexc.i289
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i291 unwind label %1087
 
 1087:                                             ; preds = %.noexc5.i290
@@ -45674,7 +45674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i291:
           to label %1096 unwind label %1102
 
 1096:                                             ; preds = %1094
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36ParserTest_DyndepOrderOnlyInput_TestEE, i64 0, i32 0, i64 2), ptr %1095, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI36ParserTest_DyndepOrderOnlyInput_TestEE, i64 16), ptr %1095, align 8
   %1097 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.517, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1091, ptr noundef %1093, ptr noundef nonnull %1095)
           to label %__cxx_global_var_init.516.exit unwind label %1102
 
@@ -45719,7 +45719,7 @@ __cxx_global_var_init.516.exit:                   ; preds = %1096
           to label %.noexc5.i296 unwind label %1117
 
 .noexc5.i296:                                     ; preds = %.noexc.i295
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([117 x i8], ptr @.str.3, i64 0, i64 116))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 116))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i297 unwind label %1106
 
 1106:                                             ; preds = %.noexc5.i296
@@ -45747,7 +45747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i297:
           to label %1115 unwind label %1121
 
 1115:                                             ; preds = %1113
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_DyndepRuleInput_TestEE, i64 0, i32 0, i64 2), ptr %1114, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_DyndepRuleInput_TestEE, i64 16), ptr %1114, align 8
   %1116 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.521, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI10ParserTestE6dummy_E, ptr noundef %1110, ptr noundef %1112, ptr noundef nonnull %1114)
           to label %__cxx_global_var_init.520.exit unwind label %1121
 

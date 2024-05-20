@@ -186,22 +186,22 @@ ossl_strtouint64.exit55:                          ; preds = %if.else.i.i41, %tod
 if.then34:                                        ; preds = %ossl_strtouint64.exit55
   %10 = bitcast i64 %ret.0.i26 to <2 x i32>
   %11 = xor <2 x i32> %10, <i32 -1, i32 -1>
-  %12 = load <2 x i32>, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
+  %12 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   %13 = and <2 x i32> %12, %11
-  store <2 x i32> %13, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
+  store <2 x i32> %13, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   br label %if.end50
 
 if.else41:                                        ; preds = %ossl_strtouint64.exit55
   %conv35 = trunc i64 %ret.0.i26 to i32
-  store i32 %conv35, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
+  store i32 %conv35, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   %shr43 = lshr i64 %ret.0.i26, 32
   %conv44 = trunc nuw i64 %shr43 to i32
-  store i32 %conv44, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
+  store i32 %conv44, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
   br label %if.end50
 
 if.else46:                                        ; preds = %while.cond.i17
-  store i32 0, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
-  store i32 0, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
   br label %if.end50
 
 if.else48:                                        ; preds = %if.end
@@ -215,7 +215,7 @@ if.end50:                                         ; preds = %if.else46, %if.else
   store i32 %or, ptr @OPENSSL_ia32cap_P, align 16
   %shr52 = lshr i64 %vec.1, 32
   %conv53 = trunc nuw i64 %shr52 to i32
-  store i32 %conv53, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  store i32 %conv53, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end50

@@ -65,10 +65,10 @@ declare i64 @pthread_self() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_thread_t_class, i64 0, i32 8), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #13
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_thread_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %3, %4
   br i1 %.not.i, label %6, label %5
 
@@ -90,7 +90,7 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
   %12 = getelementptr inbounds i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_thread_t_class, i64 0, i32 6), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i.i = icmp eq ptr %14, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i

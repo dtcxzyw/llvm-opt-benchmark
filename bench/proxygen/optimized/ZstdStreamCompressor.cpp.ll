@@ -49,7 +49,7 @@ $_ZTIN8proxygen16StreamCompressorE = comdat any
 define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) %this, i32 noundef %compressionLevel, i1 noundef zeroext %independentChunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %independentChunks to i8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 16), ptr %this, align 8
   %codec_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %codec_, align 8
   %compressionLevel_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -386,7 +386,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen20ZstdStreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 16), ptr %this, align 8
   %codec_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codec_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -407,7 +407,7 @@ _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen20ZstdStreamCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 16), ptr %this, align 8
   %codec_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codec_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

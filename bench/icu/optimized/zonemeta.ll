@@ -96,12 +96,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call fastcc void @_ZN6icu_75L20initCanonicalIDCacheER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
-  store i32 %5, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL25gCanonicalIDCacheInitOnce, i64 0, i32 1), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZL25gCanonicalIDCacheInitOnce, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL25gCanonicalIDCacheInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %6 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL25gCanonicalIDCacheInitOnce, i64 0, i32 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL25gCanonicalIDCacheInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %6, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
@@ -413,7 +413,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tzID, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tzID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tzID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %tz, i64 8
@@ -780,14 +780,14 @@ eh.resume.i:                                      ; preds = %lpad5.i, %lpad.i
 _ZN6icu_75L22countryInfoVectorsInitER10UErrorCode.exit: ; preds = %if.end13.i, %delete.end20.i
   call void @ucln_i18n_registerCleanup_75(i32 noundef 18, ptr noundef nonnull @_ZL16zoneMeta_cleanupv)
   %11 = load i32, ptr %status, align 4
-  store i32 %11, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL27gCountryInfoVectorsInitOnce, i64 0, i32 1), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @_ZL27gCountryInfoVectorsInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL27gCountryInfoVectorsInitOnce)
   %.pr.old = load i32, ptr %status, align 4
   %cmp.i.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i.old, label %if.end11, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %12 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL27gCountryInfoVectorsInitOnce, i64 0, i32 1), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL27gCountryInfoVectorsInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %12, 1
   %.pr = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pr, 1
@@ -905,7 +905,7 @@ lpad:                                             ; preds = %if.then56
   br label %common.resume
 
 if.else61:                                        ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %canonicalID, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %canonicalID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call64 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14getCanonicalIDERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %tzid, ptr noundef nonnull align 8 dereferenceable(64) %canonicalID, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1104,14 +1104,14 @@ if.else.i23:                                      ; preds = %if.then4.i
 
 _ZN6icu_75L15olsonToMetaInitER10UErrorCode.exit:  ; preds = %if.then.i, %if.else.i23
   %7 = phi i32 [ %5, %if.then.i ], [ %.pre, %if.else.i23 ]
-  store i32 %7, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL20gOlsonToMetaInitOnce, i64 0, i32 1), align 4
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL20gOlsonToMetaInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL20gOlsonToMetaInitOnce)
   %.pr.old = load i32, ptr %status, align 4
   %cmp.i16.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i16.old, label %if.end5, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %8 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL20gOlsonToMetaInitOnce, i64 0, i32 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL20gOlsonToMetaInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %8, 1
   %.pr = load i32, ptr %status, align 4
   %cmp.i16 = icmp slt i32 %.pr, 1
@@ -1207,7 +1207,7 @@ invoke.cont:
   %canonicalID = alloca %"class.icu_75::UnicodeString", align 8
   %tzKey = alloca [129 x i8], align 16
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %canonicalID, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %canonicalID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @_ZN6icu_75L10gMetaZonesE, ptr noundef nonnull %status)
@@ -2200,7 +2200,7 @@ entry:
   %conv3 = trunc nuw nsw i16 %rem210 to i8
   %div4 = udiv i32 %spec.select, 3600000
   %conv5 = trunc i32 %div4 to i8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %zid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %zid, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %zid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758ZoneMeta14formatCustomIDEhhhaRNS_13UnicodeStringE(i8 noundef zeroext %conv5, i8 noundef zeroext %conv3, i8 noundef zeroext %conv, i8 noundef signext %spec.select9, ptr noundef nonnull align 8 dereferenceable(64) %zid)

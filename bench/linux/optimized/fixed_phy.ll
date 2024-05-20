@@ -70,9 +70,9 @@ define dso_local noundef range(i32 -22, 1) i32 @fixed_phy_change_carrier(ptr noc
   br label %12
 
 12:                                               ; preds = %16, %10
-  %13 = phi ptr [ %14, %16 ], [ getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), %10 ]
+  %13 = phi ptr [ %14, %16 ], [ getelementptr inbounds (i8, ptr @platform_fmb, i64 8), %10 ]
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %15 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %12
@@ -116,9 +116,9 @@ define dso_local noundef range(i32 -22, 1) i32 @fixed_phy_set_link_update(ptr no
   br label %10
 
 10:                                               ; preds = %14, %8
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), %8 ]
+  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (i8, ptr @platform_fmb, i64 8), %8 ]
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %13 = icmp eq ptr %12, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
@@ -147,7 +147,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fixed_phy_add(i32 noundef %0, i3
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 72) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10
@@ -171,9 +171,9 @@ define dso_local range(i32 -2147483648, 1) i32 @fixed_phy_add(i32 noundef %0, i3
   %19 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 48
-  %21 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1, i32 1), align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), ptr %20, align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 16), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %21, ptr %22, align 8
   store volatile ptr %20, ptr %21, align 8
@@ -218,7 +218,7 @@ define internal fastcc ptr @__fixed_phy_register(i32 noundef %0, ptr noundef %1,
   br i1 %19, label %40, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %22 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 72) #10
   %23 = icmp eq ptr %22, null
   br i1 %23, label %40, label %24
@@ -264,9 +264,9 @@ define internal fastcc ptr @__fixed_phy_register(i32 noundef %0, ptr noundef %1,
 
 43:                                               ; preds = %39, %31
   %44 = getelementptr inbounds i8, ptr %22, i64 48
-  %45 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1, i32 1), align 8
-  store ptr %44, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), ptr %44, align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 16), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %22, i64 56
   store ptr %45, ptr %46, align 8
   store volatile ptr %44, ptr %45, align 8
@@ -276,12 +276,12 @@ define internal fastcc ptr @__fixed_phy_register(i32 noundef %0, ptr noundef %1,
   br i1 %49, label %50, label %71
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), align 8
   br label %52
 
 52:                                               ; preds = %55, %50
   %53 = phi ptr [ %51, %50 ], [ %56, %55 ]
-  %54 = icmp eq ptr %53, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %54 = icmp eq ptr %53, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %52
@@ -384,12 +384,12 @@ define internal fastcc ptr @__fixed_phy_register(i32 noundef %0, ptr noundef %1,
 
 107:                                              ; preds = %103
   tail call void @phy_device_free(ptr noundef %48) #9
-  %108 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), align 8
   br label %109
 
 109:                                              ; preds = %112, %107
   %110 = phi ptr [ %108, %107 ], [ %113, %112 ]
-  %111 = icmp eq ptr %110, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %111 = icmp eq ptr %110, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %111, label %.loopexit10, label %112
 
 112:                                              ; preds = %109
@@ -446,12 +446,12 @@ define dso_local void @fixed_phy_unregister(ptr noundef %0) #2 align 16 {
   tail call void @phy_device_remove(ptr noundef %0) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 792
   %3 = load i32, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), align 8
   br label %5
 
 5:                                                ; preds = %8, %1
   %6 = phi ptr [ %4, %1 ], [ %9, %8 ]
-  %7 = icmp eq ptr %6, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %7 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
@@ -567,8 +567,8 @@ define internal void @fixed_mdio_bus_exit() #4 section ".exit.text" align 16 {
   tail call void @mdiobus_free(ptr noundef %2) #9
   %3 = load ptr, ptr @pdev, align 8
   tail call void @platform_device_unregister(ptr noundef %3) #9
-  %4 = load ptr, ptr getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1), align 8
-  %5 = icmp eq ptr %4, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_fmb, i64 8), align 8
+  %5 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
@@ -583,7 +583,7 @@ define internal void @fixed_mdio_bus_exit() #4 section ".exit.text" align 16 {
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
   tail call void @kfree(ptr noundef %7) #9
-  %12 = icmp eq ptr %8, getelementptr inbounds (%struct.fixed_mdio_bus, ptr @platform_fmb, i64 0, i32 1)
+  %12 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @platform_fmb, i64 8)
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %0

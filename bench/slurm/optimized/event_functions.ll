@@ -599,7 +599,7 @@ _addto_state_char_list.exit.i:                    ; preds = %220, %.thread247.i
 
 257:                                              ; preds = %._crit_edge259.thread.i
   %258 = load ptr, ptr %10, align 8
-  %259 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %260 = call ptr @xstrdup(ptr noundef %259) #12
   call void @list_append(ptr noundef %258, ptr noundef %260) #12
   br i1 %.0.lcssa271.i, label %262, label %_set_cond.exit

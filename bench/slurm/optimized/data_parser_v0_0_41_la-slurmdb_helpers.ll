@@ -419,7 +419,7 @@ define noundef i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %1, i64 176
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 9), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
   %15 = icmp ne ptr %14, null
   %or.cond = select i1 %13, i1 true, i1 %15
   br i1 %or.cond, label %49, label %16
@@ -599,7 +599,7 @@ db_query_list_funcname.exit:                      ; preds = %87
 89:                                               ; preds = %83, %87
   %.038.i = phi ptr [ null, %87 ], [ %73, %83 ]
   store ptr %.038.i, ptr %64, align 8
-  %90 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %91 = and i64 %90, 256
   %.not56 = icmp eq i64 %91, 0
   br i1 %.not56, label %.thread, label %92
@@ -687,7 +687,7 @@ db_query_list_funcname.exit76:                    ; preds = %125
 127:                                              ; preds = %121, %125
   %.038.i74 = phi ptr [ null, %125 ], [ %111, %121 ]
   store ptr %.038.i74, ptr %102, align 8
-  %128 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %128 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %129 = and i64 %128, 256
   %.not60 = icmp eq i64 %129, 0
   br i1 %.not60, label %137, label %130
@@ -775,7 +775,7 @@ db_query_list_funcname.exit86:                    ; preds = %164
 166:                                              ; preds = %160, %164
   %.038.i84 = phi ptr [ null, %164 ], [ %150, %160 ]
   store ptr %.038.i84, ptr %141, align 8
-  %167 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %168 = and i64 %167, 256
   %.not64 = icmp eq i64 %168, 0
   br i1 %.not64, label %_prereqs_placeholder.exit, label %169

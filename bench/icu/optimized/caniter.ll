@@ -52,9 +52,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517CanonicalIteratorC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %sourceStr, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CanonicalIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CanonicalIteratorE, i64 16), ptr %this, align 8
   %source = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %source, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %source, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %pieces = getelementptr inbounds i8, ptr %this, i64 80
@@ -64,7 +64,7 @@ invoke.cont3:
   %pieces_lengths = getelementptr inbounds i8, ptr %this, i64 96
   %buffer = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pieces_lengths, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %this, i64 128
   store i16 2, ptr %fUnion2.i7, align 8
   %call = invoke noundef ptr @_ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -180,7 +180,7 @@ if.end16:                                         ; preds = %if.then4
 new.notnull:                                      ; preds = %if.end16
   store i64 1, ptr %call18, align 8
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call18, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %call18, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   br label %new.cont
@@ -231,7 +231,7 @@ new.ctorloop:                                     ; preds = %new.notnull39
 invoke.cont50:                                    ; preds = %new.ctorloop, %invoke.cont50
   %arrayctor.cur45.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur45.add, %invoke.cont50 ]
   %arrayctor.cur45.ptr.ptr = getelementptr inbounds i8, ptr %call37, i64 %arrayctor.cur45.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur45.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur45.ptr.ptr, align 8
   %fUnion2.i47 = getelementptr inbounds i8, ptr %arrayctor.cur45.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i47, align 8
   %arrayctor.cur45.add = add nuw nsw i64 %arrayctor.cur45.idx, 64
@@ -913,7 +913,7 @@ while.body29:                                     ; preds = %while.cond27.prehea
           to label %invoke.cont33 unwind label %lpad22.loopexit
 
 invoke.cont33:                                    ; preds = %while.body29
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %attempt, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %attempt, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %15 = load ptr, ptr %nfd, align 8
   %vtable = load ptr, ptr %15, align 8
@@ -1082,7 +1082,7 @@ new.notnull64:                                    ; preds = %if.then61
 invoke.cont71:                                    ; preds = %new.notnull64, %invoke.cont71
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull64 ], [ %arrayctor.cur.add, %invoke.cont71 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call62, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i68 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i68, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1974,7 +1974,7 @@ invoke.cont3:                                     ; preds = %entry
   %fLength.i = getelementptr inbounds i8, ptr %temp, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %decompString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %decompString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %decompString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %nfd = getelementptr inbounds i8, ptr %this, i64 184
@@ -2170,7 +2170,7 @@ invoke.cont102:                                   ; preds = %if.then63
   br i1 %cmp104, label %invoke.cont106, label %invoke.cont114
 
 invoke.cont106:                                   ; preds = %invoke.cont102
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   %fUnion2.i67 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i67, align 8
   %call107 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #9
@@ -2178,7 +2178,7 @@ invoke.cont106:                                   ; preds = %invoke.cont102
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %invoke.cont106
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call107, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call107, align 8
   %fUnion2.i68 = getelementptr inbounds i8, ptr %call107, i64 8
   store i16 2, ptr %fUnion2.i68, align 8
   br label %new.cont
@@ -2198,7 +2198,7 @@ lpad110:                                          ; preds = %new.cont
   br label %ehcleanup155
 
 invoke.cont114:                                   ; preds = %invoke.cont102
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %trial, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %trial, align 8
   %fUnion2.i69 = getelementptr inbounds i8, ptr %trial, i64 8
   store i16 2, ptr %fUnion2.i69, align 8
   %22 = load ptr, ptr %nfd, align 8

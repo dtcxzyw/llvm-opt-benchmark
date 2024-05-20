@@ -123,9 +123,9 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16PacketListHeaderC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11QHeaderViewC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16PacketListHeader, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16PacketListHeader, i64 832), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 -1, ptr %5, align 8
   invoke void @_ZN7QWidget14setAcceptDropsEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
@@ -1411,7 +1411,7 @@ define void @_ZN16PacketListHeader16contextMenuEventEP17QContextMenuEvent(ptr no
   %64 = tail call noundef i32 @_ZNK11QHeaderView14logicalIndexAtEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %..i.i)
   store i32 %64, ptr %23, align 4
   %65 = icmp sgt i32 %64, -1
-  %66 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %.not = icmp slt i32 %64, %66
   %or.cond = select i1 %65, i1 %.not, i1 false
   br i1 %or.cond, label %67, label %377
@@ -1799,7 +1799,7 @@ _ZN7QStringD2Ev.exit161:                          ; preds = %147, %_ZN17QArrayDa
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #10
   %168 = call noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   store i32 0, ptr %48, align 4
-  %169 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %169 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph, label %._crit_edge
 
@@ -2150,7 +2150,7 @@ _ZN7QStringaSEPKc.exit217:                        ; preds = %.noexc216, %_ZN17QA
   br label %289
 
 289:                                              ; preds = %_ZN7QStringaSEPKc.exit217, %_ZN7QStringaSEPKc.exit
-  %290 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 90), align 8
+  %290 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 488), align 8
   %.not106 = icmp eq i32 %290, 0
   br i1 %.not106, label %_ZN7QStringD2Ev.exit229, label %291
 
@@ -2337,7 +2337,7 @@ _ZN7QStringD2Ev.exit254:                          ; preds = %_ZN7QStringD2Ev.exi
   %342 = load i32, ptr %48, align 4
   %343 = add i32 %342, 1
   store i32 %343, ptr %48, align 4
-  %344 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  %344 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %345 = icmp slt i32 %343, %344
   br i1 %345, label %181, label %._crit_edge, !llvm.loop !25
 

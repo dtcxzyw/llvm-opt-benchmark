@@ -373,8 +373,8 @@ define void @_ZN3gmx10BiasWriterC2ERKNS_4BiasE(ptr noundef nonnull align 8 deref
   store ptr %13, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 0, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not36 = icmp eq ptr %18, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 24), align 8
+  %.not36 = icmp eq ptr %18, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not36, label %._crit_edge43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -495,12 +495,12 @@ _ZNK3gmx4Bias20forceCorrelationGridEv.exit:       ; preds = %37
   %68 = load i32, ptr %66, align 4
   %69 = add nsw i32 %68, %.01438
   %70 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.027.037) #18
-  %.not = icmp eq ptr %70, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not = icmp eq ptr %70, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %67
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not3039 = icmp eq ptr %.pre, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 24), align 8
+  %.not3039 = icmp eq ptr %.pre, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not3039, label %._crit_edge43, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %._crit_edge
@@ -689,7 +689,7 @@ _ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE12emplace_backIJRiRKNS0_13Normalizati
 
 153:                                              ; preds = %117
   %154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.023.040) #18
-  %.not30 = icmp eq ptr %154, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not30 = icmp eq ptr %154, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not30, label %._crit_edge43, label %75
 
 ._crit_edge43:                                    ; preds = %153, %2, %._crit_edge
@@ -1804,8 +1804,8 @@ _ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4Bias
   br i1 %exitcond.not, label %64, label %31, !llvm.loop !28
 
 64:                                               ; preds = %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit
-  %65 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not51 = icmp eq ptr %65, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 24), align 8
+  %.not51 = icmp eq ptr %65, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not51, label %._crit_edge, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %64
@@ -1878,7 +1878,7 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %72, 
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %68, %_ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit
   %96 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.038.052) #18
-  %.not = icmp eq ptr %96, getelementptr inbounds (%"class.std::map", ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not = icmp eq ptr %96, getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not, label %._crit_edge, label %68
 
 ._crit_edge:                                      ; preds = %.loopexit, %64

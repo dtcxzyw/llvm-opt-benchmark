@@ -69,7 +69,7 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 24) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %108, label %14
@@ -401,7 +401,7 @@ declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 define internal range(i64 -2147483648, 2147483648) i64 @regmap_name_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 4096) #11
   %9 = icmp eq ptr %8, null
   br i1 %9, label %30, label %10
@@ -473,7 +473,7 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr noc
   br i1 %15, label %70, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3264, i64 noundef 4096) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %68, label %20
@@ -627,7 +627,7 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   br label %59
 
 37:                                               ; preds = %25
-  %38 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 40) #11
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %51

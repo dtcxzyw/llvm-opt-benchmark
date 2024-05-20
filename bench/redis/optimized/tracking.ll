@@ -130,9 +130,9 @@ if.end18:                                         ; preds = %while.end, %entry
 
 if.then22:                                        ; preds = %if.end18
   %flags19 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %dec = add i32 %18, -1
-  store i32 %dec, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  store i32 %dec, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %19 = load i64, ptr %flags19, align 8
   %and24 = and i64 %19, -272730423297
   store i64 %and24, ptr %flags19, align 8
@@ -470,9 +470,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %inc = add i32 %1, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %.pre = load i64, ptr %flags, align 8
   br label %if.end
 
@@ -850,7 +850,7 @@ land.lhs.true:                                    ; preds = %if.end24.thread
 
 if.then32:                                        ; preds = %land.lhs.true
   %10 = load ptr, ptr @TrackingChannelName, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 32), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 352), align 8
   tail call void @addReplyPubsubMessage(ptr noundef nonnull %call, ptr noundef %10, ptr noundef null, ptr noundef %11) #8
   br label %if.end41
 
@@ -1074,7 +1074,7 @@ while.cond.backedge:                              ; preds = %if.then35, %sdslen.
 if.end22:                                         ; preds = %lor.lhs.false
   %and24 = and i64 %11, 137438953472
   %tobool25.not = icmp ne i64 %and24, 0
-  %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %cmp27 = icmp eq ptr %call14, %13
   %or.cond18 = select i1 %tobool25.not, i1 %cmp27, i1 false
   br i1 %or.cond18, label %while.cond.backedge, label %if.end29
@@ -1091,7 +1091,7 @@ land.lhs.true31:                                  ; preds = %if.end29
 
 if.then35:                                        ; preds = %land.lhs.true31
   call void @incrRefCount(ptr noundef %keyobj) #8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
   %call36 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %keyobj) #8
   br label %while.cond.backedge
 
@@ -1165,11 +1165,11 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %tobool = icmp eq i64 %1, 0
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 65), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1512), align 8
   %tobool1 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %return, label %if.end3
@@ -1184,7 +1184,7 @@ while.body:                                       ; preds = %if.end3, %if.end20
   %call30 = phi ptr [ %call, %if.end20 ], [ %call28, %if.end3 ]
   %value = getelementptr inbounds i8, ptr %call30, i64 16
   %3 = load ptr, ptr %value, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %cmp4.not = icmp eq ptr %4, null
   %cmp18.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %if.end17, label %if.then5
@@ -1244,7 +1244,7 @@ if.else:                                          ; preds = %if.then5
   %resp = getelementptr inbounds i8, ptr %4, i64 24
   %11 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %12 = load ptr, ptr %arrayidx, align 8
   %ptr10 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr10, align 8
@@ -1306,7 +1306,7 @@ if.end20:                                         ; preds = %if.end17.thread, %i
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end20, %if.end3
-  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
   call void @listEmpty(ptr noundef %19) #8
   br label %return
 
@@ -1342,12 +1342,12 @@ declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #
 define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %async) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #8
   %call6 = call ptr @listNext(ptr noundef nonnull %li) #8
   %cmp.not7 = icmp eq ptr %call6, null
@@ -1364,12 +1364,12 @@ while.body:                                       ; preds = %if.then, %if.end11
   br i1 %tobool1.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %while.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %cmp3 = icmp eq ptr %2, %4
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then2
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
   %call5 = call ptr @listAddNodeTail(ptr noundef %5, ptr noundef null) #8
   br label %if.end11
 
@@ -1377,7 +1377,7 @@ if.else:                                          ; preds = %if.then2
   %resp = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
@@ -1466,7 +1466,7 @@ entry:
   %ri = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr @TrackingTable, align 8
   %cmp = icmp eq ptr %0, null
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 330), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4944), align 8
   %cmp1 = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond, label %return, label %if.end3
@@ -1662,7 +1662,7 @@ entry:
   %ri2 = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr @TrackingTable, align 8
   %cmp = icmp ne ptr %0, null
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 329), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %tobool = icmp ne i32 %1, 0
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   br i1 %or.cond, label %if.end, label %return

@@ -4829,7 +4829,7 @@ if.end14.i.i:                                     ; preds = %while.end.i.i
   br i1 %or.cond.i.i, label %do.body.i.i, label %if.end20.i.i
 
 do.body.i.i:                                      ; preds = %if.end14.i.i
-  %call19.i.i = call ptr @PyUnicode_Replace(ptr noundef nonnull %call15.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 12), ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 23), i64 noundef -1) #7
+  %call19.i.i = call ptr @PyUnicode_Replace(ptr noundef nonnull %call15.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25008), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25592), i64 noundef -1) #7
   %25 = load i64, ptr %call15.i.i, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i39.not.i.i = icmp eq i64 %26, 0

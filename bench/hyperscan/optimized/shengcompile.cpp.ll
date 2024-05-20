@@ -225,7 +225,7 @@ entry:
   %2 = and i32 %1, -2
   %switch.i = icmp eq i32 %2, 2
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 16), ptr %call.i, align 8, !noalias !5
   %rl.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %rl.i.i, i8 0, i64 24, i1 false), !noalias !5
   %3 = getelementptr inbounds i8, ptr %rev, i64 8
@@ -2406,7 +2406,7 @@ call.i.noexc:                                     ; preds = %entry
   store ptr %rm, ptr %rm.i.i.i, align 8
   %only_accel_init.i.i = getelementptr inbounds i8, ptr %strat, i64 16
   store i8 %frombool.i.i, ptr %only_accel_init.i.i, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i64 0, i32 0, i64 2), ptr %strat, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217sheng_build_stratE, i64 16), ptr %strat, align 8
   %rdfa.i = getelementptr inbounds i8, ptr %strat, i64 24
   store ptr %raw, ptr %rdfa.i, align 8
   %states4.i = getelementptr inbounds i8, ptr %raw, i64 16
@@ -2508,7 +2508,7 @@ if.then.i.if.end.i_crit_edge:                     ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.if.end.i_crit_edge, %if.end16
-  %vtable1.i = phi ptr [ %vtable1.i.pre, %if.then.i.if.end.i_crit_edge ], [ getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i64 0, i32 0, i64 2), %if.end16 ]
+  %vtable1.i = phi ptr [ %vtable1.i.pre, %if.then.i.if.end.i_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3ue217sheng_build_stratE, i64 16), %if.end16 ]
   %grey.i = getelementptr inbounds i8, ptr %cc, i64 24
   %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 80
   %13 = load ptr, ptr %vfn2.i, align 8, !noalias !144
@@ -3403,7 +3403,7 @@ call.i.noexc:                                     ; preds = %if.end
   store ptr %rm, ptr %rm.i.i.i, align 8
   %only_accel_init.i.i = getelementptr inbounds i8, ptr %strat, i64 16
   store i8 %frombool.i.i, ptr %only_accel_init.i.i, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i64 0, i32 0, i64 2), ptr %strat, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217sheng_build_stratE, i64 16), ptr %strat, align 8
   %rdfa.i = getelementptr inbounds i8, ptr %strat, i64 24
   store ptr %raw, ptr %rdfa.i, align 8
   %states4.i = getelementptr inbounds i8, ptr %raw, i64 16
@@ -3505,7 +3505,7 @@ if.then.i.if.end.i_crit_edge:                     ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.if.end.i_crit_edge, %if.end21
-  %vtable1.i = phi ptr [ %vtable1.i.pre, %if.then.i.if.end.i_crit_edge ], [ getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i64 0, i32 0, i64 2), %if.end21 ]
+  %vtable1.i = phi ptr [ %vtable1.i.pre, %if.then.i.if.end.i_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3ue217sheng_build_stratE, i64 16), %if.end21 ]
   %grey.i = getelementptr inbounds i8, ptr %cc, i64 24
   %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 80
   %13 = load ptr, ptr %vfn2.i, align 8, !noalias !157
@@ -4402,7 +4402,7 @@ call.i.noexc:                                     ; preds = %if.end
   store ptr %rm, ptr %rm.i.i.i, align 8
   %only_accel_init.i.i = getelementptr inbounds i8, ptr %strat, i64 16
   store i8 %frombool.i.i, ptr %only_accel_init.i.i, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i64 0, i32 0, i64 2), ptr %strat, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217sheng_build_stratE, i64 16), ptr %strat, align 8
   %rdfa.i = getelementptr inbounds i8, ptr %strat, i64 24
   store ptr %raw, ptr %rdfa.i, align 8
   %states4.i = getelementptr inbounds i8, ptr %raw, i64 16
@@ -6477,7 +6477,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_120raw_report_info_implD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 16), ptr %this, align 8
   %rl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %rl, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6528,7 +6528,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_115raw_report_listESaIS2_EED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_120raw_report_info_implD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 16), ptr %this, align 8
   %rl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %rl.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -7139,7 +7139,7 @@ _ZNSt10unique_ptrI3NFAN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit: ;
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI3NFAN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
           to label %unreachable unwind label %lpad
 

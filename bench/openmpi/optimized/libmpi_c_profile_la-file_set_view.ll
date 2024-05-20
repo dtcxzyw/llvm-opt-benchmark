@@ -181,7 +181,7 @@ ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %67
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %67 ], [ 0, %.preheader.i ]
-  %71 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %72 = sext i32 %71 to i64
   %.not.i65 = icmp slt i64 %indvars.iv.i, %72
   br i1 %.not.i65, label %73, label %opal_pointer_array_get_item.exit.i
@@ -192,20 +192,20 @@ ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %78
 
 78:                                               ; preds = %76, %73
   %79 = phi i8 [ %74, %73 ], [ %.pre.i.i, %76 ]
-  %80 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.i
   %82 = load ptr, ptr %81, align 8
   %83 = trunc i8 %79 to i1
   br i1 %83, label %84, label %opal_pointer_array_get_item.exit.i
 
 84:                                               ; preds = %78
-  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   br label %opal_pointer_array_get_item.exit.i
 
 opal_pointer_array_get_item.exit.i:               ; preds = %84, %78, %.lr.ph.i

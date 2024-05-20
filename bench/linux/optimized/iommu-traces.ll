@@ -250,7 +250,7 @@ declare dso_local i32 @__SCT__tp_func_add_device_to_group(ptr noundef, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_add_device_to_group(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_add_device_to_group, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_add_device_to_group, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -285,7 +285,7 @@ declare dso_local i32 @__SCT__tp_func_remove_device_from_group(ptr noundef, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_remove_device_from_group(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_remove_device_from_group, i64 0, i32 8), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_remove_device_from_group, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -314,7 +314,7 @@ declare dso_local i32 @__SCT__tp_func_attach_device_to_domain(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_attach_device_to_domain(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_attach_device_to_domain, i64 0, i32 8), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_attach_device_to_domain, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -343,7 +343,7 @@ declare dso_local i32 @__SCT__tp_func_map(ptr noundef, i64 noundef, i64 noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_map(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_map, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_map, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -372,7 +372,7 @@ declare dso_local i32 @__SCT__tp_func_unmap(ptr noundef, i64 noundef, i64 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_unmap(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_unmap, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_unmap, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -401,7 +401,7 @@ declare dso_local i32 @__SCT__tp_func_io_page_fault(ptr noundef, ptr noundef, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_io_page_fault(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_io_page_fault, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_io_page_fault, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 

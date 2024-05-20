@@ -87,7 +87,7 @@ define void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx
 _ZN5folly9EventBase7Options17setBackendFactoryESt8functionIFSt10unique_ptrINS_20EventBaseBackendBaseESt14default_deleteIS4_EEvEE.exit:
   %ref.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen12WorkerThreadE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12WorkerThreadE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %state_, align 8
   %thread_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -343,7 +343,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN8proxygen12WorkerThreadD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen12WorkerThreadE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12WorkerThreadE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %state_, align 8
   %cmp.not.not = icmp eq i8 %0, 0
@@ -505,7 +505,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %cleanup.done
           to label %call.i.noexc unwind label %lpad12
 
 call.i.noexc:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8proxygen12WorkerThread5startEvE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %call.i1, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8proxygen12WorkerThread5startEvE3$_0EEEEEE", i64 16), ptr %call.i1, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %_M_func.i.i, align 8

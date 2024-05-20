@@ -5024,15 +5024,15 @@ if.then5:                                         ; preds = %if.end3
 i2b.exit:                                         ; preds = %if.then5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @cache, i8 0, i64 80, i1 false)
   store i32 2304, ptr @cache, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 1, i64 4), ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 0, i32 2), align 8
-  store i32 625, ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 1, i64 2), align 8
-  store <4 x i32> <i32 1, i32 2, i32 0, i32 1>, ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 0, i32 4, i64 0), ptr @p5s, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 0, i32 4, i64 0), align 8
+  store ptr getelementptr inbounds (i8, ptr @cache, i64 120), ptr getelementptr inbounds (i8, ptr @cache, i64 8), align 8
+  store i32 625, ptr getelementptr inbounds (i8, ptr @cache, i64 104), align 8
+  store <4 x i32> <i32 1, i32 2, i32 0, i32 1>, ptr getelementptr inbounds (i8, ptr @cache, i64 88), align 8
+  store ptr getelementptr inbounds (i8, ptr @cache, i64 80), ptr @p5s, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @cache, i64 80), align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %i2b.exit, %if.then5
-  %p5.0 = phi ptr [ %2, %if.then5 ], [ getelementptr inbounds (%struct.anon.0, ptr @cache, i64 0, i32 0, i32 4, i64 0), %i2b.exit ]
+  %p5.0 = phi ptr [ %2, %if.then5 ], [ getelementptr inbounds (i8, ptr @cache, i64 80), %i2b.exit ]
   tail call void @FREE_DTOA_LOCK(i32 noundef 1) #17
   br label %if.end10
 

@@ -443,19 +443,19 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
 
 55:                                               ; preds = %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) @HDR_ETHERNET, ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_src_addr, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i64 0, i32 1), ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_dest_addr, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (i8, ptr @HDR_ETHERNET, i64 6), ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_dest_addr, i64 6, i1 false)
   br label %57
 
 56:                                               ; preds = %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) @HDR_ETHERNET, ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_dest_addr, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i64 0, i32 1), ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_src_addr, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (i8, ptr @HDR_ETHERNET, i64 6), ptr noundef nonnull align 1 dereferenceable(6) @hdr_eth_src_addr, i64 6, i1 false)
   br label %57
 
 57:                                               ; preds = %56, %55
   %58 = load i32, ptr @hdr_ethernet_proto, align 4
   %trunc = trunc i32 %58 to i16
   %rev = tail call i16 @llvm.bswap.i16(i16 %trunc)
-  store i16 %rev, ptr getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i64 0, i32 2), align 2
+  store i16 %rev, ptr getelementptr inbounds (i8, ptr @HDR_ETHERNET, i64 12), align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %49, ptr noundef nonnull align 2 dereferenceable(14) @HDR_ETHERNET, i64 14, i1 false)
   br label %59
 
@@ -493,35 +493,35 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
 74:                                               ; preds = %68, %62
   %spec.select221.sink = phi i32 [ %spec.select220, %62 ], [ %spec.select221, %68 ]
   %storemerge = phi i32 [ %67, %62 ], [ %73, %68 ]
-  store i32 %spec.select221.sink, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 9), align 4
-  store i32 %storemerge, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 10), align 4
+  store i32 %spec.select221.sink, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 16), align 4
   %trunc142 = trunc i32 %.0100 to i16
   %rev143 = tail call i16 @llvm.bswap.i16(i16 %trunc142)
-  store i16 %rev143, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 2), align 2
+  store i16 %rev143, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 2), align 2
   %75 = load i32, ptr @hdr_ip_proto, align 4
   %76 = trunc i32 %75 to i8
-  store i8 %76, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 7), align 1
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 8), align 2
+  store i8 %76, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 9), align 1
+  store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
   store ptr @HDR_IP, ptr %2, align 16
   %77 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 20, ptr %77, align 8
   %78 = call i32 @in_cksum(ptr noundef nonnull %2, i32 noundef 1) #15
   %79 = trunc i32 %78 to i16
-  store i16 %79, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 8), align 2
+  store i16 %79, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
   %80 = load ptr, ptr @packet_buf, align 8
   %81 = zext nneg i32 %.094 to i64
   %82 = getelementptr i8, ptr %80, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %82, ptr noundef nonnull align 4 dereferenceable(20) @HDR_IP, i64 20, i1 false)
   %83 = add nuw nsw i32 %.094, 20
-  %84 = load <2 x i32>, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i64 0, i32 9), align 4
+  %84 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
   store <2 x i32> %84, ptr @pseudoh, align 8
-  store i8 0, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i64 0, i32 2), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 8), align 8
   %85 = load i32, ptr @hdr_ip_proto, align 4
   %86 = trunc i32 %85 to i8
-  store i8 %86, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i64 0, i32 3), align 1
+  store i8 %86, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 9), align 1
   %trunc144 = trunc i32 %.292 to i16
   %rev145 = call i16 @llvm.bswap.i16(i16 %trunc144)
-  store i16 %rev145, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i64 0, i32 4), align 2
+  store i16 %rev145, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 10), align 2
   %.b113.pre = load i1, ptr @hdr_udp, align 4
   br i1 %.b113.pre, label %110, label %130
 
@@ -534,7 +534,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %90 = getelementptr inbounds i8, ptr %89, i64 140
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
   %.not131 = icmp eq i32 %bcmp, 0
-  %91 = select i1 %14, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 1), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 2)
+  %91 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24)
   br i1 %.not131, label %93, label %92
 
 92:                                               ; preds = %88
@@ -549,7 +549,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %95 = getelementptr inbounds i8, ptr %89, i64 124
   %bcmp132 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %95, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
   %.not133 = icmp eq i32 %bcmp132, 0
-  %96 = select i1 %14, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 2), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 1)
+  %96 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8)
   br i1 %.not133, label %98, label %97
 
 97:                                               ; preds = %94
@@ -567,23 +567,23 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   store i8 %102, ptr @HDR_IPv6, align 4
   %trunc134 = trunc i32 %.0100 to i16
   %rev135 = tail call i16 @llvm.bswap.i16(i16 %trunc134)
-  store i16 %rev135, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 0, i32 0, i32 1), align 4
+  store i16 %rev135, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 4), align 4
   %103 = load i32, ptr @hdr_ip_proto, align 4
   %104 = trunc i32 %103 to i8
-  store i8 %104, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 0, i32 0, i32 2), align 2
-  store i8 32, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 0, i32 0, i32 3), align 1
+  store i8 %104, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 6), align 2
+  store i8 32, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 7), align 1
   %105 = zext nneg i32 %.094 to i64
   %106 = getelementptr i8, ptr %49, i64 %105
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %106, ptr noundef nonnull align 4 dereferenceable(40) @HDR_IPv6, i64 40, i1 false)
   %107 = add nuw nsw i32 %.094, 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @pseudoh6, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 1), i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i64 0, i32 2), i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i64 0, i32 3), i8 0, i64 3, i1 false)
-  store i8 %104, ptr getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i64 0, i32 4), align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @pseudoh6, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @pseudoh6, i64 16), ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) getelementptr inbounds (i8, ptr @pseudoh6, i64 36), i8 0, i64 3, i1 false)
+  store i8 %104, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 39), align 1
   %trunc136 = trunc i32 %.292 to i16
   %rev137 = tail call i16 @llvm.bswap.i16(i16 %trunc136)
   %108 = zext i16 %rev137 to i32
-  store i32 %108, ptr getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i64 0, i32 2), align 4
+  store i32 %108, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 32), align 4
   br i1 %.b114, label %110, label %130
 
 109:                                              ; preds = %87
@@ -605,11 +605,11 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %trunc150 = trunc i32 %.sink246 to i16
   %rev151 = call i16 @llvm.bswap.i16(i16 %trunc150)
   store i16 %rev147, ptr @HDR_UDP, align 8
-  store i16 %rev151, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i64 0, i32 1), align 2
+  store i16 %rev151, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 2), align 2
   %trunc155 = trunc i32 %.292 to i16
   %rev156 = call i16 @llvm.bswap.i16(i16 %trunc155)
-  store i16 %rev156, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i64 0, i32 2), align 4
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i64 0, i32 3), align 2
+  store i16 %rev156, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 4), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
   %.b128 = load i1, ptr @hdr_ipv6, align 4
   %pseudoh.sink = select i1 %.b128, ptr @pseudoh6, ptr @pseudoh
   %.sink = select i1 %.b128, i32 40, i32 12
@@ -628,7 +628,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   store i32 %121, ptr %122, align 8
   %123 = call i32 @in_cksum(ptr noundef nonnull %3, i32 noundef 3) #15
   %124 = trunc i32 %123 to i16
-  store i16 %124, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i64 0, i32 3), align 2
+  store i16 %124, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
   %125 = load ptr, ptr @packet_buf, align 8
   %126 = zext nneg i32 %.195245 to i64
   %127 = getelementptr i8, ptr %125, i64 %126
@@ -657,7 +657,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %trunc162 = trunc i32 %.sink247 to i16
   %rev163 = call i16 @llvm.bswap.i16(i16 %trunc162)
   store i16 %rev158, ptr @HDR_TCP, align 4
-  store i16 %rev163, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 1), align 2
+  store i16 %rev163, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 2), align 2
   %137 = load i32, ptr @has_direction, align 4
   %.not167 = icmp eq i32 %137, 0
   br i1 %.not167, label %152, label %138
@@ -688,12 +688,12 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %154 = phi i32 [ %.pre, %152 ], [ %140, %138 ]
   %.sink238 = phi i8 [ 0, %152 ], [ 16, %138 ]
   %storemerge168 = phi i32 [ 0, %152 ], [ %151, %138 ]
-  store i8 %.sink238, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 5), align 1
-  store i32 %storemerge168, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 3), align 4
+  store i8 %.sink238, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 13), align 1
+  store i32 %storemerge168, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 8), align 4
   %155 = select i1 %14, i32 %154, i32 %153
-  store i32 %155, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 2), align 4
-  store i16 32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 6), align 2
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 7), align 4
+  store i32 %155, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+  store i16 32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 14), align 2
+  store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
   %.b127 = load i1, ptr @hdr_ipv6, align 4
   %spec.select248 = select i1 %.b127, ptr @pseudoh6, ptr @pseudoh
   %spec.select249 = select i1 %.b127, i32 40, i32 12
@@ -712,7 +712,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   store i32 %161, ptr %162, align 8
   %163 = call i32 @in_cksum(ptr noundef nonnull %4, i32 noundef 3) #15
   %164 = trunc i32 %163 to i16
-  store i16 %164, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 7), align 4
+  store i16 %164, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
   %165 = load ptr, ptr @packet_buf, align 8
   %166 = zext nneg i32 %.296 to i64
   %167 = getelementptr i8, ptr %165, i64 %166
@@ -741,24 +741,24 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %179 = zext i1 %.not184 to i8
   %spec.select234 = or disjoint i8 %spec.store.select, %179
   store i8 0, ptr @HDR_DATA_CHUNK, align 4
-  store i8 %spec.select234, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 1), align 1
+  store i8 %spec.select234, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 1), align 1
   %180 = load i32, ptr @curr_offset, align 4
   %181 = trunc i32 %180 to i16
   %trunc185 = add i16 %181, 16
   %rev186 = call i16 @llvm.bswap.i16(i16 %trunc185)
-  store i16 %rev186, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 2), align 2
+  store i16 %rev186, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 2), align 2
   %182 = load i32, ptr @hdr_data_chunk_tsn, align 4
   %183 = call i32 @llvm.bswap.i32(i32 %182)
-  store i32 %183, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 3), align 4
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 4), align 4
+  store i32 %183, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 8), align 4
   %184 = load i16, ptr @hdr_data_chunk_ssn, align 2
   %rev190 = call i16 @llvm.bswap.i16(i16 %184)
-  store i16 %rev190, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 5), align 2
+  store i16 %rev190, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 10), align 2
   %185 = load ptr, ptr @info_p, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 172
   %187 = load i32, ptr %186, align 4
   %188 = call i32 @llvm.bswap.i32(i32 %187)
-  store i32 %188, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 6), align 4
+  store i32 %188, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 12), align 4
   %189 = add i32 %182, 1
   store i32 %189, ptr @hdr_data_chunk_tsn, align 4
   br i1 %.not184, label %190, label %192
@@ -814,20 +814,20 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %trunc199 = trunc i32 %.sink256 to i16
   %rev200 = call i16 @llvm.bswap.i16(i16 %trunc199)
   store i16 %rev195, ptr @HDR_SCTP, align 4
-  store i16 %rev200, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 1), align 2
+  store i16 %rev200, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 2), align 2
   %209 = getelementptr inbounds i8, ptr %205, i64 168
   %210 = load i32, ptr %209, align 8
   %211 = call i32 @llvm.bswap.i32(i32 %210)
-  store i32 %211, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  store i32 %211, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %212 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1) #15
-  store i32 %212, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  store i32 %212, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %.b120 = load i1, ptr @hdr_data_chunk, align 4
   br i1 %.b120, label %213, label %215
 
 213:                                              ; preds = %204
   %214 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %212) #15
-  store i32 %214, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  store i32 %214, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   br label %215
 
 215:                                              ; preds = %213, %204
@@ -841,7 +841,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %223 = load ptr, ptr @packet_buf, align 8
   %224 = getelementptr i8, ptr %223, i64 %50
   %225 = load i32, ptr @curr_offset, align 4
-  %226 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  %226 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %227 = call i32 @crc32c_calculate(ptr noundef %224, i32 noundef %225, i32 noundef %226) #15
   %228 = shl i32 %227, 8
   %229 = and i32 %228, 16711680
@@ -849,7 +849,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %231 = load ptr, ptr @packet_buf, align 8
   %232 = getelementptr i8, ptr %231, i64 %50
   %233 = load i32, ptr @curr_offset, align 4
-  %234 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  %234 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %235 = call i32 @crc32c_calculate(ptr noundef %232, i32 noundef %233, i32 noundef %234) #15
   %236 = lshr i32 %235, 8
   %237 = and i32 %236, 65280
@@ -857,13 +857,13 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %239 = load ptr, ptr @packet_buf, align 8
   %240 = getelementptr i8, ptr %239, i64 %50
   %241 = load i32, ptr @curr_offset, align 4
-  %242 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  %242 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %243 = call i32 @crc32c_calculate(ptr noundef %240, i32 noundef %241, i32 noundef %242) #15
   %244 = xor i32 %243, -1
   %245 = lshr i32 %244, 24
   %246 = or disjoint i32 %245, %238
   %247 = xor i32 %246, 16776960
-  store i32 %247, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i64 0, i32 3), align 4
+  store i32 %247, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %248 = load ptr, ptr @packet_buf, align 8
   %249 = sext i32 %.397 to i64
   %250 = getelementptr i8, ptr %248, i64 %249
@@ -896,7 +896,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   store i16 3072, ptr @HDR_EXPORT_PDU, align 4
   %trunc207 = trunc i64 %262 to i16
   %rev208 = call i16 @llvm.bswap.i16(i16 %trunc207)
-  store i16 %rev208, ptr getelementptr inbounds (%struct.hdr_export_pdu_t, ptr @HDR_EXPORT_PDU, i64 0, i32 1), align 2
+  store i16 %rev208, ptr getelementptr inbounds (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
   %264 = load ptr, ptr @packet_buf, align 8
   %265 = sext i32 %.498 to i64
   %266 = getelementptr i8, ptr %264, i64 %265
@@ -931,11 +931,11 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   br label %284
 
 284:                                              ; preds = %278, %276
-  %285 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 2), align 4
+  %285 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
   %286 = call i32 @llvm.bswap.i32(i32 %285)
   %287 = add i32 %286, %.pre243
   %288 = call i32 @llvm.bswap.i32(i32 %287)
-  store i32 %288, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i64 0, i32 2), align 4
+  store i32 %288, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %5, i8 0, i64 280, i1 false)
   %289 = load ptr, ptr @info_p, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 96
@@ -1934,7 +1934,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef %0) unn
 15:                                               ; preds = %18
   %16 = getelementptr i8, ptr %.02.i.i, i64 1
   %17 = load i8, ptr %16, align 1
-  %exitcond.i = icmp eq ptr %16, getelementptr inbounds ([3 x i8], ptr @.str.30, i64 0, i64 2)
+  %exitcond.i = icmp eq ptr %16, getelementptr inbounds (i8, ptr @.str.30, i64 2)
   br i1 %exitcond.i, label %.critedge.preheader.i.i, label %18, !llvm.loop !9
 
 18:                                               ; preds = %15, %12
@@ -1953,7 +1953,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef %0) unn
 .critedge.i.i:                                    ; preds = %.critedge.preheader.i.i
   %25 = getelementptr i8, ptr %.0184.i.i, i64 1
   %26 = load i8, ptr %25, align 1
-  %exitcond20.i = icmp eq ptr %25, getelementptr inbounds ([3 x i8], ptr @.str.31, i64 0, i64 2)
+  %exitcond20.i = icmp eq ptr %25, getelementptr inbounds (i8, ptr @.str.31, i64 2)
   br i1 %exitcond20.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !10
 
 .critedge.preheader.i.i:                          ; preds = %15, %.critedge.i.i
@@ -2149,7 +2149,7 @@ define hidden range(i32 -2147483648, 9) i32 @text_import(ptr noundef %0) local_u
 
 6:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @timecode_default, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  store i32 -1, ptr getelementptr inbounds (%struct.tm, ptr @timecode_default, i64 0, i32 8), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @timecode_default, i64 32), align 8
   store i32 0, ptr @ts_nsec, align 4
   store ptr %0, ptr @info_p, align 8
   store i1 false, ptr @hdr_ethernet, align 4

@@ -142,7 +142,7 @@ define hidden void @zim_SplDoublyLinkedList_push(ptr nocapture noundef readonly 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %36
@@ -211,7 +211,7 @@ define hidden void @zim_SplDoublyLinkedList_unshift(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %35
@@ -334,7 +334,7 @@ spl_ptr_llist_pop.exit:                           ; preds = %13, %15, %30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %34
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %39
@@ -417,7 +417,7 @@ spl_ptr_llist_shift.exit:                         ; preds = %12, %14, %30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %34
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %39
@@ -435,7 +435,7 @@ define hidden void @zim_SplDoublyLinkedList_top(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %46
@@ -460,7 +460,7 @@ define hidden void @zim_SplDoublyLinkedList_top(ptr nocapture noundef readonly %
 19:                                               ; preds = %15, %.critedge
   %20 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str.3, i64 noundef 0) #13
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %46
@@ -520,7 +520,7 @@ define hidden void @zim_SplDoublyLinkedList_bottom(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %45
@@ -544,7 +544,7 @@ define hidden void @zim_SplDoublyLinkedList_bottom(ptr nocapture noundef readonl
 18:                                               ; preds = %14, %.critedge
   %19 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %20 = tail call ptr @zend_throw_exception(ptr noundef %19, ptr noundef nonnull @.str.3, i64 noundef 0) #13
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %45
@@ -604,7 +604,7 @@ define hidden void @zim_SplDoublyLinkedList_count(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
@@ -636,7 +636,7 @@ define hidden void @zim_SplDoublyLinkedList_isEmpty(ptr nocapture noundef readon
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %35
@@ -767,7 +767,7 @@ define hidden void @zim_SplDoublyLinkedList_setIteratorMode(ptr nocapture nounde
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %32
@@ -792,7 +792,7 @@ define hidden void @zim_SplDoublyLinkedList_setIteratorMode(ptr nocapture nounde
 21:                                               ; preds = %17
   %22 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %23 = call ptr @zend_throw_exception(ptr noundef %22, ptr noundef nonnull @.str.5, i64 noundef 0) #13
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %32
@@ -821,7 +821,7 @@ define hidden void @zim_SplDoublyLinkedList_getIteratorMode(ptr nocapture nounde
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -851,7 +851,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetExists(ptr nocapture noundef r
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %27
@@ -893,7 +893,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr nocapture noundef read
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %68
@@ -917,7 +917,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr nocapture noundef read
 22:                                               ; preds = %16, %11
   %23 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.6) #13
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %68
@@ -959,7 +959,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %35, %26
 40:                                               ; preds = %spl_ptr_llist_offset.exit
   %41 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %41, i32 noundef 1, ptr noundef nonnull @.str.7) #13
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %68
@@ -1027,7 +1027,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr nocapture noundef read
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %82
@@ -1098,7 +1098,7 @@ spl_ptr_llist_push.exit:                          ; preds = %19, %32
 49:                                               ; preds = %44, %41
   %50 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %50, i32 noundef 1, ptr noundef nonnull @.str.6) #13
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %82
@@ -1162,7 +1162,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %62, %53
   call void @zval_ptr_dtor(ptr noundef %78) #13
   %79 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %79, i32 noundef 1, ptr noundef nonnull @.str.7) #13
-  %80 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %81 = icmp ne ptr %80, null
   call void @llvm.assume(i1 %81)
   br label %82
@@ -1183,7 +1183,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr nocapture noundef re
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %80
@@ -1207,7 +1207,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr nocapture noundef re
 22:                                               ; preds = %18, %11
   %23 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.6) #13
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %80
@@ -1333,7 +1333,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %35, %26
 76:                                               ; preds = %spl_ptr_llist_offset.exit
   %77 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %77, i32 noundef 1, ptr noundef nonnull @.str.7) #13
-  %78 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
   br label %80
@@ -1353,7 +1353,7 @@ define hidden void @zim_SplDoublyLinkedList_key(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -1382,7 +1382,7 @@ define hidden void @zim_SplDoublyLinkedList_prev(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %17
@@ -1572,7 +1572,7 @@ define hidden void @zim_SplDoublyLinkedList_next(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -1602,7 +1602,7 @@ define hidden void @zim_SplDoublyLinkedList_valid(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -1631,7 +1631,7 @@ define hidden void @zim_SplDoublyLinkedList_rewind(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %spl_dllist_it_helper_rewind.exit
@@ -1707,7 +1707,7 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr nocapture noundef readon
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %42
@@ -1789,7 +1789,7 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %98
@@ -1988,7 +1988,7 @@ define hidden void @zim_SplDoublyLinkedList_unserialize(ptr nocapture noundef re
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %107
@@ -2160,7 +2160,7 @@ spl_ptr_llist_push.exit:                          ; preds = %73, %85
   %102 = sub i64 %100, %101
   %103 = load i64, ptr %4, align 8
   %104 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %97, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %102, i64 noundef %103) #13
-  %105 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %106 = icmp ne ptr %105, null
   call void @llvm.assume(i1 %106)
   br label %107
@@ -2193,7 +2193,7 @@ define hidden void @zim_SplDoublyLinkedList___serialize(ptr nocapture noundef re
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %43
@@ -2283,7 +2283,7 @@ define hidden void @zim_SplDoublyLinkedList___unserialize(ptr nocapture noundef 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %80
@@ -2323,7 +2323,7 @@ define hidden void @zim_SplDoublyLinkedList___unserialize(ptr nocapture noundef 
 33:                                               ; preds = %30, %27, %24, %14
   %34 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %35 = call ptr @zend_throw_exception(ptr noundef %34, ptr noundef nonnull @.str.12, i64 noundef 0) #13
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %80
@@ -2429,7 +2429,7 @@ define hidden void @zim_SplDoublyLinkedList_add(ptr nocapture noundef readonly %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %91
@@ -2453,7 +2453,7 @@ define hidden void @zim_SplDoublyLinkedList_add(ptr nocapture noundef readonly %
 24:                                               ; preds = %18, %12
   %25 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %25, i32 noundef 1, ptr noundef nonnull @.str.6) #13
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %91
@@ -2602,7 +2602,7 @@ define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr nocapture noundef re
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %65
@@ -2931,10 +2931,10 @@ register_class_SplDoublyLinkedList.exit:          ; preds = %77, %86, %93, %94
   store ptr @spl_dllist_get_iterator, ptr %97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplDoublyLinkedList, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 72, ptr @spl_handler_SplDoublyLinkedList, align 8
-  store ptr @spl_dllist_object_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplDoublyLinkedList, i64 0, i32 3), align 8
-  store ptr @spl_dllist_object_count_elements, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplDoublyLinkedList, i64 0, i32 18), align 8
-  store ptr @spl_dllist_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplDoublyLinkedList, i64 0, i32 21), align 8
-  store ptr @spl_dllist_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplDoublyLinkedList, i64 0, i32 1), align 8
+  store ptr @spl_dllist_object_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_SplDoublyLinkedList, i64 24), align 8
+  store ptr @spl_dllist_object_count_elements, ptr getelementptr inbounds (i8, ptr @spl_handler_SplDoublyLinkedList, i64 144), align 8
+  store ptr @spl_dllist_object_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_SplDoublyLinkedList, i64 168), align 8
+  store ptr @spl_dllist_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_SplDoublyLinkedList, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %98 = load ptr, ptr @zend_string_init_interned, align 8

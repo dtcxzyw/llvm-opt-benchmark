@@ -217,7 +217,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_zipfile(ptr noundef %0, ptr nound
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %53, i64 1
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) getelementptr inbounds ([5 x i8], ptr @.str.68, i64 0, i64 1), ptr noundef nonnull dereferenceable(2) %59, i64 2)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) getelementptr inbounds (i8, ptr @.str.68, i64 1), ptr noundef nonnull dereferenceable(2) %59, i64 2)
   %.not68.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not68.i, label %.thread71.i, label %60
 
@@ -303,7 +303,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
   br label %2101
 
 92:                                               ; preds = %82
-  %93 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 8), align 4
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 196), align 4
   %.not1387 = icmp eq i32 %93, 0
   br i1 %.not1387, label %96, label %94
 
@@ -317,7 +317,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 
 98:                                               ; preds = %96, %94
   %99 = phi ptr [ %95, %94 ], [ %97, %96 ]
-  %100 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 8), align 4
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 196), align 4
   %101 = getelementptr inbounds i8, ptr %99, i64 324
   %102 = trunc i32 %100 to i16
   %103 = load i16, ptr %101, align 4
@@ -2080,7 +2080,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
   %934 = load i32, ptr %207, align 8
   %935 = or i32 %934, 4096
   store i32 %935, ptr %207, align 8
-  %936 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 9), align 8
+  %936 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 200), align 8
   %.not1577 = icmp eq i32 %936, 0
   br i1 %.not1577, label %937, label %1515
 
@@ -2186,7 +2186,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
   %979 = load i32, ptr %207, align 8
   %980 = or i32 %979, 8192
   store i32 %980, ptr %207, align 8
-  %981 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 10), align 4
+  %981 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 204), align 4
   %.not1569 = icmp eq i32 %981, 0
   br i1 %.not1569, label %982, label %1515
 
@@ -4470,7 +4470,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   %masksel = select i1 %.not1393, i16 0, i16 128
   %storemerge = or disjoint i16 %1958, %masksel
   store i16 %storemerge, ptr %101, align 4
-  %1959 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 15), align 8
+  %1959 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 216), align 8
   %1960 = icmp ne i32 %1959, 0
   %or.cond13 = select i1 %.not1393, i1 %1960, i1 false
   br i1 %or.cond13, label %1961, label %1999
@@ -4571,7 +4571,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   store ptr %99, ptr %11, align 8
   %2002 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 13, ptr %2002, align 8
-  %2003 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %2001, i64 noundef %2, ptr noundef nonnull %11) #15
+  %2003 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %2001, i64 noundef %2, ptr noundef nonnull %11) #15
   %.not1401 = icmp eq ptr %2003, null
   br i1 %.not1401, label %2007, label %2004
 
@@ -4604,14 +4604,14 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
 2016:                                             ; preds = %2014, %2013
   call void @_efree(ptr noundef nonnull %.01269.lcssa) #15
   %2017 = load ptr, ptr %99, align 8
-  %2018 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %2017, i64 noundef %2) #15
+  %2018 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %2017, i64 noundef %2) #15
   br label %2101
 
 2019:                                             ; preds = %2008
   %2020 = load i16, ptr %101, align 4
   %2021 = and i16 %2020, -2
   store i16 %2021, ptr %101, align 4
-  %2022 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef nonnull %.01269.lcssa, i64 noundef %2011) #15
+  %2022 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %.01269.lcssa, i64 noundef %2011) #15
   %.not1413 = icmp eq ptr %2022, null
   br i1 %.not1413, label %.thread1711, label %2023
 
@@ -4634,7 +4634,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
 2031:                                             ; preds = %2029, %2028
   call void @_efree(ptr noundef nonnull %.01269.lcssa) #15
   %2032 = load ptr, ptr %99, align 8
-  %2033 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %2032, i64 noundef %2) #15
+  %2033 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %2032, i64 noundef %2) #15
   br label %2101
 
 .thread1711:                                      ; preds = %2019, %2023
@@ -4671,7 +4671,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   store ptr %99, ptr %12, align 8
   %2048 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 13, ptr %2048, align 8
-  %2049 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef %2045, i64 noundef %2047, ptr noundef nonnull %12) #15
+  %2049 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef %2045, i64 noundef %2047, ptr noundef nonnull %12) #15
   %.not1418 = icmp eq ptr %2049, null
   br i1 %.not1418, label %2099, label %2050
 
@@ -4686,7 +4686,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   br i1 %.not1403, label %2084, label %2054
 
 2054:                                             ; preds = %2053
-  %2055 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef %3, i64 noundef %4) #15
+  %2055 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef %3, i64 noundef %4) #15
   %.not1405 = icmp eq ptr %2055, null
   br i1 %.not1405, label %.thread1714, label %2056
 
@@ -4706,7 +4706,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
 
 2062:                                             ; preds = %2060, %2059
   %2063 = load ptr, ptr %99, align 8
-  %2064 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %2063, i64 noundef %2) #15
+  %2064 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %2063, i64 noundef %2) #15
   br label %2101
 
 .thread1714:                                      ; preds = %2054, %2056
@@ -4716,7 +4716,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   store ptr %99, ptr %13, align 8
   %2068 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 13, ptr %2068, align 8
-  %2069 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef null, i64 noundef %2067, ptr noundef nonnull %13) #15
+  %2069 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef null, i64 noundef %2067, ptr noundef nonnull %13) #15
   %.not1408 = icmp eq ptr %2069, null
   br i1 %.not1408, label %2073, label %2070
 

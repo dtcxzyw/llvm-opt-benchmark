@@ -5510,7 +5510,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   br i1 %469, label %470, label %.thread2081.i
 
 470:                                              ; preds = %465
-  %471 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbdd9920455ec710dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %471 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbdd9920455ec710dE", i64 16) monotonic, align 8, !noalias !652
   switch i8 %471, label %472 [
     i8 0, label %.thread2081.i
     i8 1, label %.thread2078.i
@@ -6079,7 +6079,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   br i1 %606, label %607, label %.thread2101.i
 
 607:                                              ; preds = %604
-  %608 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd83f70ec7e483170E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %608 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd83f70ec7e483170E", i64 16) monotonic, align 8, !noalias !652
   switch i8 %608, label %609 [
     i8 0, label %.thread2101.i
     i8 1, label %.thread2098.i
@@ -6641,7 +6641,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   br i1 %744, label %745, label %.thread2121.i
 
 745:                                              ; preds = %742
-  %746 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1c285b54e43b8baeE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %746 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1c285b54e43b8baeE", i64 16) monotonic, align 8, !noalias !652
   switch i8 %746, label %747 [
     i8 0, label %.thread2121.i
     i8 1, label %.thread2118.i
@@ -7484,7 +7484,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   br i1 %1006, label %1007, label %.thread2144.i
 
 1007:                                             ; preds = %1004
-  %1008 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0637f8a0f2513eefE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %1008 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0637f8a0f2513eefE", i64 16) monotonic, align 8, !noalias !652
   switch i8 %1008, label %1009 [
     i8 0, label %.thread2144.i
     i8 1, label %.thread2141.i
@@ -8111,7 +8111,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit1068.i: ;
   br i1 %1165, label %1166, label %.thread2200.i
 
 1166:                                             ; preds = %1163
-  %1167 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h30c5dff2c21436e0E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %1167 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h30c5dff2c21436e0E", i64 16) monotonic, align 8, !noalias !652
   switch i8 %1167, label %1168 [
     i8 0, label %.thread2200.i
     i8 1, label %.thread2197.i
@@ -8645,7 +8645,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit1068.i: ;
   br i1 %1297, label %1298, label %.thread2252.i
 
 1298:                                             ; preds = %1295
-  %1299 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd22260bda7b9600aE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %1299 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd22260bda7b9600aE", i64 16) monotonic, align 8, !noalias !652
   switch i8 %1299, label %1300 [
     i8 0, label %.thread2252.i
     i8 1, label %.thread2249.i
@@ -9287,7 +9287,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit1068.i: ;
   br i1 %1448, label %1449, label %.thread2316.i
 
 1449:                                             ; preds = %1446
-  %1450 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h56fed0acc457c8a4E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !652
+  %1450 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h56fed0acc457c8a4E", i64 16) monotonic, align 8, !noalias !652
   switch i8 %1450, label %1451 [
     i8 0, label %.thread2316.i
     i8 1, label %.thread2313.i
@@ -10271,7 +10271,7 @@ default.unreachable115:                           ; preds = %3
   br i1 %57, label %58, label %.thread106
 
 58:                                               ; preds = %55
-  %59 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %59 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 16) monotonic, align 8
   switch i8 %59, label %60 [
     i8 0, label %.thread106
     i8 1, label %.thread
@@ -12131,7 +12131,7 @@ default.unreachable71:                            ; preds = %1636, %1572, %733, 
   br i1 %533, label %534, label %.thread615.i.i.i.i
 
 534:                                              ; preds = %530
-  %535 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1671
+  %535 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 16) monotonic, align 8, !noalias !1671
   switch i8 %535, label %536 [
     i8 0, label %.thread615.i.i.i.i
     i8 1, label %.thread.i.i.i.i
@@ -13479,7 +13479,7 @@ default.unreachable71:                            ; preds = %1636, %1572, %733, 
   br i1 %1015, label %1016, label %.thread667.i.i.i.i
 
 1016:                                             ; preds = %1013
-  %1017 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1671
+  %1017 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 16) monotonic, align 8, !noalias !1671
   switch i8 %1017, label %1018 [
     i8 0, label %.thread667.i.i.i.i
     i8 1, label %.thread664.i.i.i.i
@@ -17147,7 +17147,7 @@ default.unreachable71:                            ; preds = %1636, %1572, %733, 
   br i1 %533, label %534, label %.thread615.i.i.i.i
 
 534:                                              ; preds = %530
-  %535 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2253
+  %535 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 16) monotonic, align 8, !noalias !2253
   switch i8 %535, label %536 [
     i8 0, label %.thread615.i.i.i.i
     i8 1, label %.thread.i.i.i.i
@@ -18495,7 +18495,7 @@ default.unreachable71:                            ; preds = %1636, %1572, %733, 
   br i1 %1015, label %1016, label %.thread667.i.i.i.i
 
 1016:                                             ; preds = %1013
-  %1017 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2253
+  %1017 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 16) monotonic, align 8, !noalias !2253
   switch i8 %1017, label %1018 [
     i8 0, label %.thread667.i.i.i.i
     i8 1, label %.thread664.i.i.i.i
@@ -23467,7 +23467,7 @@ default.unreachable44:                            ; preds = %382, %126, %106, %2
   br i1 %202, label %203, label %.thread614.i.i
 
 203:                                              ; preds = %199
-  %204 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2952
+  %204 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 16) monotonic, align 8, !noalias !2952
   switch i8 %204, label %205 [
     i8 0, label %.thread614.i.i
     i8 1, label %.thread.i.i
@@ -24751,7 +24751,7 @@ default.unreachable44:                            ; preds = %382, %126, %106, %2
   br i1 %620, label %621, label %.thread666.i.i
 
 621:                                              ; preds = %618
-  %622 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2952
+  %622 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 16) monotonic, align 8, !noalias !2952
   switch i8 %622, label %623 [
     i8 0, label %.thread666.i.i
     i8 1, label %.thread663.i.i
@@ -25991,7 +25991,7 @@ default.unreachable268:                           ; preds = %430, %72, %3
   br i1 %110, label %111, label %.thread106.i
 
 111:                                              ; preds = %108
-  %112 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_incoming_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdb9d1d8147fb3d60E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3238
+  %112 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_incoming_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdb9d1d8147fb3d60E", i64 16) monotonic, align 8, !noalias !3238
   switch i8 %112, label %113 [
     i8 0, label %.thread106.i
     i8 1, label %.thread.i
@@ -26535,7 +26535,7 @@ common.ret:                                       ; preds = %585, %450, %272
   br i1 %281, label %282, label %.thread235
 
 282:                                              ; preds = %279
-  %283 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$13receiver_next28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h43e91752f322ddc5E", i64 0, i32 2, i32 0) monotonic, align 8
+  %283 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$13receiver_next28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h43e91752f322ddc5E", i64 16) monotonic, align 8
   switch i8 %283, label %284 [
     i8 0, label %.thread235
     i8 1, label %.thread232
@@ -27095,7 +27095,7 @@ common.ret:                                       ; preds = %585, %450, %272
   br label %458
 
 461:                                              ; preds = %455
-  %462 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$13receiver_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4fa472d1e91d1bd0E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3387
+  %462 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$13receiver_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4fa472d1e91d1bd0E", i64 16) monotonic, align 8, !noalias !3387
   switch i8 %462, label %463 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread102.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i
@@ -40863,7 +40863,7 @@ default.unreachable201:                           ; preds = %147, %3
   br i1 %35, label %36, label %.thread184
 
 36:                                               ; preds = %26
-  %37 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14ockam_identity10identities21identities_attributes20IdentitiesAttributes14get_attributes28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3ec1428dea5b104E", i64 0, i32 2, i32 0) monotonic, align 8
+  %37 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14ockam_identity10identities21identities_attributes20IdentitiesAttributes14get_attributes28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3ec1428dea5b104E", i64 16) monotonic, align 8
   switch i8 %37, label %38 [
     i8 0, label %.thread184
     i8 1, label %.thread
@@ -105450,7 +105450,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hac638b24fc89550fE.exit.i.i.i": ; preds = %.noexc20, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i
-  %.0.i.i2.i.i.i.i = phi ptr [ %76, %.noexc20 ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %76, %.noexc20 ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i ]
   %.0.val.i.i.i.i = load i64, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !17432, !noundef !5
   %79 = getelementptr inbounds i8, ptr %.sroa.529.0.copyload, i64 40
   %80 = load atomic i64, ptr %79 acquire, align 8, !noalias !17433
@@ -105569,7 +105569,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   unreachable
 
 121:                                              ; preds = %.noexc.i.i.i, %114
-  %.0.i.i2.i.i12.i.i = phi ptr [ %117, %.noexc.i.i.i ], [ getelementptr inbounds ({ { i64, i64 }, i8, [7 x i8] }, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 0, i32 0, i32 1), %114 ]
+  %.0.i.i2.i.i12.i.i = phi ptr [ %117, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17h134bf9f0c18d4c0eE, i64 8), %114 ]
   %122 = getelementptr inbounds i8, ptr %.sroa.0.sroa.5.0.copyload.i.i, i64 16
   %123 = getelementptr i8, ptr %.sroa.0.sroa.5.0.copyload.i.i, i64 32
   %124 = load i64, ptr %123, align 8, !noalias !17450, !noundef !5
@@ -109200,7 +109200,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i: ; preds = %288,
   br i1 %309, label %310, label %.thread651
 
 310:                                              ; preds = %305
-  %311 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h332d1672d4207c3eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %311 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h332d1672d4207c3eE", i64 16) monotonic, align 8
   switch i8 %311, label %312 [
     i8 0, label %.thread651
     i8 1, label %.thread648
@@ -109647,7 +109647,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i: ; preds = %288,
   br i1 %448, label %449, label %.thread659
 
 449:                                              ; preds = %446
-  %450 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha1b0f8669156ce75E", i64 0, i32 2, i32 0) monotonic, align 8
+  %450 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha1b0f8669156ce75E", i64 16) monotonic, align 8
   switch i8 %450, label %451 [
     i8 0, label %.thread659
     i8 1, label %.thread656
@@ -109926,7 +109926,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i: ; preds = %288,
   br i1 %540, label %541, label %.thread667
 
 541:                                              ; preds = %538
-  %542 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a29712f2513c247E", i64 0, i32 2, i32 0) monotonic, align 8
+  %542 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$23intercept_response_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a29712f2513c247E", i64 16) monotonic, align 8
   switch i8 %542, label %543 [
     i8 0, label %.thread667
     i8 1, label %.thread664
@@ -112370,7 +112370,7 @@ _ZN14kafka_protocol7records18RecordBatchEncoder6encode17h7661708c3c72bd59E.exit.
   br i1 %1452, label %1453, label %.thread635.i
 
 1453:                                             ; preds = %.loopexit.i
-  %1454 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2a39c220546ee3d2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !18434
+  %1454 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2a39c220546ee3d2E", i64 16) monotonic, align 8, !noalias !18434
   switch i8 %1454, label %1455 [
     i8 0, label %.thread635.i
     i8 1, label %.thread632.i
@@ -112725,7 +112725,7 @@ _ZN14kafka_protocol7records18RecordBatchEncoder6encode17h7661708c3c72bd59E.exit.
   br i1 %1573, label %1574, label %.thread647.i
 
 1574:                                             ; preds = %1567
-  %1575 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd5b75b8bfceaecf0E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !18434
+  %1575 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd5b75b8bfceaecf0E", i64 16) monotonic, align 8, !noalias !18434
   switch i8 %1575, label %1576 [
     i8 0, label %.thread647.i
     i8 1, label %.thread644.i
@@ -113517,7 +113517,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i.i: ; preds = %17
   br i1 %1828, label %1829, label %.thread692.i
 
 1829:                                             ; preds = %1826
-  %1830 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc0aff45b94ad754eE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !18434
+  %1830 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc0aff45b94ad754eE", i64 16) monotonic, align 8, !noalias !18434
   switch i8 %1830, label %1831 [
     i8 0, label %.thread692.i
     i8 1, label %.thread689.i
@@ -113998,7 +113998,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i.i: ; preds = %17
   br i1 %1984, label %1985, label %.thread710.i
 
 1985:                                             ; preds = %1982
-  %1986 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc8363b1d973b0541E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !18434
+  %1986 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware8response72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$24handle_metadata_response28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc8363b1d973b0541E", i64 16) monotonic, align 8, !noalias !18434
   switch i8 %1986, label %1987 [
     i8 0, label %.thread710.i
     i8 1, label %.thread707.i
@@ -115339,7 +115339,7 @@ select.unfold:                                    ; preds = %select.unfold.loope
   br i1 %324, label %325, label %.thread768
 
 325:                                              ; preds = %322
-  %326 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc1c9df755c3e5c2cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %326 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc1c9df755c3e5c2cE", i64 16) monotonic, align 8
   switch i8 %326, label %327 [
     i8 0, label %.thread768
     i8 1, label %.thread765
@@ -115736,7 +115736,7 @@ select.unfold:                                    ; preds = %select.unfold.loope
   br i1 %442, label %443, label %.thread777
 
 443:                                              ; preds = %440
-  %444 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h811512c4e15c14dbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %444 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h811512c4e15c14dbE", i64 16) monotonic, align 8
   switch i8 %444, label %445 [
     i8 0, label %.thread777
     i8 1, label %.thread774
@@ -118222,7 +118222,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit70.i: ; p
   br i1 %1253, label %1254, label %.thread821
 
 1254:                                             ; preds = %1251
-  %1255 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3f99bb198838e394E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1255 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka18secure_channel_map41KafkaSecureChannelControllerImpl$LT$F$GT$32get_or_create_secure_channel_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3f99bb198838e394E", i64 16) monotonic, align 8
   switch i8 %1255, label %1256 [
     i8 0, label %.thread821
     i8 1, label %.thread818
@@ -121155,7 +121155,7 @@ default.unreachable157:                           ; preds = %157, %3
   br i1 %57, label %58, label %.thread143
 
 58:                                               ; preds = %49
-  %59 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator12list_members28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6282d9a21ea80e43E", i64 0, i32 2, i32 0) monotonic, align 8
+  %59 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator12list_members28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6282d9a21ea80e43E", i64 16) monotonic, align 8
   switch i8 %59, label %60 [
     i8 0, label %.thread143
     i8 1, label %.thread
@@ -121617,7 +121617,7 @@ common.ret:                                       ; preds = %416, %412, %148
   br i1 %202, label %203, label %.thread239.i
 
 203:                                              ; preds = %200
-  %204 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator12list_members28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h15a69e311336bc55E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !19971
+  %204 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator12list_members28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h15a69e311336bc55E", i64 16) monotonic, align 8, !noalias !19971
   switch i8 %204, label %205 [
     i8 0, label %.thread239.i
     i8 1, label %.thread.i
@@ -122057,7 +122057,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br label %.body.i
 
 353:                                              ; preds = %.noexc135.i, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7f46a9ccd9c4e29aE.exit.i"
-  %.0.i.i2.i.i.i.i = phi ptr [ %349, %.noexc135.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7f46a9ccd9c4e29aE.exit.i" ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %349, %.noexc135.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7f46a9ccd9c4e29aE.exit.i" ]
   store ptr @anon.4b22e441b9d3f133a95fc3384b4bae56.318.llvm.18105196424206627646, ptr %17, align 16, !alias.scope !20039, !noalias !19971
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.4.0..sroa_idx.i133.i = getelementptr inbounds i8, ptr %17, i64 32
@@ -123176,7 +123176,7 @@ default.unreachable1316:                          ; preds = %1791, %1649, %825, 
   br i1 %308, label %309, label %.thread1154
 
 309:                                              ; preds = %305
-  %310 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN135_$LT$ockam_api..authenticator..direct..direct_authenticator_worker..DirectAuthenticatorWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha68d748a56cf2793E", i64 0, i32 1, i64 8) monotonic, align 8
+  %310 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN135_$LT$ockam_api..authenticator..direct..direct_authenticator_worker..DirectAuthenticatorWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha68d748a56cf2793E", i64 16) monotonic, align 8
   switch i8 %310, label %311 [
     i8 0, label %.thread1154
     i8 1, label %.thread
@@ -124665,7 +124665,7 @@ common.ret:                                       ; preds = %2454, %2424, %2348,
   br i1 %700, label %701, label %.thread194.i
 
 701:                                              ; preds = %685
-  %702 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf30963d9f961a870E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20294
+  %702 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf30963d9f961a870E", i64 16) monotonic, align 8, !noalias !20294
   switch i8 %702, label %703 [
     i8 0, label %.thread194.i
     i8 1, label %.thread.i
@@ -125250,7 +125250,7 @@ common.ret:                                       ; preds = %2454, %2424, %2348,
   br i1 %881, label %882, label %.thread621.i.i
 
 882:                                              ; preds = %879
-  %883 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h362c51bc3d922a2fE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20350
+  %883 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h362c51bc3d922a2fE", i64 16) monotonic, align 8, !noalias !20350
   switch i8 %883, label %884 [
     i8 0, label %.thread621.i.i
     i8 1, label %.thread.i.i
@@ -125619,7 +125619,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h08023f9ad21ce1c2E.exit.i.i: ; p
   br i1 %1003, label %1004, label %.thread629.i.i
 
 1004:                                             ; preds = %1001
-  %1005 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7a1ba2a91afa23f8E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20350
+  %1005 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7a1ba2a91afa23f8E", i64 16) monotonic, align 8, !noalias !20350
   switch i8 %1005, label %1006 [
     i8 0, label %.thread629.i.i
     i8 1, label %.thread626.i.i
@@ -126140,7 +126140,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h08023f9ad21ce1c2E.exit.i.i: ; p
   br i1 %1185, label %1186, label %.thread637.i.i
 
 1186:                                             ; preds = %1183
-  %1187 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3828b0a5c45a00deE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20350
+  %1187 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3828b0a5c45a00deE", i64 16) monotonic, align 8, !noalias !20350
   switch i8 %1187, label %1188 [
     i8 0, label %.thread637.i.i
     i8 1, label %.thread634.i.i
@@ -126505,7 +126505,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h08023f9ad21ce1c2E.exit.i.i: ; p
   br i1 %1301, label %1302, label %.thread645.i.i
 
 1302:                                             ; preds = %1299
-  %1303 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha71151951a547eedE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20350
+  %1303 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator10add_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha71151951a547eedE", i64 16) monotonic, align 8, !noalias !20350
   switch i8 %1303, label %1304 [
     i8 0, label %.thread645.i.i
     i8 1, label %.thread642.i.i
@@ -127788,7 +127788,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br i1 %1667, label %1668, label %.thread191.i
 
 1668:                                             ; preds = %1654
-  %1669 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0da7d5d7c3bd1368E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20730
+  %1669 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0da7d5d7c3bd1368E", i64 16) monotonic, align 8, !noalias !20730
   switch i8 %1669, label %1670 [
     i8 0, label %.thread191.i
     i8 1, label %.thread.i703
@@ -128369,7 +128369,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br i1 %1844, label %1845, label %.thread601.i.i
 
 1845:                                             ; preds = %1842
-  %1846 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h518be624a9475715E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20786
+  %1846 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h518be624a9475715E", i64 16) monotonic, align 8, !noalias !20786
   switch i8 %1846, label %1847 [
     i8 0, label %.thread601.i.i
     i8 1, label %.thread.i.i690
@@ -128777,7 +128777,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br i1 %1984, label %1985, label %.thread612.i.i
 
 1985:                                             ; preds = %1982
-  %1986 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ee40ef3b13644c0E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20786
+  %1986 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ee40ef3b13644c0E", i64 16) monotonic, align 8, !noalias !20786
   switch i8 %1986, label %1987 [
     i8 0, label %.thread612.i.i
     i8 1, label %.thread609.i.i
@@ -129118,7 +129118,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br i1 %2110, label %2111, label %.thread620.i.i
 
 2111:                                             ; preds = %2108
-  %2112 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde64c1bd5bbf099cE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20786
+  %2112 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde64c1bd5bbf099cE", i64 16) monotonic, align 8, !noalias !20786
   switch i8 %2112, label %2113 [
     i8 0, label %.thread620.i.i
     i8 1, label %.thread617.i.i
@@ -129490,7 +129490,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br i1 %2240, label %2241, label %.thread628.i.i
 
 2241:                                             ; preds = %2238
-  %2242 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1940d6a977d12087E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !20786
+  %2242 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api13authenticator6direct20direct_authenticator19DirectAuthenticator13delete_member28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1940d6a977d12087E", i64 16) monotonic, align 8, !noalias !20786
   switch i8 %2242, label %2243 [
     i8 0, label %.thread628.i.i
     i8 1, label %.thread625.i.i
@@ -140835,7 +140835,7 @@ common.ret:                                       ; preds = %755, %139
   br i1 %248, label %249, label %.thread517.i.i
 
 249:                                              ; preds = %245
-  %250 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22338
+  %250 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 16) monotonic, align 8, !noalias !22338
   switch i8 %250, label %251 [
     i8 0, label %.thread517.i.i
     i8 1, label %.thread.i.i
@@ -141704,7 +141704,7 @@ common.ret:                                       ; preds = %755, %139
   br i1 %513, label %514, label %.thread548.i.i
 
 514:                                              ; preds = %511
-  %515 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22338
+  %515 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 16) monotonic, align 8, !noalias !22338
   switch i8 %515, label %516 [
     i8 0, label %.thread548.i.i
     i8 1, label %.thread545.i.i
@@ -143424,7 +143424,7 @@ common.ret:                                       ; preds = %1845, %1849
   br i1 %194, label %195, label %.critedge56.i.i.i
 
 195:                                              ; preds = %192
-  %196 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9a69045eba74a60dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22574
+  %196 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9a69045eba74a60dE", i64 16) monotonic, align 8, !noalias !22574
   switch i8 %196, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.i.i [
     i8 0, label %.critedge56.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i.i
@@ -143778,7 +143778,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %310, label %311, label %.thread748.i
 
 311:                                              ; preds = %307
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb8a0a99029ddd4c5E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22560
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb8a0a99029ddd4c5E", i64 16) monotonic, align 8, !noalias !22560
   switch i8 %312, label %313 [
     i8 0, label %.thread748.i
     i8 1, label %.thread745.i
@@ -144199,7 +144199,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %445, label %446, label %.thread756.i
 
 446:                                              ; preds = %443
-  %447 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h98fb39820062706fE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22560
+  %447 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h98fb39820062706fE", i64 16) monotonic, align 8, !noalias !22560
   switch i8 %447, label %448 [
     i8 0, label %.thread756.i
     i8 1, label %.thread753.i
@@ -144525,7 +144525,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %552, label %553, label %.thread764.i
 
 553:                                              ; preds = %550
-  %554 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd08450d73b9aded5E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22560
+  %554 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd08450d73b9aded5E", i64 16) monotonic, align 8, !noalias !22560
   switch i8 %554, label %555 [
     i8 0, label %.thread764.i
     i8 1, label %.thread761.i
@@ -144854,7 +144854,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %663, label %664, label %.thread772.i
 
 664:                                              ; preds = %661
-  %665 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8516797e4c528f83E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !22560
+  %665 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$22intercept_request_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8516797e4c528f83E", i64 16) monotonic, align 8, !noalias !22560
   switch i8 %665, label %666 [
     i8 0, label %.thread772.i
     i8 1, label %.thread769.i
@@ -147192,7 +147192,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i.i.i: ; preds = %
   br i1 %1596, label %1597, label %.critedge56.i.i.i.i
 
 1597:                                             ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4b3952c078a63f9aE.exit.thread.i.i"
-  %1598 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$20handle_fetch_request28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hac24c113b208b167E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !23196
+  %1598 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api5kafka14protocol_aware7request72_$LT$impl$u20$ockam_api..kafka..protocol_aware..InletInterceptorImpl$GT$20handle_fetch_request28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hac24c113b208b167E", i64 16) monotonic, align 8, !noalias !23196
   switch i8 %1598, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.i.i.i [
     i8 0, label %.critedge56.i.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i.i.i
@@ -148534,7 +148534,7 @@ common.ret:                                       ; preds = %357, %254, %85
   br i1 %97, label %98, label %.thread482
 
 98:                                               ; preds = %94
-  %99 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h581b0f460a869f10E", i64 0, i32 2, i32 0) monotonic, align 8
+  %99 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h581b0f460a869f10E", i64 16) monotonic, align 8
   switch i8 %99, label %100 [
     i8 0, label %.thread482
     i8 1, label %.thread
@@ -149076,7 +149076,7 @@ common.ret:                                       ; preds = %357, %254, %85
   br i1 %261, label %262, label %.thread498
 
 262:                                              ; preds = %259
-  %263 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h82686ef4a738c18fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %263 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h82686ef4a738c18fE", i64 16) monotonic, align 8
   switch i8 %263, label %264 [
     i8 0, label %.thread498
     i8 1, label %.thread495
@@ -149412,7 +149412,7 @@ common.ret:                                       ; preds = %357, %254, %85
   br i1 %367, label %368, label %.thread506
 
 368:                                              ; preds = %364
-  %369 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5ce1be990891b51eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %369 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19encrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5ce1be990891b51eE", i64 16) monotonic, align 8
   switch i8 %369, label %370 [
     i8 0, label %.thread506
     i8 1, label %.thread503
@@ -150859,7 +150859,7 @@ common.ret:                                       ; preds = %317, %306, %238
   br i1 %322, label %323, label %.thread245
 
 323:                                              ; preds = %319
-  %324 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19decrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he50779510435e909E", i64 0, i32 2, i32 0) monotonic, align 8
+  %324 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN166_$LT$ockam_api..kafka..secure_channel_map..KafkaSecureChannelControllerImpl$LT$F$GT$$u20$as$u20$ockam_api..kafka..secure_channel_map..KafkaSecureChannelController$GT$19decrypt_content_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he50779510435e909E", i64 16) monotonic, align 8
   switch i8 %324, label %325 [
     i8 0, label %.thread245
     i8 1, label %.thread242

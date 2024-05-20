@@ -1452,7 +1452,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1488,7 +1488,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.3, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1512,7 +1512,7 @@ for.body:                                         ; preds = %for.condthread-pre-
 
 if.then.i:                                        ; preds = %for.body
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   store ptr @.str, ptr %msg_.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1529,7 +1529,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 
 if.then.i33:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit
   %exception.i34 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i34, align 8
   %msg_.i.i35 = getelementptr inbounds i8, ptr %exception.i34, i64 8
   store ptr @.str, ptr %msg_.i.i35, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i34, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1551,7 +1551,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 
 if.then.i40:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit36
   %exception.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i41, align 8
   %msg_.i.i42 = getelementptr inbounds i8, ptr %exception.i41, i64 8
   store ptr @.str, ptr %msg_.i.i42, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i41, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1568,7 +1568,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 
 if.then.i47:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit43
   %exception.i48 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i48, align 8
   %msg_.i.i49 = getelementptr inbounds i8, ptr %exception.i48, i64 8
   store ptr @.str, ptr %msg_.i.i49, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i48, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1609,7 +1609,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox8
 
 if.then.i54:                                      ; preds = %while.end
   %exception.i55 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i55, align 8
   %msg_.i.i56 = getelementptr inbounds i8, ptr %exception.i55, i64 8
   store ptr @.str, ptr %msg_.i.i56, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i55, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1626,7 +1626,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 
 if.then.i61:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit57
   %exception.i62 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i62, align 8
   %msg_.i.i63 = getelementptr inbounds i8, ptr %exception.i62, i64 8
   store ptr @.str, ptr %msg_.i.i63, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i62, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1655,7 +1655,7 @@ if.then56:                                        ; preds = %_ZN8facebook5velox8
 
 if.then.i68:                                      ; preds = %if.then56
   %exception.i69 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i69, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i69, align 8
   %msg_.i.i70 = getelementptr inbounds i8, ptr %exception.i69, i64 8
   store ptr @.str, ptr %msg_.i.i70, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i69, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1683,7 +1683,7 @@ if.then67:                                        ; preds = %_ZN8facebook5velox8
 
 if.then.i75:                                      ; preds = %if.then67
   %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception.i76, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i76, align 8
   %msg_.i.i77 = getelementptr inbounds i8, ptr %exception.i76, i64 8
   store ptr @.str, ptr %msg_.i.i77, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i76, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1720,7 +1720,7 @@ if.then1:                                         ; preds = %if.end
 
 if.then3:                                         ; preds = %if.then1
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.1, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1755,7 +1755,7 @@ if.end6:                                          ; preds = %if.end
 
 if.then11:                                        ; preds = %if.end6
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, i32 0, i64 2), ptr %exception12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception12, align 8
   %msg_.i16 = getelementptr inbounds i8, ptr %exception12, i64 8
   store ptr @.str.2, ptr %msg_.i16, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
@@ -1954,7 +1954,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 

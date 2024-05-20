@@ -340,7 +340,7 @@ define noundef zeroext i1 @_ZN8uu_rmdir13dir_not_empty17h9cb2ed62c559434fE(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !99
   store ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.19, ptr %7, align 8, !noalias !99
   %17 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.19, i64 1, i32 0, i64 0), ptr %17, align 8, !noalias !99
+  store ptr getelementptr inbounds (i8, ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.19, i64 8), ptr %17, align 8, !noalias !99
   br label %18
 
 18:                                               ; preds = %20, %14
@@ -362,7 +362,7 @@ define noundef zeroext i1 @_ZN8uu_rmdir13dir_not_empty17h9cb2ed62c559434fE(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !114
   store ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.20, ptr %6, align 8, !noalias !114
   %24 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.20, i64 1, i32 0, i64 0), ptr %24, align 8, !noalias !114
+  store ptr getelementptr inbounds (i8, ptr @anon.b4ca8bad4567301c41f8b29ee6635c6d.20, i64 16), ptr %24, align 8, !noalias !114
   br label %25
 
 25:                                               ; preds = %27, %23

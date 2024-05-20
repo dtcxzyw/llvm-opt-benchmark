@@ -254,7 +254,7 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_setup_info(ptr noundef %0, 
   %59 = zext i8 %58 to i32
   %60 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %59, ptr %60, align 8
-  %61 = load i8, ptr getelementptr inbounds (%struct.nf_conntrack_zone, ptr @nf_ct_zone_dflt, i64 0, i32 2), align 1
+  %61 = load i8, ptr getelementptr inbounds (i8, ptr @nf_ct_zone_dflt, i64 3), align 1
   %62 = icmp eq i8 %61, 3
   br i1 %62, label %63, label %hash_by_src.exit
 
@@ -1143,7 +1143,7 @@ define internal fastcc range(i32 0, -1) i32 @hash_by_src(ptr nocapture noundef r
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %16, ptr %17, align 8
-  %18 = load i8, ptr getelementptr inbounds (%struct.nf_conntrack_zone, ptr @nf_ct_zone_dflt, i64 0, i32 2), align 1
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @nf_ct_zone_dflt, i64 3), align 1
   %19 = icmp eq i8 %18, 3
   br i1 %19, label %20, label %24
 
@@ -1555,7 +1555,7 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
 
 .preheader12:                                     ; preds = %44, %50
   %46 = phi i32 [ %53, %50 ], [ 0, %44 ]
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %48 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3520, i64 noundef 24) #15
   %49 = icmp eq ptr %48, null
   br i1 %49, label %55, label %50

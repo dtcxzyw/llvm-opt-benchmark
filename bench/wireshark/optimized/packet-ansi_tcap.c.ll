@@ -422,9 +422,9 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_ansi_tcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 2), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 8), i8 0, i64 56, i1 false)
   store i32 1096041281, ptr @ansi_tcap_private, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 4), align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -652,7 +652,7 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
 
 .sink.split:                                      ; preds = %23, %20
   %.sink = phi ptr [ %22, %20 ], [ %24, %23 ]
-  store ptr %.sink, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 5), align 8
+  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   br label %25
 
 25:                                               ; preds = %.sink.split, %10
@@ -758,8 +758,8 @@ define internal i32 @dissect_ansi_tcap_IntegerApplicationContext(i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_ObjectIDApplicationContext(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 3, i32 noundef 28, i1 noundef zeroext true, ptr noundef nonnull @dissect_ansi_tcap_OBJECT_IDENTIFIER) #4
-  store ptr null, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 1), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 4), align 4
   ret i32 %7
 }
 
@@ -819,7 +819,7 @@ define internal i32 @dissect_ansi_tcap_ComponentPDU(i1 zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_Invoke(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  store i32 1, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 40), align 8
   %7 = load i32, ptr @ett_ansi_tcap_Invoke, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Invoke_sequence, i32 noundef %5, i32 noundef %7) #4
   ret i32 %8
@@ -827,7 +827,7 @@ define internal i32 @dissect_ansi_tcap_Invoke(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_ReturnResult(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  store i32 2, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 40), align 8
   %7 = load i32, ptr @ett_ansi_tcap_ReturnResult, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ReturnResult_sequence, i32 noundef %5, i32 noundef %7) #4
   ret i32 %8
@@ -835,7 +835,7 @@ define internal i32 @dissect_ansi_tcap_ReturnResult(i1 noundef zeroext %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_ReturnError(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  store i32 3, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 40), align 8
   %7 = load i32, ptr @ett_ansi_tcap_ReturnError, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ReturnError_sequence, i32 noundef %5, i32 noundef %7) #4
   ret i32 %8
@@ -857,10 +857,10 @@ define internal i32 @dissect_ansi_tcap_T_componentIDs(i1 noundef zeroext %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_OperationCode(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_ansi_tcap_OperationCode, align 4
-  %8 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @OperationCode_choice, i32 noundef %5, i32 noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 1)) #4
+  %8 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @OperationCode_choice, i32 noundef %5, i32 noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44)) #4
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 4), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 56), align 8
   ret i32 %8
 }
 
@@ -881,15 +881,15 @@ define internal i32 @dissect_ansi_tcap_T_invoke_parameter(i1 zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_national(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2)) #4
-  %8 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48)) #4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %9 = and i32 %8, 32767
-  store i32 %9, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ansi_tcap_op_code_nat, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %15 = lshr i32 %14, 8
   %16 = and i32 %15, 127
   %17 = load i32, ptr @hf_ansi_tcap_bit_h, align 4
@@ -953,7 +953,7 @@ switch.lookup:                                    ; preds = %30
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_private(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 3)) #4
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52)) #4
   ret i32 %7
 }
 
@@ -961,7 +961,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 40), align 8
   %5 = icmp eq i32 %4, 1
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -981,7 +981,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %21 = icmp eq i16 %20, 0
-  %22 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 5), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   %23 = icmp ne ptr %22, null
   %or.cond.i = select i1 %21, i1 %23, i1 false
   br i1 %or.cond.i, label %24, label %save_invoke_data.exit
@@ -1010,10 +1010,10 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %.0.i = phi ptr [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
   %34 = tail call ptr @wmem_file_scope() #4
   %35 = tail call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 12) #4
-  %36 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 1), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
   store i32 %36, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %35, i64 4
-  %38 = load <2 x i32>, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  %38 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %39 = shufflevector <2 x i32> %38, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %39, ptr %37, align 4
   %40 = load ptr, ptr @TransactionId_table, align 8
@@ -1025,7 +1025,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   br label %save_invoke_data.exit
 
 46:                                               ; preds = %3
-  %47 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 5), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %save_invoke_data.exit, label %48
 
@@ -1041,7 +1041,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %57 = tail call noalias ptr @wmem_alloc(ptr noundef %56, i64 noundef 1024) #4
   store i8 0, ptr %57, align 1
   %58 = load i32, ptr @ansi_tcap_response_matching_type, align 4
-  %59 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 5), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   switch i32 %58, label %64 [
     i32 0, label %60
     i32 1, label %62
@@ -1069,13 +1069,13 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
 
 71:                                               ; preds = %66
   %72 = load i32, ptr %70, align 4
-  store i32 %72, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 1), align 4
+  store i32 %72, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
   %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load i32, ptr %73, align 4
-  store i32 %74, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  store i32 %74, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %75 = getelementptr inbounds i8, ptr %70, i64 4
   %76 = load i32, ptr %75, align 4
-  store i32 %76, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 3), align 4
+  store i32 %76, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   %77 = icmp eq i32 %72, 0
   %. = select i1 %77, i32 %74, i32 %76
   %hf_ansi_tcap_national.val = load i32, ptr @hf_ansi_tcap_national, align 4
@@ -1099,22 +1099,22 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %71, %80, %83
-  store ptr %79, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 4), align 8
+  store ptr %79, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 56), align 8
   br label %save_invoke_data.exit
 
 save_invoke_data.exit:                            ; preds = %66, %46, %33, %8, %proto_item_set_generated.exit
-  %87 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 1), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
   switch i32 %87, label %save_invoke_data.exit._crit_edge [
     i32 0, label %88
     i32 1, label %103
   ]
 
 save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.exit
-  %.pre = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 3), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   br label %124
 
 88:                                               ; preds = %save_invoke_data.exit
-  %89 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %90 = load ptr, ptr @ansi_tcap_national_opcode_table, align 8
   %91 = getelementptr inbounds i8, ptr %1, i64 16
   %92 = load ptr, ptr %91, align 8
@@ -1128,13 +1128,13 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
   %97 = lshr i32 %89, 8
   %98 = and i32 %97, 127
   %99 = load ptr, ptr %91, align 8
-  %100 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 2), align 8
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %101 = and i32 %89, 255
   %102 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %99, ptr noundef nonnull @ei_ansi_tcap_dissector_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.204, i32 noundef %100, i32 noundef %98, i32 noundef %101) #4
   br label %129
 
 103:                                              ; preds = %save_invoke_data.exit
-  %104 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6, i32 3), align 4
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   %105 = and i32 %104, 65280
   %106 = icmp eq i32 %105, 2304
   br i1 %106, label %107, label %114

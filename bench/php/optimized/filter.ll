@@ -30,7 +30,7 @@ define noundef nonnull ptr @php_get_stream_filters_hash_global() local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @_php_get_stream_filters_hash() local_unnamed_addr #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   %.not = icmp eq ptr %1, null
   %2 = select i1 %.not, ptr @stream_filters_hash, ptr %1
   ret ptr %2
@@ -86,19 +86,19 @@ declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_stream_filter_register_factory_volatile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = tail call noalias ptr @_emalloc_56() #14
-  store ptr %6, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @stream_filters_hash, i64 0, i32 5), align 4
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @stream_filters_hash, i64 28), align 4
   %8 = add i32 %7, 1
   tail call void @_zend_hash_init(ptr noundef %6, i32 noundef %8, ptr noundef null, i1 noundef zeroext false) #14
-  %9 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   tail call void @zend_hash_copy(ptr noundef %9, ptr noundef nonnull @stream_filters_hash, ptr noundef null) #14
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   br label %10
 
 10:                                               ; preds = %5, %2
@@ -587,7 +587,7 @@ define void @php_stream_bucket_append(ptr noundef %0, ptr noundef %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   %.not = icmp eq ptr %4, null
   %5 = select i1 %.not, ptr @stream_filters_hash, ptr %4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13

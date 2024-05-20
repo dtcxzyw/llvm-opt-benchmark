@@ -723,7 +723,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes11ScopeMergerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes11ScopeMergerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %this, align 8
   %mergedMap_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mergedMap_, align 8
   tail call void @_ZdlPv(ptr noundef %0) #9
@@ -733,7 +733,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes11ScopeMergerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes11ScopeMergerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %this, align 8
   %mergedMap_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mergedMap_.i, align 8
   tail call void @_ZdlPv(ptr noundef %0) #9

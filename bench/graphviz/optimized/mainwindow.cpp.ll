@@ -928,9 +928,9 @@ define void @_ZN11CMainWindowC2EPPc(ptr noundef nonnull align 8 dereferenceable(
   %21 = alloca %class.QString, align 16
   %22 = alloca %class.QString, align 16
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11CMainWindow, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i64 0, i32 1, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11CMainWindow, i64 456), ptr %23, align 8
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %25 unwind label %.loopexit.split-lp
 
@@ -9964,8 +9964,8 @@ define internal void @_GLOBAL__sub_I_mainwindow.cpp() #14 section ".text.startup
   %9 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   store ptr %9, ptr @_ZL4xtra, align 8
-  store ptr %8, ptr getelementptr inbounds (%class.QList, ptr @_ZL4xtra, i64 0, i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL4xtra, i64 0, i32 0, i32 2), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZL4xtra, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL4xtra, i64 16), align 8
   store ptr %3, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %10, align 8
@@ -9975,14 +9975,14 @@ define internal void @_GLOBAL__sub_I_mainwindow.cpp() #14 section ".text.startup
   br i1 %.not.i.i.i.i.i.i, label %_ZN7QStringC2ERKS_.exit.i.i.thread.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
 _ZN7QStringC2ERKS_.exit.i.i.thread.i:             ; preds = %0
-  store i64 1, ptr getelementptr inbounds (%class.QList, ptr @_ZL4xtra, i64 0, i32 0, i32 2), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZL4xtra, i64 16), align 8
   br label %__cxx_global_var_init.exit
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %0
   %12 = atomicrmw add ptr %3, i32 1 seq_cst, align 4
-  %.pre.i.i = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL4xtra, i64 0, i32 0, i32 2), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL4xtra, i64 16), align 8
   %13 = add nsw i64 %.pre.i.i, 1
-  store i64 %13, ptr getelementptr inbounds (%class.QList, ptr @_ZL4xtra, i64 0, i32 0, i32 2), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @_ZL4xtra, i64 16), align 8
   %14 = atomicrmw sub ptr %3, i32 1 seq_cst, align 4
   %.not.i.i.i = icmp eq i32 %14, 1
   br i1 %.not.i.i.i, label %15, label %__cxx_global_var_init.exit

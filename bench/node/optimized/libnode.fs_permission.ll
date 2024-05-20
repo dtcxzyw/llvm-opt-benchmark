@@ -325,7 +325,7 @@ for.inc:                                          ; preds = %for.body, %if.end.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry
-  %3 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 74), align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %if.end18
 
@@ -914,7 +914,7 @@ if.end:                                           ; preds = %entry
   %wildcard_child = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load ptr, ptr %wildcard_child, align 8
   %cmp1.not = icmp eq ptr %0, null
-  %1 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 74), align 1
   %tobool.i.i50 = trunc i8 %1 to i1
   br i1 %cmp1.not, label %if.else, label %if.then2
 
@@ -962,7 +962,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 1, i8 noundef signext %6) #14
-  %7 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 74), align 1
   %tobool.i.i81 = trunc i8 %7 to i1
   br i1 %tobool.i.i81, label %if.end.i84, label %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit
 
@@ -982,7 +982,7 @@ _ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS6_EEEvPN
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit, %if.then4
-  %10 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 74), align 1
   %tobool.i.i95 = trunc i8 %10 to i1
   br i1 %tobool.i.i95, label %if.end.i98, label %cleanup
 
@@ -992,7 +992,7 @@ if.end.i98:                                       ; preds = %for.end
   br label %cleanup
 
 if.else16:                                        ; preds = %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit54
-  %12 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 74), align 1
   %tobool.i.i65 = trunc i8 %12 to i1
   br i1 %tobool.i.i65, label %if.end.i68, label %cleanup
 

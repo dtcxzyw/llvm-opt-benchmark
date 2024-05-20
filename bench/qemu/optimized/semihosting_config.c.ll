@@ -32,7 +32,7 @@ entry:
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %1 = load i8, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 1), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @semihosting, i64 1), align 1
   %tobool2 = trunc i8 %1 to i1
   %not.is_user = xor i1 %is_user, true
   %2 = select i1 %not.is_user, i1 true, i1 %tobool2
@@ -46,19 +46,19 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @semihosting_get_target() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 4), align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @semihosting_get_arg(i32 noundef %i) local_unnamed_addr #1 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %cmp.not = icmp sgt i32 %0, %i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
@@ -72,24 +72,24 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @semihosting_get_argc() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   ret i32 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @semihosting_get_cmdline() local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 5), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 24), align 8
   %cmp = icmp eq ptr %0, null
-  %1 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %cmp1 = icmp sgt i32 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %call = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.7, ptr noundef %2) #8
-  store ptr %call, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 5), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @semihosting, i64 24), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -103,23 +103,23 @@ declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local void @semihosting_arg_fallback(ptr noundef %file, ptr noundef %cmd) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef %cmd) #8
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %inc.i = add i32 %0, 1
-  store i32 %inc.i, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %add.i = add i32 %0, 2
   %conv.i = sext i32 %add.i to i64
   %call2.i = tail call ptr @g_realloc_n(ptr noundef %1, i64 noundef %conv.i, i64 noundef 8) #8
-  store ptr %call2.i, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  store ptr %call2.i, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %call4.i = tail call noalias ptr @g_strdup(ptr noundef %file) #8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %sub.i = add i32 %3, -1
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx.i = getelementptr ptr, ptr %2, i64 %idxprom.i
   store ptr %call4.i, ptr %arrayidx.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %idxprom9.i = sext i32 %5 to i64
   %arrayidx10.i = getelementptr ptr, ptr %4, i64 %idxprom9.i
   store ptr null, ptr %arrayidx10.i, align 8
@@ -129,23 +129,23 @@ entry:
 
 if.then.i4:                                       ; preds = %entry, %if.then.i4
   %cmd_token.017 = phi ptr [ %call4, %if.then.i4 ], [ %call2, %entry ]
-  %6 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %inc.i5 = add i32 %6, 1
-  store i32 %inc.i5, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  store i32 %inc.i5, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %add.i6 = add i32 %6, 2
   %conv.i7 = sext i32 %add.i6 to i64
   %call2.i8 = tail call ptr @g_realloc_n(ptr noundef %7, i64 noundef %conv.i7, i64 noundef 8) #8
-  store ptr %call2.i8, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
+  store ptr %call2.i8, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
   %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cmd_token.017) #8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %sub.i10 = add i32 %9, -1
   %idxprom.i11 = sext i32 %sub.i10 to i64
   %arrayidx.i12 = getelementptr ptr, ptr %8, i64 %idxprom.i11
   store ptr %call4.i9, ptr %arrayidx.i12, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 3), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 4), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
   %idxprom9.i13 = sext i32 %11 to i64
   %arrayidx10.i14 = getelementptr ptr, ptr %10, i64 %idxprom9.i13
   store ptr null, ptr %arrayidx10.i14, align 8
@@ -203,7 +203,7 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 define dso_local void @qemu_semihosting_enable() local_unnamed_addr #5 {
 entry:
   store i8 1, ptr @semihosting, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @semihosting, i64 4), align 4
   ret void
 }
 
@@ -222,7 +222,7 @@ if.then:                                          ; preds = %entry
   store i8 %frombool, ptr @semihosting, align 8
   %call3 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #8
   %frombool4 = zext i1 %call3 to i8
-  store i8 %frombool4, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 1), align 1
+  store i8 %frombool4, ptr getelementptr inbounds (i8, ptr @semihosting, i64 1), align 1
   %call5 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.3) #8
   %call6 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4) #8
   store ptr %call6, ptr @semihost_chardev, align 8
@@ -250,7 +250,7 @@ if.else19:                                        ; preds = %if.else15
 
 if.end23:                                         ; preds = %if.then, %if.else15, %if.else, %if.then8
   %.sink = phi i32 [ 1, %if.then8 ], [ 2, %if.else ], [ 0, %if.else15 ], [ 0, %if.then ]
-  store i32 %.sink, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 2), align 4
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @semihosting, i64 4), align 4
   %call24 = tail call i32 @qemu_opt_foreach(ptr noundef nonnull %call1, ptr noundef nonnull @add_semihosting_arg, ptr noundef nonnull @semihosting, ptr noundef null) #8
   br label %return
 

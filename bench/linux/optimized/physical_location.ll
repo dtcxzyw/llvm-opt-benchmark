@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @dev_add_physical_location(ptr nocapture nou
   br i1 %18, label %19, label %48
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %21 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #5
   %22 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %21, ptr %22, align 8

@@ -164,23 +164,23 @@ define dso_local void @pgstat_progress_parallel_incr_param(i32 noundef %0, i64 n
   tail call void @enlargeStringInfo(ptr noundef nonnull @pgstat_progress_parallel_incr_param.progress_message, i32 noundef 4) #5
   %6 = tail call i32 @llvm.bswap.i32(i32 %0)
   %7 = load ptr, ptr @pgstat_progress_parallel_incr_param.progress_message, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   store i32 %6, ptr %10, align 1
-  %11 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   %12 = add i32 %11, 4
-  store i32 %12, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull @pgstat_progress_parallel_incr_param.progress_message, i32 noundef 8) #5
   %13 = tail call i64 @llvm.bswap.i64(i64 %1)
   %14 = load ptr, ptr @pgstat_progress_parallel_incr_param.progress_message, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %14, i64 %16
   store i64 %13, ptr %17, align 1
-  %18 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   %19 = add i32 %18, 8
-  store i32 %19, ptr getelementptr inbounds (%struct.StringInfoData, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 0, i32 1), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @pgstat_progress_parallel_incr_param.progress_message, i64 8), align 8
   tail call void @pq_endmessage(ptr noundef nonnull @pgstat_progress_parallel_incr_param.progress_message) #5
   br label %pgstat_progress_incr_param.exit
 

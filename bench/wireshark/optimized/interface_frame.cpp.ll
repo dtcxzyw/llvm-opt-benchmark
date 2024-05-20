@@ -212,9 +212,9 @@ define void @_ZN14InterfaceFrameC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %32 = alloca %"class.QMetaObject::Connection", align 8
   %33 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14InterfaceFrame, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i64 0, i32 1, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14InterfaceFrame, i64 456), ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %37 unwind label %204
@@ -665,7 +665,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE7indexOfIS0_EExRKT_x.exit: 
           to label %180 unwind label %286
 
 180:                                              ; preds = %179
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV17SparkLineDelegate, i64 0, i32 0, i64 2), ptr %178, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17SparkLineDelegate, i64 16), ptr %178, align 8
   invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %175, i32 noundef %176, ptr noundef nonnull %178)
           to label %181 unwind label %278
 
@@ -1447,7 +1447,7 @@ declare void @_ZN18InterfaceTreeModelD1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN24InterfaceSortFilterModelD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24InterfaceSortFilterModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1489,9 +1489,9 @@ declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14InterfaceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14InterfaceFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14InterfaceFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1541,7 +1541,7 @@ _ZN4QMapIi7QStringED2Ev.exit:                     ; preds = %7, %10, %12, %_ZN8Q
   %23 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZN18InterfaceTreeModelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24InterfaceSortFilterModel, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i.i = icmp eq ptr %26, null
@@ -2243,7 +2243,7 @@ define void @_ZN14InterfaceFrame20interfaceListChangedEv(ptr noundef nonnull ali
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZN14InfoProxyModel10clearInfosEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %_ZN7QStringD2Ev.exit, label %6
 
@@ -3005,7 +3005,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
   br i1 %13, label %18, label %19
 
 18:                                               ; preds = %_ZN7QStringD2Ev.exit
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 40), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 172), align 4
   call void @_ZN14InterfaceFrame25resetInterfaceTreeDisplayEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   br label %24
 
@@ -4658,7 +4658,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -6004,7 +6004,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN14InterfaceFrame15sho
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %.val = load i32, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.capture_options_tag, ptr @global_capture_opts, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 16), align 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %.val to i64
   %14 = getelementptr %struct.interface_tag, ptr %12, i64 %13, i32 15

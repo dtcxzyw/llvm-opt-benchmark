@@ -305,8 +305,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 120), ptr %0, align 8
   %d_variables = getelementptr inbounds i8, ptr %this, i64 5992
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 6040
   store ptr %_M_single_bucket.i.i, ptr %d_variables, align 8
@@ -343,7 +343,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(5976) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i64 16), ptr %this, align 8
   %d_termCache = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %0, align 8
@@ -2597,9 +2597,9 @@ lpad:                                             ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv14NodeBitblasterD2Ev(ptr noundef nonnull align 8 dereferenceable(6112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 5976
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i64 120), ptr %add.ptr, align 8
   %d_bbAtoms = getelementptr inbounds i8, ptr %this, i64 6048
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 6064
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -2974,7 +2974,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(5976) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i64 16), ptr %this, align 8
   %d_cnfStream = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %d_cnfStream, align 8
   %cmp.not.i = icmp eq ptr %0, null

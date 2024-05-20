@@ -52,7 +52,7 @@ define void @_ZN3gmx19simpleValueToStringB5cxx11ERKNS_3AnyE(ptr dead_on_unwind n
   %9 = tail call noundef nonnull align 8 dereferenceable(16) ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIb, i64 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIb, i64 8), align 8
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNK3gmx3Any6isTypeIbEEbv.exit.thread38, label %14
 
@@ -157,7 +157,7 @@ _ZNK3gmx3Any6isTypeIbEEbv.exit.thread:            ; preds = %14, %_ZNK3gmx3Any6i
   %54 = tail call noundef nonnull align 8 dereferenceable(16) ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIf, i64 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIf, i64 8), align 8
   %58 = icmp eq ptr %56, %57
   br i1 %58, label %_ZNK3gmx3Any6isTypeIfEEbv.exit.thread39, label %59
 
@@ -228,7 +228,7 @@ _ZNK3gmx3Any6isTypeIfEEbv.exit.thread:            ; preds = %59, %_ZNK3gmx3Any6i
   %91 = tail call noundef nonnull align 8 dereferenceable(16) ptr %90(ptr noundef nonnull align 8 dereferenceable(8) %.pr45)
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTId, i64 1), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTId, i64 8), align 8
   %95 = icmp eq ptr %93, %94
   br i1 %95, label %_ZNK3gmx3Any6isTypeIdEEbv.exit.thread40, label %96
 
@@ -298,7 +298,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.thread:            ; preds = %96, %_ZNK3gmx3Any6i
   %127 = tail call noundef nonnull align 8 dereferenceable(16) ptr %126(ptr noundef nonnull align 8 dereferenceable(8) %.pr47.pr)
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIi, i64 1), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIi, i64 8), align 8
   %131 = icmp eq ptr %129, %130
   br i1 %131, label %_ZNK3gmx3Any6isTypeIiEEbv.exit.thread41, label %132
 
@@ -368,7 +368,7 @@ _ZNK3gmx3Any6isTypeIiEEbv.exit.thread:            ; preds = %132, %_ZNK3gmx3Any6
   %163 = tail call noundef nonnull align 8 dereferenceable(16) ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %.pr49)
   %164 = getelementptr inbounds i8, ptr %163, i64 8
   %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIl, i64 1), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIl, i64 8), align 8
   %167 = icmp eq ptr %165, %166
   br i1 %167, label %_ZNK3gmx3Any6isTypeIlEEbv.exit.thread42, label %168
 

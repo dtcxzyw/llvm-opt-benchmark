@@ -826,7 +826,7 @@ return:                                           ; preds = %if.end.i, %if.end3,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE(ptr noalias nocapture writeonly sret(%"class.grpc_core::MessageSizeParsedConfig") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %channel_args) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %agg.result, align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 4
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %agg.result, i64 20
@@ -948,7 +948,7 @@ invoke.cont4:                                     ; preds = %init.check
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_23MessageSizeParsedConfigELm2EvEE, i64 0, i32 0, i64 2), ptr %call.i1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_23MessageSizeParsedConfigELm2EvEE, i64 16), ptr %call.i1, align 8
   %elements_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIjEEEE6value_E, ptr %elements_.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 16
@@ -998,7 +998,7 @@ define void @_ZN9grpc_core17MessageSizeParser20ParsePerMethodParamsERKNS_11Chann
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.14", align 8
   %ref.tmp2 = alloca %"class.grpc_core::JsonArgs", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8JsonArgsE, i64 0, i32 0, i64 2), ptr %ref.tmp2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %ref.tmp2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !5
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8, !noalias !5
@@ -1044,7 +1044,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.78", align 8
   %service_config_parser_.i = getelementptr inbounds i8, ptr %builder, i64 656
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core17MessageSizeParserE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core17MessageSizeParserE, i64 16), ptr %call.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core19ServiceConfigParser7Builder14RegisterParserESt10unique_ptrINS0_6ParserESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1111,7 +1111,7 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::ClientMessageSizeFilter", align 8
   call void @_ZN9grpc_core23ClientMessageSizeFilterC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %0, align 8
   %event_engine_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %event_engine_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %event_engine_2.i.i.i.i.i.i, align 8
@@ -1140,18 +1140,18 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 16), ptr %0, align 8
   %service_config_parser_index_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %service_config_parser_index_2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %6 = load i64, ptr %service_config_parser_index_2.i.i.i.i, align 8
   store i64 %6, ptr %service_config_parser_index_.i.i.i.i, align 8
   %parsed_config_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i.i.i.i, align 8
   %max_send_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %max_send_size_2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN9grpc_core23ClientMessageSizeFilterD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -1231,10 +1231,10 @@ _ZN9grpc_core23ClientMessageSizeFilterD2Ev.exit:  ; preds = %invoke.cont, %_ZN9_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core23ClientMessageSizeFilterC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.13, i32 76)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 16), ptr %this, align 8
   %0 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
   %cmp.not.i.i = icmp eq i64 %0, 0
@@ -1254,7 +1254,7 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core17Core
   %service_config_parser_index_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call3.i2, ptr %service_config_parser_index_, align 8
   %parsed_config_ = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_, align 8, !alias.scope !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_, align 8, !alias.scope !11
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 4, !alias.scope !11
   %_M_engaged.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 52
@@ -1320,7 +1320,7 @@ lpad:                                             ; preds = %if.end.i4.i, %invok
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23ClientMessageSizeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -1404,7 +1404,7 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::ServerMessageSizeFilter", align 8
   call void @_ZN9grpc_core23ServerMessageSizeFilterC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %0, align 8
   %event_engine_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %event_engine_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %event_engine_2.i.i.i.i.i.i, align 8
@@ -1433,14 +1433,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 16), ptr %0, align 8
   %parsed_config_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i.i.i.i, align 8
   %max_send_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %max_send_size_2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
   %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN9grpc_core23ServerMessageSizeFilterD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -1520,12 +1520,12 @@ _ZN9grpc_core23ServerMessageSizeFilterD2Ev.exit:  ; preds = %invoke.cont, %_ZN9_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core23ServerMessageSizeFilterC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.13, i32 76)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 16), ptr %this, align 8
   %parsed_config_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_, align 8, !alias.scope !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_, align 8, !alias.scope !14
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 4, !alias.scope !14
   %_M_engaged.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -1591,7 +1591,7 @@ lpad:                                             ; preds = %if.end.i4.i, %invok
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23ServerMessageSizeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -1672,7 +1672,7 @@ _ZN9grpc_core22ImplementChannelFilterINS_23ServerMessageSizeFilterEED2Ev.exit: ;
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core23ClientMessageSizeFilter4CallC2EPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %filter) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %this, align 8
   %max_send_size_.i = getelementptr inbounds i8, ptr %this, i64 8
   %max_send_size_2.i = getelementptr inbounds i8, ptr %filter, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i, i64 16, i1 false)
@@ -1782,7 +1782,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_call_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_call_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then3, label %if.end11
 
@@ -2003,7 +2003,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %service_config_parser_.i.i = getelementptr inbounds i8, ptr %builder, i64 656
   %call.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !29
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core17MessageSizeParserE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core17MessageSizeParserE, i64 16), ptr %call.i.i, align 8, !noalias !29
   store ptr %call.i.i, ptr %agg.tmp.i, align 8
   invoke void @_ZN9grpc_core19ServiceConfigParser7Builder14RegisterParserESt10unique_ptrINS0_6ParserESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_.i.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2180,7 +2180,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2196,7 +2196,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIjEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIjEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2212,7 +2212,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIjEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalIjEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIjEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalIjEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIjEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2228,7 +2228,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_23MessageSizeParsedConfigEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_23MessageSizeParsedConfigEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_23MessageSizeParsedConfigEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_23MessageSizeParsedConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_23MessageSizeParsedConfigEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2244,7 +2244,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS3_EEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS3_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_23MessageSizeParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2330,7 +2330,7 @@ _ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_23ClientMessageSizeFilte
   %retval.0.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i, %if.then.i.i.i.i ], [ %call4.i.i.i.i, %if.else.i.i.i.i ]
   %next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 16), ptr %retval.0.i.i.i.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   tail call void @_ZN9grpc_core21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(44) %t.i.i.i.i.i, ptr noundef nonnull %this)
   %managed_new_head_.i.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -2371,7 +2371,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store ptr %t.i.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %5, align 8
@@ -2429,7 +2429,7 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23Client
   %retval.0.i.i.i.i.i.i20 = phi ptr [ %add.ptr3.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i17 ], [ %call4.i.i.i.i.i.i26, %if.else.i.i.i.i.i.i25 ]
   %next_.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i20, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i21, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i20, align 8
   %fn_.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i20, i64 16
   store ptr %t.i.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i22, align 8
   %18 = load ptr, ptr %13, align 8
@@ -2635,7 +2635,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23ClientMessageSizeFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -2717,7 +2717,7 @@ _ZN9grpc_core23ClientMessageSizeFilterD2Ev.exit:  ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22ImplementChannelFilterINS_23ClientMessageSizeFilterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -2802,7 +2802,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core13ChannelFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3221,7 +3221,7 @@ declare noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %channel) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %this, align 8
   %max_send_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %max_send_size_2.i.i.i = getelementptr inbounds i8, ptr %channel, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %max_send_size_2.i.i.i, i64 16, i1 false)
@@ -3310,7 +3310,7 @@ _ZN9grpc_core21promise_filter_detail11CallWrapperINS_23ClientMessageSizeFilterEv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3335,7 +3335,7 @@ _ZN9grpc_core21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -4819,7 +4819,7 @@ _ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_23ServerMessageSizeFilte
   %retval.0.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i, %if.then.i.i.i.i ], [ %call4.i.i.i.i, %if.else.i.i.i.i ]
   %next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 16), ptr %retval.0.i.i.i.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i64 1, ptr %t.i.i.i.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
@@ -4868,7 +4868,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store ptr %t.i.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i, align 8
   %11 = load ptr, ptr %6, align 8
@@ -4926,7 +4926,7 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23Server
   %retval.0.i.i.i.i.i.i20 = phi ptr [ %add.ptr3.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i17 ], [ %call4.i.i.i.i.i.i26, %if.else.i.i.i.i.i.i25 ]
   %next_.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i20, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i21, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i20, align 8
   %fn_.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i20, i64 16
   store ptr %t.i.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i22, align 8
   %19 = load ptr, ptr %14, align 8
@@ -5119,7 +5119,7 @@ _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23ServerMessageSizeFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -5201,7 +5201,7 @@ _ZN9grpc_core23ServerMessageSizeFilterD2Ev.exit:  ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22ImplementChannelFilterINS_23ServerMessageSizeFilterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -5425,7 +5425,7 @@ _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -5450,7 +5450,7 @@ _ZN9grpc_core21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ServerMessageSizeFilterEEEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6231,7 +6231,7 @@ invoke.cont4.i:                                   ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_23MessageSizeParsedConfigELm2EvEE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_23MessageSizeParsedConfigELm2EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIjEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
@@ -6275,7 +6275,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10uni
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i, i8 0, i64 24, i1 false), !noalias !181
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !181
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %call.i, align 8, !noalias !181
   %0 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6504,9 +6504,9 @@ entry:
   %call_data = getelementptr inbounds i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
   tail call void @_ZN9grpc_core21promise_filter_detail14ClientCallDataC2EP17grpc_call_elementPK22grpc_call_element_argsh(ptr noundef nonnull align 16 dereferenceable(272) %0, ptr noundef %elem, ptr noundef %args, i8 noundef zeroext 12)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 16), ptr %0, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 160), ptr %add.ptr.i, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !184
   ret void
 }
@@ -6635,13 +6635,13 @@ invoke.cont:                                      ; preds = %entry
 if.then1:                                         ; preds = %invoke.cont
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.13, i32 76)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 16), ptr %2, align 8
   store i64 %1, ptr %agg.tmp3, align 8
   %and.i.i.i = and i64 %1, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -6686,7 +6686,7 @@ lpad7:                                            ; preds = %invoke.cont6
   br label %ehcleanup
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8
   %event_engine_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %event_engine_2.i.i.i = getelementptr inbounds i8, ptr %status, i64 16
   %11 = load ptr, ptr %event_engine_2.i.i.i, align 8
@@ -6717,13 +6717,13 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 
 cleanup:                                          ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %invoke.cont11
   %.pre = phi i64 [ 0, %invoke.cont11 ], [ 0, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.pre, %if.else.i.i.i.i.i.i.i.i ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ClientMessageSizeFilterE, i64 16), ptr %2, align 8
   %service_config_parser_index_.i = getelementptr inbounds i8, ptr %2, i64 24
   %service_config_parser_index_2.i = getelementptr inbounds i8, ptr %status, i64 32
   %16 = load i64, ptr %service_config_parser_index_2.i, align 8
   store i64 %16, ptr %service_config_parser_index_.i, align 8
   %parsed_config_.i = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %max_send_size_2.i.i = getelementptr inbounds i8, ptr %status, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i, i64 16, i1 false)
@@ -6733,7 +6733,7 @@ cleanup:                                          ; preds = %if.else.i.i.i.i.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %cleanup
   %17 = getelementptr inbounds i8, ptr %status, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %17, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 24
   %18 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
@@ -6917,9 +6917,9 @@ _ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_23Cli
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_23ClientMessageSizeFilterEvEEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_23ClientMessageSizeFilterEvEEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %t.i32 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %t.i32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %t.i32, align 8
   %max_send_size_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   %max_send_size_2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %max_send_size_2.i.i.i.i, i64 16, i1 false)
@@ -7035,7 +7035,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store ptr %t.i32, ptr %fn_.i.i.i.i.i.i.i, align 8
   %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
@@ -7097,7 +7097,7 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23Client
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %add.ptr3.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i20 ], [ %call4.i.i.i.i.i.i30, %if.else.i.i.i.i.i.i29 ]
   %next_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i24, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i23, align 8
   %fn_.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 16
   store ptr %t.i32, ptr %fn_.i.i.i.i.i.i.i25, align 8
   %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 24
@@ -7800,7 +7800,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7881,7 +7881,7 @@ _ZN9grpc_core13ChannelFilterD2Ev.exit:            ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -7971,7 +7971,7 @@ entry:
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -8073,9 +8073,9 @@ entry:
   %call_data = getelementptr inbounds i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
   tail call void @_ZN9grpc_core21promise_filter_detail14ServerCallDataC2EP17grpc_call_elementPK22grpc_call_element_argsh(ptr noundef nonnull align 16 dereferenceable(297) %0, ptr noundef %elem, ptr noundef %args, i8 noundef zeroext 12)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE, i64 16), ptr %0, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE, i64 160), ptr %add.ptr.i, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !245
   ret void
 }
@@ -8180,7 +8180,7 @@ do.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @_ZN9grpc_core23ServerMessageSizeFilterC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %channel_args), !noalias !248
   %1 = getelementptr inbounds i8, ptr %status, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %1, align 8, !alias.scope !248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8, !alias.scope !248
   %event_engine_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 16
   %event_engine_2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %2 = load ptr, ptr %event_engine_2.i.i.i.i.i.i.i, align 8, !noalias !248
@@ -8209,14 +8209,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %do.end
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %1, align 8, !alias.scope !248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 16), ptr %1, align 8, !alias.scope !248
   %parsed_config_.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i.i.i.i.i, align 8, !alias.scope !248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i.i.i.i.i, align 8, !alias.scope !248
   %max_send_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 40
   %max_send_size_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %status, align 8, !alias.scope !248
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !noalias !248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !248
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !248
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN9grpc_core23ServerMessageSizeFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit.thread, label %if.then.i.i.i.i.i.i.i
@@ -8304,13 +8304,13 @@ if.then1:                                         ; preds = %_ZN9grpc_core23Serv
   %18 = load ptr, ptr %channel_data, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %18, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %18, i64 8
   invoke void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.13, i32 76)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 16), ptr %18, align 8
   store i64 %.pr, ptr %agg.tmp3, align 8
   %and.i.i.i = and i64 %.pr, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -8357,7 +8357,7 @@ lpad7:                                            ; preds = %invoke.cont6
 invoke.cont11:                                    ; preds = %_ZN9grpc_core23ServerMessageSizeFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit.thread, %_ZN9grpc_core23ServerMessageSizeFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit
   %channel_data10 = getelementptr inbounds i8, ptr %elem, i64 8
   %27 = load ptr, ptr %channel_data10, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %27, align 8
   %event_engine_.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %event_engine_.i.i.i.i.i.i.i, align 8
   store ptr %28, ptr %event_engine_.i.i.i, align 8
@@ -8380,9 +8380,9 @@ if.then.i.i.i.i.i.i.i.i11:                        ; preds = %if.then.i.i.i.i.i.i
   br label %cleanup.thread48
 
 cleanup.thread48:                                 ; preds = %invoke.cont11, %if.then.i.i.i.i.i.i.i.i11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 16), ptr %27, align 8
   %parsed_config_.i50 = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i50, align 8
   %max_send_size_.i.i51 = getelementptr inbounds i8, ptr %27, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i51, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8, !alias.scope !251
@@ -8391,9 +8391,9 @@ cleanup.thread48:                                 ; preds = %invoke.cont11, %if.
 cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   %32 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre.pre = load i64, ptr %status, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ServerMessageSizeFilterE, i64 16), ptr %27, align 8
   %parsed_config_.i = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 16), ptr %parsed_config_.i, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %27, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8, !alias.scope !251
@@ -8401,7 +8401,7 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i.i.i12, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %cleanup.thread48, %cleanup
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
   %33 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i13 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i.i.i.i13, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core23ServerMessageSizeFilterEED2Ev.exit, label %if.then.i.i.i.i.i.i.i14
@@ -8542,7 +8542,7 @@ _ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_23Ser
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
   %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_23ServerMessageSizeFilterEvEEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_23ServerMessageSizeFilterEvEEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %managed_new_head_.i = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   %t.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
@@ -8585,7 +8585,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store ptr %t.i, ptr %fn_.i.i.i.i.i.i.i, align 8
   %agg.tmp2.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
@@ -8649,7 +8649,7 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23Server
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %add.ptr3.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i20 ], [ %call4.i.i.i.i.i.i31, %if.else.i.i.i.i.i.i30 ]
   %next_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i24, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i23, align 8
   %fn_.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 16
   store ptr %t.i, ptr %fn_.i.i.i.i.i.i.i25, align 8
   %agg.tmp2.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx.i26 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23, i64 24
@@ -9192,7 +9192,7 @@ entry:
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -9307,33 +9307,33 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods27StartTransportStreamOpBatchEP17grpc_call_elementP30grpc_transport_stream_op_batch, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EE, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 1), align 8, !alias.scope !306
-  store ptr @_ZZN9grpc_core22MakePromiseBasedFilterINS_23ClientMessageSizeFilterELNS_14FilterEndpointE0ELh12EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES5_EE5valueE19grpc_channel_filterE4typeEPKcENUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_8__invokeESD_SF_, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 2), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods16StartTransportOpEP20grpc_channel_elementP17grpc_transport_op, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 3), align 8, !alias.scope !306
-  store i64 272, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 4), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE0EEELh12EE12InitCallElemEP17grpc_call_elementPK22grpc_call_element_args, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 5), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods22SetPollsetOrPollsetSetEP17grpc_call_elementP19grpc_polling_entity, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 6), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE0EEELh12EE15DestroyCallElemEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 7), align 8, !alias.scope !306
-  store i64 56, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 8), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail29ChannelFilterWithFlagsMethodsINS_23ClientMessageSizeFilterELh12EE15InitChannelElemEP20grpc_channel_elementP25grpc_channel_element_args, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 9), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods19PostInitChannelElemEP18grpc_channel_stackP20grpc_channel_element, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 10), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods18DestroyChannelElemEP20grpc_channel_element, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 11), align 8, !alias.scope !306
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods14GetChannelInfoEP20grpc_channel_elementPK17grpc_channel_info, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 12), align 8, !alias.scope !306
-  store ptr @.str.5, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 0, i32 13), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EE, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 8), align 8, !alias.scope !306
+  store ptr @_ZZN9grpc_core22MakePromiseBasedFilterINS_23ClientMessageSizeFilterELNS_14FilterEndpointE0ELh12EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES5_EE5valueE19grpc_channel_filterE4typeEPKcENUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_8__invokeESD_SF_, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 16), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods16StartTransportOpEP20grpc_channel_elementP17grpc_transport_op, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 24), align 8, !alias.scope !306
+  store i64 272, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 32), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE0EEELh12EE12InitCallElemEP17grpc_call_elementPK22grpc_call_element_args, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 40), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods22SetPollsetOrPollsetSetEP17grpc_call_elementP19grpc_polling_entity, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 48), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE0EEELh12EE15DestroyCallElemEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 56), align 8, !alias.scope !306
+  store i64 56, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 64), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail29ChannelFilterWithFlagsMethodsINS_23ClientMessageSizeFilterELh12EE15InitChannelElemEP20grpc_channel_elementP25grpc_channel_element_args, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 72), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods19PostInitChannelElemEP18grpc_channel_stackP20grpc_channel_element, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 80), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods18DestroyChannelElemEP20grpc_channel_element, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 88), align 8, !alias.scope !306
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods14GetChannelInfoEP20grpc_channel_elementPK17grpc_channel_info, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 96), align 8, !alias.scope !306
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, i64 104), align 8, !alias.scope !306
   store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods27StartTransportStreamOpBatchEP17grpc_call_elementP30grpc_transport_stream_op_batch, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EE, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 1), align 8, !alias.scope !309
-  store ptr @_ZZN9grpc_core22MakePromiseBasedFilterINS_23ServerMessageSizeFilterELNS_14FilterEndpointE1ELh12EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES5_EE5valueE19grpc_channel_filterE4typeEPKcENUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_8__invokeESD_SF_, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 2), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods16StartTransportOpEP20grpc_channel_elementP17grpc_transport_op, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 3), align 8, !alias.scope !309
-  store i64 304, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 4), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE1EEELh12EE12InitCallElemEP17grpc_call_elementPK22grpc_call_element_args, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 5), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods22SetPollsetOrPollsetSetEP17grpc_call_elementP19grpc_polling_entity, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 6), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE1EEELh12EE15DestroyCallElemEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 7), align 8, !alias.scope !309
-  store i64 48, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 8), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail29ChannelFilterWithFlagsMethodsINS_23ServerMessageSizeFilterELh12EE15InitChannelElemEP20grpc_channel_elementP25grpc_channel_element_args, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 9), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods19PostInitChannelElemEP18grpc_channel_stackP20grpc_channel_element, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 10), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods18DestroyChannelElemEP20grpc_channel_element, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 11), align 8, !alias.scope !309
-  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods14GetChannelInfoEP20grpc_channel_elementPK17grpc_channel_info, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 12), align 8, !alias.scope !309
-  store ptr @.str.5, ptr getelementptr inbounds (%struct.grpc_channel_filter, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 0, i32 13), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EE, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 8), align 8, !alias.scope !309
+  store ptr @_ZZN9grpc_core22MakePromiseBasedFilterINS_23ServerMessageSizeFilterELNS_14FilterEndpointE1ELh12EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES5_EE5valueE19grpc_channel_filterE4typeEPKcENUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_8__invokeESD_SF_, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 16), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods16StartTransportOpEP20grpc_channel_elementP17grpc_transport_op, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 24), align 8, !alias.scope !309
+  store i64 304, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 32), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE1EEELh12EE12InitCallElemEP17grpc_call_elementPK22grpc_call_element_args, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 40), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods22SetPollsetOrPollsetSetEP17grpc_call_elementP19grpc_polling_entity, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 48), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail30CallDataFilterWithFlagsMethodsINS0_8CallDataILNS_14FilterEndpointE1EEELh12EE15DestroyCallElemEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 56), align 8, !alias.scope !309
+  store i64 48, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 64), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail29ChannelFilterWithFlagsMethodsINS_23ServerMessageSizeFilterELh12EE15InitChannelElemEP20grpc_channel_elementP25grpc_channel_element_args, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 72), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods19PostInitChannelElemEP18grpc_channel_stackP20grpc_channel_element, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 80), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods18DestroyChannelElemEP20grpc_channel_element, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 88), align 8, !alias.scope !309
+  store ptr @_ZN9grpc_core21promise_filter_detail20ChannelFilterMethods14GetChannelInfoEP20grpc_channel_elementPK17grpc_channel_info, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 96), align 8, !alias.scope !309
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, i64 104), align 8, !alias.scope !309
   ret void
 }
 

@@ -134,7 +134,7 @@ define dso_local i32 @__cookie_v6_init_sequence(ptr nocapture noundef readonly %
   %52 = call i32 @llvm.bswap.i32(i32 %29)
   %53 = trunc i64 %42 to i32
   %54 = shl i32 %32, 24
-  %55 = call i64 @__siphash_unaligned(ptr noundef nonnull %4, i64 noundef 40, ptr noundef nonnull getelementptr inbounds ([2 x %struct.siphash_key_t], ptr @syncookie6_secret, i64 0, i64 1)) #6
+  %55 = call i64 @__siphash_unaligned(ptr noundef nonnull %4, i64 noundef 40, ptr noundef nonnull getelementptr inbounds (i8, ptr @syncookie6_secret, i64 16)) #6
   %56 = trunc i64 %55 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %57 = add i32 %19, %56
@@ -261,7 +261,7 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture nounde
   br label %48
 
 48:                                               ; preds = %38, %47
-  %49 = call i64 @__siphash_unaligned(ptr noundef nonnull %3, i64 noundef 40, ptr noundef nonnull getelementptr inbounds ([2 x %struct.siphash_key_t], ptr @syncookie6_secret, i64 0, i64 1)) #6
+  %49 = call i64 @__siphash_unaligned(ptr noundef nonnull %3, i64 noundef 40, ptr noundef nonnull getelementptr inbounds (i8, ptr @syncookie6_secret, i64 16)) #6
   %50 = trunc i64 %49 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %51 = sub i32 %33, %50

@@ -88,7 +88,7 @@ $_ZTI12btConeShapeX = comdat any
 define dso_local void @_ZN11btConeShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(96) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11btConeShape, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11btConeShape, i64 16), ptr %this, align 8
   %m_radius = getelementptr inbounds i8, ptr %this, i64 76
   store float %radius, ptr %m_radius, align 4
   %m_height = getelementptr inbounds i8, ptr %this, i64 80
@@ -207,7 +207,7 @@ invoke.cont:
   %div.i = fdiv float %radius, %sqrt.i
   %m_sinAngle.i = getelementptr inbounds i8, ptr %this, i64 72
   store float %div.i, ptr %m_sinAngle.i, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeZ, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12btConeShapeZ, i64 16), ptr %this, align 8
   store i32 0, ptr %m_coneIndices20.phi.trans.insert.i.i, align 4
   store i32 2, ptr %arrayidx10.i.i, align 8
   store i32 1, ptr %arrayidx12.i.i, align 4
@@ -239,7 +239,7 @@ invoke.cont:
   %div.i = fdiv float %radius, %sqrt.i
   %m_sinAngle.i = getelementptr inbounds i8, ptr %this, i64 72
   store float %div.i, ptr %m_sinAngle.i, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeX, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12btConeShapeX, i64 16), ptr %this, align 8
   store i32 1, ptr %m_coneIndices20.phi.trans.insert.i.i, align 4
   store i32 0, ptr %arrayidx10.i.i, align 8
   store i32 2, ptr %arrayidx12.i.i, align 4

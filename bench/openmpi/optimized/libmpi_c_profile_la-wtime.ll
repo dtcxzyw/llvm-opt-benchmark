@@ -26,7 +26,7 @@ define double @PMPI_Wtime() #0 {
   %7 = phi i64 [ %.pre, %5 ], [ %3, %0 ]
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @ompi_wtime_time_origin, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_wtime_time_origin, i64 8), align 8
   %11 = sub nsw i64 %9, %10
   %12 = sitofp i64 %11 to double
   %13 = fdiv double %12, 1.000000e+09

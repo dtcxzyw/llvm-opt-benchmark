@@ -338,7 +338,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %or.cond.us, label %85, label %63
 
 63:                                               ; preds = %54
-  %gep = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr getelementptr inbounds ([116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 0, i32 1), i64 0, i64 %indvars.iv122
+  %gep = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr getelementptr inbounds (i8, ptr @_ZL6nbdata, i64 8), i64 0, i64 %indvars.iv122
   %64 = load i32, ptr %gep, align 8
   %65 = trunc i64 %indvars.iv122 to i32
   %66 = add i32 %65, -26

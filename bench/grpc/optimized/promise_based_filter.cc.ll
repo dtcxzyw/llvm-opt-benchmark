@@ -897,8 +897,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core21promise_filter_detail12BaseCallDataC2EP17grpc_call_elementPK22grpc_call_element_argshN4absl12lts_2023080211FunctionRefIFPNS1_11InterceptorEvEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %elem, ptr nocapture noundef readonly %args, i8 noundef zeroext %flags, ptr %make_send_interceptor.coerce0, ptr nocapture readonly %make_send_interceptor.coerce1, ptr nocapture noundef readonly byval(%"class.absl::lts_20230802::FunctionRef") align 8 %make_recv_interceptor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 160), ptr %0, align 8
   %call_stack_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %args, align 8
   store ptr %1, ptr %call_stack_, align 8
@@ -1183,10 +1183,10 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN9grpc_core21promise_filter_detail12BaseCallDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp = alloca %"class.grpc_core::promise_filter_detail::(anonymous namespace)::FakeActivity", align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i64 160), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i64 16), ptr %ref.tmp, align 8
   %wake_activity_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %this, ptr %wake_activity_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %0, label %_ZTWN9grpc_core8Activity19g_current_activity_E.exit.i.i
@@ -1820,7 +1820,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %do.end
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then6, label %if.end14
 
@@ -2212,7 +2212,7 @@ if.then37:                                        ; preds = %land.lhs.true
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %land.lhs.true, %for.body
-  %17 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i, label %if.then41, label %invoke.cont65
 
@@ -2319,7 +2319,7 @@ for.end:                                          ; preds = %_ZN4absl12lts_20230
           to label %invoke.cont71 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont71:                                    ; preds = %for.end
-  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i24 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i24, label %if.then74, label %if.end82
 
@@ -2826,7 +2826,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -2984,7 +2984,7 @@ entry:
   %agg.tmp27 = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %this, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData7FlusherC1EPS1_(ptr noundef nonnull align 8 dereferenceable(184) %flusher, ptr noundef %0)
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -3259,7 +3259,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.144, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.144, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.144, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.144, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -3414,7 +3414,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp29 = alloca %"class.std::optional.179", align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -3776,7 +3776,7 @@ entry:
   %ref.tmp199 = alloca %"class.grpc_core::Poll", align 1
   %ref.tmp220 = alloca %"class.grpc_core::Poll", align 1
   %agg.tmp245 = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -4193,7 +4193,7 @@ invoke.cont82:                                    ; preds = %do.body
   br i1 %tobool.i.i41, label %if.then85, label %do.body115
 
 if.then85:                                        ; preds = %invoke.cont82
-  %58 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %58 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i43 = trunc i8 %58 to i1
   br i1 %tobool.i.i.i43, label %if.then88, label %do.body99
 
@@ -4258,7 +4258,7 @@ do.end123:                                        ; preds = %do.body115
   br i1 %tobool.i.i46, label %if.then132, label %if.end193
 
 if.then132:                                       ; preds = %do.end123
-  %67 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %67 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i48 = trunc i8 %67 to i1
   br i1 %tobool.i.i.i48, label %if.then135, label %if.end146
 
@@ -5083,7 +5083,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -5223,7 +5223,7 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %flusher = alloca %"class.grpc_core::promise_filter_detail::BaseCallData::Flusher", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -5439,7 +5439,7 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp34 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -5723,7 +5723,7 @@ entry:
   %ref.tmp245 = alloca %"class.grpc_core::Poll", align 1
   %ref.tmp255 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp277 = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -6095,7 +6095,7 @@ invoke.cont110:                                   ; preds = %do.body100
   br i1 %tobool.i.i61, label %if.then113, label %do.body137
 
 if.then113:                                       ; preds = %invoke.cont110
-  %69 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %69 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i63 = trunc i8 %69 to i1
   br i1 %tobool.i.i.i63, label %if.then116, label %do.body127
 
@@ -6274,7 +6274,7 @@ lpad195:                                          ; preds = %_ZNSt8optionalIN9gr
   br label %ehcleanup233
 
 if.end208:                                        ; preds = %invoke.cont196, %if.then174, %if.else176
-  %100 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %100 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i81 = trunc i8 %100 to i1
   br i1 %tobool.i.i.i81, label %if.then211, label %if.end225
 
@@ -6357,7 +6357,7 @@ do.end244:                                        ; preds = %do.body237
   br i1 %tobool.i109, label %if.then252, label %sw.epilog
 
 if.then252:                                       ; preds = %do.end244
-  %113 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %113 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i110 = trunc i8 %113 to i1
   br i1 %tobool.i.i.i110, label %if.then254, label %if.end261
 
@@ -6459,9 +6459,9 @@ entry:
   store ptr @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core21promise_filter_detail14ClientCallDataC1EP17grpc_call_elementPK22grpc_call_element_argshE3$_1PNS4_12BaseCallData11InterceptorEJEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE", ptr %invoker_.i6, align 8
   store ptr %ref.tmp3, ptr %agg.tmp2, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallDataC2EP17grpc_call_elementPK22grpc_call_element_argshN4absl12lts_2023080211FunctionRefIFPNS1_11InterceptorEvEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %elem, ptr noundef %args, i8 noundef zeroext %flags, ptr nonnull %ref.tmp, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core21promise_filter_detail14ClientCallDataC1EP17grpc_call_elementPK22grpc_call_element_argshE3$_0PNS4_12BaseCallData11InterceptorEJEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE", ptr noundef nonnull byval(%"class.absl::lts_20230802::FunctionRef") align 8 %agg.tmp2)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 16), ptr %this, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 160), ptr %add.ptr, align 8
   %promise_ = getelementptr inbounds i8, ptr %this, i64 128
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %promise_, align 16
   %arg.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -6718,9 +6718,9 @@ if.end:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: nounwind uwtable
 define void @_ZN9grpc_core21promise_filter_detail14ClientCallDataD2Ev(ptr noundef nonnull align 16 dereferenceable(272) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 16), ptr %this, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i64 160), ptr %add.ptr, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %0, label %_ZTWN9grpc_core8Activity19g_current_activity_E.exit.i
 
 0:                                                ; preds = %entry
@@ -7462,7 +7462,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %17 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -8183,7 +8183,7 @@ entry:
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp54 = alloca %"class.std::unique_ptr.207", align 8
   %ref.tmp65 = alloca %"class.std::unique_ptr.207", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -8533,7 +8533,7 @@ entry:
   %agg.tmp392 = alloca %"class.absl::lts_20230802::Status", align 8
   %b = alloca %"class.grpc_core::promise_filter_detail::BaseCallData::CapturedBatch", align 8
   %agg.tmp446 = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -9189,7 +9189,7 @@ sw.bb171:                                         ; preds = %if.end169, %if.end1
   %119 = load ptr, ptr %118, align 8, !noalias !147
   %arg.i = getelementptr inbounds i8, ptr %114, i64 144
   call void %119(ptr nonnull sret(%"class.grpc_core::Poll.299") align 8 %poll, ptr noundef nonnull %arg.i)
-  %120 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %120 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i82 = trunc i8 %120 to i1
   br i1 %tobool.i.i.i82, label %if.then174, label %invoke.cont196
 
@@ -10411,7 +10411,7 @@ entry:
   %agg.tmp48 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp61 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp77 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -10820,7 +10820,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -11037,7 +11037,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -11181,7 +11181,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -11316,7 +11316,7 @@ entry:
   %agg.tmp = alloca %"class.grpc_core::promise_filter_detail::BaseCallData::CapturedBatch", align 8
   %agg.tmp38 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -11842,7 +11842,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp39 = alloca %"class.absl::lts_20230802::Status", align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData7FlusherC1EPS1_(ptr noundef nonnull align 8 dereferenceable(184) %flusher, ptr noundef nonnull %this)
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -12364,9 +12364,9 @@ entry:
   store ptr @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core21promise_filter_detail14ServerCallDataC1EP17grpc_call_elementPK22grpc_call_element_argshE3$_1PNS4_12BaseCallData11InterceptorEJEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE", ptr %invoker_.i4, align 8
   store ptr %ref.tmp3, ptr %agg.tmp2, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallDataC2EP17grpc_call_elementPK22grpc_call_element_argshN4absl12lts_2023080211FunctionRefIFPNS1_11InterceptorEvEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %elem, ptr noundef %args, i8 noundef zeroext %flags, ptr nonnull %ref.tmp, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core21promise_filter_detail14ServerCallDataC1EP17grpc_call_elementPK22grpc_call_element_argshE3$_0PNS4_12BaseCallData11InterceptorEJEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE", ptr noundef nonnull byval(%"class.absl::lts_20230802::FunctionRef") align 8 %agg.tmp2)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 16), ptr %this, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 160), ptr %add.ptr, align 8
   %promise_ = getelementptr inbounds i8, ptr %this, i64 128
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %promise_, align 16
   %arg.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -12552,10 +12552,10 @@ define void @_ZN9grpc_core21promise_filter_detail14ServerCallDataD2Ev(ptr nounde
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 16), ptr %this, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i64 160), ptr %add.ptr, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -13091,7 +13091,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %17 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -13886,7 +13886,7 @@ entry:
   %ref.tmp70 = alloca %"class.std::unique_ptr.207", align 8
   %ref.tmp85 = alloca %"class.std::unique_ptr.207", align 8
   %frombool = zext i1 %tarpit_cancellation to i8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -14680,7 +14680,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -14824,7 +14824,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -14956,7 +14956,7 @@ entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -15068,7 +15068,7 @@ entry:
   %poll_ctx = alloca %"class.grpc_core::promise_filter_detail::ServerCallData::PollContext", align 8
   %agg.tmp15 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp29 = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -15241,7 +15241,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp29 = alloca %"class.grpc_core::promise_filter_detail::(anonymous namespace)::FakeActivity", align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData7FlusherC1EPS1_(ptr noundef nonnull align 8 dereferenceable(184) %flusher, ptr noundef nonnull %this)
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -15383,7 +15383,7 @@ invoke.cont34:                                    ; preds = %do.end
   %31 = load ptr, ptr %elem_.i, align 8
   %channel_data = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load ptr, ptr %channel_data, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i64 16), ptr %ref.tmp29, align 8
   %wake_activity_.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store ptr %this, ptr %wake_activity_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %33, label %_ZTWN9grpc_core8Activity19g_current_activity_E.exit.i.i
@@ -15773,7 +15773,7 @@ entry:
   %agg.tmp379 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp406 = alloca %"class.absl::lts_20230802::Status", align 8
   call void @_ZN9grpc_core21promise_filter_detail14ServerCallData11PollContextC2EPS1_PNS0_12BaseCallData7FlusherENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(26) %poll_ctx, ptr noundef nonnull %this, ptr noundef %flusher)
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -16048,7 +16048,7 @@ if.then59:                                        ; preds = %if.end55
 invoke.cont64:                                    ; preds = %if.then59
   %45 = load i8, ptr %ref.tmp60, align 1
   %tobool.i = trunc i8 %45 to i1
-  %46 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %46 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i48 = trunc i8 %46 to i1
   br i1 %tobool.i, label %if.then69, label %if.else
 
@@ -16153,7 +16153,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end109
           to label %invoke.cont117 unwind label %lpad
 
 invoke.cont117:                                   ; preds = %lor.end
-  %60 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %60 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i56 = trunc i8 %60 to i1
   br i1 %tobool.i.i.i56, label %if.then120, label %if.end141
 
@@ -16317,7 +16317,7 @@ if.then.i86:                                      ; preds = %if.else6.i
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %if.else6.i, %if.then.i86
-  %86 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %86 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i93 = trunc i8 %86 to i1
   br i1 %tobool.i.i.i93, label %if.then205, label %if.end227
 
@@ -16359,7 +16359,7 @@ if.end.i219:                                      ; preds = %.noexc.i
           to label %invoke.cont.i221 unwind label %lpad.i220
 
 invoke.cont.i221:                                 ; preds = %if.end.i219
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.168, i64 0, i64 11)) #31
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.168, i64 11)) #31
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp209, i64 noundef 11)
           to label %invoke.cont.i unwind label %lpad.i220
@@ -16481,7 +16481,7 @@ do.end244:                                        ; preds = %do.body235
           to label %invoke.cont248 unwind label %lpad200
 
 invoke.cont248:                                   ; preds = %do.end244
-  %105 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %105 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i109 = trunc i8 %105 to i1
   br i1 %tobool.i.i.i109, label %if.then252, label %invoke.cont266
 
@@ -16525,7 +16525,7 @@ if.end.i228:                                      ; preds = %.noexc.i118
           to label %invoke.cont.i231 unwind label %lpad.i230
 
 invoke.cont.i231:                                 ; preds = %if.end.i228
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i229, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.168, i64 0, i64 11)) #31
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i229, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.168, i64 11)) #31
   store ptr null, ptr %__guard.i224, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp256, i64 noundef 11)
           to label %invoke.cont.i120 unwind label %lpad.i230
@@ -17529,7 +17529,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -17763,7 +17763,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %handler_private.i = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load ptr, ptr %handler_private.i, align 8
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_channel, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %if.end.i
 
@@ -21088,7 +21088,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.168, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.168, i64 11))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -32722,7 +32722,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %entry
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %3 = load ptr, ptr %arena.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = atomicrmw add ptr %3, i64 48 monotonic, align 8
   %add2.i.i.i.i.i.i.i.i.i.i = add i64 %4, 48
   %initial_zone_size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -33030,7 +33030,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %entry
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %3 = load ptr, ptr %arena.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = atomicrmw add ptr %3, i64 48 monotonic, align 8
   %add2.i.i.i.i.i.i.i.i.i.i = add i64 %4, 48
   %initial_zone_size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -33427,7 +33427,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %entry
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %3 = load ptr, ptr %arena.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = atomicrmw add ptr %3, i64 48 monotonic, align 8
   %add2.i.i.i.i.i.i.i.i.i.i = add i64 %4, 48
   %initial_zone_size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -33495,7 +33495,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %entry
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %3 = load ptr, ptr %arena.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = atomicrmw add ptr %3, i64 48 monotonic, align 8
   %add2.i.i.i.i.i.i.i.i.i.i = add i64 %4, 48
   %initial_zone_size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16

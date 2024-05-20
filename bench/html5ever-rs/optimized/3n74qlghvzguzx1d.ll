@@ -94,7 +94,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
   br i1 %10, label %11, label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.exit"
 
 11:                                               ; preds = %6
-  %12 = load atomic i64, ptr getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0) acquire, align 8, !noalias !15
+  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16) acquire, align 8, !noalias !15
   %.0.i.i.i.i.i.i = inttoptr i64 %12 to ptr
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h8551a25c61eb0954E.exit.i.i", label %13
@@ -132,7 +132,7 @@ define internal void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$L
   br i1 %9, label %10, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b8adbd661f3c2f5E.exit"
 
 10:                                               ; preds = %5
-  %11 = load atomic i64, ptr getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0) acquire, align 8, !noalias !22
+  %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16) acquire, align 8, !noalias !22
   %.0.i.i.i.i.i = inttoptr i64 %11 to ptr
   %.not.i.i.i = icmp eq ptr %.0.i.i.i.i.i, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17hfed6454e6f6a85feE.exit.i", label %12

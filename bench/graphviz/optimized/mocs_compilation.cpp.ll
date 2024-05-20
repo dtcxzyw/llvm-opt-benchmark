@@ -351,7 +351,7 @@ define noundef ptr @_ZN12CFrmSettings11qt_metacastEPKc(ptr noundef nonnull align
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) getelementptr inbounds (%struct.qt_meta_stringdata_CFrmSettings_t, ptr @_ZL31qt_meta_stringdata_CFrmSettings, i64 0, i32 1)) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) getelementptr inbounds (i8, ptr @_ZL31qt_meta_stringdata_CFrmSettings, i64 88)) #11
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %7, label %5
 
@@ -570,7 +570,7 @@ define noundef ptr @_ZN11ImageViewer11qt_metacastEPKc(ptr noundef nonnull align 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) getelementptr inbounds (%struct.qt_meta_stringdata_ImageViewer_t, ptr @_ZL30qt_meta_stringdata_ImageViewer, i64 0, i32 1)) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @_ZL30qt_meta_stringdata_ImageViewer, i64 80)) #11
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %7, label %5
 
@@ -815,7 +815,7 @@ define noundef ptr @_ZN11CMainWindow11qt_metacastEPKc(ptr noundef nonnull align 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) getelementptr inbounds (%struct.qt_meta_stringdata_CMainWindow_t, ptr @_ZL30qt_meta_stringdata_CMainWindow, i64 0, i32 1)) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @_ZL30qt_meta_stringdata_CMainWindow, i64 168)) #11
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %7, label %5
 
@@ -930,7 +930,7 @@ define noundef ptr @_ZN8MdiChild11qt_metacastEPKc(ptr noundef nonnull align 8 de
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) getelementptr inbounds (%struct.qt_meta_stringdata_MdiChild_t, ptr @_ZL27qt_meta_stringdata_MdiChild, i64 0, i32 1)) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL27qt_meta_stringdata_MdiChild, i64 24)) #11
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %7, label %5
 
@@ -991,9 +991,9 @@ declare noundef i32 @_ZN9QTextEdit11qt_metacallEN11QMetaObject4CallEiPPv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12CFrmSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1016,9 +1016,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12CFrmSettingsD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -1147,8 +1147,8 @@ declare void @_ZN7QDialog6rejectEv(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12CFrmSettingsD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 488), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -1172,8 +1172,8 @@ _ZN12CFrmSettingsD2Ev.exit:                       ; preds = %1, %_ZN17QArrayData
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12CFrmSettingsD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CFrmSettings, i64 488), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1289,9 +1289,9 @@ define linkonce_odr void @_ZThn16_N11CMainWindowD0Ev(ptr noundef %0) unnamed_add
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8MdiChildD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MdiChild, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MdiChild, i64 528), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1954,7 +1954,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendE
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIP7QWidgetEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 

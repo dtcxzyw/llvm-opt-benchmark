@@ -293,7 +293,7 @@ define dso_local void @intel_gsc_init(ptr noundef %0, ptr noundef readonly %1) l
   br label %208
 
 89:                                               ; preds = %81, %69
-  %90 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %91 = tail call noalias noundef align 8 dereferenceable_or_null(888) ptr @kmalloc_trace(ptr noundef %90, i32 noundef 3520, i64 noundef 888) #7
   %92 = icmp eq ptr %91, null
   br i1 %92, label %208, label %93

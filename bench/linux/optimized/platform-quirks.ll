@@ -30,12 +30,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @x86_early_init_platform_quirks() local_unnamed_addr #0 section ".init.text" align 16 {
-  store i32 2, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 30), align 1
+  store i32 2, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 92), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 104), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 108), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 572), align 1
   switch i32 %1, label %5 [
     i32 0, label %2
     i32 2, label %3
@@ -44,22 +44,22 @@ define dso_local void @x86_early_init_platform_quirks() local_unnamed_addr #0 se
   ]
 
 2:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 104), align 8
   br label %5
 
 3:                                                ; preds = %0
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 108), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 92), align 4
   br label %5
 
 4:                                                ; preds = %0, %0
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 108), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 92), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
   br label %5
 
 5:                                                ; preds = %4, %3, %2, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 12), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 112), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
 
@@ -73,7 +73,7 @@ define dso_local void @x86_early_init_platform_quirks() local_unnamed_addr #0 se
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local zeroext i1 @x86_pnpbios_disabled() local_unnamed_addr #1 section ".init.text" align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 108), align 4
   %2 = icmp eq i32 %1, 0
   ret i1 %2
 }

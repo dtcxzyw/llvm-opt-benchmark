@@ -65,10 +65,10 @@ up_irq_restore.exit.i:                            ; preds = %14, %10
   store ptr null, ptr %.023.i, align 8
   %19 = load ptr, ptr @g_alloctimers, align 8
   %.not16.i = icmp eq ptr %19, null
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i64 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
   %g_alloctimers.sink.i = select i1 %.not16.i, ptr @g_alloctimers, ptr %20
   store ptr %.023.i, ptr %g_alloctimers.sink.i, align 8
-  store ptr %.023.i, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i64 0, i32 1), align 8
+  store ptr %.023.i, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
   %21 = and i64 %18, 512
   %.not.i17.i = icmp eq i64 %21, 0
   br i1 %.not.i17.i, label %24, label %22

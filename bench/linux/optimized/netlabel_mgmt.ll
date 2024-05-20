@@ -645,7 +645,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 64) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %205, label %6
@@ -790,7 +790,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %89, label %129, label %90
 
 90:                                               ; preds = %82
-  %91 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %92 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %91, i32 noundef 3520, i64 noundef 32) #12
   %93 = icmp eq ptr %92, null
   br i1 %93, label %197, label %94
@@ -818,7 +818,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %107, label %108, label %.thread18
 
 108:                                              ; preds = %103
-  %109 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %110 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %109, i32 noundef 3520, i64 noundef 48) #12
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread18, label %112
@@ -858,7 +858,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %132, label %187, label %133
 
 133:                                              ; preds = %129
-  %134 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %135 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %134, i32 noundef 3520, i64 noundef 32) #12
   %136 = icmp eq ptr %135, null
   br i1 %136, label %197, label %137
@@ -886,7 +886,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %150, label %151, label %.thread18
 
 151:                                              ; preds = %146
-  %152 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %153 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %152, i32 noundef 3520, i64 noundef 72) #12
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread18, label %155

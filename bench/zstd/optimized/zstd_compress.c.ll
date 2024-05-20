@@ -12552,7 +12552,7 @@ ZSTD_cwksp_reserve_aligned.exit286:               ; preds = %if.then5.i.i.i272, 
   store i32 2, ptr %dictLimit.i, align 8
   %lowLimit.i = getelementptr inbounds i8, ptr %zc, i64 1060
   store i32 2, ptr %lowLimit.i, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %ldmState, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %ldmState, align 8
   %loadedDictEnd = getelementptr inbounds i8, ptr %zc, i64 1080
   store i32 0, ptr %loadedDictEnd, align 8
   br label %if.end244
@@ -13251,7 +13251,7 @@ if.then:                                          ; preds = %cond.end14
   store i32 2, ptr %dictLimit.i, align 8
   %lowLimit.i = getelementptr inbounds i8, ptr %ms, i64 28
   store i32 2, ptr %lowLimit.i, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %ms, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %ms, align 8
   %objectEnd.i = getelementptr inbounds i8, ptr %ws, i64 16
   %11 = load ptr, ptr %objectEnd.i, align 8
   %tableValidEnd.i = getelementptr inbounds i8, ptr %ws, i64 32

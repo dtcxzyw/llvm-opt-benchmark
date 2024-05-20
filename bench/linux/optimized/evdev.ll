@@ -165,7 +165,7 @@ define internal i32 @evdev_connect(ptr noundef %0, ptr noundef %1, ptr nocapture
   br label %58
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(984) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 984) #16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %56, label %12

@@ -340,7 +340,7 @@ define dso_local noundef i32 @user_top(i32 noundef %0, ptr nocapture noundef rea
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr %31, align 8
-  %149 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %150 = tail call ptr @xstrdup(ptr noundef %149) #10
   tail call void @list_append(ptr noundef %148, ptr noundef %150) #10
   br label %151

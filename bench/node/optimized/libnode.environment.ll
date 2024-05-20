@@ -646,7 +646,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
 _ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #12
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 16), ptr %this, align 8
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %allocator_.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
@@ -1567,7 +1567,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %allocator_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %call.i.i.i = tail call noundef ptr @_ZN2v811ArrayBuffer9Allocator19NewDefaultAllocatorEv() #12, !noalias !11
   store ptr %call.i.i.i, ptr %allocator_.i.i.i, align 8, !noalias !11
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i64 16), ptr %call.i, align 8, !noalias !11
   %mutex_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_.i.i) #12, !noalias !11
   %cmp.not.i.i.i = icmp eq i32 %call.i.i.i.i, 0
@@ -1595,7 +1595,7 @@ _ZNSt10unique_ptrIN4node29DebuggingArrayBufferAllocatorESt14default_deleteIS1_EE
 _ZNSt10unique_ptrIN4node24NodeArrayBufferAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %lor.lhs.false
   %call.i1 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i1, i8 0, i64 16, i1 false), !noalias !14
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %call.i1, align 8, !noalias !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 16), ptr %call.i1, align 8, !noalias !14
   %zero_fill_field_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i32 1, ptr %zero_fill_field_.i.i, align 8, !noalias !14
   %total_mem_usage_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
@@ -1891,10 +1891,10 @@ init:                                             ; preds = %init.check
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, ptr noundef nonnull align 8 dereferenceable(96) %params, i64 96, i1 false)
   %array_buffer_allocator_shared3.i = getelementptr inbounds i8, ptr %params, i64 96
   %2 = load ptr, ptr %array_buffer_allocator_shared3.i, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 0, i32 7, i32 0, i32 0), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 96), align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %params, i64 104
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %3, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 0, i32 7, i32 0, i32 1, i32 0), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 104), align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN2v87Isolate12CreateParamsC2ERKS1_.exit, label %if.then.i.i.i.i
 
@@ -1916,16 +1916,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN2v87Isolate12CreateParamsC2ERKS1_.exit:        ; preds = %init, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %external_references4.i = getelementptr inbounds i8, ptr %params, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 0, i32 8), ptr noundef nonnull align 8 dereferenceable(40) %external_references4.i, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 112), ptr noundef nonnull align 8 dereferenceable(40) %external_references4.i, i64 40, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2v87Isolate12CreateParamsD1Ev, ptr nonnull @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params) #12
   br label %init.end
 
 init.end:                                         ; preds = %_ZN2v87Isolate12CreateParamsC2ERKS1_.exit, %init.check, %if.end3
-  %8 = load ptr, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 56), align 8
   %snapshot_blob = getelementptr inbounds i8, ptr %params, i64 56
   store ptr %8, ptr %snapshot_blob, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 0, i32 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i64 112), align 8
   %external_references = getelementptr inbounds i8, ptr %params, i64 112
   store ptr %9, ptr %external_references, align 8
   %vtable = load ptr, ptr %platform, align 8
@@ -2608,7 +2608,7 @@ _ZNSt10unique_ptrIN4node25InspectorParentHandleImplESt14default_deleteIS1_EED2Ev
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %add.ptr.i9)
   call void @_ZN4node9inspector5Agent15GetParentHandleEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nonnull sret(%"class.std::unique_ptr.418") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(186) %4, i64 noundef %thread_id.coerce, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #12
   %call.i11 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %call.i11, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 16), ptr %call.i11, align 8, !noalias !18
   %impl2.i.i = getelementptr inbounds i8, ptr %call.i11, i64 8
   %5 = load i64, ptr %ref.tmp20, align 8, !noalias !18
   store i64 %5, ptr %impl2.i.i, align 8, !noalias !18
@@ -3776,7 +3776,7 @@ _ZNSt8functionIFvPN4node11EnvironmentEiEED2Ev.exit: ; preds = %"_ZZN4node21SetPr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24NodeArrayBufferAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 16), ptr %this, align 8
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %allocator_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3797,7 +3797,7 @@ _ZNSt10unique_ptrIN2v811ArrayBuffer9AllocatorESt14default_deleteIS2_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24NodeArrayBufferAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 16), ptr %this, align 8
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %allocator_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4383,7 +4383,7 @@ declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node25InspectorParentHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 16), ptr %this, align 8
   %impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4402,7 +4402,7 @@ _ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node25InspectorParentHandleImplD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 16), ptr %this, align 8
   %impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

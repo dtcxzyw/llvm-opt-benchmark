@@ -914,7 +914,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @PyStructSequence_New(ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @_PyType_GetDict(ptr noundef %type) #8
-  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %land.lhs.true.i, label %get_type_attr_as_size.exit
 
@@ -927,7 +927,7 @@ get_type_attr_as_size.exit.thread:                ; preds = %land.lhs.true.i
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %type, i64 24
   %1 = load ptr, ptr %tp_name.i, align 8
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %1) #8
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %1) #8
   br label %return
 
 get_type_attr_as_size.exit:                       ; preds = %entry, %land.lhs.true.i
@@ -937,7 +937,7 @@ get_type_attr_as_size.exit:                       ; preds = %entry, %land.lhs.tr
 
 if.end:                                           ; preds = %get_type_attr_as_size.exit
   %call.i11 = tail call ptr @_PyType_GetDict(ptr noundef %type) #8
-  %call1.i12 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i11, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 495)) #8
+  %call1.i12 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52288)) #8
   %cmp.i13 = icmp eq ptr %call1.i12, null
   br i1 %cmp.i13, label %land.lhs.true.i17, label %get_type_attr_as_size.exit23
 
@@ -950,7 +950,7 @@ get_type_attr_as_size.exit23.thread:              ; preds = %land.lhs.true.i17
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i21 = getelementptr inbounds i8, ptr %type, i64 24
   %3 = load ptr, ptr %tp_name.i21, align 8
-  %call3.i22 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 495), ptr noundef %3) #8
+  %call3.i22 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52288), ptr noundef %3) #8
   br label %return
 
 get_type_attr_as_size.exit23:                     ; preds = %if.end, %land.lhs.true.i17
@@ -1575,7 +1575,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_PyStaticType_Dealloc(ptr noundef %interp, ptr noundef %type) #8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %0, %interp
   br i1 %cmp.i.not, label %if.then3, label %if.end5
 
@@ -1773,7 +1773,7 @@ entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @_PyType_GetDict(ptr noundef %obj.val) #8
-  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i11 = icmp eq ptr %call1.i, null
   br i1 %cmp.i11, label %land.lhs.true.i, label %get_type_attr_as_size.exit
 
@@ -1786,7 +1786,7 @@ get_type_attr_as_size.exit.thread:                ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %obj.val, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %2) #8
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %2) #8
   br label %for.end
 
 get_type_attr_as_size.exit:                       ; preds = %entry, %land.lhs.true.i
@@ -2107,7 +2107,7 @@ skip_optional_pos:                                ; preds = %if.end, %if.end20
   %dict.0 = phi ptr [ %5, %if.end20 ], [ null, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ob.i)
   %call.i.i = call ptr @_PyType_GetDict(ptr noundef %type) #8
-  %call1.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 495)) #8
+  %call1.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52288)) #8
   %cmp.i87.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i87.i, label %land.lhs.true.i.i, label %get_type_attr_as_size.exit.i
 
@@ -2120,7 +2120,7 @@ get_type_attr_as_size.exit.thread.i:              ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i.i = getelementptr inbounds i8, ptr %type, i64 24
   %7 = load ptr, ptr %tp_name.i.i, align 8
-  %call3.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 495), ptr noundef %7) #8
+  %call3.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52288), ptr noundef %7) #8
   br label %structseq_new_impl.exit
 
 get_type_attr_as_size.exit.i:                     ; preds = %land.lhs.true.i.i, %skip_optional_pos
@@ -2130,7 +2130,7 @@ get_type_attr_as_size.exit.i:                     ; preds = %land.lhs.true.i.i, 
 
 if.end.i:                                         ; preds = %get_type_attr_as_size.exit.i
   %call.i89.i = call ptr @_PyType_GetDict(ptr noundef %type) #8
-  %call1.i90.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i89.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i90.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i89.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i91.i = icmp eq ptr %call1.i90.i, null
   br i1 %cmp.i91.i, label %land.lhs.true.i95.i, label %get_type_attr_as_size.exit101.i
 
@@ -2143,7 +2143,7 @@ get_type_attr_as_size.exit101.thread.i:           ; preds = %land.lhs.true.i95.i
   %8 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i99.i = getelementptr inbounds i8, ptr %type, i64 24
   %9 = load ptr, ptr %tp_name.i99.i, align 8
-  %call3.i100.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %9) #8
+  %call3.i100.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %9) #8
   br label %structseq_new_impl.exit
 
 get_type_attr_as_size.exit101.i:                  ; preds = %land.lhs.true.i95.i, %if.end.i
@@ -2153,7 +2153,7 @@ get_type_attr_as_size.exit101.i:                  ; preds = %land.lhs.true.i95.i
 
 if.end4.i:                                        ; preds = %get_type_attr_as_size.exit101.i
   %call.i102.i = call ptr @_PyType_GetDict(ptr noundef %type) #8
-  %call1.i103.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i102.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496)) #8
+  %call1.i103.i = call ptr @PyDict_GetItemWithError(ptr noundef %call.i102.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352)) #8
   %cmp.i104.i = icmp eq ptr %call1.i103.i, null
   br i1 %cmp.i104.i, label %land.lhs.true.i108.i, label %get_type_attr_as_size.exit114.i
 
@@ -2166,7 +2166,7 @@ get_type_attr_as_size.exit114.thread.i:           ; preds = %land.lhs.true.i108.
   %10 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i112.i = getelementptr inbounds i8, ptr %type, i64 24
   %11 = load ptr, ptr %tp_name.i112.i, align 8
-  %call3.i113.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496), ptr noundef %11) #8
+  %call3.i113.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352), ptr noundef %11) #8
   br label %structseq_new_impl.exit
 
 get_type_attr_as_size.exit114.i:                  ; preds = %land.lhs.true.i108.i, %if.end4.i
@@ -2559,7 +2559,7 @@ if.then3.if.end9_crit_edge:                       ; preds = %if.then3
 if.end9:                                          ; preds = %if.then3.if.end9_crit_edge, %entry
   %obj.val15 = phi ptr [ %obj.val15.pre, %if.then3.if.end9_crit_edge ], [ %obj.val, %entry ]
   %call.i = tail call ptr @_PyType_GetDict(ptr noundef %obj.val15) #8
-  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %land.lhs.true.i, label %get_type_attr_as_size.exit
 
@@ -2572,7 +2572,7 @@ get_type_attr_as_size.exit.thread:                ; preds = %land.lhs.true.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %obj.val15, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %3) #8
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %3) #8
   br label %return
 
 get_type_attr_as_size.exit:                       ; preds = %if.end9, %land.lhs.true.i
@@ -2666,7 +2666,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val26 = load ptr, ptr %0, align 8
   %call.i = tail call ptr @_PyType_GetDict(ptr noundef %self.val26) #8
-  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i28 = icmp eq ptr %call1.i, null
   br i1 %cmp.i28, label %land.lhs.true.i, label %get_type_attr_as_size.exit
 
@@ -2679,7 +2679,7 @@ get_type_attr_as_size.exit.thread:                ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %self.val26, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %2) #8
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %2) #8
   br label %return
 
 get_type_attr_as_size.exit:                       ; preds = %entry, %land.lhs.true.i
@@ -2692,7 +2692,7 @@ if.end:                                           ; preds = %get_type_attr_as_si
   %self.val27 = load i64, ptr %3, align 8
   %self.val25 = load ptr, ptr %0, align 8
   %call.i30 = tail call ptr @_PyType_GetDict(ptr noundef %self.val25) #8
-  %call1.i31 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i30, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496)) #8
+  %call1.i31 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352)) #8
   %cmp.i32 = icmp eq ptr %call1.i31, null
   br i1 %cmp.i32, label %land.lhs.true.i36, label %get_type_attr_as_size.exit42
 
@@ -2705,7 +2705,7 @@ get_type_attr_as_size.exit42.thread:              ; preds = %land.lhs.true.i36
   %4 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i40 = getelementptr inbounds i8, ptr %self.val25, i64 24
   %5 = load ptr, ptr %tp_name.i40, align 8
-  %call3.i41 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496), ptr noundef %5) #8
+  %call3.i41 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352), ptr noundef %5) #8
   br label %return
 
 get_type_attr_as_size.exit42:                     ; preds = %if.end, %land.lhs.true.i36
@@ -2838,7 +2838,7 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val35 = load ptr, ptr %0, align 8
   %call.i = tail call ptr @_PyType_GetDict(ptr noundef %self.val35) #8
-  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494)) #8
+  %call1.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232)) #8
   %cmp.i36 = icmp eq ptr %call1.i, null
   br i1 %cmp.i36, label %land.lhs.true.i, label %get_type_attr_as_size.exit
 
@@ -2851,7 +2851,7 @@ get_type_attr_as_size.exit.thread:                ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %self.val35, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 494), ptr noundef %2) #8
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr noundef %2) #8
   br label %return
 
 get_type_attr_as_size.exit:                       ; preds = %if.end, %land.lhs.true.i
@@ -2862,7 +2862,7 @@ get_type_attr_as_size.exit:                       ; preds = %if.end, %land.lhs.t
 if.end5:                                          ; preds = %get_type_attr_as_size.exit
   %self.val34 = load ptr, ptr %0, align 8
   %call.i38 = tail call ptr @_PyType_GetDict(ptr noundef %self.val34) #8
-  %call1.i39 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i38, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496)) #8
+  %call1.i39 = tail call ptr @PyDict_GetItemWithError(ptr noundef %call.i38, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352)) #8
   %cmp.i40 = icmp eq ptr %call1.i39, null
   br i1 %cmp.i40, label %land.lhs.true.i44, label %get_type_attr_as_size.exit50
 
@@ -2875,7 +2875,7 @@ get_type_attr_as_size.exit50.thread:              ; preds = %land.lhs.true.i44
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i48 = getelementptr inbounds i8, ptr %self.val34, i64 24
   %4 = load ptr, ptr %tp_name.i48, align 8
-  %call3.i49 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 496), ptr noundef %4) #8
+  %call3.i49 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352), ptr noundef %4) #8
   br label %return
 
 get_type_attr_as_size.exit50:                     ; preds = %if.end5, %land.lhs.true.i44

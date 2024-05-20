@@ -28,7 +28,7 @@ define dso_local noundef range(i32 -12, 1) i32 @irq_init_percpu_irqstack(i32 nou
   %3 = zext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = add i64 %5, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5) to i64)
+  %6 = add i64 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @pcpu_hot, i64 32) to i64)
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -66,7 +66,7 @@ define dso_local noundef range(i32 -12, 1) i32 @irq_init_percpu_irqstack(i32 nou
 30:                                               ; preds = %25
   %31 = getelementptr i8, ptr %28, i64 16376
   %32 = load i64, ptr %4, align 8
-  %33 = add i64 %32, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5) to i64)
+  %33 = add i64 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @pcpu_hot, i64 32) to i64)
   %34 = inttoptr i64 %33 to ptr
   store ptr %31, ptr %34, align 8
   br label %35

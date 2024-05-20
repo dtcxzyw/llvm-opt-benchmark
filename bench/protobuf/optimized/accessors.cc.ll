@@ -245,7 +245,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler4rust16UnsupportedFieldESt14default_
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust3MapESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust3MapE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust3MapE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   br label %return
 
@@ -311,12 +311,12 @@ sw.bb12:                                          ; preds = %_ZNK6google8protobu
   br i1 %cmp.i31, label %_ZNSt10unique_ptrIN6google8protobuf8compiler4rust14RepeatedScalarESt14default_deleteIS4_EED2Ev.exit, label %_ZNSt10unique_ptrIN6google8protobuf8compiler4rust14SingularScalarESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust14RepeatedScalarESt14default_deleteIS4_EED2Ev.exit: ; preds = %sw.bb12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust14RepeatedScalarE, i64 0, i32 0, i64 2), ptr %call.i32, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust14RepeatedScalarE, i64 16), ptr %call.i32, align 8, !noalias !8
   store ptr %call.i32, ptr %agg.result, align 8
   br label %return
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust14SingularScalarESt14default_deleteIS4_EED2Ev.exit: ; preds = %sw.bb12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust14SingularScalarE, i64 0, i32 0, i64 2), ptr %call.i32, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust14SingularScalarE, i64 16), ptr %call.i32, align 8, !noalias !11
   store ptr %call.i32, ptr %agg.result, align 8
   br label %return
 
@@ -337,7 +337,7 @@ if.then20:                                        ; preds = %sw.bb18
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust14SingularStringESt14default_deleteIS4_EED2Ev.exit: ; preds = %sw.bb18
   %call.i39 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14, !noalias !14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust14SingularStringE, i64 0, i32 0, i64 2), ptr %call.i39, align 8, !noalias !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust14SingularStringE, i64 16), ptr %call.i39, align 8, !noalias !14
   store ptr %call.i39, ptr %agg.result, align 8
   br label %return
 
@@ -373,7 +373,7 @@ if.then33:                                        ; preds = %if.end28
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust15SingularMessageESt14default_deleteIS4_EED2Ev.exit: ; preds = %if.end28
   %call.i44 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14, !noalias !17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust15SingularMessageE, i64 0, i32 0, i64 2), ptr %call.i44, align 8, !noalias !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust15SingularMessageE, i64 16), ptr %call.i44, align 8, !noalias !17
   store ptr %call.i44, ptr %agg.result, align 8
   br label %return
 
@@ -547,7 +547,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8
@@ -656,7 +656,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8
@@ -703,7 +703,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8
@@ -859,7 +859,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8
@@ -906,7 +906,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8
@@ -953,7 +953,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4rust16UnsupportedFieldE, i64 16), ptr %call, align 8
   %reason_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr %call, ptr %agg.result, align 8

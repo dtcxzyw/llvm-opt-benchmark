@@ -525,7 +525,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %32 = load ptr, ptr @hdr_scratch, align 8
   %33 = getelementptr i8, ptr %32, i64 24
   store ptr null, ptr @hdr_rdt, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i64 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @hdr_rdt, i64 8), align 8
   %34 = load ptr, ptr @wal_consistency_checking, align 8
   %35 = getelementptr i8, ptr %34, i64 %19
   %36 = load i8, ptr %35, align 1
@@ -1017,7 +1017,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %113, %106
   %255 = ptrtoint ptr %253 to i64
   %256 = sub i64 %254, %255
   %257 = trunc i64 %256 to i32
-  store i32 %257, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i64 0, i32 2), align 8
+  store i32 %257, ptr getelementptr inbounds (i8, ptr @hdr_rdt, i64 16), align 8
   %258 = and i64 %256, 4294967295
   %259 = add i64 %258, %.4.i
   %260 = load ptr, ptr @pg_comp_crc32c, align 8

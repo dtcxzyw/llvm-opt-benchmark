@@ -41,7 +41,7 @@ define hidden void @zif_cli_set_process_title(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %21
@@ -92,7 +92,7 @@ define hidden void @zif_cli_get_process_title(ptr nocapture noundef readonly %0,
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #5
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %26

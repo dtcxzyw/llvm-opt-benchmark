@@ -65,7 +65,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPoolC2EPNS_13SessionHolder5StatsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEES8_PNS_27ThreadIdleSessionControllerEPNS_27ServerIdleSessionControllerE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %stats, i32 noundef %maxConns, i64 %timeout.coerce, i64 %maxAge.coerce, ptr noundef %threadIdleSessionController, ptr noundef %serverIdleSessionController) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11SessionPoolE, i64 16), ptr %this, align 8
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %stats, ptr %stats_, align 8
   %maxConns_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -162,7 +162,7 @@ declare noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11SessionPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11SessionPoolE, i64 16), ptr %this, align 8
   %m_header.i27.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i2.i = icmp eq ptr %0, null

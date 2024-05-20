@@ -2423,12 +2423,12 @@ _ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.ex
 
 470:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %471 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, align 8
-  %472 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %472 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %.not.i.i = icmp eq ptr %472, %471
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, label %473
 
 473:                                              ; preds = %470
-  store ptr %471, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %471, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %470, %473
@@ -2436,11 +2436,11 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %470, %473
   br label %.loopexit2713
 
 474:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %475 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %475 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 -8
-  store ptr %476, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %477 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %478 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr %476, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
+  %477 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 32), align 8
+  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   %479 = ptrtoint ptr %477 to i64
   %480 = ptrtoint ptr %478 to i64
   %481 = sub i64 %479, %480
@@ -2466,7 +2466,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %470, %473
 489:                                              ; preds = %.lr.ph4844
   call void @_ZN5Yosys3AST7AstNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(284) %487) #27
   call void @_ZdlPv(ptr noundef nonnull %487) #28
-  %.pre7020 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %.pre7020 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   br label %490
 
 490:                                              ; preds = %.lr.ph4844, %489
@@ -2484,17 +2484,17 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %470, %473
   br i1 %.not2221, label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE4pushERKSB_.exit, label %494
 
 494:                                              ; preds = %492
-  %495 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %496 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  %495 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
+  %496 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 64), align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 -8
   %.not.i.i2250 = icmp eq ptr %495, %497
   br i1 %.not.i.i2250, label %501, label %498
 
 498:                                              ; preds = %494
   store ptr %493, ptr %495, align 8
-  %499 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  %499 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
   %500 = getelementptr inbounds i8, ptr %499, i64 8
-  store ptr %500, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  store ptr %500, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
   br label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE4pushERKSB_.exit
 
 501:                                              ; preds = %494
@@ -2505,8 +2505,8 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %502 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %502, i8 0, i64 48, i1 false)
   store ptr %502, ptr @_ZN5Yosys16VERILOG_FRONTEND9attr_listE, align 8
-  %503 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %504 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 32), align 8
+  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   %505 = ptrtoint ptr %503 to i64
   %506 = ptrtoint ptr %504 to i64
   %507 = sub i64 %505, %506
@@ -2523,7 +2523,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 .lr.ph4839:                                       ; preds = %.lr.ph4839.preheader, %.lr.ph4839
   %indvars.iv6955 = phi i64 [ %510, %.lr.ph4839.preheader ], [ %indvars.iv.next6956, %.lr.ph4839 ]
   %indvars.iv.next6956 = add nsw i64 %indvars.iv6955, -1
-  %511 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %511 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   %512 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::AST::AstNode *>::entry_t", ptr %511, i64 %indvars.iv.next6956
   %513 = getelementptr inbounds i8, ptr %512, i64 8
   %514 = load ptr, ptr %513, align 8
@@ -2536,18 +2536,18 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 518:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %519 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND9attr_listE, align 8
-  %520 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %521 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), align 8
+  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
+  %521 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 16), align 8
   %522 = icmp eq ptr %520, %521
   br i1 %522, label %534, label %523
 
 523:                                              ; preds = %518
-  %524 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !14
+  %524 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 56), align 8, !noalias !14
   %525 = icmp eq ptr %520, %524
   br i1 %525, label %526, label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE3topEv.exit
 
 526:                                              ; preds = %523
-  %527 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !14
+  %527 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 72), align 8, !noalias !14
   %528 = getelementptr inbounds i8, ptr %527, i64 -8
   %529 = load ptr, ptr %528, align 8
   %530 = getelementptr inbounds i8, ptr %529, i64 512
@@ -2580,17 +2580,17 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br i1 %.not2220, label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE4pushERKSB_.exit2256, label %542
 
 542:                                              ; preds = %540
-  %543 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %544 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  %543 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
+  %544 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 64), align 8
   %545 = getelementptr inbounds i8, ptr %544, i64 -8
   %.not.i.i2255 = icmp eq ptr %543, %545
   br i1 %.not.i.i2255, label %549, label %546
 
 546:                                              ; preds = %542
   store ptr %541, ptr %543, align 8
-  %547 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
   %548 = getelementptr inbounds i8, ptr %547, i64 8
-  store ptr %548, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  store ptr %548, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
   br label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE4pushERKSB_.exit2256
 
 549:                                              ; preds = %542
@@ -2601,8 +2601,8 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %550 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %550, i8 0, i64 48, i1 false)
   store ptr %550, ptr @_ZN5Yosys16VERILOG_FRONTEND9attr_listE, align 8
-  %551 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %552 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 32), align 8
+  %552 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   %553 = ptrtoint ptr %551 to i64
   %554 = ptrtoint ptr %552 to i64
   %555 = sub i64 %553, %554
@@ -2628,7 +2628,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 563:                                              ; preds = %.lr.ph4835
   call void @_ZN5Yosys3AST7AstNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(284) %561) #27
   call void @_ZdlPv(ptr noundef nonnull %561) #28
-  %.pre7018 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict.5", ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %.pre7018 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND17default_attr_listE, i64 24), align 8
   br label %564
 
 564:                                              ; preds = %.lr.ph4835, %563
@@ -2653,18 +2653,18 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %571
 
 571:                                              ; preds = %570, %566
-  %572 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %573 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0), align 8
+  %572 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 48), align 8
+  %573 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 16), align 8
   %574 = icmp eq ptr %572, %573
   br i1 %574, label %586, label %575
 
 575:                                              ; preds = %571
-  %576 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1), align 8, !noalias !17
+  %576 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 56), align 8, !noalias !17
   %577 = icmp eq ptr %572, %576
   br i1 %577, label %578, label %_ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8hash_opsIS4_EEEESt5dequeISB_SaISB_EEE3topEv.exit2261
 
 578:                                              ; preds = %575
-  %579 = load ptr, ptr getelementptr inbounds (%"class.std::stack", ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !17
+  %579 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15attr_list_stackE, i64 72), align 8, !noalias !17
   %580 = getelementptr inbounds i8, ptr %579, i64 -8
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds i8, ptr %581, i64 512
@@ -2996,7 +2996,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 726:                                              ; preds = %724
   store ptr %725, ptr %25, align 8
-  %727 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %728 = getelementptr inbounds i8, ptr %727, i64 -8
   %729 = load ptr, ptr %728, align 8
   %730 = getelementptr inbounds i8, ptr %729, i64 8
@@ -3023,8 +3023,8 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %7938
 
 741:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %742 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %743 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %742 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 32), align 8
+  %743 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 24), align 8
   %.not2211 = icmp eq ptr %742, %743
   br i1 %.not2211, label %753, label %744
 
@@ -3044,7 +3044,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 753:                                              ; preds = %741, %744
   %754 = getelementptr inbounds i8, ptr %.21721, i64 -144
   %755 = load i32, ptr %754, align 4
-  %756 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %756 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %757 = getelementptr inbounds i8, ptr %756, i64 -8
   %758 = load ptr, ptr %757, align 8
   %759 = getelementptr inbounds i8, ptr %758, i64 264
@@ -3060,7 +3060,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %766 = load ptr, ptr %757, align 8
   %767 = getelementptr inbounds i8, ptr %766, i64 276
   store i32 %435, ptr %767, align 4
-  store ptr %757, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %757, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %768 = getelementptr inbounds i8, ptr %.21711, i64 -56
   %769 = load ptr, ptr %768, align 8
   %770 = load ptr, ptr %.21711, align 8
@@ -3170,7 +3170,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %7938
 
 809:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %810 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %810 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 -8
   %812 = load ptr, ptr %811, align 8
   %813 = getelementptr inbounds i8, ptr %812, i64 8
@@ -3223,7 +3223,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
           to label %840 unwind label %876
 
 840:                                              ; preds = %838
-  %841 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %841 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %842 = getelementptr inbounds i8, ptr %841, i64 -8
   %843 = load ptr, ptr %842, align 8
   %844 = getelementptr inbounds i8, ptr %843, i64 16
@@ -3233,7 +3233,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %848 = getelementptr inbounds i8, ptr %847, i64 80
   %849 = getelementptr inbounds i8, ptr %839, i64 80
   %850 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %849, ptr noundef nonnull align 8 dereferenceable(32) %848)
-  %851 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %851 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %852 = getelementptr inbounds i8, ptr %851, i64 -8
   %853 = load ptr, ptr %852, align 8
   %854 = getelementptr inbounds i8, ptr %853, i64 8
@@ -3333,7 +3333,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %.loopexit2713
 
 893:                                              ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %894 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %894 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %895 = getelementptr inbounds i8, ptr %894, i64 -8
   %896 = load ptr, ptr %895, align 8
   %897 = getelementptr inbounds i8, ptr %896, i64 8
@@ -3363,7 +3363,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %914 = load ptr, ptr %30, align 8
   %915 = getelementptr inbounds i8, ptr %914, i64 152
   store i32 %913, ptr %915, align 8
-  %916 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %916 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %917 = getelementptr inbounds i8, ptr %916, i64 -8
   %918 = load ptr, ptr %917, align 8
   %919 = getelementptr inbounds i8, ptr %918, i64 8
@@ -3494,7 +3494,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %985 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf2E, align 8
   %986 = getelementptr inbounds i8, ptr %985, i64 152
   store i32 %984, ptr %986, align 8
-  %987 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %987 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %988 = getelementptr inbounds i8, ptr %987, i64 -8
   %989 = load ptr, ptr %988, align 8
   %990 = getelementptr inbounds i8, ptr %989, i64 8
@@ -3600,7 +3600,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %1052
 
 1052:                                             ; preds = %1049, %1046, %1042, %1038, %1033
-  %1053 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1053 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1054 = getelementptr inbounds i8, ptr %1053, i64 -8
   %1055 = load ptr, ptr %1054, align 8
   %1056 = getelementptr inbounds i8, ptr %1055, i64 8
@@ -3633,7 +3633,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1067:                                             ; preds = %1065
   store ptr %1066, ptr %34, align 8
-  %1068 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1068 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1069 = getelementptr inbounds i8, ptr %1068, i64 -8
   %1070 = load ptr, ptr %1069, align 8
   %1071 = getelementptr inbounds i8, ptr %1070, i64 8
@@ -3657,9 +3657,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %7938
 
 1081:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %1082 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1082 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1083 = getelementptr inbounds i8, ptr %1082, i64 -8
-  store ptr %1083, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1083, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1084 = getelementptr inbounds i8, ptr %.21711, i64 -40
   %1085 = load ptr, ptr %1084, align 8
   %1086 = load ptr, ptr %.21711, align 8
@@ -3700,7 +3700,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1098:                                             ; preds = %1096
   store ptr %1097, ptr %35, align 8
-  %1099 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1099 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1100 = getelementptr inbounds i8, ptr %1099, i64 -8
   %1101 = load ptr, ptr %1100, align 8
   %1102 = getelementptr inbounds i8, ptr %1101, i64 8
@@ -3730,8 +3730,8 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %7938
 
 1113:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %1114 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
-  %1115 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
+  %1114 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 32), align 8
+  %1115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND10port_stubsB5cxx11E, i64 24), align 8
   %.not2198 = icmp eq ptr %1114, %1115
   br i1 %.not2198, label %1125, label %1116
 
@@ -3749,9 +3749,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %1125
 
 1125:                                             ; preds = %1116, %1113
-  %1126 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1127 = getelementptr inbounds i8, ptr %1126, i64 -8
-  store ptr %1127, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1127, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   store ptr null, ptr @_ZN5Yosys16VERILOG_FRONTEND15current_ast_modE, align 8
   call fastcc void @_ZL13exitTypeScopev()
   br label %.loopexit2713
@@ -3763,7 +3763,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1130:                                             ; preds = %1128
   store ptr %1129, ptr %36, align 8
-  %1131 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1132 = getelementptr inbounds i8, ptr %1131, i64 -8
   %1133 = load ptr, ptr %1132, align 8
   %1134 = getelementptr inbounds i8, ptr %1133, i64 8
@@ -3831,9 +3831,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %1161
 
 1161:                                             ; preds = %1160, %1157
-  %1162 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1163 = getelementptr inbounds i8, ptr %1162, i64 -8
-  store ptr %1163, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1163, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 1164:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -3856,7 +3856,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %1173
 
 1173:                                             ; preds = %1172, %1166
-  %1174 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1175 = getelementptr inbounds i8, ptr %1174, i64 -8
   %1176 = load ptr, ptr %1175, align 8
   %1177 = getelementptr inbounds i8, ptr %1176, i64 8
@@ -4412,7 +4412,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1409 = load ptr, ptr %1408, align 8
   %1410 = getelementptr inbounds i8, ptr %1406, i64 80
   %1411 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1410, ptr noundef nonnull align 8 dereferenceable(32) %1409)
-  %1412 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1412 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1413 = getelementptr inbounds i8, ptr %1412, i64 -8
   %1414 = load ptr, ptr %1413, align 8
   %1415 = getelementptr inbounds i8, ptr %1414, i64 8
@@ -4438,9 +4438,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %1423
 
 1423:                                             ; preds = %1422, %1418
-  %1424 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1425 = getelementptr inbounds i8, ptr %1424, i64 -8
-  store ptr %1425, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1425, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 1426:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -4468,7 +4468,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1440 = getelementptr inbounds i8, ptr %.21711, i64 -24
   %1441 = load ptr, ptr %1440, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1439, ptr noundef %1441)
-  %1442 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1442 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1443 = getelementptr inbounds i8, ptr %1442, i64 -8
   %1444 = load ptr, ptr %1443, align 8
   %1445 = getelementptr inbounds i8, ptr %1444, i64 8
@@ -4528,7 +4528,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1471 = getelementptr inbounds i8, ptr %.21711, i64 -40
   %1472 = load ptr, ptr %1471, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1470, ptr noundef %1472)
-  %1473 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1473 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1474 = getelementptr inbounds i8, ptr %1473, i64 -8
   %1475 = load ptr, ptr %1474, align 8
   %1476 = getelementptr inbounds i8, ptr %1475, i64 8
@@ -4616,7 +4616,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1512 = getelementptr inbounds i8, ptr %.21711, i64 -56
   %1513 = load ptr, ptr %1512, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1511, ptr noundef %1513)
-  %1514 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1514 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1515 = getelementptr inbounds i8, ptr %1514, i64 -8
   %1516 = load ptr, ptr %1515, align 8
   %1517 = getelementptr inbounds i8, ptr %1516, i64 8
@@ -4714,7 +4714,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1552 = getelementptr inbounds i8, ptr %.21711, i64 -24
   %1553 = load ptr, ptr %1552, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1551, ptr noundef %1553)
-  %1554 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1554 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1555 = getelementptr inbounds i8, ptr %1554, i64 -8
   %1556 = load ptr, ptr %1555, align 8
   %1557 = getelementptr inbounds i8, ptr %1556, i64 8
@@ -4738,9 +4738,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1563:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   store ptr null, ptr @_ZN5Yosys16VERILOG_FRONTEND24current_function_or_taskE, align 8
-  %1564 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1564 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1565 = getelementptr inbounds i8, ptr %1564, i64 -8
-  store ptr %1565, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1565, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 1566:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -4757,7 +4757,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1573 = getelementptr inbounds i8, ptr %.21711, i64 -32
   %1574 = load ptr, ptr %1573, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1572, ptr noundef %1574)
-  %1575 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1575 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1576 = getelementptr inbounds i8, ptr %1575, i64 -8
   %1577 = load ptr, ptr %1576, align 8
   %1578 = getelementptr inbounds i8, ptr %1577, i64 8
@@ -4781,9 +4781,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1584:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   store ptr null, ptr @_ZN5Yosys16VERILOG_FRONTEND24current_function_or_taskE, align 8
-  %1585 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1585 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1586 = getelementptr inbounds i8, ptr %1585, i64 -8
-  store ptr %1586, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1586, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 1587:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -4800,7 +4800,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   %1594 = getelementptr inbounds i8, ptr %.21711, i64 -32
   %1595 = load ptr, ptr %1594, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %1593, ptr noundef %1595)
-  %1596 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1596 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1597 = getelementptr inbounds i8, ptr %1596, i64 -8
   %1598 = load ptr, ptr %1597, align 8
   %1599 = getelementptr inbounds i8, ptr %1598, i64 8
@@ -4875,9 +4875,9 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1636:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   store ptr null, ptr @_ZN5Yosys16VERILOG_FRONTEND24current_function_or_taskE, align 8
-  %1637 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1638 = getelementptr inbounds i8, ptr %1637, i64 -8
-  store ptr %1638, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1638, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 1639:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -5176,7 +5176,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 1781:                                             ; preds = %1779
   store ptr %1780, ptr %50, align 8
-  %1782 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1782 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %1783 = getelementptr inbounds i8, ptr %1782, i64 -8
   %1784 = load ptr, ptr %1783, align 8
   %1785 = getelementptr inbounds i8, ptr %1784, i64 8
@@ -5832,7 +5832,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 2174:                                             ; preds = %2167
   store ptr %2173, ptr %70, align 8
-  %2175 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2176 = getelementptr inbounds i8, ptr %2175, i64 -8
   %2177 = load ptr, ptr %2176, align 8
   %2178 = getelementptr inbounds i8, ptr %2177, i64 8
@@ -6904,7 +6904,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %.loopexit2713
 
 2748:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %2749 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2749 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2750 = getelementptr inbounds i8, ptr %2749, i64 -8
   %2751 = load ptr, ptr %2750, align 8
   %2752 = getelementptr inbounds i8, ptr %2751, i64 16
@@ -6930,7 +6930,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
   br label %.loopexit2713
 
 2764:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %2765 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2765 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2766 = getelementptr inbounds i8, ptr %2765, i64 -8
   %2767 = load ptr, ptr %2766, align 8
   %2768 = getelementptr inbounds i8, ptr %2767, i64 16
@@ -7034,7 +7034,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %2813 = load ptr, ptr %.21711, align 8
   %2814 = getelementptr inbounds i8, ptr %2812, i64 80
   %2815 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2814, ptr noundef nonnull align 8 dereferenceable(32) %2813)
-  %2816 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2816 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2817 = getelementptr inbounds i8, ptr %2816, i64 -8
   %2818 = load ptr, ptr %2817, align 8
   %2819 = getelementptr inbounds i8, ptr %2818, i64 8
@@ -7098,7 +7098,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   br label %7938
 
 2850:                                             ; preds = %2845, %2838
-  %2851 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2851 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2852 = getelementptr inbounds i8, ptr %2851, i64 -8
   %2853 = load ptr, ptr %2852, align 8
   %2854 = getelementptr inbounds i8, ptr %2853, i64 8
@@ -7112,7 +7112,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
 
 2857:                                             ; preds = %2855
   store ptr %2856, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf2E, align 8
-  %2858 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2858 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2859 = getelementptr inbounds i8, ptr %2858, i64 -8
   %2860 = load ptr, ptr %2859, align 8
   %2861 = getelementptr inbounds i8, ptr %2860, i64 8
@@ -7368,7 +7368,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %2985 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
   %2986 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %2985)
   store ptr %2986, ptr %99, align 8
-  %2987 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2987 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %2988 = getelementptr inbounds i8, ptr %2987, i64 -8
   %2989 = load ptr, ptr %2988, align 8
   %2990 = getelementptr inbounds i8, ptr %2989, i64 8
@@ -7591,11 +7591,11 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
 3095:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %3096 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf2E, align 8
   store ptr %3096, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
-  %3097 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3097 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3098 = getelementptr inbounds i8, ptr %3097, i64 -8
   %3099 = load ptr, ptr %3098, align 8
   store ptr %3099, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf2E, align 8
-  store ptr %3098, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %3098, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 3100:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -7637,7 +7637,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %3123 = load i32, ptr %3122, align 4
   %3124 = getelementptr inbounds i8, ptr %3114, i64 276
   store i32 %3123, ptr %3124, align 4
-  %3125 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3126 = getelementptr inbounds i8, ptr %3125, i64 -8
   %3127 = load ptr, ptr %3126, align 8
   %3128 = getelementptr inbounds i8, ptr %3127, i64 8
@@ -7682,7 +7682,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   br label %.loopexit2713
 
 3145:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %3146 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3146 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3147 = getelementptr inbounds i8, ptr %3146, i64 -8
   %3148 = load ptr, ptr %3147, align 8
   %3149 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
@@ -7694,7 +7694,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   store ptr %3149, ptr %103, align 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %3151, ptr noundef nonnull align 8 dereferenceable(8) %103)
   %3152 = load ptr, ptr %.21711, align 8
-  %3153 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3153 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3154 = getelementptr inbounds i8, ptr %3153, i64 -8
   %3155 = load ptr, ptr %3154, align 8
   %3156 = getelementptr inbounds i8, ptr %3155, i64 16
@@ -7703,7 +7703,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %3159 = load ptr, ptr %3158, align 8
   %3160 = getelementptr inbounds i8, ptr %3159, i64 80
   %3161 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3160, ptr noundef nonnull align 8 dereferenceable(32) %3152)
-  %3162 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3163 = getelementptr inbounds i8, ptr %3162, i64 -8
   %3164 = load ptr, ptr %3163, align 8
   %3165 = getelementptr inbounds i8, ptr %3164, i64 16
@@ -7713,7 +7713,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %3169 = getelementptr inbounds i8, ptr %.21711, i64 -16
   %3170 = load ptr, ptr %3169, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %3168, ptr noundef %3170)
-  %3171 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3171 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3172 = getelementptr inbounds i8, ptr %3171, i64 -8
   %3173 = load ptr, ptr %3172, align 8
   %3174 = getelementptr inbounds i8, ptr %3173, i64 8
@@ -7737,7 +7737,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   store ptr %3175, ptr %104, align 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %3174, ptr noundef nonnull align 8 dereferenceable(8) %104)
   %3182 = load ptr, ptr %.21711, align 8
-  %3183 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3183 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3184 = getelementptr inbounds i8, ptr %3183, i64 -8
   %3185 = load ptr, ptr %3184, align 8
   %3186 = getelementptr inbounds i8, ptr %3185, i64 16
@@ -7781,7 +7781,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   br label %7938
 
 3205:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %3206 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3206 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3207 = getelementptr inbounds i8, ptr %3206, i64 -8
   %3208 = load ptr, ptr %3207, align 8
   %3209 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
@@ -7793,7 +7793,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   store ptr %3209, ptr %105, align 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %3211, ptr noundef nonnull align 8 dereferenceable(8) %105)
   %3212 = load ptr, ptr %.21711, align 8
-  %3213 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3214 = getelementptr inbounds i8, ptr %3213, i64 -8
   %3215 = load ptr, ptr %3214, align 8
   %3216 = getelementptr inbounds i8, ptr %3215, i64 16
@@ -7802,7 +7802,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %3219 = load ptr, ptr %3218, align 8
   %3220 = getelementptr inbounds i8, ptr %3219, i64 80
   %3221 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3220, ptr noundef nonnull align 8 dereferenceable(32) %3212)
-  %3222 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3223 = getelementptr inbounds i8, ptr %3222, i64 -8
   %3224 = load ptr, ptr %3223, align 8
   %3225 = getelementptr inbounds i8, ptr %3224, i64 16
@@ -7812,7 +7812,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %3229 = getelementptr inbounds i8, ptr %.21711, i64 -16
   %3230 = load ptr, ptr %3229, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %3228, ptr noundef %3230)
-  %3231 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3231 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3232 = getelementptr inbounds i8, ptr %3231, i64 -8
   %3233 = load ptr, ptr %3232, align 8
   %3234 = getelementptr inbounds i8, ptr %3233, i64 8
@@ -7836,7 +7836,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   store ptr %3235, ptr %106, align 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %3234, ptr noundef nonnull align 8 dereferenceable(8) %106)
   %3242 = load ptr, ptr %.21711, align 8
-  %3243 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3243 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3244 = getelementptr inbounds i8, ptr %3243, i64 -8
   %3245 = load ptr, ptr %3244, align 8
   %3246 = getelementptr inbounds i8, ptr %3245, i64 16
@@ -7880,7 +7880,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   br label %7938
 
 3265:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %3266 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3266 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3267 = getelementptr inbounds i8, ptr %3266, i64 -8
   %3268 = load ptr, ptr %3267, align 8
   %3269 = getelementptr inbounds i8, ptr %3268, i64 8
@@ -7906,7 +7906,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit: ; preds = %3265
   %3281 = load ptr, ptr %3280, align 8
   %3282 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %3281)
   store ptr %3282, ptr %107, align 8
-  %3283 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3283 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3284 = getelementptr inbounds i8, ptr %3283, i64 -8
   %3285 = load ptr, ptr %3284, align 8
   %3286 = getelementptr inbounds i8, ptr %3285, i64 8
@@ -7943,12 +7943,12 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2272: ; preds = %_ZNSt6vecto
   %3308 = load ptr, ptr %3307, align 8
   %3309 = getelementptr inbounds i8, ptr %3308, i64 80
   %3310 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3309, ptr noundef nonnull align 8 dereferenceable(32) %3304)
-  %3311 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3311 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3312 = getelementptr inbounds i8, ptr %3311, i64 -8
   %3313 = load ptr, ptr %3312, align 8
   %3314 = getelementptr inbounds i8, ptr %3313, i64 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %3314, ptr noundef nonnull align 8 dereferenceable(8) %107)
-  %3315 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3315 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3316 = getelementptr inbounds i8, ptr %3315, i64 -8
   %3317 = load ptr, ptr %3316, align 8
   %3318 = getelementptr inbounds i8, ptr %3317, i64 8
@@ -7963,7 +7963,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2272: ; preds = %_ZNSt6vecto
   br label %.loopexit2713
 
 3322:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %3323 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3324 = getelementptr inbounds i8, ptr %3323, i64 -8
   %3325 = load ptr, ptr %3324, align 8
   %3326 = getelementptr inbounds i8, ptr %3325, i64 16
@@ -7993,7 +7993,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %3322, %3331
   br i1 %3337, label %3339, label %3364
 
 3339:                                             ; preds = %3338
-  %3340 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3340 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3341 = getelementptr inbounds i8, ptr %3340, i64 -8
   %3342 = load ptr, ptr %3341, align 8
   %3343 = getelementptr inbounds i8, ptr %3342, i64 16
@@ -8012,7 +8012,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %3322, %3331
   br label %3352
 
 3352:                                             ; preds = %3351, %3339
-  %3353 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3354 = getelementptr inbounds i8, ptr %3353, i64 -8
   %3355 = load ptr, ptr %3354, align 8
   %3356 = getelementptr inbounds i8, ptr %3355, i64 16
@@ -8030,7 +8030,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %3322, %3331
   br label %7938
 
 3364:                                             ; preds = %3352, %3338
-  %3365 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3365 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3366 = getelementptr inbounds i8, ptr %3365, i64 -8
   %3367 = load ptr, ptr %3366, align 8
   %3368 = getelementptr inbounds i8, ptr %3367, i64 16
@@ -8060,7 +8060,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2275:        ; preds = %3364, %3373
   br i1 %3379, label %3381, label %3406
 
 3381:                                             ; preds = %3380
-  %3382 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3382 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3383 = getelementptr inbounds i8, ptr %3382, i64 -8
   %3384 = load ptr, ptr %3383, align 8
   %3385 = getelementptr inbounds i8, ptr %3384, i64 16
@@ -8079,7 +8079,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2275:        ; preds = %3364, %3373
   br label %3394
 
 3394:                                             ; preds = %3393, %3381
-  %3395 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3395 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3396 = getelementptr inbounds i8, ptr %3395, i64 -8
   %3397 = load ptr, ptr %3396, align 8
   %3398 = getelementptr inbounds i8, ptr %3397, i64 16
@@ -8097,7 +8097,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2275:        ; preds = %3364, %3373
   br label %7938
 
 3406:                                             ; preds = %3394, %3380
-  %3407 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3407 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3408 = getelementptr inbounds i8, ptr %3407, i64 -8
   %3409 = load ptr, ptr %3408, align 8
   %3410 = getelementptr inbounds i8, ptr %3409, i64 16
@@ -8127,7 +8127,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3406, %3415
   br i1 %3421, label %3423, label %3448
 
 3423:                                             ; preds = %3422
-  %3424 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3425 = getelementptr inbounds i8, ptr %3424, i64 -8
   %3426 = load ptr, ptr %3425, align 8
   %3427 = getelementptr inbounds i8, ptr %3426, i64 16
@@ -8146,7 +8146,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3406, %3415
   br label %3436
 
 3436:                                             ; preds = %3435, %3423
-  %3437 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3437 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3438 = getelementptr inbounds i8, ptr %3437, i64 -8
   %3439 = load ptr, ptr %3438, align 8
   %3440 = getelementptr inbounds i8, ptr %3439, i64 16
@@ -8164,7 +8164,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3406, %3415
   br label %7938
 
 3448:                                             ; preds = %3436, %3422
-  %3449 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3449 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3450 = getelementptr inbounds i8, ptr %3449, i64 -8
   %3451 = load ptr, ptr %3450, align 8
   %3452 = getelementptr inbounds i8, ptr %3451, i64 16
@@ -8194,7 +8194,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %3463, label %3465, label %3489
 
 3465:                                             ; preds = %3464
-  %3466 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3466 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3467 = getelementptr inbounds i8, ptr %3466, i64 -8
   %3468 = load ptr, ptr %3467, align 8
   %3469 = getelementptr inbounds i8, ptr %3468, i64 16
@@ -8213,7 +8213,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %.thread
 
 .thread:                                          ; preds = %3465, %3477
-  %3478 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3479 = getelementptr inbounds i8, ptr %3478, i64 -8
   %3480 = load ptr, ptr %3479, align 8
   %3481 = getelementptr inbounds i8, ptr %3480, i64 16
@@ -8249,7 +8249,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
           to label %3496 unwind label %3516
 
 3496:                                             ; preds = %3494
-  %3497 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3497 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3498 = getelementptr inbounds i8, ptr %3497, i64 -8
   %3499 = load ptr, ptr %3498, align 8
   %3500 = getelementptr inbounds i8, ptr %3499, i64 16
@@ -8316,7 +8316,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 3532:                                             ; preds = %3529
   store ptr %3528, ptr %3531, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #27
-  %3533 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3533 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3534 = getelementptr inbounds i8, ptr %3533, i64 -8
   %3535 = load ptr, ptr %3534, align 8
   %3536 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
@@ -8347,7 +8347,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
           to label %3545 unwind label %3570
 
 3545:                                             ; preds = %3543
-  %3546 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3546 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3547 = getelementptr inbounds i8, ptr %3546, i64 -8
   %3548 = load ptr, ptr %3547, align 8
   %3549 = getelementptr inbounds i8, ptr %3548, i64 16
@@ -8466,7 +8466,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %3619 = load i32, ptr %3602, align 4
   %3620 = getelementptr inbounds i8, ptr %3591, i64 276
   store i32 %3619, ptr %3620, align 4
-  %3621 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3621 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3622 = getelementptr inbounds i8, ptr %3621, i64 -8
   %3623 = load ptr, ptr %3622, align 8
   %3624 = getelementptr inbounds i8, ptr %3623, i64 8
@@ -8515,7 +8515,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %3645 = load i32, ptr %3644, align 4
   %3646 = getelementptr inbounds i8, ptr %3632, i64 276
   store i32 %3645, ptr %3646, align 4
-  %3647 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3647 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3648 = getelementptr inbounds i8, ptr %3647, i64 -8
   %3649 = load ptr, ptr %3648, align 8
   %3650 = getelementptr inbounds i8, ptr %3649, i64 8
@@ -8634,7 +8634,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %3798
 
 3708:                                             ; preds = %3693
-  %3709 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3709 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3710 = getelementptr inbounds i8, ptr %3709, i64 -8
   %3711 = load ptr, ptr %3710, align 8
   %3712 = getelementptr inbounds i8, ptr %3711, i64 4
@@ -8794,7 +8794,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %3810 = load i32, ptr %3809, align 4
   %3811 = getelementptr inbounds i8, ptr %3801, i64 276
   store i32 %3810, ptr %3811, align 4
-  %3812 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3812 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3813 = getelementptr inbounds i8, ptr %3812, i64 -8
   %3814 = load ptr, ptr %3813, align 8
   %3815 = getelementptr inbounds i8, ptr %3814, i64 8
@@ -8826,7 +8826,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   store i32 %436, ptr %3827, align 4
   %3828 = getelementptr inbounds i8, ptr %3820, i64 276
   store i32 %435, ptr %3828, align 4
-  %3829 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3830 = getelementptr inbounds i8, ptr %3829, i64 -8
   %3831 = load ptr, ptr %3830, align 8
   %3832 = getelementptr inbounds i8, ptr %3831, i64 8
@@ -9136,7 +9136,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %3976
 
 3976:                                             ; preds = %3975, %3972
-  %3977 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3977 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %3978 = getelementptr inbounds i8, ptr %3977, i64 -8
   %3979 = load ptr, ptr %3978, align 8
   %3980 = getelementptr inbounds i8, ptr %3979, i64 8
@@ -9187,7 +9187,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %4006
 
 4006:                                             ; preds = %4005, %4001
-  %4007 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4007 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4008 = getelementptr inbounds i8, ptr %4007, i64 -8
   %4009 = load ptr, ptr %4008, align 8
   %4010 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
@@ -9228,7 +9228,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4028 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
   %4029 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %4028)
   store ptr %4029, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf2E, align 8
-  %4030 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4030 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4031 = getelementptr inbounds i8, ptr %4030, i64 -8
   %4032 = load ptr, ptr %4031, align 8
   %4033 = getelementptr inbounds i8, ptr %4032, i64 8
@@ -9632,7 +9632,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4222:                                             ; preds = %4215, %4210
-  %4223 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4223 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4224 = getelementptr inbounds i8, ptr %4223, i64 -8
   %4225 = load ptr, ptr %4224, align 8
   %4226 = getelementptr inbounds i8, ptr %4225, i64 8
@@ -9647,7 +9647,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4229:                                             ; preds = %4227
   store ptr %4228, ptr %132, align 8
-  %4230 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4230 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4231 = getelementptr inbounds i8, ptr %4230, i64 -8
   %4232 = load ptr, ptr %4231, align 8
   %4233 = getelementptr inbounds i8, ptr %4232, i64 8
@@ -9663,7 +9663,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4236:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %4237 = load i32, ptr %.21721, align 4
-  %4238 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4239 = getelementptr inbounds i8, ptr %4238, i64 -8
   %4240 = load ptr, ptr %4239, align 8
   %4241 = getelementptr inbounds i8, ptr %4240, i64 264
@@ -9683,7 +9683,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4252 = load ptr, ptr %4239, align 8
   %4253 = getelementptr inbounds i8, ptr %4252, i64 276
   store i32 %4251, ptr %4253, align 4
-  store ptr %4239, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4239, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4254 = getelementptr inbounds i8, ptr %.21721, i64 -64
   %4255 = load i32, ptr %4254, align 4
   %4256 = getelementptr inbounds i8, ptr %4238, i64 -16
@@ -9701,7 +9701,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4265 = load ptr, ptr %4256, align 8
   %4266 = getelementptr inbounds i8, ptr %4265, i64 276
   store i32 %435, ptr %4266, align 4
-  store ptr %4256, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4256, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4267 = load i32, ptr %4254, align 4
   store i32 %4267, ptr %9, align 4
   %4268 = load i32, ptr %4259, align 4
@@ -9726,7 +9726,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %_ZN5Yosys5RTLIL2ID12always_latchE._ZN5Yosys5RTLIL2ID11always_combE = select i1 %4275, ptr @_ZN5Yosys5RTLIL2ID12always_latchE, ptr @_ZN5Yosys5RTLIL2ID11always_combE
   %4279 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %4278, ptr noundef nonnull align 4 dereferenceable(4) %_ZN5Yosys5RTLIL2ID12always_latchE._ZN5Yosys5RTLIL2ID11always_combE)
   store ptr %4276, ptr %4279, align 8
-  %4280 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4280 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4281 = getelementptr inbounds i8, ptr %4280, i64 -8
   %4282 = load ptr, ptr %4281, align 8
   %4283 = getelementptr inbounds i8, ptr %4282, i64 8
@@ -9744,7 +9744,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4287:                                             ; preds = %4271
   store ptr %4284, ptr %134, align 8
-  %4288 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4288 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4289 = getelementptr inbounds i8, ptr %4288, i64 -8
   %4290 = load ptr, ptr %4289, align 8
   %4291 = getelementptr inbounds i8, ptr %4290, i64 8
@@ -9759,9 +9759,9 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4294:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %4295 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4296 = getelementptr inbounds i8, ptr %4295, i64 -16
-  store ptr %4296, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4296, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 4297:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -9774,7 +9774,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4300 = getelementptr inbounds i8, ptr %.21711, i64 -8
   %4301 = load ptr, ptr %4300, align 8
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef nonnull %4298, ptr noundef %4301)
-  %4302 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4303 = getelementptr inbounds i8, ptr %4302, i64 -8
   %4304 = load ptr, ptr %4303, align 8
   %4305 = getelementptr inbounds i8, ptr %4304, i64 8
@@ -9786,7 +9786,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4307:                                             ; preds = %4299
   store ptr %4306, ptr %136, align 8
-  %4308 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4308 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4309 = getelementptr inbounds i8, ptr %4308, i64 -8
   %4310 = load ptr, ptr %4309, align 8
   %4311 = getelementptr inbounds i8, ptr %4310, i64 8
@@ -9807,9 +9807,9 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4316:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %4317 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4318 = getelementptr inbounds i8, ptr %4317, i64 -16
-  store ptr %4318, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4318, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 4319:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -9835,7 +9835,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4332 = load i32, ptr %4331, align 4
   %4333 = getelementptr inbounds i8, ptr %4320, i64 276
   store i32 %4332, ptr %4333, align 4
-  %4334 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4334 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4335 = getelementptr inbounds i8, ptr %4334, i64 -8
   %4336 = load ptr, ptr %4335, align 8
   %4337 = getelementptr inbounds i8, ptr %4336, i64 8
@@ -9874,7 +9874,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4355 = load i32, ptr %4354, align 4
   %4356 = getelementptr inbounds i8, ptr %4343, i64 276
   store i32 %4355, ptr %4356, align 4
-  %4357 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4358 = getelementptr inbounds i8, ptr %4357, i64 -8
   %4359 = load ptr, ptr %4358, align 8
   %4360 = getelementptr inbounds i8, ptr %4359, i64 8
@@ -9897,7 +9897,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4367:                                             ; preds = %4365
   store ptr %4366, ptr %139, align 8
-  %4368 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4369 = getelementptr inbounds i8, ptr %4368, i64 -8
   %4370 = load ptr, ptr %4369, align 8
   %4371 = getelementptr inbounds i8, ptr %4370, i64 8
@@ -9951,7 +9951,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4391:                                             ; preds = %4389
   store ptr %4390, ptr %140, align 8
-  %4392 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4392 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4393 = getelementptr inbounds i8, ptr %4392, i64 -8
   %4394 = load ptr, ptr %4393, align 8
   %4395 = getelementptr inbounds i8, ptr %4394, i64 8
@@ -9977,9 +9977,9 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4405:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %4406 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4406 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4407 = getelementptr inbounds i8, ptr %4406, i64 -8
-  store ptr %4407, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4407, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 4408:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -9989,7 +9989,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 4410:                                             ; preds = %4408
   store ptr %4409, ptr %141, align 8
-  %4411 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4412 = getelementptr inbounds i8, ptr %4411, i64 -8
   %4413 = load ptr, ptr %4412, align 8
   %4414 = getelementptr inbounds i8, ptr %4413, i64 8
@@ -10099,7 +10099,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4468:                                             ; preds = %4463, %4448
-  %4469 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4469 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4470 = getelementptr inbounds i8, ptr %4469, i64 -8
   %4471 = load ptr, ptr %4470, align 8
   %4472 = getelementptr inbounds i8, ptr %4471, i64 8
@@ -10184,7 +10184,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4512:                                             ; preds = %4507, %4492
-  %4513 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4513 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4514 = getelementptr inbounds i8, ptr %4513, i64 -8
   %4515 = load ptr, ptr %4514, align 8
   %4516 = getelementptr inbounds i8, ptr %4515, i64 8
@@ -10269,7 +10269,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4556:                                             ; preds = %4551, %4536
-  %4557 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4557 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4558 = getelementptr inbounds i8, ptr %4557, i64 -8
   %4559 = load ptr, ptr %4558, align 8
   %4560 = getelementptr inbounds i8, ptr %4559, i64 8
@@ -10354,7 +10354,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4600:                                             ; preds = %4595, %4580
-  %4601 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4601 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4602 = getelementptr inbounds i8, ptr %4601, i64 -8
   %4603 = load ptr, ptr %4602, align 8
   %4604 = getelementptr inbounds i8, ptr %4603, i64 8
@@ -10427,7 +10427,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4636:                                             ; preds = %4628, %4633, %4613
-  %4637 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4638 = getelementptr inbounds i8, ptr %4637, i64 -8
   %4639 = load ptr, ptr %4638, align 8
   %4640 = getelementptr inbounds i8, ptr %4639, i64 8
@@ -10491,7 +10491,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4668:                                             ; preds = %4660, %4665, %4645
-  %4669 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4669 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4670 = getelementptr inbounds i8, ptr %4669, i64 -8
   %4671 = load ptr, ptr %4670, align 8
   %4672 = getelementptr inbounds i8, ptr %4671, i64 8
@@ -10555,7 +10555,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4700:                                             ; preds = %4692, %4697, %4677
-  %4701 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4701 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4702 = getelementptr inbounds i8, ptr %4701, i64 -8
   %4703 = load ptr, ptr %4702, align 8
   %4704 = getelementptr inbounds i8, ptr %4703, i64 8
@@ -10626,7 +10626,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4737:                                             ; preds = %4732, %4717
-  %4738 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4738 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4739 = getelementptr inbounds i8, ptr %4738, i64 -8
   %4740 = load ptr, ptr %4739, align 8
   %4741 = getelementptr inbounds i8, ptr %4740, i64 8
@@ -10720,7 +10720,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %7938
 
 4785:                                             ; preds = %4780, %4765
-  %4786 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4786 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4787 = getelementptr inbounds i8, ptr %4786, i64 -8
   %4788 = load ptr, ptr %4787, align 8
   %4789 = getelementptr inbounds i8, ptr %4788, i64 8
@@ -10778,7 +10778,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4819 = load i32, ptr %4818, align 4
   %4820 = getelementptr inbounds i8, ptr %4802, i64 276
   store i32 %4819, ptr %4820, align 4
-  %4821 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4821 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4822 = getelementptr inbounds i8, ptr %4821, i64 -8
   %4823 = load ptr, ptr %4822, align 8
   %4824 = getelementptr inbounds i8, ptr %4823, i64 8
@@ -10789,7 +10789,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2120, label %.loopexit2713, label %4827
 
 4827:                                             ; preds = %4808
-  %4828 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4828 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4829 = getelementptr inbounds i8, ptr %4828, i64 -8
   %4830 = load ptr, ptr %4829, align 8
   %4831 = getelementptr inbounds i8, ptr %4830, i64 16
@@ -10838,7 +10838,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4857 = load i32, ptr %4856, align 4
   %4858 = getelementptr inbounds i8, ptr %4843, i64 276
   store i32 %4857, ptr %4858, align 4
-  %4859 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4859 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4860 = getelementptr inbounds i8, ptr %4859, i64 -8
   %4861 = load ptr, ptr %4860, align 8
   %4862 = getelementptr inbounds i8, ptr %4861, i64 8
@@ -10849,7 +10849,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2119, label %.loopexit2713, label %4865
 
 4865:                                             ; preds = %4846
-  %4866 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4866 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4867 = getelementptr inbounds i8, ptr %4866, i64 -8
   %4868 = load ptr, ptr %4867, align 8
   %4869 = getelementptr inbounds i8, ptr %4868, i64 16
@@ -10901,7 +10901,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4898 = load i32, ptr %4897, align 4
   %4899 = getelementptr inbounds i8, ptr %4881, i64 276
   store i32 %4898, ptr %4899, align 4
-  %4900 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4900 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4901 = getelementptr inbounds i8, ptr %4900, i64 -8
   %4902 = load ptr, ptr %4901, align 8
   %4903 = getelementptr inbounds i8, ptr %4902, i64 8
@@ -10912,7 +10912,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2118, label %.loopexit2713, label %4906
 
 4906:                                             ; preds = %4887
-  %4907 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4907 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4908 = getelementptr inbounds i8, ptr %4907, i64 -8
   %4909 = load ptr, ptr %4908, align 8
   %4910 = getelementptr inbounds i8, ptr %4909, i64 16
@@ -10961,7 +10961,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4936 = load i32, ptr %4935, align 4
   %4937 = getelementptr inbounds i8, ptr %4922, i64 276
   store i32 %4936, ptr %4937, align 4
-  %4938 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4938 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4939 = getelementptr inbounds i8, ptr %4938, i64 -8
   %4940 = load ptr, ptr %4939, align 8
   %4941 = getelementptr inbounds i8, ptr %4940, i64 8
@@ -10972,7 +10972,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2117, label %.loopexit2713, label %4944
 
 4944:                                             ; preds = %4925
-  %4945 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4945 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4946 = getelementptr inbounds i8, ptr %4945, i64 -8
   %4947 = load ptr, ptr %4946, align 8
   %4948 = getelementptr inbounds i8, ptr %4947, i64 16
@@ -11021,7 +11021,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %4974 = load i32, ptr %4973, align 4
   %4975 = getelementptr inbounds i8, ptr %4960, i64 276
   store i32 %4974, ptr %4975, align 4
-  %4976 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4976 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4977 = getelementptr inbounds i8, ptr %4976, i64 -8
   %4978 = load ptr, ptr %4977, align 8
   %4979 = getelementptr inbounds i8, ptr %4978, i64 8
@@ -11032,7 +11032,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2116, label %.loopexit2713, label %4982
 
 4982:                                             ; preds = %4963
-  %4983 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4983 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %4984 = getelementptr inbounds i8, ptr %4983, i64 -8
   %4985 = load ptr, ptr %4984, align 8
   %4986 = getelementptr inbounds i8, ptr %4985, i64 16
@@ -11097,7 +11097,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %5020 = load i32, ptr %5019, align 4
   %5021 = getelementptr inbounds i8, ptr %5006, i64 276
   store i32 %5020, ptr %5021, align 4
-  %5022 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5022 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5023 = getelementptr inbounds i8, ptr %5022, i64 -8
   %5024 = load ptr, ptr %5023, align 8
   %5025 = getelementptr inbounds i8, ptr %5024, i64 8
@@ -11108,7 +11108,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2115, label %.loopexit2713, label %5028
 
 5028:                                             ; preds = %5009
-  %5029 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5029 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5030 = getelementptr inbounds i8, ptr %5029, i64 -8
   %5031 = load ptr, ptr %5030, align 8
   %5032 = getelementptr inbounds i8, ptr %5031, i64 16
@@ -11173,7 +11173,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   %5066 = load i32, ptr %5065, align 4
   %5067 = getelementptr inbounds i8, ptr %5052, i64 276
   store i32 %5066, ptr %5067, align 4
-  %5068 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5068 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5069 = getelementptr inbounds i8, ptr %5068, i64 -8
   %5070 = load ptr, ptr %5069, align 8
   %5071 = getelementptr inbounds i8, ptr %5070, i64 8
@@ -11184,7 +11184,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br i1 %.not2114, label %.loopexit2713, label %5074
 
 5074:                                             ; preds = %5055
-  %5075 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5075 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5076 = getelementptr inbounds i8, ptr %5075, i64 -8
   %5077 = load ptr, ptr %5076, align 8
   %5078 = getelementptr inbounds i8, ptr %5077, i64 16
@@ -11218,7 +11218,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 5094:                                             ; preds = %5089
   store ptr %5090, ptr %158, align 8
-  %5095 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5095 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5096 = getelementptr inbounds i8, ptr %5095, i64 -8
   %5097 = load ptr, ptr %5096, align 8
   %5098 = getelementptr inbounds i8, ptr %5097, i64 8
@@ -11295,7 +11295,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 5141:                                             ; preds = %5136
   store ptr %5137, ptr %159, align 8
-  %5142 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5142 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5143 = getelementptr inbounds i8, ptr %5142, i64 -8
   %5144 = load ptr, ptr %5143, align 8
   %5145 = getelementptr inbounds i8, ptr %5144, i64 8
@@ -11443,7 +11443,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
 
 5210:                                             ; preds = %5203
   store ptr %5208, ptr %161, align 8
-  %5211 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5212 = getelementptr inbounds i8, ptr %5211, i64 -8
   %5213 = load ptr, ptr %5212, align 8
   %5214 = getelementptr inbounds i8, ptr %5213, i64 8
@@ -11570,7 +11570,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2279:        ; preds = %3448, %3457
   br label %5287
 
 5287:                                             ; preds = %5286, %5275
-  %5288 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5288 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5289 = getelementptr inbounds i8, ptr %5288, i64 -8
   %5290 = load ptr, ptr %5289, align 8
   store ptr %5290, ptr %164, align 8
@@ -11705,7 +11705,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %5357
 
 5357:                                             ; preds = %5356, %5350
-  %5358 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5359 = getelementptr inbounds i8, ptr %5358, i64 -8
   %5360 = load ptr, ptr %5359, align 8
   %5361 = getelementptr inbounds i8, ptr %5360, i64 8
@@ -11726,7 +11726,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 5367:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5368 = getelementptr inbounds i8, ptr %.21721, i64 -48
   %5369 = load i32, ptr %5368, align 4
-  %5370 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5370 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5371 = getelementptr inbounds i8, ptr %5370, i64 -8
   %5372 = load ptr, ptr %5371, align 8
   %5373 = getelementptr inbounds i8, ptr %5372, i64 264
@@ -11746,7 +11746,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5384 = load ptr, ptr %5371, align 8
   %5385 = getelementptr inbounds i8, ptr %5384, i64 276
   store i32 %5383, ptr %5385, align 4
-  store ptr %5371, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5371, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5386:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -11769,7 +11769,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %5395
 
 5395:                                             ; preds = %5394, %5388
-  %5396 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5396 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5397 = getelementptr inbounds i8, ptr %5396, i64 -8
   %5398 = load ptr, ptr %5397, align 8
   %5399 = getelementptr inbounds i8, ptr %5398, i64 8
@@ -11790,7 +11790,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 5405:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5406 = getelementptr inbounds i8, ptr %.21721, i64 -48
   %5407 = load i32, ptr %5406, align 4
-  %5408 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5408 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5409 = getelementptr inbounds i8, ptr %5408, i64 -8
   %5410 = load ptr, ptr %5409, align 8
   %5411 = getelementptr inbounds i8, ptr %5410, i64 264
@@ -11810,7 +11810,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5422 = load ptr, ptr %5409, align 8
   %5423 = getelementptr inbounds i8, ptr %5422, i64 276
   store i32 %5421, ptr %5423, align 4
-  store ptr %5409, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5409, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5424:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -11824,7 +11824,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5427:                                             ; preds = %5425
   store ptr %5426, ptr %170, align 8
-  %5428 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5428 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5429 = getelementptr inbounds i8, ptr %5428, i64 -8
   %5430 = load ptr, ptr %5429, align 8
   %5431 = getelementptr inbounds i8, ptr %5430, i64 8
@@ -11856,7 +11856,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5444 = load ptr, ptr %5443, align 8
   %5445 = load ptr, ptr %.21711, align 8
   call fastcc void @_ZL16checkLabelsMatchPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull @.str.99, ptr noundef %5444, ptr noundef %5445)
-  %5446 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5446 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5447 = getelementptr inbounds i8, ptr %5446, i64 -8
   %5448 = load ptr, ptr %5447, align 8
   %5449 = load i8, ptr @_ZN5Yosys16VERILOG_FRONTEND7sv_modeE, align 1
@@ -11918,7 +11918,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 .loopexit2715:                                    ; preds = %5470, %5454, %5442, %5451, %5466
   %5472 = getelementptr inbounds i8, ptr %.21721, i64 -96
   %5473 = load i32, ptr %5472, align 4
-  %5474 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5474 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5475 = getelementptr inbounds i8, ptr %5474, i64 -8
   %5476 = load ptr, ptr %5475, align 8
   %5477 = getelementptr inbounds i8, ptr %5476, i64 264
@@ -11958,9 +11958,9 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %5497
 
 5497:                                             ; preds = %5496, %5493
-  %5498 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5498 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5499 = getelementptr inbounds i8, ptr %5498, i64 -8
-  store ptr %5499, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5499, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5500:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -11970,7 +11970,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5502:                                             ; preds = %5500
   store ptr %5501, ptr %173, align 8
-  %5503 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5503 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5504 = getelementptr inbounds i8, ptr %5503, i64 -8
   %5505 = load ptr, ptr %5504, align 8
   %5506 = getelementptr inbounds i8, ptr %5505, i64 8
@@ -11989,7 +11989,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 5512:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5513 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5513 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5514 = getelementptr inbounds i8, ptr %5513, i64 -8
   %5515 = load ptr, ptr %5514, align 8
   %5516 = getelementptr inbounds i8, ptr %5515, i64 8
@@ -12017,7 +12017,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5526 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5525, ptr noundef nonnull align 8 dereferenceable(32) %175) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %175) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #27
-  %5527 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5527 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5528 = getelementptr inbounds i8, ptr %5527, i64 -8
   %5529 = load ptr, ptr %5528, align 8
   %5530 = getelementptr inbounds i8, ptr %5529, i64 8
@@ -12039,7 +12039,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5535:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5536 = load i32, ptr %.21721, align 4
-  %5537 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5537 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5538 = getelementptr inbounds i8, ptr %5537, i64 -8
   %5539 = load ptr, ptr %5538, align 8
   %5540 = getelementptr inbounds i8, ptr %5539, i64 264
@@ -12059,7 +12059,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5551 = load ptr, ptr %5538, align 8
   %5552 = getelementptr inbounds i8, ptr %5551, i64 276
   store i32 %5550, ptr %5552, align 4
-  store ptr %5538, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5538, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5553 = getelementptr inbounds i8, ptr %.21721, i64 -176
   %5554 = load i32, ptr %5553, align 4
   %5555 = getelementptr inbounds i8, ptr %5537, i64 -16
@@ -12080,7 +12080,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5567 = load ptr, ptr %5560, align 8
   %5568 = getelementptr inbounds i8, ptr %5567, i64 276
   store i32 %5566, ptr %5568, align 4
-  store ptr %5560, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5560, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5569:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12090,7 +12090,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5571:                                             ; preds = %5569
   store ptr %5570, ptr %177, align 8
-  %5572 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5572 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5573 = getelementptr inbounds i8, ptr %5572, i64 -8
   %5574 = load ptr, ptr %5573, align 8
   %5575 = getelementptr inbounds i8, ptr %5574, i64 8
@@ -12106,13 +12106,13 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5580:                                             ; preds = %5571
   store ptr %5579, ptr %178, align 8
-  %5581 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5581 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5582 = getelementptr inbounds i8, ptr %5581, i64 -8
   %5583 = load ptr, ptr %5582, align 8
   %5584 = getelementptr inbounds i8, ptr %5583, i64 8
   %5585 = getelementptr inbounds i8, ptr %.21711, i64 -8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5584, ptr noundef nonnull align 8 dereferenceable(8) %5585)
-  %5586 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5586 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5587 = getelementptr inbounds i8, ptr %5586, i64 -8
   %5588 = load ptr, ptr %5587, align 8
   %5589 = getelementptr inbounds i8, ptr %5588, i64 8
@@ -12134,7 +12134,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5594:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5595 = load i32, ptr %.21721, align 4
-  %5596 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5596 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5597 = getelementptr inbounds i8, ptr %5596, i64 -8
   %5598 = load ptr, ptr %5597, align 8
   %5599 = getelementptr inbounds i8, ptr %5598, i64 264
@@ -12155,7 +12155,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5611 = getelementptr inbounds i8, ptr %5610, i64 276
   store i32 %5609, ptr %5611, align 4
   %5612 = getelementptr inbounds i8, ptr %5596, i64 -16
-  store ptr %5612, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5612, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5613:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12165,7 +12165,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5615:                                             ; preds = %5613
   store ptr %5614, ptr %179, align 8
-  %5616 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5616 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5617 = getelementptr inbounds i8, ptr %5616, i64 -8
   %5618 = load ptr, ptr %5617, align 8
   %5619 = getelementptr inbounds i8, ptr %5618, i64 8
@@ -12181,13 +12181,13 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5624:                                             ; preds = %5615
   store ptr %5623, ptr %180, align 8
-  %5625 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5625 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5626 = getelementptr inbounds i8, ptr %5625, i64 -8
   %5627 = load ptr, ptr %5626, align 8
   %5628 = getelementptr inbounds i8, ptr %5627, i64 8
   %5629 = getelementptr inbounds i8, ptr %.21711, i64 -8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5628, ptr noundef nonnull align 8 dereferenceable(8) %5629)
-  %5630 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5630 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5631 = getelementptr inbounds i8, ptr %5630, i64 -8
   %5632 = load ptr, ptr %5631, align 8
   %5633 = getelementptr inbounds i8, ptr %5632, i64 8
@@ -12209,7 +12209,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5638:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5639 = load i32, ptr %.21721, align 4
-  %5640 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5640 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5641 = getelementptr inbounds i8, ptr %5640, i64 -8
   %5642 = load ptr, ptr %5641, align 8
   %5643 = getelementptr inbounds i8, ptr %5642, i64 264
@@ -12230,7 +12230,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5655 = getelementptr inbounds i8, ptr %5654, i64 276
   store i32 %5653, ptr %5655, align 4
   %5656 = getelementptr inbounds i8, ptr %5640, i64 -16
-  store ptr %5656, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5656, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5657:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12273,7 +12273,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5677 = load i32, ptr %5676, align 4
   %5678 = getelementptr inbounds i8, ptr %5662, i64 276
   store i32 %5677, ptr %5678, align 4
-  %5679 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5679 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5680 = getelementptr inbounds i8, ptr %5679, i64 -8
   %5681 = load ptr, ptr %5680, align 8
   %5682 = getelementptr inbounds i8, ptr %5681, i64 8
@@ -12326,7 +12326,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5702:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5703 = load i32, ptr %.21721, align 4
-  %5704 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5704 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5705 = getelementptr inbounds i8, ptr %5704, i64 -8
   %5706 = load ptr, ptr %5705, align 8
   %5707 = getelementptr inbounds i8, ptr %5706, i64 264
@@ -12349,9 +12349,9 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 5720:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5721 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5721 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5722 = getelementptr inbounds i8, ptr %5721, i64 -8
-  store ptr %5722, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5722, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5723 = getelementptr inbounds i8, ptr %.21721, i64 -112
   %5724 = load i32, ptr %5723, align 4
   %5725 = getelementptr inbounds i8, ptr %5721, i64 -16
@@ -12374,7 +12374,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5739 = load ptr, ptr %5730, align 8
   %5740 = getelementptr inbounds i8, ptr %5739, i64 276
   store i32 %5738, ptr %5740, align 4
-  store ptr %5730, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5730, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5741:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12386,7 +12386,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5745:                                             ; preds = %5741
   store ptr %5742, ptr %185, align 8
-  %5746 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5746 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5747 = getelementptr inbounds i8, ptr %5746, i64 -8
   %5748 = load ptr, ptr %5747, align 8
   %5749 = getelementptr inbounds i8, ptr %5748, i64 8
@@ -12398,7 +12398,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   call fastcc void @_ZL11append_attrPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEE(ptr noundef %5750, ptr noundef %5752)
   %5753 = getelementptr inbounds i8, ptr %.21721, i64 -16
   %5754 = load i32, ptr %5753, align 4
-  %5755 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5755 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5756 = getelementptr inbounds i8, ptr %5755, i64 -8
   %5757 = load ptr, ptr %5756, align 8
   %5758 = getelementptr inbounds i8, ptr %5757, i64 264
@@ -12429,7 +12429,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 5773:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5774 = getelementptr inbounds i8, ptr %.21721, i64 -112
   %5775 = load i32, ptr %5774, align 4
-  %5776 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5776 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5777 = getelementptr inbounds i8, ptr %5776, i64 -8
   %5778 = load ptr, ptr %5777, align 8
   %5779 = getelementptr inbounds i8, ptr %5778, i64 264
@@ -12449,10 +12449,10 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5790 = load ptr, ptr %5777, align 8
   %5791 = getelementptr inbounds i8, ptr %5790, i64 276
   store i32 %5789, ptr %5791, align 4
-  %5792 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5792 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5793 = getelementptr inbounds i8, ptr %5792, i64 -1
-  store ptr %5793, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  store ptr %5777, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5793, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
+  store ptr %5777, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5794:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12506,7 +12506,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 5820:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5821 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5821 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5822 = getelementptr inbounds i8, ptr %5821, i64 -8
   %5823 = load ptr, ptr %5822, align 8
   %5824 = getelementptr inbounds i8, ptr %5823, i64 32
@@ -12516,7 +12516,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5827:                                             ; preds = %5820
   %5828 = call noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_intEjbi(i32 noundef 1, i1 noundef zeroext false, i32 noundef 32)
-  %5829 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5830 = getelementptr inbounds i8, ptr %5829, i64 -8
   %5831 = load ptr, ptr %5830, align 8
   %5832 = getelementptr inbounds i8, ptr %5831, i64 32
@@ -12525,7 +12525,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 5834:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5835 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5835 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5836 = getelementptr inbounds i8, ptr %5835, i64 -8
   %5837 = load ptr, ptr %5836, align 8
   %5838 = getelementptr inbounds i8, ptr %5837, i64 32
@@ -12535,7 +12535,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5841:                                             ; preds = %5834
   %5842 = call noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_intEjbi(i32 noundef 1, i1 noundef zeroext false, i32 noundef 32)
-  %5843 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5844 = getelementptr inbounds i8, ptr %5843, i64 -8
   %5845 = load ptr, ptr %5844, align 8
   %5846 = getelementptr inbounds i8, ptr %5845, i64 32
@@ -12580,9 +12580,9 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5866 = load i32, ptr %5865, align 4
   %5867 = getelementptr inbounds i8, ptr %5851, i64 276
   store i32 %5866, ptr %5867, align 4
-  %5868 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5868 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5869 = getelementptr inbounds i8, ptr %5868, i64 -8
-  store ptr %5869, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5869, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5870 = getelementptr inbounds i8, ptr %5868, i64 -16
   %5871 = load ptr, ptr %5870, align 8
   %5872 = getelementptr inbounds i8, ptr %5871, i64 8
@@ -12614,7 +12614,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5880:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5881 = load i32, ptr %.21721, align 4
-  %5882 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5882 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5883 = getelementptr inbounds i8, ptr %5882, i64 -8
   %5884 = load ptr, ptr %5883, align 8
   %5885 = getelementptr inbounds i8, ptr %5884, i64 264
@@ -12638,7 +12638,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5898:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5899 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
-  %5900 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5900 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5901 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, align 8
   %.not2108 = icmp eq ptr %5900, %5901
   br i1 %.not2108, label %.thread2618, label %5902
@@ -12662,7 +12662,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5909:                                             ; preds = %.thread2618
   store ptr %5899, ptr %191, align 8
-  %5910 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5910 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5911 = getelementptr inbounds i8, ptr %5910, i64 -8
   %5912 = load ptr, ptr %5911, align 8
   %5913 = getelementptr inbounds i8, ptr %5912, i64 8
@@ -12683,7 +12683,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5918:                                             ; preds = %5916
   store ptr %5917, ptr %192, align 8
-  %5919 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5919 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5920 = getelementptr inbounds i8, ptr %5919, i64 -8
   %5921 = load ptr, ptr %5920, align 8
   %5922 = getelementptr inbounds i8, ptr %5921, i64 8
@@ -12700,11 +12700,11 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 5925:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5926 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5926 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5927 = getelementptr inbounds i8, ptr %5926, i64 -1
-  store ptr %5927, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5927, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5928 = load i32, ptr %.21721, align 4
-  %5929 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5929 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5930 = getelementptr inbounds i8, ptr %5929, i64 -8
   %5931 = load ptr, ptr %5930, align 8
   %5932 = getelementptr inbounds i8, ptr %5931, i64 264
@@ -12725,12 +12725,12 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5944 = getelementptr inbounds i8, ptr %5943, i64 276
   store i32 %5942, ptr %5944, align 4
   %5945 = getelementptr inbounds i8, ptr %5929, i64 -16
-  store ptr %5945, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5945, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5946:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %5947 = call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
-  %5948 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5948 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5949 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, align 8
   %.not2106 = icmp eq ptr %5948, %5949
   br i1 %.not2106, label %.thread2622, label %5950
@@ -12754,7 +12754,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 5957:                                             ; preds = %.thread2622
   store ptr %5947, ptr %194, align 8
-  %5958 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5958 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5959 = getelementptr inbounds i8, ptr %5958, i64 -8
   %5960 = load ptr, ptr %5959, align 8
   %5961 = getelementptr inbounds i8, ptr %5960, i64 8
@@ -12772,7 +12772,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   store i8 0, ptr %195, align 1
   call void @_ZNSt6vectorIcSaIcEE9push_backEOc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, ptr noundef nonnull align 1 dereferenceable(1) %195)
   %5965 = load i32, ptr %.21721, align 4
-  %5966 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5966 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5967 = getelementptr inbounds i8, ptr %5966, i64 -8
   %5968 = load ptr, ptr %5967, align 8
   %5969 = getelementptr inbounds i8, ptr %5968, i64 264
@@ -12795,12 +12795,12 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 5982:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %5983 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5983 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %5984 = getelementptr inbounds i8, ptr %5983, i64 -1
-  store ptr %5984, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %5985 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5984, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
+  %5985 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %5986 = getelementptr inbounds i8, ptr %5985, i64 -8
-  store ptr %5986, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %5986, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 5987:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -12825,7 +12825,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %5999 = load i32, ptr %5998, align 4
   %6000 = getelementptr inbounds i8, ptr %5988, i64 276
   store i32 %5999, ptr %6000, align 4
-  %6001 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6001 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6002 = getelementptr inbounds i8, ptr %6001, i64 -8
   %6003 = load ptr, ptr %6002, align 8
   %6004 = getelementptr inbounds i8, ptr %6003, i64 8
@@ -12860,13 +12860,13 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6019 = load i32, ptr %6018, align 4
   %6020 = getelementptr inbounds i8, ptr %6008, i64 276
   store i32 %6019, ptr %6020, align 4
-  %6021 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6021 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6022 = getelementptr inbounds i8, ptr %6021, i64 -8
   %6023 = load ptr, ptr %6022, align 8
   %6024 = getelementptr inbounds i8, ptr %6023, i64 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %6024, ptr noundef nonnull align 8 dereferenceable(8) %197)
   %6025 = load ptr, ptr %.21711, align 8
-  %6026 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6026 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6027 = getelementptr inbounds i8, ptr %6026, i64 -8
   %6028 = load ptr, ptr %6027, align 8
   %6029 = getelementptr inbounds i8, ptr %6028, i64 16
@@ -12891,7 +12891,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 6040:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6041 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6041 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6042 = getelementptr inbounds i8, ptr %6041, i64 -8
   %6043 = load ptr, ptr %6042, align 8
   %6044 = getelementptr inbounds i8, ptr %6043, i64 8
@@ -12899,7 +12899,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 6045:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6046 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6047 = getelementptr inbounds i8, ptr %6046, i64 -8
   %6048 = load ptr, ptr %6047, align 8
   %6049 = getelementptr inbounds i8, ptr %6048, i64 8
@@ -13102,7 +13102,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %.loopexit2713
 
 6162:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6163 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6164 = getelementptr inbounds i8, ptr %6163, i64 -8
   %6165 = load ptr, ptr %6164, align 8
   %6166 = getelementptr inbounds i8, ptr %6165, i64 8
@@ -13177,7 +13177,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6200 = call fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr noundef %6198, ptr noundef null)
   store ptr %6200, ptr %199, align 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %6199, ptr noundef nonnull align 8 dereferenceable(8) %199)
-  %6201 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6202 = getelementptr inbounds i8, ptr %6201, i64 -8
   %6203 = load ptr, ptr %6202, align 8
   %6204 = getelementptr inbounds i8, ptr %6203, i64 8
@@ -13207,7 +13207,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6221:                                             ; preds = %6188
   store ptr %6218, ptr %198, align 8
-  %6222 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6223 = getelementptr inbounds i8, ptr %6222, i64 -8
   %6224 = load ptr, ptr %6223, align 8
   %6225 = getelementptr inbounds i8, ptr %6224, i64 8
@@ -13249,7 +13249,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6244:                                             ; preds = %6239
   store ptr %6240, ptr %200, align 8
-  %6245 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6245 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6246 = getelementptr inbounds i8, ptr %6245, i64 -8
   %6247 = load ptr, ptr %6246, align 8
   %6248 = getelementptr inbounds i8, ptr %6247, i64 8
@@ -13286,7 +13286,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6266:                                             ; preds = %6264
   store ptr %6265, ptr %201, align 8
-  %6267 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6267 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6268 = getelementptr inbounds i8, ptr %6267, i64 -8
   %6269 = load ptr, ptr %6268, align 8
   %6270 = getelementptr inbounds i8, ptr %6269, i64 8
@@ -13301,7 +13301,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 6273:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6274 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6275 = getelementptr inbounds i8, ptr %6274, i64 -8
   %6276 = load ptr, ptr %6275, align 8
   %6277 = getelementptr inbounds i8, ptr %6276, i64 8
@@ -13311,7 +13311,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 6278:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %6279 = getelementptr inbounds i8, ptr %.21721, i64 -160
   %6280 = load i32, ptr %6279, align 4
-  %6281 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6281 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6282 = getelementptr inbounds i8, ptr %6281, i64 -8
   %6283 = load ptr, ptr %6282, align 8
   %6284 = getelementptr inbounds i8, ptr %6283, i64 264
@@ -13333,9 +13333,9 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   store i32 %6294, ptr %6296, align 4
   %6297 = load ptr, ptr %6282, align 8
   call fastcc void @_ZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeE(ptr noundef %6297)
-  %6298 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6298 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6299 = getelementptr inbounds i8, ptr %6298, i64 -8
-  store ptr %6299, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6299, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6300:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13345,13 +13345,13 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6302:                                             ; preds = %6300
   store ptr %6301, ptr %202, align 8
-  %6303 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6303 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6304 = getelementptr inbounds i8, ptr %6303, i64 -8
   %6305 = load ptr, ptr %6304, align 8
   %6306 = getelementptr inbounds i8, ptr %6305, i64 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %6306, ptr noundef nonnull align 8 dereferenceable(8) %202)
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, ptr noundef nonnull align 8 dereferenceable(8) %202)
-  %6307 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6308 = getelementptr inbounds i8, ptr %6307, i64 -8
   %6309 = load ptr, ptr %6308, align 8
   %6310 = getelementptr inbounds i8, ptr %6309, i64 8
@@ -13368,7 +13368,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 6314:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %6315 = getelementptr inbounds i8, ptr %.21721, i64 -96
   %6316 = load i32, ptr %6315, align 4
-  %6317 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6318 = getelementptr inbounds i8, ptr %6317, i64 -8
   %6319 = load ptr, ptr %6318, align 8
   %6320 = getelementptr inbounds i8, ptr %6319, i64 264
@@ -13388,7 +13388,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6331 = load ptr, ptr %6318, align 8
   %6332 = getelementptr inbounds i8, ptr %6331, i64 276
   store i32 %6330, ptr %6332, align 4
-  store ptr %6318, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6318, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6333:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13400,7 +13400,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6337:                                             ; preds = %6333
   store ptr %6334, ptr %203, align 8
-  %6338 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6338 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6339 = getelementptr inbounds i8, ptr %6338, i64 -8
   %6340 = load ptr, ptr %6339, align 8
   %6341 = getelementptr inbounds i8, ptr %6340, i64 8
@@ -13415,12 +13415,12 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 6344:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6345 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6345 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %6346 = getelementptr inbounds i8, ptr %6345, i64 -1
-  store ptr %6346, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6346, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %6347 = getelementptr inbounds i8, ptr %.21721, i64 -96
   %6348 = load i32, ptr %6347, align 4
-  %6349 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6349 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6350 = getelementptr inbounds i8, ptr %6349, i64 -8
   %6351 = load ptr, ptr %6350, align 8
   %6352 = getelementptr inbounds i8, ptr %6351, i64 264
@@ -13440,7 +13440,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6363 = load ptr, ptr %6350, align 8
   %6364 = getelementptr inbounds i8, ptr %6363, i64 276
   store i32 %6362, ptr %6364, align 4
-  store ptr %6350, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6350, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6365:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13463,7 +13463,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %6374
 
 6374:                                             ; preds = %6373, %6367
-  %6375 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6375 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6376 = getelementptr inbounds i8, ptr %6375, i64 -8
   %6377 = load ptr, ptr %6376, align 8
   %6378 = getelementptr inbounds i8, ptr %6377, i64 8
@@ -13480,7 +13480,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 6381:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %6382 = getelementptr inbounds i8, ptr %.21721, i64 -48
   %6383 = load i32, ptr %6382, align 4
-  %6384 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6384 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6385 = getelementptr inbounds i8, ptr %6384, i64 -8
   %6386 = load ptr, ptr %6385, align 8
   %6387 = getelementptr inbounds i8, ptr %6386, i64 264
@@ -13500,7 +13500,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6398 = load ptr, ptr %6385, align 8
   %6399 = getelementptr inbounds i8, ptr %6398, i64 276
   store i32 %6397, ptr %6399, align 4
-  store ptr %6385, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6385, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6400:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13531,7 +13531,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6409 = getelementptr inbounds i8, ptr %6408, i64 80
   %6410 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6409, ptr noundef nonnull align 8 dereferenceable(32) %206) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %206) #27
-  %6411 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6412 = getelementptr inbounds i8, ptr %6411, i64 -8
   %6413 = load ptr, ptr %6412, align 8
   %6414 = getelementptr inbounds i8, ptr %6413, i64 8
@@ -13573,7 +13573,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 6428:                                             ; preds = %6424, %6427
   %6429 = getelementptr inbounds i8, ptr %.21721, i64 -96
   %6430 = load i32, ptr %6429, align 4
-  %6431 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6431 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6432 = getelementptr inbounds i8, ptr %6431, i64 -8
   %6433 = load ptr, ptr %6432, align 8
   %6434 = getelementptr inbounds i8, ptr %6433, i64 264
@@ -13593,7 +13593,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6445 = load ptr, ptr %6432, align 8
   %6446 = getelementptr inbounds i8, ptr %6445, i64 276
   store i32 %6444, ptr %6446, align 4
-  store ptr %6432, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6432, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6447:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13603,7 +13603,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6449:                                             ; preds = %6447
   store ptr %6448, ptr %207, align 8
-  %6450 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6450 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6451 = getelementptr inbounds i8, ptr %6450, i64 -8
   %6452 = load ptr, ptr %6451, align 8
   %6453 = getelementptr inbounds i8, ptr %6452, i64 8
@@ -13619,7 +13619,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 6456:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %6457 = load i32, ptr %.21721, align 4
-  %6458 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6458 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6459 = getelementptr inbounds i8, ptr %6458, i64 -8
   %6460 = load ptr, ptr %6459, align 8
   %6461 = getelementptr inbounds i8, ptr %6460, i64 264
@@ -13639,7 +13639,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6472 = load ptr, ptr %6459, align 8
   %6473 = getelementptr inbounds i8, ptr %6472, i64 276
   store i32 %6471, ptr %6473, align 4
-  store ptr %6459, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6459, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6474:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -13726,7 +13726,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   %6520 = load ptr, ptr %6519, align 8
   %6521 = load ptr, ptr %.21711, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(32) %6521)
-  %6522 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6522 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %6523 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, align 8
   %6524 = icmp eq ptr %6522, %6523
   br i1 %6524, label %6528, label %6525
@@ -13822,7 +13822,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   store i32 %6572, ptr %6573, align 4
   %6574 = load ptr, ptr %.21711, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %6574)
-  %6575 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6575 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %6576 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, align 8
   %6577 = icmp eq ptr %6575, %6576
   br i1 %6577, label %6581, label %6578
@@ -13902,7 +13902,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 6614:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
   %6615 = load ptr, ptr %.21711, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %6615)
-  %6616 = load ptr, ptr getelementptr inbounds (%"class.std::vector.33", ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6616 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, i64 8), align 8
   %6617 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND15case_type_stackE, align 8
   %6618 = icmp eq ptr %6616, %6617
   br i1 %6618, label %6622, label %6619
@@ -14117,10 +14117,10 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %7938
 
 6737:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
-  %6738 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6738 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6739 = getelementptr inbounds i8, ptr %6738, i64 -8
   %6740 = load ptr, ptr %6739, align 8
-  store ptr %6739, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6739, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   br label %.loopexit2713
 
 6741:                                             ; preds = %_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.exit
@@ -15762,7 +15762,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 
 7685:                                             ; preds = %7679
   store ptr %7680, ptr %215, align 8
-  %7686 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7686 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %7687 = getelementptr inbounds i8, ptr %7686, i64 -8
   %7688 = load ptr, ptr %7687, align 8
   %7689 = getelementptr inbounds i8, ptr %7688, i64 8
@@ -17202,8 +17202,8 @@ define internal fastcc void @_ZL14enterTypeScopev() unnamed_addr #4 personality 
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 0, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 16), align 8
   %.not.i.i = icmp eq ptr %7, %8
   br i1 %.not.i.i, label %16, label %_ZNSt16allocator_traitsISaISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeESt4lessIS6_ESaISt4pairIKS6_SA_EEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i
 
@@ -17218,9 +17218,9 @@ _ZNSt16allocator_traitsISaISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
-  store ptr %15, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EE9push_backEOSH_.exit
 
 16:                                               ; preds = %0
@@ -17585,9 +17585,9 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL13exitTypeScopev() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 -48
-  store ptr %2, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 -32
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5Yosys3AST7AstNodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
@@ -19139,7 +19139,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL14isInLocalScopePKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 -40
@@ -19208,7 +19208,7 @@ define internal fastcc void @_ZL14addTypedefNodePNSt7__cxx1112basic_stringIcSt11
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %6, i64 80
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND15user_type_stackB5cxx11E, i64 8), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -48
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %0)
   store ptr %6, ptr %12, align 8
@@ -19307,7 +19307,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 47:                                               ; preds = %7, %14, %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   call void @_ZdlPv(ptr noundef %0) #28
-  %48 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
@@ -19441,7 +19441,7 @@ define internal fastcc noundef nonnull ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib
   br label %59
 
 24:                                               ; preds = %21, %16
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
@@ -19601,7 +19601,7 @@ define internal fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictIN
   store i32 %13, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %32, i64 276
   store i32 %16, ptr %41, align 4
-  %42 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
@@ -20155,7 +20155,7 @@ define internal fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
@@ -20228,7 +20228,7 @@ define internal fastcc void @_ZL21ensureAsgnExprAllowedv() unnamed_addr #4 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector.28", ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND9ast_stackE, i64 8), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 4
@@ -20600,7 +20600,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr
   %13 = getelementptr inbounds %"struct.Yosys::hashlib::dict<char *, int, Yosys::hashlib::hash_cstr_ops>::entry_t", ptr %12, i64 %11, i32 0, i32 1
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %17 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
@@ -20642,27 +20642,27 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   %36 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %39, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit52
 
 39:                                               ; preds = %._crit_edge
   %40 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %42 = icmp eq ptr %40, %41
   br i1 %42, label %43, label %102
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %45 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 16), align 8
   %.not.i.i21 = icmp eq ptr %44, %45
   br i1 %.not.i.i21, label %49, label %46
 
 46:                                               ; preds = %43
   store i32 0, ptr %44, align 4
-  %47 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 4
-  store ptr %48, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 49:                                               ; preds = %43
@@ -20715,22 +20715,22 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %67, %_ZN
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %64, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  store ptr %69, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %69, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %71 = getelementptr inbounds i32, ptr %64, i64 %60
-  store ptr %71, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %71, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %46, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
-  %72 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %73 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 16), align 8
   %.not.i.i22 = icmp eq ptr %72, %73
   br i1 %.not.i.i22, label %77, label %74
 
 74:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   store ptr @.str.624, ptr %72, align 8
-  %75 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
-  store ptr %76, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %76, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit
 
 77:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -20783,18 +20783,18 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %95,
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %92, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
-  store ptr %97, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %97, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %99 = getelementptr inbounds ptr, ptr %92, i64 %88
-  store ptr %99, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %99, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 16), align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
   %100 = phi ptr [ %75, %74 ], [ %96, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ]
   %101 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %100)
   store i32 0, ptr %101, align 4
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %.pre75 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
-  %.pre76 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   br label %102
 
 102:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %39
@@ -20806,15 +20806,15 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIP
   %108 = sub i64 %106, %107
   %109 = lshr exact i64 %108, 3
   %110 = trunc i64 %109 to i32
-  %111 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   %.not.i.i26 = icmp eq ptr %103, %111
   br i1 %.not.i.i26, label %115, label %112
 
 112:                                              ; preds = %102
   store i32 %110, ptr %103, align 4
-  %113 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 4
-  store ptr %114, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %114, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
 
 115:                                              ; preds = %102
@@ -20867,22 +20867,22 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i31: ; preds = %133, %
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i33: ; preds = %136, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i31
   store ptr %130, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, align 8
-  store ptr %135, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %135, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %137 = getelementptr inbounds i32, ptr %130, i64 %126
-  store ptr %137, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %137, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit34:         ; preds = %112, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i33
-  %138 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %139 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
+  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 16), align 8
   %.not.i.i35 = icmp eq ptr %138, %139
   br i1 %.not.i.i35, label %143, label %140
 
 140:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
   store ptr null, ptr %138, align 8
-  %141 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 8
-  store ptr %142, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %142, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit43
 
 143:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
@@ -20935,22 +20935,22 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i40: ; preds = %1
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i42: ; preds = %164, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i40
   store ptr %158, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
-  store ptr %163, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %163, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %165 = getelementptr inbounds ptr, ptr %158, i64 %154
-  store ptr %165, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %165, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 16), align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit43
 
 _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit43:    ; preds = %140, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i42
-  %166 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %167 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
+  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 16), align 8
   %.not.i.i44 = icmp eq ptr %166, %167
   br i1 %.not.i.i44, label %171, label %168
 
 168:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit43
   store i32 0, ptr %166, align 4
-  %169 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 4
-  store ptr %170, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %170, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit52
 
 171:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit43
@@ -21003,19 +21003,19 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i49: ; preds = %189, %
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i51: ; preds = %192, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i49
   store ptr %186, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  store ptr %191, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %191, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %193 = getelementptr inbounds i32, ptr %186, i64 %182
-  store ptr %193, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %193, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit52
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit52:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i51, %168, %._crit_edge
-  %194 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 -4
   %196 = load i32, ptr %195, align 4
-  store ptr %195, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %195, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %197 = call noalias ptr @strdup(ptr noundef nonnull %0) #27
   %198 = sext i32 %196 to i64
-  %199 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %200 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %201 = ptrtoint ptr %199 to i64
   %202 = ptrtoint ptr %200 to i64
@@ -21031,7 +21031,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit52:         ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit52
   %206 = getelementptr inbounds ptr, ptr %200, i64 %198
   store ptr %197, ptr %206, align 8
-  %207 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %207 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %208 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %209 = ptrtoint ptr %207 to i64
   %210 = ptrtoint ptr %208 to i64
@@ -21048,7 +21048,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit55:              ; preds = %_ZNSt6vectorIPcSaIS
   %214 = getelementptr inbounds ptr, ptr %208, i64 %198
   %215 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %214)
   store i32 %196, ptr %215, align 4
-  %216 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8
   %217 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %218 = ptrtoint ptr %216 to i64
   %219 = ptrtoint ptr %217 to i64
@@ -21533,7 +21533,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 
 11:                                               ; preds = %9, %6, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 8), align 8
   %.not1112 = icmp eq ptr %12, %13
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -22103,7 +22103,7 @@ define linkonce_odr void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef
   br i1 %.not, label %._crit_edge, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %5 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -22126,7 +22126,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %_ZNSt6vectorIPcSaIS0_EE2atEm.exit
-  %15 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %16 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -22142,7 +22142,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %3
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit2:               ; preds = %._crit_edge
   %22 = getelementptr inbounds ptr, ptr %16, i64 %.pre
   %23 = tail call noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE5eraseERKS2_(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %25 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
@@ -22159,7 +22159,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit4:               ; preds = %_ZNSt6vectorIPcSaIS
   %31 = getelementptr inbounds ptr, ptr %25, i64 %.pre
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32) #27
-  %33 = load ptr, ptr getelementptr inbounds (%"class.std::vector.69", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %34 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
@@ -22175,16 +22175,16 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit4:               ; preds = %_ZNSt6vectorIPcSaIS
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit6:               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit4
   %40 = getelementptr inbounds ptr, ptr %34, i64 %.pre
   store ptr null, ptr %40, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %42 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   %.not.i = icmp eq ptr %41, %42
   br i1 %.not.i, label %46, label %43
 
 43:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit6
   store i32 %0, ptr %41, align 4
-  %44 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 4
-  store ptr %45, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 46:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit6
@@ -22237,9 +22237,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %64, %_ZNSt
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %61, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, align 8
-  store ptr %66, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %68 = getelementptr inbounds i32, ptr %61, i64 %57
-  store ptr %68, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %43, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i

@@ -551,7 +551,7 @@ if.then6.i:                                       ; preds = %if.then38
 if.end11.i138:                                    ; preds = %if.then6.i, %if.then38
   %ssl.0.i = phi ptr [ null, %if.then38 ], [ %call7.i, %if.then6.i ]
   %ret.1.i = phi i32 [ -1, %if.then38 ], [ %spec.select18.i, %if.then6.i ]
-  %30 = load ptr, ptr getelementptr inbounds ([22 x %struct.group_info], ptr @groups, i64 0, i64 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @groups, i64 8), align 8
   %cmp12.not19.i = icmp eq ptr %30, null
   br i1 %cmp12.not19.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -592,7 +592,7 @@ for.inc.us.us.i:                                  ; preds = %if.then28.us.us.i, 
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %name23.i = phi ptr [ %name.i, %for.inc.i ], [ getelementptr inbounds ([22 x %struct.group_info], ptr @groups, i64 0, i64 0, i32 1), %for.body.lr.ph.i ]
+  %name23.i = phi ptr [ %name.i, %for.inc.i ], [ getelementptr inbounds (i8, ptr @groups, i64 8), %for.body.lr.ph.i ]
   %arrayidx22.i = phi ptr [ %arrayidx.i139, %for.inc.i ], [ @groups, %for.body.lr.ph.i ]
   %ret.220.i = phi i32 [ %ret.3.i, %for.inc.i ], [ %ret.1.i, %for.body.lr.ph.i ]
   %cmp13.i = icmp eq i32 %ret.220.i, 0
@@ -716,7 +716,7 @@ if.then79:                                        ; preds = %if.end77
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %if.end77
-  %43 = load ptr, ptr getelementptr inbounds ([22 x %struct.group_info], ptr @groups, i64 0, i64 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @groups, i64 8), align 8
   %cmp83.not430 = icmp eq ptr %43, null
   br i1 %cmp83.not430, label %for.end314, label %for.body.lr.ph
 

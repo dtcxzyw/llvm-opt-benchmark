@@ -532,7 +532,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethodDescr_Type, i64 272), align 8
   %3 = getelementptr i8, ptr %self_arg, i64 8
   %self_arg.val = load ptr, ptr %3, align 8
   %call8 = tail call ptr %2(ptr noundef nonnull %callable, ptr noundef %self_arg, ptr noundef %self_arg.val) #4
@@ -602,7 +602,7 @@ if.end.i9:                                        ; preds = %PyObject_TypeCheck.
   br i1 %or.cond, label %if.end4, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i9
-  %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethodDescr_Type, i64 272), align 8
   %7 = getelementptr i8, ptr %2, i64 8
   %self_arg.val.i = load ptr, ptr %7, align 8
   %call8.i = tail call ptr %6(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %self_arg.val.i) #4
@@ -688,7 +688,7 @@ if.end.i8:                                        ; preds = %PyObject_TypeCheck.
   br i1 %or.cond, label %if.end4, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethodDescr_Type, i64 272), align 8
   %7 = getelementptr i8, ptr %2, i64 8
   %self_arg.val.i = load ptr, ptr %7, align 8
   %call8.i = tail call ptr %6(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %self_arg.val.i) #4

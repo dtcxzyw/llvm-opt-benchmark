@@ -173,7 +173,7 @@ if.then:                                          ; preds = %opt_path_end.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %opt_path_end.exit
-  store i8 0, ptr getelementptr inbounds ([40 x i8], ptr @prog, i64 0, i64 39), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prog, i64 39), align 1
   ret ptr @prog
 }
 
@@ -240,7 +240,7 @@ if.then.i:                                        ; preds = %opt_path_end.exit.i
   br label %opt_progname.exit
 
 opt_progname.exit:                                ; preds = %opt_path_end.exit.i, %if.then.i
-  store i8 0, ptr getelementptr inbounds ([40 x i8], ptr @prog, i64 0, i64 39), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prog, i64 39), align 1
   %2 = load ptr, ptr %o, align 8
   %cmp.not14 = icmp eq ptr %2, null
   %cmp2.not15 = icmp eq ptr %2, @OPT_PARAM_STR

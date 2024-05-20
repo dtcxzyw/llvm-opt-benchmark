@@ -708,13 +708,13 @@ define noundef i32 @_Z7str2dirPc(ptr noundef %0) local_unnamed_addr #1 personali
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %20
-  %23 = load ptr, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter", ptr @_ZZ7str2dirPcE11s_converter, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE11s_converter, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not10.i.i.i.i, label %32, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc14
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.noexc14 ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.noexc14 ], [ getelementptr inbounds (%"class.gmx::StringToEnumValueConverter", ptr @_ZZ7str2dirPcE11s_converter, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.noexc14 ], [ getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE11s_converter, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %24 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %25 = invoke noundef zeroext i1 @_ZNK3gmx13StringCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 4 dereferenceable(4) @_ZZ7str2dirPcE11s_converter, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc14 unwind label %.loopexit40
@@ -728,7 +728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_9DirectiveESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_9DirectiveESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i: ; preds = %.noexc14
-  %26 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.gmx::StringToEnumValueConverter", ptr @_ZZ7str2dirPcE11s_converter, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %26 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE11s_converter, i64 8)
   br i1 %26, label %32, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9DirectiveN3gmx13StringCompareESaISt4pairIKS5_S6_EEE4findERSA_.exit.i
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9DirectiveN3gmx13StringCompareESaISt4pairIKS5_S6_EEE4findERSA_.exit.i: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_9DirectiveESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
@@ -823,13 +823,13 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9DirectiveN3gmx13
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 unwind label %48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; preds = %.noexc17
-  %52 = load ptr, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 16), align 8
   %.not10.i.i.i.i21 = icmp eq ptr %52, null
   br i1 %.not10.i.i.i.i21, label %62, label %.lr.ph.i.i.i.i22
 
 .lr.ph.i.i.i.i22:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20, %.noexc31
   %.012.i.i.i.i23 = phi ptr [ %.1.i.i.i.i28, %.noexc31 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 ]
-  %.0811.i.i.i.i24 = phi ptr [ %.19.i.i.i.i25, %.noexc31 ], [ getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 ]
+  %.0811.i.i.i.i24 = phi ptr [ %.19.i.i.i.i25, %.noexc31 ], [ getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 ]
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i23, i64 32
   %54 = invoke noundef zeroext i1 @_ZNK3gmx13StringCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 4 dereferenceable(4) @_ZZ7str2dirPcE24s_converterForDeprecated, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc31 unwind label %.loopexit
@@ -843,7 +843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; 
   br i1 %.not.i.i.i.i29, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_20DeprecatedDirectivesESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i22, !llvm.loop !8
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_20DeprecatedDirectivesESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i: ; preds = %.noexc31
-  %55 = icmp eq ptr %.19.i.i.i.i25, getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %55 = icmp eq ptr %.19.i.i.i.i25, getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8)
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_20DeprecatedDirectivesESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
@@ -1145,11 +1145,11 @@ define internal fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDir
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   store i32 2, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 40), align 8
   br label %6
 
 6:                                                ; preds = %0, %44
@@ -1202,13 +1202,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = load ptr, ptr getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc15
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.noexc15 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.noexc15 ], [ getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.noexc15 ], [ getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %19 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %20 = load i32, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, align 8
   switch i32 %20, label %34 [
@@ -1262,7 +1262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i: ; preds = %.noexc15
-  %39 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %39 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8)
   br i1 %39, label %.critedge.i, label %40
 
 40:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i
@@ -1276,7 +1276,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirect
   br i1 %42, label %.critedge.i, label %44
 
 .critedge.i:                                      ; preds = %.noexc16, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %.noexc16 ], [ getelementptr inbounds (%"class.gmx::StringToEnumValueConverter.5", ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirectivesN3gmx13StringCompareESaISt4pairIKS5_S6_EEE11lower_boundERSA_.exit.i ], [ %.19.i.i.i.i, %.noexc16 ], [ getelementptr inbounds (i8, ptr @_ZZ7str2dirPcE24s_converterForDeprecated, i64 8), %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   store ptr %4, ptr %2, align 8
   %43 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_20DeprecatedDirectivesESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZ7str2dirPcE24s_converterForDeprecated, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %44 unwind label %.loopexit.split-lp
@@ -2217,44 +2217,44 @@ define void @_Z7DS_InitPP8DirStack(ptr nocapture noundef writeonly %0) local_unn
 
 4:                                                ; preds = %1
   tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull @_ZL9necessary, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 1), i32 noundef 0, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 2), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 3), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 4), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 5), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 6), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 7), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 8), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 9), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 10), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 11), i32 noundef 1, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 12), i32 noundef 11, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 13), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 14), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 15), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 16), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 17), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 18), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 19), i32 noundef 18, i32 noundef 24, i32 noundef 25, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 20), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 21), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 22), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 26), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 27), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 28), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 23), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 24), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 25), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 29), i32 noundef 11, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 30), i32 noundef 29, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 31), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 32), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 33), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 34), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 35), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 36), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 37), i32 noundef 12, i32 noundef 41)
-  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (%"struct.gmx::EnumerationArray.48", ptr @_ZL9necessary, i64 0, i32 0, i64 38), i32 noundef 30, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 8), i32 noundef 0, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 16), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 24), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 32), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 40), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 48), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 56), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 64), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 72), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 80), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 88), i32 noundef 1, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 96), i32 noundef 11, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 104), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 112), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 120), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 128), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 136), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 144), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 152), i32 noundef 18, i32 noundef 24, i32 noundef 25, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 160), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 168), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 176), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 208), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 216), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 224), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 184), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 192), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 200), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 232), i32 noundef 11, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 240), i32 noundef 29, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 248), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 256), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 264), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 272), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 280), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 288), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 296), i32 noundef 12, i32 noundef 41)
+  tail call void (ptr, ...) @_ZL7set_necPP9Directivez(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL9necessary, i64 304), i32 noundef 30, i32 noundef 41)
   br label %5
 
 5:                                                ; preds = %4, %1

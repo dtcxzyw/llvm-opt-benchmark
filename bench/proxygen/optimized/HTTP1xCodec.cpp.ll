@@ -468,7 +468,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define void @_ZN8proxygen11HTTP1xCodecC2ENS_18TransportDirectionEbb(ptr noundef nonnull align 8 dereferenceable(428) %this, i8 noundef zeroext %direction, i1 noundef zeroext %force1_1, i1 noundef zeroext %strictValidation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 16), ptr %this, align 8
   %websockAcceptKey_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #25
   %callback_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -623,7 +623,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11HTTP1xCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(428) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 16), ptr %this, align 8
   %second.i = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #25
   %allowedNativeUpgrades_ = getelementptr inbounds i8, ptr %this, i64 336
@@ -3947,7 +3947,7 @@ if.end59:                                         ; preds = %if.then47, %if.else
           to label %invoke.cont61 unwind label %lpad22
 
 invoke.cont61:                                    ; preds = %if.end59
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, i32 0, i64 2), ptr %error, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %error, align 8
   %partialMsg_.i29 = getelementptr inbounds i8, ptr %error, i64 88
   %18 = load ptr, ptr %partialMsg_.i29, align 8
   %cmp.not.i.i = icmp eq ptr %18, null
@@ -3972,7 +3972,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i30, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %error, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %error, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %error, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %error) #25
@@ -4137,7 +4137,7 @@ declare void @_ZNK5folly5IOBuf8cloneOneEv(ptr sret(%"class.std::unique_ptr.16") 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
   %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4162,7 +4162,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
@@ -5016,7 +5016,7 @@ if.end184:                                        ; preds = %if.end184.sink.spli
   %version.sroa.0.0.extract.trunc = trunc i16 %31 to i8
   %32 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion11E, align 1
   %cmp.i.i = icmp ult i8 %32, %version.sroa.0.0.extract.trunc
-  %.pre = load i8, ptr getelementptr inbounds (%"struct.std::pair.63", ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion11E, i64 0, i32 1), align 1
+  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion11E, i64 1), align 1
   br i1 %cmp.i.i, label %if.then201, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end184
@@ -5043,7 +5043,7 @@ if.end203:                                        ; preds = %lor.rhs.i.i, %if.th
 while.end219:                                     ; preds = %if.end203
   %34 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
   %cmp.i103 = icmp eq i8 %version.sroa.0.0, %34
-  %35 = load i8, ptr getelementptr inbounds (%"struct.std::pair.63", ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 0, i32 1), align 1
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 1), align 1
   %cmp6.i = icmp eq i8 %version.sroa.15.0, %35
   %36 = select i1 %cmp.i103, i1 %cmp6.i, i1 false
   br i1 %36, label %return, label %if.end222
@@ -5329,7 +5329,7 @@ if.end273:                                        ; preds = %if.else270, %_ZNK8p
   store i64 %59, ptr %len, align 8
   %60 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
   %cmp.i.i207 = icmp ne i8 %version.sroa.0.2, %60
-  %61 = load i8, ptr getelementptr inbounds (%"struct.std::pair.63", ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 0, i32 1), align 1
+  %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 1), align 1
   %cmp6.i.i = icmp ne i8 %version.sroa.15.2, %61
   %.not.i = select i1 %cmp.i.i207, i1 true, i1 %cmp6.i.i
   br i1 %.not.i, label %if.then275, label %if.end282
@@ -5485,7 +5485,7 @@ lor.lhs.false317:                                 ; preds = %land.lhs.true311
 land.lhs.true319:                                 ; preds = %lor.lhs.false317
   %75 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion10E, align 1
   %cmp.i256 = icmp ne i8 %version.sroa.0.3, %75
-  %76 = load i8, ptr getelementptr inbounds (%"struct.std::pair.63", ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion10E, i64 0, i32 1), align 1
+  %76 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion10E, i64 1), align 1
   %cmp6.i258 = icmp ne i8 %version.sroa.15.3, %76
   %.not = select i1 %cmp.i256, i1 true, i1 %cmp6.i258
   %keepaliveRequested_ = getelementptr inbounds i8, ptr %this, i64 382
@@ -5507,7 +5507,7 @@ if.end328:                                        ; preds = %if.then323, %land.l
   store i32 %bf.set345, ptr %keepalive_, align 8
   %80 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
   %cmp.i259 = icmp eq i8 %version.sroa.0.3, %80
-  %81 = load i8, ptr getelementptr inbounds (%"struct.std::pair.63", ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 0, i32 1), align 1
+  %81 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 1), align 1
   %cmp6.i261 = icmp eq i8 %version.sroa.15.3, %81
   %82 = select i1 %cmp.i259, i1 %cmp6.i261, i1 false
   br i1 %82, label %if.then348, label %if.end350
@@ -6512,7 +6512,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then17.i.i.i.i.i
 
 _ZNK5folly5RangeIPKcE13find_first_ofES2_.exit.i:  ; preds = %invoke.cont.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end89.i
   %85 = load ptr, ptr @_ZZN5folly6detail19qfind_first_byte_ofENS_5RangeIPKcEES4_E22qfind_first_byte_of_fn, align 8
-  %call3.i.i.i.i.i = call noundef i64 %85(ptr %call.i10, ptr %add.ptr.i13, ptr nonnull @.str.26, ptr nonnull getelementptr inbounds ([3 x i8], ptr @.str.26, i64 0, i64 2))
+  %call3.i.i.i.i.i = call noundef i64 %85(ptr %call.i10, ptr %add.ptr.i13, ptr nonnull @.str.26, ptr nonnull getelementptr inbounds (i8, ptr @.str.26, i64 2))
   %cmp91.not.i = icmp eq i64 %call3.i.i.i.i.i, -1
   br i1 %cmp91.not.i, label %if.end93.i, label %"_ZZN8proxygen11HTTP1xCodec14generateHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageEbPNS_14HTTPHeaderSizeERKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESJ_.exit"
 
@@ -8916,7 +8916,7 @@ declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
   %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -8941,7 +8941,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
@@ -9598,7 +9598,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -10022,7 +10022,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_18kChunkedB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_18kChunkedB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7))
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i

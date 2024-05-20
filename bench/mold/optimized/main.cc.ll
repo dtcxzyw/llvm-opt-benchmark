@@ -447,11 +447,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   store i8 0, ptr %2, align 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.9)
   %6 = load ptr, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, align 8
-  %cmp.i.i = icmp eq ptr %6, getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 2, i32 0, i64 0)
+  %cmp.i.i = icmp eq ptr %6, getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 16)
   br i1 %cmp.i.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
-  %7 = load i64, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 8), align 8
   %cmp3.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i)
   %8 = load ptr, ptr %ref.tmp, align 8
@@ -487,7 +487,7 @@ if.end.i.i.i:                                     ; preds = %if.then11.i
 
 if.end18.i:                                       ; preds = %if.end.i.i.i, %if.then.i24.i, %if.then11.i
   %15 = load i64, ptr %_M_string_length.i19.i, align 8
-  store i64 %15, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 1), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 8), align 8
   %16 = load ptr, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %15
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -498,15 +498,15 @@ if.end24.thread.i:                                ; preds = %if.end.i
   store ptr %8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, align 8
   %_M_string_length.i3236.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %17 = load <2 x i64>, ptr %_M_string_length.i3236.i, align 8
-  store <2 x i64> %17, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 1), align 8
+  store <2 x i64> %17, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 8), align 8
   br label %if.else29.i
 
 if.end24.i:                                       ; preds = %if.end.thread.i
-  %18 = load i64, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 2, i32 0, i64 0), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 16), align 8
   store ptr %10, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, align 8
   %_M_string_length.i32.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %19 = load <2 x i64>, ptr %_M_string_length.i32.i, align 8
-  store <2 x i64> %19, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 1), align 8
+  store <2 x i64> %19, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 8), align 8
   %tobool27.not.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i, label %if.else29.i, label %if.then28.i
 
@@ -614,7 +614,7 @@ sw.bb:                                            ; preds = %_ZNSt11scoped_lockI
 
 sw.bb4:                                           ; preds = %_ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit
   %3 = load ptr, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, align 8
-  %4 = load i64, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4moldL11sigabrt_msgB5cxx11E, i64 8), align 8
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb4
@@ -765,7 +765,7 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %name.i, i64 21
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21, !noalias !10
-  %1 = load i64, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN4mold13mold_git_hashB5cxx11E, i64 0, i32 1), align 8, !noalias !10
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4mold13mold_git_hashB5cxx11E, i64 8), align 8, !noalias !10
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
@@ -949,11 +949,11 @@ _ZN4moldL16get_mold_versionB5cxx11Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i)
   %24 = load ptr, ptr @_ZN4mold12mold_versionB5cxx11E, align 8
-  %cmp.i.i1 = icmp eq ptr %24, getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 2, i32 0, i64 0)
+  %cmp.i.i1 = icmp eq ptr %24, getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 16)
   br i1 %cmp.i.i1, label %if.end.i2, label %if.end.thread.i
 
 if.end.i2:                                        ; preds = %_ZN4moldL16get_mold_versionB5cxx11Ev.exit
-  %25 = load i64, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 1), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 8), align 8
   %cmp3.i.i = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %cmp3.i.i)
   %26 = load ptr, ptr %ref.tmp, align 8
@@ -989,7 +989,7 @@ if.end.i.i.i:                                     ; preds = %if.then11.i
 
 if.end18.i:                                       ; preds = %if.end.i.i.i, %if.then.i24.i, %if.then11.i
   %33 = load i64, ptr %_M_string_length.i19.i, align 8
-  store i64 %33, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 1), align 8
+  store i64 %33, ptr getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 8), align 8
   %34 = load ptr, ptr @_ZN4mold12mold_versionB5cxx11E, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %34, i64 %33
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -1000,15 +1000,15 @@ if.end24.thread.i:                                ; preds = %if.end.i2
   store ptr %26, ptr @_ZN4mold12mold_versionB5cxx11E, align 8
   %_M_string_length.i3236.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %35 = load <2 x i64>, ptr %_M_string_length.i3236.i, align 8
-  store <2 x i64> %35, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 1), align 8
+  store <2 x i64> %35, ptr getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 8), align 8
   br label %if.else29.i
 
 if.end24.i:                                       ; preds = %if.end.thread.i
-  %36 = load i64, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 2, i32 0, i64 0), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 16), align 8
   store ptr %28, ptr @_ZN4mold12mold_versionB5cxx11E, align 8
   %_M_string_length.i32.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %37 = load <2 x i64>, ptr %_M_string_length.i32.i, align 8
-  store <2 x i64> %37, ptr getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN4mold12mold_versionB5cxx11E, i64 0, i32 1), align 8
+  store <2 x i64> %37, ptr getelementptr inbounds (i8, ptr @_ZN4mold12mold_versionB5cxx11E, i64 8), align 8
   %tobool27.not.i = icmp eq ptr %24, null
   br i1 %tobool27.not.i, label %if.else29.i, label %if.then28.i
 

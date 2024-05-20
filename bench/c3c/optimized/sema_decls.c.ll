@@ -2564,7 +2564,7 @@ define dso_local ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr 
   %22 = getelementptr inbounds i8, ptr %15, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not91 = icmp eq ptr %23, null
-  %. = select i1 %.not91, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %23
+  %. = select i1 %.not91, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %23
   %24 = load ptr, ptr %., align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
@@ -2654,7 +2654,7 @@ extend_span_with_token.exit:                      ; preds = %47, %48
   %68 = load ptr, ptr %24, align 8
   %69 = load i64, ptr %68, align 8
   store i64 %69, ptr %66, align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %71 = getelementptr inbounds i8, ptr %66, i64 16
   store i32 %70, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %6)
@@ -3013,7 +3013,7 @@ module_instantiate_generic.exit:                  ; preds = %101, %88, %98, %._c
 
 263:                                              ; preds = %.sink.split, %62
   %.080 = phi ptr [ %64, %62 ], [ %.090.i, %.sink.split ]
-  %264 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 10), align 4
+  %264 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
   %.not98 = icmp eq i32 %264, 0
   br i1 %.not98, label %267, label %265
 
@@ -3333,7 +3333,7 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   br label %139
 
 114:                                              ; preds = %105
-  %115 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %116
   switch i32 %79, label %121 [
@@ -7604,7 +7604,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %15, label %40 [
     i32 32, label %16
     i32 1, label %21
@@ -7636,7 +7636,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %31 = add i32 %30, -1
   %or.cond = icmp ult i32 %31, 2
   br i1 %or.cond, label %32, label %40
@@ -7671,7 +7671,7 @@ define internal fastcc noundef zeroext i1 @sema_check_section(ptr nocapture read
   %1 = alloca %struct.StringSlice_, align 8
   %2 = alloca %struct.StringSlice_, align 8
   %3 = alloca %struct.StringSlice_, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 8), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %5, label %29
 
@@ -9375,7 +9375,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_main_function(ptr nounde
   %6 = icmp ne i16 %5, 0
   %.lobit = lshr exact i16 %5, 6
   %7 = trunc nuw nsw i16 %.lobit to i8
-  %8 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %9 = icmp eq i32 %8, 15
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
@@ -9804,7 +9804,7 @@ sema_find_main_type.exit:                         ; preds = %183, %134, %type_fl
   br i1 %or.cond, label %sema_find_main_type.exit.thread, label %202
 
 202:                                              ; preds = %sema_find_main_type.exit
-  %203 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 38), align 1
+  %203 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 171), align 1
   %204 = trunc i8 %203 to i1
   br i1 %204, label %.critedge, label %205
 
@@ -9819,7 +9819,7 @@ sema_find_main_type.exit:                         ; preds = %183, %134, %type_fl
   br label %sema_find_main_type.exit.thread
 
 209:                                              ; preds = %205
-  %210 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %210 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %.not74 = icmp eq i32 %210, 15
   %spec.select79 = select i1 %.not74, i8 %7, i8 0
   %brmerge80.not = and i1 %spec.select112, %or.cond3.not.not
@@ -9851,7 +9851,7 @@ sema_find_main_type.exit:                         ; preds = %183, %134, %type_fl
   %221 = phi i1 [ %spec.select81, %220 ], [ false, %218 ]
   %222 = select i1 %219, i1 %9, i1 false
   %223 = zext i1 %222 to i8
-  store i8 %223, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 69, i32 3), align 4
+  store i8 %223, ptr getelementptr inbounds (i8, ptr @active_target, i64 396), align 4
   %224 = tail call fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr noundef %1, i32 noundef %.033.i, i1 noundef zeroext %spec.select112, i1 noundef zeroext %.083111, i1 noundef zeroext %219, i1 noundef zeroext %221)
   %.not75 = icmp eq ptr %224, null
   br i1 %.not75, label %.critedge, label %225
@@ -9869,7 +9869,7 @@ sema_find_main_type.exit:                         ; preds = %183, %134, %type_fl
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 192
   store ptr %.059, ptr %231, align 8
-  %232 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   %.not77 = icmp eq ptr %232, null
   br i1 %.not77, label %239, label %233
 
@@ -9877,14 +9877,14 @@ sema_find_main_type.exit:                         ; preds = %183, %134, %type_fl
   %234 = getelementptr inbounds i8, ptr %.059, i64 16
   %235 = load i64, ptr %234, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %235, ptr noundef nonnull @.str.207) #10
-  %236 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 16
   %238 = load i64, ptr %237, align 8
   tail call void (i64, ptr, ...) @sema_error_prev_at(i64 %238, ptr noundef nonnull @.str.208) #10
   br label %sema_find_main_type.exit.thread
 
 239:                                              ; preds = %.critedge
-  store ptr %.059, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  store ptr %.059, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   br label %sema_find_main_type.exit.thread
 
 sema_find_main_type.exit.thread:                  ; preds = %85, %135, %130, %122, %190, %179, %173, %195, %225, %sema_find_main_type.exit, %239, %233, %206, %57, %37, %13
@@ -10532,7 +10532,7 @@ define internal fastcc noundef zeroext i1 @unit_add_method_like(ptr noundef %0, 
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @sema_find_extension_method_in_list(ptr noundef %18, ptr noundef %1, ptr noundef %12) #10
-  %20 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 5), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 48), align 8
   %21 = tail call ptr @sema_find_extension_method_in_list(ptr noundef %20, ptr noundef %1, ptr noundef %12) #10
   %22 = tail call zeroext i1 @type_is_user_defined(ptr noundef %1) #10
   br i1 %22, label %168, label %32
@@ -10634,7 +10634,7 @@ method_name_by_decl.exit:                         ; preds = %.critedge131, %27
   ]
 
 60:                                               ; preds = %55
-  %61 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 5), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 48), align 8
   %.not.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i, label %62, label %65
 
@@ -10683,7 +10683,7 @@ method_name_by_decl.exit:                         ; preds = %.critedge131, %27
   %87 = add i32 %86, 1
   store i32 %87, ptr %.1.i.i, align 4
   %88 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  store ptr %88, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 5), align 8
+  store ptr %88, ptr getelementptr inbounds (i8, ptr @global_context, i64 48), align 8
   %89 = load i32, ptr %.1.i.i, align 4
   %90 = add i32 %89, -1
   %91 = zext i32 %90 to i64
@@ -11104,7 +11104,7 @@ sema_check_operator_method_validity.exit:         ; preds = %192
   %292 = getelementptr inbounds i8, ptr %170, i64 56
   %293 = load ptr, ptr %292, align 8
   %.not126 = icmp eq ptr %293, null
-  %. = select i1 %.not126, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %293
+  %. = select i1 %.not126, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %293
   %294 = load ptr, ptr %., align 8
   %295 = load ptr, ptr %0, align 8
   %296 = icmp eq ptr %294, %295

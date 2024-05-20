@@ -1005,7 +1005,7 @@ for.end:                                          ; preds = %tuple_alloc.exit.th
   br label %return
 
 return:                                           ; preds = %tuple_alloc.exit.thread, %entry, %tuple_alloc.exit, %for.end
-  %retval.0 = phi ptr [ %retval.0.i15, %for.end ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %entry ], [ null, %tuple_alloc.exit.thread ]
+  %retval.0 = phi ptr [ %retval.0.i15, %for.end ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %entry ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1398,7 +1398,7 @@ for.end:                                          ; preds = %_Py_NewRef.exit
   br label %return
 
 return:                                           ; preds = %entry, %for.end, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ %retval.0.i13, %for.end ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %entry ]
+  %retval.0 = phi ptr [ null, %if.then3 ], [ %retval.0.i13, %for.end ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %entry ]
   ret ptr %retval.0
 }
 
@@ -1509,7 +1509,7 @@ for.end:                                          ; preds = %_Py_NewRef.exit
   br label %return
 
 return:                                           ; preds = %tuple_alloc.exit.thread, %entry, %tuple_alloc.exit, %for.end
-  %retval.0 = phi ptr [ %retval.0.i14, %for.end ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %entry ], [ null, %tuple_alloc.exit.thread ]
+  %retval.0 = phi ptr [ %retval.0.i14, %for.end ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %entry ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1635,7 +1635,7 @@ for.end14:                                        ; preds = %for.body9
   br label %return
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %entry, %for.end14
-  %retval.0 = phi ptr [ %retval.0.i19, %for.end14 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %entry ], [ null, %for.cond.preheader ], [ null, %for.inc ]
+  %retval.0 = phi ptr [ %retval.0.i19, %for.end14 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %entry ], [ null, %for.cond.preheader ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -1699,7 +1699,7 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 16
   %op.val13 = load i64, ptr %0, align 8
   %cmp = icmp eq i64 %op.val13, 0
-  %cmp1 = icmp eq ptr %op, getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5)
+  %cmp1 = icmp eq ptr %op, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848)
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %do.end, label %if.end3
 
@@ -2222,7 +2222,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2
@@ -2305,7 +2305,7 @@ if.then10:                                        ; preds = %lor.lhs.false4, %if
   br label %return
 
 return:                                           ; preds = %if.end8, %lor.lhs.false4, %lor.lhs.false, %if.then10
-  %retval.0 = phi ptr [ %call11, %if.then10 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.end8 ]
+  %retval.0 = phi ptr [ %call11, %if.then10 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.end8 ]
   ret ptr %retval.0
 }
 
@@ -2379,7 +2379,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %Py_DECREF.exit53
 
 Py_DECREF.exit53:                                 ; preds = %if.then11, %if.then1.i51, %if.end.i48
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), ptr %pv, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), ptr %pv, align 8
   br label %return
 
 if.end13:                                         ; preds = %if.end9
@@ -2736,8 +2736,8 @@ for.body:                                         ; preds = %entry, %for.body
   %call1 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %3) #8
   %arrayidx = getelementptr [20 x i32], ptr %numfree, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
-  %5 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 2), align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 3), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 32), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 40), align 8
   %mul.i = mul i64 %6, %indvars.iv.next
   %add.i = add i64 %5, 7
   %add1.i = add i64 %add.i, %mul.i
@@ -2999,7 +2999,7 @@ for.end49:                                        ; preds = %_Py_NewRef.exit52, 
   br label %return
 
 return:                                           ; preds = %tuple_alloc.exit.thread, %if.end17, %if.end.i.i42, %if.then15, %if.end.i.i, %if.then, %tuple_alloc.exit, %for.end49, %if.then6
-  %retval.0 = phi ptr [ %retval.0.i58, %for.end49 ], [ null, %if.then6 ], [ null, %tuple_alloc.exit ], [ %bb, %if.then ], [ %bb, %if.end.i.i ], [ %a, %if.then15 ], [ %a, %if.end.i.i42 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.end17 ], [ null, %tuple_alloc.exit.thread ]
+  %retval.0 = phi ptr [ %retval.0.i58, %for.end49 ], [ null, %if.then6 ], [ null, %tuple_alloc.exit ], [ %bb, %if.then ], [ %bb, %if.end.i.i ], [ %a, %if.then15 ], [ %a, %if.end.i.i42 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.end17 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -3195,7 +3195,7 @@ if.end37:                                         ; preds = %while.body.i, %whil
   br label %return
 
 return:                                           ; preds = %tuple_alloc.exit.thread, %if.end5, %if.end.i.i, %if.then3, %tuple_alloc.exit, %if.end37, %if.then13
-  %retval.0 = phi ptr [ %call14, %if.then13 ], [ %retval.0.i44, %if.end37 ], [ null, %tuple_alloc.exit ], [ %a, %if.then3 ], [ %a, %if.end.i.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.end5 ], [ null, %tuple_alloc.exit.thread ]
+  %retval.0 = phi ptr [ %call14, %if.then13 ], [ %retval.0.i44, %if.end37 ], [ null, %tuple_alloc.exit ], [ %a, %if.then3 ], [ %a, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.end5 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -3488,7 +3488,7 @@ if.else46:                                        ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then33, %if.end17, %if.end.i.i.i, %if.end.i, %if.then.i, %tuple_alloc.exit, %if.then12, %land.lhs.true, %if.else46, %for.end
-  %retval.0 = phi ptr [ %retval.0.i3347, %for.end ], [ null, %if.else46 ], [ null, %land.lhs.true ], [ null, %if.then12 ], [ null, %tuple_alloc.exit ], [ null, %if.then.i ], [ %6, %if.end.i ], [ %6, %if.end.i.i.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.end17 ], [ %self, %if.then33 ], [ %self, %if.end.i.i ]
+  %retval.0 = phi ptr [ %retval.0.i3347, %for.end ], [ null, %if.else46 ], [ null, %land.lhs.true ], [ null, %if.then12 ], [ null, %tuple_alloc.exit ], [ null, %if.then.i ], [ %6, %if.end.i ], [ %6, %if.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.end17 ], [ %self, %if.then33 ], [ %self, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -3708,7 +3708,7 @@ tuple_new_impl.exit:                              ; preds = %if.then
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then, %tuple_new_impl.exit
-  %retval.0.i1013 = phi ptr [ %call4.i, %tuple_new_impl.exit ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.then ]
+  %retval.0.i1013 = phi ptr [ %call4.i, %tuple_new_impl.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.then ]
   %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc.i, align 8
   %1 = getelementptr i8, ptr %retval.0.i1013, i64 16
@@ -3814,7 +3814,7 @@ if.else:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.then9.i, %Py_DECREF.exit.i, %if.then1.i17.i, %if.end.i14.i, %if.then4.i, %tuple_new_impl.exit, %if.else
-  %retval.0 = phi ptr [ %call4, %if.else ], [ null, %tuple_new_impl.exit ], [ null, %if.then4.i ], [ null, %if.then1.i17.i ], [ null, %if.end.i14.i ], [ %call2.i, %if.then9.i ], [ %call2.i, %Py_DECREF.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %if.end ]
+  %retval.0 = phi ptr [ %call4, %if.else ], [ null, %tuple_new_impl.exit ], [ null, %if.then4.i ], [ null, %if.then1.i17.i ], [ null, %if.end.i14.i ], [ %call2.i, %if.then9.i ], [ %call2.i, %Py_DECREF.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76848), %if.end ]
   ret ptr %retval.0
 }
 
@@ -3847,7 +3847,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @tupleiter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 434)) #8
+  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #8
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null

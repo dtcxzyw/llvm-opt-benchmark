@@ -481,11 +481,11 @@ define dso_local i32 @pingv6_init() local_unnamed_addr #3 section ".init.text" a
 
 3:                                                ; preds = %0
   store ptr @ipv6_recv_error, ptr @pingv6_ops, align 8
-  store ptr @ip6_datagram_recv_common_ctl, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 1), align 8
-  store ptr @ip6_datagram_recv_specific_ctl, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 2), align 8
-  store ptr @icmpv6_err_convert, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 3), align 8
-  store ptr @ipv6_icmp_error, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 4), align 8
-  store ptr @ipv6_chk_addr, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 5), align 8
+  store ptr @ip6_datagram_recv_common_ctl, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 8), align 8
+  store ptr @ip6_datagram_recv_specific_ctl, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 16), align 8
+  store ptr @icmpv6_err_convert, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 24), align 8
+  store ptr @ipv6_icmp_error, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 32), align 8
+  store ptr @ipv6_chk_addr, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 40), align 8
   %4 = tail call i32 @inet6_register_protosw(ptr noundef nonnull @pingv6_protosw) #8
   br label %5
 
@@ -527,11 +527,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pingv6_exit() local_unnamed_addr #2 align 16 {
   store ptr @dummy_ipv6_recv_error, ptr @pingv6_ops, align 8
-  store ptr @dummy_ip6_datagram_recv_ctl, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 1), align 8
-  store ptr @dummy_ip6_datagram_recv_ctl, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 2), align 8
-  store ptr @dummy_icmpv6_err_convert, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 3), align 8
-  store ptr @dummy_ipv6_icmp_error, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 4), align 8
-  store ptr @dummy_ipv6_chk_addr, ptr getelementptr inbounds (%struct.pingv6_ops, ptr @pingv6_ops, i64 0, i32 5), align 8
+  store ptr @dummy_ip6_datagram_recv_ctl, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 8), align 8
+  store ptr @dummy_ip6_datagram_recv_ctl, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 16), align 8
+  store ptr @dummy_icmpv6_err_convert, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 24), align 8
+  store ptr @dummy_ipv6_icmp_error, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 32), align 8
+  store ptr @dummy_ipv6_chk_addr, ptr getelementptr inbounds (i8, ptr @pingv6_ops, i64 40), align 8
   tail call void @unregister_pernet_subsys(ptr noundef nonnull @ping_v6_net_ops) #8
   tail call void @inet6_unregister_protosw(ptr noundef nonnull @pingv6_protosw) #8
   ret void

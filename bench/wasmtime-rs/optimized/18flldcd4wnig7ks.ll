@@ -5903,7 +5903,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6d4b5d1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1361
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   store ptr @anon.e168b2a6a86c0a8f0ac82162b7b87b15.350.llvm.13596990030671032255, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ ptr, [24 x i8] }>, ptr @anon.e168b2a6a86c0a8f0ac82162b7b87b15.351.llvm.13596990030671032255, i64 0, i32 1, i64 0), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.e168b2a6a86c0a8f0ac82162b7b87b15.351.llvm.13596990030671032255, i64 8), i64 24, i1 false)
   store <2 x i64> %21, ptr %.sroa.86.0..sroa_idx, align 8
   store <2 x i64> %14, ptr %.sroa.10.0..sroa_idx, align 8
   store i32 %16, ptr %.sroa.12.0..sroa_idx, align 8

@@ -1372,7 +1372,7 @@ define internal noundef range(i32 -12, 1) i32 @usbdev_mmap(ptr nocapture noundef
 25:                                               ; preds = %2
   store i64 %18, ptr @usbfs_memory_usage, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @usbfs_memory_usage_lock, i64 noundef %16) #17
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 64) #20
   %28 = icmp eq ptr %27, null
   br i1 %28, label %89, label %29
@@ -1497,7 +1497,7 @@ define internal noundef range(i32 -12, 1) i32 @usbdev_mmap(ptr nocapture noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @usbdev_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 200) #20
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -4384,7 +4384,7 @@ define internal fastcc i32 @do_proc_control(ptr noundef %0, ptr nocapture nounde
   br i1 %38, label %.thread7, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3072, i64 noundef 8) #20
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread7, label %43
@@ -5675,7 +5675,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr nocapture noun
   br i1 %127, label %.thread, label %128
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %130 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %129, i32 noundef 3264, i64 noundef 8) #20
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.thread, label %132
@@ -6458,7 +6458,7 @@ declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @alloc_async(i32 noundef %0) unnamed_addr #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 104) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5

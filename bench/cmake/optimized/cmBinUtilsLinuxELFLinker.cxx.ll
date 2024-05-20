@@ -106,7 +106,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24cmBinUtilsLinuxELFLinkerC2EP26cmRuntimeDependencyArchive(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN16cmBinUtilsLinkerC2EP26cmRuntimeDependencyArchive(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3, i8 0, i64 17, i1 false)
@@ -232,7 +232,7 @@ _ZNSt10unique_ptrI51cmBinUtilsLinuxELFObjdumpGetRuntimeDependenciesToolSt14defau
           to label %.noexc19 unwind label %56
 
 .noexc19:                                         ; preds = %.noexc18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([20 x i8], ptr @.str.2, i64 0, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 19))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %48
 
 48:                                               ; preds = %.noexc19
@@ -484,7 +484,7 @@ _ZNK5cmELFcvbEv.exit:                             ; preds = %9
           to label %.noexc14 unwind label %30
 
 .noexc14:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([43 x i8], ptr @.str.5, i64 0, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %27
 
 27:                                               ; preds = %.noexc14
@@ -757,7 +757,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
           to label %.noexc49 unwind label %85
 
 .noexc49:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([40 x i8], ptr @.str.6, i64 0, i64 39))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 39))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %82
 
 82:                                               ; preds = %.noexc49
@@ -1112,9 +1112,9 @@ define internal fastcc void @_ZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %9
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, i8 0, i64 522, i1 false)
   %12 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E11originRegex, ptr noundef nonnull @.str.11)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit unwind label %52
@@ -1135,9 +1135,9 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit:          ; preds = %11
   br i1 %.not9, label %22, label %19
 
 19:                                               ; preds = %17
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, i8 0, i64 522, i1 false)
   %20 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZZL13ReplaceOriginRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E16originCurlyRegex, ptr noundef nonnull @.str.12)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit11 unwind label %54
@@ -1901,7 +1901,7 @@ declare void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24cmBinUtilsLinuxELFLinkerD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1963,7 +1963,7 @@ _ZNSt10unique_ptrI44cmBinUtilsLinuxELFGetRuntimeDependenciesToolSt14default_dele
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24cmBinUtilsLinuxELFLinkerD0Ev(ptr noundef nonnull align 8 dereferenceable(66) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24cmBinUtilsLinuxELFLinker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

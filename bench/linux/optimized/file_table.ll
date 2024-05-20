@@ -86,7 +86,7 @@ define dso_local ptr @backing_file_user_path(ptr noundef readnone %0) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i64 @get_max_files() #1 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.files_stat_struct, ptr @files_stat, i64 0, i32 2), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @files_stat, i64 16), align 8
   ret i64 %1
 }
 
@@ -99,9 +99,9 @@ define internal noundef i32 @init_fs_stat_sysctls() #2 section ".init.text" alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @alloc_empty_file(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.percpu_counter, ptr @nr_files, i64 0, i32 1), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @nr_files, i64 8), align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %5 = load i64, ptr getelementptr inbounds (%struct.files_stat_struct, ptr @files_stat, i64 0, i32 2), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @files_stat, i64 16), align 8
   %6 = icmp ult i64 %4, %5
   br i1 %6, label %14, label %7
 
@@ -112,7 +112,7 @@ define dso_local ptr @alloc_empty_file(i32 noundef %0, ptr noundef %1) local_unn
 9:                                                ; preds = %7
   %10 = tail call i64 @__percpu_counter_sum(ptr noundef nonnull @nr_files) #14
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
-  %12 = load i64, ptr getelementptr inbounds (%struct.files_stat_struct, ptr @files_stat, i64 0, i32 2), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @files_stat, i64 16), align 8
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %51
 
@@ -186,7 +186,7 @@ define dso_local ptr @alloc_empty_file(i32 noundef %0, ptr noundef %1) local_unn
   br label %60
 
 51:                                               ; preds = %9
-  %52 = load volatile i64, ptr getelementptr inbounds (%struct.percpu_counter, ptr @nr_files, i64 0, i32 1), align 8
+  %52 = load volatile i64, ptr getelementptr inbounds (i8, ptr @nr_files, i64 8), align 8
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 0)
   %54 = load i64, ptr @alloc_empty_file.old_max, align 8
   %55 = icmp sgt i64 %53, %54
@@ -194,7 +194,7 @@ define dso_local ptr @alloc_empty_file(i32 noundef %0, ptr noundef %1) local_unn
 
 56:                                               ; preds = %51
   %57 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef %12) #15
-  %58 = load volatile i64, ptr getelementptr inbounds (%struct.percpu_counter, ptr @nr_files, i64 0, i32 1), align 8
+  %58 = load volatile i64, ptr getelementptr inbounds (i8, ptr @nr_files, i64 8), align 8
   %59 = tail call i64 @llvm.smax.i64(i64 %58, i64 0)
   store i64 %59, ptr @alloc_empty_file.old_max, align 8
   br label %60
@@ -295,7 +295,7 @@ define dso_local ptr @alloc_empty_file_noaccount(i32 noundef %0, ptr noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @alloc_empty_backing_file(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 248) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %38, label %6, !prof !5
@@ -640,7 +640,7 @@ define dso_local void @fput(ptr noundef %0) #3 align 16 {
   br label %32
 
 14:                                               ; preds = %6
-  %15 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #18, !srcloc !16
+  %15 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !16
   %16 = and i32 %15, 16776960
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %27, !prof !7
@@ -1021,7 +1021,7 @@ define dso_local void @files_maxfiles_init() local_unnamed_addr #9 section ".ini
   %10 = shl i64 %9, 2
   %11 = udiv i64 %10, 10
   %12 = tail call i64 @llvm.umax.i64(i64 %11, i64 8192)
-  store i64 %12, ptr getelementptr inbounds (%struct.files_stat_struct, ptr @files_stat, i64 0, i32 2), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @files_stat, i64 16), align 8
   ret void
 }
 
@@ -1033,7 +1033,7 @@ declare dso_local ptr @register_sysctl_mount_point(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @proc_nr_files(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  %6 = load volatile i64, ptr getelementptr inbounds (%struct.percpu_counter, ptr @nr_files, i64 0, i32 1), align 8
+  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @nr_files, i64 8), align 8
   %7 = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   store i64 %7, ptr @files_stat, align 8
   %8 = tail call i32 @proc_doulongvec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14

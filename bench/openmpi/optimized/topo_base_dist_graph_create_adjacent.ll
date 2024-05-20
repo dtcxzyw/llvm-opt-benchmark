@@ -16,10 +16,10 @@ define i32 @mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, ptr noundef
   br i1 %.not, label %13, label %_mca_topo_base_dist_graph_create_adjacent.exit
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 8), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 4), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %16, %17
   br i1 %.not.i.i, label %19, label %18
 
@@ -35,7 +35,7 @@ define i32 @mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, ptr noundef
   store ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, ptr %15, align 8
   %21 = getelementptr inbounds i8, ptr %15, i64 8
   store volatile i32 1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 6), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i.i.i = icmp eq ptr %23, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread72.i, label %.lr.ph.i.i.i

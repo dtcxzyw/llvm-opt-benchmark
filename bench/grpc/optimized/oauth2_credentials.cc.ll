@@ -532,7 +532,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -754,7 +754,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i, align 8
   %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -1054,7 +1054,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.52, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -1181,7 +1181,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN37grpc_oauth2_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @gpr_mu_destroy(ptr noundef nonnull %mu_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1399,7 +1399,7 @@ invoke.cont26:                                    ; preds = %if.else
 
 if.then.i.i25:                                    ; preds = %invoke.cont26
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i.i, align 8
   br label %if.then.i.i61.invoke
@@ -1417,7 +1417,7 @@ call.i.noexc:                                     ; preds = %invoke.cont37
           to label %.noexc36 unwind label %lpad41
 
 .noexc36:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.15, i64 0, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 12))
           to label %invoke.cont42 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc36
@@ -1494,7 +1494,7 @@ invoke.cont47:                                    ; preds = %invoke.cont44
 if.then.i.i.i45:                                  ; preds = %invoke.cont47
   %cmp.i.not.i.i.i.i46 = icmp eq i8 %17, -1
   %exception.i.i.i.i.i47 = call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i47, align 8
   %_M_reason.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i47, i64 8
   br i1 %cmp.i.not.i.i.i.i46, label %if.then.i.i.i.i50, label %if.else.i.i.i.i49
 
@@ -1525,7 +1525,7 @@ lor.rhs:                                          ; preds = %invoke.cont49
 
 if.then.i.i61:                                    ; preds = %lor.rhs
   %exception.i.i.i62 = call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i62, align 8
   %_M_reason.i.i.i.i63 = getelementptr inbounds i8, ptr %exception.i.i.i62, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i.i63, align 8
   br label %if.then.i.i61.invoke
@@ -1889,7 +1889,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -2014,7 +2014,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -2744,7 +2744,7 @@ call.i.noexc:                                     ; preds = %invoke.cont37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %21, i8 0, i64 96, i1 false), !noalias !24
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i27, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV40grpc_oauth2_pending_get_request_metadata, i64 0, i32 0, i64 2), ptr %call.i27, align 8, !noalias !24
+  store ptr getelementptr inbounds (i8, ptr @_ZTV40grpc_oauth2_pending_get_request_metadata, i64 16), ptr %call.i27, align 8, !noalias !24
   %waker.i.i = getelementptr inbounds i8, ptr %call.i27, i64 24
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %waker.i.i, align 8, !noalias !24
   %md.i.i = getelementptr inbounds i8, ptr %call.i27, i64 48
@@ -3263,7 +3263,7 @@ entry:
   store i64 1, ptr %refs_.i.i, align 8
   %min_security_level_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %min_security_level_.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %call = invoke { i64, i64 } @gpr_inf_past(i32 noundef 0)
@@ -3328,7 +3328,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([30 x i8], ptr @.str.24, i64 0, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 29))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3434,7 +3434,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @grpc_google_compute_engine_credentials_create(ptr noundef %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -3457,7 +3457,7 @@ do.end:                                           ; preds = %do.body
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !46
   store i32 2, ptr %1, align 8, !noalias !46
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %call.i, align 8, !noalias !46
   %call.i.i.i = invoke { i64, i64 } @gpr_inf_past(i32 noundef 0)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !46
 
@@ -3499,7 +3499,7 @@ lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i,
   resume { ptr, i32 } %8
 
 _ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsEED2Ev.exit: ; preds = %invoke.cont4.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 16), ptr %call.i, align 8, !noalias !46
   %http_request_.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %http_request_.i.i, align 8, !noalias !46
   ret ptr %call.i
@@ -3575,7 +3575,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZNSt10unique_ptrIN9grpc_core11HttpRequestENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %invoke.cont, %if.then.i
   store ptr null, ptr %http_request_, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %mu_.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @gpr_mu_destroy(ptr noundef nonnull %mu_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i3
@@ -3707,7 +3707,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.31, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 5))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3726,7 +3726,7 @@ call.i.noexc15:                                   ; preds = %invoke.cont
           to label %.noexc17 unwind label %lpad9
 
 .noexc17:                                         ; preds = %call.i.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.32, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 21))
           to label %invoke.cont10 unwind label %lpad.i14
 
 lpad.i14:                                         ; preds = %.noexc17
@@ -3745,7 +3745,7 @@ call.i.noexc23:                                   ; preds = %invoke.cont10
           to label %.noexc25 unwind label %lpad13
 
 .noexc25:                                         ; preds = %call.i.noexc23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.33, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.33, i64 6))
           to label %invoke.cont14 unwind label %lpad.i22
 
 lpad.i22:                                         ; preds = %.noexc25
@@ -4252,7 +4252,7 @@ entry:
   store i64 1, ptr %refs_.i.i.i, align 8
   %min_security_level_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %min_security_level_.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %call.i = invoke { i64, i64 } @gpr_inf_past(i32 noundef 0)
@@ -4295,7 +4295,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   resume { ptr, i32 } %6
 
 _ZN37grpc_oauth2_token_fetcher_credentialsC2Ev.exit: ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_google_refresh_token_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_google_refresh_token_credentials, i64 16), ptr %this, align 8
   %refresh_token_ = getelementptr inbounds i8, ptr %this, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %refresh_token_, ptr noundef nonnull align 8 dereferenceable(32) %refresh_token, i64 32, i1 false)
   %http_request_ = getelementptr inbounds i8, ptr %this, i64 184
@@ -4349,7 +4349,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([30 x i8], ptr @.str.24, i64 0, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 29))
           to label %_ZN37grpc_oauth2_token_fetcher_credentials12debug_stringB5cxx11Ev.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -4445,7 +4445,7 @@ entry:
   %token = alloca %struct.grpc_auth_refresh_token, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_Z42grpc_auth_refresh_token_create_from_stringPKc(ptr nonnull sret(%struct.grpc_auth_refresh_token) align 8 %token, ptr noundef %json_refresh_token)
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -4468,7 +4468,7 @@ call.i.noexc.i:                                   ; preds = %if.then.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.57, ptr noundef nonnull getelementptr inbounds ([21 x i8], ptr @.str.57, i64 0, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.57, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.57, i64 20))
           to label %invoke.cont.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -5609,7 +5609,7 @@ call.i.noexc:                                     ; preds = %invoke.cont10
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !100
   %min_security_level_.i.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 16
   store i32 2, ptr %min_security_level_.i.i.i.i, align 8, !noalias !100
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !100
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %call.i2, align 8, !noalias !100
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !100
   %call.i.i.i = invoke { i64, i64 } @gpr_inf_past(i32 noundef 0)
@@ -5652,7 +5652,7 @@ lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i,
   br label %lpad.body.i
 
 _ZN37grpc_oauth2_token_fetcher_credentialsC2Ev.exit.i.i: ; preds = %invoke.cont4.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !100
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE, i64 16), ptr %call.i2, align 8, !noalias !100
   %sts_url_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 120
   call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %sts_url_.i.i, ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp.i) #27, !noalias !100
   %resource_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 352
@@ -5957,7 +5957,7 @@ invoke.cont:
   store i64 1, ptr %refs_.i.i, align 8
   %min_security_level_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %min_security_level_.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_access_token_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29grpc_access_token_credentials, i64 16), ptr %this, align 8
   store i64 7, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.47, ptr %0, align 8
@@ -6012,7 +6012,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.48, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 37))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6039,7 +6039,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @grpc_access_token_credentials_create(ptr noundef %access_token, ptr noundef %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
@@ -6209,7 +6209,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -10599,7 +10599,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN40grpc_oauth2_pending_get_request_metadataD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV40grpc_oauth2_pending_get_request_metadata, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV40grpc_oauth2_pending_get_request_metadata, i64 16), ptr %this, align 8
   %result = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %result, align 8
   %cmp.i.i.i.i = icmp eq i64 %0, 0
@@ -10839,7 +10839,7 @@ declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatA
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 16), ptr %this, align 8
   %http_request_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %http_request_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -10860,7 +10860,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZNSt10unique_ptrIN9grpc_core11HttpRequestENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry, %if.then.i
   store ptr null, ptr %http_request_, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %mu_.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @gpr_mu_destroy(ptr noundef nonnull %mu_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i1
@@ -10940,7 +10940,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([30 x i8], ptr @.str.24, i64 0, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 29))
           to label %_ZN37grpc_oauth2_token_fetcher_credentials12debug_stringB5cxx11Ev.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -11018,7 +11018,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.40, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.40, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -11037,7 +11037,7 @@ call.i.noexc15:                                   ; preds = %invoke.cont
           to label %.noexc17 unwind label %lpad4
 
 .noexc17:                                         ; preds = %call.i.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds ([26 x i8], ptr @.str.92, i64 0, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 25))
           to label %invoke.cont5 unwind label %lpad.i14
 
 lpad.i14:                                         ; preds = %.noexc17
@@ -11056,7 +11056,7 @@ call.i.noexc23:                                   ; preds = %invoke.cont5
           to label %.noexc25 unwind label %lpad8
 
 .noexc25:                                         ; preds = %call.i.noexc23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds ([60 x i8], ptr @.str.93, i64 0, i64 59))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 59))
           to label %invoke.cont9 unwind label %lpad.i22
 
 lpad.i22:                                         ; preds = %.noexc25
@@ -11383,7 +11383,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE, i64 16), ptr %this, align 8
   %http_request_ = getelementptr inbounds i8, ptr %this, i64 416
   %0 = load ptr, ptr %http_request_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -11550,7 +11550,7 @@ _ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit30: ; preds = %_ZNSt
   store ptr null, ptr %resource_, align 8
   %sts_url_ = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %sts_url_) #27
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %mu_.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @gpr_mu_destroy(ptr noundef nonnull %mu_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i31
@@ -11632,7 +11632,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([30 x i8], ptr @.str.24, i64 0, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 29))
           to label %_ZN37grpc_oauth2_token_fetcher_credentials12debug_stringB5cxx11Ev.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i

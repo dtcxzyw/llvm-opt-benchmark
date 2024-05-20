@@ -19,7 +19,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rand_buf.i)
-  %0 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %1 = and i32 %0, 1073741824
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.then1, label %if.end.i

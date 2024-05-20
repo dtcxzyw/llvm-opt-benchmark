@@ -31,7 +31,7 @@ define hidden noundef ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 208)
   tail call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %call, ptr noundef %fixtureA, i32 noundef %indexA, ptr noundef %fixtureB, i32 noundef %indexB)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23b2ChainAndCircleContact, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23b2ChainAndCircleContact, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -54,7 +54,7 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN23b2ChainAndCircleContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fixtureA, i32 noundef %indexA, ptr noundef %fixtureB, i32 noundef %indexB) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fixtureA, i32 noundef %indexA, ptr noundef %fixtureB, i32 noundef %indexB)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23b2ChainAndCircleContact, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23b2ChainAndCircleContact, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -68,7 +68,7 @@ entry:
   %0 = load ptr, ptr %m_fixtureA, align 8
   %m_shape.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_shape.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i64 0, i32 0, i64 2), ptr %edge, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11b2EdgeShape, i64 16), ptr %edge, align 8
   %m_type.i = getelementptr inbounds i8, ptr %edge, i64 8
   store i32 1, ptr %m_type.i, align 8
   %m_radius.i = getelementptr inbounds i8, ptr %edge, i64 12

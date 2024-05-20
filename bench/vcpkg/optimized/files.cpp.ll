@@ -464,7 +464,7 @@ define dso_local void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeN
           to label %.noexc24 unwind label %38
 
 .noexc24:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
           to label %.critedge23 unwind label %16
 
 16:                                               ; preds = %.noexc24
@@ -9220,7 +9220,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
 
 20:                                               ; preds = %18, %15, %12
   %21 = load ptr, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 8), align 8
   %.not4854 = icmp eq ptr %21, %22
   br i1 %.not4854, label %.loopexit50, label %.lr.ph.preheader
 
@@ -10474,7 +10474,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem28create_or_get_te
           to label %.noexc10 unwind label %21
 
 .noexc10:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.27, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc10
@@ -11183,7 +11183,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem24take_exclusive_f
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !109
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 0, i32 0, i64 2), ptr %8, align 8, !noalias !109
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %8, align 8, !noalias !109
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26, !noalias !109
   %10 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %9, i32 noundef 66, i32 noundef 420)
           to label %11 unwind label %17, !noalias !109
@@ -11348,7 +11348,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem28try_take_exclusi
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = alloca %"struct.vcpkg::LocalizedString", align 8
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !113
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 0, i32 0, i64 2), ptr %11, align 8, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %11, align 8, !noalias !113
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26, !noalias !113
   %13 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %12, i32 noundef 66, i32 noundef 420)
           to label %14 unwind label %20, !noalias !113
@@ -12762,8 +12762,8 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds =
 
 .loopexit.thread:                                 ; preds = %_ZNSt6vectorIN5vcpkg4PathESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %28 = getelementptr inbounds i8, ptr null, i64 %25
-  store ptr %28, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 8), align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5vcpkg4PathESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
@@ -12773,7 +12773,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds =
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %29, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %25
-  store ptr %30, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 16), align 8
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc5.i
@@ -12799,7 +12799,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds =
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre = load ptr, ptr %1, align 8
   %.pre1 = load ptr, ptr %21, align 8
-  store ptr %32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, i64 8), align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre1
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -13747,7 +13747,7 @@ _ZN5vcpkg11MessageSink7printlnEONS_15LocalizedStringE.exit: ; preds = %.noexc
 define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1

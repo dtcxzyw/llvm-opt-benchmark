@@ -490,7 +490,7 @@ define void @_ZN6icu_758RBBINodeC2ENS0_8NodeTypeE(ptr noundef nonnull align 8 de
 entry:
   %status = alloca i32, align 4
   %fText = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fText, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fText, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   store i32 %t, ptr %this, align 8
@@ -594,7 +594,7 @@ define void @_ZN6icu_758RBBINodeC2ERKS0_(ptr noundef nonnull align 8 dereference
 entry:
   %status = alloca i32, align 4
   %fText = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fText, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fText, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %other, align 8

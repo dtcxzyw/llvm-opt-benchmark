@@ -105,7 +105,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEPKc(ptr nocapture noundef nonnul
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -125,7 +125,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEPKc(ptr nocapture noundef nonnul
 
 14:                                               ; preds = %11
   %15 = call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -190,7 +190,7 @@ define void @_ZN6marisa8grimoire2io6Reader5open_EPKc(ptr nocapture noundef nonnu
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -246,7 +246,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEP8_IO_FILE(ptr nocapture noundef
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -301,7 +301,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEi(ptr nocapture noundef nonnull 
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -437,7 +437,7 @@ define void @_ZN6marisa8grimoire2io6Reader4seekEm(ptr nocapture noundef nonnull 
 
 11:                                               ; preds = %2
   %12 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @.str, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
@@ -510,7 +510,7 @@ define void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr nocapture noundef n
 
 10:                                               ; preds = %3
   %11 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @.str, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16
@@ -540,7 +540,7 @@ _ZNK6marisa8grimoire2io6Reader7is_openEv.exit.thread: ; preds = %3
 
 22:                                               ; preds = %.preheader
   %23 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr @.str, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 16
@@ -568,7 +568,7 @@ _ZNK6marisa8grimoire2io6Reader7is_openEv.exit.thread: ; preds = %3
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @.str, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 16
@@ -601,7 +601,7 @@ _ZNK6marisa8grimoire2io6Reader7is_openEv.exit.thread: ; preds = %3
 
 50:                                               ; preds = %49
   %51 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr @.str, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -625,7 +625,7 @@ _ZNK6marisa8grimoire2io6Reader7is_openEv.exit.thread: ; preds = %3
   %62 = extractvalue { ptr, i32 } %57, 0
   %63 = tail call ptr @__cxa_begin_catch(ptr %62) #16
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr @.str, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 16

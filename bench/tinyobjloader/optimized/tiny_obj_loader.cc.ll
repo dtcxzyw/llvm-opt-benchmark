@@ -3393,7 +3393,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i37 unwind label %lpad.i36, !noalias !10
 
 invoke.cont.i37:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.79, i64 0, i64 1)) #25, !noalias !10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 1)) #25, !noalias !10
   store ptr null, ptr %__guard.i, align 8, !noalias !10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i, i64 noundef 1)
           to label %invoke.cont.i unwind label %lpad.i36, !noalias !10
@@ -4048,7 +4048,7 @@ lpad22:                                           ; preds = %if.end29, %if.then2
   br label %ehcleanup
 
 if.end29:                                         ; preds = %invoke.cont23, %if.then25, %invoke.cont18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 0, i32 0, i64 2), ptr %matFileReader, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 16), ptr %matFileReader, align 8
   %m_mtlBaseDir.i = getelementptr inbounds i8, ptr %matFileReader, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir.i, ptr noundef nonnull align 8 dereferenceable(32) %baseDir)
           to label %invoke.cont30 unwind label %lpad22
@@ -4058,14 +4058,14 @@ invoke.cont30:                                    ; preds = %if.end29
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 0, i32 0, i64 2), ptr %matFileReader, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 16), ptr %matFileReader, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir.i) #25
   br label %cleanup.sink.split
 
 lpad33:                                           ; preds = %invoke.cont30
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 0, i32 0, i64 2), ptr %matFileReader, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 16), ptr %matFileReader, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir.i) #25
   br label %ehcleanup
 
@@ -8482,7 +8482,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1295:                ; preds = %_ZNSt6vectorIfSaIfE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7tinyobj18MaterialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 16), ptr %this, align 8
   %m_mtlBaseDir = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir) #25
   ret void
@@ -14369,7 +14369,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj20MaterialStreamReaderE, i64 0, i32 0, i64 2), ptr %mtl_ss, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj20MaterialStreamReaderE, i64 16), ptr %mtl_ss, align 8
   %m_inStream.i = getelementptr inbounds i8, ptr %mtl_ss, i64 8
   store ptr %mtl_ifs, ptr %m_inStream.i, align 8
   %attrib_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -14390,11 +14390,11 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   store i8 %frombool, ptr %this, align 8
   call void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %mtl_ifs) #25
   call void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %obj_ifs) #25
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %mtl_buf, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %mtl_buf, align 8
   %_M_string.i = getelementptr inbounds i8, ptr %mtl_buf, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string.i) #25
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %mtl_buf) #25
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %obj_buf, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %obj_buf, align 8
   %_M_string.i5 = getelementptr inbounds i8, ptr %obj_buf, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string.i5) #25
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %obj_buf) #25
@@ -14428,7 +14428,7 @@ ehcleanup16:                                      ; preds = %lpad11, %lpad6
 
 ehcleanup17:                                      ; preds = %ehcleanup16, %lpad4
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup16 ], [ %3, %lpad4 ]
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %mtl_buf, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %mtl_buf, align 8
   %_M_string.i6 = getelementptr inbounds i8, ptr %mtl_buf, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string.i6) #25
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %mtl_buf) #25
@@ -14436,7 +14436,7 @@ ehcleanup17:                                      ; preds = %ehcleanup16, %lpad4
 
 ehcleanup18:                                      ; preds = %ehcleanup17, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup17 ], [ %2, %lpad ]
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %obj_buf, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %obj_buf, align 8
   %_M_string.i7 = getelementptr inbounds i8, ptr %obj_buf, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string.i7) #25
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %obj_buf) #25
@@ -14461,7 +14461,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7tinyobj18MaterialFileReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i64 16), ptr %this, align 8
   %m_mtlBaseDir.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir.i) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28

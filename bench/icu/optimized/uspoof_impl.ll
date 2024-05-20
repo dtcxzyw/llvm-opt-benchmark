@@ -77,7 +77,7 @@ define void @_ZN6icu_759SpoofImplC2EPNS_9SpoofDataER10UErrorCode(ptr noundef non
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759SpoofImplE, i64 16), ptr %this, align 8
   %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
   %fSpoofData.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -204,7 +204,7 @@ define void @_ZN6icu_759SpoofImplC2ER10UErrorCode(ptr noundef nonnull align 8 de
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759SpoofImplE, i64 16), ptr %this, align 8
   %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
   %fSpoofData.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -342,12 +342,12 @@ if.end8.i:                                        ; preds = %new.cont.i
 
 _ZN6icu_75L22uspoof_loadDefaultDataER10UErrorCode.exit: ; preds = %if.then4.i, %delete.end.i, %if.then7.i, %if.end8.i
   %6 = load i32, ptr %status, align 4
-  store i32 %6, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_75L21gSpoofInitDefaultOnceE, i64 0, i32 1), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L21gSpoofInitDefaultOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L21gSpoofInitDefaultOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %7 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_75L21gSpoofInitDefaultOnceE, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L21gSpoofInitDefaultOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %7, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -378,7 +378,7 @@ if.end.i:
   %status = alloca i32, align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759SpoofImplE, i64 16), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
@@ -460,7 +460,7 @@ define void @_ZN6icu_759SpoofImplC2ERKS0_R10UErrorCode(ptr noundef nonnull align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759SpoofImplE, i64 16), ptr %this, align 8
   %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks, align 4
   %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
@@ -542,7 +542,7 @@ declare noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759SpoofImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759SpoofImplE, i64 16), ptr %this, align 8
   %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fSpoofData, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1638,7 +1638,7 @@ _ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit: ; preds = %entry
   br i1 %tobool.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %skelStr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skelStr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %skelStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
@@ -1847,7 +1847,7 @@ define void @_ZN6icu_7511CheckResultC2Ev(ptr noundef nonnull align 8 dereference
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 657779934, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511CheckResultE, i64 16), ptr %this, align 8
   %fNumerics = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics)
           to label %invoke.cont unwind label %lpad
@@ -1985,7 +1985,7 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7511CheckResultD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511CheckResultE, i64 16), ptr %this, align 8
   %fNumerics = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics) #21
   %0 = getelementptr inbounds i8, ptr %this, i64 8

@@ -1217,7 +1217,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   br label %1413
 
 489:                                              ; preds = %479, %477, %472
-  %490 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %490 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %491 = call noalias align 8 dereferenceable_or_null(280) ptr @kmalloc_trace(ptr noundef %490, i32 noundef 3520, i64 noundef 280) #22
   %492 = icmp eq ptr %491, null
   br i1 %492, label %1413, label %493
@@ -2951,7 +2951,7 @@ define dso_local i32 @i915_perf_add_config_ioctl(ptr noundef %0, ptr noundef %1,
   br label %240
 
 62:                                               ; preds = %50, %42, %34
-  %63 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %64 = tail call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 3520, i64 noundef 216) #22
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %74
@@ -3780,7 +3780,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef %0) l
   br i1 %111, label %214, label %112
 
 112:                                              ; preds = %.backedge
-  %113 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %114 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %113, i32 noundef 3520, i64 noundef 56) #22
   %.not = icmp eq ptr %114, null
   br i1 %.not, label %215, label %115
@@ -8044,7 +8044,7 @@ define internal fastcc i32 @emit_oa_config(ptr noundef %0, ptr noundef %1, ptr n
 .loopexit68:                                      ; preds = %21, %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !16
-  %24 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %25 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 24) #22
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread54, label %27

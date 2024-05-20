@@ -6338,7 +6338,7 @@ define hidden void @proto_reg_handoff_ber() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
-  call void @qsort(ptr noundef nonnull getelementptr inbounds (<{ %struct._value_string, [128 x %struct._value_string] }>, ptr @syntax_names, i64 0, i32 1, i64 0), i64 noundef %8, i64 noundef 16, ptr noundef nonnull @cmp_value_string) #14
+  call void @qsort(ptr noundef nonnull getelementptr inbounds (i8, ptr @syntax_names, i64 16), i64 noundef %8, i64 noundef 16, ptr noundef nonnull @cmp_value_string) #14
   %.pre = load i32, ptr %2, align 4
   br label %9
 

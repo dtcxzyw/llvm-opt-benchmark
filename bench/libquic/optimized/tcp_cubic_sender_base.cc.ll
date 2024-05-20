@@ -39,7 +39,7 @@ $_ZTIN3net22SendAlgorithmInterfaceE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef readnone %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net18TcpCubicSenderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18TcpCubicSenderBaseE, i64 16), ptr %this, align 8
   %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStartC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_)
   %prr_ = getelementptr inbounds i8, ptr %this, i64 56

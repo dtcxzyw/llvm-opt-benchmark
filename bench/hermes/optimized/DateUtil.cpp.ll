@@ -1007,7 +1007,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1024,7 +1024,7 @@ if.then:                                          ; preds = %entry
   %ref.tmp6.sink11.sroa.gep12 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1033,7 +1033,7 @@ if.else:                                          ; preds = %entry
   %ref.tmp6.sink11.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %Fmt.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.1, ptr %Fmt.i.i.i3, align 8, !alias.scope !11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp6, align 8, !alias.scope !11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1063,7 +1063,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1093,7 +1093,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.2, ptr %Fmt.i.i.i, align 8, !alias.scope !14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiiEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !14
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store <2 x i32> %8, ptr %Vals.i.i, align 8, !alias.scope !14
   %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -1113,7 +1113,7 @@ if.else:                                          ; preds = %entry
   %call.i.i27 = call double @fmod(double noundef %13, double noundef 6.000000e+01) #17
   %Fmt.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   store ptr @.str.3, ptr %Fmt.i.i.i31, align 8, !alias.scope !17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiciiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp14, align 8, !alias.scope !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiiciiEEE, i64 16), ptr %ref.tmp14, align 8, !alias.scope !17
   %Vals.i.i32 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   %14 = insertelement <2 x double> poison, double %call.i.i27, i64 0
   %15 = insertelement <2 x double> %14, double %call.i.i22, i64 1
@@ -1206,7 +1206,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1228,7 +1228,7 @@ entry:
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.4, ptr %Fmt.i.i.i, align 8, !alias.scope !20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !20
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %2 = insertelement <2 x double> poison, double %call, i64 0
   %3 = insertelement <2 x double> %2, double %call2, i64 1
@@ -1254,7 +1254,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1273,7 +1273,7 @@ entry:
   %call.i.i9 = call double @fmod(double noundef %2, double noundef 6.000000e+01) #17
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.5, ptr %Fmt.i.i.i, align 8, !alias.scope !23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !23
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !23
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = insertelement <2 x double> poison, double %call.i.i9, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4, i64 1
@@ -1298,7 +1298,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1313,7 +1313,7 @@ entry:
   %call.i.i4 = call double @fmod(double noundef %2, double noundef 2.400000e+01) #17
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.6, ptr %Fmt.i.i.i, align 8, !alias.scope !26
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !26
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = insertelement <2 x double> poison, double %call.i.i, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4, i64 1
@@ -1343,7 +1343,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1353,7 +1353,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %os.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1375,7 +1375,7 @@ entry:
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.4, ptr %Fmt.i.i.i.i, align 8, !alias.scope !29
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !29
   %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %1 = insertelement <2 x double> poison, double %call.i, i64 0
   %2 = insertelement <2 x double> %1, double %call2.i, i64 1
@@ -1416,7 +1416,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   store i32 1, ptr %BufferMode.i.i.i.i10, align 8
   %OutBufStart.i.i.i.i11 = getelementptr inbounds i8, ptr %os.i8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i8, align 8
   %OS.i.i12 = getelementptr inbounds i8, ptr %os.i8, i64 40
   store ptr %buf, ptr %OS.i.i12, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i8, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1435,7 +1435,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %call.i.i9.i = call double @fmod(double noundef %13, double noundef 6.000000e+01) #17
   %Fmt.i.i.i.i18 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 8
   store ptr @.str.5, ptr %Fmt.i.i.i.i18, align 8, !alias.scope !32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i9, align 8, !alias.scope !32
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp.i9, align 8, !alias.scope !32
   %Vals.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 16
   %14 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %15 = insertelement <2 x double> %14, double %call.i.i4.i, i64 1
@@ -1456,7 +1456,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   store i32 1, ptr %BufferMode.i.i.i.i22, align 8
   %OutBufStart.i.i.i.i23 = getelementptr inbounds i8, ptr %os.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i23, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i20, align 8
   %OS.i.i24 = getelementptr inbounds i8, ptr %os.i20, i64 40
   store ptr %buf, ptr %OS.i.i24, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i20, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1471,7 +1471,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %call.i.i4.i32 = call double @fmod(double noundef %23, double noundef 2.400000e+01) #17
   %Fmt.i.i.i.i37 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 8
   store ptr @.str.6, ptr %Fmt.i.i.i.i37, align 8, !alias.scope !35
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i21, align 8, !alias.scope !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 16), ptr %ref.tmp.i21, align 8, !alias.scope !35
   %Vals.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 16
   %24 = insertelement <2 x double> poison, double %call.i.i.i26, i64 0
   %25 = insertelement <2 x double> %24, double %call.i.i4.i32, i64 1
@@ -1501,7 +1501,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1525,7 +1525,7 @@ entry:
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.8, ptr %Fmt.i.i.i, align 8, !alias.scope !38
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKciS2_iEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !38
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJPKciS2_iEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !38
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 %conv, ptr %Vals.i.i, align 8, !alias.scope !38
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -1543,7 +1543,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %os.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1562,7 +1562,7 @@ entry:
   %call.i.i9.i = call double @fmod(double noundef %8, double noundef 6.000000e+01) #17
   %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.5, ptr %Fmt.i.i.i.i, align 8, !alias.scope !41
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !41
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !41
   %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %9 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %10 = insertelement <2 x double> %9, double %call.i.i4.i, i64 1
@@ -1594,7 +1594,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %os.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1613,7 +1613,7 @@ entry:
   %call.i.i9.i = call double @fmod(double noundef %2, double noundef 6.000000e+01) #17
   %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.5, ptr %Fmt.i.i.i.i, align 8, !alias.scope !44
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !44
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !44
   %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %3 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4.i, i64 1
@@ -1634,7 +1634,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i6, align 8
   %OutBufStart.i.i.i.i7 = getelementptr inbounds i8, ptr %os.i4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %os.i4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i4, align 8
   %OS.i.i8 = getelementptr inbounds i8, ptr %os.i4, i64 40
   store ptr %buf, ptr %OS.i.i8, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i4, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -1649,7 +1649,7 @@ entry:
   %call.i.i4.i16 = call double @fmod(double noundef %12, double noundef 2.400000e+01) #17
   %Fmt.i.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 8
   store ptr @.str.6, ptr %Fmt.i.i.i.i21, align 8, !alias.scope !47
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i5, align 8, !alias.scope !47
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJciiEEE, i64 16), ptr %ref.tmp.i5, align 8, !alias.scope !47
   %Vals.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 16
   %13 = insertelement <2 x double> poison, double %call.i.i.i10, i64 0
   %14 = insertelement <2 x double> %13, double %call.i.i4.i16, i64 1

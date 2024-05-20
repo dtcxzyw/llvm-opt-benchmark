@@ -594,9 +594,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %6 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 0, i32 6), align 2
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool = icmp ne i8 %6, 0
-  %7 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool3 = icmp ne i8 %7, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool3
   br i1 %or.cond, label %if.then4, label %if.end5
@@ -612,8 +612,8 @@ if.then4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %11 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
-  %12 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %cmp6 = icmp ult i32 %call, 3
   br i1 %cmp6, label %if.then7, label %if.end9
 
@@ -636,21 +636,21 @@ if.end9:                                          ; preds = %if.end5
   %19 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call double @uprv_getRawUTCtime_75()
   store double %call12, ptr @startTime, align 8
-  %20 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool13.not = icmp eq i8 %20, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end9
-  %21 = load ptr, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 1), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 128), align 16
   tail call void @u_setDataDirectory_75(ptr noundef %21)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end9
-  %22 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool16.not = icmp eq i8 %22, 0
   %spec.store.select = select i1 %tobool16.not, ptr null, ptr @.str.2
-  %23 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
-  %24 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %cmp20 = icmp eq i8 %23, %24
   br i1 %cmp20, label %if.then21, label %if.end23
 
@@ -668,7 +668,7 @@ if.then21:                                        ; preds = %if.end15
 
 if.end23:                                         ; preds = %if.end15
   %conv24 = sext i8 %24 to i32
-  %30 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %cmp26.not = icmp eq i8 %24, %30
   br i1 %cmp26.not, label %if.end29, label %if.then27
 
@@ -687,7 +687,7 @@ if.then27:                                        ; preds = %if.end23
 if.end29:                                         ; preds = %if.end23
   %errorCode.i.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %status, align 8
   %location.i = getelementptr inbounds i8, ptr %status, i64 16
   store ptr @.str.5, ptr %location.i, align 8
   %tobool30.not = icmp eq i8 %11, 0
@@ -816,17 +816,17 @@ lpad60:                                           ; preds = %if.then73, %invoke.
   br label %ehcleanup320
 
 if.end71:                                         ; preds = %invoke.cont59
-  %46 = load i8, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %46 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool72.not = icmp eq i8 %46, 0
   br i1 %tobool72.not, label %invoke.cont76, label %if.then73
 
 if.then73:                                        ; preds = %if.end71
-  %47 = load ptr, ptr getelementptr inbounds ([9 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 16
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   invoke void @_ZN8DataDict12setTransformEPKc(ptr noundef nonnull align 8 dereferenceable(24) %dict, ptr noundef %47)
           to label %invoke.cont76 unwind label %lpad60
 
 invoke.cont76:                                    ; preds = %if.end71, %if.then73
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fileLine, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fileLine, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %fileLine, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br i1 %tobool30.not, label %if.end82, label %if.then78
@@ -1343,7 +1343,7 @@ if.then212:                                       ; preds = %if.end210
   br label %invoke.cont217
 
 invoke.cont217:                                   ; preds = %if.end210, %if.then212
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %usp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %usp, align 8
   %fUnion2.i166 = getelementptr inbounds i8, ptr %usp, i64 8
   store i16 2, ptr %fUnion2.i166, align 8
   br i1 %tobool.not.i, label %if.else229, label %if.then219

@@ -62,7 +62,7 @@ define dso_local void @prte_info_components_open() local_unnamed_addr #2 {
 1:                                                ; preds = %0
   store i1 true, ptr @opened_components, align 1
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -71,10 +71,10 @@ define dso_local void @prte_info_components_open() local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 0, i32 3), i8 0, i64 64, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_component_map, i64 56), i8 0, i64 64, i1 false)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -124,10 +124,10 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   ]
 
 24:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %25 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_info_component_map_t_class, i64 0, i32 8), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @prte_info_component_map_t_class, i64 56), align 8
   %26 = tail call noalias noundef ptr @malloc(i64 noundef %25) #15
   %27 = load i32, ptr @pmix_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_info_component_map_t_class, i64 0, i32 4), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_info_component_map_t_class, i64 32), align 8
   %.not.i.i.i.i = icmp eq i32 %27, %28
   br i1 %.not.i.i.i.i, label %30, label %29
 
@@ -149,7 +149,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %36 = getelementptr inbounds i8, ptr %26, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  %37 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_info_component_map_t_class, i64 0, i32 6), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_info_component_map_t_class, i64 40), align 8
   %38 = load ptr, ptr %37, align 8
   %.not6.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not6.i.i.i.i.i, label %pmix_obj_new_tma.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -228,7 +228,7 @@ define dso_local void @prte_info_components_close() local_unnamed_addr #2 {
   br i1 %.not32, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader31
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 3), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 128), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %pmix_pointer_array_get_item.exit, label %._crit_edge
 
@@ -244,7 +244,7 @@ define dso_local void @prte_info_components_close() local_unnamed_addr #2 {
 
 pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %36
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %36 ], [ 0, %.preheader ]
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 152), align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv36
   %10 = load ptr, ptr %9, align 8
   %.not23 = icmp eq ptr %10, null
@@ -306,13 +306,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
 
 36:                                               ; preds = %33, %35, %pmix_pointer_array_get_item.exit, %16
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %37 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 3), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 128), align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next37, %38
   br i1 %39, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %36, %.preheader
-  %40 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @prte_component_map, i64 0, i32 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_component_map, i64 40), align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8

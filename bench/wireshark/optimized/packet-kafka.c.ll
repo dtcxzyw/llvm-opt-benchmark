@@ -972,8 +972,8 @@ define hidden void @proto_register_kafka() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %compute_kafka_api_names.exit, label %1, !llvm.loop !4
 
 compute_kafka_api_names.exit:                     ; preds = %1
-  store i32 0, ptr getelementptr inbounds ([49 x %struct._value_string], ptr @kafka_api_names, i64 0, i64 48), align 16
-  store ptr null, ptr getelementptr inbounds ([49 x %struct._value_string], ptr @kafka_api_names, i64 0, i64 48, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @kafka_api_names, i64 768), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @kafka_api_names, i64 776), align 8
   %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   tail call void @proto_register_field_array(i32 noundef %9, ptr noundef nonnull @proto_register_kafka_protocol_fields.hf, i32 noundef 156) #6
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_kafka_protocol_subtrees.ett, i32 noundef 61) #6

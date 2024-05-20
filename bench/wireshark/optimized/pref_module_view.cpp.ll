@@ -26,9 +26,9 @@ module asm ".previous"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18PrefModuleTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PrefModuleTreeView, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PrefModuleTreeView, i64 816), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i32 noundef 257)
           to label %5 unwind label %6

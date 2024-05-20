@@ -1825,7 +1825,7 @@ define void @_ZN25FilterImgPatchParamPluginC1Ev(ptr noundef nonnull align 8 dere
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1840,14 +1840,14 @@ define void @_ZN25FilterImgPatchParamPluginC1Ev(ptr noundef nonnull align 8 dere
 
 ._crit_edge.i.i.i.thread:                         ; preds = %9
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT25FilterImgPatchParamPlugin, i64 0, i64 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT25FilterImgPatchParamPlugin, i64 8), align 8
   store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT25FilterImgPatchParamPlugin, i64 0, i64 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT25FilterImgPatchParamPlugin, i64 16), align 8
   %13 = getelementptr i8, ptr %11, i64 -24
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
   store ptr %12, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT25FilterImgPatchParamPlugin, i64 0, i64 3), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT25FilterImgPatchParamPlugin, i64 24), align 8
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr i8, ptr %17, i64 -32
   %19 = load i64, ptr %18, align 8
@@ -1867,10 +1867,10 @@ define void @_ZN25FilterImgPatchParamPluginC1Ev(ptr noundef nonnull align 8 dere
   store ptr %25, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV25FilterImgPatchParamPlugin, i64 0, i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV25FilterImgPatchParamPlugin, i64 0, i32 1, i64 4), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV25FilterImgPatchParamPlugin, i64 0, i32 2, i64 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV25FilterImgPatchParamPlugin, i64 0, i32 3, i64 3), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25FilterImgPatchParamPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25FilterImgPatchParamPlugin, i64 248), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25FilterImgPatchParamPlugin, i64 480), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25FilterImgPatchParamPlugin, i64 544), ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %28, align 8
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %2, align 16
@@ -2021,13 +2021,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %52, %_ZN9QtPrivate8
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit24:            ; preds = %.lr.ph.i.i.i21, %66, %39
   %.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn, %66 ], [ %.pn.pn, %.lr.ph.i.i.i21 ]
-  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull getelementptr inbounds ([7 x ptr], ptr @_ZTT25FilterImgPatchParamPlugin, i64 0, i64 1)) #27
+  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT25FilterImgPatchParamPlugin, i64 8)) #27
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   br label %69
 
 69:                                               ; preds = %37, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24, %35
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn.pn.pn, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24 ], [ %38, %37 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -2038,7 +2038,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   ret void
@@ -2151,7 +2151,7 @@ _ZN12FilterPluginD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i, %_
 define void @_ZN25FilterImgPatchParamPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   ret void
@@ -2162,7 +2162,7 @@ define void @_ZThn16_N25FilterImgPatchParamPluginD1Ev(ptr noundef %0) unnamed_ad
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   ret void
@@ -2176,7 +2176,7 @@ define void @_ZTv0_n24_N25FilterImgPatchParamPluginD1Ev(ptr noundef %0) unnamed_
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   ret void
@@ -2186,7 +2186,7 @@ define void @_ZTv0_n24_N25FilterImgPatchParamPluginD1Ev(ptr noundef %0) unnamed_
 define void @_ZN25FilterImgPatchParamPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
@@ -2198,7 +2198,7 @@ define void @_ZThn16_N25FilterImgPatchParamPluginD0Ev(ptr noundef %0) unnamed_ad
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #26
@@ -2213,7 +2213,7 @@ define void @_ZTv0_n24_N25FilterImgPatchParamPluginD0Ev(ptr noundef %0) unnamed_
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull @_ZTT25FilterImgPatchParamPlugin) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #26
@@ -4427,7 +4427,7 @@ define void @_ZN25FilterImgPatchParamPlugin11applyFilterB5cxx11EPK7QActionRK17Ri
 
 67:                                               ; preds = %59, %63
   %68 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3glw7ContextE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw7ContextE, i64 16), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   store i8 0, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %68, i64 12
@@ -5189,12 +5189,12 @@ _ZN7QStringD2Ev.exit180:                          ; preds = %_ZN9QtPrivate8RefCo
           to label %332 unwind label %376
 
 332:                                              ; preds = %330
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14TexturePainter, i64 0, i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14TexturePainter, i64 16), ptr %29, align 8
   %333 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %328, ptr %333, align 8
   %334 = getelementptr inbounds i8, ptr %29, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %334, i8 0, i64 48, i1 false)
-  %335 = load ptr, ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14TexturePainter, i64 0, i32 0, i64 2), align 8
+  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV14TexturePainter, i64 16), align 8
   %336 = invoke noundef zeroext i1 %335(ptr noundef nonnull align 8 dereferenceable(72) %29, i32 noundef %331)
           to label %344 unwind label %337
 
@@ -6177,7 +6177,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -6250,7 +6250,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -9218,7 +9218,7 @@ declare void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14TexturePainterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14TexturePainter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14TexturePainter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9550,7 +9550,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -9616,7 +9616,7 @@ declare void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind writa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw7ContextD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3glw7ContextE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw7ContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -11291,7 +11291,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw17BoundVertexBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw17BoundVertexBufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -11355,7 +11355,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundVertexBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11395,7 +11395,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundVertexBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11458,7 +11458,7 @@ define linkonce_odr void @_ZN3glw11BoundBuffer6unbindEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw11BoundObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11644,7 +11644,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw16BoundIndexBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw16BoundIndexBufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -11670,7 +11670,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw16BoundIndexBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11710,7 +11710,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw16BoundIndexBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11887,7 +11887,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw20BoundPixelPackBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundPixelPackBufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -11913,7 +11913,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundPixelPackBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11953,7 +11953,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundPixelPackBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12130,7 +12130,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw22BoundPixelUnpackBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw22BoundPixelUnpackBufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -12156,7 +12156,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw22BoundPixelUnpackBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12196,7 +12196,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw22BoundPixelUnpackBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12373,7 +12373,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw17BoundRenderbufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw17BoundRenderbufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -12437,7 +12437,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_14SafeRenderableENS0_14DefaultDeleterINS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundRenderbufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12477,7 +12477,7 @@ _ZN3glw15BoundRenderableD2Ev.exit:                ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundRenderbufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12680,7 +12680,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw17BoundVertexShaderE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw17BoundVertexShaderE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -12736,7 +12736,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeShaderENS0_14DefaultDeleterINS_10Sa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundVertexShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12776,7 +12776,7 @@ _ZN3glw11BoundShaderD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw17BoundVertexShaderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12963,7 +12963,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw19BoundGeometryShaderE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw19BoundGeometryShaderE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -13019,7 +13019,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeShaderENS0_14DefaultDeleterINS_10Sa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundGeometryShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13059,7 +13059,7 @@ _ZN3glw11BoundShaderD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundGeometryShaderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13236,7 +13236,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw19BoundFragmentShaderE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw19BoundFragmentShaderE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -13292,7 +13292,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeShaderENS0_14DefaultDeleterINS_10Sa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundFragmentShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13332,7 +13332,7 @@ _ZN3glw11BoundShaderD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundFragmentShaderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13509,7 +13509,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw12BoundProgramE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw12BoundProgramE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -13572,7 +13572,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw12BoundProgramD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13612,7 +13612,7 @@ _ZN3glw11BoundObjectD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw12BoundProgramD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13811,7 +13811,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw20BoundReadFramebufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundReadFramebufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -13875,7 +13875,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundReadFramebufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13915,7 +13915,7 @@ _ZN3glw16BoundFramebufferD2Ev.exit:               ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundReadFramebufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14118,7 +14118,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw20BoundDrawFramebufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundDrawFramebufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -14144,7 +14144,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundDrawFramebufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14184,7 +14184,7 @@ _ZN3glw16BoundFramebufferD2Ev.exit:               ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw20BoundDrawFramebufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14361,7 +14361,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw24BoundReadDrawFramebufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw24BoundReadDrawFramebufferE, i64 16), ptr %56, align 8
   %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
@@ -14387,7 +14387,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw24BoundReadDrawFramebufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14427,7 +14427,7 @@ _ZN3glw16BoundFramebufferD2Ev.exit:               ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw24BoundReadDrawFramebufferD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14607,7 +14607,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %63 = getelementptr inbounds i8, ptr %56, i64 20
   %64 = load i32, ptr %5, align 4
   store i32 %64, ptr %63, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw18BoundUniformBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw18BoundUniformBufferE, i64 16), ptr %56, align 8
   %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
@@ -14632,7 +14632,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw18BoundUniformBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14672,7 +14672,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw18BoundUniformBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14886,7 +14886,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %63 = getelementptr inbounds i8, ptr %56, i64 20
   %64 = load i32, ptr %5, align 4
   store i32 %64, ptr %63, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw19BoundFeedbackBufferE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw19BoundFeedbackBufferE, i64 16), ptr %56, align 8
   %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
@@ -14911,7 +14911,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundFeedbackBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14951,7 +14951,7 @@ _ZN3glw11BoundBufferD2Ev.exit:                    ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw19BoundFeedbackBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15165,7 +15165,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %63 = getelementptr inbounds i8, ptr %56, i64 20
   %64 = load i32, ptr %5, align 4
   store i32 %64, ptr %63, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw14BoundTexture2DE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw14BoundTexture2DE, i64 16), ptr %56, align 8
   %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
@@ -15233,7 +15233,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_11SafeTextureENS0_14DefaultDeleterINS_10S
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw14BoundTexture2DD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15273,7 +15273,7 @@ _ZN3glw12BoundTextureD2Ev.exit:                   ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw14BoundTexture2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15489,7 +15489,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %63 = getelementptr inbounds i8, ptr %56, i64 20
   %64 = load i32, ptr %5, align 4
   store i32 %64, ptr %63, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw16BoundTextureCubeE, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw16BoundTextureCubeE, i64 16), ptr %56, align 8
   %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr %56, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
@@ -15557,7 +15557,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_11SafeTextureENS0_14DefaultDeleterINS_10S
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw16BoundTextureCubeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15597,7 +15597,7 @@ _ZN3glw12BoundTextureD2Ev.exit:                   ; preds = %1, %_ZN3glw6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3glw16BoundTextureCubeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3glw11BoundObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw11BoundObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -16070,7 +16070,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 16), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.62)
           to label %4 unwind label %9
 
@@ -31239,7 +31239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE4PackERKSt6vectorI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = tail call i64 @clock() #27
   store i32 0, ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, align 4
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%"class.vcg::RectPacker<float>::Stat", ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 0, i32 1), align 4
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 4), align 4
   br label %8
 
 8:                                                ; preds = %25, %4
@@ -31259,7 +31259,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE4PackERKSt6vectorI
   %16 = sub nsw i64 %14, %15
   %17 = sitofp i64 %16 to float
   %18 = fdiv float %17, 1.000000e+06
-  store float %18, ptr getelementptr inbounds (%"class.vcg::RectPacker<float>::Stat", ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 0, i32 1), align 4
+  store float %18, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 4), align 4
   br i1 %12, label %19, label %29
 
 19:                                               ; preds = %13
@@ -31294,7 +31294,7 @@ _ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EED2Ev.exit: ; preds = %21, %24
   %32 = sub nsw i64 %30, %31
   %33 = sitofp i64 %32 to float
   %34 = fdiv float %33, 1.000000e+06
-  store float %34, ptr getelementptr inbounds (%"class.vcg::RectPacker<float>::Stat", ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 0, i32 2), align 4
+  store float %34, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, i64 8), align 4
   %35 = load ptr, ptr %5, align 8
   %.not.i.i.i19 = icmp eq ptr %35, null
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EED2Ev.exit20, label %36
@@ -33498,9 +33498,9 @@ define internal void @_GLOBAL__sub_I_filter_img_patch_param.cpp() #14 section ".
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #27
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

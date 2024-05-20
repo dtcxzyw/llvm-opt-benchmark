@@ -40,7 +40,7 @@ define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
   %11 = load <2 x i64>, ptr %9, align 8
   %12 = add <2 x i64> %11, %10
   store <2 x i64> %12, ptr %9, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i64 0, i32 2), align 16
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 16
   %14 = getelementptr inbounds i8, ptr %3, i64 368
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
@@ -65,7 +65,7 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_bgwriter() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 7) #5
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4)
+  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -136,7 +136,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4), ptr noundef nonnull readonly align 1 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), ptr noundef nonnull readonly align 1 dereferenceable(32) %2, i64 32, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
   %7 = and i32 %4, 1
   %.not.i5.i = icmp eq i32 %7, 0
@@ -158,12 +158,12 @@ pgstat_copy_changecounted_stats.exit:             ; preds = %8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %14 = load <2 x i64>, ptr %11, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %12) #5
-  %15 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4), align 8
+  %15 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
   %16 = sub <2 x i64> %15, %14
-  store <2 x i64> %16, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4), align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4, i32 2), align 8
+  store <2 x i64> %16, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
   %18 = sub i64 %17, %.sroa.3.0.copyload
-  store i64 %18, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4, i32 2), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
   ret void
 }
 

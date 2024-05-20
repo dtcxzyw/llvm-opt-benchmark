@@ -3514,7 +3514,7 @@ invoke.cont33:                                    ; preds = %for.end.i, %delete.
   store i64 0, ptr %mnElementCount.i.i, align 8
   %13 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i = icmp eq ptr %13, null
-  %14 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   br i1 %or.cond.i, label %while.cond.i.i.i49, label %invoke.cont34
@@ -3642,7 +3642,7 @@ lpad32:                                           ; preds = %lpad32.loopexit.spl
 for.end:                                          ; preds = %for.inc
   %24 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i56 = icmp eq ptr %24, null
-  %25 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i57 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
   %or.cond.i58 = select i1 %cmp.not.i56, i1 %cmp2.not.i57, i1 false
   br i1 %or.cond.i58, label %if.end4.i60, label %invoke.cont48
@@ -3831,7 +3831,7 @@ invoke.cont56:                                    ; preds = %for.end.i130, %dele
   store i64 0, ptr %mnElementCount.i.i, align 8
   %46 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i159 = icmp eq ptr %46, null
-  %47 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i160 = icmp eq ptr %47, inttoptr (i64 -1 to ptr)
   %or.cond.i161 = select i1 %cmp.not.i159, i1 %cmp2.not.i160, i1 false
   br i1 %or.cond.i161, label %while.cond.i.i.i198, label %invoke.cont57
@@ -3913,7 +3913,7 @@ for.inc77:                                        ; preds = %for.body72
 for.end79:                                        ; preds = %for.inc77
   %54 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i210 = icmp eq ptr %54, null
-  %55 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i211 = icmp eq ptr %55, inttoptr (i64 -1 to ptr)
   %or.cond.i212 = select i1 %cmp.not.i210, i1 %cmp2.not.i211, i1 false
   br i1 %or.cond.i212, label %if.end4.i214, label %invoke.cont80
@@ -4102,7 +4102,7 @@ invoke.cont88:                                    ; preds = %for.end.i284, %dele
   store i64 0, ptr %mnElementCount.i.i, align 8
   %76 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i313 = icmp eq ptr %76, null
-  %77 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i314 = icmp eq ptr %77, inttoptr (i64 -1 to ptr)
   %or.cond.i315 = select i1 %cmp.not.i313, i1 %cmp2.not.i314, i1 false
   br i1 %or.cond.i315, label %while.cond.i.i.i352, label %invoke.cont89
@@ -4910,7 +4910,7 @@ invoke.cont285:                                   ; preds = %for.end284
 invoke.cont289:                                   ; preds = %invoke.cont285
   %188 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i659 = icmp eq ptr %188, null
-  %189 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %189 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i660 = icmp eq ptr %189, inttoptr (i64 -1 to ptr)
   %or.cond.i661 = select i1 %cmp.not.i659, i1 %cmp2.not.i660, i1 false
   br i1 %or.cond.i661, label %if.end4.i663, label %invoke.cont291
@@ -4997,7 +4997,7 @@ invoke.cont291:                                   ; preds = %for.end.i690, %if.e
 invoke.cont293:                                   ; preds = %invoke.cont291
   %198 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i708 = icmp eq ptr %198, null
-  %199 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i709 = icmp eq ptr %199, inttoptr (i64 -1 to ptr)
   %or.cond.i710 = select i1 %cmp.not.i708, i1 %cmp2.not.i709, i1 false
   br i1 %or.cond.i710, label %if.end4.i712, label %invoke.cont295
@@ -5084,7 +5084,7 @@ invoke.cont295:                                   ; preds = %for.end.i739, %if.e
 invoke.cont297:                                   ; preds = %invoke.cont295
   %208 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i757 = icmp eq ptr %208, null
-  %209 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i758 = icmp eq ptr %209, inttoptr (i64 -1 to ptr)
   %or.cond.i759 = select i1 %cmp.not.i757, i1 %cmp2.not.i758, i1 false
   br i1 %or.cond.i759, label %if.end4.i761, label %invoke.cont299
@@ -5856,7 +5856,7 @@ invoke.cont470:                                   ; preds = %invoke.cont460
   store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i1030, align 8
   %mnNextResize.i.i.i.i1032 = getelementptr inbounds i8, ptr %m467, i64 40
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %m467, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i.i, align 8
   %inc.i.i.i.i = add i64 %296, 2
   store i64 %inc.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %298 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8

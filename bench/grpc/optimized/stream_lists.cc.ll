@@ -80,7 +80,7 @@ do.end.i.i:                                       ; preds = %do.end
   %3 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %3, 1
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -140,7 +140,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -2
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -209,7 +209,7 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 72
   %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
   store ptr %6, ptr %tail.sink.i.i, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -252,7 +252,7 @@ do.end.i.i:                                       ; preds = %entry
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 2
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -319,7 +319,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -3
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -366,7 +366,7 @@ do.end.i.i:                                       ; preds = %entry
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 16
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -424,7 +424,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -17
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -493,7 +493,7 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 136
   %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
   store ptr %6, ptr %tail.sink.i.i, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -536,7 +536,7 @@ do.end.i.i:                                       ; preds = %entry
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 4
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -594,7 +594,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -5
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -663,7 +663,7 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 104
   %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
   store ptr %6, ptr %tail.sink.i.i, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -706,7 +706,7 @@ do.end.i.i:                                       ; preds = %entry
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 8
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -764,7 +764,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -9
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -833,7 +833,7 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 120
   %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
   store ptr %6, ptr %tail.sink.i.i, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_http2_stream_state, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
@@ -860,7 +860,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

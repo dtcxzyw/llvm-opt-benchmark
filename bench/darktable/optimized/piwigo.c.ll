@@ -966,7 +966,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %20 = alloca [4096 x i8], align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 344
   %22 = load ptr, ptr %21, align 8, !tbaa !6
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !42
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !42
   %24 = tail call ptr @dt_image_cache_get(ptr noundef %23, i32 noundef %2, i8 noundef signext 114) #13
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %20) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %20, i8 0, i64 4096, i1 false)
@@ -990,7 +990,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 36:                                               ; preds = %35, %14
   %37 = call noalias ptr @g_strdup(ptr noundef nonnull %20) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %20) #13
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 41), align 8, !tbaa !64
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 3032), align 8, !tbaa !64
   %39 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %38, ptr noundef nonnull @.str.33, ptr noundef %37, ptr noundef null) #13
   %40 = load i32, ptr %13, align 8, !tbaa !65
   %41 = and i32 %40, 524290
@@ -1051,7 +1051,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %74 = phi ptr [ null, %36 ], [ %65, %69 ], [ %65, %64 ]
   %75 = phi ptr [ null, %36 ], [ %57, %69 ], [ %57, %64 ]
   call void @g_free(ptr noundef %37) #13
-  %76 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !42
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !42
   call void @dt_image_cache_read_release(ptr noundef %76, ptr noundef nonnull %24) #13
   %77 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef %39, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef nonnull %0, ptr noundef %1, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %13) #13
   %78 = icmp eq i32 %77, 0
@@ -1064,7 +1064,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br label %371
 
 81:                                               ; preds = %72
-  %82 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 32)) #13
+  %82 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
   %83 = load i32, ptr %13, align 8, !tbaa !65
   %84 = and i32 %83, 8
   %85 = icmp eq i32 %84, 0
@@ -1510,7 +1510,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br label %369
 
 369:                                              ; preds = %368, %362
-  %370 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 32)) #13
+  %370 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
   br label %371
 
 371:                                              ; preds = %369, %79

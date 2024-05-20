@@ -250,7 +250,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %4
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 18014398509481984
   %.not185 = icmp eq i64 %19, 0
   br i1 %.not185, label %574, label %20
@@ -269,7 +269,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.b167, label %25, label %32
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 18014398509481984
   %.not184 = icmp eq i64 %27, 0
   br i1 %.not184, label %574, label %28
@@ -371,7 +371,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %77
-  %82 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %83 = and i64 %82, 18014398509481984
   %.not173 = icmp eq i64 %83, 0
   br i1 %.not173, label %88, label %84
@@ -392,7 +392,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %91, label %92, label %99
 
 92:                                               ; preds = %88
-  %93 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %93 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %94 = and i64 %93, 18014398509481984
   %.not174 = icmp eq i64 %94, 0
   br i1 %.not174, label %99, label %95
@@ -426,7 +426,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %107 = getelementptr inbounds i8, ptr %74, i64 248
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %.0156.ph212, %108
-  %110 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %110 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %111 = and i64 %110, 18014398509481984
   %.not183 = icmp eq i64 %111, 0
   br i1 %109, label %112, label %121
@@ -475,7 +475,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 .loopexit:                                        ; preds = %104, %128
   %.1157 = phi i32 [ %129, %128 ], [ %.0156.ph212, %104 ]
-  %131 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %131 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %132 = and i64 %131, 18014398509481984
   %.not178 = icmp eq i64 %132, 0
   br i1 %.not178, label %145, label %133
@@ -488,7 +488,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 136:                                              ; preds = %133
   %137 = load i32, ptr %56, align 4
   %138 = load i32, ptr %57, align 8
-  %139 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 66), align 8
+  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 464), align 8
   %140 = call ptr @slurm_xstrcasestr(ptr noundef %139, ptr noundef nonnull @.str.11) #17
   %.not179 = icmp eq ptr %140, null
   %141 = select i1 %.not179, ptr @.str.13, ptr @.str.12
@@ -514,7 +514,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %158 = load ptr, ptr %55, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 24
   store i64 %157, ptr %159, align 8
-  %160 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %160 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %161 = and i64 %160, 18014398509481984
   %.not180 = icmp eq i64 %161, 0
   br i1 %.not180, label %166, label %162
@@ -546,7 +546,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %177 = zext i32 %176 to i64
   %178 = getelementptr inbounds i8, ptr %173, i64 112
   store i64 %177, ptr %178, align 8
-  %179 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %179 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %180 = and i64 %179, 18014398509481984
   %.not181 = icmp eq i64 %180, 0
   br i1 %.not181, label %191, label %181
@@ -569,7 +569,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 191:                                              ; preds = %184, %181, %167, %166
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %13, ptr noundef nonnull align 4 dereferenceable(28) @__const._print_jag_prec.locks, i64 28, i1 false)
-  %192 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %192 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %193 = and i64 %192, 18014398509481984
   %.not.i = icmp eq i64 %193, 0
   br i1 %.not.i, label %_print_jag_prec.exit, label %194
@@ -586,7 +586,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br label %200
 
 200:                                              ; preds = %197, %194
-  %201 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %201 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %202 = and i64 %201, 18014398509481984
   %.not15.i = icmp eq i64 %202, 0
   br i1 %.not15.i, label %208, label %203
@@ -602,7 +602,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br label %208
 
 208:                                              ; preds = %206, %203, %200
-  %209 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %209 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %210 = and i64 %209, 18014398509481984
   %.not16.i = icmp eq i64 %210, 0
   br i1 %.not16.i, label %216, label %211
@@ -632,7 +632,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %222, label %249, label %223
 
 223:                                              ; preds = %.lr.ph.i
-  %224 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %224 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %225 = and i64 %224, 18014398509481984
   %.not18.i = icmp eq i64 %225, 0
   br i1 %.not18.i, label %236, label %226
@@ -653,7 +653,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br label %236
 
 236:                                              ; preds = %229, %226, %223
-  %237 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %237 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %238 = and i64 %237, 18014398509481984
   %.not19.i = icmp eq i64 %238, 0
   br i1 %.not19.i, label %249, label %239
@@ -682,7 +682,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 ._crit_edge.i:                                    ; preds = %249, %216
   call void @assoc_mgr_unlock(ptr noundef nonnull %13) #17
-  %253 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %253 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %254 = and i64 %253, 18014398509481984
   %.not17.i = icmp eq i64 %254, 0
   br i1 %.not17.i, label %_print_jag_prec.exit, label %255
@@ -805,7 +805,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 330:                                              ; preds = %._crit_edge210
   %331 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 79, ptr noundef nonnull @.str.48, i32 noundef %328, ptr noundef nonnull @.str.16) #17
-  %332 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %332 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %333 = and i64 %332, 18014398509481984
   %.not16.i188 = icmp eq i64 %333, 0
   br i1 %.not16.i188, label %338, label %334
@@ -844,7 +844,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %351 = and i64 %347, 2147483647
   %352 = getelementptr inbounds i8, ptr %15, i64 %351
   store i8 0, ptr %352, align 1
-  %353 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %353 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %354 = and i64 %353, 18014398509481984
   %.not22.i = icmp eq i64 %354, 0
   br i1 %.not22.i, label %.sink.split.i, label %355
@@ -865,7 +865,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 361:                                              ; preds = %359
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.51, i64 14, i1 false)
-  %362 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %362 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %363 = and i64 %362, 18014398509481984
   %.not19.i191 = icmp eq i64 %363, 0
   br i1 %.not19.i191, label %368, label %364
@@ -917,7 +917,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %382 = fmul double %.0.i.i, %381
   %383 = fptosi double %382 to i32
   store i32 %383, ptr @cpunfo_frequency, align 4
-  %384 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %384 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %385 = and i64 %384, 18014398509481984
   %.not10.i.i = icmp eq i64 %385, 0
   br i1 %.not10.i.i, label %_get_freq.exit.thread.i, label %386
@@ -992,7 +992,7 @@ _update_weighted_freq.exit:                       ; preds = %395, %406
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %408 = getelementptr inbounds i8, ptr %74, i64 36
   store i32 %.0.i194, ptr %408, align 4
-  %409 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %409 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %410 = and i64 %409, 18014398509481984
   %.not182 = icmp eq i64 %410, 0
   br i1 %.not182, label %459, label %411
@@ -1188,7 +1188,7 @@ _update_weighted_freq.exit:                       ; preds = %395, %406
   br label %542
 
 542:                                              ; preds = %532, %509, %497
-  %543 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %543 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %544 = and i64 %543, 2097152
   %.not31.i = icmp eq i64 %544, 0
   br i1 %.not31.i, label %550, label %545
@@ -1245,7 +1245,7 @@ _record_profile.exit:                             ; preds = %479, %482, %550
   %.0154.ph.lcssa = phi i64 [ 0, %52 ], [ %.0154.ph214, %.backedge ], [ %315, %.outer ]
   %.0.ph.lcssa = phi i64 [ 0, %52 ], [ %.0.ph215, %.backedge ], [ %312, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %53) #17
-  %571 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 67), align 8
+  %571 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 472), align 8
   %.not171 = icmp eq i16 %571, 0
   br i1 %.not171, label %573, label %572
 
@@ -1521,12 +1521,12 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr nocapture re
   br i1 %78, label %.sink.split.i, label %83
 
 .sink.split.i:                                    ; preds = %75
-  %79 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 66), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 464), align 8
   %80 = call ptr @slurm_xstrcasestr(ptr noundef %79, ptr noundef nonnull @.str.20) #17
   %.not.i = icmp ne ptr %80, null
   %..i = zext i1 %.not.i to i32
   store i32 %..i, ptr @_handle_stats.no_share_data, align 4
-  %81 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 66), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 464), align 8
   %82 = call ptr @slurm_xstrcasestr(ptr noundef %81, ptr noundef nonnull @.str.11) #17
   %.not19.i = icmp ne ptr %82, null
   %.16.i = zext i1 %.not19.i to i32
@@ -1539,14 +1539,14 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr nocapture re
   br i1 %85, label %86, label %97
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 66), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 464), align 8
   %88 = call ptr @slurm_xstrcasestr(ptr noundef %87, ptr noundef nonnull @.str.21) #17
   %.not20.i = icmp eq ptr %88, null
   br i1 %.not20.i, label %96, label %89
 
 89:                                               ; preds = %86
   store i32 1, ptr @_handle_stats.disable_gpu_acct, align 4
-  %90 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %91 = and i64 %90, 18014398509481984
   %.not21.i = icmp eq i64 %91, 0
   br i1 %.not21.i, label %97, label %92
@@ -1879,7 +1879,7 @@ _init_tres.exit.i:                                ; preds = %.lr.ph.i.i, %111
   br i1 %203, label %204, label %_remove_share_data.exit.i
 
 204:                                              ; preds = %200
-  %205 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %205 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %206 = and i64 %205, 18014398509481984
   %.not8.i.i.i = icmp eq i64 %206, 0
   br i1 %.not8.i.i.i, label %_remove_share_data.exit.thread5.i, label %207
@@ -2056,7 +2056,7 @@ _set_smaps_file.exit.i:                           ; preds = %229, %228, %226
 
 270:                                              ; preds = %269, %263, %262
   %.2.i.i = phi i64 [ %264, %269 ], [ %264, %263 ], [ 0, %262 ]
-  %271 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %271 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %272 = and i64 %271, 18014398509481984
   %.not30.i.i = icmp eq i64 %272, 0
   br i1 %.not30.i.i, label %_get_pss.exit.thread.i, label %273
@@ -2214,7 +2214,7 @@ _handle_stats.exit:                               ; preds = %97, %.sink.split14.
   %331 = load ptr, ptr %330, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 16
   store i64 %329, ptr %332, align 8
-  %333 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %333 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %334 = and i64 %333, 18014398509481984
   %.not18 = icmp eq i64 %334, 0
   br i1 %.not18, label %341, label %335
@@ -2231,7 +2231,7 @@ _handle_stats.exit:                               ; preds = %97, %.sink.split14.
   br label %341
 
 341:                                              ; preds = %317, %318, %335, %338
-  %342 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %342 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %343 = and i64 %342, 18014398509481984
   %.not19 = icmp eq i64 %343, 0
   br i1 %.not19, label %348, label %344
@@ -2487,7 +2487,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
 33:                                               ; preds = %31, %28
   %.0 = phi i32 [ %30, %28 ], [ -1, %31 ]
   %.not28 = icmp eq i32 %.0, %0
-  %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 18014398509481984
   %.not29 = icmp eq i64 %35, 0
   br i1 %.not28, label %41, label %36

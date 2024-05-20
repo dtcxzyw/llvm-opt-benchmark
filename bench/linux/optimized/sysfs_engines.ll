@@ -76,7 +76,7 @@ define dso_local void @intel_engines_add_sysfs(ptr noundef %0) local_unnamed_add
 
 .preheader:                                       ; preds = %8, %71
   %15 = phi ptr [ %75, %71 ], [ %12, %8 ]
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 72) #7
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -123,7 +123,7 @@ define dso_local void @intel_engines_add_sysfs(ptr noundef %0) local_unnamed_add
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %39, %35
-  %43 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %44 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3520, i64 noundef 72) #7
   %45 = icmp eq ptr %44, null
   br i1 %45, label %71, label %46

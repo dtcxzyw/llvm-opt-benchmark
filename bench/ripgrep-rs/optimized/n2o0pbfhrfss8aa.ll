@@ -796,7 +796,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i.i: ; pred
   br i1 %17, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hbfd2f0d993ed1c30E.exit.thread.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hbfd2f0d993ed1c30E.exit.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hbfd2f0d993ed1c30E.exit.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i.i, %11
-  %.0.i.i2.i.i = phi ptr [ %16, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfe94eecc96da81d4E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %11 ]
+  %.0.i.i2.i.i = phi ptr [ %16, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfe94eecc96da81d4E, i64 8), %11 ]
   %.07.val.i.i = load ptr, ptr %.0.i.i2.i.i, align 8, !noundef !5
   %18 = getelementptr i8, ptr %.07.val.i.i, i64 2072
   %.07.val.val.i.i = load i64, ptr %18, align 8, !noundef !5
@@ -1702,7 +1702,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i: ; preds 
   br i1 %5, label %37, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.thread.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.thread.i: ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfe94eecc96da81d4E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h313fc90c8204da44E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfe94eecc96da81d4E, i64 8), %0 ]
   %.0.val.i = load ptr, ptr %.0.i.i2.i, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.0.val.i, ptr %2, align 8

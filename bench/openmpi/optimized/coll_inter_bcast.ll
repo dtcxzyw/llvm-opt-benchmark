@@ -21,7 +21,7 @@ define i32 @mca_coll_inter_bcast_inter(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %12 = sext i32 %1 to i64
   %13 = tail call i32 %11(ptr noundef %0, i64 noundef %12, ptr noundef %2, i32 noundef %3, i32 noundef -17, ptr noundef nonnull %4, ptr noundef null) #1
   %.not29 = icmp eq i32 %13, 0
@@ -40,7 +40,7 @@ define i32 @mca_coll_inter_bcast_inter(ptr noundef %0, i32 noundef %1, ptr nound
   br label %28
 
 24:                                               ; preds = %6
-  %25 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %26 = sext i32 %1 to i64
   %27 = tail call i32 %25(ptr noundef %0, i64 noundef %26, ptr noundef %2, i32 noundef 0, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %4) #1
   br label %28

@@ -31,10 +31,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513DangiCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   %call = tail call noundef ptr @_ZNK6icu_7513DangiCalendar24getDangiCalZoneAstroCalcER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(4) %success)
   tail call void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, i32 noundef -2332, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -476,12 +476,12 @@ _ZN6icu_75L25initDangiCalZoneAstroCalcER10UErrorCode.exit: ; preds = %cleanup.i,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp64.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp89.i)
   %29 = load i32, ptr %status, align 4
-  store i32 %29, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL22gDangiCalendarInitOnce, i64 0, i32 1), align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @_ZL22gDangiCalendarInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL22gDangiCalendarInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %30 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL22gDangiCalendarInitOnce, i64 0, i32 1), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22gDangiCalendarInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %30, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -500,7 +500,7 @@ declare void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErr
 define void @_ZN6icu_7513DangiCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(632) %other) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7515ChineseCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(632) %other)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 

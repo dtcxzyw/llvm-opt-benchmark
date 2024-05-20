@@ -223,16 +223,16 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnam
   %7 = load i8, ptr @boot_cpu_data, align 8
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 4
   %13 = or i32 %12, %9
-  %14 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
   %15 = zext i8 %14 to i32
   %16 = or i32 %13, %15
   %17 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 12

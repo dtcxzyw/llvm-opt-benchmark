@@ -181,7 +181,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26countNumCoupledConstraintsN3gmx8ArrayRefIKiEERKNS_11ListOfListsI25AtomsAdjacencyListElementEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-  %5 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 62, i32 2), align 16
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2000), align 16
   %6 = add nsw i32 %5, 1
   %7 = ptrtoint ptr %2 to i64
   %8 = ptrtoint ptr %1 to i64
@@ -295,7 +295,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define void @_Z27constructAtomsAdjacencyListiN3gmx8ArrayRefIKiEE(ptr dead_on_unwind noalias writable sret(%"class.gmx::ListOfLists") align 8 %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector.3", align 8
-  %7 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 62, i32 2), align 16
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2000), align 16
   %8 = add nsw i32 %7, 1
   %9 = ptrtoint ptr %3 to i64
   %10 = ptrtoint ptr %2 to i64
@@ -617,8 +617,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
           to label %32 unwind label %.thread35
 
 32:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 0, i32 0, i64 2), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %33 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11ListOfListsI25AtomsAdjacencyListElementEC2EOSt6vectorIiSaIiEEOS3_IS1_SaIS1_EE, ptr %33, align 8
   %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
@@ -675,8 +675,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
           to label %52 unwind label %.thread42
 
 52:                                               ; preds = %51
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 0, i32 0, i64 2), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %9, align 8
   %53 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11ListOfListsI25AtomsAdjacencyListElementEC2EOSt6vectorIiSaIiEEOS3_IS1_SaIS1_EE, ptr %53, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
@@ -757,7 +757,7 @@ define linkonce_odr void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionIn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -805,7 +805,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -862,7 +862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -1251,7 +1251,7 @@ define noundef i32 @_Z22computeTotalNumSettlesRK10gmx_mtop_t(ptr nocapture nound
   %7 = phi i64 [ %32, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %.026 = phi i32 [ %29, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %.0925 = phi i32 [ %31, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
-  %8 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %9 = getelementptr inbounds %struct.gmx_moltype_t, ptr %6, i64 %7, i32 2, i32 0, i64 64
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1366,7 +1366,7 @@ define { <2 x float>, <2 x float> } @_Z21getSettleTopologyDataRK10gmx_mtop_t(ptr
   %8 = phi i64 [ %87, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %.068156 = phi i32 [ %86, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %9 = phi <2 x float> [ %84, %_ZN15InteractionListD2Ev.exit ], [ <float -1.000000e+00, float -1.000000e+00>, %1 ]
-  %10 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %11 = add nsw i32 %10, 1
   %12 = getelementptr inbounds %struct.gmx_moltype_t, ptr %7, i64 %8
   %13 = getelementptr inbounds i8, ptr %12, i64 1616
@@ -1582,7 +1582,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit, %.loopex
   br i1 %.not176, label %._crit_edge172.thread, label %.lr.ph171.preheader
 
 .lr.ph171.preheader:                              ; preds = %.preheader
-  %.pre193 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %.pre193 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   br label %.lr.ph171
 
 101:                                              ; preds = %98
@@ -1694,7 +1694,7 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
 ._crit_edge167.thread:                            ; preds = %138, %._crit_edge167
   %.163.lcssa225 = phi i32 [ %.062169, %._crit_edge167 ], [ %.264, %138 ]
   tail call void @_ZdlPv(ptr noundef nonnull %120) #20
-  %.pre192 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %.pre192 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %.pre196 = load ptr, ptr %4, align 8
   %.pre197 = load ptr, ptr %3, align 8
   br label %_ZN15InteractionListD2Ev.exit96
@@ -1848,7 +1848,7 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @_Z17computeNumSettlesRK22InteractionDefinitions(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %3 = add nsw i32 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1600
   %5 = getelementptr inbounds i8, ptr %0, i64 1608

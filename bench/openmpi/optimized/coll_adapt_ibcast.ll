@@ -33,26 +33,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_coll_adapt_ibcast_register() local_unnamed_addr #0 {
-  store i32 1, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 7), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 7)) #8
-  %2 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 7), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 304), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 304)) #8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 304), align 8
   %or.cond = icmp ugt i32 %2, 6
   br i1 %or.cond, label %3, label %4
 
 3:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 7), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 304), align 8
   br label %4
 
 4:                                                ; preds = %0, %3
-  store i64 0, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 8), align 8
-  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 8)) #8
-  store i32 2, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 9), align 8
-  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 9)) #8
-  store i32 3, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 10), align 4
-  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 10)) #8
-  store i8 1, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 11), align 8
-  %8 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 11)) #8
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 312), align 8
+  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 312)) #8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 320), align 8
+  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 320)) #8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 324), align 4
+  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 324)) #8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 328), align 8
+  %8 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_adapt_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 328)) #8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   ret i32 0
 }
 
@@ -60,7 +60,7 @@ declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_coll_adapt_ibcast_fini() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %2
 
@@ -88,7 +88,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %9
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %15 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
@@ -106,7 +106,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %9
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   br label %opal_obj_run_destructors.exit
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %14
@@ -115,7 +115,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %24
 
 24:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   br label %25
 
 25:                                               ; preds = %24, %0
@@ -129,27 +129,27 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 define i32 @ompi_coll_adapt_ibcast(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 7), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 304), align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %341, label %12
 
 12:                                               ; preds = %7
   %13 = tail call ptr @ompi_coll_adapt_module_cached_topology(ptr noundef %6, ptr noundef %4, i32 noundef %3, i32 noundef %10) #8
-  %14 = load i64, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 8), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 312), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %15 = load i8, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 11), align 8
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 328), align 8
   %16 = trunc i8 %15 to i1
   %17 = select i1 %16, i32 0, i32 4
-  %18 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
 20:                                               ; preds = %12
-  %21 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 8), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 56), align 8
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #9
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %23, %24
   br i1 %.not.i.i, label %26, label %25
 
@@ -165,7 +165,7 @@ define i32 @ompi_coll_adapt_ibcast(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr @opal_free_list_t_class, ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %22, i64 8
   store volatile i32 1, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %30 = load ptr, ptr %29, align 8
   %.not6.i.i.i = icmp eq ptr %30, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.i, label %.lr.ph.i.i.i
@@ -182,9 +182,9 @@ define i32 @ompi_coll_adapt_ibcast(ptr noundef %0, i32 noundef %1, ptr noundef %
 opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %27, %26
   %34 = load i32, ptr @opal_cache_line_size, align 4
   %35 = sext i32 %34 to i64
-  %36 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 5), align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 4), align 4
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 6), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 296), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 292), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 300), align 4
   %39 = tail call i32 @opal_free_list_init(ptr noundef %22, i64 noundef 88, i64 noundef %35, ptr noundef nonnull @ompi_coll_adapt_bcast_context_t_class, i64 noundef 0, i64 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %40 = ptrtoint ptr %22 to i64
   %41 = load i8, ptr @opal_uses_threads, align 1
@@ -192,7 +192,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %27, 
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %opal_obj_new.exit.i
-  %44 = cmpxchg volatile ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), i64 0, i64 %40 acquire monotonic, align 8
+  %44 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), i64 0, i64 %40 acquire monotonic, align 8
   %45 = extractvalue { i64, i1 } %44, 1
   br i1 %45, label %opal_thread_compare_exchange_strong_ptr.exit.thread.i, label %.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i
 
@@ -201,12 +201,12 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %27, 
   br label %opal_thread_compare_exchange_strong_ptr.exit.i
 
 46:                                               ; preds = %opal_obj_new.exit.i
-  %47 = load volatile i64, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %47 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %opal_thread_compare_exchange_strong_ptr.exit.i
 
 49:                                               ; preds = %46
-  store i64 %40, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   br label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
 opal_thread_compare_exchange_strong_ptr.exit.i:   ; preds = %46, %.opal_thread_compare_exchange_strong_ptr.exit_crit_edge.i
@@ -254,10 +254,10 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %61
   br label %opal_thread_compare_exchange_strong_ptr.exit.thread.i
 
 opal_thread_compare_exchange_strong_ptr.exit.thread.i: ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %49, %43, %12
-  %69 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_base_nbc_request_t_class, i64 0, i32 8), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_nbc_request_t_class, i64 56), align 8
   %70 = tail call noalias ptr @malloc(i64 noundef %69) #9
   %71 = load i32, ptr @opal_class_init_epoch, align 4
-  %72 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_base_nbc_request_t_class, i64 0, i32 4), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_nbc_request_t_class, i64 32), align 8
   %.not.i213.i = icmp eq i32 %71, %72
   br i1 %.not.i213.i, label %74, label %73
 
@@ -273,7 +273,7 @@ opal_thread_compare_exchange_strong_ptr.exit.thread.i: ; preds = %opal_obj_run_d
   store ptr @ompi_coll_base_nbc_request_t_class, ptr %70, align 8
   %76 = getelementptr inbounds i8, ptr %70, i64 8
   store volatile i32 1, ptr %76, align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_base_nbc_request_t_class, i64 0, i32 6), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_nbc_request_t_class, i64 40), align 8
   %78 = load ptr, ptr %77, align 8
   %.not6.i.i215.i = icmp eq ptr %78, null
   br i1 %.not6.i.i215.i, label %opal_obj_new.exit219.i, label %.lr.ph.i.i216.i
@@ -304,10 +304,10 @@ opal_obj_new.exit219.i:                           ; preds = %.lr.ph.i.i216.i, %7
   %88 = getelementptr inbounds i8, ptr %70, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   store ptr %70, ptr %5, align 8
-  %89 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 8), align 8
+  %89 = load i64, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 56), align 8
   %90 = tail call noalias ptr @malloc(i64 noundef %89) #9
   %91 = load i32, ptr @opal_class_init_epoch, align 4
-  %92 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not.i220.i = icmp eq i32 %91, %92
   br i1 %.not.i220.i, label %94, label %93
 
@@ -323,7 +323,7 @@ opal_obj_new.exit219.i:                           ; preds = %.lr.ph.i.i216.i, %7
   store ptr @opal_mutex_t_class, ptr %90, align 8
   %96 = getelementptr inbounds i8, ptr %90, i64 8
   store volatile i32 1, ptr %96, align 8
-  %97 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %98 = load ptr, ptr %97, align 8
   %.not6.i.i222.i = icmp eq ptr %98, null
   br i1 %.not6.i.i222.i, label %opal_obj_new.exit226.i, label %.lr.ph.i.i223.i
@@ -400,10 +400,10 @@ opal_obj_new.exit226.i:                           ; preds = %.lr.ph.i.i223.i, %9
 
 139:                                              ; preds = %135, %132
   %.0189.i = phi ptr [ %138, %135 ], [ null, %132 ]
-  %140 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 0, i32 8), align 8
+  %140 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 56), align 8
   %141 = tail call noalias ptr @malloc(i64 noundef %140) #9
   %142 = load i32, ptr @opal_class_init_epoch, align 4
-  %143 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 0, i32 4), align 8
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 32), align 8
   %.not.i227.i = icmp eq i32 %142, %143
   br i1 %.not.i227.i, label %145, label %144
 
@@ -419,7 +419,7 @@ opal_obj_new.exit226.i:                           ; preds = %.lr.ph.i.i223.i, %9
   store ptr @ompi_coll_adapt_constant_bcast_context_t_class, ptr %141, align 8
   %147 = getelementptr inbounds i8, ptr %141, i64 8
   store volatile i32 1, ptr %147, align 8
-  %148 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 0, i32 6), align 8
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_constant_bcast_context_t_class, i64 40), align 8
   %149 = load ptr, ptr %148, align 8
   %.not6.i.i229.i = icmp eq ptr %149, null
   br i1 %.not6.i.i229.i, label %opal_obj_new.exit233.i, label %.lr.ph.i.i230.i
@@ -541,7 +541,7 @@ ompi_coll_base_nbc_reserve_tags.exit.i:           ; preds = %180, %.split14.i.i
   br i1 %201, label %203, label %274
 
 203:                                              ; preds = %200
-  %204 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 9), align 8
+  %204 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 320), align 8
   %..i = tail call i32 @llvm.smin.i32(i32 %125, i32 %204)
   br i1 %202, label %.lr.ph22.preheader.i, label %._crit_edge.i
 
@@ -609,7 +609,7 @@ ompi_coll_base_nbc_reserve_tags.exit.i:           ; preds = %180, %.split14.i.i
 
 226:                                              ; preds = %269, %.lr.ph28.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next56.i, %269 ]
-  %227 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %228 = call fastcc ptr @opal_free_list_wait(ptr noundef %227)
   %229 = getelementptr inbounds i8, ptr %228, i64 56
   store ptr %224, ptr %229, align 8
@@ -641,7 +641,7 @@ ompi_coll_base_nbc_reserve_tags.exit.i:           ; preds = %180, %.split14.i.i
 
 opal_thread_add_fetch_32.exit235.i:               ; preds = %241, %239
   %245 = load ptr, ptr %229, align 8
-  %246 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %247 = load i32, ptr %235, align 8
   %248 = load i32, ptr %195, align 8
   %249 = sub nsw i32 %248, %219
@@ -697,7 +697,7 @@ ompi_request_set_callback.exit.i:                 ; preds = %263, %256
   br i1 %exitcond62.not.i, label %.loopexit5.i, label %216, !llvm.loop !13
 
 274:                                              ; preds = %200
-  %275 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 10), align 4
+  %275 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 324), align 4
   %.209.i = tail call i32 @llvm.smin.i32(i32 %125, i32 %275)
   br i1 %202, label %.lr.ph.preheader.i, label %.preheader9.i
 
@@ -739,7 +739,7 @@ ompi_request_set_callback.exit.i:                 ; preds = %263, %256
   %291 = mul i32 %.0188.i, %290
   %292 = sub i32 %1, %291
   %.1182.i = select i1 %289, i32 %292, i32 %.018118.i
-  %293 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %293 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %294 = call fastcc ptr @opal_free_list_wait(ptr noundef %293)
   %295 = mul i64 %indvars.iv.i, %127
   %296 = getelementptr inbounds i8, ptr %0, i64 %295
@@ -769,7 +769,7 @@ ompi_request_set_callback.exit.i:                 ; preds = %263, %256
 
 opal_thread_add_fetch_32.exit238.i:               ; preds = %306, %304
   %310 = load ptr, ptr %297, align 8
-  %311 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %311 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %312 = sext i32 %.1182.i to i64
   %313 = load i32, ptr %300, align 8
   %314 = load i32, ptr %195, align 8
@@ -1343,7 +1343,7 @@ define internal range(i32 1, 0) i32 @send_cb(ptr noundef %0) #0 {
   br label %43
 
 43:                                               ; preds = %28, %37
-  %44 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %45 = tail call fastcc ptr @opal_free_list_wait(ptr noundef %44)
   %46 = getelementptr inbounds i8, ptr %5, i64 56
   %47 = load ptr, ptr %46, align 8
@@ -1388,7 +1388,7 @@ define internal range(i32 1, 0) i32 @send_cb(ptr noundef %0) #0 {
 
 78:                                               ; preds = %72, %43
   %.073.in = phi i64 [ %77, %72 ], [ %67, %43 ]
-  %79 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %sext = shl i64 %.073.in, 32
   %80 = ashr exact i64 %sext, 32
   %81 = getelementptr inbounds i8, ptr %64, i64 40
@@ -1403,7 +1403,7 @@ define internal range(i32 1, 0) i32 @send_cb(ptr noundef %0) #0 {
   br i1 %.not, label %151, label %89
 
 89:                                               ; preds = %78
-  %90 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %91 = load i8, ptr @opal_uses_threads, align 1
   %92 = trunc i8 %91 to i1
   %93 = getelementptr inbounds i8, ptr %90, i64 24
@@ -1660,7 +1660,7 @@ opal_thread_add_fetch_32.exit81:                  ; preds = %171, %174
   br label %225
 
 225:                                              ; preds = %212, %.thread, %224, %218
-  %226 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %227 = load i8, ptr @opal_uses_threads, align 1
   %228 = trunc i8 %227 to i1
   %229 = getelementptr inbounds i8, ptr %226, i64 24
@@ -1798,7 +1798,7 @@ define internal range(i32 1, 0) i32 @recv_cb(ptr noundef %0) #0 {
   br label %37
 
 37:                                               ; preds = %16, %31
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 10), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 324), align 4
   %39 = add i32 %38, %20
   %40 = load ptr, ptr %17, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 60
@@ -1807,7 +1807,7 @@ define internal range(i32 1, 0) i32 @recv_cb(ptr noundef %0) #0 {
   br i1 %43, label %44, label %ompi_request_set_callback.exit
 
 44:                                               ; preds = %37
-  %45 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %46 = tail call fastcc ptr @opal_free_list_wait(ptr noundef %45)
   %47 = getelementptr inbounds i8, ptr %6, i64 56
   %48 = load ptr, ptr %47, align 8
@@ -1871,7 +1871,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %70, %72
 89:                                               ; preds = %83, %opal_thread_add_fetch_32.exit
   %.0110.in = phi i64 [ %88, %83 ], [ %78, %opal_thread_add_fetch_32.exit ]
   %90 = load ptr, ptr %57, align 8
-  %91 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %sext = shl i64 %.0110.in, 32
   %92 = ashr exact i64 %sext, 32
   %93 = getelementptr inbounds i8, ptr %76, i64 40
@@ -1971,7 +1971,7 @@ ompi_request_set_callback.exit:                   ; preds = %109, %89, %37
 
 157:                                              ; preds = %151, %142
   %.0111.in = phi i64 [ %156, %151 ], [ %145, %142 ]
-  %158 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %159 = call fastcc ptr @opal_free_list_wait(ptr noundef %158)
   %160 = load ptr, ptr %125, align 8
   %161 = getelementptr inbounds i8, ptr %159, i64 56
@@ -2011,7 +2011,7 @@ ompi_request_set_callback.exit:                   ; preds = %109, %89, %37
 
 opal_thread_add_fetch_32.exit120:                 ; preds = %178, %180
   %184 = load ptr, ptr %161, align 8
-  %185 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %sext117 = shl i64 %.0111.in, 32
   %186 = ashr exact i64 %sext117, 32
   %187 = load ptr, ptr %174, align 8
@@ -2029,7 +2029,7 @@ opal_thread_add_fetch_32.exit120:                 ; preds = %178, %180
   br i1 %.not, label %260, label %198
 
 198:                                              ; preds = %opal_thread_add_fetch_32.exit120
-  %199 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %200 = load i8, ptr @opal_uses_threads, align 1
   %201 = trunc i8 %200 to i1
   %202 = getelementptr inbounds i8, ptr %199, i64 24
@@ -2288,7 +2288,7 @@ opal_thread_add_fetch_32.exit126:                 ; preds = %287, %290
   br label %.thread
 
 .thread:                                          ; preds = %321, %333, %329, %327
-  %334 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_adapt_component_t, ptr @mca_coll_adapt_component, i64 0, i32 12), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_adapt_component, i64 336), align 8
   %335 = load i8, ptr @opal_uses_threads, align 1
   %336 = trunc i8 %335 to i1
   %337 = getelementptr inbounds i8, ptr %334, i64 24

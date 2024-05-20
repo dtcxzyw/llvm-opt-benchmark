@@ -6081,7 +6081,7 @@ common.resume:                                    ; preds = %15, %19, %22, %10
 define noundef align 8 dereferenceable_or_null(8) ptr @_ZN6rustls6crypto14CryptoProvider11get_default17h0b49635662549eebE() unnamed_addr #2 {
   %1 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h958c88750b346803E.llvm.3875224068774112026(ptr noundef nonnull @_ZN6rustls6crypto24PROCESS_DEFAULT_PROVIDER17h2b97d2a8820ea8dcE.llvm.5361720058829915877, i8 noundef 2)
   %2 = icmp eq ptr %1, inttoptr (i64 2 to ptr)
-  %spec.select.i = select i1 %2, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN6rustls6crypto24PROCESS_DEFAULT_PROVIDER17h2b97d2a8820ea8dcE.llvm.5361720058829915877, i64 0, i32 0, i64 8), ptr null
+  %spec.select.i = select i1 %2, ptr getelementptr inbounds (i8, ptr @_ZN6rustls6crypto24PROCESS_DEFAULT_PROVIDER17h2b97d2a8820ea8dcE.llvm.5361720058829915877, i64 8), ptr null
   ret ptr %spec.select.i
 }
 
@@ -6139,7 +6139,7 @@ _ZN6rustls6crypto14CryptoProvider19from_crate_features17h114e28fbee1fb9c4E.llvm.
   br i1 %18, label %20, label %21
 
 19:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hb3641083134b5fd9E.llvm.5361720058829915877.exit", %0
-  ret ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN6rustls6crypto24PROCESS_DEFAULT_PROVIDER17h2b97d2a8820ea8dcE.llvm.5361720058829915877, i64 0, i32 0, i64 8)
+  ret ptr getelementptr inbounds (i8, ptr @_ZN6rustls6crypto24PROCESS_DEFAULT_PROVIDER17h2b97d2a8820ea8dcE.llvm.5361720058829915877, i64 8)
 
 20:                                               ; preds = %_ZN6rustls6crypto14CryptoProvider19from_crate_features17h114e28fbee1fb9c4E.llvm.5361720058829915877.exit
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.57abb3be8c01c189e633236260de9ac9.56.llvm.5361720058829915877, i64 noundef 101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.57abb3be8c01c189e633236260de9ac9.58.llvm.5361720058829915877) #40

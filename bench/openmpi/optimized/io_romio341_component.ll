@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @open_component() #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -59,8 +59,8 @@ define internal noundef i32 @open_component() #0 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_mutex_t_class, ptr @mca_io_romio341_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -165,7 +165,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
   %4 = alloca %struct.ompi_info_t, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -177,7 +177,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
   store ptr @ompi_info_t_class, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -199,7 +199,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %opal_obj_run_constructors.exit
-  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
+  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #9
   br label %21
 
 21:                                               ; preds = %opal_obj_run_constructors.exit, %19
@@ -209,7 +209,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
+  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #9
   br label %27
 
 27:                                               ; preds = %25, %21
@@ -240,7 +240,7 @@ define internal i32 @register_datarep(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #9
   br label %10
 
 10:                                               ; preds = %5, %8
@@ -250,7 +250,7 @@ define internal i32 @register_datarep(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 16)) #9
   br label %16
 
 16:                                               ; preds = %10, %14

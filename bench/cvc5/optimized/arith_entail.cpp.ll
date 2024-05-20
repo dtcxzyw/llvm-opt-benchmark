@@ -14303,7 +14303,7 @@ call.i366.noexc:                                  ; preds = %if.end
           to label %.noexc370 unwind label %lpad57
 
 .noexc370:                                        ; preds = %call.i366.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.37, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.37, i64 8))
           to label %invoke.cont58 unwind label %lpad.i368
 
 lpad.i368:                                        ; preds = %.noexc370

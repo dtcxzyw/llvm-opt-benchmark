@@ -129,7 +129,7 @@ sw.bb:                                            ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !4
@@ -145,7 +145,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererEED2Ev.exit: ; preds = %sw.bb
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
   %3 = load ptr, ptr %ec, align 8, !noalias !4
   %m_pivot.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 224
   %4 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
@@ -162,7 +162,7 @@ sw.bb2:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i9, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i10, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i8, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i8, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i8, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i11, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !7
@@ -174,7 +174,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererEED2Ev.exit: ; preds = %sw.bb2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i11, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i11, align 8, !noalias !7
   %6 = load ptr, ptr %ec, align 8, !noalias !7
   %m_pivot.i.i.i.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %6, i64 224
   %7 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i13, align 8, !noalias !7
@@ -191,7 +191,7 @@ sw.bb4:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i51, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i50, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i52, align 4, !noalias !10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i50, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i50, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i50, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i53, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !10
@@ -203,7 +203,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererEED2Ev.exit: ; preds = %sw.bb4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i53, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i53, align 8, !noalias !10
   %9 = load ptr, ptr %ec, align 8, !noalias !10
   %m_pivot.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i55, align 8, !noalias !10
@@ -221,7 +221,7 @@ sw.bb6:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i93, align 8, !noalias !13
   %_M_weak_count.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i92, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i94, align 4, !noalias !13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i92, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i92, align 8, !noalias !13
   %_M_impl.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i92, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i95, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !13
@@ -233,7 +233,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererEED2Ev.exit: ; preds = %sw.bb6
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i95, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i95, align 8, !noalias !13
   %12 = load ptr, ptr %ec, align 8, !noalias !13
   %m_pivot.i.i.i.i.i.i.i.i.i.i97 = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i97, align 8, !noalias !13
@@ -251,7 +251,7 @@ sw.bb8:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i136, align 8, !noalias !16
   %_M_weak_count.i.i.i.i.i.i137 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i135, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i137, align 4, !noalias !16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i135, align 8, !noalias !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i135, align 8, !noalias !16
   %_M_impl.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i135, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i138, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !16
@@ -263,7 +263,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererEED2Ev.exit: ; preds = %sw.bb8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i138, align 8, !noalias !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i138, align 8, !noalias !16
   %15 = load ptr, ptr %ec, align 8, !noalias !16
   %m_pivot.i.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i140, align 8, !noalias !16
@@ -296,7 +296,7 @@ sw.bb10:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i178, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i177, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i179, align 4, !noalias !19
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i177, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i177, align 8, !noalias !19
   %_M_impl.i.i.i.i.i.i180 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i177, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i180, ptr noundef nonnull readonly align 8 dereferenceable(16) %ec)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !19
@@ -308,7 +308,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererEED2Ev.exit: ; preds = %sw.bb10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i180, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i180, align 8, !noalias !19
   %23 = load ptr, ptr %ec, align 8, !noalias !19
   %m_pivot.i.i.i.i.i.i.i.i.i.i182 = getelementptr inbounds i8, ptr %23, i64 224
   %24 = load double, ptr %m_pivot.i.i.i.i.i.i.i.i.i.i182, align 8, !noalias !19
@@ -444,7 +444,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::shared_ptr.8", align 16
   %ref.tmp27 = alloca %"class.std::shared_ptr.8", align 16
   %ref.tmp38 = alloca %"class.std::shared_ptr.8", align 16
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE, i64 16), ptr %this, align 8
   %m_exposure = getelementptr inbounds i8, ptr %this, i64 8
   %m_contrast = getelementptr inbounds i8, ptr %this, i64 24
   %m_gamma = getelementptr inbounds i8, ptr %this, i64 40
@@ -1727,7 +1727,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev25DynamicPropertyDoubleImpl18createEditab
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

@@ -383,7 +383,7 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
   br i1 %6, label %7, label %48
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 576) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %48, label %11
@@ -1008,7 +1008,7 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 54:                                               ; preds = %49
   %55 = load ptr, ptr %48, align 8
   %56 = getelementptr %union.acpi_object, ptr %55, i64 %50
-  %57 = getelementptr %struct.acpi_offsets, ptr getelementptr inbounds ([20 x %struct.acpi_offsets], ptr @extended_info_offsets, i64 0, i64 1), i64 %50
+  %57 = getelementptr %struct.acpi_offsets, ptr getelementptr inbounds (i8, ptr @extended_info_offsets, i64 16), i64 %50
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 8
   %60 = icmp eq i8 %59, 0

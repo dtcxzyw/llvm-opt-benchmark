@@ -196,7 +196,7 @@ define dso_local noundef i32 @SysLogger_Start() local_unnamed_addr #0 {
 59:                                               ; preds = %53, %55
   %60 = load ptr, ptr @stdout, align 8
   %61 = call i32 @fflush(ptr noundef %60)
-  %62 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   %63 = call i32 @dup2(i32 noundef %62, i32 noundef 1) #15
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %69
@@ -212,7 +212,7 @@ define dso_local noundef i32 @SysLogger_Start() local_unnamed_addr #0 {
 69:                                               ; preds = %59
   %70 = load ptr, ptr @stderr, align 8
   %71 = call i32 @fflush(ptr noundef %70)
-  %72 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   %73 = call i32 @dup2(i32 noundef %72, i32 noundef 2) #15
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %79
@@ -226,9 +226,9 @@ define dso_local noundef i32 @SysLogger_Start() local_unnamed_addr #0 {
   unreachable
 
 79:                                               ; preds = %69
-  %80 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   %81 = call i32 @close(i32 noundef %80) #15
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   store i8 1, ptr @redirection_done, align 1
   br label %82
 
@@ -406,7 +406,7 @@ define internal fastcc void @SysLoggerMain() unnamed_addr #4 {
   br label %20
 
 20:                                               ; preds = %12, %16, %0
-  %21 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %23, label %25
 
@@ -415,7 +415,7 @@ define internal fastcc void @SysLoggerMain() unnamed_addr #4 {
   br label %25
 
 25:                                               ; preds = %23, %20
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @syslogPipe, i64 4), align 4
   %26 = tail call ptr @pqsignal(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #15
   %27 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
   %28 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15

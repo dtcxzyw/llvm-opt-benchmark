@@ -289,14 +289,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define void @_ZN7rocksdb13HistogramStatC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this) unnamed_addr #4 align 2 {
 entry:
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
-  %0 = load ptr, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
   %1 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   store i64 %sub.ptr.div.i.i, ptr %num_buckets_, align 8
-  %2 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   store atomic i64 %2, ptr %this monotonic, align 8
   %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 0, ptr %max_.i monotonic, align 8
@@ -331,7 +331,7 @@ _ZN7rocksdb13HistogramStat5ClearEv.exit:          ; preds = %for.body.i, %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb13HistogramStat5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   store atomic i64 %0, ptr %this monotonic, align 8
   %max_ = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 0, ptr %max_ monotonic, align 8
@@ -378,8 +378,8 @@ entry:
 define void @_ZN7rocksdb13HistogramStat3AddEm(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this, i64 noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %2 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   %cmp.not.i = icmp ugt i64 %2, %value
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -1666,7 +1666,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   store atomic i64 %0, ptr %stats_ monotonic, align 8
   %max_.i = getelementptr inbounds i8, ptr %this, i64 16
   store atomic i64 0, ptr %max_.i monotonic, align 8
@@ -1715,8 +1715,8 @@ define void @_ZN7rocksdb13HistogramImpl3AddEm(ptr nocapture noundef nonnull alig
 entry:
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %2 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   %cmp.not.i.i = icmp ugt i64 %2, %value
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %0 to i64

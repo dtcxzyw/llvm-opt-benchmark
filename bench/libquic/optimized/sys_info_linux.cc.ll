@@ -56,8 +56,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %or.cond.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i = mul nsw i64 %call1.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i64 0, i64 %mul.i.i.i.i.i.i.i
-  store i64 %retval.0.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 0, i32 1), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, ptr noundef null)
+  store i64 %retval.0.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 8), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_122g_lazy_physical_memoryE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_122AmountOfPhysicalMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_122AmountOfPhysicalMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i

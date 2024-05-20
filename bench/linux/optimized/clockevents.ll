@@ -517,7 +517,7 @@ define dso_local void @clockevents_register_device(ptr noundef %0) #0 align 16 {
   br label %12
 
 12:                                               ; preds = %11, %6
-  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !34
+  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !34
   %14 = and i32 %13, 63
   %15 = add nuw nsw i32 %14, 1
   %16 = zext nneg i32 %15 to i64
@@ -902,7 +902,7 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clockevents_suspend() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @clockevent_devices, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @clockevent_devices, i64 8), align 8
   %2 = icmp eq ptr %1, @clockevent_devices
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1104,7 +1104,7 @@ declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr no
 define internal void @__clockevents_unbind(ptr nocapture noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @clockevents_lock) #11
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !54
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !54
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0

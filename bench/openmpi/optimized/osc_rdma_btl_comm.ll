@@ -45,7 +45,7 @@ define void @ompi_osc_rdma_atomic_complete(ptr nocapture noundef readnone %0, pt
   br i1 %or.cond, label %osc_rdma_accelerator_mem_move.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i64 0, i32 8), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 64), align 8
   %29 = call i32 %28(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %14, i64 noundef %16, i32 noundef 0) #5
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %osc_rdma_accelerator_mem_move.exit, label %30

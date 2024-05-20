@@ -249,11 +249,11 @@ if.end3:                                          ; preds = %entry
 while.end.i:                                      ; preds = %if.end3
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
   br label %XBZRLE_cache_lock.exit
 
 XBZRLE_cache_lock.exit:                           ; preds = %if.end3, %while.end.i
-  %2 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %out, label %if.then5
 
@@ -263,9 +263,9 @@ if.then5:                                         ; preds = %XBZRLE_cache_lock.e
   br i1 %tobool.not, label %out, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   tail call void @cache_fini(ptr noundef %3) #16
-  store ptr %call6, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  store ptr %call6, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   br label %out
 
 out:                                              ; preds = %if.then5, %XBZRLE_cache_lock.exit, %if.end8
@@ -274,7 +274,7 @@ out:                                              ; preds = %if.then5, %XBZRLE_c
   br i1 %call.i6, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %out
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   br label %return
 
 return:                                           ; preds = %if.then.i, %out, %entry
@@ -341,7 +341,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   %tobool.not7 = icmp eq i64 %2, 0
   br i1 %tobool.not7, label %if.then.i.i, label %for.body
@@ -620,11 +620,11 @@ entry:
 
 if.else:                                          ; preds = %entry
   %call1 = tail call zeroext i1 @migration_in_postcopy() #16
-  %. = select i1 %call1, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %. = select i1 %call1, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else, %entry
-  %.sink = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %entry ], [ %., %if.else ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %entry ], [ %., %if.else ]
   %0 = atomicrmw add ptr %.sink, i64 %bytes seq_cst, align 8
   ret void
 }
@@ -698,7 +698,7 @@ declare zeroext i1 @ram_discard_manager_is_populated(ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @ram_pagesize_summary() local_unnamed_addr #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !11
   %tobool.not7 = icmp eq i64 %0, 0
   br i1 %tobool.not7, label %for.end, label %for.body
@@ -744,12 +744,12 @@ for.end:                                          ; preds = %while.end5, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @ram_get_total_transferred_pages() local_unnamed_addr #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 6) monotonic, align 8
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 14) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 48) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 112) monotonic, align 8
   %add = add i64 %1, %0
   %call2 = tail call i64 @compress_ram_pages() #16
   %add3 = add i64 %add, %call2
-  %2 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %add4 = add i64 %add3, %2
   ret i64 %add4
 }
@@ -1076,7 +1076,7 @@ while.end.i.i:                                    ; preds = %if.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
   %tobool.not11 = icmp eq i64 %2, 0
   br i1 %tobool.not11, label %if.then.i.i, label %for.body
@@ -1200,7 +1200,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !17
   %tobool.not11 = icmp eq i64 %2, 0
   br i1 %tobool.not11, label %if.then.i.i, label %for.body.lr.ph
@@ -1358,7 +1358,7 @@ while.end.i.i:                                    ; preds = %if.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
-  %3 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
   %tobool.not43 = icmp eq i64 %3, 0
   br i1 %tobool.not43, label %if.then.i.i39, label %for.body.lr.ph
@@ -1515,7 +1515,7 @@ while.end27:                                      ; preds = %for.body, %trace_ra
 
 fail:                                             ; preds = %ram_block_uffd_protect.exit, %if.end8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #16
-  %30 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %30 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   %tobool37.not47 = icmp eq i64 %30, 0
   br i1 %tobool37.not47, label %for.end64, label %for.body38
@@ -1637,7 +1637,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %3 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !28
   %tobool.not17 = icmp eq i64 %3, 0
   br i1 %tobool.not17, label %if.then.i.i14, label %for.body.lr.ph
@@ -1778,7 +1778,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
-  %1 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 8), i64 1 seq_cst, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 64), i64 1 seq_cst, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %2 = load i32, ptr %depth.i.i, align 4
@@ -2245,7 +2245,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !33
   %tobool.not7 = icmp eq i64 %2, 0
   br i1 %tobool.not7, label %if.then.i.i, label %for.body
@@ -2322,7 +2322,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_postcopy_migrated_memory_release(ptr nocapture noundef readnone %ms) local_unnamed_addr #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
   %tobool.not19 = icmp eq i64 %0, 0
   br i1 %tobool.not19, label %for.end, label %for.body
@@ -2414,7 +2414,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   store ptr null, ptr %last_sent_block, align 8
   %last_seen_block = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block, i8 0, i64 16, i1 false)
-  %3 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
   %tobool.not20.i = icmp eq i64 %3, 0
   br i1 %tobool.not20.i, label %postcopy_each_ram_send_discard.exit, label %for.body.i
@@ -2631,7 +2631,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2), i64 1 seq_cst, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16), i64 1 seq_cst, align 8
   %time_last_bitmap_sync = getelementptr inbounds i8, ptr %rs, i64 152
   %1 = load i64, ptr %time_last_bitmap_sync, align 8
   %tobool.not = icmp eq i64 %1, 0
@@ -2700,7 +2700,7 @@ while.end.i.i:                                    ; preds = %trace_migration_bit
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %trace_migration_bitmap_sync_start.exit, %while.end.i.i
-  %12 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !46
   %tobool12.not68 = icmp eq i64 %12, 0
   br i1 %tobool12.not68, label %for.end, label %for.body13
@@ -3004,7 +3004,7 @@ migration_trigger_throttle.exit:                  ; preds = %if.then30, %land.lh
   %48 = load i64, ptr %time_last_bitmap_sync, align 8
   %sub1.i = sub i64 %div.i42, %48
   %div.i59 = udiv i64 %mul.i58, %sub1.i
-  store atomic i64 %div.i59, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 1) monotonic, align 8
+  store atomic i64 %div.i59, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 8) monotonic, align 8
   %tobool.not.i60 = icmp eq i64 %45, %46
   br i1 %tobool.not.i60, label %migration_update_rates.exit, label %if.end.i
 
@@ -3013,19 +3013,19 @@ if.end.i:                                         ; preds = %migration_trigger_t
   br i1 %call.i61, label %if.then2.i, label %if.end20.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %49 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
+  %49 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 24), align 8
   %xbzrle_cache_miss_prev.i = getelementptr inbounds i8, ptr %rs, i64 176
   %50 = load i64, ptr %xbzrle_cache_miss_prev.i, align 8
   %sub3.i = sub i64 %49, %50
   %conv.i62 = uitofp i64 %sub3.i to double
   %conv4.i = uitofp i64 %sub.i56 to double
   %div5.i = fdiv double %conv.i62, %conv4.i
-  store double %div5.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 4), align 8
+  store double %div5.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 32), align 8
   store i64 %49, ptr %xbzrle_cache_miss_prev.i, align 8
-  %51 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %xbzrle_pages_prev.i = getelementptr inbounds i8, ptr %rs, i64 184
   %52 = load i64, ptr %xbzrle_pages_prev.i, align 8
-  %53 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %xbzrle_bytes_prev.i = getelementptr inbounds i8, ptr %rs, i64 192
   %54 = load i64, ptr %xbzrle_bytes_prev.i, align 8
   %cmp.i63 = icmp ne i64 %51, %52
@@ -3044,7 +3044,7 @@ if.else.i65:                                      ; preds = %if.then2.i
 
 if.end17.i:                                       ; preds = %if.else.i65, %if.then2.i
   %storemerge.i = phi double [ %div16.i, %if.else.i65 ], [ 0.000000e+00, %if.then2.i ]
-  store double %storemerge.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 5), align 8
+  store double %storemerge.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 40), align 8
   store i64 %51, ptr %xbzrle_pages_prev.i, align 8
   store i64 %53, ptr %xbzrle_bytes_prev.i, align 8
   br label %if.end20.i
@@ -3068,7 +3068,7 @@ if.end34:                                         ; preds = %migration_update_ra
   br i1 %call35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
-  %56 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2) monotonic, align 8
+  %56 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
   tail call void @qapi_event_send_migration_pass(i64 noundef %56) #16
   br label %if.end38
 
@@ -3382,7 +3382,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
   %tobool2.not59 = icmp eq i64 %2, 0
   br i1 %tobool2.not59, label %for.inc57, label %for.body3
@@ -3418,7 +3418,7 @@ if.then8:                                         ; preds = %if.else
   %idstr = getelementptr inbounds i8, ptr %block.060, i64 76
   %4 = load i64, ptr %used_length, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.colo_init_ram_cache, ptr noundef nonnull %idstr, i64 noundef %4) #16
-  %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
   %tobool18.not62 = icmp eq i64 %5, 0
   br i1 %tobool18.not62, label %if.then.i.i, label %for.body19
@@ -3550,7 +3550,7 @@ for.end58:                                        ; preds = %while.end21.i.i, %w
   br i1 %tobool60.not, label %if.end88, label %while.end67
 
 while.end67:                                      ; preds = %for.end58
-  %18 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !58
   %tobool70.not66 = icmp eq i64 %18, 0
   br i1 %tobool70.not66, label %if.end88, label %for.body71
@@ -3643,7 +3643,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !61
   %tobool2.not12 = icmp eq i64 %2, 0
   br i1 %tobool2.not12, label %for.end, label %for.body3
@@ -3762,7 +3762,7 @@ for.cond51.preheader.i:                           ; preds = %entry
 
 if.then.i:                                        ; preds = %entry
   %shr3.i = lshr exact i64 %0, 12
-  %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 2) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 80) monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
   %blocks.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -3889,7 +3889,7 @@ declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 define dso_local void @colo_release_ram_cache() local_unnamed_addr #0 {
 entry:
   tail call void @memory_global_dirty_log_stop(i32 noundef 1) #16
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
   %tobool.not27 = icmp eq i64 %0, 0
   br i1 %tobool.not27, label %for.end, label %for.body
@@ -3944,7 +3944,7 @@ while.end.i.i:                                    ; preds = %for.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %for.end, %while.end.i.i
-  %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
   %tobool19.not31 = icmp eq i64 %5, 0
   br i1 %tobool19.not31, label %for.inc41, label %for.body20
@@ -4553,7 +4553,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !75
   %tobool8.not91 = icmp eq i64 %5, 0
   br i1 %tobool8.not91, label %for.inc18, label %for.body9
@@ -4675,7 +4675,7 @@ while.end.i.i30:                                  ; preds = %trace_colo_flush_ra
 
 rcu_read_auto_lock.exit32:                        ; preds = %trace_colo_flush_ram_cache_begin.exit, %while.end.i.i30
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %20 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
   %tobool33.not96 = icmp eq i64 %20, 0
   br i1 %tobool33.not96, label %for.inc59, label %while.body34.preheader
@@ -5175,7 +5175,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_mig_init() local_unnamed_addr #0 {
 entry:
-  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3)) #16
+  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24)) #16
   %call = tail call i32 @register_savevm_live(ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @savevm_ram_handlers, ptr noundef nonnull @ram_state) #16
   tail call void @ram_block_notifier_add(ptr noundef nonnull @ram_mig_ram_notifier) #16
   ret void
@@ -5514,7 +5514,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %last_sent_block.i.c, align 8
   %last_seen_block.i = getelementptr inbounds i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
-  %7 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   %last_version.i = getelementptr inbounds i8, ptr %6, i64 144
   store i32 %7, ptr %last_version.i, align 8
   %xbzrle_started.i = getelementptr inbounds i8, ptr %6, i64 200
@@ -5679,12 +5679,12 @@ if.end.i.i:                                       ; preds = %if.end.i
 while.end.i.i.i:                                  ; preds = %if.end.i.i
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
   br label %XBZRLE_cache_lock.exit.i.i
 
 XBZRLE_cache_lock.exit.i.i:                       ; preds = %while.end.i.i.i, %if.end.i.i
   %call1.i.i = tail call noalias dereferenceable_or_null(4096) ptr @g_try_malloc0(i64 noundef 4096) #18
-  store ptr %call1.i.i, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
+  store ptr %call1.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   %tobool.not.i.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not.i.i, label %if.then2.i.i, label %if.end3.i.i
 
@@ -5695,7 +5695,7 @@ if.then2.i.i:                                     ; preds = %XBZRLE_cache_lock.e
 if.end3.i.i:                                      ; preds = %XBZRLE_cache_lock.exit.i.i
   %call4.i.i = tail call i64 @migrate_xbzrle_cache_size() #16
   %call5.i.i = call ptr @cache_init(i64 noundef %call4.i.i, i64 noundef 4096, ptr noundef nonnull %local_err.i.i) #16
-  store ptr %call5.i.i, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  store ptr %call5.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
@@ -5716,7 +5716,7 @@ if.then11.i.i:                                    ; preds = %if.end8.i.i
 
 if.end12.i.i:                                     ; preds = %if.end8.i.i
   %call13.i.i = call noalias dereferenceable_or_null(4096) ptr @g_try_malloc(i64 noundef 4096) #18
-  store ptr %call13.i.i, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 1), align 8
+  store ptr %call13.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.then15.i.i, label %if.end16.i.i
 
@@ -5732,20 +5732,20 @@ if.end16.i.i:                                     ; preds = %if.end12.i.i
   br i1 %call.i1.i.i, label %xbzrle_init.exit.thread11.i, label %xbzrle_init.exit.thread.i
 
 xbzrle_init.exit.thread11.i:                      ; preds = %if.end16.i.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.end4.i
 
 free_cache.i.i:                                   ; preds = %if.then15.i.i, %if.then11.i.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   call void @cache_fini(ptr noundef %4) #16
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   br label %free_zero_page.i.i
 
 free_zero_page.i.i:                               ; preds = %free_cache.i.i, %if.then7.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   call void @g_free(ptr noundef %5) #16
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   br label %err_out.i.i
 
 err_out.i.i:                                      ; preds = %free_zero_page.i.i, %if.then2.i.i
@@ -5761,7 +5761,7 @@ xbzrle_init.exit.thread.i:                        ; preds = %if.end16.i.i, %if.e
   br label %if.end4.i
 
 xbzrle_init.exit.i:                               ; preds = %err_out.i.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.then3.i
 
@@ -5815,7 +5815,7 @@ if.then8.i.i.i:                                   ; preds = %if.else.i.i.i
 
 while.end.i.i4.i:                                 ; preds = %if.then8.i.i.i, %if.else.i.i.i, %if.then3.i.i.i
   %shift.0.i.i.i = phi i8 [ 31, %if.then3.i.i.i ], [ 6, %if.then8.i.i.i ], [ %9, %if.else.i.i.i ]
-  %10 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !83
   %tobool11.not23.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool11.not23.i.i.i, label %ram_list_init_bitmaps.exit.i.i, label %for.body.lr.ph.i.i.i
@@ -5983,7 +5983,7 @@ while.end.i.i.i.i.i:                              ; preds = %glib_autoptr_cleanu
   br label %rcu_read_auto_lock.exit.i.i.i
 
 rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i, %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
-  %21 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %21 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !86
   %tobool.not8.i.i.i = icmp eq i64 %21, 0
   br i1 %tobool.not8.i.i.i, label %if.then.i.i.i.i.i, label %for.body.lr.ph.i12.i.i
@@ -6133,7 +6133,7 @@ while.end.i.i.i40:                                ; preds = %rcu_read_auto_lock.
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i40, %rcu_read_auto_lock.exit
-  %36 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %36 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !89
   %tobool.not6.i = icmp eq i64 %36, 0
   br i1 %tobool.not6.i, label %if.then.i.i.i35, label %for.body.i
@@ -6197,7 +6197,7 @@ while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
 
 ram_bytes_total_with_ignored.exit:                ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i39, %while.end21.i.i.i.i.i
   call void @qemu_put_be64(ptr noundef %f, i64 noundef %total.0.lcssa.i) #16
-  %42 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %42 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
   %tobool11.not62 = icmp eq i64 %42, 0
   br i1 %tobool11.not62, label %for.inc39, label %for.body12
@@ -6331,7 +6331,7 @@ if.then1:                                         ; preds = %if.then
   br label %while.end
 
 while.end:                                        ; preds = %if.then, %if.then1, %entry
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !95
   %tobool3.not9 = icmp eq i64 %1, 0
   br i1 %tobool3.not9, label %for.end, label %for.body
@@ -6379,11 +6379,11 @@ for.end:                                          ; preds = %while.end13, %while
 while.end.i.i:                                    ; preds = %for.end
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %6(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
   br label %XBZRLE_cache_lock.exit.i
 
 XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %for.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6391,11 +6391,11 @@ if.then.i:                                        ; preds = %XBZRLE_cache_lock.e
   tail call void @cache_fini(ptr noundef nonnull %7) #16
   %8 = load ptr, ptr @XBZRLE, align 8
   tail call void @g_free(ptr noundef %8) #16
-  %9 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   tail call void @g_free(ptr noundef %9) #16
-  %10 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   tail call void @g_free(ptr noundef %10) #16
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @XBZRLE, i8 0, i64 24, i1 false)
   br label %if.end.i
 
@@ -6404,7 +6404,7 @@ if.end.i:                                         ; preds = %if.then.i, %XBZRLE_
   br i1 %call.i1.i, label %if.then.i.i, label %xbzrle_cleanup.exit
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   br label %xbzrle_cleanup.exit
 
 xbzrle_cleanup.exit:                              ; preds = %if.end.i, %if.then.i.i
@@ -6598,7 +6598,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @ram_has_postcopy(ptr nocapture readnone %opaque) #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
   %tobool.not9 = icmp eq i64 %0, 0
   br i1 %tobool.not9, label %for.end, label %for.body
@@ -6687,7 +6687,7 @@ while.end.i.i:                                    ; preds = %if.end
   br label %for.body7
 
 for.body7:                                        ; preds = %while.end.i.i, %if.end
-  %5 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   %6 = load i32, ptr %last_version, align 8
   %cmp.not = icmp eq i32 %5, %6
   br i1 %cmp.not, label %if.end9, label %for.body.i
@@ -6696,7 +6696,7 @@ for.body.i:                                       ; preds = %for.body7
   store ptr null, ptr %last_sent_block.i, align 8
   store ptr null, ptr %last_sent_block.i.c, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
-  %7 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   store i32 %7, ptr %last_version, align 8
   store i8 0, ptr %xbzrle_started.i, align 8
   br label %if.end9
@@ -6864,11 +6864,11 @@ if.end72:                                         ; preds = %if.then66, %land.lh
 
 if.else.i:                                        ; preds = %if.end72
   %call1.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %..i = select i1 %call1.i, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %..i = select i1 %call1.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else.i, %if.end72
-  %.sink.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %if.end72 ], [ %..i, %if.else.i ]
+  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %if.end72 ], [ %..i, %if.else.i ]
   %20 = atomicrmw add ptr %.sink.i, i64 8 seq_cst, align 8
   %call73 = tail call i32 @qemu_fflush(ptr noundef %f) #16
   %call73.fr = freeze i32 %call73
@@ -7539,7 +7539,7 @@ if.end.i88.i:                                     ; preds = %sw.bb64.i
   br i1 %cmp2.i.i, label %if.then68.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i88.i
-  %49 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 5), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
   store ptr %49, ptr %loaded_data.i.i, align 8
   %conv.i89.i = zext nneg i32 %call1.i.i to i64
   %call5.i90.i = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %loaded_data.i.i, i64 noundef %conv.i89.i) #16
@@ -7648,8 +7648,8 @@ return:                                           ; preds = %entry, %trace_ram_l
 define internal noundef i32 @ram_load_setup(ptr nocapture readnone %f, ptr nocapture readnone %opaque) #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #18
-  store ptr %call.i, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 5), align 8
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !105
   %tobool.not8.i = icmp eq i64 %0, 0
   br i1 %tobool.not8.i, label %ramblock_recv_map_init.exit, label %for.body.i
@@ -7717,7 +7717,7 @@ ramblock_recv_map_init.exit:                      ; preds = %while.end12.i, %ent
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ram_load_cleanup(ptr nocapture readnone %opaque) #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !108
   %tobool.not20 = icmp eq i64 %0, 0
   br i1 %tobool.not20, label %for.end, label %for.body
@@ -7754,10 +7754,10 @@ while.end5:                                       ; preds = %for.body, %if.else,
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !110
 
 for.end:                                          ; preds = %while.end5, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
   tail call void @g_free(ptr noundef %3) #16
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 5), align 8
-  %4 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
+  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !111
   %tobool14.not23 = icmp eq i64 %4, 0
   br i1 %tobool14.not23, label %for.end30, label %for.body15
@@ -7845,7 +7845,7 @@ trace_ram_dirty_bitmap_sync_start.exit.i:         ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %postcopy_bmap_sync_requested.i = getelementptr inbounds i8, ptr %0, i64 352
   store atomic i32 0, ptr %postcopy_bmap_sync_requested.i monotonic, align 8
-  %8 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %8 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
   %tobool.not52.i = icmp eq i64 %8, 0
   br i1 %tobool.not52.i, label %for.end.i, label %for.body.lr.ph.i
@@ -8001,7 +8001,7 @@ if.else.i.i45.i:                                  ; preds = %if.then.i.i43.i
 if.end:                                           ; preds = %while.end33.i, %land.lhs.true5.i.i40.i, %if.then8.i.i46.i, %if.else.i.i45.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36.i)
   %30 = load ptr, ptr %to_dst_file.i, align 8
-  %31 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %31 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !118
   %tobool.not12.i = icmp eq i64 %31, 0
   br i1 %tobool.not12.i, label %for.end.i9, label %for.body.i5
@@ -8074,7 +8074,7 @@ for.end.i9:                                       ; preds = %while.end6.i, %if.e
   store ptr null, ptr %last_sent_block.i.c.i, align 8
   %last_seen_block.i.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i.i, i8 0, i64 16, i1 false)
-  %37 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   %last_version.i.i = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %37, ptr %last_version.i.i, align 8
   %xbzrle_started.i.i = getelementptr inbounds i8, ptr %0, i64 200
@@ -8209,18 +8209,18 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br label %ram_release_page.exit.i
 
 ram_release_page.exit.i:                          ; preds = %if.end.i.i, %lor.lhs.false.i.i, %save_page_header.exit.i
-  %11 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 14), i64 1 seq_cst, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 112), i64 1 seq_cst, align 8
   %conv6.i = sext i32 %size.0.i.i to i64
   %call.i14.i = tail call zeroext i1 @runstate_is_running() #16
   br i1 %call.i14.i, label %ram_transferred_add.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %ram_release_page.exit.i
   %call1.i15.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %..i.i = select i1 %call1.i15.i, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %..i.i = select i1 %call1.i15.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i
 
 ram_transferred_add.exit.i:                       ; preds = %if.else.i.i, %ram_release_page.exit.i
-  %.sink.i.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %ram_release_page.exit.i ], [ %..i.i, %if.else.i.i ]
+  %.sink.i.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %ram_release_page.exit.i ], [ %..i.i, %if.else.i.i ]
   %12 = atomicrmw add ptr %.sink.i.i, i64 %conv6.i seq_cst, align 8
   %xbzrle_started.i = getelementptr inbounds i8, ptr %rs, i64 200
   %13 = load i8, ptr %xbzrle_started.i, align 8
@@ -8234,7 +8234,7 @@ if.then7.i:                                       ; preds = %ram_transferred_add
 while.end.i.i:                                    ; preds = %if.then7.i
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  tail call void %15(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
   br label %XBZRLE_cache_lock.exit.i
 
 XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %if.then7.i
@@ -8242,15 +8242,15 @@ XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %if.
   %offset9.i = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i64, ptr %offset9.i, align 8
   %add10.i = add i64 %17, %shl
-  %18 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 4), align 8
-  %20 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2) monotonic, align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
+  %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
   %call1.i18.i = tail call i32 @cache_insert(ptr noundef %18, i64 noundef %add10.i, ptr noundef %19, i64 noundef %20) #16
   %call.i19.i = tail call zeroext i1 @migrate_xbzrle() #16
   br i1 %call.i19.i, label %if.then.i.i, label %save_zero_page.exit
 
 if.then.i.i:                                      ; preds = %XBZRLE_cache_lock.exit.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   br label %save_zero_page.exit
 
 save_zero_page.exit:                              ; preds = %ram_transferred_add.exit.i, %XBZRLE_cache_lock.exit.i, %if.then.i.i
@@ -8272,7 +8272,7 @@ if.then10:                                        ; preds = %land.lhs.true
   br i1 %cmp.i, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.then10
-  %22 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 6), i64 1 seq_cst, align 8
+  %22 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 48), i64 1 seq_cst, align 8
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end7
@@ -8326,7 +8326,7 @@ trace_ram_save_page.exit.i:                       ; preds = %if.else.i.i.i, %if.
 while.end.i.i35:                                  ; preds = %trace_ram_save_page.exit.i
   %33 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %34 = inttoptr i64 %33 to ptr
-  tail call void %34(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %34(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
   br label %XBZRLE_cache_lock.exit.i23
 
 XBZRLE_cache_lock.exit.i23:                       ; preds = %while.end.i.i35, %trace_ram_save_page.exit.i
@@ -8341,38 +8341,38 @@ land.lhs.true.i:                                  ; preds = %XBZRLE_cache_lock.e
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %36 = load ptr, ptr %pss, align 8
-  %37 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2) monotonic, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %37 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %call1.i.i30 = tail call zeroext i1 @cache_is_cached(ptr noundef %38, i64 noundef %add.i, i64 noundef %37) #16
   br i1 %call1.i.i30, label %if.end7.i.i, label %if.then.i.i31
 
 if.then.i.i31:                                    ; preds = %if.then.i
-  %39 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 24), align 8
   %inc.i.i = add i64 %39, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 24), align 8
   %last_stage.i.i = getelementptr inbounds i8, ptr %rs, i64 201
   %40 = load i8, ptr %last_stage.i.i, align 1
   %tobool.i.i = trunc i8 %40 to i1
   br i1 %tobool.i.i, label %if.end6.thread46.i, label %if.then2.i.i32
 
 if.then2.i.i32:                                   ; preds = %if.then.i.i31
-  %41 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %call3.i.i = tail call i32 @cache_insert(ptr noundef %41, i64 noundef %add.i, ptr noundef %add.ptr.i20, i64 noundef %37) #16
   %cmp.i.i33 = icmp eq i32 %call3.i.i, -1
   br i1 %cmp.i.i33, label %if.end6.thread46.i, label %if.else.i.i34
 
 if.else.i.i34:                                    ; preds = %if.then2.i.i32
-  %42 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %call5.i.i = tail call ptr @get_cached_data(ptr noundef %42, i64 noundef %add.i) #16
   br label %if.end6.thread46.i
 
 if.end7.i.i:                                      ; preds = %if.then.i
-  %43 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %inc8.i.i = add i64 %43, 1
-  store i64 %inc8.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
+  store i64 %inc8.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %call9.i.i = tail call ptr @get_cached_data(ptr noundef %44, i64 noundef %add.i) #16
-  %45 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %45, ptr noundef nonnull align 1 dereferenceable(4096) %add.ptr.i20, i64 4096, i1 false)
   %46 = load ptr, ptr @XBZRLE, align 8
   %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef %45, i32 noundef 4096, ptr noundef %46, i32 noundef 4096) #16
@@ -8384,7 +8384,7 @@ if.end7.i.i:                                      ; preds = %if.then.i
   br i1 %or.cond.not.i.i, label %if.end15.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end7.i.i
-  %48 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 1), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call9.i.i, ptr noundef nonnull align 1 dereferenceable(4096) %48, i64 4096, i1 false)
   br label %if.end15.i.i
 
@@ -8467,12 +8467,12 @@ if.else.i.i31.i.i:                                ; preds = %if.then.i.i29.i.i
 
 trace_save_xbzrle_page_overflow.exit.i.i:         ; preds = %if.else.i.i31.i.i, %if.then8.i.i32.i.i, %land.lhs.true5.i.i26.i.i, %if.then20.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i22.i.i)
-  %61 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 6), align 8
+  %61 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 48), align 8
   %inc21.i.i = add i64 %61, 1
-  store i64 %inc21.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 6), align 8
-  %62 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  store i64 %inc21.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 48), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %add.i.i = add i64 %62, 4096
-  store i64 %add.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  store i64 %add.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   br label %if.end6.thread46.i
 
 if.end23.i.i:                                     ; preds = %if.end15.i.i
@@ -8505,20 +8505,20 @@ save_page_header.exit.i.i:                        ; preds = %if.then2.i.i.i, %if
   %add29.i.i = add i32 %add28.i.i, %size.0.i.i.i
   %sub.i.i = add i32 %add29.i.i, -8
   %conv30.i.i = sext i32 %sub.i.i to i64
-  %67 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %add31.i.i = add i64 %67, %conv30.i.i
-  store i64 %add31.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  store i64 %add31.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %conv32.i.i = sext i32 %add29.i.i to i64
   %call.i36.i.i = tail call zeroext i1 @runstate_is_running() #16
   br i1 %call.i36.i.i, label %ram_transferred_add.exit.i.i, label %if.else.i.i15.i
 
 if.else.i.i15.i:                                  ; preds = %save_page_header.exit.i.i
   %call1.i.i.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %..i.i.i = select i1 %call1.i.i.i, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %..i.i.i = select i1 %call1.i.i.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i.i
 
 ram_transferred_add.exit.i.i:                     ; preds = %if.else.i.i15.i, %save_page_header.exit.i.i
-  %.sink.i.i.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %save_page_header.exit.i.i ], [ %..i.i.i, %if.else.i.i15.i ]
+  %.sink.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %save_page_header.exit.i.i ], [ %..i.i.i, %if.else.i.i15.i ]
   %68 = atomicrmw add ptr %.sink.i.i.i, i64 %conv32.i.i seq_cst, align 8
   br label %if.end10.i
 
@@ -8557,11 +8557,11 @@ save_page_header.exit.i24.i:                      ; preds = %if.then2.i.i20.i, %
 
 if.else.i.i26.i:                                  ; preds = %save_page_header.exit.i24.i
   %call1.i.i27.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %..i.i28.i = select i1 %call1.i.i27.i, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %..i.i28.i = select i1 %call1.i.i27.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i29.i
 
 ram_transferred_add.exit.i29.i:                   ; preds = %if.else.i.i26.i, %save_page_header.exit.i24.i
-  %.sink.i.i30.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %save_page_header.exit.i24.i ], [ %..i.i28.i, %if.else.i.i26.i ]
+  %.sink.i.i30.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %save_page_header.exit.i24.i ], [ %..i.i28.i, %if.else.i.i26.i ]
   %72 = atomicrmw add ptr %.sink.i.i30.i, i64 %size.0.i.i25.i seq_cst, align 8
   br i1 %send_async.044.i, label %if.then.i32.i, label %if.else.i31.i
 
@@ -8588,13 +8588,13 @@ if.end.i.i27:                                     ; preds = %if.else.i31.i, %lan
 
 if.else.i7.i.i:                                   ; preds = %if.end.i.i27
   %call1.i8.i.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %..i9.i.i = select i1 %call1.i8.i.i, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7), ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4)
+  %..i9.i.i = select i1 %call1.i8.i.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %save_normal_page.exit.i
 
 save_normal_page.exit.i:                          ; preds = %if.else.i7.i.i, %if.end.i.i27
-  %.sink.i10.i.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %if.end.i.i27 ], [ %..i9.i.i, %if.else.i7.i.i ]
+  %.sink.i10.i.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %if.end.i.i27 ], [ %..i9.i.i, %if.else.i7.i.i ]
   %74 = atomicrmw add ptr %.sink.i10.i.i, i64 4096 seq_cst, align 8
-  %75 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 6), i64 1 seq_cst, align 8
+  %75 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 48), i64 1 seq_cst, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %save_normal_page.exit.i, %ram_transferred_add.exit.i.i, %trace_save_xbzrle_page_skipping.exit.i.i
@@ -8603,7 +8603,7 @@ if.end10.i:                                       ; preds = %save_normal_page.ex
   br i1 %call.i34.i, label %if.then.i36.i, label %return
 
 if.then.i36.i:                                    ; preds = %if.end10.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 3), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
   br label %return
 
 return:                                           ; preds = %if.then.i36.i, %if.end10.i, %if.end.i17, %if.then10, %save_zero_page.exit, %save_compress_page.exit
@@ -8662,7 +8662,7 @@ if.end.if.end5_crit_edge:                         ; preds = %if.end
   br label %if.end5
 
 while.end:                                        ; preds = %if.end
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !121
   store ptr %3, ptr %last_seen_block, align 8
@@ -8967,7 +8967,7 @@ if.end20.i:                                       ; preds = %if.then15.i31
 
 if.end22.i:                                       ; preds = %if.end20.i, %land.lhs.true13.i, %if.then11.i30
   call void @compress_flush_data() #16
-  %48 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %48 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   %49 = inttoptr i64 %48 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !124
   store ptr %49, ptr %block.i, align 8

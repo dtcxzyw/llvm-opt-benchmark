@@ -36,10 +36,10 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 1, i32 0)) #2
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh1024_160, i64 24)) #2
   %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 2, i32 0)) #2
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh1024_160, i64 48)) #2
   %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
@@ -72,10 +72,10 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 1, i32 0)) #2
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_224, i64 24)) #2
   %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 2, i32 0)) #2
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_224, i64 48)) #2
   %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
@@ -108,10 +108,10 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 1, i32 0)) #2
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_256, i64 24)) #2
   %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 2, i32 0)) #2
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_256, i64 48)) #2
   %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8

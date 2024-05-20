@@ -213,7 +213,7 @@ cond.true.i:                                      ; preds = %entry
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %entry ]
-  store ptr %cond.i, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  store ptr %cond.i, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %call2 = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @builtin_config_options, ptr noundef nonnull @builtin_config_usage, i32 noundef 2) #16
   %2 = load i32, ptr @use_global_config, align 4
   %3 = load i32, ptr @use_system_config, align 4
@@ -222,11 +222,11 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
   %add3 = add nsw i32 %add, %4
   %5 = load i32, ptr @use_worktree_config, align 4
   %add4 = add nsw i32 %add3, %5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool5 = icmp ne ptr %6, null
   %lnot.ext9 = zext i1 %tobool5 to i32
   %add10 = add nsw i32 %add4, %lnot.ext9
-  %7 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 16), align 8
   %tobool11 = icmp ne ptr %7, null
   %lnot.ext15 = zext i1 %tobool11 to i32
   %add16 = add nsw i32 %add10, %lnot.ext15
@@ -291,11 +291,11 @@ land.lhs.true.tail:                               ; preds = %sub_0, %sub_1
   br i1 %tobool37.not, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %land.lhs.true.tail
-  store ptr null, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %bf.load = load i8, ptr @given_config_source, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr @given_config_source, align 8
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %land.lhs.true.tail, %if.end34
@@ -315,7 +315,7 @@ if.then43:                                        ; preds = %if.then41
   unreachable
 
 if.end45:                                         ; preds = %if.then41
-  store i32 2, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   %call46 = call i32 @access_or_warn(ptr noundef nonnull %16, i32 noundef 4, i32 noundef 0) #16
   %tobool47 = icmp ne i32 %call46, 0
   %17 = load ptr, ptr %xdg_config, align 8
@@ -330,7 +330,7 @@ land.lhs.true50:                                  ; preds = %if.end45
   br i1 %tobool52.not, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %land.lhs.true50
-  store ptr %.pre, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  store ptr %.pre, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %18 = load ptr, ptr %user_config, align 8
   call void @free(ptr noundef %18) #16
   br label %if.end99
@@ -338,7 +338,7 @@ if.then53:                                        ; preds = %land.lhs.true50
 if.else:                                          ; preds = %land.lhs.true50, %if.end45
   %19 = phi ptr [ %.pre, %land.lhs.true50 ], [ %17, %if.end45 ]
   %20 = load ptr, ptr %user_config, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   call void @free(ptr noundef %19) #16
   br label %if.end99
 
@@ -348,8 +348,8 @@ if.else55:                                        ; preds = %if.end39
 
 if.then57:                                        ; preds = %if.else55
   %call58 = tail call ptr @git_system_config() #16
-  store ptr %call58, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store ptr %call58, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   br label %if.end99
 
 if.else59:                                        ; preds = %if.else55
@@ -358,8 +358,8 @@ if.else59:                                        ; preds = %if.else55
 
 if.then61:                                        ; preds = %if.else59
   %call62 = tail call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.7) #16
-  store ptr %call62, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store ptr %call62, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   br label %if.end99
 
 if.else63:                                        ; preds = %if.else59
@@ -393,8 +393,8 @@ if.then75:                                        ; preds = %land.lhs.true72
 if.end80:                                         ; preds = %if.else70, %land.lhs.true72, %if.then65
   %.str.7.sink = phi ptr [ @.str.8, %if.then65 ], [ @.str.7, %land.lhs.true72 ], [ @.str.7, %if.else70 ]
   %call78 = tail call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull %.str.7.sink) #16
-  store ptr %call78, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store ptr %call78, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   tail call void @free_worktrees(ptr noundef %call66) #16
   br label %if.end99
 
@@ -411,11 +411,11 @@ if.then83:                                        ; preds = %if.else81
 
 if.then88:                                        ; preds = %if.then83
   %call89 = tail call ptr @prefix_filename(ptr noundef nonnull %prefix, ptr noundef nonnull %15) #16
-  store ptr %call89, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  store ptr %call89, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %if.then83
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   br label %if.end99
 
 if.else91:                                        ; preds = %if.else81
@@ -423,7 +423,7 @@ if.else91:                                        ; preds = %if.else81
   br i1 %tobool92.not, label %if.end99, label %if.then93
 
 if.then93:                                        ; preds = %if.else91
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 3), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 24), align 8
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then57, %if.end80, %if.else91, %if.then93, %if.end90, %if.then61, %if.then53, %if.else
@@ -431,7 +431,7 @@ if.end99:                                         ; preds = %if.then57, %if.end8
   %cmp100 = icmp eq i32 %25, -1
   %26 = trunc i32 %25 to i8
   %bf.value110 = and i8 %26, 1
-  %27 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool102.not = icmp eq ptr %27, null
   %28 = zext i1 %tobool102.not to i8
   %bf.value110.sink = select i1 %cmp100, i8 %28, i8 %bf.value110
@@ -443,9 +443,9 @@ if.end99:                                         ; preds = %if.then57, %if.end8
 
 if.then116:                                       ; preds = %if.end99
   %call117 = call ptr @get_git_common_dir() #16
-  store ptr %call117, ptr getelementptr inbounds (%struct.config_options, ptr @config_options, i64 0, i32 1), align 8
+  store ptr %call117, ptr getelementptr inbounds (i8, ptr @config_options, i64 8), align 8
   %call118 = call ptr @get_git_dir() #16
-  store ptr %call118, ptr getelementptr inbounds (%struct.config_options, ptr @config_options, i64 0, i32 2), align 8
+  store ptr %call118, ptr getelementptr inbounds (i8, ptr @config_options, i64 16), align 8
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.end99
@@ -649,13 +649,13 @@ check_argc.exit:                                  ; preds = %if.then204
   br i1 %cmp206, label %if.then207, label %if.end399
 
 if.then207:                                       ; preds = %check_argc.exit
-  %46 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool208.not = icmp eq ptr %46, null
   br i1 %tobool208.not, label %if.else211, label %if.then209
 
 if.then209:                                       ; preds = %if.then207
   %call210 = call fastcc ptr @_(ptr noundef nonnull @.str.16)
-  %47 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   call void (ptr, ...) @die_errno(ptr noundef %call210, ptr noundef %47) #18
   unreachable
 
@@ -684,7 +684,7 @@ _.exit.i112:                                      ; preds = %if.end3.i.i110, %if
   unreachable
 
 check_argc.exit115:                               ; preds = %if.then216
-  %49 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool217 = icmp eq ptr %49, null
   %or.cond5 = select i1 %tobool217, i1 %tobool.not, i1 false
   br i1 %or.cond5, label %if.then220, label %if.end222
@@ -706,7 +706,7 @@ if.then226:                                       ; preds = %if.end222
   unreachable
 
 if.end228:                                        ; preds = %if.end222
-  %50 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 2), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 16), align 8
   %tobool229.not = icmp eq ptr %50, null
   br i1 %tobool229.not, label %if.end232, label %if.then230
 
@@ -717,7 +717,7 @@ if.then230:                                       ; preds = %if.end228
 
 if.end232:                                        ; preds = %if.end228
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #16
-  %51 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool233.not = icmp eq ptr %51, null
   br i1 %tobool233.not, label %cond.false, label %cond.true
 
@@ -805,7 +805,7 @@ check_argc.exit133:                               ; preds = %if.then255
   %arrayidx257 = getelementptr inbounds i8, ptr %argv, i64 8
   %57 = load ptr, ptr %arrayidx257, align 8
   %call258 = call fastcc ptr @normalize_value(ptr noundef %56, ptr noundef %57, ptr noundef nonnull %default_kvi)
-  %58 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %59 = load ptr, ptr %argv, align 8
   %call260 = call i32 @git_config_set_in_file_gently(ptr noundef %58, ptr noundef %59, ptr noundef %call258) #16
   %cmp261 = icmp eq i32 %call260, 5
@@ -852,7 +852,7 @@ check_argc.exit141:                               ; preds = %if.then270
   %arrayidx272 = getelementptr inbounds i8, ptr %argv, i64 8
   %65 = load ptr, ptr %arrayidx272, align 8
   %call273 = call fastcc ptr @normalize_value(ptr noundef %64, ptr noundef %65, ptr noundef nonnull %default_kvi)
-  %66 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %67 = load ptr, ptr %argv, align 8
   %arrayidx275 = getelementptr inbounds i8, ptr %argv, i64 16
   %68 = load ptr, ptr %arrayidx275, align 8
@@ -884,7 +884,7 @@ check_argc.exit152:                               ; preds = %if.then279
   %arrayidx281 = getelementptr inbounds i8, ptr %argv, i64 8
   %71 = load ptr, ptr %arrayidx281, align 8
   %call282 = call fastcc ptr @normalize_value(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %default_kvi)
-  %72 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %73 = load ptr, ptr %argv, align 8
   %call284 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %72, ptr noundef %73, ptr noundef %call282, ptr noundef nonnull inttoptr (i64 1 to ptr), i32 noundef %flags.0) #16
   br label %if.end399
@@ -915,7 +915,7 @@ check_argc.exit163:                               ; preds = %if.then287
   %arrayidx289 = getelementptr inbounds i8, ptr %argv, i64 8
   %77 = load ptr, ptr %arrayidx289, align 8
   %call290 = call fastcc ptr @normalize_value(ptr noundef %76, ptr noundef %77, ptr noundef nonnull %default_kvi)
-  %78 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %79 = load ptr, ptr %argv, align 8
   %arrayidx292 = getelementptr inbounds i8, ptr %argv, i64 16
   %80 = load ptr, ptr %arrayidx292, align 8
@@ -1157,7 +1157,7 @@ _.exit11.i222:                                    ; preds = %if.end3.i8.i220, %i
 
 check_argc.exit226:                               ; preds = %if.then321
   %cmp322 = icmp eq i32 %call2, 2
-  %116 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %117 = load ptr, ptr %argv, align 8
   br i1 %cmp322, label %if.then323, label %if.else327
 
@@ -1193,7 +1193,7 @@ _.exit11.i235:                                    ; preds = %if.end3.i8.i233, %i
   unreachable
 
 check_argc.exit239:                               ; preds = %if.then332
-  %121 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %122 = load ptr, ptr %argv, align 8
   %arrayidx334 = getelementptr inbounds i8, ptr %argv, i64 8
   %123 = load ptr, ptr %arrayidx334, align 8
@@ -1222,7 +1222,7 @@ _.exit.i248:                                      ; preds = %if.end3.i.i246, %if
   unreachable
 
 check_argc.exit252:                               ; preds = %if.then339
-  %125 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %126 = load ptr, ptr %argv, align 8
   %arrayidx341 = getelementptr inbounds i8, ptr %argv, i64 8
   %127 = load ptr, ptr %arrayidx341, align 8
@@ -1261,7 +1261,7 @@ _.exit.i261:                                      ; preds = %if.end3.i.i259, %if
   unreachable
 
 check_argc.exit265:                               ; preds = %if.then355
-  %130 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %131 = load ptr, ptr %argv, align 8
   %call357 = call i32 @git_config_rename_section_in_file(ptr noundef %130, ptr noundef %131, ptr noundef null) #16
   %cmp358 = icmp slt i32 %call357, 0
@@ -1610,7 +1610,7 @@ declare i32 @launch_editor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_write() unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
@@ -1637,7 +1637,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 16), align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 

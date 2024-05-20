@@ -8230,11 +8230,11 @@ define internal fastcc void @dissect_nvme_cqe_common(ptr noundef %0, ptr noundef
   %18 = load i32, ptr @ett_data, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #10
   %.not = icmp eq i32 %3, 0
-  %.val = load i32, ptr getelementptr inbounds ([7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 1), align 4
+  %.val = load i32, ptr getelementptr inbounds (i8, ptr @hf_nvme_cqe_status, i64 4), align 4
   %hf_nvme_cqe_status_rsvd.val = load i32, ptr @hf_nvme_cqe_status_rsvd, align 4
   %20 = select i1 %.not, i32 %.val, i32 %hf_nvme_cqe_status_rsvd.val
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #10
-  %22 = load i32, ptr getelementptr inbounds ([7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 2), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @hf_nvme_cqe_status, i64 8), align 8
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #10
   %24 = zext i16 %6 to i32
   %25 = lshr i32 %24, 9
@@ -9152,7 +9152,7 @@ add_group_mask_entry.exit.i89:                    ; preds = %.lr.ph.i.i85
   br i1 %exitcond.not.i177.i.i, label %dissect_nvme_set_features_dword11.exit.i, label %.lr.ph.i174.i.i, !llvm.loop !6
 
 add_group_mask_entry.exit.sink.split.i.i:         ; preds = %.lr.ph.i109.i.i, %add_group_mask_entry.exit.i89
-  %.sink254.i.i = phi ptr [ getelementptr inbounds ([2 x i32], ptr @hf_nvme_cmd_set_features_dword11_kat, i64 0, i64 1), %.lr.ph.i109.i.i ], [ @hf_nvme_cmd_dword11, %add_group_mask_entry.exit.i89 ]
+  %.sink254.i.i = phi ptr [ getelementptr inbounds (i8, ptr @hf_nvme_cmd_set_features_dword11_kat, i64 4), %.lr.ph.i109.i.i ], [ @hf_nvme_cmd_dword11, %add_group_mask_entry.exit.i89 ]
   %.sink.i.i = phi ptr [ %359, %.lr.ph.i109.i.i ], [ %12, %add_group_mask_entry.exit.i89 ]
   %464 = load i32, ptr %.sink254.i.i, align 4
   %465 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i.i, i32 noundef %464, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #10
@@ -9731,9 +9731,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %134
 
 134:                                              ; preds = %switch.hole_check, %127, %switch.lookup
-  %135 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 4), align 16
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @hf_nvme_cqe_aev_dword0, i64 16), align 16
   %136 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
-  %137 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 5), align 4
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @hf_nvme_cqe_aev_dword0, i64 20), align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %137, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
   br label %decode_dword0_cqe.exit
 
@@ -10789,7 +10789,7 @@ define internal fastcc void @dissect_nvmeof_fabric_prop_data(ptr noundef %0, ptr
   br label %add_group_mask_entry.exit
 
 .critedge.sink.split:                             ; preds = %47, %.lr.ph.i45
-  %.sink59 = phi ptr [ getelementptr inbounds ([2 x i32], ptr @hf_nvmeof_prop_get_set_nssr, i64 0, i64 1), %.lr.ph.i45 ], [ @hf_nvmeof_prop_get_set_data_4B, %47 ]
+  %.sink59 = phi ptr [ getelementptr inbounds (i8, ptr @hf_nvmeof_prop_get_set_nssr, i64 4), %.lr.ph.i45 ], [ @hf_nvmeof_prop_get_set_data_4B, %47 ]
   %.sink = phi ptr [ %46, %.lr.ph.i45 ], [ %9, %47 ]
   %52 = load i32, ptr %.sink59, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %52, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10

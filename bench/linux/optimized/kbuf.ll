@@ -910,7 +910,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr nocapture noundef %0, i32 n
   br i1 %37, label %38, label %52, !prof !5
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 4197824, i64 noundef 32) #10
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit12, label %42
@@ -1132,7 +1132,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr nocapture noundef %0, i32 n
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -12, 1) i32 @io_init_bl_list(ptr noundef %0) unnamed_addr #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 2048) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %.preheader
@@ -1309,7 +1309,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
   br i1 %74, label %79, label %.thread
 
 75:                                               ; preds = %65
-  %76 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %77 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %76, i32 noundef 3520, i64 noundef 32) #10
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.thread, label %79
@@ -1494,7 +1494,7 @@ define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr 
   br label %62
 
 41:                                               ; preds = %.outer._crit_edge.thread
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %43 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 4197568, i64 noundef 40) #10
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46

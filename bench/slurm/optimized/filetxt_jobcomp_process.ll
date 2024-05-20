@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @filetxt_jobcomp_process_get_jobs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = tail call ptr @list_create(ptr noundef nonnull @jobcomp_destroy_job) #7
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   %5 = tail call noalias ptr @fopen(ptr noundef readonly %4, ptr noundef nonnull @.str.6)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %_open_log_file.exit.preheader
@@ -647,7 +647,7 @@ _open_log_file.exit._crit_edge.thread:            ; preds = %_open_log_file.exit
   br i1 %.not65, label %299, label %297
 
 297:                                              ; preds = %_open_log_file.exit._crit_edge.thread
-  %298 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
   call void @perror(ptr noundef %298) #8
   call void @exit(i32 noundef 1) #9
   unreachable

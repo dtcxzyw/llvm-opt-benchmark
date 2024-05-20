@@ -91,7 +91,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %22
 
 17:                                               ; preds = %10
-  %18 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 6), align 1
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 13), align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %22
 
@@ -113,7 +113,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %33
 
 28:                                               ; preds = %22
-  %29 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 7), align 2
+  %29 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 14), align 2
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %33
 
@@ -135,7 +135,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %44
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 3), align 2
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 6), align 2
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %44
 
@@ -157,7 +157,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %55
 
 50:                                               ; preds = %44
-  %51 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 5), align 4
+  %51 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 12), align 4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %55
 
@@ -179,7 +179,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %66
 
 61:                                               ; preds = %55
-  %62 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 8), align 1
+  %62 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 15), align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %66
 
@@ -201,7 +201,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %77
 
 72:                                               ; preds = %66
-  %73 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 9), align 4
+  %73 = load i8, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 16), align 4
   %74 = trunc i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -211,7 +211,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
 
 77:                                               ; preds = %72, %75, %68, %71
   %78 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %11, i16 noundef zeroext 295, ptr noundef null, i16 noundef zeroext 3) #6
-  %79 = load ptr, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i64 0, i32 11), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 552), align 8
   %80 = icmp eq ptr %79, null
   %or.cond.not = select i1 %78, i1 true, i1 %80
   br i1 %or.cond.not, label %83, label %81
@@ -221,7 +221,7 @@ define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0
   br label %83
 
 83:                                               ; preds = %81, %77
-  %84 = load i32, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 4), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 8), align 4
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.preheader, label %.loopexit
 
@@ -255,7 +255,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph124
   br i1 %101, label %pmix_pointer_array_get_item.exit.thread, label %102
 
 102:                                              ; preds = %99
-  %103 = call i32 @prte_set_attribute(ptr noundef nonnull %100, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef nonnull getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i64 0, i32 4), i16 noundef zeroext 9) #6
+  %103 = call i32 @prte_set_attribute(ptr noundef nonnull %100, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 8), i16 noundef zeroext 9) #6
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %102, %pmix_pointer_array_get_item.exit

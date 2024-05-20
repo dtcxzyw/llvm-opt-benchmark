@@ -5911,8 +5911,8 @@ if.else.i3649:                                    ; preds = %sw.bb32.i
   %770 = load <2 x i16>, ptr %arrayidx63, align 8
   %771 = zext <2 x i16> %770 to <2 x i32>
   store <2 x i32> %771, ptr %args.i5.i3636, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 44))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 44), ptr noundef nonnull %args.i5.i3636)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704), ptr noundef nonnull %args.i5.i3636)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i5.i3636)
   br label %for.inc
 
@@ -5977,8 +5977,8 @@ if.else.i3617:                                    ; preds = %sw.bb35.i
   %782 = load <2 x i16>, ptr %arrayidx63, align 8
   %783 = zext <2 x i16> %782 to <2 x i32>
   store <2 x i32> %783, ptr %args.i5.i, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 65))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 65), ptr noundef nonnull %args.i5.i)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040), ptr noundef nonnull %args.i5.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i5.i)
   br label %for.inc
 
@@ -8139,8 +8139,8 @@ if.end.i2952:                                     ; preds = %sw.bb48.i
   %conv2.i2953 = zext i16 %1076 to i32
   store i32 %conv2.i2953, ptr %arrayidx3.i, align 4
   store i32 32765, ptr %arrayidx4.i2954, align 4
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 35))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 35), ptr noundef nonnull %args.i2949)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560), ptr noundef nonnull %args.i2949)
   %1077 = load ptr, ptr %ir37, align 16
   %r2.i.i2956 = getelementptr inbounds i8, ptr %1077, i64 262126
   %1078 = load i8, ptr %r2.i.i2956, align 2
@@ -13510,8 +13510,8 @@ sw.bb62.i:                                        ; preds = %checkmclim.exit188,
   %1892 = load i32, ptr %gcsteps, align 8
   %inc.i.i = add nsw i32 %1892, 1
   store i32 %inc.i.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 2))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 2), ptr noundef nonnull %args.i.i262)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32), ptr noundef nonnull %args.i.i262)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %args.i.i262)
   br label %for.inc
 
@@ -13523,8 +13523,8 @@ sw.bb63.i:                                        ; preds = %checkmclim.exit188
   %1893 = load i32, ptr %gcsteps, align 8
   %inc.i1358 = add nsw i32 %1893, 1
   store i32 %inc.i1358, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 32))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 32), ptr noundef nonnull %args.i1355)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512), ptr noundef nonnull %args.i1355)
   %1894 = load ptr, ptr %ir37, align 16
   %r2.i.i1360 = getelementptr inbounds i8, ptr %1894, i64 262126
   %1895 = load i8, ptr %r2.i.i1360, align 2
@@ -13620,8 +13620,8 @@ sw.bb64.i:                                        ; preds = %checkmclim.exit188
   %1911 = load i32, ptr %gcsteps, align 8
   %inc.i1354 = add nsw i32 %1911, 1
   store i32 %inc.i1354, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 33))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 33), ptr noundef nonnull %args.i1350)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528), ptr noundef nonnull %args.i1350)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i1350)
   br label %for.inc
 
@@ -13641,7 +13641,7 @@ sw.bb65.i:                                        ; preds = %checkmclim.exit188,
   %1918 = load i32, ptr %gcsteps, align 8
   %inc.i340.i = add nsw i32 %1918, 1
   store i32 %inc.i340.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 42))
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672))
   %1919 = load i8, ptr %o.i264, align 1
   %cmp.i342.i = icmp eq i8 %1919, 84
   br i1 %cmp.i342.i, label %if.then.i359.i, label %if.else47.i.i285
@@ -13910,7 +13910,7 @@ if.then52.i.i:                                    ; preds = %if.else47.i.i285
   %conv58.i.i = zext i16 %1953 to i32
   store i32 %conv58.i.i, ptr %arrayidx59.i.i, align 8
   store i32 32765, ptr %arrayidx60.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 101), ptr noundef nonnull %args.i335.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1616), ptr noundef nonnull %args.i335.i)
   %1955 = load ptr, ptr %ir37, align 16
   %r2.i.i.i = getelementptr inbounds i8, ptr %1955, i64 262126
   %1956 = load i8, ptr %r2.i.i.i, align 2
@@ -14007,7 +14007,7 @@ if.end63.i.i:                                     ; preds = %ra_alloc1.exit.i368
   call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1240530691, i32 noundef 1, ptr noundef nonnull %currentwhite.i.i)
   store i32 32767, ptr %args.i335.i, align 16
   store i32 32765, ptr %arrayidx56.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 42), ptr noundef nonnull %args.i335.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672), ptr noundef nonnull %args.i335.i)
   %1971 = load ptr, ptr %ir37, align 16
   %r2.i138.i.i = getelementptr inbounds i8, ptr %1971, i64 262126
   %1972 = load i8, ptr %r2.i138.i.i, align 2
@@ -15033,7 +15033,7 @@ if.else32.i:                                      ; preds = %if.then25.i1106
   %conv34.i = zext i16 %2076 to i32
   store i32 %conv34.i, ptr %arrayidx2.i, align 4
   %cmp38.i = icmp eq i16 %2075, 0
-  %..i1107 = select i1 %cmp38.i, ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 7), ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18)
+  %..i1107 = select i1 %cmp38.i, ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 112), ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 288)
   br label %if.end59.i
 
 if.then49.i:                                      ; preds = %if.then20.i
@@ -15049,7 +15049,7 @@ if.then49.i:                                      ; preds = %if.then20.i
 if.end59.i:                                       ; preds = %if.then49.i, %if.else32.i, %if.then30.i, %if.then20.i, %land.lhs.true.i1103, %if.else.i1058, %if.then11.i1109, %if.then.i1108
   %2079 = phi i32 [ %conv34.i, %if.else32.i ], [ 32765, %if.then30.i ], [ 32765, %if.then11.i1109 ], [ %conv1.i1052, %if.then20.i ], [ %conv1.i1052, %if.else.i1058 ], [ %conv1.i1052, %land.lhs.true.i1103 ], [ %conv51.i, %if.then49.i ], [ %conv1.i1052, %if.then.i1108 ]
   %kchar.0.i = phi i32 [ -129, %if.else32.i ], [ -129, %if.then30.i ], [ %conv13.i1111, %if.then11.i1109 ], [ -129, %if.then20.i ], [ -129, %if.else.i1058 ], [ -129, %land.lhs.true.i1103 ], [ -129, %if.then49.i ], [ -129, %if.then.i1108 ]
-  %ci.0.i1060 = phi ptr [ %..i1107, %if.else32.i ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 8), %if.then30.i ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18), %if.then11.i1109 ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17), %if.then20.i ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17), %if.else.i1058 ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17), %land.lhs.true.i1103 ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 16), %if.then49.i ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17), %if.then.i1108 ]
+  %ci.0.i1060 = phi ptr [ %..i1107, %if.else32.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 128), %if.then30.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 288), %if.then11.i1109 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then20.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.else.i1058 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %land.lhs.true.i1103 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 256), %if.then49.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then.i1108 ]
   call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i1060)
   call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i1060, ptr noundef nonnull %args.i1049)
   %cmp61.i = icmp eq i32 %2079, 32765
@@ -15160,8 +15160,8 @@ sw.bb68.i:                                        ; preds = %checkmclim.exit188
   %2096 = load i32, ptr %gcsteps, align 8
   %inc.i1048 = add nsw i32 %2096, 1
   store i32 %inc.i1048, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 30))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 30), ptr noundef nonnull %args.i1045)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480), ptr noundef nonnull %args.i1045)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %args.i1045)
   br label %for.inc
 
@@ -15415,7 +15415,7 @@ sw.bb70.i:                                        ; preds = %checkmclim.exit188
   %2117 = load i16, ptr %arrayidx63, align 8
   %conv.i926 = zext i16 %2117 to i32
   store i32 %conv.i926, ptr %arrayidx1.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 41), ptr noundef nonnull %args.i924)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 656), ptr noundef nonnull %args.i924)
   %2118 = load ptr, ptr %ir37, align 16
   %r2.i.i928 = getelementptr inbounds i8, ptr %2118, i64 262126
   %2119 = load i8, ptr %r2.i.i928, align 2
@@ -17245,12 +17245,12 @@ if.else.i820:                                     ; preds = %sw.bb72.i
   %2394 = load i16, ptr %arrayidx63, align 8
   %conv3.i821 = zext i16 %2394 to i32
   %cmp7.i = icmp eq i16 %2393, 0
-  %..i = select i1 %cmp7.i, ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 4), ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 6)
+  %..i = select i1 %cmp7.i, ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 64), ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 96)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.else.i820, %sw.bb72.i
   %conv3.sink.i = phi i32 [ %conv3.i821, %if.else.i820 ], [ 32765, %sw.bb72.i ]
-  %ci.0.i = phi ptr [ %..i, %if.else.i820 ], [ getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 5), %sw.bb72.i ]
+  %ci.0.i = phi ptr [ %..i, %if.else.i820 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 80), %sw.bb72.i ]
   store i32 %conv3.sink.i, ptr %29, align 4
   call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i)
   call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i, ptr noundef nonnull %args.i815)
@@ -17372,7 +17372,7 @@ asm_guardcc.exit.i:                               ; preds = %if.end35.i.i, %if.e
   %conv4.i784 = zext i16 %2415 to i32
   store i32 %conv4.i784, ptr %args.i770, align 4
   store i32 32765, ptr %arrayidx5.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 3), ptr noundef nonnull %args.i770)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 48), ptr noundef nonnull %args.i770)
   %2416 = load ptr, ptr %ir37, align 16
   %r2.i.i786 = getelementptr inbounds i8, ptr %2416, i64 262126
   %2417 = load i8, ptr %r2.i.i786, align 2
@@ -19809,7 +19809,7 @@ asm_guardcc.exit:                                 ; preds = %if.end.i, %if.end35
   store i32 32765, ptr %args, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
   store i32 32766, ptr %arrayidx1, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as, ptr noundef nonnull getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 40), ptr noundef nonnull %args)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 640), ptr noundef nonnull %args)
   %ir1.i = getelementptr inbounds i8, ptr %as, i64 144
   %12 = load ptr, ptr %ir1.i, align 8
   %r2.i = getelementptr inbounds i8, ptr %12, i64 262126

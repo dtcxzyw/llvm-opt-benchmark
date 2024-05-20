@@ -250,7 +250,7 @@ entry:
   call void asm sideeffect "", "*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %p.i) #12, !srcloc !24
   %1 = load ptr, ptr %p.i, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i) #12
-  store ptr %1, ptr getelementptr inbounds (%"struct.folly::AsyncStackFrame", ptr @_ZN5follyL17detachedRootFrameE, i64 0, i32 1), align 8, !tbaa !25
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5follyL17detachedRootFrameE, i64 8), align 8, !tbaa !25
   ret void
 }
 

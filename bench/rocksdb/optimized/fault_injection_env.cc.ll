@@ -1186,7 +1186,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb20TestRandomAccessFileC2EOSt10unique_ptrINS_16RandomAccessFileESt14default_deleteIS2_EEPNS_21FaultInjectionTestEnvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %target, ptr noundef %env) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %target, align 8
   store i64 %0, ptr %target_, align 8
@@ -1423,7 +1423,7 @@ entry:
   store i32 0, ptr %write_hint_.i, align 4
   %strict_bytes_per_sync_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb16TestWritableFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TestWritableFileE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %state_, ptr noundef nonnull align 8 dereferenceable(32) %fname)
           to label %invoke.cont unwind label %lpad
@@ -1456,7 +1456,7 @@ declare void @_ZN7rocksdb12WritableFileD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN7rocksdb16TestWritableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb16TestWritableFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TestWritableFileE, i64 16), ptr %this, align 8
   %writable_file_opened_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %writable_file_opened_, align 8
   %tobool = trunc i8 %0 to i1
@@ -2386,7 +2386,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit39:                 ; preds = %ehcleanup
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb16TestRandomRWFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOSt10unique_ptrINS_12RandomRWFileESt14default_deleteISA_EEPNS_21FaultInjectionTestEnvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %f, ptr noundef %env) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb16TestRandomRWFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TestRandomRWFileE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %f, align 8
   store i64 %1, ptr %target_, align 8
@@ -2402,7 +2402,7 @@ entry:
 define void @_ZN7rocksdb16TestRandomRWFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb16TestRandomRWFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TestRandomRWFileE, i64 16), ptr %this, align 8
   %file_opened_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %file_opened_, align 8
   %tobool = trunc i8 %0 to i1
@@ -2738,7 +2738,7 @@ if.end.i:                                         ; preds = %invoke.cont6
 invoke.cont9:                                     ; preds = %if.then.i, %if.end.i
   %11 = load ptr, ptr %r, align 8
   store ptr null, ptr %r, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 0, i32 0, i64 2), ptr %call7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 16), ptr %call7, align 8
   %env_.i = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %this, ptr %env_.i, align 8
   %dirname_.i = getelementptr inbounds i8, ptr %call7, i64 16
@@ -5392,7 +5392,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit8:                  ; preds = %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb13TestDirectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 16), ptr %this, align 8
   %dir_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %dir_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -5415,7 +5415,7 @@ _ZNSt10unique_ptrIN7rocksdb9DirectoryESt14default_deleteIS1_EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb13TestDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb13TestDirectoryE, i64 16), ptr %this, align 8
   %dir_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %dir_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5445,7 +5445,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21FaultInjectionTestEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb21FaultInjectionTestEnvE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21FaultInjectionTestEnvE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6459,7 +6459,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20TestRandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -6481,7 +6481,7 @@ _ZNSt10unique_ptrIN7rocksdb16RandomAccessFileESt14default_deleteIS1_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20TestRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20TestRandomAccessFileE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

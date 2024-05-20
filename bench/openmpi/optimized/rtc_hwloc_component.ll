@@ -35,7 +35,7 @@ define internal noundef i32 @rtc_hwloc_query(ptr nocapture noundef writeonly %0,
 define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   store i32 70, ptr @my_priority, align 4
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_rtc_hwloc_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @my_priority) #4
-  store i32 3, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   store ptr @.str.6, ptr @vmhole, align 8
   %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_rtc_hwloc_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef nonnull @vmhole) #4
   %3 = load ptr, ptr @vmhole, align 8
@@ -44,7 +44,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  store i32 -1, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 7:                                                ; preds = %0
@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 11:                                               ; preds = %7
@@ -62,7 +62,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 3, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 15:                                               ; preds = %11
@@ -71,7 +71,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  store i32 4, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 19:                                               ; preds = %15
@@ -80,7 +80,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store i32 1, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 23:                                               ; preds = %19
@@ -89,7 +89,7 @@ define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
-  store i32 2, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @prte_mca_rtc_hwloc_component, i64 224), align 8
   br label %28
 
 27:                                               ; preds = %23

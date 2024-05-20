@@ -40,7 +40,7 @@ define hidden void @zim_DOMCdataSection___construct(ptr nocapture noundef readon
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %28
@@ -55,7 +55,7 @@ define hidden void @zim_DOMCdataSection___construct(ptr nocapture noundef readon
 
 18:                                               ; preds = %13
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #3
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %28

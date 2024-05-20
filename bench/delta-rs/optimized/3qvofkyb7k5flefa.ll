@@ -62038,7 +62038,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %.loopexit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0.i.i.i.sroa.9, ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (<{ ptr, [24 x i8] }>, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 0, i32 1, i64 18), i64 6, i1 false), !noalias !15705
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0.i.i.i.sroa.9, ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 26), i64 6, i1 false), !noalias !15705
   br label %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i"
 
 180:                                              ; preds = %.loopexit.i.i

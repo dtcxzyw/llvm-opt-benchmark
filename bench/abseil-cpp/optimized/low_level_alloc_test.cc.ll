@@ -59,7 +59,7 @@ entry:
   %agg.tmp27.i = alloca %"class.std::allocator.14", align 1
   %tmp.i.i.i.i.i.i.i = alloca [8 x i8], align 8
   %allocated = alloca %"class.absl::node_hash_map", align 8
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), ptr %allocated, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %allocated, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %allocated, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   br i1 %use_new_arena, label %if.then, label %if.end

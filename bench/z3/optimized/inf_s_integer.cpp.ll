@@ -27,11 +27,11 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #4
   store i32 0, ptr @_ZN13inf_s_integer6m_zeroE, align 4
-  store i32 0, ptr getelementptr inbounds (%class.inf_s_integer, ptr @_ZN13inf_s_integer6m_zeroE, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13inf_s_integer6m_zeroE, i64 4), align 4
   store i32 1, ptr @_ZN13inf_s_integer5m_oneE, align 4
-  store i32 0, ptr getelementptr inbounds (%class.inf_s_integer, ptr @_ZN13inf_s_integer5m_oneE, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13inf_s_integer5m_oneE, i64 4), align 4
   store i32 -1, ptr @_ZN13inf_s_integer11m_minus_oneE, align 4
-  store i32 0, ptr getelementptr inbounds (%class.inf_s_integer, ptr @_ZN13inf_s_integer11m_minus_oneE, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13inf_s_integer11m_minus_oneE, i64 4), align 4
   ret void
 }
 

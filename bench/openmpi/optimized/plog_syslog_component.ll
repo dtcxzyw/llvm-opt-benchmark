@@ -43,7 +43,7 @@ define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -47, 1) i32 @syslog_register() #1 {
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 1)) #4
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 224)) #4
   store ptr @.str.2, ptr @level, align 8
   %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, ptr noundef nonnull @level) #4
   %3 = load ptr, ptr @level, align 8
@@ -52,7 +52,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  store i32 3, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 7:                                                ; preds = %0
@@ -61,7 +61,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 11:                                               ; preds = %7
@@ -70,7 +70,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 2, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 15:                                               ; preds = %11
@@ -79,7 +79,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  store i32 0, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 19:                                               ; preds = %15
@@ -88,7 +88,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store i32 4, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 23:                                               ; preds = %19
@@ -97,7 +97,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
-  store i32 5, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 27:                                               ; preds = %23
@@ -106,7 +106,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  store i32 6, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 31:                                               ; preds = %27
@@ -120,7 +120,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34, %31
-  store i32 7, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 2), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
   br label %40
 
 38:                                               ; preds = %34
@@ -137,7 +137,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
-  store i32 32, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 3), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
   br label %60
 
 46:                                               ; preds = %40
@@ -146,7 +146,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46
-  store i32 80, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 3), align 8
+  store i32 80, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
   br label %60
 
 50:                                               ; preds = %46
@@ -155,7 +155,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  store i32 24, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 3), align 8
+  store i32 24, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
   br label %60
 
 54:                                               ; preds = %50
@@ -164,7 +164,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
-  store i32 8, ptr getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 3), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
   br label %60
 
 58:                                               ; preds = %54

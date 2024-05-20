@@ -44,10 +44,10 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %or.cond.i, label %mca_topo_base_graph_allocate.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 0, i32 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 56), align 8
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #8
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 0, i32 4), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %21, %22
   br i1 %.not.i.i, label %24, label %23
 
@@ -63,7 +63,7 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr @mca_topo_base_comm_graph_2_2_0_t_class, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 8
   store volatile i32 1, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 0, i32 6), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i.i = icmp eq ptr %28, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i

@@ -86,7 +86,7 @@ entry:
   %input.i = getelementptr inbounds i8, ptr %rec, i64 40
   %length.i = getelementptr inbounds i8, ptr %rec, i64 8
   %0 = load ptr, ptr @ossl_tls_record_method, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_tls_record_method, i64 8), align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end55

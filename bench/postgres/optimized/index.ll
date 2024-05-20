@@ -4150,7 +4150,7 @@ IndexGetRelation.exit:                            ; preds = %5
   %.sroa.220.0.insert.shift = shl nuw i64 %15, 32
   %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.220.0.insert.shift, 1259
   %.sroa.0.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.019.0.insert.insert, i32 0, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %0) #11
   br label %68
 

@@ -1322,7 +1322,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   unreachable
 
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit": ; preds = %3, %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.exit.i.i
-  %.0.i.i2.i.i = phi ptr [ %16, %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.exit.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i2.i.i = phi ptr [ %16, %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %3 ]
   %.sroa.016.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !79
@@ -4256,7 +4256,7 @@ default.unreachable113:                           ; preds = %3
   br i1 %57, label %58, label %.thread104
 
 58:                                               ; preds = %55
-  %59 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %59 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 16) monotonic, align 8
   switch i8 %59, label %60 [
     i8 0, label %.thread104
     i8 1, label %.thread
@@ -8413,7 +8413,7 @@ default.unreachable44:                            ; preds = %384, %123, %103, %2
   br i1 %204, label %205, label %.thread598.i.i
 
 205:                                              ; preds = %201
-  %206 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1673
+  %206 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 16) monotonic, align 8, !noalias !1673
   switch i8 %206, label %207 [
     i8 0, label %.thread598.i.i
     i8 1, label %.thread.i.i
@@ -9661,7 +9661,7 @@ default.unreachable44:                            ; preds = %384, %123, %103, %2
   br i1 %604, label %605, label %.thread650.i.i
 
 605:                                              ; preds = %602
-  %606 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1673
+  %606 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 16) monotonic, align 8, !noalias !1673
   switch i8 %606, label %607 [
     i8 0, label %.thread650.i.i
     i8 1, label %.thread647.i.i
@@ -11070,7 +11070,7 @@ default.unreachable43:                            ; preds = %430, %107, %63, %2
   br i1 %130, label %131, label %.thread336.i.i
 
 131:                                              ; preds = %110
-  %132 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node14worker_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1478d13eb6bc30fcE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2111
+  %132 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node14worker_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1478d13eb6bc30fcE", i64 16) monotonic, align 8, !noalias !2111
   switch i8 %132, label %133 [
     i8 0, label %.thread336.i.i
     i8 1, label %.thread.i.i
@@ -13381,7 +13381,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   unreachable
 
 139:                                              ; preds = %.noexc, %128
-  %.0.i.i2.i = phi ptr [ %130, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %128 ]
+  %.0.i.i2.i = phi ptr [ %130, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %128 ]
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 32
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 40
   %140 = getelementptr inbounds i8, ptr %29, i64 56
@@ -39319,7 +39319,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !7553
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7553, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -39911,7 +39911,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !7736
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7736, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -40503,7 +40503,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !7919
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !7919, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -41095,7 +41095,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !8102
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !8102, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -41687,7 +41687,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !8285
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !8285, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -42279,7 +42279,7 @@ define internal fastcc void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Lay
   br i1 %34, label %190, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.thread.i": ; preds = %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i", %4
-  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds ({ { { { i64, [4 x i64] } } }, i8, [7 x i8] }, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %33, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit17hd3214c9fc788d204E.exit.i" ], [ getelementptr inbounds (i8, ptr @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event3BUF7__getit5__KEY17hfe0bc39b73ad58a3E", i64 8), %4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !8468
   %35 = load i64, ptr %.0.i.i2.i, align 8, !noalias !8468, !noundef !4
   %.not114.i.i = icmp eq i64 %35, 0
@@ -44941,7 +44941,7 @@ define hidden noundef align 8 ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7_
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hb5d1fc6d10e78d82E.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hb5d1fc6d10e78d82E.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -44971,7 +44971,7 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.696
   br label %27
 
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit.thread: ; preds = %2, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit
-  %.0.i.i5 = phi ptr [ %7, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i5 = phi ptr [ %7, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %2 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !9025
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !9026
   %9 = load i64, ptr %.0.i.i5, align 8, !noalias !9026, !noundef !4
@@ -45060,7 +45060,7 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.696
   br i1 %6, label %22, label %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit.thread
 
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit.thread: ; preds = %1, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit
-  %.0.i.i2 = phi ptr [ %5, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit ], [ getelementptr inbounds ({ { { { i64, [6 x i64] } } }, i8, [7 x i8] }, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2 = phi ptr [ %5, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.6961039930124626028.exit ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !9057
   %7 = load i64, ptr %.0.i.i2, align 8, !noalias !9057, !noundef !4
   %8 = icmp ult i64 %7, 9223372036854775807
@@ -46713,7 +46713,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br label %.thread42
 
 15:                                               ; preds = %.noexc, %1
-  %.0.i.i2.i = phi ptr [ %11, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i2.i = phi ptr [ %11, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %1 ]
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
   %16 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !9387
@@ -90027,7 +90027,7 @@ define noundef nonnull ptr @_ZN9ockam_api9cli_state7storage23journeys_repository
           to label %105 unwind label %103
 
 19:                                               ; preds = %1
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN9ockam_api9cli_state7storage23journeys_repository_sql20JourneysSqlxDatabase3new10__CALLSITE17heb4cc52ab99b52a8E, i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9ockam_api9cli_state7storage23journeys_repository_sql20JourneysSqlxDatabase3new10__CALLSITE17heb4cc52ab99b52a8E, i64 16) monotonic, align 8
   switch i8 %20, label %21 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread93
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -92174,7 +92174,7 @@ default.unreachable1132:                          ; preds = %1149, %1129, %683, 
   br i1 %202, label %203, label %.thread962
 
 203:                                              ; preds = %200
-  %204 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9b72888ed09d5f72E", i64 0, i32 1, i64 8) monotonic, align 8
+  %204 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9b72888ed09d5f72E", i64 16) monotonic, align 8
   switch i8 %204, label %205 [
     i8 0, label %.thread962
     i8 1, label %.thread
@@ -93138,7 +93138,7 @@ _ZN10ockam_core3api13RequestHeader13path_segments17h4d3e6aa1586c6d4bE.exit: ; pr
   br i1 %442, label %443, label %.thread1000
 
 443:                                              ; preds = %440
-  %444 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ec7b3937e0ab14dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %444 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ec7b3937e0ab14dE", i64 16) monotonic, align 8
   switch i8 %444, label %445 [
     i8 0, label %.thread1000
     i8 1, label %.thread997
@@ -93436,7 +93436,7 @@ _ZN10ockam_core3api13RequestHeader13path_segments17h4d3e6aa1586c6d4bE.exit: ; pr
   br i1 %539, label %540, label %.thread1009
 
 540:                                              ; preds = %536
-  %541 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0eeb6342d0c24e8dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %541 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api4okta6Server10on_request28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0eeb6342d0c24e8dE", i64 16) monotonic, align 8
   switch i8 %541, label %542 [
     i8 0, label %.thread1009
     i8 1, label %.thread1006
@@ -96096,7 +96096,7 @@ _ZN7reqwest10async_impl7request14RequestBuilder6header17h46bb2b67b82cb568E.exit.
   br i1 %1289, label %1290, label %.thread346.i
 
 1290:                                             ; preds = %1287
-  %1291 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN9ockam_api4okta6Server11check_token28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9e338c2c09dd4740E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !18421
+  %1291 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api4okta6Server11check_token28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9e338c2c09dd4740E", i64 16) monotonic, align 8, !noalias !18421
   switch i8 %1291, label %1292 [
     i8 0, label %.thread346.i
     i8 1, label %.thread343.i
@@ -96404,7 +96404,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br label %1382
 
 1385:                                             ; preds = %.noexc220.i, %1356
-  %.0.i.i2.i.i.i = phi ptr [ %1358, %.noexc220.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1356 ]
+  %.0.i.i2.i.i.i = phi ptr [ %1358, %.noexc220.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %1356 ]
   store ptr @anon.a52d2cc049210bb5fe4320437cef3619.11, ptr %63, align 8, !alias.scope !18910, !noalias !18421
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %.sroa.4.0..sroa_idx.i218.i = getelementptr inbounds i8, ptr %63, i64 32
@@ -101911,7 +101911,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit243: ; pre
   br i1 %247, label %248, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread410
 
 248:                                              ; preds = %245
-  %249 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN9ockam_api4util24local_multiaddr_to_route10__CALLSITE17h83f94bafb389f9f1E, i64 0, i32 1, i64 8) monotonic, align 8
+  %249 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9ockam_api4util24local_multiaddr_to_route10__CALLSITE17h83f94bafb389f9f1E, i64 16) monotonic, align 8
   switch i8 %249, label %250 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread410
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -103831,7 +103831,7 @@ _ZN15ockam_multiaddr10ProtoValue4cast17h83966b1ecefa201bE.exit.thread: ; preds =
   br i1 %449, label %450, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread544
 
 450:                                              ; preds = %447
-  %451 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN9ockam_api4util28multiaddr_to_transport_route10__CALLSITE17ha3850ee356174947E, i64 0, i32 1, i64 8) monotonic, align 8
+  %451 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9ockam_api4util28multiaddr_to_transport_route10__CALLSITE17ha3850ee356174947E, i64 16) monotonic, align 8
   switch i8 %451, label %452 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread544
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -105316,7 +105316,7 @@ define void @_ZN9ockam_api4util24try_address_to_multiaddr17hd92af46ac0b644c8E(pt
 63:                                               ; preds = %61
   %64 = icmp ult i64 %62, 5
   tail call void @llvm.assume(i1 %64)
-  %65 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN9ockam_api4util24try_address_to_multiaddr10__CALLSITE17h9b584eb785ca4f47E, i64 0, i32 1, i64 8) monotonic, align 8
+  %65 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9ockam_api4util24try_address_to_multiaddr10__CALLSITE17h9b584eb785ca4f47E, i64 16) monotonic, align 8
   switch i8 %65, label %66 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread164
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -112248,7 +112248,7 @@ default.unreachable534:                           ; preds = %1257, %1026, %1003,
   br i1 %139, label %140, label %.thread497
 
 140:                                              ; preds = %130
-  %141 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN101_$LT$ockam_api..kafka..portal_listener..KafkaPortalListener$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf9906b0839000b6aE", i64 0, i32 1, i64 8) monotonic, align 8
+  %141 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN101_$LT$ockam_api..kafka..portal_listener..KafkaPortalListener$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf9906b0839000b6aE", i64 16) monotonic, align 8
   switch i8 %141, label %142 [
     i8 0, label %.thread497
     i8 1, label %.thread
@@ -114492,7 +114492,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr80drop
   br i1 %870, label %871, label %.thread525
 
 871:                                              ; preds = %868
-  %872 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN101_$LT$ockam_api..kafka..portal_listener..KafkaPortalListener$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70f1d951cd5925eE", i64 0, i32 1, i64 8) monotonic, align 8
+  %872 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN101_$LT$ockam_api..kafka..portal_listener..KafkaPortalListener$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70f1d951cd5925eE", i64 16) monotonic, align 8
   switch i8 %872, label %873 [
     i8 0, label %.thread525
     i8 1, label %.thread522
@@ -115239,7 +115239,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr80drop
   br i1 %1101, label %1102, label %.thread518.i.i
 
 1102:                                             ; preds = %1098
-  %1103 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !23677
+  %1103 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 16) monotonic, align 8, !noalias !23677
   switch i8 %1103, label %1104 [
     i8 0, label %.thread518.i.i
     i8 1, label %.thread.i.i
@@ -116108,7 +116108,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr80drop
   br i1 %1364, label %1365, label %.thread549.i.i
 
 1365:                                             ; preds = %1362
-  %1366 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !23677
+  %1366 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 16) monotonic, align 8, !noalias !23677
   switch i8 %1366, label %1367 [
     i8 0, label %.thread549.i.i
     i8 1, label %.thread546.i.i
@@ -120269,7 +120269,7 @@ common.ret:                                       ; preds = %243, %"_ZN4core3ptr
   br i1 %252, label %253, label %.thread160
 
 253:                                              ; preds = %250
-  %254 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN76_$LT$ockam_api..session..Collector$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfa93f058a0af7be5E", i64 0, i32 1, i64 8) monotonic, align 8
+  %254 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN76_$LT$ockam_api..session..Collector$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfa93f058a0af7be5E", i64 16) monotonic, align 8
   switch i8 %254, label %255 [
     i8 0, label %.thread160
     i8 1, label %.thread157

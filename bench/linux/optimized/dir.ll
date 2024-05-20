@@ -573,7 +573,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %52 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 48) #12
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread35, label %54

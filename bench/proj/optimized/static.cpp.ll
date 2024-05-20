@@ -803,16 +803,16 @@ define hidden noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConsta
           to label %4 unwind label %11
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 16), align 8
   %.not.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i, label %10, label %7
 
 7:                                                ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %9, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
 
 10:                                               ; preds = %4
@@ -4684,11 +4684,11 @@ __cxx_global_var_init.289.exit:                   ; preds = %961
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %134)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %136)
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 40), align 8
   %971 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs13AxisDirectionESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %132)
@@ -5970,11 +5970,11 @@ __cxx_global_var_init.371.exit:                   ; preds = %1245
   %1251 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj2cs13AxisDirectionD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection11UNSPECIFIEDE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %54)
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.20", ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 40), align 8
   %1252 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs12RangeMeaningESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %52)
@@ -6040,11 +6040,11 @@ __cxx_global_var_init.376.exit:                   ; preds = %1260
   %1266 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaningD2Ev, ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaning10WRAPAROUNDE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50)
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.25", ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 40), align 8
   %1267 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs17AxisDirectionWKT1ESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48)

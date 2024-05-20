@@ -340,7 +340,7 @@ if.then3.i:                                       ; preds = %if.else.i
 if.else:                                          ; preds = %if.then5
   %6 = load i32, ptr %iovcnt, align 8
   %call14 = call i64 @iov_size(ptr noundef nonnull %iov, i32 noundef %6) #15
-  %7 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 10), i64 %call14 seq_cst, align 8
+  %7 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 80), i64 %call14 seq_cst, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then3.i, %if.else.i, %if.then.i, %if.else
@@ -1431,7 +1431,7 @@ qemu_file_skip.exit:                              ; preds = %qemu_peek_byte.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_file_transferred(ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 10) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 80) monotonic, align 8
   %1 = getelementptr i8, ptr %f, i64 8
   %f.val = load i8, ptr %1, align 8
   %tobool.i = trunc i8 %f.val to i1

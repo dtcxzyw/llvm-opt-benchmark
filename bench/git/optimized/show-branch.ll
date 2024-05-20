@@ -461,7 +461,7 @@ entry:
   store ptr null, ptr @name_slab.3, align 8
   call void @git_config(ptr noundef nonnull @git_show_branch_config, ptr noundef null) #16
   %cmp = icmp eq i32 %ac, 1
-  %0 = load i64, ptr getelementptr inbounds (%struct.strvec, ptr @default_args, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @default_args, i64 8), align 8
   %tobool = icmp ne i64 %0, 0
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   %conv = trunc i64 %0 to i32
@@ -558,7 +558,7 @@ if.then234:                                       ; preds = %if.end232
 if.then238:                                       ; preds = %if.then234
   %call239 = call ptr @resolve_refdup(ptr noundef nonnull @.str.38, i32 noundef 1, ptr noundef nonnull %oid, ptr noundef null) #16
   store ptr %call239, ptr @cmd_show_branch.fake_av, align 16
-  store ptr null, ptr getelementptr inbounds ([2 x ptr], ptr @cmd_show_branch.fake_av, i64 0, i64 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @cmd_show_branch.fake_av, i64 8), align 8
   %tobool240.not = icmp eq ptr %call239, null
   br i1 %tobool240.not, label %if.then241, label %if.then238.if.end249_crit_edge
 
@@ -2304,7 +2304,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %0 = load i64, ptr getelementptr inbounds (%struct.strvec, ptr @default_args, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @default_args, i64 8), align 8
   %tobool5.not = icmp eq i64 %0, 0
   br i1 %tobool5.not, label %if.then6, label %if.end8
 

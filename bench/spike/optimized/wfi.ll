@@ -115,7 +115,7 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -159,7 +159,7 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -186,7 +186,7 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -250,7 +250,7 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -294,7 +294,7 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -321,7 +321,7 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -364,7 +364,7 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -408,7 +408,7 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -435,7 +435,7 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -480,7 +480,7 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -524,7 +524,7 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -551,7 +551,7 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -594,7 +594,7 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -638,7 +638,7 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -665,7 +665,7 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -710,7 +710,7 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -754,7 +754,7 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -781,7 +781,7 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -824,7 +824,7 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -868,7 +868,7 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -895,7 +895,7 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -940,7 +940,7 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -984,7 +984,7 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
@@ -1011,7 +1011,7 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   store i64 %1, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 

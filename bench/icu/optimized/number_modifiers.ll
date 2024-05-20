@@ -133,7 +133,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl27AdoptingSignumModifierStoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_756number4impl27AdoptingSignumModifierStoreE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %this, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -396,7 +396,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl14SimpleModifierC2ERKNS_15SimpleFormatterENS_22FormattedStringBuilder5FieldEbNS1_8Modifier10ParametersE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(72) %simpleFormatter, i8 %field.coerce, i1 noundef zeroext %strong, ptr %parameters.coerce0, i64 %parameters.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %this, align 8
   %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   %compiledPattern = getelementptr inbounds i8, ptr %simpleFormatter, i64 8
   tail call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern, ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern)
@@ -543,9 +543,9 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl14SimpleModifierC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %this, align 8
   %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fCompiledPattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCompiledPattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %fField = getelementptr inbounds i8, ptr %this, i64 72
@@ -986,7 +986,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add = add nsw i32 %call, %leftIndex
   %add2 = add nsw i32 %call, %rightIndex
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call3 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add, i32 noundef %add2, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef 0, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1140,7 +1140,7 @@ entry:
   %suffixUnicodeSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp73 = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp83 = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
   %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -1179,14 +1179,14 @@ ehcleanup.i:                                      ; preds = %lpad8.i, %lpad3.i
   br label %common.resume
 
 _ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit: ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 16), ptr %this, align 8
   %fAfterPrefixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 304
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %_ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit
   %fAfterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 504
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fAfterPrefixInsert, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fAfterPrefixInsert, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 512
   store i16 2, ptr %fUnion2.i, align 8
   %fBeforeSuffixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 568
@@ -1195,7 +1195,7 @@ invoke.cont5:                                     ; preds = %_ZN6icu_756number4i
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   %fBeforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 768
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fBeforeSuffixInsert, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBeforeSuffixInsert, align 8
   %fUnion2.i26 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i26, align 8
   %call = invoke noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef nonnull align 8 dereferenceable(136) %prefix)
@@ -1435,7 +1435,7 @@ ehcleanup102:                                     ; preds = %ehcleanup100, %lpad
 
 ehcleanup104:                                     ; preds = %ehcleanup102, %lpad
   %.pn19.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %ehcleanup102 ], [ %5, %lpad ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i) #18
   br label %common.resume
@@ -1563,12 +1563,12 @@ _ZN12_GLOBAL__N_126initDefaultCurrencySpacingER10UErrorCode.exit: ; preds = %if.
   %9 = phi i32 [ 7, %if.then.i ], [ %.pre, %if.end.i16 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp14.i)
-  store i32 %9, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_131gDefaultCurrencySpacingInitOnceE, i64 0, i32 1), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_131gDefaultCurrencySpacingInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_131gDefaultCurrencySpacingInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %10 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_131gDefaultCurrencySpacingInitOnceE, i64 0, i32 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_131gDefaultCurrencySpacingInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %10, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -1742,7 +1742,7 @@ if.end24:                                         ; preds = %entry, %if.then18, 
 if.then.i:                                        ; preds = %if.end24
   %add.i = add nsw i32 %call.i, %leftIndex
   %add2.i = add nsw i32 %call.i, %add25
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %call3.i = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add.i, i32 noundef %add2.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, i32 noundef 0, i32 noundef 0, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1958,9 +1958,9 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl21ConstantAffixModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 104), ptr %add.ptr, align 8
   %fSuffix = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix) #18
   %fPrefix = getelementptr inbounds i8, ptr %this, i64 16
@@ -1972,9 +1972,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl21ConstantAffixModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(146) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 104), ptr %add.ptr.i, align 8
   %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix.i) #18
   %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1988,8 +1988,8 @@ entry:
 define linkonce_odr void @_ZThn8_N6icu_756number4impl21ConstantAffixModifierD1Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 104), ptr %this, align 8
   %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix.i) #18
   %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2002,8 +2002,8 @@ entry:
 define linkonce_odr void @_ZThn8_N6icu_756number4impl21ConstantAffixModifierD0Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 104), ptr %this, align 8
   %fSuffix.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix.i.i) #18
   %fPrefix.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2018,7 +2018,7 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl26ConstantMultiFieldModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix) #18
   %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
@@ -2029,7 +2029,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl26ConstantMultiFieldModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
   %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2041,7 +2041,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl14SimpleModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %this, align 8
   %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern) #18
   ret void
@@ -2050,7 +2050,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl14SimpleModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %this, align 8
   %fCompiledPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
@@ -2060,7 +2060,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 16), ptr %this, align 8
   %fBeforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert) #18
   %fBeforeSuffixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 568
@@ -2069,7 +2069,7 @@ entry:
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert) #18
   %fAfterPrefixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 304
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet) #18
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
   %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2080,7 +2080,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 16), ptr %this, align 8
   %fBeforeSuffixInsert.i = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert.i) #18
   %fBeforeSuffixUnicodeSet.i = getelementptr inbounds i8, ptr %this, i64 568
@@ -2089,7 +2089,7 @@ entry:
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert.i) #18
   %fAfterPrefixUnicodeSet.i = getelementptr inbounds i8, ptr %this, i64 304
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet.i) #18
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 16), ptr %this, align 8
   %fSuffix.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i.i) #18
   %fPrefix.i.i = getelementptr inbounds i8, ptr %this, i64 8

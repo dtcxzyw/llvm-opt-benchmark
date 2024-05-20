@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_lpit_read_re
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
 define dso_local noundef range(i32 -22, 1) i32 @lpit_read_residency_count_address(ptr nocapture noundef writeonly %0) #0 align 16 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 0, i32 4), align 4
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 4), align 4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %5, label %4
 
@@ -86,7 +86,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %25 = getelementptr inbounds i8, ptr %17, i64 36
   %26 = load i8, ptr %25, align 1
   %27 = icmp ne i8 %26, 0
-  %28 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 0, i32 4), align 4
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 4), align 4
   %29 = icmp ne i64 %28, 0
   %30 = select i1 %27, i1 true, i1 %29
   br i1 %30, label %53, label %.split1
@@ -105,7 +105,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %39 = mul nuw nsw i64 %38, 1000
   %40 = select i1 %36, i64 %39, i64 %35
   %41 = call i64 @llvm.umax.i64(i64 %40, i64 1)
-  store i64 %41, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 1), align 8
+  store i64 %41, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_mem, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %42 = load i8, ptr @residency_info_mem, align 8
   switch i8 %42, label %lpit_update_residency.exit.sink.split [
@@ -114,12 +114,12 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   ]
 
 43:                                               ; preds = %33
-  %44 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 0, i32 4), align 4
-  %45 = load i8, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 0, i32 1), align 1
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 4), align 4
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 1), align 1
   %46 = lshr i8 %45, 3
   %47 = zext nneg i8 %46 to i64
   %48 = call ptr @ioremap(i64 noundef %44, i64 noundef %47) #7
-  store ptr %48, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 2), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 24), align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %lpit_update_residency.exit.sink.split, label %50
 
@@ -130,7 +130,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
 
 53:                                               ; preds = %24
   %54 = icmp ne i8 %26, 127
-  %55 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 4), align 4
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 4), align 4
   %56 = icmp ne i64 %55, 0
   %57 = select i1 %54, i1 true, i1 %56
   br i1 %57, label %lpit_update_residency.exit, label %.split
@@ -149,7 +149,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %66 = mul nuw nsw i64 %65, 1000
   %67 = select i1 %63, i64 %66, i64 %62
   %68 = call i64 @llvm.umax.i64(i64 %67, i64 1)
-  store i64 %68, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 1), align 8
+  store i64 %68, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 16), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_ffh, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %69 = load i8, ptr @residency_info_ffh, align 8
   switch i8 %69, label %lpit_update_residency.exit.sink.split [
@@ -158,12 +158,12 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   ]
 
 70:                                               ; preds = %60
-  %71 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 4), align 4
-  %72 = load i8, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 1), align 1
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 4), align 4
+  %72 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 1), align 1
   %73 = lshr i8 %72, 3
   %74 = zext nneg i8 %73 to i64
   %75 = call ptr @ioremap(i64 noundef %71, i64 noundef %74) #7
-  store ptr %75, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 2), align 8
+  store ptr %75, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 24), align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %lpit_update_residency.exit.sink.split, label %77
 
@@ -232,8 +232,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @low_power_idle_system_re
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 2), align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 0, i32 1), align 1
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 24), align 8
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 1), align 1
   %7 = zext i8 %6 to i32
   %8 = call i32 @acpi_os_read_iomem(ptr noundef %5, ptr noundef nonnull %4, i32 noundef %7) #7
   %9 = icmp eq i32 %8, 0
@@ -246,7 +246,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @low_power_idle_system_re
 11:                                               ; preds = %3
   %12 = load i64, ptr %4, align 8
   %13 = mul i64 %12, 1000000
-  %14 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_mem, i64 0, i32 1), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 16), align 8
   %15 = udiv i64 %13, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %15) #7
@@ -269,13 +269,13 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @low_power_idle_cpu_residency_us_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
-  %4 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 4), align 4
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 4), align 4
   %5 = trunc i64 %4 to i32
   %6 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !9
   %7 = extractvalue { i32, i64, i64 } %6, 0
   %8 = extractvalue { i32, i64, i64 } %6, 1
   %9 = extractvalue { i32, i64, i64 } %6, 2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %13 [label %10], !srcloc !10
 
 10:                                               ; preds = %3
@@ -291,10 +291,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @low_power_idle_c
 15:                                               ; preds = %13
   %16 = shl i64 %9, 32
   %17 = or i64 %16, %8
-  %18 = load i8, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 2), align 2
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 2), align 2
   %19 = zext i8 %18 to i64
   %20 = shl nsw i64 -1, %19
-  %21 = load i8, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 0, i32 1), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 1), align 1
   %22 = zext i8 %21 to i64
   %23 = add nuw nsw i64 %19, %22
   %24 = sub nsw i64 64, %23
@@ -304,7 +304,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @low_power_idle_c
   %28 = and i64 %27, %26
   %29 = lshr i64 %28, %19
   %30 = mul i64 %29, 1000000
-  %31 = load i64, ptr getelementptr inbounds (%struct.lpit_residency_info, ptr @residency_info_ffh, i64 0, i32 1), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 16), align 8
   %32 = udiv i64 %30, %31
   %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %32) #7
   %34 = sext i32 %33 to i64

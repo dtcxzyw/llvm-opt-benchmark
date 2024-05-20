@@ -77,11 +77,11 @@ define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocaptu
   %38 = getelementptr inbounds i32, ptr %.val.i.i, i64 %37
   %39 = load i32, ptr %38, align 4
   store i32 %39, ptr @Psr_CatSignals.V, align 8
-  store i32 %39, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Psr_CatSignals.V, i64 0, i32 1), align 4
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @Psr_CatSignals.V, i64 4), align 4
   %.val3.i.i = load ptr, ptr %7, align 8
   %40 = getelementptr i32, ptr %.val3.i.i, i64 %37
   %41 = getelementptr i8, ptr %40, i64 4
-  store ptr %41, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Psr_CatSignals.V, i64 0, i32 2), align 8
+  store ptr %41, ptr getelementptr inbounds (i8, ptr @Psr_CatSignals.V, i64 8), align 8
   %42 = tail call i32 @Psr_ManRangeSizeArray(ptr noundef %0, ptr noundef nonnull @Psr_CatSignals.V, i32 noundef 0, i32 noundef %39)
   br label %Psr_ManRangeSizeSignal.exit
 

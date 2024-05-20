@@ -988,7 +988,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i64 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %4 = load ptr, ptr @MyClientConnectionInfo, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
@@ -1030,7 +1030,7 @@ define dso_local void @RestoreClientConnectionInfo(ptr noundef %0) local_unnamed
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   store ptr null, ptr @MyClientConnectionInfo, align 8
-  store i32 %.sroa.2.0.copyload, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i64 0, i32 1), align 8
+  store i32 %.sroa.2.0.copyload, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %2 = icmp sgt i32 %.sroa.0.0.copyload, -1
   br i1 %2, label %3, label %7
 

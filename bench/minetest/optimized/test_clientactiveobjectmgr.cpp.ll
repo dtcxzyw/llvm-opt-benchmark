@@ -281,7 +281,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -542,7 +542,7 @@ entry:
   %agg.tmp51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %caomgr) #28
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds i8, ptr %caomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %caomgr, i64 24
@@ -592,7 +592,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6client15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %call = invoke noundef zeroext i16 @_ZNK15ActiveObjectMgrI18ClientActiveObjectE9getFreeIdEv(ptr noundef nonnull align 8 dereferenceable(120) %caomgr)
           to label %invoke.cont unwind label %lpad
 
@@ -689,7 +689,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup71
 
 invoke.cont15:                                    ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTV22TestClientActiveObject, i64 0, i32 0, i64 2), ptr %call.i86, align 8, !tbaa !4, !noalias !38
+  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV22TestClientActiveObject, i64 16), ptr %call.i86, align 8, !tbaa !4, !noalias !38
   store ptr %call.i86, ptr %agg.tmp17, align 8, !tbaa !41
   %call20 = invoke noundef zeroext i1 @_ZN6client15ActiveObjectMgr14registerObjectESt10unique_ptrI18ClientActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %caomgr, ptr noundef nonnull %agg.tmp17)
           to label %invoke.cont19 unwind label %lpad18
@@ -1775,7 +1775,7 @@ entry:
   %agg.tmp114 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp115 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %caomgr) #28
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds i8, ptr %caomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %caomgr, i64 24
@@ -1825,7 +1825,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6client15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %call.i159 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %call.i.noexc unwind label %lpad
 
@@ -1840,7 +1840,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup134
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTV22TestClientActiveObject, i64 0, i32 0, i64 2), ptr %call.i159, align 8, !tbaa !4, !noalias !65
+  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV22TestClientActiveObject, i64 16), ptr %call.i159, align 8, !tbaa !4, !noalias !65
   store ptr %call.i159, ptr %agg.tmp, align 8, !tbaa !41
   %call4 = invoke noundef zeroext i1 @_ZN6client15ActiveObjectMgr14registerObjectESt10unique_ptrI18ClientActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %caomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -2128,7 +2128,7 @@ lpad.i179:                                        ; preds = %call.i.noexc180
   br label %ehcleanup134
 
 _ZNSt10unique_ptrI22TestClientActiveObjectSt14default_deleteIS0_EED2Ev.exit: ; preds = %call.i.noexc180
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTV22TestClientActiveObject, i64 0, i32 0, i64 2), ptr %call.i181, align 8, !tbaa !4, !noalias !68
+  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV22TestClientActiveObject, i64 16), ptr %call.i181, align 8, !tbaa !4, !noalias !68
   store ptr %call.i181, ptr %agg.tmp62, align 8, !tbaa !41
   %call65 = invoke noundef zeroext i1 @_ZN6client15ActiveObjectMgr14registerObjectESt10unique_ptrI18ClientActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %caomgr, ptr noundef nonnull %agg.tmp62)
           to label %invoke.cont64 unwind label %lpad63
@@ -2491,7 +2491,7 @@ entry:
   %agg.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp43 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %caomgr) #28
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds i8, ptr %caomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %caomgr, i64 24
@@ -2541,7 +2541,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6client15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %call.i76 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %call.i.noexc unwind label %lpad
 
@@ -2556,7 +2556,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup61
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTV22TestClientActiveObject, i64 0, i32 0, i64 2), ptr %call.i76, align 8, !tbaa !4, !noalias !71
+  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV22TestClientActiveObject, i64 16), ptr %call.i76, align 8, !tbaa !4, !noalias !71
   store ptr %call.i76, ptr %agg.tmp, align 8, !tbaa !41
   %call4 = invoke noundef zeroext i1 @_ZN6client15ActiveObjectMgr14registerObjectESt10unique_ptrI18ClientActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %caomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -2933,7 +2933,7 @@ entry:
   %ref.tmp14 = alloca %"class.std::allocator", align 1
   %assert_obj_selected = alloca %class.anon.27, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %caomgr) #28
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds i8, ptr %caomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %caomgr, i64 24
@@ -2983,7 +2983,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6client15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, i32 0, i64 2), ptr %caomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %call.i199 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
           to label %call.i.noexc unwind label %lpad4
 
@@ -2998,7 +2998,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup146
 
 invoke.cont7:                                     ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTV32TestSelectableClientActiveObject, i64 0, i32 0, i64 2), ptr %call.i199, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV32TestSelectableClientActiveObject, i64 16), ptr %call.i199, align 8, !tbaa !4, !noalias !74
   %position.i.i = getelementptr inbounds i8, ptr %call.i199, i64 32
   %Z.i.i.i = getelementptr inbounds i8, ptr %call.i199, i64 40
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %position.i.i, align 4, !tbaa !77, !noalias !74
@@ -3652,16 +3652,16 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN11TestManager14getTestModulesEv.exit
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !89
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !89
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !91
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !91
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -3714,9 +3714,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !92
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !91
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (%"class.std::vector.29", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !89
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !89
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -3772,7 +3772,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ActiveObjectMgrI18ClientActiveObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %this, align 8, !tbaa !4
   %m_active_objects = getelementptr inbounds i8, ptr %this, i64 8
   %m_iterating.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %m_iterating.i, align 8, !tbaa !27
@@ -4229,11 +4229,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 0, i32 0, i32 5), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !96
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 0, i32 0, i32 1), align 8, !tbaa !100
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !101
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !96
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !100
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev, ptr nonnull @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv) #28
   br label %init.end
@@ -4618,23 +4618,23 @@ define internal void @_GLOBAL__sub_I_test_clientactiveobjectmgr.cpp() #23 sectio
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
-  store ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !50
-  store i64 0, ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !52
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV25TestClientActiveObjectMgr, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !50
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !52
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV25TestClientActiveObjectMgr, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
-  %2 = load ptr, ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %lpad.i.i
-  %3 = load i64, ptr getelementptr inbounds (%class.TestClientActiveObjectMgr, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN8TestBaseD2Ev.exit.i.i

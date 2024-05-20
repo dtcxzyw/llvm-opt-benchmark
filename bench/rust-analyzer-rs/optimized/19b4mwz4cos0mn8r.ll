@@ -1482,8 +1482,8 @@ define hidden void @_ZN4stdx13panic_context8with_ctx17h3f0e5e3f57b619c9E(ptr noa
 
 14:                                               ; preds = %10
   store i64 -1, ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, align 8, !noalias !443
-  %.val5.i.i = load ptr, ptr getelementptr inbounds (<{ [32 x i8] }>, ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, i64 0, i32 0, i64 16), align 8, !noalias !443
-  %.val6.i.i = load i64, ptr getelementptr inbounds (<{ [32 x i8] }>, ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, i64 0, i32 0, i64 24), align 8, !noalias !443, !noundef !4
+  %.val5.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, i64 16), align 8, !noalias !443
+  %.val6.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, i64 24), align 8, !noalias !443, !noundef !4
   %15 = icmp eq i64 %.val6.i.i, 0
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h119ec1af2d80632aE.exit.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h119ec1af2d80632aE.exit.lr.ph.i.i.i"
 

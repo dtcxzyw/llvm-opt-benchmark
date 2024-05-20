@@ -2393,11 +2393,11 @@ tcg_register_jit_int.exit:                        ; preds = %if.end.i130.i, %fin
   store i64 %0, ptr %func_start.i, align 1
   %func_len.i = getelementptr i8, ptr %call.i, i64 816
   store i64 %buf_size, ptr %func_len.i, align 1
-  store ptr %call.i, ptr getelementptr inbounds (%struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i64 0, i32 2), align 8
-  store i64 842, ptr getelementptr inbounds (%struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i64 0, i32 3), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 1), align 4
-  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 2), align 8
-  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @tcg_register_jit_int.one_entry, i64 16), align 8
+  store i64 842, ptr getelementptr inbounds (i8, ptr @tcg_register_jit_int.one_entry, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 4), align 4
+  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 8), align 8
+  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !7
   ret void
 }
@@ -2564,15 +2564,15 @@ for.end18.i:                                      ; preds = %for.body7.i
   tail call fastcc void @init_call_layout(ptr noundef nonnull @info_helper_st64_mmu)
   tail call fastcc void @init_call_layout(ptr noundef nonnull @info_helper_st128_mmu)
   store i32 65535, ptr @tcg_target_available_regs, align 16
-  store i32 65535, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1), align 4
+  store i32 65535, ptr getelementptr inbounds (i8, ptr @tcg_target_available_regs, i64 4), align 4
   %4 = load i32, ptr @cpuinfo, align 4
   %and.i.i = and i32 %4, 512
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end18.i
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 3), align 4
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 4), align 16
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @tcg_target_available_regs, i64 12), align 4
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @tcg_target_available_regs, i64 16), align 16
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.end18.i
@@ -2581,12 +2581,12 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.e
   br i1 %tobool2.not.i.i, label %tcg_target_init.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 5), align 4
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @tcg_target_available_regs, i64 20), align 4
   br label %tcg_target_init.exit.i
 
 tcg_target_init.exit.i:                           ; preds = %if.then3.i.i, %if.end.i.i
   store i1 true, ptr @tcg_target_call_clobber_regs, align 4
-  store i32 2097168, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  store i32 2097168, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 76), align 4
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc742.i.i, %tcg_target_init.exit.i
@@ -3544,38 +3544,38 @@ for.body32.i:                                     ; preds = %for.body32.i, %for.
 
 tcg_context_init.exit:                            ; preds = %for.cond41.preheader.i, %for.body45.preheader.i
   %call.i.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #31
-  store ptr %call.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 33), align 8
+  store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 216), align 8
   %call1.i.i = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @qemu_plugin_insn_cleanup_fn) #28
-  %128 = load ptr, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 33), align 8
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 216), align 8
   store ptr %call1.i.i, ptr %128, align 8
   %129 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   store ptr @tcg_init_ctx, ptr %129, align 8
   store ptr %129, ptr @tcg_ctxs, align 8
   store i32 1, ptr @tcg_cur_ctxs, align 4
   store i32 1, ptr @tcg_max_ctxs, align 4
-  %130 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 76), align 4
   %131 = and i32 %130, 32
   %tobool55.not.i = icmp eq i32 %131, 0
   tail call void @llvm.assume(i1 %tobool55.not.i)
-  %132 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 6), align 4
-  %133 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 7), align 8
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 44), align 4
+  %133 = load i32, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 48), align 8
   %cmp.i.i.i = icmp eq i32 %132, %133
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %cmp3.i.i.i = icmp slt i32 %132, 512
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   %inc.i.i.i = add nsw i32 %132, 1
-  store i32 %inc.i.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 6), align 4
-  store i32 %inc.i.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 7), align 8
+  store i32 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 44), align 4
+  store i32 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 48), align 8
   %idxprom.i.i.i.i = sext i32 %132 to i64
-  %arrayidx.i.i.i.i = getelementptr [512 x %struct.TCGTemp], ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 37, i64 0, i32 0), i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr [512 x %struct.TCGTemp], ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 664), i64 0, i64 %idxprom.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %134, i8 0, i64 48, i1 false)
   store i64 12901744645, ptr %arrayidx.i.i.i.i, align 8
   %name15.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 32
   store ptr @.str.10, ptr %name15.i.i, align 8
-  %135 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 76), align 4
   %or.i.i = or i32 %135, 32
-  store i32 %or.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  store i32 %or.i.i, ptr getelementptr inbounds (i8, ptr @tcg_init_ctx, i64 76), align 4
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %arrayidx.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, ptrtoint (ptr @tcg_init_ctx to i64)
   %136 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
@@ -3720,7 +3720,7 @@ if.then.i:                                        ; preds = %for.end.i
   br i1 %cmp.i.not.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  store i32 32768, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i64 0, i32 3), align 4
+  store i32 32768, ptr getelementptr inbounds (i8, ptr @x86_guest_base, i64 12), align 4
   br label %if.end14.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -3731,13 +3731,13 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then10.i:                                      ; preds = %if.else.i
   %conv6.i = trunc i64 %15 to i32
-  store i32 %conv6.i, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i64 0, i32 2), align 4
+  store i32 %conv6.i, ptr getelementptr inbounds (i8, ptr @x86_guest_base, i64 8), align 4
   br label %if.end14.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  store i32 12, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i64 0, i32 1), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @x86_guest_base, i64 4), align 4
   tail call fastcc void @tcg_out_movi(ptr noundef nonnull %1, i32 noundef 1, i32 noundef 12, i64 noundef %15)
-  %17 = load i32, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i64 0, i32 1), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @x86_guest_base, i64 4), align 4
   %shl.i = shl nuw i32 1, %17
   %18 = load i32, ptr %reserved_regs.i.i.i, align 4
   %or.i = or i32 %18, %shl.i
@@ -8700,7 +8700,7 @@ set_temp_val_nonreg.exit.i.i.i.i266:              ; preds = %sw.bb3.i.i.i.i265, 
   br label %sw.epilog
 
 if.end19.i:                                       ; preds = %sw.bb74
-  %202 = load ptr, ptr getelementptr ([0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6), align 8
+  %202 = load ptr, ptr getelementptr (i8, ptr @tcg_op_defs, i64 3616), align 8
   %regs22.i = getelementptr i8, ptr %202, i64 20
   %203 = load i32, ptr %regs22.i, align 4
   %204 = and i64 %call.val.i, 65280
@@ -9323,7 +9323,7 @@ tcg_out_sib_offset.exit682:                       ; preds = %if.then82.i667, %if
   br label %for.inc.i336
 
 if.else.i623:                                     ; preds = %sw.bb8.i
-  %296 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1), align 4
+  %296 = load i32, ptr getelementptr inbounds (i8, ptr @tcg_target_available_regs, i64 4), align 4
   %call1.i = tail call fastcc i32 @tcg_reg_alloc(ptr noundef %s, i32 noundef %296, i32 noundef %allocated_regs.i.0, i32 noundef 0, i1 noundef zeroext false)
   %297 = trunc i32 %call1.i to i8
   %298 = lshr i8 %297, 1

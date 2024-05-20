@@ -658,7 +658,7 @@ define ptr @zend_user_it_get_new_iterator(ptr nocapture noundef readonly %0, ptr
   br i1 %25, label %.thread, label %30
 
 .thread:                                          ; preds = %3, %23, %18, %14
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not18 = icmp eq ptr %26, null
   br i1 %.not18, label %27, label %32
 
@@ -691,7 +691,7 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 0
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   %or.cond = select i1 %12, i1 true, i1 %14
   br i1 %or.cond, label %27, label %15
@@ -722,7 +722,7 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
 26:                                               ; preds = %15, %17
   %.0 = phi i32 [ 0, %17 ], [ -1, %15 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #9
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br label %27
 
 27:                                               ; preds = %4, %26
@@ -777,7 +777,7 @@ define range(i32 -1, 1) i32 @zend_user_unserialize(ptr noundef %0, ptr noundef %
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @zend_call_method(ptr noundef %18, ptr noundef %20, ptr noundef null, ptr noundef nonnull @.str.5, i64 noundef 11, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not71 = icmp ne ptr %22, null
   %. = sext i1 %.not71 to i32
   br label %23
@@ -791,7 +791,7 @@ declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @zend_create_internal_iterator_zval(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -870,7 +870,7 @@ define hidden void @zim_InternalIterator_current(ptr nocapture noundef readonly 
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %52
@@ -892,7 +892,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not7.i = icmp eq ptr %22, null
   br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %52
 
@@ -980,7 +980,7 @@ define hidden void @zim_InternalIterator_key(ptr nocapture noundef readonly %0, 
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %33
@@ -1002,7 +1002,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not7.i = icmp eq ptr %22, null
   br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %33
 
@@ -1056,7 +1056,7 @@ define hidden void @zim_InternalIterator_next(ptr nocapture noundef readonly %0,
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %32
@@ -1078,7 +1078,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not7.i = icmp eq ptr %22, null
   br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
 
@@ -1125,7 +1125,7 @@ define hidden void @zim_InternalIterator_valid(ptr nocapture noundef readonly %0
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %32
@@ -1147,7 +1147,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not7.i = icmp eq ptr %22, null
   br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
 
@@ -1193,7 +1193,7 @@ define hidden void @zim_InternalIterator_rewind(ptr nocapture noundef readonly %
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #9
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %27
@@ -1216,7 +1216,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 21:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #9
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %27
@@ -1370,7 +1370,7 @@ define void @zend_register_interfaces() local_unnamed_addr #0 {
   %68 = getelementptr inbounds i8, ptr %63, i64 360
   store ptr @zend_internal_iterator_handlers, ptr %68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @zend_internal_iterator_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store ptr @zend_internal_iterator_free, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @zend_internal_iterator_handlers, i64 0, i32 1), align 8
+  store ptr @zend_internal_iterator_free, ptr getelementptr inbounds (i8, ptr @zend_internal_iterator_handlers, i64 8), align 8
   ret void
 }
 
@@ -1464,7 +1464,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   br label %36
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -1492,7 +1492,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %17, ptr %35, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %36
 
 36:                                               ; preds = %25, %27, %14
@@ -1577,7 +1577,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br label %36
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -1605,7 +1605,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %17, ptr %35, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %36
 
 36:                                               ; preds = %25, %27, %14
@@ -1833,7 +1833,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   br label %29
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1861,7 +1861,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %10, ptr %28, align 8
-  store ptr %23, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %23, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %29
 
 29:                                               ; preds = %18, %20, %7

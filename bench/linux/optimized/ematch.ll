@@ -61,8 +61,8 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_em_register(ptr noundef %0) 
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @ematch_ops, i64 0, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @ematch_ops, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ematch_ops, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @ematch_ops, i64 8), align 8
   store ptr @ematch_ops, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8

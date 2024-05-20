@@ -25,8 +25,8 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnam
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 392
   %10 = load i32, ptr %9, align 8
-  %.val = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 45), align 8
-  %.val16 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 140), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
+  %.val16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
   %11 = select i1 %1, ptr %.val, ptr %.val16
   call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext %1, ptr noundef %11, ptr noundef %8) #3
   %12 = load ptr, ptr %8, align 8

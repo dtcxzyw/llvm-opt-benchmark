@@ -1774,7 +1774,7 @@ do.body6:                                         ; preds = %entry
   unreachable
 
 do.end7:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 4), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 40), align 8
   %call10 = tail call ptr @uv_default_loop() #20
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
@@ -1816,7 +1816,7 @@ declare void @_ZN2v87Isolate12CreateParamsD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node26RAIIIsolateWithoutEnteringD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 4), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 40), align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %isolate_, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -1861,7 +1861,7 @@ entry:
   %isolate_scope_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %isolate_scope_, align 8
   tail call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
-  %1 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 40), align 8
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %isolate_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8

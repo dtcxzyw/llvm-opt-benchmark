@@ -201,7 +201,7 @@ define internal noundef range(i32 1, 3) i32 @ipv4_conntrack_defrag(ptr nocapture
   %42 = getelementptr inbounds i8, ptr %2, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #3, !srcloc !7
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #3, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
   %45 = tail call i32 @ip_defrag(ptr noundef %43, ptr noundef %1, i32 noundef %41) #3
   tail call void @__local_bh_enable_ip(i64 noundef %44, i32 noundef 512) #3

@@ -1869,7 +1869,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   br i1 %.not22.i, label %_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit, label %13
 
 13:                                               ; preds = %12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22dtFindNearestPolyQuery, i64 16), ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1939,7 +1939,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   br i1 %.not22, label %37, label %14
 
 14:                                               ; preds = %13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22dtFindNearestPolyQuery, i64 16), ptr %8, align 8
   %15 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %8, i64 16
@@ -2588,7 +2588,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13que
   br i1 %or.cond3, label %28, label %12
 
 12:                                               ; preds = %7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19dtCollectPolysQuery, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19dtCollectPolysQuery, i64 16), ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 16

@@ -8091,7 +8091,7 @@ define hidden void @dissect_cip_data(ptr noundef %0, ptr noundef %1, i32 noundef
   %97 = and i8 %25, 127
   %98 = load i32, ptr @cip_obj_spec_service_table, align 16
   %99 = icmp ne i32 %98, %96
-  %100 = load i8, ptr getelementptr inbounds ([1 x %struct.cip_service_info], ptr @cip_obj_spec_service_table, i64 0, i64 0, i32 1), align 4
+  %100 = load i8, ptr getelementptr inbounds (i8, ptr @cip_obj_spec_service_table, i64 4), align 4
   %101 = icmp ne i8 %100, %97
   %or.cond.i.not.i = select i1 %99, i1 true, i1 %101
   br i1 %or.cond.i.not.i, label %102, label %cip_get_service.exit
@@ -8338,7 +8338,7 @@ dissect_epath.exit200:                            ; preds = %.lr.ph.i198, %.lr.p
   %214 = load i32, ptr %213, align 4
   %215 = load i32, ptr @cip_obj_spec_service_table, align 16
   %216 = icmp ne i32 %215, %214
-  %217 = load i8, ptr getelementptr inbounds ([1 x %struct.cip_service_info], ptr @cip_obj_spec_service_table, i64 0, i64 0, i32 1), align 4
+  %217 = load i8, ptr getelementptr inbounds (i8, ptr @cip_obj_spec_service_table, i64 4), align 4
   %218 = icmp ne i8 %217, %25
   %or.cond.i.not.i203 = select i1 %216, i1 true, i1 %218
   br i1 %or.cond.i.not.i203, label %219, label %.thread
@@ -10195,7 +10195,7 @@ proto_item_set_generated.exit.i:                  ; preds = %78, %75, %65
   %93 = load i32, ptr %92, align 4
   %94 = load i32, ptr @cip_obj_spec_service_table, align 16
   %95 = icmp ne i32 %94, %93
-  %96 = load i8, ptr getelementptr inbounds ([1 x %struct.cip_service_info], ptr @cip_obj_spec_service_table, i64 0, i64 0, i32 1), align 4
+  %96 = load i8, ptr getelementptr inbounds (i8, ptr @cip_obj_spec_service_table, i64 4), align 4
   %97 = icmp ne i8 %96, %58
   %or.cond.i.not.i.i = select i1 %95, i1 true, i1 %97
   br i1 %or.cond.i.not.i.i, label %98, label %cip_get_service.exit.i

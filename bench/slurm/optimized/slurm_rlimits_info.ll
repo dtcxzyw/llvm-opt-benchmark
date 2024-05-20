@@ -48,7 +48,7 @@ define range(i32 -1, 1) i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %7, %2
-  %11 = load ptr, ptr getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @rlimits_info, i64 8), align 8
   %.not4364 = icmp eq ptr %11, null
   br i1 %.not4364, label %._crit_edge68, label %.lr.ph67
 
@@ -68,7 +68,7 @@ define range(i32 -1, 1) i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local
 
 16:                                               ; preds = %7
   %.b36 = load i1, ptr @rlimits_were_parsed, align 1
-  %17 = load ptr, ptr getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @rlimits_info, i64 8), align 8
   %.not3749 = icmp ne ptr %17, null
   %or.cond.not = select i1 %.b36, i1 %.not3749, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit
@@ -92,12 +92,12 @@ define range(i32 -1, 1) i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local
 
 .preheader:                                       ; preds = %.loopexit, %35
   %.02957 = phi ptr [ %37, %35 ], [ %23, %.loopexit ]
-  %24 = load ptr, ptr getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @rlimits_info, i64 8), align 8
   %.not41.not51 = icmp eq ptr %24, null
   br i1 %.not41.not51, label %.preheader._crit_edge, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.preheader, %30
-  %25 = phi ptr [ %32, %30 ], [ getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), %.preheader ]
+  %25 = phi ptr [ %32, %30 ], [ getelementptr inbounds (i8, ptr @rlimits_info, i64 8), %.preheader ]
   %.153 = phi ptr [ %spec.select, %30 ], [ %.02957, %.preheader ]
   %.23252 = phi ptr [ %31, %30 ], [ @rlimits_info, %.preheader ]
   %26 = tail call i32 @xstrncmp(ptr noundef %.153, ptr noundef nonnull @.str.3, i64 noundef 7) #6
@@ -131,7 +131,7 @@ define range(i32 -1, 1) i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local
 
 ._crit_edge58:                                    ; preds = %35, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %3) #6
-  %38 = load ptr, ptr getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @rlimits_info, i64 8), align 8
   %.not3959 = icmp eq ptr %38, null
   br i1 %.not3959, label %._crit_edge63, label %.lr.ph62
 
@@ -183,12 +183,12 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @print_rlimits() local_unnamed_addr #1 {
   %1 = alloca %struct.rlimit, align 8
-  %2 = load ptr, ptr getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @rlimits_info, i64 8), align 8
   %.not4 = icmp eq ptr %2, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %11
-  %3 = phi ptr [ %13, %11 ], [ getelementptr inbounds ([11 x %struct.slurm_rlimits_info], ptr @rlimits_info, i64 0, i64 0, i32 1), %0 ]
+  %3 = phi ptr [ %13, %11 ], [ getelementptr inbounds (i8, ptr @rlimits_info, i64 8), %0 ]
   %.05 = phi ptr [ %12, %11 ], [ @rlimits_info, %0 ]
   %4 = load i32, ptr %.05, align 8
   %5 = call i32 @getrlimit(i32 noundef %4, ptr noundef nonnull %1) #6

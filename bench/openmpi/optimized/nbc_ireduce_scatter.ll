@@ -182,10 +182,10 @@ opal_datatype_span.exit:                          ; preds = %ceil_of_log2.exit, 
   br i1 %66, label %nbc_get_noop_request.exit, label %67
 
 67:                                               ; preds = %opal_datatype_span.exit
-  %68 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 8), align 8
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #9
   %70 = load i32, ptr @opal_class_init_epoch, align 4
-  %71 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 4), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i255 = icmp eq i32 %70, %71
   br i1 %.not.i255, label %73, label %72
 
@@ -201,7 +201,7 @@ opal_datatype_span.exit:                          ; preds = %ceil_of_log2.exit, 
   store ptr @NBC_Schedule_class, ptr %69, align 8
   %75 = getelementptr inbounds i8, ptr %69, i64 8
   store volatile i32 1, ptr %75, align 8
-  %76 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 6), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %77 = load ptr, ptr %76, align 8
   %.not6.i.i = icmp eq ptr %77, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread309, label %.lr.ph.i.i
@@ -867,10 +867,10 @@ opal_datatype_span.exit.thread298:                ; preds = %ompi_comm_remote_si
   %54 = phi i64 [ %50, %49 ], [ 0, %opal_datatype_span.exit ], [ 0, %ompi_comm_remote_size.exit ]
   %.0252256 = phi i64 [ %.0252255, %49 ], [ 0, %opal_datatype_span.exit ], [ 0, %ompi_comm_remote_size.exit ]
   %.0163 = phi ptr [ %52, %49 ], [ null, %opal_datatype_span.exit ], [ null, %ompi_comm_remote_size.exit ]
-  %55 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 8), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %56 = tail call noalias ptr @malloc(i64 noundef %55) #9
   %57 = load i32, ptr @opal_class_init_epoch, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 4), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i191 = icmp eq i32 %57, %58
   br i1 %.not.i191, label %60, label %59
 
@@ -886,7 +886,7 @@ opal_datatype_span.exit.thread298:                ; preds = %ompi_comm_remote_si
   store ptr @NBC_Schedule_class, ptr %56, align 8
   %62 = getelementptr inbounds i8, ptr %56, i64 8
   store volatile i32 1, ptr %62, align 8
-  %63 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 6), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %64 = load ptr, ptr %63, align 8
   %.not6.i.i = icmp eq ptr %64, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread258, label %.lr.ph.i.i

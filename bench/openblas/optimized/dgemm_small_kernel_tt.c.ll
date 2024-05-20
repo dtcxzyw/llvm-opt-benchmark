@@ -20,7 +20,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %21 = shufflevector <2 x double> %20, <2 x double> poison, <8 x i32> zeroinitializer
   %22 = shufflevector <2 x double> %20, <2 x double> poison, <4 x i32> zeroinitializer
   %23 = load <8 x i64>, ptr @__const.dgemm_small_kernel_tt.permute_table, align 64
-  %24 = load <8 x i64>, ptr getelementptr inbounds ([16 x i64], ptr @__const.dgemm_small_kernel_tt.permute_table, i64 0, i64 8), align 64
+  %24 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @__const.dgemm_small_kernel_tt.permute_table, i64 64), align 64
   %25 = icmp sgt i64 %13, 0
   br i1 %25, label %26, label %.loopexit85
 
@@ -59,7 +59,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
 
 50:                                               ; preds = %.loopexit85
   %51 = load <8 x i64>, ptr @__const.dgemm_small_kernel_tt.permute_table2, align 64
-  %52 = load <8 x i64>, ptr getelementptr inbounds ([16 x i64], ptr @__const.dgemm_small_kernel_tt.permute_table2, i64 0, i64 8), align 64
+  %52 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @__const.dgemm_small_kernel_tt.permute_table2, i64 64), align 64
   %53 = icmp sgt i64 %16, 0
   %54 = icmp sgt i64 %2, 0
   br label %450

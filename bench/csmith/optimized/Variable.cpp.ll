@@ -326,16 +326,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %54 unwind label %300
 
 54:                                               ; preds = %52
-  %55 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %56 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i = icmp eq ptr %55, %56
   br i1 %.not.i.i, label %60, label %57
 
 57:                                               ; preds = %54
   store ptr %23, ptr %55, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr %59, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %59, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 60:                                               ; preds = %54
@@ -391,9 +391,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pre
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %75, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %80, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %82 = getelementptr inbounds ptr, ptr %75, i64 %71
-  store ptr %82, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %57
@@ -453,16 +453,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %96 unwind label %313
 
 96:                                               ; preds = %95
-  %97 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %98 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i76 = icmp eq ptr %97, %98
   br i1 %.not.i.i76, label %102, label %99
 
 99:                                               ; preds = %96
   store ptr %92, ptr %97, align 8
-  %100 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 8
-  store ptr %101, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit86
 
 102:                                              ; preds = %96
@@ -518,9 +518,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i81: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83: ; preds = %123, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i81
   store ptr %117, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %122, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %122, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %124 = getelementptr inbounds ptr, ptr %117, i64 %113
-  store ptr %124, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %124, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit86
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit86: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83, %99
@@ -540,16 +540,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit86: ; preds = %_ZNSt6vectorI
           to label %129 unwind label %316
 
 129:                                              ; preds = %128
-  %130 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %131 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i87 = icmp eq ptr %130, %131
   br i1 %.not.i.i87, label %135, label %132
 
 132:                                              ; preds = %129
   store ptr %125, ptr %130, align 8
-  %133 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 8
-  store ptr %134, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %134, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit97
 
 135:                                              ; preds = %129
@@ -605,9 +605,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i92: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i94: ; preds = %156, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i92
   store ptr %150, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %155, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %155, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %157 = getelementptr inbounds ptr, ptr %150, i64 %146
-  store ptr %157, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %157, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit97
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit97: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i94, %132
@@ -627,16 +627,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit97: ; preds = %_ZNSt6vectorI
           to label %162 unwind label %319
 
 162:                                              ; preds = %161
-  %163 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %164 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i98 = icmp eq ptr %163, %164
   br i1 %.not.i.i98, label %168, label %165
 
 165:                                              ; preds = %162
   store ptr %158, ptr %163, align 8
-  %166 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
-  store ptr %167, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %167, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit108
 
 168:                                              ; preds = %162
@@ -692,9 +692,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i103: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i105: ; preds = %189, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i103
   store ptr %183, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %188, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %188, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %190 = getelementptr inbounds ptr, ptr %183, i64 %179
-  store ptr %190, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %190, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit108
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit108: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i105, %165
@@ -714,16 +714,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit108: ; preds = %_ZNSt6vector
           to label %195 unwind label %322
 
 195:                                              ; preds = %194
-  %196 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %197 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i109 = icmp eq ptr %196, %197
   br i1 %.not.i.i109, label %201, label %198
 
 198:                                              ; preds = %195
   store ptr %191, ptr %196, align 8
-  %199 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 8
-  store ptr %200, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %200, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit119
 
 201:                                              ; preds = %195
@@ -779,9 +779,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i114: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i116: ; preds = %222, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i114
   store ptr %216, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %221, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %221, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %223 = getelementptr inbounds ptr, ptr %216, i64 %212
-  store ptr %223, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %223, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit119
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit119: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i116, %198
@@ -801,16 +801,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit119: ; preds = %_ZNSt6vector
           to label %228 unwind label %325
 
 228:                                              ; preds = %227
-  %229 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %230 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i120 = icmp eq ptr %229, %230
   br i1 %.not.i.i120, label %234, label %231
 
 231:                                              ; preds = %228
   store ptr %224, ptr %229, align 8
-  %232 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
-  store ptr %233, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %233, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit130
 
 234:                                              ; preds = %228
@@ -866,9 +866,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i125: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i127: ; preds = %255, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i125
   store ptr %249, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %254, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %254, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %256 = getelementptr inbounds ptr, ptr %249, i64 %245
-  store ptr %256, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %256, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit130
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit130: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i127, %231
@@ -888,16 +888,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit130: ; preds = %_ZNSt6vector
           to label %261 unwind label %328
 
 261:                                              ; preds = %260
-  %262 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %263 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
+  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   %.not.i.i131 = icmp eq ptr %262, %263
   br i1 %.not.i.i131, label %267, label %264
 
 264:                                              ; preds = %261
   store ptr %257, ptr %262, align 8
-  %265 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 8
-  store ptr %266, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %266, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit141
 
 267:                                              ; preds = %261
@@ -953,9 +953,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i136: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i138: ; preds = %288, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i136
   store ptr %282, ptr @_ZN8Variable18var_attr_generatorE, align 8
-  store ptr %287, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %287, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 8), align 8
   %289 = getelementptr inbounds ptr, ptr %282, i64 %278
-  store ptr %289, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN8Variable18var_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %289, ptr getelementptr inbounds (i8, ptr @_ZN8Variable18var_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit141
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit141: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i138, %264
@@ -2723,7 +2723,7 @@ declare noundef zeroext i1 @_ZNK4Type11is_bitfieldEm(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN8Variable14CreateVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypeRKSt6vectorIbSaIbEESF_bbbbPKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %10, i64 32
@@ -2972,7 +2972,7 @@ define dso_local noundef ptr @_ZN8Variable14CreateVariableERKNSt7__cxx1112basic_
 
 8:                                                ; preds = %7, %4
   %9 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %9, i64 32
@@ -3048,7 +3048,7 @@ _ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypeRKSt6vectorIbSaIbEESF_bbbbPKS_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3118,7 +3118,7 @@ declare void @_ZN12CVQualifiersC1ERKSt6vectorIbSaIbEES4_(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiers(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3170,7 +3170,7 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit:         ; preds = %20, %22
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3223,7 +3223,7 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit:         ; preds = %23, %25
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3296,7 +3296,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8VariableD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4518,7 +4518,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable13
           to label %27 unwind label %72
 
 27:                                               ; preds = %26
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8Variable, i64 16), ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %25, i64 32
@@ -4658,16 +4658,16 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   %77 = load i64, ptr @_ZN8Variable15ctrl_vars_countE, align 8
   %78 = add i64 %77, 1
   store i64 %78, ptr @_ZN8Variable15ctrl_vars_countE, align 8
-  %79 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %80 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 16), align 8
   %.not.i17 = icmp eq ptr %79, %80
   br i1 %.not.i17, label %84, label %81
 
 81:                                               ; preds = %76
   store ptr %6, ptr %79, align 8
-  %82 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
-  store ptr %83, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %83, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   br label %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE9push_backERKS5_.exit
 
 84:                                               ; preds = %76
@@ -4723,9 +4723,9 @@ _ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.
 
 _ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %105, %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
   store ptr %99, ptr @_ZN8Variable17ctrl_vars_vectorsE, align 8
-  store ptr %104, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %104, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   %106 = getelementptr inbounds ptr, ptr %99, i64 %95
-  store ptr %106, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %106, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 16), align 8
   br label %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE9push_backERKS5_.exit
 
 _ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %81
@@ -4766,7 +4766,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable18get_last_ctrl_varsEv() local_unnamed_addr #7 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -4775,7 +4775,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable18
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8Variable14doFinalizationEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN8Variable17ctrl_vars_vectorsE, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   %.not13 = icmp eq ptr %1, %2
   br i1 %.not13, label %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE5clearEv.exit, label %.lr.ph16
 
@@ -4827,12 +4827,12 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %._crit_edge, %16
 
 ._crit_edge17:                                    ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
   %.pre18 = load ptr, ptr @_ZN8Variable17ctrl_vars_vectorsE, align 8
-  %.pre19 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   %.not.i.i = icmp eq ptr %.pre19, %.pre18
   br i1 %.not.i.i, label %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE5clearEv.exit, label %18
 
 18:                                               ; preds = %._crit_edge17
-  store ptr %.pre18, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre18, ptr getelementptr inbounds (i8, ptr @_ZN8Variable17ctrl_vars_vectorsE, i64 8), align 8
   br label %_ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorIPS_IPK8VariableSaIS2_EESaIS5_EE5clearEv.exit: ; preds = %0, %._crit_edge17, %18

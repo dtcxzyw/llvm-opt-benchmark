@@ -2069,12 +2069,12 @@ land.lhs.true.i328:                               ; preds = %if.end4.i
 if.then11.i:                                      ; preds = %land.lhs.true.i328
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %tmpBuf.i)
   %87 = load i32, ptr %sockfd, align 4
-  %88 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
   %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #18
   %sext.i = shl i64 %call15.i, 32
   %conv17.i = ashr exact i64 %sext.i, 32
   %call18.i330 = call i64 @send(i32 noundef %87, ptr noundef %88, i64 noundef %conv17.i, i32 noundef 0) #20
-  %89 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 1), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
   %call19.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #18
   %sext6.i = shl i64 %call19.i, 32
   %conv21.i = ashr exact i64 %sext6.i, 32
@@ -2101,7 +2101,7 @@ if.then31.i339:                                   ; preds = %if.end25.i
   unreachable
 
 if.end32.i:                                       ; preds = %if.end25.i
-  %91 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 2), align 16
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 16), align 16
   %call34.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #18
   %call35.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %91, i64 noundef %call34.i) #18
   %tobool36.not.i = icmp eq i32 %call35.i, 0
@@ -2116,12 +2116,12 @@ land.lhs.true37.i:                                ; preds = %if.end32.i
 if.then43.i334:                                   ; preds = %land.lhs.true37.i
   %puts7.i = call i32 @puts(ptr nonnull dereferenceable(1) %tmpBuf.i)
   %93 = load i32, ptr %sockfd, align 4
-  %94 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 3), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
   %call48.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #18
   %sext8.i = shl i64 %call48.i, 32
   %conv50.i = ashr exact i64 %sext8.i, 32
   %call51.i = call i64 @send(i32 noundef %93, ptr noundef %94, i64 noundef %conv50.i, i32 noundef 0) #20
-  %95 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 3), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
   %call52.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #18
   %sext9.i = shl i64 %call52.i, 32
   %conv54.i = ashr exact i64 %sext9.i, 32
@@ -2150,7 +2150,7 @@ if.then64.i:                                      ; preds = %if.end58.i
 if.end65.i:                                       ; preds = %if.end58.i
   %arrayidx66.i = getelementptr inbounds i8, ptr %tmpBuf.i, i64 511
   store i8 0, ptr %arrayidx66.i, align 1
-  %97 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 4), align 16
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 32), align 16
   %call68.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #18
   %call69.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %97, i64 noundef %call68.i) #18
   %tobool70.not.i = icmp eq i32 %call69.i, 0
@@ -2337,7 +2337,7 @@ if.then638:                                       ; preds = %if.then634
 
 do.body.i353:                                     ; preds = %do.cond.i357, %if.then638
   %err.0.i = phi i32 [ 0, %if.then638 ], [ -108, %do.cond.i357 ]
-  %107 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 5), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
   %call1.i354 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #18
   %conv.i355 = trunc i64 %call1.i354 to i32
   %call2.i356 = call i32 @wolfSSL_write(ptr noundef %call472, ptr noundef %107, i32 noundef %conv.i355) #20
@@ -2354,7 +2354,7 @@ do.cond.i357:                                     ; preds = %if.then5.i, %do.bod
   br i1 %cmp8.i, label %do.body.i353, label %do.end.i, !llvm.loop !14
 
 do.end.i:                                         ; preds = %do.cond.i357
-  %108 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 5), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
   %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #18
   %conv11.i = trunc i64 %call10.i to i32
   %cmp12.not.i358 = icmp eq i32 %call2.i356, %conv11.i

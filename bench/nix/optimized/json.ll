@@ -2724,13 +2724,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23JSONValueTest_null_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -2811,13 +2811,13 @@ _ZN3nix23JSONValueTest_null_TestD2Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23JSONValueTest_null_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -2903,13 +2903,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23JSONValueTest_null_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23JSONValueTest_null_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -3000,13 +3000,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix23JSONValueTest_null_TestD0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28JSONValueTest_BoolFalse_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3087,13 +3087,13 @@ _ZN3nix28JSONValueTest_BoolFalse_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28JSONValueTest_BoolFalse_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3179,13 +3179,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28JSONValueTest_BoolFalse_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28JSONValueTest_BoolFalse_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -3276,13 +3276,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28JSONValueTest_BoolFalse_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27JSONValueTest_BoolTrue_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3363,13 +3363,13 @@ _ZN3nix27JSONValueTest_BoolTrue_TestD2Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27JSONValueTest_BoolTrue_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3455,13 +3455,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27JSONValueTest_BoolTrue_TestD1Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix27JSONValueTest_BoolTrue_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -3552,13 +3552,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix27JSONValueTest_BoolTrue_TestD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30JSONValueTest_IntPositive_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3639,13 +3639,13 @@ _ZN3nix30JSONValueTest_IntPositive_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30JSONValueTest_IntPositive_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3731,13 +3731,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30JSONValueTest_IntPositive_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntPositive_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -3828,13 +3828,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30JSONValueTest_IntPositive_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30JSONValueTest_IntNegative_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -3915,13 +3915,13 @@ _ZN3nix30JSONValueTest_IntNegative_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30JSONValueTest_IntNegative_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4007,13 +4007,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30JSONValueTest_IntNegative_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30JSONValueTest_IntNegative_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -4104,13 +4104,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30JSONValueTest_IntNegative_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25JSONValueTest_String_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4191,13 +4191,13 @@ _ZN3nix25JSONValueTest_String_TestD2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25JSONValueTest_String_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4283,13 +4283,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25JSONValueTest_String_TestD1Ev(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix25JSONValueTest_String_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -4380,13 +4380,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix25JSONValueTest_String_TestD0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31JSONValueTest_StringQuotes_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4467,13 +4467,13 @@ _ZN3nix31JSONValueTest_StringQuotes_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31JSONValueTest_StringQuotes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4559,13 +4559,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31JSONValueTest_StringQuotes_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31JSONValueTest_StringQuotes_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -4656,13 +4656,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31JSONValueTest_StringQuotes_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32JSONValueTest_DISABLED_Path_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4743,13 +4743,13 @@ _ZN3nix32JSONValueTest_DISABLED_Path_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32JSONValueTest_DISABLED_Path_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -4835,13 +4835,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix32JSONValueTest_DISABLED_Path_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #20
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix32JSONValueTest_DISABLED_Path_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -5065,7 +5065,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23JSONValueTest_null_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23JSONValueTest_null_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -5075,8 +5075,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6065,7 +6065,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28JSONValueTest_BoolFalse_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28JSONValueTest_BoolFalse_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6075,8 +6075,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6109,7 +6109,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27JSONValueTest_BoolTrue_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix27JSONValueTest_BoolTrue_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6119,8 +6119,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6153,7 +6153,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntPositive_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30JSONValueTest_IntPositive_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6163,8 +6163,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6197,7 +6197,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntNegative_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30JSONValueTest_IntNegative_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6207,8 +6207,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6241,7 +6241,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25JSONValueTest_String_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix25JSONValueTest_String_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6251,8 +6251,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6285,7 +6285,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31JSONValueTest_StringQuotes_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31JSONValueTest_StringQuotes_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6295,8 +6295,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6329,7 +6329,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32JS
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32JSONValueTest_DISABLED_Path_TestE, i64 0, i64 2))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32JSONValueTest_DISABLED_Path_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -6339,8 +6339,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32JS
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -6369,10 +6369,10 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #4 comdat ali
   store ptr %1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit unwind label %16
 
 _ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit: ; preds = %0
@@ -7249,7 +7249,7 @@ define internal void @_GLOBAL__sub_I_json.cc() #8 section ".text.startup" person
           to label %34 unwind label %53
 
 34:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23JSONValueTest_null_TestEEE, i64 0, i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23JSONValueTest_null_TestEEE, i64 16), ptr %33, align 8
   %35 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %33)
           to label %36 unwind label %53
 
@@ -7348,7 +7348,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %64 unwind label %83
 
 64:                                               ; preds = %62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28JSONValueTest_BoolFalse_TestEEE, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28JSONValueTest_BoolFalse_TestEEE, i64 16), ptr %63, align 8
   %65 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %59, ptr noundef %61, ptr noundef nonnull %63)
           to label %66 unwind label %83
 
@@ -7441,7 +7441,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %94 unwind label %113
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27JSONValueTest_BoolTrue_TestEEE, i64 0, i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27JSONValueTest_BoolTrue_TestEEE, i64 16), ptr %93, align 8
   %95 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %89, ptr noundef %91, ptr noundef nonnull %93)
           to label %96 unwind label %113
 
@@ -7534,7 +7534,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %124 unwind label %143
 
 124:                                              ; preds = %122
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntPositive_TestEEE, i64 0, i32 0, i64 2), ptr %123, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntPositive_TestEEE, i64 16), ptr %123, align 8
   %125 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %119, ptr noundef %121, ptr noundef nonnull %123)
           to label %126 unwind label %143
 
@@ -7627,7 +7627,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %154 unwind label %173
 
 154:                                              ; preds = %152
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntNegative_TestEEE, i64 0, i32 0, i64 2), ptr %153, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntNegative_TestEEE, i64 16), ptr %153, align 8
   %155 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %149, ptr noundef %151, ptr noundef nonnull %153)
           to label %156 unwind label %173
 
@@ -7720,7 +7720,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %184 unwind label %203
 
 184:                                              ; preds = %182
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25JSONValueTest_String_TestEEE, i64 0, i32 0, i64 2), ptr %183, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25JSONValueTest_String_TestEEE, i64 16), ptr %183, align 8
   %185 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %179, ptr noundef %181, ptr noundef nonnull %183)
           to label %186 unwind label %203
 
@@ -7813,7 +7813,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %214 unwind label %233
 
 214:                                              ; preds = %212
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31JSONValueTest_StringQuotes_TestEEE, i64 0, i32 0, i64 2), ptr %213, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31JSONValueTest_StringQuotes_TestEEE, i64 16), ptr %213, align 8
   %215 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %209, ptr noundef %211, ptr noundef nonnull %213)
           to label %216 unwind label %233
 
@@ -7906,7 +7906,7 @@ __cxx_global_var_init.31.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %244 unwind label %263
 
 244:                                              ; preds = %242
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32JSONValueTest_DISABLED_Path_TestEEE, i64 0, i32 0, i64 2), ptr %243, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32JSONValueTest_DISABLED_Path_TestEEE, i64 16), ptr %243, align 8
   %245 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix13JSONValueTestEE6dummy_E, ptr noundef %239, ptr noundef %241, ptr noundef nonnull %243)
           to label %246 unwind label %263
 

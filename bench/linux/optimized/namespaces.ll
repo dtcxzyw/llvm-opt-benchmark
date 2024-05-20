@@ -93,7 +93,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_ns_dir_readdir(ptr noundef %0
   %36 = phi i64 [ 2, %.thread6 ], [ %11, %33 ]
   %37 = getelementptr ptr, ptr @ns_entries, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = icmp ugt ptr %38, getelementptr inbounds ([9 x ptr], ptr @ns_entries, i64 0, i64 8)
+  %39 = icmp ugt ptr %38, getelementptr inbounds (i8, ptr @ns_entries, i64 64)
   br i1 %39, label %.thread7, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %46
@@ -110,7 +110,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_ns_dir_readdir(ptr noundef %0
   %48 = add i64 %47, 1
   store i64 %48, ptr %10, align 8
   %49 = getelementptr i8, ptr %40, i64 8
-  %50 = icmp ugt ptr %49, getelementptr inbounds ([9 x ptr], ptr @ns_entries, i64 0, i64 8)
+  %50 = icmp ugt ptr %49, getelementptr inbounds (i8, ptr @ns_entries, i64 64)
   br i1 %50, label %.thread7, label %.lr.ph
 
 .thread7:                                         ; preds = %46, %.lr.ph, %35, %33, %21, %12
@@ -168,11 +168,11 @@ define internal ptr @proc_ns_dir_lookup(ptr nocapture noundef readonly %0, ptr n
 
 23:                                               ; preds = %19, %13
   %24 = getelementptr i8, ptr %14, i64 8
-  %25 = icmp ult ptr %24, getelementptr inbounds ([9 x ptr], ptr @ns_entries, i64 1, i64 0)
+  %25 = icmp ult ptr %24, getelementptr inbounds (i8, ptr @ns_entries, i64 72)
   br i1 %25, label %13, label %.thread, !llvm.loop !8
 
 26:                                               ; preds = %19
-  %27 = icmp eq ptr %14, getelementptr inbounds ([9 x ptr], ptr @ns_entries, i64 1, i64 0)
+  %27 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @ns_entries, i64 72)
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26

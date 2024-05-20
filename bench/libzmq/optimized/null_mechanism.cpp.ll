@@ -60,12 +60,12 @@ define void @_ZN3zmq16null_mechanism_tC1EPNS_14session_base_tERKNSt7__cxx1112bas
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1496) %0, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
-  invoke void @_ZN3zmq12zap_client_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN3zmq16null_mechanism_tE, i64 0, i64 1), ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
+  invoke void @_ZN3zmq12zap_client_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3zmq16null_mechanism_tE, i64 8), ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i64 0, i32 0, i64 3), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i64 0, i32 1, i64 10), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq16null_mechanism_tE, i64 24), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq16null_mechanism_tE, i64 168), ptr %0, align 8
   %_ready_command_sent = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %_ready_command_sent, i8 0, i64 6, i1 false)
   ret void
@@ -103,9 +103,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq16null_mechanism_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i, align 8
   %status_code.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i) #15
   %peer_address.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -121,9 +121,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %3, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i, align 8
   %status_code.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i) #15
   %peer_address.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -135,9 +135,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq16null_mechanism_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i, align 8
   %status_code.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i) #15
   %peer_address.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -157,9 +157,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %3, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr], [19 x ptr] }, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i.i, align 8
   %status_code.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i.i) #15
   %peer_address.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8

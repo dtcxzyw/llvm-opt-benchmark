@@ -1337,7 +1337,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SimpleRuleBasedPathFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %this, align 8
   %fWildcard.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %fWildcard.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1369,7 +1369,7 @@ _ZN25SimpleRuleBasedPathFilter4TreeD2Ev.exit:     ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SimpleRuleBasedPathFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %this, align 8
   %fWildcard.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %fWildcard.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

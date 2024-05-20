@@ -314,7 +314,7 @@ call2.i.noexc:                                    ; preds = %invoke.cont7
   %or.i = or i64 %shr.i, 128
   %mul.i = shl nuw nsw i64 %or.i, 1
   %add.i = or disjoint i64 %mul.i, 1
-  %7 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i130 = zext i32 %7 to i64
   %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
@@ -325,7 +325,7 @@ call6.i.i.noexc:                                  ; preds = %call2.i.noexc, %if.
   %conv.i.i133 = phi i64 [ %conv.i.i130, %call2.i.noexc ], [ %conv.i.i, %if.end20.i.i ]
   %index.i.i.0132 = phi i64 [ %call.i2.i.i.i, %call2.i.noexc ], [ %add.i.i, %if.end20.i.i ]
   %tries.i.i.0131 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i.i, %if.end20.i.i ]
-  %8 = load ptr, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 8), align 8
   %and.i.i = and i64 %conv.i.i133, %index.i.i.0132
   %add.ptr.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %8, i64 %and.i.i
   %9 = load <16 x i8>, ptr %add.ptr.i.i, align 16
@@ -386,7 +386,7 @@ while.end.i.i:                                    ; preds = %while.end.i.i.loope
 if.end20.i.i:                                     ; preds = %while.end.i.i
   %add.i.i = add i64 %add.i, %index.i.i.0132
   %inc.i.i = add nuw nsw i64 %tries.i.i.0131, 1
-  %18 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i = zext i32 %18 to i64
   %cmp.i.i.not.not = icmp ult i64 %tries.i.i.0131, %conv.i.i
   br i1 %cmp.i.i.not.not, label %call6.i.i.noexc, label %if.end, !llvm.loop !10
@@ -549,7 +549,7 @@ call.i.i.i.i.i.i.noexc53:                         ; preds = %init.end.i.i
   %or.i.i.i = or i64 %shr.i.i.i, 128
   %mul.i.i.i = shl nuw nsw i64 %or.i.i.i, 1
   %add.i24.i.i = or disjoint i64 %mul.i.i.i, 1
-  %30 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !12
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 16), align 8, !noalias !12
   %conv.i48.i.i = zext i32 %30 to i64
   %conv.i25.i.i = trunc nuw i64 %or.i.i.i to i8
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i25.i.i, i64 0
@@ -561,7 +561,7 @@ for.body.i.us.i.i:                                ; preds = %call.i.i.i.i.i.i.no
   %conv.i51.us.i.i = phi i64 [ %conv.i.us.i.i, %if.end20.i.us.i.i ], [ %conv.i48.i.i, %call.i.i.i.i.i.i.noexc53 ]
   %index.i.050.us.i.i = phi i64 [ %add.i.us.i.i, %if.end20.i.us.i.i ], [ %call.i.i.i.i.i.i54, %call.i.i.i.i.i.i.noexc53 ]
   %tries.i.049.us.i.i = phi i64 [ %inc.i.us.i.i, %if.end20.i.us.i.i ], [ 0, %call.i.i.i.i.i.i.noexc53 ]
-  %31 = load ptr, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !12
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 8), align 8, !noalias !12
   %and.i.us.i.i = and i64 %index.i.050.us.i.i, %conv.i51.us.i.i
   %add.ptr.i.us.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %and.i.us.i.i
   %32 = load <16 x i8>, ptr %add.ptr.i.us.i.i, align 16, !noalias !12
@@ -585,7 +585,7 @@ while.end.i.us.i.i:                               ; preds = %while.end.i.us.loop
 if.end20.i.us.i.i:                                ; preds = %while.end.i.us.i.i
   %add.i.us.i.i = add i64 %index.i.050.us.i.i, %add.i24.i.i
   %inc.i.us.i.i = add nuw nsw i64 %tries.i.049.us.i.i, 1
-  %37 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !12
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 16), align 8, !noalias !12
   %conv.i.us.i.i = zext i32 %37 to i64
   %cmp.i.not.us.not.i.i = icmp ult i64 %tries.i.049.us.i.i, %conv.i.us.i.i
   br i1 %cmp.i.not.us.not.i.i, label %for.body.i.us.i.i, label %if.end7.i, !llvm.loop !15
@@ -619,7 +619,7 @@ for.body.i.i.i48:                                 ; preds = %call.i.i.i.i.i.i.no
   %conv.i51.i.i = phi i64 [ %conv.i.i.i, %if.end20.i.i.i ], [ %conv.i48.i.i, %call.i.i.i.i.i.i.noexc53 ]
   %index.i.050.i.i = phi i64 [ %add.i.i.i, %if.end20.i.i.i ], [ %call.i.i.i.i.i.i54, %call.i.i.i.i.i.i.noexc53 ]
   %tries.i.049.i.i = phi i64 [ %inc.i.i.i, %if.end20.i.i.i ], [ 0, %call.i.i.i.i.i.i.noexc53 ]
-  %41 = load ptr, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !12
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 8), align 8, !noalias !12
   %and.i.i.i = and i64 %index.i.050.i.i, %conv.i51.i.i
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %41, i64 %and.i.i.i
   %42 = load <16 x i8>, ptr %add.ptr.i.i.i, align 16, !noalias !12
@@ -673,7 +673,7 @@ while.end.i.i.i:                                  ; preds = %while.end.i.loopexi
 if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
   %add.i.i.i = add i64 %index.i.050.i.i, %add.i24.i.i
   %inc.i.i.i = add nuw nsw i64 %tries.i.049.i.i, 1
-  %50 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !12
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 16), align 8, !noalias !12
   %conv.i.i.i = zext i32 %50 to i64
   %cmp.i.not.not.i.i = icmp ult i64 %tries.i.049.i.i, %conv.i.i.i
   br i1 %cmp.i.not.not.i.i, label %for.body.i.i.i48, label %if.end7.i, !llvm.loop !15
@@ -834,7 +834,7 @@ if.end.i107:                                      ; preds = %.noexc.i
           to label %invoke.cont.i109 unwind label %lpad.i108
 
 invoke.cont.i109:                                 ; preds = %if.end.i107
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3)) #21
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, i64 noundef 3)
           to label %invoke.cont.i unwind label %lpad.i108
@@ -922,7 +922,7 @@ call.i.noexc48.i:                                 ; preds = %if.then35.i
           to label %.noexc50.i unwind label %lpad37.i
 
 .noexc50.i:                                       ; preds = %call.i.noexc48.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3))
           to label %invoke.cont38.i unwind label %lpad.i46.i
 
 lpad.i46.i:                                       ; preds = %.noexc50.i
@@ -1045,7 +1045,7 @@ call2.i.noexc109:                                 ; preds = %invoke.cont21
   %or.i62 = or i64 %shr.i61, 128
   %mul.i65 = shl nuw nsw i64 %or.i62, 1
   %add.i66 = or disjoint i64 %mul.i65, 1
-  %80 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i79136 = zext i32 %80 to i64
   %conv.i67 = trunc nuw i64 %or.i62 to i8
   %vecinit.i.i68 = insertelement <16 x i8> poison, i8 %conv.i67, i64 0
@@ -1056,7 +1056,7 @@ call6.i.i.noexc111:                               ; preds = %call2.i.noexc109, %
   %conv.i.i79139 = phi i64 [ %conv.i.i79136, %call2.i.noexc109 ], [ %conv.i.i79, %if.end20.i.i96 ]
   %index.i.i62.0138 = phi i64 [ %call.i2.i.i.i58, %call2.i.noexc109 ], [ %add.i.i97, %if.end20.i.i96 ]
   %tries.i.i65.0137 = phi i64 [ 0, %call2.i.noexc109 ], [ %inc.i.i98, %if.end20.i.i96 ]
-  %81 = load ptr, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 8), align 8
   %and.i.i86 = and i64 %conv.i.i79139, %index.i.i62.0138
   %add.ptr.i.i87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %81, i64 %and.i.i86
   %82 = load <16 x i8>, ptr %add.ptr.i.i87, align 16
@@ -1117,7 +1117,7 @@ while.end.i.i93:                                  ; preds = %while.end.i.i93.loo
 if.end20.i.i96:                                   ; preds = %while.end.i.i93
   %add.i.i97 = add i64 %add.i66, %index.i.i62.0138
   %inc.i.i98 = add nuw nsw i64 %tries.i.i65.0137, 1
-  %91 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i79 = zext i32 %91 to i64
   %cmp.i.i80.not.not = icmp ult i64 %tries.i.i65.0137, %conv.i.i79
   br i1 %cmp.i.i80.not.not, label %call6.i.i.noexc111, label %if.end34, !llvm.loop !10
@@ -1165,9 +1165,9 @@ if.then.i.i:
   %ref.tmp9 = alloca %"class.std::locale", align 8
   %ref.tmp15 = alloca i32, align 4
   store ptr null, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, align 8
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 4
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 20), align 4
   %_M_element_count.i.i = getelementptr inbounds i8, ptr %map, i64 24
   %0 = load i64, ptr %_M_element_count.i.i, align 8
   %add = add i64 %0, 1
@@ -1438,7 +1438,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
           to label %invoke.cont unwind label %lpad
 
@@ -1456,7 +1456,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #9 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
   unreachable
 }

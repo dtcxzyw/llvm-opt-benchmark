@@ -220,7 +220,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.AddressSpace, ptr @address_space_io, i64 0, i32 3) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @address_space_io, i64 32) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store i64 1, ptr %l.i, align 8
@@ -363,7 +363,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.AddressSpace, ptr @address_space_io, i64 0, i32 3) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @address_space_io, i64 32) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store i64 2, ptr %l.i, align 8
@@ -505,7 +505,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.AddressSpace, ptr @address_space_io, i64 0, i32 3) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @address_space_io, i64 32) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store i64 4, ptr %l.i, align 8

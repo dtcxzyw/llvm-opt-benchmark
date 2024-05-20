@@ -4386,7 +4386,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !27
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !28
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
   %17 = load i64, ptr %12, align 8
   %18 = load i32, ptr @nf_conntrack_htable_size, align 4
@@ -4895,7 +4895,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
 52:                                               ; preds = %48
   %53 = load i16, ptr @nf_ct_zone_dflt, align 2
   %54 = icmp ne i16 %53, 0
-  %55 = load i8, ptr getelementptr inbounds (%struct.nf_conntrack_zone, ptr @nf_ct_zone_dflt, i64 0, i32 2), align 1
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @nf_ct_zone_dflt, i64 3), align 1
   %56 = icmp eq i8 %55, 1
   %57 = select i1 %54, i1 %56, i1 false
   br i1 %57, label %58, label %62
@@ -5244,7 +5244,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %9, label %10, label %84
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 112) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %84, label %14

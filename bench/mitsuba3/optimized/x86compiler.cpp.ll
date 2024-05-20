@@ -35,7 +35,7 @@ $_ZTIN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_103x868CompilerC2EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6asmjit9_abi_1_1012BaseCompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #7
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x868CompilerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6asmjit9_abi_1_103x868CompilerE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 6, ptr %3, align 8, !tbaa !6
   invoke void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef nonnull %0)

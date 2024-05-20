@@ -36,11 +36,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @gc_globals_ctor() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   store ptr null, ptr @gc_globals, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), i8 0, i64 61, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) getelementptr inbounds (i8, ptr @gc_globals, i64 11), i8 0, i64 61, i1 false)
   ret void
 }
 
@@ -67,12 +67,12 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), i8 0, i64 7, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 11), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 13), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -91,7 +91,7 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
 
 13:                                               ; preds = %4, %7
   %.0 = phi i64 [ %12, %7 ], [ 0, %4 ]
-  store i64 %.0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 12), align 8
+  store i64 %.0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
   ret void
 }
 
@@ -99,9 +99,9 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
 define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = zext i1 %0 to i8
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 1), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
   %5 = trunc i8 %4 to i1
-  store i8 %3, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 1), align 8
+  store i8 %3, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
   br i1 %0, label %6, label %19
 
 6:                                                ; preds = %1
@@ -115,11 +115,11 @@ define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
   store ptr %10, ptr @gc_globals, align 8
   store ptr null, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), i8 0, i64 7, i1 false)
-  store <4 x i32> <i32 1, i32 10001, i32 16384, i32 0>, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 11), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 13), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
+  store <4 x i32> <i32 1, i32 10001, i32 16384, i32 0>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
   %12 = icmp eq i32 %11, 0
@@ -135,7 +135,7 @@ define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
 
 gc_reset.exit:                                    ; preds = %9, %13
   %.0.i = phi i64 [ %18, %13 ], [ 0, %9 ]
-  store i64 %.0.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 12), align 8
+  store i64 %.0.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %19
 
@@ -148,7 +148,7 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_enabled() local_unnamed_addr #4 {
-  %1 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 1), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -156,27 +156,27 @@ define zeroext i1 @gc_enabled() local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_protect(i1 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i1 %0 to i8
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   %4 = trunc i8 %3 to i1
-  store i8 %2, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  store i8 %2, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_protected() local_unnamed_addr #4 {
-  %1 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   %3 = trunc i8 %2 to i1
   br i1 %3, label %gc_possible_root_when_full.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %16, label %6
 
@@ -191,32 +191,32 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @llvm.assume(i1 %13)
   %14 = trunc i64 %11 to i32
   %15 = lshr i32 %14, 3
-  store i32 %15, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   br label %112
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 7), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   %19 = icmp ult i32 %17, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   %22 = icmp ne i32 %17, %21
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw i32 %17, 1
-  store i32 %23, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.pre19 = load ptr, ptr @gc_globals, align 8
   %.pre20 = zext i32 %17 to i64
   br label %112
 
 24:                                               ; preds = %16
-  %25 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 1), align 8
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %24
-  %28 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %.thread, label %30
 
@@ -227,7 +227,7 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   %33 = load ptr, ptr @gc_collect_cycles, align 8
   %34 = tail call i32 %33() #15
   %35 = icmp slt i32 %34, 100
-  %36 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 7), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   br i1 %35, label %37, label %52
 
 37:                                               ; preds = %30
@@ -237,7 +237,7 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
 39:                                               ; preds = %37
   %40 = tail call i32 @llvm.umin.i32(i32 %36, i32 999990000)
   %spec.store.select.i.i = add nuw nsw i32 %40, 10000
-  %41 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   %42 = icmp ugt i32 %spec.store.select.i.i, %41
   br i1 %42, label %gc_grow_root_buffer.exit.i.i, label %50
 
@@ -252,7 +252,7 @@ gc_grow_root_buffer.exit.i.i:                     ; preds = %39
   %48 = shl nuw nsw i64 %spec.store.select.i.i.i, 3
   %49 = tail call ptr @__zend_realloc(ptr noundef %47, i64 noundef %48) #17
   store ptr %49, ptr @gc_globals, align 8
-  store i32 %46, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %50
 
 50:                                               ; preds = %gc_grow_root_buffer.exit.i.i, %39
@@ -271,7 +271,7 @@ gc_grow_root_buffer.exit.i.i:                     ; preds = %39
 
 .sink.split.i.i:                                  ; preds = %54, %50
   %spec.store.select1.sink.i.i = phi i32 [ %spec.store.select1.i.i, %54 ], [ %spec.store.select.i.i, %50 ]
-  store i32 %spec.store.select1.sink.i.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 7), align 4
+  store i32 %spec.store.select1.sink.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   br label %gc_adjust_threshold.exit.i
 
 gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %52, %50, %37
@@ -294,7 +294,7 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   br i1 %.not.i, label %64, label %gc_possible_root_when_full.exit
 
 64:                                               ; preds = %61
-  %.pre = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %.not27.i = icmp eq i32 %.pre, 0
   br i1 %.not27.i, label %.thread, label %65
 
@@ -309,18 +309,18 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   tail call void @llvm.assume(i1 %72)
   %73 = trunc i64 %70 to i32
   %74 = lshr i32 %73, 3
-  store i32 %74, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 %74, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   br label %97
 
 .thread:                                          ; preds = %24, %27, %64
-  %75 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   %.not28.i = icmp eq i32 %75, %76
   br i1 %.not28.i, label %79, label %77
 
 77:                                               ; preds = %.thread
   %78 = add i32 %75, 1
-  store i32 %78, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %78, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %97
 
 79:                                               ; preds = %.thread
@@ -328,16 +328,16 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %79
-  %82 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
+  %82 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %81
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 85:                                               ; preds = %81, %79
@@ -351,18 +351,18 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   %91 = shl nuw nsw i64 %spec.store.select.i30.i, 3
   %92 = tail call ptr @__zend_realloc(ptr noundef %90, i64 noundef %91) #17
   store ptr %92, ptr @gc_globals, align 8
-  store i32 %89, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i32 %89, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %93 = phi i32 [ %.pre.i, %84 ], [ %89, %85 ]
-  %94 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not29.i = icmp eq i32 %94, %93
   br i1 %.not29.i, label %gc_possible_root_when_full.exit, label %95
 
 95:                                               ; preds = %gc_grow_root_buffer.exit.i
   %96 = add i32 %94, 1
-  store i32 %96, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %96, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %97
 
 97:                                               ; preds = %95, %77, %65
@@ -381,9 +381,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %108 = or disjoint i32 %107, %104
   %109 = or i32 %108, -1073741824
   store i32 %109, ptr %102, align 4
-  %110 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %111 = add i32 %110, 1
-  store i32 %111, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %111, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_possible_root_when_full.exit
 
 112:                                              ; preds = %20, %6
@@ -402,9 +402,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %122 = or disjoint i32 %121, %118
   %123 = or i32 %122, -1073741824
   store i32 %123, ptr %116, align 4
-  %124 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %124 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %125 = add i32 %124, 1
-  store i32 %125, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %125, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_possible_root_when_full.exit
 
 gc_possible_root_when_full.exit:                  ; preds = %97, %gc_grow_root_buffer.exit.i, %61, %60, %1, %112
@@ -419,7 +419,7 @@ define void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %5 = and i32 %4, 1048575
   %6 = and i32 %3, 1023
   store i32 %6, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %8 = icmp ugt i32 %7, 524287
   br i1 %8, label %9, label %28
 
@@ -462,7 +462,7 @@ gc_remove_compressed.exit.loopexit:               ; preds = %.preheader.i
 
 gc_remove_compressed.exit:                        ; preds = %9, %gc_remove_compressed.exit.loopexit, %28
   %.sink17 = phi ptr [ %32, %28 ], [ %12, %9 ], [ %27, %gc_remove_compressed.exit.loopexit ]
-  %33 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %34 = zext i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = or disjoint i64 %35, 1
@@ -474,10 +474,10 @@ gc_remove_compressed.exit:                        ; preds = %9, %gc_remove_compr
   %41 = sub i64 %39, %40
   %storemerge11.in = lshr exact i64 %41, 3
   %storemerge11 = trunc i64 %storemerge11.in to i32
-  store i32 %storemerge11, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %storemerge.in = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge11, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %storemerge = add i32 %storemerge.in, -1
-  store i32 %storemerge, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   ret void
 }
 
@@ -516,14 +516,14 @@ define i32 @zend_gc_collect_cycles() local_unnamed_addr #2 {
 
 22:                                               ; preds = %0, %18
   %.0.neg428 = phi i64 [ %.neg427, %18 ], [ 0, %0 ]
-  %23 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %zend_gc_remove_root_tmpvars.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %26 = trunc i8 %25 to i1
-  %.037.i = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.037.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not38.i = icmp ne ptr %.037.i, null
   %or.cond304.not = select i1 %26, i1 %.not38.i, i1 false
   br i1 %or.cond304.not, label %.lr.ph40.i, label %zend_gc_remove_root_tmpvars.exit
@@ -600,7 +600,7 @@ define i32 @zend_gc_collect_cycles() local_unnamed_addr #2 {
   %69 = and i32 %68, 1048575
   %70 = and i32 %66, 1023
   store i32 %70, ptr %65, align 4
-  %71 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %72 = icmp ugt i32 %71, 524287
   br i1 %72, label %73, label %91
 
@@ -643,7 +643,7 @@ gc_remove_from_buffer.exit.i.loopexit:            ; preds = %.preheader.i.i.i
 
 gc_remove_from_buffer.exit.i:                     ; preds = %gc_remove_from_buffer.exit.i.loopexit, %91, %73
   %.sink17.i.i = phi ptr [ %95, %91 ], [ %76, %73 ], [ %96, %gc_remove_from_buffer.exit.i.loopexit ]
-  %97 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %98 = zext i32 %97 to i64
   %99 = shl nuw nsw i64 %98, 3
   %100 = or disjoint i64 %99, 1
@@ -655,10 +655,10 @@ gc_remove_from_buffer.exit.i:                     ; preds = %gc_remove_from_buff
   %105 = sub i64 %103, %104
   %storemerge11.in.i.i = lshr exact i64 %105, 3
   %storemerge11.i.i = trunc i64 %storemerge11.in.i.i to i32
-  store i32 %storemerge11.i.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %storemerge.in.i.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge11.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
-  store i32 %storemerge.i.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %.pre.i = load i32, ptr %42, align 8
   br label %106
 
@@ -696,7 +696,7 @@ zend_gc_remove_root_tmpvars.exit:                 ; preds = %.loopexit.i, %24, %
 
 121:                                              ; preds = %119
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %122 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  %122 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %123 = trunc i8 %122 to i1
   br i1 %123, label %124, label %133
 
@@ -715,12 +715,12 @@ zend_gc_remove_root_tmpvars.exit:                 ; preds = %.loopexit.i, %24, %
   br label %1522
 
 133:                                              ; preds = %121
-  %134 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 10), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
   %135 = add i32 %134, 1
-  store i32 %135, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 10), align 8
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  store i32 %135, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %136 = add i32 %120, 1
-  %137 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not.i.i = icmp eq i32 %136, %137
   %138 = load ptr, ptr @gc_globals, align 8
   br i1 %.not.i.i, label %gc_compact.exit.i.thread, label %141
@@ -739,8 +739,8 @@ gc_compact.exit.i.thread:                         ; preds = %133
   br i1 %145, label %.preheader36.preheader.i.i, label %gc_compact.exit.i.thread518
 
 gc_compact.exit.i.thread518:                      ; preds = %141
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  store i32 %136, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %136, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %146 = zext i32 %136 to i64
   %.idx.i520 = shl nuw nsw i64 %146, 3
   %147 = getelementptr inbounds i8, ptr %138, i64 %.idx.i520
@@ -810,11 +810,11 @@ gc_compact.exit.i.thread518:                      ; preds = %141
   br i1 %181, label %.preheader36.i.i, label %gc_compact.exit.i
 
 gc_compact.exit.i:                                ; preds = %163, %180
-  %.pre.i.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %.pre.i.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %.pre = load ptr, ptr @gc_globals, align 8
   %.pre517 = add i32 %.pre.i.i, 1
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  store i32 %.pre517, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %.pre517, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %182 = zext i32 %.pre517 to i64
   %.idx.i = shl nuw nsw i64 %182, 3
   %183 = getelementptr inbounds i8, ptr %.pre, i64 %.idx.i
@@ -1252,7 +1252,7 @@ gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
   br i1 %.not267.i.i, label %.loopexit.i11.i, label %.lr.ph342.i.i
 
 377:                                              ; preds = %197
-  %378 = icmp ne ptr %.0184.i.i, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5)
+  %378 = icmp ne ptr %.0184.i.i, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %378)
   br label %.loopexit294.i.i
 
@@ -1473,7 +1473,7 @@ gc_mark_grey.exit.i:                              ; preds = %473, %465
   br i1 %.not.i153, label %gc_mark_roots.exit, label %.lr.ph.i151
 
 gc_mark_roots.exit:                               ; preds = %474
-  %.pre514 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %.pre514 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not19.i = icmp eq i32 %.pre514, 1
   br i1 %.not19.i, label %gc_scan_roots.exit.thread, label %.lr.ph.preheader.i154
 
@@ -1486,7 +1486,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   br label %.lr.ph.i155
 
 .preheader.i:                                     ; preds = %491
-  %.pre26.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %.pre26.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not1821.i = icmp eq i32 %.pre514, %.pre26.i
   br i1 %.not1821.i, label %gc_scan_roots.exit, label %.lr.ph23.i
 
@@ -1549,7 +1549,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %508 = load ptr, ptr %495, align 8
   call fastcc void @gc_scan(ptr noundef %508, ptr noundef nonnull %15)
   %.pre27.i = load ptr, ptr @gc_globals, align 8
-  %.pre29.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %.pre29.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %509
 
 509:                                              ; preds = %505, %500, %.lr.ph23.i
@@ -1590,7 +1590,7 @@ gc_scan_roots.exit:                               ; preds = %509, %.preheader.i
 525:                                              ; preds = %521
   %526 = and i32 %523, 1023
   store i32 %526, ptr %522, align 4
-  %527 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %527 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %528 = zext i32 %527 to i64
   %529 = shl nuw nsw i64 %528, 3
   %530 = or disjoint i64 %529, 1
@@ -1602,10 +1602,10 @@ gc_scan_roots.exit:                               ; preds = %509, %.preheader.i
   %535 = sub i64 %533, %534
   %536 = lshr exact i64 %535, 3
   %537 = trunc i64 %536 to i32
-  store i32 %537, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %538 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %537, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %538 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %539 = add i32 %538, -1
-  store i32 %539, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %539, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %540
 
 540:                                              ; preds = %525, %521, %.lr.ph.i161
@@ -1615,13 +1615,13 @@ gc_scan_roots.exit:                               ; preds = %509, %.preheader.i
   br i1 %.not.i162, label %._crit_edge.loopexit.i, label %.lr.ph.i161
 
 ._crit_edge.loopexit.i:                           ; preds = %540
-  %.pre.i163 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %.pre.i163 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %gc_scan_roots.exit.thread, %._crit_edge.loopexit.i, %gc_scan_roots.exit
   %542 = phi ptr [ %541, %._crit_edge.loopexit.i ], [ %512, %gc_scan_roots.exit ], [ %475, %gc_scan_roots.exit.thread ]
   %543 = phi i32 [ %.pre.i163, %._crit_edge.loopexit.i ], [ 1, %gc_scan_roots.exit ], [ 1, %gc_scan_roots.exit.thread ]
-  %544 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %544 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %545 = add i32 %544, 1
   %.not.i.i164 = icmp eq i32 %545, %543
   br i1 %.not.i.i164, label %gc_compact.exit.i167, label %546
@@ -1701,14 +1701,14 @@ gc_scan_roots.exit:                               ; preds = %509, %.preheader.i
   br i1 %585, label %.preheader36.i.i218, label %.loopexit.loopexit.i.i228
 
 .loopexit.loopexit.i.i228:                        ; preds = %584, %567
-  %.pre.i.i229 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %.pre.i.i229 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit.i.i166
 
 .loopexit.i.i166:                                 ; preds = %.loopexit.loopexit.i.i228, %547, %546
   %586 = phi i32 [ %.pre.i.i229, %.loopexit.loopexit.i.i228 ], [ %544, %547 ], [ 0, %546 ]
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %587 = add i32 %586, 1
-  store i32 %587, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %587, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %gc_compact.exit.i167
 
 gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %._crit_edge.i
@@ -1778,7 +1778,7 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br i1 %.not261.i.i202, label %612, label %663
 
 612:                                              ; preds = %611
-  %613 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %613 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %.not.i283 = icmp eq i32 %613, 0
   br i1 %.not.i283, label %624, label %614
 
@@ -1793,18 +1793,18 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   call void @llvm.assume(i1 %621)
   %622 = trunc i64 %619 to i32
   %623 = lshr i32 %622, 3
-  store i32 %623, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 %623, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   br label %647
 
 624:                                              ; preds = %612
-  %625 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  %626 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %625 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %626 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   %.not19.i286 = icmp eq i32 %625, %626
   br i1 %.not19.i286, label %629, label %627
 
 627:                                              ; preds = %624
   %628 = add i32 %625, 1
-  store i32 %628, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %628, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %647
 
 629:                                              ; preds = %624
@@ -1812,16 +1812,16 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br i1 %630, label %631, label %635
 
 631:                                              ; preds = %629
-  %632 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
+  %632 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
   %633 = trunc i8 %632 to i1
   br i1 %633, label %635, label %634
 
 634:                                              ; preds = %631
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
-  %.pre.i291 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i291 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i289
 
 635:                                              ; preds = %631, %629
@@ -1835,18 +1835,18 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   %641 = shl nuw nsw i64 %spec.store.select.i.i288, 3
   %642 = call ptr @__zend_realloc(ptr noundef %640, i64 noundef %641) #17
   store ptr %642, ptr @gc_globals, align 8
-  store i32 %639, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i32 %639, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i289
 
 gc_grow_root_buffer.exit.i289:                    ; preds = %635, %634
   %643 = phi i32 [ %.pre.i291, %634 ], [ %639, %635 ]
-  %644 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %644 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not20.i290 = icmp eq i32 %644, %643
   br i1 %.not20.i290, label %gc_add_garbage.exit292, label %645
 
 645:                                              ; preds = %gc_grow_root_buffer.exit.i289
   %646 = add i32 %644, 1
-  store i32 %646, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %646, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %647
 
 647:                                              ; preds = %645, %627, %614
@@ -1867,9 +1867,9 @@ gc_grow_root_buffer.exit.i289:                    ; preds = %635, %634
   %659 = shl nuw nsw i32 %.0.i285, 10
   %660 = or disjoint i32 %658, %659
   store i32 %660, ptr %609, align 4
-  %661 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %661 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %662 = add i32 %661, 1
-  store i32 %662, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %662, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_add_garbage.exit292
 
 gc_add_garbage.exit292:                           ; preds = %gc_grow_root_buffer.exit.i289, %647
@@ -2261,7 +2261,7 @@ gc_stack_next.exit291.i.i:                        ; preds = %825, %822, %819
   br i1 %.not259.i.i182, label %837, label %.loopexit302.i.i
 
 837:                                              ; preds = %836
-  %838 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %838 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %.not.i278 = icmp eq i32 %838, 0
   br i1 %.not.i278, label %849, label %839
 
@@ -2276,18 +2276,18 @@ gc_stack_next.exit291.i.i:                        ; preds = %825, %822, %819
   call void @llvm.assume(i1 %846)
   %847 = trunc i64 %844 to i32
   %848 = lshr i32 %847, 3
-  store i32 %848, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 %848, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   br label %872
 
 849:                                              ; preds = %837
-  %850 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  %851 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %850 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %851 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   %.not19.i280 = icmp eq i32 %850, %851
   br i1 %.not19.i280, label %854, label %852
 
 852:                                              ; preds = %849
   %853 = add i32 %850, 1
-  store i32 %853, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %853, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %872
 
 854:                                              ; preds = %849
@@ -2295,16 +2295,16 @@ gc_stack_next.exit291.i.i:                        ; preds = %825, %822, %819
   br i1 %855, label %856, label %860
 
 856:                                              ; preds = %854
-  %857 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
+  %857 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
   %858 = trunc i8 %857 to i1
   br i1 %858, label %860, label %859
 
 859:                                              ; preds = %856
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
-  %.pre.i282 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i282 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 860:                                              ; preds = %856, %854
@@ -2318,18 +2318,18 @@ gc_stack_next.exit291.i.i:                        ; preds = %825, %822, %819
   %866 = shl nuw nsw i64 %spec.store.select.i.i, 3
   %867 = call ptr @__zend_realloc(ptr noundef %865, i64 noundef %866) #17
   store ptr %867, ptr @gc_globals, align 8
-  store i32 %864, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i32 %864, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 gc_grow_root_buffer.exit.i:                       ; preds = %860, %859
   %868 = phi i32 [ %.pre.i282, %859 ], [ %864, %860 ]
-  %869 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %869 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not20.i = icmp eq i32 %869, %868
   br i1 %.not20.i, label %.loopexit302.i.i, label %870
 
 870:                                              ; preds = %gc_grow_root_buffer.exit.i
   %871 = add i32 %869, 1
-  store i32 %871, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %871, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %872
 
 872:                                              ; preds = %870, %852, %839
@@ -2351,9 +2351,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %860, %859
   %885 = shl nuw nsw i32 %.0.i279, 10
   %886 = or disjoint i32 %884, %885
   store i32 %886, ptr %882, align 4
-  %887 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %887 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %888 = add i32 %887, 1
-  store i32 %888, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %888, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit302.i.i
 
 .loopexit302.i.i:                                 ; preds = %790, %872, %gc_grow_root_buffer.exit.i, %836, %766
@@ -2573,7 +2573,7 @@ gc_collect_white.exit.i:                          ; preds = %977, %969
   br i1 %exitcond505, label %gc_collect_roots.exit.loopexit, label %.lr.ph67.i
 
 gc_collect_roots.exit.loopexit:                   ; preds = %979
-  %.pre515 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %.pre515 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_collect_roots.exit
 
 gc_collect_roots.exit:                            ; preds = %gc_collect_roots.exit.loopexit, %gc_compact.exit.i167
@@ -2597,12 +2597,12 @@ gc_collect_roots.exit:                            ; preds = %gc_collect_roots.ex
   br i1 %.not.i233, label %gc_stack_free.exit, label %.lr.ph.i232
 
 gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %981
-  store i8 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   br label %.loopexit
 
 984:                                              ; preds = %gc_collect_roots.exit
   call void @zend_fiber_switch_block() #15
-  %985 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %985 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %986 = and i32 %.8, 1
   %.not136 = icmp eq i32 %986, 0
   br i1 %.not136, label %1304, label %987
@@ -2721,7 +2721,7 @@ gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %981
   %1030 = lshr i32 %.lcssa361, 10
   %1031 = and i32 %.lcssa361, 1023
   store i32 %1031, ptr %1029, align 4
-  %1032 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %1032 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %1033 = icmp ugt i32 %1032, 524287
   %1034 = load ptr, ptr @gc_globals, align 8
   %1035 = zext nneg i32 %1030 to i64
@@ -2756,7 +2756,7 @@ gc_remove_from_buffer.exit.i242.loopexit:         ; preds = %.preheader.i.i.i248
 
 gc_remove_from_buffer.exit.i242:                  ; preds = %gc_remove_from_buffer.exit.i242.loopexit, %1037, %.lr.ph.i239._crit_edge
   %.sink17.i.i243 = phi ptr [ %1036, %1037 ], [ %1036, %.lr.ph.i239._crit_edge ], [ %1052, %gc_remove_from_buffer.exit.i242.loopexit ]
-  %1053 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %1053 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %1054 = zext i32 %1053 to i64
   %1055 = shl nuw nsw i64 %1054, 3
   %1056 = or disjoint i64 %1055, 1
@@ -2768,10 +2768,10 @@ gc_remove_from_buffer.exit.i242:                  ; preds = %gc_remove_from_buff
   %1061 = sub i64 %1059, %1060
   %storemerge11.in.i.i244 = lshr exact i64 %1061, 3
   %storemerge11.i.i245 = trunc i64 %storemerge11.in.i.i244 to i32
-  store i32 %storemerge11.i.i245, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %storemerge.in.i.i246 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge11.i.i245, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i.i246 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i.i247 = add i32 %storemerge.in.i.i246, -1
-  store i32 %storemerge.i.i247, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge.i.i247, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit233.i
 
 .lr.ph397:                                        ; preds = %.lr.ph.i239.preheader, %.lr.ph.i239
@@ -2955,7 +2955,7 @@ gc_stack_next.exit209.i:                          ; preds = %1119, %1116, %1113
   %1133 = lshr i32 %1129, 10
   %1134 = and i32 %1129, 1023
   store i32 %1134, ptr %1128, align 4
-  %1135 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %1135 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %1136 = icmp ugt i32 %1135, 524287
   %1137 = load ptr, ptr @gc_globals, align 8
   %1138 = zext nneg i32 %1133 to i64
@@ -2990,7 +2990,7 @@ gc_remove_from_buffer.exit218.i.loopexit:         ; preds = %.preheader.i.i215.i
 
 gc_remove_from_buffer.exit218.i:                  ; preds = %gc_remove_from_buffer.exit218.i.loopexit, %1140, %1132
   %.sink17.i210.i = phi ptr [ %1139, %1140 ], [ %1139, %1132 ], [ %1155, %gc_remove_from_buffer.exit218.i.loopexit ]
-  %1156 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %1156 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %1157 = zext i32 %1156 to i64
   %1158 = shl nuw nsw i64 %1157, 3
   %1159 = or disjoint i64 %1158, 1
@@ -3002,10 +3002,10 @@ gc_remove_from_buffer.exit218.i:                  ; preds = %gc_remove_from_buff
   %1164 = sub i64 %1162, %1163
   %storemerge11.in.i211.i = lshr exact i64 %1164, 3
   %storemerge11.i212.i = trunc i64 %storemerge11.in.i211.i to i32
-  store i32 %storemerge11.i212.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %storemerge.in.i213.i = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge11.i212.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i213.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i214.i = add i32 %storemerge.in.i213.i, -1
-  store i32 %storemerge.i214.i, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %storemerge.i214.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %1190
 
 1165:                                             ; preds = %1196, %.loopexit232.i
@@ -3319,17 +3319,17 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1239, %1247
 1288:                                             ; preds = %._crit_edge415, %1283
   %.0111 = phi i64 [ %1287, %1283 ], [ 0, %._crit_edge415 ]
   %1289 = add i64 %.0111, %.0110.neg431
-  %1290 = load i64, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 14), align 8
+  %1290 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
   %1291 = add i64 %1289, %1290
-  store i64 %1291, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 14), align 8
-  %1292 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  store i64 %1291, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
+  %1292 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   %1293 = trunc i8 %1292 to i1
   br i1 %1293, label %1294, label %1304
 
 1294:                                             ; preds = %1288
-  %1295 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67, i32 2), align 8
+  %1295 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
   call void @_efree(ptr noundef %1295) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
   call void @zend_fiber_switch_unblock() #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %1296 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #15
@@ -3401,7 +3401,7 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
 1325:                                             ; preds = %1319
   %1326 = or disjoint i64 %1320, 1
   %1327 = inttoptr i64 %1326 to ptr
-  %1328 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 49), align 8
+  %1328 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %1329 = getelementptr inbounds i8, ptr %1321, i64 8
   %1330 = load i32, ptr %1329, align 8
   %1331 = zext i32 %1330 to i64
@@ -3444,18 +3444,18 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   br label %1357
 
 1357:                                             ; preds = %1347, %1325
-  %1358 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 49, i32 3), align 8
+  %1358 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
   %1359 = sext i32 %1358 to i64
   %1360 = shl nsw i64 %1359, 1
   %1361 = or disjoint i64 %1360, 1
   %1362 = inttoptr i64 %1361 to ptr
-  %1363 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 49), align 8
+  %1363 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %1364 = load i32, ptr %1329, align 8
   %1365 = zext i32 %1364 to i64
   %1366 = getelementptr inbounds ptr, ptr %1363, i64 %1365
   store ptr %1362, ptr %1366, align 8
   %1367 = load i32, ptr %1329, align 8
-  store i32 %1367, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 49, i32 3), align 8
+  store i32 %1367, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
   br label %1371
 
 1368:                                             ; preds = %1319
@@ -3493,7 +3493,7 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
 1379:                                             ; preds = %.lr.ph425
   %1380 = and i64 %1376, -4
   %1381 = inttoptr i64 %1380 to ptr
-  %1382 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %1382 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %1383 = zext i32 %1382 to i64
   %1384 = shl nuw nsw i64 %1383, 3
   %1385 = or disjoint i64 %1384, 1
@@ -3505,10 +3505,10 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   %1390 = sub i64 %1388, %1389
   %1391 = lshr exact i64 %1390, 3
   %1392 = trunc i64 %1391 to i32
-  store i32 %1392, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
-  %1393 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %1392, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1393 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %1394 = add i32 %1393, -1
-  store i32 %1394, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %1394, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   call void @_efree(ptr noundef %1381) #15
   br label %1395
 
@@ -3533,23 +3533,23 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
 1403:                                             ; preds = %1398, %._crit_edge426
   %.0114 = phi i64 [ %1402, %1398 ], [ 0, %._crit_edge426 ]
   %1404 = add i64 %.0114, %.0113.neg434
-  %1405 = load i64, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 15), align 8
+  %1405 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
   %1406 = add i64 %1404, %1405
-  store i64 %1406, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 15), align 8
+  store i64 %1406, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
   call void @zend_fiber_switch_unblock() #15
-  %1407 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 11), align 4
+  %1407 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
   %1408 = add i32 %1407, %.2122
-  store i32 %1408, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 11), align 4
+  store i32 %1408, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
   %1409 = add nsw i32 %.2122, %.0128
-  store i8 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  %.pr302 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  %.pr302 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %1410 = add i32 %.pr302, 1
-  %1411 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %1411 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not.i257 = icmp eq i32 %1410, %1411
   br i1 %.not.i257, label %gc_compact.exit, label %1413
 
 .thread:                                          ; preds = %119
-  %1412 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %1412 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not.i257526 = icmp eq i32 %1412, 1
   br i1 %.not.i257526, label %gc_compact.exit, label %.loopexit.i259
 
@@ -3629,16 +3629,16 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   br i1 %1453, label %.preheader36.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %1452, %1435
-  %.pre.i263 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %.pre.i263 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit.i259
 
 .loopexit.i259:                                   ; preds = %.thread, %.loopexit.loopexit.i, %1414, %1413
   %.1129527536 = phi i32 [ %1409, %.loopexit.loopexit.i ], [ %1409, %1414 ], [ %1409, %1413 ], [ %.0128, %.thread ]
   %.2127529535 = phi i1 [ %.1126, %.loopexit.loopexit.i ], [ %.1126, %1414 ], [ %.1126, %1413 ], [ %.0125, %.thread ]
   %1454 = phi i32 [ %.pre.i263, %.loopexit.loopexit.i ], [ %.pr302, %1414 ], [ 0, %1413 ], [ 0, %.thread ]
-  store i32 0, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %1455 = add i32 %1454, 1
-  store i32 %1455, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %1455, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %gc_compact.exit
 
 gc_compact.exit:                                  ; preds = %.thread, %1403, %.loopexit.i259
@@ -3650,10 +3650,10 @@ gc_compact.exit:                                  ; preds = %.thread, %1403, %.l
 
 .loopexit:                                        ; preds = %gc_compact.exit, %gc_stack_free.exit
   %.2130 = phi i32 [ %.0128, %gc_stack_free.exit ], [ %.1129528, %gc_compact.exit ]
-  %1457 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67, i32 2), align 8
+  %1457 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
   call void @_efree(ptr noundef %1457) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67), i8 0, i64 24, i1 false)
-  %.03041.i = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
+  %.03041.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not42.i = icmp eq ptr %.03041.i, null
   br i1 %.not42.i, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph44.i
 
@@ -3779,9 +3779,9 @@ zend_gc_check_root_tmpvars.exit:                  ; preds = %.loopexit.i270, %.l
   %.0116.sink = phi i64 [ %132, %127 ], [ 0, %124 ], [ %1303, %1298 ], [ 0, %1294 ], [ %1521, %1516 ], [ 0, %zend_gc_check_root_tmpvars.exit ]
   %.0123 = phi i32 [ 0, %127 ], [ 0, %124 ], [ 0, %1298 ], [ 0, %1294 ], [ %.2130, %1516 ], [ %.2130, %zend_gc_check_root_tmpvars.exit ]
   %1523 = add i64 %.0116.sink, %.0.neg428
-  %1524 = load i64, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 13), align 8
+  %1524 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
   %1525 = add i64 %1523, %1524
-  store i64 %1525, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 13), align 8
+  store i64 %1525, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
   ret i32 %.0123
 }
 
@@ -3798,23 +3798,23 @@ declare void @_efree(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define void @zend_gc_get_status(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = and i8 %5, 1
   store i8 %7, ptr %6, align 1
-  %8 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
   %9 = getelementptr inbounds i8, ptr %0, i64 2
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 2
   %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load <4 x i32>, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 10), align 8
-  %13 = load <4 x i32>, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 7), align 4
+  %12 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  %13 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   %14 = shufflevector <4 x i32> %12, <4 x i32> %13, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x i32> %14, ptr %11, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %15, ptr %16, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -3832,14 +3832,14 @@ define void @zend_gc_get_status(ptr nocapture noundef writeonly %0) local_unname
 
 25:                                               ; preds = %1, %19
   %.0 = phi i64 [ %24, %19 ], [ 0, %1 ]
-  %26 = load i64, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 12), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
   %27 = sub i64 %.0, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load <2 x i64>, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 13), align 8
+  %30 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
   store <2 x i64> %30, ptr %29, align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 15), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %31, ptr %32, align 8
   ret void
@@ -3847,9 +3847,9 @@ define void @zend_gc_get_status(ptr nocapture noundef writeonly %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @zend_get_gc_buffer_create() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67, i32 2), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67), align 8
-  ret ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 67)
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1624), align 8
+  ret ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1624)
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4363,7 +4363,7 @@ gc_stack_next.exit278.i:                          ; preds = %190, %187, %184
   br i1 %.not260.i, label %.loopexit.i, label %.lr.ph337.i
 
 201:                                              ; preds = %21
-  %202 = icmp ne ptr %.0175.i, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5)
+  %202 = icmp ne ptr %.0175.i, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %202)
   br label %.loopexit289.i
 
@@ -4851,7 +4851,7 @@ gc_stack_next.exit243:                            ; preds = %401, %398, %394
   br i1 %.not226, label %.loopexit254, label %.lr.ph332
 
 412:                                              ; preds = %.lr.ph454
-  %413 = icmp ne ptr %.0142293453, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 5)
+  %413 = icmp ne ptr %.0142293453, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %413)
   br label %.loopexit257
 
@@ -5056,7 +5056,7 @@ declare ptr @zend_weakmap_get_object_entry_gc(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
 
@@ -5071,21 +5071,21 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %8 to i32
   %12 = lshr i32 %11, 3
-  store i32 %12, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 5), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   br label %39
 
 13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 7), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   %16 = icmp ult i32 %14, %15
-  %17 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br i1 %16, label %18, label %21
 
 18:                                               ; preds = %13
   %19 = icmp ne i32 %14, %17
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw i32 %14, 1
-  store i32 %20, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %39
 
 21:                                               ; preds = %13
@@ -5093,16 +5093,16 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 2), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 3), align 2
-  store i8 1, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 4), align 1
-  %.pre = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit
 
 27:                                               ; preds = %23, %21
@@ -5116,18 +5116,18 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   %33 = shl nuw nsw i64 %spec.store.select.i, 3
   %34 = tail call ptr @__zend_realloc(ptr noundef %32, i64 noundef %33) #17
   store ptr %34, ptr @gc_globals, align 8
-  store i32 %31, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 8), align 8
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit
 
 gc_grow_root_buffer.exit:                         ; preds = %26, %27
   %35 = phi i32 [ %.pre, %26 ], [ %31, %27 ]
-  %36 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   %.not21 = icmp eq i32 %36, %35
   br i1 %.not21, label %56, label %37
 
 37:                                               ; preds = %gc_grow_root_buffer.exit
   %38 = add i32 %36, 1
-  store i32 %38, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 6), align 8
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %39
 
 39:                                               ; preds = %18, %37, %3
@@ -5150,9 +5150,9 @@ gc_grow_root_buffer.exit:                         ; preds = %26, %27
   %52 = and i32 %50, -1073740801
   %53 = or i32 %52, %51
   store i32 %53, ptr %40, align 4
-  %54 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %55 = add i32 %54, 1
-  store i32 %55, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
+  store i32 %55, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   br label %56
 
 56:                                               ; preds = %gc_grow_root_buffer.exit, %39

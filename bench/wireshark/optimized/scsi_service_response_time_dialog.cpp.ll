@@ -114,9 +114,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %30
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %30, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %33
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ScsiServiceResponseTimeDialog, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i64 0, i32 1, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29ScsiServiceResponseTimeDialog, i64 568), ptr %35, align 8
   invoke void @_ZN18TapParameterDialog14setRetapOnShowEb(ptr noundef nonnull align 8 dereferenceable(224) %0, i1 noundef zeroext false)
           to label %36 unwind label %136
 

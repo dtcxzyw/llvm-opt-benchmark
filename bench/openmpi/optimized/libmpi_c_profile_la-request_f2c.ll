@@ -35,7 +35,7 @@ define ptr @PMPI_Request_f2c(i32 noundef %0) #0 {
 
 9:                                                ; preds = %4, %7, %1
   %10 = icmp sgt i32 %0, -1
-  %11 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_request_f_to_c_table, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_f_to_c_table, i64 88), align 8
   %.not = icmp sgt i32 %11, %0
   %or.cond = select i1 %10, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %opal_pointer_array_get_item.exit
@@ -46,13 +46,13 @@ define ptr @PMPI_Request_f2c(i32 noundef %0) #0 {
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_request_f_to_c_table, i64 0, i32 1, i32 1)) #3
+  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_request_f_to_c_table, i64 32)) #3
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %17
 
 17:                                               ; preds = %15, %12
   %18 = phi i8 [ %13, %12 ], [ %.pre.i, %15 ]
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_request_f_to_c_table, i64 0, i32 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_f_to_c_table, i64 112), align 8
   %20 = zext nneg i32 %0 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
@@ -60,7 +60,7 @@ define ptr @PMPI_Request_f2c(i32 noundef %0) #0 {
   br i1 %23, label %24, label %opal_pointer_array_get_item.exit
 
 24:                                               ; preds = %17
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_request_f_to_c_table, i64 0, i32 1, i32 1)) #3
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_request_f_to_c_table, i64 32)) #3
   br label %opal_pointer_array_get_item.exit
 
 opal_pointer_array_get_item.exit:                 ; preds = %24, %17, %9

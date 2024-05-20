@@ -29,10 +29,10 @@ define void @nxsig_release_pendingsignal(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %8 = load ptr, ptr @g_sigpendingsignal, align 8
   %.not17 = icmp eq ptr %8, null
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigpendingsignal, i64 8), align 8
   %g_sigpendingsignal.sink = select i1 %.not17, ptr @g_sigpendingsignal, ptr %9
   store ptr %0, ptr %g_sigpendingsignal.sink, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_sigpendingsignal, i64 8), align 8
   %10 = and i64 %7, 512
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %11
@@ -50,10 +50,10 @@ define void @nxsig_release_pendingsignal(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %14 = load ptr, ptr @g_sigpendingirqsignal, align 8
   %.not = icmp eq ptr %14, null
-  %15 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqsignal, i64 8), align 8
   %g_sigpendingirqsignal.sink = select i1 %.not, ptr @g_sigpendingirqsignal, ptr %15
   store ptr %0, ptr %g_sigpendingirqsignal.sink, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqsignal, i64 8), align 8
   %16 = and i64 %13, 512
   %.not.i18 = icmp eq i64 %16, 0
   br i1 %.not.i18, label %up_irq_restore.exit, label %17

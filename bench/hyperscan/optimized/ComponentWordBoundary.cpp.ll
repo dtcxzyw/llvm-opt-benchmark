@@ -27,7 +27,7 @@ define hidden void @_ZN3ue221ComponentWordBoundaryC2EjbRKNS_9ParseModeE(ptr noun
 entry:
   %frombool = zext i1 %neg to i8
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 16), ptr %this, align 8
   %loc = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %loc_in, ptr %loc, align 8
   %position = getelementptr inbounds i8, ptr %this, i64 20
@@ -74,7 +74,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
   %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 16), ptr %call, align 8
   %0 = load <4 x i32>, ptr %pos_begin2.i.i, align 8
   store <4 x i32> %0, ptr %pos_begin.i.i, align 8
   %negated.i = getelementptr inbounds i8, ptr %call, i64 24

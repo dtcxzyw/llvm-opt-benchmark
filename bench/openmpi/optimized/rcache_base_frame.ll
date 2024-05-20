@@ -49,7 +49,7 @@ define internal noundef i32 @mca_rcache_base_register_mca_variables(i32 %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_rcache_base_open(i32 noundef %0) #2 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -59,8 +59,8 @@ define internal i32 @mca_rcache_base_open(i32 noundef %0) #2 {
 
 5:                                                ; preds = %4, %1
   store ptr @opal_list_t_class, ptr @mca_rcache_base_modules, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -81,15 +81,15 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_rcache_base_close() #2 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 2), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 56), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %37
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 2), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 56), align 8
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 2), align 8
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 1, i32 1), align 8
+  store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 32), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load volatile ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -97,7 +97,7 @@ define internal i32 @mca_rcache_base_close() #2 {
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
-  store volatile ptr %11, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 1, i32 1), align 8
+  store volatile ptr %11, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 32), align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
@@ -154,7 +154,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
   br label %37
 
 37:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %38 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_rcache_base_modules, i64 0, i32 2), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 56), align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -176,7 +176,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
 ; Function Attrs: nounwind uwtable
 define void @mca_rcache_base_module_init(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -189,7 +189,7 @@ define void @mca_rcache_base_module_init(ptr noundef %0) local_unnamed_addr #2 {
   store ptr @opal_mutex_t_class, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

@@ -126,9 +126,9 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %5 = sub i64 %0, %1
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %5, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 26), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 144), align 8
   call void @zend_shared_alloc_create_lock(ptr noundef %7)
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 19), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 88), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %zend_shared_alloc_try.exit.thread90, label %9
 
@@ -359,7 +359,7 @@ zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_t
   %102 = getelementptr inbounds i8, ptr %88, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = call i64 %103() #20
-  store i8 1, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %105 = call ptr @zend_shared_alloc(i64 noundef 80)
   %.not63 = icmp eq ptr %105, null
   br i1 %.not63, label %106, label %107
@@ -485,7 +485,7 @@ copy_shared_segments.exit:                        ; preds = %133, %118
   unreachable
 
 175:                                              ; preds = %161, %148
-  store i8 0, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   br label %176
 
 176:                                              ; preds = %zend_shared_alloc_try.exit82.thread95, %175, %49
@@ -501,7 +501,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %3 = trunc i8 %2 to i1
   tail call void @llvm.assume(i1 %3)
   %4 = add i64 %0, 7
@@ -771,7 +771,7 @@ define hidden noundef i32 @zend_shared_memdup_size(ptr noundef %0, i64 noundef %
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %13
 
@@ -779,7 +779,7 @@ define hidden noundef i32 @zend_shared_memdup_size(ptr noundef %0, i64 noundef %
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %8, align 8
-  %9 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5, ptr noundef nonnull %3) #20
+  %9 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
   %10 = trunc i64 %1 to i32
   %11 = add i32 %10, 7
   %12 = and i32 %11, -8
@@ -795,7 +795,7 @@ define hidden ptr @zend_shared_memdup_get_put_free(ptr noundef %0, i64 noundef %
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -804,16 +804,16 @@ define hidden ptr @zend_shared_memdup_get_put_free(ptr noundef %0, i64 noundef %
   br label %16
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %11 = add i64 %1, 7
   %12 = and i64 %11, -8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %0, i64 %1, i1 false)
   store ptr %10, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %14, align 8
-  %15 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5, ptr noundef nonnull %3) #20
+  %15 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
   call void @_efree(ptr noundef %0) #20
   br label %16
 
@@ -825,29 +825,29 @@ define hidden ptr @zend_shared_memdup_get_put_free(ptr noundef %0, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_shared_memdup_put_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %5 = add i64 %1, 7
   %6 = and i64 %5, -8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %0, i64 %1, i1 false)
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 61)
   store ptr %4, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %10, align 8
-  %11 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %9, ptr noundef nonnull %3) #20
+  %11 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %9, ptr noundef nonnull %3) #20
   call void @_efree(ptr noundef %0) #20
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_shared_memdup_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %4 = add i64 %1, 7
   %5 = and i64 %4, -8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %0, i64 %1, i1 false)
   tail call void @_efree(ptr noundef %0) #20
   ret ptr %3
@@ -858,7 +858,7 @@ define hidden ptr @zend_shared_memdup_get_put(ptr noundef %0, i64 noundef %1) lo
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -867,16 +867,16 @@ define hidden ptr @zend_shared_memdup_get_put(ptr noundef %0, i64 noundef %1) lo
   br label %16
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %11 = add i64 %1, 7
   %12 = and i64 %11, -8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %0, i64 %1, i1 false)
   store ptr %10, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %14, align 8
-  %15 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5, ptr noundef nonnull %3) #20
+  %15 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
   br label %16
 
 16:                                               ; preds = %7, %9
@@ -887,28 +887,28 @@ define hidden ptr @zend_shared_memdup_get_put(ptr noundef %0, i64 noundef %1) lo
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_shared_memdup_put(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %5 = add i64 %1, 7
   %6 = and i64 %5, -8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %0, i64 %1, i1 false)
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 61)
   store ptr %4, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %10, align 8
-  %11 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %9, ptr noundef nonnull %3) #20
+  %11 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %9, ptr noundef nonnull %3) #20
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @zend_shared_memdup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #13 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %4 = add i64 %1, 7
   %5 = and i64 %4, -8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %0, i64 %1, i1 false)
   ret ptr %3
 }
@@ -916,7 +916,7 @@ define hidden ptr @zend_shared_memdup(ptr nocapture noundef readonly %0, i64 nou
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_safe_unlock() local_unnamed_addr #0 {
   %1 = alloca %struct.flock, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %16
 
@@ -929,7 +929,7 @@ define hidden void @zend_shared_alloc_safe_unlock() local_unnamed_addr #0 {
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 1, ptr %7, align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %8 = load i32, ptr @lock_file, align 4
   %9 = call i32 (i32, i32, ...) @fcntl(i32 noundef %8, i32 noundef 6, ptr noundef nonnull %1) #20
   %10 = icmp eq i32 %9, -1
@@ -954,7 +954,7 @@ zend_shared_alloc_unlock.exit:                    ; preds = %4
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_unlock() local_unnamed_addr #0 {
   %1 = alloca %struct.flock, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %3 = trunc i8 %2 to i1
   tail call void @llvm.assume(i1 %3)
   store i16 2, ptr %1, align 8
@@ -964,7 +964,7 @@ define hidden void @zend_shared_alloc_unlock() local_unnamed_addr #0 {
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 1, ptr %6, align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %7 = load i32, ptr @lock_file, align 4
   %8 = call i32 (i32, i32, ...) @fcntl(i32 noundef %7, i32 noundef 6, ptr noundef nonnull %1) #20
   %9 = icmp eq i32 %8, -1
@@ -985,7 +985,7 @@ define hidden void @zend_shared_alloc_unlock() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_lock() local_unnamed_addr #0 {
   %1 = alloca %struct.flock, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   %3 = trunc i8 %2 to i1
   %4 = xor i1 %3, true
   tail call void @llvm.assume(i1 %4)
@@ -1017,13 +1017,13 @@ define hidden void @zend_shared_alloc_lock() local_unnamed_addr #0 {
   unreachable
 
 19:                                               ; preds = %8
-  store i8 1, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 2), align 2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_init_xlat_table() local_unnamed_addr #0 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i32 noundef 128, ptr noundef null, i1 noundef zeroext false) #20
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i32 noundef 128, ptr noundef null, i1 noundef zeroext false) #20
   ret void
 }
 
@@ -1031,7 +1031,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_destroy_xlat_table() local_unnamed_addr #0 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17)) #20
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304)) #20
   ret void
 }
 
@@ -1039,7 +1039,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_clear_xlat_table() local_unnamed_addr #0 {
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17)) #20
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304)) #20
   ret void
 }
 
@@ -1047,13 +1047,13 @@ declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @zend_shared_alloc_checkpoint_xlat_table() local_unnamed_addr #14 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 328), align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_restore_xlat_table(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @zend_hash_discard(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i32 noundef %0) #20
+  tail call void @zend_hash_discard(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i32 noundef %0) #20
   ret void
 }
 
@@ -1067,7 +1067,7 @@ define hidden void @zend_shared_alloc_register_xlat_entry(ptr noundef %0, ptr no
   store ptr %1, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %6, align 8
-  %7 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %5, ptr noundef nonnull %3) #20
+  %7 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
   ret void
 }
 
@@ -1075,7 +1075,7 @@ define hidden void @zend_shared_alloc_register_xlat_entry(ptr noundef %0, ptr no
 define hidden noundef ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 61)
-  %4 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 17), i64 noundef %3) #20
+  %4 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @accel_globals, i64 304), i64 noundef %3) #20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 

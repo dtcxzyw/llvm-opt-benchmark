@@ -321,30 +321,30 @@ thread-pre-split.i:                               ; preds = %55
   unreachable
 
 72:                                               ; preds = %65
-  %73 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
-  %74 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 2), align 8
+  %73 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 16), align 8
+  %74 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 16), align 8
   %75 = sub i64 %73, %74
   store i64 %75, ptr %3, align 16
-  %76 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
-  %77 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 4), align 8
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 32), align 8
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 32), align 8
   %78 = sub i64 %76, %77
   %79 = uitofp i64 %78 to double
   %80 = fmul double %79, 0x3EB0000000000000
   %81 = getelementptr inbounds i8, ptr %3, i64 8
   store double %80, ptr %81, align 8
-  %82 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %83 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 1), align 8
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
+  %83 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 8), align 8
   %84 = sub i64 %82, %83
   %85 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %84, ptr %85, align 16
-  %86 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %87 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 3), align 8
+  %86 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
+  %87 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 24), align 8
   %88 = sub i64 %86, %87
   %89 = uitofp i64 %88 to double
   %90 = fmul double %89, 0x3EB0000000000000
   %91 = getelementptr inbounds i8, ptr %3, i64 24
   store double %90, ptr %91, align 8
-  %92 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 2097152
   %.not18.i = icmp eq i64 %93, 0
   br i1 %.not18.i, label %99, label %94
@@ -492,14 +492,14 @@ define range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef write
   %35 = load i32, ptr @tres_pos, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %36, i32 1
-  %38 = load <2 x i64>, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %39 = load <2 x i64>, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 1), align 8
+  %38 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
+  %39 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 8), align 8
   %40 = sub <2 x i64> %38, %39
   %41 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i64> %41, ptr %37, align 8
   %42 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %36, i32 3
-  %43 = load <2 x i64>, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %44 = load <2 x i64>, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats_prev, i64 0, i32 3), align 8
+  %43 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
+  %44 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 24), align 8
   %45 = sub <2 x i64> %43, %44
   %46 = uitofp <2 x i64> %45 to <2 x double>
   %47 = fmul <2 x double> %46, <double 0x3EB0000000000000, double 0x3EB0000000000000>
@@ -704,28 +704,28 @@ _llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exi
 ._crit_edge:                                      ; preds = %67, %.lr.ph, %46
   %69 = call i32 @fclose(ptr noundef nonnull %42)
   %70 = load i64, ptr %5, align 8
-  %71 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
   %72 = add i64 %71, %70
-  store i64 %72, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
+  store i64 %72, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
   %73 = load i64, ptr %7, align 8
-  %74 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  %74 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 32), align 8
   %75 = add i64 %74, %73
-  store i64 %75, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  store i64 %75, ptr getelementptr inbounds (i8, ptr @lstats, i64 32), align 8
   %76 = load i64, ptr %4, align 8
-  %77 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
   %78 = add i64 %77, %76
-  store i64 %78, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
+  store i64 %78, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
   %79 = load i64, ptr %6, align 8
-  %80 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  %80 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 16), align 8
   %81 = add i64 %80, %79
-  store i64 %81, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  store i64 %81, ptr getelementptr inbounds (i8, ptr @lstats, i64 16), align 8
   %82 = call i32 @slurm_get_log_level() #11
   %83 = icmp sgt i32 %82, 6
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %._crit_edge
-  %85 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %86 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  %85 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
+  %86 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 32), align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.34, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %85, i64 noundef %86) #11
   br label %87
 
@@ -735,8 +735,8 @@ _llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exi
   br i1 %89, label %90, label %.backedge
 
 90:                                               ; preds = %87
-  %91 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %92 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  %91 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 16), align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.35, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %91, i64 noundef %92) #11
   br label %.backedge
 

@@ -181,7 +181,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %37 = load ptr, ptr %1, align 8
   %38 = tail call noalias ptr @pmix_basename(ptr noundef %37) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %39 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i64 0, i32 14), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
   %40 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.70, ptr noundef %39, ptr noundef nonnull @.str.71) #16
   %41 = load ptr, ptr %8, align 8
   %42 = icmp eq ptr %41, null

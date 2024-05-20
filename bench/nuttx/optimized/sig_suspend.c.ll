@@ -42,14 +42,14 @@ define noundef i32 @sigsuspend(ptr nocapture noundef readonly %0) local_unnamed_
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store i8 6, ptr %16, align 16
   store ptr null, ptr %3, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr @g_waitingforsignal, align 8
   %.not = icmp eq ptr %19, null
   %g_waitingforsignal. = select i1 %.not, ptr @g_waitingforsignal, ptr %17
   store ptr %3, ptr %g_waitingforsignal., align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %15, label %20, label %22
 
 20:                                               ; preds = %14

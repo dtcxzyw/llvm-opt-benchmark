@@ -362,7 +362,7 @@ define dso_local i32 @drm_gem_prime_fd_to_handle(ptr noundef %0, ptr noundef %1,
 
 67:                                               ; preds = %.thread10
   %68 = load i32, ptr %3, align 4
-  %69 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %70 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %69, i32 noundef 3264, i64 noundef 64) #6
   %71 = icmp eq ptr %70, null
   br i1 %71, label %114, label %72
@@ -617,7 +617,7 @@ define dso_local i32 @drm_gem_prime_handle_to_fd(ptr noundef %0, ptr noundef %1,
 
 75:                                               ; preds = %68, %44, %35
   %76 = phi ptr [ %36, %35 ], [ %48, %44 ], [ %66, %68 ]
-  %77 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %78 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %77, i32 noundef 3264, i64 noundef 64) #6
   %79 = icmp eq ptr %78, null
   br i1 %79, label %drm_prime_add_buf_handle.exit, label %80
@@ -984,9 +984,9 @@ define dso_local i32 @drm_gem_prime_mmap(ptr noundef %0, ptr noundef %1) #0 alig
   br label %.thread
 
 45:                                               ; preds = %12, %2
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %47 = tail call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 368) #6
-  %48 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %49 = tail call noalias align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 232) #6
   %50 = icmp ne ptr %47, null
   %51 = icmp ne ptr %49, null
@@ -1045,7 +1045,7 @@ define dso_local i32 @drm_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_prime_pages_to_sg(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 16) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %22, label %7

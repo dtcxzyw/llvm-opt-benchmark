@@ -264,13 +264,13 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %38
           to label %43 unwind label %65
 
 43:                                               ; preds = %_ZNSt5mutex4lockEv.exit
-  %44 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 16), align 8
   %.not11.i.i.i = icmp eq ptr %44, null
   br i1 %.not11.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %43, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %44, %43 ]
-  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %43 ]
+  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), %43 ]
   %45 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %46 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %47
@@ -292,7 +292,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %51 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %51 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8)
   br i1 %51, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit, label %52
 
 52:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
@@ -309,14 +309,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_b
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %52
   %58 = icmp slt i32 %54, 0
-  %spec.select = select i1 %58, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr %.19.i.i.i
+  %spec.select = select i1 %58, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr %.19.i.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %43
-  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %43 ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), %43 ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
-  %.not91 = icmp eq ptr %.sroa.0.0.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not91 = icmp eq ptr %.sroa.0.0.i.i, getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8)
   br i1 %.not91, label %.critedge, label %59
 
 59:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit
@@ -1266,7 +1266,7 @@ define hidden void @_Z35pj_clear_gridshift_knowngrids_cachev() local_unnamed_add
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZL11gKnownGridsB5cxx11, ptr noundef %3)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE5clearEv.exit unwind label %4
 
@@ -1278,10 +1278,10 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 40), align 8
   %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL6gMutex) #20
   ret void
 }
@@ -3901,9 +3901,9 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define internal void @_GLOBAL__sub_I_gridshift.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator.0", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZL11gKnownGridsB5cxx11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL11gKnownGridsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 40), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEED2Ev, ptr nonnull @_ZL11gKnownGridsB5cxx11, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #20

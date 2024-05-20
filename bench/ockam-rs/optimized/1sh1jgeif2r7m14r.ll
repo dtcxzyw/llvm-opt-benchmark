@@ -2419,7 +2419,7 @@ define void @_ZN10ockam_core5error5inner9ErrorData9new_inner17h4c69759be750ce49E
   %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = getelementptr inbounds i8, ptr %22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %27 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hec95b64132f980a8E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds ({ { ptr, i64 }, { i8 }, i8, [6 x i8] }, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 0, i32 1, i32 0), i8 noundef 0)
+  %27 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hec95b64132f980a8E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 16), i8 noundef 0)
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %7
@@ -2430,16 +2430,16 @@ define void @_ZN10ockam_core5error5inner9ErrorData9new_inner17h4c69759be750ce49E
 
 28:                                               ; preds = %.noexc
   %29 = load ptr, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, align 8, !nonnull !4, !align !10, !noundef !4
-  %30 = load i64, ptr getelementptr inbounds ({ { ptr, i64 }, { i8 }, i8, [6 x i8] }, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 0, i32 0, i32 1), align 8, !noundef !4
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 8), align 8, !noundef !4
   %31 = invoke noundef i8 @_ZN10ockam_core5error5inner12trace_config14check_env_vars17h22d2afef6fdd6de2E(ptr noalias noundef nonnull readonly align 8 %29, i64 noundef %30)
           to label %.noexc24 unwind label %35
 
 .noexc24:                                         ; preds = %28
-  %32 = load i8, ptr getelementptr inbounds ({ { ptr, i64 }, { i8 }, i8, [6 x i8] }, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 0, i32 2), align 1, !range !202, !noundef !4
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 17), align 1, !range !202, !noundef !4
   %33 = icmp eq i8 %31, 2
   %spec.select.i.i.i = select i1 %33, i8 %32, i8 %31
   %34 = add nuw nsw i8 %spec.select.i.i.i, 1
-  invoke void @_ZN4core4sync6atomic12atomic_store17h722615bb1c9912e9E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds ({ { ptr, i64 }, { i8 }, i8, [6 x i8] }, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 0, i32 1, i32 0), i8 noundef %34, i8 noundef 0)
+  invoke void @_ZN4core4sync6atomic12atomic_store17h722615bb1c9912e9E.llvm.15887933665536463318(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN10ockam_core5error5inner12trace_config17SPANTRACE_ENABLED17h2d25c0b22daa88eeE, i64 16), i8 noundef %34, i8 noundef 0)
           to label %_ZN10ockam_core5error5inner12trace_config11TraceConfig3get17h1fbbb7a2607cc0b3E.exit unwind label %35
 
 .body:                                            ; preds = %48, %35, %.thread

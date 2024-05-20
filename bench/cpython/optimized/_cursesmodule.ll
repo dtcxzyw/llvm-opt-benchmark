@@ -4763,8 +4763,8 @@ entry:
   %ch2.i = alloca i32, align 4
   %verch = alloca ptr, align 8
   %horch = alloca ptr, align 8
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), ptr %verch, align 8
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), ptr %horch, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %verch, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %horch, align 8
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   switch i64 %args.val, label %sw.default [
@@ -10149,7 +10149,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.end4.i:                                        ; preds = %if.end.i
   store i1 true, ptr @initialised_setupterm, align 4
   store i1 true, ptr @initialised, align 4
-  %6 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 108), align 4
+  %6 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 432), align 4
   %conv.i = zext i32 %6 to i64
   %call5.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #8
   %tobool6.not.i = icmp eq ptr %call5.i, null
@@ -10178,7 +10178,7 @@ if.then1.i934.i:                                  ; preds = %if.end.i931.i
   br label %do.body12.i
 
 do.body12.i:                                      ; preds = %if.then1.i934.i, %if.end.i931.i, %if.then10.i, %land.lhs.true.i, %if.end4.i
-  %10 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 109), align 4
+  %10 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 436), align 4
   %conv14.i = zext i32 %10 to i64
   %call15.i = tail call ptr @PyLong_FromLong(i64 noundef %conv14.i) #8
   %tobool16.not.i = icmp eq ptr %call15.i, null
@@ -10207,7 +10207,7 @@ if.then1.i925.i:                                  ; preds = %if.end.i922.i
   br label %do.body24.i
 
 do.body24.i:                                      ; preds = %if.then1.i925.i, %if.end.i922.i, %if.then21.i, %land.lhs.true17.i, %do.body12.i
-  %14 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 107), align 4
+  %14 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 428), align 4
   %conv26.i = zext i32 %14 to i64
   %call27.i = tail call ptr @PyLong_FromLong(i64 noundef %conv26.i) #8
   %tobool28.not.i = icmp eq ptr %call27.i, null
@@ -10236,7 +10236,7 @@ if.then1.i916.i:                                  ; preds = %if.end.i913.i
   br label %do.body36.i
 
 do.body36.i:                                      ; preds = %if.then1.i916.i, %if.end.i913.i, %if.then33.i, %land.lhs.true29.i, %do.body24.i
-  %18 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 106), align 4
+  %18 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 424), align 4
   %conv38.i = zext i32 %18 to i64
   %call39.i = tail call ptr @PyLong_FromLong(i64 noundef %conv38.i) #8
   %tobool40.not.i = icmp eq ptr %call39.i, null
@@ -10265,7 +10265,7 @@ if.then1.i907.i:                                  ; preds = %if.end.i904.i
   br label %do.body48.i
 
 do.body48.i:                                      ; preds = %if.then1.i907.i, %if.end.i904.i, %if.then45.i, %land.lhs.true41.i, %do.body36.i
-  %22 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 116), align 4
+  %22 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 464), align 4
   %conv50.i = zext i32 %22 to i64
   %call51.i = tail call ptr @PyLong_FromLong(i64 noundef %conv50.i) #8
   %tobool52.not.i = icmp eq ptr %call51.i, null
@@ -10294,7 +10294,7 @@ if.then1.i898.i:                                  ; preds = %if.end.i895.i
   br label %do.body60.i
 
 do.body60.i:                                      ; preds = %if.then1.i898.i, %if.end.i895.i, %if.then57.i, %land.lhs.true53.i, %do.body48.i
-  %26 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 117), align 4
+  %26 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 468), align 4
   %conv62.i = zext i32 %26 to i64
   %call63.i = tail call ptr @PyLong_FromLong(i64 noundef %conv62.i) #8
   %tobool64.not.i = icmp eq ptr %call63.i, null
@@ -10323,7 +10323,7 @@ if.then1.i889.i:                                  ; preds = %if.end.i886.i
   br label %do.body72.i
 
 do.body72.i:                                      ; preds = %if.then1.i889.i, %if.end.i886.i, %if.then69.i, %land.lhs.true65.i, %do.body60.i
-  %30 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 118), align 4
+  %30 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 472), align 4
   %conv74.i = zext i32 %30 to i64
   %call75.i = tail call ptr @PyLong_FromLong(i64 noundef %conv74.i) #8
   %tobool76.not.i = icmp eq ptr %call75.i, null
@@ -10352,7 +10352,7 @@ if.then1.i880.i:                                  ; preds = %if.end.i877.i
   br label %do.body84.i
 
 do.body84.i:                                      ; preds = %if.then1.i880.i, %if.end.i877.i, %if.then81.i, %land.lhs.true77.i, %do.body72.i
-  %34 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 119), align 4
+  %34 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 476), align 4
   %conv86.i = zext i32 %34 to i64
   %call87.i = tail call ptr @PyLong_FromLong(i64 noundef %conv86.i) #8
   %tobool88.not.i = icmp eq ptr %call87.i, null
@@ -10381,7 +10381,7 @@ if.then1.i871.i:                                  ; preds = %if.end.i868.i
   br label %do.body96.i
 
 do.body96.i:                                      ; preds = %if.then1.i871.i, %if.end.i868.i, %if.then93.i, %land.lhs.true89.i, %do.body84.i
-  %38 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 113), align 4
+  %38 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 452), align 4
   %conv98.i = zext i32 %38 to i64
   %call99.i = tail call ptr @PyLong_FromLong(i64 noundef %conv98.i) #8
   %tobool100.not.i = icmp eq ptr %call99.i, null
@@ -10410,7 +10410,7 @@ if.then1.i862.i:                                  ; preds = %if.end.i859.i
   br label %do.body108.i
 
 do.body108.i:                                     ; preds = %if.then1.i862.i, %if.end.i859.i, %if.then105.i, %land.lhs.true101.i, %do.body96.i
-  %42 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 120), align 4
+  %42 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 480), align 4
   %conv110.i = zext i32 %42 to i64
   %call111.i = tail call ptr @PyLong_FromLong(i64 noundef %conv110.i) #8
   %tobool112.not.i = icmp eq ptr %call111.i, null
@@ -10439,7 +10439,7 @@ if.then1.i853.i:                                  ; preds = %if.end.i850.i
   br label %do.body120.i
 
 do.body120.i:                                     ; preds = %if.then1.i853.i, %if.end.i850.i, %if.then117.i, %land.lhs.true113.i, %do.body108.i
-  %46 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 110), align 4
+  %46 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 440), align 4
   %conv122.i = zext i32 %46 to i64
   %call123.i = tail call ptr @PyLong_FromLong(i64 noundef %conv122.i) #8
   %tobool124.not.i = icmp eq ptr %call123.i, null
@@ -10468,7 +10468,7 @@ if.then1.i844.i:                                  ; preds = %if.end.i841.i
   br label %do.body132.i
 
 do.body132.i:                                     ; preds = %if.then1.i844.i, %if.end.i841.i, %if.then129.i, %land.lhs.true125.i, %do.body120.i
-  %50 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 111), align 4
+  %50 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 444), align 4
   %conv134.i = zext i32 %50 to i64
   %call135.i = tail call ptr @PyLong_FromLong(i64 noundef %conv134.i) #8
   %tobool136.not.i = icmp eq ptr %call135.i, null
@@ -10497,7 +10497,7 @@ if.then1.i835.i:                                  ; preds = %if.end.i832.i
   br label %do.body144.i
 
 do.body144.i:                                     ; preds = %if.then1.i835.i, %if.end.i832.i, %if.then141.i, %land.lhs.true137.i, %do.body132.i
-  %54 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 115), align 4
+  %54 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 460), align 4
   %conv146.i = zext i32 %54 to i64
   %call147.i = tail call ptr @PyLong_FromLong(i64 noundef %conv146.i) #8
   %tobool148.not.i = icmp eq ptr %call147.i, null
@@ -10526,7 +10526,7 @@ if.then1.i826.i:                                  ; preds = %if.end.i823.i
   br label %do.body156.i
 
 do.body156.i:                                     ; preds = %if.then1.i826.i, %if.end.i823.i, %if.then153.i, %land.lhs.true149.i, %do.body144.i
-  %58 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 96), align 4
+  %58 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 384), align 4
   %conv158.i = zext i32 %58 to i64
   %call159.i = tail call ptr @PyLong_FromLong(i64 noundef %conv158.i) #8
   %tobool160.not.i = icmp eq ptr %call159.i, null
@@ -10555,7 +10555,7 @@ if.then1.i817.i:                                  ; preds = %if.end.i814.i
   br label %do.body168.i
 
 do.body168.i:                                     ; preds = %if.then1.i817.i, %if.end.i814.i, %if.then165.i, %land.lhs.true161.i, %do.body156.i
-  %62 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 97), align 4
+  %62 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 388), align 4
   %conv170.i = zext i32 %62 to i64
   %call171.i = tail call ptr @PyLong_FromLong(i64 noundef %conv170.i) #8
   %tobool172.not.i = icmp eq ptr %call171.i, null
@@ -10584,7 +10584,7 @@ if.then1.i808.i:                                  ; preds = %if.end.i805.i
   br label %do.body180.i
 
 do.body180.i:                                     ; preds = %if.then1.i808.i, %if.end.i805.i, %if.then177.i, %land.lhs.true173.i, %do.body168.i
-  %66 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 102), align 4
+  %66 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 408), align 4
   %conv182.i = zext i32 %66 to i64
   %call183.i = tail call ptr @PyLong_FromLong(i64 noundef %conv182.i) #8
   %tobool184.not.i = icmp eq ptr %call183.i, null
@@ -10613,7 +10613,7 @@ if.then1.i799.i:                                  ; preds = %if.end.i796.i
   br label %do.body192.i
 
 do.body192.i:                                     ; preds = %if.then1.i799.i, %if.end.i796.i, %if.then189.i, %land.lhs.true185.i, %do.body180.i
-  %70 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 103), align 4
+  %70 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 412), align 4
   %conv194.i = zext i32 %70 to i64
   %call195.i = tail call ptr @PyLong_FromLong(i64 noundef %conv194.i) #8
   %tobool196.not.i = icmp eq ptr %call195.i, null
@@ -10642,7 +10642,7 @@ if.then1.i790.i:                                  ; preds = %if.end.i787.i
   br label %do.body204.i
 
 do.body204.i:                                     ; preds = %if.then1.i790.i, %if.end.i787.i, %if.then201.i, %land.lhs.true197.i, %do.body192.i
-  %74 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 126), align 4
+  %74 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 504), align 4
   %conv206.i = zext i32 %74 to i64
   %call207.i = tail call ptr @PyLong_FromLong(i64 noundef %conv206.i) #8
   %tobool208.not.i = icmp eq ptr %call207.i, null
@@ -10671,7 +10671,7 @@ if.then1.i781.i:                                  ; preds = %if.end.i778.i
   br label %do.body216.i
 
 do.body216.i:                                     ; preds = %if.then1.i781.i, %if.end.i778.i, %if.then213.i, %land.lhs.true209.i, %do.body204.i
-  %78 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 44), align 4
+  %78 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 176), align 4
   %conv218.i = zext i32 %78 to i64
   %call219.i = tail call ptr @PyLong_FromLong(i64 noundef %conv218.i) #8
   %tobool220.not.i = icmp eq ptr %call219.i, null
@@ -10700,7 +10700,7 @@ if.then1.i772.i:                                  ; preds = %if.end.i769.i
   br label %do.body228.i
 
 do.body228.i:                                     ; preds = %if.then1.i772.i, %if.end.i769.i, %if.then225.i, %land.lhs.true221.i, %do.body216.i
-  %82 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 43), align 4
+  %82 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 172), align 4
   %conv230.i = zext i32 %82 to i64
   %call231.i = tail call ptr @PyLong_FromLong(i64 noundef %conv230.i) #8
   %tobool232.not.i = icmp eq ptr %call231.i, null
@@ -10729,7 +10729,7 @@ if.then1.i763.i:                                  ; preds = %if.end.i760.i
   br label %do.body240.i
 
 do.body240.i:                                     ; preds = %if.then1.i763.i, %if.end.i760.i, %if.then237.i, %land.lhs.true233.i, %do.body228.i
-  %86 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 46), align 4
+  %86 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 184), align 4
   %conv242.i = zext i32 %86 to i64
   %call243.i = tail call ptr @PyLong_FromLong(i64 noundef %conv242.i) #8
   %tobool244.not.i = icmp eq ptr %call243.i, null
@@ -10758,7 +10758,7 @@ if.then1.i754.i:                                  ; preds = %if.end.i751.i
   br label %do.body252.i
 
 do.body252.i:                                     ; preds = %if.then1.i754.i, %if.end.i751.i, %if.then249.i, %land.lhs.true245.i, %do.body240.i
-  %90 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 45), align 4
+  %90 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 180), align 4
   %conv254.i = zext i32 %90 to i64
   %call255.i = tail call ptr @PyLong_FromLong(i64 noundef %conv254.i) #8
   %tobool256.not.i = icmp eq ptr %call255.i, null
@@ -10787,7 +10787,7 @@ if.then1.i745.i:                                  ; preds = %if.end.i742.i
   br label %do.body264.i
 
 do.body264.i:                                     ; preds = %if.then1.i745.i, %if.end.i742.i, %if.then261.i, %land.lhs.true257.i, %do.body252.i
-  %94 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 104), align 4
+  %94 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 416), align 4
   %conv266.i = zext i32 %94 to i64
   %call267.i = tail call ptr @PyLong_FromLong(i64 noundef %conv266.i) #8
   %tobool268.not.i = icmp eq ptr %call267.i, null
@@ -10816,7 +10816,7 @@ if.then1.i736.i:                                  ; preds = %if.end.i733.i
   br label %do.body276.i
 
 do.body276.i:                                     ; preds = %if.then1.i736.i, %if.end.i733.i, %if.then273.i, %land.lhs.true269.i, %do.body264.i
-  %98 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 105), align 4
+  %98 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 420), align 4
   %conv278.i = zext i32 %98 to i64
   %call279.i = tail call ptr @PyLong_FromLong(i64 noundef %conv278.i) #8
   %tobool280.not.i = icmp eq ptr %call279.i, null
@@ -10845,7 +10845,7 @@ if.then1.i727.i:                                  ; preds = %if.end.i724.i
   br label %do.body288.i
 
 do.body288.i:                                     ; preds = %if.then1.i727.i, %if.end.i724.i, %if.then285.i, %land.lhs.true281.i, %do.body276.i
-  %102 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 48), align 4
+  %102 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 192), align 4
   %conv290.i = zext i32 %102 to i64
   %call291.i = tail call ptr @PyLong_FromLong(i64 noundef %conv290.i) #8
   %tobool292.not.i = icmp eq ptr %call291.i, null
@@ -10874,7 +10874,7 @@ if.then1.i718.i:                                  ; preds = %if.end.i715.i
   br label %do.body300.i
 
 do.body300.i:                                     ; preds = %if.then1.i718.i, %if.end.i715.i, %if.then297.i, %land.lhs.true293.i, %do.body288.i
-  %106 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 108), align 4
+  %106 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 432), align 4
   %conv302.i = zext i32 %106 to i64
   %call303.i = tail call ptr @PyLong_FromLong(i64 noundef %conv302.i) #8
   %tobool304.not.i = icmp eq ptr %call303.i, null
@@ -10903,7 +10903,7 @@ if.then1.i709.i:                                  ; preds = %if.end.i706.i
   br label %do.body312.i
 
 do.body312.i:                                     ; preds = %if.then1.i709.i, %if.end.i706.i, %if.then309.i, %land.lhs.true305.i, %do.body300.i
-  %110 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 109), align 4
+  %110 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 436), align 4
   %conv314.i = zext i32 %110 to i64
   %call315.i = tail call ptr @PyLong_FromLong(i64 noundef %conv314.i) #8
   %tobool316.not.i = icmp eq ptr %call315.i, null
@@ -10932,7 +10932,7 @@ if.then1.i700.i:                                  ; preds = %if.end.i697.i
   br label %do.body324.i
 
 do.body324.i:                                     ; preds = %if.then1.i700.i, %if.end.i697.i, %if.then321.i, %land.lhs.true317.i, %do.body312.i
-  %114 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 107), align 4
+  %114 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 428), align 4
   %conv326.i = zext i32 %114 to i64
   %call327.i = tail call ptr @PyLong_FromLong(i64 noundef %conv326.i) #8
   %tobool328.not.i = icmp eq ptr %call327.i, null
@@ -10961,7 +10961,7 @@ if.then1.i691.i:                                  ; preds = %if.end.i688.i
   br label %do.body336.i
 
 do.body336.i:                                     ; preds = %if.then1.i691.i, %if.end.i688.i, %if.then333.i, %land.lhs.true329.i, %do.body324.i
-  %118 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 106), align 4
+  %118 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 424), align 4
   %conv338.i = zext i32 %118 to i64
   %call339.i = tail call ptr @PyLong_FromLong(i64 noundef %conv338.i) #8
   %tobool340.not.i = icmp eq ptr %call339.i, null
@@ -10990,7 +10990,7 @@ if.then1.i682.i:                                  ; preds = %if.end.i679.i
   br label %do.body348.i
 
 do.body348.i:                                     ; preds = %if.then1.i682.i, %if.end.i679.i, %if.then345.i, %land.lhs.true341.i, %do.body336.i
-  %122 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 117), align 4
+  %122 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 468), align 4
   %conv350.i = zext i32 %122 to i64
   %call351.i = tail call ptr @PyLong_FromLong(i64 noundef %conv350.i) #8
   %tobool352.not.i = icmp eq ptr %call351.i, null
@@ -11019,7 +11019,7 @@ if.then1.i673.i:                                  ; preds = %if.end.i670.i
   br label %do.body360.i
 
 do.body360.i:                                     ; preds = %if.then1.i673.i, %if.end.i670.i, %if.then357.i, %land.lhs.true353.i, %do.body348.i
-  %126 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 116), align 4
+  %126 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 464), align 4
   %conv362.i = zext i32 %126 to i64
   %call363.i = tail call ptr @PyLong_FromLong(i64 noundef %conv362.i) #8
   %tobool364.not.i = icmp eq ptr %call363.i, null
@@ -11048,7 +11048,7 @@ if.then1.i664.i:                                  ; preds = %if.end.i661.i
   br label %do.body372.i
 
 do.body372.i:                                     ; preds = %if.then1.i664.i, %if.end.i661.i, %if.then369.i, %land.lhs.true365.i, %do.body360.i
-  %130 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 118), align 4
+  %130 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 472), align 4
   %conv374.i = zext i32 %130 to i64
   %call375.i = tail call ptr @PyLong_FromLong(i64 noundef %conv374.i) #8
   %tobool376.not.i = icmp eq ptr %call375.i, null
@@ -11077,7 +11077,7 @@ if.then1.i655.i:                                  ; preds = %if.end.i652.i
   br label %do.body384.i
 
 do.body384.i:                                     ; preds = %if.then1.i655.i, %if.end.i652.i, %if.then381.i, %land.lhs.true377.i, %do.body372.i
-  %134 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 119), align 4
+  %134 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 476), align 4
   %conv386.i = zext i32 %134 to i64
   %call387.i = tail call ptr @PyLong_FromLong(i64 noundef %conv386.i) #8
   %tobool388.not.i = icmp eq ptr %call387.i, null
@@ -11106,7 +11106,7 @@ if.then1.i646.i:                                  ; preds = %if.end.i643.i
   br label %do.body396.i
 
 do.body396.i:                                     ; preds = %if.then1.i646.i, %if.end.i643.i, %if.then393.i, %land.lhs.true389.i, %do.body384.i
-  %138 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 113), align 4
+  %138 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 452), align 4
   %conv398.i = zext i32 %138 to i64
   %call399.i = tail call ptr @PyLong_FromLong(i64 noundef %conv398.i) #8
   %tobool400.not.i = icmp eq ptr %call399.i, null
@@ -11135,7 +11135,7 @@ if.then1.i637.i:                                  ; preds = %if.end.i634.i
   br label %do.body408.i
 
 do.body408.i:                                     ; preds = %if.then1.i637.i, %if.end.i634.i, %if.then405.i, %land.lhs.true401.i, %do.body396.i
-  %142 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 120), align 4
+  %142 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 480), align 4
   %conv410.i = zext i32 %142 to i64
   %call411.i = tail call ptr @PyLong_FromLong(i64 noundef %conv410.i) #8
   %tobool412.not.i = icmp eq ptr %call411.i, null
@@ -11164,7 +11164,7 @@ if.then1.i628.i:                                  ; preds = %if.end.i625.i
   br label %do.body420.i
 
 do.body420.i:                                     ; preds = %if.then1.i628.i, %if.end.i625.i, %if.then417.i, %land.lhs.true413.i, %do.body408.i
-  %146 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 110), align 4
+  %146 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 440), align 4
   %conv422.i = zext i32 %146 to i64
   %call423.i = tail call ptr @PyLong_FromLong(i64 noundef %conv422.i) #8
   %tobool424.not.i = icmp eq ptr %call423.i, null
@@ -11193,7 +11193,7 @@ if.then1.i619.i:                                  ; preds = %if.end.i616.i
   br label %do.body432.i
 
 do.body432.i:                                     ; preds = %if.then1.i619.i, %if.end.i616.i, %if.then429.i, %land.lhs.true425.i, %do.body420.i
-  %150 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 112), align 4
+  %150 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 448), align 4
   %conv434.i = zext i32 %150 to i64
   %call435.i = tail call ptr @PyLong_FromLong(i64 noundef %conv434.i) #8
   %tobool436.not.i = icmp eq ptr %call435.i, null
@@ -11222,7 +11222,7 @@ if.then1.i610.i:                                  ; preds = %if.end.i607.i
   br label %do.body444.i
 
 do.body444.i:                                     ; preds = %if.then1.i610.i, %if.end.i607.i, %if.then441.i, %land.lhs.true437.i, %do.body432.i
-  %154 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 114), align 4
+  %154 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 456), align 4
   %conv446.i = zext i32 %154 to i64
   %call447.i = tail call ptr @PyLong_FromLong(i64 noundef %conv446.i) #8
   %tobool448.not.i = icmp eq ptr %call447.i, null
@@ -11251,7 +11251,7 @@ if.then1.i601.i:                                  ; preds = %if.end.i598.i
   br label %do.body456.i
 
 do.body456.i:                                     ; preds = %if.then1.i601.i, %if.end.i598.i, %if.then453.i, %land.lhs.true449.i, %do.body444.i
-  %158 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 121), align 4
+  %158 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 484), align 4
   %conv458.i = zext i32 %158 to i64
   %call459.i = tail call ptr @PyLong_FromLong(i64 noundef %conv458.i) #8
   %tobool460.not.i = icmp eq ptr %call459.i, null
@@ -11280,7 +11280,7 @@ if.then1.i592.i:                                  ; preds = %if.end.i589.i
   br label %do.body468.i
 
 do.body468.i:                                     ; preds = %if.then1.i592.i, %if.end.i589.i, %if.then465.i, %land.lhs.true461.i, %do.body456.i
-  %162 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 122), align 4
+  %162 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 488), align 4
   %conv470.i = zext i32 %162 to i64
   %call471.i = tail call ptr @PyLong_FromLong(i64 noundef %conv470.i) #8
   %tobool472.not.i = icmp eq ptr %call471.i, null
@@ -11309,7 +11309,7 @@ if.then1.i583.i:                                  ; preds = %if.end.i580.i
   br label %do.body480.i
 
 do.body480.i:                                     ; preds = %if.then1.i583.i, %if.end.i580.i, %if.then477.i, %land.lhs.true473.i, %do.body468.i
-  %166 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 123), align 4
+  %166 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 492), align 4
   %conv482.i = zext i32 %166 to i64
   %call483.i = tail call ptr @PyLong_FromLong(i64 noundef %conv482.i) #8
   %tobool484.not.i = icmp eq ptr %call483.i, null
@@ -11338,7 +11338,7 @@ if.then1.i574.i:                                  ; preds = %if.end.i571.i
   br label %do.body492.i
 
 do.body492.i:                                     ; preds = %if.then1.i574.i, %if.end.i571.i, %if.then489.i, %land.lhs.true485.i, %do.body480.i
-  %170 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 124), align 4
+  %170 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 496), align 4
   %conv494.i = zext i32 %170 to i64
   %call495.i = tail call ptr @PyLong_FromLong(i64 noundef %conv494.i) #8
   %tobool496.not.i = icmp eq ptr %call495.i, null
@@ -11367,7 +11367,7 @@ if.then1.i565.i:                                  ; preds = %if.end.i562.i
   br label %do.body504.i
 
 do.body504.i:                                     ; preds = %if.then1.i565.i, %if.end.i562.i, %if.then501.i, %land.lhs.true497.i, %do.body492.i
-  %174 = load i32, ptr getelementptr ([0 x i32], ptr @acs_map, i64 0, i64 125), align 4
+  %174 = load i32, ptr getelementptr (i8, ptr @acs_map, i64 500), align 4
   %conv506.i = zext i32 %174 to i64
   %call507.i = tail call ptr @PyLong_FromLong(i64 noundef %conv506.i) #8
   %tobool508.not.i = icmp eq ptr %call507.i, null

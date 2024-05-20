@@ -10271,7 +10271,7 @@ while.body.i3804.preheader:                       ; preds = %if.end1952
 
 if.then.i:                                        ; preds = %while.body.i3804.preheader
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10325,7 +10325,7 @@ while.body.i3772.preheader:                       ; preds = %if.end1958
 
 if.then.i3891:                                    ; preds = %while.body.i3772.preheader
   %exception.i.i.i3892 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i3892, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i3892, align 8
   %_M_reason.i.i.i.i3893 = getelementptr inbounds i8, ptr %exception.i.i.i3892, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i3893, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i3892, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10416,7 +10416,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3762: ; preds = %while.body.
 
 if.then.i3951:                                    ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3762
   %exception.i.i.i3952 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i3952, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i3952, align 8
   %_M_reason.i.i.i.i3953 = getelementptr inbounds i8, ptr %exception.i.i.i3952, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i3953, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i3952, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10458,7 +10458,7 @@ while.body.i3724.preheader:                       ; preds = %if.end1986
 
 if.then.i3970:                                    ; preds = %while.body.i3724.preheader
   %exception.i.i.i3971 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i3971, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i3971, align 8
   %_M_reason.i.i.i.i3972 = getelementptr inbounds i8, ptr %exception.i.i.i3971, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i3972, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i3971, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10497,7 +10497,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3714: ; preds = %while.body.
 
 if.then.i3977:                                    ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3714
   %exception.i.i.i3978 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i3978, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i3978, align 8
   %_M_reason.i.i.i.i3979 = getelementptr inbounds i8, ptr %exception.i.i.i3978, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i3979, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i3978, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10514,7 +10514,7 @@ _ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto218Test
 
 if.then.i3992:                                    ; preds = %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSK_.exit3988
   %exception.i.i.i3993 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i3993, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i3993, align 8
   %_M_reason.i.i.i.i3994 = getelementptr inbounds i8, ptr %exception.i.i.i3993, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i3994, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i3993, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10537,7 +10537,7 @@ while.body.i3692.preheader:                       ; preds = %if.end1986
 
 if.then.i4002:                                    ; preds = %while.body.i3692.preheader
   %exception.i.i.i4003 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4003, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4003, align 8
   %_M_reason.i.i.i.i4004 = getelementptr inbounds i8, ptr %exception.i.i.i4003, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4004, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4003, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10576,7 +10576,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3682: ; preds = %while.body.
 
 if.then.i4009:                                    ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit3682
   %exception.i.i.i4010 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4010, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4010, align 8
   %_M_reason.i.i.i.i4011 = getelementptr inbounds i8, ptr %exception.i.i.i4010, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4011, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4010, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10593,7 +10593,7 @@ _ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto218Test
 
 if.then.i4024:                                    ; preds = %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSK_.exit4020
   %exception.i.i.i4025 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4025, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4025, align 8
   %_M_reason.i.i.i.i4026 = getelementptr inbounds i8, ptr %exception.i.i.i4025, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4026, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4025, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10616,7 +10616,7 @@ while.body.i3660.preheader:                       ; preds = %if.end1986
 
 if.then.i4034:                                    ; preds = %while.body.i3660.preheader
   %exception.i.i.i4035 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4035, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4035, align 8
   %_M_reason.i.i.i.i4036 = getelementptr inbounds i8, ptr %exception.i.i.i4035, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4036, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4035, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10649,7 +10649,7 @@ while.body.i3628.preheader:                       ; preds = %if.end2033
 
 if.then.i4042:                                    ; preds = %while.body.i3628.preheader
   %exception.i.i.i4043 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4043, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4043, align 8
   %_M_reason.i.i.i.i4044 = getelementptr inbounds i8, ptr %exception.i.i.i4043, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4044, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4043, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10702,7 +10702,7 @@ while.body.i3596.preheader:                       ; preds = %if.end2040
 
 if.then.i4050:                                    ; preds = %while.body.i3596.preheader
   %exception.i.i.i4051 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4051, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4051, align 8
   %_M_reason.i.i.i.i4052 = getelementptr inbounds i8, ptr %exception.i.i.i4051, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4052, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4051, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10734,7 +10734,7 @@ while.body.i3580.preheader:                       ; preds = %if.end2049
 
 if.then.i4058:                                    ; preds = %while.body.i3580.preheader
   %exception.i.i.i4059 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4059, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4059, align 8
   %_M_reason.i.i.i.i4060 = getelementptr inbounds i8, ptr %exception.i.i.i4059, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4060, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4059, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -10766,7 +10766,7 @@ while.body.i3564.preheader:                       ; preds = %if.end2058
 
 if.then.i4066:                                    ; preds = %while.body.i3564.preheader
   %exception.i.i.i4067 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i4067, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i4067, align 8
   %_M_reason.i.i.i.i4068 = getelementptr inbounds i8, ptr %exception.i.i.i4067, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i4068, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i4067, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -57061,7 +57061,7 @@ if.end2760:                                       ; preds = %if.end104.i27691, %
 
 if.then.i20403:                                   ; preds = %if.end2760
   %exception.i.i.i20404 = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i20404, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i20404, align 8
   %_M_reason.i.i.i.i20405 = getelementptr inbounds i8, ptr %exception.i.i.i20404, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i20405, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i20404, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -57142,7 +57142,7 @@ if.end2766:                                       ; preds = %_ZNSt7__cxx1112basi
 
 if.then.i20435:                                   ; preds = %if.end2766
   %exception.i.i.i20436 = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i20436, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i20436, align 8
   %_M_reason.i.i.i.i20437 = getelementptr inbounds i8, ptr %exception.i.i.i20436, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i20437, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i20436, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -57348,7 +57348,7 @@ if.end2785:                                       ; preds = %if.end104.i27833, %
 
 if.then.i20444:                                   ; preds = %if.end2785
   %exception.i.i.i20445 = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i20445, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i20445, align 8
   %_M_reason.i.i.i.i20446 = getelementptr inbounds i8, ptr %exception.i.i.i20445, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i20446, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i20445, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -57429,7 +57429,7 @@ if.end2791:                                       ; preds = %_ZNSt7__cxx1112basi
 
 if.then.i20476:                                   ; preds = %if.end2791
   %exception.i.i.i20477 = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i20477, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i20477, align 8
   %_M_reason.i.i.i.i20478 = getelementptr inbounds i8, ptr %exception.i.i.i20477, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i20478, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i20477, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
@@ -70467,7 +70467,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 define linkonce_odr dso_local void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #8 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #20
   unreachable
 }

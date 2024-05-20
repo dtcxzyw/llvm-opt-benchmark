@@ -6524,9 +6524,9 @@ return:                                           ; preds = %if.then44, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @init_reason(ptr nocapture readnone %h, ptr nocapture readnone %hl) #11 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2018) getelementptr inbounds ([2048 x i8], ptr @long_reason, i64 0, i64 29), i8 126, i64 2018, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2018) getelementptr inbounds (i8, ptr @long_reason, i64 29), i8 126, i64 2018, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) @long_reason, ptr noundef nonnull align 1 dereferenceable(29) @.str.244, i64 29, i1 false)
-  store i8 0, ptr getelementptr inbounds ([2048 x i8], ptr @long_reason, i64 0, i64 2047), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @long_reason, i64 2047), align 1
   ret i32 1
 }
 

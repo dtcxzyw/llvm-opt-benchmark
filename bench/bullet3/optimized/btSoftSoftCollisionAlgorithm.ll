@@ -25,7 +25,7 @@ $_ZTI20btCollisionAlgorithm = comdat any
 define dso_local void @_ZN28btSoftSoftCollisionAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btSoftSoftCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btSoftSoftCollisionAlgorithm, i64 16), ptr %this, align 8
   ret void
 }
 

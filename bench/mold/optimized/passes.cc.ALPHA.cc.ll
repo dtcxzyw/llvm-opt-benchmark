@@ -5078,7 +5078,7 @@ entry:
   %add = alloca %class.anon, align 8
   %call = tail call noalias noundef nonnull dereferenceable(704) ptr @_Znwm(i64 noundef 704) #36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf9InputFileINS0_5ALPHAEEE, i64 16), ptr %call, align 8
   %mf.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %filename.i.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mf.i.i, i8 0, i64 72, i1 false)
@@ -5099,7 +5099,7 @@ entry:
   %shstrtab.i.i = getelementptr inbounds i8, ptr %call, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %shstrtab.i.i, i8 0, i64 152, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10ObjectFileINS0_5ALPHAEEE, i64 16), ptr %call, align 8
   %archive_name.i = getelementptr inbounds i8, ptr %call, i64 280
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i)
   %1 = getelementptr inbounds i8, ptr %call, i64 296
@@ -6094,7 +6094,7 @@ if.then3:                                         ; preds = %_ZNSt11char_traitsI
   %uncompressed_data.i.i = getelementptr inbounds i8, ptr %call4, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputEhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputEhdrINS0_5ALPHAEEE, i64 16), ptr %call4, align 8
   store i64 4, ptr %name.i.i, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr @.str.5, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i, align 8
@@ -6111,7 +6111,7 @@ if.else:                                          ; preds = %for.inc.i
   %uncompressed_data.i.i66 = getelementptr inbounds i8, ptr %call6, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i65, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i66, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputEhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputEhdrINS0_5ALPHAEEE, i64 16), ptr %call6, align 8
   store i64 4, ptr %name.i.i63, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i67 = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr @.str.5, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i67, align 8
@@ -6164,7 +6164,7 @@ if.then15:                                        ; preds = %_ZNSt11char_traitsI
   %uncompressed_data.i.i98 = getelementptr inbounds i8, ptr %call16, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i97, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i98, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 16), ptr %call16, align 8
   %phdrs.i = getelementptr inbounds i8, ptr %call16, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phdrs.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %name.i.i95, align 8
@@ -6183,7 +6183,7 @@ if.else18:                                        ; preds = %for.inc.i82
   %uncompressed_data.i.i104 = getelementptr inbounds i8, ptr %call19, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i103, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i104, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 16), ptr %call19, align 8
   %phdrs.i105 = getelementptr inbounds i8, ptr %call19, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phdrs.i105, i8 0, i64 24, i1 false)
   store i64 4, ptr %name.i.i101, align 8
@@ -6213,7 +6213,7 @@ if.then25:                                        ; preds = %if.end22
   %uncompressed_data.i.i111 = getelementptr inbounds i8, ptr %call26, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i110, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i111, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputShdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputShdrINS0_5ALPHAEEE, i64 16), ptr %call26, align 8
   store i64 4, ptr %name.i.i108, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i112 = getelementptr inbounds i8, ptr %call26, i64 16
   store ptr @.str.150, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i112, align 8
@@ -6235,7 +6235,7 @@ if.end29:                                         ; preds = %if.end22, %if.then2
   %uncompressed_data.i.i117 = getelementptr inbounds i8, ptr %call30, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i116, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i117, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10GotSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10GotSectionINS0_5ALPHAEEE, i64 16), ptr %call30, align 8
   %got_syms.i = getelementptr inbounds i8, ptr %call30, i64 200
   %tlsld_idx.i = getelementptr inbounds i8, ptr %call30, i64 296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %got_syms.i, i8 0, i64 96, i1 false)
@@ -6264,7 +6264,7 @@ if.end29:                                         ; preds = %if.end22, %if.then2
   %uncompressed_data.i.i123 = getelementptr inbounds i8, ptr %call32, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i122, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i123, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13GotPltSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13GotPltSectionINS0_5ALPHAEEE, i64 16), ptr %call32, align 8
   store i64 8, ptr %name.i.i120, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i124 = getelementptr inbounds i8, ptr %call32, i64 16
   store ptr @.str.152, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i124, align 8
@@ -6293,7 +6293,7 @@ if.end29:                                         ; preds = %if.end22, %if.then2
   %21 = getelementptr inbounds i8, ptr %call34, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %21, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i132, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13RelDynSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13RelDynSectionINS0_5ALPHAEEE, i64 16), ptr %call34, align 8
   store i64 9, ptr %name.i.i129, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i133 = getelementptr inbounds i8, ptr %call34, i64 16
   store ptr @.str.153, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i133, align 8
@@ -6316,7 +6316,7 @@ if.end29:                                         ; preds = %if.end22, %if.then2
   %23 = getelementptr inbounds i8, ptr %call36, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %23, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i139, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13RelPltSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13RelPltSectionINS0_5ALPHAEEE, i64 16), ptr %call36, align 8
   store i64 9, ptr %name.i.i136, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i140 = getelementptr inbounds i8, ptr %call36, i64 16
   store ptr @.str.154, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i140, align 8
@@ -6345,7 +6345,7 @@ if.then40:                                        ; preds = %if.end29
   %26 = getelementptr inbounds i8, ptr %call41, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %26, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i146, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14RelrDynSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14RelrDynSectionINS0_5ALPHAEEE, i64 16), ptr %call41, align 8
   store i64 9, ptr %name.i.i143, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i147 = getelementptr inbounds i8, ptr %call41, i64 16
   store ptr @.str.155, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i147, align 8
@@ -6371,7 +6371,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i153 = getelementptr inbounds i8, ptr %call44, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i152, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i153, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13StrtabSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13StrtabSectionINS0_5ALPHAEEE, i64 16), ptr %call44, align 8
   store i64 7, ptr %name.i.i150, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i154 = getelementptr inbounds i8, ptr %call44, i64 16
   store ptr @.str.156, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i154, align 8
@@ -6389,7 +6389,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i159 = getelementptr inbounds i8, ptr %call46, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i158, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i159, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call46, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 16), ptr %call46, align 8
   %symbols.i = getelementptr inbounds i8, ptr %call46, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symbols.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %name.i.i156, align 8
@@ -6412,7 +6412,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i166 = getelementptr inbounds i8, ptr %call48, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i165, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i166, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 16), ptr %call48, align 8
   %symbols.i167 = getelementptr inbounds i8, ptr %call48, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symbols.i167, i8 0, i64 24, i1 false)
   store i64 8, ptr %name.i.i163, align 8
@@ -6436,7 +6436,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %31 = getelementptr inbounds i8, ptr %call50, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %31, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i174, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13SymtabSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13SymtabSectionINS0_5ALPHAEEE, i64 16), ptr %call50, align 8
   store i64 7, ptr %name.i.i171, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i175 = getelementptr inbounds i8, ptr %call50, i64 16
   store ptr @.str.159, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i175, align 8
@@ -6457,7 +6457,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %33 = getelementptr inbounds i8, ptr %call52, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %33, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i180, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 16), ptr %call52, align 8
   %symbols.i181 = getelementptr inbounds i8, ptr %call52, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %symbols.i181, i8 0, i64 25, i1 false)
   store i64 7, ptr %name.i.i177, align 8
@@ -6482,7 +6482,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i188 = getelementptr inbounds i8, ptr %call54, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i187, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i188, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 16), ptr %call54, align 8
   %dynsym_offset.i = getelementptr inbounds i8, ptr %call54, i64 200
   store i64 -1, ptr %dynsym_offset.i, align 8
   %strings.i = getelementptr inbounds i8, ptr %call54, i64 208
@@ -6515,7 +6515,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i195 = getelementptr inbounds i8, ptr %call56, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i194, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i195, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14EhFrameSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14EhFrameSectionINS0_5ALPHAEEE, i64 16), ptr %call56, align 8
   store i64 9, ptr %name.i.i192, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i196 = getelementptr inbounds i8, ptr %call56, i64 16
   store ptr @.str.162, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i196, align 8
@@ -6537,7 +6537,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i202 = getelementptr inbounds i8, ptr %call58, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i201, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i202, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 16), ptr %call58, align 8
   %symbols.i203 = getelementptr inbounds i8, ptr %call58, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symbols.i203, i8 0, i64 24, i1 false)
   store i64 8, ptr %name.i.i199, align 8
@@ -6560,7 +6560,7 @@ if.end43:                                         ; preds = %if.then40, %if.end2
   %uncompressed_data.i.i210 = getelementptr inbounds i8, ptr %call60, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i209, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i210, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 16), ptr %call60, align 8
   %symbols.i211 = getelementptr inbounds i8, ptr %call60, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symbols.i211, i8 0, i64 24, i1 false)
   store i64 15, ptr %name.i.i207, align 8
@@ -6591,7 +6591,7 @@ if.then64:                                        ; preds = %if.end43
   %uncompressed_data.i.i219 = getelementptr inbounds i8, ptr %call65, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i218, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i219, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf15ShstrtabSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf15ShstrtabSectionINS0_5ALPHAEEE, i64 16), ptr %call65, align 8
   store i64 9, ptr %name.i.i216, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i220 = getelementptr inbounds i8, ptr %call65, i64 16
   store ptr @.str.165, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i220, align 8
@@ -6619,7 +6619,7 @@ if.then70:                                        ; preds = %if.end67
   %uncompressed_data.i.i226 = getelementptr inbounds i8, ptr %call71, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i225, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i226, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13InterpSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13InterpSectionINS0_5ALPHAEEE, i64 16), ptr %call71, align 8
   store i64 7, ptr %name.i.i223, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i227 = getelementptr inbounds i8, ptr %call71, i64 16
   store ptr @.str.166, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i227, align 8
@@ -6647,7 +6647,7 @@ if.then75:                                        ; preds = %if.end73
   %uncompressed_data.i.i233 = getelementptr inbounds i8, ptr %call76, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i232, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i233, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14BuildIdSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call76, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14BuildIdSectionINS0_5ALPHAEEE, i64 16), ptr %call76, align 8
   store i64 18, ptr %name.i.i230, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i234 = getelementptr inbounds i8, ptr %call76, i64 16
   store ptr @.str.167, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i234, align 8
@@ -6679,7 +6679,7 @@ if.then81:                                        ; preds = %if.end78
   %uncompressed_data.i.i241 = getelementptr inbounds i8, ptr %call82, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i240, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i241, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf17EhFrameHdrSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf17EhFrameHdrSectionINS0_5ALPHAEEE, i64 16), ptr %call82, align 8
   %num_fdes.i = getelementptr inbounds i8, ptr %call82, i64 200
   store i32 0, ptr %num_fdes.i, align 8
   store i64 13, ptr %name.i.i238, align 8
@@ -6734,7 +6734,7 @@ if.then89:                                        ; preds = %for.body.i246
   %uncompressed_data.i.i253 = getelementptr inbounds i8, ptr %call90, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i252, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i253, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf15GdbIndexSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call90, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf15GdbIndexSectionINS0_5ALPHAEEE, i64 16), ptr %call90, align 8
   store i64 10, ptr %name.i.i250, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i254 = getelementptr inbounds i8, ptr %call90, i64 16
   store ptr @.str.169, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i254, align 8
@@ -6774,7 +6774,7 @@ if.then103:                                       ; preds = %land.lhs.true96
   %uncompressed_data.i.i261 = getelementptr inbounds i8, ptr %call104, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i260, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i261, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf19RelroPaddingSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf19RelroPaddingSectionINS0_5ALPHAEEE, i64 16), ptr %call104, align 8
   store i64 14, ptr %name.i.i258, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i262 = getelementptr inbounds i8, ptr %call104, i64 16
   store ptr @.str.170, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i262, align 8
@@ -6809,7 +6809,7 @@ if.then109:                                       ; preds = %if.end106
   %59 = getelementptr inbounds i8, ptr %call110, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %59, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i270, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf11HashSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call110, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf11HashSectionINS0_5ALPHAEEE, i64 16), ptr %call110, align 8
   store i64 5, ptr %name.i.i267, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i271 = getelementptr inbounds i8, ptr %call110, i64 16
   store ptr @.str.171, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i271, align 8
@@ -6840,7 +6840,7 @@ if.then115:                                       ; preds = %if.end112
   %uncompressed_data.i.i277 = getelementptr inbounds i8, ptr %call116, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i276, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i277, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14GnuHashSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call116, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14GnuHashSectionINS0_5ALPHAEEE, i64 16), ptr %call116, align 8
   %num_buckets.i = getelementptr inbounds i8, ptr %call116, i64 200
   store i32 -1, ptr %num_buckets.i, align 8
   %num_bloom.i = getelementptr inbounds i8, ptr %call116, i64 204
@@ -6876,7 +6876,7 @@ if.then121:                                       ; preds = %if.end118
   %uncompressed_data.i.i286 = getelementptr inbounds i8, ptr %call122, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i285, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i286, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call122, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 16), ptr %call122, align 8
   %contents.i = getelementptr inbounds i8, ptr %call122, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents.i, i8 0, i64 24, i1 false)
   store i64 14, ptr %name.i.i283, align 8
@@ -6909,7 +6909,7 @@ if.then127:                                       ; preds = %if.end124
   %67 = getelementptr inbounds i8, ptr %call128, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %67, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i293, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf19EhFrameRelocSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call128, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf19EhFrameRelocSectionINS0_5ALPHAEEE, i64 16), ptr %call128, align 8
   store i64 14, ptr %name.i.i290, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i294 = getelementptr inbounds i8, ptr %call128, i64 16
   store ptr @.str.174, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i294, align 8
@@ -6955,7 +6955,7 @@ if.then138:                                       ; preds = %lor.lhs.false135, %
   %73 = getelementptr inbounds i8, ptr %call139, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %73, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i302, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14DynamicSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call139, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14DynamicSectionINS0_5ALPHAEEE, i64 16), ptr %call139, align 8
   store i64 8, ptr %name.i.i299, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i303 = getelementptr inbounds i8, ptr %call139, i64 16
   store ptr @.str.175, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i303, align 8
@@ -7014,7 +7014,7 @@ if.end145:                                        ; preds = %if.then.i.i, %if.th
   %79 = getelementptr inbounds i8, ptr %call146, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %79, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i312, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 16), ptr %call146, align 8
   %contents.i313 = getelementptr inbounds i8, ptr %call146, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents.i313, i8 0, i64 24, i1 false)
   store i64 12, ptr %name.i.i309, align 8
@@ -7038,7 +7038,7 @@ if.end145:                                        ; preds = %if.then.i.i, %if.th
   %uncompressed_data.i.i320 = getelementptr inbounds i8, ptr %call148, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i319, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i320, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call148, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 16), ptr %call148, align 8
   %contents.i321 = getelementptr inbounds i8, ptr %call148, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents.i321, i8 0, i64 24, i1 false)
   store i64 14, ptr %name.i.i317, align 8
@@ -7061,7 +7061,7 @@ if.end145:                                        ; preds = %if.then.i.i, %if.th
   %uncompressed_data.i.i328 = getelementptr inbounds i8, ptr %call150, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i327, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i328, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf18NotePackageSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call150, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf18NotePackageSectionINS0_5ALPHAEEE, i64 16), ptr %call150, align 8
   store i64 13, ptr %name.i.i325, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i329 = getelementptr inbounds i8, ptr %call150, i64 16
   store ptr @.str.178, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i329, align 8
@@ -7082,7 +7082,7 @@ if.end145:                                        ; preds = %if.then.i.i, %if.th
   %uncompressed_data.i.i335 = getelementptr inbounds i8, ptr %call152, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i334, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i335, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 16), ptr %call152, align 8
   %83 = getelementptr inbounds i8, ptr %call152, i64 208
   store i32 0, ptr %83, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call152, i64 216
@@ -7113,7 +7113,7 @@ if.end145:                                        ; preds = %if.then.i.i, %if.th
   %uncompressed_data.i.i342 = getelementptr inbounds i8, ptr %call154, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i.i341, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i342, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf15AlphaGotSectionE, i64 0, i32 0, i64 2), ptr %call154, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf15AlphaGotSectionE, i64 16), ptr %call154, align 8
   %entries.i = getelementptr inbounds i8, ptr %call154, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %entries.i, i8 0, i64 64, i1 false)
   store i64 10, ptr %name.i.i339, align 8
@@ -10909,7 +10909,7 @@ if.then.i.i.i59:                                  ; preds = %for.end69
   store i64 0, ptr %m_ref_count.i.i.i.i, align 8
   %18 = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_EE, i64 16), ptr %root_task.i.i.i, align 64
   %my_first.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 64
   store ptr %roots.sroa.0.3.lcssa, ptr %my_first.i.i.i.i.i, align 64
   %my_last.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 72
@@ -10921,7 +10921,7 @@ if.then.i.i.i59:                                  ; preds = %for.end69
   %my_body.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 96
   store ptr %ref.tmp, ptr %my_body.i.i.i.i.i, align 32
   %my_feeder_holder.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 104
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d211feeder_implIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 0, i32 0, i64 2), ptr %my_feeder_holder.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d211feeder_implIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 16), ptr %my_feeder_holder.i.i.i.i.i, align 8
   %my_body.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 112
   store ptr %ref.tmp, ptr %my_body.i.i.i.i.i.i.i, align 16
   %my_wait_context.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i.i, i64 120
@@ -10938,7 +10938,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i59
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SP_SA_EEESF_SF_RKSP_RNSL_12wait_contextERNSL_18task_group_contextE.exit.i.i.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SP_SA_EEESF_SF_RKSP_RNSL_12wait_contextERNSL_18task_group_contextE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i59
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i.i.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %context.i.i, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %context.i.i) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_L17mark_live_objectsIS8_EEvRNS6_7ContextIT_EEEUlSA_RNS0_2d16feederISA_EEE_EEvSI_SI_RKT0_RNSL_18task_group_contextE.exit.i.i
 
@@ -17609,7 +17609,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -17630,7 +17630,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18check_symbol_typesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -22687,7 +22687,7 @@ if.then26:                                        ; preds = %for.end24
   %23 = getelementptr inbounds i8, ptr %call27, i64 96
   store i16 0, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf18SymtabShndxSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %call27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf18SymtabShndxSectionINS0_5ALPHAEEE, i64 16), ptr %call27, align 8
   store i64 13, ptr %name.i.i, align 8
   %ref.tmp.sroa.2.0.name.sroa_idx.i = getelementptr inbounds i8, ptr %call27, i64 16
   store ptr @.str.427, ptr %ref.tmp.sroa.2.0.name.sroa_idx.i, align 8
@@ -25573,7 +25573,7 @@ if.then.i:                                        ; preds = %init.end
   %sext = add i64 %conv, -4294967296
   %conv.i = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i)
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE7defined, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i)
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE7defined, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i)
   %8 = load i64, ptr %call.i.i.i, align 8
   %add.i = add nsw i64 %8, %conv.i
@@ -25615,7 +25615,7 @@ if.then.i36:                                      ; preds = %init.end11
   %sext599 = shl i64 %sub14, 32
   %conv.i37 = ashr exact i64 %sext599, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i34)
-  %call.i.i.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE9undefined, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i34)
+  %call.i.i.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE9undefined, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i34)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i34)
   %16 = load i64, ptr %call.i.i.i38, align 8
   %add.i39 = add nsw i64 %conv.i37, %16
@@ -25761,7 +25761,7 @@ if.then.i55:                                      ; preds = %_ZNK4mold3elf12Inpu
   %call.i.i.i267 = tail call i64 @pthread_self() #39
   store i64 %call.i.i.i267, ptr %k.i, align 8
   %call.i.i.i.i = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %k.i, i64 noundef 8, i64 noundef 3339675911) #15
-  %38 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %38 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 24) acquire, align 8
   %tobool.not65.i = icmp eq i64 %38, 0
   br i1 %tobool.not65.i, label %for.end18.i, label %for.body.lr.ph.i
 
@@ -25792,7 +25792,7 @@ if.end.i269:                                      ; preds = %for.body.i, %for.in
   br i1 %cmp.i.i36.i, label %if.then11.i, label %for.inc.i
 
 if.then11.i:                                      ; preds = %if.end.i269
-  %42 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %42 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i37.i = inttoptr i64 %42 to ptr
   %cmp.i276 = icmp eq ptr %r.066.i, %atomic-temp.i.0.i37.i
   %ptr.i = getelementptr inbounds i8, ptr %arrayidx.i64.i, i64 8
@@ -25813,12 +25813,12 @@ for.inc17.i:                                      ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i272, label %for.end18.i, label %for.body.i, !llvm.loop !514
 
 for.end18.i:                                      ; preds = %for.inc17.i, %if.then.i55
-  %vtable.i = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16), align 8
   %46 = load ptr, ptr %vtable.i, align 8
-  %call19.i = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0)) #15
-  %47 = atomicrmw add ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 2, i32 0, i32 0), i64 1 seq_cst, align 8
+  %call19.i = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16)) #15
+  %47 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 32), i64 1 seq_cst, align 8
   %48 = add i64 %47, 1
-  %49 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %49 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i38.i = inttoptr i64 %49 to ptr
   %tobool24.not.i = icmp eq i64 %49, 0
   br i1 %tobool24.not.i, label %while.cond.i.preheader, label %lor.lhs.false.i
@@ -25846,10 +25846,10 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
 while.end.i:                                      ; preds = %while.cond.i
   %mul.i.i = shl i64 16, %s28.0.i
   %add.i.i = add nuw i64 %mul.i.i, 16
-  %vtable.i.i = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16), align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %51 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i275 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0), i64 noundef %add.i.i) #15
+  %call.i.i275 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16), i64 noundef %add.i.i) #15
   %lg_size2.i.i = getelementptr inbounds i8, ptr %call.i.i275, i64 8
   store i64 %s28.0.i, ptr %lg_size2.i.i, align 8
   %add.ptr.i40.i = getelementptr inbounds i8, ptr %call.i.i275, i64 16
@@ -25861,7 +25861,7 @@ for.cond32.i:                                     ; preds = %if.end37.i, %while.
   %r21.0.i = phi ptr [ %atomic-temp.i.0.i38.i, %while.end.i ], [ %57, %if.end37.i ]
   store ptr %r21.0.i, ptr %call.i.i275, align 8
   %53 = ptrtoint ptr %r21.0.i to i64
-  %54 = cmpxchg ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0), i64 %53, i64 %52 seq_cst seq_cst, align 8
+  %54 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 24), i64 %53, i64 %52 seq_cst seq_cst, align 8
   %55 = extractvalue { i64, i1 } %54, 1
   br i1 %55, label %insert.i, label %if.end37.i
 
@@ -25877,15 +25877,15 @@ if.then40.i:                                      ; preds = %if.end37.i
   %59 = load i64, ptr %lg_size2.i.i, align 8
   %mul.i42.i = shl i64 16, %59
   %add.i43.i = add nuw i64 %mul.i42.i, 16
-  %vtable.i44.i = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i44.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16), align 8
   %vfn.i45.i = getelementptr inbounds i8, ptr %vtable.i44.i, i64 16
   %60 = load ptr, ptr %vfn.i45.i, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull %call.i.i275, i64 noundef %add.i43.i) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 16), ptr noundef nonnull %call.i.i275, i64 noundef %add.i43.i) #15
   br label %insert.i
 
 insert.i:                                         ; preds = %for.cond32.i, %if.then40.i, %lor.lhs.false.i, %if.then11.i
   %found.0.i = phi ptr [ %call19.i, %if.then40.i ], [ %call19.i, %lor.lhs.false.i ], [ %43, %if.then11.i ], [ %call19.i, %for.cond32.i ]
-  %61 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %61 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE5alloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i46.i = inttoptr i64 %61 to ptr
   %lg_size.i.i47.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i46.i, i64 8
   %62 = load i64, ptr %lg_size.i.i47.i, align 8
@@ -25988,7 +25988,7 @@ if.then.i76:                                      ; preds = %_ZNK4mold3elf12Inpu
   %call.i.i.i305 = tail call i64 @pthread_self() #39
   store i64 %call.i.i.i305, ptr %k.i304, align 8
   %call.i.i.i.i306 = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %k.i304, i64 noundef 8, i64 noundef 3339675911) #15
-  %71 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %71 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 24) acquire, align 8
   %tobool.not65.i307 = icmp eq i64 %71, 0
   br i1 %tobool.not65.i307, label %for.end18.i332, label %for.body.lr.ph.i308
 
@@ -26019,7 +26019,7 @@ if.end.i321:                                      ; preds = %for.body.i311, %for
   br i1 %cmp.i.i36.i324, label %if.then11.i389, label %for.inc.i325
 
 if.then11.i389:                                   ; preds = %if.end.i321
-  %75 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %75 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i37.i390 = inttoptr i64 %75 to ptr
   %cmp.i391 = icmp eq ptr %r.066.i312, %atomic-temp.i.0.i37.i390
   %ptr.i392 = getelementptr inbounds i8, ptr %arrayidx.i64.i322, i64 8
@@ -26040,12 +26040,12 @@ for.inc17.i330:                                   ; preds = %for.inc.i325, %for.
   br i1 %tobool.not.i331, label %for.end18.i332, label %for.body.i311, !llvm.loop !514
 
 for.end18.i332:                                   ; preds = %for.inc17.i330, %if.then.i76
-  %vtable.i333 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i333 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16), align 8
   %79 = load ptr, ptr %vtable.i333, align 8
-  %call19.i334 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0)) #15
-  %80 = atomicrmw add ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 2, i32 0, i32 0), i64 1 seq_cst, align 8
+  %call19.i334 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16)) #15
+  %80 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 32), i64 1 seq_cst, align 8
   %81 = add i64 %80, 1
-  %82 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %82 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i38.i335 = inttoptr i64 %82 to ptr
   %tobool24.not.i336 = icmp eq i64 %82, 0
   br i1 %tobool24.not.i336, label %while.cond.i365.preheader, label %lor.lhs.false.i337
@@ -26073,10 +26073,10 @@ while.cond.i365:                                  ; preds = %while.cond.i365.pre
 while.end.i371:                                   ; preds = %while.cond.i365
   %mul.i.i372 = shl i64 16, %s28.0.i366
   %add.i.i373 = add nuw i64 %mul.i.i372, 16
-  %vtable.i.i374 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i.i374 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16), align 8
   %vfn.i.i375 = getelementptr inbounds i8, ptr %vtable.i.i374, i64 8
   %84 = load ptr, ptr %vfn.i.i375, align 8
-  %call.i.i376 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0), i64 noundef %add.i.i373) #15
+  %call.i.i376 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16), i64 noundef %add.i.i373) #15
   %lg_size2.i.i377 = getelementptr inbounds i8, ptr %call.i.i376, i64 8
   store i64 %s28.0.i366, ptr %lg_size2.i.i377, align 8
   %add.ptr.i40.i378 = getelementptr inbounds i8, ptr %call.i.i376, i64 16
@@ -26088,7 +26088,7 @@ for.cond32.i379:                                  ; preds = %if.end37.i381, %whi
   %r21.0.i380 = phi ptr [ %atomic-temp.i.0.i38.i335, %while.end.i371 ], [ %90, %if.end37.i381 ]
   store ptr %r21.0.i380, ptr %call.i.i376, align 8
   %86 = ptrtoint ptr %r21.0.i380 to i64
-  %87 = cmpxchg ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0), i64 %86, i64 %85 seq_cst seq_cst, align 8
+  %87 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 24), i64 %86, i64 %85 seq_cst seq_cst, align 8
   %88 = extractvalue { i64, i1 } %87, 1
   br i1 %88, label %insert.i342, label %if.end37.i381
 
@@ -26104,15 +26104,15 @@ if.then40.i384:                                   ; preds = %if.end37.i381
   %92 = load i64, ptr %lg_size2.i.i377, align 8
   %mul.i42.i385 = shl i64 16, %92
   %add.i43.i386 = add nuw i64 %mul.i42.i385, 16
-  %vtable.i44.i387 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i44.i387 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16), align 8
   %vfn.i45.i388 = getelementptr inbounds i8, ptr %vtable.i44.i387, i64 16
   %93 = load ptr, ptr %vfn.i45.i388, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull %call.i.i376, i64 noundef %add.i43.i386) #15
+  call void %93(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 16), ptr noundef nonnull %call.i.i376, i64 noundef %add.i43.i386) #15
   br label %insert.i342
 
 insert.i342:                                      ; preds = %for.cond32.i379, %if.then40.i384, %lor.lhs.false.i337, %if.then11.i389
   %found.0.i343 = phi ptr [ %call19.i334, %if.then40.i384 ], [ %call19.i334, %lor.lhs.false.i337 ], [ %76, %if.then11.i389 ], [ %call19.i334, %for.cond32.i379 ]
-  %94 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %94 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8nonalloc, i64 24) acquire, align 8
   %atomic-temp.i.0.i46.i344 = inttoptr i64 %94 to ptr
   %lg_size.i.i47.i345 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i46.i344, i64 8
   %95 = load i64, ptr %lg_size.i.i47.i345, align 8
@@ -26198,7 +26198,7 @@ if.then.i91:                                      ; preds = %init.end66
   %sext602 = shl i64 %sub.ptr.sub.i86, 27
   %conv.i92 = ashr i64 %sext602, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i88)
-  %call.i.i.i93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE7comdats, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i88)
+  %call.i.i.i93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE7comdats, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i88)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i88)
   %106 = load i64, ptr %call.i.i.i93, align 8
   %add.i94 = add nsw i64 %106, %conv.i92
@@ -26253,7 +26253,7 @@ if.then.i104:                                     ; preds = %if.then90
   %call.i.i.i395 = tail call i64 @pthread_self() #39
   store i64 %call.i.i.i395, ptr %k.i394, align 8
   %call.i.i.i.i396 = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %k.i394, i64 noundef 8, i64 noundef 3339675911) #15
-  %117 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %117 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 24) acquire, align 8
   %tobool.not65.i397 = icmp eq i64 %117, 0
   br i1 %tobool.not65.i397, label %for.end18.i422, label %for.body.lr.ph.i398
 
@@ -26284,7 +26284,7 @@ if.end.i411:                                      ; preds = %for.body.i401, %for
   br i1 %cmp.i.i36.i414, label %if.then11.i479, label %for.inc.i415
 
 if.then11.i479:                                   ; preds = %if.end.i411
-  %121 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %121 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 24) acquire, align 8
   %atomic-temp.i.0.i37.i480 = inttoptr i64 %121 to ptr
   %cmp.i481 = icmp eq ptr %r.066.i402, %atomic-temp.i.0.i37.i480
   %ptr.i482 = getelementptr inbounds i8, ptr %arrayidx.i64.i412, i64 8
@@ -26305,12 +26305,12 @@ for.inc17.i420:                                   ; preds = %for.inc.i415, %for.
   br i1 %tobool.not.i421, label %for.end18.i422, label %for.body.i401, !llvm.loop !514
 
 for.end18.i422:                                   ; preds = %for.inc17.i420, %if.then.i104
-  %vtable.i423 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i423 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16), align 8
   %125 = load ptr, ptr %vtable.i423, align 8
-  %call19.i424 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0)) #15
-  %126 = atomicrmw add ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 2, i32 0, i32 0), i64 1 seq_cst, align 8
+  %call19.i424 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16)) #15
+  %126 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 32), i64 1 seq_cst, align 8
   %127 = add i64 %126, 1
-  %128 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %128 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 24) acquire, align 8
   %atomic-temp.i.0.i38.i425 = inttoptr i64 %128 to ptr
   %tobool24.not.i426 = icmp eq i64 %128, 0
   br i1 %tobool24.not.i426, label %while.cond.i455.preheader, label %lor.lhs.false.i427
@@ -26338,10 +26338,10 @@ while.cond.i455:                                  ; preds = %while.cond.i455.pre
 while.end.i461:                                   ; preds = %while.cond.i455
   %mul.i.i462 = shl i64 16, %s28.0.i456
   %add.i.i463 = add nuw i64 %mul.i.i462, 16
-  %vtable.i.i464 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i.i464 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16), align 8
   %vfn.i.i465 = getelementptr inbounds i8, ptr %vtable.i.i464, i64 8
   %130 = load ptr, ptr %vfn.i.i465, align 8
-  %call.i.i466 = call noundef ptr %130(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0), i64 noundef %add.i.i463) #15
+  %call.i.i466 = call noundef ptr %130(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16), i64 noundef %add.i.i463) #15
   %lg_size2.i.i467 = getelementptr inbounds i8, ptr %call.i.i466, i64 8
   store i64 %s28.0.i456, ptr %lg_size2.i.i467, align 8
   %add.ptr.i40.i468 = getelementptr inbounds i8, ptr %call.i.i466, i64 16
@@ -26353,7 +26353,7 @@ for.cond32.i469:                                  ; preds = %if.end37.i471, %whi
   %r21.0.i470 = phi ptr [ %atomic-temp.i.0.i38.i425, %while.end.i461 ], [ %136, %if.end37.i471 ]
   store ptr %r21.0.i470, ptr %call.i.i466, align 8
   %132 = ptrtoint ptr %r21.0.i470 to i64
-  %133 = cmpxchg ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0), i64 %132, i64 %131 seq_cst seq_cst, align 8
+  %133 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 24), i64 %132, i64 %131 seq_cst seq_cst, align 8
   %134 = extractvalue { i64, i1 } %133, 1
   br i1 %134, label %insert.i432, label %if.end37.i471
 
@@ -26369,15 +26369,15 @@ if.then40.i474:                                   ; preds = %if.end37.i471
   %138 = load i64, ptr %lg_size2.i.i467, align 8
   %mul.i42.i475 = shl i64 16, %138
   %add.i43.i476 = add nuw i64 %mul.i42.i475, 16
-  %vtable.i44.i477 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i44.i477 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16), align 8
   %vfn.i45.i478 = getelementptr inbounds i8, ptr %vtable.i44.i477, i64 16
   %139 = load ptr, ptr %vfn.i45.i478, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull %call.i.i466, i64 noundef %add.i43.i476) #15
+  call void %139(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 16), ptr noundef nonnull %call.i.i466, i64 noundef %add.i43.i476) #15
   br label %insert.i432
 
 insert.i432:                                      ; preds = %for.cond32.i469, %if.then40.i474, %lor.lhs.false.i427, %if.then11.i479
   %found.0.i433 = phi ptr [ %call19.i424, %if.then40.i474 ], [ %call19.i424, %lor.lhs.false.i427 ], [ %122, %if.then11.i479 ], [ %call19.i424, %for.cond32.i469 ]
-  %140 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %140 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15removed_comdats, i64 24) acquire, align 8
   %atomic-temp.i.0.i46.i434 = inttoptr i64 %140 to ptr
   %lg_size.i.i47.i435 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i46.i434, i64 8
   %141 = load i64, ptr %lg_size.i.i47.i435, align 8
@@ -26457,7 +26457,7 @@ if.then.i120:                                     ; preds = %init.end103
   %sext604 = shl i64 %sub.ptr.div.i116, 32
   %conv.i121 = ashr exact i64 %sext604, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i117)
-  %call.i.i.i122 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8num_cies, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i117)
+  %call.i.i.i122 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8num_cies, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i117)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i117)
   %152 = load i64, ptr %call.i.i.i122, align 8
   %add.i123 = add nsw i64 %conv.i121, %152
@@ -26503,7 +26503,7 @@ if.then.i132:                                     ; preds = %if.then127
   %call.i.i.i485 = tail call i64 @pthread_self() #39
   store i64 %call.i.i.i485, ptr %k.i484, align 8
   %call.i.i.i.i486 = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %k.i484, i64 noundef 8, i64 noundef 3339675911) #15
-  %160 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %160 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 24) acquire, align 8
   %tobool.not65.i487 = icmp eq i64 %160, 0
   br i1 %tobool.not65.i487, label %for.end18.i512, label %for.body.lr.ph.i488
 
@@ -26534,7 +26534,7 @@ if.end.i501:                                      ; preds = %for.body.i491, %for
   br i1 %cmp.i.i36.i504, label %if.then11.i569, label %for.inc.i505
 
 if.then11.i569:                                   ; preds = %if.end.i501
-  %164 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %164 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 24) acquire, align 8
   %atomic-temp.i.0.i37.i570 = inttoptr i64 %164 to ptr
   %cmp.i571 = icmp eq ptr %r.066.i492, %atomic-temp.i.0.i37.i570
   %ptr.i572 = getelementptr inbounds i8, ptr %arrayidx.i64.i502, i64 8
@@ -26555,12 +26555,12 @@ for.inc17.i510:                                   ; preds = %for.inc.i505, %for.
   br i1 %tobool.not.i511, label %for.end18.i512, label %for.body.i491, !llvm.loop !514
 
 for.end18.i512:                                   ; preds = %for.inc17.i510, %if.then.i132
-  %vtable.i513 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i513 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16), align 8
   %168 = load ptr, ptr %vtable.i513, align 8
-  %call19.i514 = call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0)) #15
-  %169 = atomicrmw add ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 2, i32 0, i32 0), i64 1 seq_cst, align 8
+  %call19.i514 = call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16)) #15
+  %169 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 32), i64 1 seq_cst, align 8
   %170 = add i64 %169, 1
-  %171 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %171 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 24) acquire, align 8
   %atomic-temp.i.0.i38.i515 = inttoptr i64 %171 to ptr
   %tobool24.not.i516 = icmp eq i64 %171, 0
   br i1 %tobool24.not.i516, label %while.cond.i545.preheader, label %lor.lhs.false.i517
@@ -26588,10 +26588,10 @@ while.cond.i545:                                  ; preds = %while.cond.i545.pre
 while.end.i551:                                   ; preds = %while.cond.i545
   %mul.i.i552 = shl i64 16, %s28.0.i546
   %add.i.i553 = add nuw i64 %mul.i.i552, 16
-  %vtable.i.i554 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i.i554 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16), align 8
   %vfn.i.i555 = getelementptr inbounds i8, ptr %vtable.i.i554, i64 8
   %173 = load ptr, ptr %vfn.i.i555, align 8
-  %call.i.i556 = call noundef ptr %173(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0), i64 noundef %add.i.i553) #15
+  %call.i.i556 = call noundef ptr %173(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16), i64 noundef %add.i.i553) #15
   %lg_size2.i.i557 = getelementptr inbounds i8, ptr %call.i.i556, i64 8
   store i64 %s28.0.i546, ptr %lg_size2.i.i557, align 8
   %add.ptr.i40.i558 = getelementptr inbounds i8, ptr %call.i.i556, i64 16
@@ -26603,7 +26603,7 @@ for.cond32.i559:                                  ; preds = %if.end37.i561, %whi
   %r21.0.i560 = phi ptr [ %atomic-temp.i.0.i38.i515, %while.end.i551 ], [ %179, %if.end37.i561 ]
   store ptr %r21.0.i560, ptr %call.i.i556, align 8
   %175 = ptrtoint ptr %r21.0.i560 to i64
-  %176 = cmpxchg ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0), i64 %175, i64 %174 seq_cst seq_cst, align 8
+  %176 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 24), i64 %175, i64 %174 seq_cst seq_cst, align 8
   %177 = extractvalue { i64, i1 } %176, 1
   br i1 %177, label %insert.i522, label %if.end37.i561
 
@@ -26619,15 +26619,15 @@ if.then40.i564:                                   ; preds = %if.end37.i561
   %181 = load i64, ptr %lg_size2.i.i557, align 8
   %mul.i42.i565 = shl i64 16, %181
   %add.i43.i566 = add nuw i64 %mul.i42.i565, 16
-  %vtable.i44.i567 = load ptr, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0), align 8
+  %vtable.i44.i567 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16), align 8
   %vfn.i45.i568 = getelementptr inbounds i8, ptr %vtable.i44.i567, i64 16
   %182 = load ptr, ptr %vfn.i45.i568, align 8
-  call void %182(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull %call.i.i556, i64 noundef %add.i43.i566) #15
+  call void %182(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 16), ptr noundef nonnull %call.i.i556, i64 noundef %add.i43.i566) #15
   br label %insert.i522
 
 insert.i522:                                      ; preds = %for.cond32.i559, %if.then40.i564, %lor.lhs.false.i517, %if.then11.i569
   %found.0.i523 = phi ptr [ %call19.i514, %if.then40.i564 ], [ %call19.i514, %lor.lhs.false.i517 ], [ %165, %if.then11.i569 ], [ %call19.i514, %for.cond32.i559 ]
-  %183 = load atomic i64, ptr getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0) acquire, align 8
+  %183 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE15num_unique_cies, i64 24) acquire, align 8
   %atomic-temp.i.0.i46.i524 = inttoptr i64 %183 to ptr
   %lg_size.i.i47.i525 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i46.i524, i64 8
   %184 = load i64, ptr %lg_size.i.i47.i525, align 8
@@ -26706,7 +26706,7 @@ if.then.i145:                                     ; preds = %init.end138
   %sext605 = shl i64 %sub.ptr.sub.i140, 28
   %conv.i146 = ashr i64 %sext605, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i142)
-  %call.i.i.i147 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8num_fdes, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i142)
+  %call.i.i.i147 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE8num_fdes, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i142)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i142)
   %195 = load i64, ptr %call.i.i.i147, align 8
   %add.i148 = add nsw i64 %195, %conv.i146
@@ -26793,7 +26793,7 @@ if.then.i161:                                     ; preds = %_ZNK3tbb6detail2d11
   %sext607 = shl i64 %208, 32
   %conv.i162 = ashr exact i64 %sext607, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i158)
-  %call.i.i.i163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE9num_bytes, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i158)
+  %call.i.i.i163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE9num_bytes, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i158)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i158)
   %209 = load i64, ptr %call.i.i.i163, align 8
   %add.i164 = add nsw i64 %209, %conv.i162
@@ -26850,7 +26850,7 @@ if.then.i183:                                     ; preds = %for.body181
   %sext606 = shl i64 %sub.ptr.sub.i178, 29
   %conv.i184 = ashr i64 %sext606, 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %exists.i.i180)
-  %call.i.i.i185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.mold::Counter", ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE18num_input_sections, i64 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i180)
+  %call.i.i.i185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4mold3elf10show_statsINS0_5ALPHAEEEvRNS0_7ContextIT_EEE18num_input_sections, i64 16), ptr noundef nonnull align 1 dereferenceable(1) %exists.i.i180)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %exists.i.i180)
   %221 = load i64, ptr %call.i.i.i185, align 8
   %add.i186 = add nsw i64 %221, %conv.i184
@@ -27002,12 +27002,12 @@ entry:
   %values = getelementptr inbounds i8, ptr %this, i64 16
   %my_root.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_root.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %values, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 16) #15
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 %value, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 16), ptr %call.i.i.i, align 8
   store ptr %call.i.i.i, ptr %my_construct_callback.i, align 8
   %my_locals.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr inttoptr (i64 1 to ptr), ptr %my_locals.i, align 8
@@ -27036,16 +27036,16 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d126
   unreachable
 
 _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit:       ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEC2ERKl.exit
-  %2 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
-  %3 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 16), align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i1
 
 if.then.i.i1:                                     ; preds = %_ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit
   store ptr %this, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
   br label %_ZNSt6vectorIPN4mold7CounterESaIS2_EE9push_backEOS2_.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit
@@ -27098,9 +27098,9 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN4mol
 
 _ZNSt6vectorIPN4mold7CounterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN4mold7CounterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr @_ZN4mold7Counter9instancesE, align 8
-  store ptr %incdec.ptr.i.i.i, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
-  store ptr %add.ptr19.i.i.i, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 2), align 8
+  store ptr %add.ptr19.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 16), align 8
   br label %_ZNSt6vectorIPN4mold7CounterESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPN4mold7CounterESaIS2_EE9push_backEOS2_.exit: ; preds = %if.then.i.i1, %_ZNSt6vectorIPN4mold7CounterESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
@@ -27112,7 +27112,7 @@ _ZNSt6vectorIPN4mold7CounterESaIS2_EE9push_backEOS2_.exit: ; preds = %if.then.i.
 define linkonce_odr dso_local void @_ZN4mold7CounterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %values = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %values, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %my_construct_callback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -27180,7 +27180,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
   store atomic i64 0, ptr %my_size.i.i.i.i monotonic, align 8
   %my_first_block.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store atomic i64 0, ptr %my_first_block.i.i.i.i monotonic, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %values, align 8
   ret void
 }
 
@@ -27200,7 +27200,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10ObjectFileINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10ObjectFileINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %lto_elf_syms = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load ptr, ptr %lto_elf_syms, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -27363,7 +27363,7 @@ declare void @_ZN4mold3elf10ObjectFileINS0_5ALPHAEE17mark_live_objectsERNS0_7Con
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf9InputFileINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf9InputFileINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %frag_syms = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load ptr, ptr %frag_syms, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -28422,7 +28422,7 @@ if.end41:                                         ; preds = %_ZSt27__uninitializ
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -28449,7 +28449,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf5ChunkINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -29403,7 +29403,7 @@ entry:
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %this, align 8
   %my_construct_callback = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %my_construct_callback, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -29471,14 +29471,14 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EE
   store atomic i64 0, ptr %my_size.i.i.i monotonic, align 8
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store atomic i64 0, ptr %my_first_block.i.i.i monotonic, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %this, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %my_construct_callback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -29553,7 +29553,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -29570,12 +29570,12 @@ declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unn
 define linkonce_odr dso_local noundef ptr @_ZNK3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %call.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 16) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d113callback_baseE, i64 16), ptr %call.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %add.ptr.i.i, align 8
   store i64 %1, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 16), ptr %call.i.i, align 8
   ret ptr %call.i.i
 }
 
@@ -31831,7 +31831,7 @@ return:                                           ; preds = %land.rhs.i.i.i, %fo
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputEhdrINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -31858,7 +31858,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputEhdrINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -31894,7 +31894,7 @@ declare void @_ZN4mold3elf10OutputEhdrINS0_5ALPHAEE8copy_bufERNS0_7ContextIS2_EE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputPhdrINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %phdrs = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %phdrs, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -31905,7 +31905,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN4mold3elf7ElfPhdrINS1_5ALPHAEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN4mold3elf7ElfPhdrINS1_5ALPHAEEESaIS4_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -31932,7 +31932,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputPhdrINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10OutputPhdrINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %phdrs.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %phdrs.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -31943,7 +31943,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN4mold3elf7ElfPhdrINS1_5ALPHAEEESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorIN4mold3elf7ElfPhdrINS1_5ALPHAEEESaIS4_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -31981,7 +31981,7 @@ declare void @_ZN4mold3elf10OutputPhdrINS0_5ALPHAEE11update_shdrERNS0_7ContextIS
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputShdrINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32008,7 +32008,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10OutputShdrINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32044,7 +32044,7 @@ declare void @_ZN4mold3elf10OutputShdrINS0_5ALPHAEE8copy_bufERNS0_7ContextIS2_EE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10GotSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(300) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10GotSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10GotSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %gottp_syms = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %gottp_syms, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -32085,7 +32085,7 @@ if.then.i.i.i8:                                   ; preds = %_ZNSt6vectorIPN4mol
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit9
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit9: ; preds = %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit6, %if.then.i.i.i8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
@@ -32130,7 +32130,7 @@ declare void @_ZN4mold3elf10GotSectionINS0_5ALPHAEE15populate_symtabERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13GotPltSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32157,7 +32157,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13GotPltSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32189,7 +32189,7 @@ declare void @_ZN4mold3elf13GotPltSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13RelDynSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32216,7 +32216,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13RelDynSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32246,7 +32246,7 @@ declare void @_ZN4mold3elf13RelDynSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13RelPltSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32273,7 +32273,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13RelPltSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32305,7 +32305,7 @@ declare void @_ZN4mold3elf13RelPltSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14RelrDynSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32332,7 +32332,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14RelrDynSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32364,7 +32364,7 @@ declare void @_ZN4mold3elf14RelrDynSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13StrtabSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32391,7 +32391,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13StrtabSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32423,7 +32423,7 @@ declare void @_ZN4mold3elf13StrtabSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10PltSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -32434,7 +32434,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -32461,7 +32461,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf10PltSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf10PltSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32472,7 +32472,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -32508,7 +32508,7 @@ declare void @_ZN4mold3elf10PltSectionINS0_5ALPHAEE15populate_symtabERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13PltGotSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -32519,7 +32519,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -32546,7 +32546,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13PltGotSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13PltGotSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32557,7 +32557,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -32591,7 +32591,7 @@ declare void @_ZN4mold3elf13PltGotSectionINS0_5ALPHAEE15populate_symtabERNS0_7Co
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13SymtabSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32618,7 +32618,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13SymtabSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32650,7 +32650,7 @@ declare void @_ZN4mold3elf13SymtabSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13DynsymSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -32661,7 +32661,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -32688,7 +32688,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13DynsymSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32699,7 +32699,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -32731,7 +32731,7 @@ declare void @_ZN4mold3elf13DynsymSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13DynstrSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %strings = getelementptr inbounds i8, ptr %this, i64 208
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -32762,7 +32762,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIS
   br label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEElSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_lEEED2Ev.exit
 
 _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEElSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_lEEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i1 = icmp eq ptr %5, null
@@ -32789,7 +32789,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13DynstrSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13DynstrSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %strings.i = getelementptr inbounds i8, ptr %this, i64 208
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -32820,7 +32820,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIS
   br label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEElSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_lEEED2Ev.exit.i
 
 _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEElSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_lEEED2Ev.exit.i: ; preds = %if.end.i.i.i.i.i, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i1.i = icmp eq ptr %5, null
@@ -32850,7 +32850,7 @@ declare void @_ZN4mold3elf13DynstrSectionINS0_5ALPHAEE8copy_bufERNS0_7ContextIS2
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14EhFrameSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32877,7 +32877,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14EhFrameSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -32907,7 +32907,7 @@ declare void @_ZN4mold3elf14EhFrameSectionINS0_5ALPHAEE8copy_bufERNS0_7ContextIS
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14CopyrelSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -32918,7 +32918,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -32945,7 +32945,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14CopyrelSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14CopyrelSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %symbols.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %symbols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -32956,7 +32956,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorIPN4mold3elf6SymbolINS1_5ALPHAEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -33002,7 +33002,7 @@ declare void @_ZN4mold3elf14CopyrelSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf15ShstrtabSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33029,7 +33029,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf15ShstrtabSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33061,7 +33061,7 @@ declare void @_ZN4mold3elf15ShstrtabSectionINS0_5ALPHAEE11update_shdrERNS0_7Cont
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13InterpSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33088,7 +33088,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13InterpSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33120,7 +33120,7 @@ declare void @_ZN4mold3elf13InterpSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14BuildIdSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33147,7 +33147,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14BuildIdSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33179,7 +33179,7 @@ declare void @_ZN4mold3elf14BuildIdSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf17EhFrameHdrSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(204) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33206,7 +33206,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf17EhFrameHdrSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(204) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33238,7 +33238,7 @@ declare void @_ZN4mold3elf17EhFrameHdrSectionINS0_5ALPHAEE11update_shdrERNS0_7Co
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf15GdbIndexSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33265,7 +33265,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf15GdbIndexSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33293,7 +33293,7 @@ _ZN4mold3elf15GdbIndexSectionINS0_5ALPHAEED2Ev.exit: ; preds = %_ZNSt6vectorImSa
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19RelroPaddingSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33320,7 +33320,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19RelroPaddingSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33348,7 +33348,7 @@ _ZN4mold3elf19RelroPaddingSectionINS0_5ALPHAEED2Ev.exit: ; preds = %_ZNSt6vector
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf11HashSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33375,7 +33375,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf11HashSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33407,7 +33407,7 @@ declare void @_ZN4mold3elf11HashSectionINS0_5ALPHAEE11update_shdrERNS0_7ContextI
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14GnuHashSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33434,7 +33434,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14GnuHashSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33466,7 +33466,7 @@ declare void @_ZN4mold3elf14GnuHashSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13VerdefSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -33477,7 +33477,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -33504,7 +33504,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13VerdefSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VerdefSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33515,7 +33515,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -33547,7 +33547,7 @@ declare void @_ZN4mold3elf13VerdefSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19EhFrameRelocSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33574,7 +33574,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19EhFrameRelocSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33606,7 +33606,7 @@ declare void @_ZN4mold3elf19EhFrameRelocSectionINS0_5ALPHAEE11update_shdrERNS0_7
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14DynamicSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33633,7 +33633,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14DynamicSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33665,7 +33665,7 @@ declare void @_ZN4mold3elf14DynamicSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13VersymSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -33676,7 +33676,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN4mold12LittleEndianItLi2EEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4mold12LittleEndianItLi2EEESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -33703,7 +33703,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf13VersymSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf13VersymSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33714,7 +33714,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN4mold12LittleEndianItLi2EEESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN4mold12LittleEndianItLi2EEESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -33746,7 +33746,7 @@ declare void @_ZN4mold3elf13VersymSectionINS0_5ALPHAEE11update_shdrERNS0_7Contex
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14VerneedSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -33757,7 +33757,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -33784,7 +33784,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf14VerneedSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf14VerneedSectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %contents.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %contents.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33795,7 +33795,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -33827,7 +33827,7 @@ declare void @_ZN4mold3elf14VerneedSectionINS0_5ALPHAEE11update_shdrERNS0_7Conte
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf18NotePackageSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -33854,7 +33854,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf18NotePackageSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33886,12 +33886,12 @@ declare void @_ZN4mold3elf18NotePackageSectionINS0_5ALPHAEE11update_shdrERNS0_7C
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19NotePropertySectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %properties = getelementptr inbounds i8, ptr %this, i64 200
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %properties, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -33918,12 +33918,12 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf19NotePropertySectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf19NotePropertySectionINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %properties.i = getelementptr inbounds i8, ptr %this, i64 200
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %properties.i, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -34338,7 +34338,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -34359,7 +34359,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEEEEvT_SM_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -34420,7 +34420,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -34734,7 +34734,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -34989,7 +34989,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %24 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -35165,7 +35165,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -35186,7 +35186,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEESA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEESt8functionIFvPNS6_9InputFileIS8_EEEEEEvT_SM_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -35245,7 +35245,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -35550,7 +35550,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -35803,7 +35803,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %24 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEESt8functionIFvPNSA_9InputFileISC_EEEESE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -36032,7 +36032,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -36053,7 +36053,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -36112,7 +36112,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -36417,7 +36417,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -36680,7 +36680,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %29 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -36858,7 +36858,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -36879,7 +36879,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_18do_resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -36938,7 +36938,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -37243,7 +37243,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -37565,7 +37565,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %36 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18do_resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -37855,7 +37855,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -37967,7 +37967,7 @@ entry:
   %call.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i, i64 noundef 128) #15
   %0 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d216feeder_item_taskIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 0, i32 0, i64 2), ptr %call.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d216feeder_item_taskIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 16), ptr %call.i.i, align 64
   %item.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   %1 = load ptr, ptr %item, align 8
   store ptr %1, ptr %item.i.i.i, align 64
@@ -38004,7 +38004,7 @@ entry:
   %call.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc, i64 noundef 128) #15
   %0 = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d216feeder_item_taskIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 0, i32 0, i64 2), ptr %call.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d216feeder_item_taskIZN4mold3elfL17mark_live_objectsINS4_5ALPHAEEEvRNS4_7ContextIT_EEEUlPNS4_9InputFileIS6_EERNS0_2d16feederISD_EEE_SD_EE, i64 16), ptr %call.i, align 64
   %item.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %1 = load ptr, ptr %item, align 8
   store ptr %1, ptr %item.i.i, align 64
@@ -38291,7 +38291,7 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   %call.i.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %12 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i.i, align 64
   %my_range.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 64
   %13 = load i64, ptr %my_range, align 64
   store i64 %13, ptr %my_range.i.i.i.i.i, align 8
@@ -38550,7 +38550,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   %call.i.i.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %56 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %56, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_L17mark_live_objectsISC_EEvRNSA_7ContextIT_EEEUlSE_RNS1_6feederISE_EEE_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i.i.i, align 64
   %my_range.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(24) %my_range.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i.i, i64 24, i1 false)
   %my_body.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 88
@@ -38977,7 +38977,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -38998,7 +38998,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -39057,7 +39057,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -39362,7 +39362,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -39592,7 +39592,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -39737,7 +39737,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -39758,7 +39758,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_15resolve_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -39817,7 +39817,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -40122,7 +40122,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -40352,7 +40352,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_15resolve_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -40497,7 +40497,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -40518,7 +40518,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -40577,7 +40577,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -40882,7 +40882,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -41119,7 +41119,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -41268,7 +41268,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -41289,7 +41289,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22resolve_section_piecesIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -41348,7 +41348,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -41653,7 +41653,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -41890,7 +41890,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22resolve_section_piecesISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -42039,7 +42039,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -42060,7 +42060,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22convert_common_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -42119,7 +42119,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -42424,7 +42424,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -42661,7 +42661,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22convert_common_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -43202,7 +43202,7 @@ for.body.i28.i.i.i.i:                             ; preds = %for.body.i28.i.i.i.
   %arrayidx.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %acc.i.i.i, i64 %i.013.i.i.i.i.i
   %33 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 16, !alias.scope !675, !noalias !676
   %34 = lshr <2 x i64> %33, <i64 47, i64 47>
-  %add.ptr.i29.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 128), i64 %i.013.i.i.i.i.i
+  %add.ptr.i29.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 128), i64 %i.013.i.i.i.i.i
   %35 = load <2 x i64>, ptr %add.ptr.i29.i.i.i.i, align 16, !alias.scope !673, !noalias !677
   %36 = xor <2 x i64> %34, %35
   %xor.i.i.i.i.i3.i = xor <2 x i64> %36, %33
@@ -43287,7 +43287,7 @@ for.body.i59.i.i.i.i:                             ; preds = %for.body.i59.i.i.i.
   %i.010.i.i.i.i.i = phi i64 [ 0, %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit56.i.i.i.i ], [ %inc.i65.i.i.i.i, %for.body.i59.i.i.i.i ]
   %add.ptr.i60.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %add.ptr17.i.i.i.i, i64 %i.010.i.i.i.i.i
   %51 = load <2 x i64>, ptr %add.ptr.i60.i.i.i.i, align 1, !alias.scope !707, !noalias !708
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 121), i64 %i.010.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 121), i64 %i.010.i.i.i.i.i
   %52 = load <2 x i64>, ptr %add.ptr2.i.i.i.i.i, align 1, !alias.scope !705, !noalias !709
   %xor.i.i61.i.i.i.i = xor <2 x i64> %52, %51
   %53 = bitcast <2 x i64> %xor.i.i61.i.i.i.i to <4 x i32>
@@ -43317,7 +43317,7 @@ for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, 
   %mul.i.i.i5.i = shl nuw nsw i64 %i.02.i.i.i.i, 1
   %add.ptr.i5.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i.i.i5.i
   %mul1.i.i.i.i = shl nuw nsw i64 %i.02.i.i.i.i, 4
-  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 11), i64 %mul1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %mul1.i.i.i.i
   %add.ptr.val.i.i.i.i = load i64, ptr %add.ptr.i5.i.i.i, align 16, !alias.scope !712, !noalias !642
   %60 = getelementptr i8, ptr %add.ptr.i5.i.i.i, i64 8
   %add.ptr.val5.i.i.i.i = load i64, ptr %60, align 8, !alias.scope !712, !noalias !642
@@ -43404,7 +43404,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %0, ptr %my_first.i.i.i, align 64
   %my_index.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -43433,7 +43433,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SP_SE_EEESI_SI_RKSP_RNS3_12wait_contextERNS3_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SP_SE_EEESI_SI_RKSP_RNS3_12wait_contextERNS3_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_SE_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachINS0_2d115vector_iteratorINS3_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS8_5ALPHAEEESt14default_deleteISB_EENS3_23cache_aligned_allocatorISE_EEEESE_EEZNS8_28compute_merged_section_sizesISA_EEvRNS8_7ContextIT_EEEUlRSE_E_EEvSL_SL_RKT0_RNS3_18task_group_contextE.exit
 
@@ -43493,7 +43493,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -43805,7 +43805,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -44065,7 +44065,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %27 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperINS1_15vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINSB_5ALPHAEEESt14default_deleteISE_EENS1_23cache_aligned_allocatorISH_EEEESH_EEZNSB_28compute_merged_section_sizesISD_EEvRNSB_7ContextIT_EEEUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -44240,7 +44240,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -44261,7 +44261,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_22create_output_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -44320,7 +44320,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -44625,7 +44625,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -44861,7 +44861,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_22create_output_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -47084,7 +47084,7 @@ if.then.i.i:                                      ; preds = %for.end
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store ptr %end.coerce, ptr %my_range.i.i.i.i, align 64
   %ref.tmp14.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -48001,7 +48001,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i, i64 noundef 128) #15
   %1 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i, align 64
   %my_range.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
@@ -48256,7 +48256,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %4 = load ptr, ptr %my_range2.i.i.i.i, align 64
   store ptr %4, ptr %my_range.i.i.i.i, align 8
@@ -48470,7 +48470,7 @@ if.then10:                                        ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %19 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SM_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i14, i64 24, i1 false)
   %my_parent.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 96
@@ -49183,7 +49183,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -49424,7 +49424,7 @@ if.then10:                                        ; preds = %if.then8.thread, %i
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS7_5ALPHAEEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZNS7_22create_output_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -52024,7 +52024,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -52045,7 +52045,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_23check_duplicate_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -52104,7 +52104,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -52409,7 +52409,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -52645,7 +52645,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_23check_duplicate_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -53348,7 +53348,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -53653,7 +53653,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -53889,7 +53889,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf9InputFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_18check_symbol_typesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -57874,7 +57874,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cx
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   %0 = load i32, ptr %__args1, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.ensured.i.i.i.i)
@@ -77980,7 +77980,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
   %_M_automaton.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %_M_automaton.i, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %8, i64 80
-  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i = trunc i32 %call6.i to i16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i) #15
   %_M_table.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
@@ -78039,7 +78039,7 @@ land.rhs:                                         ; preds = %if.end25
   %_M_automaton.i7 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %_M_automaton.i7, align 8
   %_M_traits.i8 = getelementptr inbounds i8, ptr %19, i64 80
-  %call6.i9 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i9 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i10 = trunc i32 %call6.i9 to i16
   %call.i.i11 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8) #15
   %_M_table.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i11, i64 48
@@ -79336,7 +79336,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
   %_M_automaton.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %_M_automaton.i, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %8, i64 80
-  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i = trunc i32 %call6.i to i16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i) #15
   %_M_table.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
@@ -79395,7 +79395,7 @@ land.rhs:                                         ; preds = %if.end25
   %_M_automaton.i7 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %_M_automaton.i7, align 8
   %_M_traits.i8 = getelementptr inbounds i8, ptr %19, i64 80
-  %call6.i9 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i9 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i10 = trunc i32 %call6.i9 to i16
   %call.i.i11 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i8) #15
   %_M_table.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i11, i64 48
@@ -81696,7 +81696,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   %_M_automaton.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %_M_automaton.i, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %8, i64 80
-  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i = trunc i32 %call6.i to i16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i) #15
   %_M_table.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
@@ -81755,7 +81755,7 @@ land.rhs:                                         ; preds = %if.end22
   %_M_automaton.i4 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %_M_automaton.i4, align 8
   %_M_traits.i5 = getelementptr inbounds i8, ptr %19, i64 80
-  %call6.i6 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i6 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i7 = trunc i32 %call6.i6 to i16
   %call.i.i8 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5) #15
   %_M_table.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i8, i64 48
@@ -83008,7 +83008,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   %_M_automaton.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %_M_automaton.i, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %8, i64 80
-  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i = trunc i32 %call6.i to i16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i) #15
   %_M_table.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
@@ -83067,7 +83067,7 @@ land.rhs:                                         ; preds = %if.end22
   %_M_automaton.i4 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %_M_automaton.i4, align 8
   %_M_traits.i5 = getelementptr inbounds i8, ptr %19, i64 80
-  %call6.i6 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 0, i64 1), i1 noundef zeroext false)
+  %call6.i6 = tail call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5, ptr noundef nonnull @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
   %__f.sroa.0.0.extract.trunc.i.i7 = trunc i32 %call6.i6 to i16
   %call.i.i8 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits.i5) #15
   %_M_table.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i8, i64 48
@@ -87655,7 +87655,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -87676,7 +87676,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -87735,7 +87735,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -88040,7 +88040,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -88268,7 +88268,7 @@ if.then10:                                        ; preds = %if.then8.thread, %i
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -88550,7 +88550,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -88571,7 +88571,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16shuffle_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -88630,7 +88630,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -88935,7 +88935,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -89202,7 +89202,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %28 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16shuffle_sectionsISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -89379,7 +89379,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -89400,7 +89400,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_section_sizesIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -89459,7 +89459,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -89764,7 +89764,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -90000,7 +90000,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_section_sizesISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -90501,7 +90501,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -90522,7 +90522,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SO_SD_EEESI_SI_RKSO_RNS0_2d112wait_contextERNSU_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SO_SD_EEESI_SI_RKSO_RNS0_2d112wait_contextERNSU_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_SD_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E_EEvSA_SA_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -90581,7 +90581,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -90886,7 +90886,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -91155,7 +91155,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %27 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -91339,7 +91339,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -91360,7 +91360,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SO_SD_EEESI_SI_RKSO_RNS0_2d112wait_contextERNSU_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISI_SO_SD_EEESI_SI_RKSO_RNS0_2d112wait_contextERNSU_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_SD_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINS6_5ALPHAEEEvRNS6_7ContextIT_EEE5GroupSt6vectorISD_SaISD_EEEEZZNS7_IS8_EEvSC_ENKUlPNS6_5ChunkIS8_EEE_clESL_EUlRSD_E0_EEvSA_SA_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -91419,7 +91419,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -91724,7 +91724,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -91988,7 +91988,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %26 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold3elf21compute_section_sizesINSA_5ALPHAEEEvRNSA_7ContextIT_EEE5GroupSt6vectorISH_SaISH_EEEEZZNSB_ISC_EEvSG_ENKUlPNSA_5ChunkISC_EEE_clESP_EUlRSH_E0_SH_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -94938,7 +94938,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -94959,7 +94959,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_24claim_unresolved_symbolsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -95018,7 +95018,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -95323,7 +95323,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -95559,7 +95559,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_24claim_unresolved_symbolsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -96149,7 +96149,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -96170,7 +96170,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_16scan_relocationsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -96229,7 +96229,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -96534,7 +96534,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -96771,7 +96771,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_16scan_relocationsISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -96922,7 +96922,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i, i64 noundef 192) #15
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i, align 64
   %my_range.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
@@ -97184,7 +97184,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -97425,7 +97425,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf16scan_relocationsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -97965,7 +97965,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i, i64 noundef 192) #15
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i, align 64
   %my_range.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
@@ -98227,7 +98227,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -98497,7 +98497,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %29 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf21create_reloc_sectionsINS7_5ALPHAEEEvRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -98680,7 +98680,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -98701,7 +98701,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -98760,7 +98760,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -99065,7 +99065,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -99311,7 +99311,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -99597,7 +99597,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -99618,7 +99618,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_11copy_chunksIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -99677,7 +99677,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -99982,7 +99982,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -100228,7 +100228,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_11copy_chunksISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -100384,7 +100384,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -100405,7 +100405,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -100464,7 +100464,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -100769,7 +100769,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -101005,7 +101005,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -101294,7 +101294,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -101315,7 +101315,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_13rewrite_endbrIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -101374,7 +101374,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -101679,7 +101679,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -101907,7 +101907,7 @@ if.then10:                                        ; preds = %if.then8.thread, %i
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_13rewrite_endbrISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -102148,7 +102148,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -102169,7 +102169,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_14construct_relrIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -102228,7 +102228,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -102533,7 +102533,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -102773,7 +102773,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %24 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_14construct_relrISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -102923,7 +102923,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -102944,7 +102944,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -103003,7 +103003,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -103308,7 +103308,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -103548,7 +103548,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %24 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -103698,7 +103698,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -103719,7 +103719,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -103778,7 +103778,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -104083,7 +104083,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -104320,7 +104320,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -104469,7 +104469,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -104490,7 +104490,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20create_output_symtabIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -104549,7 +104549,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -104854,7 +104854,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -105091,7 +105091,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %23 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20create_output_symtabISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -105619,7 +105619,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -105640,7 +105640,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20apply_version_scriptIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -105699,7 +105699,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -106004,7 +106004,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -106240,7 +106240,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20apply_version_scriptISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -106734,7 +106734,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -106755,7 +106755,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_20parse_symbol_versionIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -106814,7 +106814,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -107119,7 +107119,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -107355,7 +107355,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_20parse_symbol_versionISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -107855,7 +107855,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -107876,7 +107876,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -107935,7 +107935,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -108240,7 +108240,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -108551,7 +108551,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %30 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -108783,7 +108783,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -108804,7 +108804,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -108863,7 +108863,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -109168,7 +109168,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -109404,7 +109404,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -109735,7 +109735,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -109756,7 +109756,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_21compute_import_exportIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -109815,7 +109815,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -110120,7 +110120,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -110356,7 +110356,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_21compute_import_exportISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -110676,7 +110676,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -110697,7 +110697,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -110756,7 +110756,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -111061,7 +111061,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -111297,7 +111297,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -111564,7 +111564,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %m_ref_count.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %root_task.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_EE, i64 16), ptr %root_task.i, align 64
   %my_first.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 64
   store ptr %first.coerce, ptr %my_first.i.i.i, align 64
   %my_last.i.i.i = getelementptr inbounds i8, ptr %root_task.i, i64 72
@@ -111585,7 +111585,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i
 
 _ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagECI2NS1_23for_each_root_task_baseISF_SL_SA_EEESF_SF_RKSL_RNS0_2d112wait_contextERNSR_18task_group_contextE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 0, i32 0, i64 2), ptr %root_task.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_SA_St26random_access_iterator_tagEE, i64 16), ptr %root_task.i, align 64
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %root_task.i, ptr noundef nonnull align 8 dereferenceable(128) %context, ptr noundef nonnull align 8 dereferenceable(16) %w_context.i, ptr noundef nonnull align 8 dereferenceable(128) %context) #15
   br label %_ZN3tbb6detail2d221run_parallel_for_eachIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZNS6_28compute_address_significanceIS8_EEvRNS6_7ContextIT_EEEUlSA_E0_EEvSI_SI_RKT0_RNS0_2d118task_group_contextE.exit
 
@@ -111644,7 +111644,7 @@ if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192) #15
   %3 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i64 %sub.ptr.div.i.i.i, ptr %my_range.i.i.i.i, align 64
   %ref.tmp.sroa.3.0.my_range.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
@@ -111949,7 +111949,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -112177,7 +112177,7 @@ if.then10:                                        ; preds = %if.then8.thread, %i
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_5ALPHAEEESt6vectorISE_SaISE_EEEEZNSA_28compute_address_significanceISC_EEvRNSA_7ContextIT_EEEUlSE_E0_SE_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -112409,7 +112409,7 @@ _ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf18SymtabShndxSectionINS0_5ALPHAEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -112436,7 +112436,7 @@ _ZN4mold3elf5ChunkINS0_5ALPHAEED2Ev.exit:         ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf18SymtabShndxSectionINS0_5ALPHAEED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_5ALPHAEEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -112634,7 +112634,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i, i64 noundef 192) #15
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i, align 64
   %my_range.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
@@ -112896,7 +112896,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -113137,7 +113137,7 @@ do.cond.thread:                                   ; preds = %if.then8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed) #15
   %22 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elf23compress_debug_sectionsINS7_5ALPHAEEElRNS7_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88

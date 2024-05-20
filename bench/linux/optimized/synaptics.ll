@@ -760,7 +760,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %44, label %.loopexit9, label %5, !llvm.loop !8
 
 .loopexit9:                                       ; preds = %40, %24
-  %45 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %46 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3520, i64 noundef 120) #13
   store ptr %46, ptr %0, align 8
   %47 = icmp eq ptr %46, null
@@ -2154,7 +2154,7 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @synaptics_pt_create(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1096) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9

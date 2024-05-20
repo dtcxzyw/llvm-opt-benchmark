@@ -328,9 +328,9 @@ pushsig.exit:                                     ; preds = %for.inc.i
 
 land.lhs.true:                                    ; preds = %pushsig.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @tty_new, ptr noundef nonnull align 4 dereferenceable(60) @tty_orig, i64 60, i1 false)
-  %2 = load i32, ptr getelementptr inbounds (%struct.termios, ptr @tty_new, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @tty_new, i64 12), align 4
   %and.i = and i32 %2, -9
-  store i32 %and.i, ptr getelementptr inbounds (%struct.termios, ptr @tty_new, i64 0, i32 3), align 4
+  store i32 %and.i, ptr getelementptr inbounds (i8, ptr @tty_new, i64 12), align 4
   %.b.i = load i1, ptr @is_a_tty, align 4
   br i1 %.b.i, label %land.lhs.true.i, label %if.end
 

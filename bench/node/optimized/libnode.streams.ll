@@ -3865,9 +3865,9 @@ entry:
   %eos_.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %eos_.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 1, i64 2), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 2, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 192), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 240), ptr %5, align 8
   %stats_ = getelementptr inbounds i8, ptr %this, i64 80
   %realm_.i6 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %realm_.i6, align 8
@@ -4680,7 +4680,7 @@ if.end:                                           ; preds = %_ZNK4node4quic6Stre
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %source, i64 8
   %12 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source, i8 0, i64 16, i1 false), !noalias !41
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic6Stream8OutboundE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !41
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6Stream8OutboundE, i64 16), ptr %call.i, align 8, !noalias !41
   %stream_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %stream_.i.i, align 8, !noalias !41
   %queue_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -4742,11 +4742,11 @@ declare noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 192), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic6StreamE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 240), ptr %add.ptr2, align 8
   %stream_queue_ = getelementptr inbounds i8, ptr %this, i64 240
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %next_.i.i, align 8
@@ -9358,7 +9358,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !66
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !66
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node4quic6Stream8Outbound10OnCompleteESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !66
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node4quic6Stream8Outbound10OnCompleteESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !66
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %done, i64 24
   %0 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8, !noalias !66
@@ -9911,7 +9911,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -10370,7 +10370,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_9DataQueue6ReaderEEEvPKcRKSt10shared_ptrI
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldINS_9DataQueue6ReaderEEEvPKcRKSt10shared_ptrIT_ES5_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -10880,7 +10880,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16

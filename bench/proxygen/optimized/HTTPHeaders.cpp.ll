@@ -89,7 +89,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.check
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::bitset", ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, i64 0, i32 0, i32 0, i64 1), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, i64 8), i8 0, i64 24, i1 false)
   store i64 -1150948980713062400, ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes) #20
   br label %init.end
@@ -2547,7 +2547,7 @@ init.check.i:                                     ; preds = %"_ZNK8proxygen11HTT
   br i1 %tobool.not.i, label %_ZN8proxygen11HTTPHeaders17perHopHeaderCodesEv.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::bitset", ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, i64 0, i32 0, i32 0, i64 1), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, i64 8), i8 0, i64 24, i1 false)
   store i64 -1150948980713062400, ptr @_ZZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen11HTTPHeaders17perHopHeaderCodesEvE17perHopHeaderCodes) #20
   br label %_ZN8proxygen11HTTPHeaders17perHopHeaderCodesEv.exit
@@ -3638,7 +3638,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i1
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str, i64 0, i64 2)) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2)) #20
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen11HTTPHeaders17COMBINE_SEPARATORB5cxx11E, i64 noundef 2)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i1

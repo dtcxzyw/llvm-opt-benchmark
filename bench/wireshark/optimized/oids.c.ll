@@ -760,7 +760,7 @@ define void @oids_init() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @prepopulate_oids() unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct._oid_info_t, ptr @oid_root, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @oid_root, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %12
 
@@ -779,7 +779,7 @@ define internal fastcc void @prepopulate_oids() unnamed_addr #0 {
   store i32 %9, ptr @debuglevel, align 4
   %10 = tail call ptr @wmem_epan_scope() #8
   %11 = tail call noalias ptr @wmem_tree_new(ptr noundef %10) #8
-  store ptr %11, ptr getelementptr inbounds (%struct._oid_info_t, ptr @oid_root, i64 0, i32 3), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @oid_root, i64 24), align 8
   store i32 0, ptr %1, align 4
   call void @oid_add(ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef nonnull %1)
   store i32 1, ptr %1, align 4

@@ -44,7 +44,7 @@ define dso_local range(i32 -12, 1) i32 @i2c_register_board_info(i32 noundef %0, 
 .preheader:                                       ; preds = %8, %30
   %10 = phi ptr [ %34, %30 ], [ %1, %8 ]
   %11 = phi i32 [ %33, %30 ], [ %2, %8 ]
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 104) #6
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -75,8 +75,8 @@ define dso_local range(i32 -12, 1) i32 @i2c_register_board_info(i32 noundef %0, 
   br label %.thread
 
 30:                                               ; preds = %15, %21
-  %31 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @__i2c_board_list, i64 0, i32 1), align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.list_head, ptr @__i2c_board_list, i64 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @__i2c_board_list, i64 8), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @__i2c_board_list, i64 8), align 8
   store ptr @__i2c_board_list, ptr %13, align 8
   %32 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %31, ptr %32, align 8

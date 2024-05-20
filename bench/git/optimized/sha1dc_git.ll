@@ -19,7 +19,7 @@ if.then:                                          ; preds = %entry
   ret void
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @hash_to_hex_algop(ptr noundef %hash, ptr noundef nonnull getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1)) #3
+  %call1 = tail call ptr @hash_to_hex_algop(ptr noundef %hash, ptr noundef nonnull getelementptr inbounds (i8, ptr @hash_algos, i64 104)) #3
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %call1) #4
   unreachable
 }

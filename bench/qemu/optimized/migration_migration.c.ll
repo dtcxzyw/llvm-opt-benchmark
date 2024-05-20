@@ -3031,10 +3031,10 @@ if.end:                                           ; preds = %lor.lhs.false3.i, %
   %4 = load ptr, ptr %reasonp, align 8
   %call.i4 = tail call ptr @g_slist_prepend(ptr noundef %3, ptr noundef %4) #18
   store ptr %call.i4, ptr @migration_blockers, align 16
-  %5 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @migration_blockers, i64 0, i64 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @migration_blockers, i64 8), align 8
   %6 = load ptr, ptr %reasonp, align 8
   %call.i4.c = tail call ptr @g_slist_prepend(ptr noundef %5, ptr noundef %6) #18
-  store ptr %call.i4.c, ptr getelementptr inbounds ([2 x ptr], ptr @migration_blockers, i64 0, i64 1), align 8
+  store ptr %call.i4.c, ptr getelementptr inbounds (i8, ptr @migration_blockers, i64 8), align 8
   br label %return
 
 return:                                           ; preds = %if.end, %is_busy.exit
@@ -3054,10 +3054,10 @@ for.body:                                         ; preds = %entry
   %2 = load ptr, ptr %reasonp, align 8
   %call = tail call ptr @g_slist_remove(ptr noundef %1, ptr noundef %2) #18
   store ptr %call, ptr @migration_blockers, align 16
-  %3 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @migration_blockers, i64 0, i64 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @migration_blockers, i64 8), align 8
   %4 = load ptr, ptr %reasonp, align 8
   %call.c = tail call ptr @g_slist_remove(ptr noundef %3, ptr noundef %4) #18
-  store ptr %call.c, ptr getelementptr inbounds ([2 x ptr], ptr @migration_blockers, i64 0, i64 1), align 8
+  store ptr %call.c, ptr getelementptr inbounds (i8, ptr @migration_blockers, i64 8), align 8
   %5 = load ptr, ptr %reasonp, align 8
   tail call void @error_free(ptr noundef %5) #18
   store ptr null, ptr %reasonp, align 8
@@ -4145,7 +4145,7 @@ if.end8:                                          ; preds = %if.end, %if.then5
   %div24 = fdiv double %conv21, %div15
   %pages_per_second = getelementptr inbounds i8, ptr %s, i64 488
   store double %div24, ptr %pages_per_second, align 8
-  %4 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 1) monotonic, align 8
+  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 8) monotonic, align 8
   %tobool26 = icmp ne i64 %4, 0
   %cmp27 = icmp ugt i64 %sub, 10000
   %or.cond = select i1 %tobool26, i1 %cmp27, i1 false
@@ -6413,14 +6413,14 @@ entry:
   %1 = load ptr, ptr %ram, align 8
   %total = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %call4, ptr %total, align 8
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 14) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 112) monotonic, align 8
   %3 = load ptr, ptr %ram, align 8
   %duplicate = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %2, ptr %duplicate, align 8
   %4 = load ptr, ptr %ram, align 8
   %skipped = getelementptr inbounds i8, ptr %4, i64 32
   store i64 0, ptr %skipped, align 8
-  %5 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 6) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 48) monotonic, align 8
   %6 = load ptr, ptr %ram, align 8
   %normal = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %5, ptr %normal, align 8
@@ -6435,22 +6435,22 @@ entry:
   %10 = load ptr, ptr %ram, align 8
   %mbps15 = getelementptr inbounds i8, ptr %10, i64 64
   store double %9, ptr %mbps15, align 8
-  %11 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2) monotonic, align 8
+  %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
   %12 = load ptr, ptr %ram, align 8
   %dirty_sync_count = getelementptr inbounds i8, ptr %12, i64 72
   store i64 %11, ptr %dirty_sync_count, align 8
-  %13 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 3) monotonic, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 24) monotonic, align 8
   %14 = load ptr, ptr %ram, align 8
   %dirty_sync_missed_zero_copy = getelementptr inbounds i8, ptr %14, i64 136
   store i64 %13, ptr %dirty_sync_missed_zero_copy, align 8
-  %15 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 8) monotonic, align 8
+  %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 64) monotonic, align 8
   %16 = load ptr, ptr %ram, align 8
   %postcopy_requests = getelementptr inbounds i8, ptr %16, i64 80
   store i64 %15, ptr %postcopy_requests, align 8
   %17 = load ptr, ptr %ram, align 8
   %page_size23 = getelementptr inbounds i8, ptr %17, i64 88
   store i64 %call, ptr %page_size23, align 8
-  %18 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 5) monotonic, align 8
+  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40) monotonic, align 8
   %19 = load ptr, ptr %ram, align 8
   %multifd_bytes = getelementptr inbounds i8, ptr %19, i64 96
   store i64 %18, ptr %multifd_bytes, align 8
@@ -6460,15 +6460,15 @@ entry:
   %21 = load ptr, ptr %ram, align 8
   %pages_per_second27 = getelementptr inbounds i8, ptr %21, i64 104
   store i64 %conv, ptr %pages_per_second27, align 8
-  %22 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9) monotonic, align 8
+  %22 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 72) monotonic, align 8
   %23 = load ptr, ptr %ram, align 8
   %precopy_bytes = getelementptr inbounds i8, ptr %23, i64 112
   store i64 %22, ptr %precopy_bytes, align 8
-  %24 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 4) monotonic, align 8
+  %24 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32) monotonic, align 8
   %25 = load ptr, ptr %ram, align 8
   %downtime_bytes = getelementptr inbounds i8, ptr %25, i64 120
   store i64 %24, ptr %downtime_bytes, align 8
-  %26 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 7) monotonic, align 8
+  %26 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56) monotonic, align 8
   %27 = load ptr, ptr %ram, align 8
   %postcopy_bytes = getelementptr inbounds i8, ptr %27, i64 128
   store i64 %26, ptr %postcopy_bytes, align 8
@@ -6482,27 +6482,27 @@ if.then:                                          ; preds = %entry
   %call36 = tail call i64 @migrate_xbzrle_cache_size() #18
   %28 = load ptr, ptr %xbzrle_cache, align 8
   store i64 %call36, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %30 = load ptr, ptr %xbzrle_cache, align 8
   %bytes = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %29, ptr %bytes, align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %32 = load ptr, ptr %xbzrle_cache, align 8
   %pages = getelementptr inbounds i8, ptr %32, i64 16
   store i64 %31, ptr %pages, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 24), align 8
   %34 = load ptr, ptr %xbzrle_cache, align 8
   %cache_miss = getelementptr inbounds i8, ptr %34, i64 24
   store i64 %33, ptr %cache_miss, align 8
-  %35 = load double, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 4), align 8
+  %35 = load double, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 32), align 8
   %36 = load ptr, ptr %xbzrle_cache, align 8
   %cache_miss_rate = getelementptr inbounds i8, ptr %36, i64 32
   store double %35, ptr %cache_miss_rate, align 8
-  %37 = load double, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 5), align 8
+  %37 = load double, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 40), align 8
   %38 = load ptr, ptr %xbzrle_cache, align 8
   %encoding_rate = getelementptr inbounds i8, ptr %38, i64 40
   store double %37, ptr %encoding_rate, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 6), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 48), align 8
   %40 = load ptr, ptr %xbzrle_cache, align 8
   %overflow = getelementptr inbounds i8, ptr %40, i64 48
   store i64 %39, ptr %overflow, align 8
@@ -6533,7 +6533,7 @@ if.then50:                                        ; preds = %if.end48
   %42 = load ptr, ptr %ram, align 8
   %remaining = getelementptr inbounds i8, ptr %42, i64 8
   store i64 %call51, ptr %remaining, align 8
-  %43 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 1) monotonic, align 8
+  %43 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 8) monotonic, align 8
   %44 = load ptr, ptr %ram, align 8
   %dirty_pages_rate = getelementptr inbounds i8, ptr %44, i64 56
   store i64 %43, ptr %dirty_pages_rate, align 8

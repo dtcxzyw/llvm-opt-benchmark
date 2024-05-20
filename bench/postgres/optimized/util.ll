@@ -38,7 +38,7 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %8 = trunc i8 %7 to i1
   %9 = load ptr, ptr @log_opts, align 8
   %10 = icmp ne ptr %9, null
@@ -72,7 +72,7 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
   ]
 
 18:                                               ; preds = %17
-  %19 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %46
 
@@ -81,7 +81,7 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %46
 
 23:                                               ; preds = %17
-  %24 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 7), align 8
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 48), align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %34
 
@@ -96,7 +96,7 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %46
 
 34:                                               ; preds = %23
-  %35 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %46
 
@@ -126,7 +126,7 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_progress_output() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 7), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 48), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %5
 
@@ -135,7 +135,7 @@ define dso_local void @end_progress_output() local_unnamed_addr #0 {
   br label %.sink.split
 
 5:                                                ; preds = %0
-  %6 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.sink.split, label %8
 
@@ -162,22 +162,22 @@ define dso_local void @pg_log(i32 noundef %0, ptr noundef %1, ...) local_unnamed
 define dso_local void @cleanup_output_dirs() local_unnamed_addr #0 {
   %1 = load ptr, ptr @log_opts, align 8
   %2 = tail call i32 @fclose(ptr noundef %1)
-  %3 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 2), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 9), align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %22, label %5
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %7 = tail call zeroext i1 @rmtree(ptr noundef %6, i1 noundef zeroext true) #10
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %10 = tail call zeroext i1 @rmtree(ptr noundef %9, i1 noundef zeroext true) #10
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
   %13 = tail call i32 @pg_check_dir(ptr noundef %12) #10
   switch i32 %13, label %20 [
     i32 0, label %22
@@ -188,17 +188,17 @@ define dso_local void @cleanup_output_dirs() local_unnamed_addr #0 {
   ]
 
 14:                                               ; preds = %11, %11
-  %15 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
   %16 = tail call zeroext i1 @rmtree(ptr noundef %15, i1 noundef zeroext true) #10
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 3), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
   %19 = tail call zeroext i1 @rmtree(ptr noundef %18, i1 noundef zeroext true) #10
   br label %22
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
   tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %21)
   br label %22
 
@@ -233,9 +233,9 @@ define dso_local void @prep_status_progress(ptr noundef %0, ...) local_unnamed_a
   call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @pg_vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #10
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %5 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 7), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 48), align 8
   %6 = trunc i8 %5 to i1
-  %7 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %8 = trunc i8 %7 to i1
   %9 = select i1 %6, i1 true, i1 %8
   %.sink = select i1 %9, i32 3, i32 2

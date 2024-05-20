@@ -294,279 +294,279 @@ define void @ripper_init_eventids1() local_unnamed_addr #0 {
   %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str, i64 noundef 8) #2
   store i64 %1, ptr @ripper_parser_ids, align 8
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 6) #2
-  store i64 %2, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 1), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 8), align 8
   %3 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 8) #2
-  store i64 %3, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 16), align 8
   %4 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 14) #2
-  store i64 %4, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 3), align 8
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 24), align 8
   %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 7) #2
-  store i64 %5, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 4), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 32), align 8
   %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 13) #2
-  store i64 %6, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 5), align 8
+  store i64 %6, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 40), align 8
   %7 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 16) #2
-  store i64 %7, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 6), align 8
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 48), align 8
   %8 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 12) #2
-  store i64 %8, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 7), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 56), align 8
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.8, i64 noundef 11) #2
-  store i64 %9, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 8), align 8
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 64), align 8
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 17) #2
-  store i64 %10, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 9), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 72), align 8
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 16) #2
-  store i64 %11, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 10), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 80), align 8
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 15) #2
-  store i64 %12, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 11), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 88), align 8
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 11) #2
-  store i64 %13, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 12), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 96), align 8
   %14 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 8) #2
-  store i64 %14, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 13), align 8
+  store i64 %14, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 104), align 8
   %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 9) #2
-  store i64 %15, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 14), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 112), align 8
   %16 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 9) #2
-  store i64 %16, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 15), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 120), align 8
   %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 15) #2
-  store i64 %17, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 16), align 8
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 128), align 8
   %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 12) #2
-  store i64 %18, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 17), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 136), align 8
   %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.18, i64 noundef 14) #2
-  store i64 %19, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 18), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 144), align 8
   %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.19, i64 noundef 22) #2
-  store i64 %20, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 19), align 8
+  store i64 %20, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 152), align 8
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.20, i64 noundef 18) #2
-  store i64 %21, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 20), align 8
+  store i64 %21, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 160), align 8
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.21, i64 noundef 8) #2
-  store i64 %22, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 21), align 8
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 168), align 8
   %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.22, i64 noundef 9) #2
-  store i64 %23, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 22), align 8
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 176), align 8
   %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.23, i64 noundef 12) #2
-  store i64 %24, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 23), align 8
+  store i64 %24, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 184), align 8
   %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.24, i64 noundef 11) #2
-  store i64 %25, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 24), align 8
+  store i64 %25, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 192), align 8
   %26 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.25, i64 noundef 11) #2
-  store i64 %26, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 25), align 8
+  store i64 %26, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 200), align 8
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 14) #2
-  store i64 %27, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 26), align 8
+  store i64 %27, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 208), align 8
   %28 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.27, i64 noundef 8) #2
-  store i64 %28, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 27), align 8
+  store i64 %28, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 216), align 8
   %29 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 7) #2
-  store i64 %29, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 28), align 8
+  store i64 %29, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 224), align 8
   %30 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 7) #2
-  store i64 %30, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 29), align 8
+  store i64 %30, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 232), align 8
   %31 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.30, i64 noundef 8) #2
-  store i64 %31, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 30), align 8
+  store i64 %31, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 240), align 8
   %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.31, i64 noundef 19) #2
-  store i64 %32, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 31), align 8
+  store i64 %32, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 248), align 8
   %33 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 10) #2
-  store i64 %33, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 32), align 8
+  store i64 %33, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 256), align 8
   %34 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 15) #2
-  store i64 %34, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 33), align 8
+  store i64 %34, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 264), align 8
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 19) #2
-  store i64 %35, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 34), align 8
+  store i64 %35, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 272), align 8
   %36 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 17) #2
-  store i64 %36, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 35), align 8
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 280), align 8
   %37 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 12) #2
-  store i64 %37, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 36), align 8
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 288), align 8
   %38 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 6) #2
-  store i64 %38, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 37), align 8
+  store i64 %38, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 296), align 8
   %39 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 10) #2
-  store i64 %39, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 38), align 8
+  store i64 %39, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 304), align 8
   %40 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 7) #2
-  store i64 %40, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 39), align 8
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 312), align 8
   %41 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.40, i64 noundef 11) #2
-  store i64 %41, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 40), align 8
+  store i64 %41, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 320), align 8
   %42 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.41, i64 noundef 7) #2
-  store i64 %42, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 41), align 8
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 328), align 8
   %43 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.42, i64 noundef 7) #2
-  store i64 %43, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 42), align 8
+  store i64 %43, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 336), align 8
   %44 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.43, i64 noundef 14) #2
-  store i64 %44, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 43), align 8
+  store i64 %44, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 344), align 8
   %45 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.44, i64 noundef 7) #2
-  store i64 %45, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 44), align 8
+  store i64 %45, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 352), align 8
   %46 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 8) #2
-  store i64 %46, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 45), align 8
+  store i64 %46, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 360), align 8
   %47 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.46, i64 noundef 9) #2
-  store i64 %47, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 46), align 8
+  store i64 %47, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 368), align 8
   %48 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 17) #2
-  store i64 %48, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 47), align 8
+  store i64 %48, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 376), align 8
   %49 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.48, i64 noundef 8) #2
-  store i64 %49, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 48), align 8
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 384), align 8
   %50 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 8) #2
-  store i64 %50, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 49), align 8
+  store i64 %50, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 392), align 8
   %51 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.50, i64 noundef 9) #2
-  store i64 %51, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 50), align 8
+  store i64 %51, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 400), align 8
   %52 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 6) #2
-  store i64 %52, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 51), align 8
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 408), align 8
   %53 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.52, i64 noundef 7) #2
-  store i64 %53, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 52), align 8
+  store i64 %53, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 416), align 8
   %54 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 17) #2
-  store i64 %54, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 53), align 8
+  store i64 %54, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 424), align 8
   %55 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.54, i64 noundef 9) #2
-  store i64 %55, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 54), align 8
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 432), align 8
   %56 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 5) #2
-  store i64 %56, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 55), align 8
+  store i64 %56, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 440), align 8
   %57 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.56, i64 noundef 9) #2
-  store i64 %57, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 56), align 8
+  store i64 %57, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 448), align 8
   %58 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #2
-  store i64 %58, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 57), align 8
+  store i64 %58, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 456), align 8
   %59 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.58, i64 noundef 5) #2
-  store i64 %59, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 58), align 8
+  store i64 %59, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 464), align 8
   %60 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.59, i64 noundef 15) #2
-  store i64 %60, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 59), align 8
+  store i64 %60, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 472), align 8
   %61 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.60, i64 noundef 9) #2
-  store i64 %61, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 60), align 8
+  store i64 %61, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 480), align 8
   %62 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 16) #2
-  store i64 %62, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 61), align 8
+  store i64 %62, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 488), align 8
   %63 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 10) #2
-  store i64 %63, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 62), align 8
+  store i64 %63, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 496), align 8
   %64 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.63, i64 noundef 17) #2
-  store i64 %64, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 63), align 8
+  store i64 %64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 504), align 8
   %65 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 19) #2
-  store i64 %65, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 64), align 8
+  store i64 %65, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 512), align 8
   %66 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 11) #2
-  store i64 %66, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 65), align 8
+  store i64 %66, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 520), align 8
   %67 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 16) #2
-  store i64 %67, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 66), align 8
+  store i64 %67, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 528), align 8
   %68 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 16) #2
-  store i64 %68, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 67), align 8
+  store i64 %68, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 536), align 8
   %69 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.68, i64 noundef 11) #2
-  store i64 %69, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 68), align 8
+  store i64 %69, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 544), align 8
   %70 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.69, i64 noundef 13) #2
-  store i64 %70, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 69), align 8
+  store i64 %70, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 552), align 8
   %71 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.70, i64 noundef 9) #2
-  store i64 %71, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 70), align 8
+  store i64 %71, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 560), align 8
   %72 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 11) #2
-  store i64 %72, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 71), align 8
+  store i64 %72, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 568), align 8
   %73 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.72, i64 noundef 16) #2
-  store i64 %73, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 72), align 8
+  store i64 %73, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 576), align 8
   %74 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.73, i64 noundef 11) #2
-  store i64 %74, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 73), align 8
+  store i64 %74, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 584), align 8
   %75 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.74, i64 noundef 21) #2
-  store i64 %75, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 74), align 8
+  store i64 %75, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 592), align 8
   %76 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.75, i64 noundef 7) #2
-  store i64 %76, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 75), align 8
+  store i64 %76, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 600), align 8
   %77 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.76, i64 noundef 13) #2
-  store i64 %77, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 76), align 8
+  store i64 %77, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 608), align 8
   %78 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.77, i64 noundef 11) #2
-  store i64 %78, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 77), align 8
+  store i64 %78, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 616), align 8
   %79 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 21) #2
-  store i64 %79, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 78), align 8
+  store i64 %79, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
   %80 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 14) #2
-  store i64 %80, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 79), align 8
+  store i64 %80, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
   %81 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.80, i64 noundef 9) #2
-  store i64 %81, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 80), align 8
+  store i64 %81, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 640), align 8
   %82 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.81, i64 noundef 8) #2
-  store i64 %82, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 81), align 8
+  store i64 %82, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 648), align 8
   %83 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 14) #2
-  store i64 %83, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 82), align 8
+  store i64 %83, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
   %84 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.83, i64 noundef 10) #2
-  store i64 %84, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 83), align 8
+  store i64 %84, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 664), align 8
   %85 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.84, i64 noundef 15) #2
-  store i64 %85, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 84), align 8
+  store i64 %85, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 672), align 8
   %86 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.85, i64 noundef 15) #2
-  store i64 %86, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 85), align 8
+  store i64 %86, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 680), align 8
   %87 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.86, i64 noundef 13) #2
-  store i64 %87, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 86), align 8
+  store i64 %87, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 688), align 8
   %88 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.87, i64 noundef 13) #2
-  store i64 %88, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 87), align 8
+  store i64 %88, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 696), align 8
   %89 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.88, i64 noundef 7) #2
-  store i64 %89, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 88), align 8
+  store i64 %89, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 704), align 8
   %90 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.89, i64 noundef 13) #2
-  store i64 %90, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 89), align 8
+  store i64 %90, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 712), align 8
   %91 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 17) #2
-  store i64 %91, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 90), align 8
+  store i64 %91, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 720), align 8
   %92 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.91, i64 noundef 13) #2
-  store i64 %92, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 91), align 8
+  store i64 %92, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 728), align 8
   %93 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.92, i64 noundef 9) #2
-  store i64 %93, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 92), align 8
+  store i64 %93, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 736), align 8
   %94 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 13) #2
-  store i64 %94, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 93), align 8
+  store i64 %94, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 744), align 8
   %95 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.94, i64 noundef 13) #2
-  store i64 %95, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 94), align 8
+  store i64 %95, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 752), align 8
   %96 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.95, i64 noundef 8) #2
-  store i64 %96, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 95), align 8
+  store i64 %96, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 760), align 8
   %97 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.96, i64 noundef 9) #2
-  store i64 %97, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 96), align 8
+  store i64 %97, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 768), align 8
   %98 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.97, i64 noundef 10) #2
-  store i64 %98, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 97), align 8
+  store i64 %98, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 776), align 8
   %99 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.98, i64 noundef 9) #2
-  store i64 %99, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 98), align 8
+  store i64 %99, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 784), align 8
   %100 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.99, i64 noundef 12) #2
-  store i64 %100, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 99), align 8
+  store i64 %100, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 792), align 8
   %101 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.100, i64 noundef 12) #2
-  store i64 %101, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 100), align 8
+  store i64 %101, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 800), align 8
   %102 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.101, i64 noundef 13) #2
-  store i64 %102, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 101), align 8
+  store i64 %102, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 808), align 8
   %103 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.102, i64 noundef 16) #2
-  store i64 %103, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 102), align 8
+  store i64 %103, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 816), align 8
   %104 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.103, i64 noundef 17) #2
-  store i64 %104, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 103), align 8
+  store i64 %104, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 824), align 8
   %105 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.104, i64 noundef 14) #2
-  store i64 %105, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 104), align 8
+  store i64 %105, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 832), align 8
   %106 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.105, i64 noundef 17) #2
-  store i64 %106, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 105), align 8
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 840), align 8
   %107 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.106, i64 noundef 17) #2
-  store i64 %107, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 106), align 8
+  store i64 %107, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 848), align 8
   %108 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.107, i64 noundef 8) #2
-  store i64 %108, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 107), align 8
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 856), align 8
   %109 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.108, i64 noundef 9) #2
-  store i64 %109, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 108), align 8
+  store i64 %109, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 864), align 8
   %110 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.109, i64 noundef 17) #2
-  store i64 %110, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 109), align 8
+  store i64 %110, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 872), align 8
   %111 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.110, i64 noundef 14) #2
-  store i64 %111, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 110), align 8
+  store i64 %111, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 880), align 8
   %112 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.111, i64 noundef 14) #2
-  store i64 %112, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 111), align 8
+  store i64 %112, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 888), align 8
   %113 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.112, i64 noundef 18) #2
-  store i64 %113, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 112), align 8
+  store i64 %113, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 896), align 8
   %114 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.113, i64 noundef 16) #2
-  store i64 %114, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 113), align 8
+  store i64 %114, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 904), align 8
   %115 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.114, i64 noundef 8) #2
-  store i64 %115, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 114), align 8
+  store i64 %115, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 912), align 8
   %116 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.115, i64 noundef 8) #2
-  store i64 %116, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 115), align 8
+  store i64 %116, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 920), align 8
   %117 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.116, i64 noundef 9) #2
-  store i64 %117, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 116), align 8
+  store i64 %117, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 928), align 8
   %118 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 13) #2
-  store i64 %118, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 117), align 8
+  store i64 %118, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 936), align 8
   %119 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.118, i64 noundef 8) #2
-  store i64 %119, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 118), align 8
+  store i64 %119, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 944), align 8
   %120 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.119, i64 noundef 12) #2
-  store i64 %120, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 119), align 8
+  store i64 %120, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 952), align 8
   %121 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.120, i64 noundef 12) #2
-  store i64 %121, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 120), align 8
+  store i64 %121, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 960), align 8
   %122 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.121, i64 noundef 12) #2
-  store i64 %122, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 121), align 8
+  store i64 %122, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 968), align 8
   %123 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.122, i64 noundef 10) #2
-  store i64 %123, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 122), align 8
+  store i64 %123, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 976), align 8
   %124 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.123, i64 noundef 8) #2
-  store i64 %124, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 123), align 8
+  store i64 %124, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 984), align 8
   %125 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.124, i64 noundef 12) #2
-  store i64 %125, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 124), align 8
+  store i64 %125, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 992), align 8
   %126 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.125, i64 noundef 7) #2
-  store i64 %126, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 125), align 8
+  store i64 %126, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1000), align 8
   %127 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.126, i64 noundef 8) #2
-  store i64 %127, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 126), align 8
+  store i64 %127, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1008), align 8
   %128 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.127, i64 noundef 12) #2
-  store i64 %128, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 127), align 8
+  store i64 %128, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1016), align 8
   %129 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.128, i64 noundef 11) #2
-  store i64 %129, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 128), align 8
+  store i64 %129, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1024), align 8
   %130 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.129, i64 noundef 11) #2
-  store i64 %130, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 129), align 8
+  store i64 %130, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1032), align 8
   %131 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.130, i64 noundef 12) #2
-  store i64 %131, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 130), align 8
+  store i64 %131, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1040), align 8
   %132 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.131, i64 noundef 12) #2
-  store i64 %132, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 131), align 8
+  store i64 %132, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1048), align 8
   %133 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.132, i64 noundef 14) #2
-  store i64 %133, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 132), align 8
+  store i64 %133, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1056), align 8
   %134 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.133, i64 noundef 18) #2
-  store i64 %134, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 133), align 8
+  store i64 %134, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1064), align 8
   %135 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.134, i64 noundef 14) #2
-  store i64 %135, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 134), align 8
+  store i64 %135, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1072), align 8
   %136 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.135, i64 noundef 8) #2
-  store i64 %136, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 135), align 8
+  store i64 %136, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1080), align 8
   %137 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.136, i64 noundef 9) #2
-  store i64 %137, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 136), align 8
+  store i64 %137, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1088), align 8
   %138 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.137, i64 noundef 9) #2
-  store i64 %138, ptr getelementptr inbounds (%struct.ripper_parser_ids, ptr @ripper_parser_ids, i64 0, i32 137), align 8
+  store i64 %138, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1096), align 8
   ret void
 }
 

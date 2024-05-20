@@ -17,7 +17,7 @@ define internal noundef i32 @default_allocate(i8 zeroext %0, ptr nocapture readn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @default_notify(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i64 0, i32 14), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 112), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 

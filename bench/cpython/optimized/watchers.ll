@@ -587,9 +587,9 @@ if.then:                                          ; preds = %cond.end
 
 if.then5:                                         ; preds = %cond.end
   %call6 = tail call i32 @PyCode_AddWatcher(ptr noundef nonnull @second_code_object_callback) #6
-  store i32 %call6, ptr getelementptr inbounds ([2 x i32], ptr @code_watcher_ids, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([2 x i32], ptr @num_code_object_created_events, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([2 x i32], ptr @num_code_object_destroyed_events, i64 0, i64 1), align 4
+  store i32 %call6, ptr getelementptr inbounds (i8, ptr @code_watcher_ids, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @num_code_object_created_events, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @num_code_object_destroyed_events, i64 4), align 4
   br label %if.end14
 
 if.then9:                                         ; preds = %cond.end
@@ -1421,7 +1421,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @second_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @pyfunc_watchers, i64 0, i64 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @pyfunc_watchers, i64 8), align 8
   %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value)
   ret i32 %call
 }

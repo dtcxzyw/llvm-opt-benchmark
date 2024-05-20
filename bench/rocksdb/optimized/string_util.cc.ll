@@ -735,7 +735,7 @@ if.end.fold.split:                                ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.end.fold.split
-  %retval.0.i.i.i.ph = phi ptr [ @_ZZN7rocksdb12UnescapeCharEcE11convert_map, %entry ], [ getelementptr inbounds ([2 x %"struct.std::pair"], ptr @_ZZN7rocksdb12UnescapeCharEcE11convert_map, i64 0, i64 1, i32 0), %if.end.fold.split ]
+  %retval.0.i.i.i.ph = phi ptr [ @_ZZN7rocksdb12UnescapeCharEcE11convert_map, %entry ], [ getelementptr inbounds (i8, ptr @_ZZN7rocksdb12UnescapeCharEcE11convert_map, i64 2), %if.end.fold.split ]
   %second = getelementptr inbounds i8, ptr %retval.0.i.i.i.ph, i64 1
   %0 = load i8, ptr %second, align 1
   br label %return
@@ -757,7 +757,7 @@ if.end.fold.split:                                ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.end.fold.split
-  %retval.0.i.i.i.ph = phi ptr [ @_ZZN7rocksdb10EscapeCharEcE11convert_map, %entry ], [ getelementptr inbounds ([2 x %"struct.std::pair"], ptr @_ZZN7rocksdb10EscapeCharEcE11convert_map, i64 0, i64 1, i32 0), %if.end.fold.split ]
+  %retval.0.i.i.i.ph = phi ptr [ @_ZZN7rocksdb10EscapeCharEcE11convert_map, %entry ], [ getelementptr inbounds (i8, ptr @_ZZN7rocksdb10EscapeCharEcE11convert_map, i64 2), %if.end.fold.split ]
   %second = getelementptr inbounds i8, ptr %retval.0.i.i.i.ph, i64 1
   %0 = load i8, ptr %second, align 1
   br label %return
@@ -801,7 +801,7 @@ if.end.fold.split.i:                              ; preds = %invoke.cont
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.fold.split.i, %invoke.cont
-  %retval.0.i.i.i.ph.i = phi ptr [ @_ZZN7rocksdb10EscapeCharEcE11convert_map, %invoke.cont ], [ getelementptr inbounds ([2 x %"struct.std::pair"], ptr @_ZZN7rocksdb10EscapeCharEcE11convert_map, i64 0, i64 1, i32 0), %if.end.fold.split.i ]
+  %retval.0.i.i.i.ph.i = phi ptr [ @_ZZN7rocksdb10EscapeCharEcE11convert_map, %invoke.cont ], [ getelementptr inbounds (i8, ptr @_ZZN7rocksdb10EscapeCharEcE11convert_map, i64 2), %if.end.fold.split.i ]
   %second.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.ph.i, i64 1
   %1 = load i8, ptr %second.i, align 1
   br label %if.else.invoke
@@ -859,7 +859,7 @@ if.end.fold.split.i:                              ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.fold.split.i, %if.then
-  %retval.0.i.i.i.ph.i = phi ptr [ @_ZZN7rocksdb12UnescapeCharEcE11convert_map, %if.then ], [ getelementptr inbounds ([2 x %"struct.std::pair"], ptr @_ZZN7rocksdb12UnescapeCharEcE11convert_map, i64 0, i64 1, i32 0), %if.end.fold.split.i ]
+  %retval.0.i.i.i.ph.i = phi ptr [ @_ZZN7rocksdb12UnescapeCharEcE11convert_map, %if.then ], [ getelementptr inbounds (i8, ptr @_ZZN7rocksdb12UnescapeCharEcE11convert_map, i64 2), %if.end.fold.split.i ]
   %second.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.ph.i, i64 1
   %1 = load i8, ptr %second.i, align 1
   br label %if.end.invoke
@@ -2658,7 +2658,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i1
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str, i64 0, i64 7)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7)) #22
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb14kNullptrStringB5cxx11E, i64 noundef 7)
           to label %__cxx_global_var_init.exit unwind label %lpad.i1

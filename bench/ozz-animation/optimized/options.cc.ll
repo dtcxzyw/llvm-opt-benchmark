@@ -314,30 +314,30 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store i8 %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 %7, ptr %18, align 1
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
   %19 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
-  store i32 0, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), i8 0, i64 16, i1 false)
-  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
+  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
           to label %20 unwind label %24
 
 20:                                               ; preds = %.noexc
-  store ptr @.str.28, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
-  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38))
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
+  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
           to label %22 unwind label %26
 
 22:                                               ; preds = %20
-  %23 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44))
+  %23 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
           to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %26
 
 24:                                               ; preds = %.noexc
@@ -348,16 +348,16 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 26:                                               ; preds = %22, %20
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
 .body:                                            ; preds = %26, %24
   %.pn.i.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
 _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %22
-  %28 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -393,7 +393,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbEC2EPKcS4_bbPFbRKN
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 41
@@ -533,13 +533,13 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %5 = sext i32 %4 to i64
   %.idx6.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
@@ -660,7 +660,7 @@ _ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EE
   br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
-  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %.pre19.i = sext i32 %.pre.i to i64
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
 
@@ -674,7 +674,7 @@ _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6rem
 
 52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
   %53 = add nsw i32 %50, -1
-  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
 
 _ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
@@ -874,30 +874,30 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store i32 %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %3, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
-  store i32 0, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), i8 0, i64 16, i1 false)
-  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
+  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
           to label %19 unwind label %23
 
 19:                                               ; preds = %.noexc
-  store ptr @.str.28, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38))
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
+  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
           to label %21 unwind label %25
 
 21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44))
+  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
           to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
 
 23:                                               ; preds = %.noexc
@@ -908,16 +908,16 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 25:                                               ; preds = %21, %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
 .body:                                            ; preds = %25, %23
   %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
 _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -952,7 +952,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiEC2EPKcS4_ibPFbRKN
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
@@ -967,13 +967,13 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %5 = sext i32 %4 to i64
   %.idx6.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
@@ -1094,7 +1094,7 @@ _ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EE
   br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
-  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %.pre19.i = sext i32 %.pre.i to i64
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
 
@@ -1108,7 +1108,7 @@ _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6rem
 
 52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
   %53 = add nsw i32 %50, -1
-  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
 
 _ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
@@ -1141,30 +1141,30 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store float %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
   store float %3, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
-  store i32 0, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), i8 0, i64 16, i1 false)
-  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
+  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
           to label %19 unwind label %23
 
 19:                                               ; preds = %.noexc
-  store ptr @.str.28, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38))
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
+  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
           to label %21 unwind label %25
 
 21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44))
+  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
           to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
 
 23:                                               ; preds = %.noexc
@@ -1175,16 +1175,16 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 25:                                               ; preds = %21, %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
 .body:                                            ; preds = %25, %23
   %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
 _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -1219,7 +1219,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfEC2EPKcS4_fbPFbRKN
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store float %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1234,13 +1234,13 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %5 = sext i32 %4 to i64
   %.idx6.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
@@ -1361,7 +1361,7 @@ _ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EE
   br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
-  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %.pre19.i = sext i32 %.pre.i to i64
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
 
@@ -1375,7 +1375,7 @@ _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6rem
 
 52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
   %53 = add nsw i32 %50, -1
-  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
 
 _ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
@@ -1408,30 +1408,30 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
-  store i32 0, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), i8 0, i64 16, i1 false)
-  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
+  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
           to label %19 unwind label %23
 
 19:                                               ; preds = %.noexc
-  store ptr @.str.28, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38))
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
+  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
           to label %21 unwind label %25
 
 21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44))
+  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
           to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
 
 23:                                               ; preds = %.noexc
@@ -1442,16 +1442,16 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 25:                                               ; preds = %21, %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
 .body:                                            ; preds = %25, %23
   %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
 _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -1486,7 +1486,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcEC2ES3_S3_S3_bPF
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1501,13 +1501,13 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %5 = sext i32 %4 to i64
   %.idx6.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
@@ -1628,7 +1628,7 @@ _ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EE
   br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
-  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   %.pre19.i = sext i32 %.pre.i to i64
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
 
@@ -1642,7 +1642,7 @@ _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6rem
 
 52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
   %53 = add nsw i32 %50, -1
-  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
 
 _ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
@@ -1659,7 +1659,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #8 align 2 {
   %6 = zext i1 %3 to i8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options6OptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = insertelement <2 x ptr> poison, ptr %1, i64 0
   %9 = insertelement <2 x ptr> %8, ptr %2, i64 1
@@ -2423,24 +2423,24 @@ define dso_local noundef i32 @_ZN3ozz7options16ParseCommandLineEiPKPKcS2_S2_(i32
   br i1 %.not.i, label %6, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 6:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16
-  store ptr @.str.3, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), i8 0, i64 16, i1 false)
-  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16
+  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
+  tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
+  invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
           to label %7 unwind label %11
 
 7:                                                ; preds = %6
-  store ptr @.str.28, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 36), align 16
-  store ptr @.str.27, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
-  %8 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38))
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
+  %8 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
           to label %9 unwind label %13
 
 9:                                                ; preds = %7
-  %10 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44))
+  %10 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
           to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %13
 
 11:                                               ; preds = %6
@@ -2451,16 +2451,16 @@ define dso_local noundef i32 @_ZN3ozz7options16ParseCommandLineEiPKPKcS2_S2_(i32
 13:                                               ; preds = %9, %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 44)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn.i.i = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 38)) #28
+  tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
 _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %9
-  %16 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
   store i32 %16, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -2523,7 +2523,7 @@ define dso_local noundef i32 @_ZN3ozz7options6Parser5ParseEiPKPKc(ptr noundef no
   %16 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr @.str.3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr %17, align 8
   %18 = load ptr, ptr %2, align 8
   br label %19
 
@@ -2822,8 +2822,8 @@ define dso_local void @_ZN3ozz7options20ParsedExecutablePathB5cxx11Ev(ptr dead_o
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %7 = load ptr, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 33), align 8, !noalias !23
-  %8 = load ptr, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 34), align 16, !noalias !23
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 264), align 8, !noalias !23
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 272), align 16, !noalias !23
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !alias.scope !23
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2970,7 +2970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEC2IPKcvEE
 define dso_local noundef ptr @_ZN3ozz7options20ParsedExecutableNameEv() local_unnamed_addr #10 {
   %1 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %1, null
-  %2 = load ptr, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 35), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 280), align 8
   %spec.select = select i1 %.not, ptr @.str.3, ptr %2
   ret ptr %spec.select
 }
@@ -2986,7 +2986,7 @@ define dso_local noundef ptr @_ZNK3ozz7options6Parser15executable_nameEv(ptr noc
 define dso_local noundef ptr @_ZN3ozz7options21ParsedExecutableUsageEv() local_unnamed_addr #10 {
   %1 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %1, null
-  %2 = load ptr, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 37), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
   %spec.select = select i1 %.not, ptr @.str.3, ptr %2
   ret ptr %spec.select
 }
@@ -3066,7 +3066,7 @@ define dso_local void @_ZN3ozz7options6ParserC2Ev(ptr noundef nonnull align 8 de
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr @.str.3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ([1 x i8], ptr @.str.3, i64 1, i64 0), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str.3, i64 1), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr @.str.3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 288

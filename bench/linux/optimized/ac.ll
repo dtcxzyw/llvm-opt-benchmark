@@ -85,7 +85,7 @@ define internal i32 @acpi_ac_probe(ptr noundef %0) #2 align 16 {
   %8 = select i1 %6, ptr %7, ptr null
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 144) #11
   %11 = icmp eq ptr %10, null
   br i1 %11, label %60, label %12

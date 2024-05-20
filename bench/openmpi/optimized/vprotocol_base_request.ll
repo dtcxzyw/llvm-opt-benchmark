@@ -32,30 +32,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_base_request_parasite() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 192), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %34, label %2
 
 2:                                                ; preds = %0
-  %.sroa.18.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 1), align 16
-  %.sroa.29.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 2), align 8
-  %.sroa.310.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 3), align 16
-  %.sroa.412.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 6), align 8
-  %.sroa.614.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 7), align 16
-  %.sroa.715.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 8), align 8
-  %.sroa.816.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 9), align 16
-  %.sroa.1119.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 10), align 8
-  %.sroa.1220.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 11), align 16
-  %.sroa.1322.0.copyload = load i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 15), align 16
-  %.sroa.1424.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 16), align 8
-  %.sroa.1525.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 17), align 16
+  %.sroa.18.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 80), align 16
+  %.sroa.29.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 88), align 8
+  %.sroa.310.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 96), align 16
+  %.sroa.412.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 120), align 8
+  %.sroa.614.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 128), align 16
+  %.sroa.715.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 136), align 8
+  %.sroa.816.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 144), align 16
+  %.sroa.1119.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 152), align 8
+  %.sroa.1220.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 160), align 16
+  %.sroa.1322.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 320), align 16
+  %.sroa.1424.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 328), align 8
+  %.sroa.1525.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 336), align 16
   %3 = getelementptr inbounds i8, ptr %.sroa.816.0.copyload, i64 56
   %4 = load i64, ptr %3, align 8
-  store i64 %4, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 1), align 8
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 8), align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.sroa.816.0.copyload, ptr %5, align 8
   %6 = load i64, ptr %3, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 192), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
@@ -78,7 +78,7 @@ define i32 @mca_vprotocol_base_request_parasite() local_unnamed_addr #0 {
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %2
   %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not33 = icmp eq i32 %18, %19
   br i1 %.not33, label %21, label %20
 
@@ -88,8 +88,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %2
 
 21:                                               ; preds = %20, %opal_obj_run_destructors.exit
   store ptr @opal_free_list_t_class, ptr @mca_pml_base_recv_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_recv_requests, i64 0, i32 0, i32 0, i32 1), align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i38 = icmp eq ptr %23, null
   br i1 %.not6.i38, label %opal_obj_run_constructors.exit, label %.lr.ph.i39
@@ -104,7 +104,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %2
   br i1 %.not.i41, label %opal_obj_run_constructors.exit, label %.lr.ph.i39, !llvm.loop !6
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i39, %21
-  %27 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 24), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 192), align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %.sroa.29.0.copyload to i32
@@ -115,30 +115,30 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i39, %21
   br i1 %.not34, label %34, label %69
 
 34:                                               ; preds = %opal_obj_run_constructors.exit, %0
-  %35 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 25), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 200), align 8
   %.not35 = icmp eq ptr %35, null
   br i1 %.not35, label %68, label %36
 
 36:                                               ; preds = %34
-  %.sroa.1.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 1), align 16
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 2), align 8
-  %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 3), align 16
-  %.sroa.41.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 6), align 8
-  %.sroa.6.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 7), align 16
-  %.sroa.7.0.copyload = load i64, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 8), align 8
-  %.sroa.8.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 9), align 16
-  %.sroa.11.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 10), align 8
-  %.sroa.12.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 11), align 16
-  %.sroa.135.0.copyload = load i32, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 15), align 16
-  %.sroa.146.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 16), align 8
-  %.sroa.15.0.copyload = load ptr, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 17), align 16
+  %.sroa.1.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 80), align 16
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 88), align 8
+  %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 96), align 16
+  %.sroa.41.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 120), align 8
+  %.sroa.6.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 128), align 16
+  %.sroa.7.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 136), align 8
+  %.sroa.8.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 144), align 16
+  %.sroa.11.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 152), align 8
+  %.sroa.12.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 160), align 16
+  %.sroa.135.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 320), align 16
+  %.sroa.146.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 328), align 8
+  %.sroa.15.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 336), align 16
   %37 = getelementptr inbounds i8, ptr %.sroa.8.0.copyload, i64 56
   %38 = load i64, ptr %37, align 8
-  store i64 %38, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 2), align 8
+  store i64 %38, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 16), align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %.sroa.8.0.copyload, ptr %39, align 8
   %40 = load i64, ptr %37, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 25), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 200), align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 56
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %40
@@ -161,7 +161,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i39, %21
 
 opal_obj_run_destructors.exit46:                  ; preds = %.lr.ph.i43, %36
   %52 = load i32, ptr @opal_class_init_epoch, align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 4), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not36 = icmp eq i32 %52, %53
   br i1 %.not36, label %55, label %54
 
@@ -171,8 +171,8 @@ opal_obj_run_destructors.exit46:                  ; preds = %.lr.ph.i43, %36
 
 55:                                               ; preds = %54, %opal_obj_run_destructors.exit46
   store ptr @opal_free_list_t_class, ptr @mca_pml_base_send_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_pml_base_send_requests, i64 0, i32 0, i32 0, i32 1), align 8
-  %56 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 8), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %57 = load ptr, ptr %56, align 8
   %.not6.i47 = icmp eq ptr %57, null
   br i1 %.not6.i47, label %opal_obj_run_constructors.exit51, label %.lr.ph.i48
@@ -187,7 +187,7 @@ opal_obj_run_destructors.exit46:                  ; preds = %.lr.ph.i43, %36
   br i1 %.not.i50, label %opal_obj_run_constructors.exit51, label %.lr.ph.i48, !llvm.loop !6
 
 opal_obj_run_constructors.exit51:                 ; preds = %.lr.ph.i48, %55
-  %61 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 25), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol, i64 200), align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 56
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %.sroa.2.0.copyload to i32

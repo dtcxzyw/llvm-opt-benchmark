@@ -59,7 +59,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_register(ptr
   br i1 %15, label %16, label %135
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 48) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %135, label %20
@@ -249,8 +249,8 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_register(ptr
 132:                                              ; preds = %.loopexit9, %25, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #7
-  %133 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_dma_list, i64 0, i32 1), align 8
-  store ptr %18, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_dma_list, i64 0, i32 1), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_dma_list, i64 8), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @acpi_dma_list, i64 8), align 8
   store ptr @acpi_dma_list, ptr %18, align 8
   %134 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %133, ptr %134, align 8

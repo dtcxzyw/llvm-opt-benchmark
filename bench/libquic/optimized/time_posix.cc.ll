@@ -180,8 +180,8 @@ land.lhs.true.i.i.i:                              ; preds = %if.end15
   br i1 %call3.i.i.i, label %if.then.i.i.i, label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 0, i32 1, i32 0, i64 0))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
+  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.end15
@@ -329,8 +329,8 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 0, i32 1, i32 0, i64 0))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
+  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i

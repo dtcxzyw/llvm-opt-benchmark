@@ -240,7 +240,7 @@ default.unreachable113:                           ; preds = %3
   br i1 %57, label %58, label %.thread104
 
 58:                                               ; preds = %55
-  %59 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %59 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha98478d070b1d87bE", i64 16) monotonic, align 8
   switch i8 %59, label %60 [
     i8 0, label %.thread104
     i8 1, label %.thread
@@ -1520,7 +1520,7 @@ default.unreachable54:                            ; preds = %322, %94, %2
   br i1 %168, label %169, label %.thread600.i
 
 169:                                              ; preds = %165
-  %170 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !130
+  %170 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf46e8bb14e552944E", i64 16) monotonic, align 8, !noalias !130
   switch i8 %170, label %171 [
     i8 0, label %.thread600.i
     i8 1, label %.thread.i
@@ -2721,7 +2721,7 @@ default.unreachable54:                            ; preds = %322, %94, %2
   br i1 %548, label %549, label %.thread652.i
 
 549:                                              ; preds = %546
-  %550 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !130
+  %550 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb61209986c253b2E", i64 16) monotonic, align 8, !noalias !130
   switch i8 %550, label %551 [
     i8 0, label %.thread652.i
     i8 1, label %.thread649.i
@@ -3897,7 +3897,7 @@ default.unreachable555:                           ; preds = %281, %2
   br i1 %122, label %123, label %.thread512
 
 123:                                              ; preds = %119
-  %124 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 0, i32 2, i32 0) monotonic, align 8
+  %124 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha933adeb182a23bfE", i64 16) monotonic, align 8
   switch i8 %124, label %125 [
     i8 0, label %.thread512
     i8 1, label %.thread
@@ -4765,7 +4765,7 @@ common.ret:                                       ; preds = %565, %522, %382, %3
   br i1 %389, label %390, label %.thread543
 
 390:                                              ; preds = %387
-  %391 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 0, i32 2, i32 0) monotonic, align 8
+  %391 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4c91589e64ba66faE", i64 16) monotonic, align 8
   switch i8 %391, label %392 [
     i8 0, label %.thread543
     i8 1, label %.thread540
@@ -11444,7 +11444,7 @@ default.unreachable107:                           ; preds = %86, %2
   br i1 %14, label %15, label %.thread105
 
 15:                                               ; preds = %10
-  %16 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde3120242d86b33cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde3120242d86b33cE", i64 16) monotonic, align 8
   switch i8 %16, label %17 [
     i8 0, label %.thread105
     i8 1, label %.thread
@@ -11813,7 +11813,7 @@ default.unreachable107:                           ; preds = %86, %2
   br i1 %14, label %15, label %.thread105
 
 15:                                               ; preds = %10
-  %16 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde3120242d86b33cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hde3120242d86b33cE", i64 16) monotonic, align 8
   switch i8 %16, label %17 [
     i8 0, label %.thread105
     i8 1, label %.thread
@@ -12272,7 +12272,7 @@ default.unreachable107:                           ; preds = %86, %2
   br i1 %14, label %15, label %.thread105
 
 15:                                               ; preds = %10
-  %16 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h73af58fb74470934E", i64 0, i32 2, i32 0) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h73af58fb74470934E", i64 16) monotonic, align 8
   switch i8 %16, label %17 [
     i8 0, label %.thread105
     i8 1, label %.thread
@@ -12641,7 +12641,7 @@ default.unreachable107:                           ; preds = %86, %2
   br i1 %14, label %15, label %.thread105
 
 15:                                               ; preds = %10
-  %16 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h73af58fb74470934E", i64 0, i32 2, i32 0) monotonic, align 8
+  %16 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h73af58fb74470934E", i64 16) monotonic, align 8
   switch i8 %16, label %17 [
     i8 0, label %.thread105
     i8 1, label %.thread
@@ -13198,7 +13198,7 @@ default.unreachable84:                            ; preds = %174, %3
   br i1 %100, label %101, label %.thread76
 
 101:                                              ; preds = %96
-  %102 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h821f3c224e0a877dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %102 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h821f3c224e0a877dE", i64 16) monotonic, align 8
   switch i8 %102, label %103 [
     i8 0, label %.thread76
     i8 1, label %.thread
@@ -13806,7 +13806,7 @@ common.ret:                                       ; preds = %827, %824, %167
   br i1 %292, label %293, label %.thread526.i
 
 293:                                              ; preds = %289
-  %294 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6389e22b0b13d25eE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1456
+  %294 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6389e22b0b13d25eE", i64 16) monotonic, align 8, !noalias !1456
   switch i8 %294, label %295 [
     i8 0, label %.thread526.i
     i8 1, label %.thread523.i
@@ -14158,7 +14158,7 @@ common.ret:                                       ; preds = %827, %824, %167
   br i1 %402, label %403, label %.thread538.i
 
 403:                                              ; preds = %400
-  %404 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdbb7cbf206304a19E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1456
+  %404 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdbb7cbf206304a19E", i64 16) monotonic, align 8, !noalias !1456
   switch i8 %404, label %405 [
     i8 0, label %.thread538.i
     i8 1, label %.thread535.i
@@ -15756,7 +15756,7 @@ default.unreachable84:                            ; preds = %174, %3
   br i1 %100, label %101, label %.thread76
 
 101:                                              ; preds = %96
-  %102 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h821f3c224e0a877dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %102 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h821f3c224e0a877dE", i64 16) monotonic, align 8
   switch i8 %102, label %103 [
     i8 0, label %.thread76
     i8 1, label %.thread
@@ -16364,7 +16364,7 @@ common.ret:                                       ; preds = %827, %824, %167
   br i1 %292, label %293, label %.thread526.i
 
 293:                                              ; preds = %289
-  %294 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6389e22b0b13d25eE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1859
+  %294 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6389e22b0b13d25eE", i64 16) monotonic, align 8, !noalias !1859
   switch i8 %294, label %295 [
     i8 0, label %.thread526.i
     i8 1, label %.thread523.i
@@ -16716,7 +16716,7 @@ common.ret:                                       ; preds = %827, %824, %167
   br i1 %402, label %403, label %.thread538.i
 
 403:                                              ; preds = %400
-  %404 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdbb7cbf206304a19E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1859
+  %404 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN130_$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$R$GT$$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdbb7cbf206304a19E", i64 16) monotonic, align 8, !noalias !1859
   switch i8 %404, label %405 [
     i8 0, label %.thread538.i
     i8 1, label %.thread535.i

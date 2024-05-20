@@ -495,7 +495,7 @@ for.end:                                          ; preds = %for.body
   %call2.i272 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i271, ptr noundef nonnull @error_fatal) #4
   %call.i4.i273 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i270, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_mmio_map_overlap(ptr noundef %call.i4.i273, i32 noundef 0, i64 noundef 538972160, i32 noundef -1000) #4
-  %12 = load i32, ptr getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 0, i32 5), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @nd_table, i64 40), align 8
   %tobool.not = icmp eq i32 %12, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -507,15 +507,15 @@ if.then:                                          ; preds = %for.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
-  %13 = load i32, ptr getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1, i32 5), align 16
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @nd_table, i64 96), align 16
   %tobool212.not = icmp eq i32 %13, 0
   br i1 %tobool212.not, label %if.end215, label %if.then213
 
 if.then213:                                       ; preds = %if.end
-  tail call void @qemu_check_nic_model(ptr noundef nonnull getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1), ptr noundef nonnull @.str.25) #4
+  tail call void @qemu_check_nic_model(ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_table, i64 56), ptr noundef nonnull @.str.25) #4
   %gem1 = getelementptr inbounds i8, ptr %call2, i64 65536
   %call.i275 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gem1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  tail call void @qdev_set_nic_properties(ptr noundef %call.i275, ptr noundef nonnull getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1)) #4
+  tail call void @qdev_set_nic_properties(ptr noundef %call.i275, ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_table, i64 56)) #4
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then213, %if.end

@@ -65,7 +65,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 13:                                               ; preds = %.critedge, %11, %7
   %storemerge = phi ptr [ %9, %7 ], [ %spec.store.select, %11 ], [ null, %.critedge ]
-  store ptr %storemerge, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1), align 8
+  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 224), align 8
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #3
   %.not125 = icmp eq ptr %14, null
   br i1 %.not125, label %17, label %15
@@ -78,7 +78,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 17:                                               ; preds = %15, %13
   %.088 = phi ptr [ %spec.store.select1, %15 ], [ null, %13 ]
-  store ptr %.088, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 1), align 8
+  store ptr %.088, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 232), align 8
   %18 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #3
   %.not126 = icmp eq ptr %18, null
   br i1 %.not126, label %21, label %19
@@ -91,7 +91,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 21:                                               ; preds = %19, %17
   %.087 = phi ptr [ %spec.store.select2, %19 ], [ null, %17 ]
-  store ptr %.087, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 2), align 8
+  store ptr %.087, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 240), align 8
   %22 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #3
   %.not127 = icmp eq ptr %22, null
   br i1 %.not127, label %25, label %23
@@ -104,7 +104,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 25:                                               ; preds = %23, %21
   %.086 = phi ptr [ %spec.store.select3, %23 ], [ null, %21 ]
-  store ptr %.086, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 3), align 8
+  store ptr %.086, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 248), align 8
   %26 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #3
   %.not128 = icmp eq ptr %26, null
   br i1 %.not128, label %29, label %27
@@ -117,7 +117,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 29:                                               ; preds = %27, %25
   %.085 = phi ptr [ %spec.store.select4, %27 ], [ null, %25 ]
-  store ptr %.085, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 4), align 8
+  store ptr %.085, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 256), align 8
   %30 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #3
   %.not129 = icmp eq ptr %30, null
   br i1 %.not129, label %33, label %31
@@ -130,7 +130,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 33:                                               ; preds = %31, %29
   %.084 = phi ptr [ %spec.store.select5, %31 ], [ null, %29 ]
-  store ptr %.084, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 5), align 8
+  store ptr %.084, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 264), align 8
   %34 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #3
   %.not130 = icmp eq ptr %34, null
   br i1 %.not130, label %37, label %35
@@ -143,7 +143,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 37:                                               ; preds = %35, %33
   %.083 = phi ptr [ %spec.store.select6, %35 ], [ null, %33 ]
-  store ptr %.083, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 6), align 8
+  store ptr %.083, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 272), align 8
   %38 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #3
   %.not131 = icmp eq ptr %38, null
   br i1 %.not131, label %41, label %39
@@ -156,7 +156,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 41:                                               ; preds = %39, %37
   %.082 = phi ptr [ %spec.store.select7, %39 ], [ null, %37 ]
-  store ptr %.082, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 7), align 8
+  store ptr %.082, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 280), align 8
   %42 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #3
   %.not132 = icmp eq ptr %42, null
   br i1 %.not132, label %45, label %43
@@ -169,7 +169,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 45:                                               ; preds = %43, %41
   %.081 = phi ptr [ %spec.store.select8, %43 ], [ null, %41 ]
-  store ptr %.081, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 8), align 8
+  store ptr %.081, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 288), align 8
   %46 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #3
   %.not133 = icmp eq ptr %46, null
   br i1 %.not133, label %49, label %47
@@ -182,7 +182,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 49:                                               ; preds = %47, %45
   %.080 = phi ptr [ %spec.store.select9, %47 ], [ null, %45 ]
-  store ptr %.080, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 9), align 8
+  store ptr %.080, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 296), align 8
   %50 = tail call ptr @getenv(ptr noundef nonnull @.str.11) #3
   %.not134 = icmp eq ptr %50, null
   br i1 %.not134, label %53, label %51
@@ -195,7 +195,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 53:                                               ; preds = %51, %49
   %.079 = phi ptr [ %spec.store.select10, %51 ], [ null, %49 ]
-  store ptr %.079, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 10), align 8
+  store ptr %.079, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 304), align 8
   %54 = tail call ptr @getenv(ptr noundef nonnull @.str.12) #3
   %.not135 = icmp eq ptr %54, null
   br i1 %.not135, label %57, label %55
@@ -208,7 +208,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 57:                                               ; preds = %55, %53
   %.078 = phi ptr [ %spec.store.select11, %55 ], [ null, %53 ]
-  store ptr %.078, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 11), align 8
+  store ptr %.078, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 312), align 8
   %58 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #3
   %.not136 = icmp eq ptr %58, null
   br i1 %.not136, label %61, label %59
@@ -221,7 +221,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 61:                                               ; preds = %59, %57
   %.077 = phi ptr [ %spec.store.select12, %59 ], [ null, %57 ]
-  store ptr %.077, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 12), align 8
+  store ptr %.077, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 320), align 8
   %62 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #3
   %.not137 = icmp eq ptr %62, null
   br i1 %.not137, label %65, label %63
@@ -234,7 +234,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 65:                                               ; preds = %63, %61
   %.076 = phi ptr [ %spec.store.select13, %63 ], [ null, %61 ]
-  store ptr %.076, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 13), align 8
+  store ptr %.076, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 328), align 8
   %66 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #3
   %.not138 = icmp eq ptr %66, null
   br i1 %.not138, label %69, label %67
@@ -247,7 +247,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 69:                                               ; preds = %67, %65
   %.075 = phi ptr [ %spec.store.select14, %67 ], [ null, %65 ]
-  store ptr %.075, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 14), align 8
+  store ptr %.075, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 336), align 8
   %70 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #3
   %.not139 = icmp eq ptr %70, null
   br i1 %.not139, label %73, label %71
@@ -260,7 +260,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 73:                                               ; preds = %71, %69
   %.074 = phi ptr [ %spec.store.select15, %71 ], [ null, %69 ]
-  store ptr %.074, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 15), align 8
+  store ptr %.074, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 344), align 8
   %74 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #3
   %.not140 = icmp eq ptr %74, null
   br i1 %.not140, label %77, label %75
@@ -273,7 +273,7 @@ define internal void @pinstalldirs_env_init(ptr noundef %0, i64 noundef %1) #0 {
 
 77:                                               ; preds = %75, %73
   %.0 = phi ptr [ %spec.store.select16, %75 ], [ null, %73 ]
-  store ptr %.0, ptr getelementptr inbounds (%struct.pmix_pinstalldirs_base_component_2_0_0_t, ptr @pmix_mca_pinstalldirs_env_component, i64 0, i32 1, i32 16), align 8
+  store ptr %.0, ptr getelementptr inbounds (i8, ptr @pmix_mca_pinstalldirs_env_component, i64 352), align 8
   ret void
 }
 

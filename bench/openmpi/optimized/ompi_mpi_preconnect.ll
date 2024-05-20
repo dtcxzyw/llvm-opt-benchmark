@@ -31,10 +31,10 @@ define i32 @ompi_init_preconnect_mpi() local_unnamed_addr #0 {
   %1 = alloca [1 x i8], align 1
   %2 = alloca [1 x i8], align 1
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 13), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 248), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 6), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
   store ptr null, ptr %3, align 8
   %8 = tail call i32 @mca_base_var_find(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.2) #2
   %9 = icmp slt i32 %8, 0

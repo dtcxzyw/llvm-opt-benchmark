@@ -52,7 +52,7 @@ AesEncrypt.exit:                                  ; preds = %.preheader.preheade
   %24 = load i8, ptr %23, align 1
   %25 = shl i8 %24, 1
   %26 = or disjoint i8 %25, %.013.i
-  %27 = getelementptr i8, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 1), i64 %indvars.iv.i
+  %27 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @instance, i64 16), i64 %indvars.iv.i
   store i8 %26, ptr %27, align 1
   %.lobit.i = lshr i8 %24, 7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -64,9 +64,9 @@ AesEncrypt.exit:                                  ; preds = %.preheader.preheade
   br i1 %.not.i38, label %Dbl.exit.preheader, label %29
 
 29:                                               ; preds = %28
-  %30 = load i8, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 1), align 1
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @instance, i64 16), align 1
   %31 = xor i8 %30, -121
-  store i8 %31, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 1), align 1
+  store i8 %31, ptr getelementptr inbounds (i8, ptr @instance, i64 16), align 1
   br label %Dbl.exit.preheader
 
 Dbl.exit.preheader:                               ; preds = %28, %29
@@ -75,11 +75,11 @@ Dbl.exit.preheader:                               ; preds = %28, %29
 Dbl.exit:                                         ; preds = %Dbl.exit.preheader, %Dbl.exit
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i42, %Dbl.exit ], [ 0, %Dbl.exit.preheader ]
   %.013.i40 = phi i8 [ %.lobit.i41, %Dbl.exit ], [ 0, %Dbl.exit.preheader ]
-  %32 = getelementptr i8, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 1), i64 %indvars.iv.i39
+  %32 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @instance, i64 16), i64 %indvars.iv.i39
   %33 = load i8, ptr %32, align 1
   %34 = shl i8 %33, 1
   %35 = or disjoint i8 %34, %.013.i40
-  %36 = getelementptr i8, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 2), i64 %indvars.iv.i39
+  %36 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @instance, i64 32), i64 %indvars.iv.i39
   store i8 %35, ptr %36, align 1
   %.lobit.i41 = lshr i8 %33, 7
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i39, 1
@@ -91,13 +91,13 @@ Dbl.exit:                                         ; preds = %Dbl.exit.preheader,
   br i1 %.not.i44, label %Dbl.exit45, label %38
 
 38:                                               ; preds = %37
-  %39 = load i8, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 2), align 1
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @instance, i64 32), align 1
   %40 = xor i8 %39, -121
-  store i8 %40, ptr getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 2), align 1
+  store i8 %40, ptr getelementptr inbounds (i8, ptr @instance, i64 32), align 1
   br label %Dbl.exit45
 
 Dbl.exit45:                                       ; preds = %37, %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 1), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @instance, i64 16), i64 16, i1 false)
   %41 = icmp eq i8 %7, 1
   %42 = trunc i32 %3 to i16
   br i1 %41, label %43, label %46
@@ -126,7 +126,7 @@ Dbl.exit45:                                       ; preds = %37, %38
   br label %82
 
 52:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 2), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @instance, i64 32), i64 16, i1 false)
   %53 = trunc i32 %5 to i16
   call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %13, ptr noundef readonly %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
   br label %54
@@ -279,7 +279,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 26:                                               ; preds = %._crit_edge, %26
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr %struct.eax_s, ptr @instance, i64 0, i32 2, i64 %indvars.iv
+  %27 = getelementptr [16 x i8], ptr getelementptr inbounds (i8, ptr @instance, i64 32), i64 0, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr i8, ptr %25, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
@@ -296,7 +296,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 35:                                               ; preds = %32, %35
   %indvars.iv75 = phi i64 [ 0, %32 ], [ %indvars.iv.next76, %35 ]
-  %36 = getelementptr %struct.eax_s, ptr @instance, i64 0, i32 1, i64 %indvars.iv75
+  %36 = getelementptr [16 x i8], ptr getelementptr inbounds (i8, ptr @instance, i64 16), i64 0, i64 %indvars.iv75
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr i8, ptr %34, i64 %indvars.iv75
   %39 = load i8, ptr %38, align 1

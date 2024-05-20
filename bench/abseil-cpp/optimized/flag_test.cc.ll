@@ -1182,7 +1182,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126CivilTime_FlagSupport_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126CivilTime_FlagSupport_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -1298,7 +1298,7 @@ entry:
   %kDefaultSec.sroa.7.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 21542142465, ptr %kDefaultSec.sroa.7.0.ref.tmp.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i)
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 48) acquire, align 8
   %and.i.i.i.i.i = and i64 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %if.then.i.i.i
@@ -1306,7 +1306,7 @@ entry:
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.i.i.i.i.i.i
   %dst_byte.013.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %u.i.i.i, %entry ]
   %size.addr.012.i.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 16, %entry ]
-  %src.addr.011.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %entry ]
+  %src.addr.011.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 80), %entry ]
   %1 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i monotonic, align 8
   store i64 %1, ptr %dst_byte.013.i.i.i.i.i.i, align 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i, i64 8
@@ -1317,7 +1317,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i.i.i.i
   fence acquire
-  %2 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i = icmp eq i64 %0, %2
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i
 
@@ -1468,7 +1468,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   %29 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i64 67305985, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i43)
-  %30 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %30 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 48) acquire, align 8
   %and.i.i.i.i.i44 = and i64 %30, 1
   %tobool.not.i.i.i.i.i45 = icmp eq i64 %and.i.i.i.i.i44, 0
   br i1 %tobool.not.i.i.i.i.i45, label %while.body.i.i.i.i.i.i53, label %if.then.i.i.i46
@@ -1476,7 +1476,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 while.body.i.i.i.i.i.i53:                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %while.body.i.i.i.i.i.i53
   %dst_byte.013.i.i.i.i.i.i54 = phi ptr [ %add.ptr.i.i.i.i.i.i57, %while.body.i.i.i.i.i.i53 ], [ %u.i.i.i43, %_ZN7testing15AssertionResultD2Ev.exit ]
   %size.addr.012.i.i.i.i.i.i55 = phi i64 [ %sub.i.i.i.i.i.i59, %while.body.i.i.i.i.i.i53 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %src.addr.011.i.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i.i58, %while.body.i.i.i.i.i.i53 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit ]
+  %src.addr.011.i.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i.i58, %while.body.i.i.i.i.i.i53 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 80), %_ZN7testing15AssertionResultD2Ev.exit ]
   %31 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i56 monotonic, align 8
   store i64 %31, ptr %dst_byte.013.i.i.i.i.i.i54, align 1
   %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i54, i64 8
@@ -1487,7 +1487,7 @@ while.body.i.i.i.i.i.i53:                         ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i61:                              ; preds = %while.body.i.i.i.i.i.i53
   fence acquire
-  %32 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %32 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i62 = icmp eq i64 %30, %32
   br i1 %cmp4.i.i.i.i.i62, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i46
 
@@ -1638,7 +1638,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end35, %_ZNKSt14
   %59 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store i64 197121, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i110)
-  %60 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %60 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 48) acquire, align 8
   %and.i.i.i.i.i111 = and i64 %60, 1
   %tobool.not.i.i.i.i.i112 = icmp eq i64 %and.i.i.i.i.i111, 0
   br i1 %tobool.not.i.i.i.i.i112, label %while.body.i.i.i.i.i.i120, label %if.then.i.i.i113
@@ -1646,7 +1646,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end35, %_ZNKSt14
 while.body.i.i.i.i.i.i120:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit105, %while.body.i.i.i.i.i.i120
   %dst_byte.013.i.i.i.i.i.i121 = phi ptr [ %add.ptr.i.i.i.i.i.i124, %while.body.i.i.i.i.i.i120 ], [ %u.i.i.i110, %_ZN7testing15AssertionResultD2Ev.exit105 ]
   %size.addr.012.i.i.i.i.i.i122 = phi i64 [ %sub.i.i.i.i.i.i126, %while.body.i.i.i.i.i.i120 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit105 ]
-  %src.addr.011.i.i.i.i.i.i123 = phi ptr [ %incdec.ptr.i.i.i.i.i.i125, %while.body.i.i.i.i.i.i120 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit105 ]
+  %src.addr.011.i.i.i.i.i.i123 = phi ptr [ %incdec.ptr.i.i.i.i.i.i125, %while.body.i.i.i.i.i.i120 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 80), %_ZN7testing15AssertionResultD2Ev.exit105 ]
   %61 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i123 monotonic, align 8
   store i64 %61, ptr %dst_byte.013.i.i.i.i.i.i121, align 1
   %add.ptr.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i121, i64 8
@@ -1657,7 +1657,7 @@ while.body.i.i.i.i.i.i120:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i128:                             ; preds = %while.body.i.i.i.i.i.i120
   fence acquire
-  %62 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %62 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i129 = icmp eq i64 %60, %62
   br i1 %cmp4.i.i.i.i.i129, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i113
 
@@ -1808,7 +1808,7 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end58, %_ZNKSt14
   %89 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store i64 513, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i177)
-  %90 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %90 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 48) acquire, align 8
   %and.i.i.i.i.i178 = and i64 %90, 1
   %tobool.not.i.i.i.i.i179 = icmp eq i64 %and.i.i.i.i.i178, 0
   br i1 %tobool.not.i.i.i.i.i179, label %while.body.i.i.i.i.i.i187, label %if.then.i.i.i180
@@ -1816,7 +1816,7 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end58, %_ZNKSt14
 while.body.i.i.i.i.i.i187:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit172, %while.body.i.i.i.i.i.i187
   %dst_byte.013.i.i.i.i.i.i188 = phi ptr [ %add.ptr.i.i.i.i.i.i191, %while.body.i.i.i.i.i.i187 ], [ %u.i.i.i177, %_ZN7testing15AssertionResultD2Ev.exit172 ]
   %size.addr.012.i.i.i.i.i.i189 = phi i64 [ %sub.i.i.i.i.i.i193, %while.body.i.i.i.i.i.i187 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit172 ]
-  %src.addr.011.i.i.i.i.i.i190 = phi ptr [ %incdec.ptr.i.i.i.i.i.i192, %while.body.i.i.i.i.i.i187 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit172 ]
+  %src.addr.011.i.i.i.i.i.i190 = phi ptr [ %incdec.ptr.i.i.i.i.i.i192, %while.body.i.i.i.i.i.i187 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 80), %_ZN7testing15AssertionResultD2Ev.exit172 ]
   %91 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i190 monotonic, align 8
   store i64 %91, ptr %dst_byte.013.i.i.i.i.i.i188, align 1
   %add.ptr.i.i.i.i.i.i191 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i188, i64 8
@@ -1827,7 +1827,7 @@ while.body.i.i.i.i.i.i187:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i195:                             ; preds = %while.body.i.i.i.i.i.i187
   fence acquire
-  %92 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %92 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i196 = icmp eq i64 %90, %92
   br i1 %cmp4.i.i.i.i.i196, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i180
 
@@ -1978,7 +1978,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %if.end81, %_ZNKSt14
   %119 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   store i64 257, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i244)
-  %120 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %120 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 48) acquire, align 8
   %and.i.i.i.i.i245 = and i64 %120, 1
   %tobool.not.i.i.i.i.i246 = icmp eq i64 %and.i.i.i.i.i245, 0
   br i1 %tobool.not.i.i.i.i.i246, label %while.body.i.i.i.i.i.i254, label %if.then.i.i.i247
@@ -1986,7 +1986,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %if.end81, %_ZNKSt14
 while.body.i.i.i.i.i.i254:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit239, %while.body.i.i.i.i.i.i254
   %dst_byte.013.i.i.i.i.i.i255 = phi ptr [ %add.ptr.i.i.i.i.i.i258, %while.body.i.i.i.i.i.i254 ], [ %u.i.i.i244, %_ZN7testing15AssertionResultD2Ev.exit239 ]
   %size.addr.012.i.i.i.i.i.i256 = phi i64 [ %sub.i.i.i.i.i.i260, %while.body.i.i.i.i.i.i254 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit239 ]
-  %src.addr.011.i.i.i.i.i.i257 = phi ptr [ %incdec.ptr.i.i.i.i.i.i259, %while.body.i.i.i.i.i.i254 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit239 ]
+  %src.addr.011.i.i.i.i.i.i257 = phi ptr [ %incdec.ptr.i.i.i.i.i.i259, %while.body.i.i.i.i.i.i254 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 80), %_ZN7testing15AssertionResultD2Ev.exit239 ]
   %121 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i257 monotonic, align 8
   store i64 %121, ptr %dst_byte.013.i.i.i.i.i.i255, align 1
   %add.ptr.i.i.i.i.i.i258 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i255, i64 8
@@ -1997,7 +1997,7 @@ while.body.i.i.i.i.i.i254:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i262:                             ; preds = %while.body.i.i.i.i.i.i254
   fence acquire
-  %122 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %122 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i263 = icmp eq i64 %120, %122
   br i1 %cmp4.i.i.i.i.i263, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i247
 
@@ -2148,7 +2148,7 @@ _ZN7testing15AssertionResultD2Ev.exit306:         ; preds = %if.end104, %_ZNKSt1
   %149 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   store i64 257, ptr %149, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i308)
-  %150 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %150 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 48) acquire, align 8
   %and.i.i.i.i.i309 = and i64 %150, 1
   %tobool.not.i.i.i.i.i310 = icmp eq i64 %and.i.i.i.i.i309, 0
   br i1 %tobool.not.i.i.i.i.i310, label %while.body.i.i.i.i.i.i318, label %if.then.i.i.i311
@@ -2156,7 +2156,7 @@ _ZN7testing15AssertionResultD2Ev.exit306:         ; preds = %if.end104, %_ZNKSt1
 while.body.i.i.i.i.i.i318:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit306, %while.body.i.i.i.i.i.i318
   %dst_byte.013.i.i.i.i.i.i319 = phi ptr [ %add.ptr.i.i.i.i.i.i322, %while.body.i.i.i.i.i.i318 ], [ %u.i.i.i308, %_ZN7testing15AssertionResultD2Ev.exit306 ]
   %size.addr.012.i.i.i.i.i.i320 = phi i64 [ %sub.i.i.i.i.i.i324, %while.body.i.i.i.i.i.i318 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit306 ]
-  %src.addr.011.i.i.i.i.i.i321 = phi ptr [ %incdec.ptr.i.i.i.i.i.i323, %while.body.i.i.i.i.i.i318 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit306 ]
+  %src.addr.011.i.i.i.i.i.i321 = phi ptr [ %incdec.ptr.i.i.i.i.i.i323, %while.body.i.i.i.i.i.i318 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 80), %_ZN7testing15AssertionResultD2Ev.exit306 ]
   %151 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i321 monotonic, align 8
   store i64 %151, ptr %dst_byte.013.i.i.i.i.i.i319, align 1
   %add.ptr.i.i.i.i.i.i322 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i319, i64 8
@@ -2167,7 +2167,7 @@ while.body.i.i.i.i.i.i318:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i326:                             ; preds = %while.body.i.i.i.i.i.i318
   fence acquire
-  %152 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %152 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i327 = icmp eq i64 %150, %152
   br i1 %cmp4.i.i.i.i.i327, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i311
 
@@ -2348,7 +2348,7 @@ _ZN7testing15AssertionResultD2Ev.exit370:         ; preds = %if.end127, %_ZNKSt1
   %kNewSec.sroa.13.0.ref.tmp136.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp136, i64 8
   store i64 43101193990, ptr %kNewSec.sroa.13.0.ref.tmp136.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i390)
-  %184 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %184 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 48) acquire, align 8
   %and.i.i.i.i.i391 = and i64 %184, 1
   %tobool.not.i.i.i.i.i392 = icmp eq i64 %and.i.i.i.i.i391, 0
   br i1 %tobool.not.i.i.i.i.i392, label %while.body.i.i.i.i.i.i400, label %if.then.i.i.i393
@@ -2356,7 +2356,7 @@ _ZN7testing15AssertionResultD2Ev.exit370:         ; preds = %if.end127, %_ZNKSt1
 while.body.i.i.i.i.i.i400:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit370, %while.body.i.i.i.i.i.i400
   %dst_byte.013.i.i.i.i.i.i401 = phi ptr [ %add.ptr.i.i.i.i.i.i404, %while.body.i.i.i.i.i.i400 ], [ %u.i.i.i390, %_ZN7testing15AssertionResultD2Ev.exit370 ]
   %size.addr.012.i.i.i.i.i.i402 = phi i64 [ %sub.i.i.i.i.i.i406, %while.body.i.i.i.i.i.i400 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit370 ]
-  %src.addr.011.i.i.i.i.i.i403 = phi ptr [ %incdec.ptr.i.i.i.i.i.i405, %while.body.i.i.i.i.i.i400 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit370 ]
+  %src.addr.011.i.i.i.i.i.i403 = phi ptr [ %incdec.ptr.i.i.i.i.i.i405, %while.body.i.i.i.i.i.i400 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 80), %_ZN7testing15AssertionResultD2Ev.exit370 ]
   %185 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i403 monotonic, align 8
   store i64 %185, ptr %dst_byte.013.i.i.i.i.i.i401, align 1
   %add.ptr.i.i.i.i.i.i404 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i401, i64 8
@@ -2367,7 +2367,7 @@ while.body.i.i.i.i.i.i400:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i408:                             ; preds = %while.body.i.i.i.i.i.i400
   fence acquire
-  %186 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue" }, ptr @FLAGS_test_flag_civil_second, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %186 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_second, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i409 = icmp eq i64 %184, %186
   br i1 %cmp4.i.i.i.i.i409, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit410, label %if.then.i.i.i393
 
@@ -2518,7 +2518,7 @@ _ZN7testing15AssertionResultD2Ev.exit455:         ; preds = %if.end156, %_ZNKSt1
   %213 = getelementptr inbounds i8, ptr %ref.tmp159, i64 8
   store i64 151521030, ptr %213, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i460)
-  %214 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %214 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 48) acquire, align 8
   %and.i.i.i.i.i461 = and i64 %214, 1
   %tobool.not.i.i.i.i.i462 = icmp eq i64 %and.i.i.i.i.i461, 0
   br i1 %tobool.not.i.i.i.i.i462, label %while.body.i.i.i.i.i.i470, label %if.then.i.i.i463
@@ -2526,7 +2526,7 @@ _ZN7testing15AssertionResultD2Ev.exit455:         ; preds = %if.end156, %_ZNKSt1
 while.body.i.i.i.i.i.i470:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit455, %while.body.i.i.i.i.i.i470
   %dst_byte.013.i.i.i.i.i.i471 = phi ptr [ %add.ptr.i.i.i.i.i.i474, %while.body.i.i.i.i.i.i470 ], [ %u.i.i.i460, %_ZN7testing15AssertionResultD2Ev.exit455 ]
   %size.addr.012.i.i.i.i.i.i472 = phi i64 [ %sub.i.i.i.i.i.i476, %while.body.i.i.i.i.i.i470 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit455 ]
-  %src.addr.011.i.i.i.i.i.i473 = phi ptr [ %incdec.ptr.i.i.i.i.i.i475, %while.body.i.i.i.i.i.i470 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit455 ]
+  %src.addr.011.i.i.i.i.i.i473 = phi ptr [ %incdec.ptr.i.i.i.i.i.i475, %while.body.i.i.i.i.i.i470 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 80), %_ZN7testing15AssertionResultD2Ev.exit455 ]
   %215 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i473 monotonic, align 8
   store i64 %215, ptr %dst_byte.013.i.i.i.i.i.i471, align 1
   %add.ptr.i.i.i.i.i.i474 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i471, i64 8
@@ -2537,7 +2537,7 @@ while.body.i.i.i.i.i.i470:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i478:                             ; preds = %while.body.i.i.i.i.i.i470
   fence acquire
-  %216 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.4" }, ptr @FLAGS_test_flag_civil_minute, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %216 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_minute, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i479 = icmp eq i64 %214, %216
   br i1 %cmp4.i.i.i.i.i479, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit480, label %if.then.i.i.i463
 
@@ -2688,7 +2688,7 @@ _ZN7testing15AssertionResultD2Ev.exit525:         ; preds = %if.end179, %_ZNKSt1
   %243 = getelementptr inbounds i8, ptr %ref.tmp182, i64 8
   store i64 526086, ptr %243, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i530)
-  %244 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %244 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 48) acquire, align 8
   %and.i.i.i.i.i531 = and i64 %244, 1
   %tobool.not.i.i.i.i.i532 = icmp eq i64 %and.i.i.i.i.i531, 0
   br i1 %tobool.not.i.i.i.i.i532, label %while.body.i.i.i.i.i.i540, label %if.then.i.i.i533
@@ -2696,7 +2696,7 @@ _ZN7testing15AssertionResultD2Ev.exit525:         ; preds = %if.end179, %_ZNKSt1
 while.body.i.i.i.i.i.i540:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit525, %while.body.i.i.i.i.i.i540
   %dst_byte.013.i.i.i.i.i.i541 = phi ptr [ %add.ptr.i.i.i.i.i.i544, %while.body.i.i.i.i.i.i540 ], [ %u.i.i.i530, %_ZN7testing15AssertionResultD2Ev.exit525 ]
   %size.addr.012.i.i.i.i.i.i542 = phi i64 [ %sub.i.i.i.i.i.i546, %while.body.i.i.i.i.i.i540 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit525 ]
-  %src.addr.011.i.i.i.i.i.i543 = phi ptr [ %incdec.ptr.i.i.i.i.i.i545, %while.body.i.i.i.i.i.i540 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit525 ]
+  %src.addr.011.i.i.i.i.i.i543 = phi ptr [ %incdec.ptr.i.i.i.i.i.i545, %while.body.i.i.i.i.i.i540 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 80), %_ZN7testing15AssertionResultD2Ev.exit525 ]
   %245 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i543 monotonic, align 8
   store i64 %245, ptr %dst_byte.013.i.i.i.i.i.i541, align 1
   %add.ptr.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i541, i64 8
@@ -2707,7 +2707,7 @@ while.body.i.i.i.i.i.i540:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i548:                             ; preds = %while.body.i.i.i.i.i.i540
   fence acquire
-  %246 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.7" }, ptr @FLAGS_test_flag_civil_hour, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %246 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_hour, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i549 = icmp eq i64 %244, %246
   br i1 %cmp4.i.i.i.i.i549, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit550, label %if.then.i.i.i533
 
@@ -2858,7 +2858,7 @@ _ZN7testing15AssertionResultD2Ev.exit595:         ; preds = %if.end202, %_ZNKSt1
   %273 = getelementptr inbounds i8, ptr %ref.tmp205, i64 8
   store i64 1798, ptr %273, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i600)
-  %274 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %274 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 48) acquire, align 8
   %and.i.i.i.i.i601 = and i64 %274, 1
   %tobool.not.i.i.i.i.i602 = icmp eq i64 %and.i.i.i.i.i601, 0
   br i1 %tobool.not.i.i.i.i.i602, label %while.body.i.i.i.i.i.i610, label %if.then.i.i.i603
@@ -2866,7 +2866,7 @@ _ZN7testing15AssertionResultD2Ev.exit595:         ; preds = %if.end202, %_ZNKSt1
 while.body.i.i.i.i.i.i610:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit595, %while.body.i.i.i.i.i.i610
   %dst_byte.013.i.i.i.i.i.i611 = phi ptr [ %add.ptr.i.i.i.i.i.i614, %while.body.i.i.i.i.i.i610 ], [ %u.i.i.i600, %_ZN7testing15AssertionResultD2Ev.exit595 ]
   %size.addr.012.i.i.i.i.i.i612 = phi i64 [ %sub.i.i.i.i.i.i616, %while.body.i.i.i.i.i.i610 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit595 ]
-  %src.addr.011.i.i.i.i.i.i613 = phi ptr [ %incdec.ptr.i.i.i.i.i.i615, %while.body.i.i.i.i.i.i610 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit595 ]
+  %src.addr.011.i.i.i.i.i.i613 = phi ptr [ %incdec.ptr.i.i.i.i.i.i615, %while.body.i.i.i.i.i.i610 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 80), %_ZN7testing15AssertionResultD2Ev.exit595 ]
   %275 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i613 monotonic, align 8
   store i64 %275, ptr %dst_byte.013.i.i.i.i.i.i611, align 1
   %add.ptr.i.i.i.i.i.i614 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i611, i64 8
@@ -2877,7 +2877,7 @@ while.body.i.i.i.i.i.i610:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i618:                             ; preds = %while.body.i.i.i.i.i.i610
   fence acquire
-  %276 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.10" }, ptr @FLAGS_test_flag_civil_day, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %276 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_day, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i619 = icmp eq i64 %274, %276
   br i1 %cmp4.i.i.i.i.i619, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit620, label %if.then.i.i.i603
 
@@ -3028,7 +3028,7 @@ _ZN7testing15AssertionResultD2Ev.exit665:         ; preds = %if.end225, %_ZNKSt1
   %303 = getelementptr inbounds i8, ptr %ref.tmp228, i64 8
   store i64 262, ptr %303, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i671)
-  %304 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %304 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 48) acquire, align 8
   %and.i.i.i.i.i672 = and i64 %304, 1
   %tobool.not.i.i.i.i.i673 = icmp eq i64 %and.i.i.i.i.i672, 0
   br i1 %tobool.not.i.i.i.i.i673, label %while.body.i.i.i.i.i.i681, label %if.then.i.i.i674
@@ -3036,7 +3036,7 @@ _ZN7testing15AssertionResultD2Ev.exit665:         ; preds = %if.end225, %_ZNKSt1
 while.body.i.i.i.i.i.i681:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit665, %while.body.i.i.i.i.i.i681
   %dst_byte.013.i.i.i.i.i.i682 = phi ptr [ %add.ptr.i.i.i.i.i.i685, %while.body.i.i.i.i.i.i681 ], [ %u.i.i.i671, %_ZN7testing15AssertionResultD2Ev.exit665 ]
   %size.addr.012.i.i.i.i.i.i683 = phi i64 [ %sub.i.i.i.i.i.i687, %while.body.i.i.i.i.i.i681 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit665 ]
-  %src.addr.011.i.i.i.i.i.i684 = phi ptr [ %incdec.ptr.i.i.i.i.i.i686, %while.body.i.i.i.i.i.i681 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit665 ]
+  %src.addr.011.i.i.i.i.i.i684 = phi ptr [ %incdec.ptr.i.i.i.i.i.i686, %while.body.i.i.i.i.i.i681 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 80), %_ZN7testing15AssertionResultD2Ev.exit665 ]
   %305 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i684 monotonic, align 8
   store i64 %305, ptr %dst_byte.013.i.i.i.i.i.i682, align 1
   %add.ptr.i.i.i.i.i.i685 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i682, i64 8
@@ -3047,7 +3047,7 @@ while.body.i.i.i.i.i.i681:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i689:                             ; preds = %while.body.i.i.i.i.i.i681
   fence acquire
-  %306 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.13" }, ptr @FLAGS_test_flag_civil_month, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %306 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_month, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i690 = icmp eq i64 %304, %306
   br i1 %cmp4.i.i.i.i.i690, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit691, label %if.then.i.i.i674
 
@@ -3198,7 +3198,7 @@ _ZN7testing15AssertionResultD2Ev.exit736:         ; preds = %if.end248, %_ZNKSt1
   %333 = getelementptr inbounds i8, ptr %ref.tmp251, i64 8
   store i64 257, ptr %333, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u.i.i.i738)
-  %334 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %334 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 48) acquire, align 8
   %and.i.i.i.i.i739 = and i64 %334, 1
   %tobool.not.i.i.i.i.i740 = icmp eq i64 %and.i.i.i.i.i739, 0
   br i1 %tobool.not.i.i.i.i.i740, label %while.body.i.i.i.i.i.i748, label %if.then.i.i.i741
@@ -3206,7 +3206,7 @@ _ZN7testing15AssertionResultD2Ev.exit736:         ; preds = %if.end248, %_ZNKSt1
 while.body.i.i.i.i.i.i748:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit736, %while.body.i.i.i.i.i.i748
   %dst_byte.013.i.i.i.i.i.i749 = phi ptr [ %add.ptr.i.i.i.i.i.i752, %while.body.i.i.i.i.i.i748 ], [ %u.i.i.i738, %_ZN7testing15AssertionResultD2Ev.exit736 ]
   %size.addr.012.i.i.i.i.i.i750 = phi i64 [ %sub.i.i.i.i.i.i754, %while.body.i.i.i.i.i.i748 ], [ 16, %_ZN7testing15AssertionResultD2Ev.exit736 ]
-  %src.addr.011.i.i.i.i.i.i751 = phi ptr [ %incdec.ptr.i.i.i.i.i.i753, %while.body.i.i.i.i.i.i748 ], [ getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0), %_ZN7testing15AssertionResultD2Ev.exit736 ]
+  %src.addr.011.i.i.i.i.i.i751 = phi ptr [ %incdec.ptr.i.i.i.i.i.i753, %while.body.i.i.i.i.i.i748 ], [ getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 80), %_ZN7testing15AssertionResultD2Ev.exit736 ]
   %335 = load atomic i64, ptr %src.addr.011.i.i.i.i.i.i751 monotonic, align 8
   store i64 %335, ptr %dst_byte.013.i.i.i.i.i.i749, align 1
   %add.ptr.i.i.i.i.i.i752 = getelementptr inbounds i8, ptr %dst_byte.013.i.i.i.i.i.i749, i64 8
@@ -3217,7 +3217,7 @@ while.body.i.i.i.i.i.i748:                        ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i.i756:                             ; preds = %while.body.i.i.i.i.i.i748
   fence acquire
-  %336 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.16" }, ptr @FLAGS_test_flag_civil_year, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %336 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_civil_year, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i757 = icmp eq i64 %334, %336
   br i1 %cmp4.i.i.i.i.i757, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit758, label %if.then.i.i.i741
 
@@ -3995,7 +3995,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125Duration_FlagSupport_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125Duration_FlagSupport_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -4060,20 +4060,20 @@ entry:
   %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i)
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i = and i64 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  %1 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 80) monotonic, align 8
   store i64 %1, ptr %u.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u.i.i.i, i64 8
-  %2 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i = trunc i64 %2 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   fence acquire
-  %3 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i = icmp eq i64 %0, %3
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i
 
@@ -4204,20 +4204,20 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   %tmp.coerce21.sroa.2.0.ref.tmp19.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i32 0, ptr %tmp.coerce21.sroa.2.0.ref.tmp19.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i28)
-  %14 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %14 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i29 = and i64 %14, 1
   %tobool.not.i.i.i.i.i30 = icmp eq i64 %and.i.i.i.i.i29, 0
   br i1 %tobool.not.i.i.i.i.i30, label %invoke.cont.i.i.i37, label %if.then.i.i.i31
 
 invoke.cont.i.i.i37:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %15 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 80) monotonic, align 8
   store i64 %15, ptr %u.i.i.i28, align 8
   %add.ptr.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %u.i.i.i28, i64 8
-  %16 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %16 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i39 = trunc i64 %16 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i39, ptr %add.ptr.i.i.i.i.i.i38, align 8
   fence acquire
-  %17 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i40 = icmp eq i64 %14, %17
   br i1 %cmp4.i.i.i.i.i40, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit41, label %if.then.i.i.i31
 
@@ -4478,20 +4478,20 @@ _ZN7testing15AssertionResultD2Ev.exit92:          ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce68.sroa.2.0.ref.tmp66.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp66, i64 8
   store i32 0, ptr %tmp.coerce68.sroa.2.0.ref.tmp66.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i93)
-  %37 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %37 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i94 = and i64 %37, 1
   %tobool.not.i.i.i.i.i95 = icmp eq i64 %and.i.i.i.i.i94, 0
   br i1 %tobool.not.i.i.i.i.i95, label %invoke.cont.i.i.i102, label %if.then.i.i.i96
 
 invoke.cont.i.i.i102:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit92
-  %38 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %38 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 80) monotonic, align 8
   store i64 %38, ptr %u.i.i.i93, align 8
   %add.ptr.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %u.i.i.i93, i64 8
-  %39 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %39 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i104 = trunc i64 %39 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i104, ptr %add.ptr.i.i.i.i.i.i103, align 8
   fence acquire
-  %40 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.20" }, ptr @FLAGS_test_duration_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %40 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_duration_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i105 = icmp eq i64 %37, %40
   br i1 %cmp4.i.i.i.i.i105, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit106, label %if.then.i.i.i96
 
@@ -5137,7 +5137,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121Time_FlagSupport_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121Time_FlagSupport_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -5317,20 +5317,20 @@ entry:
   %tmp.coerce.sroa.2.0.coerce.dive.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 -1, ptr %tmp.coerce.sroa.2.0.coerce.dive.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i)
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i = and i64 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  %1 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %1, ptr %u.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u.i.i.i, i64 8
-  %2 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i = trunc i64 %2 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   fence acquire
-  %3 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i = icmp eq i64 %0, %3
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i
 
@@ -5477,20 +5477,20 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_4TimeEEEPKSt9type_infov)
   call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %t)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i102)
-  %15 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i103 = and i64 %15, 1
   %tobool.not.i.i.i.i.i104 = icmp eq i64 %and.i.i.i.i.i103, 0
   br i1 %tobool.not.i.i.i.i.i104, label %invoke.cont.i.i.i111, label %if.then.i.i.i105
 
 invoke.cont.i.i.i111:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %16 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %16 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %16, ptr %u.i.i.i102, align 8
   %add.ptr.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %u.i.i.i102, i64 8
-  %17 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i113 = trunc i64 %17 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i113, ptr %add.ptr.i.i.i.i.i.i112, align 8
   fence acquire
-  %18 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i114 = icmp eq i64 %15, %18
   br i1 %cmp4.i.i.i.i.i114, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit115, label %if.then.i.i.i105
 
@@ -5761,20 +5761,20 @@ _ZN7testing15AssertionResultD2Ev.exit167:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce79.sroa.2.0.coerce.dive78.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i32 %retval.sroa.2.0.copyload.i, ptr %tmp.coerce79.sroa.2.0.coerce.dive78.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i172)
-  %38 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %38 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i173 = and i64 %38, 1
   %tobool.not.i.i.i.i.i174 = icmp eq i64 %and.i.i.i.i.i173, 0
   br i1 %tobool.not.i.i.i.i.i174, label %invoke.cont.i.i.i181, label %if.then.i.i.i175
 
 invoke.cont.i.i.i181:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit167
-  %39 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %39 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %39, ptr %u.i.i.i172, align 8
   %add.ptr.i.i.i.i.i.i182 = getelementptr inbounds i8, ptr %u.i.i.i172, i64 8
-  %40 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %40 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i183 = trunc i64 %40 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i183, ptr %add.ptr.i.i.i.i.i.i182, align 8
   fence acquire
-  %41 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %41 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i184 = icmp eq i64 %38, %41
   br i1 %cmp4.i.i.i.i.i184, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit185, label %if.then.i.i.i175
 
@@ -6041,20 +6041,20 @@ _ZN7testing15AssertionResultD2Ev.exit248:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce135.sroa.2.0.coerce.dive134.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp128, i64 8
   store i32 %retval.sroa.2.0.copyload.i253, ptr %tmp.coerce135.sroa.2.0.coerce.dive134.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i256)
-  %61 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %61 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i257 = and i64 %61, 1
   %tobool.not.i.i.i.i.i258 = icmp eq i64 %and.i.i.i.i.i257, 0
   br i1 %tobool.not.i.i.i.i.i258, label %invoke.cont.i.i.i265, label %if.then.i.i.i259
 
 invoke.cont.i.i.i265:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit248
-  %62 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %62 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %62, ptr %u.i.i.i256, align 8
   %add.ptr.i.i.i.i.i.i266 = getelementptr inbounds i8, ptr %u.i.i.i256, i64 8
-  %63 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %63 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i267 = trunc i64 %63 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i267, ptr %add.ptr.i.i.i.i.i.i266, align 8
   fence acquire
-  %64 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %64 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i268 = icmp eq i64 %61, %64
   br i1 %cmp4.i.i.i.i.i268, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit269, label %if.then.i.i.i259
 
@@ -6321,20 +6321,20 @@ _ZN7testing15AssertionResultD2Ev.exit332:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce191.sroa.2.0.coerce.dive190.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp184, i64 8
   store i32 %retval.sroa.2.0.copyload.i337, ptr %tmp.coerce191.sroa.2.0.coerce.dive190.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i340)
-  %84 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %84 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i341 = and i64 %84, 1
   %tobool.not.i.i.i.i.i342 = icmp eq i64 %and.i.i.i.i.i341, 0
   br i1 %tobool.not.i.i.i.i.i342, label %invoke.cont.i.i.i349, label %if.then.i.i.i343
 
 invoke.cont.i.i.i349:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit332
-  %85 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %85 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %85, ptr %u.i.i.i340, align 8
   %add.ptr.i.i.i.i.i.i350 = getelementptr inbounds i8, ptr %u.i.i.i340, i64 8
-  %86 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %86 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i351 = trunc i64 %86 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i351, ptr %add.ptr.i.i.i.i.i.i350, align 8
   fence acquire
-  %87 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %87 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i352 = icmp eq i64 %84, %87
   br i1 %cmp4.i.i.i.i.i352, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit353, label %if.then.i.i.i343
 
@@ -6601,20 +6601,20 @@ _ZN7testing15AssertionResultD2Ev.exit416:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce247.sroa.2.0.coerce.dive246.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp240, i64 8
   store i32 %retval.sroa.2.0.copyload.i421, ptr %tmp.coerce247.sroa.2.0.coerce.dive246.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i424)
-  %107 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %107 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i425 = and i64 %107, 1
   %tobool.not.i.i.i.i.i426 = icmp eq i64 %and.i.i.i.i.i425, 0
   br i1 %tobool.not.i.i.i.i.i426, label %invoke.cont.i.i.i433, label %if.then.i.i.i427
 
 invoke.cont.i.i.i433:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit416
-  %108 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %108 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %108, ptr %u.i.i.i424, align 8
   %add.ptr.i.i.i.i.i.i434 = getelementptr inbounds i8, ptr %u.i.i.i424, i64 8
-  %109 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %109 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i435 = trunc i64 %109 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i435, ptr %add.ptr.i.i.i.i.i.i434, align 8
   fence acquire
-  %110 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %110 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i436 = icmp eq i64 %107, %110
   br i1 %cmp4.i.i.i.i.i436, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit437, label %if.then.i.i.i427
 
@@ -6881,20 +6881,20 @@ _ZN7testing15AssertionResultD2Ev.exit500:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce303.sroa.2.0.coerce.dive302.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp296, i64 8
   store i32 %retval.sroa.2.0.copyload.i505, ptr %tmp.coerce303.sroa.2.0.coerce.dive302.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i508)
-  %130 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %130 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i509 = and i64 %130, 1
   %tobool.not.i.i.i.i.i510 = icmp eq i64 %and.i.i.i.i.i509, 0
   br i1 %tobool.not.i.i.i.i.i510, label %invoke.cont.i.i.i517, label %if.then.i.i.i511
 
 invoke.cont.i.i.i517:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit500
-  %131 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %131 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %131, ptr %u.i.i.i508, align 8
   %add.ptr.i.i.i.i.i.i518 = getelementptr inbounds i8, ptr %u.i.i.i508, i64 8
-  %132 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %132 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i519 = trunc i64 %132 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i519, ptr %add.ptr.i.i.i.i.i.i518, align 8
   fence acquire
-  %133 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %133 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i520 = icmp eq i64 %130, %133
   br i1 %cmp4.i.i.i.i.i520, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit521, label %if.then.i.i.i511
 
@@ -7169,20 +7169,20 @@ _ZN7testing15AssertionResultD2Ev.exit584:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce366.sroa.2.0.coerce.dive365.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
   store i32 %retval.sroa.2.0.copyload.i596, ptr %tmp.coerce366.sroa.2.0.coerce.dive365.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i599)
-  %153 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %153 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i600 = and i64 %153, 1
   %tobool.not.i.i.i.i.i601 = icmp eq i64 %and.i.i.i.i.i600, 0
   br i1 %tobool.not.i.i.i.i.i601, label %invoke.cont.i.i.i608, label %if.then.i.i.i602
 
 invoke.cont.i.i.i608:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit584
-  %154 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %154 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %154, ptr %u.i.i.i599, align 8
   %add.ptr.i.i.i.i.i.i609 = getelementptr inbounds i8, ptr %u.i.i.i599, i64 8
-  %155 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %155 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i610 = trunc i64 %155 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i610, ptr %add.ptr.i.i.i.i.i.i609, align 8
   fence acquire
-  %156 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %156 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i611 = icmp eq i64 %153, %156
   br i1 %cmp4.i.i.i.i.i611, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit612, label %if.then.i.i.i602
 
@@ -7439,20 +7439,20 @@ _ZN7testing15AssertionResultD2Ev.exit675:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce418.sroa.2.0.coerce.dive417.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp415, i64 8
   store i32 -1, ptr %tmp.coerce418.sroa.2.0.coerce.dive417.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i676)
-  %176 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %176 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i677 = and i64 %176, 1
   %tobool.not.i.i.i.i.i678 = icmp eq i64 %and.i.i.i.i.i677, 0
   br i1 %tobool.not.i.i.i.i.i678, label %invoke.cont.i.i.i685, label %if.then.i.i.i679
 
 invoke.cont.i.i.i685:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit675
-  %177 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %177 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %177, ptr %u.i.i.i676, align 8
   %add.ptr.i.i.i.i.i.i686 = getelementptr inbounds i8, ptr %u.i.i.i676, i64 8
-  %178 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %178 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i687 = trunc i64 %178 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i687, ptr %add.ptr.i.i.i.i.i.i686, align 8
   fence acquire
-  %179 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %179 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i688 = icmp eq i64 %176, %179
   br i1 %cmp4.i.i.i.i.i688, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit689, label %if.then.i.i.i679
 
@@ -7709,20 +7709,20 @@ _ZN7testing15AssertionResultD2Ev.exit752:         ; preds = %_ZN12_GLOBAL__N_112
   %tmp.coerce470.sroa.2.0.coerce.dive469.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp467, i64 8
   store i32 -1, ptr %tmp.coerce470.sroa.2.0.coerce.dive469.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i753)
-  %199 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %199 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i754 = and i64 %199, 1
   %tobool.not.i.i.i.i.i755 = icmp eq i64 %and.i.i.i.i.i754, 0
   br i1 %tobool.not.i.i.i.i.i755, label %invoke.cont.i.i.i762, label %if.then.i.i.i756
 
 invoke.cont.i.i.i762:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit752
-  %200 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %200 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 80) monotonic, align 8
   store i64 %200, ptr %u.i.i.i753, align 8
   %add.ptr.i.i.i.i.i.i763 = getelementptr inbounds i8, ptr %u.i.i.i753, i64 8
-  %201 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %201 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i764 = trunc i64 %201 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i764, ptr %add.ptr.i.i.i.i.i.i763, align 8
   fence acquire
-  %202 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.24" }, ptr @FLAGS_test_time_flag, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %202 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i765 = icmp eq i64 %199, %202
   br i1 %cmp4.i.i.i.i.i765, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit766, label %if.then.i.i.i756
 
@@ -9198,7 +9198,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([122 x i8], ptr @.str.1, i64 0, i64 121))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 121))
           to label %invoke.cont.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -9230,7 +9230,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CivilTime_FlagSupport_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CivilTime_FlagSupport_TestEEE, i64 16), ptr %call11.i, align 8
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %__cxx_global_var_init.17.exit unwind label %lpad4.i
 
@@ -9281,7 +9281,7 @@ call.i.noexc.i14:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i15 unwind label %lpad.i11
 
 .noexc.i15:                                       ; preds = %call.i.noexc.i14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([122 x i8], ptr @.str.1, i64 0, i64 121))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 121))
           to label %invoke.cont.i17 unwind label %lpad.i.i16
 
 lpad.i.i16:                                       ; preds = %.noexc.i15
@@ -9313,7 +9313,7 @@ invoke.cont8.i28:                                 ; preds = %invoke.cont6.i26
           to label %invoke.cont10.i unwind label %lpad4.i23
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125Duration_FlagSupport_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125Duration_FlagSupport_TestEEE, i64 16), ptr %call11.i29, align 8
   %call15.i30 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i8, ptr noundef %call.i22, ptr noundef %call7.i25, ptr noundef %call9.i27, ptr noundef nonnull %call11.i29)
           to label %__cxx_global_var_init.20.exit unwind label %lpad4.i23
 
@@ -9358,7 +9358,7 @@ call.i.noexc.i38:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i39 unwind label %lpad.i35
 
 .noexc.i39:                                       ; preds = %call.i.noexc.i38
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([122 x i8], ptr @.str.1, i64 0, i64 121))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 121))
           to label %invoke.cont.i41 unwind label %lpad.i.i40
 
 lpad.i.i40:                                       ; preds = %.noexc.i39
@@ -9390,7 +9390,7 @@ invoke.cont8.i53:                                 ; preds = %invoke.cont6.i51
           to label %invoke.cont10.i55 unwind label %lpad4.i48
 
 invoke.cont10.i55:                                ; preds = %invoke.cont8.i53
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121Time_FlagSupport_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121Time_FlagSupport_TestEEE, i64 16), ptr %call11.i54, align 8
   %call15.i56 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i31, ptr noundef %call.i47, ptr noundef %call7.i50, ptr noundef %call9.i52, ptr noundef nonnull %call11.i54)
           to label %__cxx_global_var_init.22.exit unwind label %lpad4.i48
 

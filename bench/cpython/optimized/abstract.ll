@@ -1268,7 +1268,7 @@ if.end:                                           ; preds = %if.then2
   br label %if.end8
 
 if.end8:                                          ; preds = %lor.rhs.i, %if.end, %_PyObject_HasLen.exit
-  %call9 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 95)) #11
+  %call9 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31008)) #11
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.end16
 
@@ -1549,7 +1549,7 @@ if.then30:                                        ; preds = %if.then28
   br label %return
 
 if.end32:                                         ; preds = %if.then28
-  %call33 = call i32 @PyObject_GetOptionalAttr(ptr noundef %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 35), ptr noundef nonnull %meth) #11
+  %call33 = call i32 @PyObject_GetOptionalAttr(ptr noundef %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27664), ptr noundef nonnull %meth) #11
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %return, label %if.end36
 
@@ -4004,7 +4004,7 @@ if.then20:                                        ; preds = %if.end18
 if.end22:                                         ; preds = %lor.lhs.false, %if.then20, %if.end18
   %empty.0 = phi ptr [ %call21, %if.then20 ], [ null, %if.end18 ], [ null, %lor.lhs.false ]
   %format_spec.addr.0 = phi ptr [ %call21, %if.then20 ], [ %format_spec, %if.end18 ], [ %format_spec, %lor.lhs.false ]
-  %call23 = tail call ptr @_PyObject_LookupSpecial(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 58)) #11
+  %call23 = tail call ptr @_PyObject_LookupSpecial(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28952)) #11
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then25, label %if.end34
 
@@ -4240,7 +4240,7 @@ land.lhs.true4:                                   ; preds = %Py_DECREF.exit
 
 if.then8:                                         ; preds = %land.lhs.true4
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyCFunction_Type, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @PyCFunction_Type, i64 24), align 8
   %7 = getelementptr i8, ptr %w, i64 8
   %w.val = load ptr, ptr %7, align 8
   %tp_name11 = getelementptr inbounds i8, ptr %w.val, i64 24
@@ -6262,7 +6262,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i94
   br label %return
 
 if.end36:                                         ; preds = %if.end4, %land.lhs.true32
-  %call37 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 161)) #11
+  %call37 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34624)) #11
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %if.end73, label %if.then39
 
@@ -9149,7 +9149,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 442))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49584))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2
@@ -9329,7 +9329,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 433))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2
@@ -9375,7 +9375,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 675))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61640))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2
@@ -9472,7 +9472,7 @@ for.end:                                          ; preds = %for.cond, %for.body
   br label %return
 
 if.end24:                                         ; preds = %if.end10
-  %call25 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %cls.addr.0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 82)) #11
+  %call25 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %cls.addr.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30296)) #11
   %cmp26.not = icmp eq ptr %call25, null
   br i1 %cmp26.not, label %if.else, label %if.then27
 
@@ -9589,7 +9589,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cls.val8.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 19), align 8
+  %cls.val8.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 168), align 8
   %and.i.i.i = and i64 %cls.val8.val.i, 2147483648
   %cmp.i.i.not.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %if.end.i36, label %land.lhs.true.i
@@ -9686,7 +9686,7 @@ for.end:                                          ; preds = %for.cond, %for.body
   br label %return
 
 if.end23:                                         ; preds = %if.end8
-  %call24 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %cls.addr.0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 158)) #11
+  %call24 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %cls.addr.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34440)) #11
   %cmp25.not = icmp eq ptr %call24, null
   br i1 %cmp25.not, label %if.else, label %if.then26
 
@@ -9812,7 +9812,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.then
   br i1 %tobool3.i.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %PyObject_TypeCheck.exit
-  %call4 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %inst, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), ptr noundef nonnull %icls) #11
+  %call4 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %inst, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), ptr noundef nonnull %icls) #11
   %3 = load ptr, ptr %icls, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %return, label %if.then6
@@ -9856,7 +9856,7 @@ if.else15:                                        ; preds = %entry
   br i1 %tobool17.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.else15
-  %call20 = call i32 @PyObject_GetOptionalAttr(ptr noundef %inst, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), ptr noundef nonnull %icls) #11
+  %call20 = call i32 @PyObject_GetOptionalAttr(ptr noundef %inst, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), ptr noundef nonnull %icls) #11
   %9 = load ptr, ptr %icls, align 8
   %cmp21.not = icmp eq ptr %9, null
   br i1 %cmp21.not, label %return, label %if.then22
@@ -10126,7 +10126,7 @@ if.end.split:                                     ; preds = %if.end
   store ptr %iter, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %arg, ptr %arrayinit.element.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 597), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #11
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57592), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   br label %if.end15
 
@@ -10143,7 +10143,7 @@ land.lhs.true8.split:                             ; preds = %land.lhs.true8
   store ptr %iter, ptr %args.i19, align 16
   %arrayinit.element.i20 = getelementptr inbounds i8, ptr %args.i19, i64 8
   store ptr @_Py_NoneStruct, ptr %arrayinit.element.i20, align 8
-  %call.i21 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 597), ptr noundef nonnull %args.i19, i64 noundef -9223372036854775806, ptr noundef null) #11
+  %call.i21 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57592), ptr noundef nonnull %args.i19, i64 noundef -9223372036854775806, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i19)
   br label %if.end15
 
@@ -10197,7 +10197,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_class(ptr noundef %cls, ptr n
 entry:
   %bases.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bases.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %cls, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 26), ptr noundef nonnull %bases.i) #11
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %cls, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27160), ptr noundef nonnull %bases.i) #11
   %0 = load ptr, ptr %bases.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.then, label %land.lhs.true.i
@@ -10296,7 +10296,7 @@ do.body:                                          ; preds = %entry, %if.then12
   %derived.addr.047 = phi ptr [ %13, %if.then12 ], [ %derived, %entry ]
   %bases.046 = phi ptr [ %retval.0.i, %if.then12 ], [ null, %entry ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bases.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %derived.addr.047, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 26), ptr noundef nonnull %bases.i) #11
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %derived.addr.047, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27160), ptr noundef nonnull %bases.i) #11
   %2 = load ptr, ptr %bases.i, align 8
   %cmp.not.i24 = icmp eq ptr %2, null
   br i1 %cmp.not.i24, label %abstract_get_bases.exit, label %land.lhs.true.i

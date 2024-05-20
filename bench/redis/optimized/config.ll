@@ -576,8 +576,8 @@ entry:
   br i1 %cmp.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
-  %2 = load i32, ptr getelementptr inbounds ([9 x %struct.configEnum], ptr @maxmemory_policy_enum, i64 0, i64 0, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4824), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @maxmemory_policy_enum, i64 8), align 8
   %cmp110 = icmp eq i32 %1, %2
   br i1 %cmp110, label %if.then, label %for.cond
 
@@ -630,25 +630,25 @@ return:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendServerSaveParams(i64 noundef %seconds, i32 noundef %changes) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %add = add nsw i32 %1, 1
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 4
   %call = tail call ptr @zrealloc(ptr noundef %0, i64 noundef %mul) #26
-  store ptr %call, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds %struct.saveparam, ptr %call, i64 %idxprom
   store i64 %seconds, ptr %arrayidx, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %idxprom2 = sext i32 %4 to i64
   %changes4 = getelementptr inbounds %struct.saveparam, ptr %3, i64 %idxprom2, i32 1
   store i32 %changes, ptr %changes4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   ret void
 }
 
@@ -658,10 +658,10 @@ declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local void @resetServerSaveParams() local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
   tail call void @zfree(ptr noundef %0) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   ret void
 }
 
@@ -749,7 +749,7 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %sdslen.exit, %cond.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 288), align 8
   %call14 = tail call ptr @listAddNodeTail(ptr noundef %7, ptr noundef nonnull %call) #24
   ret void
 }
@@ -989,7 +989,7 @@ if.then108:                                       ; preds = %if.then104
   br label %if.then253
 
 if.end109:                                        ; preds = %if.then104
-  %32 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
   %33 = load ptr, ptr %arrayidx105, align 8
   %call111 = call i32 @dictDelete(ptr noundef %32, ptr noundef %33) #24
   %cmp112 = icmp eq i32 %call111, 0
@@ -1050,7 +1050,7 @@ sdslen.exit101:                                   ; preds = %sw.bb.i98, %sw.bb3.
 
 if.then121:                                       ; preds = %sdslen.exit101
   %call123 = call ptr @sdsdup(ptr noundef nonnull %34) #24
-  %40 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
   %call124 = call i32 @dictAdd(ptr noundef %40, ptr noundef %call123, ptr noundef nonnull %call106) #24
   %cmp125.not = icmp eq i32 %call124, 0
   br i1 %cmp125.not, label %if.end209, label %if.then127
@@ -1132,7 +1132,7 @@ for.body178:                                      ; preds = %if.end168, %for.bod
 
 for.end183:                                       ; preds = %for.body178, %if.end168
   %val.0.lcssa = phi ptr [ %call173, %if.end168 ], [ %call181, %for.body178 ]
-  %49 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 39), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 280), align 8
   %call184 = call i32 @dictReplace(ptr noundef %49, ptr noundef %call171, ptr noundef %val.0.lcssa) #24
   %tobool185.not = icmp eq i32 %call184, 0
   br i1 %tobool185.not, label %if.then186, label %if.end209
@@ -1151,7 +1151,7 @@ if.then192:                                       ; preds = %if.else188
   br i1 %cmp193.not, label %if.end209, label %if.then195
 
 if.then195:                                       ; preds = %if.then192
-  %50 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 204), align 4
   %tobool196.not = icmp eq i32 %50, 0
   br i1 %tobool196.not, label %if.then197, label %if.end198
 
@@ -1192,7 +1192,7 @@ for.end212.loopexit:                              ; preds = %for.inc210
 
 for.end212:                                       ; preds = %for.end212.loopexit, %entry
   %linenum.0.lcssa = phi i32 [ 0, %entry ], [ %56, %for.end212.loopexit ]
-  %57 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 250), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4304), align 8
   %58 = load i8, ptr %57, align 1
   %cmp215.not = icmp eq i8 %58, 0
   br i1 %cmp215.not, label %if.end228, label %if.then217
@@ -1216,9 +1216,9 @@ if.end226:                                        ; preds = %if.then217
   br label %if.end228
 
 if.end228:                                        ; preds = %if.end226, %for.end212
-  %60 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool229 = icmp ne i32 %60, 0
-  %61 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool231 = icmp ne ptr %61, null
   %or.cond6 = select i1 %tobool229, i1 %tobool231, i1 false
   br i1 %or.cond6, label %if.then232, label %if.end233
@@ -1228,13 +1228,13 @@ if.then232:                                       ; preds = %if.end228
   br label %if.end254
 
 if.end233:                                        ; preds = %if.end228
-  %62 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %cmp236 = icmp sgt i32 %62, 1
   %or.cond7 = select i1 %tobool229, i1 %cmp236, i1 false
   br i1 %or.cond7, label %do.body, label %if.end243
 
 do.body:                                          ; preds = %if.end233
-  %63 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp239 = icmp sgt i32 %63, 3
   br i1 %cmp239, label %do.end, label %if.end242
 
@@ -1243,11 +1243,11 @@ if.end242:                                        ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.end242
-  store i32 1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   br label %if.end243
 
 if.end243:                                        ; preds = %do.end, %if.end233
-  %64 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 6), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 44), align 4
   %cmp244 = icmp slt i32 %64, 1
   br i1 %cmp244, label %if.end251.sink.split, label %if.end247
 
@@ -1257,7 +1257,7 @@ if.end247:                                        ; preds = %if.end243
 
 if.end251.sink.split:                             ; preds = %if.end247, %if.end243
   %.sink231 = phi i32 [ 1, %if.end243 ], [ 500, %if.end247 ]
-  store i32 %.sink231, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 6), align 4
+  store i32 %.sink231, ptr getelementptr inbounds (i8, ptr @server, i64 44), align 4
   br label %if.end251
 
 if.end251:                                        ; preds = %if.end251.sink.split, %if.end247
@@ -1370,7 +1370,7 @@ while.cond.preheader:                             ; preds = %for.body
   br i1 %cmp23.not24, label %while.end, label %while.body
 
 do.body:                                          ; preds = %for.body
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp15 = icmp sgt i32 %3, 3
   br i1 %cmp15, label %do.end, label %if.end
 
@@ -1419,7 +1419,7 @@ while.cond39.preheader:                           ; preds = %if.else
   br i1 %cmp42.not31, label %while.end46, label %while.body43
 
 do.body31:                                        ; preds = %if.else
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp32 = icmp sgt i32 %8, 3
   br i1 %cmp32, label %do.end37, label %if.end34
 
@@ -1452,7 +1452,7 @@ if.end49:                                         ; preds = %while.end46, %for.e
   br i1 %tobool50.not, label %if.end65, label %do.body52
 
 do.body52:                                        ; preds = %if.end49
-  %10 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp53 = icmp sgt i32 %10, 2
   br i1 %cmp53, label %do.end56, label %if.end55
 
@@ -1770,7 +1770,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %1) #24
   br label %return
 
@@ -1860,7 +1860,7 @@ lor.lhs.false:                                    ; preds = %if.end43
   br i1 %tobool51.not, label %if.end65, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 78), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1888), align 8
   switch i32 %16, label %if.then54 [
     i32 1, label %if.end65
     i32 2, label %land.rhs.i
@@ -1902,7 +1902,7 @@ if.then54:                                        ; preds = %allowProtectedActio
   br label %for.inc103
 
 if.end65:                                         ; preds = %land.lhs.true, %allowProtectedAction.exit, %lor.lhs.false
-  %25 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
+  %25 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4
   %tobool66.not = icmp eq i32 %25, 0
   br i1 %tobool66.not, label %if.end73, label %land.lhs.true67
 
@@ -2169,7 +2169,7 @@ for.body204:                                      ; preds = %land.rhs198
   br i1 %tobool208.not, label %do.body, label %for.cond195
 
 do.body:                                          ; preds = %for.body204
-  %64 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp210 = icmp sgt i32 %64, 3
   br i1 %cmp210, label %do.end, label %if.end213
 
@@ -2224,7 +2224,7 @@ err:                                              ; preds = %for.end105, %if.the
   br i1 %tobool233.not, label %if.else235, label %if.then234
 
 if.then234:                                       ; preds = %err
-  %72 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 19), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 248), align 8
   call void @addReplyErrorObject(ptr noundef %c, ptr noundef %72) #24
   br label %end
 
@@ -2424,7 +2424,7 @@ performInterfaceSet.exit:                         ; preds = %if.end.i, %if.then7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %argc.i)
   %tobool = icmp ne i32 %call2.i, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp3 = icmp sgt i32 %14, 3
   %or.cond = select i1 %tobool, i1 true, i1 %cmp3
   br i1 %or.cond, label %for.inc, label %if.end
@@ -2461,7 +2461,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 for.body17:                                       ; preds = %land.rhs
   %call20 = call i32 %19(ptr noundef nonnull %errstr) #24
   %tobool21 = icmp ne i32 %call20, 0
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp24 = icmp sgt i32 %20, 3
   %or.cond1 = select i1 %tobool21, i1 true, i1 %cmp24
   br i1 %or.cond1, label %for.inc29, label %if.end26
@@ -2483,7 +2483,7 @@ if.end32:                                         ; preds = %for.inc29, %land.rh
 if.then34:                                        ; preds = %if.end32
   %call35 = call i32 @moduleConfigApplyConfig(ptr noundef nonnull %module_configs, ptr noundef nonnull %errstr, ptr noundef null) #24
   %tobool36 = icmp ne i32 %call35, 0
-  %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp39 = icmp sgt i32 %22, 3
   %or.cond2 = select i1 %tobool36, i1 true, i1 %cmp39
   br i1 %or.cond2, label %if.end44, label %if.end41
@@ -3047,7 +3047,7 @@ if.then87:                                        ; preds = %land.lhs.true84
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end79, %if.then87, %land.lhs.true84, %lookupConfig.exit91
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 204), align 4
   %tobool92 = icmp ne i32 %29, 0
   %30 = load i32, ptr %argc, align 4
   %cmp94 = icmp sgt i32 %30, 1
@@ -3649,7 +3649,7 @@ return:                                           ; preds = %for.end, %if.then20
 ; Function Attrs: nounwind uwtable
 define dso_local void @rewriteConfigSaveOption(ptr nocapture readnone %config, ptr noundef %name, ptr nocapture noundef %state) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 204), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -3662,7 +3662,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %return, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.then2, label %for.cond.preheader
 
@@ -3678,7 +3678,7 @@ if.then2:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %call4 = tail call ptr @sdsempty() #24
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
   %arrayidx = getelementptr inbounds %struct.saveparam, ptr %3, i64 %indvars.iv
   %4 = load i64, ptr %arrayidx, align 8
   %changes = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -3686,7 +3686,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call7 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4, ptr noundef nonnull @.str.109, i64 noundef %4, i32 noundef %5) #24
   %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !31
@@ -3712,7 +3712,7 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local void @rewriteConfigUserOption(ptr nocapture noundef %state) local_unnamed_addr #2 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3823,9 +3823,9 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define dso_local void @rewriteConfigReplicaOfOption(ptr nocapture readnone %config, ptr noundef %name, ptr nocapture noundef %state) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool = icmp ne i32 %0, 0
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %cmp = icmp eq ptr %1, null
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
   br i1 %or.cond, label %if.then, label %if.end
@@ -3844,8 +3844,8 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @sdsempty() #24
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 284), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4584), align 8
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.112, ptr noundef %name, ptr noundef %3, i32 noundef %4) #24
   %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1, i32 noundef 1)
   br label %return
@@ -3857,7 +3857,7 @@ return:                                           ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @rewriteConfigNotifyKeyspaceEventsOption(ptr nocapture readnone %config, ptr noundef %name, ptr nocapture noundef %state) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 359), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
   %call = tail call ptr @keyspaceEventsFlagsToString(i32 noundef %0) #24
   %call1 = tail call ptr @sdsnew(ptr noundef %name) #24
   %call2 = tail call ptr @sdscatlen(ptr noundef %call1, ptr noundef nonnull @.str.105, i64 noundef 1) #24
@@ -3922,7 +3922,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %rewriteConfigFormatMemory.exit35
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %rewriteConfigFormatMemory.exit35 ]
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 179, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds (i8, ptr @server, i64 3808), i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %arrayidx2 = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr @clientBufferLimitsDefaults, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx2, align 8
@@ -4057,7 +4057,7 @@ for.body:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %force.010 = phi i32 [ 0, %entry ], [ %spec.select, %for.body ]
   %call10 = tail call ptr @sdscatlen(ptr noundef %call7.sink, ptr noundef nonnull @.str.105, i64 noundef 1) #24
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 322, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [3 x i32], ptr getelementptr inbounds (i8, ptr @server, i64 4856), i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx3 = getelementptr inbounds [3 x i32], ptr @configOOMScoreAdjValuesDefaults, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx3, align 4
@@ -4076,7 +4076,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: nounwind uwtable
 define dso_local void @rewriteConfigBindOption(ptr nocapture readnone %config, ptr noundef %name, ptr nocapture noundef %state) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %for.body, label %if.end8
 
@@ -4086,7 +4086,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %cmp1 = phi i1 [ false, %for.cond ], [ true, %entry ]
   %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 47, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @server, i64 328), i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %arrayidx3 = getelementptr inbounds [2 x ptr], ptr @__const.rewriteConfigBindOption.default_bindaddr, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx3, align 8
@@ -4111,7 +4111,7 @@ if.end8:                                          ; preds = %for.body, %entry
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end8
-  %call11 = tail call ptr @sdsjoin(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), i32 noundef %0, ptr noundef nonnull @.str.105) #24
+  %call11 = tail call ptr @sdsjoin(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 328), i32 noundef %0, ptr noundef nonnull @.str.105) #24
   br label %if.end13
 
 if.else:                                          ; preds = %if.end8
@@ -4321,7 +4321,7 @@ while.cond9.preheader:                            ; preds = %while.body
   br i1 %tobool.not11, label %while.cond.backedge, label %while.body10, !llvm.loop !38
 
 do.body:                                          ; preds = %while.body
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp6 = icmp sgt i32 %3, 0
   br i1 %cmp6, label %while.cond.backedge, label %if.end
 
@@ -4506,7 +4506,7 @@ entry:
   br i1 %or.cond, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %1, 3
   br i1 %cmp4, label %do.end, label %if.end
 
@@ -4533,7 +4533,7 @@ while.cond.preheader:                             ; preds = %if.end8
   br label %while.cond.outer
 
 do.body14:                                        ; preds = %if.end8
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp15 = icmp sgt i32 %2, 3
   br i1 %cmp15, label %return, label %if.end18
 
@@ -4632,7 +4632,7 @@ if.then30:                                        ; preds = %sdslen.exit37
   br i1 %cmp32, label %while.cond, label %do.body36, !llvm.loop !41
 
 do.body36:                                        ; preds = %if.then30
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp37 = icmp sgt i32 %14, 3
   br i1 %cmp37, label %cleanup, label %if.end40
 
@@ -4656,7 +4656,7 @@ while.end:                                        ; preds = %sdslen.exit
   br i1 %tobool.not, label %if.else, label %do.body47
 
 do.body47:                                        ; preds = %while.end
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp48 = icmp sgt i32 %15, 3
   br i1 %cmp48, label %cleanup, label %if.end51
 
@@ -4668,7 +4668,7 @@ if.end51:                                         ; preds = %do.body47
   br label %cleanup
 
 if.else:                                          ; preds = %while.end
-  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 7), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 48), align 8
   %not = and i32 %17, 420
   %and = xor i32 %not, 420
   %call55 = call i32 @fchmod(i32 noundef %call10, i32 noundef %and) #24
@@ -4676,7 +4676,7 @@ if.else:                                          ; preds = %while.end
   br i1 %cmp56, label %do.body59, label %if.else67
 
 do.body59:                                        ; preds = %if.else
-  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp60 = icmp sgt i32 %18, 3
   br i1 %cmp60, label %cleanup, label %if.end63
 
@@ -4693,7 +4693,7 @@ if.else67:                                        ; preds = %if.else
   br i1 %cmp70, label %do.body73, label %if.else81
 
 do.body73:                                        ; preds = %if.else67
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp74 = icmp sgt i32 %20, 3
   br i1 %cmp74, label %cleanup, label %if.end77
 
@@ -4707,7 +4707,7 @@ if.end77:                                         ; preds = %do.body73
 if.else81:                                        ; preds = %if.else67
   %call82 = call i32 @fsyncFileDir(ptr noundef %configfile) #24
   %cmp83 = icmp eq i32 %call82, -1
-  %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   br i1 %cmp83, label %do.body86, label %if.else94
 
 do.body86:                                        ; preds = %if.else81
@@ -4822,7 +4822,7 @@ while.end:                                        ; preds = %while.cond.backedge
   tail call void @dictReleaseIterator(ptr noundef %call5) #24
   tail call void @rewriteConfigUserOption(ptr noundef nonnull %call)
   tail call void @rewriteConfigLoadmoduleOption(ptr noundef nonnull %call)
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 204), align 4
   %tobool18.not = icmp eq i32 %4, 0
   br i1 %tobool18.not, label %if.end20, label %if.then19
 
@@ -4917,7 +4917,7 @@ for.inc.i:                                        ; preds = %if.end4.i, %if.then
 
 rewriteConfigGetContentFromState.exit:            ; preds = %for.inc.i, %if.end20
   %content.0.lcssa.i = phi ptr [ %call.i, %if.end20 ], [ %content.1.i, %for.inc.i ]
-  %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 2), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 16), align 8
   %call22 = tail call i32 @rewriteConfigOverwriteFile(ptr noundef %16, ptr noundef %content.0.lcssa.i)
   tail call void @sdsfree(ptr noundef %content.0.lcssa.i) #24
   %lines.i14 = getelementptr inbounds i8, ptr %call, i64 24
@@ -5031,7 +5031,7 @@ return:                                           ; preds = %if.then, %if.then16
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @updateRequirePass(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 397), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5384), align 8
   tail call void @ACLUpdateDefaultUserPassword(ptr noundef %0) #24
   ret i32 1
 }
@@ -5041,7 +5041,7 @@ declare void @ACLUpdateDefaultUserPassword(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @updateAppendFsync(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 186), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3908), align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -5087,7 +5087,7 @@ define dso_local void @rewriteConfigLatencyTrackingInfoPercentilesOutputOption(p
 entry:
   %fbuf = alloca [128 x i8], align 16
   %call = tail call ptr @sdsnew(ptr noundef %name) #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
 
@@ -5102,7 +5102,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %line.09 = phi ptr [ %call7, %for.body ], [ %call, %for.cond.preheader ]
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   %arrayidx = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   %2 = load double, ptr %arrayidx, align 8
   %call2 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %fbuf, i64 noundef 128, ptr noundef nonnull @.str.133, double noundef %2) #24
@@ -5111,7 +5111,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv5 = sext i32 %call4 to i64
   %call7 = call ptr @sdscatlen(ptr noundef %line.09, ptr noundef nonnull %fbuf, i64 noundef %conv5) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !43
@@ -5283,7 +5283,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @updateJemallocBgThread(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 165), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3732), align 4
   tail call void @set_jemalloc_bg_thread(i32 noundef %0) #24
   ret i32 1
 }
@@ -5297,9 +5297,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @updateAppendonly(ptr nocapture noundef writeonly %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 184), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3900), align 4
   %tobool = icmp eq i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3904), align 8
   %cmp = icmp ne i32 %1, 0
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then, label %if.else
@@ -5331,7 +5331,7 @@ return:                                           ; preds = %if.then, %if.then4,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @updateSighandlerEnabled(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 254), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4332), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -5350,7 +5350,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @updateAofAutoGCEnabled(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 218), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4096), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -5692,7 +5692,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @updateLocaleCollate(ptr nocapture noundef writeonly %err) #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 419), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5672), align 8
   %call = tail call ptr @setlocale(i32 noundef 3, ptr noundef %0) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %return
@@ -7206,11 +7206,11 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %bindaddr = getelementptr inbounds i8, ptr %call, i64 72
-  store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), ptr %bindaddr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @server, i64 328), ptr %bindaddr, align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %bindaddr_count = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %0, ptr %bindaddr_count, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 44), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 312), align 8
   %port = getelementptr inbounds i8, ptr %call, i64 84
   store i32 %1, ptr %port, align 4
   %call2 = tail call ptr @connectionByType(ptr noundef nonnull @.str.391) #24
@@ -7239,7 +7239,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @updateHZ(ptr nocapture readnone %err) #19 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 6), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 44), align 4
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %if.end3.sink.split, label %if.end
 
@@ -7249,12 +7249,12 @@ if.end:                                           ; preds = %entry
 
 if.end3.sink.split:                               ; preds = %if.end, %entry
   %.sink = phi i32 [ 1, %entry ], [ 500, %if.end ]
-  store i32 %.sink, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 6), align 4
+  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @server, i64 44), align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %if.end
   %1 = phi i32 [ %0, %if.end ], [ %.sink, %if.end3.sink.split ]
-  store i32 %1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @server, i64 52), align 4
   ret i32 1
 }
 
@@ -7275,9 +7275,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @updateMaxclients(ptr nocapture noundef writeonly %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 313), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4804), align 4
   tail call void @adjustOpenFilesLimit() #24
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 313), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4804), align 4
   %cmp.not = icmp eq i32 %1, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -7286,15 +7286,15 @@ if.then:                                          ; preds = %entry
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %call1 = tail call i32 @aeGetSetSize(ptr noundef %2) #24
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 313), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4804), align 4
   %add = add i32 %3, 128
   %cmp2 = icmp ult i32 %call1, %add
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %call5 = tail call i32 @aeResizeSetSize(ptr noundef %4, i32 noundef %add) #24
   %cmp6 = icmp eq i32 %call5, -1
   br i1 %cmp6, label %return.sink.split, label %return
@@ -7319,7 +7319,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @updateMaxmemory(ptr nocapture readnone %err) #2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -7327,9 +7327,9 @@ if.then:                                          ; preds = %entry
   %call = tail call i64 @zmalloc_used_memory() #24
   %call1 = tail call i64 @freeMemoryGetNotCountedMemory() #24
   %sub = sub i64 %call, %call1
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
   %cmp = icmp uge i64 %1, %sub
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp3 = icmp sgt i32 %2, 3
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.end5, label %if.end
@@ -7350,9 +7350,9 @@ if.end6:                                          ; preds = %if.end5, %entry
 define internal noundef i32 @applyClientMaxMemoryUsage(ptr nocapture readnone %err) #2 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 315), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4816), align 8
   %cmp = icmp ne i64 %0, 0
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 63), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1496), align 8
   %tobool = icmp ne ptr %1, null
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   br i1 %or.cond, label %return, label %if.end
@@ -7365,7 +7365,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   call void @listRewind(ptr noundef %2, ptr noundef nonnull %li) #24
   %call2 = call ptr @listNext(ptr noundef nonnull %li) #24
   %cmp4.not3 = icmp eq ptr %call2, null
@@ -7375,7 +7375,7 @@ while.body:                                       ; preds = %if.end3, %if.end8
   %call4 = phi ptr [ %call, %if.end8 ], [ %call2, %if.end3 ]
   %value = getelementptr inbounds i8, ptr %call4, i64 16
   %3 = load ptr, ptr %value, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 315), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4816), align 8
   %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.else
 
@@ -7393,7 +7393,7 @@ if.end8:                                          ; preds = %if.else, %if.then6
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %if.end8, %if.end3
-  %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 315), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4816), align 8
   %cmp9 = icmp eq i64 %5, 0
   br i1 %cmp9, label %if.then10, label %return
 
@@ -7411,7 +7411,7 @@ entry:
   %call = tail call ptr @connectionTypeTls() #24
   %0 = getelementptr i8, ptr %call, i64 24
   %call.val = load ptr, ptr %0, align 8
-  %call.i = tail call i32 %call.val(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 405), i32 noundef 0) #24
+  %call.i = tail call i32 %call.val(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 5464), i32 noundef 0) #24
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %return.sink.split, label %if.end
 
@@ -7427,11 +7427,11 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end
   %bindaddr = getelementptr inbounds i8, ptr %call2, i64 72
-  store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), ptr %bindaddr, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @server, i64 328), ptr %bindaddr, align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %bindaddr_count = getelementptr inbounds i8, ptr %call2, i64 80
   store i32 %1, ptr %bindaddr_count, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 45), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 316), align 4
   %port = getelementptr inbounds i8, ptr %call2, i64 84
   store i32 %2, ptr %port, align 4
   %call5 = tail call ptr @connectionByType(ptr noundef nonnull @.str.398) #24
@@ -7454,12 +7454,12 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @applyTlsCfg(ptr nocapture noundef writeonly %err) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 45), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 316), align 4
   %tobool = icmp ne i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 403), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5452), align 4
   %tobool1 = icmp ne i32 %1, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 402), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5448), align 8
   %tobool3 = icmp ne i32 %2, 0
   %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool3
   br i1 %or.cond1, label %land.lhs.true, label %return
@@ -7468,7 +7468,7 @@ land.lhs.true:                                    ; preds = %entry
   %call = tail call ptr @connectionTypeTls() #24
   %3 = getelementptr i8, ptr %call, i64 24
   %call.val = load ptr, ptr %3, align 8
-  %call.i = tail call i32 %call.val(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 405), i32 noundef 1) #24
+  %call.i = tail call i32 %call.val(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 5464), i32 noundef 1) #24
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %if.then, label %return
 
@@ -7540,10 +7540,10 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %for.cond.preheader.thread, label %return.sink.split
 
 for.cond.preheader.thread:                        ; preds = %land.lhs.true
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
   tail call void @zfree(ptr noundef %1) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   br label %for.end
 
 if.end:                                           ; preds = %entry
@@ -7603,10 +7603,10 @@ if.then28:                                        ; preds = %if.else
   br label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %for.end, %if.then28
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
   tail call void @zfree(ptr noundef %6) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.else
@@ -7622,25 +7622,25 @@ for.body34:                                       ; preds = %if.end30, %for.body
   %9 = load ptr, ptr %arrayidx39, align 8
   %call40 = tail call i64 @strtoll(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #24
   %conv41 = trunc i64 %call40 to i32
-  %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %add.i = add nsw i32 %11, 1
   %conv.i = sext i32 %add.i to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %call.i = tail call ptr @zrealloc(ptr noundef %10, i64 noundef %mul.i) #26
-  store ptr %call.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %idxprom.i = sext i32 %12 to i64
   %arrayidx.i = getelementptr inbounds %struct.saveparam, ptr %call.i, i64 %idxprom.i
   store i64 %call37, ptr %arrayidx.i, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %idxprom2.i = sext i32 %14 to i64
   %changes4.i = getelementptr inbounds %struct.saveparam, ptr %13, i64 %idxprom2.i, i32 1
   store i32 %conv41, ptr %changes4.i, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %inc.i = add nsw i32 %15, 1
-  store i32 %inc.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 2
   %16 = trunc nuw i64 %indvars.iv.next28 to i32
   %cmp32 = icmp sgt i32 %argc.addr.03437, %16
@@ -7659,20 +7659,20 @@ return:                                           ; preds = %for.body34, %return
 define internal ptr @getConfigSaveOption(ptr nocapture readnone %config) #2 {
 entry:
   %call = tail call ptr @sdsempty() #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %cmp7 = icmp sgt i32 %0, 0
   br i1 %cmp7, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %buf.08 = phi ptr [ %buf.1, %for.inc ], [ %call, %entry ]
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 223), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4136), align 8
   %arrayidx = getelementptr inbounds %struct.saveparam, ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
   %changes = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %changes, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %buf.08, ptr noundef nonnull @.str.400, i64 noundef %2, i32 noundef %3) #24
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %sub = add nsw i32 %4, -1
   %5 = zext i32 %sub to i64
   %cmp4.not = icmp eq i64 %indvars.iv, %5
@@ -7680,7 +7680,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %call5 = tail call ptr @sdscatlen(ptr noundef %call3, ptr noundef nonnull @.str.105, i64 noundef 1) #24
-  %.pre = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -7796,7 +7796,7 @@ for.body50.i:                                     ; preds = %for.body50.i.prehea
   br i1 %tobool53.not.i, label %for.inc60.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %for.body50.i
-  %arrayidx56.i = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 179, i64 %indvars.iv35.i
+  %arrayidx56.i = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds (i8, ptr @server, i64 3808), i64 0, i64 %indvars.iv35.i
   %arrayidx58.i = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %values.i, i64 0, i64 %indvars.iv35.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx56.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx58.i, i64 24, i1 false)
   br label %for.inc60.i
@@ -7826,9 +7826,9 @@ define internal ptr @getConfigClientOutputBufferLimitOption(ptr nocapture readno
 entry:
   %call = tail call ptr @sdsempty() #24
   %call116 = tail call ptr @getClientTypeName(i32 noundef 0) #24
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 179, i64 0), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 179, i64 0, i32 1), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 179, i64 0, i32 2), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3808), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3816), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3824), align 8
   %call617 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.404, ptr noundef %call116, i64 noundef %0, i64 noundef %1, i64 noundef %2) #24
   br label %for.inc
 
@@ -7839,7 +7839,7 @@ for.inc:                                          ; preds = %entry, %for.inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
   %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call1 = tail call ptr @getClientTypeName(i32 noundef %3) #24
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 179, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds (i8, ptr @server, i64 3808), i64 0, i64 %indvars.iv.next
   %4 = load i64, ptr %arrayidx, align 8
   %soft_limit_bytes = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %soft_limit_bytes, align 8
@@ -7905,13 +7905,13 @@ lor.lhs.false20:                                  ; preds = %for.end
   %arrayidx21 = getelementptr inbounds i8, ptr %values, i64 8
   %7 = load i32, ptr %arrayidx21, align 4
   %cmp23 = icmp sge i32 %7, %5
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp26 = icmp sgt i32 %8, 3
   %or.cond2 = select i1 %cmp23, i1 true, i1 %cmp26
   br i1 %or.cond2, label %for.body34.preheader, label %if.end29
 
 do.body:                                          ; preds = %for.end
-  %.old = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %.old = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp26.old = icmp sgt i32 %.old, 3
   br i1 %cmp26.old, label %for.body34.preheader, label %if.end29
 
@@ -7925,7 +7925,7 @@ for.body34.preheader:                             ; preds = %if.end29, %do.body,
 for.body34:                                       ; preds = %for.body34.preheader, %for.inc47
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.inc47 ], [ 0, %for.body34.preheader ]
   %change.019 = phi i32 [ %change.1, %for.inc47 ], [ 0, %for.body34.preheader ]
-  %arrayidx36 = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 322, i64 %indvars.iv21
+  %arrayidx36 = getelementptr inbounds [3 x i32], ptr getelementptr inbounds (i8, ptr @server, i64 4856), i64 0, i64 %indvars.iv21
   %9 = load i32, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds [3 x i32], ptr %values, i64 0, i64 %indvars.iv21
   %10 = load i32, ptr %arrayidx38, align 4
@@ -7956,7 +7956,7 @@ return:                                           ; preds = %if.then9, %if.then1
 define internal ptr @getConfigOOMScoreAdjValuesOption(ptr nocapture readnone %config) #2 {
 entry:
   %call = tail call ptr @sdsempty() #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 322, i64 0), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4856), align 8
   %call113 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.116, i32 noundef %0) #24
   br label %for.inc
 
@@ -7965,7 +7965,7 @@ for.inc:                                          ; preds = %entry, %for.inc
   %indvars.iv14 = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %call3 = tail call ptr @sdscatlen(ptr noundef %call115, ptr noundef nonnull @.str.105, i64 noundef 1) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv14, 1
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 322, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [3 x i32], ptr getelementptr inbounds (i8, ptr @server, i64 4856), i64 0, i64 %indvars.iv.next
   %1 = load i32, ptr %arrayidx, align 4
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call3, ptr noundef nonnull @.str.116, i32 noundef %1) #24
   %cmp2.not = icmp eq i64 %indvars.iv.next, 2
@@ -7996,7 +7996,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  store i32 %call, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 359), align 8
+  store i32 %call, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -8007,7 +8007,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal ptr @getConfigNotifyKeyspaceEventsOption(ptr nocapture readnone %config) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 359), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
   %call = tail call ptr @keyspaceEventsFlagsToString(i32 noundef %0) #24
   ret ptr %call
 }
@@ -8079,7 +8079,7 @@ sdslen.exit.thread:                               ; preds = %land.lhs.true, %sds
 
 if.end4:                                          ; preds = %sdslen.exit.thread, %sdslen.exit, %if.end
   %argc.addr.0 = phi i32 [ %argc, %if.end ], [ 0, %sdslen.exit.thread ], [ 1, %sdslen.exit ]
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %cmp514 = icmp sgt i32 %6, 0
   br i1 %cmp514, label %for.body, label %for.cond7.preheader
 
@@ -8093,11 +8093,11 @@ for.body9.preheader:                              ; preds = %for.cond7.preheader
 
 for.body:                                         ; preds = %if.end4, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end4 ]
-  %arrayidx6 = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 47, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @server, i64 328), i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx6, align 8
   tail call void @zfree(ptr noundef %7) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %9 = sext i32 %8 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %9
   br i1 %cmp5, label %for.body, label %for.cond7.preheader, !llvm.loop !54
@@ -8107,14 +8107,14 @@ for.body9:                                        ; preds = %for.body9.preheader
   %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv19
   %10 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call noalias ptr @zstrdup(ptr noundef %10) #24
-  %arrayidx14 = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 47, i64 %indvars.iv19
+  %arrayidx14 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @server, i64 328), i64 0, i64 %indvars.iv19
   store ptr %call12, ptr %arrayidx14, align 8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count
   br i1 %exitcond.not, label %for.end17, label %for.body9, !llvm.loop !55
 
 for.end17:                                        ; preds = %for.body9, %for.cond7.preheader
-  store i32 %argc.addr.0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  store i32 %argc.addr.0, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   br label %return
 
 return:                                           ; preds = %for.end17, %if.then
@@ -8137,11 +8137,11 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %bindaddr = getelementptr inbounds i8, ptr %call, i64 72
-  store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), ptr %bindaddr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @server, i64 328), ptr %bindaddr, align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %bindaddr_count = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %0, ptr %bindaddr_count, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 44), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 312), align 8
   %port = getelementptr inbounds i8, ptr %call, i64 84
   store i32 %1, ptr %port, align 4
   %call3 = tail call ptr @connectionByType(ptr noundef nonnull @.str.391) #24
@@ -8157,7 +8157,7 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool7.not, label %return, label %return.sink.split
 
 if.end9:                                          ; preds = %cond.end
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 45), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 316), align 4
   %cmp10.not = icmp eq i32 %2, 0
   br i1 %cmp10.not, label %return, label %if.then12
 
@@ -8172,11 +8172,11 @@ cond.false22:                                     ; preds = %if.then12
 
 cond.end23:                                       ; preds = %if.then12
   %bindaddr24 = getelementptr inbounds i8, ptr %call1, i64 72
-  store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), ptr %bindaddr24, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @server, i64 328), ptr %bindaddr24, align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
   %bindaddr_count25 = getelementptr inbounds i8, ptr %call1, i64 80
   store i32 %3, ptr %bindaddr_count25, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 45), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 316), align 4
   %port26 = getelementptr inbounds i8, ptr %call1, i64 84
   store i32 %4, ptr %port26, align 4
   %call27 = tail call ptr @connectionByType(ptr noundef nonnull @.str.398) #24
@@ -8203,8 +8203,8 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @getConfigBindOption(ptr nocapture readnone %config) #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
-  %call = tail call ptr @sdsjoin(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 47), i32 noundef %0, ptr noundef nonnull @.str.105) #24
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 456), align 8
+  %call = tail call ptr @sdsjoin(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 328), i32 noundef %0, ptr noundef nonnull @.str.105) #24
   ret ptr %call
 }
 
@@ -8220,9 +8220,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   tail call void @sdsfree(ptr noundef %0) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %1 = load ptr, ptr %argv, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.25) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -8238,7 +8238,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.end5:                                          ; preds = %if.end, %land.lhs.true
   %call7 = call i64 @strtol(ptr noundef %2, ptr noundef nonnull %ptr, i32 noundef 10) #24
   %conv = trunc i64 %call7 to i32
-  store i32 %conv, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 284), align 8
+  store i32 %conv, ptr getelementptr inbounds (i8, ptr @server, i64 4584), align 8
   %or.cond = icmp ugt i32 %conv, 65535
   br i1 %or.cond, label %if.then16, label %lor.lhs.false12
 
@@ -8255,8 +8255,8 @@ if.then16:                                        ; preds = %lor.lhs.false12, %i
 if.end17:                                         ; preds = %lor.lhs.false12
   %5 = load ptr, ptr %argv, align 8
   %call19 = tail call ptr @sdsnew(ptr noundef %5) #24
-  store ptr %call19, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 289), align 4
+  store ptr %call19, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end17, %if.then16, %if.then
@@ -8268,12 +8268,12 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal ptr @getConfigReplicaOfOption(ptr nocapture readnone %config) #2 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 284), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4584), align 8
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 256, ptr noundef nonnull @.str.414, ptr noundef nonnull %0, i32 noundef %1) #24
   br label %if.end
 
@@ -8290,10 +8290,10 @@ if.end:                                           ; preds = %if.else, %if.then
 define internal range(i32 0, 2) i32 @setConfigLatencyTrackingInfoPercentilesOutputOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %percentile = alloca double, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   tail call void @zfree(ptr noundef %0) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
-  store i32 %argc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
+  store i32 %argc, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %cmp = icmp eq i32 %argc, 1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -8348,8 +8348,8 @@ if.end:                                           ; preds = %entry, %sdslen.exit
   %conv = sext i32 %argc to i64
   %mul = shl nsw i64 %conv, 3
   %call2 = tail call noalias ptr @zmalloc(i64 noundef %mul) #27
-  store ptr %call2, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  store ptr %call2, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %7 = icmp sgt i32 %.pre, 0
   br i1 %7, label %for.body, label %return
 
@@ -8411,11 +8411,11 @@ if.end11:                                         ; preds = %sdslen.exit28
   br i1 %or.cond, label %configerr, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
-  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   %arrayidx19 = getelementptr inbounds double, ptr %15, i64 %indvars.iv
   store double %14, ptr %arrayidx19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %17 = sext i32 %16 to i64
   %cmp3 = icmp slt i64 %indvars.iv.next, %17
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !56
@@ -8423,14 +8423,14 @@ if.end17:                                         ; preds = %if.end11
 configerr:                                        ; preds = %if.end11, %sdslen.exit28
   %storemerge = phi ptr [ @.str.415, %sdslen.exit28 ], [ @.str.416, %if.end11 ]
   store ptr %storemerge, ptr %err, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   call void @zfree(ptr noundef %18) #24
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %land.lhs.true, %sdslen.exit, %configerr
   %retval.0.ph = phi i32 [ 0, %configerr ], [ 1, %sdslen.exit ], [ 1, %land.lhs.true ]
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   br label %return
 
 return:                                           ; preds = %if.end17, %return.sink.split, %if.end
@@ -8443,14 +8443,14 @@ define internal ptr @getConfigLatencyTrackingInfoPercentilesOutputOption(ptr noc
 entry:
   %fbuf = alloca [128 x i8], align 16
   %call = tail call ptr @sdsempty() #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %cmp7 = icmp sgt i32 %0, 0
   br i1 %cmp7, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %buf.09 = phi ptr [ %buf.1, %for.inc ], [ %call, %entry ]
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 3888), align 8
   %arrayidx = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   %2 = load double, ptr %arrayidx, align 8
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %fbuf, i64 noundef 128, ptr noundef nonnull @.str.417, double noundef %2) #24
@@ -8458,7 +8458,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %call3 = call i32 @trimDoubleString(ptr noundef nonnull %fbuf, i64 noundef %conv) #24
   %conv4 = sext i32 %call3 to i64
   %call6 = call ptr @sdscatlen(ptr noundef %buf.09, ptr noundef nonnull %fbuf, i64 noundef %conv4) #24
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   %sub = add nsw i32 %3, -1
   %4 = zext i32 %sub to i64
   %cmp7.not = icmp eq i64 %indvars.iv, %4
@@ -8466,7 +8466,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %call9 = call ptr @sdscatlen(ptr noundef %call6, ptr noundef nonnull @.str.105, i64 noundef 1) #24
-  %.pre = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3896), align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -8840,7 +8840,7 @@ declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local void @configResetStatCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   tail call void @resetServerStats() #24
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
   tail call void @resetCommandTableStats(ptr noundef %0) #24
   tail call void @resetErrorTableStats() #24
   %1 = load ptr, ptr @shared, align 8
@@ -8857,7 +8857,7 @@ declare void @resetErrorTableStats() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @configRewriteCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 16), align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -8873,7 +8873,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @__errno_location() #28
   %1 = load i32, ptr %call3, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %2, 3
   br i1 %cmp4, label %do.end, label %if.end6
 
@@ -8888,7 +8888,7 @@ do.end:                                           ; preds = %if.then2, %if.end6
   br label %if.end14
 
 do.body9:                                         ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp10 = icmp sgt i32 %3, 2
   br i1 %cmp10, label %do.end13, label %if.end12
 

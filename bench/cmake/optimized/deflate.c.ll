@@ -200,7 +200,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
 
 111:                                              ; preds = %107, %104, %55
   store i32 666, ptr %57, align 8
-  %112 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 6), align 16
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @cm_zlib_z_errmsg, i64 48), align 16
   store ptr %112, ptr %17, align 8
   %113 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %0)
   br label %124
@@ -1602,7 +1602,7 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   br i1 %or.cond5, label %35, label %38
 
 35:                                               ; preds = %32, %29, %22
-  %36 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 4), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @cm_zlib_z_errmsg, i64 32), align 16
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %36, ptr %37, align 8
   br label %deflateStateCheck.exit.thread
@@ -1614,7 +1614,7 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 7), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @cm_zlib_z_errmsg, i64 56), align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %43, ptr %44, align 8
   br label %deflateStateCheck.exit.thread
@@ -1706,7 +1706,7 @@ flush_pending.exit._crit_edge:                    ; preds = %flush_pending.exit
   br i1 %or.cond7, label %91, label %94
 
 91:                                               ; preds = %83
-  %92 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 7), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @cm_zlib_z_errmsg, i64 56), align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %92, ptr %93, align 8
   br label %deflateStateCheck.exit.thread
@@ -1724,7 +1724,7 @@ flush_pending.exit._crit_edge:                    ; preds = %flush_pending.exit
   br i1 %.not376, label %.thread467.thread, label %97
 
 97:                                               ; preds = %95
-  %98 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 7), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @cm_zlib_z_errmsg, i64 56), align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %98, ptr %99, align 8
   br label %deflateStateCheck.exit.thread

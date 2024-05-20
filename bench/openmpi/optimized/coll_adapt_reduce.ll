@@ -34,7 +34,7 @@ define i32 @ompi_coll_adapt_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %or.cond, label %26, label %23
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %25 = call i32 %24(ptr noundef nonnull %9, ptr noundef null) #2
   br label %26
 

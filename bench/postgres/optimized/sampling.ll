@@ -310,7 +310,7 @@ define dso_local double @anl_random_fract() local_unnamed_addr #0 {
 1:                                                ; preds = %0
   %2 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
   %3 = zext i32 %2 to i64
-  tail call void @pg_prng_seed(ptr noundef nonnull getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i64 0, i32 1), i64 noundef %3) #6
+  tail call void @pg_prng_seed(ptr noundef nonnull getelementptr inbounds (i8, ptr @oldrs, i64 8), i64 noundef %3) #6
   store i1 true, ptr @oldrs_initialized, align 1
   br label %.preheader
 
@@ -318,7 +318,7 @@ define dso_local double @anl_random_fract() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %5 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i64 0, i32 1)) #6
+  %5 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds (i8, ptr @oldrs, i64 8)) #6
   %6 = fcmp oeq double %5, 0.000000e+00
   br i1 %6, label %4, label %sampler_random_fract.exit, !llvm.loop !5
 
@@ -334,7 +334,7 @@ define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_
 2:                                                ; preds = %1
   %3 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
   %4 = zext i32 %3 to i64
-  tail call void @pg_prng_seed(ptr noundef nonnull getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i64 0, i32 1), i64 noundef %4) #6
+  tail call void @pg_prng_seed(ptr noundef nonnull getelementptr inbounds (i8, ptr @oldrs, i64 8), i64 noundef %4) #6
   store i1 true, ptr @oldrs_initialized, align 1
   br label %.preheader
 
@@ -342,7 +342,7 @@ define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_
   br label %5
 
 5:                                                ; preds = %.preheader, %5
-  %6 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i64 0, i32 1)) #6
+  %6 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds (i8, ptr @oldrs, i64 8)) #6
   %7 = fcmp oeq double %6, 0.000000e+00
   br i1 %7, label %5, label %sampler_random_fract.exit, !llvm.loop !5
 

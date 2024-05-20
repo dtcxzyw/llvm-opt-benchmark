@@ -38258,7 +38258,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h24cca5b9d33a4a75E(p
   unreachable
 
 .thread203:                                       ; preds = %.noexc30, %42
-  %.0.i.i57146 = phi ptr [ %45, %.noexc30 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %42 ]
+  %.0.i.i57146 = phi ptr [ %45, %.noexc30 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %42 ]
   %48 = load <2 x i64>, ptr %.0.i.i57146, align 8, !noalias !11395
   %49 = extractelement <2 x i64> %48, i64 0
   %50 = add i64 %49, 1
@@ -38309,7 +38309,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h24cca5b9d33a4a75E(p
   unreachable
 
 .noexc22.thread:                                  ; preds = %51, %.noexc22
-  %.0.i.i152 = phi ptr [ %54, %.noexc22 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %51 ]
+  %.0.i.i152 = phi ptr [ %54, %.noexc22 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %51 ]
   %.sroa.4102.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.5.0..sroa_idx103 = getelementptr inbounds i8, ptr %24, i64 16
   %.sroa.6104.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 24
@@ -71528,7 +71528,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i": ; preds = %.noexc4, %.noexc
-  %.0.i.i2.i.i = phi ptr [ %26, %.noexc4 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %.noexc ]
+  %.0.i.i2.i.i = phi ptr [ %26, %.noexc4 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %.noexc ]
   %29 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !20220
   %30 = extractelement <2 x i64> %29, i64 0
   %31 = add i64 %30, 1
@@ -92399,7 +92399,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i": ; preds = %.noexc6, %.noexc
-  %.0.i.i2.i.i = phi ptr [ %25, %.noexc6 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %.noexc ]
+  %.0.i.i2.i.i = phi ptr [ %25, %.noexc6 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %.noexc ]
   %28 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !25559
   %29 = extractelement <2 x i64> %28, i64 0
   %30 = add i64 %29, 1
@@ -102666,7 +102666,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %9, label %24, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread.i
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread.i: ; preds = %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i, %5
-  %.0.i.i2.i = phi ptr [ %8, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %5 ]
+  %.0.i.i2.i = phi ptr [ %8, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %5 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8, !noalias !28288, !noundef !4
   %12 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 16
@@ -102771,7 +102771,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %10, label %19, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread: ; preds = %4, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit
-  %.0.i.i7 = phi ptr [ %9, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i7 = phi ptr [ %9, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %4 ]
   %11 = getelementptr inbounds i8, ptr %.0.i.i7, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !28328, !noundef !4
   %13 = and i64 %12, %7
@@ -102903,7 +102903,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5aadfec8016120f7E.llvm.1186121590401690724.exit": ; preds = %2, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit
-  %.0.i.i4 = phi ptr [ %7, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i4 = phi ptr [ %7, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %2 ]
   %..i = select i1 %5, i8 2, i8 0
   tail call void @_ZN18tracing_subscriber6filter13layer_filters11FilterState12add_interest17h17e9fdbd898a2499E(ptr noundef nonnull align 8 %.0.i.i4, i8 noundef %..i), !noalias !28376
   ret i8 2
@@ -102926,7 +102926,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %12, label %19, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread: ; preds = %4, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit
-  %.0.i.i7 = phi ptr [ %11, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i7 = phi ptr [ %11, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %4 ]
   %13 = icmp eq i64 %7, -1
   br i1 %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5aadfec8016120f7E.llvm.1186121590401690724.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5aadfec8016120f7E.llvm.1186121590401690724.exit.sink.split"
 
@@ -103141,7 +103141,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %8, label %19, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread.i
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread.i: ; preds = %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i, %4
-  %.0.i.i2.i = phi ptr [ %7, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i2.i = phi ptr [ %7, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %4 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i64, ptr %9, align 8, !alias.scope !28450, !noalias !28462, !noundef !4
   %11 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 16
@@ -103357,7 +103357,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit": ; preds = %36, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit
-  %.0.i.i72 = phi ptr [ %38, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %36 ]
+  %.0.i.i72 = phi ptr [ %38, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %36 ]
   store i64 0, ptr %0, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.451.0..sroa_idx, align 8
@@ -103404,7 +103404,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 .noexc.thread:                                    ; preds = %44, %.noexc
-  %.0.i.i3978 = phi ptr [ %47, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %44 ]
+  %.0.i.i3978 = phi ptr [ %47, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %44 ]
   %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
   %.sroa.662.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 24
@@ -103884,7 +103884,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit": ; preds = %23, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit
-  %.0.i.i56 = phi ptr [ %25, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %23 ]
+  %.0.i.i56 = phi ptr [ %25, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %23 ]
   store i64 0, ptr %0, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.438.0..sroa_idx, align 8
@@ -103931,7 +103931,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 .noexc.thread:                                    ; preds = %31, %.noexc
-  %.0.i.i3462 = phi ptr [ %34, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %31 ]
+  %.0.i.i3462 = phi ptr [ %34, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %31 ]
   %.sroa.447.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.548.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.649.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
@@ -104383,7 +104383,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %6, label %17, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread: ; preds = %2, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit
-  %.0.i.i2 = phi ptr [ %5, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2 = phi ptr [ %5, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !noalias !28721, !noundef !4
   %9 = getelementptr inbounds i8, ptr %.0.i.i2, i64 16
@@ -104431,7 +104431,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f7
   br i1 %6, label %29, label %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread
 
 _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit.thread: ; preds = %2, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit
-  %.0.i.i2 = phi ptr [ %5, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2 = phi ptr [ %5, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h1e7e254b22e9f772E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !noalias !28733, !noundef !4
   %9 = getelementptr inbounds i8, ptr %.0.i.i2, i64 16
@@ -104487,7 +104487,7 @@ define hidden noundef align 8 ptr @_ZN18tracing_subscriber6filter13layer_filters
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h6775569b8d1770bbE.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h6775569b8d1770bbE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [3 x i64] } } }, i8, [7 x i8] }, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit5__KEY17h4b08be4b5684becfE, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -104502,7 +104502,7 @@ define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__g
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h5b1518e18d3ef6ddE.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h5b1518e18d3ef6ddE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -117713,7 +117713,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit
-  %.0.i.i25 = phi ptr [ %5, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i25 = phi ptr [ %5, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i25, align 8, !noalias !32545
   %9 = extractelement <2 x i64> %8, i64 0
@@ -117748,7 +117748,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 .noexc.thread:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit", %.noexc
-  %.0.i.i1831 = phi ptr [ %13, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit" ]
+  %.0.i.i1831 = phi ptr [ %13, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h511d6ce7c1279865E.llvm.1186121590401690724.exit" ]
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load <2 x i64>, ptr %.0.i.i1831, align 8, !noalias !32554
@@ -117865,7 +117865,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.11861
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit": ; preds = %3, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit.i
-  %.0.i.i2.i = phi ptr [ %21, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i2.i = phi ptr [ %21, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1186121590401690724.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %3 ]
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 24

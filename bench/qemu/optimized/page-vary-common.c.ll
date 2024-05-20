@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @set_preferred_target_page_bits_common(i32 noundef %bits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @target_page, i64 4), align 4
   %cmp = icmp eq i32 %0, 0
   %cmp1 = icmp sgt i32 %0, %bits
   %or.cond = or i1 %cmp, %cmp1
@@ -22,7 +22,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  store i32 %bits, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4
+  store i32 %bits, ptr getelementptr inbounds (i8, ptr @target_page, i64 4), align 4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then
@@ -33,19 +33,19 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @finalize_target_page_bits_common(i32 noundef %min) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @target_page, i64 4), align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 %min, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4
+  store i32 %min, ptr getelementptr inbounds (i8, ptr @target_page, i64 4), align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi i32 [ %min, %if.then ], [ %0, %entry ]
   %sh_prom = zext nneg i32 %1 to i64
   %shl = shl nsw i64 -1, %sh_prom
-  store i64 %shl, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 2), align 8
+  store i64 %shl, ptr getelementptr inbounds (i8, ptr @target_page, i64 8), align 8
   store i8 1, ptr @target_page, align 8
   ret void
 }

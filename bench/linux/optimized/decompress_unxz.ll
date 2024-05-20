@@ -56,7 +56,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unxz(ptr noundef %0, i64 noundef 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 4096, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %29 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3264, i64 noundef 4096) #6
   %30 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %29, ptr %30, align 8
@@ -69,7 +69,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unxz(ptr noundef %0, i64 noundef 
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %37 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3264, i64 noundef 4096) #6
   %38 = icmp eq ptr %37, null
   br i1 %38, label %95, label %39

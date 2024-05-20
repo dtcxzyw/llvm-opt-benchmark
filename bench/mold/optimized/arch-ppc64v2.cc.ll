@@ -279,9 +279,9 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store <4 x i32> <i32 2080899750, i32 1117716485, i32 2103968422, i32 2080900006>, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, align 16
-  store <4 x i32> <i32 965541844, i32 2081120336, i32 2013327490, i32 1030422528>, ptr getelementptr inbounds ([13 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 0, i64 4), align 16
-  store <4 x i32> <i32 963313664, i32 -376766464, i32 2106131366, i32 -378863608>, ptr getelementptr inbounds ([13 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 0, i64 8), align 16
-  store i32 1317012512, ptr getelementptr inbounds ([13 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 0, i64 12), align 16
+  store <4 x i32> <i32 965541844, i32 2081120336, i32 2013327490, i32 1030422528>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
+  store <4 x i32> <i32 963313664, i32 -376766464, i32 2106131366, i32 -378863608>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 32), align 16
+  store i32 1317012512, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 48), align 16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn) #20
   br label %init.end
 
@@ -2587,8 +2587,8 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store <4 x i32> <i32 -129957864, i32 1610612736, i32 1031929856, i32 -376700928>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, align 16
-  store i32 2106131366, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 0, i64 4), align 16
-  store i32 1317012512, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 0, i64 5), align 4
+  store i32 2106131366, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 16), align 16
+  store i32 1317012512, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk) #20
   br label %init.end
 
@@ -2604,8 +2604,8 @@ init.check3:                                      ; preds = %init.end
 
 init5:                                            ; preds = %init.check3
   store <4 x i32> <i32 -129957864, i32 1610612736, i32 68157440, i32 -444596224>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, align 16
-  store i32 2106131366, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 0, i64 4), align 16
-  store i32 1317012512, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 0, i64 5), align 4
+  store i32 2106131366, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 16), align 16
+  store i32 1317012512, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10) #20
   br label %init.end6
 
@@ -2621,8 +2621,8 @@ init.check8:                                      ; preds = %init.end6
 
 init10:                                           ; preds = %init.check8
   store <4 x i32> <i32 -129957864, i32 1610612736, i32 1031929856, i32 965476352>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, align 16
-  store i32 2106131366, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 0, i64 4), align 16
-  store i32 1317012512, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 0, i64 5), align 4
+  store i32 2106131366, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 16), align 16
+  store i32 1317012512, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk) #20
   br label %init.end11
 
@@ -2638,8 +2638,8 @@ init.check13:                                     ; preds = %init.end11
 
 init15:                                           ; preds = %init.check13
   store <4 x i32> <i32 -129957864, i32 1610612736, i32 101711872, i32 964689920>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, align 16
-  store i32 2106131366, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 0, i64 4), align 16
-  store i32 1317012512, ptr getelementptr inbounds ([6 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 0, i64 5), align 4
+  store i32 2106131366, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 16), align 16
+  store i32 1317012512, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10) #20
   br label %init.end16
 

@@ -1001,7 +1001,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1587,11 +1587,11 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !23
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !23
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %13 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %13, i8 0, i64 56, i1 false), !noalias !23
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !23
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !23
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE0EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
@@ -1610,7 +1610,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i.i, align 8, !noalias !26
   %_M_weak_count.i.i.i.i.i.i9.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i.i, align 4, !noalias !26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i.i, align 8, !noalias !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i.i, align 8, !noalias !26
   %_M_impl.i.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i.i, i64 16
   %14 = load ptr, ptr %constantSet.i.i, align 8, !noalias !26
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constantSet.i.i, i64 8
@@ -1619,7 +1619,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constantSet.i.i, i64 32
   %16 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
   %frombool.i.i.i.i.i.i.i.i.i.i = and i8 %16, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i.i, align 8, !noalias !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i.i, align 8, !noalias !26
   %constantSet_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i.i, i64 32
   store ptr %14, ptr %constantSet_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
@@ -1709,11 +1709,11 @@ call5.i.i.i3.i.i.i.i.i65.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i66.i, align 8, !noalias !33
   %_M_weak_count.i.i.i.i.i.i.i67.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i65.i5, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i67.i, align 4, !noalias !33
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i65.i5, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i65.i5, align 8, !noalias !33
   %_M_impl.i.i.i.i.i.i.i68.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i65.i5, i64 16
   %24 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i65.i5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %24, i8 0, i64 56, i1 false), !noalias !33
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i68.i, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i68.i, align 8, !noalias !33
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE3EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i34.i:                                    ; preds = %if.end.i28.i
@@ -1732,7 +1732,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i47.i, align 8, !noalias !36
   %_M_weak_count.i.i.i.i.i.i9.i48.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i37.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i48.i, align 4, !noalias !36
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i37.i, align 8, !noalias !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i37.i, align 8, !noalias !36
   %_M_impl.i.i.i.i.i.i10.i49.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i37.i, i64 16
   %25 = load ptr, ptr %constantSet.i22.i, align 8, !noalias !36
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %constantSet.i22.i, i64 8
@@ -1741,7 +1741,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i53.i = getelementptr inbounds i8, ptr %constantSet.i22.i, i64 32
   %27 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i53.i, align 8, !noalias !36
   %frombool.i.i.i.i.i.i.i.i.i54.i = and i8 %27, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i49.i, align 8, !noalias !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i49.i, align 8, !noalias !36
   %constantSet_.i.i.i.i.i.i.i.i.i55.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i37.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i56.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i37.i, i64 32
   store ptr %25, ptr %constantSet_.i.i.i.i.i.i.i.i.i55.i, align 8, !noalias !36
@@ -1823,11 +1823,11 @@ call5.i.i.i3.i.i.i.i.i112.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i113.i, align 8, !noalias !43
   %_M_weak_count.i.i.i.i.i.i.i114.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i112.i7, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i114.i, align 4, !noalias !43
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i112.i7, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i112.i7, align 8, !noalias !43
   %_M_impl.i.i.i.i.i.i.i115.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i112.i7, i64 16
   %35 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i112.i7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %35, i8 0, i64 56, i1 false), !noalias !43
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i115.i, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i115.i, align 8, !noalias !43
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE1EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i81.i:                                    ; preds = %if.end.i75.i
@@ -1846,7 +1846,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i94.i, align 8, !noalias !46
   %_M_weak_count.i.i.i.i.i.i9.i95.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i84.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i95.i, align 4, !noalias !46
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i84.i, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i84.i, align 8, !noalias !46
   %_M_impl.i.i.i.i.i.i10.i96.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i84.i, i64 16
   %36 = load ptr, ptr %constantSet.i69.i, align 8, !noalias !46
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i97.i = getelementptr inbounds i8, ptr %constantSet.i69.i, i64 8
@@ -1855,7 +1855,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i100.i = getelementptr inbounds i8, ptr %constantSet.i69.i, i64 32
   %38 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i100.i, align 8, !noalias !46
   %frombool.i.i.i.i.i.i.i.i.i101.i = and i8 %38, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i96.i, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i96.i, align 8, !noalias !46
   %constantSet_.i.i.i.i.i.i.i.i.i102.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i84.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i103.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i84.i, i64 32
   store ptr %36, ptr %constantSet_.i.i.i.i.i.i.i.i.i102.i, align 8, !noalias !46
@@ -1937,11 +1937,11 @@ call5.i.i.i3.i.i.i.i.i159.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i160.i, align 8, !noalias !53
   %_M_weak_count.i.i.i.i.i.i.i161.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i159.i9, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i161.i, align 4, !noalias !53
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i159.i9, align 8, !noalias !53
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i159.i9, align 8, !noalias !53
   %_M_impl.i.i.i.i.i.i.i162.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i159.i9, i64 16
   %46 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i159.i9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %46, i8 0, i64 56, i1 false), !noalias !53
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i162.i, align 8, !noalias !53
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i162.i, align 8, !noalias !53
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE2EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i128.i:                                   ; preds = %if.end.i122.i
@@ -1960,7 +1960,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i141.i, align 8, !noalias !56
   %_M_weak_count.i.i.i.i.i.i9.i142.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i131.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i142.i, align 4, !noalias !56
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i131.i, align 8, !noalias !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i131.i, align 8, !noalias !56
   %_M_impl.i.i.i.i.i.i10.i143.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i131.i, i64 16
   %47 = load ptr, ptr %constantSet.i116.i, align 8, !noalias !56
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i144.i = getelementptr inbounds i8, ptr %constantSet.i116.i, i64 8
@@ -1969,7 +1969,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i147.i = getelementptr inbounds i8, ptr %constantSet.i116.i, i64 32
   %49 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i147.i, align 8, !noalias !56
   %frombool.i.i.i.i.i.i.i.i.i148.i = and i8 %49, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i143.i, align 8, !noalias !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i143.i, align 8, !noalias !56
   %constantSet_.i.i.i.i.i.i.i.i.i149.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i131.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i150.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i131.i, i64 32
   store ptr %47, ptr %constantSet_.i.i.i.i.i.i.i.i.i149.i, align 8, !noalias !56
@@ -2051,11 +2051,11 @@ call5.i.i.i3.i.i.i.i.i206.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i207.i, align 8, !noalias !63
   %_M_weak_count.i.i.i.i.i.i.i208.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i206.i11, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i208.i, align 4, !noalias !63
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i206.i11, align 8, !noalias !63
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i206.i11, align 8, !noalias !63
   %_M_impl.i.i.i.i.i.i.i209.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i206.i11, i64 16
   %57 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i206.i11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %57, i8 0, i64 56, i1 false), !noalias !63
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i209.i, align 8, !noalias !63
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i209.i, align 8, !noalias !63
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE4EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i175.i:                                   ; preds = %if.end.i169.i
@@ -2074,7 +2074,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i188.i, align 8, !noalias !66
   %_M_weak_count.i.i.i.i.i.i9.i189.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i178.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i189.i, align 4, !noalias !66
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i178.i, align 8, !noalias !66
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i178.i, align 8, !noalias !66
   %_M_impl.i.i.i.i.i.i10.i190.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i178.i, i64 16
   %58 = load ptr, ptr %constantSet.i163.i, align 8, !noalias !66
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i191.i = getelementptr inbounds i8, ptr %constantSet.i163.i, i64 8
@@ -2083,7 +2083,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i194.i = getelementptr inbounds i8, ptr %constantSet.i163.i, i64 32
   %60 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i194.i, align 8, !noalias !66
   %frombool.i.i.i.i.i.i.i.i.i195.i = and i8 %60, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i190.i, align 8, !noalias !66
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i190.i, align 8, !noalias !66
   %constantSet_.i.i.i.i.i.i.i.i.i196.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i178.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i197.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i178.i, i64 32
   store ptr %58, ptr %constantSet_.i.i.i.i.i.i.i.i.i196.i, align 8, !noalias !66
@@ -2165,11 +2165,11 @@ call5.i.i.i3.i.i.i.i.i253.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i254.i, align 8, !noalias !73
   %_M_weak_count.i.i.i.i.i.i.i255.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i253.i13, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i255.i, align 4, !noalias !73
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i253.i13, align 8, !noalias !73
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i253.i13, align 8, !noalias !73
   %_M_impl.i.i.i.i.i.i.i256.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i253.i13, i64 16
   %68 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i253.i13, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %68, i8 0, i64 56, i1 false), !noalias !73
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i256.i, align 8, !noalias !73
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i256.i, align 8, !noalias !73
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE10EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i222.i:                                   ; preds = %if.end.i216.i
@@ -2188,7 +2188,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i235.i, align 8, !noalias !76
   %_M_weak_count.i.i.i.i.i.i9.i236.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i225.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i236.i, align 4, !noalias !76
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i225.i, align 8, !noalias !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i225.i, align 8, !noalias !76
   %_M_impl.i.i.i.i.i.i10.i237.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i225.i, i64 16
   %69 = load ptr, ptr %constantSet.i210.i, align 8, !noalias !76
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i238.i = getelementptr inbounds i8, ptr %constantSet.i210.i, i64 8
@@ -2197,7 +2197,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i241.i = getelementptr inbounds i8, ptr %constantSet.i210.i, i64 32
   %71 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i241.i, align 8, !noalias !76
   %frombool.i.i.i.i.i.i.i.i.i242.i = and i8 %71, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i237.i, align 8, !noalias !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i237.i, align 8, !noalias !76
   %constantSet_.i.i.i.i.i.i.i.i.i243.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i225.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i244.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i225.i, i64 32
   store ptr %69, ptr %constantSet_.i.i.i.i.i.i.i.i.i243.i, align 8, !noalias !76
@@ -2279,11 +2279,11 @@ call5.i.i.i3.i.i.i.i.i300.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i301.i, align 8, !noalias !83
   %_M_weak_count.i.i.i.i.i.i.i302.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i300.i15, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i302.i, align 4, !noalias !83
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i300.i15, align 8, !noalias !83
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i300.i15, align 8, !noalias !83
   %_M_impl.i.i.i.i.i.i.i303.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i300.i15, i64 16
   %79 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i300.i15, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %79, i8 0, i64 56, i1 false), !noalias !83
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i303.i, align 8, !noalias !83
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i303.i, align 8, !noalias !83
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE5EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i269.i:                                   ; preds = %if.end.i263.i
@@ -2302,7 +2302,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i282.i, align 8, !noalias !86
   %_M_weak_count.i.i.i.i.i.i9.i283.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i272.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i283.i, align 4, !noalias !86
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i272.i, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i272.i, align 8, !noalias !86
   %_M_impl.i.i.i.i.i.i10.i284.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i272.i, i64 16
   %80 = load ptr, ptr %constantSet.i257.i, align 8, !noalias !86
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i285.i = getelementptr inbounds i8, ptr %constantSet.i257.i, i64 8
@@ -2311,7 +2311,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i288.i = getelementptr inbounds i8, ptr %constantSet.i257.i, i64 32
   %82 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i288.i, align 8, !noalias !86
   %frombool.i.i.i.i.i.i.i.i.i289.i = and i8 %82, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i284.i, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i284.i, align 8, !noalias !86
   %constantSet_.i.i.i.i.i.i.i.i.i290.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i272.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i291.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i272.i, i64 32
   store ptr %80, ptr %constantSet_.i.i.i.i.i.i.i.i.i290.i, align 8, !noalias !86
@@ -2393,11 +2393,11 @@ call5.i.i.i3.i.i.i.i.i347.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i348.i, align 8, !noalias !93
   %_M_weak_count.i.i.i.i.i.i.i349.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i347.i17, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i349.i, align 4, !noalias !93
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i347.i17, align 8, !noalias !93
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i347.i17, align 8, !noalias !93
   %_M_impl.i.i.i.i.i.i.i350.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i347.i17, i64 16
   %90 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i347.i17, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %90, i8 0, i64 56, i1 false), !noalias !93
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i350.i, align 8, !noalias !93
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i350.i, align 8, !noalias !93
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE6EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i316.i:                                   ; preds = %if.end.i310.i
@@ -2416,7 +2416,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i329.i, align 8, !noalias !96
   %_M_weak_count.i.i.i.i.i.i9.i330.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i319.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i330.i, align 4, !noalias !96
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i319.i, align 8, !noalias !96
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i319.i, align 8, !noalias !96
   %_M_impl.i.i.i.i.i.i10.i331.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i319.i, i64 16
   %91 = load ptr, ptr %constantSet.i304.i, align 8, !noalias !96
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i332.i = getelementptr inbounds i8, ptr %constantSet.i304.i, i64 8
@@ -2425,7 +2425,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i335.i = getelementptr inbounds i8, ptr %constantSet.i304.i, i64 32
   %93 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i335.i, align 8, !noalias !96
   %frombool.i.i.i.i.i.i.i.i.i336.i = and i8 %93, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i331.i, align 8, !noalias !96
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i331.i, align 8, !noalias !96
   %constantSet_.i.i.i.i.i.i.i.i.i337.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i319.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i338.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i319.i, i64 32
   store ptr %91, ptr %constantSet_.i.i.i.i.i.i.i.i.i337.i, align 8, !noalias !96
@@ -2507,11 +2507,11 @@ call5.i.i.i3.i.i.i.i.i394.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i395.i, align 8, !noalias !103
   %_M_weak_count.i.i.i.i.i.i.i396.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i394.i19, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i396.i, align 4, !noalias !103
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i394.i19, align 8, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i394.i19, align 8, !noalias !103
   %_M_impl.i.i.i.i.i.i.i397.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i394.i19, i64 16
   %101 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i394.i19, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %101, i8 0, i64 56, i1 false), !noalias !103
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i397.i, align 8, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i397.i, align 8, !noalias !103
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE7EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i363.i:                                   ; preds = %if.end.i357.i
@@ -2530,7 +2530,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i376.i, align 8, !noalias !106
   %_M_weak_count.i.i.i.i.i.i9.i377.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i366.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i377.i, align 4, !noalias !106
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i366.i, align 8, !noalias !106
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i366.i, align 8, !noalias !106
   %_M_impl.i.i.i.i.i.i10.i378.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i366.i, i64 16
   %102 = load ptr, ptr %constantSet.i351.i, align 8, !noalias !106
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i379.i = getelementptr inbounds i8, ptr %constantSet.i351.i, i64 8
@@ -2539,7 +2539,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i382.i = getelementptr inbounds i8, ptr %constantSet.i351.i, i64 32
   %104 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i382.i, align 8, !noalias !106
   %frombool.i.i.i.i.i.i.i.i.i383.i = and i8 %104, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i378.i, align 8, !noalias !106
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i378.i, align 8, !noalias !106
   %constantSet_.i.i.i.i.i.i.i.i.i384.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i366.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i385.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i366.i, i64 32
   store ptr %102, ptr %constantSet_.i.i.i.i.i.i.i.i.i384.i, align 8, !noalias !106
@@ -2621,11 +2621,11 @@ call5.i.i.i3.i.i.i.i.i444.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i445.i, align 8, !noalias !113
   %_M_weak_count.i.i.i.i.i.i.i446.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i444.i21, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i446.i, align 4, !noalias !113
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i444.i21, align 8, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i444.i21, align 8, !noalias !113
   %_M_impl.i.i.i.i.i.i.i447.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i444.i21, i64 16
   %112 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i444.i21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %112, i8 0, i64 56, i1 false), !noalias !113
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i447.i, align 8, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i447.i, align 8, !noalias !113
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE8EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i410.i:                                   ; preds = %if.end.i404.i
@@ -2644,7 +2644,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i425.i, align 8, !noalias !116
   %_M_weak_count.i.i.i.i.i.i9.i426.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i413.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i426.i, align 4, !noalias !116
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i413.i, align 8, !noalias !116
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i413.i, align 8, !noalias !116
   %_M_impl.i.i.i.i.i.i10.i427.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i413.i, i64 16
   %113 = load ptr, ptr %constantSet.i398.i, align 8, !noalias !116
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i428.i = getelementptr inbounds i8, ptr %constantSet.i398.i, i64 8
@@ -2653,7 +2653,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i431.i = getelementptr inbounds i8, ptr %constantSet.i398.i, i64 32
   %115 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i431.i, align 8, !noalias !116
   %frombool.i.i.i.i.i.i.i.i.i432.i = and i8 %115, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i427.i, align 8, !noalias !116
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i427.i, align 8, !noalias !116
   %constantSet_.i.i.i.i.i.i.i.i.i433.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i413.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i434.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i413.i, i64 32
   store ptr %113, ptr %constantSet_.i.i.i.i.i.i.i.i.i433.i, align 8, !noalias !116
@@ -2735,11 +2735,11 @@ call5.i.i.i3.i.i.i.i.i491.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i492.i, align 8, !noalias !123
   %_M_weak_count.i.i.i.i.i.i.i493.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i491.i23, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i493.i, align 4, !noalias !123
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i491.i23, align 8, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i491.i23, align 8, !noalias !123
   %_M_impl.i.i.i.i.i.i.i494.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i491.i23, i64 16
   %123 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i491.i23, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %123, i8 0, i64 56, i1 false), !noalias !123
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i494.i, align 8, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i494.i, align 8, !noalias !123
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE9EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
 if.end9.i460.i:                                   ; preds = %if.end.i454.i
@@ -2758,7 +2758,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i8.i473.i, align 8, !noalias !126
   %_M_weak_count.i.i.i.i.i.i9.i474.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i463.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i9.i474.i, align 4, !noalias !126
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11.i463.i, align 8, !noalias !126
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i11.i463.i, align 8, !noalias !126
   %_M_impl.i.i.i.i.i.i10.i475.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i463.i, i64 16
   %124 = load ptr, ptr %constantSet.i448.i, align 8, !noalias !126
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i476.i = getelementptr inbounds i8, ptr %constantSet.i448.i, i64 8
@@ -2767,7 +2767,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctio
   %hasNull3.i.i.i.i.i.i.i.i.i479.i = getelementptr inbounds i8, ptr %constantSet.i448.i, i64 32
   %126 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i479.i, align 8, !noalias !126
   %frombool.i.i.i.i.i.i.i.i.i480.i = and i8 %126, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i10.i475.i, align 8, !noalias !126
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i10.i475.i, align 8, !noalias !126
   %constantSet_.i.i.i.i.i.i.i.i.i481.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i463.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i482.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11.i463.i, i64 32
   store ptr %124, ptr %constantSet_.i.i.i.i.i.i.i.i.i481.i, align 8, !noalias !126
@@ -3033,7 +3033,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.1, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3323,7 +3323,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !136
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !136
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i.i, align 8, !noalias !136
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i.i, align 8, !noalias !136
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 16
   %12 = load ptr, ptr %ref.tmp5.i.i, align 8, !noalias !136
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
@@ -3332,7 +3332,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 32
   %14 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !136
   %frombool.i.i.i.i.i.i.i.i.i.i = and i8 %14, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !136
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !136
   %constantSet_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 32
   store ptr %12, ptr %constantSet_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !136
@@ -3385,11 +3385,11 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i.i, align 8, !noalias !139
   %_M_weak_count.i.i.i.i.i.i15.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i.i, align 4, !noalias !139
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !139
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !139
   %_M_impl.i.i.i.i.i.i16.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %19 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %19, i8 0, i64 48, i1 false), !noalias !139
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !139
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !139
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEEED2Ev.exit.i.i
@@ -3436,7 +3436,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i41.i, align 8, !noalias !146
   %_M_weak_count.i.i.i.i.i.i.i42.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i42.i, align 4, !noalias !146
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i32.i, align 8, !noalias !146
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i32.i, align 8, !noalias !146
   %_M_impl.i.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 16
   %22 = load ptr, ptr %ref.tmp5.i22.i, align 8, !noalias !146
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 8
@@ -3445,7 +3445,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i47.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 32
   %24 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i47.i, align 8, !noalias !146
   %frombool.i.i.i.i.i.i.i.i.i48.i = and i8 %24, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i43.i, align 8, !noalias !146
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i43.i, align 8, !noalias !146
   %constantSet_.i.i.i.i.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 32
   store ptr %22, ptr %constantSet_.i.i.i.i.i.i.i.i.i49.i, align 8, !noalias !146
@@ -3490,11 +3490,11 @@ call5.i.i.i3.i.i.i.i.i58.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i59.i, align 8, !noalias !149
   %_M_weak_count.i.i.i.i.i.i15.i60.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i60.i, align 4, !noalias !149
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !149
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !149
   %_M_impl.i.i.i.i.i.i16.i61.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 16
   %29 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %29, i8 0, i64 48, i1 false), !noalias !149
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !149
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !149
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i58.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEEED2Ev.exit.i.i
@@ -3541,7 +3541,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i81.i, align 8, !noalias !156
   %_M_weak_count.i.i.i.i.i.i.i82.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i82.i, align 4, !noalias !156
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i72.i, align 8, !noalias !156
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i72.i, align 8, !noalias !156
   %_M_impl.i.i.i.i.i.i.i83.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 16
   %32 = load ptr, ptr %ref.tmp5.i62.i, align 8, !noalias !156
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i84.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 8
@@ -3550,7 +3550,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i87.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 32
   %34 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i87.i, align 8, !noalias !156
   %frombool.i.i.i.i.i.i.i.i.i88.i = and i8 %34, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i83.i, align 8, !noalias !156
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i83.i, align 8, !noalias !156
   %constantSet_.i.i.i.i.i.i.i.i.i89.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i90.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 32
   store ptr %32, ptr %constantSet_.i.i.i.i.i.i.i.i.i89.i, align 8, !noalias !156
@@ -3595,11 +3595,11 @@ call5.i.i.i3.i.i.i.i.i98.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i99.i, align 8, !noalias !159
   %_M_weak_count.i.i.i.i.i.i15.i100.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i100.i, align 4, !noalias !159
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !159
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !159
   %_M_impl.i.i.i.i.i.i16.i101.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 16
   %39 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %39, i8 0, i64 48, i1 false), !noalias !159
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !159
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !159
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i98.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEEED2Ev.exit.i.i
@@ -3646,7 +3646,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i121.i, align 8, !noalias !166
   %_M_weak_count.i.i.i.i.i.i.i122.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i122.i, align 4, !noalias !166
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i112.i, align 8, !noalias !166
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i112.i, align 8, !noalias !166
   %_M_impl.i.i.i.i.i.i.i123.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 16
   %42 = load ptr, ptr %ref.tmp5.i102.i, align 8, !noalias !166
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i124.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 8
@@ -3655,7 +3655,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i127.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 32
   %44 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i127.i, align 8, !noalias !166
   %frombool.i.i.i.i.i.i.i.i.i128.i = and i8 %44, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i123.i, align 8, !noalias !166
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i123.i, align 8, !noalias !166
   %constantSet_.i.i.i.i.i.i.i.i.i129.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i130.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 32
   store ptr %42, ptr %constantSet_.i.i.i.i.i.i.i.i.i129.i, align 8, !noalias !166
@@ -3700,11 +3700,11 @@ call5.i.i.i3.i.i.i.i.i138.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i139.i, align 8, !noalias !169
   %_M_weak_count.i.i.i.i.i.i15.i140.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i140.i, align 4, !noalias !169
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !169
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !169
   %_M_impl.i.i.i.i.i.i16.i141.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 16
   %49 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %49, i8 0, i64 48, i1 false), !noalias !169
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !169
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !169
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i138.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEEED2Ev.exit.i.i
@@ -3751,7 +3751,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i161.i, align 8, !noalias !176
   %_M_weak_count.i.i.i.i.i.i.i162.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i162.i, align 4, !noalias !176
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i152.i, align 8, !noalias !176
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i152.i, align 8, !noalias !176
   %_M_impl.i.i.i.i.i.i.i163.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 16
   %52 = load ptr, ptr %ref.tmp5.i142.i, align 8, !noalias !176
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i164.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 8
@@ -3760,7 +3760,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i167.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 32
   %54 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i167.i, align 8, !noalias !176
   %frombool.i.i.i.i.i.i.i.i.i168.i = and i8 %54, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i163.i, align 8, !noalias !176
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i163.i, align 8, !noalias !176
   %constantSet_.i.i.i.i.i.i.i.i.i169.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i170.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 32
   store ptr %52, ptr %constantSet_.i.i.i.i.i.i.i.i.i169.i, align 8, !noalias !176
@@ -3805,11 +3805,11 @@ call5.i.i.i3.i.i.i.i.i178.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i179.i, align 8, !noalias !179
   %_M_weak_count.i.i.i.i.i.i15.i180.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i180.i, align 4, !noalias !179
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !179
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !179
   %_M_impl.i.i.i.i.i.i16.i181.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 16
   %59 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %59, i8 0, i64 48, i1 false), !noalias !179
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !179
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !179
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i178.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEEED2Ev.exit.i.i
@@ -3856,7 +3856,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i201.i, align 8, !noalias !186
   %_M_weak_count.i.i.i.i.i.i.i202.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i202.i, align 4, !noalias !186
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i192.i, align 8, !noalias !186
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i192.i, align 8, !noalias !186
   %_M_impl.i.i.i.i.i.i.i203.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 16
   %62 = load ptr, ptr %ref.tmp5.i182.i, align 8, !noalias !186
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i204.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 8
@@ -3865,7 +3865,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i207.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 32
   %64 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i207.i, align 8, !noalias !186
   %frombool.i.i.i.i.i.i.i.i.i208.i = and i8 %64, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i203.i, align 8, !noalias !186
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i203.i, align 8, !noalias !186
   %constantSet_.i.i.i.i.i.i.i.i.i209.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i210.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 32
   store ptr %62, ptr %constantSet_.i.i.i.i.i.i.i.i.i209.i, align 8, !noalias !186
@@ -3910,11 +3910,11 @@ call5.i.i.i3.i.i.i.i.i218.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i219.i, align 8, !noalias !189
   %_M_weak_count.i.i.i.i.i.i15.i220.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i220.i, align 4, !noalias !189
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !189
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !189
   %_M_impl.i.i.i.i.i.i16.i221.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 16
   %69 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %69, i8 0, i64 48, i1 false), !noalias !189
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !189
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !189
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i218.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEEED2Ev.exit.i.i
@@ -3961,7 +3961,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i241.i, align 8, !noalias !196
   %_M_weak_count.i.i.i.i.i.i.i242.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i242.i, align 4, !noalias !196
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i232.i, align 8, !noalias !196
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i232.i, align 8, !noalias !196
   %_M_impl.i.i.i.i.i.i.i243.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 16
   %72 = load ptr, ptr %ref.tmp5.i222.i, align 8, !noalias !196
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i244.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 8
@@ -3970,7 +3970,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i247.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 32
   %74 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i247.i, align 8, !noalias !196
   %frombool.i.i.i.i.i.i.i.i.i248.i = and i8 %74, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i243.i, align 8, !noalias !196
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i243.i, align 8, !noalias !196
   %constantSet_.i.i.i.i.i.i.i.i.i249.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i250.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 32
   store ptr %72, ptr %constantSet_.i.i.i.i.i.i.i.i.i249.i, align 8, !noalias !196
@@ -4015,11 +4015,11 @@ call5.i.i.i3.i.i.i.i.i258.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i259.i, align 8, !noalias !199
   %_M_weak_count.i.i.i.i.i.i15.i260.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i260.i, align 4, !noalias !199
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !199
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !199
   %_M_impl.i.i.i.i.i.i16.i261.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 16
   %79 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %79, i8 0, i64 48, i1 false), !noalias !199
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !199
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !199
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i258.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEEED2Ev.exit.i.i
@@ -4066,7 +4066,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i281.i, align 8, !noalias !206
   %_M_weak_count.i.i.i.i.i.i.i282.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i282.i, align 4, !noalias !206
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i272.i, align 8, !noalias !206
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i272.i, align 8, !noalias !206
   %_M_impl.i.i.i.i.i.i.i283.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 16
   %82 = load ptr, ptr %ref.tmp5.i262.i, align 8, !noalias !206
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i284.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 8
@@ -4075,7 +4075,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i287.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 32
   %84 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i287.i, align 8, !noalias !206
   %frombool.i.i.i.i.i.i.i.i.i288.i = and i8 %84, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i283.i, align 8, !noalias !206
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i283.i, align 8, !noalias !206
   %constantSet_.i.i.i.i.i.i.i.i.i289.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i290.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 32
   store ptr %82, ptr %constantSet_.i.i.i.i.i.i.i.i.i289.i, align 8, !noalias !206
@@ -4120,11 +4120,11 @@ call5.i.i.i3.i.i.i.i.i298.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i299.i, align 8, !noalias !209
   %_M_weak_count.i.i.i.i.i.i15.i300.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i300.i, align 4, !noalias !209
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !209
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !209
   %_M_impl.i.i.i.i.i.i16.i301.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 16
   %89 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %89, i8 0, i64 48, i1 false), !noalias !209
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !209
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !209
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i298.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEEED2Ev.exit.i.i
@@ -4171,7 +4171,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i321.i, align 8, !noalias !216
   %_M_weak_count.i.i.i.i.i.i.i322.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i322.i, align 4, !noalias !216
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i312.i, align 8, !noalias !216
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i312.i, align 8, !noalias !216
   %_M_impl.i.i.i.i.i.i.i323.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 16
   %92 = load ptr, ptr %ref.tmp5.i302.i, align 8, !noalias !216
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i324.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 8
@@ -4180,7 +4180,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i327.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 32
   %94 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i327.i, align 8, !noalias !216
   %frombool.i.i.i.i.i.i.i.i.i328.i = and i8 %94, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i323.i, align 8, !noalias !216
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i323.i, align 8, !noalias !216
   %constantSet_.i.i.i.i.i.i.i.i.i329.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i330.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 32
   store ptr %92, ptr %constantSet_.i.i.i.i.i.i.i.i.i329.i, align 8, !noalias !216
@@ -4225,11 +4225,11 @@ call5.i.i.i3.i.i.i.i.i338.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i339.i, align 8, !noalias !219
   %_M_weak_count.i.i.i.i.i.i15.i340.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i340.i, align 4, !noalias !219
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !219
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !219
   %_M_impl.i.i.i.i.i.i16.i341.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 16
   %99 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %99, i8 0, i64 48, i1 false), !noalias !219
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !219
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !219
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i338.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit.i.i
@@ -4276,7 +4276,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i363.i, align 8, !noalias !226
   %_M_weak_count.i.i.i.i.i.i.i364.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i364.i, align 4, !noalias !226
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i352.i, align 8, !noalias !226
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i352.i, align 8, !noalias !226
   %_M_impl.i.i.i.i.i.i.i365.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 16
   %102 = load ptr, ptr %ref.tmp5.i342.i, align 8, !noalias !226
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i366.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 8
@@ -4285,7 +4285,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i369.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 32
   %104 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i369.i, align 8, !noalias !226
   %frombool.i.i.i.i.i.i.i.i.i370.i = and i8 %104, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i365.i, align 8, !noalias !226
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i365.i, align 8, !noalias !226
   %constantSet_.i.i.i.i.i.i.i.i.i371.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i372.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 32
   store ptr %102, ptr %constantSet_.i.i.i.i.i.i.i.i.i371.i, align 8, !noalias !226
@@ -4330,11 +4330,11 @@ call5.i.i.i3.i.i.i.i.i381.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i382.i, align 8, !noalias !229
   %_M_weak_count.i.i.i.i.i.i15.i383.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i383.i, align 4, !noalias !229
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !229
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !229
   %_M_impl.i.i.i.i.i.i16.i384.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 16
   %109 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %109, i8 0, i64 48, i1 false), !noalias !229
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !229
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !229
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i381.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit.i362.i
@@ -4381,7 +4381,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i404.i, align 8, !noalias !236
   %_M_weak_count.i.i.i.i.i.i.i405.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i405.i, align 4, !noalias !236
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i395.i, align 8, !noalias !236
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i395.i, align 8, !noalias !236
   %_M_impl.i.i.i.i.i.i.i406.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 16
   %112 = load ptr, ptr %ref.tmp5.i385.i, align 8, !noalias !236
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i407.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 8
@@ -4390,7 +4390,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i410.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 32
   %114 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i410.i, align 8, !noalias !236
   %frombool.i.i.i.i.i.i.i.i.i411.i = and i8 %114, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i406.i, align 8, !noalias !236
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i406.i, align 8, !noalias !236
   %constantSet_.i.i.i.i.i.i.i.i.i412.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i413.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 32
   store ptr %112, ptr %constantSet_.i.i.i.i.i.i.i.i.i412.i, align 8, !noalias !236
@@ -4435,11 +4435,11 @@ call5.i.i.i3.i.i.i.i.i421.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i422.i, align 8, !noalias !239
   %_M_weak_count.i.i.i.i.i.i15.i423.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i423.i, align 4, !noalias !239
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !239
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !239
   %_M_impl.i.i.i.i.i.i16.i424.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 16
   %119 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %119, i8 0, i64 48, i1 false), !noalias !239
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !239
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !239
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i421.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEEED2Ev.exit.i.i
@@ -4558,7 +4558,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.1, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4848,7 +4848,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !249
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !249
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i.i, align 8, !noalias !249
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i.i, align 8, !noalias !249
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 16
   %12 = load ptr, ptr %ref.tmp5.i.i, align 8, !noalias !249
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
@@ -4857,7 +4857,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 32
   %14 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !249
   %frombool.i.i.i.i.i.i.i.i.i.i = and i8 %14, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !249
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !249
   %constantSet_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i.i, i64 32
   store ptr %12, ptr %constantSet_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !249
@@ -4910,11 +4910,11 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i.i, align 8, !noalias !252
   %_M_weak_count.i.i.i.i.i.i15.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i.i, align 4, !noalias !252
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !252
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !252
   %_M_impl.i.i.i.i.i.i16.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %19 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %19, i8 0, i64 48, i1 false), !noalias !252
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !252
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !252
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEEED2Ev.exit.i.i
@@ -4961,7 +4961,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i41.i, align 8, !noalias !259
   %_M_weak_count.i.i.i.i.i.i.i42.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i42.i, align 4, !noalias !259
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i32.i, align 8, !noalias !259
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i32.i, align 8, !noalias !259
   %_M_impl.i.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 16
   %22 = load ptr, ptr %ref.tmp5.i22.i, align 8, !noalias !259
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 8
@@ -4970,7 +4970,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i47.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 32
   %24 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i47.i, align 8, !noalias !259
   %frombool.i.i.i.i.i.i.i.i.i48.i = and i8 %24, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i43.i, align 8, !noalias !259
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i43.i, align 8, !noalias !259
   %constantSet_.i.i.i.i.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i32.i, i64 32
   store ptr %22, ptr %constantSet_.i.i.i.i.i.i.i.i.i49.i, align 8, !noalias !259
@@ -5015,11 +5015,11 @@ call5.i.i.i3.i.i.i.i.i58.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i59.i, align 8, !noalias !262
   %_M_weak_count.i.i.i.i.i.i15.i60.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i60.i, align 4, !noalias !262
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !262
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !262
   %_M_impl.i.i.i.i.i.i16.i61.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 16
   %29 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %29, i8 0, i64 48, i1 false), !noalias !262
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !262
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !262
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i58.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEEED2Ev.exit.i.i
@@ -5066,7 +5066,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i81.i, align 8, !noalias !269
   %_M_weak_count.i.i.i.i.i.i.i82.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i82.i, align 4, !noalias !269
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i72.i, align 8, !noalias !269
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i72.i, align 8, !noalias !269
   %_M_impl.i.i.i.i.i.i.i83.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 16
   %32 = load ptr, ptr %ref.tmp5.i62.i, align 8, !noalias !269
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i84.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 8
@@ -5075,7 +5075,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i87.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 32
   %34 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i87.i, align 8, !noalias !269
   %frombool.i.i.i.i.i.i.i.i.i88.i = and i8 %34, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i83.i, align 8, !noalias !269
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i83.i, align 8, !noalias !269
   %constantSet_.i.i.i.i.i.i.i.i.i89.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i90.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i72.i, i64 32
   store ptr %32, ptr %constantSet_.i.i.i.i.i.i.i.i.i89.i, align 8, !noalias !269
@@ -5120,11 +5120,11 @@ call5.i.i.i3.i.i.i.i.i98.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i99.i, align 8, !noalias !272
   %_M_weak_count.i.i.i.i.i.i15.i100.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i100.i, align 4, !noalias !272
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !272
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !272
   %_M_impl.i.i.i.i.i.i16.i101.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 16
   %39 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %39, i8 0, i64 48, i1 false), !noalias !272
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !272
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !272
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i98.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEEED2Ev.exit.i.i
@@ -5171,7 +5171,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i121.i, align 8, !noalias !279
   %_M_weak_count.i.i.i.i.i.i.i122.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i122.i, align 4, !noalias !279
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i112.i, align 8, !noalias !279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i112.i, align 8, !noalias !279
   %_M_impl.i.i.i.i.i.i.i123.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 16
   %42 = load ptr, ptr %ref.tmp5.i102.i, align 8, !noalias !279
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i124.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 8
@@ -5180,7 +5180,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i127.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 32
   %44 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i127.i, align 8, !noalias !279
   %frombool.i.i.i.i.i.i.i.i.i128.i = and i8 %44, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i123.i, align 8, !noalias !279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i123.i, align 8, !noalias !279
   %constantSet_.i.i.i.i.i.i.i.i.i129.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i130.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i112.i, i64 32
   store ptr %42, ptr %constantSet_.i.i.i.i.i.i.i.i.i129.i, align 8, !noalias !279
@@ -5225,11 +5225,11 @@ call5.i.i.i3.i.i.i.i.i138.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i139.i, align 8, !noalias !282
   %_M_weak_count.i.i.i.i.i.i15.i140.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i140.i, align 4, !noalias !282
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !282
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !282
   %_M_impl.i.i.i.i.i.i16.i141.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 16
   %49 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %49, i8 0, i64 48, i1 false), !noalias !282
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !282
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !282
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i138.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEEED2Ev.exit.i.i
@@ -5276,7 +5276,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i161.i, align 8, !noalias !289
   %_M_weak_count.i.i.i.i.i.i.i162.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i162.i, align 4, !noalias !289
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i152.i, align 8, !noalias !289
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i152.i, align 8, !noalias !289
   %_M_impl.i.i.i.i.i.i.i163.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 16
   %52 = load ptr, ptr %ref.tmp5.i142.i, align 8, !noalias !289
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i164.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 8
@@ -5285,7 +5285,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i167.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 32
   %54 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i167.i, align 8, !noalias !289
   %frombool.i.i.i.i.i.i.i.i.i168.i = and i8 %54, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i163.i, align 8, !noalias !289
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i163.i, align 8, !noalias !289
   %constantSet_.i.i.i.i.i.i.i.i.i169.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i170.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i152.i, i64 32
   store ptr %52, ptr %constantSet_.i.i.i.i.i.i.i.i.i169.i, align 8, !noalias !289
@@ -5330,11 +5330,11 @@ call5.i.i.i3.i.i.i.i.i178.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i179.i, align 8, !noalias !292
   %_M_weak_count.i.i.i.i.i.i15.i180.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i180.i, align 4, !noalias !292
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !292
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !292
   %_M_impl.i.i.i.i.i.i16.i181.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 16
   %59 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %59, i8 0, i64 48, i1 false), !noalias !292
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !292
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !292
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i178.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEEED2Ev.exit.i.i
@@ -5381,7 +5381,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i201.i, align 8, !noalias !299
   %_M_weak_count.i.i.i.i.i.i.i202.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i202.i, align 4, !noalias !299
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i192.i, align 8, !noalias !299
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i192.i, align 8, !noalias !299
   %_M_impl.i.i.i.i.i.i.i203.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 16
   %62 = load ptr, ptr %ref.tmp5.i182.i, align 8, !noalias !299
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i204.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 8
@@ -5390,7 +5390,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i207.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 32
   %64 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i207.i, align 8, !noalias !299
   %frombool.i.i.i.i.i.i.i.i.i208.i = and i8 %64, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i203.i, align 8, !noalias !299
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i203.i, align 8, !noalias !299
   %constantSet_.i.i.i.i.i.i.i.i.i209.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i210.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i192.i, i64 32
   store ptr %62, ptr %constantSet_.i.i.i.i.i.i.i.i.i209.i, align 8, !noalias !299
@@ -5435,11 +5435,11 @@ call5.i.i.i3.i.i.i.i.i218.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i219.i, align 8, !noalias !302
   %_M_weak_count.i.i.i.i.i.i15.i220.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i220.i, align 4, !noalias !302
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !302
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !302
   %_M_impl.i.i.i.i.i.i16.i221.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 16
   %69 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %69, i8 0, i64 48, i1 false), !noalias !302
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !302
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !302
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i218.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEEED2Ev.exit.i.i
@@ -5486,7 +5486,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i241.i, align 8, !noalias !309
   %_M_weak_count.i.i.i.i.i.i.i242.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i242.i, align 4, !noalias !309
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i232.i, align 8, !noalias !309
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i232.i, align 8, !noalias !309
   %_M_impl.i.i.i.i.i.i.i243.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 16
   %72 = load ptr, ptr %ref.tmp5.i222.i, align 8, !noalias !309
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i244.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 8
@@ -5495,7 +5495,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i247.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 32
   %74 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i247.i, align 8, !noalias !309
   %frombool.i.i.i.i.i.i.i.i.i248.i = and i8 %74, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i243.i, align 8, !noalias !309
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i243.i, align 8, !noalias !309
   %constantSet_.i.i.i.i.i.i.i.i.i249.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i250.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i232.i, i64 32
   store ptr %72, ptr %constantSet_.i.i.i.i.i.i.i.i.i249.i, align 8, !noalias !309
@@ -5540,11 +5540,11 @@ call5.i.i.i3.i.i.i.i.i258.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i259.i, align 8, !noalias !312
   %_M_weak_count.i.i.i.i.i.i15.i260.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i260.i, align 4, !noalias !312
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !312
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !312
   %_M_impl.i.i.i.i.i.i16.i261.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 16
   %79 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %79, i8 0, i64 48, i1 false), !noalias !312
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !312
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !312
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i258.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEEED2Ev.exit.i.i
@@ -5591,7 +5591,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i281.i, align 8, !noalias !319
   %_M_weak_count.i.i.i.i.i.i.i282.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i282.i, align 4, !noalias !319
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i272.i, align 8, !noalias !319
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i272.i, align 8, !noalias !319
   %_M_impl.i.i.i.i.i.i.i283.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 16
   %82 = load ptr, ptr %ref.tmp5.i262.i, align 8, !noalias !319
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i284.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 8
@@ -5600,7 +5600,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i287.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 32
   %84 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i287.i, align 8, !noalias !319
   %frombool.i.i.i.i.i.i.i.i.i288.i = and i8 %84, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i283.i, align 8, !noalias !319
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i283.i, align 8, !noalias !319
   %constantSet_.i.i.i.i.i.i.i.i.i289.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i290.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i272.i, i64 32
   store ptr %82, ptr %constantSet_.i.i.i.i.i.i.i.i.i289.i, align 8, !noalias !319
@@ -5645,11 +5645,11 @@ call5.i.i.i3.i.i.i.i.i298.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i299.i, align 8, !noalias !322
   %_M_weak_count.i.i.i.i.i.i15.i300.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i300.i, align 4, !noalias !322
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !322
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !322
   %_M_impl.i.i.i.i.i.i16.i301.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 16
   %89 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %89, i8 0, i64 48, i1 false), !noalias !322
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !322
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !322
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i298.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEEED2Ev.exit.i.i
@@ -5696,7 +5696,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i321.i, align 8, !noalias !329
   %_M_weak_count.i.i.i.i.i.i.i322.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i322.i, align 4, !noalias !329
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i312.i, align 8, !noalias !329
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i312.i, align 8, !noalias !329
   %_M_impl.i.i.i.i.i.i.i323.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 16
   %92 = load ptr, ptr %ref.tmp5.i302.i, align 8, !noalias !329
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i324.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 8
@@ -5705,7 +5705,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i327.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 32
   %94 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i327.i, align 8, !noalias !329
   %frombool.i.i.i.i.i.i.i.i.i328.i = and i8 %94, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i323.i, align 8, !noalias !329
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i323.i, align 8, !noalias !329
   %constantSet_.i.i.i.i.i.i.i.i.i329.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i330.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i312.i, i64 32
   store ptr %92, ptr %constantSet_.i.i.i.i.i.i.i.i.i329.i, align 8, !noalias !329
@@ -5750,11 +5750,11 @@ call5.i.i.i3.i.i.i.i.i338.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i339.i, align 8, !noalias !332
   %_M_weak_count.i.i.i.i.i.i15.i340.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i340.i, align 4, !noalias !332
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !332
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !332
   %_M_impl.i.i.i.i.i.i16.i341.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 16
   %99 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %99, i8 0, i64 48, i1 false), !noalias !332
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !332
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !332
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i338.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit.i.i
@@ -5801,7 +5801,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i363.i, align 8, !noalias !339
   %_M_weak_count.i.i.i.i.i.i.i364.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i364.i, align 4, !noalias !339
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i352.i, align 8, !noalias !339
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i352.i, align 8, !noalias !339
   %_M_impl.i.i.i.i.i.i.i365.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 16
   %102 = load ptr, ptr %ref.tmp5.i342.i, align 8, !noalias !339
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i366.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 8
@@ -5810,7 +5810,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i369.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 32
   %104 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i369.i, align 8, !noalias !339
   %frombool.i.i.i.i.i.i.i.i.i370.i = and i8 %104, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i365.i, align 8, !noalias !339
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i365.i, align 8, !noalias !339
   %constantSet_.i.i.i.i.i.i.i.i.i371.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i372.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i352.i, i64 32
   store ptr %102, ptr %constantSet_.i.i.i.i.i.i.i.i.i371.i, align 8, !noalias !339
@@ -5855,11 +5855,11 @@ call5.i.i.i3.i.i.i.i.i381.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i382.i, align 8, !noalias !342
   %_M_weak_count.i.i.i.i.i.i15.i383.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i383.i, align 4, !noalias !342
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !342
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !342
   %_M_impl.i.i.i.i.i.i16.i384.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 16
   %109 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %109, i8 0, i64 48, i1 false), !noalias !342
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !342
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !342
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i381.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit.i362.i
@@ -5906,7 +5906,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i404.i, align 8, !noalias !349
   %_M_weak_count.i.i.i.i.i.i.i405.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i405.i, align 4, !noalias !349
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i3.i395.i, align 8, !noalias !349
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i3.i395.i, align 8, !noalias !349
   %_M_impl.i.i.i.i.i.i.i406.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 16
   %112 = load ptr, ptr %ref.tmp5.i385.i, align 8, !noalias !349
   %chunkMask_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i407.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 8
@@ -5915,7 +5915,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExcept
   %hasNull3.i.i.i.i.i.i.i.i.i410.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 32
   %114 = load i8, ptr %hasNull3.i.i.i.i.i.i.i.i.i410.i, align 8, !noalias !349
   %frombool.i.i.i.i.i.i.i.i.i411.i = and i8 %114, 1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i406.i, align 8, !noalias !349
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i406.i, align 8, !noalias !349
   %constantSet_.i.i.i.i.i.i.i.i.i412.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 24
   %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i413.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i3.i395.i, i64 32
   store ptr %112, ptr %constantSet_.i.i.i.i.i.i.i.i.i412.i, align 8, !noalias !349
@@ -5960,11 +5960,11 @@ call5.i.i.i3.i.i.i.i.i421.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14.i422.i, align 8, !noalias !352
   %_M_weak_count.i.i.i.i.i.i15.i423.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15.i423.i, align 4, !noalias !352
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !352
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !352
   %_M_impl.i.i.i.i.i.i16.i424.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 16
   %119 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %119, i8 0, i64 48, i1 false), !noalias !352
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !352
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !352
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i: ; preds = %call5.i.i.i3.i.i.i.i.i421.i.noexc, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEEED2Ev.exit.i.i
@@ -8451,7 +8451,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -8488,7 +8488,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -11357,7 +11357,7 @@ return:                                           ; preds = %if.then.i.i.i.i, %_
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #14 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #32
   unreachable
 }
@@ -12301,7 +12301,7 @@ _ZN5folly11F14ValueSetIbNS_23HeterogeneousAccessHashIbvEENS_26HeterogeneousAcces
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #33
           to label %invoke.cont unwind label %lpad
 
@@ -12319,7 +12319,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #22 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 }
@@ -13805,7 +13805,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -13842,7 +13842,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -17109,7 +17109,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -17146,7 +17146,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -20393,7 +20393,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -20430,7 +20430,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -23684,7 +23684,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -23721,7 +23721,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -26975,7 +26975,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -27012,7 +27012,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -30265,7 +30265,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -30302,7 +30302,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -33426,7 +33426,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -33463,7 +33463,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -36576,7 +36576,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -36613,7 +36613,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -39953,7 +39953,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -39990,7 +39990,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -42656,7 +42656,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -42693,7 +42693,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -42901,7 +42901,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !784
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !784
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !784
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !784
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !784
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !784
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !784
@@ -42988,7 +42988,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !791
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !791
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !791
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !791
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !791
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !791
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !791
@@ -43075,7 +43075,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !798
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !798
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !798
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !798
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !798
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !798
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !798
@@ -43161,7 +43161,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !805
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !805
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !805
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !805
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !805
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !805
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !805
@@ -44867,7 +44867,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !823
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !823
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !823
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !823
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !823
@@ -46484,7 +46484,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -47904,7 +47904,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox11ArrayVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11ArrayVectorE, i64 16), ptr %this, align 8
   %elements_ = getelementptr inbounds i8, ptr %this, i64 136
   %43 = load ptr, ptr %elements, align 8
   store ptr %43, ptr %agg.tmp9, align 8
@@ -48247,7 +48247,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 16), ptr %this, align 8
   %offsets_ = getelementptr inbounds i8, ptr %this, i64 104
   %25 = load ptr, ptr %offsets, align 8
   store ptr %25, ptr %offsets_, align 8
@@ -48306,7 +48306,7 @@ declare void @_ZN8facebook5velox10BaseVectorC2EPNS0_6memory10MemoryPoolESt10shar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox10BaseVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BaseVectorE, i64 16), ptr %this, align 8
   %nulls_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %nulls_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -48432,7 +48432,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intru
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox15ArrayVectorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ArrayVectorBaseE, i64 16), ptr %this, align 8
   %sizes_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %sizes_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -50712,7 +50712,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -50749,7 +50749,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -50957,7 +50957,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !876
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !876
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !876
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !876
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !876
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !876
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !876
@@ -51044,7 +51044,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !883
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !883
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !883
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !883
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !883
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !883
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !883
@@ -51131,7 +51131,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !890
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !890
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !890
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !890
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !890
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !890
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !890
@@ -51217,7 +51217,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !897
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !897
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !897
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !897
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !897
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !897
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !897
@@ -52919,7 +52919,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !915
   %_M_weak_count.i.i.i.i.i.i368 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i369, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i368, align 4, !noalias !915
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i369, align 8, !noalias !915
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i369, align 8, !noalias !915
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i369, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i374 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !915
@@ -54100,7 +54100,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -54137,7 +54137,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -54345,7 +54345,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !935
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !935
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !935
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !935
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !935
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !935
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !935
@@ -54432,7 +54432,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !942
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !942
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !942
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !942
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !942
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !942
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !942
@@ -54519,7 +54519,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !949
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !949
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !949
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !949
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !949
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !949
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !949
@@ -54605,7 +54605,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !956
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !956
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !956
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !956
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !956
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !956
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !956
@@ -56305,7 +56305,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !974
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !974
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !974
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !974
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !974
@@ -57477,7 +57477,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -57514,7 +57514,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -57722,7 +57722,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !994
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !994
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !994
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !994
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !994
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !994
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !994
@@ -57809,7 +57809,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1001
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1001
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1001
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1001
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1001
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1001
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1001
@@ -57896,7 +57896,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1008
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1008
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1008
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1008
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1008
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1008
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1008
@@ -57982,7 +57982,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1015
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1015
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1015
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1015
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1015
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1015
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1015
@@ -59682,7 +59682,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1033
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1033
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1033
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1033
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1033
@@ -60856,7 +60856,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -60893,7 +60893,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -61101,7 +61101,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1053
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1053
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1053
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1053
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1053
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1053
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1053
@@ -61188,7 +61188,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1060
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1060
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1060
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1060
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1060
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1060
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1060
@@ -61275,7 +61275,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1067
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1067
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1067
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1067
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1067
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1067
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1067
@@ -61361,7 +61361,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1074
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1074
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1074
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1074
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1074
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1074
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1074
@@ -63060,7 +63060,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1092
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1092
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1092
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1092
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1092
@@ -64237,7 +64237,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -64274,7 +64274,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -64482,7 +64482,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1112
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1112
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1112
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1112
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1112
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1112
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1112
@@ -64569,7 +64569,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1119
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1119
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1119
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1119
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1119
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1119
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1119
@@ -64656,7 +64656,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1126
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1126
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1126
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1126
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1126
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1126
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1126
@@ -64742,7 +64742,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1133
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1133
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1133
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1133
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1133
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1133
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1133
@@ -66443,7 +66443,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1151
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !1151
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1151
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1151
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1151
@@ -67617,7 +67617,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -67654,7 +67654,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -67860,7 +67860,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1171
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1171
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1171
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1171
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1171
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1171
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1171
@@ -67947,7 +67947,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1178
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1178
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1178
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1178
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1178
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1178
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1178
@@ -68034,7 +68034,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1185
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1185
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1185
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1185
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1185
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1185
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1185
@@ -68120,7 +68120,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1192
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1192
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1192
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1192
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1192
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1192
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1192
@@ -69631,7 +69631,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1207
   %_M_weak_count.i.i.i.i.i.i365 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i366, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i365, align 4, !noalias !1207
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i366, align 8, !noalias !1207
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i366, align 8, !noalias !1207
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i366, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i371 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1207
@@ -70860,7 +70860,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -70897,7 +70897,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -71103,7 +71103,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1234
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1234
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1234
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1234
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1234
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1234
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1234
@@ -71190,7 +71190,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1241
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1241
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1241
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1241
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1241
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1241
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1241
@@ -71277,7 +71277,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1248
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1248
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1248
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1248
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1248
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1248
@@ -71363,7 +71363,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1255
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1255
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1255
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1255
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1255
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1255
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1255
@@ -72872,7 +72872,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1270
   %_M_weak_count.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i365, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i364, align 4, !noalias !1270
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i365, align 8, !noalias !1270
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i365, align 8, !noalias !1270
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i365, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i370 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1270
@@ -74098,7 +74098,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -74135,7 +74135,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -74341,7 +74341,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1297
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1297
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1297
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1297
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1297
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1297
@@ -74428,7 +74428,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1304
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1304
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1304
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1304
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1304
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1304
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1304
@@ -74515,7 +74515,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1311
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1311
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1311
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1311
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1311
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1311
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1311
@@ -74601,7 +74601,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1318
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1318
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1318
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1318
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1318
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1318
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1318
@@ -76110,7 +76110,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1333
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1333
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1333
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1333
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1333
@@ -77555,7 +77555,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -77592,7 +77592,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -77798,7 +77798,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1360
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1360
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1360
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1360
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1360
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1360
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1360
@@ -77885,7 +77885,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1367
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1367
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1367
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1367
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1367
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1367
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1367
@@ -77972,7 +77972,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1374
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1374
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1374
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1374
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1374
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1374
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1374
@@ -78058,7 +78058,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1381
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1381
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1381
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1381
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1381
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1381
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1381
@@ -79567,7 +79567,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1396
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1396
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1396
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1396
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1396
@@ -80758,7 +80758,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -80795,7 +80795,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -81003,7 +81003,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1416
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1416
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1416
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1416
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1416
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1416
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1416
@@ -81090,7 +81090,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1423
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1423
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1423
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1423
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1423
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1423
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1423
@@ -81177,7 +81177,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1430
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1430
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1430
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1430
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1430
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1430
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1430
@@ -81263,7 +81263,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1437
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1437
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1437
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1437
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1437
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1437
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1437
@@ -82969,7 +82969,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1455
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !1455
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1455
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1455
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1455
@@ -83915,7 +83915,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -83952,7 +83952,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -84160,7 +84160,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1474
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1474
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1474
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1474
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1474
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1474
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1474
@@ -84247,7 +84247,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1481
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1481
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1481
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1481
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1481
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1481
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1481
@@ -84334,7 +84334,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1488
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1488
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1488
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1488
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1488
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1488
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1488
@@ -84420,7 +84420,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1495
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1495
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1495
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1495
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1495
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1495
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1495
@@ -86122,7 +86122,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1513
   %_M_weak_count.i.i.i.i.i.i368 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i369, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i368, align 4, !noalias !1513
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i369, align 8, !noalias !1513
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i369, align 8, !noalias !1513
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i369, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i374 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1513
@@ -87061,7 +87061,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -87098,7 +87098,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -87306,7 +87306,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1532
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1532
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1532
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1532
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1532
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1532
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1532
@@ -87393,7 +87393,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1539
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1539
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1539
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1539
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1539
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1539
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1539
@@ -87480,7 +87480,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1546
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1546
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1546
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1546
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1546
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1546
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1546
@@ -87566,7 +87566,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1553
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1553
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1553
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1553
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1553
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1553
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1553
@@ -89266,7 +89266,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1571
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !1571
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1571
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1571
@@ -90205,7 +90205,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -90242,7 +90242,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -90450,7 +90450,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1590
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1590
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1590
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1590
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1590
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1590
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1590
@@ -90537,7 +90537,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1597
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1597
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1597
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1597
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1597
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1597
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1597
@@ -90624,7 +90624,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1604
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1604
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1604
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1604
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1604
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1604
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1604
@@ -90710,7 +90710,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1611
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1611
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1611
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1611
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1611
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1611
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1611
@@ -92410,7 +92410,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1629
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1629
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1629
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1629
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1629
@@ -93349,7 +93349,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -93386,7 +93386,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -93594,7 +93594,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1648
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1648
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1648
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1648
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1648
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1648
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1648
@@ -93681,7 +93681,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1655
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1655
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1655
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1655
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1655
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1655
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1655
@@ -93768,7 +93768,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1662
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1662
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1662
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1662
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1662
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1662
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1662
@@ -93854,7 +93854,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1669
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1669
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1669
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1669
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1669
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1669
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1669
@@ -95553,7 +95553,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1687
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1687
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1687
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1687
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1687
@@ -96493,7 +96493,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -96530,7 +96530,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -96738,7 +96738,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1706
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1706
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1706
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1706
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1706
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1706
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1706
@@ -96825,7 +96825,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1713
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1713
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1713
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1713
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1713
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1713
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1713
@@ -96912,7 +96912,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1720
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1720
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1720
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1720
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1720
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1720
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1720
@@ -96998,7 +96998,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1727
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1727
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1727
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1727
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1727
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1727
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1727
@@ -98699,7 +98699,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1745
   %_M_weak_count.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i367, align 4, !noalias !1745
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1745
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i368, align 8, !noalias !1745
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i368, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i373 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1745
@@ -99641,7 +99641,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -99678,7 +99678,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -99884,7 +99884,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1764
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1764
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1764
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1764
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1764
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1764
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1764
@@ -99971,7 +99971,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1771
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1771
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1771
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1771
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1771
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1771
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1771
@@ -100058,7 +100058,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1778
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1778
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1778
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1778
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1778
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1778
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1778
@@ -100144,7 +100144,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1785
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1785
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1785
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1785
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1785
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1785
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1785
@@ -101655,7 +101655,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1800
   %_M_weak_count.i.i.i.i.i.i365 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i366, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i365, align 4, !noalias !1800
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i366, align 8, !noalias !1800
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i366, align 8, !noalias !1800
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i366, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i371 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1800
@@ -102642,7 +102642,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -102679,7 +102679,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -102885,7 +102885,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1826
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1826
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1826
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1826
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1826
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1826
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1826
@@ -102972,7 +102972,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1833
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1833
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1833
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1833
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1833
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1833
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1833
@@ -103059,7 +103059,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1840
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1840
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1840
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1840
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1840
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1840
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1840
@@ -103145,7 +103145,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1847
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1847
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1847
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1847
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1847
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1847
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1847
@@ -104654,7 +104654,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1862
   %_M_weak_count.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i365, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i364, align 4, !noalias !1862
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i365, align 8, !noalias !1862
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i365, align 8, !noalias !1862
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i365, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i370 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1862
@@ -105643,7 +105643,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -105680,7 +105680,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -105886,7 +105886,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1888
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1888
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1888
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1888
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1888
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1888
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1888
@@ -105973,7 +105973,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1895
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1895
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1895
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1895
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1895
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1895
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1895
@@ -106060,7 +106060,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1902
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1902
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1902
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1902
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1902
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1902
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1902
@@ -106146,7 +106146,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1909
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1909
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1909
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1909
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1909
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1909
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1909
@@ -107655,7 +107655,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1924
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1924
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1924
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1924
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1924
@@ -108748,7 +108748,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -108785,7 +108785,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
@@ -108991,7 +108991,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1950
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i31, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !1950
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i31, align 8, !noalias !1950
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i31, align 8, !noalias !1950
   store i64 %22, ptr %size_.i.i.i.i, align 8, !noalias !1950
   store ptr %call6.i.i31, ptr %newIndices, align 8, !alias.scope !1950
   %26 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !1950
@@ -109078,7 +109078,7 @@ call6.i.i.noexc61:                                ; preds = %call3.i.i.noexc59
   store i8 1, ptr %podType_.i.i.i.i46, align 4, !noalias !1957
   %padding_.i.i.i.i47 = getelementptr inbounds i8, ptr %call6.i.i62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i47, i8 -1, i64 16, i1 false), !noalias !1957
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i62, align 8, !noalias !1957
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i62, align 8, !noalias !1957
   store i64 %conv.i.i, ptr %size_.i.i.i.i43, align 8, !noalias !1957
   store ptr %call6.i.i62, ptr %newElementNulls, align 8, !alias.scope !1957
   %37 = atomicrmw add ptr %referenceCount_.i.i.i.i45, i32 1 seq_cst, align 4, !noalias !1957
@@ -109165,7 +109165,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !1964
   %padding_.i.i.i.i78 = getelementptr inbounds i8, ptr %call6.i.i95, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i78, i8 -1, i64 16, i1 false), !noalias !1964
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i95, align 8, !noalias !1964
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i95, align 8, !noalias !1964
   store i64 %46, ptr %size_.i.i.i.i74, align 8, !noalias !1964
   store ptr %call6.i.i95, ptr %newLengths, align 8, !alias.scope !1964
   %50 = atomicrmw add ptr %referenceCount_.i.i.i.i76, i32 1 seq_cst, align 4, !noalias !1964
@@ -109251,7 +109251,7 @@ call6.i.i.noexc127:                               ; preds = %call3.i.i.noexc125
   store i8 1, ptr %podType_.i.i.i.i110, align 4, !noalias !1971
   %padding_.i.i.i.i111 = getelementptr inbounds i8, ptr %call6.i.i128, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i111, i8 -1, i64 16, i1 false), !noalias !1971
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i128, align 8, !noalias !1971
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i128, align 8, !noalias !1971
   store i64 %58, ptr %size_.i.i.i.i107, align 8, !noalias !1971
   store ptr %call6.i.i128, ptr %newOffsets, align 8, !alias.scope !1971
   %62 = atomicrmw add ptr %referenceCount_.i.i.i.i109, i32 1 seq_cst, align 4, !noalias !1971
@@ -110760,7 +110760,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5boost13intrusiv
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1986
   %_M_weak_count.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i366, align 4, !noalias !1986
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1986
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i367, align 8, !noalias !1986
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i367, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox11ArrayVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEDnRiRN5boost13intrusive_ptrINS1_6BufferEEESI_RS7_INS1_10BaseVectorEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pool, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(4) %rowCount, ptr noundef nonnull align 8 dereferenceable(8) %newOffsets, ptr noundef nonnull align 8 dereferenceable(8) %newLengths, ptr noundef nonnull align 8 dereferenceable(16) %newElements)
           to label %if.then.i.i.i372 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1986

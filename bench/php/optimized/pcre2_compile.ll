@@ -10373,7 +10373,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader388, %.pr
   %1040 = load ptr, ptr %15, align 8
   %1041 = getelementptr inbounds i8, ptr %1040, i64 12
   store ptr %1041, ptr %15, align 8
-  %1042 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %1042 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %1043 = zext i8 %1042 to i64
   %1044 = getelementptr inbounds i8, ptr %.31324.i, i64 %1043
   br label %1775
@@ -11457,7 +11457,7 @@ select.unfold294:                                 ; preds = %.loopexit404, %sele
   ]
 
 1529:                                             ; preds = %.thread306
-  %1530 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 93), align 1
+  %1530 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 93), align 1
   %1531 = zext i8 %1530 to i64
   %1532 = getelementptr inbounds i8, ptr %1527, i64 3
   %1533 = load i8, ptr %1532, align 1
@@ -12856,7 +12856,7 @@ define internal fastcc range(i32 0, 2) i32 @is_startline(ptr noundef readonly %0
   ]
 
 24:                                               ; preds = %21
-  %25 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %26 = zext i8 %25 to i64
   br label %thread-pre-split
 

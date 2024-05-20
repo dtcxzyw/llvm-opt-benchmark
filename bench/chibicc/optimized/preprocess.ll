@@ -149,7 +149,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp412 = icmp sgt i32 %1, 0
   br i1 %cmp412, label %for.body, label %return
 
@@ -171,7 +171,7 @@ if.end10:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %6 = sext i32 %5 to i64
   %cmp4 = icmp slt i64 %indvars.iv.next, %6
   br i1 %cmp4, label %for.body, label %return, !llvm.loop !7
@@ -2632,7 +2632,7 @@ if.end.i23:                                       ; preds = %land.lhs.true, %if.
   br i1 %tobool.not.i25, label %for.cond.preheader.i, label %search_include_paths.exit
 
 for.cond.preheader.i:                             ; preds = %if.end.i23
-  %177 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp412.i = icmp sgt i32 %177, 0
   br i1 %cmp412.i, label %for.body.i27, label %search_include_paths.exit
 
@@ -2654,7 +2654,7 @@ if.end10.i:                                       ; preds = %for.body.i27
 
 for.inc.i:                                        ; preds = %for.body.i27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %181 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %181 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %182 = sext i32 %181 to i64
   %cmp4.i = icmp slt i64 %indvars.iv.next.i, %182
   br i1 %cmp4.i, label %for.body.i27, label %search_include_paths.exit, !llvm.loop !7
@@ -2680,7 +2680,7 @@ if.then36:                                        ; preds = %if.end34
   %186 = load ptr, ptr %next38, align 8
   %call39 = call fastcc ptr @read_include_filename(ptr noundef nonnull %tok.addr, ptr noundef %186, ptr noundef nonnull %ignore)
   %187 = load i32, ptr @include_next_idx, align 4
-  %188 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %188 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp2.i = icmp slt i32 %187, %188
   br i1 %cmp2.i, label %for.body.i30, label %search_include_next.exit
 
@@ -2698,7 +2698,7 @@ for.inc.i33:                                      ; preds = %for.body.i30
   %192 = load i32, ptr @include_next_idx, align 4
   %inc.i = add nsw i32 %192, 1
   store i32 %inc.i, ptr @include_next_idx, align 4
-  %193 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i64 0, i32 2), align 4
+  %193 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp.i34 = icmp slt i32 %inc.i, %193
   br i1 %cmp.i34, label %for.body.i30, label %search_include_next.exit, !llvm.loop !39
 

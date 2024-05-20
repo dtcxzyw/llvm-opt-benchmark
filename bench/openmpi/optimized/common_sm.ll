@@ -58,10 +58,10 @@ define internal fastcc noundef ptr @attach_and_init(ptr noundef %0, i64 noundef 
 
 8:                                                ; preds = %5
   fence acquire
-  %9 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_common_sm_module_t_class, i64 0, i32 8), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @mca_common_sm_module_t_class, i64 56), align 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #8
   %11 = load i32, ptr @opal_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_common_sm_module_t_class, i64 0, i32 4), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_common_sm_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %11, %12
   br i1 %.not.i, label %14, label %13
 
@@ -77,7 +77,7 @@ define internal fastcc noundef ptr @attach_and_init(ptr noundef %0, i64 noundef 
   store ptr @mca_common_sm_module_t_class, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %10, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_common_sm_module_t_class, i64 0, i32 6), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_common_sm_module_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread45, label %.lr.ph.i.i
@@ -130,7 +130,7 @@ opal_obj_new.exit.thread45:                       ; preds = %.lr.ph.i.i, %15
 
 42:                                               ; preds = %31
   %43 = load ptr, ptr @opal_show_help, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %45 = tail call i32 (ptr, ptr, i32, ...) %43(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef %44, i64 noundef %39, i64 noundef %2, i64 noundef %3) #7
   %46 = tail call i32 @opal_shmem_segment_detach(ptr noundef nonnull %0) #7
   tail call void @free(ptr noundef nonnull %10) #7

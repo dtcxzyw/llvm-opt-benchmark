@@ -286,7 +286,7 @@ define dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceReq
 entry:
   %ref.tmp = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp20 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %this, align 8
   %request_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN11conformance18ConformanceRequestC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(64) %request_, ptr noundef null)
   %level_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -5230,7 +5230,7 @@ nrvo.skipdtor:                                    ; preds = %if.end.i.i.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %this, align 8
   %test_name_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %test_name_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 120
@@ -5272,7 +5272,7 @@ _ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %this, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %test_name_.i, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 120

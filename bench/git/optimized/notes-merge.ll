@@ -151,9 +151,9 @@ entry:
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   %algo.i = getelementptr inbounds i8, ptr %result_oid, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %2, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not120 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not120, i1 false
@@ -236,9 +236,9 @@ if.then15:                                        ; preds = %if.else12
 
 do.body21:                                        ; preds = %is_null_oid.exit, %if.else12
   %local.0 = phi ptr [ %call13, %if.else12 ], [ null, %is_null_oid.exit ]
-  %13 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i59 = icmp eq i32 %13, 0
-  %bf.load.i60 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i60 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i61 = and i8 %bf.load.i60, 1
   %tobool23.not121 = icmp ne i8 %bf.clear.i61, 0
   %tobool23.not = select i1 %tobool.not.i59, i1 %tobool23.not121, i1 false
@@ -295,9 +295,9 @@ if.then43:                                        ; preds = %if.else39
 
 do.body48:                                        ; preds = %if.then35, %if.else39
   %remote.0 = phi ptr [ null, %if.then35 ], [ %call41, %if.else39 ]
-  %22 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i69 = icmp eq i32 %22, 0
-  %bf.load.i70 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i70 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i71 = and i8 %bf.load.i70, 1
   %tobool50.not122 = icmp ne i8 %bf.clear.i71, 0
   %tobool50.not = select i1 %tobool.not.i69, i1 %tobool50.not122, i1 false
@@ -518,9 +518,9 @@ if.end134:                                        ; preds = %if.then132, %if.the
 if.end137:                                        ; preds = %oideq.exit101
   %call138 = call ptr @get_commit_tree_oid(ptr noundef nonnull %local.0) #14
   %call139 = call ptr @get_commit_tree_oid(ptr noundef nonnull %remote.0) #14
-  %48 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i104 = icmp eq i32 %48, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not131.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i105 = select i1 %tobool.not.i.i104, i1 %tobool.not131.i, i1 false
@@ -531,8 +531,8 @@ if.then.i106:                                     ; preds = %if.end137
   %call2.i = call ptr @oid_to_hex(ptr noundef %call138) #14
   %call3.i = call ptr @oid_to_hex(ptr noundef %call139) #14
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 530, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.28, ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %call3.i) #14
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
-  %bf.load.i.i.pre.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %bf.load.i.i.pre.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %.pre147.i = and i8 %bf.load.i.i.pre.i, 1
   %49 = icmp eq i32 %.pre.i, 0
   %50 = icmp ne i8 %.pre147.i, 0
@@ -564,10 +564,10 @@ do.end.i.i:                                       ; preds = %do.end.i.i.critedge
   call void @diff_setup_done(ptr noundef nonnull %opt.i.i) #14
   call void @diff_tree_oid(ptr noundef %base_tree_oid.0, ptr noundef %call139, ptr noundef nonnull @.str.32, ptr noundef nonnull %opt.i.i) #14
   call void @diffcore_std(ptr noundef nonnull %opt.i.i) #14
-  %53 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %conv.i.i108 = sext i32 %53 to i64
   %call3.i.i = call ptr @xcalloc(i64 noundef %conv.i.i108, i64 noundef 144) #14
-  %54 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp75.i.i = icmp sgt i32 %54, 0
   br i1 %cmp75.i.i, label %for.body.lr.ph.i.i, label %diff_tree_remote.exit.i
 
@@ -648,9 +648,9 @@ verify_notes_filepair.exit.i.i:                   ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool6.not.i.i, label %if.end19.i.i, label %do.body8.i.i
 
 do.body8.i.i:                                     ; preds = %verify_notes_filepair.exit.i.i, %verify_notes_filepair.exit.thread69.i.i, %for.body.i.i
-  %64 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i26.i.i = icmp eq i32 %64, 0
-  %bf.load.i27.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i27.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i28.i.i = and i8 %bf.load.i27.i.i, 1
   %tobool10.not74.i.i = icmp ne i8 %bf.clear.i28.i.i, 0
   %tobool10.not.i.i = select i1 %tobool.not.i26.i.i, i1 %tobool10.not74.i.i, i1 false
@@ -789,7 +789,7 @@ if.else42.i.i:                                    ; preds = %if.end19.i.i
   store i32 %86, ptr %algo3.i59.i.i, align 4
   %local.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %local.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) @uninitialized, i64 32, i1 false)
-  %87 = load i32, ptr getelementptr inbounds (%struct.object_id, ptr @uninitialized, i64 0, i32 1), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @uninitialized, i64 32), align 4
   %algo3.i60.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 104
   store i32 %87, ptr %algo3.i60.i.i, align 4
   %remote47.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 108
@@ -805,9 +805,9 @@ if.else42.i.i:                                    ; preds = %if.end19.i.i
 
 do.body51.i.i:                                    ; preds = %if.else42.i.i, %if.then35.i.i, %is_null_oid.exit53.i.i, %if.then27.i.i
   %len.1.i.i = phi i32 [ %len.076.i.i, %if.then27.i.i ], [ %len.076.i.i, %if.then35.i.i ], [ %len.076.i.i, %is_null_oid.exit53.i.i ], [ %inc.i.i, %if.else42.i.i ]
-  %90 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i63.i.i = icmp eq i32 %90, 0
-  %bf.load.i64.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i64.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i65.i.i = and i8 %bf.load.i64.i.i, 1
   %tobool53.not73.i.i = icmp ne i8 %bf.clear.i65.i.i, 0
   %tobool53.not.i.i = select i1 %tobool.not.i63.i.i, i1 %tobool53.not73.i.i, i1 false
@@ -825,7 +825,7 @@ if.then54.i.i:                                    ; preds = %do.body51.i.i
 for.inc.i.i:                                      ; preds = %if.then54.i.i, %do.body51.i.i, %if.then11.i.i, %do.body8.i.i
   %len.2.i.i = phi i32 [ %len.076.i.i, %if.then11.i.i ], [ %len.076.i.i, %do.body8.i.i ], [ %len.1.i.i, %if.then54.i.i ], [ %len.1.i.i, %do.body51.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %91 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %92 = sext i32 %91 to i64
   %cmp.i.i114 = icmp slt i64 %indvars.iv.next.i.i, %92
   br i1 %cmp.i.i114, label %for.body.i.i, label %diff_tree_remote.exit.i, !llvm.loop !7
@@ -839,9 +839,9 @@ diff_tree_remote.exit.i:                          ; preds = %for.inc.i.i, %do.en
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %opt.i14.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %match.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %obj.i15.i)
-  %93 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i16.i = icmp eq i32 %93, 0
-  %bf.load.i.i17.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i17.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i18.i = and i8 %bf.load.i.i17.i, 1
   %tobool.not73.i.i = icmp ne i8 %bf.clear.i.i18.i, 0
   %tobool.not.i19.i = select i1 %tobool.not.i.i16.i, i1 %tobool.not73.i.i, i1 false
@@ -863,7 +863,7 @@ do.end.i23.i:                                     ; preds = %if.then.i20.i, %dif
   call void @diff_setup_done(ptr noundef nonnull %opt.i14.i) #14
   call void @diff_tree_oid(ptr noundef %base_tree_oid.0, ptr noundef %call138, ptr noundef nonnull @.str.32, ptr noundef nonnull %opt.i14.i) #14
   call void @diffcore_std(ptr noundef nonnull %opt.i14.i) #14
-  %95 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp77.i.i = icmp sgt i32 %95, 0
   br i1 %cmp77.i.i, label %for.body.i26.i, label %diff_tree_local.exit.i
 
@@ -939,9 +939,9 @@ verify_notes_filepair.exit.i62.i:                 ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool4.not.i.i, label %if.end16.i.i, label %do.body6.i.i
 
 do.body6.i.i:                                     ; preds = %verify_notes_filepair.exit.i62.i, %verify_notes_filepair.exit.thread70.i.i, %for.body.i26.i
-  %105 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %105 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i22.i.i = icmp eq i32 %105, 0
-  %bf.load.i23.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i23.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i24.i.i = and i8 %bf.load.i23.i.i, 1
   %tobool8.not76.i.i = icmp ne i8 %bf.clear.i24.i.i, 0
   %tobool8.not.i.i = select i1 %tobool.not.i22.i.i, i1 %tobool8.not76.i.i, i1 false
@@ -967,9 +967,9 @@ if.end16.i.i:                                     ; preds = %verify_notes_filepa
   br i1 %tobool18.not.i.i, label %do.body20.i.i, label %if.end33.i.i
 
 do.body20.i.i:                                    ; preds = %if.end16.i.i
-  %111 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i26.i87.i = icmp eq i32 %111, 0
-  %bf.load.i27.i88.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i27.i88.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i28.i89.i = and i8 %bf.load.i27.i88.i, 1
   %tobool22.not75.i.i = icmp ne i8 %bf.clear.i28.i89.i, 0
   %tobool22.not.i.i = select i1 %tobool.not.i26.i87.i, i1 %tobool22.not75.i.i, i1 false
@@ -1087,9 +1087,9 @@ if.else.i79.i:                                    ; preds = %is_null_oid.exit.i7
   br label %do.body59.i.i
 
 do.body59.i.i:                                    ; preds = %if.else.i79.i, %if.then42.i.i, %oideq.exit.i.i
-  %127 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i64.i.i = icmp eq i32 %127, 0
-  %bf.load.i65.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i65.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i66.i.i = and i8 %bf.load.i65.i.i, 1
   %tobool61.not74.i.i = icmp ne i8 %bf.clear.i66.i.i, 0
   %tobool61.not.i.i = select i1 %tobool.not.i64.i.i, i1 %tobool61.not74.i.i, i1 false
@@ -1106,7 +1106,7 @@ if.then62.i.i:                                    ; preds = %do.body59.i.i
 
 for.inc.i46.i:                                    ; preds = %if.then62.i.i, %do.body59.i.i, %if.then23.i.i, %do.body20.i.i, %if.then9.i.i, %do.body6.i.i
   %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i27.i, 1
-  %128 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %128 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %129 = sext i32 %128 to i64
   %cmp.i48.i = icmp slt i64 %indvars.iv.next.i47.i, %129
   br i1 %cmp.i48.i, label %for.body.i26.i, label %diff_tree_local.exit.i, !llvm.loop !8
@@ -1116,9 +1116,9 @@ diff_tree_local.exit.i:                           ; preds = %for.inc.i46.i, %do.
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %opt.i14.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %match.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %obj.i15.i)
-  %130 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i90.i = icmp eq i32 %130, 0
-  %bf.load.i.i91.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i91.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i92.i = and i8 %bf.load.i.i91.i, 1
   %tobool.not101.i.i = icmp ne i8 %bf.clear.i.i92.i, 0
   %tobool.not.i93.i = select i1 %tobool.not.i.i90.i, i1 %tobool.not101.i.i, i1 false
@@ -1144,9 +1144,9 @@ for.body.i97.i:                                   ; preds = %for.inc.i114.i, %fo
   %indvars.iv.i98.i = phi i64 [ 0, %for.body.lr.ph.i96.i ], [ %indvars.iv.next.i115.i, %for.inc.i114.i ]
   %conflicts.0124.i.i = phi i32 [ 0, %for.body.lr.ph.i96.i ], [ %conflicts.1.i.i, %for.inc.i114.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.notes_merge_pair, ptr %call3.i.i, i64 %indvars.iv.i98.i
-  %132 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i19.i.i = icmp eq i32 %132, 0
-  %bf.load.i20.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i20.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i21.i.i = and i8 %bf.load.i20.i.i, 1
   %tobool3.not102.i.i = icmp ne i8 %bf.clear.i21.i.i, 0
   %tobool3.not.i.i = select i1 %tobool.not.i19.i.i, i1 %tobool3.not102.i.i, i1 false
@@ -1203,9 +1203,9 @@ oideq.exit.i110.i:                                ; preds = %if.end.i.i.i108.i, 
   br i1 %retval.0.in.i.i.not.i112.i, label %do.body16.i.i, label %if.else.i113.i
 
 do.body16.i.i:                                    ; preds = %oideq.exit.i110.i
-  %137 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i24.i.i = icmp eq i32 %137, 0
-  %bf.load.i25.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i25.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i26.i.i = and i8 %bf.load.i25.i.i, 1
   %tobool18.not103.i.i = icmp ne i8 %bf.clear.i26.i.i, 0
   %tobool18.not.i123.i = select i1 %tobool.not.i24.i.i, i1 %tobool18.not103.i.i, i1 false
@@ -1254,9 +1254,9 @@ oideq.exit46.i.i:                                 ; preds = %if.end.i.i37.i.i, %
   br i1 %retval.0.in.i.i40.not.i.i, label %do.body27.i.i, label %if.else33.i.i
 
 do.body27.i.i:                                    ; preds = %oideq.exit46.i.i
-  %142 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %142 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i47.i.i = icmp eq i32 %142, 0
-  %bf.load.i48.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i48.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i49.i.i = and i8 %bf.load.i48.i.i, 1
   %tobool29.not104.i.i = icmp ne i8 %bf.clear.i49.i.i, 0
   %tobool29.not.i.i = select i1 %tobool.not.i47.i.i, i1 %tobool29.not104.i.i, i1 false
@@ -1301,8 +1301,8 @@ oideq.exit69.i.i:                                 ; preds = %if.end.i.i60.i.i, %
   br i1 %retval.0.in.i.i63.not.i.i, label %oideq.exit69.do.body42_crit_edge.i.i, label %lor.lhs.false.i.i
 
 oideq.exit69.do.body42_crit_edge.i.i:             ; preds = %oideq.exit69.i.i
-  %.pre.i.i = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
-  %bf.load.i90.pre.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %.pre.i.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %bf.load.i90.pre.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   br label %do.body42.i.i
 
 lor.lhs.false.i.i:                                ; preds = %oideq.exit69.i.i
@@ -1337,8 +1337,8 @@ if.end.i.i79.i.i:                                 ; preds = %if.end.i75.i.i
 oideq.exit88.i.i:                                 ; preds = %if.end.i.i79.i.i, %if.then.i.i84.i.i
   %retval.0.in.in.i.i81.i.i = phi i32 [ %bcmp3.i.i85.i.i, %if.then.i.i84.i.i ], [ %bcmp.i.i80.i.i, %if.end.i.i79.i.i ]
   %retval.0.in.i.i82.not.i.i = icmp eq i32 %retval.0.in.in.i.i81.i.i, 0
-  %.pre134.i.i = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
-  %bf.load.i90.pre135.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %.pre134.i.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %bf.load.i90.pre135.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   br i1 %retval.0.in.i.i82.not.i.i, label %do.body42.i.i, label %do.body55.i.i
 
 do.body42.i.i:                                    ; preds = %oideq.exit88.i.i, %oideq.exit69.do.body42_crit_edge.i.i
@@ -1391,9 +1391,9 @@ sw.bb.i.i.i:                                      ; preds = %do.end60.i.i
   %152 = load ptr, ptr %remote_ref28, align 8
   %tobool2.not.i.i.i.i = icmp eq ptr %152, null
   %cond7.i.i.i.i = select i1 %tobool2.not.i.i.i.i, ptr @.str.54, ptr %152
-  %153 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i.i.i.i = icmp eq i32 %153, 0
-  %bf.load.i.i.i.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %tobool8.not89.i.i.i.i = icmp ne i8 %bf.clear.i.i.i.i.i, 0
   %tobool8.not.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i1 %tobool8.not89.i.i.i.i, i1 false
@@ -1691,9 +1691,9 @@ ll_merge_in_worktree.exit.i.i.i.i:                ; preds = %if.end.i83.i.i.i.i
   br label %do.body66.i.i.i.i
 
 do.body66.i.i.i.i:                                ; preds = %ll_merge_in_worktree.exit.i.i.i.i, %if.end47.i.i.i.i, %if.end34.i.i.i.i
-  %182 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i85.i.i.i.i = icmp eq i32 %182, 0
-  %bf.load.i86.i.i.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i86.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i87.i.i.i.i = and i8 %bf.load.i86.i.i.i.i, 1
   %tobool68.not90.i.i.i.i = icmp ne i8 %bf.clear.i87.i.i.i.i, 0
   %tobool68.not.i.i.i.i = select i1 %tobool.not.i85.i.i.i.i, i1 %tobool68.not90.i.i.i.i, i1 false
@@ -1825,9 +1825,9 @@ found_result:                                     ; preds = %if.then142, %if.end
   call void @free_commit_list(ptr noundef %bases.0) #14
   %commit_msg148 = getelementptr inbounds i8, ptr %o, i64 24
   call void @strbuf_release(ptr noundef nonnull %commit_msg148) #14
-  %193 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %193 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i116 = icmp eq i32 %193, 0
-  %bf.load.i117 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i117 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i118 = and i8 %bf.load.i117, 1
   %tobool151.not123 = icmp ne i8 %bf.clear.i118, 0
   %tobool151.not = select i1 %tobool.not.i116, i1 %tobool151.not123, i1 false

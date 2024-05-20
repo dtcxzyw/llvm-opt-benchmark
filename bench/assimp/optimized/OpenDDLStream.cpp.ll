@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10ODDLParser19StreamFormatterBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -59,7 +59,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10ODDLParser12IOStreamBaseC2EPNS_19StreamFormatterBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %formatter) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
   %m_formatter = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %formatter, ptr %m_formatter, align 8
   %m_file = getelementptr inbounds i8, ptr %this, i64 16
@@ -69,7 +69,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i64 16), ptr %call, align 8
   store ptr %call, ptr %m_formatter, align 8
   br label %if.end
 
@@ -85,7 +85,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser12IOStreamBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
   %m_formatter = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formatter, align 8
   %isnull = icmp eq ptr %0, null
@@ -106,7 +106,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser12IOStreamBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
   %m_formatter.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formatter.i, align 8
   %isnull.i = icmp eq ptr %0, null

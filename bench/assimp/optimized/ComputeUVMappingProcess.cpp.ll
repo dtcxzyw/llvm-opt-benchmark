@@ -316,10 +316,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %entry
   %25 = load float, ptr @_ZN12_GLOBAL__N_111base_axis_yE, align 4
-  %26 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 1), align 4
+  %26 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 4), align 4
   %mul3.i41 = fmul float %1, %26
   %27 = call float @llvm.fmuladd.f32(float %0, float %25, float %mul3.i41)
-  %28 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 2), align 4
+  %28 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 8), align 4
   %29 = call noundef float @llvm.fmuladd.f32(float %3, float %28, float %27)
   %cmp13 = fcmp ult float %29, 0x3FEE666660000000
   br i1 %cmp13, label %if.else43, label %for.cond16.preheader
@@ -621,10 +621,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %entry
   %17 = load float, ptr @_ZN12_GLOBAL__N_111base_axis_yE, align 4
-  %18 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 1), align 4
+  %18 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 4), align 4
   %mul3.i49 = fmul float %1, %18
   %19 = tail call float @llvm.fmuladd.f32(float %0, float %17, float %mul3.i49)
-  %20 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 2), align 4
+  %20 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 8), align 4
   %21 = tail call noundef float @llvm.fmuladd.f32(float %3, float %20, float %19)
   %cmp18 = fcmp ult float %21, 0x3FEE666660000000
   br i1 %cmp18, label %if.else54, label %if.then19
@@ -900,10 +900,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %entry
   %16 = load float, ptr @_ZN12_GLOBAL__N_111base_axis_yE, align 4
-  %17 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 1), align 4
+  %17 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 4), align 4
   %mul3.i48 = fmul float %1, %17
   %18 = tail call float @llvm.fmuladd.f32(float %0, float %16, float %mul3.i48)
-  %19 = load float, ptr getelementptr inbounds (%class.aiVector3t, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 0, i32 2), align 4
+  %19 = load float, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111base_axis_yE, i64 8), align 4
   %20 = tail call noundef float @llvm.fmuladd.f32(float %3, float %19, float %18)
   %cmp16 = fcmp ult float %20, 0x3FEE666660000000
   br i1 %cmp16, label %if.else45, label %if.then17
@@ -1613,7 +1613,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry

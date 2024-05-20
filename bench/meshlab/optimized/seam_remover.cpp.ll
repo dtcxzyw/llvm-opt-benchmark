@@ -1737,8 +1737,8 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit: ; preds = %_ZN7logging6Bu
 47:                                               ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit
   %48 = load double, ptr @perf, align 8
   %49 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %49, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %50 = sub nsw i64 %49, %.sroa.0.0.copyload.i2.i.i
   %51 = sitofp i64 %50 to double
   %52 = fdiv double %51, 1.000000e+09
@@ -1790,10 +1790,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit186: ; preds = %_ZN7logging
           to label %67 unwind label %469
 
 67:                                               ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit186
-  %68 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 1), align 8
+  %68 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 8), align 8
   %69 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %69, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i189 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %69, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i189 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %70 = sub nsw i64 %69, %.sroa.0.0.copyload.i2.i.i189
   %71 = sitofp i64 %70 to double
   %72 = fdiv double %71, 1.000000e+09
@@ -1814,7 +1814,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit192: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit194 unwind label %469
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit194: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit192
-  %78 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 1), align 8
+  %78 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 8), align 8
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %78)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit195 unwind label %469
 
@@ -1845,10 +1845,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit198: ; preds = %_ZN7logging
           to label %87 unwind label %471
 
 87:                                               ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit198
-  %88 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 2), align 8
+  %88 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 16), align 8
   %89 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %89, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i201 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %89, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i201 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %90 = sub nsw i64 %89, %.sroa.0.0.copyload.i2.i.i201
   %91 = sitofp i64 %90 to double
   %92 = fdiv double %91, 1.000000e+09
@@ -1869,7 +1869,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit204: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit206 unwind label %471
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit206: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit204
-  %98 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 2), align 8
+  %98 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 16), align 8
   %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %98)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit207 unwind label %471
 
@@ -1900,10 +1900,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit210: ; preds = %_ZN7logging
           to label %107 unwind label %473
 
 107:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit210
-  %108 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 3), align 8
+  %108 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 24), align 8
   %109 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %109, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i213 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %109, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i213 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %110 = sub nsw i64 %109, %.sroa.0.0.copyload.i2.i.i213
   %111 = sitofp i64 %110 to double
   %112 = fdiv double %111, 1.000000e+09
@@ -1924,7 +1924,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit216: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit218 unwind label %473
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit218: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit216
-  %118 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 3), align 8
+  %118 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 24), align 8
   %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %118)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit219 unwind label %473
 
@@ -1955,10 +1955,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit222: ; preds = %_ZN7logging
           to label %127 unwind label %475
 
 127:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit222
-  %128 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 4), align 8
+  %128 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 32), align 8
   %129 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %129, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i225 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %129, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i225 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %130 = sub nsw i64 %129, %.sroa.0.0.copyload.i2.i.i225
   %131 = sitofp i64 %130 to double
   %132 = fdiv double %131, 1.000000e+09
@@ -1979,7 +1979,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit228: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit230 unwind label %475
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit230: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit228
-  %138 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 4), align 8
+  %138 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 32), align 8
   %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef %138)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit231 unwind label %475
 
@@ -2010,10 +2010,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit234: ; preds = %_ZN7logging
           to label %147 unwind label %477
 
 147:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit234
-  %148 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 5), align 8
+  %148 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 40), align 8
   %149 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %149, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i237 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %149, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i237 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %150 = sub nsw i64 %149, %.sroa.0.0.copyload.i2.i.i237
   %151 = sitofp i64 %150 to double
   %152 = fdiv double %151, 1.000000e+09
@@ -2034,7 +2034,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit240: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit242 unwind label %477
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit242: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit240
-  %158 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 5), align 8
+  %158 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 40), align 8
   %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %158)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit243 unwind label %477
 
@@ -2065,10 +2065,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit246: ; preds = %_ZN7logging
           to label %167 unwind label %479
 
 167:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit246
-  %168 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 6), align 8
+  %168 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 48), align 8
   %169 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %169, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i249 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %169, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i249 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %170 = sub nsw i64 %169, %.sroa.0.0.copyload.i2.i.i249
   %171 = sitofp i64 %170 to double
   %172 = fdiv double %171, 1.000000e+09
@@ -2089,7 +2089,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit252: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit254 unwind label %479
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit254: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit252
-  %178 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 6), align 8
+  %178 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 48), align 8
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %178)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit255 unwind label %479
 
@@ -2120,11 +2120,11 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit258: ; preds = %_ZN7logging
           to label %187 unwind label %481
 
 187:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit258
-  %188 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
-  %189 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  %188 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
+  %189 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   %190 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %190, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i261 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %190, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i261 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %191 = sub nsw i64 %190, %.sroa.0.0.copyload.i2.i.i261
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+09
@@ -2146,8 +2146,8 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit264: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit266 unwind label %481
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit266: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit264
-  %200 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
-  %201 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  %200 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
+  %201 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   %202 = fadd double %200, %201
   %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %202)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit267 unwind label %481
@@ -2179,10 +2179,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit270: ; preds = %_ZN7logging
           to label %211 unwind label %483
 
 211:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit270
-  %212 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
+  %212 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
   %213 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %213, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i273 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %213, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i273 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %214 = sub nsw i64 %213, %.sroa.0.0.copyload.i2.i.i273
   %215 = sitofp i64 %214 to double
   %216 = fdiv double %215, 1.000000e+09
@@ -2203,7 +2203,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit276: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit278 unwind label %483
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit278: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit276
-  %222 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
+  %222 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
   %223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %222)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit279 unwind label %483
 
@@ -2234,10 +2234,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit282: ; preds = %_ZN7logging
           to label %231 unwind label %485
 
 231:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit282
-  %232 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  %232 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   %233 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %233, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i285 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %233, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i285 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %234 = sub nsw i64 %233, %.sroa.0.0.copyload.i2.i.i285
   %235 = sitofp i64 %234 to double
   %236 = fdiv double %235, 1.000000e+09
@@ -2258,7 +2258,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit288: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit290 unwind label %485
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit290: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit288
-  %242 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  %242 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   %243 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %242)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit291 unwind label %485
 
@@ -2289,10 +2289,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit294: ; preds = %_ZN7logging
           to label %251 unwind label %487
 
 251:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit294
-  %252 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 9), align 8
+  %252 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 72), align 8
   %253 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %253, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i297 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %253, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i297 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %254 = sub nsw i64 %253, %.sroa.0.0.copyload.i2.i.i297
   %255 = sitofp i64 %254 to double
   %256 = fdiv double %255, 1.000000e+09
@@ -2313,7 +2313,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit300: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit302 unwind label %487
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit302: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit300
-  %262 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 9), align 8
+  %262 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 72), align 8
   %263 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %262)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit303 unwind label %487
 
@@ -2420,10 +2420,10 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit312: ; preds = %_ZN7logging
           to label %295 unwind label %497
 
 295:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit312
-  %296 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 10), align 8
+  %296 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 80), align 8
   %297 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %297, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i315 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %297, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i315 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %298 = sub nsw i64 %297, %.sroa.0.0.copyload.i2.i.i315
   %299 = sitofp i64 %298 to double
   %300 = fdiv double %299, 1.000000e+09
@@ -2444,7 +2444,7 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit318: ; preds = %_ZN7logging
           to label %_ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit320 unwind label %497
 
 _ZN7logging6BufferlsISt13_SetprecisionEERS0_RKT_.exit320: ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit318
-  %306 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 10), align 8
+  %306 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 80), align 8
   %307 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %306)
           to label %_ZN7logging6BufferlsIdEERS0_RKT_.exit321 unwind label %497
 
@@ -2781,14 +2781,14 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit352: ; preds = %_ZN7logging
 
 428:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit352
   %429 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %429, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i355 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %429, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i355 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %430 = sub nsw i64 %429, %.sroa.0.0.copyload.i2.i.i355
   %431 = sitofp i64 %430 to double
   %432 = fdiv double %431, 1.000000e+09
   %433 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %433, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i356 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %433, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i356 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %434 = sub nsw i64 %433, %.sroa.0.0.copyload.i2.i.i356
   %435 = sitofp i64 %434 to double
   %436 = fdiv double %435, 1.000000e+09
@@ -2810,8 +2810,8 @@ _ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit359: ; preds = %_ZN7logging
 
 442:                                              ; preds = %_ZN7logging6BufferlsIFRSt8ios_baseS3_EEERS0_RKT_.exit359
   %443 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %443, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i362 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %443, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i362 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %444 = sub nsw i64 %443, %.sroa.0.0.copyload.i2.i.i362
   %445 = sitofp i64 %444 to double
   %446 = fdiv double %445, 1.000000e+09
@@ -9362,7 +9362,7 @@ _ZNSt5dequeIP8MeshFaceSaIS1_EED2Ev.exit:          ; preds = %1, %_ZNSt11_Deque_b
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg28MissingPreconditionExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg28MissingPreconditionExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg28MissingPreconditionExceptionE, i64 16), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.55)
           to label %4 unwind label %9
 
@@ -13834,7 +13834,7 @@ _ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i.i:     ; preds = %127, %_ZNK3vcg4face
 ._crit_edge97:                                    ; preds = %.loopexit, %._crit_edge89.._crit_edge97_crit_edge
   %163 = phi ptr [ %.pre111, %._crit_edge89.._crit_edge97_crit_edge ], [ %102, %.loopexit ]
   %.0.lcssa = phi i32 [ 0, %._crit_edge89.._crit_edge97_crit_edge ], [ %.3, %.loopexit ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 16), ptr %4, align 8
   %164 = getelementptr inbounds i8, ptr %4, i64 24
   %165 = load ptr, ptr %164, align 8
   %.not.i.i.i41 = icmp eq ptr %165, %163
@@ -15097,7 +15097,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15334,7 +15334,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -15352,7 +15352,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -15872,7 +15872,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15971,7 +15971,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %37, %39
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -15989,7 +15989,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshEdgeSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -16257,7 +16257,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16356,7 +16356,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %37, %39
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -16374,7 +16374,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -16642,7 +16642,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEC2ERKSI_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16738,7 +16738,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %34, %36
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -16756,7 +16756,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaISG_EEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -16937,7 +16937,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEC2ERKS4_RKi(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17028,7 +17028,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %30, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17054,7 +17054,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17458,14 +17458,14 @@ define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr
   %15 = alloca %"class.logging::Buffer", align 8
   %16 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @perf, i8 0, i64 88, i1 false)
-  store i64 %16, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 0, i32 0, i32 0), align 8
-  store i64 %16, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
   %17 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %17, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  store i64 %17, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %18 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %18, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %19 = sub nsw i64 %18, %.sroa.0.0.copyload.i2.i.i
   %20 = sitofp i64 %19 to double
   %21 = fdiv double %20, 1.000000e+09
@@ -17476,7 +17476,7 @@ define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr
   store i32 1, ptr %23, align 8, !noalias !315
   %24 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 1, ptr %24, align 4, !noalias !315
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9AlgoStateSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %22, align 8, !noalias !315
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9AlgoStateSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !noalias !315
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1320) %25, i8 0, i64 1320, i1 false), !noalias !315
   invoke void @_ZN9AlgoStateC2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %25)
@@ -18402,8 +18402,8 @@ _ZN7logging6BufferlsIA25_cEERS0_RKT_.exit:        ; preds = %_ZN7logging6Bufferl
 
 ._crit_edge129:                                   ; preds = %414, %.critedge25
   %422 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %422, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i86 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %422, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i86 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %423 = sub nsw i64 %422, %.sroa.0.0.copyload.i2.i.i86
   %424 = sitofp i64 %423 to double
   %425 = fdiv double %424, 1.000000e+09
@@ -19673,7 +19673,7 @@ _ZNSt10shared_ptrI13ClusteredSeamED2Ev.exit83.i:  ; preds = %_ZNSt10shared_ptrI1
   store i32 1, ptr %442, align 8, !noalias !325
   %443 = getelementptr inbounds i8, ptr %441, i64 12
   store i32 1, ptr %443, align 4, !noalias !325
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13ClusteredSeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %441, align 8, !noalias !325
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13ClusteredSeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %441, align 8, !noalias !325
   %444 = getelementptr inbounds i8, ptr %441, i64 16
   store ptr %440, ptr %444, align 8, !noalias !325
   %445 = getelementptr inbounds i8, ptr %441, i64 24
@@ -19735,7 +19735,7 @@ _ZNSt10shared_ptrI4SeamEC2ERKS1_.exit.i:          ; preds = %464, %461, %455
   store i32 1, ptr %468, align 8, !noalias !331
   %469 = getelementptr inbounds i8, ptr %466, i64 12
   store i32 1, ptr %469, align 4, !noalias !331
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI4SeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %466, align 8, !noalias !331
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI4SeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %466, align 8, !noalias !331
   %470 = getelementptr inbounds i8, ptr %466, i64 16
   store ptr %440, ptr %470, align 8, !noalias !331
   %471 = getelementptr inbounds i8, ptr %466, i64 24
@@ -20606,7 +20606,7 @@ _ZNSt10shared_ptrI4SeamED2Ev.exit133.i:           ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %845, align 8, !noalias !338
   %846 = getelementptr inbounds i8, ptr %843, i64 12
   store i32 1, ptr %846, align 4, !noalias !338
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13ClusteredSeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %843, align 8, !noalias !338
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13ClusteredSeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %843, align 8, !noalias !338
   %847 = getelementptr inbounds i8, ptr %843, i64 16
   store ptr %440, ptr %847, align 8, !noalias !338
   %848 = getelementptr inbounds i8, ptr %843, i64 24
@@ -20743,7 +20743,7 @@ _ZNSt10shared_ptrI4SeamEC2ERKS1_.exit152.i:       ; preds = %907, %904, %898
   store i32 1, ptr %911, align 8, !noalias !350
   %912 = getelementptr inbounds i8, ptr %909, i64 12
   store i32 1, ptr %912, align 4, !noalias !350
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI4SeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %909, align 8, !noalias !350
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI4SeamSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %909, align 8, !noalias !350
   %913 = getelementptr inbounds i8, ptr %909, i64 16
   store ptr %440, ptr %913, align 8, !noalias !350
   %914 = getelementptr inbounds i8, ptr %909, i64 24
@@ -24659,7 +24659,7 @@ define linkonce_odr void @_ZN9AlgoStateC2Ev(ptr noundef nonnull align 8 derefere
           to label %49 unwind label %55
 
 49:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8SeamMesh, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8SeamMesh, i64 16), ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 1248
   store i32 0, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 1256
@@ -24928,7 +24928,7 @@ _ZNSt6vectorISt4pairISt10shared_ptrI13ClusteredSeamEdESaIS4_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -25327,7 +25327,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 16), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I8SeamEdgeSaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
           to label %2 unwind label %62
 
@@ -35359,13 +35359,13 @@ define void @_Z18GreedyOptimizationSt10shared_ptrI9MeshGraphES_I9AlgoStateERK14A
   %78 = alloca %"class.std::shared_ptr", align 8
   %79 = alloca %"class.std::shared_ptr.306", align 8
   %80 = alloca %"class.logging::Buffer", align 8
-  %81 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL10statsCheck, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10statsCheck, i64 8), align 8
   %82 = load ptr, ptr @_ZL10statsCheck, align 8
   %.not.i = icmp eq ptr %81, %82
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %3
-  %83 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL11feasibility, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11feasibility, i64 8), align 8
   %84 = load ptr, ptr @_ZL11feasibility, align 8
   %.not12.i = icmp eq ptr %83, %84
   br i1 %.not12.i, label %_ZL12ClearGlobalsv.exit, label %.lr.ph11.i
@@ -35378,7 +35378,7 @@ define void @_Z18GreedyOptimizationSt10shared_ptrI9MeshGraphES_I9AlgoStateERK14A
   store i32 0, ptr %87, align 4
   %88 = add i32 %.069.i, 1
   %89 = zext i32 %88 to i64
-  %90 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL10statsCheck, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10statsCheck, i64 8), align 8
   %91 = load ptr, ptr @_ZL10statsCheck, align 8
   %92 = ptrtoint ptr %90 to i64
   %93 = ptrtoint ptr %91 to i64
@@ -35395,7 +35395,7 @@ define void @_Z18GreedyOptimizationSt10shared_ptrI9MeshGraphES_I9AlgoStateERK14A
   store i32 0, ptr %99, align 4
   %100 = add i32 %.010.i, 1
   %101 = zext i32 %100 to i64
-  %102 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL11feasibility, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11feasibility, i64 8), align 8
   %103 = load ptr, ptr @_ZL11feasibility, align 8
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %103 to i64
@@ -37243,8 +37243,8 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit145:    ; preds = %_ZNSt10shared_ptrI9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   %1018 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %1018, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %1018, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %1019 = load ptr, ptr %59, align 8
   store ptr %1019, ptr %58, align 8
   %1020 = load ptr, ptr %229, align 8
@@ -39087,15 +39087,15 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit276.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %1810 = sitofp i64 %1809 to double
   %1811 = fdiv double %1810, 1.000000e+09
   %1812 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %1812, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i277.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %1812, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i277.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %1813 = sub nsw i64 %1812, %.sroa.0.0.copyload.i2.i.i277.i
   %1814 = sitofp i64 %1813 to double
   %1815 = fdiv double %1814, 1.000000e+09
   %1816 = fsub double %1815, %1811
-  %1817 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 1), align 8
+  %1817 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 8), align 8
   %1818 = fadd double %1817, %1816
-  store double %1818, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 1), align 8
+  store double %1818, ptr getelementptr inbounds (i8, ptr @perf, i64 8), align 8
   call void @_ZNSt4pairISt10shared_ptrI9FaceGroupES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
@@ -39423,8 +39423,8 @@ _ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamE17MatchingTransformSt4hashIS
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   %1963 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24, !noalias !497
-  store i64 %1963, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8, !noalias !497
-  %.sroa.0.0.copyload.i2.i.i.i207 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8, !noalias !497
+  store i64 %1963, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8, !noalias !497
+  %.sroa.0.0.copyload.i2.i.i.i207 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8, !noalias !497
   store ptr %257, ptr %63, align 8, !alias.scope !497
   store i64 1, ptr %258, align 8, !alias.scope !497
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %259, i8 0, i64 16, i1 false), !alias.scope !497
@@ -43878,15 +43878,15 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_dESaIS4_ENSt8__detail10_Select1stESt8
   %3628 = sitofp i64 %3627 to double
   %3629 = fdiv double %3628, 1.000000e+09
   %3630 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %3630, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8, !noalias !497
-  %.sroa.0.0.copyload.i2.i.i554.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8, !noalias !497
+  store i64 %3630, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8, !noalias !497
+  %.sroa.0.0.copyload.i2.i.i554.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8, !noalias !497
   %3631 = sub nsw i64 %3630, %.sroa.0.0.copyload.i2.i.i554.i
   %3632 = sitofp i64 %3631 to double
   %3633 = fdiv double %3632, 1.000000e+09
   %3634 = fsub double %3633, %3629
-  %3635 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 2), align 8, !noalias !497
+  %3635 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 16), align 8, !noalias !497
   %3636 = fadd double %3635, %3634
-  store double %3636, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 2), align 8, !noalias !497
+  store double %3636, ptr getelementptr inbounds (i8, ptr @perf, i64 16), align 8, !noalias !497
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -43970,8 +43970,8 @@ _ZNSt10shared_ptrI13ClusteredSeamED2Ev.exit266:   ; preds = %.loopexit757, %3654
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %3674 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %3674, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i.i267 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %3674, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i.i267 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %3675 = sub nsw i64 %3674, %.sroa.0.0.copyload.i2.i.i.i267
   %3676 = sitofp i64 %3675 to double
   %3677 = fdiv double %3676, 1.000000e+09
@@ -46861,15 +46861,15 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit172.i: ; preds = %_ZNS
 
 ._crit_edge404.i:                                 ; preds = %4773, %._crit_edge.i298, %._crit_edge.thread.i
   %4777 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %4777, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i175.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %4777, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i175.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %4778 = sub nsw i64 %4777, %.sroa.0.0.copyload.i2.i.i175.i
   %4779 = sitofp i64 %4778 to double
   %4780 = fdiv double %4779, 1.000000e+09
   %4781 = fsub double %4780, %3677
-  %4782 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 3), align 8
+  %4782 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 24), align 8
   %4783 = fadd double %4782, %4781
-  store double %4783, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 3), align 8
+  store double %4783, ptr getelementptr inbounds (i8, ptr @perf, i64 24), align 8
   %4784 = load ptr, ptr %22, align 8
   %.not.i.i.i176.i = icmp eq ptr %4784, null
   br i1 %.not.i.i.i176.i, label %4786, label %4785
@@ -46890,8 +46890,8 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit172.i: ; preds = %_ZNS
 4789:                                             ; preds = %4786
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %14)
   %4790 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %4790, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i.i335 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %4790, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i.i335 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %4791 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
           to label %.noexc364 unwind label %.loopexit.split-lp753.loopexit
 
@@ -47478,15 +47478,15 @@ _ZNSt6vectorI8HalfEdgeSaIS0_EED2Ev.exit.i.i:      ; preds = %4989, %4987, %.loop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %5013 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %5013, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i6.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %5013, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i6.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %5014 = sub nsw i64 %5013, %.sroa.0.0.copyload.i2.i.i6.i
   %5015 = sitofp i64 %5014 to double
   %5016 = fdiv double %5015, 1.000000e+09
   %5017 = fsub double %5016, %5012
-  %5018 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
+  %5018 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
   %5019 = fadd double %5018, %5017
-  store double %5019, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 7), align 8
+  store double %5019, ptr getelementptr inbounds (i8, ptr @perf, i64 56), align 8
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %14)
   br i1 %5000, label %.thread, label %_ZNSt10shared_ptrI9AlgoStateED2Ev.exit388
 
@@ -48424,8 +48424,8 @@ _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit446:    ; preds = %_ZNSt10shared_ptrI9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %5424 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %5424, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i.i447 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %5424, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i.i447 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %5425 = load ptr, ptr %5423, align 8
   %5426 = load ptr, ptr %235, align 8
   %5427 = load ptr, ptr %236, align 8
@@ -49749,15 +49749,15 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %6035 = sitofp i64 %6034 to double
   %6036 = fdiv double %6035, 1.000000e+09
   %6037 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %6037, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i170.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %6037, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i170.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %6038 = sub nsw i64 %6037, %.sroa.0.0.copyload.i2.i.i170.i
   %6039 = sitofp i64 %6038 to double
   %6040 = fdiv double %6039, 1.000000e+09
   %6041 = fsub double %6040, %6036
-  %6042 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 10), align 8
+  %6042 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 80), align 8
   %6043 = fadd double %6042, %6041
-  store double %6043, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 10), align 8
+  store double %6043, ptr getelementptr inbounds (i8, ptr @perf, i64 80), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -51979,7 +51979,7 @@ define linkonce_odr void @_ZN8SeamDataC2Ev(ptr noundef nonnull align 8 dereferen
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV4Mesh, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4Mesh, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 1368
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.107, ptr noundef nonnull align 1 dereferenceable(1) %2)
@@ -52106,8 +52106,8 @@ define internal fastcc noundef range(i32 0, 12) i32 @_ZL13OptimizeChartR8SeamDat
   %20 = alloca %struct.ARAPSolveInfo, align 8
   %21 = alloca %"class.logging::Buffer", align 8
   %22 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %22, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %23 = sub nsw i64 %22, %.sroa.0.0.copyload.i2.i.i
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
@@ -52612,15 +52612,15 @@ _ZN7logging6BufferlsIA30_cEERS0_RKT_.exit:        ; preds = %194
 
 245:                                              ; preds = %244
   %246 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %246, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i234 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %246, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i234 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %247 = sub nsw i64 %246, %.sroa.0.0.copyload.i2.i.i234
   %248 = sitofp i64 %247 to double
   %249 = fdiv double %248, 1.000000e+09
   %250 = fsub double %249, %25
-  %251 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 5), align 8
+  %251 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 40), align 8
   %252 = fadd double %251, %250
-  store double %252, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 5), align 8
+  store double %252, ptr getelementptr inbounds (i8, ptr @perf, i64 40), align 8
   %253 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
           to label %254 unwind label %.loopexit.split-lp335.loopexit.split-lp.loopexit.split-lp
 
@@ -53152,15 +53152,15 @@ _ZN7logging6BufferlsIA11_cEERS0_RKT_.exit:        ; preds = %461
 463:                                              ; preds = %.critedge208
   %464 = getelementptr inbounds i8, ptr %0, i64 568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %464, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %465 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
+  %465 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
   %466 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %466, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
+  store i64 %466, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
   %467 = sub nsw i64 %466, %465
   %468 = sitofp i64 %467 to double
   %469 = fdiv double %468, 1.000000e+09
-  %470 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 6), align 8
+  %470 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 48), align 8
   %471 = fadd double %470, %469
-  store double %471, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 6), align 8
+  store double %471, ptr getelementptr inbounds (i8, ptr @perf, i64 48), align 8
   invoke void @_Z15SyncShellWithUVR4Mesh(ptr noundef nonnull align 8 dereferenceable(808) %185)
           to label %472 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -53294,15 +53294,15 @@ _ZN7logging6BufferlsIA17_cEERS0_RKT_.exit:        ; preds = %477
 
 538:                                              ; preds = %._crit_edge375, %532
   %539 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %539, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i254 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %539, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i254 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %540 = sub nsw i64 %539, %.sroa.0.0.copyload.i2.i.i254
   %541 = sitofp i64 %540 to double
   %542 = fdiv double %541, 1.000000e+09
   %543 = fsub double %542, %25
-  %544 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 4), align 8
+  %544 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 32), align 8
   %545 = fadd double %544, %543
-  store double %545, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 4), align 8
+  store double %545, ptr getelementptr inbounds (i8, ptr @perf, i64 32), align 8
   %546 = load i8, ptr %529, align 4
   %547 = trunc i8 %546 to i1
   %548 = select i1 %547, i32 8, i32 0
@@ -53377,8 +53377,8 @@ define internal fastcc noundef range(i32 0, 11) i32 @_ZL27CheckAfterLocalOptimiz
   %21 = alloca %"class.logging::Buffer", align 8
   %22 = alloca %"class.std::shared_ptr", align 8
   %23 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %23, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %24 = tail call noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %.critedge
@@ -55574,15 +55574,15 @@ _ZNSt10shared_ptrI9AlgoStateED2Ev.exit:           ; preds = %881, %899, %912, %_
   %918 = sitofp i64 %917 to double
   %919 = fdiv double %918, 1.000000e+09
   %920 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %920, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i18 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %920, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i18 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %921 = sub nsw i64 %920, %.sroa.0.0.copyload.i2.i.i18
   %922 = sitofp i64 %921 to double
   %923 = fdiv double %922, 1.000000e+09
   %924 = fsub double %923, %919
-  %925 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  %925 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   %926 = fadd double %925, %924
-  store double %926, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 8), align 8
+  store double %926, ptr getelementptr inbounds (i8, ptr @perf, i64 64), align 8
   ret i32 %.5.i
 
 927:                                              ; preds = %26
@@ -55663,8 +55663,8 @@ define internal fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoState
   %63 = alloca %"class.std::shared_ptr", align 8
   %64 = alloca %"class.std::shared_ptr.306", align 8
   %65 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %65, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %65, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %66 = sub nsw i64 %65, %.sroa.0.0.copyload.i2.i.i
   %67 = sitofp i64 %66 to double
   %68 = fdiv double %67, 1.000000e+09
@@ -62919,15 +62919,15 @@ _ZNSt10shared_ptrI13ClusteredSeamED2Ev.exit857:   ; preds = %_ZNSt10shared_ptrI1
 
 3357:                                             ; preds = %._crit_edge1173, %._crit_edge1191
   %3358 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %3358, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
-  %.sroa.0.0.copyload.i2.i.i858 = load i64, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
+  store i64 %3358, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
+  %.sroa.0.0.copyload.i2.i.i858 = load i64, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
   %3359 = sub nsw i64 %3358, %.sroa.0.0.copyload.i2.i.i858
   %3360 = sitofp i64 %3359 to double
   %3361 = fdiv double %3360, 1.000000e+09
   %3362 = fsub double %3361, %68
-  %3363 = load double, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 9), align 8
+  %3363 = load double, ptr getelementptr inbounds (i8, ptr @perf, i64 72), align 8
   %3364 = fadd double %3363, %3362
-  store double %3364, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 9), align 8
+  store double %3364, ptr getelementptr inbounds (i8, ptr @perf, i64 72), align 8
   %3365 = load ptr, ptr %50, align 8
   %3366 = load ptr, ptr %2531, align 8
   %.not4.i.i.i.i = icmp eq ptr %3365, %3366
@@ -63276,7 +63276,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit2: ; preds = %_ZNSt6vectorISt
 
 _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit4: ; preds = %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit2, %22
   %23 = getelementptr inbounds i8, ptr %0, i64 592
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV4Mesh, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4Mesh, i64 16), ptr %23, align 8
   tail call void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15ClearAttributesEv(ptr noundef nonnull align 8 dereferenceable(776) %23)
   %24 = getelementptr inbounds i8, ptr %0, i64 1368
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
@@ -64902,7 +64902,7 @@ _ZNSt8_Rb_treeIP10SeamVertexSt4pairIKS1_St6vectorIP10MeshVertexSaIS6_EEESt10_Sel
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -65055,7 +65055,7 @@ _ZNSt6vectorI10MeshVertexSaIS0_EED2Ev.exit:       ; preds = %_ZNSt6vectorI8MeshE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4MeshD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV4Mesh, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4Mesh, i64 16), ptr %0, align 8
   tail call void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15ClearAttributesEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 776
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -65065,7 +65065,7 @@ define linkonce_odr void @_ZN4MeshD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4MeshD0Ev(ptr noundef nonnull align 8 dereferenceable(808) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV4Mesh, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4Mesh, i64 16), ptr %0, align 8
   tail call void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15ClearAttributesEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 776
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -65259,7 +65259,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 16), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
           to label %2 unwind label %62
 
@@ -67667,7 +67667,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -67782,7 +67782,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit: ; preds = 
 define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE25FixPaddedPerFaceAttributeI2FFEEvRS2_RNS_18PointerToAttributeE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -67857,7 +67857,7 @@ _ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i:        ; preds = %_ZNSt12_Vector_base
 _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit: ; preds = %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit_crit_edge, %_ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i
   %.pre-phi26 = phi i64 [ %.pre25, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i ]
   %.pre-phi = phi i64 [ %.pre24, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i ]
-  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 0, i32 0, i64 2), %_ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i ]
+  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 16), %_ZNSt6vectorI2FFSaIS0_EE7reserveEm.exit.i ]
   %33 = sub i64 %.pre-phi, %.pre-phi26
   %34 = sdiv exact i64 %33, 216
   %35 = getelementptr inbounds i8, ptr %32, i64 16
@@ -67923,7 +67923,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -67949,7 +67949,7 @@ _ZN3vcg9VectorNBWI2FFJEED2Ev.exit:                ; preds = %_ZNSt6vectorI2FFSaI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -69929,7 +69929,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE25FixPaddedPerFaceAttributeIiEEvRS2_RNS_18PointerToAttributeE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -70004,7 +70004,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
 _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit: ; preds = %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit_crit_edge, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i
   %.pre-phi26 = phi i64 [ %.pre25, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ]
   %.pre-phi = phi i64 [ %.pre24, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ]
-  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 0, i32 0, i64 2), %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ]
+  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 16), %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ]
   %33 = sub i64 %.pre-phi, %.pre-phi26
   %34 = sdiv exact i64 %33, 216
   %35 = getelementptr inbounds i8, ptr %32, i64 16
@@ -70071,7 +70071,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit: ; preds = %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -70097,7 +70097,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -70344,7 +70344,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEE, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -77225,29 +77225,29 @@ define internal void @_GLOBAL__sub_I_seam_remover.cpp() #19 section ".text.start
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) @perf, i8 0, i64 104, i1 false)
   %2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #24
-  store i64 %2, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11), align 8
-  store i64 %2, ptr getelementptr inbounds (%struct.Perf, ptr @perf, i64 0, i32 11, i32 1, i32 0, i32 0), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @perf, i64 88), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @perf, i64 96), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZL10statsCheck, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #28
   store ptr %3, ptr @_ZL10statsCheck, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44
-  store ptr %4, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL10statsCheck, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZL10statsCheck, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %3, i8 0, i64 44, i1 false)
-  store ptr %4, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL10statsCheck, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZL10statsCheck, i64 8), align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZL10statsCheck, ptr nonnull @__dso_handle) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZL11feasibility, i8 0, i64 24, i1 false)
   %6 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #28
   store ptr %6, ptr @_ZL11feasibility, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 20
-  store ptr %7, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL11feasibility, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZL11feasibility, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  store ptr %7, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL11feasibility, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZL11feasibility, i64 8), align 8
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZL11feasibility, ptr nonnull @__dso_handle) #24
   store <4 x i32> <i32 -1, i32 -8355712, i32 -16776961, i32 -16711936>, ptr @_ZL11statusColor, align 16
-  store <4 x i32> <i32 -8323200, i32 -32640, i32 -65536, i32 -8355585>, ptr getelementptr inbounds ([11 x %"class.vcg::Color4"], ptr @_ZL11statusColor, i64 0, i64 4), align 16
-  store i32 -16711681, ptr getelementptr inbounds ([11 x %"class.vcg::Color4"], ptr @_ZL11statusColor, i64 0, i64 8), align 16
-  store i32 -1, ptr getelementptr inbounds ([11 x %"class.vcg::Color4"], ptr @_ZL11statusColor, i64 0, i64 9), align 4
-  store <4 x i8> <i8 -80, i8 0, i8 -1, i8 -1>, ptr getelementptr inbounds ([11 x %"class.vcg::Color4"], ptr @_ZL11statusColor, i64 0, i64 10), align 8
+  store <4 x i32> <i32 -8323200, i32 -32640, i32 -65536, i32 -8355585>, ptr getelementptr inbounds (i8, ptr @_ZL11statusColor, i64 16), align 16
+  store i32 -16711681, ptr getelementptr inbounds (i8, ptr @_ZL11statusColor, i64 32), align 16
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZL11statusColor, i64 36), align 4
+  store <4 x i8> <i8 -80, i8 0, i8 -1, i8 -1>, ptr getelementptr inbounds (i8, ptr @_ZL11statusColor, i64 40), align 8
   store <4 x i32> <i32 -1, i32 -16777216, i32 -256, i32 -65281>, ptr @_ZL7mvColor, align 16
   ret void
 }

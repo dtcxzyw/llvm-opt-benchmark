@@ -594,7 +594,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory2bv16TheoryBVRewriterC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(2928) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv16TheoryBVRewriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv16TheoryBVRewriterE, i64 16), ptr %this, align 8
   %d_rewriteTable.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i
 

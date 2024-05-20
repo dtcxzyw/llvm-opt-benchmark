@@ -466,7 +466,7 @@ _ZNK5eastl17basic_string_viewIcE7compareES1_.exit705:
   %call348 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 241, ptr noundef nonnull @.str.88)
   %call353 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 244, ptr noundef nonnull @.str.90)
   %call356 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 245, ptr noundef nonnull @.str.21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %buf, ptr noundef nonnull align 1 dereferenceable(5) getelementptr inbounds ([15 x i8], ptr @.str.91, i64 0, i64 2), i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %buf, ptr noundef nonnull align 1 dereferenceable(5) getelementptr inbounds (i8, ptr @.str.91, i64 2), i64 5, i1 false)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %buf, ptr noundef nonnull dereferenceable(5) @.str.29, i64 5)
   %cmp361 = icmp eq i32 %bcmp, 0
   %call362 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp361, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 253, ptr noundef nonnull @.str.92)
@@ -484,7 +484,7 @@ _ZNK5eastl17basic_string_viewIcE7compareES1_.exit705:
   %call422 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 285, ptr noundef nonnull @.str.109)
   %call426 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 286, ptr noundef nonnull @.str.110)
   %call430 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 287, ptr noundef nonnull @.str.111)
-  %cmp435 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 0), i1 false, i1 icmp uge (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5)
+  %cmp435 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.112, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 0), i1 false, i1 icmp uge (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.112, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5)
   %call436 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp435, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 295, ptr noundef nonnull @.str.113)
   %call441 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 301, ptr noundef nonnull @.str.115)
   %call445 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 302, ptr noundef nonnull @.str.116)
@@ -492,10 +492,10 @@ _ZNK5eastl17basic_string_viewIcE7compareES1_.exit705:
   %call453 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 309, ptr noundef nonnull @.str.119)
   %call456 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 310, ptr noundef nonnull @.str.121)
   %call459 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 311, ptr noundef nonnull @.str.122)
-  %cmp462 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), i1 false, i1 icmp uge (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
+  %cmp462 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), i1 false, i1 icmp uge (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
   %call463 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp462, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 317, ptr noundef nonnull @.str.124)
   %call466 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 318, ptr noundef nonnull @.str.126)
-  %cmp468 = or i1 icmp ne (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
+  %cmp468 = or i1 icmp ne (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
   %call469 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp468, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 319, ptr noundef nonnull @.str.128)
   %call473 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 325, ptr noundef nonnull @.str.129)
   %call476 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 326, ptr noundef nonnull @.str.131)
@@ -524,7 +524,7 @@ if.then11.i.i:                                    ; preds = %land.rhs.i.i
 
 while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.end.i.i
   %cur1.0.i.i.idx = phi i64 [ %cur1.0.i.i.add, %if.end.i.i ], [ %first1.addr.134.i.i.add4604, %if.then11.i.i ]
-  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i ]
+  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i ]
   %cur1.0.i.i.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i.idx
   %1 = load i8, ptr %cur1.0.i.i.ptr, align 1
   %2 = load i8, ptr %p2.0.i.i, align 1
@@ -533,7 +533,7 @@ while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.
 
 while.body19.i.i:                                 ; preds = %while.cond15.i.i
   %incdec.ptr20.i.i = getelementptr inbounds i8, ptr %p2.0.i.i, i64 1
-  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body19.i.i
@@ -572,7 +572,7 @@ if.then11.i.i1164:                                ; preds = %land.rhs.i.i1152
 
 while.cond15.i.i1167:                             ; preds = %if.then11.i.i1164, %if.end.i.i1174
   %cur1.0.i.i1168.idx = phi i64 [ %cur1.0.i.i1168.add, %if.end.i.i1174 ], [ %first1.addr.134.i.i1153.add4605, %if.then11.i.i1164 ]
-  %p2.0.i.i1169 = phi ptr [ %incdec.ptr20.i.i1172, %if.end.i.i1174 ], [ getelementptr inbounds ([4 x i8], ptr @.str.138, i64 0, i64 1), %if.then11.i.i1164 ]
+  %p2.0.i.i1169 = phi ptr [ %incdec.ptr20.i.i1172, %if.end.i.i1174 ], [ getelementptr inbounds (i8, ptr @.str.138, i64 1), %if.then11.i.i1164 ]
   %cur1.0.i.i1168.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i1168.idx
   %4 = load i8, ptr %cur1.0.i.i1168.ptr, align 1
   %5 = load i8, ptr %p2.0.i.i1169, align 1
@@ -581,7 +581,7 @@ while.cond15.i.i1167:                             ; preds = %if.then11.i.i1164, 
 
 while.body19.i.i1171:                             ; preds = %while.cond15.i.i1167
   %incdec.ptr20.i.i1172 = getelementptr inbounds i8, ptr %p2.0.i.i1169, i64 1
-  %cmp21.i.i1173 = icmp eq ptr %incdec.ptr20.i.i1172, getelementptr inbounds ([4 x i8], ptr @.str.138, i64 0, i64 3)
+  %cmp21.i.i1173 = icmp eq ptr %incdec.ptr20.i.i1172, getelementptr inbounds (i8, ptr @.str.138, i64 3)
   br i1 %cmp21.i.i1173, label %invoke.cont.i1177, label %if.end.i.i1174
 
 if.end.i.i1174:                                   ; preds = %while.body19.i.i1171
@@ -620,7 +620,7 @@ if.then11.i.i1227:                                ; preds = %land.rhs.i.i1215
 
 while.cond15.i.i1230:                             ; preds = %if.then11.i.i1227, %if.end.i.i1237
   %cur1.0.i.i1231.idx = phi i64 [ %cur1.0.i.i1231.add, %if.end.i.i1237 ], [ %first1.addr.134.i.i1216.add4606, %if.then11.i.i1227 ]
-  %p2.0.i.i1232 = phi ptr [ %incdec.ptr20.i.i1235, %if.end.i.i1237 ], [ getelementptr inbounds ([13 x i8], ptr @.str.140, i64 0, i64 1), %if.then11.i.i1227 ]
+  %p2.0.i.i1232 = phi ptr [ %incdec.ptr20.i.i1235, %if.end.i.i1237 ], [ getelementptr inbounds (i8, ptr @.str.140, i64 1), %if.then11.i.i1227 ]
   %cur1.0.i.i1231.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i1231.idx
   %7 = load i8, ptr %cur1.0.i.i1231.ptr, align 1
   %8 = load i8, ptr %p2.0.i.i1232, align 1
@@ -629,7 +629,7 @@ while.cond15.i.i1230:                             ; preds = %if.then11.i.i1227, 
 
 while.body19.i.i1234:                             ; preds = %while.cond15.i.i1230
   %incdec.ptr20.i.i1235 = getelementptr inbounds i8, ptr %p2.0.i.i1232, i64 1
-  %cmp21.i.i1236 = icmp eq ptr %incdec.ptr20.i.i1235, getelementptr inbounds ([13 x i8], ptr @.str.140, i64 0, i64 12)
+  %cmp21.i.i1236 = icmp eq ptr %incdec.ptr20.i.i1235, getelementptr inbounds (i8, ptr @.str.140, i64 12)
   br i1 %cmp21.i.i1236, label %invoke.cont.i1240, label %if.end.i.i1237
 
 if.end.i.i1237:                                   ; preds = %while.body19.i.i1234
@@ -712,7 +712,7 @@ if.then11.i.i.i1600:                              ; preds = %land.rhs.i.i.i1594
 
 while.cond15.i.i.i1603:                           ; preds = %if.then11.i.i.i1600, %if.end.i.i.i1610
   %cur1.0.i.i.i1604.idx = phi i64 [ %cur1.0.i.i.i1604.add, %if.end.i.i.i1610 ], [ %first1.addr.134.i.i.i1595.add4607, %if.then11.i.i.i1600 ]
-  %p2.0.i.i.i1605 = phi ptr [ %incdec.ptr20.i.i.i1608, %if.end.i.i.i1610 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1600 ]
+  %p2.0.i.i.i1605 = phi ptr [ %incdec.ptr20.i.i.i1608, %if.end.i.i.i1610 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1600 ]
   %cur1.0.i.i.i1604.ptr = getelementptr inbounds i8, ptr @.str.154, i64 %cur1.0.i.i.i1604.idx
   %12 = load i8, ptr %cur1.0.i.i.i1604.ptr, align 1
   %13 = load i8, ptr %p2.0.i.i.i1605, align 1
@@ -721,7 +721,7 @@ while.cond15.i.i.i1603:                           ; preds = %if.then11.i.i.i1600
 
 while.body19.i.i.i1607:                           ; preds = %while.cond15.i.i.i1603
   %incdec.ptr20.i.i.i1608 = getelementptr inbounds i8, ptr %p2.0.i.i.i1605, i64 1
-  %cmp21.i.i.i1609 = icmp eq ptr %incdec.ptr20.i.i.i1608, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 3)
+  %cmp21.i.i.i1609 = icmp eq ptr %incdec.ptr20.i.i.i1608, getelementptr inbounds (i8, ptr @.str.29, i64 3)
   br i1 %cmp21.i.i.i1609, label %invoke.cont.i.i1613, label %if.end.i.i.i1610
 
 if.end.i.i.i1610:                                 ; preds = %while.body19.i.i.i1607
@@ -741,11 +741,11 @@ while.cond4.preheader.i.i.i1630.preheader:        ; preds = %if.then11.i.i.i1600
   br label %land.rhs.i.i.i1632
 
 land.rhs.i.i.i1632:                               ; preds = %land.rhs.i.i.i1632.backedge, %while.cond4.preheader.i.i.i1630.preheader
-  %first1.addr.134.i.i.i1633 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 3), %while.cond4.preheader.i.i.i1630.preheader ], [ %incdec.ptr12.i.i.i1639, %land.rhs.i.i.i1632.backedge ]
+  %first1.addr.134.i.i.i1633 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 3), %while.cond4.preheader.i.i.i1630.preheader ], [ %incdec.ptr12.i.i.i1639, %land.rhs.i.i.i1632.backedge ]
   %14 = load i8, ptr %first1.addr.134.i.i.i1633, align 1
   %cmp7.not.i.i.i1634 = icmp eq i8 %14, 72
   %incdec.ptr12.i.i.i1639 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1633, i64 1
-  %cmp13.not.i.i.i1640 = icmp eq ptr %incdec.ptr12.i.i.i1639, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i1640 = icmp eq ptr %incdec.ptr12.i.i.i1639, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i1634, label %if.then11.i.i.i1638, label %while.body8.i.i.i1635
 
 while.body8.i.i.i1635:                            ; preds = %land.rhs.i.i.i1632
@@ -759,7 +759,7 @@ if.then11.i.i.i1638:                              ; preds = %land.rhs.i.i.i1632
 
 while.cond15.i.i.i1641:                           ; preds = %if.then11.i.i.i1638, %if.end.i.i.i1648
   %cur1.0.i.i.i1642 = phi ptr [ %incdec.ptr23.i.i.i1649, %if.end.i.i.i1648 ], [ %incdec.ptr12.i.i.i1639, %if.then11.i.i.i1638 ]
-  %p2.0.i.i.i1643 = phi ptr [ %incdec.ptr20.i.i.i1646, %if.end.i.i.i1648 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1638 ]
+  %p2.0.i.i.i1643 = phi ptr [ %incdec.ptr20.i.i.i1646, %if.end.i.i.i1648 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1638 ]
   %15 = load i8, ptr %cur1.0.i.i.i1642, align 1
   %16 = load i8, ptr %p2.0.i.i.i1643, align 1
   %cmp18.i.i.i1644 = icmp eq i8 %15, %16
@@ -767,16 +767,16 @@ while.cond15.i.i.i1641:                           ; preds = %if.then11.i.i.i1638
 
 while.body19.i.i.i1645:                           ; preds = %while.cond15.i.i.i1641
   %incdec.ptr20.i.i.i1646 = getelementptr inbounds i8, ptr %p2.0.i.i.i1643, i64 1
-  %cmp21.i.i.i1647 = icmp eq ptr %incdec.ptr20.i.i.i1646, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 3)
+  %cmp21.i.i.i1647 = icmp eq ptr %incdec.ptr20.i.i.i1646, getelementptr inbounds (i8, ptr @.str.29, i64 3)
   br i1 %cmp21.i.i.i1647, label %invoke.cont.i.i1651, label %if.end.i.i.i1648
 
 if.end.i.i.i1648:                                 ; preds = %while.body19.i.i.i1645
   %incdec.ptr23.i.i.i1649 = getelementptr inbounds i8, ptr %cur1.0.i.i.i1642, i64 1
-  %cmp24.i.i.i1650 = icmp eq ptr %incdec.ptr23.i.i.i1649, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i1650 = icmp eq ptr %incdec.ptr23.i.i.i1649, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i1650, label %while.cond4.preheader.i.i.i1670.preheader, label %while.cond15.i.i.i1641, !llvm.loop !7
 
 invoke.cont.i.i1651:                              ; preds = %while.body19.i.i.i1645
-  %cmp13.not.i.not.i1653 = icmp eq ptr %first1.addr.134.i.i.i1633, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i1653 = icmp eq ptr %first1.addr.134.i.i.i1633, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i1653, label %while.cond4.preheader.i.i.i1670.preheader, label %if.then16.i.i1654
 
 if.then16.i.i1654:                                ; preds = %invoke.cont.i.i1651
@@ -791,11 +791,11 @@ while.cond4.preheader.i.i.i1670.preheader:        ; preds = %if.then11.i.i.i1638
   br label %land.rhs.i.i.i1672
 
 land.rhs.i.i.i1672:                               ; preds = %land.rhs.i.i.i1672.backedge, %while.cond4.preheader.i.i.i1670.preheader
-  %first1.addr.134.i.i.i1673 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 7), %while.cond4.preheader.i.i.i1670.preheader ], [ %incdec.ptr12.i.i.i1679, %land.rhs.i.i.i1672.backedge ]
+  %first1.addr.134.i.i.i1673 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 7), %while.cond4.preheader.i.i.i1670.preheader ], [ %incdec.ptr12.i.i.i1679, %land.rhs.i.i.i1672.backedge ]
   %17 = load i8, ptr %first1.addr.134.i.i.i1673, align 1
   %cmp7.not.i.i.i1674 = icmp eq i8 %17, 86
   %incdec.ptr12.i.i.i1679 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1673, i64 1
-  %cmp13.not.i.i.i1680 = icmp eq ptr %incdec.ptr12.i.i.i1679, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i1680 = icmp eq ptr %incdec.ptr12.i.i.i1679, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i1674, label %if.then11.i.i.i1678, label %while.body8.i.i.i1675
 
 while.body8.i.i.i1675:                            ; preds = %land.rhs.i.i.i1672
@@ -809,7 +809,7 @@ if.then11.i.i.i1678:                              ; preds = %land.rhs.i.i.i1672
 
 while.cond15.i.i.i1681:                           ; preds = %if.then11.i.i.i1678, %if.end.i.i.i1688
   %cur1.0.i.i.i1682 = phi ptr [ %incdec.ptr23.i.i.i1689, %if.end.i.i.i1688 ], [ %incdec.ptr12.i.i.i1679, %if.then11.i.i.i1678 ]
-  %p2.0.i.i.i1683 = phi ptr [ %incdec.ptr20.i.i.i1686, %if.end.i.i.i1688 ], [ getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 1), %if.then11.i.i.i1678 ]
+  %p2.0.i.i.i1683 = phi ptr [ %incdec.ptr20.i.i.i1686, %if.end.i.i.i1688 ], [ getelementptr inbounds (i8, ptr @.str.157, i64 1), %if.then11.i.i.i1678 ]
   %18 = load i8, ptr %cur1.0.i.i.i1682, align 1
   %19 = load i8, ptr %p2.0.i.i.i1683, align 1
   %cmp18.i.i.i1684 = icmp eq i8 %18, %19
@@ -817,16 +817,16 @@ while.cond15.i.i.i1681:                           ; preds = %if.then11.i.i.i1678
 
 while.body19.i.i.i1685:                           ; preds = %while.cond15.i.i.i1681
   %incdec.ptr20.i.i.i1686 = getelementptr inbounds i8, ptr %p2.0.i.i.i1683, i64 1
-  %cmp21.i.i.i1687 = icmp eq ptr %incdec.ptr20.i.i.i1686, getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 7)
+  %cmp21.i.i.i1687 = icmp eq ptr %incdec.ptr20.i.i.i1686, getelementptr inbounds (i8, ptr @.str.157, i64 7)
   br i1 %cmp21.i.i.i1687, label %invoke.cont.i.i1691, label %if.end.i.i.i1688
 
 if.end.i.i.i1688:                                 ; preds = %while.body19.i.i.i1685
   %incdec.ptr23.i.i.i1689 = getelementptr inbounds i8, ptr %cur1.0.i.i.i1682, i64 1
-  %cmp24.i.i.i1690 = icmp eq ptr %incdec.ptr23.i.i.i1689, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i1690 = icmp eq ptr %incdec.ptr23.i.i.i1689, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i1690, label %while.cond4.preheader.i.i.i1730.preheader, label %while.cond15.i.i.i1681, !llvm.loop !7
 
 invoke.cont.i.i1691:                              ; preds = %while.body19.i.i.i1685
-  %cmp13.not.i.not.i1693 = icmp eq ptr %first1.addr.134.i.i.i1673, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i1693 = icmp eq ptr %first1.addr.134.i.i.i1673, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i1693, label %while.cond4.preheader.i.i.i1730.preheader, label %if.then16.i.i1694
 
 if.then16.i.i1694:                                ; preds = %invoke.cont.i.i1691
@@ -860,7 +860,7 @@ if.then11.i.i.i1738:                              ; preds = %land.rhs.i.i.i1732
 
 while.cond15.i.i.i1741:                           ; preds = %if.then11.i.i.i1738, %if.end.i.i.i1748
   %cur1.0.i.i.i1742.idx = phi i64 [ %cur1.0.i.i.i1742.add, %if.end.i.i.i1748 ], [ %first1.addr.134.i.i.i1733.add4608, %if.then11.i.i.i1738 ]
-  %p2.0.i.i.i1743 = phi ptr [ %incdec.ptr20.i.i.i1746, %if.end.i.i.i1748 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1738 ]
+  %p2.0.i.i.i1743 = phi ptr [ %incdec.ptr20.i.i.i1746, %if.end.i.i.i1748 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1738 ]
   %cur1.0.i.i.i1742.ptr = getelementptr inbounds i8, ptr @.str.154, i64 %cur1.0.i.i.i1742.idx
   %21 = load i8, ptr %cur1.0.i.i.i1742.ptr, align 1
   %22 = load i8, ptr %p2.0.i.i.i1743, align 1
@@ -869,7 +869,7 @@ while.cond15.i.i.i1741:                           ; preds = %if.then11.i.i.i1738
 
 while.body19.i.i.i1745:                           ; preds = %while.cond15.i.i.i1741
   %incdec.ptr20.i.i.i1746 = getelementptr inbounds i8, ptr %p2.0.i.i.i1743, i64 1
-  %cmp21.i.i.i1747 = icmp eq ptr %incdec.ptr20.i.i.i1746, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i.i1747 = icmp eq ptr %incdec.ptr20.i.i.i1746, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i.i1747, label %invoke.cont.i.i1751, label %if.end.i.i.i1748
 
 if.end.i.i.i1748:                                 ; preds = %while.body19.i.i.i1745
@@ -889,11 +889,11 @@ while.cond4.preheader.i.i.i1790.preheader:        ; preds = %if.then11.i.i.i1738
   br label %land.rhs.i.i.i1792
 
 land.rhs.i.i.i1792:                               ; preds = %land.rhs.i.i.i1792.backedge, %while.cond4.preheader.i.i.i1790.preheader
-  %first1.addr.134.i.i.i1793 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 3), %while.cond4.preheader.i.i.i1790.preheader ], [ %incdec.ptr12.i.i.i1799, %land.rhs.i.i.i1792.backedge ]
+  %first1.addr.134.i.i.i1793 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 3), %while.cond4.preheader.i.i.i1790.preheader ], [ %incdec.ptr12.i.i.i1799, %land.rhs.i.i.i1792.backedge ]
   %23 = load i8, ptr %first1.addr.134.i.i.i1793, align 1
   %cmp7.not.i.i.i1794 = icmp eq i8 %23, 72
   %incdec.ptr12.i.i.i1799 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1793, i64 1
-  %cmp13.not.i.i.i1800 = icmp eq ptr %incdec.ptr12.i.i.i1799, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i1800 = icmp eq ptr %incdec.ptr12.i.i.i1799, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i1794, label %if.then11.i.i.i1798, label %while.body8.i.i.i1795
 
 while.body8.i.i.i1795:                            ; preds = %land.rhs.i.i.i1792
@@ -907,7 +907,7 @@ if.then11.i.i.i1798:                              ; preds = %land.rhs.i.i.i1792
 
 while.cond15.i.i.i1801:                           ; preds = %if.then11.i.i.i1798, %if.end.i.i.i1808
   %cur1.0.i.i.i1802 = phi ptr [ %incdec.ptr23.i.i.i1809, %if.end.i.i.i1808 ], [ %incdec.ptr12.i.i.i1799, %if.then11.i.i.i1798 ]
-  %p2.0.i.i.i1803 = phi ptr [ %incdec.ptr20.i.i.i1806, %if.end.i.i.i1808 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1798 ]
+  %p2.0.i.i.i1803 = phi ptr [ %incdec.ptr20.i.i.i1806, %if.end.i.i.i1808 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1798 ]
   %24 = load i8, ptr %cur1.0.i.i.i1802, align 1
   %25 = load i8, ptr %p2.0.i.i.i1803, align 1
   %cmp18.i.i.i1804 = icmp eq i8 %24, %25
@@ -915,16 +915,16 @@ while.cond15.i.i.i1801:                           ; preds = %if.then11.i.i.i1798
 
 while.body19.i.i.i1805:                           ; preds = %while.cond15.i.i.i1801
   %incdec.ptr20.i.i.i1806 = getelementptr inbounds i8, ptr %p2.0.i.i.i1803, i64 1
-  %cmp21.i.i.i1807 = icmp eq ptr %incdec.ptr20.i.i.i1806, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i.i1807 = icmp eq ptr %incdec.ptr20.i.i.i1806, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i.i1807, label %invoke.cont.i.i1811, label %if.end.i.i.i1808
 
 if.end.i.i.i1808:                                 ; preds = %while.body19.i.i.i1805
   %incdec.ptr23.i.i.i1809 = getelementptr inbounds i8, ptr %cur1.0.i.i.i1802, i64 1
-  %cmp24.i.i.i1810 = icmp eq ptr %incdec.ptr23.i.i.i1809, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i1810 = icmp eq ptr %incdec.ptr23.i.i.i1809, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i1810, label %while.cond4.preheader.i.i.i1853.preheader, label %while.cond15.i.i.i1801, !llvm.loop !7
 
 invoke.cont.i.i1811:                              ; preds = %while.body19.i.i.i1805
-  %cmp13.not.i.not.i1813 = icmp eq ptr %first1.addr.134.i.i.i1793, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i1813 = icmp eq ptr %first1.addr.134.i.i.i1793, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i1813, label %while.cond4.preheader.i.i.i1853.preheader, label %if.then16.i.i1814
 
 if.then16.i.i1814:                                ; preds = %invoke.cont.i.i1811
@@ -939,11 +939,11 @@ while.cond4.preheader.i.i.i1853.preheader:        ; preds = %if.then11.i.i.i1798
   br label %land.rhs.i.i.i1855
 
 land.rhs.i.i.i1855:                               ; preds = %land.rhs.i.i.i1855.backedge, %while.cond4.preheader.i.i.i1853.preheader
-  %first1.addr.134.i.i.i1856 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 7), %while.cond4.preheader.i.i.i1853.preheader ], [ %incdec.ptr12.i.i.i1862, %land.rhs.i.i.i1855.backedge ]
+  %first1.addr.134.i.i.i1856 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 7), %while.cond4.preheader.i.i.i1853.preheader ], [ %incdec.ptr12.i.i.i1862, %land.rhs.i.i.i1855.backedge ]
   %26 = load i8, ptr %first1.addr.134.i.i.i1856, align 1
   %cmp7.not.i.i.i1857 = icmp eq i8 %26, 86
   %incdec.ptr12.i.i.i1862 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1856, i64 1
-  %cmp13.not.i.i.i1863 = icmp eq ptr %incdec.ptr12.i.i.i1862, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i1863 = icmp eq ptr %incdec.ptr12.i.i.i1862, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i1857, label %if.then11.i.i.i1861, label %while.body8.i.i.i1858
 
 while.body8.i.i.i1858:                            ; preds = %land.rhs.i.i.i1855
@@ -957,7 +957,7 @@ if.then11.i.i.i1861:                              ; preds = %land.rhs.i.i.i1855
 
 while.cond15.i.i.i1864:                           ; preds = %if.then11.i.i.i1861, %if.end.i.i.i1871
   %cur1.0.i.i.i1865 = phi ptr [ %incdec.ptr23.i.i.i1872, %if.end.i.i.i1871 ], [ %incdec.ptr12.i.i.i1862, %if.then11.i.i.i1861 ]
-  %p2.0.i.i.i1866 = phi ptr [ %incdec.ptr20.i.i.i1869, %if.end.i.i.i1871 ], [ getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 1), %if.then11.i.i.i1861 ]
+  %p2.0.i.i.i1866 = phi ptr [ %incdec.ptr20.i.i.i1869, %if.end.i.i.i1871 ], [ getelementptr inbounds (i8, ptr @.str.157, i64 1), %if.then11.i.i.i1861 ]
   %27 = load i8, ptr %cur1.0.i.i.i1865, align 1
   %28 = load i8, ptr %p2.0.i.i.i1866, align 1
   %cmp18.i.i.i1867 = icmp eq i8 %27, %28
@@ -965,16 +965,16 @@ while.cond15.i.i.i1864:                           ; preds = %if.then11.i.i.i1861
 
 while.body19.i.i.i1868:                           ; preds = %while.cond15.i.i.i1864
   %incdec.ptr20.i.i.i1869 = getelementptr inbounds i8, ptr %p2.0.i.i.i1866, i64 1
-  %cmp21.i.i.i1870 = icmp eq ptr %incdec.ptr20.i.i.i1869, getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 7)
+  %cmp21.i.i.i1870 = icmp eq ptr %incdec.ptr20.i.i.i1869, getelementptr inbounds (i8, ptr @.str.157, i64 7)
   br i1 %cmp21.i.i.i1870, label %invoke.cont.i.i1874, label %if.end.i.i.i1871
 
 if.end.i.i.i1871:                                 ; preds = %while.body19.i.i.i1868
   %incdec.ptr23.i.i.i1872 = getelementptr inbounds i8, ptr %cur1.0.i.i.i1865, i64 1
-  %cmp24.i.i.i1873 = icmp eq ptr %incdec.ptr23.i.i.i1872, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i1873 = icmp eq ptr %incdec.ptr23.i.i.i1872, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i1873, label %while.cond.i.i.i.i.preheader, label %while.cond15.i.i.i1864, !llvm.loop !7
 
 invoke.cont.i.i1874:                              ; preds = %while.body19.i.i.i1868
-  %cmp13.not.i.not.i1876 = icmp eq ptr %first1.addr.134.i.i.i1856, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i1876 = icmp eq ptr %first1.addr.134.i.i.i1856, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i1876, label %while.cond.i.i.i.i.preheader, label %if.then16.i.i1877
 
 if.then16.i.i1877:                                ; preds = %invoke.cont.i.i1874
@@ -989,7 +989,7 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then11.i.i.i1861
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i1927
-  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i1925, %while.body.i.i.i.i1927 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i.preheader ]
+  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i1925, %while.body.i.i.i.i1927 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i1925 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i, i64 -1
   %cmp.not.i.i.i.i1926 = icmp ult ptr %incdec.ptr.i.i.i.i1925, @.str.162
   br i1 %cmp.not.i.i.i.i1926, label %while.body.i.i.i1960.preheader, label %while.body.i.i.i.i1927
@@ -1011,7 +1011,7 @@ while.body.i.i.i1960.preheader:                   ; preds = %while.cond.i.i.i.i,
   br label %while.body.i.i.i1960
 
 while.body.i.i.i1960:                             ; preds = %while.body.i.i.i1960.preheader, %while.end.i.i.i1972
-  %pSearchEnd.045.i.i.i1961 = phi ptr [ %incdec.ptr34.i.i.i1973, %while.end.i.i.i1972 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i1960.preheader ]
+  %pSearchEnd.045.i.i.i1961 = phi ptr [ %incdec.ptr34.i.i.i1973, %while.end.i.i.i1972 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i1960.preheader ]
   br label %while.cond.i30.i.i.i1962
 
 while.cond.i30.i.i.i1962:                         ; preds = %while.body.i34.i.i.i1966, %while.body.i.i.i1960
@@ -1047,7 +1047,7 @@ while.end.i.i.i1972:                              ; preds = %while.cond21.i.i.i1
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i1983: ; preds = %while.body25.i.i.i1977
   %add.ptr32.i.i.i1982 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i1969, i64 -2
-  %cmp11.not.i.i1985 = icmp eq ptr %add.ptr32.i.i.i1982, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i1985 = icmp eq ptr %add.ptr32.i.i.i1982, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i1985, label %while.body.i.i.i2031.preheader, label %if.then12.i.i1986
 
 if.then12.i.i1986:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i1983
@@ -1062,7 +1062,7 @@ while.body.i.i.i2031.preheader:                   ; preds = %while.end.i.i.i1972
   br label %while.body.i.i.i2031
 
 while.body.i.i.i2031:                             ; preds = %while.body.i.i.i2031.preheader, %while.end.i.i.i2043
-  %pSearchEnd.045.i.i.i2032 = phi ptr [ %incdec.ptr34.i.i.i2044, %while.end.i.i.i2043 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2031.preheader ]
+  %pSearchEnd.045.i.i.i2032 = phi ptr [ %incdec.ptr34.i.i.i2044, %while.end.i.i.i2043 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2031.preheader ]
   br label %while.cond.i30.i.i.i2033
 
 while.cond.i30.i.i.i2033:                         ; preds = %while.body.i34.i.i.i2037, %while.body.i.i.i2031
@@ -1098,7 +1098,7 @@ while.end.i.i.i2043:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2054: ; preds = %while.body25.i.i.i2048
   %add.ptr32.i.i.i2053 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2040, i64 -3
-  %cmp11.not.i.i2056 = icmp eq ptr %add.ptr32.i.i.i2053, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2056 = icmp eq ptr %add.ptr32.i.i.i2053, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2056, label %while.cond.i.i.i.i2126.preheader, label %if.then12.i.i2057
 
 if.then12.i.i2057:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2054
@@ -1113,7 +1113,7 @@ while.cond.i.i.i.i2126.preheader:                 ; preds = %while.end.i.i.i2043
   br label %while.cond.i.i.i.i2126
 
 while.cond.i.i.i.i2126:                           ; preds = %while.cond.i.i.i.i2126.preheader, %while.body.i.i.i.i2130
-  %pTemp.0.i.i.i.i2127 = phi ptr [ %incdec.ptr.i.i.i.i2128, %while.body.i.i.i.i2130 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i2126.preheader ]
+  %pTemp.0.i.i.i.i2127 = phi ptr [ %incdec.ptr.i.i.i.i2128, %while.body.i.i.i.i2130 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2126.preheader ]
   %incdec.ptr.i.i.i.i2128 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2127, i64 -1
   %cmp.not.i.i.i.i2129 = icmp ult ptr %incdec.ptr.i.i.i.i2128, @.str.162
   br i1 %cmp.not.i.i.i.i2129, label %while.body.i.i.i2162.preheader, label %while.body.i.i.i.i2130
@@ -1135,7 +1135,7 @@ while.body.i.i.i2162.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2162
 
 while.body.i.i.i2162:                             ; preds = %while.body.i.i.i2162.preheader, %while.end.i.i.i2174
-  %pSearchEnd.045.i.i.i2163 = phi ptr [ %incdec.ptr34.i.i.i2175, %while.end.i.i.i2174 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i2162.preheader ]
+  %pSearchEnd.045.i.i.i2163 = phi ptr [ %incdec.ptr34.i.i.i2175, %while.end.i.i.i2174 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i2162.preheader ]
   br label %while.cond.i30.i.i.i2164
 
 while.cond.i30.i.i.i2164:                         ; preds = %while.body.i34.i.i.i2168, %while.body.i.i.i2162
@@ -1171,7 +1171,7 @@ while.end.i.i.i2174:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2184: ; preds = %while.body25.i.i.i2178
   %add.ptr32.i.i.i2183 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2171, i64 -2
-  %cmp11.not.i.i2186 = icmp eq ptr %add.ptr32.i.i.i2183, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2186 = icmp eq ptr %add.ptr32.i.i.i2183, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2186, label %while.body.i.i.i2230.preheader, label %if.then12.i.i2187
 
 if.then12.i.i2187:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2184
@@ -1186,7 +1186,7 @@ while.body.i.i.i2230.preheader:                   ; preds = %while.end.i.i.i2174
   br label %while.body.i.i.i2230
 
 while.body.i.i.i2230:                             ; preds = %while.body.i.i.i2230.preheader, %while.end.i.i.i2242
-  %pSearchEnd.045.i.i.i2231 = phi ptr [ %incdec.ptr34.i.i.i2243, %while.end.i.i.i2242 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2230.preheader ]
+  %pSearchEnd.045.i.i.i2231 = phi ptr [ %incdec.ptr34.i.i.i2243, %while.end.i.i.i2242 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2230.preheader ]
   br label %while.cond.i30.i.i.i2232
 
 while.cond.i30.i.i.i2232:                         ; preds = %while.body.i34.i.i.i2236, %while.body.i.i.i2230
@@ -1222,7 +1222,7 @@ while.end.i.i.i2242:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2252: ; preds = %while.body25.i.i.i2246
   %add.ptr32.i.i.i2251 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2239, i64 -3
-  %cmp11.not.i.i2254 = icmp eq ptr %add.ptr32.i.i.i2251, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2254 = icmp eq ptr %add.ptr32.i.i.i2251, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2254, label %while.cond.i.i.i.i2330.preheader, label %if.then12.i.i2255
 
 if.then12.i.i2255:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2252
@@ -1237,7 +1237,7 @@ while.cond.i.i.i.i2330.preheader:                 ; preds = %while.end.i.i.i2242
   br label %while.cond.i.i.i.i2330
 
 while.cond.i.i.i.i2330:                           ; preds = %while.cond.i.i.i.i2330.preheader, %while.body.i.i.i.i2334
-  %pTemp.0.i.i.i.i2331 = phi ptr [ %incdec.ptr.i.i.i.i2332, %while.body.i.i.i.i2334 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i2330.preheader ]
+  %pTemp.0.i.i.i.i2331 = phi ptr [ %incdec.ptr.i.i.i.i2332, %while.body.i.i.i.i2334 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2330.preheader ]
   %incdec.ptr.i.i.i.i2332 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2331, i64 -1
   %cmp.not.i.i.i.i2333 = icmp ult ptr %incdec.ptr.i.i.i.i2332, @.str.162
   br i1 %cmp.not.i.i.i.i2333, label %while.body.i.i.i2368.preheader, label %while.body.i.i.i.i2334
@@ -1259,7 +1259,7 @@ while.body.i.i.i2368.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2368
 
 while.body.i.i.i2368:                             ; preds = %while.body.i.i.i2368.preheader, %while.end.i.i.i2380
-  %pSearchEnd.045.i.i.i2369 = phi ptr [ %incdec.ptr34.i.i.i2381, %while.end.i.i.i2380 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i2368.preheader ]
+  %pSearchEnd.045.i.i.i2369 = phi ptr [ %incdec.ptr34.i.i.i2381, %while.end.i.i.i2380 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i2368.preheader ]
   br label %while.cond.i30.i.i.i2370
 
 while.cond.i30.i.i.i2370:                         ; preds = %while.body.i34.i.i.i2374, %while.body.i.i.i2368
@@ -1295,7 +1295,7 @@ while.end.i.i.i2380:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2390: ; preds = %while.body25.i.i.i2384
   %add.ptr32.i.i.i2389 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2377, i64 -2
-  %cmp11.not.i.i2392 = icmp eq ptr %add.ptr32.i.i.i2389, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2392 = icmp eq ptr %add.ptr32.i.i.i2389, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2392, label %while.body.i.i.i2438.preheader, label %if.then12.i.i2393
 
 if.then12.i.i2393:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2390
@@ -1310,7 +1310,7 @@ while.body.i.i.i2438.preheader:                   ; preds = %while.end.i.i.i2380
   br label %while.body.i.i.i2438
 
 while.body.i.i.i2438:                             ; preds = %while.body.i.i.i2438.preheader, %while.end.i.i.i2450
-  %pSearchEnd.045.i.i.i2439 = phi ptr [ %incdec.ptr34.i.i.i2451, %while.end.i.i.i2450 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2438.preheader ]
+  %pSearchEnd.045.i.i.i2439 = phi ptr [ %incdec.ptr34.i.i.i2451, %while.end.i.i.i2450 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2438.preheader ]
   br label %while.cond.i30.i.i.i2440
 
 while.cond.i30.i.i.i2440:                         ; preds = %while.body.i34.i.i.i2444, %while.body.i.i.i2438
@@ -1346,7 +1346,7 @@ while.end.i.i.i2450:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2460: ; preds = %while.body25.i.i.i2454
   %add.ptr32.i.i.i2459 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2447, i64 -3
-  %cmp11.not.i.i2462 = icmp eq ptr %add.ptr32.i.i.i2459, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2462 = icmp eq ptr %add.ptr32.i.i.i2459, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2462, label %if.then.i2480, label %if.then12.i.i2463
 
 if.then12.i.i2463:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2460
@@ -1361,7 +1361,7 @@ if.then.i2480:                                    ; preds = %while.end.i.i.i2450
   br label %while.cond.i.i2484
 
 while.cond.i.i2484:                               ; preds = %while.body.i.i, %if.then.i2480
-  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %if.then.i2480 ], [ %add.ptr.i.i2486, %while.body.i.i ]
+  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %if.then.i2480 ], [ %add.ptr.i.i2486, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.162
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit
 
@@ -1383,7 +1383,7 @@ _ZNK5eastl17basic_string_viewIcE5rfindEcm.exit:   ; preds = %while.cond.i.i2484,
   br label %while.cond.i.i2498
 
 while.cond.i.i2498:                               ; preds = %while.body.i.i2502, %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit
-  %pRBegin.addr.0.i.i2499 = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 25), %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit ], [ %add.ptr.i.i2503, %while.body.i.i2502 ]
+  %pRBegin.addr.0.i.i2499 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit ], [ %add.ptr.i.i2503, %while.body.i.i2502 ]
   %cmp.i.i2500 = icmp ugt ptr %pRBegin.addr.0.i.i2499, @.str.162
   br i1 %cmp.i.i2500, label %while.body.i.i2502, label %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit2509
 
@@ -1405,7 +1405,7 @@ _ZNK5eastl17basic_string_viewIcE5rfindEcm.exit2509: ; preds = %while.cond.i.i249
   br label %while.cond.i.i2518
 
 while.cond.i.i2518:                               ; preds = %while.body.i.i2522, %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit2509
-  %pRBegin.addr.0.i.i2519 = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 25), %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit2509 ], [ %add.ptr.i.i2523, %while.body.i.i2522 ]
+  %pRBegin.addr.0.i.i2519 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIcE5rfindEcm.exit2509 ], [ %add.ptr.i.i2523, %while.body.i.i2522 ]
   %cmp.i.i2520 = icmp ugt ptr %pRBegin.addr.0.i.i2519, @.str.162
   br i1 %cmp.i.i2520, label %while.body.i.i2522, label %for.cond1.preheader.i.i.i2601.preheader
 
@@ -1497,7 +1497,7 @@ for.cond1.preheader.i.i.preheader:                ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.i.i.preheader, %for.cond1.for.inc6_crit_edge.i.i
-  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 1), %for.cond1.preheader.i.i.preheader ]
+  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds (i8, ptr @.str.178, i64 1), %for.cond1.preheader.i.i.preheader ]
   %57 = load i8, ptr %p1Begin.addr.012.i.i, align 1
   br label %for.body3.i.i
 
@@ -1515,11 +1515,11 @@ for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for
 
 for.cond1.for.inc6_crit_edge.i.i:                 ; preds = %for.cond1.i.i
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i, i64 1
-  %cmp.not.i.i2656 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp.not.i.i2656 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp.not.i.i2656, label %if.then.i2664, label %for.cond1.preheader.i.i, !llvm.loop !14
 
 _ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i: ; preds = %for.body3.i.i
-  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp7.not.i, label %if.then.i2664, label %if.then8.i2657
 
 if.then8.i2657:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i
@@ -1534,7 +1534,7 @@ if.then.i2664:                                    ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i2667
 
 for.cond1.preheader.i.i2667:                      ; preds = %for.cond1.for.inc6_crit_edge.i.i2675, %if.then.i2664
-  %p1Begin.addr.012.i.i2668 = phi ptr [ %incdec.ptr7.i.i2676, %for.cond1.for.inc6_crit_edge.i.i2675 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 1), %if.then.i2664 ]
+  %p1Begin.addr.012.i.i2668 = phi ptr [ %incdec.ptr7.i.i2676, %for.cond1.for.inc6_crit_edge.i.i2675 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 1), %if.then.i2664 ]
   %59 = load i8, ptr %p1Begin.addr.012.i.i2668, align 1
   br label %for.body3.i.i2669
 
@@ -1552,11 +1552,11 @@ for.body3.i.i2669:                                ; preds = %for.cond1.i.i2672, 
 
 for.cond1.for.inc6_crit_edge.i.i2675:             ; preds = %for.cond1.i.i2672
   %incdec.ptr7.i.i2676 = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i2668, i64 1
-  %cmp.not.i.i2677 = icmp eq ptr %incdec.ptr7.i.i2676, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp.not.i.i2677 = icmp eq ptr %incdec.ptr7.i.i2676, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp.not.i.i2677, label %land.rhs.i.i.i.i.i2693.preheader, label %for.cond1.preheader.i.i2667, !llvm.loop !14
 
 _ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i2678: ; preds = %for.body3.i.i2669
-  %cmp7.not.i2679 = icmp eq ptr %p1Begin.addr.012.i.i2668, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp7.not.i2679 = icmp eq ptr %p1Begin.addr.012.i.i2668, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp7.not.i2679, label %land.rhs.i.i.i.i.i2693.preheader, label %if.then8.i2680
 
 if.then8.i2680:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i2678
@@ -1614,7 +1614,7 @@ for.cond1.preheader.i.i.i2761.preheader:          ; preds = %for.cond1.i.i.i2722
   br label %for.cond1.preheader.i.i.i2761
 
 for.cond1.preheader.i.i.i2761:                    ; preds = %for.cond1.preheader.i.i.i2761.preheader, %for.cond1.for.inc6_crit_edge.i.i.i2769
-  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i2762, %for.cond1.for.inc6_crit_edge.i.i.i2769 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i2761.preheader ]
+  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i2762, %for.cond1.for.inc6_crit_edge.i.i.i2769 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i2761.preheader ]
   %add.ptr.i.i.i2762 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i, i64 -1
   %63 = load i8, ptr %add.ptr.i.i.i2762, align 1
   br label %for.body3.i.i.i2763
@@ -1651,7 +1651,7 @@ for.cond1.preheader.i.i.i2792.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i2792
 
 for.cond1.preheader.i.i.i2792:                    ; preds = %for.cond1.preheader.i.i.i2792.preheader, %for.cond1.for.inc6_crit_edge.i.i.i2801
-  %p1RBegin.addr.012.i.i.i2793 = phi ptr [ %add.ptr.i.i.i2794, %for.cond1.for.inc6_crit_edge.i.i.i2801 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i2792.preheader ]
+  %p1RBegin.addr.012.i.i.i2793 = phi ptr [ %add.ptr.i.i.i2794, %for.cond1.for.inc6_crit_edge.i.i.i2801 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i2792.preheader ]
   %add.ptr.i.i.i2794 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i2793, i64 -1
   %65 = load i8, ptr %add.ptr.i.i.i2794, align 1
   br label %for.body3.i.i.i2795
@@ -1688,7 +1688,7 @@ for.cond1.preheader.i.i.i2825.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i2825
 
 for.cond1.preheader.i.i.i2825:                    ; preds = %for.cond1.preheader.i.i.i2825.preheader, %for.cond1.for.inc6_crit_edge.i.i.i2834
-  %p1RBegin.addr.012.i.i.i2826 = phi ptr [ %add.ptr.i.i.i2827, %for.cond1.for.inc6_crit_edge.i.i.i2834 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i2825.preheader ]
+  %p1RBegin.addr.012.i.i.i2826 = phi ptr [ %add.ptr.i.i.i2827, %for.cond1.for.inc6_crit_edge.i.i.i2834 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i2825.preheader ]
   %add.ptr.i.i.i2827 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i2826, i64 -1
   %67 = load i8, ptr %add.ptr.i.i.i2827, align 1
   br label %for.body3.i.i.i2828
@@ -1725,7 +1725,7 @@ for.cond1.preheader.i.i.i2859.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i2859
 
 for.cond1.preheader.i.i.i2859:                    ; preds = %for.cond1.preheader.i.i.i2859.preheader, %for.cond1.for.inc6_crit_edge.i.i.i2868
-  %p1RBegin.addr.012.i.i.i2860 = phi ptr [ %add.ptr.i.i.i2861, %for.cond1.for.inc6_crit_edge.i.i.i2868 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i2859.preheader ]
+  %p1RBegin.addr.012.i.i.i2860 = phi ptr [ %add.ptr.i.i.i2861, %for.cond1.for.inc6_crit_edge.i.i.i2868 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i2859.preheader ]
   %add.ptr.i.i.i2861 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i2860, i64 -1
   %70 = load i8, ptr %add.ptr.i.i.i2861, align 1
   br label %for.body3.i.i.i2862
@@ -1762,7 +1762,7 @@ if.then.i.i2880:                                  ; preds = %for.cond1.for.inc6_
   br label %while.cond.i.i.i2885
 
 while.cond.i.i.i2885:                             ; preds = %while.body.i.i.i2888, %if.then.i.i2880
-  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %if.then.i.i2880 ], [ %add.ptr.i.i.i2889, %while.body.i.i.i2888 ]
+  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %if.then.i.i2880 ], [ %add.ptr.i.i.i2889, %while.body.i.i.i2888 ]
   %cmp.i.i.i2886 = icmp ugt ptr %pRBegin.addr.0.i.i.i, @.str.178
   br i1 %cmp.i.i.i2886, label %while.body.i.i.i2888, label %if.then.i.i2897
 
@@ -1784,7 +1784,7 @@ if.then.i.i2897:                                  ; preds = %while.cond.i.i.i288
   br label %while.cond.i.i.i2902
 
 while.cond.i.i.i2902:                             ; preds = %while.body.i.i.i2906, %if.then.i.i2897
-  %pRBegin.addr.0.i.i.i2903 = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %if.then.i.i2897 ], [ %add.ptr.i.i.i2907, %while.body.i.i.i2906 ]
+  %pRBegin.addr.0.i.i.i2903 = phi ptr [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %if.then.i.i2897 ], [ %add.ptr.i.i.i2907, %while.body.i.i.i2906 ]
   %cmp.i.i.i2904 = icmp ugt ptr %pRBegin.addr.0.i.i.i2903, @.str.178
   br i1 %cmp.i.i.i2904, label %while.body.i.i.i2906, label %for.cond1.preheader.i.i.i2938.preheader
 
@@ -1872,7 +1872,7 @@ for.cond1.preheader.i.i.i3067.preheader:          ; preds = %for.inc9.i.i.i2982,
   br label %for.cond1.preheader.i.i.i3067
 
 for.cond1.preheader.i.i.i3067:                    ; preds = %for.cond1.preheader.i.i.i3067.preheader, %for.inc9.i.i.i3086
-  %p1RBegin.addr.015.i.i.i3068 = phi ptr [ %add.ptr.i.i.i3069, %for.inc9.i.i.i3086 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3067.preheader ]
+  %p1RBegin.addr.015.i.i.i3068 = phi ptr [ %add.ptr.i.i.i3069, %for.inc9.i.i.i3086 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3067.preheader ]
   %add.ptr.i.i.i3069 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3068, i64 -1
   %83 = load i8, ptr %add.ptr.i.i.i3069, align 1
   br label %for.body3.i.i.i3070
@@ -1910,7 +1910,7 @@ for.cond1.preheader.i.i.i3109.preheader:          ; preds = %for.inc9.i.i.i3086,
   br label %for.cond1.preheader.i.i.i3109
 
 for.cond1.preheader.i.i.i3109:                    ; preds = %for.cond1.preheader.i.i.i3109.preheader, %for.inc9.i.i.i3128
-  %p1RBegin.addr.015.i.i.i3110 = phi ptr [ %add.ptr.i.i.i3111, %for.inc9.i.i.i3128 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3109.preheader ]
+  %p1RBegin.addr.015.i.i.i3110 = phi ptr [ %add.ptr.i.i.i3111, %for.inc9.i.i.i3128 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3109.preheader ]
   %add.ptr.i.i.i3111 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3110, i64 -1
   %86 = load i8, ptr %add.ptr.i.i.i3111, align 1
   br label %for.body3.i.i.i3112
@@ -1948,7 +1948,7 @@ for.cond1.preheader.i.i.i3146.preheader:          ; preds = %for.inc9.i.i.i3128,
   br label %for.cond1.preheader.i.i.i3146
 
 for.cond1.preheader.i.i.i3146:                    ; preds = %for.cond1.preheader.i.i.i3146.preheader, %for.inc9.i.i.i3164
-  %p1RBegin.addr.015.i.i.i3147 = phi ptr [ %add.ptr.i.i.i3148, %for.inc9.i.i.i3164 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3146.preheader ]
+  %p1RBegin.addr.015.i.i.i3147 = phi ptr [ %add.ptr.i.i.i3148, %for.inc9.i.i.i3164 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3146.preheader ]
   %add.ptr.i.i.i3148 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3147, i64 -1
   %89 = load i8, ptr %add.ptr.i.i.i3148, align 1
   br label %for.body3.i.i.i3149
@@ -2117,7 +2117,7 @@ for.body.i105.preheader:                          ; preds = %for.body.i73
 for.body.i236:                                    ; preds = %for.body.i236, %for.body.i105.preheader
   %n.addr.011.i237 = phi i64 [ 6, %for.body.i105.preheader ], [ %dec.i248, %for.body.i236 ]
   %p2.addr.010.i238 = phi ptr [ @.str.251, %for.body.i105.preheader ], [ %incdec.ptr3.i247, %for.body.i236 ]
-  %p1.addr.09.i239 = phi ptr [ getelementptr inbounds ([18 x i32], ptr @.str.249, i64 0, i64 11), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
+  %p1.addr.09.i239 = phi ptr [ getelementptr inbounds (i8, ptr @.str.249, i64 44), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
   %2 = load i32, ptr %p1.addr.09.i239, align 4
   %3 = load i32, ptr %p2.addr.010.i238, align 4
   %cmp1.not.i240 = icmp eq i32 %2, %3
@@ -2154,7 +2154,7 @@ for.body.i330.preheader:                          ; preds = %for.body.i236
 for.body.i376:                                    ; preds = %for.body.i376, %for.body.i330.preheader
   %n.addr.011.i377 = phi i64 [ 6, %for.body.i330.preheader ], [ %dec.i388, %for.body.i376 ]
   %p2.addr.010.i378 = phi ptr [ @.str.254, %for.body.i330.preheader ], [ %incdec.ptr3.i387, %for.body.i376 ]
-  %p1.addr.09.i379 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 3), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
+  %p1.addr.09.i379 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 12), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
   %4 = load i32, ptr %p1.addr.09.i379, align 4
   %5 = load i32, ptr %p2.addr.010.i378, align 4
   %cmp1.not.i380 = icmp eq i32 %4, %5
@@ -2173,7 +2173,7 @@ for.body.i397.preheader:                          ; preds = %for.body.i376
 for.body.i397:                                    ; preds = %for.body.i397, %for.body.i397.preheader
   %n.addr.011.i398 = phi i64 [ 3, %for.body.i397.preheader ], [ %dec.i409, %for.body.i397 ]
   %p2.addr.010.i399 = phi ptr [ @.str.255, %for.body.i397.preheader ], [ %incdec.ptr3.i408, %for.body.i397 ]
-  %p1.addr.09.i400 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
+  %p1.addr.09.i400 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
   %6 = load i32, ptr %p1.addr.09.i400, align 4
   %7 = load i32, ptr %p2.addr.010.i399, align 4
   %cmp1.not.i401 = icmp eq i32 %6, %7
@@ -2192,7 +2192,7 @@ for.body.i417.preheader:                          ; preds = %for.body.i397
 for.body.i417:                                    ; preds = %for.body.i417, %for.body.i417.preheader
   %n.addr.011.i418 = phi i64 [ 2, %for.body.i417.preheader ], [ %dec.i429, %for.body.i417 ]
   %p2.addr.010.i419 = phi ptr [ @.str.256, %for.body.i417.preheader ], [ %incdec.ptr3.i428, %for.body.i417 ]
-  %p1.addr.09.i420 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
+  %p1.addr.09.i420 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
   %8 = load i32, ptr %p1.addr.09.i420, align 4
   %9 = load i32, ptr %p2.addr.010.i419, align 4
   %cmp1.not.i421 = icmp eq i32 %8, %9
@@ -2210,7 +2210,7 @@ _ZN5eastl7CompareIwEEiPKT_S3_m.exit471:           ; preds = %for.body.i417
   %call320 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 241, ptr noundef nonnull @.str.88)
   %call325 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 244, ptr noundef nonnull @.str.90)
   %call328 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 245, ptr noundef nonnull @.str.21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buf, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds ([15 x i32], ptr @.str.259, i64 0, i64 2), i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buf, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @.str.259, i64 8), i64 20, i1 false)
   br label %for.body.i486
 
 for.body.i486:                                    ; preds = %for.body.i486, %_ZN5eastl7CompareIwEEiPKT_S3_m.exit471
@@ -2235,7 +2235,7 @@ for.body.i517.preheader:                          ; preds = %for.body.i486
 for.body.i517:                                    ; preds = %for.body.i517, %for.body.i517.preheader
   %n.addr.011.i518 = phi i64 [ 5, %for.body.i517.preheader ], [ %dec.i529, %for.body.i517 ]
   %p2.addr.010.i519 = phi ptr [ @.str.248, %for.body.i517.preheader ], [ %incdec.ptr3.i528, %for.body.i517 ]
-  %p1.addr.09.i520 = phi ptr [ getelementptr inbounds ([15 x i32], ptr @.str.259, i64 0, i64 2), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
+  %p1.addr.09.i520 = phi ptr [ getelementptr inbounds (i8, ptr @.str.259, i64 8), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
   %12 = load i32, ptr %p1.addr.09.i520, align 4
   %13 = load i32, ptr %p2.addr.010.i519, align 4
   %cmp1.not.i521 = icmp eq i32 %12, %13
@@ -2315,7 +2315,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %for.inc.i.i.i985, %
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
   %n.addr.011.i.i.i.i = phi i64 [ 5, %for.body.i.i.i.i.preheader ], [ %dec.i.i.i.i, %for.body.i.i.i.i ]
   %p2.addr.010.i.i.i.i = phi ptr [ @.str.248, %for.body.i.i.i.i.preheader ], [ %incdec.ptr3.i.i.i.i, %for.body.i.i.i.i ]
-  %p1.addr.09.i.i.i.i = phi ptr [ getelementptr inbounds ([14 x i32], ptr @.str.265, i64 0, i64 4), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
+  %p1.addr.09.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.265, i64 16), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
   %19 = load i32, ptr %p1.addr.09.i.i.i.i, align 4
   %20 = load i32, ptr %p2.addr.010.i.i.i.i, align 4
   %cmp1.not.i.i.i.i = icmp eq i32 %19, %20
@@ -2351,7 +2351,7 @@ for.body.i.i.i.i1080.preheader:                   ; preds = %for.body.i.i.i.i104
 for.body.i.i.i.i1080:                             ; preds = %for.body.i.i.i.i1080, %for.body.i.i.i.i1080.preheader
   %n.addr.011.i.i.i.i1081 = phi i64 [ 3, %for.body.i.i.i.i1080.preheader ], [ %dec.i.i.i.i1091, %for.body.i.i.i.i1080 ]
   %p2.addr.010.i.i.i.i1082 = phi ptr [ @.str.255, %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr3.i.i.i.i1090, %for.body.i.i.i.i1080 ]
-  %p1.addr.09.i.i.i.i1083 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
+  %p1.addr.09.i.i.i.i1083 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
   %23 = load i32, ptr %p1.addr.09.i.i.i.i1083, align 4
   %24 = load i32, ptr %p2.addr.010.i.i.i.i1082, align 4
   %cmp1.not.i.i.i.i1084 = icmp eq i32 %23, %24
@@ -2373,7 +2373,7 @@ for.body.i.i.i.i1213.preheader:                   ; preds = %for.body.i.i.i.i108
 for.body.i.i.i.i1257:                             ; preds = %for.body.i.i.i.i1257, %for.body.i.i.i.i1213.preheader
   %n.addr.011.i.i.i.i1258 = phi i64 [ 5, %for.body.i.i.i.i1213.preheader ], [ %dec.i.i.i.i1268, %for.body.i.i.i.i1257 ]
   %p2.addr.010.i.i.i.i1259 = phi ptr [ @.str.248, %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr3.i.i.i.i1267, %for.body.i.i.i.i1257 ]
-  %p1.addr.09.i.i.i.i1260 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.269, i64 0, i64 4), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
+  %p1.addr.09.i.i.i.i1260 = phi ptr [ getelementptr inbounds (i8, ptr @.str.269, i64 16), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
   %25 = load i32, ptr %p1.addr.09.i.i.i.i1260, align 4
   %26 = load i32, ptr %p2.addr.010.i.i.i.i1259, align 4
   %cmp1.not.i.i.i.i1261 = icmp eq i32 %25, %26
@@ -2393,7 +2393,7 @@ for.body.i.i.i.i1290.preheader:                   ; preds = %for.body.i.i.i.i125
 for.body.i.i.i.i1360:                             ; preds = %for.body.i.i.i.i1360, %for.body.i.i.i.i1290.preheader
   %n.addr.011.i.i.i.i1361 = phi i64 [ 5, %for.body.i.i.i.i1290.preheader ], [ %dec.i.i.i.i1371, %for.body.i.i.i.i1360 ]
   %p2.addr.010.i.i.i.i1362 = phi ptr [ @.str.248, %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr3.i.i.i.i1370, %for.body.i.i.i.i1360 ]
-  %p1.addr.09.i.i.i.i1363 = phi ptr [ getelementptr inbounds ([14 x i32], ptr @.str.265, i64 0, i64 4), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
+  %p1.addr.09.i.i.i.i1363 = phi ptr [ getelementptr inbounds (i8, ptr @.str.265, i64 16), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
   %27 = load i32, ptr %p1.addr.09.i.i.i.i1363, align 4
   %28 = load i32, ptr %p2.addr.010.i.i.i.i1362, align 4
   %cmp1.not.i.i.i.i1364 = icmp eq i32 %27, %28
@@ -2449,7 +2449,7 @@ if.then10.i.i:                                    ; preds = %land.rhs.i.i
 
 while.cond14.i.i:                                 ; preds = %if.then10.i.i, %if.end.i.i
   %cur1.0.i.i.idx = phi i64 [ %cur1.0.i.i.add, %if.end.i.i ], [ %first1.addr.134.i.i.add5603, %if.then10.i.i ]
-  %p2.0.i.i = phi ptr [ %incdec.ptr17.i.i, %if.end.i.i ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i ]
+  %p2.0.i.i = phi ptr [ %incdec.ptr17.i.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i ]
   %cur1.0.i.i.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i.idx
   %32 = load i32, ptr %cur1.0.i.i.ptr, align 4
   %33 = load i32, ptr %p2.0.i.i, align 4
@@ -2458,7 +2458,7 @@ while.cond14.i.i:                                 ; preds = %if.then10.i.i, %if.
 
 while.body16.i.i:                                 ; preds = %while.cond14.i.i
   %incdec.ptr17.i.i = getelementptr inbounds i8, ptr %p2.0.i.i, i64 4
-  %cmp18.i.i = icmp eq ptr %incdec.ptr17.i.i, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i = icmp eq ptr %incdec.ptr17.i.i, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body16.i.i
@@ -2498,7 +2498,7 @@ if.then10.i.i1553:                                ; preds = %land.rhs.i.i1540
 
 while.cond14.i.i1556:                             ; preds = %if.then10.i.i1553, %if.end.i.i1563
   %cur1.0.i.i1557.idx = phi i64 [ %cur1.0.i.i1557.add, %if.end.i.i1563 ], [ %first1.addr.134.i.i1541.add5604, %if.then10.i.i1553 ]
-  %p2.0.i.i1558 = phi ptr [ %incdec.ptr17.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds ([4 x i32], ptr @.str.275, i64 0, i64 1), %if.then10.i.i1553 ]
+  %p2.0.i.i1558 = phi ptr [ %incdec.ptr17.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds (i8, ptr @.str.275, i64 4), %if.then10.i.i1553 ]
   %cur1.0.i.i1557.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i1557.idx
   %35 = load i32, ptr %cur1.0.i.i1557.ptr, align 4
   %36 = load i32, ptr %p2.0.i.i1558, align 4
@@ -2507,7 +2507,7 @@ while.cond14.i.i1556:                             ; preds = %if.then10.i.i1553, 
 
 while.body16.i.i1560:                             ; preds = %while.cond14.i.i1556
   %incdec.ptr17.i.i1561 = getelementptr inbounds i8, ptr %p2.0.i.i1558, i64 4
-  %cmp18.i.i1562 = icmp eq ptr %incdec.ptr17.i.i1561, getelementptr inbounds ([4 x i32], ptr @.str.275, i64 0, i64 3)
+  %cmp18.i.i1562 = icmp eq ptr %incdec.ptr17.i.i1561, getelementptr inbounds (i8, ptr @.str.275, i64 12)
   br i1 %cmp18.i.i1562, label %invoke.cont.i1566, label %if.end.i.i1563
 
 if.end.i.i1563:                                   ; preds = %while.body16.i.i1560
@@ -2547,7 +2547,7 @@ if.then10.i.i1620:                                ; preds = %land.rhs.i.i1607
 
 while.cond14.i.i1623:                             ; preds = %if.then10.i.i1620, %if.end.i.i1630
   %cur1.0.i.i1624.idx = phi i64 [ %cur1.0.i.i1624.add, %if.end.i.i1630 ], [ %first1.addr.134.i.i1608.add5605, %if.then10.i.i1620 ]
-  %p2.0.i.i1625 = phi ptr [ %incdec.ptr17.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds ([13 x i32], ptr @.str.276, i64 0, i64 1), %if.then10.i.i1620 ]
+  %p2.0.i.i1625 = phi ptr [ %incdec.ptr17.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds (i8, ptr @.str.276, i64 4), %if.then10.i.i1620 ]
   %cur1.0.i.i1624.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i1624.idx
   %38 = load i32, ptr %cur1.0.i.i1624.ptr, align 4
   %39 = load i32, ptr %p2.0.i.i1625, align 4
@@ -2556,7 +2556,7 @@ while.cond14.i.i1623:                             ; preds = %if.then10.i.i1620, 
 
 while.body16.i.i1627:                             ; preds = %while.cond14.i.i1623
   %incdec.ptr17.i.i1628 = getelementptr inbounds i8, ptr %p2.0.i.i1625, i64 4
-  %cmp18.i.i1629 = icmp eq ptr %incdec.ptr17.i.i1628, getelementptr inbounds ([13 x i32], ptr @.str.276, i64 0, i64 12)
+  %cmp18.i.i1629 = icmp eq ptr %incdec.ptr17.i.i1628, getelementptr inbounds (i8, ptr @.str.276, i64 48)
   br i1 %cmp18.i.i1629, label %invoke.cont.i1633, label %if.end.i.i1630
 
 if.end.i.i1630:                                   ; preds = %while.body16.i.i1627
@@ -2639,7 +2639,7 @@ if.then10.i.i.i2011:                              ; preds = %land.rhs.i.i.i2005
 
 while.cond14.i.i.i2014:                           ; preds = %if.then10.i.i.i2011, %if.end.i.i.i2021
   %cur1.0.i.i.i2015.idx = phi i64 [ %cur1.0.i.i.i2015.add, %if.end.i.i.i2021 ], [ %first1.addr.134.i.i.i2006.add5606, %if.then10.i.i.i2011 ]
-  %p2.0.i.i.i2016 = phi ptr [ %incdec.ptr17.i.i.i2019, %if.end.i.i.i2021 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2011 ]
+  %p2.0.i.i.i2016 = phi ptr [ %incdec.ptr17.i.i.i2019, %if.end.i.i.i2021 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2011 ]
   %cur1.0.i.i.i2015.ptr = getelementptr inbounds i8, ptr @.str.283, i64 %cur1.0.i.i.i2015.idx
   %43 = load i32, ptr %cur1.0.i.i.i2015.ptr, align 4
   %44 = load i32, ptr %p2.0.i.i.i2016, align 4
@@ -2648,7 +2648,7 @@ while.cond14.i.i.i2014:                           ; preds = %if.then10.i.i.i2011
 
 while.body16.i.i.i2018:                           ; preds = %while.cond14.i.i.i2014
   %incdec.ptr17.i.i.i2019 = getelementptr inbounds i8, ptr %p2.0.i.i.i2016, i64 4
-  %cmp18.i.i.i2020 = icmp eq ptr %incdec.ptr17.i.i.i2019, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 3)
+  %cmp18.i.i.i2020 = icmp eq ptr %incdec.ptr17.i.i.i2019, getelementptr inbounds (i8, ptr @.str.248, i64 12)
   br i1 %cmp18.i.i.i2020, label %invoke.cont.i.i2024, label %if.end.i.i.i2021
 
 if.end.i.i.i2021:                                 ; preds = %while.body16.i.i.i2018
@@ -2669,11 +2669,11 @@ while.cond4.preheader.i.i.i2042.preheader:        ; preds = %if.then10.i.i.i2011
   br label %land.rhs.i.i.i2044
 
 land.rhs.i.i.i2044:                               ; preds = %land.rhs.i.i.i2044.backedge, %while.cond4.preheader.i.i.i2042.preheader
-  %first1.addr.134.i.i.i2045 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 3), %while.cond4.preheader.i.i.i2042.preheader ], [ %incdec.ptr11.i.i.i2051, %land.rhs.i.i.i2044.backedge ]
+  %first1.addr.134.i.i.i2045 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 12), %while.cond4.preheader.i.i.i2042.preheader ], [ %incdec.ptr11.i.i.i2051, %land.rhs.i.i.i2044.backedge ]
   %45 = load i32, ptr %first1.addr.134.i.i.i2045, align 4
   %cmp6.not.i.i.i2046 = icmp eq i32 %45, 72
   %incdec.ptr11.i.i.i2051 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2045, i64 4
-  %cmp12.not.i.i.i2052 = icmp eq ptr %incdec.ptr11.i.i.i2051, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2052 = icmp eq ptr %incdec.ptr11.i.i.i2051, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2046, label %if.then10.i.i.i2050, label %while.body7.i.i.i2047
 
 while.body7.i.i.i2047:                            ; preds = %land.rhs.i.i.i2044
@@ -2687,7 +2687,7 @@ if.then10.i.i.i2050:                              ; preds = %land.rhs.i.i.i2044
 
 while.cond14.i.i.i2053:                           ; preds = %if.then10.i.i.i2050, %if.end.i.i.i2060
   %cur1.0.i.i.i2054 = phi ptr [ %incdec.ptr20.i.i.i2061, %if.end.i.i.i2060 ], [ %incdec.ptr11.i.i.i2051, %if.then10.i.i.i2050 ]
-  %p2.0.i.i.i2055 = phi ptr [ %incdec.ptr17.i.i.i2058, %if.end.i.i.i2060 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2050 ]
+  %p2.0.i.i.i2055 = phi ptr [ %incdec.ptr17.i.i.i2058, %if.end.i.i.i2060 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2050 ]
   %46 = load i32, ptr %cur1.0.i.i.i2054, align 4
   %47 = load i32, ptr %p2.0.i.i.i2055, align 4
   %cmp15.i.i.i2056 = icmp eq i32 %46, %47
@@ -2695,16 +2695,16 @@ while.cond14.i.i.i2053:                           ; preds = %if.then10.i.i.i2050
 
 while.body16.i.i.i2057:                           ; preds = %while.cond14.i.i.i2053
   %incdec.ptr17.i.i.i2058 = getelementptr inbounds i8, ptr %p2.0.i.i.i2055, i64 4
-  %cmp18.i.i.i2059 = icmp eq ptr %incdec.ptr17.i.i.i2058, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 3)
+  %cmp18.i.i.i2059 = icmp eq ptr %incdec.ptr17.i.i.i2058, getelementptr inbounds (i8, ptr @.str.248, i64 12)
   br i1 %cmp18.i.i.i2059, label %invoke.cont.i.i2063, label %if.end.i.i.i2060
 
 if.end.i.i.i2060:                                 ; preds = %while.body16.i.i.i2057
   %incdec.ptr20.i.i.i2061 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2054, i64 4
-  %cmp21.i.i.i2062 = icmp eq ptr %incdec.ptr20.i.i.i2061, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2062 = icmp eq ptr %incdec.ptr20.i.i.i2061, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2062, label %while.cond4.preheader.i.i.i2083.preheader, label %while.cond14.i.i.i2053, !llvm.loop !23
 
 invoke.cont.i.i2063:                              ; preds = %while.body16.i.i.i2057
-  %cmp13.not.i.not.i2065 = icmp eq ptr %first1.addr.134.i.i.i2045, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2065 = icmp eq ptr %first1.addr.134.i.i.i2045, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2065, label %while.cond4.preheader.i.i.i2083.preheader, label %if.then16.i.i2066
 
 if.then16.i.i2066:                                ; preds = %invoke.cont.i.i2063
@@ -2720,11 +2720,11 @@ while.cond4.preheader.i.i.i2083.preheader:        ; preds = %if.then10.i.i.i2050
   br label %land.rhs.i.i.i2085
 
 land.rhs.i.i.i2085:                               ; preds = %land.rhs.i.i.i2085.backedge, %while.cond4.preheader.i.i.i2083.preheader
-  %first1.addr.134.i.i.i2086 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 7), %while.cond4.preheader.i.i.i2083.preheader ], [ %incdec.ptr11.i.i.i2092, %land.rhs.i.i.i2085.backedge ]
+  %first1.addr.134.i.i.i2086 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 28), %while.cond4.preheader.i.i.i2083.preheader ], [ %incdec.ptr11.i.i.i2092, %land.rhs.i.i.i2085.backedge ]
   %48 = load i32, ptr %first1.addr.134.i.i.i2086, align 4
   %cmp6.not.i.i.i2087 = icmp eq i32 %48, 86
   %incdec.ptr11.i.i.i2092 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2086, i64 4
-  %cmp12.not.i.i.i2093 = icmp eq ptr %incdec.ptr11.i.i.i2092, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2093 = icmp eq ptr %incdec.ptr11.i.i.i2092, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2087, label %if.then10.i.i.i2091, label %while.body7.i.i.i2088
 
 while.body7.i.i.i2088:                            ; preds = %land.rhs.i.i.i2085
@@ -2738,7 +2738,7 @@ if.then10.i.i.i2091:                              ; preds = %land.rhs.i.i.i2085
 
 while.cond14.i.i.i2094:                           ; preds = %if.then10.i.i.i2091, %if.end.i.i.i2101
   %cur1.0.i.i.i2095 = phi ptr [ %incdec.ptr20.i.i.i2102, %if.end.i.i.i2101 ], [ %incdec.ptr11.i.i.i2092, %if.then10.i.i.i2091 ]
-  %p2.0.i.i.i2096 = phi ptr [ %incdec.ptr17.i.i.i2099, %if.end.i.i.i2101 ], [ getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 1), %if.then10.i.i.i2091 ]
+  %p2.0.i.i.i2096 = phi ptr [ %incdec.ptr17.i.i.i2099, %if.end.i.i.i2101 ], [ getelementptr inbounds (i8, ptr @.str.284, i64 4), %if.then10.i.i.i2091 ]
   %49 = load i32, ptr %cur1.0.i.i.i2095, align 4
   %50 = load i32, ptr %p2.0.i.i.i2096, align 4
   %cmp15.i.i.i2097 = icmp eq i32 %49, %50
@@ -2746,16 +2746,16 @@ while.cond14.i.i.i2094:                           ; preds = %if.then10.i.i.i2091
 
 while.body16.i.i.i2098:                           ; preds = %while.cond14.i.i.i2094
   %incdec.ptr17.i.i.i2099 = getelementptr inbounds i8, ptr %p2.0.i.i.i2096, i64 4
-  %cmp18.i.i.i2100 = icmp eq ptr %incdec.ptr17.i.i.i2099, getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 7)
+  %cmp18.i.i.i2100 = icmp eq ptr %incdec.ptr17.i.i.i2099, getelementptr inbounds (i8, ptr @.str.284, i64 28)
   br i1 %cmp18.i.i.i2100, label %invoke.cont.i.i2104, label %if.end.i.i.i2101
 
 if.end.i.i.i2101:                                 ; preds = %while.body16.i.i.i2098
   %incdec.ptr20.i.i.i2102 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2095, i64 4
-  %cmp21.i.i.i2103 = icmp eq ptr %incdec.ptr20.i.i.i2102, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2103 = icmp eq ptr %incdec.ptr20.i.i.i2102, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2103, label %while.cond4.preheader.i.i.i2147.preheader, label %while.cond14.i.i.i2094, !llvm.loop !23
 
 invoke.cont.i.i2104:                              ; preds = %while.body16.i.i.i2098
-  %cmp13.not.i.not.i2106 = icmp eq ptr %first1.addr.134.i.i.i2086, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2106 = icmp eq ptr %first1.addr.134.i.i.i2086, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2106, label %while.cond4.preheader.i.i.i2147.preheader, label %if.then16.i.i2107
 
 if.then16.i.i2107:                                ; preds = %invoke.cont.i.i2104
@@ -2790,7 +2790,7 @@ if.then10.i.i.i2155:                              ; preds = %land.rhs.i.i.i2149
 
 while.cond14.i.i.i2158:                           ; preds = %if.then10.i.i.i2155, %if.end.i.i.i2165
   %cur1.0.i.i.i2159.idx = phi i64 [ %cur1.0.i.i.i2159.add, %if.end.i.i.i2165 ], [ %first1.addr.134.i.i.i2150.add5607, %if.then10.i.i.i2155 ]
-  %p2.0.i.i.i2160 = phi ptr [ %incdec.ptr17.i.i.i2163, %if.end.i.i.i2165 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2155 ]
+  %p2.0.i.i.i2160 = phi ptr [ %incdec.ptr17.i.i.i2163, %if.end.i.i.i2165 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2155 ]
   %cur1.0.i.i.i2159.ptr = getelementptr inbounds i8, ptr @.str.283, i64 %cur1.0.i.i.i2159.idx
   %52 = load i32, ptr %cur1.0.i.i.i2159.ptr, align 4
   %53 = load i32, ptr %p2.0.i.i.i2160, align 4
@@ -2799,7 +2799,7 @@ while.cond14.i.i.i2158:                           ; preds = %if.then10.i.i.i2155
 
 while.body16.i.i.i2162:                           ; preds = %while.cond14.i.i.i2158
   %incdec.ptr17.i.i.i2163 = getelementptr inbounds i8, ptr %p2.0.i.i.i2160, i64 4
-  %cmp18.i.i.i2164 = icmp eq ptr %incdec.ptr17.i.i.i2163, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i.i2164 = icmp eq ptr %incdec.ptr17.i.i.i2163, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i.i2164, label %invoke.cont.i.i2168, label %if.end.i.i.i2165
 
 if.end.i.i.i2165:                                 ; preds = %while.body16.i.i.i2162
@@ -2820,11 +2820,11 @@ while.cond4.preheader.i.i.i2209.preheader:        ; preds = %if.then10.i.i.i2155
   br label %land.rhs.i.i.i2211
 
 land.rhs.i.i.i2211:                               ; preds = %land.rhs.i.i.i2211.backedge, %while.cond4.preheader.i.i.i2209.preheader
-  %first1.addr.134.i.i.i2212 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 3), %while.cond4.preheader.i.i.i2209.preheader ], [ %incdec.ptr11.i.i.i2218, %land.rhs.i.i.i2211.backedge ]
+  %first1.addr.134.i.i.i2212 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 12), %while.cond4.preheader.i.i.i2209.preheader ], [ %incdec.ptr11.i.i.i2218, %land.rhs.i.i.i2211.backedge ]
   %54 = load i32, ptr %first1.addr.134.i.i.i2212, align 4
   %cmp6.not.i.i.i2213 = icmp eq i32 %54, 72
   %incdec.ptr11.i.i.i2218 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2212, i64 4
-  %cmp12.not.i.i.i2219 = icmp eq ptr %incdec.ptr11.i.i.i2218, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2219 = icmp eq ptr %incdec.ptr11.i.i.i2218, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2213, label %if.then10.i.i.i2217, label %while.body7.i.i.i2214
 
 while.body7.i.i.i2214:                            ; preds = %land.rhs.i.i.i2211
@@ -2838,7 +2838,7 @@ if.then10.i.i.i2217:                              ; preds = %land.rhs.i.i.i2211
 
 while.cond14.i.i.i2220:                           ; preds = %if.then10.i.i.i2217, %if.end.i.i.i2227
   %cur1.0.i.i.i2221 = phi ptr [ %incdec.ptr20.i.i.i2228, %if.end.i.i.i2227 ], [ %incdec.ptr11.i.i.i2218, %if.then10.i.i.i2217 ]
-  %p2.0.i.i.i2222 = phi ptr [ %incdec.ptr17.i.i.i2225, %if.end.i.i.i2227 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2217 ]
+  %p2.0.i.i.i2222 = phi ptr [ %incdec.ptr17.i.i.i2225, %if.end.i.i.i2227 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2217 ]
   %55 = load i32, ptr %cur1.0.i.i.i2221, align 4
   %56 = load i32, ptr %p2.0.i.i.i2222, align 4
   %cmp15.i.i.i2223 = icmp eq i32 %55, %56
@@ -2846,16 +2846,16 @@ while.cond14.i.i.i2220:                           ; preds = %if.then10.i.i.i2217
 
 while.body16.i.i.i2224:                           ; preds = %while.cond14.i.i.i2220
   %incdec.ptr17.i.i.i2225 = getelementptr inbounds i8, ptr %p2.0.i.i.i2222, i64 4
-  %cmp18.i.i.i2226 = icmp eq ptr %incdec.ptr17.i.i.i2225, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i.i2226 = icmp eq ptr %incdec.ptr17.i.i.i2225, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i.i2226, label %invoke.cont.i.i2230, label %if.end.i.i.i2227
 
 if.end.i.i.i2227:                                 ; preds = %while.body16.i.i.i2224
   %incdec.ptr20.i.i.i2228 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2221, i64 4
-  %cmp21.i.i.i2229 = icmp eq ptr %incdec.ptr20.i.i.i2228, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2229 = icmp eq ptr %incdec.ptr20.i.i.i2228, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2229, label %while.cond4.preheader.i.i.i2274.preheader, label %while.cond14.i.i.i2220, !llvm.loop !23
 
 invoke.cont.i.i2230:                              ; preds = %while.body16.i.i.i2224
-  %cmp13.not.i.not.i2232 = icmp eq ptr %first1.addr.134.i.i.i2212, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2232 = icmp eq ptr %first1.addr.134.i.i.i2212, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2232, label %while.cond4.preheader.i.i.i2274.preheader, label %if.then16.i.i2233
 
 if.then16.i.i2233:                                ; preds = %invoke.cont.i.i2230
@@ -2871,11 +2871,11 @@ while.cond4.preheader.i.i.i2274.preheader:        ; preds = %if.then10.i.i.i2217
   br label %land.rhs.i.i.i2276
 
 land.rhs.i.i.i2276:                               ; preds = %land.rhs.i.i.i2276.backedge, %while.cond4.preheader.i.i.i2274.preheader
-  %first1.addr.134.i.i.i2277 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 7), %while.cond4.preheader.i.i.i2274.preheader ], [ %incdec.ptr11.i.i.i2283, %land.rhs.i.i.i2276.backedge ]
+  %first1.addr.134.i.i.i2277 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 28), %while.cond4.preheader.i.i.i2274.preheader ], [ %incdec.ptr11.i.i.i2283, %land.rhs.i.i.i2276.backedge ]
   %57 = load i32, ptr %first1.addr.134.i.i.i2277, align 4
   %cmp6.not.i.i.i2278 = icmp eq i32 %57, 86
   %incdec.ptr11.i.i.i2283 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2277, i64 4
-  %cmp12.not.i.i.i2284 = icmp eq ptr %incdec.ptr11.i.i.i2283, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2284 = icmp eq ptr %incdec.ptr11.i.i.i2283, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2278, label %if.then10.i.i.i2282, label %while.body7.i.i.i2279
 
 while.body7.i.i.i2279:                            ; preds = %land.rhs.i.i.i2276
@@ -2889,7 +2889,7 @@ if.then10.i.i.i2282:                              ; preds = %land.rhs.i.i.i2276
 
 while.cond14.i.i.i2285:                           ; preds = %if.then10.i.i.i2282, %if.end.i.i.i2292
   %cur1.0.i.i.i2286 = phi ptr [ %incdec.ptr20.i.i.i2293, %if.end.i.i.i2292 ], [ %incdec.ptr11.i.i.i2283, %if.then10.i.i.i2282 ]
-  %p2.0.i.i.i2287 = phi ptr [ %incdec.ptr17.i.i.i2290, %if.end.i.i.i2292 ], [ getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 1), %if.then10.i.i.i2282 ]
+  %p2.0.i.i.i2287 = phi ptr [ %incdec.ptr17.i.i.i2290, %if.end.i.i.i2292 ], [ getelementptr inbounds (i8, ptr @.str.284, i64 4), %if.then10.i.i.i2282 ]
   %58 = load i32, ptr %cur1.0.i.i.i2286, align 4
   %59 = load i32, ptr %p2.0.i.i.i2287, align 4
   %cmp15.i.i.i2288 = icmp eq i32 %58, %59
@@ -2897,16 +2897,16 @@ while.cond14.i.i.i2285:                           ; preds = %if.then10.i.i.i2282
 
 while.body16.i.i.i2289:                           ; preds = %while.cond14.i.i.i2285
   %incdec.ptr17.i.i.i2290 = getelementptr inbounds i8, ptr %p2.0.i.i.i2287, i64 4
-  %cmp18.i.i.i2291 = icmp eq ptr %incdec.ptr17.i.i.i2290, getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 7)
+  %cmp18.i.i.i2291 = icmp eq ptr %incdec.ptr17.i.i.i2290, getelementptr inbounds (i8, ptr @.str.284, i64 28)
   br i1 %cmp18.i.i.i2291, label %invoke.cont.i.i2295, label %if.end.i.i.i2292
 
 if.end.i.i.i2292:                                 ; preds = %while.body16.i.i.i2289
   %incdec.ptr20.i.i.i2293 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2286, i64 4
-  %cmp21.i.i.i2294 = icmp eq ptr %incdec.ptr20.i.i.i2293, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2294 = icmp eq ptr %incdec.ptr20.i.i.i2293, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2294, label %while.cond.i.i.i.i.preheader, label %while.cond14.i.i.i2285, !llvm.loop !23
 
 invoke.cont.i.i2295:                              ; preds = %while.body16.i.i.i2289
-  %cmp13.not.i.not.i2297 = icmp eq ptr %first1.addr.134.i.i.i2277, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2297 = icmp eq ptr %first1.addr.134.i.i.i2277, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2297, label %while.cond.i.i.i.i.preheader, label %if.then16.i.i2298
 
 if.then16.i.i2298:                                ; preds = %invoke.cont.i.i2295
@@ -2922,7 +2922,7 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then10.i.i.i2282
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i2354
-  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2352, %while.body.i.i.i.i2354 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i.preheader ]
+  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2352, %while.body.i.i.i.i2354 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i2352 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i, i64 -4
   %cmp.not.i.i.i.i2353 = icmp ult ptr %incdec.ptr.i.i.i.i2352, @.str.285
   br i1 %cmp.not.i.i.i.i2353, label %while.body.i.i.i2390.preheader, label %while.body.i.i.i.i2354
@@ -2945,7 +2945,7 @@ while.body.i.i.i2390.preheader:                   ; preds = %while.cond.i.i.i.i,
   br label %while.body.i.i.i2390
 
 while.body.i.i.i2390:                             ; preds = %while.body.i.i.i2390.preheader, %while.end.i.i.i2402
-  %pSearchEnd.045.i.i.i2391 = phi ptr [ %incdec.ptr36.i.i.i2403, %while.end.i.i.i2402 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2390.preheader ]
+  %pSearchEnd.045.i.i.i2391 = phi ptr [ %incdec.ptr36.i.i.i2403, %while.end.i.i.i2402 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2390.preheader ]
   br label %while.cond.i30.i.i.i2392
 
 while.cond.i30.i.i.i2392:                         ; preds = %while.body.i34.i.i.i2396, %while.body.i.i.i2390
@@ -2981,7 +2981,7 @@ while.end.i.i.i2402:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2413: ; preds = %while.body26.i.i.i2407
   %add.ptr34.i.i.i2412 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2399, i64 -8
-  %cmp11.not.i.i2415 = icmp eq ptr %add.ptr34.i.i.i2412, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2415 = icmp eq ptr %add.ptr34.i.i.i2412, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2415, label %while.body.i.i.i2465.preheader, label %if.then12.i.i2416
 
 if.then12.i.i2416:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2413
@@ -2997,7 +2997,7 @@ while.body.i.i.i2465.preheader:                   ; preds = %while.end.i.i.i2402
   br label %while.body.i.i.i2465
 
 while.body.i.i.i2465:                             ; preds = %while.body.i.i.i2465.preheader, %while.end.i.i.i2477
-  %pSearchEnd.045.i.i.i2466 = phi ptr [ %incdec.ptr36.i.i.i2478, %while.end.i.i.i2477 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2465.preheader ]
+  %pSearchEnd.045.i.i.i2466 = phi ptr [ %incdec.ptr36.i.i.i2478, %while.end.i.i.i2477 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2465.preheader ]
   br label %while.cond.i30.i.i.i2467
 
 while.cond.i30.i.i.i2467:                         ; preds = %while.body.i34.i.i.i2471, %while.body.i.i.i2465
@@ -3033,7 +3033,7 @@ while.end.i.i.i2477:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2488: ; preds = %while.body26.i.i.i2482
   %add.ptr34.i.i.i2487 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2474, i64 -12
-  %cmp11.not.i.i2490 = icmp eq ptr %add.ptr34.i.i.i2487, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2490 = icmp eq ptr %add.ptr34.i.i.i2487, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2490, label %while.cond.i.i.i.i2562.preheader, label %if.then12.i.i2491
 
 if.then12.i.i2491:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2488
@@ -3049,7 +3049,7 @@ while.cond.i.i.i.i2562.preheader:                 ; preds = %while.end.i.i.i2477
   br label %while.cond.i.i.i.i2562
 
 while.cond.i.i.i.i2562:                           ; preds = %while.cond.i.i.i.i2562.preheader, %while.body.i.i.i.i2566
-  %pTemp.0.i.i.i.i2563 = phi ptr [ %incdec.ptr.i.i.i.i2564, %while.body.i.i.i.i2566 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i2562.preheader ]
+  %pTemp.0.i.i.i.i2563 = phi ptr [ %incdec.ptr.i.i.i.i2564, %while.body.i.i.i.i2566 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2562.preheader ]
   %incdec.ptr.i.i.i.i2564 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2563, i64 -4
   %cmp.not.i.i.i.i2565 = icmp ult ptr %incdec.ptr.i.i.i.i2564, @.str.285
   br i1 %cmp.not.i.i.i.i2565, label %while.body.i.i.i2599.preheader, label %while.body.i.i.i.i2566
@@ -3072,7 +3072,7 @@ while.body.i.i.i2599.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2599
 
 while.body.i.i.i2599:                             ; preds = %while.body.i.i.i2599.preheader, %while.end.i.i.i2611
-  %pSearchEnd.045.i.i.i2600 = phi ptr [ %incdec.ptr36.i.i.i2612, %while.end.i.i.i2611 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2599.preheader ]
+  %pSearchEnd.045.i.i.i2600 = phi ptr [ %incdec.ptr36.i.i.i2612, %while.end.i.i.i2611 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2599.preheader ]
   br label %while.cond.i30.i.i.i2601
 
 while.cond.i30.i.i.i2601:                         ; preds = %while.body.i34.i.i.i2605, %while.body.i.i.i2599
@@ -3108,7 +3108,7 @@ while.end.i.i.i2611:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2621: ; preds = %while.body26.i.i.i2615
   %add.ptr34.i.i.i2620 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2608, i64 -8
-  %cmp11.not.i.i2623 = icmp eq ptr %add.ptr34.i.i.i2620, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2623 = icmp eq ptr %add.ptr34.i.i.i2620, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2623, label %while.body.i.i.i2669.preheader, label %if.then12.i.i2624
 
 if.then12.i.i2624:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2621
@@ -3124,7 +3124,7 @@ while.body.i.i.i2669.preheader:                   ; preds = %while.end.i.i.i2611
   br label %while.body.i.i.i2669
 
 while.body.i.i.i2669:                             ; preds = %while.body.i.i.i2669.preheader, %while.end.i.i.i2681
-  %pSearchEnd.045.i.i.i2670 = phi ptr [ %incdec.ptr36.i.i.i2682, %while.end.i.i.i2681 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2669.preheader ]
+  %pSearchEnd.045.i.i.i2670 = phi ptr [ %incdec.ptr36.i.i.i2682, %while.end.i.i.i2681 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2669.preheader ]
   br label %while.cond.i30.i.i.i2671
 
 while.cond.i30.i.i.i2671:                         ; preds = %while.body.i34.i.i.i2675, %while.body.i.i.i2669
@@ -3160,7 +3160,7 @@ while.end.i.i.i2681:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2691: ; preds = %while.body26.i.i.i2685
   %add.ptr34.i.i.i2690 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2678, i64 -12
-  %cmp11.not.i.i2693 = icmp eq ptr %add.ptr34.i.i.i2690, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2693 = icmp eq ptr %add.ptr34.i.i.i2690, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2693, label %while.cond.i.i.i.i2772.preheader, label %if.then12.i.i2694
 
 if.then12.i.i2694:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2691
@@ -3176,7 +3176,7 @@ while.cond.i.i.i.i2772.preheader:                 ; preds = %while.end.i.i.i2681
   br label %while.cond.i.i.i.i2772
 
 while.cond.i.i.i.i2772:                           ; preds = %while.cond.i.i.i.i2772.preheader, %while.body.i.i.i.i2776
-  %pTemp.0.i.i.i.i2773 = phi ptr [ %incdec.ptr.i.i.i.i2774, %while.body.i.i.i.i2776 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i2772.preheader ]
+  %pTemp.0.i.i.i.i2773 = phi ptr [ %incdec.ptr.i.i.i.i2774, %while.body.i.i.i.i2776 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2772.preheader ]
   %incdec.ptr.i.i.i.i2774 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2773, i64 -4
   %cmp.not.i.i.i.i2775 = icmp ult ptr %incdec.ptr.i.i.i.i2774, @.str.285
   br i1 %cmp.not.i.i.i.i2775, label %while.body.i.i.i2811.preheader, label %while.body.i.i.i.i2776
@@ -3199,7 +3199,7 @@ while.body.i.i.i2811.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2811
 
 while.body.i.i.i2811:                             ; preds = %while.body.i.i.i2811.preheader, %while.end.i.i.i2823
-  %pSearchEnd.045.i.i.i2812 = phi ptr [ %incdec.ptr36.i.i.i2824, %while.end.i.i.i2823 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2811.preheader ]
+  %pSearchEnd.045.i.i.i2812 = phi ptr [ %incdec.ptr36.i.i.i2824, %while.end.i.i.i2823 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2811.preheader ]
   br label %while.cond.i30.i.i.i2813
 
 while.cond.i30.i.i.i2813:                         ; preds = %while.body.i34.i.i.i2817, %while.body.i.i.i2811
@@ -3235,7 +3235,7 @@ while.end.i.i.i2823:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2833: ; preds = %while.body26.i.i.i2827
   %add.ptr34.i.i.i2832 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2820, i64 -8
-  %cmp11.not.i.i2835 = icmp eq ptr %add.ptr34.i.i.i2832, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2835 = icmp eq ptr %add.ptr34.i.i.i2832, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2835, label %while.body.i.i.i2883.preheader, label %if.then12.i.i2836
 
 if.then12.i.i2836:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2833
@@ -3251,7 +3251,7 @@ while.body.i.i.i2883.preheader:                   ; preds = %while.end.i.i.i2823
   br label %while.body.i.i.i2883
 
 while.body.i.i.i2883:                             ; preds = %while.body.i.i.i2883.preheader, %while.end.i.i.i2895
-  %pSearchEnd.045.i.i.i2884 = phi ptr [ %incdec.ptr36.i.i.i2896, %while.end.i.i.i2895 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2883.preheader ]
+  %pSearchEnd.045.i.i.i2884 = phi ptr [ %incdec.ptr36.i.i.i2896, %while.end.i.i.i2895 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2883.preheader ]
   br label %while.cond.i30.i.i.i2885
 
 while.cond.i30.i.i.i2885:                         ; preds = %while.body.i34.i.i.i2889, %while.body.i.i.i2883
@@ -3287,7 +3287,7 @@ while.end.i.i.i2895:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2905: ; preds = %while.body26.i.i.i2899
   %add.ptr34.i.i.i2904 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2892, i64 -12
-  %cmp11.not.i.i2907 = icmp eq ptr %add.ptr34.i.i.i2904, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2907 = icmp eq ptr %add.ptr34.i.i.i2904, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2907, label %if.then.i2926, label %if.then12.i.i2908
 
 if.then12.i.i2908:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2905
@@ -3303,7 +3303,7 @@ if.then.i2926:                                    ; preds = %while.end.i.i.i2895
   br label %while.cond.i.i2930
 
 while.cond.i.i2930:                               ; preds = %while.body.i.i, %if.then.i2926
-  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %if.then.i2926 ], [ %add.ptr.i.i2932, %while.body.i.i ]
+  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %if.then.i2926 ], [ %add.ptr.i.i2932, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.285
   br i1 %cmp.i.i, label %while.body.i.i, label %if.then.i2940
 
@@ -3326,7 +3326,7 @@ if.then.i2940:                                    ; preds = %while.cond.i.i2930,
   br label %while.cond.i.i2945
 
 while.cond.i.i2945:                               ; preds = %while.body.i.i2949, %if.then.i2940
-  %pRBegin.addr.0.i.i2946 = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 25), %if.then.i2940 ], [ %add.ptr.i.i2950, %while.body.i.i2949 ]
+  %pRBegin.addr.0.i.i2946 = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 100), %if.then.i2940 ], [ %add.ptr.i.i2950, %while.body.i.i2949 ]
   %cmp.i.i2947 = icmp ugt ptr %pRBegin.addr.0.i.i2946, @.str.285
   br i1 %cmp.i.i2947, label %while.body.i.i2949, label %if.then.i2961
 
@@ -3349,7 +3349,7 @@ if.then.i2961:                                    ; preds = %while.cond.i.i2945,
   br label %while.cond.i.i2966
 
 while.cond.i.i2966:                               ; preds = %while.body.i.i2970, %if.then.i2961
-  %pRBegin.addr.0.i.i2967 = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 25), %if.then.i2961 ], [ %add.ptr.i.i2971, %while.body.i.i2970 ]
+  %pRBegin.addr.0.i.i2967 = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 100), %if.then.i2961 ], [ %add.ptr.i.i2971, %while.body.i.i2970 ]
   %cmp.i.i2968 = icmp ugt ptr %pRBegin.addr.0.i.i2967, @.str.285
   br i1 %cmp.i.i2968, label %while.body.i.i2970, label %for.cond1.preheader.i.i.i3053.preheader
 
@@ -3444,7 +3444,7 @@ for.cond1.preheader.i.i.preheader:                ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.i.i.preheader, %for.cond1.for.inc5_crit_edge.i.i
-  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr6.i.i, %for.cond1.for.inc5_crit_edge.i.i ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 1), %for.cond1.preheader.i.i.preheader ]
+  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr6.i.i, %for.cond1.for.inc5_crit_edge.i.i ], [ getelementptr inbounds (i8, ptr @.str.289, i64 4), %for.cond1.preheader.i.i.preheader ]
   %88 = load i32, ptr %p1Begin.addr.012.i.i, align 4
   br label %for.body3.i.i
 
@@ -3462,11 +3462,11 @@ for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for
 
 for.cond1.for.inc5_crit_edge.i.i:                 ; preds = %for.cond1.i.i
   %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i, i64 4
-  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr6.i.i, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr6.i.i, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp.not.i.i3111, label %if.then.i3120, label %for.cond1.preheader.i.i, !llvm.loop !30
 
 _ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i: ; preds = %for.body3.i.i
-  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp7.not.i, label %if.then.i3120, label %if.then8.i3112
 
 if.then8.i3112:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i
@@ -3481,7 +3481,7 @@ if.then.i3120:                                    ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc5_crit_edge.i.i3131, %if.then.i3120
-  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr6.i.i3132, %for.cond1.for.inc5_crit_edge.i.i3131 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 1), %if.then.i3120 ]
+  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr6.i.i3132, %for.cond1.for.inc5_crit_edge.i.i3131 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 4), %if.then.i3120 ]
   %90 = load i32, ptr %p1Begin.addr.012.i.i3124, align 4
   br label %for.body3.i.i3125
 
@@ -3499,11 +3499,11 @@ for.body3.i.i3125:                                ; preds = %for.cond1.i.i3128, 
 
 for.cond1.for.inc5_crit_edge.i.i3131:             ; preds = %for.cond1.i.i3128
   %incdec.ptr6.i.i3132 = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i3124, i64 4
-  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr6.i.i3132, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr6.i.i3132, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp.not.i.i3133, label %land.rhs.i.i.i.i.i3152.preheader, label %for.cond1.preheader.i.i3123, !llvm.loop !30
 
 _ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i3134: ; preds = %for.body3.i.i3125
-  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp7.not.i3135, label %land.rhs.i.i.i.i.i3152.preheader, label %if.then8.i3136
 
 if.then8.i3136:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i3134
@@ -3562,7 +3562,7 @@ for.cond1.preheader.i.i.i3226.preheader:          ; preds = %for.cond1.i.i.i3182
   br label %for.cond1.preheader.i.i.i3226
 
 for.cond1.preheader.i.i.i3226:                    ; preds = %for.cond1.preheader.i.i.i3226.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3234
-  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3227, %for.cond1.for.inc5_crit_edge.i.i.i3234 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3226.preheader ]
+  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3227, %for.cond1.for.inc5_crit_edge.i.i.i3234 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3226.preheader ]
   %add.ptr.i.i.i3227 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i, i64 -4
   %94 = load i32, ptr %add.ptr.i.i.i3227, align 4
   br label %for.body3.i.i.i3228
@@ -3600,7 +3600,7 @@ for.cond1.preheader.i.i.i3258.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3258
 
 for.cond1.preheader.i.i.i3258:                    ; preds = %for.cond1.preheader.i.i.i3258.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3267
-  %p1RBegin.addr.012.i.i.i3259 = phi ptr [ %add.ptr.i.i.i3260, %for.cond1.for.inc5_crit_edge.i.i.i3267 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3258.preheader ]
+  %p1RBegin.addr.012.i.i.i3259 = phi ptr [ %add.ptr.i.i.i3260, %for.cond1.for.inc5_crit_edge.i.i.i3267 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3258.preheader ]
   %add.ptr.i.i.i3260 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3259, i64 -4
   %96 = load i32, ptr %add.ptr.i.i.i3260, align 4
   br label %for.body3.i.i.i3261
@@ -3638,7 +3638,7 @@ for.cond1.preheader.i.i.i3292.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3292
 
 for.cond1.preheader.i.i.i3292:                    ; preds = %for.cond1.preheader.i.i.i3292.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3301
-  %p1RBegin.addr.012.i.i.i3293 = phi ptr [ %add.ptr.i.i.i3294, %for.cond1.for.inc5_crit_edge.i.i.i3301 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3292.preheader ]
+  %p1RBegin.addr.012.i.i.i3293 = phi ptr [ %add.ptr.i.i.i3294, %for.cond1.for.inc5_crit_edge.i.i.i3301 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3292.preheader ]
   %add.ptr.i.i.i3294 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3293, i64 -4
   %98 = load i32, ptr %add.ptr.i.i.i3294, align 4
   br label %for.body3.i.i.i3295
@@ -3676,7 +3676,7 @@ for.cond1.preheader.i.i.i3327.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3327
 
 for.cond1.preheader.i.i.i3327:                    ; preds = %for.cond1.preheader.i.i.i3327.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3336
-  %p1RBegin.addr.012.i.i.i3328 = phi ptr [ %add.ptr.i.i.i3329, %for.cond1.for.inc5_crit_edge.i.i.i3336 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3327.preheader ]
+  %p1RBegin.addr.012.i.i.i3328 = phi ptr [ %add.ptr.i.i.i3329, %for.cond1.for.inc5_crit_edge.i.i.i3336 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3327.preheader ]
   %add.ptr.i.i.i3329 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3328, i64 -4
   %100 = load i32, ptr %add.ptr.i.i.i3329, align 4
   br label %for.body3.i.i.i3330
@@ -3714,7 +3714,7 @@ if.then.i.i3349:                                  ; preds = %for.cond1.for.inc5_
   br label %while.cond.i.i.i3354
 
 while.cond.i.i.i3354:                             ; preds = %while.body.i.i.i3357, %if.then.i.i3349
-  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %if.then.i.i3349 ], [ %add.ptr.i.i.i3358, %while.body.i.i.i3357 ]
+  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %if.then.i.i3349 ], [ %add.ptr.i.i.i3358, %while.body.i.i.i3357 ]
   %cmp.i.i.i3355 = icmp ugt ptr %pRBegin.addr.0.i.i.i, @.str.289
   br i1 %cmp.i.i.i3355, label %while.body.i.i.i3357, label %if.then.i.i3366
 
@@ -3737,7 +3737,7 @@ if.then.i.i3366:                                  ; preds = %while.cond.i.i.i335
   br label %while.cond.i.i.i3371
 
 while.cond.i.i.i3371:                             ; preds = %while.body.i.i.i3375, %if.then.i.i3366
-  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
+  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
   %cmp.i.i.i3373 = icmp ugt ptr %pRBegin.addr.0.i.i.i3372, @.str.289
   br i1 %cmp.i.i.i3373, label %while.body.i.i.i3375, label %for.cond1.preheader.i.i.i3412.preheader
 
@@ -3832,7 +3832,7 @@ for.cond1.preheader.i.i.i3551.preheader:          ; preds = %for.inc8.i.i.i3458,
   br label %for.cond1.preheader.i.i.i3551
 
 for.cond1.preheader.i.i.i3551:                    ; preds = %for.cond1.preheader.i.i.i3551.preheader, %for.inc8.i.i.i3571
-  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc8.i.i.i3571 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3551.preheader ]
+  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc8.i.i.i3571 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3551.preheader ]
   %add.ptr.i.i.i3553 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3552, i64 -4
   %108 = load i32, ptr %add.ptr.i.i.i3553, align 4
   br label %for.body3.i.i.i3554
@@ -3871,7 +3871,7 @@ for.cond1.preheader.i.i.i3596.preheader:          ; preds = %for.inc8.i.i.i3571,
   br label %for.cond1.preheader.i.i.i3596
 
 for.cond1.preheader.i.i.i3596:                    ; preds = %for.cond1.preheader.i.i.i3596.preheader, %for.inc8.i.i.i3616
-  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc8.i.i.i3616 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3596.preheader ]
+  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc8.i.i.i3616 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3596.preheader ]
   %add.ptr.i.i.i3598 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3597, i64 -4
   %110 = load i32, ptr %add.ptr.i.i.i3598, align 4
   br label %for.body3.i.i.i3599
@@ -3910,7 +3910,7 @@ for.cond1.preheader.i.i.i3634.preheader:          ; preds = %for.inc8.i.i.i3616,
   br label %for.cond1.preheader.i.i.i3634
 
 for.cond1.preheader.i.i.i3634:                    ; preds = %for.cond1.preheader.i.i.i3634.preheader, %for.inc8.i.i.i3653
-  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc8.i.i.i3653 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3634.preheader ]
+  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc8.i.i.i3653 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3634.preheader ]
   %add.ptr.i.i.i3636 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3635, i64 -4
   %112 = load i32, ptr %add.ptr.i.i.i3636, align 4
   br label %for.body3.i.i.i3637
@@ -4547,7 +4547,7 @@ for.body.i.i.i.preheader.i.i.i4611:               ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i4614:                         ; preds = %for.body.i.i.i.i.i.i4614, %for.body.i.i.i.preheader.i.i.i4611
   %n.addr.011.i.i.i.i.i.i4615 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i.i4611 ], [ %dec.i.i.i.i.i.i4622, %for.body.i.i.i.i.i.i4614 ]
   %p2.addr.010.i.i.i.i.i.i4616 = phi ptr [ @.str.302, %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr3.i.i.i.i.i.i4621, %for.body.i.i.i.i.i.i4614 ]
-  %p1.addr.09.i.i.i.i.i.i4617 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 25), %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr.i.i.i.i.i.i4620, %for.body.i.i.i.i.i.i4614 ]
+  %p1.addr.09.i.i.i.i.i.i4617 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 100), %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr.i.i.i.i.i.i4620, %for.body.i.i.i.i.i.i4614 ]
   %181 = load i32, ptr %p1.addr.09.i.i.i.i.i.i4617, align 4
   %182 = load i32, ptr %p2.addr.010.i.i.i.i.i.i4616, align 4
   %cmp1.not.i.i.i.i.i.i4618 = icmp eq i32 %181, %182
@@ -4565,7 +4565,7 @@ for.body.i.i.i.preheader.i.i4639:                 ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i4642:                           ; preds = %for.body.i.i.i.i.i4642, %for.body.i.i.i.preheader.i.i4639
   %n.addr.011.i.i.i.i.i4643 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i4639 ], [ %dec.i.i.i.i.i4650, %for.body.i.i.i.i.i4642 ]
   %p2.addr.010.i.i.i.i.i4644 = phi ptr [ @.str.302, %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr3.i.i.i.i.i4649, %for.body.i.i.i.i.i4642 ]
-  %p1.addr.09.i.i.i.i.i4645 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 25), %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr.i.i.i.i.i4648, %for.body.i.i.i.i.i4642 ]
+  %p1.addr.09.i.i.i.i.i4645 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 100), %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr.i.i.i.i.i4648, %for.body.i.i.i.i.i4642 ]
   %183 = load i32, ptr %p1.addr.09.i.i.i.i.i4645, align 4
   %184 = load i32, ptr %p2.addr.010.i.i.i.i.i4644, align 4
   %cmp1.not.i.i.i.i.i4646 = icmp eq i32 %183, %184
@@ -4583,7 +4583,7 @@ for.body.i.i.i.preheader.i.i.i4664:               ; preds = %for.body.i.i.i.i.i4
 for.body.i.i.i.i.i.i4667:                         ; preds = %for.body.i.i.i.i.i.i4667, %for.body.i.i.i.preheader.i.i.i4664
   %n.addr.011.i.i.i.i.i.i4668 = phi i64 [ 5, %for.body.i.i.i.preheader.i.i.i4664 ], [ %dec.i.i.i.i.i.i4675, %for.body.i.i.i.i.i.i4667 ]
   %p2.addr.010.i.i.i.i.i.i4669 = phi ptr [ @.str.303, %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr3.i.i.i.i.i.i4674, %for.body.i.i.i.i.i.i4667 ]
-  %p1.addr.09.i.i.i.i.i.i4670 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 24), %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr.i.i.i.i.i.i4673, %for.body.i.i.i.i.i.i4667 ]
+  %p1.addr.09.i.i.i.i.i.i4670 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 96), %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr.i.i.i.i.i.i4673, %for.body.i.i.i.i.i.i4667 ]
   %185 = load i32, ptr %p1.addr.09.i.i.i.i.i.i4670, align 4
   %186 = load i32, ptr %p2.addr.010.i.i.i.i.i.i4669, align 4
   %cmp1.not.i.i.i.i.i.i4671 = icmp ne i32 %185, %186
@@ -4705,7 +4705,7 @@ for.body.i104.preheader:                          ; preds = %for.body.i73
 for.body.i232:                                    ; preds = %for.body.i232, %for.body.i104.preheader
   %n.addr.010.i233 = phi i64 [ 6, %for.body.i104.preheader ], [ %dec.i244, %for.body.i232 ]
   %p2.addr.09.i234 = phi ptr [ @.str.56, %for.body.i104.preheader ], [ %incdec.ptr6.i243, %for.body.i232 ]
-  %p1.addr.08.i235 = phi ptr [ getelementptr inbounds ([18 x i8], ptr @.str.31, i64 0, i64 11), %for.body.i104.preheader ], [ %incdec.ptr.i242, %for.body.i232 ]
+  %p1.addr.08.i235 = phi ptr [ getelementptr inbounds (i8, ptr @.str.31, i64 11), %for.body.i104.preheader ], [ %incdec.ptr.i242, %for.body.i232 ]
   %2 = load i8, ptr %p1.addr.08.i235, align 1
   %3 = load i8, ptr %p2.addr.09.i234, align 1
   %cmp2.not.i236 = icmp eq i8 %2, %3
@@ -4742,7 +4742,7 @@ for.body.i320.preheader:                          ; preds = %for.body.i232
 for.body.i365:                                    ; preds = %for.body.i365, %for.body.i320.preheader
   %n.addr.010.i366 = phi i64 [ 6, %for.body.i320.preheader ], [ %dec.i377, %for.body.i365 ]
   %p2.addr.09.i367 = phi ptr [ @.str.77, %for.body.i320.preheader ], [ %incdec.ptr6.i376, %for.body.i365 ]
-  %p1.addr.08.i368 = phi ptr [ getelementptr inbounds ([10 x i8], ptr @.str.61, i64 0, i64 3), %for.body.i320.preheader ], [ %incdec.ptr.i375, %for.body.i365 ]
+  %p1.addr.08.i368 = phi ptr [ getelementptr inbounds (i8, ptr @.str.61, i64 3), %for.body.i320.preheader ], [ %incdec.ptr.i375, %for.body.i365 ]
   %4 = load i8, ptr %p1.addr.08.i368, align 1
   %5 = load i8, ptr %p2.addr.09.i367, align 1
   %cmp2.not.i369 = icmp eq i8 %4, %5
@@ -4761,7 +4761,7 @@ for.body.i386.preheader:                          ; preds = %for.body.i365
 for.body.i386:                                    ; preds = %for.body.i386, %for.body.i386.preheader
   %n.addr.010.i387 = phi i64 [ 3, %for.body.i386.preheader ], [ %dec.i398, %for.body.i386 ]
   %p2.addr.09.i388 = phi ptr [ @.str.80, %for.body.i386.preheader ], [ %incdec.ptr6.i397, %for.body.i386 ]
-  %p1.addr.08.i389 = phi ptr [ getelementptr inbounds ([10 x i8], ptr @.str.61, i64 0, i64 6), %for.body.i386.preheader ], [ %incdec.ptr.i396, %for.body.i386 ]
+  %p1.addr.08.i389 = phi ptr [ getelementptr inbounds (i8, ptr @.str.61, i64 6), %for.body.i386.preheader ], [ %incdec.ptr.i396, %for.body.i386 ]
   %6 = load i8, ptr %p1.addr.08.i389, align 1
   %7 = load i8, ptr %p2.addr.09.i388, align 1
   %cmp2.not.i390 = icmp eq i8 %6, %7
@@ -4780,7 +4780,7 @@ for.body.i406.preheader:                          ; preds = %for.body.i386
 for.body.i406:                                    ; preds = %for.body.i406, %for.body.i406.preheader
   %n.addr.010.i407 = phi i64 [ 2, %for.body.i406.preheader ], [ %dec.i418, %for.body.i406 ]
   %p2.addr.09.i408 = phi ptr [ @.str.83, %for.body.i406.preheader ], [ %incdec.ptr6.i417, %for.body.i406 ]
-  %p1.addr.08.i409 = phi ptr [ getelementptr inbounds ([10 x i8], ptr @.str.61, i64 0, i64 6), %for.body.i406.preheader ], [ %incdec.ptr.i416, %for.body.i406 ]
+  %p1.addr.08.i409 = phi ptr [ getelementptr inbounds (i8, ptr @.str.61, i64 6), %for.body.i406.preheader ], [ %incdec.ptr.i416, %for.body.i406 ]
   %8 = load i8, ptr %p1.addr.08.i409, align 1
   %9 = load i8, ptr %p2.addr.09.i408, align 1
   %cmp2.not.i410 = icmp eq i8 %8, %9
@@ -4798,7 +4798,7 @@ _ZN5eastl7CompareIDuEEiPKT_S3_m.exit460:          ; preds = %for.body.i406
   %call348 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 241, ptr noundef nonnull @.str.88)
   %call353 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 244, ptr noundef nonnull @.str.90)
   %call356 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 245, ptr noundef nonnull @.str.21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %buf, ptr noundef nonnull align 1 dereferenceable(5) getelementptr inbounds ([15 x i8], ptr @.str.91, i64 0, i64 2), i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %buf, ptr noundef nonnull align 1 dereferenceable(5) getelementptr inbounds (i8, ptr @.str.91, i64 2), i64 5, i1 false)
   br label %for.body.i474
 
 for.body.i474:                                    ; preds = %for.body.i474, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit460
@@ -4823,7 +4823,7 @@ for.body.i504.preheader:                          ; preds = %for.body.i474
 for.body.i504:                                    ; preds = %for.body.i504, %for.body.i504.preheader
   %n.addr.010.i505 = phi i64 [ 5, %for.body.i504.preheader ], [ %dec.i516, %for.body.i504 ]
   %p2.addr.09.i506 = phi ptr [ @.str.29, %for.body.i504.preheader ], [ %incdec.ptr6.i515, %for.body.i504 ]
-  %p1.addr.08.i507 = phi ptr [ getelementptr inbounds ([15 x i8], ptr @.str.91, i64 0, i64 2), %for.body.i504.preheader ], [ %incdec.ptr.i514, %for.body.i504 ]
+  %p1.addr.08.i507 = phi ptr [ getelementptr inbounds (i8, ptr @.str.91, i64 2), %for.body.i504.preheader ], [ %incdec.ptr.i514, %for.body.i504 ]
   %12 = load i8, ptr %p1.addr.08.i507, align 1
   %13 = load i8, ptr %p2.addr.09.i506, align 1
   %cmp2.not.i508 = icmp eq i8 %12, %13
@@ -4898,16 +4898,16 @@ _ZN5eastl7CompareIDuEEiPKT_S3_m.exit.i.i948:      ; preds = %for.body.i.i.i943
 _ZNK5eastl17basic_string_viewIDuE7compareES1_.exit961: ; preds = %for.inc.i.i.i951, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.i.i948
   %cmp429 = phi i1 [ %cmp5.i.i.i949, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.i.i948 ], [ true, %for.inc.i.i.i951 ]
   %call430 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp429, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 287, ptr noundef nonnull @.str.111)
-  br i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 0), label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i, label %for.body.i.i.i.i.preheader
+  br i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.112, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 0), label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNK5eastl17basic_string_viewIDuE7compareES1_.exit961
-  %cond.i.i.i980 = call noundef i64 @llvm.umin.i64(i64 add (i64 ptrtoint (ptr getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5)
+  %cond.i.i.i980 = call noundef i64 @llvm.umin.i64(i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.112, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5)
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i
   %n.addr.010.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i ], [ %cond.i.i.i980, %for.body.i.i.i.i.preheader ]
   %p2.addr.09.i.i.i.i = phi ptr [ %incdec.ptr6.i.i.i.i, %for.inc.i.i.i.i ], [ @.str.29, %for.body.i.i.i.i.preheader ]
-  %p1.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 4), %for.body.i.i.i.i.preheader ]
+  %p1.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ getelementptr inbounds (i8, ptr @.str.112, i64 4), %for.body.i.i.i.i.preheader ]
   %19 = load i8, ptr %p1.addr.08.i.i.i.i, align 1
   %20 = load i8, ptr %p2.addr.09.i.i.i.i, align 1
   %cmp2.not.i.i.i.i = icmp eq i8 %19, %20
@@ -4921,7 +4921,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i, label %for.body.i.i.i.i, !llvm.loop !37
 
 _ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i: ; preds = %for.inc.i.i.i.i, %_ZNK5eastl17basic_string_viewIDuE7compareES1_.exit961
-  %cond1014.i.i.i = sext i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5) to i32
+  %cond1014.i.i.i = sext i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.112, i64 13) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.112 to i64)), i64 -4)), i64 5) to i32
   br label %for.body.i.i.i.i1006.preheader
 
 for.body.i.i.i.i1006.preheader:                   ; preds = %for.body.i.i.i.i, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i
@@ -4951,7 +4951,7 @@ for.body.i.i.i.i1041.preheader:                   ; preds = %for.body.i.i.i.i100
 for.body.i.i.i.i1041:                             ; preds = %for.body.i.i.i.i1041, %for.body.i.i.i.i1041.preheader
   %n.addr.010.i.i.i.i1042 = phi i64 [ 3, %for.body.i.i.i.i1041.preheader ], [ %dec.i.i.i.i1052, %for.body.i.i.i.i1041 ]
   %p2.addr.09.i.i.i.i1043 = phi ptr [ @.str.80, %for.body.i.i.i.i1041.preheader ], [ %incdec.ptr6.i.i.i.i1051, %for.body.i.i.i.i1041 ]
-  %p1.addr.08.i.i.i.i1044 = phi ptr [ getelementptr inbounds ([10 x i8], ptr @.str.61, i64 0, i64 6), %for.body.i.i.i.i1041.preheader ], [ %incdec.ptr.i.i.i.i1050, %for.body.i.i.i.i1041 ]
+  %p1.addr.08.i.i.i.i1044 = phi ptr [ getelementptr inbounds (i8, ptr @.str.61, i64 6), %for.body.i.i.i.i1041.preheader ], [ %incdec.ptr.i.i.i.i1050, %for.body.i.i.i.i1041 ]
   %24 = load i8, ptr %p1.addr.08.i.i.i.i1044, align 1
   %25 = load i8, ptr %p2.addr.09.i.i.i.i1043, align 1
   %cmp2.not.i.i.i.i1045 = icmp eq i8 %24, %25
@@ -4968,16 +4968,16 @@ for.body.i.i.i.i1170.preheader:                   ; preds = %for.body.i.i.i.i104
   %call453 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 309, ptr noundef nonnull @.str.119)
   %call456 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 310, ptr noundef nonnull @.str.121)
   %call459 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 311, ptr noundef nonnull @.str.122)
-  br i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225, label %for.body.i.i.i.i1212.preheader
+  br i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225, label %for.body.i.i.i.i1212.preheader
 
 for.body.i.i.i.i1212.preheader:                   ; preds = %for.body.i.i.i.i1170.preheader
-  %cond.i.i.i1200 = call noundef i64 @llvm.umin.i64(i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
+  %cond.i.i.i1200 = call noundef i64 @llvm.umin.i64(i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5)
   br label %for.body.i.i.i.i1212
 
 for.body.i.i.i.i1212:                             ; preds = %for.body.i.i.i.i1212.preheader, %for.inc.i.i.i.i1220
   %n.addr.010.i.i.i.i1213 = phi i64 [ %dec.i.i.i.i1223, %for.inc.i.i.i.i1220 ], [ %cond.i.i.i1200, %for.body.i.i.i.i1212.preheader ]
   %p2.addr.09.i.i.i.i1214 = phi ptr [ %incdec.ptr6.i.i.i.i1222, %for.inc.i.i.i.i1220 ], [ @.str.29, %for.body.i.i.i.i1212.preheader ]
-  %p1.addr.08.i.i.i.i1215 = phi ptr [ %incdec.ptr.i.i.i.i1221, %for.inc.i.i.i.i1220 ], [ getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 4), %for.body.i.i.i.i1212.preheader ]
+  %p1.addr.08.i.i.i.i1215 = phi ptr [ %incdec.ptr.i.i.i.i1221, %for.inc.i.i.i.i1220 ], [ getelementptr inbounds (i8, ptr @.str.123, i64 4), %for.body.i.i.i.i1212.preheader ]
   %26 = load i8, ptr %p1.addr.08.i.i.i.i1215, align 1
   %27 = load i8, ptr %p2.addr.09.i.i.i.i1214, align 1
   %cmp2.not.i.i.i.i1216 = icmp eq i8 %26, %27
@@ -4991,14 +4991,14 @@ for.inc.i.i.i.i1220:                              ; preds = %for.body.i.i.i.i121
   br i1 %cmp.not.i.i.i.i1224, label %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225, label %for.body.i.i.i.i1212, !llvm.loop !37
 
 _ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225: ; preds = %for.inc.i.i.i.i1220, %for.body.i.i.i.i1170.preheader
-  %cond1014.i.i.i1229 = sext i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5) to i32
+  %cond1014.i.i.i1229 = sext i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5) to i32
   br label %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit
 
 _ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit: ; preds = %for.body.i.i.i.i1212, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225
   %28 = phi i32 [ %cond1014.i.i.i1229, %_ZN5eastl7CompareIDuEEiPKT_S3_m.exit.thread.i.i.i1225 ], [ 1, %for.body.i.i.i.i1212 ]
   %cmp462 = icmp eq i32 %28, 0
   %call463 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp462, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 317, ptr noundef nonnull @.str.124)
-  %cmp468 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds ([10 x i8], ptr @.str.123, i64 0, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5), i1 true
+  %cmp468 = select i1 icmp eq (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 0), i1 icmp ult (i64 add (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.123, i64 9) to i64), i64 add (i64 sub (i64 0, i64 ptrtoint (ptr @.str.123 to i64)), i64 -4)), i64 5), i1 true
   %call466 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 318, ptr noundef nonnull @.str.126)
   %call469 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp468, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 319, ptr noundef nonnull @.str.128)
   br label %for.body.i.i.i.i1312
@@ -5006,7 +5006,7 @@ _ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit: ; preds = %for.body.i.i.i
 for.body.i.i.i.i1312:                             ; preds = %for.body.i.i.i.i1312, %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit
   %n.addr.010.i.i.i.i1313 = phi i64 [ 5, %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit ], [ %dec.i.i.i.i1323, %for.body.i.i.i.i1312 ]
   %p2.addr.09.i.i.i.i1314 = phi ptr [ @.str.29, %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit ], [ %incdec.ptr6.i.i.i.i1322, %for.body.i.i.i.i1312 ]
-  %p1.addr.08.i.i.i.i1315 = phi ptr [ getelementptr inbounds ([14 x i8], ptr @.str.112, i64 0, i64 4), %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit ], [ %incdec.ptr.i.i.i.i1321, %for.body.i.i.i.i1312 ]
+  %p1.addr.08.i.i.i.i1315 = phi ptr [ getelementptr inbounds (i8, ptr @.str.112, i64 4), %_ZNK5eastl17basic_string_viewIDuE7compareEmmPKDu.exit ], [ %incdec.ptr.i.i.i.i1321, %for.body.i.i.i.i1312 ]
   %29 = load i8, ptr %p1.addr.08.i.i.i.i1315, align 1
   %30 = load i8, ptr %p2.addr.09.i.i.i.i1314, align 1
   %cmp2.not.i.i.i.i1316 = icmp eq i8 %29, %30
@@ -5062,7 +5062,7 @@ if.then11.i.i:                                    ; preds = %land.rhs.i.i
 
 while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.end.i.i
   %cur1.0.i.i.idx = phi i64 [ %cur1.0.i.i.add, %if.end.i.i ], [ %first1.addr.134.i.i.add5447, %if.then11.i.i ]
-  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i ]
+  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i ]
   %cur1.0.i.i.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i.idx
   %34 = load i8, ptr %cur1.0.i.i.ptr, align 1
   %35 = load i8, ptr %p2.0.i.i, align 1
@@ -5071,7 +5071,7 @@ while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.
 
 while.body19.i.i:                                 ; preds = %while.cond15.i.i
   %incdec.ptr20.i.i = getelementptr inbounds i8, ptr %p2.0.i.i, i64 1
-  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body19.i.i
@@ -5110,7 +5110,7 @@ if.then11.i.i1500:                                ; preds = %land.rhs.i.i1488
 
 while.cond15.i.i1503:                             ; preds = %if.then11.i.i1500, %if.end.i.i1510
   %cur1.0.i.i1504.idx = phi i64 [ %cur1.0.i.i1504.add, %if.end.i.i1510 ], [ %first1.addr.134.i.i1489.add5448, %if.then11.i.i1500 ]
-  %p2.0.i.i1505 = phi ptr [ %incdec.ptr20.i.i1508, %if.end.i.i1510 ], [ getelementptr inbounds ([4 x i8], ptr @.str.138, i64 0, i64 1), %if.then11.i.i1500 ]
+  %p2.0.i.i1505 = phi ptr [ %incdec.ptr20.i.i1508, %if.end.i.i1510 ], [ getelementptr inbounds (i8, ptr @.str.138, i64 1), %if.then11.i.i1500 ]
   %cur1.0.i.i1504.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i1504.idx
   %37 = load i8, ptr %cur1.0.i.i1504.ptr, align 1
   %38 = load i8, ptr %p2.0.i.i1505, align 1
@@ -5119,7 +5119,7 @@ while.cond15.i.i1503:                             ; preds = %if.then11.i.i1500, 
 
 while.body19.i.i1507:                             ; preds = %while.cond15.i.i1503
   %incdec.ptr20.i.i1508 = getelementptr inbounds i8, ptr %p2.0.i.i1505, i64 1
-  %cmp21.i.i1509 = icmp eq ptr %incdec.ptr20.i.i1508, getelementptr inbounds ([4 x i8], ptr @.str.138, i64 0, i64 3)
+  %cmp21.i.i1509 = icmp eq ptr %incdec.ptr20.i.i1508, getelementptr inbounds (i8, ptr @.str.138, i64 3)
   br i1 %cmp21.i.i1509, label %invoke.cont.i1513, label %if.end.i.i1510
 
 if.end.i.i1510:                                   ; preds = %while.body19.i.i1507
@@ -5158,7 +5158,7 @@ if.then11.i.i1564:                                ; preds = %land.rhs.i.i1552
 
 while.cond15.i.i1567:                             ; preds = %if.then11.i.i1564, %if.end.i.i1574
   %cur1.0.i.i1568.idx = phi i64 [ %cur1.0.i.i1568.add, %if.end.i.i1574 ], [ %first1.addr.134.i.i1553.add5449, %if.then11.i.i1564 ]
-  %p2.0.i.i1569 = phi ptr [ %incdec.ptr20.i.i1572, %if.end.i.i1574 ], [ getelementptr inbounds ([13 x i8], ptr @.str.140, i64 0, i64 1), %if.then11.i.i1564 ]
+  %p2.0.i.i1569 = phi ptr [ %incdec.ptr20.i.i1572, %if.end.i.i1574 ], [ getelementptr inbounds (i8, ptr @.str.140, i64 1), %if.then11.i.i1564 ]
   %cur1.0.i.i1568.ptr = getelementptr inbounds i8, ptr @.str.112, i64 %cur1.0.i.i1568.idx
   %40 = load i8, ptr %cur1.0.i.i1568.ptr, align 1
   %41 = load i8, ptr %p2.0.i.i1569, align 1
@@ -5167,7 +5167,7 @@ while.cond15.i.i1567:                             ; preds = %if.then11.i.i1564, 
 
 while.body19.i.i1571:                             ; preds = %while.cond15.i.i1567
   %incdec.ptr20.i.i1572 = getelementptr inbounds i8, ptr %p2.0.i.i1569, i64 1
-  %cmp21.i.i1573 = icmp eq ptr %incdec.ptr20.i.i1572, getelementptr inbounds ([13 x i8], ptr @.str.140, i64 0, i64 12)
+  %cmp21.i.i1573 = icmp eq ptr %incdec.ptr20.i.i1572, getelementptr inbounds (i8, ptr @.str.140, i64 12)
   br i1 %cmp21.i.i1573, label %invoke.cont.i1577, label %if.end.i.i1574
 
 if.end.i.i1574:                                   ; preds = %while.body19.i.i1571
@@ -5250,7 +5250,7 @@ if.then11.i.i.i1940:                              ; preds = %land.rhs.i.i.i1934
 
 while.cond15.i.i.i1943:                           ; preds = %if.then11.i.i.i1940, %if.end.i.i.i1950
   %cur1.0.i.i.i1944.idx = phi i64 [ %cur1.0.i.i.i1944.add, %if.end.i.i.i1950 ], [ %first1.addr.134.i.i.i1935.add5450, %if.then11.i.i.i1940 ]
-  %p2.0.i.i.i1945 = phi ptr [ %incdec.ptr20.i.i.i1948, %if.end.i.i.i1950 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1940 ]
+  %p2.0.i.i.i1945 = phi ptr [ %incdec.ptr20.i.i.i1948, %if.end.i.i.i1950 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1940 ]
   %cur1.0.i.i.i1944.ptr = getelementptr inbounds i8, ptr @.str.154, i64 %cur1.0.i.i.i1944.idx
   %45 = load i8, ptr %cur1.0.i.i.i1944.ptr, align 1
   %46 = load i8, ptr %p2.0.i.i.i1945, align 1
@@ -5259,7 +5259,7 @@ while.cond15.i.i.i1943:                           ; preds = %if.then11.i.i.i1940
 
 while.body19.i.i.i1947:                           ; preds = %while.cond15.i.i.i1943
   %incdec.ptr20.i.i.i1948 = getelementptr inbounds i8, ptr %p2.0.i.i.i1945, i64 1
-  %cmp21.i.i.i1949 = icmp eq ptr %incdec.ptr20.i.i.i1948, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 3)
+  %cmp21.i.i.i1949 = icmp eq ptr %incdec.ptr20.i.i.i1948, getelementptr inbounds (i8, ptr @.str.29, i64 3)
   br i1 %cmp21.i.i.i1949, label %invoke.cont.i.i1953, label %if.end.i.i.i1950
 
 if.end.i.i.i1950:                                 ; preds = %while.body19.i.i.i1947
@@ -5279,11 +5279,11 @@ while.cond4.preheader.i.i.i1970.preheader:        ; preds = %if.then11.i.i.i1940
   br label %land.rhs.i.i.i1972
 
 land.rhs.i.i.i1972:                               ; preds = %land.rhs.i.i.i1972.backedge, %while.cond4.preheader.i.i.i1970.preheader
-  %first1.addr.134.i.i.i1973 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 3), %while.cond4.preheader.i.i.i1970.preheader ], [ %incdec.ptr12.i.i.i1979, %land.rhs.i.i.i1972.backedge ]
+  %first1.addr.134.i.i.i1973 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 3), %while.cond4.preheader.i.i.i1970.preheader ], [ %incdec.ptr12.i.i.i1979, %land.rhs.i.i.i1972.backedge ]
   %47 = load i8, ptr %first1.addr.134.i.i.i1973, align 1
   %cmp7.not.i.i.i1974 = icmp eq i8 %47, 72
   %incdec.ptr12.i.i.i1979 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1973, i64 1
-  %cmp13.not.i.i.i1980 = icmp eq ptr %incdec.ptr12.i.i.i1979, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i1980 = icmp eq ptr %incdec.ptr12.i.i.i1979, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i1974, label %if.then11.i.i.i1978, label %while.body8.i.i.i1975
 
 while.body8.i.i.i1975:                            ; preds = %land.rhs.i.i.i1972
@@ -5297,7 +5297,7 @@ if.then11.i.i.i1978:                              ; preds = %land.rhs.i.i.i1972
 
 while.cond15.i.i.i1981:                           ; preds = %if.then11.i.i.i1978, %if.end.i.i.i1988
   %cur1.0.i.i.i1982 = phi ptr [ %incdec.ptr23.i.i.i1989, %if.end.i.i.i1988 ], [ %incdec.ptr12.i.i.i1979, %if.then11.i.i.i1978 ]
-  %p2.0.i.i.i1983 = phi ptr [ %incdec.ptr20.i.i.i1986, %if.end.i.i.i1988 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i1978 ]
+  %p2.0.i.i.i1983 = phi ptr [ %incdec.ptr20.i.i.i1986, %if.end.i.i.i1988 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i1978 ]
   %48 = load i8, ptr %cur1.0.i.i.i1982, align 1
   %49 = load i8, ptr %p2.0.i.i.i1983, align 1
   %cmp18.i.i.i1984 = icmp eq i8 %48, %49
@@ -5305,16 +5305,16 @@ while.cond15.i.i.i1981:                           ; preds = %if.then11.i.i.i1978
 
 while.body19.i.i.i1985:                           ; preds = %while.cond15.i.i.i1981
   %incdec.ptr20.i.i.i1986 = getelementptr inbounds i8, ptr %p2.0.i.i.i1983, i64 1
-  %cmp21.i.i.i1987 = icmp eq ptr %incdec.ptr20.i.i.i1986, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 3)
+  %cmp21.i.i.i1987 = icmp eq ptr %incdec.ptr20.i.i.i1986, getelementptr inbounds (i8, ptr @.str.29, i64 3)
   br i1 %cmp21.i.i.i1987, label %invoke.cont.i.i1991, label %if.end.i.i.i1988
 
 if.end.i.i.i1988:                                 ; preds = %while.body19.i.i.i1985
   %incdec.ptr23.i.i.i1989 = getelementptr inbounds i8, ptr %cur1.0.i.i.i1982, i64 1
-  %cmp24.i.i.i1990 = icmp eq ptr %incdec.ptr23.i.i.i1989, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i1990 = icmp eq ptr %incdec.ptr23.i.i.i1989, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i1990, label %while.cond4.preheader.i.i.i2010.preheader, label %while.cond15.i.i.i1981, !llvm.loop !39
 
 invoke.cont.i.i1991:                              ; preds = %while.body19.i.i.i1985
-  %cmp13.not.i.not.i1993 = icmp eq ptr %first1.addr.134.i.i.i1973, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i1993 = icmp eq ptr %first1.addr.134.i.i.i1973, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i1993, label %while.cond4.preheader.i.i.i2010.preheader, label %if.then16.i.i1994
 
 if.then16.i.i1994:                                ; preds = %invoke.cont.i.i1991
@@ -5329,11 +5329,11 @@ while.cond4.preheader.i.i.i2010.preheader:        ; preds = %if.then11.i.i.i1978
   br label %land.rhs.i.i.i2012
 
 land.rhs.i.i.i2012:                               ; preds = %land.rhs.i.i.i2012.backedge, %while.cond4.preheader.i.i.i2010.preheader
-  %first1.addr.134.i.i.i2013 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 7), %while.cond4.preheader.i.i.i2010.preheader ], [ %incdec.ptr12.i.i.i2019, %land.rhs.i.i.i2012.backedge ]
+  %first1.addr.134.i.i.i2013 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 7), %while.cond4.preheader.i.i.i2010.preheader ], [ %incdec.ptr12.i.i.i2019, %land.rhs.i.i.i2012.backedge ]
   %50 = load i8, ptr %first1.addr.134.i.i.i2013, align 1
   %cmp7.not.i.i.i2014 = icmp eq i8 %50, 86
   %incdec.ptr12.i.i.i2019 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2013, i64 1
-  %cmp13.not.i.i.i2020 = icmp eq ptr %incdec.ptr12.i.i.i2019, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i2020 = icmp eq ptr %incdec.ptr12.i.i.i2019, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i2014, label %if.then11.i.i.i2018, label %while.body8.i.i.i2015
 
 while.body8.i.i.i2015:                            ; preds = %land.rhs.i.i.i2012
@@ -5347,7 +5347,7 @@ if.then11.i.i.i2018:                              ; preds = %land.rhs.i.i.i2012
 
 while.cond15.i.i.i2021:                           ; preds = %if.then11.i.i.i2018, %if.end.i.i.i2028
   %cur1.0.i.i.i2022 = phi ptr [ %incdec.ptr23.i.i.i2029, %if.end.i.i.i2028 ], [ %incdec.ptr12.i.i.i2019, %if.then11.i.i.i2018 ]
-  %p2.0.i.i.i2023 = phi ptr [ %incdec.ptr20.i.i.i2026, %if.end.i.i.i2028 ], [ getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 1), %if.then11.i.i.i2018 ]
+  %p2.0.i.i.i2023 = phi ptr [ %incdec.ptr20.i.i.i2026, %if.end.i.i.i2028 ], [ getelementptr inbounds (i8, ptr @.str.157, i64 1), %if.then11.i.i.i2018 ]
   %51 = load i8, ptr %cur1.0.i.i.i2022, align 1
   %52 = load i8, ptr %p2.0.i.i.i2023, align 1
   %cmp18.i.i.i2024 = icmp eq i8 %51, %52
@@ -5355,16 +5355,16 @@ while.cond15.i.i.i2021:                           ; preds = %if.then11.i.i.i2018
 
 while.body19.i.i.i2025:                           ; preds = %while.cond15.i.i.i2021
   %incdec.ptr20.i.i.i2026 = getelementptr inbounds i8, ptr %p2.0.i.i.i2023, i64 1
-  %cmp21.i.i.i2027 = icmp eq ptr %incdec.ptr20.i.i.i2026, getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 7)
+  %cmp21.i.i.i2027 = icmp eq ptr %incdec.ptr20.i.i.i2026, getelementptr inbounds (i8, ptr @.str.157, i64 7)
   br i1 %cmp21.i.i.i2027, label %invoke.cont.i.i2031, label %if.end.i.i.i2028
 
 if.end.i.i.i2028:                                 ; preds = %while.body19.i.i.i2025
   %incdec.ptr23.i.i.i2029 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2022, i64 1
-  %cmp24.i.i.i2030 = icmp eq ptr %incdec.ptr23.i.i.i2029, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i2030 = icmp eq ptr %incdec.ptr23.i.i.i2029, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i2030, label %while.cond4.preheader.i.i.i2071.preheader, label %while.cond15.i.i.i2021, !llvm.loop !39
 
 invoke.cont.i.i2031:                              ; preds = %while.body19.i.i.i2025
-  %cmp13.not.i.not.i2033 = icmp eq ptr %first1.addr.134.i.i.i2013, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i2033 = icmp eq ptr %first1.addr.134.i.i.i2013, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i2033, label %while.cond4.preheader.i.i.i2071.preheader, label %if.then16.i.i2034
 
 if.then16.i.i2034:                                ; preds = %invoke.cont.i.i2031
@@ -5398,7 +5398,7 @@ if.then11.i.i.i2079:                              ; preds = %land.rhs.i.i.i2073
 
 while.cond15.i.i.i2082:                           ; preds = %if.then11.i.i.i2079, %if.end.i.i.i2089
   %cur1.0.i.i.i2083.idx = phi i64 [ %cur1.0.i.i.i2083.add, %if.end.i.i.i2089 ], [ %first1.addr.134.i.i.i2074.add5451, %if.then11.i.i.i2079 ]
-  %p2.0.i.i.i2084 = phi ptr [ %incdec.ptr20.i.i.i2087, %if.end.i.i.i2089 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i2079 ]
+  %p2.0.i.i.i2084 = phi ptr [ %incdec.ptr20.i.i.i2087, %if.end.i.i.i2089 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i2079 ]
   %cur1.0.i.i.i2083.ptr = getelementptr inbounds i8, ptr @.str.154, i64 %cur1.0.i.i.i2083.idx
   %54 = load i8, ptr %cur1.0.i.i.i2083.ptr, align 1
   %55 = load i8, ptr %p2.0.i.i.i2084, align 1
@@ -5407,7 +5407,7 @@ while.cond15.i.i.i2082:                           ; preds = %if.then11.i.i.i2079
 
 while.body19.i.i.i2086:                           ; preds = %while.cond15.i.i.i2082
   %incdec.ptr20.i.i.i2087 = getelementptr inbounds i8, ptr %p2.0.i.i.i2084, i64 1
-  %cmp21.i.i.i2088 = icmp eq ptr %incdec.ptr20.i.i.i2087, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i.i2088 = icmp eq ptr %incdec.ptr20.i.i.i2087, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i.i2088, label %invoke.cont.i.i2092, label %if.end.i.i.i2089
 
 if.end.i.i.i2089:                                 ; preds = %while.body19.i.i.i2086
@@ -5427,11 +5427,11 @@ while.cond4.preheader.i.i.i2131.preheader:        ; preds = %if.then11.i.i.i2079
   br label %land.rhs.i.i.i2133
 
 land.rhs.i.i.i2133:                               ; preds = %land.rhs.i.i.i2133.backedge, %while.cond4.preheader.i.i.i2131.preheader
-  %first1.addr.134.i.i.i2134 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 3), %while.cond4.preheader.i.i.i2131.preheader ], [ %incdec.ptr12.i.i.i2140, %land.rhs.i.i.i2133.backedge ]
+  %first1.addr.134.i.i.i2134 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 3), %while.cond4.preheader.i.i.i2131.preheader ], [ %incdec.ptr12.i.i.i2140, %land.rhs.i.i.i2133.backedge ]
   %56 = load i8, ptr %first1.addr.134.i.i.i2134, align 1
   %cmp7.not.i.i.i2135 = icmp eq i8 %56, 72
   %incdec.ptr12.i.i.i2140 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2134, i64 1
-  %cmp13.not.i.i.i2141 = icmp eq ptr %incdec.ptr12.i.i.i2140, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i2141 = icmp eq ptr %incdec.ptr12.i.i.i2140, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i2135, label %if.then11.i.i.i2139, label %while.body8.i.i.i2136
 
 while.body8.i.i.i2136:                            ; preds = %land.rhs.i.i.i2133
@@ -5445,7 +5445,7 @@ if.then11.i.i.i2139:                              ; preds = %land.rhs.i.i.i2133
 
 while.cond15.i.i.i2142:                           ; preds = %if.then11.i.i.i2139, %if.end.i.i.i2149
   %cur1.0.i.i.i2143 = phi ptr [ %incdec.ptr23.i.i.i2150, %if.end.i.i.i2149 ], [ %incdec.ptr12.i.i.i2140, %if.then11.i.i.i2139 ]
-  %p2.0.i.i.i2144 = phi ptr [ %incdec.ptr20.i.i.i2147, %if.end.i.i.i2149 ], [ getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 1), %if.then11.i.i.i2139 ]
+  %p2.0.i.i.i2144 = phi ptr [ %incdec.ptr20.i.i.i2147, %if.end.i.i.i2149 ], [ getelementptr inbounds (i8, ptr @.str.29, i64 1), %if.then11.i.i.i2139 ]
   %57 = load i8, ptr %cur1.0.i.i.i2143, align 1
   %58 = load i8, ptr %p2.0.i.i.i2144, align 1
   %cmp18.i.i.i2145 = icmp eq i8 %57, %58
@@ -5453,16 +5453,16 @@ while.cond15.i.i.i2142:                           ; preds = %if.then11.i.i.i2139
 
 while.body19.i.i.i2146:                           ; preds = %while.cond15.i.i.i2142
   %incdec.ptr20.i.i.i2147 = getelementptr inbounds i8, ptr %p2.0.i.i.i2144, i64 1
-  %cmp21.i.i.i2148 = icmp eq ptr %incdec.ptr20.i.i.i2147, getelementptr inbounds ([6 x i8], ptr @.str.29, i64 0, i64 5)
+  %cmp21.i.i.i2148 = icmp eq ptr %incdec.ptr20.i.i.i2147, getelementptr inbounds (i8, ptr @.str.29, i64 5)
   br i1 %cmp21.i.i.i2148, label %invoke.cont.i.i2152, label %if.end.i.i.i2149
 
 if.end.i.i.i2149:                                 ; preds = %while.body19.i.i.i2146
   %incdec.ptr23.i.i.i2150 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2143, i64 1
-  %cmp24.i.i.i2151 = icmp eq ptr %incdec.ptr23.i.i.i2150, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i2151 = icmp eq ptr %incdec.ptr23.i.i.i2150, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i2151, label %while.cond4.preheader.i.i.i2194.preheader, label %while.cond15.i.i.i2142, !llvm.loop !39
 
 invoke.cont.i.i2152:                              ; preds = %while.body19.i.i.i2146
-  %cmp13.not.i.not.i2154 = icmp eq ptr %first1.addr.134.i.i.i2134, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i2154 = icmp eq ptr %first1.addr.134.i.i.i2134, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i2154, label %while.cond4.preheader.i.i.i2194.preheader, label %if.then16.i.i2155
 
 if.then16.i.i2155:                                ; preds = %invoke.cont.i.i2152
@@ -5477,11 +5477,11 @@ while.cond4.preheader.i.i.i2194.preheader:        ; preds = %if.then11.i.i.i2139
   br label %land.rhs.i.i.i2196
 
 land.rhs.i.i.i2196:                               ; preds = %land.rhs.i.i.i2196.backedge, %while.cond4.preheader.i.i.i2194.preheader
-  %first1.addr.134.i.i.i2197 = phi ptr [ getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 7), %while.cond4.preheader.i.i.i2194.preheader ], [ %incdec.ptr12.i.i.i2203, %land.rhs.i.i.i2196.backedge ]
+  %first1.addr.134.i.i.i2197 = phi ptr [ getelementptr inbounds (i8, ptr @.str.154, i64 7), %while.cond4.preheader.i.i.i2194.preheader ], [ %incdec.ptr12.i.i.i2203, %land.rhs.i.i.i2196.backedge ]
   %59 = load i8, ptr %first1.addr.134.i.i.i2197, align 1
   %cmp7.not.i.i.i2198 = icmp eq i8 %59, 86
   %incdec.ptr12.i.i.i2203 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2197, i64 1
-  %cmp13.not.i.i.i2204 = icmp eq ptr %incdec.ptr12.i.i.i2203, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.i.i2204 = icmp eq ptr %incdec.ptr12.i.i.i2203, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp7.not.i.i.i2198, label %if.then11.i.i.i2202, label %while.body8.i.i.i2199
 
 while.body8.i.i.i2199:                            ; preds = %land.rhs.i.i.i2196
@@ -5495,7 +5495,7 @@ if.then11.i.i.i2202:                              ; preds = %land.rhs.i.i.i2196
 
 while.cond15.i.i.i2205:                           ; preds = %if.then11.i.i.i2202, %if.end.i.i.i2212
   %cur1.0.i.i.i2206 = phi ptr [ %incdec.ptr23.i.i.i2213, %if.end.i.i.i2212 ], [ %incdec.ptr12.i.i.i2203, %if.then11.i.i.i2202 ]
-  %p2.0.i.i.i2207 = phi ptr [ %incdec.ptr20.i.i.i2210, %if.end.i.i.i2212 ], [ getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 1), %if.then11.i.i.i2202 ]
+  %p2.0.i.i.i2207 = phi ptr [ %incdec.ptr20.i.i.i2210, %if.end.i.i.i2212 ], [ getelementptr inbounds (i8, ptr @.str.157, i64 1), %if.then11.i.i.i2202 ]
   %60 = load i8, ptr %cur1.0.i.i.i2206, align 1
   %61 = load i8, ptr %p2.0.i.i.i2207, align 1
   %cmp18.i.i.i2208 = icmp eq i8 %60, %61
@@ -5503,16 +5503,16 @@ while.cond15.i.i.i2205:                           ; preds = %if.then11.i.i.i2202
 
 while.body19.i.i.i2209:                           ; preds = %while.cond15.i.i.i2205
   %incdec.ptr20.i.i.i2210 = getelementptr inbounds i8, ptr %p2.0.i.i.i2207, i64 1
-  %cmp21.i.i.i2211 = icmp eq ptr %incdec.ptr20.i.i.i2210, getelementptr inbounds ([8 x i8], ptr @.str.157, i64 0, i64 7)
+  %cmp21.i.i.i2211 = icmp eq ptr %incdec.ptr20.i.i.i2210, getelementptr inbounds (i8, ptr @.str.157, i64 7)
   br i1 %cmp21.i.i.i2211, label %invoke.cont.i.i2215, label %if.end.i.i.i2212
 
 if.end.i.i.i2212:                                 ; preds = %while.body19.i.i.i2209
   %incdec.ptr23.i.i.i2213 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2206, i64 1
-  %cmp24.i.i.i2214 = icmp eq ptr %incdec.ptr23.i.i.i2213, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp24.i.i.i2214 = icmp eq ptr %incdec.ptr23.i.i.i2213, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp24.i.i.i2214, label %while.cond.i.i.i.i.preheader, label %while.cond15.i.i.i2205, !llvm.loop !39
 
 invoke.cont.i.i2215:                              ; preds = %while.body19.i.i.i2209
-  %cmp13.not.i.not.i2217 = icmp eq ptr %first1.addr.134.i.i.i2197, getelementptr inbounds ([17 x i8], ptr @.str.154, i64 0, i64 16)
+  %cmp13.not.i.not.i2217 = icmp eq ptr %first1.addr.134.i.i.i2197, getelementptr inbounds (i8, ptr @.str.154, i64 16)
   br i1 %cmp13.not.i.not.i2217, label %while.cond.i.i.i.i.preheader, label %if.then16.i.i2218
 
 if.then16.i.i2218:                                ; preds = %invoke.cont.i.i2215
@@ -5527,7 +5527,7 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then11.i.i.i2202
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i2270
-  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2268, %while.body.i.i.i.i2270 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i.preheader ]
+  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2268, %while.body.i.i.i.i2270 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i2268 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i, i64 -1
   %cmp.not.i.i.i.i2269 = icmp ult ptr %incdec.ptr.i.i.i.i2268, @.str.162
   br i1 %cmp.not.i.i.i.i2269, label %while.body.i.i.i2304.preheader, label %while.body.i.i.i.i2270
@@ -5549,7 +5549,7 @@ while.body.i.i.i2304.preheader:                   ; preds = %while.cond.i.i.i.i,
   br label %while.body.i.i.i2304
 
 while.body.i.i.i2304:                             ; preds = %while.body.i.i.i2304.preheader, %while.end.i.i.i2316
-  %pSearchEnd.045.i.i.i2305 = phi ptr [ %incdec.ptr34.i.i.i2317, %while.end.i.i.i2316 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i2304.preheader ]
+  %pSearchEnd.045.i.i.i2305 = phi ptr [ %incdec.ptr34.i.i.i2317, %while.end.i.i.i2316 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i2304.preheader ]
   br label %while.cond.i30.i.i.i2306
 
 while.cond.i30.i.i.i2306:                         ; preds = %while.body.i34.i.i.i2310, %while.body.i.i.i2304
@@ -5585,7 +5585,7 @@ while.end.i.i.i2316:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2327: ; preds = %while.body25.i.i.i2321
   %add.ptr32.i.i.i2326 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2313, i64 -2
-  %cmp11.not.i.i2329 = icmp eq ptr %add.ptr32.i.i.i2326, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2329 = icmp eq ptr %add.ptr32.i.i.i2326, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2329, label %while.body.i.i.i2376.preheader, label %if.then12.i.i2330
 
 if.then12.i.i2330:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2327
@@ -5600,7 +5600,7 @@ while.body.i.i.i2376.preheader:                   ; preds = %while.end.i.i.i2316
   br label %while.body.i.i.i2376
 
 while.body.i.i.i2376:                             ; preds = %while.body.i.i.i2376.preheader, %while.end.i.i.i2388
-  %pSearchEnd.045.i.i.i2377 = phi ptr [ %incdec.ptr34.i.i.i2389, %while.end.i.i.i2388 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2376.preheader ]
+  %pSearchEnd.045.i.i.i2377 = phi ptr [ %incdec.ptr34.i.i.i2389, %while.end.i.i.i2388 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2376.preheader ]
   br label %while.cond.i30.i.i.i2378
 
 while.cond.i30.i.i.i2378:                         ; preds = %while.body.i34.i.i.i2382, %while.body.i.i.i2376
@@ -5636,7 +5636,7 @@ while.end.i.i.i2388:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2399: ; preds = %while.body25.i.i.i2393
   %add.ptr32.i.i.i2398 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2385, i64 -3
-  %cmp11.not.i.i2401 = icmp eq ptr %add.ptr32.i.i.i2398, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2401 = icmp eq ptr %add.ptr32.i.i.i2398, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2401, label %while.cond.i.i.i.i2471.preheader, label %if.then12.i.i2402
 
 if.then12.i.i2402:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2399
@@ -5651,7 +5651,7 @@ while.cond.i.i.i.i2471.preheader:                 ; preds = %while.end.i.i.i2388
   br label %while.cond.i.i.i.i2471
 
 while.cond.i.i.i.i2471:                           ; preds = %while.cond.i.i.i.i2471.preheader, %while.body.i.i.i.i2475
-  %pTemp.0.i.i.i.i2472 = phi ptr [ %incdec.ptr.i.i.i.i2473, %while.body.i.i.i.i2475 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i2471.preheader ]
+  %pTemp.0.i.i.i.i2472 = phi ptr [ %incdec.ptr.i.i.i.i2473, %while.body.i.i.i.i2475 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2471.preheader ]
   %incdec.ptr.i.i.i.i2473 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2472, i64 -1
   %cmp.not.i.i.i.i2474 = icmp ult ptr %incdec.ptr.i.i.i.i2473, @.str.162
   br i1 %cmp.not.i.i.i.i2474, label %while.body.i.i.i2507.preheader, label %while.body.i.i.i.i2475
@@ -5673,7 +5673,7 @@ while.body.i.i.i2507.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2507
 
 while.body.i.i.i2507:                             ; preds = %while.body.i.i.i2507.preheader, %while.end.i.i.i2519
-  %pSearchEnd.045.i.i.i2508 = phi ptr [ %incdec.ptr34.i.i.i2520, %while.end.i.i.i2519 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i2507.preheader ]
+  %pSearchEnd.045.i.i.i2508 = phi ptr [ %incdec.ptr34.i.i.i2520, %while.end.i.i.i2519 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i2507.preheader ]
   br label %while.cond.i30.i.i.i2509
 
 while.cond.i30.i.i.i2509:                         ; preds = %while.body.i34.i.i.i2513, %while.body.i.i.i2507
@@ -5709,7 +5709,7 @@ while.end.i.i.i2519:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2529: ; preds = %while.body25.i.i.i2523
   %add.ptr32.i.i.i2528 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2516, i64 -2
-  %cmp11.not.i.i2531 = icmp eq ptr %add.ptr32.i.i.i2528, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2531 = icmp eq ptr %add.ptr32.i.i.i2528, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2531, label %while.body.i.i.i2575.preheader, label %if.then12.i.i2532
 
 if.then12.i.i2532:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2529
@@ -5724,7 +5724,7 @@ while.body.i.i.i2575.preheader:                   ; preds = %while.end.i.i.i2519
   br label %while.body.i.i.i2575
 
 while.body.i.i.i2575:                             ; preds = %while.body.i.i.i2575.preheader, %while.end.i.i.i2587
-  %pSearchEnd.045.i.i.i2576 = phi ptr [ %incdec.ptr34.i.i.i2588, %while.end.i.i.i2587 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2575.preheader ]
+  %pSearchEnd.045.i.i.i2576 = phi ptr [ %incdec.ptr34.i.i.i2588, %while.end.i.i.i2587 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2575.preheader ]
   br label %while.cond.i30.i.i.i2577
 
 while.cond.i30.i.i.i2577:                         ; preds = %while.body.i34.i.i.i2581, %while.body.i.i.i2575
@@ -5760,7 +5760,7 @@ while.end.i.i.i2587:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2597: ; preds = %while.body25.i.i.i2591
   %add.ptr32.i.i.i2596 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2584, i64 -3
-  %cmp11.not.i.i2599 = icmp eq ptr %add.ptr32.i.i.i2596, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2599 = icmp eq ptr %add.ptr32.i.i.i2596, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2599, label %while.cond.i.i.i.i2675.preheader, label %if.then12.i.i2600
 
 if.then12.i.i2600:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2597
@@ -5775,7 +5775,7 @@ while.cond.i.i.i.i2675.preheader:                 ; preds = %while.end.i.i.i2587
   br label %while.cond.i.i.i.i2675
 
 while.cond.i.i.i.i2675:                           ; preds = %while.cond.i.i.i.i2675.preheader, %while.body.i.i.i.i2679
-  %pTemp.0.i.i.i.i2676 = phi ptr [ %incdec.ptr.i.i.i.i2677, %while.body.i.i.i.i2679 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %while.cond.i.i.i.i2675.preheader ]
+  %pTemp.0.i.i.i.i2676 = phi ptr [ %incdec.ptr.i.i.i.i2677, %while.body.i.i.i.i2679 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2675.preheader ]
   %incdec.ptr.i.i.i.i2677 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2676, i64 -1
   %cmp.not.i.i.i.i2678 = icmp ult ptr %incdec.ptr.i.i.i.i2677, @.str.162
   br i1 %cmp.not.i.i.i.i2678, label %while.body.i.i.i2713.preheader, label %while.body.i.i.i.i2679
@@ -5797,7 +5797,7 @@ while.body.i.i.i2713.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2713
 
 while.body.i.i.i2713:                             ; preds = %while.body.i.i.i2713.preheader, %while.end.i.i.i2725
-  %pSearchEnd.045.i.i.i2714 = phi ptr [ %incdec.ptr34.i.i.i2726, %while.end.i.i.i2725 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 24), %while.body.i.i.i2713.preheader ]
+  %pSearchEnd.045.i.i.i2714 = phi ptr [ %incdec.ptr34.i.i.i2726, %while.end.i.i.i2725 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 24), %while.body.i.i.i2713.preheader ]
   br label %while.cond.i30.i.i.i2715
 
 while.cond.i30.i.i.i2715:                         ; preds = %while.body.i34.i.i.i2719, %while.body.i.i.i2713
@@ -5833,7 +5833,7 @@ while.end.i.i.i2725:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2735: ; preds = %while.body25.i.i.i2729
   %add.ptr32.i.i.i2734 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2722, i64 -2
-  %cmp11.not.i.i2737 = icmp eq ptr %add.ptr32.i.i.i2734, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2737 = icmp eq ptr %add.ptr32.i.i.i2734, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2737, label %while.body.i.i.i2783.preheader, label %if.then12.i.i2738
 
 if.then12.i.i2738:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2735
@@ -5848,7 +5848,7 @@ while.body.i.i.i2783.preheader:                   ; preds = %while.end.i.i.i2725
   br label %while.body.i.i.i2783
 
 while.body.i.i.i2783:                             ; preds = %while.body.i.i.i2783.preheader, %while.end.i.i.i2795
-  %pSearchEnd.045.i.i.i2784 = phi ptr [ %incdec.ptr34.i.i.i2796, %while.end.i.i.i2795 ], [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 23), %while.body.i.i.i2783.preheader ]
+  %pSearchEnd.045.i.i.i2784 = phi ptr [ %incdec.ptr34.i.i.i2796, %while.end.i.i.i2795 ], [ getelementptr inbounds (i8, ptr @.str.162, i64 23), %while.body.i.i.i2783.preheader ]
   br label %while.cond.i30.i.i.i2785
 
 while.cond.i30.i.i.i2785:                         ; preds = %while.body.i34.i.i.i2789, %while.body.i.i.i2783
@@ -5884,7 +5884,7 @@ while.end.i.i.i2795:                              ; preds = %while.cond21.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2805: ; preds = %while.body25.i.i.i2799
   %add.ptr32.i.i.i2804 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2792, i64 -3
-  %cmp11.not.i.i2807 = icmp eq ptr %add.ptr32.i.i.i2804, getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26)
+  %cmp11.not.i.i2807 = icmp eq ptr %add.ptr32.i.i.i2804, getelementptr inbounds (i8, ptr @.str.162, i64 26)
   br i1 %cmp11.not.i.i2807, label %if.then.i2825, label %if.then12.i.i2808
 
 if.then12.i.i2808:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2805
@@ -5899,7 +5899,7 @@ if.then.i2825:                                    ; preds = %while.end.i.i.i2795
   br label %while.cond.i.i2829
 
 while.cond.i.i2829:                               ; preds = %while.body.i.i, %if.then.i2825
-  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 26), %if.then.i2825 ], [ %add.ptr.i.i2831, %while.body.i.i ]
+  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %if.then.i2825 ], [ %add.ptr.i.i2831, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.162
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit
 
@@ -5921,7 +5921,7 @@ _ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit: ; preds = %while.cond.i.i2829,
   br label %while.cond.i.i2843
 
 while.cond.i.i2843:                               ; preds = %while.body.i.i2847, %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit
-  %pRBegin.addr.0.i.i2844 = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit ], [ %add.ptr.i.i2848, %while.body.i.i2847 ]
+  %pRBegin.addr.0.i.i2844 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit ], [ %add.ptr.i.i2848, %while.body.i.i2847 ]
   %cmp.i.i2845 = icmp ugt ptr %pRBegin.addr.0.i.i2844, @.str.162
   br i1 %cmp.i.i2845, label %while.body.i.i2847, label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854
 
@@ -5943,7 +5943,7 @@ _ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854: ; preds = %while.cond.i.i2
   br label %while.cond.i.i2863
 
 while.cond.i.i2863:                               ; preds = %while.body.i.i2867, %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854
-  %pRBegin.addr.0.i.i2864 = phi ptr [ getelementptr inbounds ([27 x i8], ptr @.str.162, i64 0, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854 ], [ %add.ptr.i.i2868, %while.body.i.i2867 ]
+  %pRBegin.addr.0.i.i2864 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854 ], [ %add.ptr.i.i2868, %while.body.i.i2867 ]
   %cmp.i.i2865 = icmp ugt ptr %pRBegin.addr.0.i.i2864, @.str.162
   br i1 %cmp.i.i2865, label %while.body.i.i2867, label %for.cond1.preheader.i.i.i2949.preheader
 
@@ -6035,7 +6035,7 @@ for.cond1.preheader.i.i.preheader:                ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.i.i.preheader, %for.cond1.for.inc6_crit_edge.i.i
-  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 1), %for.cond1.preheader.i.i.preheader ]
+  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds (i8, ptr @.str.178, i64 1), %for.cond1.preheader.i.i.preheader ]
   %90 = load i8, ptr %p1Begin.addr.012.i.i, align 1
   br label %for.body3.i.i
 
@@ -6053,11 +6053,11 @@ for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for
 
 for.cond1.for.inc6_crit_edge.i.i:                 ; preds = %for.cond1.i.i
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i, i64 1
-  %cmp.not.i.i3004 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp.not.i.i3004 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp.not.i.i3004, label %if.then.i3012, label %for.cond1.preheader.i.i, !llvm.loop !46
 
 _ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i: ; preds = %for.body3.i.i
-  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp7.not.i, label %if.then.i3012, label %if.then8.i3005
 
 if.then8.i3005:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i
@@ -6072,7 +6072,7 @@ if.then.i3012:                                    ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i3015
 
 for.cond1.preheader.i.i3015:                      ; preds = %for.cond1.for.inc6_crit_edge.i.i3023, %if.then.i3012
-  %p1Begin.addr.012.i.i3016 = phi ptr [ %incdec.ptr7.i.i3024, %for.cond1.for.inc6_crit_edge.i.i3023 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 1), %if.then.i3012 ]
+  %p1Begin.addr.012.i.i3016 = phi ptr [ %incdec.ptr7.i.i3024, %for.cond1.for.inc6_crit_edge.i.i3023 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 1), %if.then.i3012 ]
   %92 = load i8, ptr %p1Begin.addr.012.i.i3016, align 1
   br label %for.body3.i.i3017
 
@@ -6090,11 +6090,11 @@ for.body3.i.i3017:                                ; preds = %for.cond1.i.i3020, 
 
 for.cond1.for.inc6_crit_edge.i.i3023:             ; preds = %for.cond1.i.i3020
   %incdec.ptr7.i.i3024 = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i3016, i64 1
-  %cmp.not.i.i3025 = icmp eq ptr %incdec.ptr7.i.i3024, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp.not.i.i3025 = icmp eq ptr %incdec.ptr7.i.i3024, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp.not.i.i3025, label %land.rhs.i.i.i.i.i3041.preheader, label %for.cond1.preheader.i.i3015, !llvm.loop !46
 
 _ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i3026: ; preds = %for.body3.i.i3017
-  %cmp7.not.i3027 = icmp eq ptr %p1Begin.addr.012.i.i3016, getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29)
+  %cmp7.not.i3027 = icmp eq ptr %p1Begin.addr.012.i.i3016, getelementptr inbounds (i8, ptr @.str.178, i64 29)
   br i1 %cmp7.not.i3027, label %land.rhs.i.i.i.i.i3041.preheader, label %if.then8.i3028
 
 if.then8.i3028:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i3026
@@ -6152,7 +6152,7 @@ for.cond1.preheader.i.i.i3111.preheader:          ; preds = %for.cond1.i.i.i3070
   br label %for.cond1.preheader.i.i.i3111
 
 for.cond1.preheader.i.i.i3111:                    ; preds = %for.cond1.preheader.i.i.i3111.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3119
-  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3112, %for.cond1.for.inc6_crit_edge.i.i.i3119 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3111.preheader ]
+  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3112, %for.cond1.for.inc6_crit_edge.i.i.i3119 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3111.preheader ]
   %add.ptr.i.i.i3112 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i, i64 -1
   %96 = load i8, ptr %add.ptr.i.i.i3112, align 1
   br label %for.body3.i.i.i3113
@@ -6189,7 +6189,7 @@ for.cond1.preheader.i.i.i3142.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3142
 
 for.cond1.preheader.i.i.i3142:                    ; preds = %for.cond1.preheader.i.i.i3142.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3151
-  %p1RBegin.addr.012.i.i.i3143 = phi ptr [ %add.ptr.i.i.i3144, %for.cond1.for.inc6_crit_edge.i.i.i3151 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3142.preheader ]
+  %p1RBegin.addr.012.i.i.i3143 = phi ptr [ %add.ptr.i.i.i3144, %for.cond1.for.inc6_crit_edge.i.i.i3151 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3142.preheader ]
   %add.ptr.i.i.i3144 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3143, i64 -1
   %98 = load i8, ptr %add.ptr.i.i.i3144, align 1
   br label %for.body3.i.i.i3145
@@ -6226,7 +6226,7 @@ for.cond1.preheader.i.i.i3175.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3175
 
 for.cond1.preheader.i.i.i3175:                    ; preds = %for.cond1.preheader.i.i.i3175.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3184
-  %p1RBegin.addr.012.i.i.i3176 = phi ptr [ %add.ptr.i.i.i3177, %for.cond1.for.inc6_crit_edge.i.i.i3184 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3175.preheader ]
+  %p1RBegin.addr.012.i.i.i3176 = phi ptr [ %add.ptr.i.i.i3177, %for.cond1.for.inc6_crit_edge.i.i.i3184 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3175.preheader ]
   %add.ptr.i.i.i3177 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3176, i64 -1
   %100 = load i8, ptr %add.ptr.i.i.i3177, align 1
   br label %for.body3.i.i.i3178
@@ -6263,7 +6263,7 @@ for.cond1.preheader.i.i.i3209.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3209
 
 for.cond1.preheader.i.i.i3209:                    ; preds = %for.cond1.preheader.i.i.i3209.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3218
-  %p1RBegin.addr.012.i.i.i3210 = phi ptr [ %add.ptr.i.i.i3211, %for.cond1.for.inc6_crit_edge.i.i.i3218 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3209.preheader ]
+  %p1RBegin.addr.012.i.i.i3210 = phi ptr [ %add.ptr.i.i.i3211, %for.cond1.for.inc6_crit_edge.i.i.i3218 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3209.preheader ]
   %add.ptr.i.i.i3211 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3210, i64 -1
   %102 = load i8, ptr %add.ptr.i.i.i3211, align 1
   br label %for.body3.i.i.i3212
@@ -6300,7 +6300,7 @@ if.then.i.i3230:                                  ; preds = %for.cond1.for.inc6_
   br label %while.cond.i.i.i3235
 
 while.cond.i.i.i3235:                             ; preds = %while.body.i.i.i3238, %if.then.i.i3230
-  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %if.then.i.i3230 ], [ %add.ptr.i.i.i3239, %while.body.i.i.i3238 ]
+  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %if.then.i.i3230 ], [ %add.ptr.i.i.i3239, %while.body.i.i.i3238 ]
   %cmp.i.i.i3236 = icmp ugt ptr %pRBegin.addr.0.i.i.i, @.str.178
   br i1 %cmp.i.i.i3236, label %while.body.i.i.i3238, label %if.then.i.i3247
 
@@ -6322,7 +6322,7 @@ if.then.i.i3247:                                  ; preds = %while.cond.i.i.i323
   br label %while.cond.i.i.i3252
 
 while.cond.i.i.i3252:                             ; preds = %while.body.i.i.i3256, %if.then.i.i3247
-  %pRBegin.addr.0.i.i.i3253 = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %if.then.i.i3247 ], [ %add.ptr.i.i.i3257, %while.body.i.i.i3256 ]
+  %pRBegin.addr.0.i.i.i3253 = phi ptr [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %if.then.i.i3247 ], [ %add.ptr.i.i.i3257, %while.body.i.i.i3256 ]
   %cmp.i.i.i3254 = icmp ugt ptr %pRBegin.addr.0.i.i.i3253, @.str.178
   br i1 %cmp.i.i.i3254, label %while.body.i.i.i3256, label %for.cond1.preheader.i.i.i3290.preheader
 
@@ -6414,7 +6414,7 @@ for.cond1.preheader.i.i.i3422.preheader:          ; preds = %for.inc9.i.i.i3334,
   br label %for.cond1.preheader.i.i.i3422
 
 for.cond1.preheader.i.i.i3422:                    ; preds = %for.cond1.preheader.i.i.i3422.preheader, %for.inc9.i.i.i3441
-  %p1RBegin.addr.015.i.i.i3423 = phi ptr [ %add.ptr.i.i.i3424, %for.inc9.i.i.i3441 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3422.preheader ]
+  %p1RBegin.addr.015.i.i.i3423 = phi ptr [ %add.ptr.i.i.i3424, %for.inc9.i.i.i3441 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3422.preheader ]
   %add.ptr.i.i.i3424 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3423, i64 -1
   %110 = load i8, ptr %add.ptr.i.i.i3424, align 1
   br label %for.body3.i.i.i3425
@@ -6452,7 +6452,7 @@ for.cond1.preheader.i.i.i3465.preheader:          ; preds = %for.inc9.i.i.i3441,
   br label %for.cond1.preheader.i.i.i3465
 
 for.cond1.preheader.i.i.i3465:                    ; preds = %for.cond1.preheader.i.i.i3465.preheader, %for.inc9.i.i.i3484
-  %p1RBegin.addr.015.i.i.i3466 = phi ptr [ %add.ptr.i.i.i3467, %for.inc9.i.i.i3484 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3465.preheader ]
+  %p1RBegin.addr.015.i.i.i3466 = phi ptr [ %add.ptr.i.i.i3467, %for.inc9.i.i.i3484 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3465.preheader ]
   %add.ptr.i.i.i3467 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3466, i64 -1
   %112 = load i8, ptr %add.ptr.i.i.i3467, align 1
   br label %for.body3.i.i.i3468
@@ -6490,7 +6490,7 @@ for.cond1.preheader.i.i.i3502.preheader:          ; preds = %for.inc9.i.i.i3484,
   br label %for.cond1.preheader.i.i.i3502
 
 for.cond1.preheader.i.i.i3502:                    ; preds = %for.cond1.preheader.i.i.i3502.preheader, %for.inc9.i.i.i3520
-  %p1RBegin.addr.015.i.i.i3503 = phi ptr [ %add.ptr.i.i.i3504, %for.inc9.i.i.i3520 ], [ getelementptr inbounds ([30 x i8], ptr @.str.178, i64 0, i64 29), %for.cond1.preheader.i.i.i3502.preheader ]
+  %p1RBegin.addr.015.i.i.i3503 = phi ptr [ %add.ptr.i.i.i3504, %for.inc9.i.i.i3520 ], [ getelementptr inbounds (i8, ptr @.str.178, i64 29), %for.cond1.preheader.i.i.i3502.preheader ]
   %add.ptr.i.i.i3504 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3503, i64 -1
   %114 = load i8, ptr %add.ptr.i.i.i3504, align 1
   br label %for.body3.i.i.i3505
@@ -7104,7 +7104,7 @@ for.body.i.i.i.preheader.i.i.i4458:               ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i4461:                         ; preds = %for.body.i.i.i.i.i.i4461, %for.body.i.i.i.preheader.i.i.i4458
   %n.addr.010.i.i.i.i.i.i4462 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i.i4458 ], [ %dec.i.i.i.i.i.i4469, %for.body.i.i.i.i.i.i4461 ]
   %p2.addr.09.i.i.i.i.i.i4463 = phi ptr [ @.str.243, %for.body.i.i.i.preheader.i.i.i4458 ], [ %incdec.ptr6.i.i.i.i.i.i4468, %for.body.i.i.i.i.i.i4461 ]
-  %p1.addr.08.i.i.i.i.i.i4464 = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.210, i64 0, i64 25), %for.body.i.i.i.preheader.i.i.i4458 ], [ %incdec.ptr.i.i.i.i.i.i4467, %for.body.i.i.i.i.i.i4461 ]
+  %p1.addr.08.i.i.i.i.i.i4464 = phi ptr [ getelementptr inbounds (i8, ptr @.str.210, i64 25), %for.body.i.i.i.preheader.i.i.i4458 ], [ %incdec.ptr.i.i.i.i.i.i4467, %for.body.i.i.i.i.i.i4461 ]
   %180 = load i8, ptr %p1.addr.08.i.i.i.i.i.i4464, align 1
   %181 = load i8, ptr %p2.addr.09.i.i.i.i.i.i4463, align 1
   %cmp2.not.i.i.i.i.i.i4465 = icmp eq i8 %180, %181
@@ -7122,7 +7122,7 @@ for.body.i.i.i.preheader.i.i4485:                 ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i4488:                           ; preds = %for.body.i.i.i.i.i4488, %for.body.i.i.i.preheader.i.i4485
   %n.addr.010.i.i.i.i.i4489 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i4485 ], [ %dec.i.i.i.i.i4496, %for.body.i.i.i.i.i4488 ]
   %p2.addr.09.i.i.i.i.i4490 = phi ptr [ @.str.243, %for.body.i.i.i.preheader.i.i4485 ], [ %incdec.ptr6.i.i.i.i.i4495, %for.body.i.i.i.i.i4488 ]
-  %p1.addr.08.i.i.i.i.i4491 = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.210, i64 0, i64 25), %for.body.i.i.i.preheader.i.i4485 ], [ %incdec.ptr.i.i.i.i.i4494, %for.body.i.i.i.i.i4488 ]
+  %p1.addr.08.i.i.i.i.i4491 = phi ptr [ getelementptr inbounds (i8, ptr @.str.210, i64 25), %for.body.i.i.i.preheader.i.i4485 ], [ %incdec.ptr.i.i.i.i.i4494, %for.body.i.i.i.i.i4488 ]
   %182 = load i8, ptr %p1.addr.08.i.i.i.i.i4491, align 1
   %183 = load i8, ptr %p2.addr.09.i.i.i.i.i4490, align 1
   %cmp2.not.i.i.i.i.i4492 = icmp eq i8 %182, %183
@@ -7140,7 +7140,7 @@ for.body.i.i.i.preheader.i.i.i4509:               ; preds = %for.body.i.i.i.i.i4
 for.body.i.i.i.i.i.i4512:                         ; preds = %for.body.i.i.i.i.i.i4512, %for.body.i.i.i.preheader.i.i.i4509
   %n.addr.010.i.i.i.i.i.i4513 = phi i64 [ 5, %for.body.i.i.i.preheader.i.i.i4509 ], [ %dec.i.i.i.i.i.i4520, %for.body.i.i.i.i.i.i4512 ]
   %p2.addr.09.i.i.i.i.i.i4514 = phi ptr [ @.str.246, %for.body.i.i.i.preheader.i.i.i4509 ], [ %incdec.ptr6.i.i.i.i.i.i4519, %for.body.i.i.i.i.i.i4512 ]
-  %p1.addr.08.i.i.i.i.i.i4515 = phi ptr [ getelementptr inbounds ([30 x i8], ptr @.str.210, i64 0, i64 24), %for.body.i.i.i.preheader.i.i.i4509 ], [ %incdec.ptr.i.i.i.i.i.i4518, %for.body.i.i.i.i.i.i4512 ]
+  %p1.addr.08.i.i.i.i.i.i4515 = phi ptr [ getelementptr inbounds (i8, ptr @.str.210, i64 24), %for.body.i.i.i.preheader.i.i.i4509 ], [ %incdec.ptr.i.i.i.i.i.i4518, %for.body.i.i.i.i.i.i4512 ]
   %184 = load i8, ptr %p1.addr.08.i.i.i.i.i.i4515, align 1
   %185 = load i8, ptr %p2.addr.09.i.i.i.i.i.i4514, align 1
   %cmp2.not.i.i.i.i.i.i4516 = icmp ne i8 %184, %185
@@ -7262,7 +7262,7 @@ for.body.i105.preheader:                          ; preds = %for.body.i73
 for.body.i236:                                    ; preds = %for.body.i236, %for.body.i105.preheader
   %n.addr.010.i237 = phi i64 [ 6, %for.body.i105.preheader ], [ %dec.i248, %for.body.i236 ]
   %p2.addr.09.i238 = phi ptr [ @.str.308, %for.body.i105.preheader ], [ %incdec.ptr6.i247, %for.body.i236 ]
-  %p1.addr.08.i239 = phi ptr [ getelementptr inbounds ([18 x i16], ptr @.str.306, i64 0, i64 11), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
+  %p1.addr.08.i239 = phi ptr [ getelementptr inbounds (i8, ptr @.str.306, i64 22), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
   %2 = load i16, ptr %p1.addr.08.i239, align 2
   %3 = load i16, ptr %p2.addr.09.i238, align 2
   %cmp2.not.i240 = icmp eq i16 %2, %3
@@ -7299,7 +7299,7 @@ for.body.i330.preheader:                          ; preds = %for.body.i236
 for.body.i376:                                    ; preds = %for.body.i376, %for.body.i330.preheader
   %n.addr.010.i377 = phi i64 [ 6, %for.body.i330.preheader ], [ %dec.i388, %for.body.i376 ]
   %p2.addr.09.i378 = phi ptr [ @.str.311, %for.body.i330.preheader ], [ %incdec.ptr6.i387, %for.body.i376 ]
-  %p1.addr.08.i379 = phi ptr [ getelementptr inbounds ([10 x i16], ptr @.str.309, i64 0, i64 3), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
+  %p1.addr.08.i379 = phi ptr [ getelementptr inbounds (i8, ptr @.str.309, i64 6), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
   %4 = load i16, ptr %p1.addr.08.i379, align 2
   %5 = load i16, ptr %p2.addr.09.i378, align 2
   %cmp2.not.i380 = icmp eq i16 %4, %5
@@ -7318,7 +7318,7 @@ for.body.i397.preheader:                          ; preds = %for.body.i376
 for.body.i397:                                    ; preds = %for.body.i397, %for.body.i397.preheader
   %n.addr.010.i398 = phi i64 [ 3, %for.body.i397.preheader ], [ %dec.i409, %for.body.i397 ]
   %p2.addr.09.i399 = phi ptr [ @.str.312, %for.body.i397.preheader ], [ %incdec.ptr6.i408, %for.body.i397 ]
-  %p1.addr.08.i400 = phi ptr [ getelementptr inbounds ([10 x i16], ptr @.str.309, i64 0, i64 6), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
+  %p1.addr.08.i400 = phi ptr [ getelementptr inbounds (i8, ptr @.str.309, i64 12), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
   %6 = load i16, ptr %p1.addr.08.i400, align 2
   %7 = load i16, ptr %p2.addr.09.i399, align 2
   %cmp2.not.i401 = icmp eq i16 %6, %7
@@ -7337,7 +7337,7 @@ for.body.i417.preheader:                          ; preds = %for.body.i397
 for.body.i417:                                    ; preds = %for.body.i417, %for.body.i417.preheader
   %n.addr.010.i418 = phi i64 [ 2, %for.body.i417.preheader ], [ %dec.i429, %for.body.i417 ]
   %p2.addr.09.i419 = phi ptr [ @.str.313, %for.body.i417.preheader ], [ %incdec.ptr6.i428, %for.body.i417 ]
-  %p1.addr.08.i420 = phi ptr [ getelementptr inbounds ([10 x i16], ptr @.str.309, i64 0, i64 6), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
+  %p1.addr.08.i420 = phi ptr [ getelementptr inbounds (i8, ptr @.str.309, i64 12), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
   %8 = load i16, ptr %p1.addr.08.i420, align 2
   %9 = load i16, ptr %p2.addr.09.i419, align 2
   %cmp2.not.i421 = icmp eq i16 %8, %9
@@ -7355,7 +7355,7 @@ _ZN5eastl7CompareIDsEEiPKT_S3_m.exit471:          ; preds = %for.body.i417
   %call348 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 241, ptr noundef nonnull @.str.88)
   %call353 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 244, ptr noundef nonnull @.str.90)
   %call356 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 245, ptr noundef nonnull @.str.21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %buf, ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds ([15 x i16], ptr @.str.316, i64 0, i64 2), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %buf, ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.316, i64 4), i64 10, i1 false)
   br label %for.body.i486
 
 for.body.i486:                                    ; preds = %for.body.i486, %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit471
@@ -7380,7 +7380,7 @@ for.body.i517.preheader:                          ; preds = %for.body.i486
 for.body.i517:                                    ; preds = %for.body.i517, %for.body.i517.preheader
   %n.addr.010.i518 = phi i64 [ 5, %for.body.i517.preheader ], [ %dec.i529, %for.body.i517 ]
   %p2.addr.09.i519 = phi ptr [ @.str.305, %for.body.i517.preheader ], [ %incdec.ptr6.i528, %for.body.i517 ]
-  %p1.addr.08.i520 = phi ptr [ getelementptr inbounds ([15 x i16], ptr @.str.316, i64 0, i64 2), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
+  %p1.addr.08.i520 = phi ptr [ getelementptr inbounds (i8, ptr @.str.316, i64 4), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
   %12 = load i16, ptr %p1.addr.08.i520, align 2
   %13 = load i16, ptr %p2.addr.09.i519, align 2
   %cmp2.not.i521 = icmp eq i16 %12, %13
@@ -7460,7 +7460,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %for.inc.i.i.i985, %
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
   %n.addr.010.i.i.i.i = phi i64 [ 5, %for.body.i.i.i.i.preheader ], [ %dec.i.i.i.i, %for.body.i.i.i.i ]
   %p2.addr.09.i.i.i.i = phi ptr [ @.str.305, %for.body.i.i.i.i.preheader ], [ %incdec.ptr6.i.i.i.i, %for.body.i.i.i.i ]
-  %p1.addr.08.i.i.i.i = phi ptr [ getelementptr inbounds ([14 x i16], ptr @.str.322, i64 0, i64 4), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
+  %p1.addr.08.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.322, i64 8), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
   %19 = load i16, ptr %p1.addr.08.i.i.i.i, align 2
   %20 = load i16, ptr %p2.addr.09.i.i.i.i, align 2
   %cmp2.not.i.i.i.i = icmp eq i16 %19, %20
@@ -7496,7 +7496,7 @@ for.body.i.i.i.i1080.preheader:                   ; preds = %for.body.i.i.i.i104
 for.body.i.i.i.i1080:                             ; preds = %for.body.i.i.i.i1080, %for.body.i.i.i.i1080.preheader
   %n.addr.010.i.i.i.i1081 = phi i64 [ 3, %for.body.i.i.i.i1080.preheader ], [ %dec.i.i.i.i1091, %for.body.i.i.i.i1080 ]
   %p2.addr.09.i.i.i.i1082 = phi ptr [ @.str.312, %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr6.i.i.i.i1090, %for.body.i.i.i.i1080 ]
-  %p1.addr.08.i.i.i.i1083 = phi ptr [ getelementptr inbounds ([10 x i16], ptr @.str.309, i64 0, i64 6), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
+  %p1.addr.08.i.i.i.i1083 = phi ptr [ getelementptr inbounds (i8, ptr @.str.309, i64 12), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
   %23 = load i16, ptr %p1.addr.08.i.i.i.i1083, align 2
   %24 = load i16, ptr %p2.addr.09.i.i.i.i1082, align 2
   %cmp2.not.i.i.i.i1084 = icmp eq i16 %23, %24
@@ -7518,7 +7518,7 @@ for.body.i.i.i.i1213.preheader:                   ; preds = %for.body.i.i.i.i108
 for.body.i.i.i.i1257:                             ; preds = %for.body.i.i.i.i1257, %for.body.i.i.i.i1213.preheader
   %n.addr.010.i.i.i.i1258 = phi i64 [ 5, %for.body.i.i.i.i1213.preheader ], [ %dec.i.i.i.i1268, %for.body.i.i.i.i1257 ]
   %p2.addr.09.i.i.i.i1259 = phi ptr [ @.str.305, %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr6.i.i.i.i1267, %for.body.i.i.i.i1257 ]
-  %p1.addr.08.i.i.i.i1260 = phi ptr [ getelementptr inbounds ([10 x i16], ptr @.str.326, i64 0, i64 4), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
+  %p1.addr.08.i.i.i.i1260 = phi ptr [ getelementptr inbounds (i8, ptr @.str.326, i64 8), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
   %25 = load i16, ptr %p1.addr.08.i.i.i.i1260, align 2
   %26 = load i16, ptr %p2.addr.09.i.i.i.i1259, align 2
   %cmp2.not.i.i.i.i1261 = icmp eq i16 %25, %26
@@ -7538,7 +7538,7 @@ for.body.i.i.i.i1290.preheader:                   ; preds = %for.body.i.i.i.i125
 for.body.i.i.i.i1360:                             ; preds = %for.body.i.i.i.i1360, %for.body.i.i.i.i1290.preheader
   %n.addr.010.i.i.i.i1361 = phi i64 [ 5, %for.body.i.i.i.i1290.preheader ], [ %dec.i.i.i.i1371, %for.body.i.i.i.i1360 ]
   %p2.addr.09.i.i.i.i1362 = phi ptr [ @.str.305, %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr6.i.i.i.i1370, %for.body.i.i.i.i1360 ]
-  %p1.addr.08.i.i.i.i1363 = phi ptr [ getelementptr inbounds ([14 x i16], ptr @.str.322, i64 0, i64 4), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
+  %p1.addr.08.i.i.i.i1363 = phi ptr [ getelementptr inbounds (i8, ptr @.str.322, i64 8), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
   %27 = load i16, ptr %p1.addr.08.i.i.i.i1363, align 2
   %28 = load i16, ptr %p2.addr.09.i.i.i.i1362, align 2
   %cmp2.not.i.i.i.i1364 = icmp eq i16 %27, %28
@@ -7594,7 +7594,7 @@ if.then11.i.i:                                    ; preds = %land.rhs.i.i
 
 while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.end.i.i
   %cur1.0.i.i.idx = phi i64 [ %cur1.0.i.i.add, %if.end.i.i ], [ %first1.addr.134.i.i.add5608, %if.then11.i.i ]
-  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 1), %if.then11.i.i ]
+  %p2.0.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @.str.305, i64 2), %if.then11.i.i ]
   %cur1.0.i.i.ptr = getelementptr inbounds i8, ptr @.str.322, i64 %cur1.0.i.i.idx
   %32 = load i16, ptr %cur1.0.i.i.ptr, align 2
   %33 = load i16, ptr %p2.0.i.i, align 2
@@ -7603,7 +7603,7 @@ while.cond15.i.i:                                 ; preds = %if.then11.i.i, %if.
 
 while.body19.i.i:                                 ; preds = %while.cond15.i.i
   %incdec.ptr20.i.i = getelementptr inbounds i8, ptr %p2.0.i.i, i64 2
-  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 5)
+  %cmp21.i.i = icmp eq ptr %incdec.ptr20.i.i, getelementptr inbounds (i8, ptr @.str.305, i64 10)
   br i1 %cmp21.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body19.i.i
@@ -7643,7 +7643,7 @@ if.then11.i.i1553:                                ; preds = %land.rhs.i.i1540
 
 while.cond15.i.i1556:                             ; preds = %if.then11.i.i1553, %if.end.i.i1563
   %cur1.0.i.i1557.idx = phi i64 [ %cur1.0.i.i1557.add, %if.end.i.i1563 ], [ %first1.addr.134.i.i1541.add5609, %if.then11.i.i1553 ]
-  %p2.0.i.i1558 = phi ptr [ %incdec.ptr20.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds ([4 x i16], ptr @.str.332, i64 0, i64 1), %if.then11.i.i1553 ]
+  %p2.0.i.i1558 = phi ptr [ %incdec.ptr20.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds (i8, ptr @.str.332, i64 2), %if.then11.i.i1553 ]
   %cur1.0.i.i1557.ptr = getelementptr inbounds i8, ptr @.str.322, i64 %cur1.0.i.i1557.idx
   %35 = load i16, ptr %cur1.0.i.i1557.ptr, align 2
   %36 = load i16, ptr %p2.0.i.i1558, align 2
@@ -7652,7 +7652,7 @@ while.cond15.i.i1556:                             ; preds = %if.then11.i.i1553, 
 
 while.body19.i.i1560:                             ; preds = %while.cond15.i.i1556
   %incdec.ptr20.i.i1561 = getelementptr inbounds i8, ptr %p2.0.i.i1558, i64 2
-  %cmp21.i.i1562 = icmp eq ptr %incdec.ptr20.i.i1561, getelementptr inbounds ([4 x i16], ptr @.str.332, i64 0, i64 3)
+  %cmp21.i.i1562 = icmp eq ptr %incdec.ptr20.i.i1561, getelementptr inbounds (i8, ptr @.str.332, i64 6)
   br i1 %cmp21.i.i1562, label %invoke.cont.i1566, label %if.end.i.i1563
 
 if.end.i.i1563:                                   ; preds = %while.body19.i.i1560
@@ -7692,7 +7692,7 @@ if.then11.i.i1620:                                ; preds = %land.rhs.i.i1607
 
 while.cond15.i.i1623:                             ; preds = %if.then11.i.i1620, %if.end.i.i1630
   %cur1.0.i.i1624.idx = phi i64 [ %cur1.0.i.i1624.add, %if.end.i.i1630 ], [ %first1.addr.134.i.i1608.add5610, %if.then11.i.i1620 ]
-  %p2.0.i.i1625 = phi ptr [ %incdec.ptr20.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds ([13 x i16], ptr @.str.333, i64 0, i64 1), %if.then11.i.i1620 ]
+  %p2.0.i.i1625 = phi ptr [ %incdec.ptr20.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds (i8, ptr @.str.333, i64 2), %if.then11.i.i1620 ]
   %cur1.0.i.i1624.ptr = getelementptr inbounds i8, ptr @.str.322, i64 %cur1.0.i.i1624.idx
   %38 = load i16, ptr %cur1.0.i.i1624.ptr, align 2
   %39 = load i16, ptr %p2.0.i.i1625, align 2
@@ -7701,7 +7701,7 @@ while.cond15.i.i1623:                             ; preds = %if.then11.i.i1620, 
 
 while.body19.i.i1627:                             ; preds = %while.cond15.i.i1623
   %incdec.ptr20.i.i1628 = getelementptr inbounds i8, ptr %p2.0.i.i1625, i64 2
-  %cmp21.i.i1629 = icmp eq ptr %incdec.ptr20.i.i1628, getelementptr inbounds ([13 x i16], ptr @.str.333, i64 0, i64 12)
+  %cmp21.i.i1629 = icmp eq ptr %incdec.ptr20.i.i1628, getelementptr inbounds (i8, ptr @.str.333, i64 24)
   br i1 %cmp21.i.i1629, label %invoke.cont.i1633, label %if.end.i.i1630
 
 if.end.i.i1630:                                   ; preds = %while.body19.i.i1627
@@ -7784,7 +7784,7 @@ if.then11.i.i.i2010:                              ; preds = %land.rhs.i.i.i2004
 
 while.cond15.i.i.i2013:                           ; preds = %if.then11.i.i.i2010, %if.end.i.i.i2020
   %cur1.0.i.i.i2014.idx = phi i64 [ %cur1.0.i.i.i2014.add, %if.end.i.i.i2020 ], [ %first1.addr.134.i.i.i2005.add5611, %if.then11.i.i.i2010 ]
-  %p2.0.i.i.i2015 = phi ptr [ %incdec.ptr20.i.i.i2018, %if.end.i.i.i2020 ], [ getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 1), %if.then11.i.i.i2010 ]
+  %p2.0.i.i.i2015 = phi ptr [ %incdec.ptr20.i.i.i2018, %if.end.i.i.i2020 ], [ getelementptr inbounds (i8, ptr @.str.305, i64 2), %if.then11.i.i.i2010 ]
   %cur1.0.i.i.i2014.ptr = getelementptr inbounds i8, ptr @.str.340, i64 %cur1.0.i.i.i2014.idx
   %43 = load i16, ptr %cur1.0.i.i.i2014.ptr, align 2
   %44 = load i16, ptr %p2.0.i.i.i2015, align 2
@@ -7793,7 +7793,7 @@ while.cond15.i.i.i2013:                           ; preds = %if.then11.i.i.i2010
 
 while.body19.i.i.i2017:                           ; preds = %while.cond15.i.i.i2013
   %incdec.ptr20.i.i.i2018 = getelementptr inbounds i8, ptr %p2.0.i.i.i2015, i64 2
-  %cmp21.i.i.i2019 = icmp eq ptr %incdec.ptr20.i.i.i2018, getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 3)
+  %cmp21.i.i.i2019 = icmp eq ptr %incdec.ptr20.i.i.i2018, getelementptr inbounds (i8, ptr @.str.305, i64 6)
   br i1 %cmp21.i.i.i2019, label %invoke.cont.i.i2023, label %if.end.i.i.i2020
 
 if.end.i.i.i2020:                                 ; preds = %while.body19.i.i.i2017
@@ -7814,11 +7814,11 @@ while.cond4.preheader.i.i.i2041.preheader:        ; preds = %if.then11.i.i.i2010
   br label %land.rhs.i.i.i2043
 
 land.rhs.i.i.i2043:                               ; preds = %land.rhs.i.i.i2043.backedge, %while.cond4.preheader.i.i.i2041.preheader
-  %first1.addr.134.i.i.i2044 = phi ptr [ getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 3), %while.cond4.preheader.i.i.i2041.preheader ], [ %incdec.ptr12.i.i.i2050, %land.rhs.i.i.i2043.backedge ]
+  %first1.addr.134.i.i.i2044 = phi ptr [ getelementptr inbounds (i8, ptr @.str.340, i64 6), %while.cond4.preheader.i.i.i2041.preheader ], [ %incdec.ptr12.i.i.i2050, %land.rhs.i.i.i2043.backedge ]
   %45 = load i16, ptr %first1.addr.134.i.i.i2044, align 2
   %cmp7.not.i.i.i2045 = icmp eq i16 %45, 72
   %incdec.ptr12.i.i.i2050 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2044, i64 2
-  %cmp13.not.i.i.i2051 = icmp eq ptr %incdec.ptr12.i.i.i2050, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.i.i2051 = icmp eq ptr %incdec.ptr12.i.i.i2050, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp7.not.i.i.i2045, label %if.then11.i.i.i2049, label %while.body8.i.i.i2046
 
 while.body8.i.i.i2046:                            ; preds = %land.rhs.i.i.i2043
@@ -7832,7 +7832,7 @@ if.then11.i.i.i2049:                              ; preds = %land.rhs.i.i.i2043
 
 while.cond15.i.i.i2052:                           ; preds = %if.then11.i.i.i2049, %if.end.i.i.i2059
   %cur1.0.i.i.i2053 = phi ptr [ %incdec.ptr23.i.i.i2060, %if.end.i.i.i2059 ], [ %incdec.ptr12.i.i.i2050, %if.then11.i.i.i2049 ]
-  %p2.0.i.i.i2054 = phi ptr [ %incdec.ptr20.i.i.i2057, %if.end.i.i.i2059 ], [ getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 1), %if.then11.i.i.i2049 ]
+  %p2.0.i.i.i2054 = phi ptr [ %incdec.ptr20.i.i.i2057, %if.end.i.i.i2059 ], [ getelementptr inbounds (i8, ptr @.str.305, i64 2), %if.then11.i.i.i2049 ]
   %46 = load i16, ptr %cur1.0.i.i.i2053, align 2
   %47 = load i16, ptr %p2.0.i.i.i2054, align 2
   %cmp18.i.i.i2055 = icmp eq i16 %46, %47
@@ -7840,16 +7840,16 @@ while.cond15.i.i.i2052:                           ; preds = %if.then11.i.i.i2049
 
 while.body19.i.i.i2056:                           ; preds = %while.cond15.i.i.i2052
   %incdec.ptr20.i.i.i2057 = getelementptr inbounds i8, ptr %p2.0.i.i.i2054, i64 2
-  %cmp21.i.i.i2058 = icmp eq ptr %incdec.ptr20.i.i.i2057, getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 3)
+  %cmp21.i.i.i2058 = icmp eq ptr %incdec.ptr20.i.i.i2057, getelementptr inbounds (i8, ptr @.str.305, i64 6)
   br i1 %cmp21.i.i.i2058, label %invoke.cont.i.i2062, label %if.end.i.i.i2059
 
 if.end.i.i.i2059:                                 ; preds = %while.body19.i.i.i2056
   %incdec.ptr23.i.i.i2060 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2053, i64 2
-  %cmp24.i.i.i2061 = icmp eq ptr %incdec.ptr23.i.i.i2060, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp24.i.i.i2061 = icmp eq ptr %incdec.ptr23.i.i.i2060, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp24.i.i.i2061, label %while.cond4.preheader.i.i.i2082.preheader, label %while.cond15.i.i.i2052, !llvm.loop !55
 
 invoke.cont.i.i2062:                              ; preds = %while.body19.i.i.i2056
-  %cmp13.not.i.not.i2064 = icmp eq ptr %first1.addr.134.i.i.i2044, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.not.i2064 = icmp eq ptr %first1.addr.134.i.i.i2044, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp13.not.i.not.i2064, label %while.cond4.preheader.i.i.i2082.preheader, label %if.then16.i.i2065
 
 if.then16.i.i2065:                                ; preds = %invoke.cont.i.i2062
@@ -7865,11 +7865,11 @@ while.cond4.preheader.i.i.i2082.preheader:        ; preds = %if.then11.i.i.i2049
   br label %land.rhs.i.i.i2084
 
 land.rhs.i.i.i2084:                               ; preds = %land.rhs.i.i.i2084.backedge, %while.cond4.preheader.i.i.i2082.preheader
-  %first1.addr.134.i.i.i2085 = phi ptr [ getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 7), %while.cond4.preheader.i.i.i2082.preheader ], [ %incdec.ptr12.i.i.i2091, %land.rhs.i.i.i2084.backedge ]
+  %first1.addr.134.i.i.i2085 = phi ptr [ getelementptr inbounds (i8, ptr @.str.340, i64 14), %while.cond4.preheader.i.i.i2082.preheader ], [ %incdec.ptr12.i.i.i2091, %land.rhs.i.i.i2084.backedge ]
   %48 = load i16, ptr %first1.addr.134.i.i.i2085, align 2
   %cmp7.not.i.i.i2086 = icmp eq i16 %48, 86
   %incdec.ptr12.i.i.i2091 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2085, i64 2
-  %cmp13.not.i.i.i2092 = icmp eq ptr %incdec.ptr12.i.i.i2091, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.i.i2092 = icmp eq ptr %incdec.ptr12.i.i.i2091, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp7.not.i.i.i2086, label %if.then11.i.i.i2090, label %while.body8.i.i.i2087
 
 while.body8.i.i.i2087:                            ; preds = %land.rhs.i.i.i2084
@@ -7883,7 +7883,7 @@ if.then11.i.i.i2090:                              ; preds = %land.rhs.i.i.i2084
 
 while.cond15.i.i.i2093:                           ; preds = %if.then11.i.i.i2090, %if.end.i.i.i2100
   %cur1.0.i.i.i2094 = phi ptr [ %incdec.ptr23.i.i.i2101, %if.end.i.i.i2100 ], [ %incdec.ptr12.i.i.i2091, %if.then11.i.i.i2090 ]
-  %p2.0.i.i.i2095 = phi ptr [ %incdec.ptr20.i.i.i2098, %if.end.i.i.i2100 ], [ getelementptr inbounds ([8 x i16], ptr @.str.341, i64 0, i64 1), %if.then11.i.i.i2090 ]
+  %p2.0.i.i.i2095 = phi ptr [ %incdec.ptr20.i.i.i2098, %if.end.i.i.i2100 ], [ getelementptr inbounds (i8, ptr @.str.341, i64 2), %if.then11.i.i.i2090 ]
   %49 = load i16, ptr %cur1.0.i.i.i2094, align 2
   %50 = load i16, ptr %p2.0.i.i.i2095, align 2
   %cmp18.i.i.i2096 = icmp eq i16 %49, %50
@@ -7891,16 +7891,16 @@ while.cond15.i.i.i2093:                           ; preds = %if.then11.i.i.i2090
 
 while.body19.i.i.i2097:                           ; preds = %while.cond15.i.i.i2093
   %incdec.ptr20.i.i.i2098 = getelementptr inbounds i8, ptr %p2.0.i.i.i2095, i64 2
-  %cmp21.i.i.i2099 = icmp eq ptr %incdec.ptr20.i.i.i2098, getelementptr inbounds ([8 x i16], ptr @.str.341, i64 0, i64 7)
+  %cmp21.i.i.i2099 = icmp eq ptr %incdec.ptr20.i.i.i2098, getelementptr inbounds (i8, ptr @.str.341, i64 14)
   br i1 %cmp21.i.i.i2099, label %invoke.cont.i.i2103, label %if.end.i.i.i2100
 
 if.end.i.i.i2100:                                 ; preds = %while.body19.i.i.i2097
   %incdec.ptr23.i.i.i2101 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2094, i64 2
-  %cmp24.i.i.i2102 = icmp eq ptr %incdec.ptr23.i.i.i2101, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp24.i.i.i2102 = icmp eq ptr %incdec.ptr23.i.i.i2101, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp24.i.i.i2102, label %while.cond4.preheader.i.i.i2146.preheader, label %while.cond15.i.i.i2093, !llvm.loop !55
 
 invoke.cont.i.i2103:                              ; preds = %while.body19.i.i.i2097
-  %cmp13.not.i.not.i2105 = icmp eq ptr %first1.addr.134.i.i.i2085, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.not.i2105 = icmp eq ptr %first1.addr.134.i.i.i2085, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp13.not.i.not.i2105, label %while.cond4.preheader.i.i.i2146.preheader, label %if.then16.i.i2106
 
 if.then16.i.i2106:                                ; preds = %invoke.cont.i.i2103
@@ -7935,7 +7935,7 @@ if.then11.i.i.i2154:                              ; preds = %land.rhs.i.i.i2148
 
 while.cond15.i.i.i2157:                           ; preds = %if.then11.i.i.i2154, %if.end.i.i.i2164
   %cur1.0.i.i.i2158.idx = phi i64 [ %cur1.0.i.i.i2158.add, %if.end.i.i.i2164 ], [ %first1.addr.134.i.i.i2149.add5612, %if.then11.i.i.i2154 ]
-  %p2.0.i.i.i2159 = phi ptr [ %incdec.ptr20.i.i.i2162, %if.end.i.i.i2164 ], [ getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 1), %if.then11.i.i.i2154 ]
+  %p2.0.i.i.i2159 = phi ptr [ %incdec.ptr20.i.i.i2162, %if.end.i.i.i2164 ], [ getelementptr inbounds (i8, ptr @.str.305, i64 2), %if.then11.i.i.i2154 ]
   %cur1.0.i.i.i2158.ptr = getelementptr inbounds i8, ptr @.str.340, i64 %cur1.0.i.i.i2158.idx
   %52 = load i16, ptr %cur1.0.i.i.i2158.ptr, align 2
   %53 = load i16, ptr %p2.0.i.i.i2159, align 2
@@ -7944,7 +7944,7 @@ while.cond15.i.i.i2157:                           ; preds = %if.then11.i.i.i2154
 
 while.body19.i.i.i2161:                           ; preds = %while.cond15.i.i.i2157
   %incdec.ptr20.i.i.i2162 = getelementptr inbounds i8, ptr %p2.0.i.i.i2159, i64 2
-  %cmp21.i.i.i2163 = icmp eq ptr %incdec.ptr20.i.i.i2162, getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 5)
+  %cmp21.i.i.i2163 = icmp eq ptr %incdec.ptr20.i.i.i2162, getelementptr inbounds (i8, ptr @.str.305, i64 10)
   br i1 %cmp21.i.i.i2163, label %invoke.cont.i.i2167, label %if.end.i.i.i2164
 
 if.end.i.i.i2164:                                 ; preds = %while.body19.i.i.i2161
@@ -7965,11 +7965,11 @@ while.cond4.preheader.i.i.i2208.preheader:        ; preds = %if.then11.i.i.i2154
   br label %land.rhs.i.i.i2210
 
 land.rhs.i.i.i2210:                               ; preds = %land.rhs.i.i.i2210.backedge, %while.cond4.preheader.i.i.i2208.preheader
-  %first1.addr.134.i.i.i2211 = phi ptr [ getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 3), %while.cond4.preheader.i.i.i2208.preheader ], [ %incdec.ptr12.i.i.i2217, %land.rhs.i.i.i2210.backedge ]
+  %first1.addr.134.i.i.i2211 = phi ptr [ getelementptr inbounds (i8, ptr @.str.340, i64 6), %while.cond4.preheader.i.i.i2208.preheader ], [ %incdec.ptr12.i.i.i2217, %land.rhs.i.i.i2210.backedge ]
   %54 = load i16, ptr %first1.addr.134.i.i.i2211, align 2
   %cmp7.not.i.i.i2212 = icmp eq i16 %54, 72
   %incdec.ptr12.i.i.i2217 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2211, i64 2
-  %cmp13.not.i.i.i2218 = icmp eq ptr %incdec.ptr12.i.i.i2217, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.i.i2218 = icmp eq ptr %incdec.ptr12.i.i.i2217, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp7.not.i.i.i2212, label %if.then11.i.i.i2216, label %while.body8.i.i.i2213
 
 while.body8.i.i.i2213:                            ; preds = %land.rhs.i.i.i2210
@@ -7983,7 +7983,7 @@ if.then11.i.i.i2216:                              ; preds = %land.rhs.i.i.i2210
 
 while.cond15.i.i.i2219:                           ; preds = %if.then11.i.i.i2216, %if.end.i.i.i2226
   %cur1.0.i.i.i2220 = phi ptr [ %incdec.ptr23.i.i.i2227, %if.end.i.i.i2226 ], [ %incdec.ptr12.i.i.i2217, %if.then11.i.i.i2216 ]
-  %p2.0.i.i.i2221 = phi ptr [ %incdec.ptr20.i.i.i2224, %if.end.i.i.i2226 ], [ getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 1), %if.then11.i.i.i2216 ]
+  %p2.0.i.i.i2221 = phi ptr [ %incdec.ptr20.i.i.i2224, %if.end.i.i.i2226 ], [ getelementptr inbounds (i8, ptr @.str.305, i64 2), %if.then11.i.i.i2216 ]
   %55 = load i16, ptr %cur1.0.i.i.i2220, align 2
   %56 = load i16, ptr %p2.0.i.i.i2221, align 2
   %cmp18.i.i.i2222 = icmp eq i16 %55, %56
@@ -7991,16 +7991,16 @@ while.cond15.i.i.i2219:                           ; preds = %if.then11.i.i.i2216
 
 while.body19.i.i.i2223:                           ; preds = %while.cond15.i.i.i2219
   %incdec.ptr20.i.i.i2224 = getelementptr inbounds i8, ptr %p2.0.i.i.i2221, i64 2
-  %cmp21.i.i.i2225 = icmp eq ptr %incdec.ptr20.i.i.i2224, getelementptr inbounds ([6 x i16], ptr @.str.305, i64 0, i64 5)
+  %cmp21.i.i.i2225 = icmp eq ptr %incdec.ptr20.i.i.i2224, getelementptr inbounds (i8, ptr @.str.305, i64 10)
   br i1 %cmp21.i.i.i2225, label %invoke.cont.i.i2229, label %if.end.i.i.i2226
 
 if.end.i.i.i2226:                                 ; preds = %while.body19.i.i.i2223
   %incdec.ptr23.i.i.i2227 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2220, i64 2
-  %cmp24.i.i.i2228 = icmp eq ptr %incdec.ptr23.i.i.i2227, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp24.i.i.i2228 = icmp eq ptr %incdec.ptr23.i.i.i2227, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp24.i.i.i2228, label %while.cond4.preheader.i.i.i2273.preheader, label %while.cond15.i.i.i2219, !llvm.loop !55
 
 invoke.cont.i.i2229:                              ; preds = %while.body19.i.i.i2223
-  %cmp13.not.i.not.i2231 = icmp eq ptr %first1.addr.134.i.i.i2211, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.not.i2231 = icmp eq ptr %first1.addr.134.i.i.i2211, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp13.not.i.not.i2231, label %while.cond4.preheader.i.i.i2273.preheader, label %if.then16.i.i2232
 
 if.then16.i.i2232:                                ; preds = %invoke.cont.i.i2229
@@ -8016,11 +8016,11 @@ while.cond4.preheader.i.i.i2273.preheader:        ; preds = %if.then11.i.i.i2216
   br label %land.rhs.i.i.i2275
 
 land.rhs.i.i.i2275:                               ; preds = %land.rhs.i.i.i2275.backedge, %while.cond4.preheader.i.i.i2273.preheader
-  %first1.addr.134.i.i.i2276 = phi ptr [ getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 7), %while.cond4.preheader.i.i.i2273.preheader ], [ %incdec.ptr12.i.i.i2282, %land.rhs.i.i.i2275.backedge ]
+  %first1.addr.134.i.i.i2276 = phi ptr [ getelementptr inbounds (i8, ptr @.str.340, i64 14), %while.cond4.preheader.i.i.i2273.preheader ], [ %incdec.ptr12.i.i.i2282, %land.rhs.i.i.i2275.backedge ]
   %57 = load i16, ptr %first1.addr.134.i.i.i2276, align 2
   %cmp7.not.i.i.i2277 = icmp eq i16 %57, 86
   %incdec.ptr12.i.i.i2282 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2276, i64 2
-  %cmp13.not.i.i.i2283 = icmp eq ptr %incdec.ptr12.i.i.i2282, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.i.i2283 = icmp eq ptr %incdec.ptr12.i.i.i2282, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp7.not.i.i.i2277, label %if.then11.i.i.i2281, label %while.body8.i.i.i2278
 
 while.body8.i.i.i2278:                            ; preds = %land.rhs.i.i.i2275
@@ -8034,7 +8034,7 @@ if.then11.i.i.i2281:                              ; preds = %land.rhs.i.i.i2275
 
 while.cond15.i.i.i2284:                           ; preds = %if.then11.i.i.i2281, %if.end.i.i.i2291
   %cur1.0.i.i.i2285 = phi ptr [ %incdec.ptr23.i.i.i2292, %if.end.i.i.i2291 ], [ %incdec.ptr12.i.i.i2282, %if.then11.i.i.i2281 ]
-  %p2.0.i.i.i2286 = phi ptr [ %incdec.ptr20.i.i.i2289, %if.end.i.i.i2291 ], [ getelementptr inbounds ([8 x i16], ptr @.str.341, i64 0, i64 1), %if.then11.i.i.i2281 ]
+  %p2.0.i.i.i2286 = phi ptr [ %incdec.ptr20.i.i.i2289, %if.end.i.i.i2291 ], [ getelementptr inbounds (i8, ptr @.str.341, i64 2), %if.then11.i.i.i2281 ]
   %58 = load i16, ptr %cur1.0.i.i.i2285, align 2
   %59 = load i16, ptr %p2.0.i.i.i2286, align 2
   %cmp18.i.i.i2287 = icmp eq i16 %58, %59
@@ -8042,16 +8042,16 @@ while.cond15.i.i.i2284:                           ; preds = %if.then11.i.i.i2281
 
 while.body19.i.i.i2288:                           ; preds = %while.cond15.i.i.i2284
   %incdec.ptr20.i.i.i2289 = getelementptr inbounds i8, ptr %p2.0.i.i.i2286, i64 2
-  %cmp21.i.i.i2290 = icmp eq ptr %incdec.ptr20.i.i.i2289, getelementptr inbounds ([8 x i16], ptr @.str.341, i64 0, i64 7)
+  %cmp21.i.i.i2290 = icmp eq ptr %incdec.ptr20.i.i.i2289, getelementptr inbounds (i8, ptr @.str.341, i64 14)
   br i1 %cmp21.i.i.i2290, label %invoke.cont.i.i2294, label %if.end.i.i.i2291
 
 if.end.i.i.i2291:                                 ; preds = %while.body19.i.i.i2288
   %incdec.ptr23.i.i.i2292 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2285, i64 2
-  %cmp24.i.i.i2293 = icmp eq ptr %incdec.ptr23.i.i.i2292, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp24.i.i.i2293 = icmp eq ptr %incdec.ptr23.i.i.i2292, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp24.i.i.i2293, label %while.cond.i.i.i.i.preheader, label %while.cond15.i.i.i2284, !llvm.loop !55
 
 invoke.cont.i.i2294:                              ; preds = %while.body19.i.i.i2288
-  %cmp13.not.i.not.i2296 = icmp eq ptr %first1.addr.134.i.i.i2276, getelementptr inbounds ([17 x i16], ptr @.str.340, i64 0, i64 16)
+  %cmp13.not.i.not.i2296 = icmp eq ptr %first1.addr.134.i.i.i2276, getelementptr inbounds (i8, ptr @.str.340, i64 32)
   br i1 %cmp13.not.i.not.i2296, label %while.cond.i.i.i.i.preheader, label %if.then16.i.i2297
 
 if.then16.i.i2297:                                ; preds = %invoke.cont.i.i2294
@@ -8067,7 +8067,7 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then11.i.i.i2281
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i2352
-  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2350, %while.body.i.i.i.i2352 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26), %while.cond.i.i.i.i.preheader ]
+  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2350, %while.body.i.i.i.i2352 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 52), %while.cond.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i2350 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i, i64 -2
   %cmp.not.i.i.i.i2351 = icmp ult ptr %incdec.ptr.i.i.i.i2350, @.str.342
   br i1 %cmp.not.i.i.i.i2351, label %while.body.i.i.i2388.preheader, label %while.body.i.i.i.i2352
@@ -8090,7 +8090,7 @@ while.body.i.i.i2388.preheader:                   ; preds = %while.cond.i.i.i.i,
   br label %while.body.i.i.i2388
 
 while.body.i.i.i2388:                             ; preds = %while.body.i.i.i2388.preheader, %while.end.i.i.i2400
-  %pSearchEnd.045.i.i.i2389 = phi ptr [ %incdec.ptr37.i.i.i2401, %while.end.i.i.i2400 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 24), %while.body.i.i.i2388.preheader ]
+  %pSearchEnd.045.i.i.i2389 = phi ptr [ %incdec.ptr37.i.i.i2401, %while.end.i.i.i2400 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 48), %while.body.i.i.i2388.preheader ]
   br label %while.cond.i30.i.i.i2390
 
 while.cond.i30.i.i.i2390:                         ; preds = %while.body.i34.i.i.i2394, %while.body.i.i.i2388
@@ -8126,7 +8126,7 @@ while.end.i.i.i2400:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2411: ; preds = %while.body27.i.i.i2405
   %add.ptr35.i.i.i2410 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2397, i64 -4
-  %cmp11.not.i.i2413 = icmp eq ptr %add.ptr35.i.i.i2410, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2413 = icmp eq ptr %add.ptr35.i.i.i2410, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2413, label %while.body.i.i.i2463.preheader, label %if.then12.i.i2414
 
 if.then12.i.i2414:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2411
@@ -8142,7 +8142,7 @@ while.body.i.i.i2463.preheader:                   ; preds = %while.end.i.i.i2400
   br label %while.body.i.i.i2463
 
 while.body.i.i.i2463:                             ; preds = %while.body.i.i.i2463.preheader, %while.end.i.i.i2475
-  %pSearchEnd.045.i.i.i2464 = phi ptr [ %incdec.ptr37.i.i.i2476, %while.end.i.i.i2475 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 23), %while.body.i.i.i2463.preheader ]
+  %pSearchEnd.045.i.i.i2464 = phi ptr [ %incdec.ptr37.i.i.i2476, %while.end.i.i.i2475 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 46), %while.body.i.i.i2463.preheader ]
   br label %while.cond.i30.i.i.i2465
 
 while.cond.i30.i.i.i2465:                         ; preds = %while.body.i34.i.i.i2469, %while.body.i.i.i2463
@@ -8178,7 +8178,7 @@ while.end.i.i.i2475:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2486: ; preds = %while.body27.i.i.i2480
   %add.ptr35.i.i.i2485 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2472, i64 -6
-  %cmp11.not.i.i2488 = icmp eq ptr %add.ptr35.i.i.i2485, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2488 = icmp eq ptr %add.ptr35.i.i.i2485, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2488, label %while.cond.i.i.i.i2560.preheader, label %if.then12.i.i2489
 
 if.then12.i.i2489:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2486
@@ -8194,7 +8194,7 @@ while.cond.i.i.i.i2560.preheader:                 ; preds = %while.end.i.i.i2475
   br label %while.cond.i.i.i.i2560
 
 while.cond.i.i.i.i2560:                           ; preds = %while.cond.i.i.i.i2560.preheader, %while.body.i.i.i.i2564
-  %pTemp.0.i.i.i.i2561 = phi ptr [ %incdec.ptr.i.i.i.i2562, %while.body.i.i.i.i2564 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26), %while.cond.i.i.i.i2560.preheader ]
+  %pTemp.0.i.i.i.i2561 = phi ptr [ %incdec.ptr.i.i.i.i2562, %while.body.i.i.i.i2564 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 52), %while.cond.i.i.i.i2560.preheader ]
   %incdec.ptr.i.i.i.i2562 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2561, i64 -2
   %cmp.not.i.i.i.i2563 = icmp ult ptr %incdec.ptr.i.i.i.i2562, @.str.342
   br i1 %cmp.not.i.i.i.i2563, label %while.body.i.i.i2597.preheader, label %while.body.i.i.i.i2564
@@ -8217,7 +8217,7 @@ while.body.i.i.i2597.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2597
 
 while.body.i.i.i2597:                             ; preds = %while.body.i.i.i2597.preheader, %while.end.i.i.i2609
-  %pSearchEnd.045.i.i.i2598 = phi ptr [ %incdec.ptr37.i.i.i2610, %while.end.i.i.i2609 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 24), %while.body.i.i.i2597.preheader ]
+  %pSearchEnd.045.i.i.i2598 = phi ptr [ %incdec.ptr37.i.i.i2610, %while.end.i.i.i2609 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 48), %while.body.i.i.i2597.preheader ]
   br label %while.cond.i30.i.i.i2599
 
 while.cond.i30.i.i.i2599:                         ; preds = %while.body.i34.i.i.i2603, %while.body.i.i.i2597
@@ -8253,7 +8253,7 @@ while.end.i.i.i2609:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2619: ; preds = %while.body27.i.i.i2613
   %add.ptr35.i.i.i2618 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2606, i64 -4
-  %cmp11.not.i.i2621 = icmp eq ptr %add.ptr35.i.i.i2618, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2621 = icmp eq ptr %add.ptr35.i.i.i2618, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2621, label %while.body.i.i.i2667.preheader, label %if.then12.i.i2622
 
 if.then12.i.i2622:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2619
@@ -8269,7 +8269,7 @@ while.body.i.i.i2667.preheader:                   ; preds = %while.end.i.i.i2609
   br label %while.body.i.i.i2667
 
 while.body.i.i.i2667:                             ; preds = %while.body.i.i.i2667.preheader, %while.end.i.i.i2679
-  %pSearchEnd.045.i.i.i2668 = phi ptr [ %incdec.ptr37.i.i.i2680, %while.end.i.i.i2679 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 23), %while.body.i.i.i2667.preheader ]
+  %pSearchEnd.045.i.i.i2668 = phi ptr [ %incdec.ptr37.i.i.i2680, %while.end.i.i.i2679 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 46), %while.body.i.i.i2667.preheader ]
   br label %while.cond.i30.i.i.i2669
 
 while.cond.i30.i.i.i2669:                         ; preds = %while.body.i34.i.i.i2673, %while.body.i.i.i2667
@@ -8305,7 +8305,7 @@ while.end.i.i.i2679:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2689: ; preds = %while.body27.i.i.i2683
   %add.ptr35.i.i.i2688 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2676, i64 -6
-  %cmp11.not.i.i2691 = icmp eq ptr %add.ptr35.i.i.i2688, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2691 = icmp eq ptr %add.ptr35.i.i.i2688, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2691, label %while.cond.i.i.i.i2770.preheader, label %if.then12.i.i2692
 
 if.then12.i.i2692:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2689
@@ -8321,7 +8321,7 @@ while.cond.i.i.i.i2770.preheader:                 ; preds = %while.end.i.i.i2679
   br label %while.cond.i.i.i.i2770
 
 while.cond.i.i.i.i2770:                           ; preds = %while.cond.i.i.i.i2770.preheader, %while.body.i.i.i.i2774
-  %pTemp.0.i.i.i.i2771 = phi ptr [ %incdec.ptr.i.i.i.i2772, %while.body.i.i.i.i2774 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26), %while.cond.i.i.i.i2770.preheader ]
+  %pTemp.0.i.i.i.i2771 = phi ptr [ %incdec.ptr.i.i.i.i2772, %while.body.i.i.i.i2774 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 52), %while.cond.i.i.i.i2770.preheader ]
   %incdec.ptr.i.i.i.i2772 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2771, i64 -2
   %cmp.not.i.i.i.i2773 = icmp ult ptr %incdec.ptr.i.i.i.i2772, @.str.342
   br i1 %cmp.not.i.i.i.i2773, label %while.body.i.i.i2809.preheader, label %while.body.i.i.i.i2774
@@ -8344,7 +8344,7 @@ while.body.i.i.i2809.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2809
 
 while.body.i.i.i2809:                             ; preds = %while.body.i.i.i2809.preheader, %while.end.i.i.i2821
-  %pSearchEnd.045.i.i.i2810 = phi ptr [ %incdec.ptr37.i.i.i2822, %while.end.i.i.i2821 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 24), %while.body.i.i.i2809.preheader ]
+  %pSearchEnd.045.i.i.i2810 = phi ptr [ %incdec.ptr37.i.i.i2822, %while.end.i.i.i2821 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 48), %while.body.i.i.i2809.preheader ]
   br label %while.cond.i30.i.i.i2811
 
 while.cond.i30.i.i.i2811:                         ; preds = %while.body.i34.i.i.i2815, %while.body.i.i.i2809
@@ -8380,7 +8380,7 @@ while.end.i.i.i2821:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2831: ; preds = %while.body27.i.i.i2825
   %add.ptr35.i.i.i2830 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2818, i64 -4
-  %cmp11.not.i.i2833 = icmp eq ptr %add.ptr35.i.i.i2830, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2833 = icmp eq ptr %add.ptr35.i.i.i2830, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2833, label %while.body.i.i.i2881.preheader, label %if.then12.i.i2834
 
 if.then12.i.i2834:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2831
@@ -8396,7 +8396,7 @@ while.body.i.i.i2881.preheader:                   ; preds = %while.end.i.i.i2821
   br label %while.body.i.i.i2881
 
 while.body.i.i.i2881:                             ; preds = %while.body.i.i.i2881.preheader, %while.end.i.i.i2893
-  %pSearchEnd.045.i.i.i2882 = phi ptr [ %incdec.ptr37.i.i.i2894, %while.end.i.i.i2893 ], [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 23), %while.body.i.i.i2881.preheader ]
+  %pSearchEnd.045.i.i.i2882 = phi ptr [ %incdec.ptr37.i.i.i2894, %while.end.i.i.i2893 ], [ getelementptr inbounds (i8, ptr @.str.342, i64 46), %while.body.i.i.i2881.preheader ]
   br label %while.cond.i30.i.i.i2883
 
 while.cond.i30.i.i.i2883:                         ; preds = %while.body.i34.i.i.i2887, %while.body.i.i.i2881
@@ -8432,7 +8432,7 @@ while.end.i.i.i2893:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2903: ; preds = %while.body27.i.i.i2897
   %add.ptr35.i.i.i2902 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2890, i64 -6
-  %cmp11.not.i.i2905 = icmp eq ptr %add.ptr35.i.i.i2902, getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26)
+  %cmp11.not.i.i2905 = icmp eq ptr %add.ptr35.i.i.i2902, getelementptr inbounds (i8, ptr @.str.342, i64 52)
   br i1 %cmp11.not.i.i2905, label %if.then.i2924, label %if.then12.i.i2906
 
 if.then12.i.i2906:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2903
@@ -8448,7 +8448,7 @@ if.then.i2924:                                    ; preds = %while.end.i.i.i2893
   br label %while.cond.i.i2928
 
 while.cond.i.i2928:                               ; preds = %while.body.i.i, %if.then.i2924
-  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 26), %if.then.i2924 ], [ %add.ptr.i.i2930, %while.body.i.i ]
+  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.342, i64 52), %if.then.i2924 ], [ %add.ptr.i.i2930, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.342
   br i1 %cmp.i.i, label %while.body.i.i, label %if.then.i2938
 
@@ -8471,7 +8471,7 @@ if.then.i2938:                                    ; preds = %while.cond.i.i2928,
   br label %while.cond.i.i2943
 
 while.cond.i.i2943:                               ; preds = %while.body.i.i2947, %if.then.i2938
-  %pRBegin.addr.0.i.i2944 = phi ptr [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 25), %if.then.i2938 ], [ %add.ptr.i.i2948, %while.body.i.i2947 ]
+  %pRBegin.addr.0.i.i2944 = phi ptr [ getelementptr inbounds (i8, ptr @.str.342, i64 50), %if.then.i2938 ], [ %add.ptr.i.i2948, %while.body.i.i2947 ]
   %cmp.i.i2945 = icmp ugt ptr %pRBegin.addr.0.i.i2944, @.str.342
   br i1 %cmp.i.i2945, label %while.body.i.i2947, label %if.then.i2959
 
@@ -8494,7 +8494,7 @@ if.then.i2959:                                    ; preds = %while.cond.i.i2943,
   br label %while.cond.i.i2964
 
 while.cond.i.i2964:                               ; preds = %while.body.i.i2968, %if.then.i2959
-  %pRBegin.addr.0.i.i2965 = phi ptr [ getelementptr inbounds ([27 x i16], ptr @.str.342, i64 0, i64 25), %if.then.i2959 ], [ %add.ptr.i.i2969, %while.body.i.i2968 ]
+  %pRBegin.addr.0.i.i2965 = phi ptr [ getelementptr inbounds (i8, ptr @.str.342, i64 50), %if.then.i2959 ], [ %add.ptr.i.i2969, %while.body.i.i2968 ]
   %cmp.i.i2966 = icmp ugt ptr %pRBegin.addr.0.i.i2965, @.str.342
   br i1 %cmp.i.i2966, label %while.body.i.i2968, label %for.cond1.preheader.i.i.i3054.preheader
 
@@ -8589,7 +8589,7 @@ for.cond1.preheader.i.i.preheader:                ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.i.i.preheader, %for.cond1.for.inc6_crit_edge.i.i
-  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 1), %for.cond1.preheader.i.i.preheader ]
+  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr7.i.i, %for.cond1.for.inc6_crit_edge.i.i ], [ getelementptr inbounds (i8, ptr @.str.346, i64 2), %for.cond1.preheader.i.i.preheader ]
   %88 = load i16, ptr %p1Begin.addr.012.i.i, align 2
   br label %for.body3.i.i
 
@@ -8607,11 +8607,11 @@ for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for
 
 for.cond1.for.inc6_crit_edge.i.i:                 ; preds = %for.cond1.i.i
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i, i64 2
-  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29)
+  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr7.i.i, getelementptr inbounds (i8, ptr @.str.346, i64 58)
   br i1 %cmp.not.i.i3111, label %if.then.i3120, label %for.cond1.preheader.i.i, !llvm.loop !62
 
 _ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i: ; preds = %for.body3.i.i
-  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29)
+  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds (i8, ptr @.str.346, i64 58)
   br i1 %cmp7.not.i, label %if.then.i3120, label %if.then8.i3112
 
 if.then8.i3112:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i
@@ -8626,7 +8626,7 @@ if.then.i3120:                                    ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc6_crit_edge.i.i3131, %if.then.i3120
-  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr7.i.i3132, %for.cond1.for.inc6_crit_edge.i.i3131 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 1), %if.then.i3120 ]
+  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr7.i.i3132, %for.cond1.for.inc6_crit_edge.i.i3131 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 2), %if.then.i3120 ]
   %90 = load i16, ptr %p1Begin.addr.012.i.i3124, align 2
   br label %for.body3.i.i3125
 
@@ -8644,11 +8644,11 @@ for.body3.i.i3125:                                ; preds = %for.cond1.i.i3128, 
 
 for.cond1.for.inc6_crit_edge.i.i3131:             ; preds = %for.cond1.i.i3128
   %incdec.ptr7.i.i3132 = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i3124, i64 2
-  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr7.i.i3132, getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29)
+  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr7.i.i3132, getelementptr inbounds (i8, ptr @.str.346, i64 58)
   br i1 %cmp.not.i.i3133, label %land.rhs.i.i.i.i.i3151.preheader, label %for.cond1.preheader.i.i3123, !llvm.loop !62
 
 _ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i3134: ; preds = %for.body3.i.i3125
-  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29)
+  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds (i8, ptr @.str.346, i64 58)
   br i1 %cmp7.not.i3135, label %land.rhs.i.i.i.i.i3151.preheader, label %if.then8.i3136
 
 if.then8.i3136:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i3134
@@ -8707,7 +8707,7 @@ for.cond1.preheader.i.i.i3225.preheader:          ; preds = %for.cond1.i.i.i3181
   br label %for.cond1.preheader.i.i.i3225
 
 for.cond1.preheader.i.i.i3225:                    ; preds = %for.cond1.preheader.i.i.i3225.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3233
-  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3226, %for.cond1.for.inc6_crit_edge.i.i.i3233 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3225.preheader ]
+  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3226, %for.cond1.for.inc6_crit_edge.i.i.i3233 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3225.preheader ]
   %add.ptr.i.i.i3226 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i, i64 -2
   %94 = load i16, ptr %add.ptr.i.i.i3226, align 2
   br label %for.body3.i.i.i3227
@@ -8745,7 +8745,7 @@ for.cond1.preheader.i.i.i3257.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3257
 
 for.cond1.preheader.i.i.i3257:                    ; preds = %for.cond1.preheader.i.i.i3257.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3266
-  %p1RBegin.addr.012.i.i.i3258 = phi ptr [ %add.ptr.i.i.i3259, %for.cond1.for.inc6_crit_edge.i.i.i3266 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3257.preheader ]
+  %p1RBegin.addr.012.i.i.i3258 = phi ptr [ %add.ptr.i.i.i3259, %for.cond1.for.inc6_crit_edge.i.i.i3266 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3257.preheader ]
   %add.ptr.i.i.i3259 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3258, i64 -2
   %96 = load i16, ptr %add.ptr.i.i.i3259, align 2
   br label %for.body3.i.i.i3260
@@ -8783,7 +8783,7 @@ for.cond1.preheader.i.i.i3291.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3291
 
 for.cond1.preheader.i.i.i3291:                    ; preds = %for.cond1.preheader.i.i.i3291.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3300
-  %p1RBegin.addr.012.i.i.i3292 = phi ptr [ %add.ptr.i.i.i3293, %for.cond1.for.inc6_crit_edge.i.i.i3300 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3291.preheader ]
+  %p1RBegin.addr.012.i.i.i3292 = phi ptr [ %add.ptr.i.i.i3293, %for.cond1.for.inc6_crit_edge.i.i.i3300 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3291.preheader ]
   %add.ptr.i.i.i3293 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3292, i64 -2
   %98 = load i16, ptr %add.ptr.i.i.i3293, align 2
   br label %for.body3.i.i.i3294
@@ -8821,7 +8821,7 @@ for.cond1.preheader.i.i.i3326.preheader:          ; preds = %for.cond1.for.inc6_
   br label %for.cond1.preheader.i.i.i3326
 
 for.cond1.preheader.i.i.i3326:                    ; preds = %for.cond1.preheader.i.i.i3326.preheader, %for.cond1.for.inc6_crit_edge.i.i.i3335
-  %p1RBegin.addr.012.i.i.i3327 = phi ptr [ %add.ptr.i.i.i3328, %for.cond1.for.inc6_crit_edge.i.i.i3335 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3326.preheader ]
+  %p1RBegin.addr.012.i.i.i3327 = phi ptr [ %add.ptr.i.i.i3328, %for.cond1.for.inc6_crit_edge.i.i.i3335 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3326.preheader ]
   %add.ptr.i.i.i3328 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3327, i64 -2
   %100 = load i16, ptr %add.ptr.i.i.i3328, align 2
   br label %for.body3.i.i.i3329
@@ -8859,7 +8859,7 @@ if.then.i.i3348:                                  ; preds = %for.cond1.for.inc6_
   br label %while.cond.i.i.i3353
 
 while.cond.i.i.i3353:                             ; preds = %while.body.i.i.i3356, %if.then.i.i3348
-  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %if.then.i.i3348 ], [ %add.ptr.i.i.i3357, %while.body.i.i.i3356 ]
+  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %if.then.i.i3348 ], [ %add.ptr.i.i.i3357, %while.body.i.i.i3356 ]
   %cmp.i.i.i3354 = icmp ugt ptr %pRBegin.addr.0.i.i.i, @.str.346
   br i1 %cmp.i.i.i3354, label %while.body.i.i.i3356, label %if.then.i.i3366
 
@@ -8882,7 +8882,7 @@ if.then.i.i3366:                                  ; preds = %while.cond.i.i.i335
   br label %while.cond.i.i.i3371
 
 while.cond.i.i.i3371:                             ; preds = %while.body.i.i.i3375, %if.then.i.i3366
-  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
+  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
   %cmp.i.i.i3373 = icmp ugt ptr %pRBegin.addr.0.i.i.i3372, @.str.346
   br i1 %cmp.i.i.i3373, label %while.body.i.i.i3375, label %for.cond1.preheader.i.i.i3412.preheader
 
@@ -8977,7 +8977,7 @@ for.cond1.preheader.i.i.i3551.preheader:          ; preds = %for.inc9.i.i.i3458,
   br label %for.cond1.preheader.i.i.i3551
 
 for.cond1.preheader.i.i.i3551:                    ; preds = %for.cond1.preheader.i.i.i3551.preheader, %for.inc9.i.i.i3571
-  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc9.i.i.i3571 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3551.preheader ]
+  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc9.i.i.i3571 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3551.preheader ]
   %add.ptr.i.i.i3553 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3552, i64 -2
   %108 = load i16, ptr %add.ptr.i.i.i3553, align 2
   br label %for.body3.i.i.i3554
@@ -9016,7 +9016,7 @@ for.cond1.preheader.i.i.i3596.preheader:          ; preds = %for.inc9.i.i.i3571,
   br label %for.cond1.preheader.i.i.i3596
 
 for.cond1.preheader.i.i.i3596:                    ; preds = %for.cond1.preheader.i.i.i3596.preheader, %for.inc9.i.i.i3616
-  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc9.i.i.i3616 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3596.preheader ]
+  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc9.i.i.i3616 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3596.preheader ]
   %add.ptr.i.i.i3598 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3597, i64 -2
   %110 = load i16, ptr %add.ptr.i.i.i3598, align 2
   br label %for.body3.i.i.i3599
@@ -9055,7 +9055,7 @@ for.cond1.preheader.i.i.i3634.preheader:          ; preds = %for.inc9.i.i.i3616,
   br label %for.cond1.preheader.i.i.i3634
 
 for.cond1.preheader.i.i.i3634:                    ; preds = %for.cond1.preheader.i.i.i3634.preheader, %for.inc9.i.i.i3653
-  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc9.i.i.i3653 ], [ getelementptr inbounds ([30 x i16], ptr @.str.346, i64 0, i64 29), %for.cond1.preheader.i.i.i3634.preheader ]
+  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc9.i.i.i3653 ], [ getelementptr inbounds (i8, ptr @.str.346, i64 58), %for.cond1.preheader.i.i.i3634.preheader ]
   %add.ptr.i.i.i3636 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3635, i64 -2
   %112 = load i16, ptr %add.ptr.i.i.i3636, align 2
   br label %for.body3.i.i.i3637
@@ -9692,7 +9692,7 @@ for.body.i.i.i.preheader.i.i.i4616:               ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i4619:                         ; preds = %for.body.i.i.i.i.i.i4619, %for.body.i.i.i.preheader.i.i.i4616
   %n.addr.010.i.i.i.i.i.i4620 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i.i4616 ], [ %dec.i.i.i.i.i.i4627, %for.body.i.i.i.i.i.i4619 ]
   %p2.addr.09.i.i.i.i.i.i4621 = phi ptr [ @.str.359, %for.body.i.i.i.preheader.i.i.i4616 ], [ %incdec.ptr6.i.i.i.i.i.i4626, %for.body.i.i.i.i.i.i4619 ]
-  %p1.addr.08.i.i.i.i.i.i4622 = phi ptr [ getelementptr inbounds ([30 x i16], ptr @.str.355, i64 0, i64 25), %for.body.i.i.i.preheader.i.i.i4616 ], [ %incdec.ptr.i.i.i.i.i.i4625, %for.body.i.i.i.i.i.i4619 ]
+  %p1.addr.08.i.i.i.i.i.i4622 = phi ptr [ getelementptr inbounds (i8, ptr @.str.355, i64 50), %for.body.i.i.i.preheader.i.i.i4616 ], [ %incdec.ptr.i.i.i.i.i.i4625, %for.body.i.i.i.i.i.i4619 ]
   %181 = load i16, ptr %p1.addr.08.i.i.i.i.i.i4622, align 2
   %182 = load i16, ptr %p2.addr.09.i.i.i.i.i.i4621, align 2
   %cmp2.not.i.i.i.i.i.i4623 = icmp eq i16 %181, %182
@@ -9710,7 +9710,7 @@ for.body.i.i.i.preheader.i.i4644:                 ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i4647:                           ; preds = %for.body.i.i.i.i.i4647, %for.body.i.i.i.preheader.i.i4644
   %n.addr.010.i.i.i.i.i4648 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i4644 ], [ %dec.i.i.i.i.i4655, %for.body.i.i.i.i.i4647 ]
   %p2.addr.09.i.i.i.i.i4649 = phi ptr [ @.str.359, %for.body.i.i.i.preheader.i.i4644 ], [ %incdec.ptr6.i.i.i.i.i4654, %for.body.i.i.i.i.i4647 ]
-  %p1.addr.08.i.i.i.i.i4650 = phi ptr [ getelementptr inbounds ([30 x i16], ptr @.str.355, i64 0, i64 25), %for.body.i.i.i.preheader.i.i4644 ], [ %incdec.ptr.i.i.i.i.i4653, %for.body.i.i.i.i.i4647 ]
+  %p1.addr.08.i.i.i.i.i4650 = phi ptr [ getelementptr inbounds (i8, ptr @.str.355, i64 50), %for.body.i.i.i.preheader.i.i4644 ], [ %incdec.ptr.i.i.i.i.i4653, %for.body.i.i.i.i.i4647 ]
   %183 = load i16, ptr %p1.addr.08.i.i.i.i.i4650, align 2
   %184 = load i16, ptr %p2.addr.09.i.i.i.i.i4649, align 2
   %cmp2.not.i.i.i.i.i4651 = icmp eq i16 %183, %184
@@ -9728,7 +9728,7 @@ for.body.i.i.i.preheader.i.i.i4669:               ; preds = %for.body.i.i.i.i.i4
 for.body.i.i.i.i.i.i4672:                         ; preds = %for.body.i.i.i.i.i.i4672, %for.body.i.i.i.preheader.i.i.i4669
   %n.addr.010.i.i.i.i.i.i4673 = phi i64 [ 5, %for.body.i.i.i.preheader.i.i.i4669 ], [ %dec.i.i.i.i.i.i4680, %for.body.i.i.i.i.i.i4672 ]
   %p2.addr.09.i.i.i.i.i.i4674 = phi ptr [ @.str.360, %for.body.i.i.i.preheader.i.i.i4669 ], [ %incdec.ptr6.i.i.i.i.i.i4679, %for.body.i.i.i.i.i.i4672 ]
-  %p1.addr.08.i.i.i.i.i.i4675 = phi ptr [ getelementptr inbounds ([30 x i16], ptr @.str.355, i64 0, i64 24), %for.body.i.i.i.preheader.i.i.i4669 ], [ %incdec.ptr.i.i.i.i.i.i4678, %for.body.i.i.i.i.i.i4672 ]
+  %p1.addr.08.i.i.i.i.i.i4675 = phi ptr [ getelementptr inbounds (i8, ptr @.str.355, i64 48), %for.body.i.i.i.preheader.i.i.i4669 ], [ %incdec.ptr.i.i.i.i.i.i4678, %for.body.i.i.i.i.i.i4672 ]
   %185 = load i16, ptr %p1.addr.08.i.i.i.i.i.i4675, align 2
   %186 = load i16, ptr %p2.addr.09.i.i.i.i.i.i4674, align 2
   %cmp2.not.i.i.i.i.i.i4676 = icmp ne i16 %185, %186
@@ -9850,7 +9850,7 @@ for.body.i105.preheader:                          ; preds = %for.body.i73
 for.body.i236:                                    ; preds = %for.body.i236, %for.body.i105.preheader
   %n.addr.011.i237 = phi i64 [ 6, %for.body.i105.preheader ], [ %dec.i248, %for.body.i236 ]
   %p2.addr.010.i238 = phi ptr [ @.str.251, %for.body.i105.preheader ], [ %incdec.ptr3.i247, %for.body.i236 ]
-  %p1.addr.09.i239 = phi ptr [ getelementptr inbounds ([18 x i32], ptr @.str.249, i64 0, i64 11), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
+  %p1.addr.09.i239 = phi ptr [ getelementptr inbounds (i8, ptr @.str.249, i64 44), %for.body.i105.preheader ], [ %incdec.ptr.i246, %for.body.i236 ]
   %2 = load i32, ptr %p1.addr.09.i239, align 4
   %3 = load i32, ptr %p2.addr.010.i238, align 4
   %cmp1.not.i240 = icmp eq i32 %2, %3
@@ -9887,7 +9887,7 @@ for.body.i330.preheader:                          ; preds = %for.body.i236
 for.body.i376:                                    ; preds = %for.body.i376, %for.body.i330.preheader
   %n.addr.011.i377 = phi i64 [ 6, %for.body.i330.preheader ], [ %dec.i388, %for.body.i376 ]
   %p2.addr.010.i378 = phi ptr [ @.str.254, %for.body.i330.preheader ], [ %incdec.ptr3.i387, %for.body.i376 ]
-  %p1.addr.09.i379 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 3), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
+  %p1.addr.09.i379 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 12), %for.body.i330.preheader ], [ %incdec.ptr.i386, %for.body.i376 ]
   %4 = load i32, ptr %p1.addr.09.i379, align 4
   %5 = load i32, ptr %p2.addr.010.i378, align 4
   %cmp1.not.i380 = icmp eq i32 %4, %5
@@ -9906,7 +9906,7 @@ for.body.i397.preheader:                          ; preds = %for.body.i376
 for.body.i397:                                    ; preds = %for.body.i397, %for.body.i397.preheader
   %n.addr.011.i398 = phi i64 [ 3, %for.body.i397.preheader ], [ %dec.i409, %for.body.i397 ]
   %p2.addr.010.i399 = phi ptr [ @.str.255, %for.body.i397.preheader ], [ %incdec.ptr3.i408, %for.body.i397 ]
-  %p1.addr.09.i400 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
+  %p1.addr.09.i400 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i397.preheader ], [ %incdec.ptr.i407, %for.body.i397 ]
   %6 = load i32, ptr %p1.addr.09.i400, align 4
   %7 = load i32, ptr %p2.addr.010.i399, align 4
   %cmp1.not.i401 = icmp eq i32 %6, %7
@@ -9925,7 +9925,7 @@ for.body.i417.preheader:                          ; preds = %for.body.i397
 for.body.i417:                                    ; preds = %for.body.i417, %for.body.i417.preheader
   %n.addr.011.i418 = phi i64 [ 2, %for.body.i417.preheader ], [ %dec.i429, %for.body.i417 ]
   %p2.addr.010.i419 = phi ptr [ @.str.256, %for.body.i417.preheader ], [ %incdec.ptr3.i428, %for.body.i417 ]
-  %p1.addr.09.i420 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
+  %p1.addr.09.i420 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i417.preheader ], [ %incdec.ptr.i427, %for.body.i417 ]
   %8 = load i32, ptr %p1.addr.09.i420, align 4
   %9 = load i32, ptr %p2.addr.010.i419, align 4
   %cmp1.not.i421 = icmp eq i32 %8, %9
@@ -9943,7 +9943,7 @@ _ZN5eastl7CompareIDiEEiPKT_S3_m.exit471:          ; preds = %for.body.i417
   %call320 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 241, ptr noundef nonnull @.str.88)
   %call325 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 244, ptr noundef nonnull @.str.90)
   %call328 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 245, ptr noundef nonnull @.str.21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buf, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds ([15 x i32], ptr @.str.259, i64 0, i64 2), i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buf, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @.str.259, i64 8), i64 20, i1 false)
   br label %for.body.i486
 
 for.body.i486:                                    ; preds = %for.body.i486, %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit471
@@ -9968,7 +9968,7 @@ for.body.i517.preheader:                          ; preds = %for.body.i486
 for.body.i517:                                    ; preds = %for.body.i517, %for.body.i517.preheader
   %n.addr.011.i518 = phi i64 [ 5, %for.body.i517.preheader ], [ %dec.i529, %for.body.i517 ]
   %p2.addr.010.i519 = phi ptr [ @.str.248, %for.body.i517.preheader ], [ %incdec.ptr3.i528, %for.body.i517 ]
-  %p1.addr.09.i520 = phi ptr [ getelementptr inbounds ([15 x i32], ptr @.str.259, i64 0, i64 2), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
+  %p1.addr.09.i520 = phi ptr [ getelementptr inbounds (i8, ptr @.str.259, i64 8), %for.body.i517.preheader ], [ %incdec.ptr.i527, %for.body.i517 ]
   %12 = load i32, ptr %p1.addr.09.i520, align 4
   %13 = load i32, ptr %p2.addr.010.i519, align 4
   %cmp1.not.i521 = icmp eq i32 %12, %13
@@ -10048,7 +10048,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %for.inc.i.i.i985, %
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
   %n.addr.011.i.i.i.i = phi i64 [ 5, %for.body.i.i.i.i.preheader ], [ %dec.i.i.i.i, %for.body.i.i.i.i ]
   %p2.addr.010.i.i.i.i = phi ptr [ @.str.248, %for.body.i.i.i.i.preheader ], [ %incdec.ptr3.i.i.i.i, %for.body.i.i.i.i ]
-  %p1.addr.09.i.i.i.i = phi ptr [ getelementptr inbounds ([14 x i32], ptr @.str.265, i64 0, i64 4), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
+  %p1.addr.09.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.265, i64 16), %for.body.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
   %19 = load i32, ptr %p1.addr.09.i.i.i.i, align 4
   %20 = load i32, ptr %p2.addr.010.i.i.i.i, align 4
   %cmp1.not.i.i.i.i = icmp eq i32 %19, %20
@@ -10084,7 +10084,7 @@ for.body.i.i.i.i1080.preheader:                   ; preds = %for.body.i.i.i.i104
 for.body.i.i.i.i1080:                             ; preds = %for.body.i.i.i.i1080, %for.body.i.i.i.i1080.preheader
   %n.addr.011.i.i.i.i1081 = phi i64 [ 3, %for.body.i.i.i.i1080.preheader ], [ %dec.i.i.i.i1091, %for.body.i.i.i.i1080 ]
   %p2.addr.010.i.i.i.i1082 = phi ptr [ @.str.255, %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr3.i.i.i.i1090, %for.body.i.i.i.i1080 ]
-  %p1.addr.09.i.i.i.i1083 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.252, i64 0, i64 6), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
+  %p1.addr.09.i.i.i.i1083 = phi ptr [ getelementptr inbounds (i8, ptr @.str.252, i64 24), %for.body.i.i.i.i1080.preheader ], [ %incdec.ptr.i.i.i.i1089, %for.body.i.i.i.i1080 ]
   %23 = load i32, ptr %p1.addr.09.i.i.i.i1083, align 4
   %24 = load i32, ptr %p2.addr.010.i.i.i.i1082, align 4
   %cmp1.not.i.i.i.i1084 = icmp eq i32 %23, %24
@@ -10106,7 +10106,7 @@ for.body.i.i.i.i1213.preheader:                   ; preds = %for.body.i.i.i.i108
 for.body.i.i.i.i1257:                             ; preds = %for.body.i.i.i.i1257, %for.body.i.i.i.i1213.preheader
   %n.addr.011.i.i.i.i1258 = phi i64 [ 5, %for.body.i.i.i.i1213.preheader ], [ %dec.i.i.i.i1268, %for.body.i.i.i.i1257 ]
   %p2.addr.010.i.i.i.i1259 = phi ptr [ @.str.248, %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr3.i.i.i.i1267, %for.body.i.i.i.i1257 ]
-  %p1.addr.09.i.i.i.i1260 = phi ptr [ getelementptr inbounds ([10 x i32], ptr @.str.269, i64 0, i64 4), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
+  %p1.addr.09.i.i.i.i1260 = phi ptr [ getelementptr inbounds (i8, ptr @.str.269, i64 16), %for.body.i.i.i.i1213.preheader ], [ %incdec.ptr.i.i.i.i1266, %for.body.i.i.i.i1257 ]
   %25 = load i32, ptr %p1.addr.09.i.i.i.i1260, align 4
   %26 = load i32, ptr %p2.addr.010.i.i.i.i1259, align 4
   %cmp1.not.i.i.i.i1261 = icmp eq i32 %25, %26
@@ -10126,7 +10126,7 @@ for.body.i.i.i.i1290.preheader:                   ; preds = %for.body.i.i.i.i125
 for.body.i.i.i.i1360:                             ; preds = %for.body.i.i.i.i1360, %for.body.i.i.i.i1290.preheader
   %n.addr.011.i.i.i.i1361 = phi i64 [ 5, %for.body.i.i.i.i1290.preheader ], [ %dec.i.i.i.i1371, %for.body.i.i.i.i1360 ]
   %p2.addr.010.i.i.i.i1362 = phi ptr [ @.str.248, %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr3.i.i.i.i1370, %for.body.i.i.i.i1360 ]
-  %p1.addr.09.i.i.i.i1363 = phi ptr [ getelementptr inbounds ([14 x i32], ptr @.str.265, i64 0, i64 4), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
+  %p1.addr.09.i.i.i.i1363 = phi ptr [ getelementptr inbounds (i8, ptr @.str.265, i64 16), %for.body.i.i.i.i1290.preheader ], [ %incdec.ptr.i.i.i.i1369, %for.body.i.i.i.i1360 ]
   %27 = load i32, ptr %p1.addr.09.i.i.i.i1363, align 4
   %28 = load i32, ptr %p2.addr.010.i.i.i.i1362, align 4
   %cmp1.not.i.i.i.i1364 = icmp eq i32 %27, %28
@@ -10182,7 +10182,7 @@ if.then10.i.i:                                    ; preds = %land.rhs.i.i
 
 while.cond14.i.i:                                 ; preds = %if.then10.i.i, %if.end.i.i
   %cur1.0.i.i.idx = phi i64 [ %cur1.0.i.i.add, %if.end.i.i ], [ %first1.addr.134.i.i.add5603, %if.then10.i.i ]
-  %p2.0.i.i = phi ptr [ %incdec.ptr17.i.i, %if.end.i.i ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i ]
+  %p2.0.i.i = phi ptr [ %incdec.ptr17.i.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i ]
   %cur1.0.i.i.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i.idx
   %32 = load i32, ptr %cur1.0.i.i.ptr, align 4
   %33 = load i32, ptr %p2.0.i.i, align 4
@@ -10191,7 +10191,7 @@ while.cond14.i.i:                                 ; preds = %if.then10.i.i, %if.
 
 while.body16.i.i:                                 ; preds = %while.cond14.i.i
   %incdec.ptr17.i.i = getelementptr inbounds i8, ptr %p2.0.i.i, i64 4
-  %cmp18.i.i = icmp eq ptr %incdec.ptr17.i.i, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i = icmp eq ptr %incdec.ptr17.i.i, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body16.i.i
@@ -10231,7 +10231,7 @@ if.then10.i.i1553:                                ; preds = %land.rhs.i.i1540
 
 while.cond14.i.i1556:                             ; preds = %if.then10.i.i1553, %if.end.i.i1563
   %cur1.0.i.i1557.idx = phi i64 [ %cur1.0.i.i1557.add, %if.end.i.i1563 ], [ %first1.addr.134.i.i1541.add5604, %if.then10.i.i1553 ]
-  %p2.0.i.i1558 = phi ptr [ %incdec.ptr17.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds ([4 x i32], ptr @.str.275, i64 0, i64 1), %if.then10.i.i1553 ]
+  %p2.0.i.i1558 = phi ptr [ %incdec.ptr17.i.i1561, %if.end.i.i1563 ], [ getelementptr inbounds (i8, ptr @.str.275, i64 4), %if.then10.i.i1553 ]
   %cur1.0.i.i1557.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i1557.idx
   %35 = load i32, ptr %cur1.0.i.i1557.ptr, align 4
   %36 = load i32, ptr %p2.0.i.i1558, align 4
@@ -10240,7 +10240,7 @@ while.cond14.i.i1556:                             ; preds = %if.then10.i.i1553, 
 
 while.body16.i.i1560:                             ; preds = %while.cond14.i.i1556
   %incdec.ptr17.i.i1561 = getelementptr inbounds i8, ptr %p2.0.i.i1558, i64 4
-  %cmp18.i.i1562 = icmp eq ptr %incdec.ptr17.i.i1561, getelementptr inbounds ([4 x i32], ptr @.str.275, i64 0, i64 3)
+  %cmp18.i.i1562 = icmp eq ptr %incdec.ptr17.i.i1561, getelementptr inbounds (i8, ptr @.str.275, i64 12)
   br i1 %cmp18.i.i1562, label %invoke.cont.i1566, label %if.end.i.i1563
 
 if.end.i.i1563:                                   ; preds = %while.body16.i.i1560
@@ -10280,7 +10280,7 @@ if.then10.i.i1620:                                ; preds = %land.rhs.i.i1607
 
 while.cond14.i.i1623:                             ; preds = %if.then10.i.i1620, %if.end.i.i1630
   %cur1.0.i.i1624.idx = phi i64 [ %cur1.0.i.i1624.add, %if.end.i.i1630 ], [ %first1.addr.134.i.i1608.add5605, %if.then10.i.i1620 ]
-  %p2.0.i.i1625 = phi ptr [ %incdec.ptr17.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds ([13 x i32], ptr @.str.276, i64 0, i64 1), %if.then10.i.i1620 ]
+  %p2.0.i.i1625 = phi ptr [ %incdec.ptr17.i.i1628, %if.end.i.i1630 ], [ getelementptr inbounds (i8, ptr @.str.276, i64 4), %if.then10.i.i1620 ]
   %cur1.0.i.i1624.ptr = getelementptr inbounds i8, ptr @.str.265, i64 %cur1.0.i.i1624.idx
   %38 = load i32, ptr %cur1.0.i.i1624.ptr, align 4
   %39 = load i32, ptr %p2.0.i.i1625, align 4
@@ -10289,7 +10289,7 @@ while.cond14.i.i1623:                             ; preds = %if.then10.i.i1620, 
 
 while.body16.i.i1627:                             ; preds = %while.cond14.i.i1623
   %incdec.ptr17.i.i1628 = getelementptr inbounds i8, ptr %p2.0.i.i1625, i64 4
-  %cmp18.i.i1629 = icmp eq ptr %incdec.ptr17.i.i1628, getelementptr inbounds ([13 x i32], ptr @.str.276, i64 0, i64 12)
+  %cmp18.i.i1629 = icmp eq ptr %incdec.ptr17.i.i1628, getelementptr inbounds (i8, ptr @.str.276, i64 48)
   br i1 %cmp18.i.i1629, label %invoke.cont.i1633, label %if.end.i.i1630
 
 if.end.i.i1630:                                   ; preds = %while.body16.i.i1627
@@ -10372,7 +10372,7 @@ if.then10.i.i.i2011:                              ; preds = %land.rhs.i.i.i2005
 
 while.cond14.i.i.i2014:                           ; preds = %if.then10.i.i.i2011, %if.end.i.i.i2021
   %cur1.0.i.i.i2015.idx = phi i64 [ %cur1.0.i.i.i2015.add, %if.end.i.i.i2021 ], [ %first1.addr.134.i.i.i2006.add5606, %if.then10.i.i.i2011 ]
-  %p2.0.i.i.i2016 = phi ptr [ %incdec.ptr17.i.i.i2019, %if.end.i.i.i2021 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2011 ]
+  %p2.0.i.i.i2016 = phi ptr [ %incdec.ptr17.i.i.i2019, %if.end.i.i.i2021 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2011 ]
   %cur1.0.i.i.i2015.ptr = getelementptr inbounds i8, ptr @.str.283, i64 %cur1.0.i.i.i2015.idx
   %43 = load i32, ptr %cur1.0.i.i.i2015.ptr, align 4
   %44 = load i32, ptr %p2.0.i.i.i2016, align 4
@@ -10381,7 +10381,7 @@ while.cond14.i.i.i2014:                           ; preds = %if.then10.i.i.i2011
 
 while.body16.i.i.i2018:                           ; preds = %while.cond14.i.i.i2014
   %incdec.ptr17.i.i.i2019 = getelementptr inbounds i8, ptr %p2.0.i.i.i2016, i64 4
-  %cmp18.i.i.i2020 = icmp eq ptr %incdec.ptr17.i.i.i2019, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 3)
+  %cmp18.i.i.i2020 = icmp eq ptr %incdec.ptr17.i.i.i2019, getelementptr inbounds (i8, ptr @.str.248, i64 12)
   br i1 %cmp18.i.i.i2020, label %invoke.cont.i.i2024, label %if.end.i.i.i2021
 
 if.end.i.i.i2021:                                 ; preds = %while.body16.i.i.i2018
@@ -10402,11 +10402,11 @@ while.cond4.preheader.i.i.i2042.preheader:        ; preds = %if.then10.i.i.i2011
   br label %land.rhs.i.i.i2044
 
 land.rhs.i.i.i2044:                               ; preds = %land.rhs.i.i.i2044.backedge, %while.cond4.preheader.i.i.i2042.preheader
-  %first1.addr.134.i.i.i2045 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 3), %while.cond4.preheader.i.i.i2042.preheader ], [ %incdec.ptr11.i.i.i2051, %land.rhs.i.i.i2044.backedge ]
+  %first1.addr.134.i.i.i2045 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 12), %while.cond4.preheader.i.i.i2042.preheader ], [ %incdec.ptr11.i.i.i2051, %land.rhs.i.i.i2044.backedge ]
   %45 = load i32, ptr %first1.addr.134.i.i.i2045, align 4
   %cmp6.not.i.i.i2046 = icmp eq i32 %45, 72
   %incdec.ptr11.i.i.i2051 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2045, i64 4
-  %cmp12.not.i.i.i2052 = icmp eq ptr %incdec.ptr11.i.i.i2051, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2052 = icmp eq ptr %incdec.ptr11.i.i.i2051, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2046, label %if.then10.i.i.i2050, label %while.body7.i.i.i2047
 
 while.body7.i.i.i2047:                            ; preds = %land.rhs.i.i.i2044
@@ -10420,7 +10420,7 @@ if.then10.i.i.i2050:                              ; preds = %land.rhs.i.i.i2044
 
 while.cond14.i.i.i2053:                           ; preds = %if.then10.i.i.i2050, %if.end.i.i.i2060
   %cur1.0.i.i.i2054 = phi ptr [ %incdec.ptr20.i.i.i2061, %if.end.i.i.i2060 ], [ %incdec.ptr11.i.i.i2051, %if.then10.i.i.i2050 ]
-  %p2.0.i.i.i2055 = phi ptr [ %incdec.ptr17.i.i.i2058, %if.end.i.i.i2060 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2050 ]
+  %p2.0.i.i.i2055 = phi ptr [ %incdec.ptr17.i.i.i2058, %if.end.i.i.i2060 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2050 ]
   %46 = load i32, ptr %cur1.0.i.i.i2054, align 4
   %47 = load i32, ptr %p2.0.i.i.i2055, align 4
   %cmp15.i.i.i2056 = icmp eq i32 %46, %47
@@ -10428,16 +10428,16 @@ while.cond14.i.i.i2053:                           ; preds = %if.then10.i.i.i2050
 
 while.body16.i.i.i2057:                           ; preds = %while.cond14.i.i.i2053
   %incdec.ptr17.i.i.i2058 = getelementptr inbounds i8, ptr %p2.0.i.i.i2055, i64 4
-  %cmp18.i.i.i2059 = icmp eq ptr %incdec.ptr17.i.i.i2058, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 3)
+  %cmp18.i.i.i2059 = icmp eq ptr %incdec.ptr17.i.i.i2058, getelementptr inbounds (i8, ptr @.str.248, i64 12)
   br i1 %cmp18.i.i.i2059, label %invoke.cont.i.i2063, label %if.end.i.i.i2060
 
 if.end.i.i.i2060:                                 ; preds = %while.body16.i.i.i2057
   %incdec.ptr20.i.i.i2061 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2054, i64 4
-  %cmp21.i.i.i2062 = icmp eq ptr %incdec.ptr20.i.i.i2061, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2062 = icmp eq ptr %incdec.ptr20.i.i.i2061, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2062, label %while.cond4.preheader.i.i.i2083.preheader, label %while.cond14.i.i.i2053, !llvm.loop !71
 
 invoke.cont.i.i2063:                              ; preds = %while.body16.i.i.i2057
-  %cmp13.not.i.not.i2065 = icmp eq ptr %first1.addr.134.i.i.i2045, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2065 = icmp eq ptr %first1.addr.134.i.i.i2045, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2065, label %while.cond4.preheader.i.i.i2083.preheader, label %if.then16.i.i2066
 
 if.then16.i.i2066:                                ; preds = %invoke.cont.i.i2063
@@ -10453,11 +10453,11 @@ while.cond4.preheader.i.i.i2083.preheader:        ; preds = %if.then10.i.i.i2050
   br label %land.rhs.i.i.i2085
 
 land.rhs.i.i.i2085:                               ; preds = %land.rhs.i.i.i2085.backedge, %while.cond4.preheader.i.i.i2083.preheader
-  %first1.addr.134.i.i.i2086 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 7), %while.cond4.preheader.i.i.i2083.preheader ], [ %incdec.ptr11.i.i.i2092, %land.rhs.i.i.i2085.backedge ]
+  %first1.addr.134.i.i.i2086 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 28), %while.cond4.preheader.i.i.i2083.preheader ], [ %incdec.ptr11.i.i.i2092, %land.rhs.i.i.i2085.backedge ]
   %48 = load i32, ptr %first1.addr.134.i.i.i2086, align 4
   %cmp6.not.i.i.i2087 = icmp eq i32 %48, 86
   %incdec.ptr11.i.i.i2092 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2086, i64 4
-  %cmp12.not.i.i.i2093 = icmp eq ptr %incdec.ptr11.i.i.i2092, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2093 = icmp eq ptr %incdec.ptr11.i.i.i2092, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2087, label %if.then10.i.i.i2091, label %while.body7.i.i.i2088
 
 while.body7.i.i.i2088:                            ; preds = %land.rhs.i.i.i2085
@@ -10471,7 +10471,7 @@ if.then10.i.i.i2091:                              ; preds = %land.rhs.i.i.i2085
 
 while.cond14.i.i.i2094:                           ; preds = %if.then10.i.i.i2091, %if.end.i.i.i2101
   %cur1.0.i.i.i2095 = phi ptr [ %incdec.ptr20.i.i.i2102, %if.end.i.i.i2101 ], [ %incdec.ptr11.i.i.i2092, %if.then10.i.i.i2091 ]
-  %p2.0.i.i.i2096 = phi ptr [ %incdec.ptr17.i.i.i2099, %if.end.i.i.i2101 ], [ getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 1), %if.then10.i.i.i2091 ]
+  %p2.0.i.i.i2096 = phi ptr [ %incdec.ptr17.i.i.i2099, %if.end.i.i.i2101 ], [ getelementptr inbounds (i8, ptr @.str.284, i64 4), %if.then10.i.i.i2091 ]
   %49 = load i32, ptr %cur1.0.i.i.i2095, align 4
   %50 = load i32, ptr %p2.0.i.i.i2096, align 4
   %cmp15.i.i.i2097 = icmp eq i32 %49, %50
@@ -10479,16 +10479,16 @@ while.cond14.i.i.i2094:                           ; preds = %if.then10.i.i.i2091
 
 while.body16.i.i.i2098:                           ; preds = %while.cond14.i.i.i2094
   %incdec.ptr17.i.i.i2099 = getelementptr inbounds i8, ptr %p2.0.i.i.i2096, i64 4
-  %cmp18.i.i.i2100 = icmp eq ptr %incdec.ptr17.i.i.i2099, getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 7)
+  %cmp18.i.i.i2100 = icmp eq ptr %incdec.ptr17.i.i.i2099, getelementptr inbounds (i8, ptr @.str.284, i64 28)
   br i1 %cmp18.i.i.i2100, label %invoke.cont.i.i2104, label %if.end.i.i.i2101
 
 if.end.i.i.i2101:                                 ; preds = %while.body16.i.i.i2098
   %incdec.ptr20.i.i.i2102 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2095, i64 4
-  %cmp21.i.i.i2103 = icmp eq ptr %incdec.ptr20.i.i.i2102, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2103 = icmp eq ptr %incdec.ptr20.i.i.i2102, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2103, label %while.cond4.preheader.i.i.i2147.preheader, label %while.cond14.i.i.i2094, !llvm.loop !71
 
 invoke.cont.i.i2104:                              ; preds = %while.body16.i.i.i2098
-  %cmp13.not.i.not.i2106 = icmp eq ptr %first1.addr.134.i.i.i2086, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2106 = icmp eq ptr %first1.addr.134.i.i.i2086, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2106, label %while.cond4.preheader.i.i.i2147.preheader, label %if.then16.i.i2107
 
 if.then16.i.i2107:                                ; preds = %invoke.cont.i.i2104
@@ -10523,7 +10523,7 @@ if.then10.i.i.i2155:                              ; preds = %land.rhs.i.i.i2149
 
 while.cond14.i.i.i2158:                           ; preds = %if.then10.i.i.i2155, %if.end.i.i.i2165
   %cur1.0.i.i.i2159.idx = phi i64 [ %cur1.0.i.i.i2159.add, %if.end.i.i.i2165 ], [ %first1.addr.134.i.i.i2150.add5607, %if.then10.i.i.i2155 ]
-  %p2.0.i.i.i2160 = phi ptr [ %incdec.ptr17.i.i.i2163, %if.end.i.i.i2165 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2155 ]
+  %p2.0.i.i.i2160 = phi ptr [ %incdec.ptr17.i.i.i2163, %if.end.i.i.i2165 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2155 ]
   %cur1.0.i.i.i2159.ptr = getelementptr inbounds i8, ptr @.str.283, i64 %cur1.0.i.i.i2159.idx
   %52 = load i32, ptr %cur1.0.i.i.i2159.ptr, align 4
   %53 = load i32, ptr %p2.0.i.i.i2160, align 4
@@ -10532,7 +10532,7 @@ while.cond14.i.i.i2158:                           ; preds = %if.then10.i.i.i2155
 
 while.body16.i.i.i2162:                           ; preds = %while.cond14.i.i.i2158
   %incdec.ptr17.i.i.i2163 = getelementptr inbounds i8, ptr %p2.0.i.i.i2160, i64 4
-  %cmp18.i.i.i2164 = icmp eq ptr %incdec.ptr17.i.i.i2163, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i.i2164 = icmp eq ptr %incdec.ptr17.i.i.i2163, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i.i2164, label %invoke.cont.i.i2168, label %if.end.i.i.i2165
 
 if.end.i.i.i2165:                                 ; preds = %while.body16.i.i.i2162
@@ -10553,11 +10553,11 @@ while.cond4.preheader.i.i.i2209.preheader:        ; preds = %if.then10.i.i.i2155
   br label %land.rhs.i.i.i2211
 
 land.rhs.i.i.i2211:                               ; preds = %land.rhs.i.i.i2211.backedge, %while.cond4.preheader.i.i.i2209.preheader
-  %first1.addr.134.i.i.i2212 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 3), %while.cond4.preheader.i.i.i2209.preheader ], [ %incdec.ptr11.i.i.i2218, %land.rhs.i.i.i2211.backedge ]
+  %first1.addr.134.i.i.i2212 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 12), %while.cond4.preheader.i.i.i2209.preheader ], [ %incdec.ptr11.i.i.i2218, %land.rhs.i.i.i2211.backedge ]
   %54 = load i32, ptr %first1.addr.134.i.i.i2212, align 4
   %cmp6.not.i.i.i2213 = icmp eq i32 %54, 72
   %incdec.ptr11.i.i.i2218 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2212, i64 4
-  %cmp12.not.i.i.i2219 = icmp eq ptr %incdec.ptr11.i.i.i2218, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2219 = icmp eq ptr %incdec.ptr11.i.i.i2218, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2213, label %if.then10.i.i.i2217, label %while.body7.i.i.i2214
 
 while.body7.i.i.i2214:                            ; preds = %land.rhs.i.i.i2211
@@ -10571,7 +10571,7 @@ if.then10.i.i.i2217:                              ; preds = %land.rhs.i.i.i2211
 
 while.cond14.i.i.i2220:                           ; preds = %if.then10.i.i.i2217, %if.end.i.i.i2227
   %cur1.0.i.i.i2221 = phi ptr [ %incdec.ptr20.i.i.i2228, %if.end.i.i.i2227 ], [ %incdec.ptr11.i.i.i2218, %if.then10.i.i.i2217 ]
-  %p2.0.i.i.i2222 = phi ptr [ %incdec.ptr17.i.i.i2225, %if.end.i.i.i2227 ], [ getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 1), %if.then10.i.i.i2217 ]
+  %p2.0.i.i.i2222 = phi ptr [ %incdec.ptr17.i.i.i2225, %if.end.i.i.i2227 ], [ getelementptr inbounds (i8, ptr @.str.248, i64 4), %if.then10.i.i.i2217 ]
   %55 = load i32, ptr %cur1.0.i.i.i2221, align 4
   %56 = load i32, ptr %p2.0.i.i.i2222, align 4
   %cmp15.i.i.i2223 = icmp eq i32 %55, %56
@@ -10579,16 +10579,16 @@ while.cond14.i.i.i2220:                           ; preds = %if.then10.i.i.i2217
 
 while.body16.i.i.i2224:                           ; preds = %while.cond14.i.i.i2220
   %incdec.ptr17.i.i.i2225 = getelementptr inbounds i8, ptr %p2.0.i.i.i2222, i64 4
-  %cmp18.i.i.i2226 = icmp eq ptr %incdec.ptr17.i.i.i2225, getelementptr inbounds ([6 x i32], ptr @.str.248, i64 0, i64 5)
+  %cmp18.i.i.i2226 = icmp eq ptr %incdec.ptr17.i.i.i2225, getelementptr inbounds (i8, ptr @.str.248, i64 20)
   br i1 %cmp18.i.i.i2226, label %invoke.cont.i.i2230, label %if.end.i.i.i2227
 
 if.end.i.i.i2227:                                 ; preds = %while.body16.i.i.i2224
   %incdec.ptr20.i.i.i2228 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2221, i64 4
-  %cmp21.i.i.i2229 = icmp eq ptr %incdec.ptr20.i.i.i2228, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2229 = icmp eq ptr %incdec.ptr20.i.i.i2228, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2229, label %while.cond4.preheader.i.i.i2274.preheader, label %while.cond14.i.i.i2220, !llvm.loop !71
 
 invoke.cont.i.i2230:                              ; preds = %while.body16.i.i.i2224
-  %cmp13.not.i.not.i2232 = icmp eq ptr %first1.addr.134.i.i.i2212, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2232 = icmp eq ptr %first1.addr.134.i.i.i2212, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2232, label %while.cond4.preheader.i.i.i2274.preheader, label %if.then16.i.i2233
 
 if.then16.i.i2233:                                ; preds = %invoke.cont.i.i2230
@@ -10604,11 +10604,11 @@ while.cond4.preheader.i.i.i2274.preheader:        ; preds = %if.then10.i.i.i2217
   br label %land.rhs.i.i.i2276
 
 land.rhs.i.i.i2276:                               ; preds = %land.rhs.i.i.i2276.backedge, %while.cond4.preheader.i.i.i2274.preheader
-  %first1.addr.134.i.i.i2277 = phi ptr [ getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 7), %while.cond4.preheader.i.i.i2274.preheader ], [ %incdec.ptr11.i.i.i2283, %land.rhs.i.i.i2276.backedge ]
+  %first1.addr.134.i.i.i2277 = phi ptr [ getelementptr inbounds (i8, ptr @.str.283, i64 28), %while.cond4.preheader.i.i.i2274.preheader ], [ %incdec.ptr11.i.i.i2283, %land.rhs.i.i.i2276.backedge ]
   %57 = load i32, ptr %first1.addr.134.i.i.i2277, align 4
   %cmp6.not.i.i.i2278 = icmp eq i32 %57, 86
   %incdec.ptr11.i.i.i2283 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i2277, i64 4
-  %cmp12.not.i.i.i2284 = icmp eq ptr %incdec.ptr11.i.i.i2283, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp12.not.i.i.i2284 = icmp eq ptr %incdec.ptr11.i.i.i2283, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp6.not.i.i.i2278, label %if.then10.i.i.i2282, label %while.body7.i.i.i2279
 
 while.body7.i.i.i2279:                            ; preds = %land.rhs.i.i.i2276
@@ -10622,7 +10622,7 @@ if.then10.i.i.i2282:                              ; preds = %land.rhs.i.i.i2276
 
 while.cond14.i.i.i2285:                           ; preds = %if.then10.i.i.i2282, %if.end.i.i.i2292
   %cur1.0.i.i.i2286 = phi ptr [ %incdec.ptr20.i.i.i2293, %if.end.i.i.i2292 ], [ %incdec.ptr11.i.i.i2283, %if.then10.i.i.i2282 ]
-  %p2.0.i.i.i2287 = phi ptr [ %incdec.ptr17.i.i.i2290, %if.end.i.i.i2292 ], [ getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 1), %if.then10.i.i.i2282 ]
+  %p2.0.i.i.i2287 = phi ptr [ %incdec.ptr17.i.i.i2290, %if.end.i.i.i2292 ], [ getelementptr inbounds (i8, ptr @.str.284, i64 4), %if.then10.i.i.i2282 ]
   %58 = load i32, ptr %cur1.0.i.i.i2286, align 4
   %59 = load i32, ptr %p2.0.i.i.i2287, align 4
   %cmp15.i.i.i2288 = icmp eq i32 %58, %59
@@ -10630,16 +10630,16 @@ while.cond14.i.i.i2285:                           ; preds = %if.then10.i.i.i2282
 
 while.body16.i.i.i2289:                           ; preds = %while.cond14.i.i.i2285
   %incdec.ptr17.i.i.i2290 = getelementptr inbounds i8, ptr %p2.0.i.i.i2287, i64 4
-  %cmp18.i.i.i2291 = icmp eq ptr %incdec.ptr17.i.i.i2290, getelementptr inbounds ([8 x i32], ptr @.str.284, i64 0, i64 7)
+  %cmp18.i.i.i2291 = icmp eq ptr %incdec.ptr17.i.i.i2290, getelementptr inbounds (i8, ptr @.str.284, i64 28)
   br i1 %cmp18.i.i.i2291, label %invoke.cont.i.i2295, label %if.end.i.i.i2292
 
 if.end.i.i.i2292:                                 ; preds = %while.body16.i.i.i2289
   %incdec.ptr20.i.i.i2293 = getelementptr inbounds i8, ptr %cur1.0.i.i.i2286, i64 4
-  %cmp21.i.i.i2294 = icmp eq ptr %incdec.ptr20.i.i.i2293, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp21.i.i.i2294 = icmp eq ptr %incdec.ptr20.i.i.i2293, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp21.i.i.i2294, label %while.cond.i.i.i.i.preheader, label %while.cond14.i.i.i2285, !llvm.loop !71
 
 invoke.cont.i.i2295:                              ; preds = %while.body16.i.i.i2289
-  %cmp13.not.i.not.i2297 = icmp eq ptr %first1.addr.134.i.i.i2277, getelementptr inbounds ([17 x i32], ptr @.str.283, i64 0, i64 16)
+  %cmp13.not.i.not.i2297 = icmp eq ptr %first1.addr.134.i.i.i2277, getelementptr inbounds (i8, ptr @.str.283, i64 64)
   br i1 %cmp13.not.i.not.i2297, label %while.cond.i.i.i.i.preheader, label %if.then16.i.i2298
 
 if.then16.i.i2298:                                ; preds = %invoke.cont.i.i2295
@@ -10655,7 +10655,7 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then10.i.i.i2282
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i2354
-  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2352, %while.body.i.i.i.i2354 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i.preheader ]
+  %pTemp.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2352, %while.body.i.i.i.i2354 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i2352 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i, i64 -4
   %cmp.not.i.i.i.i2353 = icmp ult ptr %incdec.ptr.i.i.i.i2352, @.str.285
   br i1 %cmp.not.i.i.i.i2353, label %while.body.i.i.i2390.preheader, label %while.body.i.i.i.i2354
@@ -10678,7 +10678,7 @@ while.body.i.i.i2390.preheader:                   ; preds = %while.cond.i.i.i.i,
   br label %while.body.i.i.i2390
 
 while.body.i.i.i2390:                             ; preds = %while.body.i.i.i2390.preheader, %while.end.i.i.i2402
-  %pSearchEnd.045.i.i.i2391 = phi ptr [ %incdec.ptr36.i.i.i2403, %while.end.i.i.i2402 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2390.preheader ]
+  %pSearchEnd.045.i.i.i2391 = phi ptr [ %incdec.ptr36.i.i.i2403, %while.end.i.i.i2402 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2390.preheader ]
   br label %while.cond.i30.i.i.i2392
 
 while.cond.i30.i.i.i2392:                         ; preds = %while.body.i34.i.i.i2396, %while.body.i.i.i2390
@@ -10714,7 +10714,7 @@ while.end.i.i.i2402:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2413: ; preds = %while.body26.i.i.i2407
   %add.ptr34.i.i.i2412 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2399, i64 -8
-  %cmp11.not.i.i2415 = icmp eq ptr %add.ptr34.i.i.i2412, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2415 = icmp eq ptr %add.ptr34.i.i.i2412, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2415, label %while.body.i.i.i2465.preheader, label %if.then12.i.i2416
 
 if.then12.i.i2416:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2413
@@ -10730,7 +10730,7 @@ while.body.i.i.i2465.preheader:                   ; preds = %while.end.i.i.i2402
   br label %while.body.i.i.i2465
 
 while.body.i.i.i2465:                             ; preds = %while.body.i.i.i2465.preheader, %while.end.i.i.i2477
-  %pSearchEnd.045.i.i.i2466 = phi ptr [ %incdec.ptr36.i.i.i2478, %while.end.i.i.i2477 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2465.preheader ]
+  %pSearchEnd.045.i.i.i2466 = phi ptr [ %incdec.ptr36.i.i.i2478, %while.end.i.i.i2477 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2465.preheader ]
   br label %while.cond.i30.i.i.i2467
 
 while.cond.i30.i.i.i2467:                         ; preds = %while.body.i34.i.i.i2471, %while.body.i.i.i2465
@@ -10766,7 +10766,7 @@ while.end.i.i.i2477:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2488: ; preds = %while.body26.i.i.i2482
   %add.ptr34.i.i.i2487 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2474, i64 -12
-  %cmp11.not.i.i2490 = icmp eq ptr %add.ptr34.i.i.i2487, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2490 = icmp eq ptr %add.ptr34.i.i.i2487, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2490, label %while.cond.i.i.i.i2562.preheader, label %if.then12.i.i2491
 
 if.then12.i.i2491:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2488
@@ -10782,7 +10782,7 @@ while.cond.i.i.i.i2562.preheader:                 ; preds = %while.end.i.i.i2477
   br label %while.cond.i.i.i.i2562
 
 while.cond.i.i.i.i2562:                           ; preds = %while.cond.i.i.i.i2562.preheader, %while.body.i.i.i.i2566
-  %pTemp.0.i.i.i.i2563 = phi ptr [ %incdec.ptr.i.i.i.i2564, %while.body.i.i.i.i2566 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i2562.preheader ]
+  %pTemp.0.i.i.i.i2563 = phi ptr [ %incdec.ptr.i.i.i.i2564, %while.body.i.i.i.i2566 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2562.preheader ]
   %incdec.ptr.i.i.i.i2564 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2563, i64 -4
   %cmp.not.i.i.i.i2565 = icmp ult ptr %incdec.ptr.i.i.i.i2564, @.str.285
   br i1 %cmp.not.i.i.i.i2565, label %while.body.i.i.i2599.preheader, label %while.body.i.i.i.i2566
@@ -10805,7 +10805,7 @@ while.body.i.i.i2599.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2599
 
 while.body.i.i.i2599:                             ; preds = %while.body.i.i.i2599.preheader, %while.end.i.i.i2611
-  %pSearchEnd.045.i.i.i2600 = phi ptr [ %incdec.ptr36.i.i.i2612, %while.end.i.i.i2611 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2599.preheader ]
+  %pSearchEnd.045.i.i.i2600 = phi ptr [ %incdec.ptr36.i.i.i2612, %while.end.i.i.i2611 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2599.preheader ]
   br label %while.cond.i30.i.i.i2601
 
 while.cond.i30.i.i.i2601:                         ; preds = %while.body.i34.i.i.i2605, %while.body.i.i.i2599
@@ -10841,7 +10841,7 @@ while.end.i.i.i2611:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2621: ; preds = %while.body26.i.i.i2615
   %add.ptr34.i.i.i2620 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2608, i64 -8
-  %cmp11.not.i.i2623 = icmp eq ptr %add.ptr34.i.i.i2620, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2623 = icmp eq ptr %add.ptr34.i.i.i2620, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2623, label %while.body.i.i.i2669.preheader, label %if.then12.i.i2624
 
 if.then12.i.i2624:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2621
@@ -10857,7 +10857,7 @@ while.body.i.i.i2669.preheader:                   ; preds = %while.end.i.i.i2611
   br label %while.body.i.i.i2669
 
 while.body.i.i.i2669:                             ; preds = %while.body.i.i.i2669.preheader, %while.end.i.i.i2681
-  %pSearchEnd.045.i.i.i2670 = phi ptr [ %incdec.ptr36.i.i.i2682, %while.end.i.i.i2681 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2669.preheader ]
+  %pSearchEnd.045.i.i.i2670 = phi ptr [ %incdec.ptr36.i.i.i2682, %while.end.i.i.i2681 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2669.preheader ]
   br label %while.cond.i30.i.i.i2671
 
 while.cond.i30.i.i.i2671:                         ; preds = %while.body.i34.i.i.i2675, %while.body.i.i.i2669
@@ -10893,7 +10893,7 @@ while.end.i.i.i2681:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2691: ; preds = %while.body26.i.i.i2685
   %add.ptr34.i.i.i2690 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2678, i64 -12
-  %cmp11.not.i.i2693 = icmp eq ptr %add.ptr34.i.i.i2690, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2693 = icmp eq ptr %add.ptr34.i.i.i2690, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2693, label %while.cond.i.i.i.i2772.preheader, label %if.then12.i.i2694
 
 if.then12.i.i2694:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2691
@@ -10909,7 +10909,7 @@ while.cond.i.i.i.i2772.preheader:                 ; preds = %while.end.i.i.i2681
   br label %while.cond.i.i.i.i2772
 
 while.cond.i.i.i.i2772:                           ; preds = %while.cond.i.i.i.i2772.preheader, %while.body.i.i.i.i2776
-  %pTemp.0.i.i.i.i2773 = phi ptr [ %incdec.ptr.i.i.i.i2774, %while.body.i.i.i.i2776 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %while.cond.i.i.i.i2772.preheader ]
+  %pTemp.0.i.i.i.i2773 = phi ptr [ %incdec.ptr.i.i.i.i2774, %while.body.i.i.i.i2776 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2772.preheader ]
   %incdec.ptr.i.i.i.i2774 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2773, i64 -4
   %cmp.not.i.i.i.i2775 = icmp ult ptr %incdec.ptr.i.i.i.i2774, @.str.285
   br i1 %cmp.not.i.i.i.i2775, label %while.body.i.i.i2811.preheader, label %while.body.i.i.i.i2776
@@ -10932,7 +10932,7 @@ while.body.i.i.i2811.preheader:                   ; preds = %while.cond.i.i.i.i2
   br label %while.body.i.i.i2811
 
 while.body.i.i.i2811:                             ; preds = %while.body.i.i.i2811.preheader, %while.end.i.i.i2823
-  %pSearchEnd.045.i.i.i2812 = phi ptr [ %incdec.ptr36.i.i.i2824, %while.end.i.i.i2823 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 24), %while.body.i.i.i2811.preheader ]
+  %pSearchEnd.045.i.i.i2812 = phi ptr [ %incdec.ptr36.i.i.i2824, %while.end.i.i.i2823 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 96), %while.body.i.i.i2811.preheader ]
   br label %while.cond.i30.i.i.i2813
 
 while.cond.i30.i.i.i2813:                         ; preds = %while.body.i34.i.i.i2817, %while.body.i.i.i2811
@@ -10968,7 +10968,7 @@ while.end.i.i.i2823:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2833: ; preds = %while.body26.i.i.i2827
   %add.ptr34.i.i.i2832 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2820, i64 -8
-  %cmp11.not.i.i2835 = icmp eq ptr %add.ptr34.i.i.i2832, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2835 = icmp eq ptr %add.ptr34.i.i.i2832, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2835, label %while.body.i.i.i2883.preheader, label %if.then12.i.i2836
 
 if.then12.i.i2836:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2833
@@ -10984,7 +10984,7 @@ while.body.i.i.i2883.preheader:                   ; preds = %while.end.i.i.i2823
   br label %while.body.i.i.i2883
 
 while.body.i.i.i2883:                             ; preds = %while.body.i.i.i2883.preheader, %while.end.i.i.i2895
-  %pSearchEnd.045.i.i.i2884 = phi ptr [ %incdec.ptr36.i.i.i2896, %while.end.i.i.i2895 ], [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 23), %while.body.i.i.i2883.preheader ]
+  %pSearchEnd.045.i.i.i2884 = phi ptr [ %incdec.ptr36.i.i.i2896, %while.end.i.i.i2895 ], [ getelementptr inbounds (i8, ptr @.str.285, i64 92), %while.body.i.i.i2883.preheader ]
   br label %while.cond.i30.i.i.i2885
 
 while.cond.i30.i.i.i2885:                         ; preds = %while.body.i34.i.i.i2889, %while.body.i.i.i2883
@@ -11020,7 +11020,7 @@ while.end.i.i.i2895:                              ; preds = %while.cond23.i.i.i2
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2905: ; preds = %while.body26.i.i.i2899
   %add.ptr34.i.i.i2904 = getelementptr inbounds i8, ptr %pCurrent1.0.i.i.i2892, i64 -12
-  %cmp11.not.i.i2907 = icmp eq ptr %add.ptr34.i.i.i2904, getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26)
+  %cmp11.not.i.i2907 = icmp eq ptr %add.ptr34.i.i.i2904, getelementptr inbounds (i8, ptr @.str.285, i64 104)
   br i1 %cmp11.not.i.i2907, label %if.then.i2926, label %if.then12.i.i2908
 
 if.then12.i.i2908:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2905
@@ -11036,7 +11036,7 @@ if.then.i2926:                                    ; preds = %while.end.i.i.i2895
   br label %while.cond.i.i2930
 
 while.cond.i.i2930:                               ; preds = %while.body.i.i, %if.then.i2926
-  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 26), %if.then.i2926 ], [ %add.ptr.i.i2932, %while.body.i.i ]
+  %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 104), %if.then.i2926 ], [ %add.ptr.i.i2932, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.285
   br i1 %cmp.i.i, label %while.body.i.i, label %if.then.i2940
 
@@ -11059,7 +11059,7 @@ if.then.i2940:                                    ; preds = %while.cond.i.i2930,
   br label %while.cond.i.i2945
 
 while.cond.i.i2945:                               ; preds = %while.body.i.i2949, %if.then.i2940
-  %pRBegin.addr.0.i.i2946 = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 25), %if.then.i2940 ], [ %add.ptr.i.i2950, %while.body.i.i2949 ]
+  %pRBegin.addr.0.i.i2946 = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 100), %if.then.i2940 ], [ %add.ptr.i.i2950, %while.body.i.i2949 ]
   %cmp.i.i2947 = icmp ugt ptr %pRBegin.addr.0.i.i2946, @.str.285
   br i1 %cmp.i.i2947, label %while.body.i.i2949, label %if.then.i2961
 
@@ -11082,7 +11082,7 @@ if.then.i2961:                                    ; preds = %while.cond.i.i2945,
   br label %while.cond.i.i2966
 
 while.cond.i.i2966:                               ; preds = %while.body.i.i2970, %if.then.i2961
-  %pRBegin.addr.0.i.i2967 = phi ptr [ getelementptr inbounds ([27 x i32], ptr @.str.285, i64 0, i64 25), %if.then.i2961 ], [ %add.ptr.i.i2971, %while.body.i.i2970 ]
+  %pRBegin.addr.0.i.i2967 = phi ptr [ getelementptr inbounds (i8, ptr @.str.285, i64 100), %if.then.i2961 ], [ %add.ptr.i.i2971, %while.body.i.i2970 ]
   %cmp.i.i2968 = icmp ugt ptr %pRBegin.addr.0.i.i2967, @.str.285
   br i1 %cmp.i.i2968, label %while.body.i.i2970, label %for.cond1.preheader.i.i.i3053.preheader
 
@@ -11177,7 +11177,7 @@ for.cond1.preheader.i.i.preheader:                ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.i.i.preheader, %for.cond1.for.inc5_crit_edge.i.i
-  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr6.i.i, %for.cond1.for.inc5_crit_edge.i.i ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 1), %for.cond1.preheader.i.i.preheader ]
+  %p1Begin.addr.012.i.i = phi ptr [ %incdec.ptr6.i.i, %for.cond1.for.inc5_crit_edge.i.i ], [ getelementptr inbounds (i8, ptr @.str.289, i64 4), %for.cond1.preheader.i.i.preheader ]
   %88 = load i32, ptr %p1Begin.addr.012.i.i, align 4
   br label %for.body3.i.i
 
@@ -11195,11 +11195,11 @@ for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for
 
 for.cond1.for.inc5_crit_edge.i.i:                 ; preds = %for.cond1.i.i
   %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i, i64 4
-  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr6.i.i, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp.not.i.i3111 = icmp eq ptr %incdec.ptr6.i.i, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp.not.i.i3111, label %if.then.i3120, label %for.cond1.preheader.i.i, !llvm.loop !78
 
 _ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i: ; preds = %for.body3.i.i
-  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp7.not.i = icmp eq ptr %p1Begin.addr.012.i.i, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp7.not.i, label %if.then.i3120, label %if.then8.i3112
 
 if.then8.i3112:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i
@@ -11214,7 +11214,7 @@ if.then.i3120:                                    ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc5_crit_edge.i.i3131, %if.then.i3120
-  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr6.i.i3132, %for.cond1.for.inc5_crit_edge.i.i3131 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 1), %if.then.i3120 ]
+  %p1Begin.addr.012.i.i3124 = phi ptr [ %incdec.ptr6.i.i3132, %for.cond1.for.inc5_crit_edge.i.i3131 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 4), %if.then.i3120 ]
   %90 = load i32, ptr %p1Begin.addr.012.i.i3124, align 4
   br label %for.body3.i.i3125
 
@@ -11232,11 +11232,11 @@ for.body3.i.i3125:                                ; preds = %for.cond1.i.i3128, 
 
 for.cond1.for.inc5_crit_edge.i.i3131:             ; preds = %for.cond1.i.i3128
   %incdec.ptr6.i.i3132 = getelementptr inbounds i8, ptr %p1Begin.addr.012.i.i3124, i64 4
-  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr6.i.i3132, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp.not.i.i3133 = icmp eq ptr %incdec.ptr6.i.i3132, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp.not.i.i3133, label %land.rhs.i.i.i.i.i3152.preheader, label %for.cond1.preheader.i.i3123, !llvm.loop !78
 
 _ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i3134: ; preds = %for.body3.i.i3125
-  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29)
+  %cmp7.not.i3135 = icmp eq ptr %p1Begin.addr.012.i.i3124, getelementptr inbounds (i8, ptr @.str.289, i64 116)
   br i1 %cmp7.not.i3135, label %land.rhs.i.i.i.i.i3152.preheader, label %if.then8.i3136
 
 if.then8.i3136:                                   ; preds = %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i3134
@@ -11295,7 +11295,7 @@ for.cond1.preheader.i.i.i3226.preheader:          ; preds = %for.cond1.i.i.i3182
   br label %for.cond1.preheader.i.i.i3226
 
 for.cond1.preheader.i.i.i3226:                    ; preds = %for.cond1.preheader.i.i.i3226.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3234
-  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3227, %for.cond1.for.inc5_crit_edge.i.i.i3234 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3226.preheader ]
+  %p1RBegin.addr.012.i.i.i = phi ptr [ %add.ptr.i.i.i3227, %for.cond1.for.inc5_crit_edge.i.i.i3234 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3226.preheader ]
   %add.ptr.i.i.i3227 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i, i64 -4
   %94 = load i32, ptr %add.ptr.i.i.i3227, align 4
   br label %for.body3.i.i.i3228
@@ -11333,7 +11333,7 @@ for.cond1.preheader.i.i.i3258.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3258
 
 for.cond1.preheader.i.i.i3258:                    ; preds = %for.cond1.preheader.i.i.i3258.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3267
-  %p1RBegin.addr.012.i.i.i3259 = phi ptr [ %add.ptr.i.i.i3260, %for.cond1.for.inc5_crit_edge.i.i.i3267 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3258.preheader ]
+  %p1RBegin.addr.012.i.i.i3259 = phi ptr [ %add.ptr.i.i.i3260, %for.cond1.for.inc5_crit_edge.i.i.i3267 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3258.preheader ]
   %add.ptr.i.i.i3260 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3259, i64 -4
   %96 = load i32, ptr %add.ptr.i.i.i3260, align 4
   br label %for.body3.i.i.i3261
@@ -11371,7 +11371,7 @@ for.cond1.preheader.i.i.i3292.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3292
 
 for.cond1.preheader.i.i.i3292:                    ; preds = %for.cond1.preheader.i.i.i3292.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3301
-  %p1RBegin.addr.012.i.i.i3293 = phi ptr [ %add.ptr.i.i.i3294, %for.cond1.for.inc5_crit_edge.i.i.i3301 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3292.preheader ]
+  %p1RBegin.addr.012.i.i.i3293 = phi ptr [ %add.ptr.i.i.i3294, %for.cond1.for.inc5_crit_edge.i.i.i3301 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3292.preheader ]
   %add.ptr.i.i.i3294 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3293, i64 -4
   %98 = load i32, ptr %add.ptr.i.i.i3294, align 4
   br label %for.body3.i.i.i3295
@@ -11409,7 +11409,7 @@ for.cond1.preheader.i.i.i3327.preheader:          ; preds = %for.cond1.for.inc5_
   br label %for.cond1.preheader.i.i.i3327
 
 for.cond1.preheader.i.i.i3327:                    ; preds = %for.cond1.preheader.i.i.i3327.preheader, %for.cond1.for.inc5_crit_edge.i.i.i3336
-  %p1RBegin.addr.012.i.i.i3328 = phi ptr [ %add.ptr.i.i.i3329, %for.cond1.for.inc5_crit_edge.i.i.i3336 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3327.preheader ]
+  %p1RBegin.addr.012.i.i.i3328 = phi ptr [ %add.ptr.i.i.i3329, %for.cond1.for.inc5_crit_edge.i.i.i3336 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3327.preheader ]
   %add.ptr.i.i.i3329 = getelementptr inbounds i8, ptr %p1RBegin.addr.012.i.i.i3328, i64 -4
   %100 = load i32, ptr %add.ptr.i.i.i3329, align 4
   br label %for.body3.i.i.i3330
@@ -11447,7 +11447,7 @@ if.then.i.i3349:                                  ; preds = %for.cond1.for.inc5_
   br label %while.cond.i.i.i3354
 
 while.cond.i.i.i3354:                             ; preds = %while.body.i.i.i3357, %if.then.i.i3349
-  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %if.then.i.i3349 ], [ %add.ptr.i.i.i3358, %while.body.i.i.i3357 ]
+  %pRBegin.addr.0.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %if.then.i.i3349 ], [ %add.ptr.i.i.i3358, %while.body.i.i.i3357 ]
   %cmp.i.i.i3355 = icmp ugt ptr %pRBegin.addr.0.i.i.i, @.str.289
   br i1 %cmp.i.i.i3355, label %while.body.i.i.i3357, label %if.then.i.i3366
 
@@ -11470,7 +11470,7 @@ if.then.i.i3366:                                  ; preds = %while.cond.i.i.i335
   br label %while.cond.i.i.i3371
 
 while.cond.i.i.i3371:                             ; preds = %while.body.i.i.i3375, %if.then.i.i3366
-  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
+  %pRBegin.addr.0.i.i.i3372 = phi ptr [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %if.then.i.i3366 ], [ %add.ptr.i.i.i3376, %while.body.i.i.i3375 ]
   %cmp.i.i.i3373 = icmp ugt ptr %pRBegin.addr.0.i.i.i3372, @.str.289
   br i1 %cmp.i.i.i3373, label %while.body.i.i.i3375, label %for.cond1.preheader.i.i.i3412.preheader
 
@@ -11565,7 +11565,7 @@ for.cond1.preheader.i.i.i3551.preheader:          ; preds = %for.inc8.i.i.i3458,
   br label %for.cond1.preheader.i.i.i3551
 
 for.cond1.preheader.i.i.i3551:                    ; preds = %for.cond1.preheader.i.i.i3551.preheader, %for.inc8.i.i.i3571
-  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc8.i.i.i3571 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3551.preheader ]
+  %p1RBegin.addr.015.i.i.i3552 = phi ptr [ %add.ptr.i.i.i3553, %for.inc8.i.i.i3571 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3551.preheader ]
   %add.ptr.i.i.i3553 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3552, i64 -4
   %108 = load i32, ptr %add.ptr.i.i.i3553, align 4
   br label %for.body3.i.i.i3554
@@ -11604,7 +11604,7 @@ for.cond1.preheader.i.i.i3596.preheader:          ; preds = %for.inc8.i.i.i3571,
   br label %for.cond1.preheader.i.i.i3596
 
 for.cond1.preheader.i.i.i3596:                    ; preds = %for.cond1.preheader.i.i.i3596.preheader, %for.inc8.i.i.i3616
-  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc8.i.i.i3616 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3596.preheader ]
+  %p1RBegin.addr.015.i.i.i3597 = phi ptr [ %add.ptr.i.i.i3598, %for.inc8.i.i.i3616 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3596.preheader ]
   %add.ptr.i.i.i3598 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3597, i64 -4
   %110 = load i32, ptr %add.ptr.i.i.i3598, align 4
   br label %for.body3.i.i.i3599
@@ -11643,7 +11643,7 @@ for.cond1.preheader.i.i.i3634.preheader:          ; preds = %for.inc8.i.i.i3616,
   br label %for.cond1.preheader.i.i.i3634
 
 for.cond1.preheader.i.i.i3634:                    ; preds = %for.cond1.preheader.i.i.i3634.preheader, %for.inc8.i.i.i3653
-  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc8.i.i.i3653 ], [ getelementptr inbounds ([30 x i32], ptr @.str.289, i64 0, i64 29), %for.cond1.preheader.i.i.i3634.preheader ]
+  %p1RBegin.addr.015.i.i.i3635 = phi ptr [ %add.ptr.i.i.i3636, %for.inc8.i.i.i3653 ], [ getelementptr inbounds (i8, ptr @.str.289, i64 116), %for.cond1.preheader.i.i.i3634.preheader ]
   %add.ptr.i.i.i3636 = getelementptr inbounds i8, ptr %p1RBegin.addr.015.i.i.i3635, i64 -4
   %112 = load i32, ptr %add.ptr.i.i.i3636, align 4
   br label %for.body3.i.i.i3637
@@ -12280,7 +12280,7 @@ for.body.i.i.i.preheader.i.i.i4611:               ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i4614:                         ; preds = %for.body.i.i.i.i.i.i4614, %for.body.i.i.i.preheader.i.i.i4611
   %n.addr.011.i.i.i.i.i.i4615 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i.i4611 ], [ %dec.i.i.i.i.i.i4622, %for.body.i.i.i.i.i.i4614 ]
   %p2.addr.010.i.i.i.i.i.i4616 = phi ptr [ @.str.302, %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr3.i.i.i.i.i.i4621, %for.body.i.i.i.i.i.i4614 ]
-  %p1.addr.09.i.i.i.i.i.i4617 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 25), %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr.i.i.i.i.i.i4620, %for.body.i.i.i.i.i.i4614 ]
+  %p1.addr.09.i.i.i.i.i.i4617 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 100), %for.body.i.i.i.preheader.i.i.i4611 ], [ %incdec.ptr.i.i.i.i.i.i4620, %for.body.i.i.i.i.i.i4614 ]
   %181 = load i32, ptr %p1.addr.09.i.i.i.i.i.i4617, align 4
   %182 = load i32, ptr %p2.addr.010.i.i.i.i.i.i4616, align 4
   %cmp1.not.i.i.i.i.i.i4618 = icmp eq i32 %181, %182
@@ -12298,7 +12298,7 @@ for.body.i.i.i.preheader.i.i4639:                 ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i4642:                           ; preds = %for.body.i.i.i.i.i4642, %for.body.i.i.i.preheader.i.i4639
   %n.addr.011.i.i.i.i.i4643 = phi i64 [ 4, %for.body.i.i.i.preheader.i.i4639 ], [ %dec.i.i.i.i.i4650, %for.body.i.i.i.i.i4642 ]
   %p2.addr.010.i.i.i.i.i4644 = phi ptr [ @.str.302, %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr3.i.i.i.i.i4649, %for.body.i.i.i.i.i4642 ]
-  %p1.addr.09.i.i.i.i.i4645 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 25), %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr.i.i.i.i.i4648, %for.body.i.i.i.i.i4642 ]
+  %p1.addr.09.i.i.i.i.i4645 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 100), %for.body.i.i.i.preheader.i.i4639 ], [ %incdec.ptr.i.i.i.i.i4648, %for.body.i.i.i.i.i4642 ]
   %183 = load i32, ptr %p1.addr.09.i.i.i.i.i4645, align 4
   %184 = load i32, ptr %p2.addr.010.i.i.i.i.i4644, align 4
   %cmp1.not.i.i.i.i.i4646 = icmp eq i32 %183, %184
@@ -12316,7 +12316,7 @@ for.body.i.i.i.preheader.i.i.i4664:               ; preds = %for.body.i.i.i.i.i4
 for.body.i.i.i.i.i.i4667:                         ; preds = %for.body.i.i.i.i.i.i4667, %for.body.i.i.i.preheader.i.i.i4664
   %n.addr.011.i.i.i.i.i.i4668 = phi i64 [ 5, %for.body.i.i.i.preheader.i.i.i4664 ], [ %dec.i.i.i.i.i.i4675, %for.body.i.i.i.i.i.i4667 ]
   %p2.addr.010.i.i.i.i.i.i4669 = phi ptr [ @.str.303, %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr3.i.i.i.i.i.i4674, %for.body.i.i.i.i.i.i4667 ]
-  %p1.addr.09.i.i.i.i.i.i4670 = phi ptr [ getelementptr inbounds ([30 x i32], ptr @.str.298, i64 0, i64 24), %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr.i.i.i.i.i.i4673, %for.body.i.i.i.i.i.i4667 ]
+  %p1.addr.09.i.i.i.i.i.i4670 = phi ptr [ getelementptr inbounds (i8, ptr @.str.298, i64 96), %for.body.i.i.i.preheader.i.i.i4664 ], [ %incdec.ptr.i.i.i.i.i.i4673, %for.body.i.i.i.i.i.i4667 ]
   %185 = load i32, ptr %p1.addr.09.i.i.i.i.i.i4670, align 4
   %186 = load i32, ptr %p2.addr.010.i.i.i.i.i.i4669, align 4
   %cmp1.not.i.i.i.i.i.i4671 = icmp ne i32 %185, %186

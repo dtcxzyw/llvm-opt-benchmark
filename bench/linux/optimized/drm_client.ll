@@ -555,7 +555,7 @@ define dso_local ptr @drm_client_framebuffer_create(ptr noundef %0, i32 noundef 
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %0, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 48) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread13, label %13

@@ -149,7 +149,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %53
   store i8 1, ptr %59, align 8, !alias.scope !5
   %60 = getelementptr inbounds i8, ptr %9, i64 9
   store i8 %58, ptr %60, align 1, !alias.scope !5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %9, align 8, !alias.scope !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %9, align 8, !alias.scope !5
   %61 = getelementptr inbounds i8, ptr %9, i64 12
   store float %54, ptr %61, align 4, !alias.scope !5
   %62 = getelementptr inbounds i8, ptr %9, i64 16
@@ -242,7 +242,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit82:               ; preds = %89
   store i8 1, ptr %96, align 8, !alias.scope !8
   %97 = getelementptr inbounds i8, ptr %13, i64 9
   store i8 %95, ptr %97, align 1, !alias.scope !8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %13, align 8, !alias.scope !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !8
   %98 = getelementptr inbounds i8, ptr %13, i64 12
   store float %91, ptr %98, align 4, !alias.scope !8
   %99 = getelementptr inbounds i8, ptr %13, i64 16
@@ -346,7 +346,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit86:               ; preds = %129
   store i8 1, ptr %136, align 8, !alias.scope !11
   %137 = getelementptr inbounds i8, ptr %17, i64 9
   store i8 %135, ptr %137, align 1, !alias.scope !11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %17, align 8, !alias.scope !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %17, align 8, !alias.scope !11
   %138 = getelementptr inbounds i8, ptr %17, i64 12
   store float %131, ptr %138, align 4, !alias.scope !11
   %139 = getelementptr inbounds i8, ptr %17, i64 16
@@ -453,7 +453,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %170
   store i8 1, ptr %176, align 8, !alias.scope !14
   %177 = getelementptr inbounds i8, ptr %21, i64 9
   store i8 %175, ptr %177, align 1, !alias.scope !14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %21, align 8, !alias.scope !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !14
   %178 = getelementptr inbounds i8, ptr %21, i64 12
   store float %171, ptr %178, align 4, !alias.scope !14
   %179 = getelementptr inbounds i8, ptr %21, i64 16
@@ -556,7 +556,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit93:               ; preds = %209
   store i8 1, ptr %215, align 8, !alias.scope !17
   %216 = getelementptr inbounds i8, ptr %25, i64 9
   store i8 %214, ptr %216, align 1, !alias.scope !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %25, align 8, !alias.scope !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !17
   %217 = getelementptr inbounds i8, ptr %25, i64 12
   store float %210, ptr %217, align 4, !alias.scope !17
   %218 = getelementptr inbounds i8, ptr %25, i64 16
@@ -659,7 +659,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit97:               ; preds = %248
   store i8 1, ptr %254, align 8, !alias.scope !20
   %255 = getelementptr inbounds i8, ptr %29, i64 9
   store i8 %253, ptr %255, align 1, !alias.scope !20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %29, align 8, !alias.scope !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !20
   %256 = getelementptr inbounds i8, ptr %29, i64 12
   store float %249, ptr %256, align 4, !alias.scope !20
   %257 = getelementptr inbounds i8, ptr %29, i64 16
@@ -766,7 +766,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit101:              ; preds = %288
   store i8 1, ptr %294, align 8, !alias.scope !23
   %295 = getelementptr inbounds i8, ptr %33, i64 9
   store i8 %293, ptr %295, align 1, !alias.scope !23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %33, align 8, !alias.scope !23
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %33, align 8, !alias.scope !23
   %296 = getelementptr inbounds i8, ptr %33, i64 12
   store float %289, ptr %296, align 4, !alias.scope !23
   %297 = getelementptr inbounds i8, ptr %33, i64 16
@@ -869,7 +869,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit105:              ; preds = %327
   store i8 1, ptr %333, align 8, !alias.scope !26
   %334 = getelementptr inbounds i8, ptr %37, i64 9
   store i8 %332, ptr %334, align 1, !alias.scope !26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %37, align 8, !alias.scope !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %37, align 8, !alias.scope !26
   %335 = getelementptr inbounds i8, ptr %37, i64 12
   store float %328, ptr %335, align 4, !alias.scope !26
   %336 = getelementptr inbounds i8, ptr %37, i64 16
@@ -972,7 +972,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit109:              ; preds = %366
   store i8 1, ptr %372, align 8, !alias.scope !29
   %373 = getelementptr inbounds i8, ptr %41, i64 9
   store i8 %371, ptr %373, align 1, !alias.scope !29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 0, i32 0, i64 2), ptr %41, align 8, !alias.scope !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %41, align 8, !alias.scope !29
   %374 = getelementptr inbounds i8, ptr %41, i64 12
   store float %367, ptr %374, align 4, !alias.scope !29
   %375 = getelementptr inbounds i8, ptr %41, i64 16

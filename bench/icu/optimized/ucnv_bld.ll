@@ -1607,12 +1607,12 @@ _ZL27initAvailableConvertersListR10UErrorCode.exit: ; preds = %if.then4.i, %if.t
   %6 = phi i32 [ %2, %if.then4.i ], [ 7, %if.then5.i ], [ %.pre, %for.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localStatus.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %tempConverter.i)
-  store i32 %6, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL28gAvailableConvertersInitOnce, i64 0, i32 1), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZL28gAvailableConvertersInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL28gAvailableConvertersInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %7 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL28gAvailableConvertersInitOnce, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL28gAvailableConvertersInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %7, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

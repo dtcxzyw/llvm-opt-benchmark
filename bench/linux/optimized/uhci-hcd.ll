@@ -493,7 +493,7 @@ define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef %0) #2 ali
   br label %188
 
 26:                                               ; preds = %13
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %28 = tail call noalias noundef align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 8192) #14
   %29 = getelementptr inbounds i8, ptr %0, i64 768
   store ptr %28, ptr %29, align 8

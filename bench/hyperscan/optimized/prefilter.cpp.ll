@@ -122,7 +122,7 @@ entry:
   %vis = alloca %"class.ue2::PrefilterVisitor", align 8
   %0 = load ptr, ptr %root, align 8
   call void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3ue216PrefilterVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue216PrefilterVisitorE, i64 16), ptr %vis, align 8
   %root.i = getelementptr inbounds i8, ptr %vis, i64 8
   store ptr %0, ptr %root.i, align 8
   %mode.i = getelementptr inbounds i8, ptr %vis, i64 16
@@ -296,7 +296,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis, align 8
   %name.i10 = getelementptr inbounds i8, ptr %vis, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i10, ptr noundef nonnull align 8 dereferenceable(32) %name.i)
           to label %_ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
@@ -339,11 +339,11 @@ catch.i:                                          ; preds = %lpad.i11
 
 invoke.cont:                                      ; preds = %catch.i, %_ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %retval.0.i = phi ptr [ %8, %catch.i ], [ null, %_ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis, align 8
   br label %if.end11
 
 lpad.body:                                        ; preds = %lpad.i11
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i10) #16
   call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #16
   br label %common.resume
@@ -354,7 +354,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis6)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6, align 8
   %name.i14 = getelementptr inbounds i8, ptr %vis6, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i14) #16
   %id.i15 = getelementptr inbounds i8, ptr %vis6, i64 40
@@ -384,11 +384,11 @@ catch.i21:                                        ; preds = %lpad.i18
 
 invoke.cont9:                                     ; preds = %catch.i21, %if.then5
   %retval.0.i22 = phi ptr [ %15, %catch.i21 ], [ null, %if.then5 ]
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6, align 8
   br label %if.end11
 
 lpad8.body:                                       ; preds = %lpad.i18
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %vis6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i14) #16
   call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis6) #16
   br label %common.resume
@@ -408,7 +408,7 @@ land.lhs.true:                                    ; preds = %if.end11
           to label %.noexc.i unwind label %lpad.i27
 
 .noexc.i:                                         ; preds = %land.lhs.true
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 0, i32 0, i64 2), ptr %vis.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %vis.i, align 8
   %numPositions.i.i = getelementptr inbounds i8, ptr %vis.i, i64 8
   %countStack.i.i = getelementptr inbounds i8, ptr %vis.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %numPositions.i.i, i8 0, i64 88, i1 false)
@@ -432,7 +432,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   %vis.val.i = load i64, ptr %numPositions.i.i, align 8
   %cmp.i.i = icmp ult i64 %vis.val.i, 2
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 0, i32 0, i64 2), ptr %vis.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %vis.i, align 8
   %18 = load ptr, ptr %countStack.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_114isSafeReferentERKNS_9ComponentE.exit, label %if.then.i.i.i.i.i
@@ -940,7 +940,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
   tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
@@ -968,7 +968,7 @@ declare void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #16
   tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
@@ -1126,7 +1126,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %this, align 8
   %countStack = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %countStack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1166,7 +1166,7 @@ _ZNSt5stackImSt5dequeImSaImEEED2Ev.exit:          ; preds = %entry, %_ZNSt11_Deq
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %this, align 8
   %countStack.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %countStack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

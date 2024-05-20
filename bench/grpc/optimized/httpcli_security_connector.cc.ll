@@ -151,7 +151,7 @@ init:                                             ; preds = %init.check
 invoke.cont2:                                     ; preds = %init
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_125HttpRequestSSLCredentialsE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_125HttpRequestSSLCredentialsE, i64 16), ptr %call, align 8
   store ptr %call, ptr @_ZZN9grpc_core31CreateHttpRequestSSLCredentialsEvE5creds, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core31CreateHttpRequestSSLCredentialsEvE5creds) #19
   br label %init.end
@@ -200,7 +200,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -377,7 +377,7 @@ lpad.body.i.i:                                    ; preds = %if.then.i.i20.i.i.i
   br label %lpad6.body
 
 _ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i: ; preds = %if.then.i.i5.i.i.i, %if.then.i2.i.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorE, i64 0, i32 0, i64 2), ptr %call.i.i36, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorE, i64 16), ptr %call.i.i36, align 8, !noalias !11
   %handshaker_factory_.i.i.i = getelementptr inbounds i8, ptr %call.i.i36, i64 56
   store ptr null, ptr %handshaker_factory_.i.i.i, align 8, !noalias !11
   %secure_peer_name_.i.i.i = getelementptr inbounds i8, ptr %call.i.i36, i64 64
@@ -864,7 +864,7 @@ if.then4:                                         ; preds = %if.end
           to label %if.end7 unwind label %terminate.lpad
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_args_.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %channel_args_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null

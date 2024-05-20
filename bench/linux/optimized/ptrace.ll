@@ -201,7 +201,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br label %89
 
 51:                                               ; preds = %4
-  %52 = load ptr, ptr getelementptr inbounds ([4 x %struct.user_regset], ptr @x86_64_regsets, i64 0, i64 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_64_regsets, i64 8), align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %89, label %54
 
@@ -220,7 +220,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br label %89
 
 62:                                               ; preds = %4
-  %63 = load ptr, ptr getelementptr inbounds ([4 x %struct.user_regset], ptr @x86_64_regsets, i64 0, i64 1, i32 1), align 16
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_64_regsets, i64 64), align 16
   %64 = icmp eq ptr %63, null
   br i1 %64, label %89, label %65
 
@@ -229,7 +229,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br i1 %66, label %67, label %89, !prof !12
 
 67:                                               ; preds = %65
-  %68 = tail call i32 %63(ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([4 x %struct.user_regset], ptr @x86_64_regsets, i64 0, i64 1), i32 noundef 0, i32 noundef 512, ptr noundef null, ptr noundef %5) #15
+  %68 = tail call i32 %63(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @x86_64_regsets, i64 56), i32 noundef 0, i32 noundef 512, ptr noundef null, ptr noundef %5) #15
   %69 = sext i32 %68 to i64
   br label %89
 
@@ -996,7 +996,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_arch_ptrace(ptr 
   br label %58
 
 24:                                               ; preds = %4
-  %25 = load ptr, ptr getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_32_regsets, i64 8), align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %58, label %27
 
@@ -1011,12 +1011,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_arch_ptrace(ptr 
   br label %58
 
 33:                                               ; preds = %4
-  %34 = load ptr, ptr getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 1, i32 1), align 16
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_32_regsets, i64 64), align 16
   %35 = icmp eq ptr %34, null
   br i1 %35, label %58, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 %34(ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 1), i32 noundef 0, i32 noundef 108, ptr noundef null, ptr noundef %7) #15
+  %37 = tail call i32 %34(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @x86_32_regsets, i64 56), i32 noundef 0, i32 noundef 108, ptr noundef null, ptr noundef %7) #15
   %38 = sext i32 %37 to i64
   br label %58
 
@@ -1026,12 +1026,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_arch_ptrace(ptr 
   br label %58
 
 42:                                               ; preds = %4
-  %43 = load ptr, ptr getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 2, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_32_regsets, i64 120), align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %58, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call i32 %43(ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 2), i32 noundef 0, i32 noundef 512, ptr noundef null, ptr noundef %7) #15
+  %46 = tail call i32 %43(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @x86_32_regsets, i64 112), i32 noundef 0, i32 noundef 512, ptr noundef null, ptr noundef %7) #15
   %47 = sext i32 %46 to i64
   br label %58
 
@@ -1060,8 +1060,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_arch_ptrace(ptr 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @update_regset_xstate_info(i32 noundef %0, i64 noundef %1) local_unnamed_addr #8 section ".init.text" align 16 {
   %3 = lshr i32 %0, 3
-  store i32 %3, ptr getelementptr inbounds ([4 x %struct.user_regset], ptr @x86_64_regsets, i64 0, i64 3, i32 4), align 8
-  store i32 %3, ptr getelementptr inbounds ([6 x %struct.user_regset], ptr @x86_32_regsets, i64 0, i64 3, i32 4), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @x86_64_regsets, i64 200), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @x86_32_regsets, i64 200), align 8
   store i64 %1, ptr @xstate_fx_sw_bytes, align 16
   ret void
 }

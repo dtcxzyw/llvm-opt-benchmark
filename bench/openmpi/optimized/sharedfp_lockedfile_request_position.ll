@@ -56,7 +56,7 @@ define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef reado
   br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %23, ptr noundef nonnull @.str.2, i32 noundef %9) #6
   br label %24
 
@@ -79,7 +79,7 @@ define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef reado
   br label %40
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %34 = load i64, ptr %6, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %33, ptr noundef nonnull @.str.3, i64 noundef %34, i32 noundef 0) #6
   %.pr = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
@@ -91,7 +91,7 @@ define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef reado
   br i1 %.not26, label %40, label %38
 
 38:                                               ; preds = %32
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %39, ptr noundef nonnull @.str.4, i64 noundef %35, i32 noundef %1, i64 noundef %37) #6
   br label %40
 
@@ -129,7 +129,7 @@ opal_best_effort_write.exit:                      ; preds = %51, %50, %47, %24
   br i1 %.not27, label %56, label %54
 
 54:                                               ; preds = %opal_best_effort_write.exit
-  %55 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %55, ptr noundef nonnull @.str.5) #6
   br label %56
 
@@ -159,7 +159,7 @@ opal_best_effort_write.exit:                      ; preds = %51, %50, %47, %24
   br i1 %.not28, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %68, ptr noundef nonnull @.str.8, i32 noundef %9) #6
   br label %69
 

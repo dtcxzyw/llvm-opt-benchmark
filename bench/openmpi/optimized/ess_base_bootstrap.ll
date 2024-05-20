@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   %3 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef null) #13
   %4 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.1)
   %5 = icmp eq ptr %4, null
@@ -70,7 +70,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %91
 
 8:                                                ; preds = %0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %10 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef %9, ptr noundef %3) #13
   tail call void @free(ptr noundef %3) #13
   br label %280
@@ -95,7 +95,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %20 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef %19, ptr noundef %3, ptr noundef nonnull %12) #13
   tail call void @free(ptr noundef %3) #13
   %21 = tail call i32 @fclose(ptr noundef nonnull %4)
@@ -109,7 +109,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 24:                                               ; preds = %22
   store i8 61, ptr %16, align 1
-  %25 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %26 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %25, ptr noundef %3, ptr noundef nonnull %16) #13
   tail call void @free(ptr noundef %3) #13
   %27 = tail call i32 @fclose(ptr noundef nonnull %4)
@@ -263,7 +263,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %.091.ph.lcssa160277 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.091.ph.lcssa160, %.outer._crit_edge ]
   %.093.ph.lcssa162275 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.093.ph.lcssa162, %.outer._crit_edge ]
   %.0103.ph.lcssa172270 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.0103.ph.lcssa172, %.outer._crit_edge ]
-  %92 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %93 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %92, ptr noundef %3, ptr noundef nonnull @.str.11) #13
   br label %.loopexit
 
@@ -317,7 +317,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %245
 
 112:                                              ; preds = %107
-  %113 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i64 0, i32 11), align 4
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %113, 64
   br i1 %or.cond.i, label %114, label %.preheader389
 
@@ -524,7 +524,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 185:                                              ; preds = %182, %167, %162
   %.2117.i = phi i32 [ %184, %182 ], [ %164, %167 ], [ %164, %162 ]
   %.0109.i = phi ptr [ %183, %182 ], [ null, %167 ], [ null, %162 ]
-  %186 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i64 0, i32 11), align 4
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond3.i = icmp ult i32 %186, 64
   br i1 %or.cond3.i, label %187, label %195
 
@@ -593,7 +593,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br i1 %213, label %214, label %226
 
 214:                                              ; preds = %._crit_edge.i136.i
-  %215 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i64 0, i32 11), align 4
+  %215 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %215, 64
   br i1 %or.cond.i.i, label %216, label %222
 
@@ -675,7 +675,7 @@ regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %2
 
 245:                                              ; preds = %110, %._crit_edge.i, %._crit_edge173.i, %229, %132, %97
   %.0.i.ph = phi i32 [ -27, %97 ], [ -27, %132 ], [ %.0.i137.i, %229 ], [ -27, %._crit_edge173.i ], [ -27, %._crit_edge.i ], [ -29, %110 ]
-  %246 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %247 = call ptr @PMIx_Error_string(i32 noundef %.0.i.ph) #13
   %248 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %246, ptr noundef %3, ptr noundef nonnull %.095.ph.lcssa164, ptr noundef %247) #13
   br label %.loopexit
@@ -685,7 +685,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread140.i, %._cr
   br i1 %249, label %250, label %253
 
 250:                                              ; preds = %regex_extract_nodes.exit
-  %251 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %252 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %251, ptr noundef %3, ptr noundef nonnull @.str.8) #13
   br label %.loopexit
 
@@ -700,7 +700,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread140.i, %._cr
   br i1 %.not114212, label %.loopexit, label %.lr.ph214
 
 257:                                              ; preds = %253
-  %258 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %259 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %258, ptr noundef %3, ptr noundef nonnull @.str.9) #13
   br label %.loopexit
 

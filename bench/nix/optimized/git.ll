@@ -2489,14 +2489,14 @@ _ZN7testing7MessageD2Ev.exit13.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %57 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val10.i, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %.val9.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %58 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %58, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %60 = getelementptr inbounds i8, ptr %4, i64 24
@@ -2509,7 +2509,7 @@ _ZN7testing7MessageD2Ev.exit13.i:                 ; preds = %_ZNKSt14default_del
   %62 = load ptr, ptr %59, align 8
   store i8 0, ptr %62, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix15RegularFileSinkE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15RegularFileSinkE, i64 16), ptr %5, align 8
   %63 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2914,7 +2914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i: ; preds = 
   br label %195
 
 195:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %196 = load ptr, ptr %59, align 8
   %197 = icmp eq ptr %196, %60
   br i1 %197, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
@@ -3082,7 +3082,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24, !noalias !9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !9
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !9
   %28 = getelementptr inbounds i8, ptr %5, i64 24
@@ -3112,7 +3112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
           to label %38 unwind label %50
 
 38:                                               ; preds = %37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !9
   %39 = load ptr, ptr %27, align 8, !noalias !9
   %40 = icmp eq ptr %39, %28
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -3832,14 +3832,14 @@ _ZN7testing7MessageD2Ev.exit13.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.val10.i, ptr %55, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %.val9.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %56 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %56, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix24NullFileSystemObjectSinkE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix24NullFileSystemObjectSinkE, i64 16), ptr %3, align 8
   %57 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 16
@@ -4328,7 +4328,7 @@ define void @_ZN3nix23GitTest_tree_write_Test8TestBodyEv(ptr noundef nonnull ali
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 8, ptr nonnull @.str.32)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !20
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !20
   %17 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4350,7 +4350,7 @@ define void @_ZN3nix23GitTest_tree_write_Test8TestBodyEv(ptr noundef nonnull ali
           to label %22 unwind label %27
 
 22:                                               ; preds = %21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !20
   %23 = load ptr, ptr %16, align 8, !noalias !20
   %24 = icmp eq ptr %23, %17
   br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -4804,8 +4804,8 @@ _ZN3nix20MemorySourceAccessorC1Ev.exit:
   %29 = alloca %"class.testing::internal::AssertHelper", align 8
   %30 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %30)
-  store ptr getelementptr inbounds ({ [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 0, i32 0, i64 3), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 0, i32 1, i64 12), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 24), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 176), ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %7, i64 24
@@ -5237,8 +5237,8 @@ _ZNKSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEEclES5_.exit: ; preds = %
           to label %182 unwind label %244
 
 182:                                              ; preds = %_ZNKSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEEclES5_.exit
-  store ptr getelementptr inbounds ({ [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 0, i32 0, i64 3), ptr %22, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 0, i32 1, i64 12), ptr %181, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 24), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MemorySourceAccessorE, i64 176), ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %22, i64 16
   store i32 0, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %22, i64 24
@@ -5251,7 +5251,7 @@ _ZNKSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEEclES5_.exit: ; preds = %
   store i64 0, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %22, i64 56
   store i8 1, ptr %188, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix10MemorySinkE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10MemorySinkE, i64 16), ptr %23, align 8
   %189 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %22, ptr %189, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
@@ -5606,7 +5606,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %277, %_ZNKSt14defau
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3nix4HashENS6_3git8BlobModeEEED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %288
   call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %181, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %181, align 8
   %293 = getelementptr inbounds i8, ptr %22, i64 112
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %22, i64 128
@@ -5674,7 +5674,7 @@ _ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEED2Ev.exit: ; preds = %_ZN
 
 _ZNSt3mapIN3nix4HashENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev.exit: ; preds = %_ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEED2Ev.exit
   call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %30, align 8
   %317 = getelementptr inbounds i8, ptr %7, i64 112
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %7, i64 128
@@ -6065,7 +6065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr void @_ZN3nix20MemorySourceAccessorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -8421,9 +8421,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix20CharacterizationTestD0Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix22GitTest_blob_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8451,9 +8451,9 @@ _ZN3nix22GitTest_blob_read_TestD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix22GitTest_blob_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8486,9 +8486,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix22GitTest_blob_read_TestD1Ev(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8520,9 +8520,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix22GitTest_blob_read_TestD0Ev(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_blob_read_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8551,9 +8551,9 @@ _ZN3nix22GitTest_blob_read_TestD0Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23GitTest_blob_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8581,9 +8581,9 @@ _ZN3nix23GitTest_blob_write_TestD2Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23GitTest_blob_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8616,9 +8616,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix23GitTest_blob_write_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8650,9 +8650,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix23GitTest_blob_write_TestD0Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_blob_write_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8681,9 +8681,9 @@ _ZN3nix23GitTest_blob_write_TestD0Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix22GitTest_tree_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8711,9 +8711,9 @@ _ZN3nix22GitTest_tree_read_TestD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix22GitTest_tree_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8746,9 +8746,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix22GitTest_tree_read_TestD1Ev(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8780,9 +8780,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix22GitTest_tree_read_TestD0Ev(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix22GitTest_tree_read_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8811,9 +8811,9 @@ _ZN3nix22GitTest_tree_read_TestD0Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23GitTest_tree_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8841,9 +8841,9 @@ _ZN3nix23GitTest_tree_write_TestD2Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23GitTest_tree_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8876,9 +8876,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix23GitTest_tree_write_TestD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8910,9 +8910,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix23GitTest_tree_write_TestD0Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23GitTest_tree_write_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8941,9 +8941,9 @@ _ZN3nix23GitTest_tree_write_TestD0Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26GitTest_both_roundrip_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8971,9 +8971,9 @@ _ZN3nix26GitTest_both_roundrip_TestD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix26GitTest_both_roundrip_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 112), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9006,9 +9006,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix26GitTest_both_roundrip_TestD1Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9040,9 +9040,9 @@ define linkonce_odr void @_ZTv0_n24_N3nix26GitTest_both_roundrip_TestD0Ev(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [7 x ptr], [13 x ptr] }, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 0, i32 1, i64 7), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix26GitTest_both_roundrip_TestE0_NS_7GitTestE, i64 112), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9242,7 +9242,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix30GitMode_gitMode_directory_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30GitMode_gitMode_directory_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -9275,7 +9275,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31GitMode_gitMode_executable_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31GitMode_gitMode_executable_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -9303,7 +9303,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28GitMode_gitMode_regular_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28GitMode_gitMode_regular_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -9331,7 +9331,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28GitMode_gitMode_symlink_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28GitMode_gitMode_symlink_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -9360,7 +9360,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22Gi
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3nix22GitTest_blob_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix22GitTest_blob_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -9370,8 +9370,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22Gi
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix22GitTest_blob_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix22GitTest_blob_read_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix22GitTest_blob_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix22GitTest_blob_read_TestE, i64 120), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -9697,7 +9697,7 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsC2Ev(ptr noundef n
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -9731,7 +9731,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %26
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %19, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %19)
           to label %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2EPNS_6ConfigERKS6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS1_ISH_S3_ISH_ESaISH_EEbSt8optionalIS2_E.exit unwind label %32
 
@@ -10017,7 +10017,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #15 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #25
   unreachable
 }
@@ -10108,7 +10108,7 @@ _ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -10123,7 +10123,7 @@ define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -10216,7 +10216,7 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureES
   %8 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   tail call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %11, align 8
@@ -10342,7 +10342,7 @@ declare void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10377,7 +10377,7 @@ _ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10448,7 +10448,7 @@ declare void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10483,7 +10483,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit1: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -11101,7 +11101,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Gi
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3nix23GitTest_blob_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23GitTest_blob_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11111,8 +11111,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Gi
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23GitTest_blob_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23GitTest_blob_write_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23GitTest_blob_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23GitTest_blob_write_TestE, i64 120), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -11202,7 +11202,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22Gi
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3nix22GitTest_tree_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix22GitTest_tree_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11212,8 +11212,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22Gi
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix22GitTest_tree_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix22GitTest_tree_read_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix22GitTest_tree_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix22GitTest_tree_read_TestE, i64 120), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -11246,7 +11246,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Gi
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3nix23GitTest_tree_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23GitTest_tree_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11256,8 +11256,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23Gi
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23GitTest_tree_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23GitTest_tree_write_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23GitTest_tree_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23GitTest_tree_write_TestE, i64 120), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -11290,7 +11290,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Gi
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3nix26GitTest_both_roundrip_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix7GitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix26GitTest_both_roundrip_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11300,8 +11300,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Gi
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26GitTest_both_roundrip_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26GitTest_both_roundrip_TestE, i64 0, i32 1, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26GitTest_both_roundrip_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26GitTest_both_roundrip_TestE, i64 120), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -13908,7 +13908,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix45GitLsRemote_parseSymrefLineWithReference_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45GitLsRemote_parseSymrefLineWithReference_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13936,7 +13936,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix47GitLsRemote_parseSymrefLineWithNoReference_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47GitLsRemote_parseSymrefLineWithNoReference_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13964,7 +13964,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Gi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix35GitLsRemote_parseObjectRefLine_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35GitLsRemote_parseObjectRefLine_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -14136,9 +14136,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -14168,7 +14168,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds 
 
 _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: ; preds = %_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -14183,7 +14183,7 @@ _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: 
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -14444,7 +14444,7 @@ declare void @_ZN3nix3git9parseBlobERNS_20FileSystemObjectSinkERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10StringSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -16116,7 +16116,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix3git9TreeEntryERKNS0_9Cano
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10), !noalias !164
   %11 = getelementptr inbounds i8, ptr %.val, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !165
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !165
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !165
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !165
   %14 = getelementptr inbounds i8, ptr %5, i64 24
@@ -16137,7 +16137,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix3git9TreeEntryERKNS0_9Cano
   %19 = getelementptr i8, ptr %18, i64 -48
   %20 = load i64, ptr %19, align 8, !noalias !165
   %21 = getelementptr inbounds i8, ptr %6, i64 %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix7TeeSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !165
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7TeeSinkE, i64 16), ptr %7, align 8, !noalias !165
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %5, ptr %22, align 8, !noalias !165
   %23 = getelementptr inbounds i8, ptr %7, i64 16
@@ -16224,7 +16224,7 @@ _ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEED2Ev.exit.i.i.i: ; preds 
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(73) %63, ptr noundef nonnull align 8 dereferenceable(73) %9, i64 73, i1 false)
   call void @_ZN3nix8HashSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #24, !noalias !165
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !165
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !165
   %64 = load ptr, ptr %13, align 8, !noalias !165
   %65 = icmp eq ptr %64, %14
   br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -16944,7 +16944,7 @@ _ZNSt3mapIN3nix4HashENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4less
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i, i64 120
   %40 = load i64, ptr %39, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %40, ptr %41, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -18446,7 +18446,7 @@ define internal void @_GLOBAL__sub_I_git.cc() #8 section ".text.startup" persona
           to label %63 unwind label %82
 
 63:                                               ; preds = %61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30GitMode_gitMode_directory_TestEEE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30GitMode_gitMode_directory_TestEEE, i64 16), ptr %62, align 8
   %64 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef %56, ptr noundef %58, ptr noundef %60, ptr noundef nonnull %62)
           to label %65 unwind label %82
 
@@ -18553,7 +18553,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %95 unwind label %114
 
 95:                                               ; preds = %93
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31GitMode_gitMode_executable_TestEEE, i64 0, i32 0, i64 2), ptr %94, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31GitMode_gitMode_executable_TestEEE, i64 16), ptr %94, align 8
   %96 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef %88, ptr noundef %90, ptr noundef %92, ptr noundef nonnull %94)
           to label %97 unwind label %114
 
@@ -18650,7 +18650,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %127 unwind label %146
 
 127:                                              ; preds = %125
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28GitMode_gitMode_regular_TestEEE, i64 0, i32 0, i64 2), ptr %126, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28GitMode_gitMode_regular_TestEEE, i64 16), ptr %126, align 8
   %128 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef %120, ptr noundef %122, ptr noundef %124, ptr noundef nonnull %126)
           to label %129 unwind label %146
 
@@ -18747,7 +18747,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %159 unwind label %178
 
 159:                                              ; preds = %157
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28GitMode_gitMode_symlink_TestEEE, i64 0, i32 0, i64 2), ptr %158, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28GitMode_gitMode_symlink_TestEEE, i64 16), ptr %158, align 8
   %160 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef %152, ptr noundef %154, ptr noundef %156, ptr noundef nonnull %158)
           to label %161 unwind label %178
 
@@ -18840,7 +18840,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %189 unwind label %208
 
 189:                                              ; preds = %187
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22GitTest_blob_read_TestEEE, i64 0, i32 0, i64 2), ptr %188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22GitTest_blob_read_TestEEE, i64 16), ptr %188, align 8
   %190 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix7GitTestEE6dummy_E, ptr noundef %184, ptr noundef %186, ptr noundef nonnull %188)
           to label %191 unwind label %208
 
@@ -18933,7 +18933,7 @@ __cxx_global_var_init.17.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %219 unwind label %238
 
 219:                                              ; preds = %217
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23GitTest_blob_write_TestEEE, i64 0, i32 0, i64 2), ptr %218, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23GitTest_blob_write_TestEEE, i64 16), ptr %218, align 8
   %220 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix7GitTestEE6dummy_E, ptr noundef %214, ptr noundef %216, ptr noundef nonnull %218)
           to label %221 unwind label %238
 
@@ -19346,7 +19346,7 @@ __cxx_global_var_init.23.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %343 unwind label %362
 
 343:                                              ; preds = %341
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22GitTest_tree_read_TestEEE, i64 0, i32 0, i64 2), ptr %342, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22GitTest_tree_read_TestEEE, i64 16), ptr %342, align 8
   %344 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix7GitTestEE6dummy_E, ptr noundef %338, ptr noundef %340, ptr noundef nonnull %342)
           to label %345 unwind label %362
 
@@ -19439,7 +19439,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %373 unwind label %392
 
 373:                                              ; preds = %371
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23GitTest_tree_write_TestEEE, i64 0, i32 0, i64 2), ptr %372, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23GitTest_tree_write_TestEEE, i64 16), ptr %372, align 8
   %374 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix7GitTestEE6dummy_E, ptr noundef %368, ptr noundef %370, ptr noundef nonnull %372)
           to label %375 unwind label %392
 
@@ -19532,7 +19532,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %403 unwind label %422
 
 403:                                              ; preds = %401
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26GitTest_both_roundrip_TestEEE, i64 0, i32 0, i64 2), ptr %402, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26GitTest_both_roundrip_TestEEE, i64 16), ptr %402, align 8
   %404 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix7GitTestEE6dummy_E, ptr noundef %398, ptr noundef %400, ptr noundef nonnull %402)
           to label %405 unwind label %422
 
@@ -19629,7 +19629,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %435 unwind label %454
 
 435:                                              ; preds = %433
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45GitLsRemote_parseSymrefLineWithReference_TestEEE, i64 0, i32 0, i64 2), ptr %434, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45GitLsRemote_parseSymrefLineWithReference_TestEEE, i64 16), ptr %434, align 8
   %436 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %428, ptr noundef %430, ptr noundef %432, ptr noundef nonnull %434)
           to label %437 unwind label %454
 
@@ -19726,7 +19726,7 @@ __cxx_global_var_init.47.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %467 unwind label %486
 
 467:                                              ; preds = %465
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47GitLsRemote_parseSymrefLineWithNoReference_TestEEE, i64 0, i32 0, i64 2), ptr %466, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47GitLsRemote_parseSymrefLineWithNoReference_TestEEE, i64 16), ptr %466, align 8
   %468 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %460, ptr noundef %462, ptr noundef %464, ptr noundef nonnull %466)
           to label %469 unwind label %486
 
@@ -19823,7 +19823,7 @@ __cxx_global_var_init.62.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %499 unwind label %518
 
 499:                                              ; preds = %497
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35GitLsRemote_parseObjectRefLine_TestEEE, i64 0, i32 0, i64 2), ptr %498, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35GitLsRemote_parseObjectRefLine_TestEEE, i64 16), ptr %498, align 8
   %500 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %492, ptr noundef %494, ptr noundef %496, ptr noundef nonnull %498)
           to label %501 unwind label %518
 

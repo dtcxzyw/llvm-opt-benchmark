@@ -154,7 +154,7 @@ ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %35
 
 ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %35, %42, %ompi_datatype_is_contiguous_memory_layout.exit
   %57 = load i32, ptr @opal_class_init_epoch, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not54 = icmp eq i32 %57, %58
   br i1 %.not54, label %60, label %59
 
@@ -166,7 +166,7 @@ ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %35, %42, %ompi
   store ptr @opal_convertor_t_class, ptr %9, align 8
   %61 = getelementptr inbounds i8, ptr %9, i64 8
   store volatile i32 1, ptr %61, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %63 = load ptr, ptr %62, align 8
   %.not6.i = icmp eq ptr %63, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -426,7 +426,7 @@ define range(i32 -102, 1) i32 @ompi_osc_base_sndrcv_op(ptr noundef %0, i32 nound
   %25 = getelementptr i8, ptr %23, i64 24
   %.val = load i64, ptr %25, align 8
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not54 = icmp eq i32 %26, %27
   br i1 %.not54, label %29, label %28
 
@@ -438,7 +438,7 @@ define range(i32 -102, 1) i32 @ompi_osc_base_sndrcv_op(ptr noundef %0, i32 nound
   store ptr @opal_convertor_t_class, ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i = icmp eq ptr %32, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -466,7 +466,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
   store ptr %43, ptr %44, align 8
   %45 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef %2, i64 noundef %37, ptr noundef %0) #4
   %46 = load i32, ptr @opal_class_init_epoch, align 4
-  %47 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not55 = icmp eq i32 %46, %47
   br i1 %.not55, label %49, label %48
 
@@ -478,7 +478,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
   store ptr @opal_convertor_t_class, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 8
   store volatile i32 1, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %52 = load ptr, ptr %51, align 8
   %.not6.i59 = icmp eq ptr %52, null
   br i1 %.not6.i59, label %opal_obj_run_constructors.exit63, label %.lr.ph.i60

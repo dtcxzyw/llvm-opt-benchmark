@@ -18,14 +18,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define ptr @mca_allocator_component_lookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %.078 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not9 = icmp eq ptr %.078, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i64 0, i32 12, i32 1)
+  %.078 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_allocator_base_framework, i64 112), align 8
+  %.not9 = icmp eq ptr %.078, getelementptr inbounds (i8, ptr @opal_allocator_base_framework, i64 96)
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
   %3 = getelementptr inbounds i8, ptr %.0710, i64 16
   %.07 = load volatile ptr, ptr %3, align 8
-  %.not = icmp eq ptr %.07, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @opal_allocator_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %1, %2

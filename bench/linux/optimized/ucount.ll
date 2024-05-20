@@ -119,7 +119,7 @@ declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal range(i32 0, 2) i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
-  %2 = icmp eq ptr %0, getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 14)
+  %2 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @init_user_ns, i64 376)
   %3 = zext i1 %2 to i32
   ret i32 %3
 }
@@ -284,7 +284,7 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
 
 .loopexit13:                                      ; preds = %20, %2
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @ucounts_lock) #11
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 144) #13
   %25 = icmp eq ptr %24, null
   br i1 %25, label %69, label %26
@@ -929,9 +929,9 @@ define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text
   unreachable
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (%struct.ucounts, ptr @init_ucounts, i64 0, i32 2), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @init_ucounts, i64 24), align 8
   %9 = zext i32 %8 to i64
-  %10 = load ptr, ptr getelementptr inbounds (%struct.ucounts, ptr @init_ucounts, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @init_ucounts, i64 16), align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %11, %9
   %13 = mul i64 %12, 7046029254386353131
@@ -950,7 +950,7 @@ define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text
 
 20:                                               ; preds = %18, %7
   store volatile ptr @init_ucounts, ptr %15, align 8
-  store volatile ptr %15, ptr getelementptr inbounds (%struct.ucounts, ptr @init_ucounts, i64 0, i32 0, i32 1), align 8
+  store volatile ptr %15, ptr getelementptr inbounds (i8, ptr @init_ucounts, i64 8), align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @ucounts_lock) #11
   br label %21
 
@@ -973,7 +973,7 @@ define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal nonnull ptr @set_lookup(ptr nocapture readnone %0) #3 align 16 {
-  ret ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 14)
+  ret ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 376)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

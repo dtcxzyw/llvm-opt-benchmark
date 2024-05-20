@@ -123,25 +123,25 @@ define range(i32 -1, 1) i32 @mca_common_monitoring_init() local_unnamed_addr #0 
 
 6:                                                ; preds = %2
   store double 0x3FD34413509F79FF, ptr @log10_2, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %opal_gethostname.exit
 
 9:                                                ; preds = %6
   %10 = tail call i32 @opal_init_gethostname() #19
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %6, %9
   %11 = phi ptr [ %.pre.i, %9 ], [ %7, %6 ]
   %12 = tail call i32 @getpid() #19
-  %13 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i64 0, i32 4), ptr noundef nonnull @.str, ptr noundef %11, i32 noundef %12) #19
+  %13 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_common_monitoring_output_stream_obj, i64 32), ptr noundef nonnull @.str, ptr noundef %11, i32 noundef %12) #19
   %14 = tail call i32 @opal_output_open(ptr noundef nonnull @mca_common_monitoring_output_stream_obj) #19
   store i32 %14, ptr @mca_common_monitoring_output_stream_id, align 4
-  %15 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 8), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 56), align 8
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #20
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 4), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %17, %18
   br i1 %.not.i, label %20, label %19
 
@@ -157,7 +157,7 @@ opal_gethostname.exit:                            ; preds = %6, %9
   store ptr @opal_hash_table_t_class, ptr %16, align 8
   %22 = getelementptr inbounds i8, ptr %16, i64 8
   store volatile i32 1, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 6), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i = icmp eq ptr %24, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -212,7 +212,7 @@ define void @mca_common_monitoring_finalize() local_unnamed_addr #0 {
   store i32 0, ptr @mca_common_monitoring_enabled, align 4
   %10 = load i32, ptr @mca_common_monitoring_output_stream_id, align 4
   tail call void @opal_output_close(i32 noundef %10) #19
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i64 0, i32 4), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_common_monitoring_output_stream_obj, i64 32), align 8
   tail call void @free(ptr noundef %11) #19
   %12 = load ptr, ptr @pml_data, align 8
   tail call void @free(ptr noundef %12) #19
@@ -831,7 +831,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 6), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
   store i32 %6, ptr @rank_world, align 4
   br label %7
 
@@ -841,7 +841,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %7
-  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 13), align 8
+  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 248), align 8
   %10 = getelementptr i8, ptr %ompi_mpi_comm_world.val, i64 16
   %ompi_mpi_comm_world.val.val = load i32, ptr %10, align 8
   store i32 %ompi_mpi_comm_world.val.val, ptr @nprocs_world, align 4
@@ -932,7 +932,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
 
 47:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %48 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 14), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 256), align 8
   %49 = getelementptr i8, ptr %48, i64 32
   %.val = load ptr, ptr %49, align 8
   %50 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv

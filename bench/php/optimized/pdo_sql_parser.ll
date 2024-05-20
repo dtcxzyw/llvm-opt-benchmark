@@ -499,7 +499,7 @@ scan.exit:                                        ; preds = %80, %70, %70, %21, 
   br i1 %114, label %120, label %124
 
 120:                                              ; preds = %.loopexit667
-  %121 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 63), align 8
+  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 504), align 8
   %122 = getelementptr inbounds i8, ptr %115, i64 16
   store ptr %121, ptr %122, align 8
   %123 = add nsw i32 %.0533.ph776, 1
@@ -810,8 +810,8 @@ thread-pre-split:                                 ; preds = %236, %241, %232
 253:                                              ; preds = %._crit_edge
   %254 = tail call i32 @zend_is_true(ptr noundef nonnull %.0507) #10
   %.not590 = icmp eq i32 %254, 0
-  %255 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 49), align 8
-  %256 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 48), align 16
+  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 392), align 8
+  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 384), align 16
   %257 = select i1 %.not590, ptr %256, ptr %255
   %258 = getelementptr inbounds i8, ptr %.1511803, i64 16
   store ptr %257, ptr %258, align 8
@@ -868,7 +868,7 @@ thread-pre-split:                                 ; preds = %236, %241, %232
 
 286:                                              ; preds = %276, %281, %284
   %.0495 = phi ptr [ %285, %284 ], [ %277, %281 ], [ %277, %276 ]
-  %287 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not592 = icmp eq ptr %287, null
   br i1 %.not592, label %293, label %288
 
@@ -1288,7 +1288,7 @@ thread-pre-split:                                 ; preds = %236, %241, %232
   %501 = load ptr, ptr %500, align 8
   %502 = icmp ne ptr %501, null
   call void @llvm.assume(i1 %502)
-  %503 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 63), align 8
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 504), align 8
   %504 = getelementptr inbounds i8, ptr %.4791, i64 16
   store ptr %503, ptr %504, align 8
   %505 = load i64, ptr %486, align 8

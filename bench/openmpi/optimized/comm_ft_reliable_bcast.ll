@@ -98,13 +98,13 @@ define range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, 
   br i1 %9, label %10, label %.thread.i
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #7
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #7
   %.pr.i = load ptr, ptr %4, align 8
   %12 = icmp eq ptr %.pr.i, null
   br i1 %12, label %.thread.i, label %15
 
 .thread.i:                                        ; preds = %10, %7
-  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0) #7
   br label %15
 
@@ -114,7 +114,7 @@ define range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, 
   br i1 %17, label %18, label %mca_bml_base_get_endpoint.exit
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #7
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #7
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %3, %15, %18
@@ -260,7 +260,7 @@ define i32 @ompi_comm_rbcast_init() local_unnamed_addr #3 {
   br i1 %.b4, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i64 0, i32 7), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 56), align 8
   %7 = tail call i32 %6(i8 noundef zeroext 48, ptr noundef nonnull @ompi_comm_rbcast_bml_recv_cb, ptr noundef null) #7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -595,7 +595,7 @@ define internal void @ompi_comm_rbcast_bml_recv_cb(ptr nocapture readnone %0, pt
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 0
-  %8 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 4), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 88), align 8
   %9 = icmp sle i32 %8, %6
   %10 = select i1 %7, i1 true, i1 %9
   br i1 %10, label %ompi_comm_lookup.exit.thread, label %11
@@ -606,13 +606,13 @@ define internal void @ompi_comm_rbcast_bml_recv_cb(ptr nocapture readnone %0, pt
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 1, i32 1, i32 0, i32 0)) #7
+  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 32)) #7
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %16
 
 16:                                               ; preds = %14, %11
   %17 = phi i8 [ %12, %11 ], [ %.pre.i.i, %14 ]
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 112), align 8
   %19 = zext nneg i32 %6 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
@@ -620,7 +620,7 @@ define internal void @ompi_comm_rbcast_bml_recv_cb(ptr nocapture readnone %0, pt
   br i1 %22, label %23, label %ompi_comm_lookup.exit
 
 23:                                               ; preds = %16
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 1, i32 1, i32 0, i32 0)) #7
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 32)) #7
   br label %ompi_comm_lookup.exit
 
 ompi_comm_lookup.exit:                            ; preds = %16, %23

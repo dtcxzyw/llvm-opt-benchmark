@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cipher_capable_aes_cbc_hmac_sha256() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -126,13 +126,13 @@ if.else10:                                        ; preds = %if.else
 if.end16:                                         ; preds = %if.else10, %if.then3
   %iv.0 = phi i64 [ 0, %if.then3 ], [ %spec.select, %if.else10 ]
   %plen.0 = phi i64 [ %len, %if.then3 ], [ %0, %if.else10 ]
-  %5 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and17 = and i32 %5, 536870912
   %tobool18.not = icmp eq i32 %and17, 0
   br i1 %tobool18.not, label %lor.lhs.false, label %land.lhs.true24
 
 lor.lhs.false:                                    ; preds = %if.end16
-  %6 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and19 = and i32 %6, 268435456
   %tobool20.not = icmp eq i32 %and19, 0
   br i1 %tobool20.not, label %if.end59, label %land.lhs.true
@@ -1345,7 +1345,7 @@ if.end19:                                         ; preds = %if.then15
   br i1 %cmp20, label %land.lhs.true, label %if.end33
 
 land.lhs.true:                                    ; preds = %if.end19
-  %6 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and = and i32 %6, 32
   %tobool22.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool22.not, i32 1, i32 2

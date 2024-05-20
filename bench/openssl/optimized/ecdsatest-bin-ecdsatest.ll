@@ -4585,7 +4585,7 @@ entry:
   store ptr %5, ptr @numbers, align 16
   %k = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %6 = load ptr, ptr %k, align 8
-  store ptr %6, ptr getelementptr inbounds ([2 x ptr], ptr @numbers, i64 0, i64 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @numbers, i64 8), align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %0) #4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 97, ptr noundef nonnull @.str.45, ptr noundef %call) #4
   %call17 = tail call ptr @EVP_MD_CTX_new() #4

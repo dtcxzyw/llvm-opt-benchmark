@@ -2274,7 +2274,7 @@ invoke.cont:                                      ; preds = %land.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvvEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvvEEEEEEE, i64 16), ptr %call.i, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN4pbrtL18updateDynamicItemsEv, ptr %_M_func.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
@@ -2412,7 +2412,7 @@ if.then.i.i:                                      ; preds = %_ZNSt11this_thread9
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
   %2 = load ptr, ptr @_ZN4pbrtL12dynamicItemsE, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   %cmp.i2.not22 = icmp eq ptr %2, %3
   br i1 %cmp.i2.not22, label %for.end, label %for.body
 
@@ -2449,7 +2449,7 @@ if.then.i.i7:                                     ; preds = %while.end
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit8:         ; preds = %while.end
   %7 = load ptr, ptr @_ZN4pbrtL12dynamicItemsE, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   %cmp.i9.not25 = icmp eq ptr %7, %8
   br i1 %cmp.i9.not25, label %_ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE5clearEv.exit, label %for.body16
 
@@ -2471,7 +2471,7 @@ lpad19:                                           ; preds = %for.body16
 
 for.end24:                                        ; preds = %for.inc22
   %.pre = load ptr, ptr @_ZN4pbrtL12dynamicItemsE, align 8
-  %.pre29 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   %tobool.not.i.i12 = icmp eq ptr %.pre29, %.pre
   br i1 %tobool.not.i.i12, label %_ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
@@ -2483,7 +2483,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.end24, %for.bod
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !19
 
 invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  store ptr %.pre, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   br label %_ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit8, %for.end24, %invoke.cont.i.i
@@ -2843,7 +2843,7 @@ call.i.noexc:                                     ; preds = %if.then9
           to label %.noexc15 unwind label %lpad12
 
 .noexc15:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.22, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 1))
           to label %invoke.cont13 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc15
@@ -2863,7 +2863,7 @@ call.i.noexc19:                                   ; preds = %invoke.cont13
           to label %.noexc21 unwind label %lpad15
 
 .noexc21:                                         ; preds = %call.i.noexc19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.23, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 1))
           to label %invoke.cont16 unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %.noexc21
@@ -2883,7 +2883,7 @@ call.i.noexc27:                                   ; preds = %invoke.cont16
           to label %.noexc29 unwind label %lpad19
 
 .noexc29:                                         ; preds = %call.i.noexc27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element17, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.24, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element17, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 1))
           to label %invoke.cont20 unwind label %lpad.i26
 
 lpad.i26:                                         ; preds = %.noexc29
@@ -3390,8 +3390,8 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 16), align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i3
 
@@ -3453,9 +3453,9 @@ _ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_Dp
   %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i, align 8
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelBuffers7.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 128
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   br label %invoke.cont4
 
 if.else.i.i:                                      ; preds = %invoke.cont2
@@ -3783,8 +3783,8 @@ invoke.cont4:                                     ; preds = %invoke.cont.i, %inv
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 16), align 8
   %cmp.not.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i6
 
@@ -3846,9 +3846,9 @@ _ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_Dp
   %18 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i, align 8
   store ptr %18, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelBuffers7.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 128
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector.27", ptr @_ZN4pbrtL12dynamicItemsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL12dynamicItemsE, i64 8), align 8
   br label %invoke.cont9
 
 if.else.i.i:                                      ; preds = %invoke.cont7

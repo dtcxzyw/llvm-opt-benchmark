@@ -115,12 +115,12 @@ define internal noundef i64 @php_stream_input_write(ptr nocapture readnone %0, p
 define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 4), align 8
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 248), align 8
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %2
@@ -281,7 +281,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not121, label %42, label %36
 
 36:                                               ; preds = %34
-  %37 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 579), align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %42, label %39
 
@@ -296,7 +296,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 42:                                               ; preds = %36, %34
   %43 = tail call noalias dereferenceable_or_null(16) ptr @_ecalloc(i64 noundef 1, i64 noundef 16) #14
-  %44 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 6), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 56), align 8
   store ptr %44, ptr %43, align 8
   %.not123 = icmp eq ptr %44, null
   br i1 %.not123, label %47, label %45
@@ -306,10 +306,10 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br label %50
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 23), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 128), align 8
   %49 = tail call ptr @_php_stream_temp_create_ex(i32 noundef 0, i64 noundef 16384, ptr noundef %48) #12
   store ptr %49, ptr %43, align 8
-  store ptr %49, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 6), align 8
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 56), align 8
   br label %50
 
 50:                                               ; preds = %47, %45
@@ -327,7 +327,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not125, label %62, label %56
 
 56:                                               ; preds = %54
-  %57 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
+  %57 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 579), align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %62, label %59
 
@@ -427,7 +427,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not136, label %104, label %98
 
 98:                                               ; preds = %96
-  %99 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
+  %99 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 579), align 1
   %100 = trunc i8 %99 to i1
   br i1 %100, label %104, label %101
 
@@ -587,7 +587,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %164, %150
   call void @_efree(ptr noundef %143) #12
-  %166 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not152 = icmp eq ptr %166, null
   br i1 %.not152, label %191, label %167
 

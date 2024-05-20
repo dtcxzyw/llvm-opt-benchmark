@@ -2476,7 +2476,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %6 = getelementptr inbounds i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  %. = select i1 %.not, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %7
+  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %7
   %8 = load ptr, ptr %., align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 368
   %10 = load ptr, ptr %9, align 8

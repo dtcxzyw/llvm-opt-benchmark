@@ -188,7 +188,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %75
 
 75:                                               ; preds = %61, %73, %58
-  %.039.in = phi ptr [ %59, %58 ], [ %74, %73 ], [ getelementptr inbounds ([8 x i32], ptr @snoop_open.snoop_private_encap, i64 0, i64 5), %61 ]
+  %.039.in = phi ptr [ %59, %58 ], [ %74, %73 ], [ getelementptr inbounds (i8, ptr @snoop_open.snoop_private_encap, i64 20), %61 ]
   %.039 = load i32, ptr %.039.in, align 4
   %76 = load i32, ptr @shomiti_file_type_subtype, align 4
   %77 = load i32, ptr @snoop_file_type_subtype, align 4

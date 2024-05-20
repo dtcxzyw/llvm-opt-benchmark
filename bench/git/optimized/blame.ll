@@ -1243,7 +1243,7 @@ if.end524:                                        ; preds = %if.end523, %land.lh
   call void @oidset_init(ptr noundef nonnull %ignore_list.i, i64 noundef 0) #17
   %52 = load ptr, ptr @ignore_revs_file_list, align 8
   %tobool.not6.i = icmp ne ptr %52, null
-  %53 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @ignore_revs_file_list, i64 0, i32 1), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @ignore_revs_file_list, i64 8), align 8
   %cmp.i101135 = icmp sgt i64 %53, 0
   %or.cond173 = select i1 %tobool.not6.i, i1 %cmp.i101135, i1 false
   br i1 %or.cond173, label %for.body.i, label %for.end.i
@@ -1266,7 +1266,7 @@ if.else.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.07.i136, i64 16
   %55 = load ptr, ptr @ignore_revs_file_list, align 8
-  %56 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @ignore_revs_file_list, i64 0, i32 1), align 8
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @ignore_revs_file_list, i64 8), align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %55, i64 %56
   %cmp.i101 = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i101, label %for.body.i, label %for.end.i
@@ -2642,8 +2642,8 @@ if.then65.i.us:                                   ; preds = %if.end60.i.us
   %name.0.i.us = select i1 %tobool67.not.i, ptr %27, ptr %26
   %28 = load i64, ptr %5, align 8
   %29 = load ptr, ptr %buf72.i, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
   %cmp3.not.i.i86.us = icmp eq ptr %30, @strbuf_slopbuf
   br i1 %cmp3.not.i.i86.us, label %strbuf_setlen.exit.i88.us, label %if.then4.i.i87.us
 
@@ -2674,7 +2674,7 @@ for.body.i99.us:                                  ; preds = %if.else.i92.us, %st
   %time_width.06.i100.us = phi i64 [ %inc.i109.us, %strbuf_addch.exit.i105.us ], [ %conv.i97.us, %if.else.i92.us ]
   %33 = load i64, ptr @format_time.time_buf, align 8
   %tobool.not.i.i.i101.us = icmp eq i64 %33, 0
-  %34 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %.neg.i.i102.us = add i64 %34, 1
   %tobool.not1.i.i103.us = icmp eq i64 %33, %.neg.i.i102.us
   %tobool.not.i.i104.us = select i1 %tobool.not.i.i.i101.us, i1 true, i1 %tobool.not1.i.i103.us
@@ -2682,7 +2682,7 @@ for.body.i99.us:                                  ; preds = %if.else.i92.us, %st
 
 if.then.i.i111.us:                                ; preds = %for.body.i99.us
   call void @strbuf_grow(ptr noundef nonnull @format_time.time_buf, i64 noundef 1) #17
-  %.pre.i.i112.us = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %.pre.i.i112.us = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %.pre2.i.i113.us = add i64 %.pre.i.i112.us, 1
   %.pre.i114.us = load i64, ptr @blame_date_width, align 8
   br label %strbuf_addch.exit.i105.us
@@ -2691,12 +2691,12 @@ strbuf_addch.exit.i105.us:                        ; preds = %if.then.i.i111.us, 
   %35 = phi i64 [ %.pre.i114.us, %if.then.i.i111.us ], [ %32, %for.body.i99.us ]
   %inc.pre-phi.i.i106.us = phi i64 [ %.pre2.i.i113.us, %if.then.i.i111.us ], [ %.neg.i.i102.us, %for.body.i99.us ]
   %36 = phi i64 [ %.pre.i.i112.us, %if.then.i.i111.us ], [ %34, %for.body.i99.us ]
-  %37 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i.i106.us, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
+  store i64 %inc.pre-phi.i.i106.us, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %arrayidx.i.i107.us = getelementptr inbounds i8, ptr %37, i64 %36
   store i8 32, ptr %arrayidx.i.i107.us, align 1
-  %38 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %arrayidx3.i.i108.us = getelementptr inbounds i8, ptr %38, i64 %39
   store i8 0, ptr %arrayidx3.i.i108.us, align 1
   %inc.i109.us = add nuw i64 %time_width.06.i100.us, 1
@@ -2704,7 +2704,7 @@ strbuf_addch.exit.i105.us:                        ; preds = %if.then.i.i111.us, 
   br i1 %cmp.i110.us, label %for.body.i99.us, label %format_time.exit115.us, !llvm.loop !14
 
 format_time.exit115.us:                           ; preds = %strbuf_addch.exit.i105.us, %if.else.i92.us, %if.then.i90.us
-  %40 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
   %41 = load i32, ptr %lno.i23.us, align 8
   %add.i37.us = add nuw nsw i32 %cnt.056.i.us, 1
   %add75.i.us = add i32 %add.i37.us, %41
@@ -2753,8 +2753,8 @@ if.then99.i.us:                                   ; preds = %if.end96.i.us
   %sub.i.us = sub nsw i32 %51, %call110.i.us
   %52 = load i64, ptr %5, align 8
   %53 = load ptr, ptr %buf72.i, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
   %cmp3.not.i.i.us = icmp eq ptr %54, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.us, label %strbuf_setlen.exit.i.us, label %if.then4.i.i.us
 
@@ -2785,7 +2785,7 @@ for.body.i78.us:                                  ; preds = %if.else.i.us, %strb
   %time_width.06.i.us = phi i64 [ %inc.i81.us, %strbuf_addch.exit.i.us ], [ %conv.i77.us, %if.else.i.us ]
   %57 = load i64, ptr @format_time.time_buf, align 8
   %tobool.not.i.i.i.us = icmp eq i64 %57, 0
-  %58 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %.neg.i.i.us = add i64 %58, 1
   %tobool.not1.i.i.us = icmp eq i64 %57, %.neg.i.i.us
   %tobool.not.i.i79.us = select i1 %tobool.not.i.i.i.us, i1 true, i1 %tobool.not1.i.i.us
@@ -2793,7 +2793,7 @@ for.body.i78.us:                                  ; preds = %if.else.i.us, %strb
 
 if.then.i.i83.us:                                 ; preds = %for.body.i78.us
   call void @strbuf_grow(ptr noundef nonnull @format_time.time_buf, i64 noundef 1) #17
-  %.pre.i.i84.us = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %.pre.i.i84.us = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %.pre2.i.i.us = add i64 %.pre.i.i84.us, 1
   %.pre.i85.us = load i64, ptr @blame_date_width, align 8
   br label %strbuf_addch.exit.i.us
@@ -2802,12 +2802,12 @@ strbuf_addch.exit.i.us:                           ; preds = %if.then.i.i83.us, %
   %59 = phi i64 [ %.pre.i85.us, %if.then.i.i83.us ], [ %56, %for.body.i78.us ]
   %inc.pre-phi.i.i.us = phi i64 [ %.pre2.i.i.us, %if.then.i.i83.us ], [ %.neg.i.i.us, %for.body.i78.us ]
   %60 = phi i64 [ %.pre.i.i84.us, %if.then.i.i83.us ], [ %58, %for.body.i78.us ]
-  %61 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i.i.us, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
+  store i64 %inc.pre-phi.i.i.us, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %arrayidx.i.i80.us = getelementptr inbounds i8, ptr %61, i64 %60
   store i8 32, ptr %arrayidx.i.i80.us, align 1
-  %62 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 8), align 8
   %arrayidx3.i.i.us = getelementptr inbounds i8, ptr %62, i64 %63
   store i8 0, ptr %arrayidx3.i.i.us, align 1
   %inc.i81.us = add nuw i64 %time_width.06.i.us, 1
@@ -2815,7 +2815,7 @@ strbuf_addch.exit.i.us:                           ; preds = %if.then.i.i83.us, %
   br i1 %cmp.i82.us, label %for.body.i78.us, label %format_time.exit.us, !llvm.loop !14
 
 format_time.exit.us:                              ; preds = %strbuf_addch.exit.i.us, %if.else.i.us, %if.then.i73.us
-  %64 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i64 0, i32 2), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @format_time.time_buf, i64 16), align 8
   %call115.i.us = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, ptr noundef %name100.0.i.us, i32 noundef %sub.i.us, ptr noundef nonnull @.str.70, ptr noundef %64)
   br label %if.end116.i.us
 

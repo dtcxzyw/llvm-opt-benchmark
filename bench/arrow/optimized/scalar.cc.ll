@@ -3946,7 +3946,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %entry
   store <2 x ptr> %1, ptr %type2.i.i.i, align 8
   %is_valid3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %is_valid3.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16BaseBinaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16BaseBinaryScalarE, i64 16), ptr %this, align 8
   %value2.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_refcount4.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load <2 x ptr>, ptr %agg.tmp, align 16
@@ -4149,7 +4149,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:
   store <2 x ptr> %2, ptr %type2.i.i.i.i, align 8
   store i8 1, ptr %is_valid3.i.i.i.i, align 8
   store <2 x ptr> %1, ptr %value2.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 16), ptr %this, align 8
   %3 = extractelement <2 x ptr> %2, i64 0
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
@@ -4267,7 +4267,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %_ZNSt10shared_ptrIN
   %9 = load <2 x ptr>, ptr %agg.tmp, align 16
   store <2 x ptr> %9, ptr %value2.i.i, align 8
   %frombool = zext i1 %is_valid to i8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 16), ptr %this, align 8
   store i8 %frombool, ptr %is_valid3.i.i.i.i, align 8
   ret void
 
@@ -4346,7 +4346,7 @@ invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN
   %10 = load <2 x ptr>, ptr %agg.tmp.i, align 16
   store <2 x ptr> %10, ptr %value2.i.i.i, align 8
   %frombool.i = zext i1 %is_valid to i8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21FixedSizeBinaryScalarE, i64 16), ptr %this, align 8
   store i8 %frombool.i, ptr %is_valid3.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
@@ -4450,7 +4450,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:
   store <2 x ptr> %1, ptr %type2.i, align 8
   %is_valid3.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool.i, ptr %is_valid3.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14BaseListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14BaseListScalarE, i64 16), ptr %this, align 8
   %value2 = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %value, align 8
   store ptr %2, ptr %value2, align 8
@@ -4795,7 +4795,7 @@ if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow10ListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10ListScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -5004,7 +5004,7 @@ if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15LargeListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15LargeListScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -5311,7 +5311,7 @@ if.end8.sink.split.i.i.i.i72:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i69, %if.end8.sink.split.i.i.i.i72
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14ListViewScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14ListViewScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad5:                                            ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
@@ -5619,7 +5619,7 @@ if.end8.sink.split.i.i.i.i72:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i69, %if.end8.sink.split.i.i.i.i72
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19LargeListViewScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19LargeListViewScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad5:                                            ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
@@ -5829,7 +5829,7 @@ if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow9MapScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow9MapScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -6351,7 +6351,7 @@ if.end8.sink.split.i.i.i.i33:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30, %if.end8.sink.split.i.i.i.i33
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19FixedSizeListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19FixedSizeListScalarE, i64 16), ptr %this, align 8
   %value3 = getelementptr inbounds i8, ptr %this, i64 64
   %28 = load ptr, ptr %value3, align 8
   %data_.i = getelementptr inbounds i8, ptr %28, i64 8
@@ -6616,7 +6616,7 @@ if.end8.sink.split.i.i.i.i32:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i19, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i29, %if.end8.sink.split.i.i.i.i32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19FixedSizeListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19FixedSizeListScalarE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -7152,7 +7152,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont19
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !119
   %_M_weak_count.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i112, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i109, align 4, !noalias !119
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StructScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i112, align 8, !noalias !119
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StructScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i112, align 8, !noalias !119
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i112, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 16
   %74 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
@@ -7169,7 +7169,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont19
   store i64 0, ptr %76, align 8, !noalias !119
   store <2 x ptr> %78, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12StructScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !119
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12StructScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !119
   store <2 x ptr> %77, ptr %value2.i.i.i.i.i.i.i.i, align 8, !noalias !119
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i112, i64 80
   store ptr %74, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
@@ -7489,7 +7489,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.73, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8485,7 +8485,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.73, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8867,7 +8867,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:
   store <2 x ptr> %1, ptr %type2.i, align 8
   %is_valid3.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool.i, ptr %is_valid3.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19RunEndEncodedScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19RunEndEncodedScalarE, i64 16), ptr %this, align 8
   %value2 = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %value, align 8
   store ptr %4, ptr %value2, align 8
@@ -9245,7 +9245,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow19RunEndEncodedScalarD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19RunEndEncodedScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19RunEndEncodedScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -9320,7 +9320,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
@@ -9456,7 +9456,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:
   store <2 x ptr> %1, ptr %type2.i.i, align 8
   %is_valid3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %is_valid3.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16DictionaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16DictionaryScalarE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 48
   %2 = extractelement <2 x ptr> %1, i64 0
   %index_type_.i = getelementptr inbounds i8, ptr %2, i64 72
@@ -10414,7 +10414,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.thread:             ; preds = %if.then.i.i.i.i.i
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   store ptr null, ptr %agg.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %storage_.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %storage_.i.i22, align 8
   store ptr %1, ptr %type.i.i.i.i.i.i.i.i23, align 8
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10425,7 +10425,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i
   %7 = icmp eq i8 %.pre, 0
   store ptr null, ptr %agg.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %storage_.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %storage_.i.i22, align 8
   store ptr %1, ptr %type.i.i.i.i.i.i.i.i23, align 8
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
   br i1 %7, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10452,7 +10452,7 @@ _ZN5arrow6ResultINS_15TimestampScalarEEC2EOS1_.exit: ; preds = %if.then
   store i8 1, ptr %is_valid.i.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   store i64 %0, ptr %value.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampScalarE, i64 0, i32 0, i64 2), ptr %storage_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15TimestampScalarE, i64 16), ptr %storage_.i.i, align 8
   br label %_ZN5arrow15TimestampScalarD2Ev.exit
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10460,7 +10460,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   store i8 1, ptr %is_valid.i.i.i.i.i.i.i.i28, align 8
   %value.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %agg.result, i64 56
   store i64 %0, ptr %value.i.i.i.i.i.i29, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampScalarE, i64 0, i32 0, i64 2), ptr %storage_.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15TimestampScalarE, i64 16), ptr %storage_.i.i22, align 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -11228,7 +11228,7 @@ declare void @_ZN5arrow9timestampENS_8TimeUnit4typeE(ptr sret(%"class.std::share
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow15TimestampScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -11414,7 +11414,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.73, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -11489,7 +11489,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:
   store i8 1, ptr %is_valid3.i.i, align 8
   %type_code2.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 %type_code, ptr %type_code2.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow17SparseUnionScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17SparseUnionScalarE, i64 16), ptr %this, align 8
   %value2 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %value, align 8
   store ptr %2, ptr %value2, align 8
@@ -11943,7 +11943,7 @@ call5.i.i.i3.i.i.noexc:                           ; preds = %for.end
   store i32 1, ptr %_M_use_count.i.i.i.i95, align 8
   %_M_weak_count.i.i.i.i96 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i111, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i96, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i111, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i111, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i111, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SparseUnionScalarEJRSt6vectorISt10shared_ptrINS0_6ScalarEESaIS5_EERaS3_INS0_8DataTypeEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %field_values, ptr noundef nonnull align 1 dereferenceable(1) %type_code, ptr noundef nonnull align 8 dereferenceable(16) %type)
           to label %if.then.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
@@ -12414,7 +12414,7 @@ if.end.i:                                         ; preds = %.noexc
           to label %invoke.cont.i unwind label %lpad.i63
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 4)
           to label %invoke.cont unwind label %lpad.i63
@@ -14212,7 +14212,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow14BaseListScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14BaseListScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14BaseListScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -14287,7 +14287,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
@@ -14500,10 +14500,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16DictionaryScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16DictionaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16DictionaryScalarE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN5arrow16DictionaryScalar9ValueTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -14662,7 +14662,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow17SparseUnionScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow17SparseUnionScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17SparseUnionScalarE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %value, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -14764,7 +14764,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -15893,7 +15893,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %acc.01.i.i.i = phi i64 [ %mul.i19.i.i, %if.then7.i.i ], [ %add.i30.i.i, %for.body.i.i.i ]
   %16 = shl nuw nsw i64 %indvars.iv.i.i.i, 4
   %add.ptr.i20.i.i = getelementptr inbounds i8, ptr %data, i64 %16
-  %add.ptr11.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 1), i64 %16
+  %add.ptr11.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 %16
   %17 = load <2 x i64>, ptr %add.ptr.i20.i.i, align 1, !alias.scope !452
   %18 = load <2 x i64>, ptr %add.ptr11.i.i.i, align 1, !noalias !452
   %19 = xor <2 x i64> %18, %17
@@ -15946,7 +15946,7 @@ for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %
   %25 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.15.i.i.i) #26, !srcloc !454
   %26 = shl nuw nsw i64 %indvars.iv10.i.i.i, 4
   %add.ptr24.i35.i.i = getelementptr inbounds i8, ptr %data, i64 %26
-  %gep = getelementptr i8, ptr getelementptr ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 -124), i64 %26
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 -124), i64 %26
   %27 = load <2 x i64>, ptr %add.ptr24.i35.i.i, align 1, !alias.scope !452
   %28 = load <2 x i64>, ptr %gep, align 4, !noalias !452
   %29 = xor <2 x i64> %28, %27
@@ -16006,7 +16006,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !482
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 1), i64 %mul2.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
@@ -16050,7 +16050,7 @@ for.body.i29.i.i.i.i:                             ; preds = %for.body.i29.i.i.i.
   %arrayidx.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %acc.i.i.i, i64 %i.013.i.i.i.i.i
   %43 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 16, !alias.scope !503, !noalias !504
   %44 = lshr <2 x i64> %43, <i64 47, i64 47>
-  %add.ptr.i30.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 73), i64 %i.013.i.i.i.i.i
+  %add.ptr.i30.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 73), i64 %i.013.i.i.i.i.i
   %45 = load <2 x i64>, ptr %add.ptr.i30.i.i.i.i, align 1, !alias.scope !505, !noalias !506
   %46 = xor <2 x i64> %44, %45
   %xor.i.i.i.i.i.i = xor <2 x i64> %46, %43
@@ -16090,7 +16090,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !516
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
-  %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 1), i64 %mul2.i42.i.i.i.i
+  %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !522)
@@ -16136,7 +16136,7 @@ for.body.i62.i.i.i.i:                             ; preds = %for.body.i62.i.i.i.
   %i.010.i.i.i.i.i = phi i64 [ 0, %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit59.i.i.i.i ], [ %inc.i68.i.i.i.i, %for.body.i62.i.i.i.i ]
   %add.ptr.i63.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %add.ptr17.i.i.i.i, i64 %i.010.i.i.i.i.i
   %61 = load <2 x i64>, ptr %add.ptr.i63.i.i.i.i, align 1, !alias.scope !537, !noalias !538
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 66), i64 %i.010.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 66), i64 %i.010.i.i.i.i.i
   %62 = load <2 x i64>, ptr %add.ptr2.i.i.i.i.i, align 2, !alias.scope !539, !noalias !540
   %xor.i.i64.i.i.i.i = xor <2 x i64> %62, %61
   %63 = bitcast <2 x i64> %xor.i.i64.i.i.i.i to <4 x i32>
@@ -16167,7 +16167,7 @@ for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, 
   %mul.i5.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 1
   %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i5.i.i.i
   %mul1.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
-  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([137 x i8], ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 0, i64 12), i64 %mul1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 12), i64 %mul1.i.i.i.i
   %70 = load <2 x i64>, ptr %add.ptr.i6.i.i.i, align 16, !alias.scope !543, !noalias !548
   %71 = load <2 x i64>, ptr %add.ptr2.i.i.i.i, align 4, !alias.scope !549, !noalias !550
   %72 = xor <2 x i64> %71, %70
@@ -22422,7 +22422,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16BaseBinaryScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16BaseBinaryScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16BaseBinaryScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -22497,7 +22497,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
@@ -22620,7 +22620,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal19PrimitiveScalarBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -22750,7 +22750,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -22865,7 +22865,7 @@ _ZNSt23enable_shared_from_thisIN5arrow6ScalarEED2Ev.exit: ; preds = %_ZNSt10shar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -23396,7 +23396,7 @@ return:                                           ; preds = %if.end159, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow15TimestampScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -23789,7 +23789,7 @@ sw.bb2:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !805
   %_M_weak_count.i.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i87, align 4, !noalias !805
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !805
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !805
   %24 = load <2 x ptr>, ptr %visitor, align 8, !noalias !805
   %25 = extractelement <2 x ptr> %24, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
@@ -23824,7 +23824,7 @@ if.then.i.i.i.i.i.i.i.i88:                        ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !805
   %value.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 57
   store i8 0, ptr %value.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !805
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !805
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !805
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %29, align 8, !noalias !805
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.thread.i.i.i.i
@@ -23958,7 +23958,7 @@ sw.bb4:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i122, align 8, !noalias !814
   %_M_weak_count.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i121, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i123, align 4, !noalias !814
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i121, align 8, !noalias !814
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i121, align 8, !noalias !814
   %48 = load <2 x ptr>, ptr %visitor, align 8, !noalias !814
   %49 = extractelement <2 x ptr> %48, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i125 = icmp eq ptr %49, null
@@ -23993,7 +23993,7 @@ if.then.i.i.i.i.i.i.i.i132:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !814
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i121, i64 57
   store i8 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !814
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i133, align 8, !noalias !814
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i133, align 8, !noalias !814
   store ptr %_M_impl.i.i.i.i.i.i.i133, ptr %53, align 8, !noalias !814
   %tobool.i.not.i.i.i.i.i.i.i.i.i134 = icmp eq i8 %52, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i134, label %if.end.i.i.i.i.i.i.i.i169, label %if.end.i.i.i.i.thread.i.i.i.i135
@@ -24127,7 +24127,7 @@ sw.bb6:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i187, align 8, !noalias !823
   %_M_weak_count.i.i.i.i.i.i.i188 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i186, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i188, align 4, !noalias !823
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i186, align 8, !noalias !823
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i186, align 8, !noalias !823
   %72 = load <2 x ptr>, ptr %visitor, align 8, !noalias !823
   %73 = extractelement <2 x ptr> %72, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i190 = icmp eq ptr %73, null
@@ -24162,7 +24162,7 @@ if.then.i.i.i.i.i.i.i.i197:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i201, align 8, !noalias !823
   %value.i.i.i.i.i.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i186, i64 57
   store i8 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i202, align 1, !noalias !823
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i198, align 8, !noalias !823
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i198, align 8, !noalias !823
   store ptr %_M_impl.i.i.i.i.i.i.i198, ptr %77, align 8, !noalias !823
   %tobool.i.not.i.i.i.i.i.i.i.i.i203 = icmp eq i8 %76, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i203, label %if.end.i.i.i.i.i.i.i.i238, label %if.end.i.i.i.i.thread.i.i.i.i204
@@ -24296,7 +24296,7 @@ sw.bb8:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i256, align 8, !noalias !832
   %_M_weak_count.i.i.i.i.i.i.i257 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i255, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i257, align 4, !noalias !832
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i255, align 8, !noalias !832
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i255, align 8, !noalias !832
   %96 = load <2 x ptr>, ptr %visitor, align 8, !noalias !832
   %97 = extractelement <2 x ptr> %96, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i259 = icmp eq ptr %97, null
@@ -24331,7 +24331,7 @@ if.then.i.i.i.i.i.i.i.i266:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i270, align 8, !noalias !832
   %value.i.i.i.i.i.i.i.i.i.i.i271 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i255, i64 58
   store i16 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i271, align 2, !noalias !832
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i267, align 8, !noalias !832
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i267, align 8, !noalias !832
   store ptr %_M_impl.i.i.i.i.i.i.i267, ptr %101, align 8, !noalias !832
   %tobool.i.not.i.i.i.i.i.i.i.i.i272 = icmp eq i8 %100, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i272, label %if.end.i.i.i.i.i.i.i.i307, label %if.end.i.i.i.i.thread.i.i.i.i273
@@ -24465,7 +24465,7 @@ sw.bb10:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i325, align 8, !noalias !841
   %_M_weak_count.i.i.i.i.i.i.i326 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i324, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i326, align 4, !noalias !841
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i324, align 8, !noalias !841
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i324, align 8, !noalias !841
   %120 = load <2 x ptr>, ptr %visitor, align 8, !noalias !841
   %121 = extractelement <2 x ptr> %120, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i328 = icmp eq ptr %121, null
@@ -24500,7 +24500,7 @@ if.then.i.i.i.i.i.i.i.i335:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i339, align 8, !noalias !841
   %value.i.i.i.i.i.i.i.i.i.i.i340 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i324, i64 58
   store i16 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i340, align 2, !noalias !841
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i336, align 8, !noalias !841
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i336, align 8, !noalias !841
   store ptr %_M_impl.i.i.i.i.i.i.i336, ptr %125, align 8, !noalias !841
   %tobool.i.not.i.i.i.i.i.i.i.i.i341 = icmp eq i8 %124, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i341, label %if.end.i.i.i.i.i.i.i.i376, label %if.end.i.i.i.i.thread.i.i.i.i342
@@ -24634,7 +24634,7 @@ sw.bb12:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i394, align 8, !noalias !850
   %_M_weak_count.i.i.i.i.i.i.i395 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i393, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i395, align 4, !noalias !850
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i393, align 8, !noalias !850
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i393, align 8, !noalias !850
   %144 = load <2 x ptr>, ptr %visitor, align 8, !noalias !850
   %145 = extractelement <2 x ptr> %144, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i397 = icmp eq ptr %145, null
@@ -24669,7 +24669,7 @@ if.then.i.i.i.i.i.i.i.i404:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i408, align 8, !noalias !850
   %value.i.i.i.i.i.i.i.i.i.i.i409 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i393, i64 60
   store i32 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i409, align 4, !noalias !850
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i405, align 8, !noalias !850
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i405, align 8, !noalias !850
   store ptr %_M_impl.i.i.i.i.i.i.i405, ptr %149, align 8, !noalias !850
   %tobool.i.not.i.i.i.i.i.i.i.i.i410 = icmp eq i8 %148, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i410, label %if.end.i.i.i.i.i.i.i.i445, label %if.end.i.i.i.i.thread.i.i.i.i411
@@ -24803,7 +24803,7 @@ sw.bb14:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i463, align 8, !noalias !859
   %_M_weak_count.i.i.i.i.i.i.i464 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i462, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i464, align 4, !noalias !859
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i462, align 8, !noalias !859
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i462, align 8, !noalias !859
   %168 = load <2 x ptr>, ptr %visitor, align 8, !noalias !859
   %169 = extractelement <2 x ptr> %168, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i466 = icmp eq ptr %169, null
@@ -24838,7 +24838,7 @@ if.then.i.i.i.i.i.i.i.i473:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i477, align 8, !noalias !859
   %value.i.i.i.i.i.i.i.i.i.i.i478 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i462, i64 60
   store i32 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i478, align 4, !noalias !859
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i474, align 8, !noalias !859
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i474, align 8, !noalias !859
   store ptr %_M_impl.i.i.i.i.i.i.i474, ptr %173, align 8, !noalias !859
   %tobool.i.not.i.i.i.i.i.i.i.i.i479 = icmp eq i8 %172, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i479, label %if.end.i.i.i.i.i.i.i.i514, label %if.end.i.i.i.i.thread.i.i.i.i480
@@ -24972,7 +24972,7 @@ sw.bb16:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i532, align 8, !noalias !868
   %_M_weak_count.i.i.i.i.i.i.i533 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i531, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i533, align 4, !noalias !868
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i531, align 8, !noalias !868
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i531, align 8, !noalias !868
   %192 = load <2 x ptr>, ptr %visitor, align 8, !noalias !868
   %193 = extractelement <2 x ptr> %192, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i535 = icmp eq ptr %193, null
@@ -25007,7 +25007,7 @@ if.then.i.i.i.i.i.i.i.i542:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i546, align 8, !noalias !868
   %value.i.i.i.i.i.i.i.i.i.i.i547 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i531, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i547, align 8, !noalias !868
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i543, align 8, !noalias !868
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i543, align 8, !noalias !868
   store ptr %_M_impl.i.i.i.i.i.i.i543, ptr %197, align 8, !noalias !868
   %tobool.i.not.i.i.i.i.i.i.i.i.i548 = icmp eq i8 %196, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i548, label %if.end.i.i.i.i.i.i.i.i583, label %if.end.i.i.i.i.thread.i.i.i.i549
@@ -25141,7 +25141,7 @@ sw.bb18:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i601, align 8, !noalias !877
   %_M_weak_count.i.i.i.i.i.i.i602 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i600, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i602, align 4, !noalias !877
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i600, align 8, !noalias !877
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i600, align 8, !noalias !877
   %216 = load <2 x ptr>, ptr %visitor, align 8, !noalias !877
   %217 = extractelement <2 x ptr> %216, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i604 = icmp eq ptr %217, null
@@ -25176,7 +25176,7 @@ if.then.i.i.i.i.i.i.i.i611:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i615, align 8, !noalias !877
   %value.i.i.i.i.i.i.i.i.i.i.i616 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i600, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i616, align 8, !noalias !877
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i612, align 8, !noalias !877
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i612, align 8, !noalias !877
   store ptr %_M_impl.i.i.i.i.i.i.i612, ptr %221, align 8, !noalias !877
   %tobool.i.not.i.i.i.i.i.i.i.i.i617 = icmp eq i8 %220, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i617, label %if.end.i.i.i.i.i.i.i.i652, label %if.end.i.i.i.i.thread.i.i.i.i618
@@ -25310,7 +25310,7 @@ sw.bb20:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i670, align 8, !noalias !886
   %_M_weak_count.i.i.i.i.i.i.i671 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i669, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i671, align 4, !noalias !886
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i669, align 8, !noalias !886
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i669, align 8, !noalias !886
   %240 = load <2 x ptr>, ptr %visitor, align 8, !noalias !886
   %241 = extractelement <2 x ptr> %240, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i673 = icmp eq ptr %241, null
@@ -25345,7 +25345,7 @@ if.then.i.i.i.i.i.i.i.i680:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i684, align 8, !noalias !886
   %value.i.i.i.i.i.i.i.i.i.i.i685 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i669, i64 58
   store i16 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i685, align 2, !noalias !886
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i681, align 8, !noalias !886
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i681, align 8, !noalias !886
   store ptr %_M_impl.i.i.i.i.i.i.i681, ptr %245, align 8, !noalias !886
   %tobool.i.not.i.i.i.i.i.i.i.i.i686 = icmp eq i8 %244, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i686, label %if.end.i.i.i.i.i.i.i.i721, label %if.end.i.i.i.i.thread.i.i.i.i687
@@ -25479,7 +25479,7 @@ sw.bb22:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i739, align 8, !noalias !895
   %_M_weak_count.i.i.i.i.i.i.i740 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i738, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i740, align 4, !noalias !895
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i738, align 8, !noalias !895
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i738, align 8, !noalias !895
   %264 = load <2 x ptr>, ptr %visitor, align 8, !noalias !895
   %265 = extractelement <2 x ptr> %264, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i742 = icmp eq ptr %265, null
@@ -25514,7 +25514,7 @@ if.then.i.i.i.i.i.i.i.i749:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i753, align 8, !noalias !895
   %value.i.i.i.i.i.i.i.i.i.i.i754 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i738, i64 60
   store float 0.000000e+00, ptr %value.i.i.i.i.i.i.i.i.i.i.i754, align 4, !noalias !895
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i750, align 8, !noalias !895
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i750, align 8, !noalias !895
   store ptr %_M_impl.i.i.i.i.i.i.i750, ptr %269, align 8, !noalias !895
   %tobool.i.not.i.i.i.i.i.i.i.i.i755 = icmp eq i8 %268, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i755, label %if.end.i.i.i.i.i.i.i.i790, label %if.end.i.i.i.i.thread.i.i.i.i756
@@ -25648,7 +25648,7 @@ sw.bb24:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i808, align 8, !noalias !904
   %_M_weak_count.i.i.i.i.i.i.i809 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i807, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i809, align 4, !noalias !904
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i807, align 8, !noalias !904
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i807, align 8, !noalias !904
   %288 = load <2 x ptr>, ptr %visitor, align 8, !noalias !904
   %289 = extractelement <2 x ptr> %288, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i811 = icmp eq ptr %289, null
@@ -25683,7 +25683,7 @@ if.then.i.i.i.i.i.i.i.i818:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i822, align 8, !noalias !904
   %value.i.i.i.i.i.i.i.i.i.i.i823 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i807, i64 64
   store double 0.000000e+00, ptr %value.i.i.i.i.i.i.i.i.i.i.i823, align 8, !noalias !904
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i819, align 8, !noalias !904
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i819, align 8, !noalias !904
   store ptr %_M_impl.i.i.i.i.i.i.i819, ptr %293, align 8, !noalias !904
   %tobool.i.not.i.i.i.i.i.i.i.i.i824 = icmp eq i8 %292, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i824, label %if.end.i.i.i.i.i.i.i.i859, label %if.end.i.i.i.i.thread.i.i.i.i825
@@ -25817,7 +25817,7 @@ sw.bb26:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i877, align 8, !noalias !913
   %_M_weak_count.i.i.i.i.i.i.i878 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i876, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i878, align 4, !noalias !913
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i876, align 8, !noalias !913
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i876, align 8, !noalias !913
   %312 = load <2 x ptr>, ptr %visitor, align 8, !noalias !913
   %313 = extractelement <2 x ptr> %312, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i880 = icmp eq ptr %313, null
@@ -25852,7 +25852,7 @@ if.then.i.i.i.i.i.i.i.i887:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i891, align 8, !noalias !913
   %value.i.i.i.i.i.i.i.i.i.i.i892 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i876, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i.i892, i8 0, i64 16, i1 false), !noalias !913
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12StringScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i888, align 8, !noalias !913
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12StringScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i888, align 8, !noalias !913
   store ptr %_M_impl.i.i.i.i.i.i.i888, ptr %317, align 8, !noalias !913
   %tobool.i.not.i.i.i.i.i.i.i.i.i893 = icmp eq i8 %316, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i893, label %if.end.i.i.i.i.i.i.i.i928, label %if.end.i.i.i.i.thread.i.i.i.i894
@@ -25986,7 +25986,7 @@ sw.bb28:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i946, align 8, !noalias !922
   %_M_weak_count.i.i.i.i.i.i.i947 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i945, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i947, align 4, !noalias !922
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16StringViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i945, align 8, !noalias !922
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16StringViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i945, align 8, !noalias !922
   %336 = load <2 x ptr>, ptr %visitor, align 8, !noalias !922
   %337 = extractelement <2 x ptr> %336, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i949 = icmp eq ptr %337, null
@@ -26021,7 +26021,7 @@ if.then.i.i.i.i.i.i.i.i956:                       ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i960, align 8, !noalias !922
   %value.i.i.i.i.i.i.i.i.i.i.i961 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i945, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i.i961, i8 0, i64 16, i1 false), !noalias !922
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16StringViewScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i957, align 8, !noalias !922
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16StringViewScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i957, align 8, !noalias !922
   store ptr %_M_impl.i.i.i.i.i.i.i957, ptr %341, align 8, !noalias !922
   %tobool.i.not.i.i.i.i.i.i.i.i.i962 = icmp eq i8 %340, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i962, label %if.end.i.i.i.i.i.i.i.i997, label %if.end.i.i.i.i.thread.i.i.i.i963
@@ -26155,7 +26155,7 @@ sw.bb30:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1015, align 8, !noalias !931
   %_M_weak_count.i.i.i.i.i.i.i1016 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1014, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1016, align 4, !noalias !931
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1014, align 8, !noalias !931
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1014, align 8, !noalias !931
   %360 = load <2 x ptr>, ptr %visitor, align 8, !noalias !931
   %361 = extractelement <2 x ptr> %360, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1018 = icmp eq ptr %361, null
@@ -26190,7 +26190,7 @@ if.then.i.i.i.i.i.i.i.i1025:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i1029, align 8, !noalias !931
   %value.i.i.i.i.i.i.i.i.i.i1030 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1014, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i1030, i8 0, i64 16, i1 false), !noalias !931
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12BinaryScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1026, align 8, !noalias !931
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12BinaryScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1026, align 8, !noalias !931
   store ptr %_M_impl.i.i.i.i.i.i.i1026, ptr %365, align 8, !noalias !931
   %tobool.i.not.i.i.i.i.i.i.i.i.i1031 = icmp eq i8 %364, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1031, label %if.end.i.i.i.i.i.i.i.i1066, label %if.end.i.i.i.i.thread.i.i.i.i1032
@@ -26324,7 +26324,7 @@ sw.bb32:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1084, align 8, !noalias !940
   %_M_weak_count.i.i.i.i.i.i.i1085 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1083, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1085, align 4, !noalias !940
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16BinaryViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1083, align 8, !noalias !940
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16BinaryViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1083, align 8, !noalias !940
   %384 = load <2 x ptr>, ptr %visitor, align 8, !noalias !940
   %385 = extractelement <2 x ptr> %384, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1087 = icmp eq ptr %385, null
@@ -26359,7 +26359,7 @@ if.then.i.i.i.i.i.i.i.i1094:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i1098, align 8, !noalias !940
   %value.i.i.i.i.i.i.i.i.i.i1099 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1083, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i1099, i8 0, i64 16, i1 false), !noalias !940
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16BinaryViewScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1095, align 8, !noalias !940
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16BinaryViewScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1095, align 8, !noalias !940
   store ptr %_M_impl.i.i.i.i.i.i.i1095, ptr %389, align 8, !noalias !940
   %tobool.i.not.i.i.i.i.i.i.i.i.i1100 = icmp eq i8 %388, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1100, label %if.end.i.i.i.i.i.i.i.i1135, label %if.end.i.i.i.i.thread.i.i.i.i1101
@@ -26493,7 +26493,7 @@ sw.bb34:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1153, align 8, !noalias !949
   %_M_weak_count.i.i.i.i.i.i.i1154 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1152, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1154, align 4, !noalias !949
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeStringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1152, align 8, !noalias !949
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeStringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1152, align 8, !noalias !949
   %408 = load <2 x ptr>, ptr %visitor, align 8, !noalias !949
   %409 = extractelement <2 x ptr> %408, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1156 = icmp eq ptr %409, null
@@ -26528,7 +26528,7 @@ if.then.i.i.i.i.i.i.i.i1163:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i1167, align 8, !noalias !949
   %value.i.i.i.i.i.i.i.i.i.i.i1168 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1152, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i.i1168, i8 0, i64 16, i1 false), !noalias !949
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow17LargeStringScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1164, align 8, !noalias !949
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17LargeStringScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1164, align 8, !noalias !949
   store ptr %_M_impl.i.i.i.i.i.i.i1164, ptr %413, align 8, !noalias !949
   %tobool.i.not.i.i.i.i.i.i.i.i.i1169 = icmp eq i8 %412, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1169, label %if.end.i.i.i.i.i.i.i.i1204, label %if.end.i.i.i.i.thread.i.i.i.i1170
@@ -26662,7 +26662,7 @@ sw.bb36:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1222, align 8, !noalias !958
   %_M_weak_count.i.i.i.i.i.i.i1223 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1221, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1223, align 4, !noalias !958
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1221, align 8, !noalias !958
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1221, align 8, !noalias !958
   %432 = load <2 x ptr>, ptr %visitor, align 8, !noalias !958
   %433 = extractelement <2 x ptr> %432, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1225 = icmp eq ptr %433, null
@@ -26697,7 +26697,7 @@ if.then.i.i.i.i.i.i.i.i1232:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i1236, align 8, !noalias !958
   %value.i.i.i.i.i.i.i.i.i.i1237 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1221, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i1237, i8 0, i64 16, i1 false), !noalias !958
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow17LargeBinaryScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1233, align 8, !noalias !958
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17LargeBinaryScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1233, align 8, !noalias !958
   store ptr %_M_impl.i.i.i.i.i.i.i1233, ptr %437, align 8, !noalias !958
   %tobool.i.not.i.i.i.i.i.i.i.i.i1238 = icmp eq i8 %436, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1238, label %if.end.i.i.i.i.i.i.i.i1273, label %if.end.i.i.i.i.thread.i.i.i.i1239
@@ -26942,7 +26942,7 @@ call5.i.i.i3.i.i.noexc.i:                         ; preds = %_ZNSt10unique_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i48.i, align 8, !noalias !964
   %_M_weak_count.i.i.i.i49.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i64.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i49.i, align 4, !noalias !964
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i64.i, align 8, !noalias !964
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i64.i, align 8, !noalias !964
   %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i64.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow21FixedSizeBinaryScalarEJSt10shared_ptrINS0_6BufferEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20.i)
           to label %if.then.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i, !noalias !964
@@ -27224,7 +27224,7 @@ sw.bb40:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1329, align 8, !noalias !981
   %_M_weak_count.i.i.i.i.i.i.i1330 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1328, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1330, align 4, !noalias !981
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1328, align 8, !noalias !981
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1328, align 8, !noalias !981
   %512 = load <2 x ptr>, ptr %visitor, align 8, !noalias !981
   %513 = extractelement <2 x ptr> %512, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1332 = icmp eq ptr %513, null
@@ -27259,7 +27259,7 @@ if.then.i.i.i.i.i.i.i.i1339:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i1343, align 8, !noalias !981
   %value.i.i.i.i.i.i.i.i.i.i.i1344 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1328, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i1344, align 8, !noalias !981
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow14DurationScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1340, align 8, !noalias !981
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14DurationScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1340, align 8, !noalias !981
   store ptr %_M_impl.i.i.i.i.i.i.i1340, ptr %517, align 8, !noalias !981
   %tobool.i.not.i.i.i.i.i.i.i.i.i1345 = icmp eq i8 %516, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1345, label %if.end.i.i.i.i.i.i.i.i1380, label %if.end.i.i.i.i.thread.i.i.i.i1346
@@ -27393,7 +27393,7 @@ sw.bb42:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1398, align 8, !noalias !990
   %_M_weak_count.i.i.i.i.i.i.i1399 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1397, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1399, align 4, !noalias !990
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1397, align 8, !noalias !990
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1397, align 8, !noalias !990
   %536 = load <2 x ptr>, ptr %visitor, align 8, !noalias !990
   %537 = extractelement <2 x ptr> %536, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1401 = icmp eq ptr %537, null
@@ -27428,7 +27428,7 @@ if.then.i.i.i.i.i.i.i.i1408:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !990
   %value.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1397, i64 60
   store i32 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !990
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1409, align 8, !noalias !990
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1409, align 8, !noalias !990
   store ptr %_M_impl.i.i.i.i.i.i.i1409, ptr %541, align 8, !noalias !990
   %tobool.i.not.i.i.i.i.i.i.i.i.i1410 = icmp eq i8 %540, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1410, label %if.end.i.i.i.i.i.i.i.i1445, label %if.end.i.i.i.i.thread.i.i.i.i1411
@@ -27562,7 +27562,7 @@ sw.bb44:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1463, align 8, !noalias !999
   %_M_weak_count.i.i.i.i.i.i.i1464 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1462, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1464, align 4, !noalias !999
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1462, align 8, !noalias !999
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1462, align 8, !noalias !999
   %560 = load <2 x ptr>, ptr %visitor, align 8, !noalias !999
   %561 = extractelement <2 x ptr> %560, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1466 = icmp eq ptr %561, null
@@ -27597,7 +27597,7 @@ if.then.i.i.i.i.i.i.i.i1473:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1477, align 8, !noalias !999
   %value.i.i.i.i.i.i.i.i.i.i.i.i1478 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1462, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i1478, align 8, !noalias !999
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1474, align 8, !noalias !999
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1474, align 8, !noalias !999
   store ptr %_M_impl.i.i.i.i.i.i.i1474, ptr %565, align 8, !noalias !999
   %tobool.i.not.i.i.i.i.i.i.i.i.i1479 = icmp eq i8 %564, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1479, label %if.end.i.i.i.i.i.i.i.i1514, label %if.end.i.i.i.i.thread.i.i.i.i1480
@@ -27731,7 +27731,7 @@ sw.bb46:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1532, align 8, !noalias !1008
   %_M_weak_count.i.i.i.i.i.i.i1533 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1531, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1533, align 4, !noalias !1008
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1531, align 8, !noalias !1008
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1531, align 8, !noalias !1008
   %584 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1008
   %585 = extractelement <2 x ptr> %584, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1535 = icmp eq ptr %585, null
@@ -27766,7 +27766,7 @@ if.then.i.i.i.i.i.i.i.i1542:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i1546, align 8, !noalias !1008
   %value.i.i.i.i.i.i.i.i.i.i.i1547 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1531, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i1547, align 8, !noalias !1008
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1543, align 8, !noalias !1008
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15TimestampScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1543, align 8, !noalias !1008
   store ptr %_M_impl.i.i.i.i.i.i.i1543, ptr %589, align 8, !noalias !1008
   %tobool.i.not.i.i.i.i.i.i.i.i.i1548 = icmp eq i8 %588, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1548, label %if.end.i.i.i.i.i.i.i.i1583, label %if.end.i.i.i.i.thread.i.i.i.i1549
@@ -27900,7 +27900,7 @@ sw.bb48:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1601, align 8, !noalias !1017
   %_M_weak_count.i.i.i.i.i.i.i1602 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1600, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1602, align 4, !noalias !1017
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1600, align 8, !noalias !1017
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1600, align 8, !noalias !1017
   %608 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1017
   %609 = extractelement <2 x ptr> %608, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1604 = icmp eq ptr %609, null
@@ -27935,7 +27935,7 @@ if.then.i.i.i.i.i.i.i.i1611:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1615, align 8, !noalias !1017
   %value.i.i.i.i.i.i.i.i.i.i.i.i1616 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1600, i64 60
   store i32 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i1616, align 4, !noalias !1017
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1612, align 8, !noalias !1017
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1612, align 8, !noalias !1017
   store ptr %_M_impl.i.i.i.i.i.i.i1612, ptr %613, align 8, !noalias !1017
   %tobool.i.not.i.i.i.i.i.i.i.i.i1617 = icmp eq i8 %612, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1617, label %if.end.i.i.i.i.i.i.i.i1652, label %if.end.i.i.i.i.thread.i.i.i.i1618
@@ -28069,7 +28069,7 @@ sw.bb50:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1670, align 8, !noalias !1026
   %_M_weak_count.i.i.i.i.i.i.i1671 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1669, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1671, align 4, !noalias !1026
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1669, align 8, !noalias !1026
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1669, align 8, !noalias !1026
   %632 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1026
   %633 = extractelement <2 x ptr> %632, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1673 = icmp eq ptr %633, null
@@ -28104,7 +28104,7 @@ if.then.i.i.i.i.i.i.i.i1680:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1684, align 8, !noalias !1026
   %value.i.i.i.i.i.i.i.i.i.i.i.i1685 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1669, i64 64
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i1685, align 8, !noalias !1026
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1681, align 8, !noalias !1026
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1681, align 8, !noalias !1026
   store ptr %_M_impl.i.i.i.i.i.i.i1681, ptr %637, align 8, !noalias !1026
   %tobool.i.not.i.i.i.i.i.i.i.i.i1686 = icmp eq i8 %636, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1686, label %if.end.i.i.i.i.i.i.i.i1721, label %if.end.i.i.i.i.thread.i.i.i.i1687
@@ -28238,7 +28238,7 @@ sw.bb52:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1739, align 8, !noalias !1035
   %_M_weak_count.i.i.i.i.i.i.i1740 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1738, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1740, align 4, !noalias !1035
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow26MonthDayNanoIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1738, align 8, !noalias !1035
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow26MonthDayNanoIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1738, align 8, !noalias !1035
   %656 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1035
   %657 = extractelement <2 x ptr> %656, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1742 = icmp eq ptr %657, null
@@ -28273,7 +28273,7 @@ if.then.i.i.i.i.i.i.i.i1749:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1753, align 8, !noalias !1035
   %value.i.i.i.i.i.i.i.i.i.i.i.i1754 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1738, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i.i.i1754, i8 0, i64 16, i1 false), !noalias !1035
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow26MonthDayNanoIntervalScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1750, align 8, !noalias !1035
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow26MonthDayNanoIntervalScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1750, align 8, !noalias !1035
   store ptr %_M_impl.i.i.i.i.i.i.i1750, ptr %661, align 8, !noalias !1035
   %tobool.i.not.i.i.i.i.i.i.i.i.i1755 = icmp eq i8 %660, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1755, label %if.end.i.i.i.i.i.i.i.i1790, label %if.end.i.i.i.i.thread.i.i.i.i1756
@@ -28407,7 +28407,7 @@ sw.bb54:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1808, align 8, !noalias !1044
   %_M_weak_count.i.i.i.i.i.i.i1809 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1807, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1809, align 4, !noalias !1044
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1807, align 8, !noalias !1044
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1807, align 8, !noalias !1044
   %680 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1044
   %681 = extractelement <2 x ptr> %680, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1811 = icmp eq ptr %681, null
@@ -28442,7 +28442,7 @@ if.then.i.i.i.i.i.i.i.i1818:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1822, align 8, !noalias !1044
   %value.i.i.i.i.i.i.i.i.i.i.i.i1823 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1807, i64 60
   store i32 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i1823, align 4, !noalias !1044
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1819, align 8, !noalias !1044
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1819, align 8, !noalias !1044
   store ptr %_M_impl.i.i.i.i.i.i.i1819, ptr %685, align 8, !noalias !1044
   %tobool.i.not.i.i.i.i.i.i.i.i.i1824 = icmp eq i8 %684, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1824, label %if.end.i.i.i.i.i.i.i.i1859, label %if.end.i.i.i.i.thread.i.i.i.i1825
@@ -28576,7 +28576,7 @@ sw.bb56:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1877, align 8, !noalias !1053
   %_M_weak_count.i.i.i.i.i.i.i1878 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1876, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1878, align 4, !noalias !1053
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21DayTimeIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1876, align 8, !noalias !1053
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21DayTimeIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1876, align 8, !noalias !1053
   %704 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1053
   %705 = extractelement <2 x ptr> %704, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1880 = icmp eq ptr %705, null
@@ -28611,7 +28611,7 @@ if.then.i.i.i.i.i.i.i.i1887:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i.i.i1891, align 8, !noalias !1053
   %value.i.i.i.i.i.i.i.i.i.i.i.i1892 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1876, i64 60
   store i64 0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i1892, align 4, !noalias !1053
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow21DayTimeIntervalScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1888, align 8, !noalias !1053
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow21DayTimeIntervalScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1888, align 8, !noalias !1053
   store ptr %_M_impl.i.i.i.i.i.i.i1888, ptr %709, align 8, !noalias !1053
   %tobool.i.not.i.i.i.i.i.i.i.i.i1893 = icmp eq i8 %708, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1893, label %if.end.i.i.i.i.i.i.i.i1928, label %if.end.i.i.i.i.thread.i.i.i.i1894
@@ -28745,7 +28745,7 @@ sw.bb58:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i1946, align 8, !noalias !1062
   %_M_weak_count.i.i.i.i.i.i.i1947 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1945, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i1947, align 4, !noalias !1062
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i1945, align 8, !noalias !1062
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i1945, align 8, !noalias !1062
   %728 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1062
   %729 = extractelement <2 x ptr> %728, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1949 = icmp eq ptr %729, null
@@ -28780,7 +28780,7 @@ if.then.i.i.i.i.i.i.i.i1956:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i1960, align 8, !noalias !1062
   %value.i.i.i.i.i.i.i.i.i.i1961 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1945, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i.i.i.i.i.i1961, i8 0, i64 16, i1 false), !noalias !1062
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i1957, align 8, !noalias !1062
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1957, align 8, !noalias !1062
   store ptr %_M_impl.i.i.i.i.i.i.i1957, ptr %733, align 8, !noalias !1062
   %tobool.i.not.i.i.i.i.i.i.i.i.i1962 = icmp eq i8 %732, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i1962, label %if.end.i.i.i.i.i.i.i.i1997, label %if.end.i.i.i.i.thread.i.i.i.i1963
@@ -28914,7 +28914,7 @@ sw.bb60:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i2015, align 8, !noalias !1071
   %_M_weak_count.i.i.i.i.i.i.i2016 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i2014, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i2016, align 4, !noalias !1071
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i2014, align 8, !noalias !1071
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i2014, align 8, !noalias !1071
   %752 = load <2 x ptr>, ptr %visitor, align 8, !noalias !1071
   %753 = extractelement <2 x ptr> %752, i64 1
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i2018 = icmp eq ptr %753, null
@@ -28949,7 +28949,7 @@ if.then.i.i.i.i.i.i.i.i2025:                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i2029, align 8, !noalias !1071
   %value.i.i.i.i.i.i.i.i.i.i2030 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i2014, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i.i.i.i.i2030, i8 0, i64 32, i1 false), !noalias !1071
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i2026, align 8, !noalias !1071
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i2026, align 8, !noalias !1071
   store ptr %_M_impl.i.i.i.i.i.i.i2026, ptr %757, align 8, !noalias !1071
   %tobool.i.not.i.i.i.i.i.i.i.i.i2031 = icmp eq i8 %756, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i2031, label %if.end.i.i.i.i.i.i.i.i2066, label %if.end.i.i.i.i.thread.i.i.i.i2032
@@ -29166,7 +29166,7 @@ call5.i.i.i3.i.i.noexc.i.i:                       ; preds = %invoke.cont9.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i, align 8, !noalias !1083
   %_M_weak_count.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i, align 4, !noalias !1083
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10ListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i, align 8, !noalias !1083
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10ListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i, align 8, !noalias !1083
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow10ListScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i.i)
           to label %if.then.i.i.i.i2090 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow10ListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1083
@@ -29507,7 +29507,7 @@ call5.i.i.i3.i.i.noexc.i.i2144:                   ; preds = %invoke.cont8.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i2145, align 8, !noalias !1101
   %_M_weak_count.i.i.i.i44.i.i2146 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2142, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i2146, align 4, !noalias !1101
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15LargeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i2142, align 8, !noalias !1101
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15LargeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i2142, align 8, !noalias !1101
   %_M_impl.i.i.i.i.i.i2147 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2142, i64 16
   invoke void @_ZSt10_ConstructIN5arrow15LargeListScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i2147, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i2113, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i)
           to label %if.then.i.i.i.i2148 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15LargeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1101
@@ -29848,7 +29848,7 @@ call5.i.i.i3.i.i.noexc.i.i2274:                   ; preds = %invoke.cont8.i.i226
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i2275, align 8, !noalias !1119
   %_M_weak_count.i.i.i.i44.i.i2276 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2270, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i2276, align 4, !noalias !1119
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14ListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i2270, align 8, !noalias !1119
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14ListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i2270, align 8, !noalias !1119
   %_M_impl.i.i.i.i.i.i2277 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2270, i64 16
   invoke void @_ZSt10_ConstructIN5arrow14ListViewScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i2277, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i2239, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i2240)
           to label %if.then.i.i.i.i2278 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14ListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1119
@@ -30189,7 +30189,7 @@ call5.i.i.i3.i.i.noexc.i.i2405:                   ; preds = %invoke.cont8.i.i239
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i2406, align 8, !noalias !1137
   %_M_weak_count.i.i.i.i44.i.i2407 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2401, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i2407, align 4, !noalias !1137
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19LargeListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i2401, align 8, !noalias !1137
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19LargeListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i2401, align 8, !noalias !1137
   %_M_impl.i.i.i.i.i.i2408 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2401, i64 16
   invoke void @_ZSt10_ConstructIN5arrow19LargeListViewScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i2408, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i2370, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i2371)
           to label %if.then.i.i.i.i2409 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19LargeListViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1137
@@ -30530,7 +30530,7 @@ call5.i.i.i3.i.i.noexc.i.i2536:                   ; preds = %invoke.cont8.i.i252
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i2537, align 8, !noalias !1155
   %_M_weak_count.i.i.i.i44.i.i2538 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2532, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i2538, align 4, !noalias !1155
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9MapScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i2532, align 8, !noalias !1155
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9MapScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i2532, align 8, !noalias !1155
   %_M_impl.i.i.i.i.i.i2539 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2532, i64 16
   invoke void @_ZSt10_ConstructIN5arrow9MapScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i2539, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i2501, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i2502)
           to label %if.then.i.i.i.i2540 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow9MapScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1155
@@ -30874,7 +30874,7 @@ call5.i.i.i3.i.i.noexc.i.i2668:                   ; preds = %invoke.cont8.i.i266
   store i32 1, ptr %_M_use_count.i.i.i.i43.i.i2669, align 8, !noalias !1173
   %_M_weak_count.i.i.i.i44.i.i2670 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2664, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i44.i.i2670, align 4, !noalias !1173
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19FixedSizeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i59.i.i2664, align 8, !noalias !1173
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19FixedSizeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i59.i.i2664, align 8, !noalias !1173
   %_M_impl.i.i.i.i.i.i2671 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i59.i.i2664, i64 16
   invoke void @_ZSt10_ConstructIN5arrow19FixedSizeListScalarEJSt10shared_ptrINS0_5ArrayEERS2_INS0_8DataTypeEEbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i2671, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i2632, ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i2633)
           to label %if.then.i.i.i.i2672 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19FixedSizeListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !1173
@@ -31388,7 +31388,7 @@ call5.i.i.i3.i.i.noexc:                           ; preds = %for.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i3319, align 8
   %_M_weak_count.i.i.i.i3320 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3340, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i3320, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StructScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i3340, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StructScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i3340, align 8
   %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %field_values.i, i64 8
   %1088 = load <2 x ptr>, ptr %field_values.i, align 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %field_values.i, i64 16
@@ -31426,7 +31426,7 @@ if.then.i.i.i.i.i3327:                            ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %1090, ptr %type2.i.i.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3340, i64 56
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12StructScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12StructScalarE, i64 16), ptr %_M_impl.i.i.i.i, align 8
   %value2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3340, i64 64
   store <2 x ptr> %1088, ptr %value2.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3340, i64 80
@@ -32060,7 +32060,7 @@ sw.bb80:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i3.i, align 8, !noalias !1205
   %_M_weak_count.i.i.i.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i4.i, align 4, !noalias !1205
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DictionaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i, align 8, !noalias !1205
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DictionaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i, align 8, !noalias !1205
   %_M_impl.i.i.i.i.i2804 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow16DictionaryScalarEJRSt10shared_ptrINS0_8DataTypeEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i2804, ptr noundef nonnull align 8 dereferenceable(16) %visitor)
           to label %if.then.i.i.i2805 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow16DictionaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i, !noalias !1205
@@ -32226,7 +32226,7 @@ sw.bb82:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i2854, align 8, !noalias !1214
   %_M_weak_count.i.i.i.i.i.i.i2855 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i2853, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i2855, align 4, !noalias !1214
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i2853, align 8, !noalias !1214
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i2853, align 8, !noalias !1214
   %_M_impl.i.i.i.i.i.i.i2856 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i2853, i64 16
   invoke void @_ZN5arrow19RunEndEncodedScalarC1ERKSt10shared_ptrINS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl.i.i.i.i.i.i.i2856, ptr noundef nonnull align 8 dereferenceable(16) %visitor)
           to label %if.then.i.i.i.i.i2857 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !1214
@@ -32425,7 +32425,7 @@ call5.i.i.i3.i.i.noexc3377:                       ; preds = %invoke.cont.i2916
   store i32 1, ptr %_M_use_count.i.i.i.i3342, align 8
   %_M_weak_count.i.i.i.i3343 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3378, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i3343, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i3378, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i3378, align 8
   %_M_refcount4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i2910, i64 8
   %1234 = load <2 x ptr>, ptr %ref.tmp2.i2910, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i2910, i8 0, i64 16, i1 false)
@@ -32461,7 +32461,7 @@ if.then.i.i.i.i.i3351:                            ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %1235, ptr %type2.i.i.i.i.i.i.i3354, align 8
   %is_valid3.i.i.i.i.i.i.i3356 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3378, i64 56
   store i8 0, ptr %is_valid3.i.i.i.i.i.i.i3356, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i3352, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i3352, align 8
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i3378, i64 64
   store <2 x ptr> %1234, ptr %value.i.i.i.i.i.i, align 8
   store ptr %_M_impl.i.i.i.i3352, ptr %1240, align 8
@@ -32772,7 +32772,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10NullScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10NullScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
   %call.i.i.i1.i4.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4nullEv()
           to label %call.i.i.i1.i.noexc.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow10NullScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i
 
@@ -32813,7 +32813,7 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i.i1.i.noexc
   store <2 x ptr> %0, ptr %type2.i.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 56
   store i8 0, ptr %is_valid3.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow10NullScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10NullScalarE, i64 16), ptr %_M_impl.i.i.i, align 8
   store ptr %call5.i.i.i3.i, ptr %_M_refcount, align 8
   store ptr %_M_impl.i.i.i, ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 32
@@ -32937,7 +32937,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4nullEv() loca
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10NullScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -33052,7 +33052,7 @@ _ZN5arrow6ScalarD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10NullScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -33233,7 +33233,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow13BooleanScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -33348,7 +33348,7 @@ _ZN5arrow8internal15PrimitiveScalarINS_11BooleanTypeEbED2Ev.exit: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow13BooleanScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -33548,7 +33548,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10Int8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -33663,7 +33663,7 @@ _ZN5arrow13NumericScalarINS_8Int8TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10Int8ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -33863,7 +33863,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11UInt8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -33978,7 +33978,7 @@ _ZN5arrow13NumericScalarINS_9UInt8TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11UInt8ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34178,7 +34178,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34293,7 +34293,7 @@ _ZN5arrow13NumericScalarINS_9Int16TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int16ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34493,7 +34493,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34608,7 +34608,7 @@ _ZN5arrow13NumericScalarINS_10UInt16TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt16ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34808,7 +34808,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -34923,7 +34923,7 @@ _ZN5arrow13NumericScalarINS_9Int32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35123,7 +35123,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35238,7 +35238,7 @@ _ZN5arrow13NumericScalarINS_10UInt32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35438,7 +35438,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35553,7 +35553,7 @@ _ZN5arrow13NumericScalarINS_9Int64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35753,7 +35753,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -35868,7 +35868,7 @@ _ZN5arrow13NumericScalarINS_10UInt64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36068,7 +36068,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow15HalfFloatScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36183,7 +36183,7 @@ _ZN5arrow13NumericScalarINS_13HalfFloatTypeEED2Ev.exit: ; preds = %_ZNSt10shared
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow15HalfFloatScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36383,7 +36383,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11FloatScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36498,7 +36498,7 @@ _ZN5arrow13NumericScalarINS_9FloatTypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11FloatScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36698,7 +36698,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12DoubleScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -36813,7 +36813,7 @@ _ZN5arrow13NumericScalarINS_10DoubleTypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12DoubleScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -37541,7 +37541,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -38107,7 +38107,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow14DurationScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38222,7 +38222,7 @@ _ZN5arrow14TemporalScalarINS_12DurationTypeEED2Ev.exit: ; preds = %_ZNSt10shared
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow14DurationScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38422,7 +38422,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Date32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38537,7 +38537,7 @@ _ZN5arrow10DateScalarINS_10Date32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Date32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38737,7 +38737,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Date64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38852,7 +38852,7 @@ _ZN5arrow10DateScalarINS_10Date64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Date64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39114,7 +39114,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Time32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39229,7 +39229,7 @@ _ZN5arrow10TimeScalarINS_10Time32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Time32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39429,7 +39429,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Time64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39544,7 +39544,7 @@ _ZN5arrow10TimeScalarINS_10Time64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12Time64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39744,7 +39744,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow26MonthDayNanoIntervalScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -39859,7 +39859,7 @@ _ZN5arrow14IntervalScalarINS_24MonthDayNanoIntervalTypeEED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow26MonthDayNanoIntervalScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40059,7 +40059,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow19MonthIntervalScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40174,7 +40174,7 @@ _ZN5arrow14IntervalScalarINS_17MonthIntervalTypeEED2Ev.exit: ; preds = %_ZNSt10s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow19MonthIntervalScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40374,7 +40374,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow21DayTimeIntervalScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40489,7 +40489,7 @@ _ZN5arrow14IntervalScalarINS_19DayTimeIntervalTypeEED2Ev.exit: ; preds = %_ZNSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow21DayTimeIntervalScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40689,7 +40689,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16Decimal128ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -40804,7 +40804,7 @@ _ZN5arrow13DecimalScalarINS_14Decimal128TypeENS_10Decimal128EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16Decimal128ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -41004,7 +41004,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16Decimal256ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -41119,7 +41119,7 @@ _ZN5arrow13DecimalScalarINS_14Decimal256TypeENS_10Decimal256EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16Decimal256ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -41357,7 +41357,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow10ListScalarE, i64 0, i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10ListScalarE, i64 16), ptr %__p, align 8
   %7 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i4
@@ -41617,7 +41617,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15LargeListScalarE, i64 0, i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15LargeListScalarE, i64 16), ptr %__p, align 8
   %7 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i4
@@ -41877,7 +41877,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14ListViewScalarE, i64 0, i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14ListViewScalarE, i64 16), ptr %__p, align 8
   %7 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i4
@@ -42137,7 +42137,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow19LargeListViewScalarE, i64 0, i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19LargeListViewScalarE, i64 16), ptr %__p, align 8
   %7 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i4
@@ -42397,7 +42397,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow9MapScalarE, i64 0, i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow9MapScalarE, i64 16), ptr %__p, align 8
   %7 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i4
@@ -42878,7 +42878,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12StructScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12StructScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12StructScalarE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %value, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -42980,7 +42980,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %14, null
@@ -43235,7 +43235,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SparseUnionScalarEJSt6vectorISt10shared_ptrINS0_6ScalarEESaIS5_EERKaRS3_INS0_8DataTypeEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3)
           to label %if.then.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SparseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i
@@ -43779,7 +43779,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DenseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DenseUnionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
   %0 = load <2 x ptr>, ptr %__args, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__args, i8 0, i64 16, i1 false)
   %1 = load i8, ptr %__args1, align 1
@@ -43819,7 +43819,7 @@ if.then.i.i.i.i:                                  ; preds = %entry, %if.then.i.i
   store i8 %frombool.i.i.i.i.i.i.i, ptr %is_valid3.i.i.i.i.i.i.i, align 8
   %type_code2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 80
   store i8 %1, ptr %type_code2.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow16DenseUnionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16DenseUnionScalarE, i64 16), ptr %_M_impl.i.i.i, align 8
   %value2.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 88
   store <2 x ptr> %0, ptr %value2.i.i.i.i.i, align 8
   store ptr %call5.i.i.i3.i, ptr %_M_refcount, align 8
@@ -43940,7 +43940,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow16DenseUnionScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow16DenseUnionScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16DenseUnionScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -44015,7 +44015,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
@@ -44445,7 +44445,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow15ExtensionScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -44520,7 +44520,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
@@ -44698,7 +44698,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %null_rep, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %null_rep, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -44782,7 +44782,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.11, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 1))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -44803,7 +44803,7 @@ call.i.noexc7:                                    ; preds = %invoke.cont
           to label %.noexc9 unwind label %lpad3
 
 .noexc9:                                          ; preds = %call.i.noexc7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %close, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.12, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %close, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 1))
           to label %invoke.cont4 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc9
@@ -44824,7 +44824,7 @@ call.i.noexc15:                                   ; preds = %invoke.cont4
           to label %.noexc17 unwind label %lpad6
 
 .noexc17:                                         ; preds = %call.i.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.66, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 1))
           to label %invoke.cont7 unwind label %lpad.i14
 
 lpad.i14:                                         ; preds = %.noexc17
@@ -47095,7 +47095,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1366
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1366
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1366
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1366
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47108,7 +47108,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1366
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !1366
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1366
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1366
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1366
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1366
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -47248,7 +47248,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1375
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1375
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1375
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1375
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47261,7 +47261,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1375
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1375
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1375
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1375
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1375
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1375
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -47401,7 +47401,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1384
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1384
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1384
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1384
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47414,7 +47414,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1384
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1384
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1384
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1384
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1384
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1384
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -47555,7 +47555,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1393
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1393
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1393
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1393
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47568,7 +47568,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1393
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1393
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1393
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1393
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1393
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1393
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -47709,7 +47709,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1402
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1402
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1402
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1402
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47722,7 +47722,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1402
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1402
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1402
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1402
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1402
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1402
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -47863,7 +47863,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1411
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1411
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1411
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1411
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -47876,7 +47876,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1411
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1411
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1411
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1411
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1411
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1411
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -48017,7 +48017,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1420
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1420
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1420
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1420
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48030,7 +48030,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1420
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1420
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1420
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1420
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1420
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1420
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -48171,7 +48171,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1429
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1429
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1429
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1429
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48184,7 +48184,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1429
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1429
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1429
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1429
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1429
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1429
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -48325,7 +48325,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1438
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1438
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1438
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1438
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48338,7 +48338,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1438
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1438
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1438
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1438
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1438
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1438
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -48479,7 +48479,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1447
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1447
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1447
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1447
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48492,7 +48492,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1447
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1447
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1447
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1447
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1447
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1447
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -48633,7 +48633,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1456
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1456
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1456
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1456
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48646,7 +48646,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1456
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1456
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1456
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1456
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1456
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1456
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -48787,7 +48787,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1465
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1465
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1465
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1465
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -48800,7 +48800,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1465
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1465
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1465
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1465
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1465
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1465
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -50719,7 +50719,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1537
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1537
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1537
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1537
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -50734,7 +50734,7 @@ do.end8:
   store i64 %conv4.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1537
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 0, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !1537
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1537
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1537
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1537
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1537
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -50875,7 +50875,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1546
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1546
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1546
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1546
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv4.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1546
@@ -50890,7 +50890,7 @@ do.end8:
   store <2 x ptr> %5, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1546
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1546
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1546
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1546
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !1546
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1546
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -51259,7 +51259,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont10
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !1562
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !1562
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1562
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1562
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !1562
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !1562
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -51293,7 +51293,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1562
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !1562
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1562
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1562
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !1562
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -51573,7 +51573,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -51607,7 +51607,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow14DurationScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14DurationScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -51687,7 +51687,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESa
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.c, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow14DurationScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14DurationScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14DurationScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -51704,7 +51704,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i32, ptr %__args, align 4
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -51738,7 +51738,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date32ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -51818,7 +51818,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIv
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i.c, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date32ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -51835,7 +51835,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -51869,7 +51869,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date64ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -51949,7 +51949,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIv
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.i.c, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Date64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Date64ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Date64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -51966,7 +51966,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -52000,7 +52000,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15TimestampScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -52080,7 +52080,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarES
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.c, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15TimestampScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow15TimestampScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -52097,7 +52097,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i32, ptr %__args, align 4
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -52131,7 +52131,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time32ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -52211,7 +52211,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIv
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i.c, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time32ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -52228,7 +52228,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -52262,7 +52262,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time64ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -52342,7 +52342,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIv
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store i64 %0, ptr %value2.i.i.i.i.i.i.i.c, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12Time64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12Time64ScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12Time64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -52359,7 +52359,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i32, ptr %__args, align 4
   %1 = load <2 x ptr>, ptr %__args1, align 8
@@ -52393,7 +52393,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -52473,7 +52473,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScal
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.c, align 8
   %value2.i.i.i.i.i.i.i.c = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 60
   store i32 %0, ptr %value2.i.i.i.i.i.i.i.c, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow19MonthIntervalScalarE, i64 16), ptr %_M_impl.i.i, align 8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19MonthIntervalScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit.critedge, %invoke.cont.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
@@ -53343,7 +53343,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1582
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1582
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1582
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -53356,7 +53356,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1582
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !1582
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1582
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1582
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1582
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -53495,7 +53495,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1591
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1591
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1591
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1591
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -53508,7 +53508,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1591
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1591
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1591
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1591
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1591
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1591
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -53647,7 +53647,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1600
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1600
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1600
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1600
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -53660,7 +53660,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1600
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1600
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1600
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1600
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1600
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1600
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -53800,7 +53800,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1609
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1609
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1609
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1609
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -53813,7 +53813,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1609
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1609
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1609
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1609
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1609
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1609
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -53953,7 +53953,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1618
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1618
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1618
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1618
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -53966,7 +53966,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1618
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1618
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1618
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1618
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1618
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1618
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54106,7 +54106,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1627
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1627
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1627
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1627
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54119,7 +54119,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1627
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1627
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1627
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1627
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1627
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1627
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54259,7 +54259,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1636
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1636
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1636
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1636
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54272,7 +54272,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1636
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1636
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1636
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1636
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1636
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1636
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54412,7 +54412,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1645
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1645
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1645
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1645
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54425,7 +54425,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1645
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1645
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1645
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1645
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1645
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1645
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54565,7 +54565,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1654
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1654
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1654
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1654
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54578,7 +54578,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1654
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1654
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1654
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1654
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1654
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1654
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54718,7 +54718,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1663
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1663
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1663
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1663
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54731,7 +54731,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1663
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1663
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1663
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1663
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1663
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1663
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -54871,7 +54871,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1672
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1672
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1672
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1672
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -54884,7 +54884,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1672
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1672
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1672
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1672
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1672
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1672
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -55024,7 +55024,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1681
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1681
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1681
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1681
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -55037,7 +55037,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1681
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1681
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1681
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1681
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1681
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1681
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -56950,7 +56950,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1753
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1753
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1753
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1753
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -56965,7 +56965,7 @@ do.end8:
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1753
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 %spec.select.i.i.i.i, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !1753
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1753
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1753
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1753
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1753
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -57115,7 +57115,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1765
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1765
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1765
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1765
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1765
@@ -57130,7 +57130,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1765
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1765
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1765
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1765
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1765
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1765
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -57499,7 +57499,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !1781
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !1781
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1781
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1781
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !1781
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !1781
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -57533,7 +57533,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1781
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !1781
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1781
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1781
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !1781
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -58584,7 +58584,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1797
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1797
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1797
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1797
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -58597,7 +58597,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1797
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !1797
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1797
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1797
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1797
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1797
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -58736,7 +58736,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1806
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1806
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1806
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1806
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -58749,7 +58749,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1806
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1806
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1806
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1806
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1806
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1806
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -58888,7 +58888,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1815
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1815
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1815
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1815
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -58901,7 +58901,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1815
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1815
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1815
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1815
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1815
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1815
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59041,7 +59041,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1824
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1824
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1824
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1824
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59054,7 +59054,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1824
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1824
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1824
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1824
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1824
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1824
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59194,7 +59194,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1833
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1833
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1833
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1833
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59207,7 +59207,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1833
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1833
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1833
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1833
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1833
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1833
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59347,7 +59347,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1842
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1842
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1842
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1842
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59360,7 +59360,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1842
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1842
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1842
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1842
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1842
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1842
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59500,7 +59500,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1851
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1851
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1851
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1851
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59513,7 +59513,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1851
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1851
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1851
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1851
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1851
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1851
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59653,7 +59653,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1860
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1860
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1860
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1860
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59666,7 +59666,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1860
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1860
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1860
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1860
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1860
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1860
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59806,7 +59806,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1869
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1869
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1869
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1869
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59819,7 +59819,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1869
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1869
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1869
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1869
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1869
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1869
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -59959,7 +59959,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1878
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1878
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1878
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1878
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -59972,7 +59972,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1878
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1878
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1878
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1878
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1878
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1878
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -60112,7 +60112,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1887
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1887
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1887
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1887
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -60125,7 +60125,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1887
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1887
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1887
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1887
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1887
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1887
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -60265,7 +60265,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1896
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1896
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1896
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1896
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -60278,7 +60278,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1896
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1896
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1896
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1896
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1896
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1896
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -62189,7 +62189,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1968
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1968
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1968
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1968
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -62204,7 +62204,7 @@ do.end8:
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1968
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 0, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !1968
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1968
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1968
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1968
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1968
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -62344,7 +62344,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !1977
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !1977
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1977
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !1977
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1977
@@ -62359,7 +62359,7 @@ do.end8:
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1977
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1977
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1977
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1977
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !1977
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1977
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -62728,7 +62728,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !1993
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !1993
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1993
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !1993
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !1993
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !1993
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -62762,7 +62762,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1993
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !1993
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1993
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !1993
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !1993
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -63883,7 +63883,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2010
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2010
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2010
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2010
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -63896,7 +63896,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2010
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !2010
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2010
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2010
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2010
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2010
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64036,7 +64036,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2019
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2019
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2019
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2019
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64049,7 +64049,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2019
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2019
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2019
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2019
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2019
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2019
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64189,7 +64189,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2028
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2028
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2028
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2028
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64202,7 +64202,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2028
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2028
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2028
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2028
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2028
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2028
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64341,7 +64341,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2037
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2037
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2037
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2037
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64354,7 +64354,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2037
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2037
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2037
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2037
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2037
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2037
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64493,7 +64493,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2046
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2046
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2046
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2046
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64506,7 +64506,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2046
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2046
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2046
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2046
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2046
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2046
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64646,7 +64646,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2055
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2055
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2055
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2055
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64659,7 +64659,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2055
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2055
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2055
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2055
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2055
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2055
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64799,7 +64799,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2064
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2064
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2064
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2064
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64812,7 +64812,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2064
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2064
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2064
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2064
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2064
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2064
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -64952,7 +64952,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2073
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2073
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2073
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2073
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -64965,7 +64965,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2073
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2073
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2073
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2073
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2073
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2073
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -65105,7 +65105,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2082
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2082
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2082
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2082
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -65118,7 +65118,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2082
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2082
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2082
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2082
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2082
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2082
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -65257,7 +65257,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2091
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2091
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2091
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2091
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -65270,7 +65270,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2091
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2091
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2091
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2091
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2091
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2091
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -65410,7 +65410,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2100
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2100
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2100
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2100
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -65423,7 +65423,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2100
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2100
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2100
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2100
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2100
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2100
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -65563,7 +65563,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2109
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2109
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2109
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2109
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -65576,7 +65576,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2109
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2109
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2109
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2109
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2109
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2109
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -67489,7 +67489,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2181
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2181
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2181
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2181
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -67504,7 +67504,7 @@ do.end8:
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2181
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 %spec.select.i.i.i.i, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !2181
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2181
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2181
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2181
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2181
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -67654,7 +67654,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2193
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2193
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2193
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2193
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2193
@@ -67669,7 +67669,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2193
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2193
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2193
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2193
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2193
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2193
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -68038,7 +68038,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !2209
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !2209
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2209
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !2209
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !2209
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -68072,7 +68072,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2209
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !2209
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2209
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2209
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !2209
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -69162,7 +69162,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2225
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2225
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2225
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2225
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69175,7 +69175,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2225
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !2225
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2225
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2225
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2225
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2225
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -69315,7 +69315,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2234
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2234
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2234
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2234
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69328,7 +69328,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2234
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2234
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2234
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2234
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2234
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2234
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -69468,7 +69468,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2243
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2243
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2243
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2243
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69481,7 +69481,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2243
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2243
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2243
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2243
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2243
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2243
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -69620,7 +69620,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2252
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2252
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2252
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2252
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69633,7 +69633,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2252
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2252
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2252
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2252
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2252
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2252
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -69772,7 +69772,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2261
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2261
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2261
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2261
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69785,7 +69785,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2261
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2261
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2261
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2261
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2261
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2261
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -69925,7 +69925,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2270
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2270
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2270
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2270
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -69938,7 +69938,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2270
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2270
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2270
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2270
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2270
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2270
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70078,7 +70078,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2279
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2279
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2279
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70091,7 +70091,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2279
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2279
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2279
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2279
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2279
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70231,7 +70231,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2288
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2288
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2288
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2288
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70244,7 +70244,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2288
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2288
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2288
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2288
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2288
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2288
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70384,7 +70384,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2297
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2297
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2297
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70397,7 +70397,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2297
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2297
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2297
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2297
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2297
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70536,7 +70536,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2306
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2306
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2306
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2306
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70549,7 +70549,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2306
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2306
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2306
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2306
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2306
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2306
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70689,7 +70689,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2315
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2315
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2315
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2315
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70702,7 +70702,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2315
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2315
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2315
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2315
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2315
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2315
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -70842,7 +70842,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2324
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2324
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2324
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2324
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -70855,7 +70855,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2324
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2324
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2324
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2324
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2324
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2324
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -72766,7 +72766,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2396
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2396
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2396
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2396
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -72781,7 +72781,7 @@ do.end8:
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2396
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 0, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !2396
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2396
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2396
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2396
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2396
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -72921,7 +72921,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2405
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2405
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2405
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2405
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv3.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2405
@@ -72936,7 +72936,7 @@ do.end8:
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2405
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2405
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2405
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2405
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2405
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2405
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -73305,7 +73305,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !2421
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !2421
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2421
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2421
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !2421
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !2421
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -73339,7 +73339,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2421
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !2421
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2421
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2421
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !2421
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -74393,7 +74393,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2437
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2437
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2437
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2437
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -74406,7 +74406,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2437
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !2437
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2437
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2437
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2437
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2437
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -74546,7 +74546,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2446
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2446
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2446
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2446
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -74559,7 +74559,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2446
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2446
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2446
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2446
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2446
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2446
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -74699,7 +74699,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2455
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2455
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2455
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2455
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -74712,7 +74712,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2455
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2455
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2455
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2455
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2455
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2455
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -74852,7 +74852,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2464
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2464
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2464
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2464
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -74865,7 +74865,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2464
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2464
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2464
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2464
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2464
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2464
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75005,7 +75005,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2473
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2473
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2473
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2473
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75018,7 +75018,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2473
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2473
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2473
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2473
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2473
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2473
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75157,7 +75157,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2482
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2482
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2482
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2482
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75170,7 +75170,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2482
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2482
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2482
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2482
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2482
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2482
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75309,7 +75309,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2491
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2491
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2491
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2491
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75322,7 +75322,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2491
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2491
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2491
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2491
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2491
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2491
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75462,7 +75462,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2500
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2500
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2500
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2500
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75475,7 +75475,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2500
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2500
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2500
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2500
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2500
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2500
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75615,7 +75615,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2509
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2509
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2509
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2509
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75628,7 +75628,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2509
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2509
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2509
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2509
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2509
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2509
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75768,7 +75768,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2518
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2518
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2518
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2518
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75781,7 +75781,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2518
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2518
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2518
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2518
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2518
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2518
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -75921,7 +75921,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2527
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2527
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2527
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2527
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -75934,7 +75934,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2527
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2527
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2527
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2527
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2527
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2527
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -76074,7 +76074,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2536
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2536
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2536
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2536
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -76087,7 +76087,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2536
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2536
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2536
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2536
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2536
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2536
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -77997,7 +77997,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2608
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2608
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2608
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2608
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -78012,7 +78012,7 @@ do.end8:
   store i64 %conv.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2608
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 %spec.select.i.i.i.i, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !2608
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2608
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2608
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2608
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2608
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -78162,7 +78162,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2620
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2620
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2620
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2620
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2620
@@ -78177,7 +78177,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2620
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2620
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2620
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2620
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2620
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2620
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -78546,7 +78546,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !2636
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !2636
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2636
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2636
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !2636
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !2636
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -78580,7 +78580,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2636
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !2636
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2636
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2636
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !2636
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -79502,7 +79502,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2651
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2651
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2651
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2651
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -79515,7 +79515,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2651
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !2651
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2651
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2651
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2651
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2651
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -79655,7 +79655,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2660
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2660
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2660
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2660
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -79668,7 +79668,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2660
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2660
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2660
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2660
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2660
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2660
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -79808,7 +79808,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2669
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2669
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2669
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2669
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -79821,7 +79821,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2669
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2669
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2669
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2669
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2669
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2669
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -79961,7 +79961,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2678
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2678
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2678
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2678
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -79974,7 +79974,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2678
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2678
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2678
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2678
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2678
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2678
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80114,7 +80114,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2687
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2687
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2687
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2687
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80127,7 +80127,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2687
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2687
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2687
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2687
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2687
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2687
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80266,7 +80266,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2696
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2696
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2696
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2696
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80279,7 +80279,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2696
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2696
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2696
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2696
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2696
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2696
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80418,7 +80418,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2705
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2705
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2705
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2705
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80431,7 +80431,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2705
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2705
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2705
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2705
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2705
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2705
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80571,7 +80571,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2714
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2714
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2714
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2714
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80584,7 +80584,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2714
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2714
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2714
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2714
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2714
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2714
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80724,7 +80724,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2723
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2723
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2723
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2723
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80737,7 +80737,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2723
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2723
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2723
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2723
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2723
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2723
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -80877,7 +80877,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2732
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2732
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2732
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2732
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -80890,7 +80890,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2732
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2732
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2732
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2732
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2732
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2732
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -81030,7 +81030,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2741
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2741
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2741
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2741
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -81043,7 +81043,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2741
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2741
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2741
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2741
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2741
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2741
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -81183,7 +81183,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2750
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2750
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2750
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2750
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -81196,7 +81196,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2750
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2750
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2750
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2750
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2750
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2750
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -83104,7 +83104,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2822
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2822
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2822
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2822
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -83119,7 +83119,7 @@ do.end8:
   store i64 %conv.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2822
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 0, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !2822
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2822
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2822
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2822
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2822
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -83259,7 +83259,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2831
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2831
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2831
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2831
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv.i.i.i.i, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2831
@@ -83274,7 +83274,7 @@ do.end8:
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2831
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2831
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2831
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2831
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2831
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2831
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -83643,7 +83643,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !2847
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !2847
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2847
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !2847
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !2847
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !2847
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -83677,7 +83677,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !2847
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !2847
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2847
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2847
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !2847
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -85025,7 +85025,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2863
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2863
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2863
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2863
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85038,7 +85038,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2863
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !2863
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2863
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2863
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2863
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2863
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85178,7 +85178,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2872
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2872
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2872
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2872
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85191,7 +85191,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2872
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2872
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2872
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2872
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2872
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2872
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85331,7 +85331,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2881
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2881
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2881
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2881
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85344,7 +85344,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2881
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !2881
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2881
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2881
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2881
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2881
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85484,7 +85484,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2890
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2890
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2890
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2890
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85497,7 +85497,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2890
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2890
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2890
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2890
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2890
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2890
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85637,7 +85637,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2899
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2899
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2899
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2899
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85650,7 +85650,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2899
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2899
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2899
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2899
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2899
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2899
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85790,7 +85790,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2908
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2908
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2908
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2908
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85803,7 +85803,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2908
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2908
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2908
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2908
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2908
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2908
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -85943,7 +85943,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2917
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2917
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2917
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2917
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -85956,7 +85956,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2917
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2917
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2917
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2917
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2917
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2917
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -86095,7 +86095,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2926
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2926
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2926
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2926
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -86108,7 +86108,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2926
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2926
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2926
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2926
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2926
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2926
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -86247,7 +86247,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2935
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2935
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2935
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2935
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -86260,7 +86260,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2935
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2935
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2935
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2935
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2935
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2935
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -86400,7 +86400,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2944
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2944
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2944
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2944
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -86413,7 +86413,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2944
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !2944
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2944
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2944
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2944
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2944
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -86553,7 +86553,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2953
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2953
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2953
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2953
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -86566,7 +86566,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2953
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !2953
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2953
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2953
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2953
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2953
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -86706,7 +86706,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2962
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !2962
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2962
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2962
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -86719,7 +86719,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2962
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2962
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2962
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !2962
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !2962
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !2962
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -88626,7 +88626,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3034
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3034
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3034
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3034
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -88641,7 +88641,7 @@ do.end8:
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3034
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 %low_bits.lobit.i.i.i.i, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !3034
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3034
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3034
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3034
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3034
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -88790,7 +88790,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3046
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3046
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3046
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3046
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3046
@@ -88805,7 +88805,7 @@ _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4E
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3046
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3046
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3046
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3046
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3046
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3046
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -89174,7 +89174,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3062
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3062
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3062
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3062
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3062
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3062
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -89208,7 +89208,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3062
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3062
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3062
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3062
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3062
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -90130,7 +90130,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3077
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3077
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3077
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3077
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90143,7 +90143,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3077
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !3077
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3077
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3077
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3077
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3077
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -90283,7 +90283,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3086
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3086
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3086
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3086
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90296,7 +90296,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3086
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3086
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3086
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3086
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3086
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3086
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -90436,7 +90436,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3095
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3095
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3095
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3095
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90449,7 +90449,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3095
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3095
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3095
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3095
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3095
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3095
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -90589,7 +90589,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3104
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3104
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3104
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90602,7 +90602,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3104
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3104
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3104
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3104
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3104
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -90742,7 +90742,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3113
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3113
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3113
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90755,7 +90755,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3113
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3113
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3113
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3113
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3113
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -90895,7 +90895,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3122
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3122
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3122
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3122
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -90908,7 +90908,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3122
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3122
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3122
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3122
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3122
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3122
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91048,7 +91048,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3131
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3131
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3131
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3131
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91061,7 +91061,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3131
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3131
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3131
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3131
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3131
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3131
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91200,7 +91200,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3140
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3140
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3140
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91213,7 +91213,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3140
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3140
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3140
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3140
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3140
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91352,7 +91352,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3149
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3149
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3149
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3149
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91365,7 +91365,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3149
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3149
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3149
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3149
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3149
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3149
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91505,7 +91505,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3158
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3158
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3158
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3158
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91518,7 +91518,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3158
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3158
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3158
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3158
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3158
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3158
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91658,7 +91658,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3167
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3167
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3167
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3167
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91671,7 +91671,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3167
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3167
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3167
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3167
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3167
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3167
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -91811,7 +91811,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3176
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3176
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3176
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3176
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -91824,7 +91824,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3176
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3176
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3176
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3176
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3176
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3176
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -93730,7 +93730,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3248
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3248
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal128ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3248
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -93745,7 +93745,7 @@ do.end8:
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3248
   %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   store i64 0, ptr %value.sroa.2.0.value2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !3248
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal128ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3248
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3248
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3248
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -93884,7 +93884,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3257
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3257
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3257
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3257
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3257
@@ -93899,7 +93899,7 @@ do.end8:
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3257
   %is_valid3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3257
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3257
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16Decimal256ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3257
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3257
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3257
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -94268,7 +94268,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3273
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3273
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3273
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3273
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3273
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3273
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -94302,7 +94302,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3273
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3273
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3273
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3273
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3273
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -95226,7 +95226,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3288
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3288
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3288
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3288
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -95239,7 +95239,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3288
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !3288
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3288
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3288
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3288
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3288
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -95379,7 +95379,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3297
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3297
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3297
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -95392,7 +95392,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3297
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3297
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3297
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3297
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3297
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -95532,7 +95532,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3306
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3306
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3306
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3306
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -95545,7 +95545,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3306
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3306
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3306
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3306
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3306
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3306
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -95685,7 +95685,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3315
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3315
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3315
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3315
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -95698,7 +95698,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3315
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3315
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3315
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3315
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3315
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3315
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -95838,7 +95838,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3324
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3324
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3324
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3324
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -95851,7 +95851,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3324
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3324
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3324
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3324
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3324
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3324
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -95991,7 +95991,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3333
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3333
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3333
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3333
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96004,7 +96004,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3333
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3333
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3333
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3333
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3333
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3333
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96144,7 +96144,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3342
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3342
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3342
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3342
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96157,7 +96157,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3342
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3342
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3342
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3342
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3342
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3342
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96297,7 +96297,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3351
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3351
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3351
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3351
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96310,7 +96310,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3351
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3351
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3351
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3351
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3351
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3351
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96450,7 +96450,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3360
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3360
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3360
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3360
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96463,7 +96463,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3360
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3360
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3360
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3360
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3360
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3360
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96603,7 +96603,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3369
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3369
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3369
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3369
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96616,7 +96616,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3369
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3369
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3369
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3369
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3369
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3369
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96755,7 +96755,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3378
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3378
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3378
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3378
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96768,7 +96768,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3378
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3378
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3378
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3378
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3378
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3378
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -96908,7 +96908,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3387
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3387
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3387
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3387
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -96921,7 +96921,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3387
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3387
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3387
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3387
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3387
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3387
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -99061,7 +99061,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3466
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3466
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3466
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3466
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3466
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -99095,7 +99095,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3466
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3466
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3466
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3466
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3466
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -100019,7 +100019,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3481
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3481
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3481
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow13BooleanScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3481
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100032,7 +100032,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3481
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %frombool, ptr %value2.i.i.i.i.i.i.i.i.i, align 1, !noalias !3481
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13BooleanScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3481
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow13BooleanScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3481
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3481
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3481
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100172,7 +100172,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3490
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3490
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3490
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow10Int8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3490
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100185,7 +100185,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3490
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3490
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3490
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3490
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3490
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3490
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100325,7 +100325,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3499
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3499
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3499
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11UInt8ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3499
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100338,7 +100338,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3499
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 57
   store i8 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !3499
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3499
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3499
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3499
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3499
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100478,7 +100478,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3508
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3508
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3508
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3508
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100491,7 +100491,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3508
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3508
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3508
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3508
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3508
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3508
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100631,7 +100631,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3517
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3517
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3517
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt16ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3517
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100644,7 +100644,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3517
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3517
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3517
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3517
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3517
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3517
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100784,7 +100784,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3526
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3526
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3526
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3526
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100797,7 +100797,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3526
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3526
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3526
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3526
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3526
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3526
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -100937,7 +100937,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3535
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3535
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3535
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt32ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3535
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -100950,7 +100950,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3535
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store i32 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3535
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3535
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3535
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3535
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3535
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -101090,7 +101090,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3544
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3544
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3544
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11Int64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3544
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -101103,7 +101103,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3544
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3544
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3544
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3544
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3544
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3544
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -101243,7 +101243,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3553
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3553
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3553
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12UInt64ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3553
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -101256,7 +101256,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3553
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store i64 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3553
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3553
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3553
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3553
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3553
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -101396,7 +101396,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3562
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3562
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3562
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15HalfFloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3562
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -101409,7 +101409,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3562
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 58
   store i16 %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !3562
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3562
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15HalfFloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3562
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3562
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3562
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -101549,7 +101549,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3571
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3571
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11FloatScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3571
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -101562,7 +101562,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3571
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
   store float %conv, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !3571
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11FloatScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11FloatScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3571
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3571
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3571
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -101701,7 +101701,7 @@ do.end8:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3580
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3580
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3580
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12DoubleScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !3580
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -101714,7 +101714,7 @@ do.end8:
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3580
   %value2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   store double %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3580
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12DoubleScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3580
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12DoubleScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3580
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !3580
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3580
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -103854,7 +103854,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3659
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3659
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3659
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3659
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3659
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3659
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -103888,7 +103888,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3659
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3659
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3659
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3659
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3659
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -104917,7 +104917,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3674
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3674
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3674
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12StringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3674
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3674
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -104933,7 +104933,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3674
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3674
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12StringScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3674
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12StringScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3674
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3674
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3674
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -105162,7 +105162,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3683
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3683
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16StringViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3683
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16StringViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3683
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3683
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -105178,7 +105178,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3683
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3683
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16StringViewScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3683
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16StringViewScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3683
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3683
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3683
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -105407,7 +105407,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3692
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3692
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3692
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3692
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3692
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -105423,7 +105423,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3692
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3692
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12BinaryScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3692
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12BinaryScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3692
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3692
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3692
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -105652,7 +105652,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3701
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3701
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16BinaryViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3701
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16BinaryViewScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3701
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3701
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -105668,7 +105668,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3701
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3701
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16BinaryViewScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3701
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16BinaryViewScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3701
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3701
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3701
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -105897,7 +105897,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3710
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3710
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeStringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3710
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeStringScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3710
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3710
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -105913,7 +105913,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3710
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3710
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow17LargeStringScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3710
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17LargeStringScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3710
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3710
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3710
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -106142,7 +106142,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !3719
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !3719
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3719
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17LargeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !3719
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i8 0, i64 16, i1 false), !noalias !3719
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 24
@@ -106158,7 +106158,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %do.end8
   store ptr %1, ptr %value2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3719
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 88
   store ptr %2, ptr %_M_refcount.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3719
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow17LargeBinaryScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3719
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17LargeBinaryScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3719
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !3719
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !3719
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
@@ -106439,7 +106439,7 @@ call5.i.i.i3.i.i.noexc:                           ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i84, align 8
   %_M_weak_count.i.i.i.i85 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i102, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i85, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i102, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i102, i64 16
   invoke void @_ZSt10_ConstructIN5arrow21FixedSizeBinaryScalarEJSt10shared_ptrINS0_6BufferEES2_INS0_8DataTypeEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %if.then.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow21FixedSizeBinaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
@@ -106927,7 +106927,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3752
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3752
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3752
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3752
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3752
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3752
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -106961,7 +106961,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3752
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3752
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3752
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3752
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3752
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -109109,7 +109109,7 @@ call5.i.i.i3.i.i.noexc:                           ; preds = %do.end8
   store i32 1, ptr %_M_use_count.i.i.i.i83, align 8
   %_M_weak_count.i.i.i.i84 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i101, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i84, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i101, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i101, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i101, i64 16
   invoke void @_ZSt10_ConstructIN5arrow19RunEndEncodedScalarEJSt10shared_ptrINS0_6ScalarEES2_INS0_8DataTypeEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %if.then.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow19RunEndEncodedScalarESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
@@ -109594,7 +109594,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i21, align 8, !noalias !3781
   %_M_weak_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i22, align 4, !noalias !3781
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3781
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15ExtensionScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i24, align 8, !noalias !3781
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage, i8 0, i64 16, i1 false), !noalias !3781
   %39 = load <2 x ptr>, ptr %this, align 8, !noalias !3781
   %40 = extractelement <2 x ptr> %39, i64 1
@@ -109628,7 +109628,7 @@ if.then.i.i.i.i.i.i.i23:                          ; preds = %if.else.i.i.i.i.i.i
   store <2 x ptr> %39, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !noalias !3781
   %is_valid3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 56
   store i8 1, ptr %is_valid3.i.i.i.i.i.i.i.i.i, align 8, !noalias !3781
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15ExtensionScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3781
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow15ExtensionScalarE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !3781
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 64
   store ptr %37, ptr %value.i.i.i.i.i.i.i.i, align 8, !noalias !3781
   %_M_refcount.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i24, i64 72
@@ -110334,7 +110334,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.73, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -110686,7 +110686,7 @@ if.then.i.i.i.i:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DictionaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16DictionaryScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
@@ -110710,7 +110710,7 @@ if.then.i.i.i.i:
   store i64 0, ptr %1, align 8
   store <2 x ptr> %4, ptr %type2.i.i.i.i.i.i.i, align 8
   store i8 %frombool.i.i.i.i.i.i.i, ptr %is_valid3.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow16DictionaryScalarE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16DictionaryScalarE, i64 16), ptr %_M_impl.i.i.i, align 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   store <2 x ptr> %2, ptr %value2.i.i.i.i.i, align 8
   store ptr null, ptr %agg.tmp.i.i.i.i, align 8
@@ -123025,7 +123025,7 @@ if.end.i5.i.i2845:                                ; preds = %.noexc.i.i.i2842
           to label %invoke.cont.i7.i.i2848 unwind label %lpad.i6.i.i2847, !noalias !9186
 
 invoke.cont.i7.i.i2848:                           ; preds = %if.end.i5.i.i2845
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2846, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9186
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2846, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9186
   store ptr null, ptr %__guard.i.i.i2829, align 8, !noalias !9186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2832, i64 noundef 4)
           to label %invoke.cont.i.i.i2849 unwind label %lpad.i6.i.i2847, !noalias !9186
@@ -123319,7 +123319,7 @@ if.end.i6.i.i2725:                                ; preds = %.noexc.i.i.i2722
           to label %invoke.cont.i8.i.i2728 unwind label %lpad.i7.i.i2727, !noalias !9209
 
 invoke.cont.i8.i.i2728:                           ; preds = %if.end.i6.i.i2725
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2726, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9209
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2726, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9209
   store ptr null, ptr %__guard.i.i.i2704, align 8, !noalias !9209
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2709, i64 noundef 4)
           to label %invoke.cont.i.i.i2729 unwind label %lpad.i7.i.i2727, !noalias !9209
@@ -123654,7 +123654,7 @@ if.end.i6.i.i2609:                                ; preds = %.noexc.i.i.i2606
           to label %invoke.cont.i8.i.i2612 unwind label %lpad.i7.i.i2611, !noalias !9232
 
 invoke.cont.i8.i.i2612:                           ; preds = %if.end.i6.i.i2609
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2610, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9232
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2610, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9232
   store ptr null, ptr %__guard.i.i.i2590, align 8, !noalias !9232
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2595, i64 noundef 4)
           to label %invoke.cont.i.i.i2613 unwind label %lpad.i7.i.i2611, !noalias !9232
@@ -123979,7 +123979,7 @@ if.end.i6.i.i2477:                                ; preds = %.noexc.i.i.i2474
           to label %invoke.cont.i8.i.i2480 unwind label %lpad.i7.i.i2479, !noalias !9255
 
 invoke.cont.i8.i.i2480:                           ; preds = %if.end.i6.i.i2477
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2478, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9255
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2478, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9255
   store ptr null, ptr %__guard.i.i.i2458, align 8, !noalias !9255
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2463, i64 noundef 4)
           to label %invoke.cont.i.i.i2481 unwind label %lpad.i7.i.i2479, !noalias !9255
@@ -124321,7 +124321,7 @@ if.end.i6.i.i2354:                                ; preds = %.noexc.i.i.i2351
           to label %invoke.cont.i8.i.i2357 unwind label %lpad.i7.i.i2356, !noalias !9279
 
 invoke.cont.i8.i.i2357:                           ; preds = %if.end.i6.i.i2354
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2355, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9279
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2355, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9279
   store ptr null, ptr %__guard.i.i.i2335, align 8, !noalias !9279
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2340, i64 noundef 4)
           to label %invoke.cont.i.i.i2358 unwind label %lpad.i7.i.i2356, !noalias !9279
@@ -124652,7 +124652,7 @@ if.end.i6.i.i2220:                                ; preds = %.noexc.i.i.i2217
           to label %invoke.cont.i8.i.i2223 unwind label %lpad.i7.i.i2222, !noalias !9302
 
 invoke.cont.i8.i.i2223:                           ; preds = %if.end.i6.i.i2220
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2221, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9302
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2221, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9302
   store ptr null, ptr %__guard.i.i.i2201, align 8, !noalias !9302
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2206, i64 noundef 4)
           to label %invoke.cont.i.i.i2224 unwind label %lpad.i7.i.i2222, !noalias !9302
@@ -124994,7 +124994,7 @@ if.end.i6.i.i2092:                                ; preds = %.noexc.i.i.i2089
           to label %invoke.cont.i8.i.i2095 unwind label %lpad.i7.i.i2094, !noalias !9326
 
 invoke.cont.i8.i.i2095:                           ; preds = %if.end.i6.i.i2092
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2093, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9326
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i2093, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9326
   store ptr null, ptr %__guard.i.i.i2073, align 8, !noalias !9326
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2078, i64 noundef 4)
           to label %invoke.cont.i.i.i2096 unwind label %lpad.i7.i.i2094, !noalias !9326
@@ -125325,7 +125325,7 @@ if.end.i6.i.i1960:                                ; preds = %.noexc.i.i.i1957
           to label %invoke.cont.i8.i.i1963 unwind label %lpad.i7.i.i1962, !noalias !9349
 
 invoke.cont.i8.i.i1963:                           ; preds = %if.end.i6.i.i1960
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1961, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9349
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1961, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9349
   store ptr null, ptr %__guard.i.i.i1941, align 8, !noalias !9349
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1946, i64 noundef 4)
           to label %invoke.cont.i.i.i1964 unwind label %lpad.i7.i.i1962, !noalias !9349
@@ -125665,7 +125665,7 @@ if.end.i6.i.i1834:                                ; preds = %.noexc.i.i.i1831
           to label %invoke.cont.i8.i.i1837 unwind label %lpad.i7.i.i1836, !noalias !9373
 
 invoke.cont.i8.i.i1837:                           ; preds = %if.end.i6.i.i1834
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1835, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9373
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1835, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9373
   store ptr null, ptr %__guard.i.i.i1815, align 8, !noalias !9373
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1820, i64 noundef 4)
           to label %invoke.cont.i.i.i1838 unwind label %lpad.i7.i.i1836, !noalias !9373
@@ -126015,7 +126015,7 @@ if.end.i6.i.i1732:                                ; preds = %.noexc.i.i.i1729
           to label %invoke.cont.i8.i.i1735 unwind label %lpad.i7.i.i1734, !noalias !9403
 
 invoke.cont.i8.i.i1735:                           ; preds = %if.end.i6.i.i1732
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1733, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9403
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1733, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9403
   store ptr null, ptr %__guard.i.i.i1708, align 8, !noalias !9403
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1713, i64 noundef 4)
           to label %invoke.cont.i.i.i1736 unwind label %lpad.i7.i.i1734, !noalias !9403
@@ -126312,7 +126312,7 @@ if.end.i6.i.i1630:                                ; preds = %.noexc.i.i.i1627
           to label %invoke.cont.i8.i.i1633 unwind label %lpad.i7.i.i1632, !noalias !9423
 
 invoke.cont.i8.i.i1633:                           ; preds = %if.end.i6.i.i1630
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1631, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9423
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1631, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9423
   store ptr null, ptr %__guard.i.i.i1609, align 8, !noalias !9423
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1614, i64 noundef 4)
           to label %invoke.cont.i.i.i1634 unwind label %lpad.i7.i.i1632, !noalias !9423
@@ -127439,7 +127439,7 @@ if.end.i6.i.i1211:                                ; preds = %.noexc.i.i.i1208
           to label %invoke.cont.i8.i.i1214 unwind label %lpad.i7.i.i1213, !noalias !9512
 
 invoke.cont.i8.i.i1214:                           ; preds = %if.end.i6.i.i1211
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1212, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9512
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1212, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9512
   store ptr null, ptr %__guard.i.i.i1192, align 8, !noalias !9512
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1197, i64 noundef 4)
           to label %invoke.cont.i.i.i1215 unwind label %lpad.i7.i.i1213, !noalias !9512
@@ -127779,7 +127779,7 @@ if.end.i10.i.i1026:                               ; preds = %.noexc.i.i.i1023
           to label %invoke.cont.i12.i.i1029 unwind label %lpad.i11.i.i1028, !noalias !9535
 
 invoke.cont.i12.i.i1029:                          ; preds = %if.end.i10.i.i1026
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1027, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9535
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i1027, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9535
   store ptr null, ptr %__guard.i.i.i1006, align 8, !noalias !9535
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i1011, i64 noundef 4)
           to label %invoke.cont.i.i.i1030 unwind label %lpad.i11.i.i1028, !noalias !9535
@@ -128195,7 +128195,7 @@ if.end.i10.i.i:                                   ; preds = %.noexc.i.i.i922
           to label %invoke.cont.i12.i.i unwind label %lpad.i11.i.i, !noalias !9561
 
 invoke.cont.i12.i.i:                              ; preds = %if.end.i10.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i925, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9561
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i925, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9561
   store ptr null, ptr %__guard.i.i.i908, align 8, !noalias !9561
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i910, i64 noundef 4)
           to label %invoke.cont.i.i.i926 unwind label %lpad.i11.i.i, !noalias !9561
@@ -128615,7 +128615,7 @@ if.end.i14.i.i:                                   ; preds = %.noexc.i.i.i754
           to label %invoke.cont.i16.i.i unwind label %lpad.i15.i.i, !noalias !9584
 
 invoke.cont.i16.i.i:                              ; preds = %if.end.i14.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i757, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9584
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i757, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9584
   store ptr null, ptr %__guard.i.i.i737, align 8, !noalias !9584
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i740, i64 noundef 4)
           to label %invoke.cont.i.i.i758 unwind label %lpad.i15.i.i, !noalias !9584
@@ -129840,7 +129840,7 @@ if.end.i11.i.i536:                                ; preds = %.noexc.i.i.i533
           to label %invoke.cont.i13.i.i539 unwind label %lpad.i12.i.i538, !noalias !9616
 
 invoke.cont.i13.i.i539:                           ; preds = %if.end.i11.i.i536
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i537, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9616
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i537, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9616
   store ptr null, ptr %__guard.i.i.i516, align 8, !noalias !9616
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i519, i64 noundef 4)
           to label %invoke.cont.i.i.i540 unwind label %lpad.i12.i.i538, !noalias !9616
@@ -130130,7 +130130,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   store i8 %908, ptr %incdec.ptr.i3.i14.i.i47.i.i.i.i.i639, align 1, !noalias !9628
   %incdec.ptr.i15.i.i48.i.i.i.i.i640 = getelementptr inbounds i8, ptr %904, i64 -7
   store i8 58, ptr %incdec.ptr.i15.i.i48.i.i.i.i.i640, align 1, !noalias !9628
-  %909 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 1), align 1, !noalias !9628
+  %909 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 1), align 1, !noalias !9628
   %incdec.ptr.i.i20.i.i49.i.i.i.i.i = getelementptr inbounds i8, ptr %904, i64 -8
   store i8 %909, ptr %incdec.ptr.i.i20.i.i49.i.i.i.i.i, align 1, !noalias !9628
   %910 = load i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, align 1, !noalias !9628
@@ -130240,7 +130240,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   store i8 %920, ptr %incdec.ptr.i3.i.i.i102.i.i.i.i.i, align 1, !noalias !9631
   %incdec.ptr.i9.i.i103.i.i.i.i.i = getelementptr inbounds i8, ptr %918, i64 -4
   store i8 58, ptr %incdec.ptr.i9.i.i103.i.i.i.i.i, align 1, !noalias !9631
-  %921 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 1), align 1, !noalias !9631
+  %921 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 1), align 1, !noalias !9631
   %incdec.ptr.i.i13.i.i104.i.i.i.i.i = getelementptr inbounds i8, ptr %918, i64 -5
   store i8 %921, ptr %incdec.ptr.i.i13.i.i104.i.i.i.i.i, align 1, !noalias !9631
   %922 = load i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, align 1, !noalias !9631
@@ -130522,7 +130522,7 @@ if.end.i11.i.i:                                   ; preds = %.noexc.i.i.i445
           to label %invoke.cont.i13.i.i unwind label %lpad.i12.i.i, !noalias !9647
 
 invoke.cont.i13.i.i:                              ; preds = %if.end.i11.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i448, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9647
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i448, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9647
   store ptr null, ptr %__guard.i.i.i435, align 8, !noalias !9647
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i436, i64 noundef 4)
           to label %invoke.cont.i.i.i449 unwind label %lpad.i12.i.i, !noalias !9647
@@ -131218,7 +131218,7 @@ if.end.i5.i.i:                                    ; preds = %.noexc.i.i.i306
           to label %invoke.cont.i7.i.i unwind label %lpad.i6.i.i, !noalias !9678
 
 invoke.cont.i7.i.i:                               ; preds = %if.end.i5.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i309, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9678
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i309, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9678
   store ptr null, ptr %__guard.i.i.i290, align 8, !noalias !9678
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i295, i64 noundef 4)
           to label %invoke.cont.i.i.i310 unwind label %lpad.i6.i.i, !noalias !9678
@@ -131701,7 +131701,7 @@ if.end.i6.i.i175:                                 ; preds = %.noexc.i.i.i172
           to label %invoke.cont.i8.i.i178 unwind label %lpad.i7.i.i177, !noalias !9701
 
 invoke.cont.i8.i.i178:                            ; preds = %if.end.i6.i.i175
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i176, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9701
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i176, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9701
   store ptr null, ptr %__guard.i.i.i156, align 8, !noalias !9701
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i161, i64 noundef 4)
           to label %invoke.cont.i.i.i179 unwind label %lpad.i7.i.i177, !noalias !9701
@@ -132045,7 +132045,7 @@ if.end.i6.i.i:                                    ; preds = %.noexc.i.i.i
           to label %invoke.cont.i8.i.i unwind label %lpad.i7.i.i, !noalias !9724
 
 invoke.cont.i8.i.i:                               ; preds = %if.end.i6.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 4)) #21, !noalias !9724
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 4)) #21, !noalias !9724
   store ptr null, ptr %__guard.i.i.i, align 8, !noalias !9724
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 noundef 4)
           to label %invoke.cont.i.i.i unwind label %lpad.i7.i.i, !noalias !9724
@@ -166798,7 +166798,7 @@ invoke.cont35:                                    ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp34, i64 44
   store i32 0, ptr %value2.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %ref.tmp34, align 8
   %index_type_.i = getelementptr inbounds i8, ptr %dict_type, i64 72
   %_M_refcount.i.i91 = getelementptr inbounds i8, ptr %agg.tmp36, i64 8
   %58 = load <2 x ptr>, ptr %index_type_.i, align 8
@@ -166906,7 +166906,7 @@ if.end8.sink.split.i.i.i.i123:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit132
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit132: ; preds = %invoke.cont41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i120, %if.end8.sink.split.i.i.i.i123
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp34, align 8
   %74 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i134

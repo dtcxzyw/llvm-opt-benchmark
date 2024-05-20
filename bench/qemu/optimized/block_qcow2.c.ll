@@ -2201,7 +2201,7 @@ define internal range(i32 -2147483648, 1) i32 @qcow2_co_create_opts(ptr nocaptur
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.BlockDriver, ptr @bdrv_qcow2, i64 0, i32 9), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @bdrv_qcow2, i64 32), align 8
   %call = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef %0, i1 noundef zeroext true) #22
   %call1 = tail call ptr @qdict_get_try_str(ptr noundef %call, ptr noundef nonnull @.str.11) #22
   %tobool.not = icmp eq ptr %call1, null

@@ -103,7 +103,7 @@ entry:
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
   store ptr %selfBuffer.i.i.i, ptr %pSelfBufferCurrent.i.i.i, align 8, !noalias !5
-  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
+  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !5
 
 call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
@@ -113,7 +113,7 @@ call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
 
 call5.i.i.noexc.i:                                ; preds = %call.i.i.noexc.i
   %1 = load ptr, ptr %pOther.addr.i.i.i, align 8, !noalias !5
-  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %while.body.i.i.i, !llvm.loop !8
 
 lpad.i:                                           ; preds = %call.i.i.noexc.i, %while.body.i.i.i
@@ -146,7 +146,7 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
   store ptr %selfBuffer.i.i.i5, ptr %pSelfBufferCurrent.i.i.i6, align 8, !noalias !10
-  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
+  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
           to label %call.i.i.noexc.i18 unwind label %lpad.i12, !noalias !10
 
 call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
@@ -156,7 +156,7 @@ call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
 
 call5.i.i.noexc.i20:                              ; preds = %call.i.i.noexc.i18
   %6 = load ptr, ptr %pOther.addr.i.i.i4, align 8, !noalias !10
-  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3)
+  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @.str.1, i64 3)
   br i1 %cmp.not.i.i.i21, label %invoke.cont2, label %while.body.i.i.i10, !llvm.loop !8
 
 lpad.i12:                                         ; preds = %call.i.i.noexc.i18, %while.body.i.i.i10
@@ -189,7 +189,7 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
   store ptr %selfBuffer.i.i.i26, ptr %pSelfBufferCurrent.i.i.i27, align 8, !noalias !13
-  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
+  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
           to label %call.i.i.noexc.i39 unwind label %lpad.i33, !noalias !13
 
 call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
@@ -199,7 +199,7 @@ call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
 
 call5.i.i.noexc.i41:                              ; preds = %call.i.i.noexc.i39
   %11 = load ptr, ptr %pOther.addr.i.i.i25, align 8, !noalias !13
-  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %cmp.not.i.i.i42, label %invoke.cont4, label %while.body.i.i.i31, !llvm.loop !8
 
 lpad.i33:                                         ; preds = %call.i.i.noexc.i39, %while.body.i.i.i31
@@ -375,7 +375,7 @@ entry:
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
   store ptr %selfBuffer.i.i.i, ptr %pSelfBufferCurrent.i.i.i, align 8, !noalias !16
-  %call.i.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
+  %call.i.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !16
 
 call.i.i.i.noexc.i:                               ; preds = %while.body.i.i.i
@@ -385,7 +385,7 @@ call.i.i.i.noexc.i:                               ; preds = %while.body.i.i.i
 
 call5.i.i.noexc.i:                                ; preds = %call.i.i.i.noexc.i
   %1 = load ptr, ptr %pOther.addr.i.i.i, align 8, !noalias !16
-  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %while.body.i.i.i, !llvm.loop !19
 
 lpad.i:                                           ; preds = %call.i.i.i.noexc.i, %while.body.i.i.i
@@ -418,7 +418,7 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
   store ptr %selfBuffer.i.i.i5, ptr %pSelfBufferCurrent.i.i.i6, align 8, !noalias !20
-  %call.i.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
+  %call.i.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
           to label %call.i.i.i.noexc.i18 unwind label %lpad.i12, !noalias !20
 
 call.i.i.i.noexc.i18:                             ; preds = %while.body.i.i.i10
@@ -428,7 +428,7 @@ call.i.i.i.noexc.i18:                             ; preds = %while.body.i.i.i10
 
 call5.i.i.noexc.i20:                              ; preds = %call.i.i.i.noexc.i18
   %6 = load ptr, ptr %pOther.addr.i.i.i4, align 8, !noalias !20
-  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3)
+  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @.str.1, i64 3)
   br i1 %cmp.not.i.i.i21, label %invoke.cont2, label %while.body.i.i.i10, !llvm.loop !19
 
 lpad.i12:                                         ; preds = %call.i.i.i.noexc.i18, %while.body.i.i.i10
@@ -461,7 +461,7 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
   store ptr %selfBuffer.i.i.i26, ptr %pSelfBufferCurrent.i.i.i27, align 8, !noalias !23
-  %call.i.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
+  %call.i.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
           to label %call.i.i.i.noexc.i39 unwind label %lpad.i33, !noalias !23
 
 call.i.i.i.noexc.i39:                             ; preds = %while.body.i.i.i31
@@ -471,7 +471,7 @@ call.i.i.i.noexc.i39:                             ; preds = %while.body.i.i.i31
 
 call5.i.i.noexc.i41:                              ; preds = %call.i.i.i.noexc.i39
   %11 = load ptr, ptr %pOther.addr.i.i.i25, align 8, !noalias !23
-  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %cmp.not.i.i.i42, label %invoke.cont4, label %while.body.i.i.i31, !llvm.loop !19
 
 lpad.i33:                                         ; preds = %call.i.i.i.noexc.i39, %while.body.i.i.i31
@@ -710,7 +710,7 @@ entry:
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
   store ptr %selfBuffer.i.i.i, ptr %pSelfBufferCurrent.i.i.i, align 8, !noalias !27
-  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
+  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !27
 
 call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
@@ -720,7 +720,7 @@ call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
 
 call5.i.i.noexc.i:                                ; preds = %call.i.i.noexc.i
   %1 = load ptr, ptr %pOther.addr.i.i.i, align 8, !noalias !27
-  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %while.body.i.i.i, !llvm.loop !30
 
 lpad.i:                                           ; preds = %call.i.i.noexc.i, %while.body.i.i.i
@@ -753,7 +753,7 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
   store ptr %selfBuffer.i.i.i5, ptr %pSelfBufferCurrent.i.i.i6, align 8, !noalias !31
-  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
+  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
           to label %call.i.i.noexc.i18 unwind label %lpad.i12, !noalias !31
 
 call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
@@ -763,7 +763,7 @@ call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
 
 call5.i.i.noexc.i20:                              ; preds = %call.i.i.noexc.i18
   %6 = load ptr, ptr %pOther.addr.i.i.i4, align 8, !noalias !31
-  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3)
+  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @.str.1, i64 3)
   br i1 %cmp.not.i.i.i21, label %invoke.cont2, label %while.body.i.i.i10, !llvm.loop !30
 
 lpad.i12:                                         ; preds = %call.i.i.noexc.i18, %while.body.i.i.i10
@@ -796,7 +796,7 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
   store ptr %selfBuffer.i.i.i26, ptr %pSelfBufferCurrent.i.i.i27, align 8, !noalias !34
-  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
+  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
           to label %call.i.i.noexc.i39 unwind label %lpad.i33, !noalias !34
 
 call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
@@ -806,7 +806,7 @@ call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
 
 call5.i.i.noexc.i41:                              ; preds = %call.i.i.noexc.i39
   %11 = load ptr, ptr %pOther.addr.i.i.i25, align 8, !noalias !34
-  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %cmp.not.i.i.i42, label %invoke.cont4, label %while.body.i.i.i31, !llvm.loop !30
 
 lpad.i33:                                         ; preds = %call.i.i.noexc.i39, %while.body.i.i.i31
@@ -1045,7 +1045,7 @@ entry:
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
   store ptr %selfBuffer.i.i.i, ptr %pSelfBufferCurrent.i.i.i, align 8, !noalias !38
-  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
+  %call.i.i1.i = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !38
 
 call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
@@ -1055,7 +1055,7 @@ call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
 
 call5.i.i.noexc.i:                                ; preds = %call.i.i.noexc.i
   %1 = load ptr, ptr %pOther.addr.i.i.i, align 8, !noalias !38
-  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %cmp.not.i.i.i = icmp eq ptr %1, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %while.body.i.i.i, !llvm.loop !41
 
 lpad.i:                                           ; preds = %call.i.i.noexc.i, %while.body.i.i.i
@@ -1088,7 +1088,7 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
   store ptr %selfBuffer.i.i.i5, ptr %pSelfBufferCurrent.i.i.i6, align 8, !noalias !42
-  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
+  %call.i.i1.i11 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i6, ptr noundef nonnull %add.ptr.i.i.i9)
           to label %call.i.i.noexc.i18 unwind label %lpad.i12, !noalias !42
 
 call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
@@ -1098,7 +1098,7 @@ call.i.i.noexc.i18:                               ; preds = %while.body.i.i.i10
 
 call5.i.i.noexc.i20:                              ; preds = %call.i.i.noexc.i18
   %6 = load ptr, ptr %pOther.addr.i.i.i4, align 8, !noalias !42
-  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds ([4 x i8], ptr @.str.1, i64 0, i64 3)
+  %cmp.not.i.i.i21 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @.str.1, i64 3)
   br i1 %cmp.not.i.i.i21, label %invoke.cont2, label %while.body.i.i.i10, !llvm.loop !41
 
 lpad.i12:                                         ; preds = %call.i.i.noexc.i18, %while.body.i.i.i10
@@ -1131,7 +1131,7 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
   store ptr %selfBuffer.i.i.i26, ptr %pSelfBufferCurrent.i.i.i27, align 8, !noalias !45
-  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
+  %call.i.i1.i32 = invoke noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pOther.addr.i.i.i25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %pSelfBufferCurrent.i.i.i27, ptr noundef nonnull %add.ptr.i.i.i30)
           to label %call.i.i.noexc.i39 unwind label %lpad.i33, !noalias !45
 
 call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
@@ -1141,7 +1141,7 @@ call.i.i.noexc.i39:                               ; preds = %while.body.i.i.i31
 
 call5.i.i.noexc.i41:                              ; preds = %call.i.i.noexc.i39
   %11 = load ptr, ptr %pOther.addr.i.i.i25, align 8, !noalias !45
-  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %cmp.not.i.i.i42 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %cmp.not.i.i.i42, label %invoke.cont4, label %while.body.i.i.i31, !llvm.loop !41
 
 lpad.i33:                                         ; preds = %call.i.i.noexc.i39, %while.body.i.i.i31

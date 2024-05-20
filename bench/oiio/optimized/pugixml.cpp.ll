@@ -76,9 +76,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define internal void @_GLOBAL__sub_I_pugixml.cpp() #4 section ".text.startup" {
 entry:
   store i32 0, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 0, i32 3), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 32), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi14xpath_node_setD2Ev, ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #7
   ret void
 }

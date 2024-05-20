@@ -215,7 +215,7 @@ define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr 
   %8 = tail call ptr @nlmsg_data(ptr noundef nonnull %4) #8
   %9 = load i32, ptr %4, align 4
   %10 = tail call i32 @nlmsg_size(i32 noundef 20) #8
-  %11 = load i32, ptr getelementptr inbounds ([0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 0, i32 2), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
   %12 = icmp sgt i32 %11, 19
   br i1 %12, label %.sink.split.i, label %prte_reachable_netlink_is_nlreply_err.exit.thread
 
@@ -249,7 +249,7 @@ define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr 
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr getelementptr inbounds ([0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 0, i32 2), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
   %28 = icmp sgt i32 %27, 19
   br i1 %28, label %29, label %.thread
 

@@ -417,7 +417,7 @@ define void @_ZN12SimpleDialog4showEv(ptr noundef nonnull align 8 dereferenceabl
   br label %_ZN11QBasicMutex4lockEv.exit
 
 _ZN11QBasicMutex4lockEv.exit:                     ; preds = %13, %19
-  %20 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %.lr.ph, label %.critedge51
 
@@ -465,7 +465,7 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.
   br label %_ZN5QListI19VisibleAsyncMessageEixEx.exit
 
 _ZN5QListI19VisibleAsyncMessageEixEx.exit:        ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.i
-  %42 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   %43 = getelementptr %struct.VisibleAsyncMessage, ptr %42, i64 %35
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef i32 @_ZNK11QMessageBox4iconEv(ptr noundef nonnull align 8 dereferenceable(40) %44)
@@ -751,7 +751,7 @@ _ZN7QStringD2Ev.exit93:                           ; preds = %_ZN7QStringD2Ev.exi
 .critedge46.thread:                               ; preds = %49, %_ZN5QListI19VisibleAsyncMessageEixEx.exit, %116, %.critedge46
   %148 = add i32 %.024117, 1
   %149 = sext i32 %148 to i64
-  %150 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %150 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   %151 = icmp sgt i64 %150, %149
   br i1 %151, label %34, label %.critedge51, !llvm.loop !6
 
@@ -1320,7 +1320,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53:    ; preds = %80
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %91, %86, %85
-  %96 = load i64, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 2), align 8
+  %96 = load i64, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 16), align 8
   invoke void @_ZN9QtPrivate16QMovableArrayOpsISt4pairI7QStringS2_EE7emplaceIJRKS3_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @message_queue_, i64 noundef %96, ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %_ZN5QListISt4pairI7QStringS1_EElsERKS2_.exit unwind label %68
 
@@ -2094,7 +2094,7 @@ define void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %0) 
   %7 = alloca %"class.QtPrivate::QForeachContainer", align 8
   %8 = alloca %"struct.std::pair", align 8
   %9 = alloca %class.QString, align 8
-  %10 = load i64, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 2), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 16), align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %202, label %12
 
@@ -2136,7 +2136,7 @@ switch.lookup:                                    ; preds = %16
           to label %26 unwind label %20
 
 26:                                               ; preds = %24
-  %27 = load i64, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 2), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 16), align 8
   %28 = icmp sgt i64 %27, 1
   br i1 %28, label %29, label %180
 
@@ -2171,7 +2171,7 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i
           to label %36 unwind label %91
 
 36:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i
-  %37 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 8), align 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %5, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2225,10 +2225,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %49, %_ZN17QArrayDat
   %55 = load ptr, ptr @message_queue_, align 8, !noalias !17
   store ptr %55, ptr %7, align 8, !alias.scope !17
   %56 = getelementptr inbounds i8, ptr %7, i64 8
-  %57 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 1), align 8, !noalias !17
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 8), align 8, !noalias !17
   store ptr %57, ptr %56, align 8, !alias.scope !17
   %58 = getelementptr inbounds i8, ptr %7, i64 16
-  %59 = load i64, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 2), align 8, !noalias !17
+  %59 = load i64, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 16), align 8, !noalias !17
   store i64 %59, ptr %58, align 8, !alias.scope !17
   %.not.i.i.i.i.i16 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i16, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListISt4pairI7QStringS3_EEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit, label %60
@@ -2640,7 +2640,7 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i
           to label %187 unwind label %20
 
 187:                                              ; preds = %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.i.i.i.i59, %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i60
-  %188 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 1), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 8), align 8
   invoke void @_ZN11QMessageBox7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %188)
           to label %189 unwind label %20
 
@@ -2674,7 +2674,7 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i
           to label %196 unwind label %20
 
 196:                                              ; preds = %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.i.i.i.i69, %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit.thread.i.i.i.i70
-  %197 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @message_queue_, i64 0, i32 0, i32 1), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @message_queue_, i64 8), align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 24
   invoke void @_ZN11QMessageBox18setInformativeTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %198)
           to label %_ZN5QListI7QStringED2Ev.exit unwind label %20
@@ -3056,7 +3056,7 @@ define internal void @_ZL24visible_message_finishedP11QMessageBoxi(ptr noundef %
   br label %_ZN11QBasicMutex4lockEv.exit
 
 _ZN11QBasicMutex4lockEv.exit:                     ; preds = %2, %7
-  %8 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %.loopexit
 
@@ -3067,7 +3067,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %2, %7
 10:                                               ; preds = %_ZN5QListI19VisibleAsyncMessageEixEx.exit
   %11 = add i32 %.01038, 1
   %12 = sext i32 %11 to i64
-  %13 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   %14 = icmp sgt i64 %13, %12
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
@@ -3102,7 +3102,7 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.
 
 _ZN5QListI19VisibleAsyncMessageEixEx.exit:        ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.i
   %22 = phi ptr [ %19, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i.i ], [ %.pre, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.i ]
-  %23 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   %24 = getelementptr %struct.VisibleAsyncMessage, ptr %23, i64 %16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
@@ -3134,7 +3134,7 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.
   br label %_ZN5QListI19VisibleAsyncMessageEixEx.exit21
 
 _ZN5QListI19VisibleAsyncMessageEixEx.exit21:      ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i.i16, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.i17
-  %33 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   %34 = getelementptr %struct.VisibleAsyncMessage, ptr %33, i64 %16, i32 1
   %35 = load i32, ptr %34, align 8
   %.not = icmp eq i32 %35, 0
@@ -3167,7 +3167,7 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.
   br label %_ZN5QListI19VisibleAsyncMessageEixEx.exit29
 
 _ZN5QListI19VisibleAsyncMessageEixEx.exit29:      ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i.i24, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i.i25
-  %43 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   %44 = getelementptr %struct.VisibleAsyncMessage, ptr %43, i64 %16, i32 1
   %45 = load i32, ptr %44, align 8
   call void @_ZNK11QMessageBox4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -3240,19 +3240,19 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i:
   br label %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
 
 _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i35
-  %65 = load ptr, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   %66 = getelementptr %struct.VisibleAsyncMessage, ptr %65, i64 %16
   %67 = getelementptr i8, ptr %66, i64 16
   %.idx.mask.i.i = and i64 %16, 1152921504606846975
   %68 = icmp ne i64 %.idx.mask.i.i, 0
-  %69 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   %70 = getelementptr %struct.VisibleAsyncMessage, ptr %65, i64 %69
   %.not.i.i.i36 = icmp eq ptr %67, %70
   %or.cond.i.i.i = select i1 %68, i1 true, i1 %.not.i.i.i36
   br i1 %or.cond.i.i.i, label %._crit_edge.i.i.i, label %71
 
 71:                                               ; preds = %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
-  store ptr %67, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
+  store ptr %67, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 8), align 8
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
@@ -3263,13 +3263,13 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   %74 = ptrtoint ptr %67 to i64
   %75 = sub i64 %73, %74
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %66, ptr align 1 %67, i64 %75, i1 false)
-  %.pre14.i.i.i = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  %.pre14.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
 
 _ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit: ; preds = %71, %._crit_edge.i.i.i, %72
   %76 = phi i64 [ %69, %._crit_edge.i.i.i ], [ %.pre14.i.i.i, %72 ], [ %69, %71 ]
   %77 = add i64 %76, -1
-  store i64 %77, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
+  store i64 %77, ptr getelementptr inbounds (i8, ptr @_ZL16visible_messages, i64 16), align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %_ZN11QBasicMutex4lockEv.exit, %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit

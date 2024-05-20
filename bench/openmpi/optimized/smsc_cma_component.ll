@@ -60,12 +60,12 @@ define internal range(i32 -16, 1) i32 @mca_smsc_cma_component_query() #1 {
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 11), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %12 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %11) #10
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 11), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %14, ptr noundef nonnull @.str.2) #10
   br label %15
 
@@ -81,17 +81,17 @@ define internal range(i32 -16, 1) i32 @mca_smsc_cma_component_query() #1 {
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 11), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %22 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %21) #10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 11), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %24, ptr noundef nonnull @.str.3) #10
   br label %25
 
 25:                                               ; preds = %20, %23
-  store i32 -1, ptr getelementptr inbounds (%struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i64 0, i32 2), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @mca_smsc_cma_component, i64 260), align 4
   br label %36
 
 .critedge:                                        ; preds = %0, %15, %17
@@ -127,7 +127,7 @@ define internal range(i32 -16, 1) i32 @mca_smsc_cma_component_query() #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal ptr @mca_smsc_cma_component_enable() #2 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i64 0, i32 2), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @mca_smsc_cma_component, i64 260), align 4
   %2 = icmp slt i32 %1, 0
   %.mca_smsc_cma_module = select i1 %2, ptr null, ptr @mca_smsc_cma_module
   ret ptr %.mca_smsc_cma_module

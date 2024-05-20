@@ -2375,7 +2375,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 165), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   store i16 %6, ptr @_task_layout_block.select_params, align 2
   br label %7
 

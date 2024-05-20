@@ -425,7 +425,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %20 = tail call noalias noundef align 8 dereferenceable_or_null(864) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 864) #19
   %21 = icmp eq ptr %20, null
   br i1 %21, label %76, label %22
@@ -449,7 +449,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %31, label %76, label %36
 
 32:                                               ; preds = %23
-  %33 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %34 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 48) #19
   %35 = icmp eq ptr %34, null
   br i1 %35, label %76, label %36
@@ -721,8 +721,8 @@ define dso_local noundef range(i32 -17, 1) i32 @__rtnl_link_register(ptr noundef
   br label %27
 
 27:                                               ; preds = %26, %22, %18
-  %28 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @link_ops, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @link_ops, i64 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @link_ops, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @link_ops, i64 8), align 8
   store ptr @link_ops, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
@@ -802,8 +802,8 @@ define dso_local noundef range(i32 -22, 1) i32 @rtnl_link_register(ptr noundef %
   br label %36
 
 36:                                               ; preds = %35, %31, %27
-  %37 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @link_ops, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @link_ops, i64 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @link_ops, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @link_ops, i64 8), align 8
   store ptr @link_ops, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %37, ptr %38, align 8
@@ -1015,13 +1015,13 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtnl_af_register(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @rtnl_af_ops, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @rtnl_af_ops, i64 8), align 8
   store ptr @rtnl_af_ops, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !46
   store volatile ptr %0, ptr %2, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @rtnl_af_ops, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @rtnl_af_ops, i64 8), align 8
   tail call void @netdev_run_todo() #18
   ret void
 }
@@ -3373,7 +3373,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ndo_dflt_fdb_dump(ptr no
 
 9:                                                ; preds = %5
   %10 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !76
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #18, !srcloc !77
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !78
   %11 = getelementptr inbounds i8, ptr %2, i64 824
   tail call void @_raw_spin_lock(ptr noundef %11) #18
@@ -5932,7 +5932,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca [128 x i8], align 16
   %7 = alloca [6 x ptr], align 16
   %8 = alloca [56 x i8], align 16
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(1296) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 1296) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %418, label %12

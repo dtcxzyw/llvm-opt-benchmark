@@ -475,7 +475,7 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %112 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %112, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.16, i64 0, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 3))
   br label %116
 
 113:                                              ; preds = %107
@@ -1293,7 +1293,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr nocapture noundef
   %35 = and i64 %34, %32
   %36 = or i64 %35, %30
   %37 = and i64 %36, %29
-  %38 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %22
+  %38 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %22
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 272
   %41 = load i64, ptr %40, align 8
@@ -1341,7 +1341,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr nocapture noundef
   %83 = or i64 %82, %62
   %84 = and i64 %83, %80
   %85 = or i64 %65, %84
-  %86 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %22
+  %86 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %22
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %20
   %89 = or i64 %85, %88
@@ -1504,7 +1504,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr nocapture n
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 88
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 4, i64 %7
+  %13 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %7
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 256
   %16 = getelementptr inbounds i8, ptr %0, i64 296
@@ -1513,7 +1513,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr nocapture n
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %17
   %21 = and i64 %20, %14
-  %22 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 3, i64 %7
+  %22 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %7
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 280
   %25 = load i64, ptr %24, align 8
@@ -1579,13 +1579,13 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit: ; preds = %_ZNK
   %61 = load ptr, ptr %8, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 80
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 4, i64 %58
+  %63 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %58
   %64 = load i64, ptr %63, align 8
   %65 = load i64, ptr %16, align 8
   %66 = load i64, ptr %18, align 8
   %67 = or i64 %66, %65
   %68 = and i64 %67, %64
-  %69 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 3, i64 %58
+  %69 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %58
   %70 = load i64, ptr %69, align 8
   %71 = load i64, ptr %24, align 8
   %72 = or i64 %71, %65
@@ -1649,7 +1649,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %99
   %111 = load ptr, ptr %8, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 104
   store i64 %110, ptr %112, align 8
-  %113 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %108
+  %113 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %108
   %114 = load i64, ptr %113, align 8
   %115 = load ptr, ptr %8, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 112
@@ -1727,7 +1727,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds [2 x i64], ptr %16, i64 0, i64 %18
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 4, i64 %10
+  %20 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %10
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 256
   %23 = getelementptr inbounds i8, ptr %0, i64 296
@@ -1736,7 +1736,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, %24
   %28 = and i64 %27, %21
-  %29 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 3, i64 %10
+  %29 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %10
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 280
   %32 = load i64, ptr %31, align 8
@@ -1931,7 +1931,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %16 = and i64 %15, %13
   %17 = or i64 %16, %11
   %18 = and i64 %17, %10
-  %19 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %4
+  %19 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %4
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 272
   %22 = load i64, ptr %21, align 8
@@ -1979,7 +1979,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %64 = or i64 %63, %43
   %65 = and i64 %64, %61
   %66 = or i64 %46, %65
-  %67 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %4
+  %67 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %4
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 304
   %70 = load i64, ptr %69, align 8
@@ -2132,7 +2132,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %119 = and i64 %93, %118
   %120 = or i64 %119, %116
   %121 = and i64 %120, %91
-  %122 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %indvars.iv
+  %122 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %indvars.iv
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %95, %123
   %125 = or i64 %121, %124
@@ -2170,7 +2170,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %157 = load i64, ptr %156, align 8
   %158 = and i64 %103, %157
   %159 = or i64 %142, %158
-  %160 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %indvars.iv
+  %160 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %indvars.iv
   %161 = load i64, ptr %160, align 8
   %162 = and i64 %105, %161
   %163 = or i64 %159, %162
@@ -2225,7 +2225,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %201 = and i64 %200, %198
   %202 = or i64 %201, %196
   %203 = and i64 %202, %195
-  %204 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %189
+  %204 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %189
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %0, i64 272
   %207 = load i64, ptr %206, align 8
@@ -2273,7 +2273,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %249 = or i64 %248, %228
   %250 = and i64 %249, %246
   %251 = or i64 %231, %250
-  %252 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %189
+  %252 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %189
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %0, i64 304
   %255 = load i64, ptr %254, align 8
@@ -3556,7 +3556,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %383 = and i64 %382, %380
   %384 = or i64 %383, %378
   %385 = and i64 %384, %377
-  %386 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %370
+  %386 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %370
   %387 = load i64, ptr %386, align 8
   %388 = getelementptr inbounds i8, ptr %0, i64 272
   %389 = load i64, ptr %388, align 8
@@ -3604,7 +3604,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %431 = or i64 %430, %410
   %432 = and i64 %431, %428
   %433 = or i64 %413, %432
-  %434 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %370
+  %434 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %370
   %435 = load i64, ptr %434, align 8
   %436 = and i64 %435, %368
   %437 = or i64 %433, %436
@@ -4410,7 +4410,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %47 = and i64 %46, %44
   %48 = or i64 %47, %42
   %49 = and i64 %48, %41
-  %50 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %8
+  %50 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %8
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 272
   %53 = load i64, ptr %52, align 8
@@ -4458,7 +4458,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %95 = or i64 %94, %74
   %96 = and i64 %95, %92
   %97 = or i64 %77, %96
-  %98 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %8
+  %98 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %8
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 304
   %101 = load i64, ptr %100, align 8

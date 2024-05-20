@@ -954,7 +954,7 @@ define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 1), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 8), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -976,7 +976,7 @@ define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr nounde
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 2), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 16), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -998,7 +998,7 @@ define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef 
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 3), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 24), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1020,7 +1020,7 @@ define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 4), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 32), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1042,7 +1042,7 @@ define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 5), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 40), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1064,7 +1064,7 @@ define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 6), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 48), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1086,7 +1086,7 @@ define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %6
 
 6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 7), %5 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 56), %5 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -1108,7 +1108,7 @@ define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 nound
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 8), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 64), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1130,7 +1130,7 @@ define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noun
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 9), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 72), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1152,7 +1152,7 @@ define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #3 al
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 10), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 80), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1174,7 +1174,7 @@ define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 alig
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 11), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 88), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1196,7 +1196,7 @@ define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_u
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 12), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 96), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1218,7 +1218,7 @@ define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 13), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 104), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1244,7 +1244,7 @@ define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 14), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 112), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1266,7 +1266,7 @@ define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef 
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 15), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 120), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1288,7 +1288,7 @@ define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 16), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 128), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1307,7 +1307,7 @@ define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 17), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 136), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -1326,7 +1326,7 @@ define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 18), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 144), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -1348,7 +1348,7 @@ define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 19), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 152), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1370,7 +1370,7 @@ define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) lo
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 20), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 160), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1389,7 +1389,7 @@ define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 21), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 168), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1441,7 +1441,7 @@ define dso_local i32 @security_sb_alloc(ptr noundef %0) local_unnamed_addr #3 al
   br label %11
 
 11:                                               ; preds = %.preheader, %15
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 22), %.preheader ]
+  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 176), %.preheader ]
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -1464,7 +1464,7 @@ define dso_local i32 @security_sb_alloc(ptr noundef %0) local_unnamed_addr #3 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 192), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -1487,7 +1487,7 @@ define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 23), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 184), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -1511,7 +1511,7 @@ define dso_local void @security_free_mnt_opts(ptr nocapture noundef %0) #3 align
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 25), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 200), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1538,7 +1538,7 @@ define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 26), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 208), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1560,7 +1560,7 @@ define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 27), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 216), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1582,7 +1582,7 @@ define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 ali
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 28), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 224), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1604,7 +1604,7 @@ define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr 
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 29), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 232), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1626,7 +1626,7 @@ define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) l
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 30), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 240), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1648,7 +1648,7 @@ define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 31), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 248), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1670,7 +1670,7 @@ define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noun
   br label %6
 
 6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 32), %5 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 256), %5 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -1692,7 +1692,7 @@ define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_u
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 33), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 264), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1714,7 +1714,7 @@ define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) loca
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 34), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 272), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1735,7 +1735,7 @@ define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) loca
 define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
   %5 = icmp eq ptr %1, null
   %6 = select i1 %5, i32 0, i32 -95
-  %7 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 35), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 280), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -1762,7 +1762,7 @@ define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1,
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 36), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 288), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1784,7 +1784,7 @@ define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 37), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 296), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1806,7 +1806,7 @@ define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 n
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 40), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 320), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1845,7 +1845,7 @@ define dso_local i32 @security_inode_alloc(ptr noundef %0) local_unnamed_addr #3
   br label %10
 
 10:                                               ; preds = %.preheader, %14
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 41), %.preheader ]
+  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 328), %.preheader ]
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -1869,7 +1869,7 @@ define dso_local i32 @security_inode_alloc(ptr noundef %0) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
   tail call void @integrity_inode_free(ptr noundef %0) #17
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 42), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 336), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -1914,7 +1914,7 @@ define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef 
   br label %7
 
 7:                                                ; preds = %11, %6
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 38), %6 ], [ %9, %11 ]
+  %8 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 304), %6 ], [ %9, %11 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
@@ -1936,7 +1936,7 @@ define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 nounde
   br label %6
 
 6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 39), %5 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 312), %5 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -1988,7 +1988,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 
 25:                                               ; preds = %21, %14
   %26 = phi ptr [ %23, %21 ], [ null, %14 ]
-  %27 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 43), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 344), align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread5.thread, label %.preheader6
 
@@ -2060,7 +2060,7 @@ define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noun
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 44), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 352), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -2086,7 +2086,7 @@ define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 45), %3 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 360), %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2114,7 +2114,7 @@ define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 46), %3 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 368), %3 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2142,7 +2142,7 @@ define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) loca
   br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 47), %2 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 376), %2 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -2168,7 +2168,7 @@ define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 48), %3 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 384), %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2194,7 +2194,7 @@ define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 49), %3 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 392), %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2222,7 +2222,7 @@ define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local
   br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 50), %2 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 400), %2 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -2248,7 +2248,7 @@ define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %4, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 51), %4 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 408), %4 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -2299,7 +2299,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 .preheader:                                       ; preds = %23, %29
-  %26 = phi ptr [ %27, %29 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52), %23 ]
+  %26 = phi ptr [ %27, %29 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 416), %23 ]
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread.preheader, label %29
@@ -2312,7 +2312,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !83
 
 .thread:                                          ; preds = %.thread.preheader, %37
-  %34 = phi ptr [ %35, %37 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52), %.thread.preheader ]
+  %34 = phi ptr [ %35, %37 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 416), %.thread.preheader ]
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37
@@ -2340,7 +2340,7 @@ define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 53), %1 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 424), %1 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2366,7 +2366,7 @@ define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1,
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 54), %3 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 432), %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2392,7 +2392,7 @@ define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) 
   br i1 %6, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %10
-  %7 = phi ptr [ %8, %10 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 55), %2 ]
+  %7 = phi ptr [ %8, %10 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 440), %2 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -2420,7 +2420,7 @@ define dso_local i32 @security_inode_setattr(ptr nocapture readnone %0, ptr noun
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 56), %3 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 448), %3 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2450,7 +2450,7 @@ define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr 
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 57), %1 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 456), %1 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2478,7 +2478,7 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
   br i1 %12, label %13, label %.thread4, !prof !9
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 58), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 464), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %.preheader
 
@@ -2520,7 +2520,7 @@ define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr
   br i1 %10, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %4, %14
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 63), %4 ]
+  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 504), %4 ]
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
@@ -2548,7 +2548,7 @@ define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 64), %3 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 512), %3 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2576,7 +2576,7 @@ define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 65), %3 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 520), %3 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2601,7 +2601,7 @@ define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 512
   %11 = icmp ne i32 %10, 0
-  %12 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 59), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 472), align 8
   %13 = icmp eq ptr %12, null
   %14 = select i1 %11, i1 true, i1 %13
   br i1 %14, label %.loopexit, label %.preheader, !prof !94
@@ -2630,7 +2630,7 @@ define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) lo
   br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 60), %2 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 480), %2 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -2658,7 +2658,7 @@ define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_add
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 61), %1 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 488), %1 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2686,7 +2686,7 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
   br i1 %9, label %10, label %.thread4, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 62), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 496), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %.preheader
 
@@ -2722,7 +2722,7 @@ define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 66), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 528), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -2744,7 +2744,7 @@ define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) lo
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 67), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 536), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -2770,7 +2770,7 @@ define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1,
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %5, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 68), %5 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 544), %5 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2796,7 +2796,7 @@ define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1,
   br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %5, %13
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 69), %5 ]
+  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 552), %5 ]
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -2822,7 +2822,7 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
   br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 70), %3 ]
+  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 560), %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2841,7 +2841,7 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 71), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 568), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2863,7 +2863,7 @@ define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #3 
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 72), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 576), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -2885,7 +2885,7 @@ define dso_local range(i32 -94, -95) i32 @security_inode_copy_up_xattr(ptr nound
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 73), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 584), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -2907,7 +2907,7 @@ define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef 
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 74), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 592), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -2929,7 +2929,7 @@ define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) l
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 75), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 600), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -2968,7 +2968,7 @@ define dso_local i32 @security_file_alloc(ptr noundef %0) local_unnamed_addr #3 
   br label %10
 
 10:                                               ; preds = %.preheader, %14
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 76), %.preheader ]
+  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 608), %.preheader ]
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -2991,7 +2991,7 @@ define dso_local i32 @security_file_alloc(ptr noundef %0) local_unnamed_addr #3 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 77), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 616), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -3028,7 +3028,7 @@ define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 no
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 78), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 624), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3050,7 +3050,7 @@ define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1,
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 79), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 632), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3102,7 +3102,7 @@ define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 nou
   br label %24
 
 24:                                               ; preds = %28, %22
-  %25 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 81), %22 ], [ %26, %28 ]
+  %25 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 648), %22 ], [ %26, %28 ]
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %33, label %28
@@ -3124,7 +3124,7 @@ define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #3 a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 80), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 640), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3146,7 +3146,7 @@ define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 82), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 656), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3168,7 +3168,7 @@ define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_u
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 83), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 664), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3190,7 +3190,7 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 84), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 672), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3209,7 +3209,7 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 85), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 680), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -3231,7 +3231,7 @@ define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 86), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 688), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3253,7 +3253,7 @@ define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 87), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 696), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3275,7 +3275,7 @@ define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #3 a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 88), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 704), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3297,7 +3297,7 @@ define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr 
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 89), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 712), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3337,7 +3337,7 @@ define dso_local i32 @security_task_alloc(ptr noundef %0, i64 noundef %1) local_
   br label %12
 
 12:                                               ; preds = %.preheader, %16
-  %13 = phi ptr [ %14, %16 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 90), %.preheader ]
+  %13 = phi ptr [ %14, %16 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 720), %.preheader ]
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -3360,7 +3360,7 @@ define dso_local i32 @security_task_alloc(ptr noundef %0, i64 noundef %1) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 91), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 728), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -3405,7 +3405,7 @@ define dso_local i32 @security_cred_alloc_blank(ptr noundef %0, i32 noundef %1) 
   br label %13
 
 13:                                               ; preds = %.preheader, %17
-  %14 = phi ptr [ %15, %17 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 92), %.preheader ]
+  %14 = phi ptr [ %15, %17 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 736), %.preheader ]
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
@@ -3434,7 +3434,7 @@ define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 
   br i1 %4, label %14, label %5, !prof !16
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 93), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 744), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -3485,7 +3485,7 @@ define dso_local i32 @security_prepare_creds(ptr noundef %0, ptr noundef %1, i32
   br label %14
 
 14:                                               ; preds = %.preheader, %18
-  %15 = phi ptr [ %16, %18 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 94), %.preheader ]
+  %15 = phi ptr [ %16, %18 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 752), %.preheader ]
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -3508,7 +3508,7 @@ define dso_local i32 @security_prepare_creds(ptr noundef %0, ptr noundef %1, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 95), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 760), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -3528,7 +3528,7 @@ define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef %1) #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 96), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 768), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -3550,7 +3550,7 @@ define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) loc
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 97), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 776), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3572,7 +3572,7 @@ define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr nounde
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 98), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 784), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3594,7 +3594,7 @@ define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnam
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 99), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 792), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3616,7 +3616,7 @@ define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, 
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 102), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 816), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3638,7 +3638,7 @@ define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 103), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 824), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -3660,7 +3660,7 @@ define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroe
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 100), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 800), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3682,7 +3682,7 @@ define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 101), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 808), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -3704,7 +3704,7 @@ define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 104), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 832), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3726,7 +3726,7 @@ define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 105), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 840), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3748,7 +3748,7 @@ define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 106), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 848), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3770,7 +3770,7 @@ define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) loca
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 107), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 856), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3792,7 +3792,7 @@ define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 108), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 864), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3814,7 +3814,7 @@ define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 109), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 872), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3834,7 +3834,7 @@ define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_current_getsecid_subj(ptr noundef %0) #3 align 16 {
   store i32 0, ptr %0, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 110), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 880), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -3854,7 +3854,7 @@ define dso_local void @security_current_getsecid_subj(ptr noundef %0) #3 align 1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef %1) #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 111), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 888), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -3876,7 +3876,7 @@ define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) loca
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 112), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 896), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3898,7 +3898,7 @@ define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) lo
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 113), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 904), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3920,7 +3920,7 @@ define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 114), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 912), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -3942,7 +3942,7 @@ define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 115), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 920), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3964,7 +3964,7 @@ define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, pt
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 116), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 928), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3986,7 +3986,7 @@ define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 117), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 936), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -4008,7 +4008,7 @@ define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 118), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 944), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -4030,7 +4030,7 @@ define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_add
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 119), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 952), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -4052,7 +4052,7 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 120), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 960), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -4071,7 +4071,7 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 121), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 968), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -4102,7 +4102,7 @@ define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 122), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 976), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -4124,7 +4124,7 @@ define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 123), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 984), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -4146,7 +4146,7 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 124), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 992), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4166,7 +4166,7 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 125), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1000), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -4206,7 +4206,7 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef %0) local_unnamed_addr 
   br label %11
 
 11:                                               ; preds = %.preheader, %15
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 126), %.preheader ]
+  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1008), %.preheader ]
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -4229,7 +4229,7 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 127), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1016), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4273,7 +4273,7 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef %0) local_unnamed_add
   br label %11
 
 11:                                               ; preds = %.preheader, %15
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 128), %.preheader ]
+  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1024), %.preheader ]
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -4296,7 +4296,7 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef %0) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 129), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1032), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4322,7 +4322,7 @@ define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 130), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1040), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4344,7 +4344,7 @@ define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) 
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 131), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1048), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4366,7 +4366,7 @@ define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, 
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 132), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1056), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -4388,7 +4388,7 @@ define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, 
   br label %6
 
 6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 133), %5 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1064), %5 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -4428,7 +4428,7 @@ define dso_local i32 @security_shm_alloc(ptr noundef %0) local_unnamed_addr #3 a
   br label %11
 
 11:                                               ; preds = %.preheader, %15
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 134), %.preheader ]
+  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1072), %.preheader ]
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -4451,7 +4451,7 @@ define dso_local i32 @security_shm_alloc(ptr noundef %0) local_unnamed_addr #3 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 135), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1080), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4477,7 +4477,7 @@ define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) loc
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 136), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1088), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4499,7 +4499,7 @@ define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 137), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1096), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4521,7 +4521,7 @@ define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 nou
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 138), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1104), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -4561,7 +4561,7 @@ define dso_local i32 @security_sem_alloc(ptr noundef %0) local_unnamed_addr #3 a
   br label %11
 
 11:                                               ; preds = %.preheader, %15
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 139), %.preheader ]
+  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1112), %.preheader ]
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -4584,7 +4584,7 @@ define dso_local i32 @security_sem_alloc(ptr noundef %0) local_unnamed_addr #3 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 140), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1120), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4610,7 +4610,7 @@ define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) loc
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 141), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1128), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4632,7 +4632,7 @@ define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 142), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1136), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4654,7 +4654,7 @@ define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 nou
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 143), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1144), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -4681,13 +4681,13 @@ define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp ne i32 %7, 0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1160), align 8
   %10 = icmp eq ptr %9, null
   %11 = select i1 %8, i1 true, i1 %10
   br i1 %11, label %.loopexit, label %.preheader, !prof !94
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1160), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader
 
@@ -4754,12 +4754,12 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %.loopexit, label %.thread
 
 31:                                               ; preds = %19
-  %32 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 146), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1168), align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %113, label %.split.us
 
 .thread:                                          ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 146), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1168), align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %113, label %.split.split
 
@@ -4978,7 +4978,7 @@ define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 n
   br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %20, %31
-  %28 = phi ptr [ %29, %31 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 147), %20 ]
+  %28 = phi ptr [ %29, %31 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1176), %20 ]
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %31
@@ -5021,12 +5021,12 @@ define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %5, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 148), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1184), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.split3.us
 
 .split:                                           ; preds = %4, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 148), %4 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1184), %4 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -5058,12 +5058,12 @@ define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %5, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 149), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1192), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.split3.us
 
 .split:                                           ; preds = %4, %12
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 149), %4 ]
+  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1192), %4 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -5093,7 +5093,7 @@ define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) loca
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 144), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1152), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5115,7 +5115,7 @@ define dso_local i32 @security_ismaclabel(ptr noundef %0) #3 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 150), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1200), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -5137,7 +5137,7 @@ define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, p
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 151), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1208), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5160,7 +5160,7 @@ define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, p
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 152), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1216), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5179,7 +5179,7 @@ define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 153), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1224), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5198,7 +5198,7 @@ define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 154), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1232), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -5220,7 +5220,7 @@ define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 155), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1240), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5242,7 +5242,7 @@ define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 156), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1248), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5264,7 +5264,7 @@ define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, p
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 157), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1256), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5286,7 +5286,7 @@ define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 158), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1264), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5308,7 +5308,7 @@ define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 159), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1272), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5330,7 +5330,7 @@ define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 160), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1280), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -5352,7 +5352,7 @@ define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1
   br label %6
 
 6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 161), %5 ], [ %8, %10 ]
+  %7 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1288), %5 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -5374,7 +5374,7 @@ define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1)
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 162), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1296), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5396,7 +5396,7 @@ define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 n
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 163), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1304), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5418,7 +5418,7 @@ define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i3
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 164), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1312), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5440,7 +5440,7 @@ define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) loc
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 165), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1320), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5462,7 +5462,7 @@ define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) loc
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 166), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1328), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5484,7 +5484,7 @@ define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i3
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 167), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1336), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5506,7 +5506,7 @@ define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i3
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 168), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1344), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -5528,7 +5528,7 @@ define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 169), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1352), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -5550,7 +5550,7 @@ define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 170), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1360), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -5572,7 +5572,7 @@ define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1,
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 171), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1368), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5594,7 +5594,7 @@ define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1,
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 172), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1376), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5616,7 +5616,7 @@ define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) l
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 173), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1384), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5638,7 +5638,7 @@ define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 a
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 174), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1392), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5660,7 +5660,7 @@ define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, 
   br label %7
 
 7:                                                ; preds = %11, %6
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 175), %6 ], [ %9, %11 ]
+  %8 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1400), %6 ], [ %9, %11 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
@@ -5682,7 +5682,7 @@ define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr nound
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 176), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1408), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5704,7 +5704,7 @@ define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noun
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 177), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1416), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5723,7 +5723,7 @@ define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 178), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1424), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -5742,7 +5742,7 @@ define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 179), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1432), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5761,7 +5761,7 @@ define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 180), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1440), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
@@ -5784,7 +5784,7 @@ define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 188), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1504), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5803,7 +5803,7 @@ define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 181), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1448), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5825,7 +5825,7 @@ define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1,
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 182), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1456), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5844,7 +5844,7 @@ define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 183), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1464), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5863,7 +5863,7 @@ define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inet_conn_established(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 184), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1472), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -5885,7 +5885,7 @@ define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 1
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 185), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1480), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -5904,7 +5904,7 @@ define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_secmark_refcount_inc() #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 186), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1488), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -5923,7 +5923,7 @@ define dso_local void @security_secmark_refcount_inc() #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_secmark_refcount_dec() #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 187), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1496), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -5945,7 +5945,7 @@ define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 1
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 189), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1512), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -5964,7 +5964,7 @@ define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_tun_dev_free_security(ptr noundef %0) #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 190), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1520), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -5986,7 +5986,7 @@ define dso_local i32 @security_tun_dev_create() #3 align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0
-  %2 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 191), %0 ], [ %3, %5 ]
+  %2 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1528), %0 ], [ %3, %5 ]
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -6008,7 +6008,7 @@ define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #3 align 16 
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 192), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1536), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6030,7 +6030,7 @@ define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #3
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 193), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1544), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6052,7 +6052,7 @@ define dso_local i32 @security_tun_dev_open(ptr noundef %0) #3 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 194), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1552), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6074,7 +6074,7 @@ define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 195), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1560), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6096,7 +6096,7 @@ define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1,
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 196), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1568), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -6115,7 +6115,7 @@ define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 197), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1576), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -6137,7 +6137,7 @@ define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr nounde
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 198), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1584), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6159,7 +6159,7 @@ define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1)
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 199), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1592), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6181,7 +6181,7 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 200), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1600), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -6200,7 +6200,7 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 201), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1608), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -6222,7 +6222,7 @@ define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i3
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 202), %3 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1616), %3 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -6245,7 +6245,7 @@ define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef %1) l
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 203), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1624), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6267,7 +6267,7 @@ define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, p
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 204), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1632), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -6289,7 +6289,7 @@ define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_ad
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 205), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1640), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6308,7 +6308,7 @@ define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 207), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1656), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -6330,7 +6330,7 @@ define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, 
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 206), %4 ], [ %7, %9 ]
+  %6 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1648), %4 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -6352,7 +6352,7 @@ define dso_local i32 @security_locked_down(i32 noundef %0) #3 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 208), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1664), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6374,7 +6374,7 @@ define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) l
   br label %3
 
 3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 209), %2 ], [ %5, %7 ]
+  %4 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1672), %2 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6396,7 +6396,7 @@ define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_ad
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 210), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1680), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6415,7 +6415,7 @@ define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 211), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @security_hook_heads, i64 1688), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -6437,7 +6437,7 @@ define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_add
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 212), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1696), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6459,7 +6459,7 @@ define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_ad
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 213), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1704), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6481,7 +6481,7 @@ define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unname
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 214), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1712), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6503,7 +6503,7 @@ define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #3 align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0
-  %2 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 215), %0 ], [ %3, %5 ]
+  %2 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1720), %0 ], [ %3, %5 ]
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -6525,7 +6525,7 @@ define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 a
   br label %2
 
 2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 216), %1 ], [ %4, %6 ]
+  %3 = phi ptr [ getelementptr inbounds (i8, ptr @security_hook_heads, i64 1728), %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

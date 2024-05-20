@@ -247,9 +247,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nargv, ptr noundef nonnull align 8 dereferenceable(24) @__const.execv_git_cmd.nargv, i64 24, i1 false)
   %call.i = call ptr @strvec_push(ptr noundef nonnull %nargv, ptr noundef nonnull @.str.5) #10
   call void @strvec_pushv(ptr noundef nonnull %nargv, ptr noundef %argv) #10
-  %0 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not5 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not5, i1 false
@@ -263,9 +263,9 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry, %if.then
   %2 = load ptr, ptr %nargv, align 8
   %call3 = call i32 @sane_execvp(ptr noundef nonnull @.str.5, ptr noundef %2) #10
-  %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i1 = icmp eq i32 %3, 0
-  %bf.load.i2 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i2 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i3 = and i8 %bf.load.i2, 1
   %tobool6.not6 = icmp ne i8 %bf.clear.i3, 0
   %tobool6.not = select i1 %tobool.not.i1, i1 %tobool6.not6, i1 false

@@ -893,7 +893,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.45, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1787,7 +1787,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %flag_saver_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -1805,7 +1805,7 @@ declare void @llvm.trap() #8
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1825,7 +1825,7 @@ _ZN12_GLOBAL__N_114ReflectionTestD2Ev.exit:       ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -2349,7 +2349,7 @@ declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114ReflectionTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3156,7 +3156,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %flag_saver_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -3169,7 +3169,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3189,7 +3189,7 @@ _ZN12_GLOBAL__N_114ReflectionTestD2Ev.exit:       ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4595,11 +4595,11 @@ _ZN7testing15SafeMatcherCastIRKSt6vectorISt17basic_string_viewIcSt11char_traitsI
   %4 = ptrtoint ptr %call.i.i.i.i.i to i64
   store i64 %4, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !127
   store ptr %call.i.i1.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !127
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8, !alias.scope !127
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i64 16), ptr %matcher, align 8, !alias.scope !127
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -4707,7 +4707,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -4813,7 +4813,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #28
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   br label %cleanup
@@ -4846,7 +4846,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad16 ], [ %22, %lpad28 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #28
   br label %ehcleanup41
 
@@ -4856,7 +4856,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %matcher, align 8
   %25 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEE8IsSharedEv.exit.i.i.i
@@ -5679,7 +5679,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
@@ -5719,7 +5719,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %inner_listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %inner_listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds i8, ptr %matcher, i64 8
@@ -5820,7 +5820,7 @@ call1.i23.noexc:                                  ; preds = %if.then.i
 invoke.cont25:                                    ; preds = %invoke.cont21, %call1.i23.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #28
   br label %return
 
@@ -5837,7 +5837,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad7
 
 ehcleanup26:                                      ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad ], [ %6, %lpad.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #28
   br label %common.resume
 
@@ -5849,7 +5849,7 @@ return:                                           ; preds = %invoke.cont25, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #28
   ret void
@@ -5858,7 +5858,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -5904,7 +5904,7 @@ entry:
   store i32 %matcher_flags, ptr %0, align 8
   %matcher_describers_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not29 = icmp eq ptr %first.coerce, %last.coerce
@@ -5932,7 +5932,7 @@ invoke.cont6:                                     ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %1, align 8
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
   store ptr %3, ptr %vtable_.i.i.i.i.i.i, align 8
@@ -5940,7 +5940,7 @@ if.then.i.i:                                      ; preds = %invoke.cont6
   %4 = load i64, ptr %buffer_3.i.i.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %1, align 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
@@ -5951,7 +5951,7 @@ if.else.i.i:                                      ; preds = %invoke.cont6
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then.i.i, %if.else.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp, align 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i
@@ -6131,7 +6131,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6207,7 +6207,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6254,7 +6254,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6444,7 +6444,7 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %4 = load i64, ptr %buffer_3.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %add.ptr, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
@@ -6474,7 +6474,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -6489,7 +6489,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i35, %for.inc.i.i.i.i.i33 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %for.inc.i.i.i.i.i33 ], [ %__position.coerce, %invoke.cont10 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %vtable_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %vtable_2.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i25, align 8
@@ -6513,7 +6513,7 @@ if.then.i.i.i.i.i.i.i.i32:                        ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i33
 
 for.inc.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i.i.i.i.i32, %_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %incdec.ptr.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 24
   %incdec.ptr1.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 24
   %cmp.not.i.i.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i.i.i34, %0
@@ -6553,7 +6553,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6661,7 +6661,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6702,7 +6702,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6787,7 +6787,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %did_match, i8 0, i64 24, i1 false)
   %stream_.i.i = getelementptr inbounds i8, ptr %dummy, i64 8
   store ptr null, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
   %cmp.i.not63 = icmp eq ptr %elem_first.coerce, %elem_last.coerce
   br i1 %cmp.i.not63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.for.end23_crit_edge, label %for.body.lr.ph
 
@@ -7412,7 +7412,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7487,7 +7487,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7528,7 +7528,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7636,7 +7636,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -8978,7 +8978,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %flag_saver_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8991,7 +8991,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -9011,7 +9011,7 @@ _ZN12_GLOBAL__N_114ReflectionTestD2Ev.exit:       ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -9255,7 +9255,7 @@ invoke.cont24:                                    ; preds = %.noexc75
 
 invoke.cont27:                                    ; preds = %.noexc78
   call void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %s) #28
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i8, [7 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_01, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_01, i64 80) acquire, align 8
   %cmp.i.not.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %_ZN4absl7GetFlagIbEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -9379,7 +9379,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  %13 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_02, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_02, i64 80) acquire, align 8
   %cmp.i.not.i.i.i86 = icmp eq i64 %13, 0
   br i1 %cmp.i.not.i.i.i86, label %if.then.i.i.i88, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -9499,7 +9499,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit113:         ; preds = %if.end62, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i112
   store ptr null, ptr %message_.i110, align 8
-  %24 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i16, [6 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_03, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %24 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_03, i64 80) acquire, align 8
   %cmp.i.not.i.i.i114 = icmp eq i64 %24, 0
   br i1 %cmp.i.not.i.i.i114, label %if.then.i.i.i117, label %_ZN4absl7GetFlagIsEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -9619,7 +9619,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %if.end83, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i141
   store ptr null, ptr %message_.i139, align 8
-  %35 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i16, [6 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_04, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %35 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_04, i64 80) acquire, align 8
   %cmp.i.not.i.i.i143 = icmp eq i64 %35, 0
   br i1 %cmp.i.not.i.i.i143, label %if.then.i.i.i146, label %_ZN4absl7GetFlagItEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -9740,7 +9740,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i171
   store ptr null, ptr %message_.i169, align 8
-  %46 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_05, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %46 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_05, i64 80) acquire, align 8
   %cmp.i.not.i.i.i173 = icmp eq i64 %46, 0
   br i1 %cmp.i.not.i.i.i173, label %if.then.i.i.i176, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit178
 
@@ -9860,7 +9860,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit203:         ; preds = %if.end125, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i202
   store ptr null, ptr %message_.i200, align 8
-  %57 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_06, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %57 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_06, i64 80) acquire, align 8
   %cmp.i.not.i.i.i204 = icmp eq i64 %57, 0
   br i1 %cmp.i.not.i.i.i204, label %if.then.i.i.i207, label %_ZN4absl7GetFlagIjEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -9980,7 +9980,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit232:         ; preds = %if.end146, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i231
   store ptr null, ptr %message_.i229, align 8
-  %68 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_07, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %68 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_07, i64 80) acquire, align 8
   %cmp.i.not.i.i.i233 = icmp eq i64 %68, -6076574518398440533
   br i1 %cmp.i.not.i.i.i233, label %if.then.i.i.i235, label %_ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -10099,7 +10099,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit260:         ; preds = %if.end167, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i259
   store ptr null, ptr %message_.i257, align 8
-  %79 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %79 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i261 = icmp eq i64 %79, -6076574518398440533
   br i1 %cmp.i.not.i.i.i261, label %if.then.i.i.i263, label %_ZN4absl7GetFlagImEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -10218,7 +10218,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit289:         ; preds = %if.end188, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i288
   store ptr null, ptr %message_.i286, align 8
-  %90 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_09, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %90 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_09, i64 80) acquire, align 8
   %cmp.i.not.i.i.i290 = icmp eq i64 %90, -6076574518398440533
   br i1 %cmp.i.not.i.i.i290, label %if.then.i.i.i293, label %_ZN4absl7GetFlagIdEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -10325,7 +10325,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit315:         ; preds = %if.end207, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i314
   store ptr null, ptr %message_.i312, align 8
-  %101 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_10, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %101 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_10, i64 80) acquire, align 8
   %cmp.i.not.i.i.i316 = icmp eq i64 %101, 0
   br i1 %cmp.i.not.i.i.i316, label %if.then.i.i.i319, label %_ZN4absl7GetFlagIfEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -10568,20 +10568,20 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit366:         ; preds = %if.end248, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i365
   store ptr null, ptr %message_.i363, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i367)
-  %124 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %124 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 48) acquire, align 8
   %and.i.i.i.i.i = and i64 %124, 1
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i368
 
 invoke.cont.i.i.i:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit366
-  %125 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %125 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 80) monotonic, align 8
   store i64 %125, ptr %u.i.i.i367, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u.i.i.i367, i64 8
-  %126 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %126 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i = trunc i64 %126 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   fence acquire
-  %127 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %127 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i = icmp eq i64 %124, %127
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i368
 
@@ -10709,7 +10709,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit392:         ; preds = %if.end272, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i391
   store ptr null, ptr %message_.i389, align 8
-  %138 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_13, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %138 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_13, i64 80) acquire, align 8
   %cmp.i.not.i.i.i393 = icmp eq i64 %138, 0
   br i1 %cmp.i.not.i.i.i393, label %if.then.i.i.i396, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit398
 
@@ -10829,7 +10829,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit423:         ; preds = %if.end293, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i422
   store ptr null, ptr %message_.i420, align 8
-  %149 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_14, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %149 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_14, i64 80) acquire, align 8
   %cmp.i.not.i.i.i424 = icmp eq i64 %149, -6076574518398440533
   br i1 %cmp.i.not.i.i.i424, label %if.then.i.i.i426, label %_ZN4absl7GetFlagIN12_GLOBAL__N_19CustomUDTEEET_RKNS_14flags_internal4FlagIS3_EE.exit
 
@@ -12103,7 +12103,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %flag_saver_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -12116,7 +12116,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -12136,7 +12136,7 @@ _ZN12_GLOBAL__N_114ReflectionTestD2Ev.exit:       ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13859,7 +13859,7 @@ _ZN7testing15AssertionResultD2Ev.exit424:         ; preds = %invoke.cont413, %if
   store ptr null, ptr %message_.i406, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #28
   call void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %s) #28
-  %127 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i8, [7 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_01, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %127 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_01, i64 80) acquire, align 8
   %cmp.i.not.i.i.i = icmp eq i64 %127, 0
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %_ZN4absl7GetFlagIbEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -13988,7 +13988,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit439:         ; preds = %if.end460, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i438
   store ptr null, ptr %message_.i436, align 8
-  %139 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_02, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %139 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_02, i64 80) acquire, align 8
   %cmp.i.not.i.i.i440 = icmp eq i64 %139, 0
   br i1 %cmp.i.not.i.i.i440, label %if.then.i.i.i442, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14108,7 +14108,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit467:         ; preds = %if.end481, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i466
   store ptr null, ptr %message_.i464, align 8
-  %150 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i16, [6 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_03, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %150 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_03, i64 80) acquire, align 8
   %cmp.i.not.i.i.i468 = icmp eq i64 %150, 0
   br i1 %cmp.i.not.i.i.i468, label %if.then.i.i.i471, label %_ZN4absl7GetFlagIsEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14228,7 +14228,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit496:         ; preds = %if.end502, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i495
   store ptr null, ptr %message_.i493, align 8
-  %161 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i16, [6 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_04, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %161 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_04, i64 80) acquire, align 8
   %cmp.i.not.i.i.i497 = icmp eq i64 %161, 0
   br i1 %cmp.i.not.i.i.i497, label %if.then.i.i.i500, label %_ZN4absl7GetFlagItEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14349,7 +14349,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit526:         ; preds = %if.end523, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i525
   store ptr null, ptr %message_.i523, align 8
-  %172 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_05, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %172 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_05, i64 80) acquire, align 8
   %cmp.i.not.i.i.i527 = icmp eq i64 %172, 0
   br i1 %cmp.i.not.i.i.i527, label %if.then.i.i.i530, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit532
 
@@ -14469,7 +14469,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit557:         ; preds = %if.end544, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i556
   store ptr null, ptr %message_.i554, align 8
-  %183 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_06, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %183 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_06, i64 80) acquire, align 8
   %cmp.i.not.i.i.i558 = icmp eq i64 %183, 0
   br i1 %cmp.i.not.i.i.i558, label %if.then.i.i.i561, label %_ZN4absl7GetFlagIjEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14589,7 +14589,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit586:         ; preds = %if.end565, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i585
   store ptr null, ptr %message_.i583, align 8
-  %194 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_07, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %194 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_07, i64 80) acquire, align 8
   %cmp.i.not.i.i.i587 = icmp eq i64 %194, -6076574518398440533
   br i1 %cmp.i.not.i.i.i587, label %if.then.i.i.i589, label %_ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14708,7 +14708,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit614:         ; preds = %if.end586, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i613
   store ptr null, ptr %message_.i611, align 8
-  %205 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %205 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i615 = icmp eq i64 %205, -6076574518398440533
   br i1 %cmp.i.not.i.i.i615, label %if.then.i.i.i617, label %_ZN4absl7GetFlagImEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14827,7 +14827,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit643:         ; preds = %if.end607, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i642
   store ptr null, ptr %message_.i640, align 8
-  %216 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_09, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %216 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_09, i64 80) acquire, align 8
   %cmp.i.not.i.i.i644 = icmp eq i64 %216, -6076574518398440533
   br i1 %cmp.i.not.i.i.i644, label %if.then.i.i.i647, label %_ZN4absl7GetFlagIdEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -14934,7 +14934,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit669:         ; preds = %if.end626, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i668
   store ptr null, ptr %message_.i666, align 8
-  %227 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_10, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %227 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_10, i64 80) acquire, align 8
   %cmp.i.not.i.i.i670 = icmp eq i64 %227, 0
   br i1 %cmp.i.not.i.i.i670, label %if.then.i.i.i673, label %_ZN4absl7GetFlagIfEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
@@ -15177,20 +15177,20 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit719:         ; preds = %if.end667, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i718
   store ptr null, ptr %message_.i716, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i720)
-  %250 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 0, i32 8, i32 0, i32 0) acquire, align 8
+  %250 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 48) acquire, align 8
   %and.i.i.i.i.i = and i64 %250, 1
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i721
 
 invoke.cont.i.i.i:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit719
-  %251 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0) monotonic, align 8
+  %251 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 80) monotonic, align 8
   store i64 %251, ptr %u.i.i.i720, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u.i.i.i720, i64 8
-  %252 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0) monotonic, align 8
+  %252 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 88) monotonic, align 8
   %word2.i.i.0.extract.trunc.i.i.i.i = trunc i64 %252 to i32
   store i32 %word2.i.i.0.extract.trunc.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   fence acquire
-  %253 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.34" }, ptr @FLAGS_test_flag_12, i64 0, i32 0, i32 8, i32 0, i32 0) monotonic, align 8
+  %253 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_12, i64 48) monotonic, align 8
   %cmp4.i.i.i.i.i = icmp eq i64 %250, %253
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i721
 
@@ -15318,7 +15318,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit745:         ; preds = %if.end690, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i744
   store ptr null, ptr %message_.i742, align 8
-  %264 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_13, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %264 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_13, i64 80) acquire, align 8
   %cmp.i.not.i.i.i746 = icmp eq i64 %264, 0
   br i1 %cmp.i.not.i.i.i746, label %if.then.i.i.i749, label %_ZN4absl7GetFlagIiEET_RKNS_14flags_internal4FlagIS1_EE.exit751
 
@@ -15438,7 +15438,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit776:         ; preds = %if.end711, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i775
   store ptr null, ptr %message_.i773, align 8
-  %275 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_14, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %275 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_14, i64 80) acquire, align 8
   %cmp.i.not.i.i.i777 = icmp eq i64 %275, -6076574518398440533
   br i1 %cmp.i.not.i.i.i777, label %if.then.i.i.i779, label %_ZN4absl7GetFlagIN12_GLOBAL__N_19CustomUDTEEET_RKNS_14flags_internal4FlagIS3_EE.exit
 
@@ -15691,7 +15691,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %flag_saver_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -15704,7 +15704,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -15724,7 +15724,7 @@ _ZN12_GLOBAL__N_114ReflectionTestD2Ev.exit:       ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i64 16), ptr %this, align 8
   %flag_saver_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %flag_saver_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -15793,7 +15793,7 @@ entry:
 
 invoke.cont:                                      ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i = icmp eq i64 %0, -6076574518398440533
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %invoke.cont3
 
@@ -15927,7 +15927,7 @@ invoke.cont19:                                    ; preds = %_ZN7testing15Assert
 
 invoke.cont22:                                    ; preds = %.noexc34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i32)
-  %12 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i37 = icmp eq i64 %12, -6076574518398440533
   br i1 %cmp.i.not.i.i.i37, label %if.then.i.i.i39, label %invoke.cont25
 
@@ -16066,7 +16066,7 @@ invoke.cont47:                                    ; preds = %_ZN7testing15Assert
 
 invoke.cont50:                                    ; preds = %.noexc73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i71)
-  %24 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %24 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i76 = icmp eq i64 %24, -6076574518398440533
   br i1 %cmp.i.not.i.i.i76, label %if.then.i.i.i78, label %invoke.cont53
 
@@ -16191,7 +16191,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %if.end72, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i108
   store ptr null, ptr %message_.i106, align 8
   call void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %s46) #28
-  %36 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %36 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i110 = icmp eq i64 %36, -6076574518398440533
   br i1 %cmp.i.not.i.i.i110, label %if.then.i.i.i112, label %invoke.cont77
 
@@ -16316,7 +16316,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit143:         ; preds = %if.end96, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i142
   store ptr null, ptr %message_.i140, align 8
   call void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %s18) #28
-  %47 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %47 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i144 = icmp eq i64 %47, -6076574518398440533
   br i1 %cmp.i.not.i.i.i144, label %if.then.i.i.i146, label %invoke.cont101
 
@@ -16441,7 +16441,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %if.end120, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i176
   store ptr null, ptr %message_.i174, align 8
   call void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %s) #28
-  %58 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, %"union.absl::flags_internal::FlagDefaultSrc", [8 x i8] }, { { i64 } } }, ptr @FLAGS_test_flag_08, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %58 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_flag_08, i64 80) acquire, align 8
   %cmp.i.not.i.i.i178 = icmp eq i64 %58, -6076574518398440533
   br i1 %cmp.i.not.i.i.i178, label %if.then.i.i.i180, label %_ZN4absl7GetFlagImEET_RKNS_14flags_internal4FlagIS1_EE.exit181
 
@@ -16762,7 +16762,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str.1, i64 0, i64 128))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 128))
           to label %invoke.cont.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -16790,7 +16790,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE, i64 16), ptr %call11.i, align 8
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_114ReflectionTestEE6dummy_E, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %__cxx_global_var_init.7.exit unwind label %lpad4.i
 
@@ -16841,7 +16841,7 @@ call.i.noexc.i8:                                  ; preds = %__cxx_global_var_in
           to label %.noexc.i9 unwind label %lpad.i5
 
 .noexc.i9:                                        ; preds = %call.i.noexc.i8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str.1, i64 0, i64 128))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 128))
           to label %invoke.cont.i11 unwind label %lpad.i.i10
 
 lpad.i.i10:                                       ; preds = %.noexc.i9
@@ -16869,7 +16869,7 @@ invoke.cont8.i20:                                 ; preds = %invoke.cont6.i18
           to label %invoke.cont10.i unwind label %lpad4.i17
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestEEE, i64 16), ptr %call11.i21, align 8
   %call15.i22 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_114ReflectionTestEE6dummy_E, ptr noundef %call7.i16, ptr noundef %call9.i19, ptr noundef nonnull %call11.i21)
           to label %__cxx_global_var_init.10.exit unwind label %lpad4.i17
 
@@ -16929,7 +16929,7 @@ call.i.noexc.i44:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i45 unwind label %lpad.i41
 
 .noexc.i45:                                       ; preds = %call.i.noexc.i44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i38, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str.1, i64 0, i64 128))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i38, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 128))
           to label %invoke.cont.i47 unwind label %lpad.i.i46
 
 lpad.i.i46:                                       ; preds = %.noexc.i45
@@ -16957,7 +16957,7 @@ invoke.cont8.i57:                                 ; preds = %invoke.cont6.i55
           to label %invoke.cont10.i59 unwind label %lpad4.i54
 
 invoke.cont10.i59:                                ; preds = %invoke.cont8.i57
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestEEE, i64 16), ptr %call11.i58, align 8
   %call15.i60 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_114ReflectionTestEE6dummy_E, ptr noundef %call7.i53, ptr noundef %call9.i56, ptr noundef nonnull %call11.i58)
           to label %__cxx_global_var_init.39.exit unwind label %lpad4.i54
 
@@ -17002,7 +17002,7 @@ call.i.noexc.i68:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i69 unwind label %lpad.i65
 
 .noexc.i69:                                       ; preds = %call.i.noexc.i68
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i62, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str.1, i64 0, i64 128))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i62, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 128))
           to label %invoke.cont.i71 unwind label %lpad.i.i70
 
 lpad.i.i70:                                       ; preds = %.noexc.i69
@@ -17030,7 +17030,7 @@ invoke.cont8.i81:                                 ; preds = %invoke.cont6.i79
           to label %invoke.cont10.i83 unwind label %lpad4.i78
 
 invoke.cont10.i83:                                ; preds = %invoke.cont8.i81
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestEEE, i64 16), ptr %call11.i82, align 8
   %call15.i84 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_114ReflectionTestEE6dummy_E, ptr noundef %call7.i77, ptr noundef %call9.i80, ptr noundef nonnull %call11.i82)
           to label %__cxx_global_var_init.41.exit unwind label %lpad4.i78
 
@@ -17075,7 +17075,7 @@ call.i.noexc.i92:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i93 unwind label %lpad.i89
 
 .noexc.i93:                                       ; preds = %call.i.noexc.i92
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i86, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str.1, i64 0, i64 128))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i86, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 128))
           to label %invoke.cont.i95 unwind label %lpad.i.i94
 
 lpad.i.i94:                                       ; preds = %.noexc.i93
@@ -17103,7 +17103,7 @@ invoke.cont8.i105:                                ; preds = %invoke.cont6.i103
           to label %invoke.cont10.i107 unwind label %lpad4.i102
 
 invoke.cont10.i107:                               ; preds = %invoke.cont8.i105
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i106, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestEEE, i64 16), ptr %call11.i106, align 8
   %call15.i108 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_114ReflectionTestEE6dummy_E, ptr noundef %call7.i101, ptr noundef %call9.i104, ptr noundef nonnull %call11.i106)
           to label %__cxx_global_var_init.43.exit unwind label %lpad4.i102
 

@@ -517,7 +517,7 @@ if.end53:                                         ; preds = %if.end49
   call void @qtest_add_time(i64 noundef 100) #3
   %10 = load ptr, ptr %qtserv, align 8
   %11 = load i64, ptr %sid, align 8
-  %call54 = call i32 @ossl_quic_tserver_write(ptr noundef %10, i64 noundef %11, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.23, i64 0, i64 5), i64 noundef 7, ptr noundef nonnull %byteswritten) #3
+  %call54 = call i32 @ossl_quic_tserver_write(ptr noundef %10, i64 noundef %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 5), i64 noundef 7, ptr noundef nonnull %byteswritten) #3
   %cmp55 = icmp ne i32 %call54, 0
   %conv56 = zext i1 %cmp55 to i32
   %call57 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 325, ptr noundef nonnull @.str.54, i32 noundef %conv56) #3

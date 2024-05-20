@@ -372,7 +372,7 @@ define hidden noundef zeroext i1 @_ZN3log16set_logger_inner17hc1ea35fa1eef8b95E(
 
 6:                                                ; preds = %2
   store ptr %0, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8
   store atomic i64 2, ptr @_ZN3log5STATE17ha079c5667def49c9E seq_cst, align 8
   br label %.loopexit
 

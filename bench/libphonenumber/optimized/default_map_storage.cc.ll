@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17DefaultMapStorageE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers17DefaultMapStorageE, i64 16), ptr %0, align 8
   ret void
 }
 

@@ -20,7 +20,7 @@ define i32 @mca_sharedfp_lockedfile_get_position(ptr noundef %0, ptr noundef %1)
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str) #2
   %8 = getelementptr inbounds i8, ptr %0, i64 368
   %9 = load ptr, ptr %8, align 8

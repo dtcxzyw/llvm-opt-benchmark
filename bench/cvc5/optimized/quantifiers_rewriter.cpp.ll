@@ -550,7 +550,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriterC2EPNS1_8RewriterERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(392) %opts) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i64 16), ptr %this, align 8
   %d_rewriter = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %r, ptr %d_rewriter, align 8
   %d_opts = getelementptr inbounds i8, ptr %this, i64 16
@@ -46606,7 +46606,7 @@ call.i.noexc:                                     ; preds = %if.then5
           to label %.noexc37 unwind label %lpad10
 
 .noexc37:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.78, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 2))
           to label %invoke.cont11 unwind label %lpad.i35
 
 lpad.i35:                                         ; preds = %.noexc37

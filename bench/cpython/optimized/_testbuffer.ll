@@ -201,7 +201,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr @PyType_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @NDArray_Type, i64 0, i32 0, i32 0, i32 1), align 8
+  store ptr @PyType_Type, ptr getelementptr inbounds (i8, ptr @NDArray_Type, i64 8), align 8
   %0 = load i32, ptr @NDArray_Type, align 8
   %add.i48 = add i32 %0, 1
   %cmp.i49 = icmp eq i32 %add.i48, 0
@@ -213,7 +213,7 @@ if.end.i50:                                       ; preds = %if.end
 
 Py_INCREF.exit52:                                 ; preds = %if.end, %if.end.i50
   %call1 = tail call i32 @PyModule_AddObject(ptr noundef nonnull %call, ptr noundef nonnull @.str, ptr noundef nonnull @NDArray_Type) #14
-  store ptr @PyType_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @StaticArray_Type, i64 0, i32 0, i32 0, i32 1), align 8
+  store ptr @PyType_Type, ptr getelementptr inbounds (i8, ptr @StaticArray_Type, i64 8), align 8
   %1 = load i32, ptr @StaticArray_Type, align 8
   %add.i = add i32 %1, 1
   %cmp.i = icmp eq i32 %add.i, 0
@@ -4300,7 +4300,7 @@ if.then26:                                        ; preds = %if.then22
 
 if.end28:                                         ; preds = %if.then22
   %call30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @ndarray_memoryview_from_buffer.format, ptr noundef nonnull dereferenceable(1) %12) #14
-  store ptr @ndarray_memoryview_from_buffer.format, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i64 0, i32 6), align 8
+  store ptr @ndarray_memoryview_from_buffer.format, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 40), align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end28, %if.else17
@@ -4324,7 +4324,7 @@ if.then37:                                        ; preds = %if.end35
   %conv = sext i32 %14 to i64
   %mul = shl nsw i64 %conv, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.shape, ptr nonnull align 8 %16, i64 %mul, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.shape, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i64 0, i32 7), align 8
+  store ptr @ndarray_memoryview_from_buffer.shape, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 48), align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end35
@@ -4338,7 +4338,7 @@ if.then42:                                        ; preds = %if.end40
   %conv45 = sext i32 %18 to i64
   %mul46 = shl nsw i64 %conv45, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.strides, ptr nonnull align 8 %17, i64 %mul46, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.strides, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i64 0, i32 8), align 8
+  store ptr @ndarray_memoryview_from_buffer.strides, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 56), align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.end40
@@ -4352,7 +4352,7 @@ if.then49:                                        ; preds = %if.end47
   %conv52 = sext i32 %20 to i64
   %mul53 = shl nsw i64 %conv52, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.suboffsets, ptr nonnull align 8 %19, i64 %mul53, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i64 0, i32 9), align 8
+  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 64), align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then49, %if.end47

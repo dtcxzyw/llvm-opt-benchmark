@@ -1471,7 +1471,7 @@ vt_getline.exit12.i:                              ; preds = %.split.i
   br label %read_object_id_file.exit
 
 read_object_id_file.exit:                         ; preds = %12, %._crit_edge.i
-  %.sink.i = phi ptr [ %35, %._crit_edge.i ], [ getelementptr inbounds ([10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 0, i32 1), %12 ]
+  %.sink.i = phi ptr [ %35, %._crit_edge.i ], [ getelementptr inbounds (i8, ptr @object_id_strings, i64 8), %12 ]
   store ptr null, ptr %.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %1)
   ret void

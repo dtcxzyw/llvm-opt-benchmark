@@ -204,7 +204,7 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %39
-  store i32 32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.7, i64 24), align 8
   br label %45
 
 45:                                               ; preds = %44, %39
@@ -224,7 +224,7 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   br label %57
 
 54:                                               ; preds = %45
-  %55 = load i32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.7, i64 24), align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 1368
   store i32 %55, ptr %56, align 8
   br label %57
@@ -235,7 +235,7 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %57
-  store i32 32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.10, i64 24), align 8
   br label %60
 
 60:                                               ; preds = %59, %57
@@ -253,7 +253,7 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   br label %72
 
 69:                                               ; preds = %60
-  %70 = load i32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.10, i64 24), align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 1372
   store i32 %70, ptr %71, align 4
   br label %72
@@ -362,9 +362,9 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   %121 = select i1 %120, ptr @.str.24, ptr @.str.23
   %122 = select i1 %120, i32 1, i32 2
   %123 = tail call noalias ptr @kstrdup(ptr noundef nonnull %121, i32 noundef 3264) #5
-  store ptr %123, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2), align 8
-  store i32 %122, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 3), align 8
-  store i32 %122, ptr getelementptr inbounds (%struct.anon.6, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 4), i64 0, i32 1), align 4
+  store ptr %123, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.21, i64 16), align 8
+  store i32 %122, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.21, i64 24), align 8
+  store i32 %122, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.21, i64 36), align 4
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %129
 
@@ -389,7 +389,7 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   %136 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %2, ptr noundef nonnull @e1000e_check_options.opt.21, ptr noundef %0), !range !5
   %137 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  %.pre2 = load ptr, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2), align 8
+  %.pre2 = load ptr, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.21, i64 16), align 8
   br label %138
 
 138:                                              ; preds = %129, %132

@@ -217,7 +217,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
   br label %92
 
 15:                                               ; preds = %8
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %17 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 96) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %92, label %19
@@ -394,7 +394,7 @@ define dso_local i32 @__register_chrdev(i32 noundef %0, i32 noundef %1, i32 noun
   br label %74
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 104) #11
   %14 = icmp eq ptr %13, null
   br i1 %14, label %46, label %15
@@ -511,7 +511,7 @@ define dso_local i32 @__register_chrdev(i32 noundef %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @cdev_alloc() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %2 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 104) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4

@@ -544,7 +544,7 @@ declare dso_local i32 @wait_for_completion_state(ptr noundef, i32 noundef) local
 define dso_local i32 @call_usermodehelper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq i32 %3, 0
   %6 = select i1 %5, i32 2336, i32 3520
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %7, i32 noundef %6, i64 noundef 96) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %19, label %10

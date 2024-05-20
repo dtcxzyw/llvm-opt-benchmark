@@ -273,9 +273,9 @@ strbuf_addch.exit48:                              ; preds = %strbuf_avail.exit.i
   %17 = load i64, ptr %len.i41, align 8
   %arrayidx3.i43 = getelementptr inbounds i8, ptr %16, i64 %17
   store i8 0, ptr %arrayidx3.i43, align 1
-  %18 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_packet, i64 0, i32 1), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @trace_packet, i64 8), align 8
   %tobool.not.i49 = icmp eq i32 %18, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_packet, i64 0, i32 2), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_packet, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool55.not52 = icmp ne i8 %bf.clear.i, 0
   %tobool55.not = select i1 %tobool.not.i49, i1 %tobool55.not52, i1 false
@@ -437,8 +437,8 @@ define dso_local void @packet_write_fmt(i32 noundef %fd, ptr noundef %fmt, ...) 
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -448,8 +448,8 @@ if.then4.i.i:                                     ; preds = %entry
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
   call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %packet_write_fmt_1.exit
@@ -472,8 +472,8 @@ define dso_local range(i32 -1, 1) i32 @packet_write_fmt_gently(i32 noundef %fd, 
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -483,8 +483,8 @@ if.then4.i.i:                                     ; preds = %entry
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
   call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %packet_write_fmt_1.exit
@@ -668,8 +668,8 @@ declare void @fwrite_or_die(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define dso_local void @packet_fwrite_fmt(ptr noundef %fh, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -681,8 +681,8 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   call void @llvm.va_start.p0(ptr nonnull %args)
   call fastcc void @format_packet(ptr noundef nonnull @packet_fwrite_fmt.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i64 0, i32 2), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 16), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 8), align 8
   call void @fwrite_or_die(ptr noundef %fh, ptr noundef %1, i64 noundef %2) #15
   ret void
 }
@@ -1560,7 +1560,7 @@ entry:
   %me = getelementptr inbounds i8, ptr %reader, i64 64
   store ptr @.str.18, ptr %me, align 8
   %hash_algo = getelementptr inbounds i8, ptr %reader, i64 72
-  store ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1), ptr %hash_algo, align 8
+  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo, align 8
   %scratch = getelementptr inbounds i8, ptr %reader, i64 80
   tail call void @strbuf_init(ptr noundef nonnull %scratch, i64 noundef 0) #15
   ret void
@@ -1702,8 +1702,8 @@ entry:
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   %cond = select i1 %tobool.not, ptr @.str.7, ptr @.str.19
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -1713,8 +1713,8 @@ if.then4.i.i:                                     ; preds = %entry
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
   call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %packet_write_fmt_1.exit
@@ -1743,8 +1743,8 @@ entry:
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   %cond = select i1 %tobool.not, ptr @.str.15, ptr @.str.20
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -1754,8 +1754,8 @@ if.then4.i.i:                                     ; preds = %entry
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
   call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %packet_write_fmt_1.exit

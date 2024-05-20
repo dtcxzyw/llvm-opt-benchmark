@@ -63,8 +63,8 @@ if.then9:                                         ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %if.end.i, label %if.end12.thread16
 
 if.end.i:                                         ; preds = %if.then9
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i64 0, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -89,7 +89,7 @@ if.then15.i:                                      ; preds = %strbuf_setlen.exit.
   br label %if.end12.thread16
 
 if.end18.i:                                       ; preds = %strbuf_setlen.exit.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 16), align 8
   %call19.i = call i64 @strcspn(ptr noundef %5, ptr noundef nonnull @.str.6) #12
   %6 = load i64, ptr @do_askpass.buffer, align 8
   %spec.select.i2.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
@@ -101,7 +101,7 @@ if.then.i.i:                                      ; preds = %if.end18.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end18.i
-  store i64 %call19.i, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i64 0, i32 1), align 8
+  store i64 %call19.i, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 8), align 8
   %cmp3.not.i3.i = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i3.i, label %if.end12.thread19, label %if.end12
 
@@ -116,7 +116,7 @@ if.end12.thread16:                                ; preds = %if.then15.i, %if.th
 if.end12:                                         ; preds = %if.end.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %call19.i
   store i8 0, ptr %arrayidx.i.i, align 1
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i64 0, i32 2), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %pass.i)
   %tobool13.not = icmp eq ptr %.pre.i, null
   br i1 %tobool13.not, label %if.then14, label %if.end26

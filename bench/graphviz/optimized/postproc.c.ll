@@ -1348,7 +1348,7 @@ default.unreachable:                              ; preds = %616
 634:                                              ; preds = %616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @Offset, ptr noundef nonnull align 8 dereferenceable(16) %619, i64 16, i1 false)
   %.pre = load double, ptr @Offset, align 16
-  %.pre87 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @Offset, i64 0, i32 1), align 8
+  %.pre87 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
   %635 = fcmp une double %.pre, 0.000000e+00
   %636 = fcmp une double %.pre87, 0.000000e+00
   %637 = select i1 %635, i1 true, i1 %636
@@ -1358,7 +1358,7 @@ default.unreachable:                              ; preds = %616
   %.sink94 = phi double [ %623, %620 ], [ %626, %625 ], [ %632, %630 ]
   %.sink93 = phi double [ %624, %620 ], [ %629, %625 ], [ %633, %630 ]
   store double %.sink94, ptr @Offset, align 16
-  store double %.sink93, ptr getelementptr inbounds (%struct.pointf_s, ptr @Offset, i64 0, i32 1), align 8
+  store double %.sink93, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %634
@@ -1775,7 +1775,7 @@ place_root_label.exit:                            ; preds = %878, %882
   br label %891
 
 891:                                              ; preds = %place_root_label.exit, %846, %translate_drawing.exit
-  %892 = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 1), align 8
+  %892 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
   %893 = icmp eq i64 %892, 0
   br i1 %893, label %952, label %894
 
@@ -1787,12 +1787,12 @@ place_root_label.exit:                            ; preds = %878, %882
 
 897:                                              ; preds = %894
   %898 = load double, ptr @Offset, align 16
-  %899 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @Offset, i64 0, i32 1), align 8
+  %899 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, double noundef %898, double noundef %899, double noundef %898, double noundef %899)
   br label %905
 
 900:                                              ; preds = %894
-  %901 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @Offset, i64 0, i32 1), align 8
+  %901 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
   %902 = load double, ptr @Offset, align 16
   %903 = fneg double %902
   %904 = fneg double %901
@@ -1855,8 +1855,8 @@ agxbputc.exit.i:                                  ; preds = %.thread.i, %919
 
 agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %agxbputc.exit.i
   %.0.i = phi ptr [ %925, %agxbputc.exit.i ], [ %908, %agxblen.exit.i ]
-  %926 = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 1), align 8
-  %927 = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 2), align 8
+  %926 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
+  %927 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
   %928 = icmp eq i64 %926, %927
   br i1 %928, label %929, label %._crit_edge.i.i85
 
@@ -1879,15 +1879,15 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %ag
   br i1 %936, label %943, label %937
 
 937:                                              ; preds = %932
-  %938 = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 2), align 8
+  %938 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
   %939 = shl i64 %938, 3
   %940 = getelementptr inbounds i8, ptr %935, i64 %939
   %941 = sub i64 %spec.select.i.i, %938
   %942 = shl i64 %941, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %940, i8 0, i64 %942, i1 false)
   store ptr %935, ptr @Show_boxes, align 8
-  store i64 %spec.select.i.i, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 2), align 8
-  %.pre1.i.i = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 1), align 8
+  store i64 %spec.select.i.i, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
   br label %show_boxes_append.exit
 
 943:                                              ; preds = %932, %929
@@ -1903,9 +1903,9 @@ show_boxes_append.exit:                           ; preds = %._crit_edge.i.i85, 
   %948 = phi ptr [ %.pre.i.i86, %._crit_edge.i.i85 ], [ %935, %937 ]
   %949 = getelementptr inbounds ptr, ptr %948, i64 %947
   store ptr %.0.i, ptr %949, align 8
-  %950 = load i64, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 1), align 8
+  %950 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
   %951 = add i64 %950, 1
-  store i64 %951, ptr getelementptr inbounds (%struct.show_boxes_t, ptr @Show_boxes, i64 0, i32 1), align 8
+  store i64 %951, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
   br label %952
 
 952:                                              ; preds = %show_boxes_append.exit, %891

@@ -42,17 +42,17 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4194304
   %18 = icmp eq i32 %17, 0
-  %19 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %20 = select i1 %18, i64 0, i64 %19
   br label %23
 
 21:                                               ; preds = %1
-  %22 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   br label %39
 
 23:                                               ; preds = %14, %4
   %.ph = phi i64 [ %20, %14 ], [ 0, %4 ]
-  %24 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   %25 = load volatile i64, ptr %6, align 8
   %26 = trunc i64 %25 to i32
   %27 = shl i32 %26, 2
@@ -67,7 +67,7 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 4194304
   %36 = icmp eq i32 %35, 0
-  %37 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %38 = select i1 %36, i64 0, i64 %37
   br label %39
 
@@ -360,18 +360,18 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 4194304
   %87 = icmp eq i32 %86, 0
-  %88 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %88 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %89 = select i1 %87, i64 0, i64 %88
   br label %92
 
 90:                                               ; preds = %72
-  %91 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %91 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   br label %108
 
 92:                                               ; preds = %83, %75
   %.ph = phi i64 [ %89, %83 ], [ 0, %75 ]
   store i64 %.ph, ptr %68, align 8
-  %93 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %93 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   %94 = load volatile i64, ptr %8, align 8
   %95 = trunc i64 %94 to i32
   %96 = shl i32 %95, 2
@@ -386,7 +386,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 4194304
   %105 = icmp eq i32 %104, 0
-  %106 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %106 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %107 = select i1 %105, i64 0, i64 %106
   br label %108
 
@@ -552,18 +552,18 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 4194304
   %97 = icmp eq i32 %96, 0
-  %98 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %98 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %99 = select i1 %97, i64 0, i64 %98
   br label %102
 
 100:                                              ; preds = %82
-  %101 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %101 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   br label %118
 
 102:                                              ; preds = %93, %85
   %.ph = phi i64 [ %99, %93 ], [ 0, %85 ]
   store i64 %.ph, ptr %78, align 8
-  %103 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 2), align 16
+  %103 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 16), align 16
   %104 = load volatile i64, ptr %8, align 8
   %105 = trunc i64 %104 to i32
   %106 = shl i32 %105, 2
@@ -578,7 +578,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 4194304
   %115 = icmp eq i32 %114, 0
-  %116 = load i64, ptr getelementptr inbounds (%struct.va_alignment, ptr @va_align, i64 0, i32 1), align 8
+  %116 = load i64, ptr getelementptr inbounds (i8, ptr @va_align, i64 8), align 8
   %117 = select i1 %115, i64 0, i64 %116
   br label %118
 

@@ -12265,9 +12265,9 @@ define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef 
   %22 = getelementptr inbounds i8, ptr %10, i64 48
   store i32 1, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @_m3dstbi__zdefault_length, i8 8, i64 144, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) getelementptr inbounds ([288 x i8], ptr @_m3dstbi__zdefault_length, i64 0, i64 144), i8 9, i64 112, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds ([288 x i8], ptr @_m3dstbi__zdefault_length, i64 0, i64 256), i8 7, i64 24, i1 false)
-  store i64 578721382704613384, ptr getelementptr inbounds ([288 x i8], ptr @_m3dstbi__zdefault_length, i64 0, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 144), i8 9, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 256), i8 7, i64 24, i1 false)
+  store i64 578721382704613384, ptr getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 280), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_m3dstbi__zdefault_distance, i8 5, i64 32, i1 false)
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_m3dstbi__parse_zlib_header.exit.i.i, label %23

@@ -35,7 +35,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3ue223DefaultComponentVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223DefaultComponentVisitorE, i64 16), ptr %this, align 8
   ret void
 }
 

@@ -277,7 +277,7 @@ _parse_args.exit:                                 ; preds = %48, %59, %65, %66
   unreachable
 
 69:                                               ; preds = %_parse_args.exit
-  %70 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 162), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1096), align 8
   %71 = call ptr @xstrcasestr(ptr noundef %70, ptr noundef nonnull @.str.1) #16
   %.not11 = icmp eq ptr %71, null
   br i1 %.not11, label %72, label %73
@@ -511,9 +511,9 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
   unreachable
 
 _reset_options.exit.i:                            ; preds = %154
-  %158 = load i64, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 26), align 8
+  %158 = load i64, ptr getelementptr inbounds (i8, ptr @opt, i64 168), align 8
   %159 = or i64 %158, 4194304
-  store i64 %159, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 26), align 8
+  store i64 %159, ptr getelementptr inbounds (i8, ptr @opt, i64 168), align 8
   %160 = call ptr @xstrdup(ptr noundef nonnull @.str.45) #16
   store ptr %160, ptr %8, align 8
   br label %.preheader

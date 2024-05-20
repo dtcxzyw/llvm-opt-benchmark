@@ -59,7 +59,7 @@ define dso_local noalias ptr @module_alloc(i64 noundef %0) local_unnamed_addr #0
   br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
-  %6 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14), align 1
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 529), align 1
   %7 = and i8 %6, 2
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %19, label %9

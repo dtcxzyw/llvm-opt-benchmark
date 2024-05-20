@@ -27,7 +27,7 @@ $_ZTI7b2Shape = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12b2ChainShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12b2ChainShape, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12b2ChainShape, i64 16), ptr %this, align 8
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_vertices.i, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %0)
@@ -151,7 +151,7 @@ entry:
 define noundef ptr @_ZNK12b2ChainShape5CloneEP16b2BlockAllocator(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef nonnull %allocator) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 48)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12b2ChainShape, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12b2ChainShape, i64 16), ptr %call, align 8
   %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 3, ptr %m_type.i, align 8
   %m_radius.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -253,7 +253,7 @@ entry:
 define noundef zeroext i1 @_ZNK12b2ChainShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %output, ptr noundef nonnull align 4 dereferenceable(20) %input, ptr noundef nonnull align 4 dereferenceable(16) %xf, i32 noundef %childIndex) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %edgeShape = alloca %class.b2EdgeShape, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i64 0, i32 0, i64 2), ptr %edgeShape, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11b2EdgeShape, i64 16), ptr %edgeShape, align 8
   %m_type.i = getelementptr inbounds i8, ptr %edgeShape, i64 8
   store i32 1, ptr %m_type.i, align 8
   %m_radius.i = getelementptr inbounds i8, ptr %edgeShape, i64 12

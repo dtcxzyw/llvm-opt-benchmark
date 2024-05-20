@@ -33,13 +33,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_mpit_lock() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_mpit_big_lock, i64 0, i32 1)) #4
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpit_big_lock, i64 16)) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_mpit_unlock() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @ompi_mpit_big_lock, i64 0, i32 1)) #4
+  %1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpit_big_lock, i64 16)) #4
   ret void
 }
 

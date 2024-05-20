@@ -1785,9 +1785,9 @@ define dso_local void @disable_old_cluster() local_unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.94) #9
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.95, ptr noundef %3) #9
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.96, ptr noundef %5) #9
   %7 = call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %2) #9
   %.not = icmp eq i32 %7, 0
@@ -1799,7 +1799,7 @@ define dso_local void @disable_old_cluster() local_unnamed_addr #0 {
 
 9:                                                ; preds = %0
   call void @check_ok() #9
-  %10 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.98, ptr noundef %10) #9
   ret void
 }

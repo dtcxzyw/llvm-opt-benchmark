@@ -448,7 +448,7 @@ call2.i.noexc:
   %type.i = alloca %"class.std::basic_string_view", align 8
   %channel_creds_registry_.i = getelementptr inbounds i8, ptr %builder, i64 608
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core32GoogleDefaultChannelCredsFactoryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core32GoogleDefaultChannelCredsFactoryE, i64 16), ptr %call.i, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %type.i)
   store i64 14, ptr %type.i, align 8
   %0 = getelementptr inbounds i8, ptr %type.i, i64 8
@@ -472,7 +472,7 @@ _ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentia
 _ZNSt10unique_ptrIN9grpc_core32GoogleDefaultChannelCredsFactoryESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentialsEEEclEPS3_.exit.i.i.i.i.i, %call3.i.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %type.i)
   %call.i11 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core22TlsChannelCredsFactoryE, i64 0, i32 0, i64 2), ptr %call.i11, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22TlsChannelCredsFactoryE, i64 16), ptr %call.i11, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %type.i12)
   store i64 3, ptr %type.i12, align 8
   %3 = getelementptr inbounds i8, ptr %type.i12, i64 8
@@ -496,7 +496,7 @@ _ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentia
 call2.i.noexc41:                                  ; preds = %call3.i.noexc21, %_ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentialsEEEclEPS3_.exit.i.i.i.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %type.i12)
   %call.i33 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core27InsecureChannelCredsFactoryE, i64 0, i32 0, i64 2), ptr %call.i33, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core27InsecureChannelCredsFactoryE, i64 16), ptr %call.i33, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %type.i34)
   store i64 8, ptr %type.i34, align 8
   %6 = getelementptr inbounds i8, ptr %type.i34, i64 8
@@ -520,7 +520,7 @@ _ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentia
 call2.i.noexc63:                                  ; preds = %call3.i.noexc43, %_ZNKSt14default_deleteIN9grpc_core19ChannelCredsFactoryI24grpc_channel_credentialsEEEclEPS3_.exit.i.i.i.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %type.i34)
   %call.i55 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core23FakeChannelCredsFactoryE, i64 0, i32 0, i64 2), ptr %call.i55, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23FakeChannelCredsFactoryE, i64 16), ptr %call.i55, align 8, !noalias !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %type.i56)
   store i64 4, ptr %type.i56, align 8
   %9 = getelementptr inbounds i8, ptr %type.i56, i64 8
@@ -586,7 +586,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -602,7 +602,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -618,7 +618,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -634,7 +634,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -650,7 +650,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_8DurationEEE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_8DurationEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -687,7 +687,7 @@ invoke.cont8:                                     ; preds = %init.check
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22TlsChannelCredsFactory9TlsConfigELm4EvEE, i64 0, i32 0, i64 2), ptr %call.i11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22TlsChannelCredsFactory9TlsConfigELm4EvEE, i64 16), ptr %call.i11, align 8
   %elements_.i.i = getelementptr inbounds i8, ptr %call.i11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %elements_.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i11, i64 16
@@ -793,7 +793,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.not.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -817,7 +817,7 @@ call.i.noexc:                                     ; preds = %_ZNK9grpc_core12exp
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 16))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -886,7 +886,7 @@ invoke.cont5:                                     ; preds = %_ZNKSt4lessINSt7__c
 if.then.i.i.i11:                                  ; preds = %invoke.cont5
   %cmp.i.not.i.i.i.i12 = icmp eq i8 %8, -1
   %exception.i.i.i.i.i13 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i13, align 8
   %_M_reason.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i13, i64 8
   %.str.10..str.11 = select i1 %cmp.i.not.i.i.i.i12, ptr @.str.10, ptr @.str.11
   store ptr %.str.10..str.11, ptr %_M_reason.i.i.i.i.i.i14, align 8
@@ -907,7 +907,7 @@ call.i.noexc34:                                   ; preds = %invoke.cont14
           to label %.noexc36 unwind label %lpad18
 
 .noexc36:                                         ; preds = %call.i.noexc34
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.6, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 16))
           to label %invoke.cont19 unwind label %lpad.i33
 
 lpad.i33:                                         ; preds = %.noexc36
@@ -974,7 +974,7 @@ invoke.cont21:                                    ; preds = %_ZNKSt4lessINSt7__c
 if.then.i.i.i68:                                  ; preds = %invoke.cont21
   %cmp.i.not.i.i.i.i69 = icmp eq i8 %15, -1
   %exception.i.i.i.i.i70 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i70, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i70, align 8
   %_M_reason.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i70, i64 8
   %.str.10..str.1181 = select i1 %cmp.i.not.i.i.i.i69, ptr @.str.10, ptr @.str.11
   store ptr %.str.10..str.1181, ptr %_M_reason.i.i.i.i.i.i71, align 8
@@ -1197,7 +1197,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %0, i8 0, i64 104, i1 false), !noalias !19
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !19
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 16), ptr %call.i, align 8, !noalias !19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19, !noalias !19
   %private_key_file_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %private_key_file_.i.i) #19, !noalias !19
@@ -1265,7 +1265,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 16), ptr %this, align 8
   %ca_certificate_file_ = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ca_certificate_file_) #19
   %private_key_file_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1278,7 +1278,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22TlsChannelCredsFactory9TlsConfigE, i64 16), ptr %this, align 8
   %ca_certificate_file_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ca_certificate_file_.i) #19
   %private_key_file_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1436,7 +1436,7 @@ call.i9.noexc:                                    ; preds = %invoke.cont
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %call.i9.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 16))
           to label %invoke.cont6 unwind label %lpad.i10
 
 lpad.i10:                                         ; preds = %.noexc
@@ -1565,7 +1565,7 @@ call.i21.noexc:                                   ; preds = %invoke.cont16
           to label %.noexc26 unwind label %lpad19
 
 .noexc26:                                         ; preds = %call.i21.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.6, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 16))
           to label %invoke.cont20 unwind label %lpad.i24
 
 lpad.i24:                                         ; preds = %.noexc26
@@ -1689,7 +1689,7 @@ call.i54.noexc:                                   ; preds = %invoke.cont33
           to label %.noexc59 unwind label %lpad36
 
 .noexc59:                                         ; preds = %call.i54.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([20 x i8], ptr @.str.7, i64 0, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 19))
           to label %invoke.cont37 unwind label %lpad.i57
 
 lpad.i57:                                         ; preds = %.noexc59
@@ -1825,7 +1825,7 @@ call.i85.noexc:                                   ; preds = %_ZN9grpc_core12expe
           to label %.noexc90 unwind label %lpad57
 
 .noexc90:                                         ; preds = %call.i85.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.8, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 16))
           to label %invoke.cont58 unwind label %lpad.i88
 
 lpad.i88:                                         ; preds = %.noexc90
@@ -3806,7 +3806,7 @@ _ZN9grpc_core13RefCountedPtrINS_32GoogleDefaultChannelCredsFactory6ConfigEED2Ev.
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !46
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !46
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core32GoogleDefaultChannelCredsFactory6ConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core32GoogleDefaultChannelCredsFactory6ConfigE, i64 16), ptr %call.i, align 8, !noalias !46
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -3948,7 +3948,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %1, i8 0, i64 208, i1 false), !noalias !55
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !55
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV28grpc_tls_credentials_options, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call.i, align 8, !noalias !55
   %verify_server_cert_.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i8 1, ptr %verify_server_cert_.i.i, align 4, !noalias !55
   %max_tls_version_.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
@@ -4182,7 +4182,7 @@ cleanup.action:                                   ; preds = %lpad, %ehcleanup16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28grpc_tls_credentials_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV28grpc_tls_credentials_options, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4343,7 +4343,7 @@ _ZN9grpc_core13RefCountedPtrINS_27InsecureChannelCredsFactory6ConfigEED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !61
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !61
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core27InsecureChannelCredsFactory6ConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core27InsecureChannelCredsFactory6ConfigE, i64 16), ptr %call.i, align 8, !noalias !61
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -4439,7 +4439,7 @@ _ZN9grpc_core13RefCountedPtrINS_23FakeChannelCredsFactory6ConfigEED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !67
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !67
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core23FakeChannelCredsFactory6ConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23FakeChannelCredsFactory6ConfigE, i64 16), ptr %call.i, align 8, !noalias !67
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

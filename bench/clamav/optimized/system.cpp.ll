@@ -28,7 +28,7 @@ declare i64 @clock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z4Waitv() local_unnamed_addr #3 {
-  %1 = load i8, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i64 0, i32 6), align 4
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 12), align 4
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %4
 

@@ -37,7 +37,7 @@ define range(i32 -1, 1) i32 @clock_settime(i32 noundef %0, ptr nocapture noundef
   %19 = add i64 %12, %18
   %20 = select i1 %16, i64 %17, i64 %13
   %21 = sub nsw i64 %20, %15
-  store i64 %21, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i64 0, i32 1), align 8
+  store i64 %21, ptr getelementptr inbounds (i8, ptr @g_basetime, i64 8), align 8
   %22 = load i64, ptr %4, align 8
   %23 = sub i64 %19, %22
   store i64 %23, ptr @g_basetime, align 8

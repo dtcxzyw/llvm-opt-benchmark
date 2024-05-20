@@ -84,7 +84,7 @@ init_genrand.exit:                                ; preds = %3
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %12
-  %34 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
   store i64 %34, ptr @mt, align 16
   br label %35
 
@@ -118,7 +118,7 @@ init_genrand.exit:                                ; preds = %3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.preheader
-  %53 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
   store i64 %53, ptr @mt, align 16
   br label %54
 
@@ -177,7 +177,7 @@ init_genrand.exit.preheader:                      ; preds = %7, %._crit_edge39
   br i1 %exitcond.not.i, label %init_genrand.exit.preheader, label %7
 
 .lr.ph.preheader:                                 ; preds = %init_genrand.exit
-  %.pre35 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 227), align 8
+  %.pre35 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1816), align 8
   br label %.lr.ph
 
 init_genrand.exit:                                ; preds = %init_genrand.exit.preheader, %init_genrand.exit
@@ -227,19 +227,19 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
   br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %47 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
   %48 = and i64 %47, 2147483648
   %49 = load i64, ptr @mt, align 16
   %50 = and i64 %49, 2147483646
   %51 = or disjoint i64 %50, %48
-  %52 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 396), align 16
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 3168), align 16
   %53 = lshr exact i64 %51, 1
   %54 = and i64 %49, 1
   %55 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = xor i64 %56, %52
   %58 = xor i64 %57, %53
-  store i64 %58, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
+  store i64 %58, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
   br label %59
 
 59:                                               ; preds = %._crit_edge36, %._crit_edge

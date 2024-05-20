@@ -179,18 +179,18 @@ if.end13.i:                                       ; preds = %if.then11.i, %if.en
 
 while.body.i:                                     ; preds = %if.end24.i, %if.end13.i
   %already_hashed_to.0.i = phi i64 [ 0, %if.end13.i ], [ %already_hashed_to.3.i, %if.end24.i ]
-  %9 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %tobool1.not.i.i = icmp eq ptr %9, null
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond.i.i, label %if.end.i.i, label %prepare_to_stream.exit.i
 
 if.end.i.i:                                       ; preds = %while.body.i
   %call.i.i = call ptr @create_tmp_packfile(ptr noundef nonnull @bulk_checkin_packfile) #13
-  store ptr %call.i.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
-  call void @reset_pack_idx_option(ptr noundef nonnull getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 3)) #13
-  %10 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
+  call void @reset_pack_idx_option(ptr noundef nonnull getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 24)) #13
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %call4.i.i = call i64 @write_pack_header(ptr noundef %10, i32 noundef 1) #13
-  store i64 %call4.i.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  store i64 %call4.i.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   %tobool6.not.i.i = icmp eq i64 %call4.i.i, 0
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %prepare_to_stream.exit.i
 
@@ -202,11 +202,11 @@ prepare_to_stream.exit.i:                         ; preds = %if.end.i.i, %while.
   br i1 %tobool.not.i, label %if.end17.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %prepare_to_stream.exit.i
-  %11 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   call void @hashfile_checkpoint(ptr noundef %11, ptr noundef nonnull %checkpoint.i) #13
-  %12 = load i64, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   store i64 %12, ptr %offset15.i, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   call void @crc32_begin(ptr noundef %13) #13
   br label %if.end17.i
 
@@ -300,7 +300,7 @@ if.then42.i.i:                                    ; preds = %if.then40.i.i
   %20 = load ptr, ptr %next_out.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %21 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %tobool45.i.i = icmp ne i32 %21, 0
   %22 = load i64, ptr @pack_size_limit_cfg, align 8
   %tobool47.i.i = icmp ne i64 %22, 0
@@ -308,18 +308,18 @@ if.then42.i.i:                                    ; preds = %if.then40.i.i
   br i1 %or.cond2.i.i, label %land.lhs.true48.i.i, label %if.end55.i.i
 
 land.lhs.true48.i.i:                              ; preds = %if.then42.i.i
-  %23 = load i64, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   %add50.i.i = add i64 %23, %sub.ptr.sub.i.i
   %cmp51.i.i = icmp ult i64 %22, %add50.i.i
   br i1 %cmp51.i.i, label %if.end21.i, label %if.end55.i.i
 
 if.end55.i.i:                                     ; preds = %land.lhs.true48.i.i, %if.then42.i.i
-  %24 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %conv57.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   call void @hashwrite(ptr noundef %24, ptr noundef nonnull %obuf.i.i, i32 noundef %conv57.i.i) #13
-  %25 = load i64, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   %add59.i.i = add i64 %25, %sub.ptr.sub.i.i
-  store i64 %add59.i.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  store i64 %add59.i.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   br label %if.end60.i.i
 
 if.end60.i.i:                                     ; preds = %if.end55.i.i, %if.then40.i.i
@@ -353,10 +353,10 @@ if.then23.i:                                      ; preds = %if.end21.i
   unreachable
 
 if.end24.i:                                       ; preds = %if.end21.i
-  %26 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %call26.i = call i32 @hashfile_truncate(ptr noundef %26, ptr noundef nonnull %checkpoint.i) #13
   %27 = load i64, ptr %checkpoint.i, align 8
-  store i64 %27, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  store i64 %27, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   call fastcc void @flush_bulk_checkin_packfile()
   %call29.i = call i64 @lseek64(i32 noundef %fd, i64 noundef %call.i, i32 noundef 0) #13
   %cmp30.i = icmp eq i64 %call29.i, -1
@@ -380,7 +380,7 @@ while.end.i:                                      ; preds = %if.end64.i.i
   br i1 %tobool.not.i, label %deflate_blob_to_pack.exit, label %if.end39.i
 
 if.end39.i:                                       ; preds = %while.end.i
-  %31 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %call41.i = call i32 @crc32_end(ptr noundef %31) #13
   %crc32.i = getelementptr inbounds i8, ptr %idx.0.i, i64 36
   store i32 %call41.i, ptr %crc32.i, align 4
@@ -390,12 +390,12 @@ if.end39.i:                                       ; preds = %while.end.i
   br i1 %tobool.not.i46.i, label %for.cond.preheader.i.i, label %if.then44.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end39.i
-  %33 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %cmp1.not.i.i = icmp eq i32 %33, 0
   br i1 %cmp1.not.i.i, label %if.else.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %34 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
   %35 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i.i = getelementptr inbounds i8, ptr %35, i64 256
   %wide.trip.count.i.i = zext i32 %33 to i64
@@ -445,10 +445,10 @@ oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if
   br i1 %retval.0.in.i.i.not.i.i, label %if.then44.i, label %for.cond.i.i
 
 if.then44.i:                                      ; preds = %oideq.exit.i.i, %if.end39.i
-  %40 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %call46.i = call i32 @hashfile_truncate(ptr noundef %40, ptr noundef nonnull %checkpoint.i) #13
   %41 = load i64, ptr %checkpoint.i, align 8
-  store i64 %41, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  store i64 %41, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   call void @free(ptr noundef %idx.0.i) #13
   br label %deflate_blob_to_pack.exit
 
@@ -458,11 +458,11 @@ if.else.i:                                        ; preds = %for.cond.i.i, %for.
   %42 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %idx.0.i, i64 32
   store i32 %42, ptr %algo3.i.i, align 4
-  %43 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %add.i = add i32 %43, 1
-  %44 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 5), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 64), align 8
   %cmp49.i = icmp ugt i32 %add.i, %44
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
   br i1 %cmp49.i, label %if.then51.i, label %do.end.i
 
 if.then51.i:                                      ; preds = %if.else.i
@@ -470,12 +470,12 @@ if.then51.i:                                      ; preds = %if.else.i
   %mul.i = add i32 %45, 48
   %div40.i = lshr i32 %mul.i, 1
   %add.div40.i = call i32 @llvm.umax.i32(i32 %div40.i, i32 %add.i)
-  store i32 %add.div40.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 5), align 8
+  store i32 %add.div40.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 64), align 8
   %conv70.i = zext i32 %add.div40.i to i64
   %mul.i.i = shl nuw nsw i64 %conv70.i, 3
   %call72.i = call ptr @xrealloc(ptr noundef %.pre.i, i64 noundef %mul.i.i) #13
-  store ptr %call72.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
-  %.pre20.i = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  store ptr %call72.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
+  %.pre20.i = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %.pre21.i = add i32 %.pre20.i, 1
   br label %do.end.i
 
@@ -483,7 +483,7 @@ do.end.i:                                         ; preds = %if.then51.i, %if.el
   %inc.pre-phi.i = phi i32 [ %add.i, %if.else.i ], [ %.pre21.i, %if.then51.i ]
   %46 = phi i32 [ %43, %if.else.i ], [ %.pre20.i, %if.then51.i ]
   %47 = phi ptr [ %.pre.i, %if.else.i ], [ %call72.i, %if.then51.i ]
-  store i32 %inc.pre-phi.i, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  store i32 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %idxprom.i = zext i32 %46 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i
   store ptr %idx.0.i, ptr %arrayidx.i, align 8
@@ -513,12 +513,12 @@ entry:
   %hash = alloca [32 x i8], align 16
   %packname = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packname, ptr noundef nonnull align 8 dereferenceable(24) @__const.flush_batch_fsync.temp_path, i64 24, i1 false)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   switch i32 %1, label %if.else9 [
     i32 0, label %if.then1
     i32 1, label %if.then6
@@ -538,8 +538,8 @@ if.then6:                                         ; preds = %if.end
 if.else9:                                         ; preds = %if.end
   %call13 = call i32 @finalize_hashfile(ptr noundef nonnull %0, ptr noundef nonnull %hash, i32 noundef 2, i32 noundef 0) #13
   %4 = load ptr, ptr @bulk_checkin_packfile, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
-  %6 = load i64, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   call void @fixup_pack_header_footer(i32 noundef %call13, ptr noundef nonnull %hash, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %hash, i64 noundef %6) #13
   %call18 = call i32 @close(i32 noundef %call13) #13
   br label %if.end20
@@ -549,33 +549,33 @@ if.end20:                                         ; preds = %if.then6, %if.else9
   %call23 = call ptr @hash_to_hex(ptr noundef nonnull %hash) #13
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %packname, ptr noundef nonnull @.str.13, ptr noundef %call21, ptr noundef %call23) #13
   %7 = load ptr, ptr @bulk_checkin_packfile, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %idx_tmp_name.i)
   store ptr null, ptr %idx_tmp_name.i, align 8
-  call void @stage_tmp_packfiles(ptr noundef nonnull %packname, ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 3), ptr noundef nonnull %hash, ptr noundef nonnull %idx_tmp_name.i) #13
+  call void @stage_tmp_packfiles(ptr noundef nonnull %packname, ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 24), ptr noundef nonnull %hash, ptr noundef nonnull %idx_tmp_name.i) #13
   call void @rename_tmp_packfile_idx(ptr noundef nonnull %packname, ptr noundef nonnull %idx_tmp_name.i) #13
   %10 = load ptr, ptr %idx_tmp_name.i, align 8
   call void @free(ptr noundef %10) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx_tmp_name.i)
-  %11 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %cmp281.not = icmp eq i32 %11, 0
   br i1 %cmp281.not, label %clear_exit, label %for.body
 
 for.body:                                         ; preds = %if.end20, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end20 ]
-  %12 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx, align 8
   call void @free(ptr noundef %13) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 6), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %15 = zext i32 %14 to i64
   %cmp28 = icmp ult i64 %indvars.iv.next, %15
   br i1 %cmp28, label %for.body, label %clear_exit, !llvm.loop !7
 
 clear_exit:                                       ; preds = %for.body, %if.end20, %if.then1
-  %16 = load ptr, ptr getelementptr inbounds (%struct.bulk_checkin_packfile, ptr @bulk_checkin_packfile, i64 0, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
   call void @free(ptr noundef %16) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) @bulk_checkin_packfile, i8 0, i64 72, i1 false)
   call void @strbuf_release(ptr noundef nonnull %packname) #13

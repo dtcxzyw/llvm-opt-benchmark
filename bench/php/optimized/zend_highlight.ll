@@ -69,7 +69,7 @@ define void @zend_html_puts(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr null, ptr %5, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
@@ -150,7 +150,7 @@ zend_html_putc.exit17:                            ; preds = %28, %30, %32, %34, 
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %14
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not16 = icmp eq ptr %39, null
   br i1 %.not16, label %42, label %40
 
@@ -211,8 +211,8 @@ define void @zend_highlight(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %20 = zext i32 %19 to i64
   call void @zend_html_puts(ptr noundef %18, i64 noundef %20)
   store i32 0, ptr %10, align 8
@@ -263,14 +263,14 @@ define void @zend_highlight(ptr nocapture noundef readonly %0) local_unnamed_add
 
 34:                                               ; preds = %29, %31, %.loopexit
   %.1 = phi ptr [ %.0, %31 ], [ %.0, %29 ], [ %.028.ph, %.loopexit ]
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %37 = zext i32 %36 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   store ptr null, ptr %4, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %45, label %40
 
@@ -351,7 +351,7 @@ zend_html_putc.exit17.i:                          ; preds = %67, %65, %63, %61, 
   br i1 %69, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %45
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not16.i = icmp eq ptr %70, null
   br i1 %.not16.i, label %zend_html_puts.exit, label %71
 
@@ -447,8 +447,8 @@ define void @zend_strip() local_unnamed_addr #0 {
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @zend_write, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %14 = zext i32 %13 to i64
   %15 = call i64 %11(ptr noundef %12, i64 noundef %14) #4
   %16 = call i32 @lex_scan(ptr noundef nonnull %1, ptr noundef null) #4
@@ -457,8 +457,8 @@ define void @zend_strip() local_unnamed_addr #0 {
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr @zend_write, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %21 = zext i32 %20 to i64
   %22 = call i64 %18(ptr noundef %19, i64 noundef %21) #4
   br label %23
@@ -470,8 +470,8 @@ define void @zend_strip() local_unnamed_addr #0 {
 
 26:                                               ; preds = %4
   %27 = load ptr, ptr @zend_write, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %30 = zext i32 %29 to i64
   %31 = call i64 %27(ptr noundef %28, i64 noundef %30) #4
   %32 = load i8, ptr %2, align 8

@@ -147,7 +147,7 @@ declare dso_local i32 @__SCT__tp_func_swiotlb_bounced(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_swiotlb_bounced(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_swiotlb_bounced, i64 0, i32 8), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_swiotlb_bounced, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -548,7 +548,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @swiotlb_print_info() local_unnamed_addr #1 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %5
 
@@ -559,7 +559,7 @@ define dso_local void @swiotlb_print_info() local_unnamed_addr #1 align 16 {
 5:                                                ; preds = %0
   %6 = lshr i64 %1, 9
   %7 = and i64 %6, 17592186044415
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), i64 noundef %7) #22
+  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), i64 noundef %7) #22
   br label %9
 
 9:                                                ; preds = %5, %3
@@ -568,9 +568,9 @@ define dso_local void @swiotlb_print_info() local_unnamed_addr #1 align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @swiotlb_update_mem_attributes() local_unnamed_addr #4 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %2 = icmp ne i64 %1, 0
-  %3 = load i8, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 4), align 8, !range !12
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 32), align 8, !range !12
   %4 = icmp eq i8 %3, 0
   %5 = select i1 %2, i1 %4, i1 false
   br i1 %5, label %6, label %14
@@ -578,7 +578,7 @@ define dso_local void @swiotlb_update_mem_attributes() local_unnamed_addr #4 sec
 6:                                                ; preds = %0
   %7 = shl i64 %1, 11
   %8 = add i64 %7, 4095
-  %9 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 16), align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = lshr i64 %8, 12
   %12 = trunc i64 %11 to i32
@@ -610,7 +610,7 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %11 = icmp ne i32 %10, 0
   %12 = or i1 %11, %9
   %13 = zext i1 %12 to i8
-  store i8 %13, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 3), align 8
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 80), align 8
   %14 = load i64, ptr @default_nareas, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %20
@@ -677,7 +677,7 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %58 = and i64 %57, -4096
   %59 = select i1 %55, i64 0, i64 %58
   %60 = tail call ptr @memblock_alloc_try_nid(i64 noundef %59, i64 noundef 4096, i64 noundef 0, i64 noundef 0, i32 noundef -1) #20
-  store ptr %60, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %64
 
@@ -689,7 +689,7 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %65 = zext i32 %46 to i64
   %66 = shl nuw nsw i64 %65, 4
   %67 = tail call ptr @memblock_alloc_try_nid(i64 noundef %66, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef -1) #20
-  store ptr %67, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  store ptr %67, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %71
 
@@ -707,20 +707,20 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %78 = select i1 %74, i64 %75, i64 %77
   %79 = add i64 %73, %78
   %80 = shl i64 %47, 11
-  store i64 %47, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  store i64 %47, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   store i64 %79, ptr @io_tlb_default_mem, align 8
   %81 = add i64 %79, %80
-  store i64 %81, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 4), align 8
-  store i32 %46, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  store i64 %81, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 32), align 8
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %82 = udiv i64 %47, %65
   %83 = trunc i64 %82 to i32
-  store i32 %83, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 6), align 8
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 40), align 8
   %84 = icmp eq i32 %46, 0
   br i1 %84, label %.loopexit2.i, label %.preheader1.i
 
 .loopexit2.loopexit.i:                            ; preds = %.preheader1.i
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   br label %.loopexit2.i
 
 .loopexit2.i:                                     ; preds = %.loopexit2.loopexit.i, %71
@@ -730,17 +730,17 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
 
 .preheader1.i:                                    ; preds = %71, %.preheader1.i
   %87 = phi i64 [ %94, %.preheader1.i ], [ 0, %71 ]
-  %88 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %89 = getelementptr %struct.io_tlb_area, ptr %88, i64 %87, i32 2
   store i32 0, ptr %89, align 4
-  %90 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %91 = getelementptr %struct.io_tlb_area, ptr %90, i64 %87, i32 1
   store i32 0, ptr %91, align 8
-  %92 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %93 = getelementptr %struct.io_tlb_area, ptr %92, i64 %87
   store i64 0, ptr %93, align 8
   %94 = add nuw nsw i64 %87, 1
-  %95 = load i32, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %96 = zext i32 %95 to i64
   %97 = icmp ult i64 %94, %96
   br i1 %97, label %.preheader1.i, label %.loopexit2.loopexit.i, !llvm.loop !19
@@ -753,17 +753,17 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %102 = sub i64 %98, %99
   %103 = tail call i64 @llvm.umin.i64(i64 %101, i64 %102)
   %104 = trunc nuw nsw i64 %103 to i32
-  %105 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %106 = getelementptr %struct.io_tlb_slot, ptr %105, i64 %99, i32 2
   store i32 %104, ptr %106, align 8
-  %107 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %108 = getelementptr %struct.io_tlb_slot, ptr %107, i64 %99
   store i64 -1, ptr %108, align 8
-  %109 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %110 = getelementptr %struct.io_tlb_slot, ptr %109, i64 %99, i32 1
   store i64 0, ptr %110, align 8
   %111 = add nuw i64 %99, 1
-  %112 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %112 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %113 = icmp ult i64 %111, %112
   br i1 %113, label %.preheader.i, label %swiotlb_init_io_tlb_pool.exit, !llvm.loop !20
 
@@ -771,9 +771,9 @@ swiotlb_init_io_tlb_pool.exit:                    ; preds = %.preheader.i, %.loo
   %114 = add i64 %79, %76
   %115 = inttoptr i64 %114 to ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %115, i8 0, i64 %80, i1 false)
-  store ptr %115, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 2), align 8
-  %116 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
-  store i64 %116, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1), align 8
+  store ptr %115, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 16), align 8
+  %116 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
+  store i64 %116, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %117 = and i32 %1, 1
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.loopexit, label %119
@@ -893,7 +893,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %4 = lshr i64 %0, 11
   %5 = add nuw nsw i64 %4, 127
   %6 = and i64 %5, 18014398509481856
-  %7 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %.thread15
 
@@ -904,7 +904,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 11:                                               ; preds = %9
   %12 = load i1, ptr @swiotlb_force_bounce, align 1
   %13 = zext i1 %12 to i8
-  store i8 %13, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 3), align 8
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 80), align 8
   %14 = load i64, ptr @default_nareas, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %56
@@ -1107,7 +1107,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %141 = add i32 %140, 1
   %142 = tail call i64 @__get_free_pages(i32 noundef 3520, i32 noundef %141) #20
   %143 = inttoptr i64 %142 to ptr
-  store ptr %143, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  store ptr %143, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %144 = icmp eq i64 %142, 0
   br i1 %144, label %215, label %145
 
@@ -1122,7 +1122,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %153 = add i32 %152, 1
   %154 = tail call i64 @__get_free_pages(i32 noundef 3520, i32 noundef %153) #20
   %155 = inttoptr i64 %154 to ptr
-  store ptr %155, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  store ptr %155, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %156 = icmp eq i64 %154, 0
   br i1 %156, label %212, label %157
 
@@ -1138,20 +1138,20 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %166 = select i1 %162, i64 %163, i64 %165
   %167 = add i64 %161, %166
   %168 = shl nsw i64 %.us-phi3151, 11
-  store i64 %.us-phi3151, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  store i64 %.us-phi3151, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   store i64 %167, ptr @io_tlb_default_mem, align 8
   %169 = add i64 %167, %168
-  store i64 %169, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 4), align 8
-  store i32 %135, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  store i64 %169, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 32), align 8
+  store i32 %135, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %170 = udiv i64 %.us-phi3151, %136
   %171 = trunc i64 %170 to i32
-  store i32 %171, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 6), align 8
+  store i32 %171, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 40), align 8
   %172 = icmp eq i32 %135, 0
   br i1 %172, label %.loopexit17, label %.preheader16
 
 .loopexit17.loopexit:                             ; preds = %.preheader16
-  %.pre = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %157
@@ -1161,17 +1161,17 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 
 .preheader16:                                     ; preds = %157, %.preheader16
   %175 = phi i64 [ %182, %.preheader16 ], [ 0, %157 ]
-  %176 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %177 = getelementptr %struct.io_tlb_area, ptr %176, i64 %175, i32 2
   store i32 0, ptr %177, align 4
-  %178 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %179 = getelementptr %struct.io_tlb_area, ptr %178, i64 %175, i32 1
   store i32 0, ptr %179, align 8
-  %180 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %181 = getelementptr %struct.io_tlb_area, ptr %180, i64 %175
   store i64 0, ptr %181, align 8
   %182 = add nuw nsw i64 %175, 1
-  %183 = load i32, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  %183 = load i32, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %184 = zext i32 %183 to i64
   %185 = icmp ult i64 %182, %184
   br i1 %185, label %.preheader16, label %.loopexit17.loopexit, !llvm.loop !19
@@ -1184,17 +1184,17 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %190 = sub i64 %186, %187
   %191 = tail call i64 @llvm.umin.i64(i64 %189, i64 %190)
   %192 = trunc nuw nsw i64 %191 to i32
-  %193 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %194 = getelementptr %struct.io_tlb_slot, ptr %193, i64 %187, i32 2
   store i32 %192, ptr %194, align 8
-  %195 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %196 = getelementptr %struct.io_tlb_slot, ptr %195, i64 %187
   store i64 -1, ptr %196, align 8
-  %197 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %198 = getelementptr %struct.io_tlb_slot, ptr %197, i64 %187, i32 1
   store i64 0, ptr %198, align 8
   %199 = add nuw i64 %187, 1
-  %200 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %200 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %201 = icmp ult i64 %199, %200
   br i1 %201, label %.preheader, label %.loopexit, !llvm.loop !20
 
@@ -1202,9 +1202,9 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %202 = add i64 %167, %164
   %203 = inttoptr i64 %202 to ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %203, i8 0, i64 %168, i1 false)
-  store ptr %203, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 2), align 8
-  %204 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
-  store i64 %204, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1), align 8
+  store ptr %203, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 16), align 8
+  %204 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
+  store i64 %204, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %205 = icmp eq i64 %204, 0
   br i1 %205, label %206, label %208
 
@@ -1215,11 +1215,11 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 208:                                              ; preds = %.loopexit
   %209 = lshr i64 %204, 9
   %210 = and i64 %209, 17592186044415
-  %211 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), i64 noundef %210) #22
+  %211 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), i64 noundef %210) #22
   br label %.thread15
 
 212:                                              ; preds = %145
-  %213 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %214 = ptrtoint ptr %213 to i64
   tail call void @free_pages(i64 noundef %214, i32 noundef %141) #20
   br label %215
@@ -1243,7 +1243,7 @@ declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = load i1, ptr @swiotlb_force_bounce, align 1
-  %2 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %3 = icmp eq i64 %2, 0
   %4 = select i1 %1, i1 true, i1 %3
   br i1 %4, label %70, label %5
@@ -1253,11 +1253,11 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text"
   %7 = load i64, ptr @io_tlb_default_mem, align 8
   %8 = load i64, ptr @page_offset_base, align 8
   %9 = add i64 %8, %7
-  %10 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), align 8
   %11 = sub i64 %10, %7
   %12 = add i64 %11, 4095
   %13 = and i64 %12, -4096
-  %14 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 3), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %15 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 24)
   %16 = extractvalue { i64, i1 } %15, 1
   %17 = extractvalue { i64, i1 } %15, 0
@@ -1267,19 +1267,19 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text"
   %21 = lshr i64 %12, 12
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @set_memory_encrypted(i64 noundef %9, i32 noundef %22) #20
-  %24 = load i8, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 4), align 8, !range !12, !noundef !13
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 32), align 8, !range !12, !noundef !13
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %46, label %26
 
 26:                                               ; preds = %5
-  %27 = load i32, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 4
   %30 = add nsw i64 %29, -1
   %31 = lshr i64 %30, 12
   %32 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 -1) #21, !srcloc !16
   %33 = add i32 %32, 1
-  %34 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %35 = ptrtoint ptr %34 to i64
   tail call void @free_pages(i64 noundef %35, i32 noundef %33) #20
   %36 = add i64 %13, -1
@@ -1287,7 +1287,7 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text"
   %38 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %37, i32 -1) #21, !srcloc !16
   %39 = add i32 %38, 1
   tail call void @free_pages(i64 noundef %9, i32 noundef %39) #20
-  %40 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = add i64 %20, -1
   %43 = lshr i64 %42, 12
@@ -1297,7 +1297,7 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text"
   br label %69
 
 46:                                               ; preds = %5
-  %47 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 7), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = add i64 %48, 2147483648
   %50 = icmp ugt ptr %47, inttoptr (i64 -2147483649 to ptr)
@@ -1306,13 +1306,13 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #4 section ".init.text"
   %53 = sub i64 -2147483648, %52
   %54 = select i1 %50, i64 %51, i64 %53
   %55 = add i64 %49, %54
-  %56 = load i32, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 5), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %57 = zext i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 4
   tail call void @memblock_free_late(i64 noundef %55, i64 noundef %58) #20
   %59 = load i64, ptr @io_tlb_default_mem, align 8
   tail call void @memblock_free_late(i64 noundef %59, i64 noundef %13) #20
-  %60 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 8), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, 2147483648
   %63 = icmp ugt ptr %60, inttoptr (i64 -2147483649 to ptr)
@@ -1401,7 +1401,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 35:                                               ; preds = %30
   %36 = zext nneg i32 %20 to i64
   %37 = add i64 %36, %3
-  %38 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #20, !srcloc !22
+  %38 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !22
   %39 = getelementptr inbounds i8, ptr %9, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -1
@@ -2121,11 +2121,11 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
 
 .loopexit:                                        ; preds = %14, %26, %10, %5
   %30 = phi i64 [ %1, %5 ], [ -1, %10 ], [ %29, %26 ], [ -1, %14 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_swiotlb_bounced, i64 0, i32 1), i32 2) #20
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_swiotlb_bounced, i64 8), i32 2) #20
           to label %51 [label %31], !srcloc !62
 
 31:                                               ; preds = %.loopexit
-  %32 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #20, !srcloc !63
+  %32 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !63
   %33 = zext i32 %32 to i64
   %34 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %33) #20, !srcloc !64
   %35 = icmp ult i8 %34, 2
@@ -2134,9 +2134,9 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %31
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !65
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !65
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !66
-  %38 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_swiotlb_bounced, i64 0, i32 8), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_swiotlb_bounced, i64 72), align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %44, label %40
 
@@ -2148,7 +2148,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
 
 44:                                               ; preds = %40, %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !67
-  %45 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !68
+  %45 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !68
   %46 = icmp ult i8 %45, 2
   tail call void @llvm.assume(i1 %46)
   %47 = icmp eq i8 %45, 0
@@ -2310,7 +2310,7 @@ define dso_local range(i64 -2147221503, 2147745793) i64 @swiotlb_max_mapping_siz
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local zeroext i1 @is_swiotlb_allocated() local_unnamed_addr #5 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %2 = icmp ne i64 %1, 0
   ret i1 %2
 }
@@ -2341,27 +2341,27 @@ define dso_local i64 @default_swiotlb_base() local_unnamed_addr #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i64 @default_swiotlb_limit() local_unnamed_addr #5 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 8), align 8
   %2 = add i64 %1, -1
   ret i64 %2
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @swiotlb_create_default_debugfs() #4 section ".init.text" align 16 {
-  store volatile i64 0, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 5), align 8
-  store volatile i64 0, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 6), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 2), align 8
+  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 88), align 8
+  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 72), align 8
   %2 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.41, ptr noundef %1) #20
-  store ptr %2, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 72), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %0
-  tail call void @debugfs_create_ulong(ptr noundef nonnull @.str.42, i16 noundef zeroext 256, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 1)) #20
-  %6 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 2), align 8
+  tail call void @debugfs_create_ulong(ptr noundef nonnull @.str.42, i16 noundef zeroext 256, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 64)) #20
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 72), align 8
   %7 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.43, i16 noundef zeroext 256, ptr noundef %6, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull @fops_io_tlb_used) #20
-  %8 = load ptr, ptr getelementptr inbounds (%struct.io_tlb_mem, ptr @io_tlb_default_mem, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @io_tlb_default_mem, i64 72), align 8
   %9 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.44, i16 noundef zeroext 384, ptr noundef %8, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull @fops_io_tlb_hiwater) #20
   br label %10
 

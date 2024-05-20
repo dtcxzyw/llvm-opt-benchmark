@@ -59,7 +59,7 @@ entry:
 define void @_ZN6icu_7516EthiopicCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7510CECalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7516EthiopicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516EthiopicCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -98,7 +98,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7516EthiopicCalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7516EthiopicCalendarC2ERKS0_.exit:        ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7516EthiopicCalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516EthiopicCalendarE, i64 16), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7516EthiopicCalendarC2ERKS0_.exit, %entry
@@ -383,7 +383,7 @@ entry:
 define void @_ZN6icu_7525EthiopicAmeteAlemCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7510CECalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7525EthiopicAmeteAlemCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525EthiopicAmeteAlemCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -414,7 +414,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7525EthiopicAmeteAlemCalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7525EthiopicAmeteAlemCalendarC2ERKS0_.exit: ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7525EthiopicAmeteAlemCalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525EthiopicAmeteAlemCalendarE, i64 16), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7525EthiopicAmeteAlemCalendarC2ERKS0_.exit, %entry

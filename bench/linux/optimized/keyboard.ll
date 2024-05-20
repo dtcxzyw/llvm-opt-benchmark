@@ -310,7 +310,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vt_set_leds_compute_shiftstate() local_unnamed_addr #0 align 16 {
   store i1 true, ptr @vt_switch, align 1
-  %1 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %1 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %2 = icmp ult i8 %1, 2
   tail call void @llvm.assume(i1 %2)
   %3 = icmp eq i8 %1, 0
@@ -449,7 +449,7 @@ define dso_local void @setledstate(ptr nocapture noundef %0, i32 noundef %1) loc
   br label %14
 
 14:                                               ; preds = %10, %5
-  %15 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %15 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %16 = icmp ult i8 %15, 2
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i8 %15, 0
@@ -504,7 +504,7 @@ define dso_local void @vt_set_led_state(i32 noundef %0, i32 noundef %1) local_un
   br label %16
 
 16:                                               ; preds = %12, %7
-  %17 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %17 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -527,7 +527,7 @@ define dso_local void @vt_kbd_con_start(i32 noundef %0) local_unnamed_addr #0 al
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, -3
   store i8 %6, ptr %4, align 1
-  %7 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %7 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i8 %7, 0
@@ -550,7 +550,7 @@ define dso_local void @vt_kbd_con_stop(i32 noundef %0) local_unnamed_addr #0 ali
   %5 = load i8, ptr %4, align 1
   %6 = or i8 %5, 2
   store i8 %6, ptr %4, align 1
-  %7 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %7 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i8 %7, 0
@@ -567,7 +567,7 @@ define dso_local void @vt_kbd_con_stop(i32 noundef %0) local_unnamed_addr #0 ali
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 23), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 491), align 1
   %2 = lshr i8 %1, 4
   %3 = shl nuw nsw i8 %2, 1
   %4 = load i32, ptr @default_utf8, align 4
@@ -626,8 +626,8 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %36
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2)) #18, !srcloc !12
-  %40 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #18, !srcloc !12
+  %40 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %41 = icmp ult i8 %40, 2
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
@@ -654,7 +654,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   ]
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 768) #20
   %7 = icmp eq ptr %6, null
   br i1 %7, label %153, label %8
@@ -728,7 +728,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   br label %153
 
 52:                                               ; preds = %3
-  %53 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %54 = tail call noalias align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 3264, i64 noundef 3072) #20
   %55 = icmp eq ptr %54, null
   br i1 %55, label %153, label %56
@@ -1297,7 +1297,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %90, label %141, label %92
 
 92:                                               ; preds = %87, %78
-  %93 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %94 = call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %93, i32 noundef 3264, i64 noundef 512) #20
   %95 = icmp eq ptr %94, null
   br i1 %95, label %141, label %96
@@ -1424,7 +1424,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   ]
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3264, i64 noundef 512) #20
   %20 = icmp eq ptr %19, null
   br i1 %20, label %54, label %21
@@ -1587,7 +1587,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
   %41 = and i8 %40, -16
   %42 = or disjoint i8 %41, %38
   store i8 %42, ptr %39, align 1
-  %43 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %43 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %44 = icmp ult i8 %43, 2
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i8 %43, 0
@@ -1641,7 +1641,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
   br label %73
 
 73:                                               ; preds = %69, %64
-  %74 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %74 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %75 = icmp ult i8 %74, 2
   tail call void @llvm.assume(i1 %75)
   %76 = icmp eq i8 %74, 0
@@ -2334,7 +2334,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %301, label %302, label %306
 
 302:                                              ; preds = %298
-  %303 = load volatile i64, ptr getelementptr inbounds ([12 x i64], ptr @key_down, i64 0, i64 1), align 8
+  %303 = load volatile i64, ptr getelementptr inbounds (i8, ptr @key_down, i64 8), align 8
   %304 = and i64 %303, 68719476736
   %305 = icmp eq i64 %304, 0
   br i1 %305, label %333, label %306
@@ -3219,7 +3219,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
 
 .thread:                                          ; preds = %43, %50, %55, %59, %63, %67, %105, %772, %106
   call void @_raw_spin_unlock(ptr noundef nonnull @kbd_event_lock) #18
-  %773 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 1)) #18, !srcloc !6
+  %773 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #18, !srcloc !6
   %774 = icmp ult i8 %773, 2
   call void @llvm.assume(i1 %774)
   %775 = icmp eq i8 %773, 0
@@ -3270,7 +3270,7 @@ define internal noundef zeroext i1 @kbd_match(ptr nocapture readnone %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @kbd_connect(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 72) #20
   %6 = icmp eq ptr %5, null
   br i1 %6, label %19, label %7
@@ -3315,7 +3315,7 @@ define internal void @kbd_disconnect(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kbd_start(ptr nocapture noundef readonly %0) #0 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2)) #18, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #18, !srcloc !33
   tail call void @tasklet_unlock_wait(ptr noundef nonnull @keyboard_tasklet) #18
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
   %2 = load i32, ptr @ledstate, align 4
@@ -3352,7 +3352,7 @@ define internal void @kbd_start(ptr nocapture noundef readonly %0) #0 align 16 {
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %20, %4, %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2)) #18, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #18, !srcloc !12
   ret void
 }
 
@@ -4289,8 +4289,8 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
   %20 = zext i8 %1 to i64
   %21 = getelementptr [22 x i8], ptr @k_pad.app_map, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
-  store i8 79, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 1), align 1
-  store i8 %22, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 2), align 1
+  store i8 79, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 1), align 1
+  store i8 %22, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 2), align 1
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @applkey.buf) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 0, ptr %8, align 1
@@ -4542,8 +4542,8 @@ define internal void @k_cur(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
   %13 = and i8 %12, 2
   %14 = icmp eq i8 %13, 0
   %15 = select i1 %14, i8 91, i8 79
-  store i8 %15, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 1), align 1
-  store i8 %9, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 2), align 1
+  store i8 %15, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 1), align 1
+  store i8 %9, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 2), align 1
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @applkey.buf) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
@@ -5569,8 +5569,8 @@ define internal void @fn_num(ptr noundef %0) #0 align 16 {
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %1
-  store i8 79, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 1), align 1
-  store i8 80, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 2), align 1
+  store i8 79, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 1), align 1
+  store i8 80, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 2), align 1
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @applkey.buf) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
@@ -5732,20 +5732,20 @@ define internal void @fn_inc_console(ptr nocapture readnone %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @fn_spawn_con(ptr nocapture readnone %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @vt_spawn_con) #18
-  %2 = load ptr, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 8), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 16), align 8
   %6 = tail call i32 @kill_pid(ptr noundef nonnull %2, i32 noundef %5, i32 noundef 1) #18
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 8), align 8
   tail call void @put_pid(ptr noundef %9) #18
-  store ptr null, ptr getelementptr inbounds (%struct.vt_spawn_console, ptr @vt_spawn_con, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @vt_spawn_con, i64 8), align 8
   br label %10
 
 10:                                               ; preds = %8, %4, %1
@@ -5788,8 +5788,8 @@ define internal fastcc void @applkey(ptr noundef %0, i8 noundef zeroext %1) unna
   %3 = alloca i8, align 1
   %4 = icmp eq i8 %1, 0
   %5 = select i1 %4, i8 91, i8 79
-  store i8 %5, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 1), align 1
-  store i8 71, ptr getelementptr inbounds ([4 x i8], ptr @applkey.buf, i64 0, i64 2), align 1
+  store i8 %5, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 1), align 1
+  store i8 71, ptr getelementptr inbounds (i8, ptr @applkey.buf, i64 2), align 1
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @applkey.buf) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 0, ptr %3, align 1
@@ -5851,7 +5851,7 @@ declare dso_local void @led_trigger_event(ptr noundef, i32 noundef) local_unname
 define internal noundef i32 @kbd_led_trigger_activate(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2)) #18, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #18, !srcloc !33
   tail call void @tasklet_unlock_wait(ptr noundef nonnull @keyboard_tasklet) #18
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
   %4 = load i32, ptr @ledstate, align 4
@@ -5868,7 +5868,7 @@ define internal noundef i32 @kbd_led_trigger_activate(ptr nocapture noundef read
   br label %12
 
 12:                                               ; preds = %6, %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tasklet_struct, ptr @keyboard_tasklet, i64 0, i32 2)) #18, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #18, !srcloc !12
   ret i32 0
 }
 

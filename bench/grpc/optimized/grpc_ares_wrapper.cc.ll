@@ -194,7 +194,7 @@ declare void @_Z17grpc_timer_cancelP10grpc_timer(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL25grpc_ares_ev_driver_unrefP19grpc_ares_ev_driver(ptr noundef %ev_driver) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
@@ -211,7 +211,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool.not, label %if.end14, label %do.body3
 
 do.body3:                                         ; preds = %do.end
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i9 = trunc i8 %2 to i1
   br i1 %tobool.i.i.i9, label %if.then5, label %do.body9
 
@@ -394,7 +394,7 @@ entry:
   %0 = load i32, ptr %query_timeout_ms, align 8
   %cmp = icmp eq i32 %0, 0
   %conv = sext i32 %0 to i64
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
@@ -406,7 +406,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit
 
@@ -468,7 +468,7 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
   tail call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %query_timeout, i64 %retval.0.i.i, ptr noundef nonnull %on_timeout_locked)
-  %9 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i16 = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i16, label %if.then.i17, label %do.end.i
 
@@ -506,7 +506,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i: ; preds = %_ZN9gr
 
 _ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.end11.i.i.i, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i
   %retval.0.i.i.i = phi i64 [ %call.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i ], [ %spec.select.i, %if.end11.i.i.i ]
-  %14 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %14 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i19 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i19, label %if.then.i22, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24
 
@@ -615,7 +615,7 @@ if.then9:                                         ; preds = %if.end.i, %if.then6
   %call13 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10, ptr noundef %11)
   %grpc_polled_fd = getelementptr inbounds i8, ptr %call10, i64 80
   store ptr %call13, ptr %grpc_polled_fd, align 8
-  %13 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i, label %if.then15, label %do.end
 
@@ -650,7 +650,7 @@ land.lhs.true:                                    ; preds = %if.end20
   br i1 %tobool26, label %if.end64, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true
-  %17 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i58, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit
 
@@ -674,7 +674,7 @@ _ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit: ; preds = %if.then27, %
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
   %20 = load ptr, ptr %vfn32, align 8
   %call33 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %21 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %21 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i59 = trunc i8 %21 to i1
   br i1 %call33, label %do.body35, label %do.body48
 
@@ -757,7 +757,7 @@ land.lhs.true70:                                  ; preds = %if.end64
   br i1 %tobool72, label %for.inc, label %do.body74
 
 do.body74:                                        ; preds = %land.lhs.true70
-  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i61 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i61, label %if.then76, label %do.end83
 
@@ -773,7 +773,7 @@ if.then76:                                        ; preds = %do.body74
   br label %do.end83
 
 do.end83:                                         ; preds = %do.body74, %if.then76
-  %39 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i62 = trunc i8 %39 to i1
   br i1 %tobool.i.i.i.i62, label %if.then.i64, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit66
 
@@ -832,7 +832,7 @@ land.lhs.true102:                                 ; preds = %while.body
   br i1 %tobool104, label %if.else106, label %if.then105
 
 if.then105:                                       ; preds = %land.lhs.true102
-  %48 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i70 = trunc i8 %48 to i1
   br i1 %tobool.i.i.i.i70, label %if.then.i71, label %do.body2.i
 
@@ -920,7 +920,7 @@ entry:
   %request = getelementptr inbounds i8, ptr %arg, i64 40
   %0 = load ptr, ptr %request, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
@@ -1033,7 +1033,7 @@ entry:
   %request = getelementptr inbounds i8, ptr %arg, i64 40
   %0 = load ptr, ptr %request, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
@@ -1096,7 +1096,7 @@ while.body:                                       ; preds = %if.then9, %if.end29
   br i1 %tobool10, label %if.end29, label %do.body12
 
 do.body12:                                        ; preds = %while.body
-  %9 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i.i24, label %if.then15, label %do.end22
 
@@ -1172,7 +1172,7 @@ _ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i: ; preds = %if.then.i.i
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %_ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i
-  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %23 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %do.end.i
 
@@ -1213,7 +1213,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i: ; preds = %call.i
 
 invoke.cont36:                                    ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i, %if.end11.i.i.i, %call.i.i.noexc
   %retval.0.i.i.i = phi i64 [ %call.i.i28, %call.i.i.noexc ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i ], [ %spec.select.i, %if.end11.i.i.i ]
-  %29 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i29 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i29, label %if.then.i31, label %do.end.i30
 
@@ -1308,7 +1308,7 @@ entry:
   %1 = load ptr, ptr @grpc_ares_test_only_inject_config, align 8
   %2 = load ptr, ptr %ev_driver, align 8
   call void %1(ptr noundef %2)
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then6, label %do.end
 
@@ -1585,7 +1585,7 @@ declare void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE
 define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EE(ptr noundef %r, ptr nocapture noundef %addresses) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sorted = alloca %"class.std::vector.12", align 16
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_address_sorting, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -1761,7 +1761,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
-  %29 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_address_sorting, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
   %tobool.i.i.i53 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i53, label %if.then37, label %if.end39
 
@@ -2053,7 +2053,7 @@ entry:
   br i1 %cmp.i, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then2, label %do.end
 
@@ -2580,7 +2580,7 @@ invoke.cont:
   store ptr %on_done, ptr %on_done.i, align 8
   %balancer_addresses_out = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %balancer_addresses, ptr %balancer_addresses_out, align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %invoke.cont6
 
@@ -2906,7 +2906,7 @@ entry:
   br i1 %cmp, label %do.body, label %if.else
 
 do.body:                                          ; preds = %entry
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then2, label %do.end
 
@@ -2918,7 +2918,7 @@ if.then2:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.then2
   %call5 = call i32 @ares_parse_srv_reply(ptr noundef %abuf, i32 noundef %alen, ptr noundef nonnull %reply)
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i25 = trunc i8 %3 to i1
   br i1 %tobool.i.i.i25, label %if.then8, label %do.end10
 
@@ -2951,7 +2951,7 @@ if.then15:                                        ; preds = %for.body
   %port = getelementptr inbounds i8, ptr %srv_it.078, i64 20
   %5 = load i16, ptr %port, align 4
   %call16 = call zeroext i16 @htons(i16 noundef zeroext %5) #27
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZL32create_hostbyname_request_lockedP17grpc_ares_requestPKctbS2_.exit
 
@@ -2987,7 +2987,7 @@ if.end19:                                         ; preds = %_ZL32create_hostbyn
   %port22 = getelementptr inbounds i8, ptr %srv_it.078, i64 20
   %12 = load i16, ptr %port22, align 4
   %call23 = call zeroext i16 @htons(i16 noundef zeroext %12) #27
-  %13 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i26 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i.i26, label %if.then.i35, label %_ZL32create_hostbyname_request_lockedP17grpc_ares_requestPKctbS2_.exit37
 
@@ -3045,7 +3045,7 @@ if.else:                                          ; preds = %entry
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !31
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_msg, ptr nonnull @.str.50, i64 55, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %19 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i39 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i39, label %if.then37, label %do.end40
 
@@ -3327,7 +3327,7 @@ invoke.cont:
   store ptr null, ptr %ev_driver, align 8
   store ptr %on_done, ptr %on_done.i, align 8
   store ptr %service_config_json, ptr %service_config_json_out.i, align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %invoke.cont6
 
@@ -3609,7 +3609,7 @@ invoke.cont:
   br i1 %cmp.not, label %do.body, label %invoke.cont58
 
 do.body:                                          ; preds = %invoke.cont
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then2, label %do.end
 
@@ -3723,7 +3723,7 @@ for.end45:                                        ; preds = %land.rhs, %invoke.c
   %21 = load ptr, ptr %20, align 8
   %arrayidx = getelementptr inbounds i8, ptr %21, i64 %service_config_len.0.lcssa
   store i8 0, ptr %arrayidx, align 1
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i44 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i44, label %if.then49, label %if.end55
 
@@ -3784,7 +3784,7 @@ invoke.cont61:                                    ; preds = %invoke.cont58
 
 do.body64:                                        ; preds = %invoke.cont61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i49 = trunc i8 %28 to i1
   br i1 %tobool.i.i.i49, label %if.then66, label %do.end72
 
@@ -4124,7 +4124,7 @@ invoke.cont:
   store ptr %on_done, ptr %on_done.i, align 8
   %addresses_out = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %addrs, ptr %addresses_out, align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
@@ -4368,7 +4368,7 @@ if.then28:                                        ; preds = %invoke.cont26
           to label %invoke.cont31 unwind label %lpad19
 
 invoke.cont31:                                    ; preds = %if.then28
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %22 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %do.end.i
 
@@ -4411,7 +4411,7 @@ if.end38:                                         ; preds = %invoke.cont33, %inv
           to label %invoke.cont41 unwind label %lpad19
 
 invoke.cont41:                                    ; preds = %if.end38
-  %27 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i42 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i.i42, label %if.then.i50, label %do.end.i43
 
@@ -4551,7 +4551,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %r)
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then2, label %do.end4
 
@@ -4804,7 +4804,7 @@ do.end:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %do.end
   store i8 0, ptr %readable_registered, align 8
-  %9 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i, label %if.then8, label %do.end19
 
@@ -4914,7 +4914,7 @@ do.end:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %do.end
   store i8 0, ptr %writable_registered, align 1
-  %9 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i, label %if.then8, label %do.end18
 
@@ -5017,7 +5017,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.42, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -5220,7 +5220,7 @@ entry:
   br i1 %cmp, label %do.body, label %if.else
 
 do.body:                                          ; preds = %entry
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then1, label %do.end
 
@@ -5358,7 +5358,7 @@ sw.bb:                                            ; preds = %if.end14
           to label %do.body23 unwind label %lpad
 
 do.body23:                                        ; preds = %sw.bb
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i45 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i45, label %if.then26, label %sw.epilog
 
@@ -5384,7 +5384,7 @@ sw.bb34:                                          ; preds = %if.end14
           to label %do.body49 unwind label %lpad
 
 do.body49:                                        ; preds = %sw.bb34
-  %29 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i46 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i46, label %if.then52, label %sw.epilog
 
@@ -5452,7 +5452,7 @@ if.else:                                          ; preds = %entry
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !52
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_msg, ptr nonnull @.str.57, i64 69, ptr nonnull %ref.tmp.i, i64 4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
-  %39 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i49 = trunc i8 %39 to i1
   br i1 %tobool.i.i.i49, label %if.then72, label %do.end78
 

@@ -101,7 +101,7 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %6, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %7, ptr %18, align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %20 = and i64 %19, 256
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %26, label %21
@@ -138,7 +138,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   store i32 -782352060, ptr %0, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 256
   %.not4 = icmp eq i64 %5, 0
   br i1 %.not4, label %11, label %6
@@ -198,7 +198,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %23, %27
-  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 256
   %.not8 = icmp eq i64 %32, 0
   br i1 %.not8, label %38, label %33
@@ -247,7 +247,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
 
 8:                                                ; preds = %7, %4
   store ptr %2, ptr %5, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 256
   %.not31 = icmp eq i64 %10, 0
   br i1 %.not31, label %34, label %11
@@ -262,7 +262,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 0, ptr %16, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 256
   %.not28 = icmp eq i64 %18, 0
   br i1 %.not28, label %34, label %19
@@ -286,7 +286,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
 
 26:                                               ; preds = %25, %22
   store ptr %2, ptr %23, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 256
   %.not27 = icmp eq i64 %28, 0
   br i1 %.not27, label %34, label %29

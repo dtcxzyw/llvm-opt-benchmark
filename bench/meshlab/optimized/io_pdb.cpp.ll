@@ -5531,7 +5531,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -5604,7 +5604,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -5677,7 +5677,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -6778,17 +6778,17 @@ define i32 @_ZN11PDBIOPlugin12getAtomColorEPKc(ptr nocapture nonnull readnone al
   br i1 %.not, label %234, label %232
 
 232:                                              ; preds = %230
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 40), align 8
   %233 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3vcg6Color4IhEESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev, ptr nonnull @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11) #27
   br label %234
 
 234:                                              ; preds = %232, %230, %227
-  %235 = load i64, ptr getelementptr inbounds (%"class.std::map.361", ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %235 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin12getAtomColorEPKcE3E2CB5cxx11, i64 40), align 8
   %236 = icmp eq i64 %235, 0
   br i1 %236, label %237, label %1112
 
@@ -9934,17 +9934,17 @@ define noundef float @_ZN11PDBIOPlugin13getAtomRadiusEPKc(ptr nocapture nonnull 
   br i1 %.not, label %37, label %35
 
 35:                                               ; preds = %33
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 40), align 8
   %36 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEED2Ev, ptr nonnull @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11) #27
   br label %37
 
 37:                                               ; preds = %35, %33, %2
-  %38 = load i64, ptr getelementptr inbounds (%"class.std::map.342", ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN11PDBIOPlugin13getAtomRadiusEPKcE3E2RB5cxx11, i64 40), align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %129
 
@@ -14087,7 +14087,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 16), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.40)
           to label %4 unwind label %9
 
@@ -31425,9 +31425,9 @@ define internal void @_GLOBAL__sub_I_io_pdb.cpp() #11 section ".text.startup" pe
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #27
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

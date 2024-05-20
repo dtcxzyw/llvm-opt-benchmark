@@ -570,20 +570,20 @@ declare void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull 
 define hidden void @_ZN5osgeo4proj9operation10ConversionC1ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEERKSt6vectorINS5_IS6_INS1_21GeneralParameterValueEEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %5 unwind label %12
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %10, align 8
   invoke void @_ZN5osgeo4proj9operation15SingleOperation18setParameterValuesERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_21GeneralParameterValueEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -610,7 +610,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZNSt10unique_ptrIN5osgeo4proj9operation10Conversion7PrivateESt14default_deleteIS4_EED2Ev.exit: ; preds = %14, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i
   store ptr null, ptr %10, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   br label %17
 
 17:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj9operation10Conversion7PrivateESt14default_deleteIS4_EED2Ev.exit, %12
@@ -683,20 +683,20 @@ define hidden void @_ZN5osgeo4proj9operation10ConversionC1ERKS2_(ptr noundef non
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %7)
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %8 unwind label %14
 
 8:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %13, align 8
   ret void
@@ -770,17 +770,17 @@ _ZNSt10unique_ptrIN5osgeo4proj9operation10Conversion7PrivateESt14default_deleteI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj9operation10ConversionD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -792,7 +792,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD2Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
   ret void
 }
@@ -803,17 +803,17 @@ define void @_ZTv0_n24_N5osgeo4proj9operation10ConversionD1Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %6, align 8
   %7 = getelementptr i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %7, align 8
   %8 = getelementptr i8, ptr %5, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %8, align 8
   %9 = getelementptr i8, ptr %5, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %9, align 8
   %10 = getelementptr i8, ptr %5, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %12, null
@@ -825,7 +825,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %11, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #26
   ret void
 }
@@ -837,17 +837,17 @@ define void @_ZTvn16_n24_N5osgeo4proj9operation10ConversionD1Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
@@ -859,7 +859,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   ret void
 }
@@ -871,17 +871,17 @@ define void @_ZTvn24_n24_N5osgeo4proj9operation10ConversionD1Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
@@ -893,7 +893,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   ret void
 }
@@ -905,17 +905,17 @@ define void @_ZTvn48_n24_N5osgeo4proj9operation10ConversionD1Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
@@ -927,7 +927,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   ret void
 }
@@ -939,17 +939,17 @@ define void @_ZTvn56_n24_N5osgeo4proj9operation10ConversionD1Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
@@ -961,24 +961,24 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj9operation10ConversionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
@@ -990,7 +990,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
@@ -1005,17 +1005,17 @@ define void @_ZTv0_n24_N5osgeo4proj9operation10ConversionD0Ev(ptr noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %6, align 8
   %7 = getelementptr i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %7, align 8
   %8 = getelementptr i8, ptr %5, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %8, align 8
   %9 = getelementptr i8, ptr %5, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %9, align 8
   %10 = getelementptr i8, ptr %5, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -1027,7 +1027,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %11, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #26
   tail call void @_ZdlPv(ptr noundef nonnull %5) #25
   ret void
@@ -1040,17 +1040,17 @@ define void @_ZTvn16_n24_N5osgeo4proj9operation10ConversionD0Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -1062,7 +1062,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -1075,17 +1075,17 @@ define void @_ZTvn24_n24_N5osgeo4proj9operation10ConversionD0Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -1097,7 +1097,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -1110,17 +1110,17 @@ define void @_ZTvn48_n24_N5osgeo4proj9operation10ConversionD0Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -1132,7 +1132,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -1145,17 +1145,17 @@ define void @_ZTvn56_n24_N5osgeo4proj9operation10ConversionD0Ev(ptr noundef %0) 
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -1167,7 +1167,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -1256,7 +1256,7 @@ define linkonce_odr void @_ZN5osgeo4proj9operation10Conversion14nn_make_sharedIS
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %11 unwind label %9
 
 9:                                                ; preds = %.noexc
@@ -1266,16 +1266,16 @@ define linkonce_odr void @_ZN5osgeo4proj9operation10Conversion14nn_make_sharedIS
   br label %.body
 
 11:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 0, i64 3), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 24), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 184), ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 2, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 256), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 3, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 296), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 4, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 336), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 0, i32 5, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation10ConversionE, i64 376), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %16, align 8
   %17 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
@@ -1318,7 +1318,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEED2Ev.exit: ; preds = %11
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 1, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17, align 8
   %33 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %3, ptr %33, align 8
   store ptr %3, ptr %0, align 8
@@ -2668,7 +2668,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEED2Ev.exit: ; preds = %5
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %4, ptr %22, align 8
   store ptr %4, ptr %0, align 8
@@ -7596,7 +7596,7 @@ define hidden void @_ZN5osgeo4proj9operation17InverseConversionC1ERKN7dropbox6ox
 14:                                               ; preds = %9
   %15 = load ptr, ptr %1, align 8
   %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
-  invoke void @_ZN5osgeo4proj9operation10ConversionC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEERKSt6vectorINS5_IS6_INS1_21GeneralParameterValueEEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  invoke void @_ZN5osgeo4proj9operation10ConversionC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEERKSt6vectorINS5_IS6_INS1_21GeneralParameterValueEEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %17 unwind label %120
 
 17:                                               ; preds = %14
@@ -7714,7 +7714,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_10ConversionEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_10ConversionEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit: ; preds = %62, %70, %73
-  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEEb(ptr noundef nonnull align 8 dereferenceable(25) %54, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13), ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
+  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEEb(ptr noundef nonnull align 8 dereferenceable(25) %54, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104), ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
           to label %75 unwind label %123
 
 75:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_10ConversionEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
@@ -7791,17 +7791,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit: ; preds = %75, %93, %106, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 2, i64 11), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 248), ptr %6, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 3, i64 2), ptr %111, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 320), ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 4, i64 2), ptr %112, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 360), ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 5, i64 2), ptr %113, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 400), ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 6, i64 2), ptr %114, align 8
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 0, i32 1, i64 3), ptr %54, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 440), ptr %114, align 8
+  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 120), ptr %54, align 8
   invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperation24setPropertiesFromForwardEv(ptr noundef nonnull align 8 dereferenceable(25) %54)
           to label %115 unwind label %125
 
@@ -7838,12 +7838,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 125:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %54, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
+  call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %54, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
   br label %127
 
 127:                                              ; preds = %125, %123
   %.pn10 = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
-  call void @_ZN5osgeo4proj9operation10ConversionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 1)) #26
+  call void @_ZN5osgeo4proj9operation10ConversionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 8)) #26
   br label %128
 
 128:                                              ; preds = %127, %122, %116
@@ -7917,18 +7917,18 @@ _ZN5osgeo4proj9operation10ConversionD2Ev.exit:    ; preds = %2, %_ZNKSt14default
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5osgeo4proj9operation17InverseConversionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
@@ -7940,7 +7940,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   ret void
 }
@@ -7948,18 +7948,18 @@ _ZN5osgeo4proj9operation17InverseConversionD2Ev.exit: ; preds = %1, %_ZNKSt14def
 ; Function Attrs: nounwind uwtable
 define hidden void @_ZThn24_N5osgeo4proj9operation17InverseConversionD1Ev(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %2, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 -8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
@@ -7971,7 +7971,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   ret void
 }
@@ -7983,18 +7983,18 @@ define hidden void @_ZTv0_n24_N5osgeo4proj9operation17InverseConversionD1Ev(ptr 
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %5, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %5, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %5, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %5, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -8006,7 +8006,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   ret void
 }
@@ -8019,18 +8019,18 @@ define hidden void @_ZTvn16_n24_N5osgeo4proj9operation17InverseConversionD1Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -8042,7 +8042,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   ret void
 }
@@ -8055,18 +8055,18 @@ define hidden void @_ZTvn24_n24_N5osgeo4proj9operation17InverseConversionD1Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -8078,7 +8078,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   ret void
 }
@@ -8091,18 +8091,18 @@ define hidden void @_ZTvn48_n24_N5osgeo4proj9operation17InverseConversionD1Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -8114,7 +8114,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   ret void
 }
@@ -8127,18 +8127,18 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation17InverseConversionD1Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -8150,7 +8150,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   ret void
 }
@@ -8158,18 +8158,18 @@ _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5osgeo4proj9operation17InverseConversionD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %0, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
@@ -8181,7 +8181,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
@@ -8190,18 +8190,18 @@ _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14def
 ; Function Attrs: nounwind uwtable
 define hidden void @_ZThn24_N5osgeo4proj9operation17InverseConversionD0Ev(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %2, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 -8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null
@@ -8213,7 +8213,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   ret void
@@ -8226,18 +8226,18 @@ define hidden void @_ZTv0_n24_N5osgeo4proj9operation17InverseConversionD0Ev(ptr 
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %5, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %7, align 8
   %8 = getelementptr i8, ptr %5, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %8, align 8
   %9 = getelementptr i8, ptr %5, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %9, align 8
   %10 = getelementptr i8, ptr %5, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %10, align 8
   %11 = getelementptr i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i = icmp eq ptr %13, null
@@ -8249,7 +8249,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %5) #25
   ret void
@@ -8263,18 +8263,18 @@ define hidden void @_ZTvn16_n24_N5osgeo4proj9operation17InverseConversionD0Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -8286,7 +8286,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -8300,18 +8300,18 @@ define hidden void @_ZTvn24_n24_N5osgeo4proj9operation17InverseConversionD0Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -8323,7 +8323,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -8337,18 +8337,18 @@ define hidden void @_ZTvn48_n24_N5osgeo4proj9operation17InverseConversionD0Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -8360,7 +8360,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -8374,18 +8374,18 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation17InverseConversionD0Ev(pt
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 13)) #26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 0, i64 3), ptr %6, align 8
+  tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 104)) #26
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 24), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-88, 56) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 184), ptr %8, align 8
   %9 = getelementptr i8, ptr %6, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 256), ptr %9, align 8
   %10 = getelementptr i8, ptr %6, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 3, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 296), ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 4, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 336), ptr %11, align 8
   %12 = getelementptr i8, ptr %6, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 0, i32 5, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTCN5osgeo4proj9operation17InverseConversionE0_NS1_10ConversionE, i64 376), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -8397,7 +8397,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 0, i64 2)) #26
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #26
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   ret void
@@ -8456,7 +8456,7 @@ define hidden void @_ZN5osgeo4proj9operation17InverseConversion6createERKN7dropb
   store i32 1, ptr %6, align 8, !noalias !239
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !239
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation17InverseConversionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !239
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation17InverseConversionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !239
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN5osgeo4proj9operation17InverseConversionC1ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_10ConversionEEEE(ptr noundef nonnull align 8 dereferenceable(49) %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation17InverseConversionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !239
@@ -9051,7 +9051,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation17InverseConversionEED2Ev.exit: ; preds 
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation17InverseConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation17InverseConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8

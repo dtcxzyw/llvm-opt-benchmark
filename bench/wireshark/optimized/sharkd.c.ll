@@ -129,14 +129,14 @@ print_current_user.exit:                          ; preds = %2, %16
   call void @prefs_apply_all() #9
   %39 = getelementptr inbounds i8, ptr %31, i64 8
   %40 = load i32, ptr %39, align 8
-  call void @build_column_format_array(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 45), i32 noundef %40, i32 noundef 1) #9
+  call void @build_column_format_array(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 304), i32 noundef %40, i32 noundef 1) #9
   %41 = load i32, ptr %3, align 4
   %42 = call i32 @sharkd_loop(i32 noundef %41, ptr noundef nonnull %1) #9
   br label %43
 
 43:                                               ; preds = %28, %38, %27
   %.0 = phi i32 [ 1, %27 ], [ %42, %38 ], [ 2, %28 ]
-  call void @col_cleanup(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 45)) #9
+  call void @col_cleanup(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 304)) #9
   call void @codecs_cleanup() #9
   call void @wtap_cleanup() #9
   call void @free_progdirs() #9
@@ -352,10 +352,10 @@ define hidden i32 @sharkd_load_cap_file() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr null, ptr %3, align 8
   %7 = tail call ptr @new_frame_data_sequence() #9
-  store ptr %7, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 23), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 144), align 8
   %.not.i = icmp eq ptr %8, null
-  %9 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 24), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 152), align 8
   %.not20.i = icmp eq ptr %9, null
   %or.cond.i = select i1 %.not.i, i1 %.not20.i, i1 false
   br i1 %or.cond.i, label %10, label %14
@@ -373,7 +373,7 @@ define hidden i32 @sharkd_load_cap_file() local_unnamed_addr #0 {
   %.fr.i = freeze ptr %17
   call void @wtap_rec_init(ptr noundef nonnull %5) #9
   call void @ws_buffer_init(ptr noundef nonnull %6, i64 noundef 1514) #9
-  %18 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %19 = call i32 @wtap_read(ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not216.i = icmp eq i32 %19, 0
   br i1 %.not216.i, label %.loopexit.i, label %.lr.ph.i
@@ -387,18 +387,18 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   %.07.us.i = phi i32 [ %29, %31 ], [ 0, %.lr.ph.i ]
   %21 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1)
-  %22 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %23 = add i32 %22, 1
   %24 = load i32, ptr @cum_bytes, align 4
   call void @frame_data_init(ptr noundef nonnull %1, i32 noundef %23, ptr noundef nonnull %5, i64 noundef %21, i32 noundef %24) #9
   call void @frame_data_set_after_dissect(ptr noundef nonnull %1, ptr noundef nonnull @cum_bytes) #9
-  %25 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %26 = call ptr @frame_data_sequence_add(ptr noundef %25, ptr noundef nonnull %1) #9
-  store ptr %26, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 2), align 8
-  store ptr %26, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 3), align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @cfile, i64 264), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @cfile, i64 272), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %28 = add i32 %27, 1
-  store i32 %28, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1)
   call void @wtap_rec_reset(ptr noundef nonnull %5) #9
   %29 = add i32 %.07.us.i, -1
@@ -406,7 +406,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   br i1 %30, label %.split.us.i, label %31
 
 31:                                               ; preds = %process_packet.exit.thread.us.i
-  %32 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %33 = call i32 @wtap_read(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not21.us.i = icmp eq i32 %33, 0
   br i1 %.not21.us.i, label %.loopexit.i, label %process_packet.exit.thread.us.i, !llvm.loop !5
@@ -415,16 +415,16 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   %.07.i = phi i32 [ %.1.i, %79 ], [ 0, %.lr.ph.i ]
   %34 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1)
-  %35 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %36 = add i32 %35, 1
   %37 = load i32, ptr @cum_bytes, align 4
   call void @frame_data_init(ptr noundef nonnull %1, i32 noundef %36, ptr noundef nonnull %5, i64 noundef %34, i32 noundef %37) #9
   %38 = load i32, ptr @gbl_resolv_flags, align 4
   %39 = icmp ne i32 %38, 0
-  %40 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %41 = icmp ne i32 %40, 0
   %or.cond.i.i = select i1 %39, i1 true, i1 %41
-  %42 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %43 = icmp ne i32 %42, 0
   %or.cond3.i.i = select i1 %or.cond.i.i, i1 true, i1 %43
   br i1 %or.cond3.i.i, label %44, label %46
@@ -434,7 +434,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   br label %46
 
 46:                                               ; preds = %44, %.lr.ph.split.i
-  %47 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 23), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 144), align 8
   %.not48.i.i = icmp eq ptr %47, null
   br i1 %.not48.i.i, label %49, label %48
 
@@ -443,7 +443,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   br label %49
 
 49:                                               ; preds = %48, %46
-  %50 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 24), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 152), align 8
   %.not49.i.i = icmp eq ptr %50, null
   br i1 %.not49.i.i, label %52, label %51
 
@@ -453,23 +453,23 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
 
 52:                                               ; preds = %51, %49
   call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef nonnull %.fr.i) #9
-  %53 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 2), align 8
-  call void @frame_data_set_before_dissect(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 21), ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 1), ptr noundef %53) #9
-  %54 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 1), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 264), align 8
+  call void @frame_data_set_before_dissect(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 120), ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 256), ptr noundef %53) #9
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 256), align 8
   %55 = icmp eq ptr %54, %1
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) @ref_frame, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  store ptr @ref_frame, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 1), align 8
+  store ptr @ref_frame, ptr getelementptr inbounds (i8, ptr @cfile, i64 256), align 8
   br label %57
 
 57:                                               ; preds = %56, %52
-  %58 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 8), align 8
+  %58 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %59 = zext i16 %58 to i32
-  %60 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef nonnull %1, ptr noundef nonnull %6) #9
+  %60 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %1, ptr noundef nonnull %6) #9
   call void @epan_dissect_run(ptr noundef nonnull %.fr.i, i32 noundef %59, ptr noundef nonnull %5, ptr noundef %60, ptr noundef nonnull %1, ptr noundef null) #9
-  %61 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 23), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 144), align 8
   %.not50.i.i = icmp eq ptr %61, null
   br i1 %.not50.i.i, label %.thread.i.i, label %62
 
@@ -479,11 +479,11 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
 
 .thread.i.i:                                      ; preds = %62, %57
   call void @frame_data_set_after_dissect(ptr noundef nonnull %1, ptr noundef nonnull @cum_bytes) #9
-  %64 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %65 = call ptr @frame_data_sequence_add(ptr noundef %64, ptr noundef nonnull %1) #9
-  store ptr %65, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 2), align 8
-  store ptr %65, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 3), align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 24), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @cfile, i64 264), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @cfile, i64 272), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 152), align 8
   %.not52.i.i = icmp eq ptr %66, null
   br i1 %.not52.i.i, label %process_packet.exit.i, label %67
 
@@ -499,7 +499,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   br i1 %.not53.i.i, label %process_packet.exit.i, label %73
 
 73:                                               ; preds = %69
-  %74 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   call void @g_hash_table_foreach(ptr noundef nonnull %72, ptr noundef nonnull @find_and_mark_frame_depended_upon, ptr noundef %74) #9
   br label %process_packet.exit.i
 
@@ -510,9 +510,9 @@ process_packet.exit.thread3.i:                    ; preds = %62
   br label %79
 
 process_packet.exit.i:                            ; preds = %73, %69, %67, %.thread.i.i
-  %75 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %76 = add i32 %75, 1
-  store i32 %76, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  store i32 %76, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   call void @epan_dissect_reset(ptr noundef nonnull %.fr.i) #9
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1)
   call void @wtap_rec_reset(ptr noundef nonnull %5) #9
@@ -526,7 +526,7 @@ process_packet.exit.i:                            ; preds = %73, %69, %67, %.thr
 
 79:                                               ; preds = %process_packet.exit.i, %process_packet.exit.thread3.i
   %.1.i = phi i32 [ %77, %process_packet.exit.i ], [ %.07.i, %process_packet.exit.thread3.i ]
-  %80 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %81 = call i32 @wtap_read(ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not21.i = icmp eq i32 %81, 0
   br i1 %.not21.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !5
@@ -542,16 +542,16 @@ process_packet.exit.i:                            ; preds = %73, %69, %67, %.thr
 83:                                               ; preds = %82, %.loopexit.i
   call void @wtap_rec_cleanup(ptr noundef nonnull %5) #9
   call void @ws_buffer_free(ptr noundef nonnull %6) #9
-  %84 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   call void @wtap_sequential_close(ptr noundef %84) #9
   call void @postseq_cleanup_all_protocols() #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 2), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @cfile, i64 264), i8 0, i64 16, i1 false)
   %85 = load i32, ptr %2, align 4
   %.not24.i = icmp eq i32 %85, 0
   br i1 %.not24.i, label %load_cap_file.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 2), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 16), align 8
   %88 = load ptr, ptr %3, align 8
   call void @cfile_read_failure_message(ptr noundef %87, i32 noundef %85, ptr noundef %88) #9
   %.pre.i = load i32, ptr %2, align 4
@@ -569,7 +569,7 @@ load_cap_file.exit:                               ; preds = %83, %86
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @sharkd_get_frame(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %3 = tail call ptr @frame_data_sequence_find(ptr noundef %2, i32 noundef %0) #9
   ret ptr %3
 }
@@ -579,13 +579,13 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca %struct.epan_dissect, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %14 = tail call ptr @frame_data_sequence_find(ptr noundef %13, i32 noundef %0) #9
   %15 = icmp eq ptr %14, null
   br i1 %15, label %64, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @wtap_seek_read(ptr noundef %17, i64 noundef %19, ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %10) #9
@@ -665,9 +665,9 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
   store i32 %1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %14, i64 92
   store i32 %2, ptr %51, align 4
-  %52 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 8), align 8
+  %52 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %53 = zext i16 %52 to i32
-  %54 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef nonnull %14, ptr noundef %4) #9
+  %54 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %14, ptr noundef %4) #9
   call void @epan_dissect_run(ptr noundef nonnull %12, i32 noundef %53, ptr noundef %3, ptr noundef %54, ptr noundef nonnull %14, ptr noundef %5) #9
   br i1 %.not47, label %56, label %55
 
@@ -729,7 +729,7 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %6 = tail call i32 @union_of_tap_listener_flags() #9
   %7 = tail call i32 @tap_listeners_require_columns() #9
   %.not = icmp eq i32 %7, 0
-  %8 = select i1 %.not, ptr null, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 45)
+  %8 = select i1 %.not, ptr null, ptr getelementptr inbounds (i8, ptr @cfile, i64 304)
   %9 = tail call i32 @have_filtering_tap_listeners() #9
   %10 = icmp ne i32 %9, 0
   %11 = and i32 %6, 1
@@ -741,15 +741,15 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %15 = load ptr, ptr @cfile, align 8
   call void @epan_dissect_init(ptr noundef nonnull %5, ptr noundef %15, i32 noundef %14, i32 noundef 0) #9
   call void @reset_tap_listeners() #9
-  %16 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %.not1316 = icmp eq i32 %16, 0
   br i1 %.not1316, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %23
   %.017 = phi i32 [ %34, %23 ], [ 1, %0 ]
-  %17 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %18 = call ptr @frame_data_sequence_find(ptr noundef %17, i32 noundef %.017) #9
-  %19 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call i32 @wtap_seek_read(ptr noundef %19, i64 noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
@@ -768,14 +768,14 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %29 = add i32 %.017, -1
   %30 = getelementptr inbounds i8, ptr %18, i64 92
   store i32 %29, ptr %30, align 4
-  %31 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 8), align 8
+  %31 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %32 = zext i16 %31 to i32
-  %33 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef nonnull %18, ptr noundef nonnull %1) #9
+  %33 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %18, ptr noundef nonnull %1) #9
   call void @epan_dissect_run_with_taps(ptr noundef nonnull %5, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %33, ptr noundef nonnull %18, ptr noundef %8) #9
   call void @wtap_rec_reset(ptr noundef nonnull %2) #9
   call void @epan_dissect_reset(ptr noundef nonnull %5) #9
   %34 = add i32 %.017, 1
-  %35 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %.not13 = icmp ugt i32 %34, %35
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -828,7 +828,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   call void @wtap_rec_init(ptr noundef nonnull %5) #9
   call void @ws_buffer_init(ptr noundef nonnull %4, i64 noundef 1514) #9
   %15 = load ptr, ptr @cfile, align 8
@@ -844,7 +844,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %.03040 = phi i8 [ %.2, %34 ], [ 0, %13 ]
   %.03139 = phi i32 [ %50, %34 ], [ 1, %13 ]
   %.03338 = phi i32 [ %.134, %34 ], [ 0, %13 ]
-  %20 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %21 = call ptr @frame_data_sequence_find(ptr noundef %20, i32 noundef %.03139) #9
   %22 = and i32 %.03139, 7
   %23 = icmp eq i32 %22, 0
@@ -860,7 +860,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
 
 29:                                               ; preds = %24, %.lr.ph
   %.1 = phi i8 [ 0, %24 ], [ %.03040, %.lr.ph ]
-  %30 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @wtap_seek_read(ptr noundef %30, i64 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
@@ -880,9 +880,9 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %21, i64 92
   store i32 %.03338, ptr %41, align 4
-  %42 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 8), align 8
+  %42 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %43 = zext i16 %42 to i32
-  %44 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef nonnull %21, ptr noundef nonnull %4) #9
+  %44 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %21, ptr noundef nonnull %4) #9
   call void @epan_dissect_run(ptr noundef nonnull %8, i32 noundef %43, ptr noundef nonnull %5, ptr noundef %44, ptr noundef nonnull %21, ptr noundef null) #9
   %45 = load ptr, ptr %3, align 8
   %46 = call zeroext i1 @dfilter_apply_edt(ptr noundef %45, ptr noundef nonnull %8) #9
@@ -939,7 +939,7 @@ declare void @dfilter_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @sharkd_get_modified_block(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @cap_file_provider_get_modified_block(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef %0) #9
+  %2 = tail call ptr @cap_file_provider_get_modified_block(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef %0) #9
   ret ptr %2
 }
 
@@ -958,14 +958,14 @@ define hidden ptr @sharkd_get_packet_block(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @cap_file_provider_get_modified_block(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef nonnull %0) #9
+  %10 = tail call ptr @cap_file_provider_get_modified_block(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %0) #9
   %11 = tail call ptr @wtap_block_ref(ptr noundef %10) #9
   br label %20
 
 12:                                               ; preds = %1
   call void @wtap_rec_init(ptr noundef nonnull %2) #9
   call void @ws_buffer_init(ptr noundef nonnull %3, i64 noundef 1514) #9
-  %13 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @wtap_seek_read(ptr noundef %13, i64 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
@@ -985,7 +985,7 @@ declare ptr @wtap_block_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @sharkd_set_modified_block(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @cap_file_provider_set_modified_block(ptr noundef nonnull getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), ptr noundef %0, ptr noundef %1) #9
+  tail call void @cap_file_provider_set_modified_block(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef %0, ptr noundef %1) #9
   ret i32 0
 }
 

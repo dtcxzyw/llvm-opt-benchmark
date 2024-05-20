@@ -5779,7 +5779,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %293 = icmp ugt i32 %.val281.i, 43199
   %..i = select i1 %293, i16 19792, i16 19777
   %anon.01d8cbf55cc9b6926c328beaecf9b12f.103.anon.01d8cbf55cc9b6926c328beaecf9b12f.102.i = select i1 %293, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.103, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.102
-  %294 = select i1 %293, ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.103, i64 1, i32 0, i64 0), ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.102, i64 1, i32 0, i64 0)
+  %294 = select i1 %293, ptr getelementptr inbounds (i8, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.103, i64 2), ptr getelementptr inbounds (i8, ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.102, i64 2)
   %.sroa.01.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.01.sroa.3.sroa.2.0..sroa.01.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.01.sroa.4.sroa.2.0..sroa.01.sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 36
@@ -8134,7 +8134,7 @@ define noundef nonnull ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChun
   br i1 %17, label %18, label %.critedge57
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5stats10__CALLSITE17h614b80fb48da23fcE", i64 0, i32 1, i64 8) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5stats10__CALLSITE17h614b80fb48da23fcE", i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -8403,7 +8403,7 @@ define noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$influxdb3_write..write
   br i1 %17, label %18, label %.critedge57
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$6schema10__CALLSITE17h1e4adc2556a9b539E", i64 0, i32 1, i64 8) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$6schema10__CALLSITE17h1e4adc2556a9b539E", i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -8662,7 +8662,7 @@ define noundef align 8 dereferenceable(16) ptr @"_ZN84_$LT$influxdb3_write..writ
   br i1 %17, label %18, label %.critedge57
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$12partition_id10__CALLSITE17h0aec9521d5a6cd8eE", i64 0, i32 1, i64 8) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$12partition_id10__CALLSITE17h0aec9521d5a6cd8eE", i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -8920,7 +8920,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN84_$LT$influxdb3_writ
   br i1 %17, label %18, label %.critedge58
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$8sort_key10__CALLSITE17he5aceb27b7512f46E", i64 0, i32 1, i64 8) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$8sort_key10__CALLSITE17he5aceb27b7512f46E", i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge58
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -9182,7 +9182,7 @@ define void @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$io
   br i1 %18, label %19, label %.critedge57
 
 19:                                               ; preds = %2
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$2id10__CALLSITE17hd3cf654c412204cbE", i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$2id10__CALLSITE17hd3cf654c412204cbE", i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -9448,7 +9448,7 @@ define void @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$io
   br i1 %19, label %20, label %.critedge62
 
 20:                                               ; preds = %2
-  %21 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$4data10__CALLSITE17h7f61dde1a29c9f72E", i64 0, i32 1, i64 8) monotonic, align 8
+  %21 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$4data10__CALLSITE17h7f61dde1a29c9f72E", i64 16) monotonic, align 8
   switch i8 %21, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge62
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -9731,7 +9731,7 @@ define noundef i64 @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as
   br i1 %17, label %18, label %.critedge57
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5order10__CALLSITE17h6a71797b70b0d7c1E", i64 0, i32 1, i64 8) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5order10__CALLSITE17h6a71797b70b0d7c1E", i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread
@@ -10580,7 +10580,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   br label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_line_protocol..ParsedLine$GT$$GT$17hcecd93b82ce34542E.exit.i.i"
 
 295:                                              ; preds = %.noexc.i.i, %.loopexit.i
-  %.0.i.i2.i.i.i = phi ptr [ %286, %.noexc.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %.loopexit.i ]
+  %.0.i.i2.i.i.i = phi ptr [ %286, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), %.loopexit.i ]
   %.sroa.422.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %119, i64 32
   %296 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !1620
   %297 = extractelement <2 x i64> %296, i64 0
@@ -12395,7 +12395,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   unreachable
 
 818:                                              ; preds = %.noexc.i.i.i.i.i, %810
-  %.0.i.i2.i.i.i.i.i.i = phi ptr [ %812, %.noexc.i.i.i.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %810 ]
+  %.0.i.i2.i.i.i.i.i.i = phi ptr [ %812, %.noexc.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), %810 ]
   %819 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i.i, align 8, !noalias !1901
   %820 = extractelement <2 x i64> %819, i64 0
   %821 = add i64 %820, 1
@@ -13978,7 +13978,7 @@ switch.lookup445:                                 ; preds = %979
   br i1 %1199, label %1200, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread248
 
 1200:                                             ; preds = %1197
-  %1201 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catalog10__CALLSITE17hc4edd276b6f044faE, i64 0, i32 1, i64 8) monotonic, align 8
+  %1201 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catalog10__CALLSITE17hc4edd276b6f044faE, i64 16) monotonic, align 8
   switch i8 %1201, label %1202 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread248
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread

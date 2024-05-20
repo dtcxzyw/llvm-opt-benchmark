@@ -9,12 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @filter_job_list(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 17), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
   %3 = icmp ne ptr %2, null
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 18), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 88), align 8
   %5 = icmp ne ptr %4, null
   %or.cond = select i1 %3, i1 true, i1 %5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 19), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 96), align 8
   %7 = icmp ne ptr %6, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %7
   %8 = icmp ne ptr %0, null
@@ -33,7 +33,7 @@ declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_filter_job(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 17), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
@@ -44,7 +44,7 @@ define internal range(i32 0, 2) i32 @_filter_job(ptr noundef %0, ptr nocapture r
   br i1 %.not7, label %19, label %7
 
 7:                                                ; preds = %4, %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 19), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 96), align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
 
@@ -55,7 +55,7 @@ define internal range(i32 0, 2) i32 @_filter_job(ptr noundef %0, ptr nocapture r
   br i1 %.not9, label %19, label %12
 
 12:                                               ; preds = %9, %7
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 18), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 88), align 8
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %18, label %14
 

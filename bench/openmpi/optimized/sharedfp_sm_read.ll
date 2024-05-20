@@ -33,7 +33,7 @@ define i32 @mca_sharedfp_sm_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %11, ptr noundef nonnull @.str) #4
   br label %33
 
@@ -47,7 +47,7 @@ define i32 @mca_sharedfp_sm_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %18, ptr noundef nonnull @.str.1, i64 noundef %15) #4
   br label %19
 
@@ -68,7 +68,7 @@ define i32 @mca_sharedfp_sm_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not17, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %29, ptr noundef nonnull @.str.2, i64 noundef %25) #4
   %.pre = load i64, ptr %6, align 8
   br label %30
@@ -101,7 +101,7 @@ define i32 @mca_sharedfp_sm_read_ordered(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %13, ptr noundef nonnull @.str.3) #4
   br label %101
 
@@ -181,7 +181,7 @@ define i32 @mca_sharedfp_sm_read_ordered(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not63, label %57, label %55
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %56, ptr noundef nonnull @.str.4, i64 noundef %54) #4
   %.pre = load i32, ptr @mca_sharedfp_sm_verbose, align 4
   %.pre82 = load i32, ptr %41, align 8
@@ -208,7 +208,7 @@ define i32 @mca_sharedfp_sm_read_ordered(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not60, label %69, label %66
 
 66:                                               ; preds = %64
-  %67 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %68 = load i64, ptr %8, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %67, ptr noundef nonnull @.str.5, i64 noundef %68) #4
   br label %69
@@ -261,7 +261,7 @@ define i32 @mca_sharedfp_sm_read_ordered(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not62, label %97, label %95
 
 95:                                               ; preds = %87
-  %96 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %96, ptr noundef nonnull @.str.6, i64 noundef %93) #4
   br label %97
 

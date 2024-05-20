@@ -1081,13 +1081,13 @@ if.end12:                                         ; preds = %if.then11.us51.i, %
   br i1 %tobool.not.i, label %if.else51.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end12
-  %7 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %cmp.i8 = icmp sgt i32 %7, -1
   br i1 %cmp.i8, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
   %call.i12 = tail call ptr @PyEval_SaveThread() #6
-  %8 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %call2.i = call i32 @_Py_fstat_noraise(i32 noundef %8, ptr noundef nonnull %st.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call.i12) #6
   %tobool3.not.i = icmp eq i32 %call2.i, 0
@@ -1095,23 +1095,23 @@ if.then1.i:                                       ; preds = %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.then1.i
   %9 = load i64, ptr %st.i, align 16
-  %10 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 720), align 8
   %cmp4.not.i = icmp eq i64 %9, %10
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then7.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %st_ino.i = getelementptr inbounds i8, ptr %st.i, i64 8
   %11 = load i64, ptr %st_ino.i, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 2), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 728), align 8
   %cmp6.not.i = icmp eq i64 %11, %12
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false5.i, %lor.lhs.false.i, %if.then1.i
-  store i32 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   br label %if.else.i
 
 if.end8.i:                                        ; preds = %lor.lhs.false5.i
-  %.pr.i = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %cmp9.i = icmp sgt i32 %.pr.i, -1
   br i1 %cmp9.i, label %if.end41.i, label %if.else.i
 
@@ -1136,13 +1136,13 @@ if.then25.i:                                      ; preds = %if.then13.i, %if.th
   br label %dev_urandom.exit
 
 if.end27.i:                                       ; preds = %if.else.i
-  %15 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %cmp28.i = icmp sgt i32 %15, -1
   br i1 %cmp28.i, label %if.then29.i, label %if.else31.i
 
 if.then29.i:                                      ; preds = %if.end27.i
   %call30.i = call i32 @close(i32 noundef %call11.i) #6
-  %16 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   br label %if.end41.i
 
 if.else31.i:                                      ; preds = %if.end27.i
@@ -1155,9 +1155,9 @@ if.then34.i:                                      ; preds = %if.else31.i
   br label %dev_urandom.exit
 
 if.else36.i:                                      ; preds = %if.else31.i
-  store i32 %call11.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  store i32 %call11.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %17 = load <2 x i64>, ptr %st.i, align 16
-  store <2 x i64> %17, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
+  store <2 x i64> %17, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 720), align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else36.i, %if.then29.i, %if.end8.i
@@ -1313,13 +1313,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_Py_HashRandomization_Fini() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   %cmp.i = icmp sgt i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %dev_urandom_close.exit
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @close(i32 noundef %0) #6
-  store i32 -1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
   br label %dev_urandom_close.exit
 
 dev_urandom_close.exit:                           ; preds = %entry, %if.then.i

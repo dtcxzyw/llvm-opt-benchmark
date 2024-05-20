@@ -56,7 +56,7 @@ define range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) local_unna
 
 12:                                               ; preds = %9
   store i32 0, ptr @g_context_cnt, align 4
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 79), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 560), align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %job_submit_g_fini.exit, label %14
 

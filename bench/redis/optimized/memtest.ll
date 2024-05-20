@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @memtest_progress_start(ptr noundef %title, i32 noundef %pass) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
-  %0 = load i16, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i64 0, i32 1), align 2
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @ws, i64 2), align 2
   %conv2 = zext i16 %0 to i32
   %1 = load i16, ptr @ws, align 2
   %conv13 = zext i16 %1 to i32
@@ -47,7 +47,7 @@ for.body:                                         ; preds = %entry, %for.body
   %j.07 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %putchar = tail call i32 @putchar(i32 46)
   %inc = add nuw nsw i32 %j.07, 1
-  %2 = load i16, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i64 0, i32 1), align 2
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @ws, i64 2), align 2
   %conv = zext i16 %2 to i32
   %3 = load i16, ptr @ws, align 2
   %conv1 = zext i16 %3 to i32
@@ -62,7 +62,7 @@ for.end:                                          ; preds = %for.body, %entry
   %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %title, i32 noundef %pass)
   store i64 0, ptr @progress_printed, align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i64 0, i32 1), align 2
+  %4 = load i16, ptr getelementptr inbounds (i8, ptr @ws, i64 2), align 2
   %conv8 = zext i16 %4 to i64
   %5 = load i16, ptr @ws, align 2
   %conv9 = zext i16 %5 to i64
@@ -1373,7 +1373,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i16 80, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i64 0, i32 1), align 2
+  store i16 80, ptr getelementptr inbounds (i8, ptr @ws, i64 2), align 2
   store i16 20, ptr @ws, align 2
   br label %if.end
 

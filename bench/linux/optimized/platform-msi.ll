@@ -218,7 +218,7 @@ define internal fastcc i32 @platform_msi_alloc_priv_data(ptr noundef %0, i32 nou
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %28 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 104) #7
   %29 = icmp eq ptr %28, null
   br i1 %29, label %39, label %30

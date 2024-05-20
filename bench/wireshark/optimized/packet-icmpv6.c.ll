@@ -2362,7 +2362,7 @@ define internal i32 @dissect_icmpv6(ptr noundef %0, ptr noundef %1, ptr noundef 
   %160 = or disjoint i32 %159, %142
   %161 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 %160, ptr %161, align 4
-  %162 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 78), align 4
+  %162 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
   %.not653 = icmp eq i32 %162, 0
   br i1 %.not653, label %166, label %163
 
@@ -2587,7 +2587,7 @@ transaction_start.exit:                           ; preds = %236, %238, %proto_i
   %276 = load i8, ptr %155, align 4
   %277 = and i8 %276, 2
   %278 = icmp ne i8 %277, 0
-  %279 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 78), align 4
+  %279 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
   %280 = icmp ne i32 %279, 0
   %or.cond12 = select i1 %278, i1 %280, i1 false
   br i1 %or.cond12, label %281, label %283

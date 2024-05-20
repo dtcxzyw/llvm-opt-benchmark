@@ -381,9 +381,9 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
   store i64 4, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %34, i64 368
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %69, i8 0, i64 24, i1 false)
-  store i32 100, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 4), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 5), align 8
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 12), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 120), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 16), align 8
   %70 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef nonnull %14, ptr noundef %1, i64 noundef 0, i32 noundef 7, ptr noundef nonnull %34, i32 noundef 24, ptr noundef nonnull %15, i32 noundef 100, ptr noundef nonnull @_ZZ12gmx_make_ediiPPcE4desc, i32 noundef 0, ptr noundef null, ptr noundef nonnull %28)
           to label %71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -881,7 +881,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit73:        ; preds = %201
           to label %244 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 244:                                              ; preds = %242
-  invoke void @_Z17read_eigenvectorsPKcPiPbPPA3_fS2_S5_S2_S1_PS1_PS5_PPf(ptr noundef %243, ptr noundef nonnull %21, ptr noundef nonnull %33, ptr noundef nonnull %16, ptr noundef nonnull getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 1), ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 2), ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %27)
+  invoke void @_Z17read_eigenvectorsPKcPiPbPPA3_fS2_S5_S2_S1_PS1_PS5_PPf(ptr noundef %243, ptr noundef nonnull %21, ptr noundef nonnull %33, ptr noundef nonnull %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 4), ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 5), ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %27)
           to label %245 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 245:                                              ; preds = %244
@@ -1028,11 +1028,11 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %280
   br i1 %309, label %311, label %312
 
 311:                                              ; preds = %310
-  store i8 1, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 2), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 133), align 1
   br label %433
 
 312:                                              ; preds = %310
-  %313 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
+  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 16), align 16
   %314 = load i32, ptr %313, align 4
   %.not57 = icmp eq i32 %314, 0
   br i1 %.not57, label %413, label %315
@@ -1042,7 +1042,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %280
           to label %317 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 317:                                              ; preds = %315
-  %318 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 2), align 16
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 16), align 16
   %319 = load i8, ptr @_ZZ12gmx_make_ediiPPcE6bHesse, align 1
   %320 = trunc i8 %319 to i1
   %321 = load float, ptr @_ZZ12gmx_make_ediiPPcE1T, align 4
@@ -1287,19 +1287,19 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
 
 413:                                              ; preds = %_ZL16read_eigenvaluesPKiPKcPfbfi.exit, %312
   %414 = load float, ptr @_ZZ12gmx_make_ediiPPcE3tau, align 4
-  store float %414, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 3), align 8
+  store float %414, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 136), align 8
   %415 = load float, ptr @_ZZ12gmx_make_ediiPPcE7deltaF0, align 4
-  store float %415, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12), align 8
+  store float %415, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 128), align 8
   %416 = load float, ptr @_ZZ12gmx_make_ediiPPcE6deltaF, align 4
-  store float %416, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 4), align 4
+  store float %416, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 140), align 4
   %417 = load i32, ptr @_ZZ12gmx_make_ediiPPcE7eqSteps, align 4
-  store i32 %417, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 3), align 8
+  store i32 %417, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 8), align 8
   %418 = load float, ptr @_ZZ12gmx_make_ediiPPcE1T, align 4
   %419 = fmul float %418, 0x3F81111120000000
-  store float %419, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 5), align 8
+  store float %419, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 144), align 8
   %420 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bHarmonic, align 1
   %421 = and i8 %420, 1
-  store i8 %421, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 1), align 4
+  store i8 %421, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 132), align 4
   %422 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bRestrain, align 1
   %423 = trunc i8 %422 to i1
   %424 = load float, ptr @_ZZ12gmx_make_ediiPPcE8constEfl, align 4
@@ -1307,36 +1307,36 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
 
 425:                                              ; preds = %413
   %426 = fneg float %424
-  store float %426, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 6), align 4
+  store float %426, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 148), align 4
   %427 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
   %428 = fneg float %427
   %429 = fmul float %427, %428
-  store float %429, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 7), align 8
+  store float %429, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 152), align 8
   br label %433
 
 430:                                              ; preds = %413
-  store float %424, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 6), align 4
+  store float %424, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 148), align 4
   %431 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
   %432 = fmul float %431, %431
-  store float %432, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 7), align 8
+  store float %432, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 152), align 8
   br label %433
 
 433:                                              ; preds = %425, %430, %311
   %434 = load i32, ptr %21, align 4
-  store i32 %434, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
+  store i32 %434, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
   %435 = load i32, ptr %254, align 8
   store i32 %435, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, align 8
   %436 = load i32, ptr %26, align 4
   %437 = load ptr, ptr %16, align 8
   %438 = load ptr, ptr %25, align 8
-  store i32 %436, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6), align 8
-  store ptr %438, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6, i32 1), align 8
-  store ptr %437, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6, i32 2), align 8
+  store i32 %436, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 24), align 8
+  store ptr %438, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 32), align 8
+  store ptr %437, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 40), align 8
   %439 = load ptr, ptr %19, align 8
   %440 = load ptr, ptr %24, align 8
-  store i32 %434, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7), align 8
-  store ptr %440, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7, i32 1), align 8
-  store ptr %439, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7, i32 2), align 8
+  store i32 %434, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 48), align 8
+  store ptr %440, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 56), align 8
+  store ptr %439, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 64), align 8
   %441 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.149, i32 noundef 7, ptr noundef nonnull %34)
           to label %442 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1344,7 +1344,7 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
   br i1 %441, label %443, label %454
 
 443:                                              ; preds = %442
-  %444 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
+  %444 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 16), align 16
   %445 = load i32, ptr %444, align 4
   %.not58 = icmp eq i32 %445, 0
   br i1 %.not58, label %449, label %446
@@ -1359,14 +1359,14 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
   %451 = load ptr, ptr %25, align 8
   %452 = load i32, ptr %21, align 4
   %453 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %77, ptr noundef nonnull getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8), i32 noundef %450, ptr noundef %451, i32 noundef %452, ptr noundef %453)
+  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %77, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 72), i32 noundef %450, ptr noundef %451, i32 noundef %452, ptr noundef %453)
           to label %456 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 454:                                              ; preds = %442
   %455 = load ptr, ptr %24, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8), align 8
-  store ptr %455, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 72), align 8
+  store ptr %455, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 88), align 8
   br label %456
 
 456:                                              ; preds = %449, %454
@@ -1381,14 +1381,14 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
   %461 = load ptr, ptr %25, align 8
   %462 = load i32, ptr %21, align 4
   %463 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %79, ptr noundef nonnull getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9), i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %463)
+  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %79, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 96), i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %463)
           to label %466 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 464:                                              ; preds = %458
   %465 = load ptr, ptr %24, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9), align 8
-  store ptr %465, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 96), align 8
+  store ptr %465, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 104), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 112), align 8
   br label %466
 
 466:                                              ; preds = %459, %464
@@ -1418,41 +1418,41 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i95:      ; preds = %473, %470
   store ptr null, ptr %471, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   %474 = load i32, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, align 8
-  %475 = load i8, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 1), align 4
+  %475 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 4), align 4
   %476 = and i8 %475, 1
   %477 = zext nneg i8 %476 to i32
-  %478 = load i8, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 2), align 1
+  %478 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 5), align 1
   %479 = and i8 %478, 1
   %480 = zext nneg i8 %479 to i32
   %481 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.192, i32 noundef 670, i32 noundef %474, i32 noundef %477, i32 noundef %480) #15
-  %482 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 4), align 4
-  %483 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 5), align 8
-  %484 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 10), align 8
+  %482 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 12), align 4
+  %483 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 16), align 8
+  %484 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 120), align 8
   %485 = fpext float %484 to double
   %486 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.193, i32 noundef %482, i32 noundef %483, double noundef %485) #15
-  %487 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 3), align 8
-  %488 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12), align 8
+  %487 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 8), align 8
+  %488 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 128), align 8
   %489 = fpext float %488 to double
-  %490 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 4), align 4
+  %490 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 140), align 4
   %491 = fpext float %490 to double
-  %492 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 3), align 8
+  %492 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 136), align 8
   %493 = fpext float %492 to double
-  %494 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 6), align 4
+  %494 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 148), align 4
   %495 = fpext float %494 to double
-  %496 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 7), align 8
+  %496 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 152), align 8
   %497 = fpext float %496 to double
-  %498 = load float, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 5), align 8
+  %498 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 144), align 8
   %499 = fpext float %498 to double
-  %500 = load i8, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 1), align 4
+  %500 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 132), align 4
   %501 = and i8 %500, 1
   %502 = zext nneg i8 %501 to i32
-  %503 = load i8, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 12, i32 2), align 1
+  %503 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 133), align 1
   %504 = and i8 %503, 1
   %505 = zext nneg i8 %504 to i32
   %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.194, i32 noundef %487, double noundef %489, double noundef %491, double noundef %493, double noundef %495, double noundef %497, double noundef %499, i32 noundef %502, i32 noundef %505) #15
-  %.sroa.02.0.copyload.i = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6), align 8
-  %.sroa.3.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6, i32 1), align 8
-  %.sroa.43.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 6, i32 2), align 8
+  %.sroa.02.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 24), align 8
+  %.sroa.3.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 32), align 8
+  %.sroa.43.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 40), align 8
   %507 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.195, i32 noundef %.sroa.02.0.copyload.i) #15
   %508 = icmp sgt i32 %.sroa.02.0.copyload.i, 0
   br i1 %508, label %.lr.ph.i.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i
@@ -1481,9 +1481,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i95:      ; preds = %473, %470
   br i1 %exitcond.not.i.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i, label %509, !llvm.loop !18
 
 _ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i:        ; preds = %509, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i95
-  %.sroa.08.0.copyload.i = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7), align 8
-  %.sroa.310.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7, i32 1), align 8
-  %.sroa.411.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 7, i32 2), align 8
+  %.sroa.08.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 48), align 8
+  %.sroa.310.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 56), align 8
+  %.sroa.411.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 64), align 8
   %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.196, i32 noundef %.sroa.08.0.copyload.i) #15
   %524 = icmp sgt i32 %.sroa.08.0.copyload.i, 0
   br i1 %524, label %.lr.ph.i67.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i
@@ -1512,55 +1512,55 @@ _ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i:        ; preds = %509, %_ZNSt10filesy
   br i1 %exitcond.not.i71.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i, label %525, !llvm.loop !18
 
 _ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i:      ; preds = %525, %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i
-  %539 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %540 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 6), align 16
+  %539 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %540 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 48), align 16
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %539, ptr noundef %540, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.197, ptr noundef null)
           to label %.noexc97 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc97:                                         ; preds = %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i
-  %541 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
+  %541 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
   %542 = load ptr, ptr @_ZZ12gmx_make_ediiPPcE6listen, align 16
   %543 = load ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, align 16
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %541, ptr noundef %542, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.198, ptr noundef %543)
           to label %.noexc98 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc98:                                         ; preds = %.noexc97
-  %544 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %545 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 1), align 8
-  %546 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 1), align 8
+  %544 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %545 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 8), align 8
+  %546 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 8), align 8
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %544, ptr noundef %545, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.199, ptr noundef %546)
           to label %.noexc99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc99:                                         ; preds = %.noexc98
-  %547 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %548 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 3), align 8
-  %549 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 3), align 8
+  %547 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %548 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 24), align 8
+  %549 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 24), align 8
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %547, ptr noundef %548, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.200, ptr noundef %549)
           to label %.noexc100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc100:                                        ; preds = %.noexc99
-  %550 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %551 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 4), align 16
+  %550 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 32), align 16
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %550, ptr noundef %551, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.201, ptr noundef null)
           to label %.noexc101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc101:                                        ; preds = %.noexc100
-  %552 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %553 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 5), align 8
+  %552 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %553 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 40), align 8
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %552, ptr noundef %553, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.202, ptr noundef null)
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc102:                                        ; preds = %.noexc101
-  %554 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
-  %555 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
-  %556 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 2), align 16
+  %554 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 124), align 4
+  %555 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 16), align 16
+  %556 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 16), align 16
   invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %554, ptr noundef %555, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.203, ptr noundef %556)
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc103:                                        ; preds = %.noexc102
-  %.sroa.016.0.copyload.i = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8), align 8
-  %.sroa.318.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8, i32 1), align 8
-  %.sroa.419.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 8, i32 2), align 8
+  %.sroa.016.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 72), align 8
+  %.sroa.318.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 80), align 8
+  %.sroa.419.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 88), align 8
   %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.204, i32 noundef %.sroa.016.0.copyload.i) #15
   %558 = icmp sgt i32 %.sroa.016.0.copyload.i, 0
   br i1 %558, label %.lr.ph.i73.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit78.i
@@ -1589,9 +1589,9 @@ _ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i:      ; preds = %525, %_ZL11write_t_
   br i1 %exitcond.not.i77.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit78.i, label %559, !llvm.loop !18
 
 _ZL11write_t_edxP8_IO_FILE4edixPKc.exit78.i:      ; preds = %559, %.noexc103
-  %.sroa.024.0.copyload.i = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9), align 8
-  %.sroa.326.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9, i32 1), align 8
-  %.sroa.427.0.copyload.i = load ptr, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 9, i32 2), align 8
+  %.sroa.024.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 96), align 8
+  %.sroa.326.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 104), align 8
+  %.sroa.427.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 112), align 8
   %573 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.205, i32 noundef %.sroa.024.0.copyload.i) #15
   %574 = icmp sgt i32 %.sroa.024.0.copyload.i, 0
   br i1 %574, label %.lr.ph.i79.i, label %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit84.i

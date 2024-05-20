@@ -2241,7 +2241,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   %24 = getelementptr inbounds i8, ptr %2, i64 360
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @wmem_list_count(ptr noundef %25) #24
-  %27 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %28 = icmp ult i32 %26, %27
   br i1 %28, label %30, label %29
 
@@ -4584,7 +4584,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @wmem_list_count(ptr noundef %23) #24
   store ptr null, ptr %4, align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %26 = icmp ult i32 %24, %25
   br i1 %26, label %28, label %27
 
@@ -6354,7 +6354,7 @@ define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %2, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %6 = icmp slt i32 %4, %5
   br i1 %6, label %8, label %7
 

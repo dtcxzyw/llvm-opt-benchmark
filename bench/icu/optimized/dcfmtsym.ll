@@ -569,13 +569,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -584,7 +584,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fNoSymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fNoSymbol, align 8
   %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 1936
@@ -599,7 +599,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 invoke.cont12:                                    ; preds = %invoke.cont6, %invoke.cont12
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur10.ptr.ptr, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
@@ -609,7 +609,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur25.ptr.ptr, align 8
   %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
@@ -885,7 +885,7 @@ invoke.cont72:                                    ; preds = %invoke.cont68
           to label %invoke.cont75 unwind label %lpad51
 
 invoke.cont75:                                    ; preds = %invoke.cont72
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkE, i64 16), ptr %sink, align 8
   %dfs.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %this, ptr %dfs.i, align 8
   %seenSymbol.i = getelementptr inbounds i8, ptr %sink, i64 16
@@ -1077,7 +1077,7 @@ invoke.cont152:                                   ; preds = %for.inc149, %invoke
   %fCodePointZero = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 %tempCodePointZero.2, ptr %fCodePointZero, align 8
   store i32 0, ptr %internalStatus, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tempStr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tempStr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tempStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call156 = invoke i32 @ucurr_forLocale_75(ptr noundef %10, ptr noundef nonnull %curriso, i32 noundef 4, ptr noundef nonnull %internalStatus)
@@ -1105,7 +1105,7 @@ if.end167:                                        ; preds = %invoke.cont155, %if
 
 invoke.cont170:                                   ; preds = %if.end167
   store ptr %call169, ptr %currencyResource, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119CurrencySpacingSinkE, i64 0, i32 0, i64 2), ptr %currencySink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119CurrencySpacingSinkE, i64 16), ptr %currencySink, align 8
   %dfs.i86 = getelementptr inbounds i8, ptr %currencySink, i64 8
   store ptr %this, ptr %dfs.i86, align 8
   %hasBeforeCurrency.i = getelementptr inbounds i8, ptr %currencySink, i64 16
@@ -1318,13 +1318,13 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1333,7 +1333,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fNoSymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fNoSymbol, align 8
   %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 1936
@@ -1348,7 +1348,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 invoke.cont12:                                    ; preds = %invoke.cont6, %invoke.cont12
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur10.ptr.ptr, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
@@ -1358,7 +1358,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur25.ptr.ptr, align 8
   %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
@@ -1427,13 +1427,13 @@ declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleERKNS_15NumberingSystemER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(86) %ns, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1442,7 +1442,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fNoSymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fNoSymbol, align 8
   %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 1936
@@ -1457,7 +1457,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 invoke.cont12:                                    ; preds = %invoke.cont6, %invoke.cont12
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur10.ptr.ptr, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
@@ -1467,7 +1467,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur25.ptr.ptr, align 8
   %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
@@ -1534,13 +1534,13 @@ ehcleanup62:                                      ; preds = %arraydestroy.body57
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2Ev(ptr noundef nonnull align 8 dereferenceable(2883) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1549,7 +1549,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fNoSymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fNoSymbol, align 8
   %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 1936
@@ -1568,7 +1568,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
 invoke.cont13:                                    ; preds = %invoke.cont7, %invoke.cont13
   %arrayctor.cur11.idx = phi i64 [ 2488, %invoke.cont7 ], [ %arrayctor.cur11.add, %invoke.cont13 ]
   %arrayctor.cur11.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur11.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur11.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur11.ptr.ptr, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur11.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur11.add = add nuw nsw i64 %arrayctor.cur11.idx, 64
@@ -1578,7 +1578,7 @@ invoke.cont13:                                    ; preds = %invoke.cont7, %invo
 invoke.cont28:                                    ; preds = %invoke.cont13, %invoke.cont28
   %arrayctor.cur26.idx = phi i64 [ %arrayctor.cur26.add, %invoke.cont28 ], [ 2680, %invoke.cont13 ]
   %arrayctor.cur26.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur26.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur26.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur26.ptr.ptr, align 8
   %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur26.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur26.add = add nuw nsw i64 %arrayctor.cur26.idx, 64
@@ -2098,7 +2098,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(2883) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
@@ -2148,13 +2148,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(2883) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -2163,7 +2163,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fNoSymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fNoSymbol, align 8
   %fUnion2.i7 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i7, align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 1936
@@ -2178,7 +2178,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 invoke.cont12:                                    ; preds = %invoke.cont6, %invoke.cont12
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur10.ptr.ptr, align 8
   %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
@@ -2188,7 +2188,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur25.ptr.ptr, align 8
   %fUnion2.i9 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i9, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
@@ -2582,7 +2582,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tempStr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tempStr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tempStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fullName.i = getelementptr inbounds i8, ptr %this, i64 1976
@@ -2671,7 +2671,7 @@ invoke.cont51:                                    ; preds = %invoke.cont47
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %decimalSep, align 8, !alias.scope !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %decimalSep, align 8, !alias.scope !15
   %fUnion2.i.i = getelementptr inbounds i8, ptr %decimalSep, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !15
   store i32 0, ptr %len.i, align 4, !noalias !15
@@ -2722,7 +2722,7 @@ invoke.cont55:                                    ; preds = %if.else.i, %invoke.
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i14)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %groupingSep, align 8, !alias.scope !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupingSep, align 8, !alias.scope !18
   %fUnion2.i.i15 = getelementptr inbounds i8, ptr %groupingSep, i64 8
   store i16 2, ptr %fUnion2.i.i15, align 8, !alias.scope !18
   store i32 0, ptr %len.i13, align 4, !noalias !18

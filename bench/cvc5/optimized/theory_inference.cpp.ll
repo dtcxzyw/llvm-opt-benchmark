@@ -79,7 +79,7 @@ define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaC2ENS1_11Inferenc
 entry:
   %d_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 16), ptr %this, align 8
   %d_node = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %d_node, align 8
@@ -236,7 +236,7 @@ define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactC2ENS1_11I
 entry:
   %d_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
   %d_conc = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %conc, align 8
   store ptr %0, ptr %d_conc, align 8
@@ -394,7 +394,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 16), ptr %this, align 8
   %d_node = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_node, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -429,7 +429,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 16), ptr %this, align 8
   %d_node.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_node.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -500,7 +500,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
   %d_exp = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -563,7 +563,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
   %d_exp.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8

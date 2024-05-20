@@ -104,7 +104,7 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
   br i1 %18, label %19, label %45
 
 19:                                               ; preds = %10
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 40) #12
   %22 = call ptr @input_allocate_device() #11
   %23 = icmp ne ptr %21, null

@@ -4829,7 +4829,7 @@ _ZN5boost30make_shared_array_property_mapINS_18default_color_typeEN3ue29ue2_grap
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !noalias !229
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !noalias !229
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !229
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i64 16), ptr %call.i.i.i.i, align 8, !noalias !229
   %ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i.i, ptr %ptr.i.i.i.i.i, align 8, !noalias !229
   store ptr %call.i.i.i.i, ptr %pn.i.i.i, align 8, !alias.scope !229

@@ -5695,7 +5695,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   %31 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %21, ptr %31, align 8, !noalias !662
   %32 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.435283188f88f97391414eebf75b8265.111, i64 0, i32 0, i64 1), ptr %32, align 8, !noalias !662
+  store ptr getelementptr inbounds (i8, ptr @anon.435283188f88f97391414eebf75b8265.111, i64 1), ptr %32, align 8, !noalias !662
   %33 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %33, align 8, !noalias !662
   %34 = icmp ugt i64 %21, 65
@@ -10644,7 +10644,7 @@ define internal fastcc void @_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %7
-  %36 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style8CALLSITE17h5044140668fd9e5bE, i64 0, i32 2, i32 0) monotonic, align 8
+  %36 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style8CALLSITE17h5044140668fd9e5bE, i64 16) monotonic, align 8
   switch i8 %36, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.thread
@@ -11134,7 +11134,7 @@ define hidden void @_ZN15rustfmt_nightly4expr13rewrite_tuple17h5edfe4f58ee2102fE
   br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %7
-  %43 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN15rustfmt_nightly4expr13rewrite_tuple8CALLSITE17hf194bf280f54846fE, i64 0, i32 2, i32 0) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15rustfmt_nightly4expr13rewrite_tuple8CALLSITE17hf194bf280f54846fE, i64 16) monotonic, align 8
   switch i8 %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.thread
@@ -11242,7 +11242,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   br i1 %74, label %75, label %.critedge.i
 
 75:                                               ; preds = %72
-  %76 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style8CALLSITE17h5044140668fd9e5bE, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1702
+  %76 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style8CALLSITE17h5044140668fd9e5bE, i64 16) monotonic, align 8, !noalias !1702
   switch i8 %76, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.i [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.thread.i
@@ -21048,7 +21048,7 @@ define void @"_ZN15rustfmt_nightly5items85_$LT$impl$u20$rustfmt_nightly..rewrite
   br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %4
-  %53 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN15rustfmt_nightly5items85_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Local$GT$7rewrite8CALLSITE17h8cf38e36e8570468E", i64 0, i32 2, i32 0) monotonic, align 8
+  %53 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15rustfmt_nightly5items85_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Local$GT$7rewrite8CALLSITE17h8cf38e36e8570468E", i64 16) monotonic, align 8
   switch i8 %53, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.thread
@@ -36816,7 +36816,7 @@ _ZN15rustfmt_nightly4expr20rewrite_unary_prefix17h0957d64c512aafc3E.exit: ; pred
   br i1 %156, label %157, label %.critedge.i
 
 157:                                              ; preds = %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h2550290eac6eacf7E.exit"
-  %158 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN15rustfmt_nightly4expr13rewrite_tuple8CALLSITE17hf194bf280f54846fE, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !6649
+  %158 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15rustfmt_nightly4expr13rewrite_tuple8CALLSITE17hf194bf280f54846fE, i64 16) monotonic, align 8, !noalias !6649
   switch i8 %158, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.thread

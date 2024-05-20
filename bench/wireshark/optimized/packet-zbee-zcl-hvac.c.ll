@@ -235,8 +235,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_pump_config_control() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_pump_config_control, ptr @proto_register_zbee_zcl_pump_config_control.ett, align 16
-  store ptr @ett_zbee_zcl_pump_config_control_status, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_pump_config_control_alarm, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 2), align 16
+  store ptr @ett_zbee_zcl_pump_config_control_status, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_pump_config_control_alarm, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 16), align 16
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61) #2
   store i32 %1, ptr @proto_zbee_zcl_pump_config_control, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_pump_config_control.hf, i32 noundef 30) #2

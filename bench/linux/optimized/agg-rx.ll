@@ -375,7 +375,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br i1 %93, label %.thread9, label %.thread
 
 94:                                               ; preds = %85
-  %95 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %96 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %95, i32 noundef 3520, i64 noundef 160) #12
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.thread, label %98

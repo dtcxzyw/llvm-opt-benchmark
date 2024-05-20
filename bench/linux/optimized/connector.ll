@@ -309,7 +309,7 @@ define internal noundef range(i32 -22, 1) i32 @cn_init() #0 align 16 {
 
 15:                                               ; preds = %10
   store i1 true, ptr @cn_already_initialized, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 18), align 32
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 160), align 32
   %17 = call ptr @proc_create_single_data(ptr noundef nonnull @.str.1, i16 noundef zeroext 292, ptr noundef %16, ptr noundef nonnull @cn_proc_show, ptr noundef null) #4
   br label %18
 
@@ -322,7 +322,7 @@ define internal noundef range(i32 -22, 1) i32 @cn_init() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cn_fini() #0 align 16 {
   store i1 false, ptr @cn_already_initialized, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 18), align 32
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 160), align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.1, ptr noundef %1) #4
   %2 = load ptr, ptr @cdev.1, align 8
   tail call void @cn_queue_free_dev(ptr noundef %2) #4

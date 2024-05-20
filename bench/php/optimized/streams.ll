@@ -106,7 +106,7 @@ define i32 @php_file_le_stream_filter() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @_php_stream_get_url_stream_wrappers_hash() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not = icmp eq ptr %1, null
   %2 = select i1 %.not, ptr @url_stream_wrappers_hash, ptr %1
   ret ptr %2
@@ -119,8 +119,8 @@ define noundef nonnull ptr @php_stream_get_url_stream_wrappers_hash_global() loc
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_streams(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34, i32 4), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 648), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 632), align 8
   %5 = shl i32 %4, 2
   %6 = and i32 %5, 16
   %7 = xor i32 %6, 16
@@ -130,7 +130,7 @@ define hidden noundef i32 @zm_deactivate_streams(i32 noundef %0, i32 noundef %1)
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 640), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %forget_persistent_resource_id_numbers.exit
@@ -189,7 +189,7 @@ define ptr @php_stream_encloses(ptr noundef %0, ptr nocapture noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34), ptr noundef %0, i64 noundef %3) #27
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef %0, i64 noundef %3) #27
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
@@ -209,8 +209,8 @@ define range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr no
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %1, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 33, i32 4), align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 33, i32 1), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 592), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 576), align 8
   %17 = shl i32 %16, 2
   %18 = and i32 %17, 16
   %19 = xor i32 %18, 16
@@ -220,7 +220,7 @@ define range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr no
   br i1 %.not4043, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 33, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 584), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
@@ -301,13 +301,13 @@ define void @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %1, ptr no
   br label %36
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %16
   %19 = call noalias ptr @_emalloc_56() #27
-  store ptr %19, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   call void @_zend_hash_init(ptr noundef %19, i32 noundef 8, ptr noundef nonnull @wrapper_list_dtor, i1 noundef zeroext false) #27
   br label %22
 
@@ -318,7 +318,7 @@ define void @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %1, ptr no
 
 22:                                               ; preds = %18, %20
   call void @zend_llist_init(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull @wrapper_error_dtor, i8 noundef zeroext 0) #27
-  %23 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 128
@@ -408,10 +408,10 @@ define noundef ptr @_php_stream_alloc(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = zext i1 %.not to i16
   %16 = getelementptr inbounds i8, ptr %10, i64 96
   store i16 %15, ptr %16, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 1), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 8), align 8
   %18 = getelementptr inbounds i8, ptr %10, i64 192
   store i64 %17, ptr %18, align 8
-  %19 = load i8, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 2), align 8
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @file_globals, i64 16), align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %23
 
@@ -484,7 +484,7 @@ define i32 @_php_stream_free_enclosed(ptr noundef %0, i32 noundef %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define i32 @_php_stream_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 56), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
   %4 = and i8 %3, 4
   %.not158 = icmp ne i8 %4, 0
   %5 = and i32 %1, 40
@@ -576,7 +576,7 @@ tailrecurse:                                      ; preds = %40
   store ptr null, ptr %41, align 8
   %43 = and i32 %.088, -106
   %44 = or disjoint i32 %43, 65
-  %45 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 56), align 1
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
   %46 = and i8 %45, 4
   %.not.not = icmp eq i8 %46, 0
   br i1 %.not.not, label %.lr.ph, label %.loopexit
@@ -826,7 +826,7 @@ _php_stream_flush.exit:                           ; preds = %66, %60, %57
   br i1 %or.cond145, label %157, label %156
 
 156:                                              ; preds = %152
-  tail call void @zend_hash_apply_with_argument(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34), ptr noundef nonnull @_php_stream_free_persistent, ptr noundef nonnull %.tr161) #27
+  tail call void @zend_hash_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef nonnull @_php_stream_free_persistent, ptr noundef nonnull %.tr161) #27
   %.pre187.pre = load i16, ptr %21, align 8
   br label %157
 
@@ -3938,40 +3938,40 @@ define i64 @_php_stream_copy_to_stream(ptr noundef %0, ptr noundef %1, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_shutdown_stream_hashes() local_unnamed_addr #2 {
-  store ptr null, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 6), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
   tail call void @zend_hash_destroy(ptr noundef nonnull %1) #27
-  %3 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   tail call void @_efree(ptr noundef %3) #27
-  store ptr null, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   br label %4
 
 4:                                                ; preds = %2, %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   %.not3 = icmp eq ptr %5, null
   br i1 %.not3, label %8, label %6
 
 6:                                                ; preds = %4
   tail call void @zend_hash_destroy(ptr noundef nonnull %5) #27
-  %7 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   tail call void @_efree(ptr noundef %7) #27
-  store ptr null, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 72), align 8
   br label %8
 
 8:                                                ; preds = %6, %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %.not4 = icmp eq ptr %9, null
   br i1 %.not4, label %12, label %10
 
 10:                                               ; preds = %8
   tail call void @zend_hash_destroy(ptr noundef nonnull %9) #27
-  %11 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   tail call void @_efree(ptr noundef %11) #27
-  store ptr null, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -4175,18 +4175,18 @@ switch.early.test.i:                              ; preds = %10
   br i1 %exitcond.not.i, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %17, %2
-  %18 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %23
 
 19:                                               ; preds = %.loopexit
   %20 = tail call noalias ptr @_emalloc_56() #27
-  store ptr %20, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @url_stream_wrappers_hash, i64 0, i32 5), align 4
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @url_stream_wrappers_hash, i64 28), align 4
   tail call void @_zend_hash_init(ptr noundef %20, i32 noundef %21, ptr noundef null, i1 noundef zeroext false) #27
-  %22 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   tail call void @zend_hash_copy(ptr noundef %22, ptr noundef nonnull @url_stream_wrappers_hash, ptr noundef null) #27
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   br label %23
 
 23:                                               ; preds = %19, %.loopexit
@@ -4206,18 +4206,18 @@ php_stream_wrapper_scheme_validate.exit:          ; preds = %switch.early.test.i
 
 ; Function Attrs: nounwind uwtable
 define i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
   %4 = tail call noalias ptr @_emalloc_56() #27
-  store ptr %4, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @url_stream_wrappers_hash, i64 0, i32 5), align 4
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @url_stream_wrappers_hash, i64 28), align 4
   tail call void @_zend_hash_init(ptr noundef %4, i32 noundef %5, ptr noundef null, i1 noundef zeroext false) #27
-  %6 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   tail call void @zend_hash_copy(ptr noundef %6, ptr noundef nonnull @url_stream_wrappers_hash, ptr noundef null) #27
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -4231,7 +4231,7 @@ declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
-  %5 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not = icmp eq ptr %5, null
   %6 = select i1 %.not, ptr @url_stream_wrappers_hash, ptr %5
   %.not120 = icmp eq ptr %1, null
@@ -4401,7 +4401,7 @@ sub_0:                                            ; preds = %23
   br i1 %.not133, label %63, label %97
 
 63:                                               ; preds = %.critedge149
-  %64 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 64), align 8
   %.not134 = icmp eq ptr %64, null
   br i1 %.not134, label %97, label %65
 
@@ -4439,7 +4439,7 @@ sub_0:                                            ; preds = %23
   br i1 %or.cond151, label %80, label %97
 
 80:                                               ; preds = %75
-  %81 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 52), align 1
+  %81 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 483), align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %.thread181
 
@@ -4449,12 +4449,12 @@ sub_0:                                            ; preds = %23
   br i1 %.not142, label %85, label %88
 
 85:                                               ; preds = %83
-  %86 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 71), align 4
+  %86 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 580), align 4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %85, %83
-  %89 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
+  %89 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 579), align 1
   %90 = trunc i8 %89 to i1
   br i1 %90, label %97, label %91
 
@@ -4631,7 +4631,7 @@ define ptr @_php_stream_opendir(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %9, ptr %4, align 8
   %27 = icmp ne ptr %9, null
-  %28 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %29 = icmp ne ptr %28, null
   %or.cond.i = select i1 %27, i1 %29, i1 false
   br i1 %or.cond.i, label %30, label %php_stream_tidy_wrapper_error_log.exit
@@ -4653,7 +4653,7 @@ php_stream_tidy_wrapper_error_log.exit:           ; preds = %26, %30
 define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %50
 
@@ -4665,7 +4665,7 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %42, label %11
 
@@ -4679,7 +4679,7 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = call i64 @zend_llist_count(ptr noundef nonnull %14) #27
   %16 = trunc i64 %15 to i32
-  %17 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 43), align 1
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 443), align 1
   %18 = trunc i8 %17 to i1
   %. = select i1 %18, i64 7, i64 1
   %.str.28..str.29 = select i1 %18, ptr @.str.28, ptr @.str.29
@@ -4829,7 +4829,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 
 26:                                               ; preds = %22
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %28 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 17), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 80), align 8
   %29 = tail call ptr @php_resolve_path(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %28) #27
   br label %30
 
@@ -4841,7 +4841,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %33 = or disjoint i32 %32, 16384
   %.0149 = select i1 %.not167, i32 %2, i32 %33
   %.0143 = select i1 %.not167, ptr %0, ptr %31
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not168 = icmp eq ptr %34, null
   br i1 %.not168, label %35, label %184
 
@@ -5171,7 +5171,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %36, ptr %6, align 8
   %169 = icmp ne ptr %36, null
-  %170 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 10), align 8
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
   %171 = icmp ne ptr %170, null
   %or.cond.i = select i1 %169, i1 %171, i1 false
   br i1 %or.cond.i, label %172, label %php_stream_tidy_wrapper_error_log.exit

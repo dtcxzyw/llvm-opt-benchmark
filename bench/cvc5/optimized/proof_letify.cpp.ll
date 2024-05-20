@@ -83,7 +83,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal5proof27ProofLetifyTraverseCallbackE, i64 0, i32 0, i64 2), ptr %defaultPltc, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof27ProofLetifyTraverseCallbackE, i64 16), ptr %defaultPltc, align 8
   invoke void @_ZN4cvc58internal5proof11ProofLetify18computeProofCountsEPKNS0_9ProofNodeERSt6vectorIS5_SaIS5_EERSt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEPNS1_27ProofLetifyTraverseCallbackE(ptr noundef %pn, ptr noundef nonnull align 8 dereferenceable(24) %visitList, ptr noundef nonnull align 8 dereferenceable(48) %pcount, ptr noundef nonnull %defaultPltc)
           to label %if.end5 unwind label %lpad
 

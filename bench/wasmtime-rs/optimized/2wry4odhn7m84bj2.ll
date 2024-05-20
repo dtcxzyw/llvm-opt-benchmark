@@ -3362,7 +3362,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i.i.i: ; pr
   br i1 %75, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2379fd8f522a3c66E.exit.thread.i.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2379fd8f522a3c66E.exit.i.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2379fd8f522a3c66E.exit.i.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i.i.i, %68
-  %.0.i.i2.i.i.i = phi ptr [ %74, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i.i.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h476d098f1004fc35E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %68 ]
+  %.0.i.i2.i.i.i = phi ptr [ %74, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h476d098f1004fc35E, i64 8), %68 ]
   %.07.val.i.i.i = load ptr, ptr %.0.i.i2.i.i.i, align 8, !noalias !413, !noundef !4
   %76 = getelementptr i8, ptr %.07.val.i.i.i, i64 2080
   %.07.val.val.i.i.i = load i64, ptr %76, align 8, !noalias !413, !noundef !4
@@ -3556,7 +3556,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6), !noalias !435
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !435
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3713,7 +3713,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6), !noalias !473
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !473
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3870,7 +3870,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6), !noalias !511
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !511
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -4027,7 +4027,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6), !noalias !549
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !549
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -4184,7 +4184,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6), !noalias !587
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !587
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -4341,7 +4341,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h718257a4408fb73dE, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6), !noalias !625
   store ptr %.0.i.i9.i, ptr %6, align 8, !noalias !625
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8860,7 +8860,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i: ; preds 
   br i1 %5, label %37, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.thread.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.thread.i: ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h476d098f1004fc35E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17h620fd0c6552bacc6E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h476d098f1004fc35E, i64 8), %0 ]
   %.0.val.i = load ptr, ptr %.0.i.i2.i, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.0.val.i, ptr %2, align 8
@@ -10244,7 +10244,7 @@ _ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exi
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h185010adf7fc6851E.exit": ; preds = %9, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i
-  %.0.i.i2.i = phi ptr [ %11, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i ], [ getelementptr inbounds ({ { { { i8, [1 x i8] } } }, i8 }, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %9 ]
+  %.0.i.i2.i = phi ptr [ %11, %_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit5__KEY17h5689eb701fe52d9eE, i64 1), %9 ]
   %14 = ptrtoint ptr %.0.i.i2.i to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
@@ -33180,7 +33180,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %14
   %.0.i.i.i = phi i8 [ %17, %14 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5012
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5012
   %.not64 = icmp eq i8 %18, 0
   br i1 %.not64, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit", label %19
 
@@ -33213,7 +33213,7 @@ common.resume:                                    ; preds = %32, %21
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit"
   %26 = trunc nuw i8 %.0.i.i.i to i1
-  %27 = load i32, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4, !noundef !4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4, !noundef !4
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %30, label %28
 
@@ -33285,18 +33285,18 @@ common.resume:                                    ; preds = %32, %21
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.417.0..sroa_idx, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %43 = load i32, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4, !alias.scope !5032, !noundef !4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4, !alias.scope !5032, !noundef !4
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$$GT$17h464404d14f80cc3fE.exit", label %45
 
 45:                                               ; preds = %42
-  invoke void @"_ZN87_$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4659c38d4df53fefE"(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 3))
+  invoke void @"_ZN87_$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4659c38d4df53fefE"(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 8))
           to label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$17h516cd7fcaceea228E.exit.i" unwind label %46
 
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i32, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4, !alias.scope !5035, !noundef !4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4, !alias.scope !5035, !noundef !4
   %49 = invoke noundef i32 @close(i32 noundef %48)
           to label %.thread51 unwind label %50
 
@@ -33307,7 +33307,7 @@ common.resume:                                    ; preds = %32, %21
   unreachable
 
 "_ZN4core3ptr66drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$17h516cd7fcaceea228E.exit.i": ; preds = %45
-  %52 = load i32, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4, !alias.scope !5048, !noundef !4
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4, !alias.scope !5048, !noundef !4
   %53 = invoke noundef i32 @close(i32 noundef %52)
           to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$$GT$17h464404d14f80cc3fE.exit" unwind label %56
 
@@ -33323,15 +33323,15 @@ common.resume:                                    ; preds = %32, %21
 
 .thread51:                                        ; preds = %56, %46
   %eh.lpad-body31 = phi { ptr, i32 } [ %57, %56 ], [ %47, %46 ]
-  store ptr %41, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 3), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 11), ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, i64 12, i1 false)
-  store i32 %39, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4
+  store ptr %41, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 8), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, i64 12, i1 false)
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4
   br label %32
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$$GT$17h464404d14f80cc3fE.exit": ; preds = %42, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$GT$17h516cd7fcaceea228E.exit.i"
-  store ptr %41, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 3), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 11), ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, i64 12, i1 false)
-  store i32 %39, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4
+  store ptr %41, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 8), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, i64 12, i1 false)
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.6)
   br label %28
 
@@ -33366,7 +33366,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %69, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i, label %70
 
 70:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5059
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5059
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i: ; preds = %70, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i, %65, %63
@@ -33399,7 +33399,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %79, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i35, label %80
 
 80:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i34
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5065
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5065
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i35
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i35: ; preds = %80, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i34, %75, %73
@@ -33445,7 +33445,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %18
   %.0.i.i.i = phi i8 [ %21, %18 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %22 = load atomic i8, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5071
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5071
   %.not36 = icmp eq i8 %22, 0
   br i1 %.not36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit", label %23
 
@@ -33478,7 +33478,7 @@ common.resume:                                    ; preds = %86, %77, %36, %71, 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit"
   %30 = trunc nuw i8 %.0.i.i.i to i1
-  %31 = load i32, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 2, i64 0), align 4, !noundef !4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 28), align 4, !noundef !4
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %34
 
@@ -33487,7 +33487,7 @@ common.resume:                                    ; preds = %86, %77, %36, %71, 
           to label %38 unwind label %36
 
 34:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit"
-  %35 = invoke noundef i64 @_ZN18wasmtime_jit_debug12perf_jitdump11JitDumpFile14get_time_stamp17h3fad2896fd267897E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 3))
+  %35 = invoke noundef i64 @_ZN18wasmtime_jit_debug12perf_jitdump11JitDumpFile14get_time_stamp17h3fad2896fd267897E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 8))
           to label %39 unwind label %36
 
 36:                                               ; preds = %39, %34, %33
@@ -33508,7 +33508,7 @@ common.resume:                                    ; preds = %86, %77, %36, %71, 
   tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %45 = load i32, ptr %0, align 4, !noundef !4
-  %46 = invoke noundef ptr @_ZN18wasmtime_jit_debug12perf_jitdump11JitDumpFile21dump_code_load_record17hc88b06d9777b2b3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 1, i64 3), ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %35, i32 noundef %45, i32 noundef %43)
+  %46 = invoke noundef ptr @_ZN18wasmtime_jit_debug12perf_jitdump11JitDumpFile21dump_code_load_record17hc88b06d9777b2b3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 8), ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %35, i32 noundef %45, i32 noundef %43)
           to label %47 unwind label %36
 
 47:                                               ; preds = %39
@@ -33533,7 +33533,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %53, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i, label %54
 
 54:                                               ; preds = %.noexc
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [23 x i8], [4 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5080
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5080
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i: ; preds = %54, %.noexc, %49, %48
@@ -33682,7 +33682,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %13
   %.0.i.i.i = phi i8 [ %16, %13 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %17 = load atomic i8, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5116
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5116
   %.not47 = icmp eq i8 %17, 0
   br i1 %.not47, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit", label %18
 
@@ -33715,7 +33715,7 @@ common.resume:                                    ; preds = %.body, %20
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit"
   %25 = trunc nuw i8 %.0.i.i.i to i1
-  %26 = load i64, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), align 8, !range !1224, !noundef !4
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8, !range !1224, !noundef !4
   %.not = icmp eq i64 %26, -9223372036854775808
   br i1 %.not, label %27, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit"
 
@@ -33794,30 +33794,30 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
 48:                                               ; preds = %39
   %49 = extractvalue { i64, ptr } %40, 0
   %50 = extractvalue { i64, ptr } %40, 1
-  %51 = load i64, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), align 8, !range !1224, !alias.scope !5140, !noundef !4
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8, !range !1224, !alias.scope !5140, !noundef !4
   %52 = icmp eq i64 %51, -9223372036854775808
   br i1 %52, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit", label %53
 
 53:                                               ; preds = %48
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$17h7ba42020d5650b6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0))
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$17h7ba42020d5650b6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8))
           to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit" unwind label %54
 
 54:                                               ; preds = %53
   %55 = landingpad { ptr, i32 }
           cleanup
-  store i64 %49, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), align 8
-  store ptr %50, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 0), align 8
-  store i64 0, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 16), align 8
-  store i32 %38, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 20), align 4
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
   br label %.body
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit": ; preds = %48, %53
-  store i64 %49, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), align 8
-  store ptr %50, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 0), align 8
-  store i64 0, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 16), align 8
-  store i32 %38, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 3, i64 20), align 4
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
   br label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit"
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit"
@@ -33837,7 +33837,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %61, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i, label %62
 
 62:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5143
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5143
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i: ; preds = %62, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i, %57, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit"
@@ -33869,7 +33869,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %71, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i16, label %72
 
 72:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i15
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5149
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5149
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i16
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i16: ; preds = %72, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i15, %67, %65
@@ -33924,7 +33924,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %27
   %.0.i.i.i = phi i8 [ %30, %27 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %31 = load atomic i8, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5155
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5155
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit", label %32
 
@@ -33957,7 +33957,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit"
   %39 = trunc nuw i8 %.0.i.i.i to i1
-  %40 = load i64, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), align 8, !range !1224, !noundef !4
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8, !range !1224, !noundef !4
   %41 = icmp eq i64 %40, -9223372036854775808
   br i1 %41, label %42, label %43
 
@@ -34044,7 +34044,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
   store ptr %12, ptr %70, align 8, !alias.scope !5175, !noalias !5178
   %71 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 3, ptr %71, align 8, !alias.scope !5175, !noalias !5178
-  %72 = invoke noundef ptr @_ZN3std2io5Write9write_fmt17h154826994402fb86E(ptr noundef nonnull align 1 getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0), ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %72 = invoke noundef ptr @_ZN3std2io5Write9write_fmt17h154826994402fb86E(ptr noundef nonnull align 1 getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
           to label %73 unwind label %59
 
 73:                                               ; preds = %61
@@ -34055,7 +34055,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
   br i1 %74, label %75, label %88
 
 75:                                               ; preds = %73
-  %76 = invoke noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h9288e4df1010b549E"(ptr noundef nonnull align 1 getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 2, i64 0))
+  %76 = invoke noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h9288e4df1010b549E"(ptr noundef nonnull align 1 getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8))
           to label %77 unwind label %59
 
 77:                                               ; preds = %75
@@ -34151,7 +34151,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.175140459
   br i1 %107, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i, label %108
 
 108:                                              ; preds = %.noexc20
-  store atomic i8 1, ptr getelementptr inbounds (<{ [5 x i8], [3 x i8], [8 x i8], [24 x i8] }>, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 0, i32 0, i64 4) monotonic, align 4, !noalias !5199
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5199
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i: ; preds = %108, %.noexc20, %103, %102

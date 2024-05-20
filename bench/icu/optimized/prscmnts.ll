@@ -59,7 +59,7 @@ lpad:                                             ; preds = %if.end
   br label %ehcleanup17
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %dest, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %dest, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexMatcher10replaceAllERKNS_13UnicodeStringER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(336) %myMatcher, ptr noundef nonnull align 8 dereferenceable(64) %replaceText, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -141,7 +141,7 @@ invoke.cont:
   %agg.tmp13 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.2)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.tmp1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.tmp1, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke i32 @removeText(ptr noundef %src, i32 noundef %srcLen, ptr noundef nonnull %agg.tmp, i32 noundef 0, ptr noundef nonnull %agg.tmp1, ptr noundef %status)
@@ -151,7 +151,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1) #5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #5
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp4, ptr noundef nonnull @.str.3)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.tmp5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.tmp5, align 8
   %fUnion2.i14 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   store i16 2, ptr %fUnion2.i14, align 8
   %call10 = invoke i32 @removeText(ptr noundef %src, i32 noundef %call, ptr noundef nonnull %agg.tmp4, i32 noundef 0, ptr noundef nonnull %agg.tmp5, ptr noundef %status)
@@ -161,7 +161,7 @@ invoke.cont16:                                    ; preds = %invoke.cont7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp5) #5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp4) #5
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp13, ptr noundef nonnull @.str.4)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.tmp14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.tmp14, align 8
   %fUnion2.i15 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
   store i16 2, ptr %fUnion2.i15, align 8
   %call19 = invoke i32 @removeText(ptr noundef %src, i32 noundef %call10, ptr noundef nonnull %agg.tmp13, i32 noundef 0, ptr noundef nonnull %agg.tmp14, ptr noundef %status)
@@ -212,7 +212,7 @@ entry:
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.tmp1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.tmp1, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call6 = invoke i32 @removeText(ptr noundef %source, i32 noundef %call, ptr noundef nonnull %agg.tmp, i32 noundef 8, ptr noundef nonnull %agg.tmp1, ptr noundef %status)
@@ -294,7 +294,7 @@ lor.lhs.false:                                    ; preds = %entry
 invoke.cont:                                      ; preds = %lor.lhs.false, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -478,7 +478,7 @@ lor.lhs.false:                                    ; preds = %entry
 invoke.cont:                                      ; preds = %lor.lhs.false, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -615,7 +615,7 @@ lor.lhs.false:                                    ; preds = %entry
 invoke.cont:                                      ; preds = %lor.lhs.false, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -796,7 +796,7 @@ lor.lhs.false:                                    ; preds = %entry
 invoke.cont:                                      ; preds = %lor.lhs.false, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64

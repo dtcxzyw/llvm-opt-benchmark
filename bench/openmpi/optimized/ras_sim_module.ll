@@ -38,10 +38,10 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
   %6 = alloca [6 x i8], align 1
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
   %8 = tail call ptr @PMIx_Argv_split(ptr noundef %7, i32 noundef 44) #13
   %9 = tail call i32 @PMIx_Argv_count(ptr noundef %8) #13
-  %10 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 232), align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit114, label %11
 
@@ -67,7 +67,7 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
   br i1 %exitcond.not, label %.loopexit114, label %20, !llvm.loop !4
 
 .loopexit114:                                     ; preds = %20, %11, %2
-  %23 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i64 0, i32 3), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 240), align 8
   %.not105 = icmp eq ptr %23, null
   br i1 %.not105, label %.loopexit, label %24
 
@@ -182,10 +182,10 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
 
 .lr.ph122:                                        ; preds = %._crit_edge, %147
   %.083120 = phi i32 [ %156, %147 ], [ 0, %._crit_edge ]
-  %78 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 8), align 8
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 56), align 8
   %79 = call noalias noundef ptr @malloc(i64 noundef %78) #14
   %80 = load i32, ptr @pmix_class_init_epoch, align 4
-  %81 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 4), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %80, %81
   br i1 %.not.i, label %83, label %82
 
@@ -207,7 +207,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
   %89 = getelementptr inbounds i8, ptr %79, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
-  %90 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 6), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 40), align 8
   %91 = load ptr, ptr %90, align 8
   %.not6.i.i = icmp eq ptr %91, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -291,7 +291,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   %133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #13
   %134 = getelementptr inbounds i8, ptr %79, i64 240
   store ptr %48, ptr %134, align 8
-  %135 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i64 0, i32 11), align 4
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %135, 64
   br i1 %or.cond, label %136, label %147
 

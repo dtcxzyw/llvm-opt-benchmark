@@ -408,7 +408,7 @@ thread-pre-split.i:                               ; preds = %32
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %32
   %.1 = phi i32 [ %38, %thread-pre-split.i ], [ %30, %32 ]
   %39 = zext nneg i32 %.1 to i64
-  %gep = getelementptr i8, ptr getelementptr ([65537 x i8], ptr @log3gpp_read.linebuff, i64 -1, i64 65536), i64 %39
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @log3gpp_read.linebuff, i64 -1), i64 %39
   %40 = load i8, ptr %gep, align 1
   %41 = icmp eq i8 %40, 13
   br i1 %41, label %42, label %46

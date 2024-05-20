@@ -86,13 +86,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @zm_activate_filestat(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @basic_globals, i64 536), i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
 
@@ -126,11 +126,11 @@ define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1
   br label %17
 
 17:                                               ; preds = %8, %16, %15, %4
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   br label %18
 
 18:                                               ; preds = %17, %2
-  %19 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %34, label %20
 
@@ -164,7 +164,7 @@ define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1
   br label %33
 
 33:                                               ; preds = %24, %32, %31, %20
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   br label %34
 
 34:                                               ; preds = %33, %18
@@ -1199,7 +1199,7 @@ thread-pre-split:                                 ; preds = %17
 
 .critedge233:                                     ; preds = %51
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #16
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %110
@@ -1354,7 +1354,7 @@ declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %19, label %5
 
@@ -1388,11 +1388,11 @@ define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 nou
   br label %18
 
 18:                                               ; preds = %9, %17, %16, %5
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   br label %19
 
 19:                                               ; preds = %18, %3
-  %20 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   %.not25 = icmp eq ptr %20, null
   br i1 %.not25, label %35, label %21
 
@@ -1426,7 +1426,7 @@ define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 nou
   br label %34
 
 34:                                               ; preds = %25, %33, %32, %21
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   br label %35
 
 35:                                               ; preds = %34, %19
@@ -1717,7 +1717,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %.not804, label %84, label %72
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   %74 = icmp eq ptr %73, %0
   br i1 %74, label %172, label %75
 
@@ -1738,7 +1738,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %83, label %172, label %.critedge
 
 84:                                               ; preds = %70
-  %85 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   %86 = icmp eq ptr %85, %0
   br i1 %86, label %172, label %87
 
@@ -1840,7 +1840,7 @@ switch.early.test:                                ; preds = %99
   br i1 %.not804, label %.critedge831, label %124
 
 124:                                              ; preds = %123
-  %125 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   %.not814 = icmp eq ptr %125, null
   br i1 %.not814, label %139, label %126
 
@@ -1887,15 +1887,15 @@ switch.early.test:                                ; preds = %99
   br label %146
 
 146:                                              ; preds = %139, %143
-  store ptr %0, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 18), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (i8, ptr @basic_globals, i64 696), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   %147 = load i32, ptr %.0.sroa.gep840, align 8
   %148 = and i32 %147, 61440
   %149 = icmp eq i32 %148, 40960
   br i1 %149, label %172, label %.critedge831
 
 .critedge831:                                     ; preds = %123, %146
-  %150 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
   %.not818 = icmp eq ptr %150, null
   br i1 %.not818, label %164, label %151
 
@@ -1942,25 +1942,25 @@ switch.early.test:                                ; preds = %99
   br label %171
 
 171:                                              ; preds = %168, %164
-  store ptr %0, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 17), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (i8, ptr @basic_globals, i64 552), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   br label %172
 
 172:                                              ; preds = %84, %94, %72, %82, %146, %171
   %.2775 = phi ptr [ %.1774922, %146 ], [ %.1774922, %171 ], [ %.0773, %82 ], [ %.0773, %72 ], [ %.0773, %94 ], [ %.0773, %84 ]
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %146 ], [ %.0.sroa.gep, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 4), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 4), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 4), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 4), %84 ]
-  %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %146 ], [ %.0.sroa.gep834, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 5), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 5), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 5), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 5), %84 ]
-  %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %146 ], [ %.0.sroa.gep837, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 1), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 1), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 1), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 1), %84 ]
-  %.0.sroa.phi839 = phi ptr [ %.0.sroa.gep840, %146 ], [ %.0.sroa.gep840, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 3), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 3), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 3), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 3), %84 ]
-  %.0.sroa.phi842 = phi ptr [ %.0.sroa.gep843, %146 ], [ %.0.sroa.gep843, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 2), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 2), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 2), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 2), %84 ]
-  %.0.sroa.phi851 = phi ptr [ %.0.sroa.gep852, %146 ], [ %.0.sroa.gep852, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 7), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 7), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 7), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 7), %84 ]
-  %.0.sroa.phi854 = phi ptr [ %.0.sroa.gep855, %146 ], [ %.0.sroa.gep855, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 8), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 8), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 8), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 8), %84 ]
-  %.0.sroa.phi857 = phi ptr [ %.0.sroa.gep858, %146 ], [ %.0.sroa.gep858, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 11, i32 0), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 11, i32 0), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 11, i32 0), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 11, i32 0), %84 ]
-  %.0.sroa.phi860 = phi ptr [ %.0.sroa.gep861, %146 ], [ %.0.sroa.gep861, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 12, i32 0), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 12, i32 0), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 12, i32 0), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 12, i32 0), %84 ]
-  %.0.sroa.phi863 = phi ptr [ %.0.sroa.gep864, %146 ], [ %.0.sroa.gep864, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 13, i32 0), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 13, i32 0), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 13, i32 0), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 13, i32 0), %84 ]
-  %.0.sroa.phi866 = phi ptr [ %.0.sroa.gep867, %146 ], [ %.0.sroa.gep867, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 9), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 9), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 9), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 9), %84 ]
-  %.0.sroa.phi869 = phi ptr [ %.0.sroa.gep870, %146 ], [ %.0.sroa.gep870, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 10), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20, i32 0, i32 10), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 10), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19, i32 0, i32 10), %84 ]
-  %.0 = phi ptr [ %4, %146 ], [ %4, %171 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20), %82 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 20), %72 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19), %94 ], [ getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 19), %84 ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %146 ], [ %.0.sroa.gep, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %84 ]
+  %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %146 ], [ %.0.sroa.gep834, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %84 ]
+  %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %146 ], [ %.0.sroa.gep837, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %84 ]
+  %.0.sroa.phi839 = phi ptr [ %.0.sroa.gep840, %146 ], [ %.0.sroa.gep840, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %84 ]
+  %.0.sroa.phi842 = phi ptr [ %.0.sroa.gep843, %146 ], [ %.0.sroa.gep843, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %84 ]
+  %.0.sroa.phi851 = phi ptr [ %.0.sroa.gep852, %146 ], [ %.0.sroa.gep852, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %84 ]
+  %.0.sroa.phi854 = phi ptr [ %.0.sroa.gep855, %146 ], [ %.0.sroa.gep855, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %84 ]
+  %.0.sroa.phi857 = phi ptr [ %.0.sroa.gep858, %146 ], [ %.0.sroa.gep858, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %84 ]
+  %.0.sroa.phi860 = phi ptr [ %.0.sroa.gep861, %146 ], [ %.0.sroa.gep861, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %84 ]
+  %.0.sroa.phi863 = phi ptr [ %.0.sroa.gep864, %146 ], [ %.0.sroa.gep864, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %84 ]
+  %.0.sroa.phi866 = phi ptr [ %.0.sroa.gep867, %146 ], [ %.0.sroa.gep867, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %84 ]
+  %.0.sroa.phi869 = phi ptr [ %.0.sroa.gep870, %146 ], [ %.0.sroa.gep870, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %84 ]
+  %.0 = phi ptr [ %4, %146 ], [ %4, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %84 ]
   br i1 %or.cond3, label %173, label %.thread933
 
 173:                                              ; preds = %172

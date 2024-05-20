@@ -357,8 +357,8 @@ _ZL8openFilePKcS0_S0_.exit.i:                     ; preds = %69
 
 84:                                               ; preds = %82, %80
   %.0.i36.i = phi ptr [ %83, %82 ], [ @.str.24, %80 ]
-  %85 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %86 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 8), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 16), align 8
   %.not.i.i.i.i = icmp eq ptr %85, %86
   br i1 %.not.i.i.i.i, label %90, label %87
 
@@ -372,9 +372,9 @@ _ZL8openFilePKcS0_S0_.exit.i:                     ; preds = %69
   store ptr %.0.i36.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %85, i64 32
   store i64 0, ptr %.sroa.6.0..sroa_idx.i.i, align 8
-  %88 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 8), align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 40
-  store ptr %89, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 8), align 8
   br label %_ZL12setNameValuePc.exit.i.backedge
 
 90:                                               ; preds = %84
@@ -435,9 +435,9 @@ _ZNSt6vectorI6attr_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i: ; pre
 
 _ZNSt6vectorI6attr_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorI6attr_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i
   store ptr %105, ptr @_ZL6G_args, align 8
-  store ptr %110, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %110, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 8), align 8
   %112 = getelementptr inbounds %struct.attr_t, ptr %105, i64 %101
-  store ptr %112, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %112, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 16), align 8
   br label %_ZL12setNameValuePc.exit.i.backedge
 
 113:                                              ; preds = %77
@@ -997,7 +997,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc29.i.i, %
 
 .noexc23:                                         ; preds = %_ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i
   %308 = load ptr, ptr @_ZL6G_args, align 8
-  %309 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL6G_args, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6G_args, i64 8), align 8
   %.not101111.i = icmp eq ptr %308, %309
   br i1 %.not101111.i, label %._crit_edge.i, label %.lr.ph.i
 

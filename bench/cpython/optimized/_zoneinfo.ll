@@ -3895,7 +3895,7 @@ if.then1.i146:                                    ; preds = %if.end.i143
   br label %return
 
 if.end108:                                        ; preds = %if.end103
-  %call110 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call104, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)) #9
+  %call110 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call104, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #9
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %if.then112, label %if.end114
 

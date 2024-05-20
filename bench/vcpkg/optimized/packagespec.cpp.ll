@@ -287,7 +287,7 @@ define dso_local void @_ZNK5vcpkg11FeatureSpec9to_stringERNSt7__cxx1112basic_str
   store i64 %18, ptr %19, align 8, !alias.scope !8
   %20 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %18, ptr %20, align 8, !alias.scope !8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %4, align 8, !alias.scope !8
   %21 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %1, ptr %21, align 8, !alias.scope !8
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str.3, i64 5, i64 253, ptr nonnull %5, ptr null)
@@ -326,7 +326,7 @@ define dso_local void @_ZNK5vcpkg11FeatureSpec9to_stringERNSt7__cxx1112basic_str
   store i64 %33, ptr %34, align 8, !alias.scope !14
   %35 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %33, ptr %35, align 8, !alias.scope !14
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !14
   %36 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %1, ptr %36, align 8, !alias.scope !14
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str, i64 9, i64 4061, ptr nonnull %7, ptr null)
@@ -372,7 +372,7 @@ define dso_local void @_ZNK5vcpkg11PackageSpec9to_stringERNSt7__cxx1112basic_str
   store i64 %12, ptr %13, align 8, !alias.scope !20
   %14 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %12, ptr %14, align 8, !alias.scope !20
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !20
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %1, ptr %15, align 8, !alias.scope !20
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str.3, i64 5, i64 253, ptr nonnull %4, ptr null)

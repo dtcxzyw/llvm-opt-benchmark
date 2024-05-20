@@ -201,9 +201,9 @@ print_qht_statistics.exit.i:                      ; preds = %if.end.i.i, %cond.e
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %hst26.i)
   call void @qht_statistics_destroy(ptr noundef nonnull %hst.i) #6
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.16) #6
-  %17 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
+  %17 = load atomic i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 72) monotonic, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.17, i32 noundef %17) #6
-  %18 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 2) monotonic, align 4
+  %18 = load atomic i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 76) monotonic, align 4
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.18, i32 noundef %18) #6
   %19 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !5

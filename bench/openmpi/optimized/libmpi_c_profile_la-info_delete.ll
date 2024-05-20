@@ -87,7 +87,7 @@ define i32 @PMPI_Info_delete(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %.preheader.i ]
-  %32 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %33 = sext i32 %32 to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %33
   br i1 %.not.i, label %34, label %opal_pointer_array_get_item.exit.i
@@ -98,20 +98,20 @@ define i32 @PMPI_Info_delete(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %39
 
 39:                                               ; preds = %37, %34
   %40 = phi i8 [ %35, %34 ], [ %.pre.i.i, %37 ]
-  %41 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %44 = trunc i8 %40 to i1
   br i1 %44, label %45, label %opal_pointer_array_get_item.exit.i
 
 45:                                               ; preds = %39
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   br label %opal_pointer_array_get_item.exit.i
 
 opal_pointer_array_get_item.exit.i:               ; preds = %45, %39, %.lr.ph.i

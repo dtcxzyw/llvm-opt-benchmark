@@ -161,11 +161,11 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_tcp_cong_state_set, i64 0, i32 1), i32 2) #16
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_tcp_cong_state_set, i64 8), i32 2) #16
           to label %23 [label %3], !srcloc !9
 
 3:                                                ; preds = %2
-  %4 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !10
+  %4 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !10
   %5 = zext i32 %4 to i64
   %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %5) #16, !srcloc !11
   %7 = icmp ult i8 %6, 2
@@ -174,9 +174,9 @@ define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) l
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %3
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !12
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
-  %10 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_tcp_cong_state_set, i64 0, i32 8), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_tcp_cong_state_set, i64 72), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
@@ -188,7 +188,7 @@ define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) l
 
 16:                                               ; preds = %12, %9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
-  %17 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !15
+  %17 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !15
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -403,13 +403,13 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(
 
 .loopexit:                                        ; preds = %.preheader, %89
   %94 = getelementptr inbounds i8, ptr %0, i64 112
-  %95 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_cong_list, i64 0, i32 1), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   store ptr @tcp_cong_list, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %95, ptr %96, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   store volatile ptr %94, ptr %95, align 8
-  store ptr %94, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_cong_list, i64 0, i32 1), align 8
+  store ptr %94, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   br label %97
 
 97:                                               ; preds = %.loopexit, %92
@@ -584,13 +584,13 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %0, i64 112
-  %108 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_cong_list, i64 0, i32 1), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   store ptr @tcp_cong_list, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %108, ptr %109, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   store volatile ptr %107, ptr %108, align 8
-  store ptr %107, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_cong_list, i64 0, i32 1), align 8
+  store ptr %107, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   %110 = getelementptr i8, ptr %85, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %85, align 8

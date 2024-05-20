@@ -119,7 +119,7 @@ define ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i32 noundef
   store ptr null, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8
-  %18 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 3), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
   store i64 %18, ptr %14, align 8
   %19 = icmp eq ptr %5, null
   %spec.store.select = select i1 %19, ptr %14, ptr %5
@@ -235,8 +235,8 @@ sub_1:                                            ; preds = %40
   br i1 %.not136, label %192, label %60
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %62 = call i32 @__sigsetjmp(ptr noundef nonnull %16, i32 noundef 0) #16
   %63 = icmp ne i32 %62, 0
   br i1 %63, label %.thread190, label %64
@@ -524,7 +524,7 @@ php_stream_xport_bind.exit:                       ; preds = %117
 
 .thread190:                                       ; preds = %60, %171, %186, %172, %129, %143, %130, %100, %114, %101, %php_stream_xport_connect.exit, %77, %187, %115
   %.1111 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %77 ], [ false, %187 ], [ false, %115 ], [ true, %101 ], [ true, %114 ], [ true, %100 ], [ true, %130 ], [ true, %143 ], [ true, %129 ], [ true, %172 ], [ true, %186 ], [ true, %171 ], [ false, %60 ]
-  store ptr %61, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %61, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %192
 
 192:                                              ; preds = %.thread190, %57

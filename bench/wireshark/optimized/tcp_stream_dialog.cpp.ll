@@ -387,9 +387,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN25QCPErrorBarsNotSelectableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   tail call void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 344), ptr %4, align 8
   ret void
 }
 
@@ -509,8 +509,8 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %74 = getelementptr inbounds i8, ptr %0, i64 16
   %75 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i64 0, i32 1, i64 2), ptr %74, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 64
   %77 = invoke noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #26
           to label %78 unwind label %142
@@ -3641,7 +3641,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i279:   ; preds = %361
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %369, ptr noundef %370, i32 noundef 0, i32 0)
   %371 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %372 = getelementptr inbounds i8, ptr %371, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %371, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %371, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %372, align 8
   %373 = getelementptr inbounds i8, ptr %371, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %373, align 4
@@ -3746,7 +3746,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i297:   ; preds = %402
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %409, ptr noundef %410, i32 noundef 0, i32 0)
   %411 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %412 = getelementptr inbounds i8, ptr %411, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %411, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %411, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %412, align 8
   %413 = getelementptr inbounds i8, ptr %411, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %413, align 4
@@ -4011,7 +4011,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i345:   ; preds = %497
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %505, ptr noundef %506, i32 noundef 0, i32 0)
   %507 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %508 = getelementptr inbounds i8, ptr %507, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %507, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %507, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %508, align 8
   %509 = getelementptr inbounds i8, ptr %507, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %509, align 4
@@ -4216,7 +4216,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i381:   ; preds = %573
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %580, ptr noundef %581, i32 noundef 0, i32 0)
   %582 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %583 = getelementptr inbounds i8, ptr %582, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %582, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %582, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %583, align 8
   %584 = getelementptr inbounds i8, ptr %582, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %584, align 4
@@ -7568,9 +7568,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @graph_segment_list_free(ptr noundef nonnull %3)
           to label %4 unwind label %44

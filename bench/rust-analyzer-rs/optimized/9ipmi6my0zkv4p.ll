@@ -1072,7 +1072,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !207
   store ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, ptr %3, align 8, !noalias !207
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 1, i32 0), ptr %9, align 8, !noalias !207
+  store ptr getelementptr inbounds (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !207
   %10 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57be8fe0dad56541E.llvm.16534319955770480420"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !211
   %.not3.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not3.not.i.i.i, label %"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h811dd1a6f49d41e5E.llvm.15402389115345992855.exit", label %.lr.ph.i.i.i
@@ -8669,7 +8669,7 @@ define void @_ZN13project_model7sysroot7Sysroot8discover17he60f1ebf4ca7ee52E(ptr
   br i1 %22, label %23, label %.critedge42
 
 23:                                               ; preds = %20
-  %24 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot7Sysroot8discover10__CALLSITE17h152158085c272c42E, i64 0, i32 1, i64 8) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot7Sysroot8discover10__CALLSITE17h152158085c272c42E, i64 16) monotonic, align 8
   switch i8 %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge42
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -8840,7 +8840,7 @@ define void @_ZN13project_model7sysroot7Sysroot18discover_no_source17h735211c7b2
   br i1 %21, label %22, label %.critedge42
 
 22:                                               ; preds = %19
-  %23 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot7Sysroot18discover_no_source10__CALLSITE17h3c1e30c7cc49e92aE, i64 0, i32 1, i64 8) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot7Sysroot18discover_no_source10__CALLSITE17h3c1e30c7cc49e92aE, i64 16) monotonic, align 8
   switch i8 %23, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge42
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -9011,7 +9011,7 @@ define void @_ZN13project_model7sysroot7Sysroot26discover_with_src_override17he7
   br i1 %23, label %24, label %.critedge40
 
 24:                                               ; preds = %21
-  %25 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot7Sysroot26discover_with_src_override10__CALLSITE17hb5e9808b32ff8985E, i64 0, i32 1, i64 8) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot7Sysroot26discover_with_src_override10__CALLSITE17hb5e9808b32ff8985E, i64 16) monotonic, align 8
   switch i8 %25, label %26 [
     i8 0, label %.critedge40
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -10513,7 +10513,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit332.i: ; preds = %235
           to label %.body347.i unwind label %361, !noalias !2383
 
 333:                                              ; preds = %326
-  %334 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a120e71e11f27cfE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2380
+  %334 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a120e71e11f27cfE", i64 16) monotonic, align 8, !noalias !2380
   switch i8 %334, label %335 [
     i8 0, label %"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb64828396a6aa9f9E.exit.i.i"
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i.i
@@ -10715,7 +10715,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit355.i: ; preds = %365
   br i1 %390, label %391, label %.critedge.i
 
 391:                                              ; preds = %388
-  %392 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h05ae827a01221ef0E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2242
+  %392 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h05ae827a01221ef0E", i64 16) monotonic, align 8, !noalias !2242
   switch i8 %392, label %393 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -11226,7 +11226,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$$LP$usize$C$cargo_metadata..PackageId$RP$$GT$$GT$17ha5e029eda792c0b5E.exit121.i.i.i.i.i"
 
 549:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit113.thread.i.i.i.i.i"
-  %550 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb2a28371ea76d6a8E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2462
+  %550 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb2a28371ea76d6a8E", i64 16) monotonic, align 8, !noalias !2462
   switch i8 %550, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.i.i.i.i [
     i8 0, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0aa642fc8af316a0E.exit.i.i"
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i.i.i.i
@@ -13933,7 +13933,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model7sysroot7Sysroot4load28_$u7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3315
   store ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, ptr %3, align 8, !noalias !3315
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 1, i32 0), ptr %9, align 8, !noalias !3315
+  store ptr getelementptr inbounds (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !3315
   %10 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57be8fe0dad56541E.llvm.16534319955770480420"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !3319
   %.not3.not.i.i = icmp eq ptr %10, null
   br i1 %.not3.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hee697f7cbd01a481E.exit", label %.lr.ph.i.i
@@ -14173,7 +14173,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i:
   br i1 %84, label %85, label %.critedge
 
 85:                                               ; preds = %82
-  %86 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot20discover_sysroot_dir10__CALLSITE17h76db750a7d67162eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %86 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot20discover_sysroot_dir10__CALLSITE17h76db750a7d67162eE, i64 16) monotonic, align 8
   switch i8 %86, label %87 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -14461,7 +14461,7 @@ define hidden void @_ZN13project_model7sysroot24discover_sysroot_src_dir17hef6b6
   br i1 %71, label %72, label %.critedge
 
 72:                                               ; preds = %69
-  %73 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17haa7b74e7803a59abE, i64 0, i32 1, i64 8) monotonic, align 8
+  %73 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17haa7b74e7803a59abE, i64 16) monotonic, align 8
   switch i8 %73, label %74 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -14690,7 +14690,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %149, label %150, label %.critedge104
 
 150:                                              ; preds = %147
-  %151 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17h3f621c7e8922a97bE, i64 0, i32 1, i64 8) monotonic, align 8
+  %151 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17h3f621c7e8922a97bE, i64 16) monotonic, align 8
   switch i8 %151, label %152 [
     i8 0, label %.critedge104
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit135.thread
@@ -14868,7 +14868,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit135
   br i1 %205, label %206, label %.critedge108
 
 206:                                              ; preds = %203
-  %207 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17h757f031f302bc081E, i64 0, i32 1, i64 8) monotonic, align 8
+  %207 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot24discover_sysroot_src_dir10__CALLSITE17h757f031f302bc081E, i64 16) monotonic, align 8
   switch i8 %207, label %208 [
     i8 0, label %.critedge108
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit152.thread
@@ -15278,7 +15278,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i.
   br i1 %84, label %85, label %.critedge.i.i
 
 85:                                               ; preds = %82
-  %86 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f6f5f2c8a113dcdE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3604
+  %86 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f6f5f2c8a113dcdE", i64 16) monotonic, align 8, !noalias !3604
   switch i8 %86, label %87 [
     i8 0, label %.critedge.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i
@@ -15660,7 +15660,7 @@ common.resume:                                    ; preds = %40, %17
   br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %42
-  %46 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot13get_rustc_src10__CALLSITE17h44df2b8133cf7ed6E, i64 0, i32 1, i64 8) monotonic, align 8
+  %46 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot13get_rustc_src10__CALLSITE17h44df2b8133cf7ed6E, i64 16) monotonic, align 8
   switch i8 %46, label %47 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -15866,7 +15866,7 @@ define internal fastcc void @_ZN13project_model7sysroot12get_rust_src17h96f73718
   br i1 %19, label %20, label %.critedge29
 
 20:                                               ; preds = %17
-  %21 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model7sysroot12get_rust_src10__CALLSITE17h5abca144d118cc0bE, i64 0, i32 1, i64 8) monotonic, align 8
+  %21 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model7sysroot12get_rust_src10__CALLSITE17h5abca144d118cc0bE, i64 16) monotonic, align 8
   switch i8 %21, label %22 [
     i8 0, label %.critedge29
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

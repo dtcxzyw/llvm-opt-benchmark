@@ -274,7 +274,7 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store <4 x i32> <i32 -1447068688, i32 -1879048176, i32 -113245679, i32 -1862270448>, ptr @_ZZN4mold3elf16write_plt_headerINS0_5ARM64EEEvRNS0_7ContextIT_EEPhE4insn, align 16
-  store <4 x i32> <i32 -702610912, i32 -721215457, i32 -721215457, i32 -721215457>, ptr getelementptr inbounds ([8 x %"class.mold::LittleEndian"], ptr @_ZZN4mold3elf16write_plt_headerINS0_5ARM64EEEvRNS0_7ContextIT_EEPhE4insn, i64 0, i64 4), align 16
+  store <4 x i32> <i32 -702610912, i32 -721215457, i32 -721215457, i32 -721215457>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5ARM64EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf16write_plt_headerINS0_5ARM64EEEvRNS0_7ContextIT_EEPhE4insn) #18
   br label %init.end
 

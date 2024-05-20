@@ -686,7 +686,7 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyS1_RK11btTransfor
 invoke.cont2:
   %frombool = zext i1 %useLinearReferenceFrameA to i8
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18btSliderConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %this, align 8
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %m_useSolveConstraintObsolete, align 8
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 76
@@ -759,7 +759,7 @@ invoke.cont2:
   %frombool = zext i1 %useLinearReferenceFrameA to i8
   %call = tail call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(744) %call, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18btSliderConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %this, align 8
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %m_useSolveConstraintObsolete, align 8
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 140
@@ -3121,7 +3121,7 @@ sw.epilog:                                        ; preds = %if.then25, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -3157,14 +3157,14 @@ declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18btSliderConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18btSliderConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1152) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN18btSliderConstraintdlEPv.exit unwind label %terminate.lpad.i
 

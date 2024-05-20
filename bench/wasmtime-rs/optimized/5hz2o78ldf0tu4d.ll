@@ -7067,8 +7067,8 @@ select.unfold.i:                                  ; preds = %53, %45
   br i1 %trunc.i.i.i, label %._crit_edge.i, label %101
 
 ._crit_edge.i:                                    ; preds = %97
-  %.pre.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !990
-  %.pre1.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !990
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !990
+  %.pre1.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !990
   br label %105
 
 101:                                              ; preds = %97
@@ -7079,14 +7079,14 @@ select.unfold.i:                                  ; preds = %53, %45
   %103 = extractvalue { i64, i64 } %102, 0
   %104 = extractvalue { i64, i64 } %102, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !991
-  store i64 %104, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !991
+  store i64 %104, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !991
   br label %105
 
 105:                                              ; preds = %.noexc290, %._crit_edge.i
   %106 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %104, %.noexc290 ]
   %107 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %103, %.noexc290 ]
   %108 = add i64 %107, 1
-  store i64 %108, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !990
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !990
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !996
   invoke void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7b14faffdeeedf14E.llvm.1710812290736639100(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8, i64 noundef 16, i64 noundef %99, i1 noundef zeroext true)
@@ -8335,7 +8335,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN17cranelift_
   br i1 %.not.i, label %13, label %16
 
 13:                                               ; preds = %"_ZN129_$LT$cranelift_codegen..machinst..abi..SigSet$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..machinst..abi..Sig$GT$$GT$5index17h4ac8d0e767da704eE.exit"
-  %14 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17hdb91c621f2e3930fE.llvm.17911367524062806024(ptr noundef nonnull getelementptr inbounds (<{ [176 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", i64 0, i32 1, i64 0), i8 noundef 2), !noalias !1172
+  %14 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17hdb91c621f2e3930fE.llvm.17911367524062806024(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", i64 176), i8 noundef 2), !noalias !1172
   %.not.i.i = icmp eq i32 %14, 4
   br i1 %.not.i.i, label %"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env17h4ef256a3889d53bfE.exit", label %15
 
@@ -8344,7 +8344,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN17cranelift_
   br label %"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env17h4ef256a3889d53bfE.exit"
 
 16:                                               ; preds = %"_ZN129_$LT$cranelift_codegen..machinst..abi..SigSet$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..machinst..abi..Sig$GT$$GT$5index17h4ac8d0e767da704eE.exit"
-  %17 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17hdb91c621f2e3930fE.llvm.17911367524062806024(ptr noundef nonnull getelementptr inbounds (<{ [176 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", i64 0, i32 1, i64 0), i8 noundef 2), !noalias !1172
+  %17 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17hdb91c621f2e3930fE.llvm.17911367524062806024(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", i64 176), i8 noundef 2), !noalias !1172
   %.not.i3.i = icmp eq i32 %17, 4
   br i1 %.not.i3.i, label %"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env17h4ef256a3889d53bfE.exit", label %18
 

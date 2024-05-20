@@ -117,9 +117,9 @@ define void @_ZN20MeshLabOptionsDialogC2ER17RichParameterListRKS0_P7QWidget(ptr 
   %7 = alloca %"class.QMetaObject::Connection", align 8
   %8 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3, i32 0)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MeshLabOptionsDialog, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i64 0, i32 1, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MeshLabOptionsDialog, i64 488), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 56

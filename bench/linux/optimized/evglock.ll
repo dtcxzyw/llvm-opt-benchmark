@@ -44,7 +44,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_init_global_lock_handler()
   %10 = and i64 %9, 512
   %11 = icmp eq i64 %10, 0
   %12 = select i1 %11, i32 2080, i32 3264
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %14 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %12, i64 noundef 4) #6
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16

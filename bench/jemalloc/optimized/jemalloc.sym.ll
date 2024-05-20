@@ -279,34 +279,34 @@ entry:
   br i1 %cmp.i9, label %if.then.i14, label %if.end
 
 if.then.i14:                                      ; preds = %entry
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i14
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i14
-  %1 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
   %inc.i.i.i = add i64 %1, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %malloc_init_hard_a0.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr null, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %3, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   br label %malloc_init_hard_a0.exit
 
 malloc_init_hard_a0.exit:                         ; preds = %if.end.i.i, %if.then.i.i.i
   %call.i = tail call fastcc zeroext i1 @malloc_init_hard_a0_locked()
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   br i1 %call.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %malloc_init_hard_a0.exit
@@ -351,28 +351,28 @@ sz_size2index.exit:                               ; preds = %if.end12.i, %if.end
   br i1 %cmp.i123, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %sz_size2index.exit
-  %call.i.i.i124 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i124 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i125 = icmp eq i32 %call.i.i.i124, 0
   br i1 %cmp.i.not.i.i125, label %if.end.i.i127, label %if.then.i.i126
 
 if.then.i.i126:                                   ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i127
 
 if.end.i.i127:                                    ; preds = %if.then.i.i126, %if.then3.i
-  %10 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i128 = add i64 %10, 1
-  store i64 %inc.i.i.i128, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i128, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i129 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i129, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i130
 
 if.then.i.i.i130:                                 ; preds = %if.end.i.i127
-  store ptr null, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i131 = add i64 %12, 1
-  store i64 %inc2.i.i.i131, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i131, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i130, %if.end.i.i127
@@ -396,8 +396,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %16, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i132 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i132 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %sz_size2index.exit, %arena_init_locked.exit.i
@@ -556,28 +556,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @arena_init(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %config) local_unnamed_addr #2 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsdn, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
@@ -585,8 +585,8 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp.i, label %arena_init_locked.exit.thread, label %if.end.i5
 
 arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %if.end.i7
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
@@ -612,8 +612,8 @@ if.end9.i:                                        ; preds = %if.end3.i
 
 arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9.i
   %retval.0.i = phi ptr [ %call10.i, %if.end9.i ], [ %6, %if.end3.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i6 = icmp eq i32 %ind, 0
   br i1 %cmp.i6, label %arena_new_create_background_thread.exit, label %if.end.i7
 
@@ -738,28 +738,28 @@ for.body.preheader:                               ; preds = %if.end
   store i32 0, ptr %choose7.sroa.4, align 4
   store i8 0, ptr %is_new_arena.sroa.0, align 2
   store i8 0, ptr %is_new_arena.sroa.3, align 1
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.preheader
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.preheader
-  %11 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i = add i64 %11, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %12, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsd, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i = add i64 %13, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
@@ -892,8 +892,8 @@ arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9
   br i1 %cmp84, label %if.then86, label %if.end88
 
 if.then86:                                        ; preds = %if.else77, %arena_init_locked.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %return
 
 if.end88:                                         ; preds = %arena_init_locked.exit
@@ -938,8 +938,8 @@ arena_bind.exit105:                               ; preds = %do.end.i94
   br i1 %cmp52, label %for.body53, label %for.end112, !llvm.loop !8
 
 for.end112:                                       ; preds = %arena_bind.exit105, %arena_bind.exit105.thread
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i106 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i106 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %for.body117
 
 for.body117:                                      ; preds = %for.end112, %for.inc128
@@ -1021,28 +1021,28 @@ entry:
   br i1 %brmerge.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then3
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i = add i64 %2, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %3, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsdn, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i = add i64 %4, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
@@ -1050,8 +1050,8 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp.i, label %arena_init_locked.exit.thread, label %if.end.i3
 
 arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %if.end.i5
 
 if.end.i3:                                        ; preds = %malloc_mutex_lock.exit
@@ -1075,8 +1075,8 @@ if.end9.i:                                        ; preds = %if.end3.i
 
 arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9.i
   %retval.0.i = phi ptr [ %call10.i, %if.end9.i ], [ %8, %if.end3.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i4 = icmp eq i32 %ind, 0
   br i1 %cmp.i4, label %if.end5, label %if.end.i5
 
@@ -1475,28 +1475,28 @@ if.else.i24.i:                                    ; preds = %if.end24.i189
   br i1 %cmp.i788, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %42 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %42, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %43, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %44 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %44, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -1520,8 +1520,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %48, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i789 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i789 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -2134,28 +2134,28 @@ if.else.i24.i:                                    ; preds = %if.end38.i.i190
   br i1 %cmp.i764, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %26, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -2179,8 +2179,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i766 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i766 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -2552,28 +2552,28 @@ if.else.i24.i:                                    ; preds = %if.end38.i.i190
   br i1 %cmp.i765, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %26, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -2597,8 +2597,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i767 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i767 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -3054,28 +3054,28 @@ if.else.i24.i:                                    ; preds = %if.end24.i191
   br i1 %cmp.i797, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %43 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %43, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %44, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %45, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -3099,8 +3099,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %49, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i798 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i798 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -4192,28 +4192,28 @@ if.else.i24.i:                                    ; preds = %if.end38.i.i190
   br i1 %cmp.i763, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %26, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -4237,8 +4237,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i765 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i765 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -4548,28 +4548,28 @@ if.else.i24.i:                                    ; preds = %if.end38.i.i189
   br i1 %cmp.i762, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %26, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -4593,8 +4593,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -4892,28 +4892,28 @@ if.else.i24.i:                                    ; preds = %if.end38.i.i189
   br i1 %cmp.i762, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %26, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -4937,8 +4937,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -7084,28 +7084,28 @@ if.else.i24.i:                                    ; preds = %if.end24.i209
   br i1 %cmp.i800, label %if.then3.i801, label %arena_get.exit
 
 if.then3.i801:                                    ; preds = %if.else.i24.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i801
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i801
-  %79 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %79 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i = add i64 %79, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %80 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %80, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr %call13.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %81 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %81 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %81, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -7129,8 +7129,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %85, %if.end3.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i802 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i802 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
@@ -9357,28 +9357,28 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp.i44.i, label %if.then3.i.i, label %arena_choose_impl.exit
 
 if.then3.i.i:                                     ; preds = %if.then5.i
-  %call.i.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then3.i.i
-  %3 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
   %inc.i.i.i.i = add i64 %3, 1
-  store i64 %inc.i.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
   %cmp.not.i.i.i.i = icmp eq ptr %4, %tsd
   br i1 %cmp.not.i.i.i.i, label %malloc_mutex_lock.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %tsd, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   %inc2.i.i.i.i = add i64 %5, 1
-  store i64 %inc2.i.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i.i
 
 malloc_mutex_lock.exit.i.i:                       ; preds = %if.then.i.i.i.i, %if.end.i.i.i
@@ -9402,8 +9402,8 @@ if.end9.i.i.i:                                    ; preds = %if.end3.i.i.i
 
 arena_init_locked.exit.i.i:                       ; preds = %if.end9.i.i.i, %if.end3.i.i.i
   %retval.0.i.i.i = phi ptr [ %call10.i.i.i, %if.end9.i.i.i ], [ %9, %if.end3.i.i.i ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
+  %call1.i.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_choose_impl.exit
 
 cond.end.i:                                       ; preds = %if.end.i
@@ -12576,7 +12576,7 @@ land.lhs.true1728.thread:                         ; preds = %lor.lhs.false1707, 
 if.else1715:                                      ; preds = %lor.lhs.false1707
   %.call1703 = call i64 @llvm.umin.i64(i64 %call1703, i64 2097152)
   %.sink2268 = call i64 @llvm.umax.i64(i64 %.call1703, i64 4096)
-  store i64 %.sink2268, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  store i64 %.sink2268, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %157 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1729 = trunc i8 %157 to i1
   br i1 %tobool1729, label %if.then1734, label %while.cond.backedge
@@ -12617,7 +12617,7 @@ land.lhs.true1769.thread:                         ; preds = %lor.lhs.false1752, 
 land.lhs.true1769:                                ; preds = %lor.lhs.false1752
   %160 = shl nuw nsw i32 %159, 5
   %mul.i = zext nneg i32 %160 to i64
-  store i64 %mul.i, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %161 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1770 = trunc i8 %161 to i1
   br i1 %tobool1770, label %if.then1775, label %while.cond.backedge
@@ -12655,7 +12655,7 @@ land.lhs.true1804.thread:                         ; preds = %lor.lhs.false1793, 
   br label %while.cond.backedge
 
 land.lhs.true1804:                                ; preds = %lor.lhs.false1793
-  store i64 %call1789, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 4), align 8
+  store i64 %call1789, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 24), align 8
   %165 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1805 = trunc i8 %165 to i1
   br i1 %tobool1805, label %if.then1810, label %while.cond.backedge
@@ -12694,7 +12694,7 @@ land.lhs.true1839.thread:                         ; preds = %lor.lhs.false1828, 
   br label %while.cond.backedge
 
 land.lhs.true1839:                                ; preds = %lor.lhs.false1828
-  store i64 %call1824, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 5), align 8
+  store i64 %call1824, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 32), align 8
   %169 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1840 = trunc i8 %169 to i1
   br i1 %tobool1840, label %if.then1845, label %while.cond.backedge
@@ -12737,7 +12737,7 @@ land.lhs.true1859.tail:                           ; preds = %sub_02159, %sub_121
   br i1 %cmp1861, label %if.then1863, label %if.end1875
 
 if.then1863:                                      ; preds = %land.lhs.true1859.tail
-  store i32 -1, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
   %178 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1866 = trunc i8 %178 to i1
   br i1 %tobool1866, label %if.then1871, label %while.cond.backedge
@@ -12764,7 +12764,7 @@ land.lhs.true1896.thread:                         ; preds = %lor.lhs.false1883, 
 
 land.lhs.true1896:                                ; preds = %lor.lhs.false1883
   %180 = load i32, ptr %ratio1876, align 4
-  store i32 %180, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
+  store i32 %180, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
   %181 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1897 = trunc i8 %181 to i1
   br i1 %tobool1897, label %if.then1902, label %while.cond.backedge
@@ -12843,7 +12843,7 @@ land.lhs.true1976.thread:                         ; preds = %lor.lhs.false1960, 
 
 if.else1968:                                      ; preds = %lor.lhs.false1960
   %.call1956 = call i64 @llvm.umax.i64(i64 %call1956, i64 4096)
-  store i64 %.call1956, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 1), align 8
+  store i64 %.call1956, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
   %189 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1977 = trunc i8 %189 to i1
   br i1 %tobool1977, label %if.then1982, label %while.cond.backedge
@@ -12879,7 +12879,7 @@ land.lhs.true2016.thread:                         ; preds = %lor.lhs.false2000, 
 
 if.else2008:                                      ; preds = %lor.lhs.false2000
   %.call1996 = call i64 @llvm.umax.i64(i64 %call1996, i64 4096)
-  store i64 %.call1996, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 2), align 8
+  store i64 %.call1996, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
   %193 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2017 = trunc i8 %193 to i1
   br i1 %tobool2017, label %if.then2022, label %while.cond.backedge
@@ -12918,7 +12918,7 @@ land.lhs.true2056.thread:                         ; preds = %lor.lhs.false2040, 
 
 if.else2048:                                      ; preds = %lor.lhs.false2040
   %.call2036 = call i64 @llvm.umax.i64(i64 %call2036, i64 4096)
-  store i64 %.call2036, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 3), align 8
+  store i64 %.call2036, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
   %197 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2057 = trunc i8 %197 to i1
   br i1 %tobool2057, label %if.then2062, label %while.cond.backedge
@@ -12958,7 +12958,7 @@ land.lhs.true2101.thread:                         ; preds = %lor.lhs.false2080, 
 
 if.else2092:                                      ; preds = %lor.lhs.false2080
   %.call2076 = call i64 @llvm.umin.i64(i64 %call2076, i64 512)
-  store i64 %.call2076, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 4), align 8
+  store i64 %.call2076, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
   %201 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2102 = trunc i8 %201 to i1
   br i1 %tobool2102, label %if.then2107, label %while.cond.backedge
@@ -13241,7 +13241,7 @@ while.end:                                        ; preds = %while.cond.backedge
 lor.lhs.false.i:                                  ; preds = %while.end
   %232 = load i8, ptr @opt_hpa, align 1
   %tobool.i = trunc i8 %232 to i1
-  %233 = load i32, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
+  %233 = load i32, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
   %cmp.i692 = icmp ne i32 %233, -1
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.i692, i1 false
   br i1 %or.cond.not.i, label %if.end.i693, label %validate_hpa_settings.exit
@@ -13249,7 +13249,7 @@ lor.lhs.false.i:                                  ; preds = %while.end
 if.end.i693:                                      ; preds = %lor.lhs.false.i
   %conv.i.i694 = zext i32 %233 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i694, 5
-  %234 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %234 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %add.i = add i64 %234, %mul.i.i
   %cmp3.i = icmp ugt i64 %add.i, 2097152
   br i1 %cmp3.i, label %validate_hpa_settings.exit, label %if.end5.i
@@ -13258,7 +13258,7 @@ if.end5.i:                                        ; preds = %if.end.i693
   store i1 true, ptr @had_conf_error, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %normalization_message.i, i8 0, i64 256, i1 false)
   call void @fxp_print(i32 noundef %233, ptr noundef nonnull %hpa_dirty_mult.i) #19
-  %235 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %235 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %236 = trunc i64 %235 to i32
   %237 = lshr i32 %236, 5
   %238 = and i32 %237, 8388480
@@ -13268,10 +13268,10 @@ if.end5.i:                                        ; preds = %if.end.i693
   br i1 %tobool8.i, label %if.end19.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %240 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %240 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %reass.sub.i = sub i64 %240, %add.i
   %add10.i = add i64 %reass.sub.i, 2097152
-  store i64 %add10.i, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  store i64 %add10.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %241 = trunc i64 %add10.i to i32
   %242 = lshr i32 %241, 5
   %243 = and i32 %242, 8388480
@@ -13761,28 +13761,28 @@ entry:
   %set.i1.i = alloca %struct.cpu_set_t, align 8
   %set.i.i = alloca %struct.cpu_set_t, align 8
   %i.i.i = alloca i32, align 4
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr null, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
@@ -13805,8 +13805,8 @@ if.end.i15:                                       ; preds = %lor.lhs.false.i
 
 do.body.i:                                        ; preds = %if.end.i15, %malloc_mutex_lock.exit.i
   %spinner.sroa.0.0.i = phi i32 [ %spinner.sroa.0.1.i, %malloc_mutex_lock.exit.i ], [ 0, %if.end.i15 ]
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i.i)
   %cmp.i.i = icmp ult i32 %spinner.sroa.0.0.i, 5
   br i1 %cmp.i.i, label %if.then.i.i18, label %if.else.i.i
@@ -13839,28 +13839,28 @@ if.else.i.i:                                      ; preds = %do.body.i
 spin_adaptive.exit.i:                             ; preds = %if.else.i.i, %for.end.i.i
   %spinner.sroa.0.1.i = phi i32 [ %inc4.i.i, %for.end.i.i ], [ %spinner.sroa.0.0.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i.i)
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i1.i
 
 if.then.i1.i:                                     ; preds = %spin_adaptive.exit.i
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i1.i, %spin_adaptive.exit.i
-  %5 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
   %inc.i.i.i = add i64 %5, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr null, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %7, 1
-  store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
@@ -13869,8 +13869,8 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.not.i17, label %if.then, label %do.body.i, !llvm.loop !43
 
 if.then:                                          ; preds = %malloc_mutex_lock.exit.i, %lor.lhs.false.i, %malloc_mutex_lock.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   br label %return
 
 if.end:                                           ; preds = %if.end.i15
@@ -13882,13 +13882,13 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %call1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %land.lhs.true
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   br label %return
 
 if.end3:                                          ; preds = %land.lhs.true, %if.end
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %call4 = tail call ptr @malloc_tsd_boot0() #19
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
@@ -13969,28 +13969,28 @@ malloc_init_hard_recursible.exit:                 ; preds = %if.end12.i
   br i1 %call20.i, label %return, label %if.end10
 
 if.end10:                                         ; preds = %malloc_init_hard_recursible.exit
-  %call.i.i34 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  %call.i.i34 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %cmp.i.not.i35 = icmp eq i32 %call.i.i34, 0
   br i1 %cmp.i.not.i35, label %if.end.i37, label %if.then.i36
 
 if.then.i36:                                      ; preds = %if.end10
   call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
   br label %if.end.i37
 
 if.end.i37:                                       ; preds = %if.then.i36, %if.end10
-  %14 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
   %inc.i.i38 = add i64 %14, 1
-  store i64 %inc.i.i38, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  store i64 %inc.i.i38, ptr getelementptr inbounds (i8, ptr @init_lock, i64 56), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
   %cmp.not.i.i39 = icmp eq ptr %15, %call4
   br i1 %cmp.not.i.i39, label %malloc_mutex_lock.exit42, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.end.i37
-  store ptr %call4, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store ptr %call4, ptr getelementptr inbounds (i8, ptr @init_lock, i64 48), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   %inc2.i.i41 = add i64 %16, 1
-  store i64 %inc2.i.i41, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  store i64 %inc2.i.i41, ptr getelementptr inbounds (i8, ptr @init_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit42
 
 malloc_mutex_lock.exit42:                         ; preds = %if.end.i37, %if.then.i.i40
@@ -14172,8 +14172,8 @@ lor.lhs.false:                                    ; preds = %if.then37.i, %if.en
   br i1 %call15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.then7.i, %lor.lhs.false
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i.i56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i.i56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   %38 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %dec.i.i.i = add i8 %38, -1
   store i8 %dec.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -14234,8 +14234,8 @@ if.then.i.i65:                                    ; preds = %if.end22
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %if.end22, %if.then.i.i65
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   call void @malloc_tsd_boot1() #19
   %48 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %48, i64 824
@@ -14269,8 +14269,8 @@ return:                                           ; preds = %if.then15.i, %if.th
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_init_hard_cleanup(ptr noundef %tsdn, i1 noundef zeroext %reentrancy_set) unnamed_addr #2 {
 entry:
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
+  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 64) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 72)) #19
   br i1 %reentrancy_set, label %do.end, label %if.end
 
 do.end:                                           ; preds = %entry

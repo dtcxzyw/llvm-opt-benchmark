@@ -347,7 +347,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16ProfileSortModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ProfileSortModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16ProfileSortModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1364,7 +1364,7 @@ define void @_ZN12ProfileModelC2EP7QObject(ptr noundef nonnull align 8 dereferen
   %4 = alloca %class.QString, align 16
   %5 = alloca %class.QString, align 16
   tail call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ProfileModel, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3806,7 +3806,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %28
-  %33 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 8))
+  %33 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 48))
   %34 = extractvalue { i64, i64 } %33, 0
   store i64 %34, ptr %4, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3858,7 +3858,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN17QArrayDataPoin
   br i1 %48, label %64, label %_ZN7QStringD2Ev.exit.thread
 
 _ZN7QStringD2Ev.exit.thread:                      ; preds = %40, %42, %44, %52, %_ZN7QStringD2Ev.exit
-  %54 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 7))
+  %54 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 42))
   %55 = extractvalue { i64, i64 } %54, 0
   store i64 %55, ptr %6, align 8
   %56 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3892,7 +3892,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %58, %_ZN17QArrayDat
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %64
-  %67 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 6))
+  %67 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 36))
   %68 = extractvalue { i64, i64 } %67, 0
   store i64 %68, ptr %7, align 8
   %69 = getelementptr inbounds i8, ptr %7, i64 8
@@ -15519,7 +15519,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %12, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ProfileModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

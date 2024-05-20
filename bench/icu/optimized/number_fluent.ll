@@ -3077,47 +3077,47 @@ if.then:                                          ; preds = %delete.end4
 new.notnull:                                      ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2480) %call, i8 0, i64 2480, i1 false)
   %affixProvider.i7 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %affixProvider.i7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %affixProvider.i7, align 8
   %posPrefix.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %posPrefix.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %posPrefix.i.i.i, align 8
   %fUnion2.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i16 2, ptr %fUnion2.i.i.i.i, align 8
   %posSuffix.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %posSuffix.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %posSuffix.i.i.i, align 8
   %fUnion2.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i16 2, ptr %fUnion2.i4.i.i.i, align 8
   %negPrefix.i.i.i = getelementptr inbounds i8, ptr %call, i64 144
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negPrefix.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negPrefix.i.i.i, align 8
   %fUnion2.i5.i.i.i = getelementptr inbounds i8, ptr %call, i64 152
   store i16 2, ptr %fUnion2.i5.i.i.i, align 8
   %negSuffix.i.i.i = getelementptr inbounds i8, ptr %call, i64 208
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negSuffix.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negSuffix.i.i.i, align 8
   %fUnion2.i6.i.i.i = getelementptr inbounds i8, ptr %call, i64 216
   store i16 2, ptr %fUnion2.i6.i.i.i, align 8
   %fBogus.i.i.i = getelementptr inbounds i8, ptr %call, i64 274
   store i8 1, ptr %fBogus.i.i.i, align 2
   %currencyPluralInfoAPP.i.i = getelementptr inbounds i8, ptr %call, i64 280
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 0, i32 0, i64 2), ptr %currencyPluralInfoAPP.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %currencyPluralInfoAPP.i.i, align 8
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %invoke.cont.i.i.i, %new.notnull
   %arrayctor.cur.idx.i.i.i = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add.i.i.i, %invoke.cont.i.i.i ]
   %arrayctor.cur.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %currencyPluralInfoAPP.i.i, i64 %arrayctor.cur.idx.i.i.i
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arrayctor.cur.ptr.ptr.i.i.i, align 8
   %posPrefix.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %posPrefix.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %posPrefix.i.i.i.i, align 8
   %fUnion2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 16
   store i16 2, ptr %fUnion2.i.i.i.i.i, align 8
   %posSuffix.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 72
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %posSuffix.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %posSuffix.i.i.i.i, align 8
   %fUnion2.i4.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 80
   store i16 2, ptr %fUnion2.i4.i.i.i.i, align 8
   %negPrefix.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 136
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negPrefix.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negPrefix.i.i.i.i, align 8
   %fUnion2.i5.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 144
   store i16 2, ptr %fUnion2.i5.i.i.i.i, align 8
   %negSuffix.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 200
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negSuffix.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negSuffix.i.i.i.i, align 8
   %fUnion2.i6.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 208
   store i16 2, ptr %fUnion2.i6.i.i.i.i, align 8
   %fBogus.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 266
@@ -4095,7 +4095,7 @@ new.notnull:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %call2, align 8
   %quantity.i = getelementptr inbounds i8, ptr %call2, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -4155,7 +4155,7 @@ delete.notnull:                                   ; preds = %if.end4
 return:                                           ; preds = %if.end4, %entry, %delete.notnull, %if.then3
   %.sink19 = phi ptr [ null, %delete.notnull ], [ null, %if.then3 ], [ null, %entry ], [ %call2, %if.end4 ]
   %.sink = phi i32 [ %6, %delete.notnull ], [ 7, %if.then3 ], [ 1, %entry ], [ 0, %if.end4 ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %agg.result, align 8
   %fData.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink19, ptr %fData.i16, align 8
   %fErrorCode.i17 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -4269,7 +4269,7 @@ new.notnull:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %call2, align 8
   %quantity.i = getelementptr inbounds i8, ptr %call2, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -4329,7 +4329,7 @@ delete.notnull:                                   ; preds = %if.end4
 return:                                           ; preds = %if.end4, %entry, %delete.notnull, %if.then3
   %.sink19 = phi ptr [ null, %delete.notnull ], [ null, %if.then3 ], [ null, %entry ], [ %call2, %if.end4 ]
   %.sink = phi i32 [ %6, %delete.notnull ], [ 7, %if.then3 ], [ 1, %entry ], [ 0, %if.end4 ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %agg.result, align 8
   %fData.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink19, ptr %fData.i16, align 8
   %fErrorCode.i17 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -4356,7 +4356,7 @@ new.notnull:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %call2, align 8
   %quantity.i = getelementptr inbounds i8, ptr %call2, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -4416,7 +4416,7 @@ delete.notnull:                                   ; preds = %if.end4
 return:                                           ; preds = %if.end4, %entry, %delete.notnull, %if.then3
   %.sink20 = phi ptr [ null, %delete.notnull ], [ null, %if.then3 ], [ null, %entry ], [ %call2, %if.end4 ]
   %.sink = phi i32 [ %6, %delete.notnull ], [ 7, %if.then3 ], [ 1, %entry ], [ 0, %if.end4 ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %agg.result, align 8
   %fData.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink20, ptr %fData.i17, align 8
   %fErrorCode.i18 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -4443,7 +4443,7 @@ new.notnull:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %call2, align 8
   %quantity.i = getelementptr inbounds i8, ptr %call2, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -4503,7 +4503,7 @@ delete.notnull:                                   ; preds = %if.end4
 return:                                           ; preds = %if.end4, %entry, %delete.notnull, %if.then3
   %.sink19 = phi ptr [ null, %delete.notnull ], [ null, %if.then3 ], [ null, %entry ], [ %call2, %if.end4 ]
   %.sink = phi i32 [ %6, %delete.notnull ], [ 7, %if.then3 ], [ 1, %entry ], [ 0, %if.end4 ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %agg.result, align 8
   %fData.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink19, ptr %fData.i16, align 8
   %fErrorCode.i17 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -5078,7 +5078,7 @@ declare void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
@@ -5102,12 +5102,12 @@ _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #14
   %helpers = getelementptr inbounds i8, ptr %this, i64 216
   %mixedUnitModifier.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, i32 0, i64 2), ptr %mixedUnitModifier.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #14
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #14
   %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 0, i32 0, i64 2), ptr %multiplier.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #14
   %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -5259,14 +5259,14 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 define linkonce_odr void @_ZN6icu_756number4impl24AutoAffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %currencyPluralInfoAPP = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 0, i32 0, i64 2), ptr %currencyPluralInfoAPP, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %currencyPluralInfoAPP, align 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %entry
   %arraydestroy.elementPast.idx.i = phi i64 [ 2184, %entry ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -272
   %arraydestroy.element.ptr.i = getelementptr i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arraydestroy.element.ptr.i, align 8
   %negSuffix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i.i) #14
   %negPrefix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 136
@@ -5281,7 +5281,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
 
 _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arraydestroy.body.i
   tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyPluralInfoAPP) #14
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #14
   %negPrefix.i = getelementptr inbounds i8, ptr %this, i64 136

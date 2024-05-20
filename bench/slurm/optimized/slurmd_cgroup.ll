@@ -144,12 +144,12 @@ define noundef zeroext i1 @check_corespec_cgroup_job_confinement() local_unnamed
   br i1 %.not1, label %13, label %7
 
 7:                                                ; preds = %4, %0
-  %8 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %12 = tail call ptr @xstrstr(ptr noundef %11, ptr noundef nonnull @.str.3) #3
   %.not2 = icmp eq ptr %12, null
   br i1 %.not2, label %13, label %14
@@ -181,12 +181,12 @@ define void @attach_system_cgroup_pid(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not1.i, label %check_corespec_cgroup_job_confinement.exit, label %9
 
 9:                                                ; preds = %6, %1
-  %10 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %check_corespec_cgroup_job_confinement.exit
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %14 = tail call ptr @xstrstr(ptr noundef %13, ptr noundef nonnull @.str.3) #3
   %.not2.i = icmp eq ptr %14, null
   br i1 %.not2.i, label %check_corespec_cgroup_job_confinement.exit, label %15

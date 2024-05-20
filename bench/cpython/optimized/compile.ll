@@ -4728,7 +4728,7 @@ declare void @_PyArena_Free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @compiler_codegen(ptr noundef %c, ptr noundef %mod) unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 4), i32 noundef 0, ptr noundef %mod, i32 noundef 1)
+  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24592), i32 noundef 0, ptr noundef %mod, i32 noundef 1)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -6235,7 +6235,7 @@ if.end27:                                         ; preds = %if.end19
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %call33 = tail call fastcc i64 @dict_add_o(ptr noundef nonnull %call21, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34))
+  %call33 = tail call fastcc i64 @dict_add_o(ptr noundef nonnull %call21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608))
   %cmp = icmp slt i64 %call33, 0
   br i1 %cmp, label %if.then34, label %if.then30.if.end36_crit_edge
 
@@ -6259,7 +6259,7 @@ if.end36:                                         ; preds = %if.then30.if.end36_
   br i1 %tobool42.not, label %if.end51, label %if.then43
 
 if.then43:                                        ; preds = %if.end36
-  %call47 = tail call fastcc i64 @dict_add_o(ptr noundef %.pre85, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
+  %call47 = tail call fastcc i64 @dict_add_o(ptr noundef %.pre85, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784))
   %cmp48 = icmp slt i64 %call47, 0
   br i1 %cmp48, label %if.then49, label %if.then43.if.end51_crit_edge
 
@@ -6587,7 +6587,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end52, %if.then1.i, %if.end.i
-  %call53 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), i32 noundef 2)
+  %call53 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), i32 noundef 2)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %if.end58
 
@@ -7063,7 +7063,7 @@ if.end38.i:                                       ; preds = %Py_DECREF.exit176.i
   %loc.sroa.26.8.insert.shift.i = shl nuw i64 %loc.sroa.26.8.insert.ext.i, 32
   %loc.sroa.14.8.insert.ext.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert.i = or disjoint i64 %loc.sroa.26.8.insert.shift.i, %loc.sroa.14.8.insert.ext.i
-  %call39.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.14.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 2)
+  %call39.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.14.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 2)
   %cmp40.i = icmp slt i32 %call39.i, 0
   br i1 %cmp40.i, label %if.then42.i, label %if.end44.i
 
@@ -7105,7 +7105,7 @@ if.then54.i:                                      ; preds = %if.end52.i
   %loc.sroa.26.8.insert.shift143.i = shl nuw i64 %loc.sroa.26.8.insert.ext142.i, 32
   %loc.sroa.14.8.insert.ext106.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert108.i = or disjoint i64 %loc.sroa.26.8.insert.shift143.i, %loc.sroa.14.8.insert.ext106.i
-  %call55.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1)
+  %call55.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 1)
   %cmp56.i = icmp slt i32 %call55.i, 0
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
 
@@ -7126,7 +7126,7 @@ if.then64.i:                                      ; preds = %if.end59.i
   br label %return
 
 if.end65.i:                                       ; preds = %if.end59.i
-  %call66.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 17), i32 noundef 2)
+  %call66.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 2)
   %cmp67.i = icmp slt i32 %call66.i, 0
   br i1 %cmp67.i, label %if.then69.i, label %if.end70.i
 
@@ -7179,7 +7179,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.i.preheader
   %29 = load ptr, ptr %c_arena.i, align 8
-  %call100.i = tail call ptr @_PyAST_Name(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 17), i32 noundef 1, i32 noundef %10, i32 noundef %12, i32 noundef %11, i32 noundef %13, ptr noundef %29) #11
+  %call100.i = tail call ptr @_PyAST_Name(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 1, i32 noundef %10, i32 noundef %12, i32 noundef %11, i32 noundef %13, ptr noundef %29) #11
   %cmp101.i = icmp eq ptr %call100.i, null
   br i1 %cmp101.i, label %if.then103.i, label %if.end104.i
 
@@ -8671,7 +8671,7 @@ if.end38.i232:                                    ; preds = %if.else.i250, %if.t
   %241 = load ptr, ptr %u.i230, align 8
   %u_names.i233 = getelementptr inbounds i8, ptr %241, i64 568
   %242 = load ptr, ptr %u_names.i233, align 8
-  %call41.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %241, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, i32 noundef 92, ptr noundef %242, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22))
+  %call41.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %241, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, i32 noundef 92, ptr noundef %242, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920))
   %cmp42.i = icmp eq i32 %call41.i, -1
   br i1 %cmp42.i, label %return, label %if.end44.i234
 
@@ -10384,7 +10384,7 @@ for.body.i480:                                    ; preds = %for.inc.i493, %for.
   %521 = load ptr, ptr %arrayidx.i482, align 8
   %522 = load ptr, ptr %c_const_cache.i470, align 8
   %523 = load ptr, ptr %u.i471, align 8
-  %call10.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %522, ptr noundef %523, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5))
+  %call10.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %522, ptr noundef %523, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816))
   %cmp11.i483 = icmp eq i32 %call10.i, -1
   br i1 %cmp11.i483, label %return, label %if.end.i484
 
@@ -10900,7 +10900,7 @@ if.then78.i:                                      ; preds = %Py_DECREF.exit.i572
   br i1 %cmp93.i, label %return, label %if.end115.i
 
 if.else.i597:                                     ; preds = %Py_DECREF.exit.i572
-  %call110.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
+  %call110.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216))
   %cmp111.i598 = icmp eq i32 %call110.i, -1
   br i1 %cmp111.i598, label %return, label %if.end115.i
 
@@ -12260,7 +12260,7 @@ if.end13.i.i:                                     ; preds = %if.then8.i.i
 if.end9.i:                                        ; preds = %if.end6.i.i, %if.end13.i.i
   %retval.0.i.i469 = phi i64 [ %funcflags.0.i.i, %if.end6.i.i ], [ %spec.select.i.i, %if.end13.i.i ]
   %61 = load i32, ptr %lineno1.i, align 8
-  %call11.i471 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 2), i32 noundef 4, ptr noundef nonnull %e, i32 noundef %61)
+  %call11.i471 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24480), i32 noundef 4, ptr noundef nonnull %e, i32 noundef %61)
   %cmp12.i472 = icmp eq i32 %call11.i471, -1
   br i1 %cmp12.i472, label %compiler_visit_expr1.exit, label %if.end.i63.i
 
@@ -12895,7 +12895,7 @@ sw.bb84.i:                                        ; preds = %entry
   %generators.i343 = getelementptr inbounds i8, ptr %e, i64 16
   %146 = load ptr, ptr %generators.i343, align 8
   %147 = load ptr, ptr %v.i342, align 8
-  %call.i344 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 1), ptr noundef %146, ptr noundef %147, ptr noundef null)
+  %call.i344 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24424), ptr noundef %146, ptr noundef %147, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb86.i:                                        ; preds = %entry
@@ -12903,7 +12903,7 @@ sw.bb86.i:                                        ; preds = %entry
   %generators.i340 = getelementptr inbounds i8, ptr %e, i64 16
   %148 = load ptr, ptr %generators.i340, align 8
   %149 = load ptr, ptr %v.i339, align 8
-  %call.i341 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 3), ptr noundef %148, ptr noundef %149, ptr noundef null)
+  %call.i341 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24536), ptr noundef %148, ptr noundef %149, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb88.i:                                        ; preds = %entry
@@ -12911,7 +12911,7 @@ sw.bb88.i:                                        ; preds = %entry
   %generators.i337 = getelementptr inbounds i8, ptr %e, i64 16
   %150 = load ptr, ptr %generators.i337, align 8
   %151 = load ptr, ptr %v.i336, align 8
-  %call.i338 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 6), ptr noundef %150, ptr noundef %151, ptr noundef null)
+  %call.i338 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24696), ptr noundef %150, ptr noundef %151, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb90.i:                                        ; preds = %entry
@@ -12921,7 +12921,7 @@ sw.bb90.i:                                        ; preds = %entry
   %153 = load ptr, ptr %v.i333, align 8
   %value.i334 = getelementptr inbounds i8, ptr %e, i64 16
   %154 = load ptr, ptr %value.i334, align 8
-  %call.i335 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3), ptr noundef %152, ptr noundef %153, ptr noundef %154)
+  %call.i335 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24368), ptr noundef %152, ptr noundef %153, ptr noundef %154)
   br label %compiler_visit_expr1.exit
 
 sw.bb92.i:                                        ; preds = %entry
@@ -14008,13 +14008,13 @@ cond.end.i154:                                    ; preds = %sw.bb213.i
   br i1 %cmp7.i156, label %if.then.i165, label %if.else.i157
 
 if.then.i165:                                     ; preds = %cond.end.i154
-  %314 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  %314 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i.i.i166 = add i32 %314, 1
   %cmp.i.i.i167 = icmp eq i32 %add.i.i.i166, 0
   br i1 %cmp.i.i.i167, label %_Py_NewRef.exit.i, label %if.end.i.i.i168
 
 if.end.i.i.i168:                                  ; preds = %if.then.i165
-  store i32 %add.i.i.i166, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i32 %add.i.i.i166, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i168, %if.then.i165
@@ -14030,9 +14030,9 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i168, %i
   %loc.sroa.17.8.insert.shift.i = shl nuw i64 %loc.sroa.17.8.insert.ext.i, 32
   %loc.sroa.9.8.insert.ext.i174 = zext i32 %2 to i64
   %loc.sroa.9.8.insert.insert.i = or disjoint i64 %loc.sroa.17.8.insert.shift.i, %loc.sroa.9.8.insert.ext.i174
-  %call10.i175 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %315, ptr noundef %316, i64 %loc.sroa.0.0.insert.insert.i173, i64 %loc.sroa.9.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
+  %call10.i175 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %315, ptr noundef %316, i64 %loc.sroa.0.0.insert.insert.i173, i64 %loc.sroa.9.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216))
   %cmp11.i176 = icmp slt i32 %call10.i175, 0
-  %317 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  %317 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %318 = and i64 %317, 2147483648
   %cmp.i135.not.i = icmp eq i64 %318, 0
   br i1 %cmp11.i176, label %if.then12.i, label %if.end13.i
@@ -14042,12 +14042,12 @@ if.then12.i:                                      ; preds = %_Py_NewRef.exit.i
 
 if.end.i128.i:                                    ; preds = %if.then12.i
   %dec.i129.i = add i64 %317, -1
-  store i64 %dec.i129.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i64 %dec.i129.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %cmp.i130.i = icmp eq i64 %dec.i129.i, 0
   br i1 %cmp.i130.i, label %if.then1.i131.i, label %compiler_visit_expr1.exit
 
 if.then1.i131.i:                                  ; preds = %if.end.i128.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #11
   br label %compiler_visit_expr1.exit
 
 if.end13.i:                                       ; preds = %_Py_NewRef.exit.i
@@ -14055,19 +14055,19 @@ if.end13.i:                                       ; preds = %_Py_NewRef.exit.i
 
 if.end.i119.i:                                    ; preds = %if.end13.i
   %dec.i120.i = add i64 %317, -1
-  store i64 %dec.i120.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i64 %dec.i120.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %cmp.i121.i = icmp eq i64 %dec.i120.i, 0
   br i1 %cmp.i121.i, label %if.then1.i122.i, label %Py_DECREF.exit124.i
 
 if.then1.i122.i:                                  ; preds = %if.end.i119.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #11
   br label %Py_DECREF.exit124.i
 
 Py_DECREF.exit124.i:                              ; preds = %if.then1.i122.i, %if.end.i119.i, %if.end13.i
   %319 = load ptr, ptr %u.i171, align 8
   %u_names.i177 = getelementptr inbounds i8, ptr %319, i64 568
   %320 = load ptr, ptr %u_names.i177, align 8
-  %call16.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %319, i64 %loc.sroa.0.0.insert.insert.i173, i64 %loc.sroa.9.8.insert.insert.i, i32 noundef 259, ptr noundef %320, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 437))
+  %call16.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %319, i64 %loc.sroa.0.0.insert.insert.i173, i64 %loc.sroa.9.8.insert.insert.i, i32 noundef 259, ptr noundef %320, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49336))
   %cmp17.i = icmp eq i32 %call16.i, -1
   br i1 %cmp17.i, label %compiler_visit_expr1.exit, label %if.end19.i
 
@@ -14265,13 +14265,13 @@ if.else87.i:                                      ; preds = %for.end76.i
   br i1 %cmp88.i, label %if.then90.i, label %compiler_visit_expr1.exit
 
 if.then90.i:                                      ; preds = %if.else87.i
-  %342 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  %342 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i.i204.i = add i32 %342, 1
   %cmp.i.i205.i = icmp eq i32 %add.i.i204.i, 0
   br i1 %cmp.i.i205.i, label %_Py_NewRef.exit207.i, label %if.end.i.i206.i
 
 if.end.i.i206.i:                                  ; preds = %if.then90.i
-  store i32 %add.i.i204.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i32 %add.i.i204.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %_Py_NewRef.exit207.i
 
 _Py_NewRef.exit207.i:                             ; preds = %if.end.i.i206.i, %if.then90.i
@@ -14287,9 +14287,9 @@ _Py_NewRef.exit207.i:                             ; preds = %if.end.i.i206.i, %i
   %loc.sroa.17.8.insert.shift121.i = shl nuw i64 %loc.sroa.17.8.insert.ext120.i, 32
   %loc.sroa.9.8.insert.ext91.i = zext i32 %2 to i64
   %loc.sroa.9.8.insert.insert93.i = or disjoint i64 %loc.sroa.17.8.insert.shift121.i, %loc.sroa.9.8.insert.ext91.i
-  %call99.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %343, ptr noundef %344, i64 %loc.sroa.0.0.insert.insert39.i, i64 %loc.sroa.9.8.insert.insert93.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
+  %call99.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %343, ptr noundef %344, i64 %loc.sroa.0.0.insert.insert39.i, i64 %loc.sroa.9.8.insert.insert93.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216))
   %cmp100.i = icmp slt i32 %call99.i, 0
-  %345 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  %345 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %346 = and i64 %345, 2147483648
   %cmp.i142.not.i = icmp eq i64 %346, 0
   br i1 %cmp100.i, label %if.then102.i, label %if.end103.i
@@ -14299,12 +14299,12 @@ if.then102.i:                                     ; preds = %_Py_NewRef.exit207.
 
 if.end.i110.i:                                    ; preds = %if.then102.i
   %dec.i111.i = add i64 %345, -1
-  store i64 %dec.i111.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i64 %dec.i111.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %cmp.i112.i = icmp eq i64 %dec.i111.i, 0
   br i1 %cmp.i112.i, label %if.then1.i113.i, label %compiler_visit_expr1.exit
 
 if.then1.i113.i:                                  ; preds = %if.end.i110.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #11
   br label %compiler_visit_expr1.exit
 
 if.end103.i:                                      ; preds = %_Py_NewRef.exit207.i
@@ -14312,12 +14312,12 @@ if.end103.i:                                      ; preds = %_Py_NewRef.exit207.
 
 if.end.i.i161:                                    ; preds = %if.end103.i
   %dec.i.i = add i64 %345, -1
-  store i64 %dec.i.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
+  store i64 %dec.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
   %cmp.i.i162 = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i162, label %if.then1.i.i, label %compiler_visit_expr1.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i161
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #11
   br label %compiler_visit_expr1.exit
 
 sw.bb215.i:                                       ; preds = %entry
@@ -15962,7 +15962,7 @@ if.then35:                                        ; preds = %if.end15, %Py_DECRE
   br i1 %switch34, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %if.then35
-  %call47 = tail call ptr @PyUnicode_Concat(ptr noundef %20, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 15)) #11
+  %call47 = tail call ptr @PyUnicode_Concat(ptr noundef %20, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25160)) #11
   %cmp48 = icmp eq ptr %call47, null
   br i1 %cmp48, label %return, label %if.then58
 
@@ -15978,7 +15978,7 @@ if.end.i.i37:                                     ; preds = %if.else
 
 if.then58:                                        ; preds = %if.then44, %if.else, %if.end.i.i37
   %base.0.ph = phi ptr [ %20, %if.end.i.i37 ], [ %20, %if.else ], [ %call47, %if.then44 ]
-  %call59 = tail call ptr @PyUnicode_Concat(ptr noundef nonnull %base.0.ph, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 14)) #11
+  %call59 = tail call ptr @PyUnicode_Concat(ptr noundef nonnull %base.0.ph, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25112)) #11
   store ptr %call59, ptr %name, align 8
   %22 = load i64, ptr %base.0.ph, align 8
   %23 = and i64 %22, 2147483648
@@ -16285,7 +16285,7 @@ if.else48:                                        ; preds = %land.lhs.true, %sw.
 if.then52:                                        ; preds = %if.else48
   %u_freevars56 = getelementptr inbounds i8, ptr %15, i64 592
   %19 = load ptr, ptr %u_freevars56, align 8
-  %call57 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %15, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %19, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
+  %call57 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %15, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %19, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784))
   %cmp58 = icmp slt i32 %call57, 0
   br i1 %cmp58, label %error, label %sw.epilog116
 
@@ -16395,7 +16395,7 @@ sw.bb80:                                          ; preds = %sw.bb79
 if.then90:                                        ; preds = %sw.bb80
   %u_freevars94 = getelementptr inbounds i8, ptr %31, i64 592
   %33 = load ptr, ptr %u_freevars94, align 8
-  %call95 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %31, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %33, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
+  %call95 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %31, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %33, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784))
   %cmp96 = icmp slt i32 %call95, 0
   br i1 %cmp96, label %error, label %sw.epilog116
 
@@ -17492,7 +17492,7 @@ if.then26.i:                                      ; preds = %land.lhs.true22.i
   br i1 %cmp32.i, label %if.then94, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then26.i, %land.lhs.true22.i, %if.end20.i
-  %call36.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 586), ptr noundef %returns.0, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
+  %call36.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57024), ptr noundef %returns.0, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp37.i = icmp eq i32 %call36.i, -1
   br i1 %cmp37.i, label %if.then94, label %if.end39.i
 
@@ -20561,7 +20561,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i265
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %if.then.i, %if.end.i.i265, %if.then1.i.i
   %loc.sroa.14.0.insert.ext = zext i32 %firstlineno to i64
   %loc.sroa.0.0.insert.insert = mul nuw i64 %loc.sroa.14.0.insert.ext, 4294967297
-  %call4 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), i32 noundef 1)
+  %call4 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), i32 noundef 1)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -20570,7 +20570,7 @@ if.then6:                                         ; preds = %Py_XDECREF.exit
   br label %return
 
 if.end7:                                          ; preds = %Py_XDECREF.exit
-  %call8 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), i32 noundef 2)
+  %call8 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), i32 noundef 2)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -20589,7 +20589,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
-  %call18 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), i32 noundef 2)
+  %call18 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), i32 noundef 2)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.end21
 
@@ -20609,12 +20609,12 @@ cond.end:                                         ; preds = %if.end21
   br i1 %cmp25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %cond.end
-  %call.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1)
+  %call.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 1)
   %cmp.i267 = icmp eq i32 %call.i, -1
   br i1 %cmp.i267, label %if.end30, label %if.end.i268
 
 if.end.i268:                                      ; preds = %if.then26
-  %call1.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 162), i32 noundef 2)
+  %call1.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), i32 noundef 2)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end21, %if.end.i268, %if.then26, %cond.end
@@ -20657,7 +20657,7 @@ if.end38:                                         ; preds = %instr_sequence_next
   %18 = load ptr, ptr %u, align 8
   %u_cellvars = getelementptr inbounds i8, ptr %18, i64 584
   %19 = load ptr, ptr %u_cellvars, align 8
-  %call.i271 = tail call fastcc i64 @dict_add_o(ptr noundef %19, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
+  %call.i271 = tail call fastcc i64 @dict_add_o(ptr noundef %19, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784))
   %cmp.i272 = icmp slt i64 %call.i271, 0
   br i1 %cmp.i272, label %if.then44, label %if.end.i273
 
@@ -20719,7 +20719,7 @@ if.end51:                                         ; preds = %if.end46
 if.then60:                                        ; preds = %if.end51
   %u_cellvars63 = getelementptr inbounds i8, ptr %24, i64 584
   %27 = load ptr, ptr %u_cellvars63, align 8
-  %call64 = tail call fastcc i32 @compiler_lookup_arg(ptr noundef %27, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
+  %call64 = tail call fastcc i32 @compiler_lookup_arg(ptr noundef %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784))
   %cmp65 = icmp slt i32 %call64, 0
   br i1 %cmp65, label %if.then66, label %if.end67
 
@@ -20736,7 +20736,7 @@ if.end67:                                         ; preds = %if.then60
   br i1 %cmp71, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end67
-  %call75 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38), i32 noundef 2)
+  %call75 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27840), i32 noundef 2)
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %if.then78, label %if.end74.if.end80_crit_edge
 
@@ -20761,7 +20761,7 @@ if.end80:                                         ; preds = %if.end74.if.end80_c
 if.then88:                                        ; preds = %if.end80
   %u_cellvars92 = getelementptr inbounds i8, ptr %29, i64 584
   %31 = load ptr, ptr %u_cellvars92, align 8
-  %call93 = tail call fastcc i32 @compiler_lookup_arg(ptr noundef %31, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34))
+  %call93 = tail call fastcc i32 @compiler_lookup_arg(ptr noundef %31, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608))
   %cmp94 = icmp slt i32 %call93, 0
   br i1 %cmp94, label %if.then96, label %if.end97
 
@@ -20785,7 +20785,7 @@ if.end105:                                        ; preds = %if.end97
   br i1 %cmp109, label %return, label %if.end112
 
 if.end112:                                        ; preds = %if.end105
-  %call113 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36), i32 noundef 2)
+  %call113 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27728), i32 noundef 2)
   %cmp114 = icmp slt i32 %call113, 0
   br i1 %cmp114, label %if.then116, label %if.end125
 
@@ -31737,7 +31737,7 @@ land.lhs.true:                                    ; preds = %if.end52
   br i1 %cmp57, label %return, label %if.end59
 
 if.end59:                                         ; preds = %land.lhs.true, %if.end52
-  %call60 = tail call fastcc i32 @get_ref_type(ptr noundef nonnull %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34))
+  %call60 = tail call fastcc i32 @get_ref_type(ptr noundef nonnull %c, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608))
   %cmp61 = icmp eq i32 %call60, 4
   br label %return
 
@@ -31825,7 +31825,7 @@ if.end42:                                         ; preds = %if.end, %cond.false
   %loc.sroa.7.8.insert.shift = shl nuw i64 %loc.sroa.7.8.insert.ext, 32
   %loc.sroa.4.8.insert.ext = zext i32 %2 to i64
   %loc.sroa.4.8.insert.insert = or disjoint i64 %loc.sroa.7.8.insert.shift, %loc.sroa.4.8.insert.ext
-  %call43 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), i32 noundef 1)
+  %call43 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), i32 noundef 1)
   %cmp44 = icmp eq i32 %call43, -1
   br i1 %cmp44, label %return, label %if.end46
 
@@ -32482,7 +32482,7 @@ if.end49.i:                                       ; preds = %if.end41.i, %Py_XDE
   %42 = load ptr, ptr %k.i, align 8
   %call54.i = call ptr @PyDict_GetItemWithError(ptr noundef %41, ptr noundef %42) #11
   %cmp55.i = icmp eq ptr %call54.i, null
-  %spec.select.i = select i1 %cmp55.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), ptr %call54.i
+  %spec.select.i = select i1 %cmp55.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %call54.i
   %call60.i = call i64 @PyLong_AsLong(ptr noundef nonnull %spec.select.i) #11
   %shr61.i = lshr i64 %call60.i, 12
   %and62.i = and i64 %shr61.i, 15

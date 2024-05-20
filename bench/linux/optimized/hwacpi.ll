@@ -21,7 +21,7 @@ define dso_local i32 @acpi_hw_set_mode(i32 noundef %0) local_unnamed_addr #0 ali
   br i1 %3, label %4, label %24
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
@@ -30,9 +30,9 @@ define dso_local i32 @acpi_hw_set_mode(i32 noundef %0) local_unnamed_addr #0 ali
   br label %24
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 7), align 1
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 52), align 1
   %10 = icmp ne i8 %9, 0
-  %11 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 8), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 53), align 1
   %12 = icmp ne i8 %11, 0
   %13 = select i1 %10, i1 true, i1 %12
   br i1 %13, label %15, label %14
@@ -88,7 +88,7 @@ define dso_local range(i32 1, 3) i32 @acpi_hw_get_mode() local_unnamed_addr #0 a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %3 = icmp ne i8 %2, 0
-  %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %5 = icmp eq i32 %4, 0
   %6 = select i1 %3, i1 true, i1 %5
   br i1 %6, label %14, label %7

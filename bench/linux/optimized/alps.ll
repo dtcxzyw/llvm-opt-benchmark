@@ -903,7 +903,7 @@ define dso_local noundef i32 @alps_detect(ptr noundef %0, i1 noundef zeroext %1)
 
 19:                                               ; preds = %18, %10
   %20 = call i32 @psmouse_reset(ptr noundef %0) #14
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %22 = call noalias noundef align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 368) #16
   %23 = icmp eq ptr %22, null
   br i1 %23, label %42, label %24

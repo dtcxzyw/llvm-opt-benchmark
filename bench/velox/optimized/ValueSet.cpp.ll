@@ -179,7 +179,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %0 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -195,7 +195,7 @@ _ZN8facebook5velox15ByteInputStreamD2Ev.exit:     ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i2 = getelementptr inbounds i8, ptr %stream, i64 8
   %2 = load ptr, ptr %ranges_.i2, align 8
   %tobool.not.i.i.i.i3 = icmp eq ptr %2, null

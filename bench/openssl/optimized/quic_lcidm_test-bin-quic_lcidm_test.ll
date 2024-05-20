@@ -103,7 +103,7 @@ lor.lhs.false:                                    ; preds = %if.end6
   br i1 %tobool14.not, label %err, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %call16 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 1), ptr noundef nonnull @cid8_1) #3
+  %call16 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 1), ptr noundef nonnull @cid8_1) #3
   %cmp17 = icmp ne i32 %call16, 0
   %conv18 = zext i1 %cmp17 to i32
   %call19 = tail call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 40, ptr noundef nonnull @.str.7, i32 noundef %conv18) #3
@@ -111,13 +111,13 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
   br i1 %tobool20.not, label %err, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false15
-  %call22 = tail call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 1)) #3
+  %call22 = tail call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 1)) #3
   %call23 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %call22, i64 noundef 0) #3
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %err, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false21
-  %call26 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 1), ptr noundef nonnull @cid8_3) #3
+  %call26 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 1), ptr noundef nonnull @cid8_3) #3
   %cmp27 = icmp ne i32 %call26, 0
   %conv28 = zext i1 %cmp27 to i32
   %call29 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @.str.10, i32 noundef %conv28) #3
@@ -125,7 +125,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false21
   br i1 %tobool30.not, label %err, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false25
-  %call32 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 1), ptr noundef nonnull @cid8_4) #3
+  %call32 = tail call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 1), ptr noundef nonnull @cid8_4) #3
   %cmp33 = icmp ne i32 %call32, 0
   %conv34 = zext i1 %cmp33 to i32
   %call35 = tail call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 43, ptr noundef nonnull @.str.11, i32 noundef %conv34) #3
@@ -139,7 +139,7 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false31
   br i1 %tobool40.not, label %err, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false37
-  %call42 = tail call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 1)) #3
+  %call42 = tail call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 1)) #3
   %call43 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, i64 noundef %call42, i64 noundef 1) #3
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %lor.lhs.false45
@@ -181,7 +181,7 @@ lor.lhs.false67:                                  ; preds = %lor.lhs.false61
   br i1 %tobool70.not, label %err, label %lor.lhs.false71
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false67
-  %call72 = call i32 @ossl_quic_lcidm_generate_initial(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), ptr noundef nonnull %lcid_1) #3
+  %call72 = call i32 @ossl_quic_lcidm_generate_initial(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), ptr noundef nonnull %lcid_1) #3
   %cmp73 = icmp ne i32 %call72, 0
   %conv74 = zext i1 %cmp73 to i32
   %call75 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 52, ptr noundef nonnull @.str.16, i32 noundef %conv74) #3
@@ -189,13 +189,13 @@ lor.lhs.false71:                                  ; preds = %lor.lhs.false67
   br i1 %tobool76.not, label %err, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %lor.lhs.false71
-  %call78 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call78 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call79 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 53, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13, i64 noundef %call78, i64 noundef 1) #3
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %err, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false77
-  %call82 = call i32 @ossl_quic_lcidm_generate_initial(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), ptr noundef nonnull %lcid_init) #3
+  %call82 = call i32 @ossl_quic_lcidm_generate_initial(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), ptr noundef nonnull %lcid_init) #3
   %cmp83 = icmp ne i32 %call82, 0
   %conv84 = zext i1 %cmp83 to i32
   %call85 = call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 54, ptr noundef nonnull @.str.18, i32 noundef %conv84) #3
@@ -203,7 +203,7 @@ lor.lhs.false81:                                  ; preds = %lor.lhs.false77
   br i1 %tobool86.not, label %err, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false81
-  %call88 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), ptr noundef nonnull %ncid_frame_1) #3
+  %call88 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), ptr noundef nonnull %ncid_frame_1) #3
   %cmp89 = icmp ne i32 %call88, 0
   %conv90 = zext i1 %cmp89 to i32
   %call91 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 55, ptr noundef nonnull @.str.19, i32 noundef %conv90) #3
@@ -211,7 +211,7 @@ lor.lhs.false87:                                  ; preds = %lor.lhs.false81
   br i1 %tobool92.not, label %err, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %lor.lhs.false87
-  %call94 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), ptr noundef nonnull %ncid_frame_2) #3
+  %call94 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), ptr noundef nonnull %ncid_frame_2) #3
   %cmp95 = icmp ne i32 %call94, 0
   %conv96 = zext i1 %cmp95 to i32
   %call97 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @.str.20, i32 noundef %conv96) #3
@@ -219,7 +219,7 @@ lor.lhs.false93:                                  ; preds = %lor.lhs.false87
   br i1 %tobool98.not, label %err, label %lor.lhs.false99
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false93
-  %call100 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), ptr noundef nonnull %ncid_frame_3) #3
+  %call100 = call i32 @ossl_quic_lcidm_generate(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), ptr noundef nonnull %ncid_frame_3) #3
   %cmp101 = icmp ne i32 %call100, 0
   %conv102 = zext i1 %cmp101 to i32
   %call103 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 57, ptr noundef nonnull @.str.21, i32 noundef %conv102) #3
@@ -227,7 +227,7 @@ lor.lhs.false99:                                  ; preds = %lor.lhs.false93
   br i1 %tobool104.not, label %err, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false99
-  %call106 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call106 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call107 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.22, i64 noundef %call106, i64 noundef 4) #3
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %lor.lhs.false109
@@ -242,7 +242,7 @@ lor.lhs.false109:                                 ; preds = %lor.lhs.false105
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false109
   %0 = load ptr, ptr %opaque, align 8
-  %call116 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 60, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call116 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 60, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %err, label %lor.lhs.false118
 
@@ -263,7 +263,7 @@ lor.lhs.false121:                                 ; preds = %lor.lhs.false118
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false121
   %2 = load ptr, ptr %opaque, align 8
-  %call128 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %2, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call128 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %err, label %lor.lhs.false130
 
@@ -284,7 +284,7 @@ lor.lhs.false133:                                 ; preds = %lor.lhs.false130
 
 lor.lhs.false140:                                 ; preds = %lor.lhs.false133
   %4 = load ptr, ptr %opaque, align 8
-  %call141 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %4, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call141 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %tobool142.not = icmp eq i32 %call141, 0
   br i1 %tobool142.not, label %err, label %lor.lhs.false143
 
@@ -305,7 +305,7 @@ lor.lhs.false146:                                 ; preds = %lor.lhs.false143
 
 lor.lhs.false153:                                 ; preds = %lor.lhs.false146
   %6 = load ptr, ptr %opaque, align 8
-  %call154 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %6, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call154 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %tobool155.not = icmp eq i32 %call154, 0
   br i1 %tobool155.not, label %err, label %lor.lhs.false156
 
@@ -316,7 +316,7 @@ lor.lhs.false156:                                 ; preds = %lor.lhs.false153
   br i1 %tobool158.not, label %err, label %lor.lhs.false159
 
 lor.lhs.false159:                                 ; preds = %lor.lhs.false156
-  %call160 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
+  %call160 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
   %cmp161 = icmp ne i32 %call160, 0
   %conv162 = zext i1 %cmp161 to i32
   %call163 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.32, i32 noundef %conv162) #3
@@ -332,13 +332,13 @@ lor.lhs.false165:                                 ; preds = %lor.lhs.false159
   br i1 %tobool169.not, label %err, label %lor.lhs.false170
 
 lor.lhs.false170:                                 ; preds = %lor.lhs.false165
-  %call171 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call171 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call172 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, i64 noundef %call171, i64 noundef 3) #3
   %tobool173.not = icmp eq i32 %call172, 0
   br i1 %tobool173.not, label %err, label %lor.lhs.false174
 
 lor.lhs.false174:                                 ; preds = %lor.lhs.false170
-  %call175 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
+  %call175 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
   %cmp176 = icmp ne i32 %call175, 0
   %conv177 = zext i1 %cmp176 to i32
   %call178 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @.str.32, i32 noundef %conv177) #3
@@ -354,13 +354,13 @@ lor.lhs.false180:                                 ; preds = %lor.lhs.false174
   br i1 %tobool184.not, label %err, label %lor.lhs.false185
 
 lor.lhs.false185:                                 ; preds = %lor.lhs.false180
-  %call186 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call186 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call187 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.29, i64 noundef %call186, i64 noundef 2) #3
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %err, label %lor.lhs.false189
 
 lor.lhs.false189:                                 ; preds = %lor.lhs.false185
-  %call190 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
+  %call190 = call i32 @ossl_quic_lcidm_retire(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2), i64 noundef 2, ptr noundef null, ptr noundef nonnull %lcid_dummy, ptr noundef nonnull %seq_num, ptr noundef nonnull %did_retire) #3
   %cmp191 = icmp ne i32 %call190, 0
   %conv192 = zext i1 %cmp191 to i32
   %call193 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 83, ptr noundef nonnull @.str.32, i32 noundef %conv192) #3
@@ -376,7 +376,7 @@ lor.lhs.false195:                                 ; preds = %lor.lhs.false189
   br i1 %tobool199.not, label %err, label %lor.lhs.false200
 
 lor.lhs.false200:                                 ; preds = %lor.lhs.false195
-  %call201 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call201 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call202 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.29, i64 noundef %call201, i64 noundef 2) #3
   %tobool203.not = icmp eq i32 %call202, 0
   br i1 %tobool203.not, label %err, label %lor.lhs.false204
@@ -406,7 +406,7 @@ lor.lhs.false217:                                 ; preds = %lor.lhs.false210
   br i1 %tobool223.not, label %err, label %lor.lhs.false224
 
 lor.lhs.false224:                                 ; preds = %lor.lhs.false217
-  %call225 = call i32 @ossl_quic_lcidm_cull(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call225 = call i32 @ossl_quic_lcidm_cull(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %cmp226 = icmp ne i32 %call225, 0
   %conv227 = zext i1 %cmp226 to i32
   %call228 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 92, ptr noundef nonnull @.str.35, i32 noundef %conv227) #3
@@ -414,7 +414,7 @@ lor.lhs.false224:                                 ; preds = %lor.lhs.false217
   br i1 %tobool229.not, label %err, label %lor.lhs.false230
 
 lor.lhs.false230:                                 ; preds = %lor.lhs.false224
-  %call231 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @ptrs, i64 0, i64 2)) #3
+  %call231 = call i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @ptrs, i64 2)) #3
   %call232 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9, i64 noundef %call231, i64 noundef 0) #3
   %tobool233.not = icmp ne i32 %call232, 0
   %spec.select = zext i1 %tobool233.not to i32

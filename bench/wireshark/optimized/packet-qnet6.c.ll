@@ -1914,7 +1914,7 @@ define internal fastcc void @dissect_qnet6_kif(ptr noundef %0, ptr nocapture nou
 
 28:                                               ; preds = %20, %26, %23
   %29 = getelementptr i8, ptr %.0505544, i64 16
-  %30 = icmp ult ptr %29, getelementptr inbounds ([19 x %struct._value_string], ptr @qnet6_kif_msgtype_vals, i64 1, i64 0)
+  %30 = icmp ult ptr %29, getelementptr inbounds (i8, ptr @qnet6_kif_msgtype_vals, i64 304)
   br i1 %30, label %20, label %31, !llvm.loop !4
 
 31:                                               ; preds = %28

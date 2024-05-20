@@ -482,7 +482,7 @@ _ZSt8_DestroyIPN5vcpkg13CMakeVariableEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.
 136:                                              ; preds = %132
   %.sroa.02.0.copyload = load i64, ptr @_ZN5vcpkg18msgInvalidFilenameE, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr @_ZN5vcpkg29FILESYSTEM_INVALID_CHARACTERSE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (%"struct.vcpkg::StringLiteral", ptr @_ZN5vcpkg29FILESYSTEM_INVALID_CHARACTERSE, i64 0, i32 0, i32 0, i32 1), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg29FILESYSTEM_INVALID_CHARACTERSE, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %133) #16
   %.fca.0.load.i = load ptr, ptr %4, align 8

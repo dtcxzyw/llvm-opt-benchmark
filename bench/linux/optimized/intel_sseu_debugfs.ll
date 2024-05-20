@@ -99,7 +99,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %46 = select i1 %45, ptr @.str.17, ptr @.str.16
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %46) #6
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.1) #6
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %48 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3520, i64 noundef 176) #8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %417, label %50

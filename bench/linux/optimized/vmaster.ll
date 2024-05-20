@@ -361,7 +361,7 @@ define dso_local ptr @snd_ctl_make_virtual_master(ptr noundef %0, ptr noundef re
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @master_info, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 72) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %28, label %9
@@ -588,7 +588,7 @@ define internal range(i32 -2147483648, 2) i32 @master_put(ptr nocapture noundef 
   br i1 %32, label %sync_followers.exit.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %35 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 3264, i64 noundef 1224) #12
   %36 = icmp eq ptr %35, null
   br i1 %36, label %sync_followers.exit.thread, label %37
@@ -757,7 +757,7 @@ define dso_local void @snd_ctl_sync_vmaster(ptr noundef readonly %0, i1 noundef 
 29:                                               ; preds = %7, %26, %18
   %30 = getelementptr inbounds i8, ptr %6, i64 32
   %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3264, i64 noundef 1224) #12
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread8, label %35
@@ -917,7 +917,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @follower_init(ptr noundef 
   br i1 %10, label %96, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 1224) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %96, label %15
@@ -961,7 +961,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @follower_init(ptr noundef 
   br label %96
 
 39:                                               ; preds = %1
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 272) #12
   %42 = icmp eq ptr %41, null
   br i1 %42, label %96, label %43
@@ -1010,7 +1010,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @follower_init(ptr noundef 
   %70 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %69, ptr %70, align 4
   tail call void @kfree(ptr noundef nonnull %41) #11
-  %71 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %72 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %71, i32 noundef 3520, i64 noundef 1224) #12
   %73 = icmp eq ptr %72, null
   br i1 %73, label %96, label %74

@@ -2906,13 +2906,13 @@ thread-pre-split:                                 ; preds = %15
   br label %46
 
 .thread274:                                       ; preds = %34, %24, %35
-  %43 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not219 = icmp eq ptr %43, null
   br i1 %.not219, label %44, label %46
 
 44:                                               ; preds = %.thread274
   %45 = call ptr @php_stream_context_alloc() #16
-  store ptr %45, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %46
 
 46:                                               ; preds = %.thread274, %44, %40

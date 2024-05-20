@@ -338,23 +338,23 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
 4:                                                ; preds = %3
   %5 = load ptr, ptr @PGLC_localeconv.CurrentLocaleConv, align 8
   call void @free(ptr noundef %5) #22
-  %6 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 8), align 8
   call void @free(ptr noundef %6) #22
-  %7 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 16), align 8
   call void @free(ptr noundef %7) #22
-  %8 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 24), align 8
   call void @free(ptr noundef %8) #22
-  %9 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 32), align 8
   call void @free(ptr noundef %9) #22
-  %10 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 40), align 8
   call void @free(ptr noundef %10) #22
-  %11 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 6), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 48), align 8
   call void @free(ptr noundef %11) #22
-  %12 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 7), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 56), align 8
   call void @free(ptr noundef %12) #22
-  %13 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 64), align 8
   call void @free(ptr noundef %13) #22
-  %14 = load ptr, ptr getelementptr inbounds (%struct.lconv, ptr @PGLC_localeconv.CurrentLocaleConv, i64 0, i32 9), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @PGLC_localeconv.CurrentLocaleConv, i64 72), align 8
   call void @free(ptr noundef %14) #22
   store i1 false, ptr @PGLC_localeconv.CurrentLocaleConvAllocated, align 1
   br label %15
@@ -799,8 +799,8 @@ cache_single_string.exit61:                       ; preds = %73, %74
   br i1 %exitcond81.not, label %76, label %53, !llvm.loop !8
 
 76:                                               ; preds = %cache_single_string.exit61
-  store ptr null, ptr getelementptr inbounds ([8 x ptr], ptr @localized_abbrev_days, i64 0, i64 7), align 8
-  store ptr null, ptr getelementptr inbounds ([8 x ptr], ptr @localized_full_days, i64 0, i64 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_abbrev_days, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_full_days, i64 56), align 8
   br label %77
 
 77:                                               ; preds = %76, %cache_single_string.exit67
@@ -861,8 +861,8 @@ cache_single_string.exit67:                       ; preds = %97, %98
   br i1 %exitcond85.not, label %100, label %77, !llvm.loop !9
 
 100:                                              ; preds = %cache_single_string.exit67
-  store ptr null, ptr getelementptr inbounds ([13 x ptr], ptr @localized_abbrev_months, i64 0, i64 12), align 16
-  store ptr null, ptr getelementptr inbounds ([13 x ptr], ptr @localized_full_months, i64 0, i64 12), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_abbrev_months, i64 96), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_full_months, i64 96), align 16
   store i1 true, ptr @CurrentLCTimeValid, align 1
   br label %101
 

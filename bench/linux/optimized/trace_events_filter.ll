@@ -1201,7 +1201,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   br label %.thread
 
 756:                                              ; preds = %.preheader
-  %757 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #17, !srcloc !12
+  %757 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !12
   %758 = getelementptr inbounds i8, ptr %13, i64 32
   %759 = load i64, ptr %758, align 8
   %760 = trunc i64 %759 to i32
@@ -1246,7 +1246,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   br label %.thread
 
 778:                                              ; preds = %.preheader
-  %779 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #17, !srcloc !13
+  %779 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !13
   %780 = getelementptr inbounds i8, ptr %13, i64 60
   %781 = load i32, ptr %780, align 4
   switch i32 %781, label %.thread [
@@ -1984,7 +1984,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %78, label %79, label %113
 
 79:                                               ; preds = %73
-  %80 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %81 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %80, i32 noundef 3520, i64 noundef 16) #20
   %82 = icmp eq ptr %81, null
   br i1 %82, label %141, label %83
@@ -2032,7 +2032,7 @@ sub_1:                                            ; preds = %sub_0
   br label %103
 
 103:                                              ; preds = %102, %99, %98
-  %104 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %105 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %104, i32 noundef 3520, i64 noundef 24) #20
   %106 = icmp eq ptr %105, null
   br i1 %106, label %141, label %107
@@ -2215,10 +2215,10 @@ define dso_local i32 @ftrace_profile_set_filter(ptr nocapture noundef %0, i32 no
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 16) #20
   %14 = icmp ne ptr %13, null
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 8) #20
   %17 = icmp ne ptr %16, null
   %18 = and i1 %14, %17
@@ -2303,7 +2303,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @create_filter_start(ptr no
   br label %30
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 16) #20
   %14 = icmp eq ptr %13, null
   %15 = xor i1 %1, true
@@ -2319,7 +2319,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @create_filter_start(ptr no
 
 21:                                               ; preds = %17, %11
   %22 = phi i1 [ false, %11 ], [ %20, %17 ]
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %24 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 8) #20
   %25 = icmp eq ptr %24, null
   %26 = or i1 %22, %25
@@ -2780,7 +2780,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
 263:                                              ; preds = %252
   %264 = getelementptr i8, ptr %139, i64 %254
   %265 = trunc i64 %248 to i32
-  %266 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %267 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %266, i32 noundef 3520, i64 noundef 64) #20
   %268 = icmp eq ptr %267, null
   br i1 %268, label %.thread82, label %269
@@ -2987,7 +2987,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %391, label %.thread74, label %392
 
 392:                                              ; preds = %.loopexit108
-  %393 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %394 = call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %393, i32 noundef 3520, i64 noundef 272) #20
   store ptr %394, ptr %267, align 8
   %395 = icmp eq ptr %394, null
@@ -3064,7 +3064,7 @@ sub_2:                                            ; preds = %sub_1
   %431 = zext i32 %412 to i64
   %432 = getelementptr i8, ptr %139, i64 %431
   %433 = call i64 @strscpy(ptr noundef nonnull %428, ptr noundef %432, i64 noundef %427) #17
-  %434 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %434 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %435 = call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %434, i32 noundef 3520, i64 noundef 8) #20
   %436 = getelementptr inbounds i8, ptr %267, i64 8
   store ptr %435, ptr %436, align 8
@@ -3254,7 +3254,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %518, label %.thread74, label %519
 
 519:                                              ; preds = %516
-  %520 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %521 = call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %520, i32 noundef 3520, i64 noundef 272) #20
   store ptr %521, ptr %267, align 8
   %522 = icmp eq ptr %521, null

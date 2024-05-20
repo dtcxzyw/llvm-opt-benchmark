@@ -1571,7 +1571,7 @@ define void @_ZN3nix16updateWindowSizeEv() local_unnamed_addr #0 personality ptr
 
 _ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit:  ; preds = %4
   %7 = load <2 x i16>, ptr %1, align 4
-  store <2 x i16> %7, ptr getelementptr inbounds (%"class.nix::Sync", ptr @_ZN3nixL10windowSizeE, i64 0, i32 1, i32 0), align 8
+  store <2 x i16> %7, ptr getelementptr inbounds (i8, ptr @_ZN3nixL10windowSizeE, i64 40), align 8
   %8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL10windowSizeE) #14
   br label %9
 
@@ -1593,7 +1593,7 @@ define i32 @_ZN3nix13getWindowSizeEv() local_unnamed_addr #0 personality ptr @__
   unreachable
 
 _ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit:  ; preds = %0
-  %.sroa.0.0.copyload = load i32, ptr getelementptr inbounds (%"class.nix::Sync", ptr @_ZN3nixL10windowSizeE, i64 0, i32 1, i32 0), align 8
+  %.sroa.0.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3nixL10windowSizeE, i64 40), align 8
   %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL10windowSizeE) #14
   ret i32 %.sroa.0.0.copyload
 }

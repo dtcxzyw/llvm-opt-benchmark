@@ -97,7 +97,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.grpc_wakeup_fd_vtable, ptr @grpc_specialized_wakeup_fd_vtable, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @grpc_specialized_wakeup_fd_vtable, i64 32), align 8
   %call.i = tail call noundef i32 %1()
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
@@ -112,7 +112,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   br i1 %tobool3.not.i, label %if.else8.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.else.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.grpc_wakeup_fd_vtable, ptr @grpc_pipe_wakeup_fd_vtable, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @grpc_pipe_wakeup_fd_vtable, i64 32), align 8
   %call5.i = tail call noundef i32 %3()
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.else8.i, label %if.then7.i

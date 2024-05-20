@@ -40,7 +40,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
-  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds ([4 x %"struct.base::internal::ThreadPriorityToNiceValuePair"], ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 1, i64 0, i32 0), %entry ], [ %incdec.ptr.i, %for.body ]
+  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 32), %entry ], [ %incdec.ptr.i, %for.body ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.0, @_ZN4base8internal29kThreadPriorityToNiceValueMapE
   br i1 %cmp.i.i.not, label %return, label %for.body
 

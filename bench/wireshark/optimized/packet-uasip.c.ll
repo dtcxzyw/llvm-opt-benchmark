@@ -253,8 +253,8 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = zext i8 %10 to i32
   store i32 %11, ptr @ua_tap_info, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 2), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 8), align 4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @val_to_str_ext(i32 noundef %11, ptr noundef nonnull @uaudp_opcode_str_ext, ptr noundef nonnull @.str.59) #3
@@ -450,7 +450,7 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
 
 115:                                              ; preds = %4
   %116 = load i32, ptr @hf_uasip_expseq, align 4
-  %117 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %116, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 1)) #3
+  %117 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %116, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ua_tap_info, i64 4)) #3
   %118 = load i32, ptr @noesip_enabled, align 4
   %.not142 = icmp eq i32 %118, 0
   %119 = load ptr, ptr %12, align 8
@@ -461,15 +461,15 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 121:                                              ; preds = %115
-  %122 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 1), align 4
+  %122 = load i32, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 4), align 4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.64, i32 noundef %122) #3
   br label %.loopexit
 
 123:                                              ; preds = %4
   %124 = load i32, ptr @hf_uasip_expseq, align 4
-  %125 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %124, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 1)) #3
+  %125 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %124, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ua_tap_info, i64 4)) #3
   %126 = load i32, ptr @hf_uasip_sntseq, align 4
-  %127 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %126, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 2)) #3
+  %127 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %126, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ua_tap_info, i64 8)) #3
   %128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 5) #3
   %129 = load i32, ptr @noesip_enabled, align 4
   %.not141 = icmp eq i32 %129, 0
@@ -509,20 +509,20 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
 
 145:                                              ; preds = %123
   %146 = load ptr, ptr %12, align 8
-  %147 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 1), align 4
+  %147 = load i32, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 4), align 4
   br i1 %130, label %148, label %151
 
 148:                                              ; preds = %145
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %146, i32 noundef 25, ptr noundef nonnull @.str.67, i32 noundef %147) #3
   %149 = load ptr, ptr %12, align 8
-  %150 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 2), align 4
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 8), align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %149, i32 noundef 25, ptr noundef nonnull @.str.68, i32 noundef %150) #3
   br label %.loopexit
 
 151:                                              ; preds = %145
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %146, i32 noundef 25, ptr noundef nonnull @.str.69, i32 noundef %147) #3
   %152 = load ptr, ptr %12, align 8
-  %153 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i64 0, i32 2), align 4
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 8), align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef nonnull @.str.68, i32 noundef %153) #3
   br label %.loopexit
 

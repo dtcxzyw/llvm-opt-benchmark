@@ -302,11 +302,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6htif_t, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV7memif_t, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7memif_t, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1834,7 +1834,7 @@ define void @_ZN6htif_t16register_devicesEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6htif_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 584
@@ -1975,7 +1975,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 _ZNSt6vectorIP8device_tSaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit15, %49
   %50 = getelementptr inbounds i8, ptr %0, i64 440
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5bcd_t, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @_ZNSt5dequeI9command_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %51) #30
   tail call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %50) #30
@@ -2532,7 +2532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
 90:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
   %91 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %1, ptr %91, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmE21preload_aware_memif_t, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmE21preload_aware_memif_t, i64 16), ptr %16, align 8
   %92 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %1, ptr %92, align 8
   %93 = load ptr, ptr %6, align 8
@@ -3733,7 +3733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171, %238
   %267 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %0, ptr %267, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_programEvE11nop_memif_t, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZN6htif_t12load_programEvE11nop_memif_t, i64 16), ptr %24, align 8
   %268 = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %0, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %0, i64 624
@@ -5424,7 +5424,7 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8device_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

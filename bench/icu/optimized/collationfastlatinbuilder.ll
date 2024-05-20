@@ -28,7 +28,7 @@ $_ZN6icu_759Collation10ceFromCE32Ej = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525CollationFastLatinBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 16), ptr %this, align 8
   %ce0 = getelementptr inbounds i8, ptr %this, i64 8
   %contractionCEs = getelementptr inbounds i8, ptr %this, i64 7192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ce0, i8 0, i64 16, i1 false)
@@ -46,7 +46,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %firstDigitPrimary = getelementptr inbounds i8, ptr %this, i64 7280
   %result = getelementptr inbounds i8, ptr %this, i64 7304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %firstDigitPrimary, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 7312
   store i16 2, ptr %fUnion2.i, align 8
   %headerLength = getelementptr inbounds i8, ptr %this, i64 7368
@@ -83,7 +83,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7525CollationFastLatinBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(7372) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 16), ptr %this, align 8
   %miniCEs = getelementptr inbounds i8, ptr %this, i64 7256
   %0 = load ptr, ptr %miniCEs, align 8
   invoke void @uprv_free_75(ptr noundef %0)

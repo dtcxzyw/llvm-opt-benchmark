@@ -94,7 +94,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_ra_control(ptr noundef %0, 
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %14 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 32) #12
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %50, label %.thread
@@ -869,7 +869,7 @@ thread-pre-split:                                 ; preds = %36
   %280 = getelementptr [64 x i32], ptr %278, i64 0, i64 %279
   call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %280, i32 -1, ptr elementtype(i32) %280) #13, !srcloc !20
   %.val13 = load ptr, ptr %276, align 8
-  %tcp_prot.val = load i32, ptr getelementptr inbounds (%struct.proto, ptr @tcp_prot, i64 0, i32 26), align 8
+  %tcp_prot.val = load i32, ptr getelementptr inbounds (i8, ptr @tcp_prot, i64 208), align 8
   %281 = getelementptr inbounds i8, ptr %.val13, i64 4
   %282 = zext i32 %tcp_prot.val to i64
   %283 = getelementptr [64 x i32], ptr %281, i64 0, i64 %282
@@ -900,8 +900,8 @@ thread-pre-split:                                 ; preds = %36
   %299 = getelementptr [64 x i32], ptr %297, i64 0, i64 %298
   call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %299, i32 -1, ptr elementtype(i32) %299) #13, !srcloc !20
   %.val16 = load ptr, ptr %295, align 8
-  %.val31 = load i32, ptr getelementptr inbounds (%struct.proto, ptr @udplite_prot, i64 0, i32 26), align 8
-  %.val32 = load i32, ptr getelementptr inbounds (%struct.proto, ptr @udp_prot, i64 0, i32 26), align 8
+  %.val31 = load i32, ptr getelementptr inbounds (i8, ptr @udplite_prot, i64 208), align 8
+  %.val32 = load i32, ptr getelementptr inbounds (i8, ptr @udp_prot, i64 208), align 8
   %.val17 = select i1 %291, i32 %.val31, i32 %.val32
   %300 = getelementptr inbounds i8, ptr %.val16, i64 4
   %301 = zext i32 %.val17 to i64
@@ -2279,7 +2279,7 @@ define dso_local i32 @ipv6_setsockopt(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %10, label %22, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (%struct.proto, ptr @udp_prot, i64 0, i32 9), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @udp_prot, i64 72), align 8
   %13 = tail call i32 %12(ptr noundef %0, i32 noundef 0, i32 noundef %2, ptr %3, i8 %4, i32 noundef %5) #13
   br label %22
 
@@ -3505,7 +3505,7 @@ define dso_local i32 @ipv6_getsockopt(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %11, label %43, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.proto, ptr @udp_prot, i64 0, i32 10), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @udp_prot, i64 80), align 8
   %14 = tail call i32 %13(ptr noundef %0, i32 noundef 0, i32 noundef %2, ptr noundef %3, ptr noundef %4) #13
   br label %43
 

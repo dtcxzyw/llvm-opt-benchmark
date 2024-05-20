@@ -342,7 +342,7 @@ define dso_local i32 @blk_mq_get_tag(ptr nocapture noundef %0) local_unnamed_add
   call void @io_schedule() #9
   call void @sbitmap_finish_wait(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %2) #9
   %72 = load ptr, ptr %0, align 8
-  %73 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #9, !srcloc !13
+  %73 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #9, !srcloc !13
   %74 = getelementptr inbounds i8, ptr %72, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
@@ -1395,7 +1395,7 @@ define dso_local noundef ptr @blk_mq_init_tags(i32 noundef %0, i32 noundef %1, i
   br label %32
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(184) ptr @kmalloc_node_trace(ptr noundef %9, i32 noundef 3520, i32 noundef %2, i64 noundef 184) #12
   %11 = icmp eq ptr %10, null
   br i1 %11, label %32, label %12

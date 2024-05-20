@@ -147,7 +147,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %23
   %.pre.i.i.i.i = ptrtoint ptr %24 to i64
-  %.pre56.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1, i64 0, i32 0, i32 0) to i64), %.pre.i.i.i.i
+  %.pre56.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008) to i64), %.pre.i.i.i.i
   %27 = sdiv exact i64 %.pre56.i.i.i.i, 24
   switch i64 %27, label %41 [
     i64 3, label %28
@@ -247,7 +247,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit22, %.loopexit.loopexit.split.loop.exit24, %41, %.noexc7.i.i.i, %.noexc6.i.i.i, %.noexc5.i.i.i
-  %.028.i.i.i.i = phi ptr [ getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1, i64 0, i32 0, i32 0), %41 ], [ %24, %.noexc5.i.i.i ], [ %.1.i.i.i.i, %.noexc6.i.i.i ], [ %.2.i.i.i.i, %.noexc7.i.i.i ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit22 ], [ %49, %.loopexit.loopexit.split.loop.exit24 ], [ %.02950.i.i.i.i, %.noexc.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008), %41 ], [ %24, %.noexc5.i.i.i ], [ %.1.i.i.i.i, %.noexc6.i.i.i ], [ %.2.i.i.i.i, %.noexc7.i.i.i ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit22 ], [ %49, %.loopexit.loopexit.split.loop.exit24 ], [ %.02950.i.i.i.i, %.noexc.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
@@ -257,7 +257,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
-  %50 = icmp eq ptr %.028.i.i.i.i, getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1, i64 0, i32 0, i32 0)
+  %50 = icmp eq ptr %.028.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008)
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %.loopexit
@@ -527,12 +527,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %17
-  %.1.val.i.i.i.i = load i8, ptr getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 0, i64 40, i32 1), align 16
+  %.1.val.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 976), align 16
   %20 = icmp eq i8 %.1.val.i.i.i.i, %1
   br i1 %20, label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", label %21
 
 21:                                               ; preds = %._crit_edge.loopexit.i.i.i.i
-  %.2.val.i.i.i.i = load i8, ptr getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 0, i64 41, i32 1), align 8
+  %.2.val.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1000), align 8
   %22 = icmp eq i8 %.2.val.i.i.i.i, %1
   br i1 %22, label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread21"
 
@@ -575,7 +575,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
   br label %36
 
 "_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread": ; preds = %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44", %21, %._crit_edge.loopexit.i.i.i.i, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
-  %.028.i.i.i.i17 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 0, i64 40, i32 0, i32 0), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds ([42 x { %"class.std::basic_string_view", i8 }], ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 0, i64 41, i32 0, i32 0), %21 ], [ %.028.i.i.i.i.ptr46, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44" ]
+  %.028.i.i.i.i17 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 960), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 984), %21 ], [ %.028.i.i.i.i.ptr46, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44" ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.sroa.0.0.copyload.i = load i64, ptr %.028.i.i.i.i17, align 8

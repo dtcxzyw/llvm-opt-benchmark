@@ -204,7 +204,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @time(ptr noundef null) #6
   store ptr null, ptr %2, align 8
-  %6 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
   %7 = zext i16 %6 to i64
   %8 = sub nsw i64 %5, %7
   %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.ping_nodes) #6
@@ -236,7 +236,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %or.cond = select i1 %22, i1 true, i1 %24
   %25 = sub nsw i64 %23, %21
   %.054 = select i1 %or.cond, i64 0, i64 %25
-  %26 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
+  %26 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
   %27 = udiv i16 %26, 3
   %28 = zext nneg i16 %27 to i64
   %29 = sub nsw i64 %5, %28
@@ -248,7 +248,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %0
-  %34 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 213), align 8
+  %34 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1472), align 8
   %35 = tail call i16 @llvm.umax.i16(i16 %34, i16 1)
   %36 = tail call i16 @llvm.umin.i16(i16 %35, i16 50)
   %37 = zext nneg i16 %36 to i32
@@ -289,7 +289,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %or.cond93, label %55, label %153
 
 55:                                               ; preds = %52
-  %56 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
+  %56 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
   %57 = icmp eq i16 %56, 0
   br i1 %57, label %58, label %61
 
@@ -619,7 +619,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %8, ptr %9, align 8
   %10 = tail call i32 @select_g_select_nodeinfo_set_all() #6
-  %11 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 60), align 2
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 422), align 2
   %.fr63 = freeze i16 %11
   %12 = and i16 %.fr63, 32767
   %13 = zext nneg i16 %12 to i32
@@ -633,13 +633,13 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  %.pre = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
+  %.pre = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
   br label %26
 
 19:                                               ; preds = %14
   %20 = load i32, ptr @run_health_check.base_node_loc, align 4
   %21 = icmp sgt i32 %20, 0
-  %.pre67 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
+  %.pre67 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
@@ -1065,7 +1065,7 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   %52 = load ptr, ptr %9, align 8
   %53 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %52) #6
   store ptr %53, ptr %2, align 8
-  %54 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %54 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %55 = and i64 %54, 262144
   %.not13 = icmp eq i64 %55, 0
   br i1 %.not13, label %60, label %56

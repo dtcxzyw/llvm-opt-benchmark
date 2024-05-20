@@ -113,7 +113,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
 55:                                               ; preds = %7
   %56 = getelementptr inbounds i8, ptr %0, i64 472
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, getelementptr inbounds ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1)
+  %58 = icmp eq ptr %57, getelementptr inbounds (i8, ptr @pm_encodings, i64 48)
   br i1 %58, label %.lr.ph.i24, label %65
 
 .lr.ph.i24:                                       ; preds = %55, %63

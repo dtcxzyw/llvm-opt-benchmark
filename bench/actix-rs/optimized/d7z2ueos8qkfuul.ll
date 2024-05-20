@@ -33675,7 +33675,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 26:                                               ; preds = %19, %.noexc
-  %.0.i.i2.i = phi ptr [ %22, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %19 ]
+  %.0.i.i2.i = phi ptr [ %22, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %19 ]
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 160
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 176
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 184
@@ -34000,7 +34000,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 26:                                               ; preds = %19, %.noexc
-  %.0.i.i2.i = phi ptr [ %22, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %19 ]
+  %.0.i.i2.i = phi ptr [ %22, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %19 ]
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 160
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 176
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 184

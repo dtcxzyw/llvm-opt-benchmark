@@ -1546,7 +1546,7 @@ land.end357:                                      ; preds = %_ZN4pbrt3LogIJmEEEv
           to label %invoke.cont358 unwind label %lpad44.loopexit.split-lp
 
 invoke.cont358:                                   ; preds = %land.end357
-  %130 = load ptr, ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeIN4pbrt7TexInfoESt4pairIKS1_PNS0_6MIPMapEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4pbrt16ImageTextureBase12textureCacheE, ptr noundef %130)
           to label %_ZN4pbrt16ImageTextureBase10ClearCacheEv.exit unwind label %terminate.lpad.i.i.i
 
@@ -1558,10 +1558,10 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont358
   unreachable
 
 _ZN4pbrt16ImageTextureBase10ClearCacheEv.exit:    ; preds = %invoke.cont358
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.185", ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt16ImageTextureBase12textureCacheE, i64 40), align 8
   br label %cleanup360
 
 cleanup360:                                       ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i, %while.end, %_ZN4pbrt16ImageTextureBase10ClearCacheEv.exit

@@ -160,9 +160,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %or = or i32 %1, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -178,8 +178,8 @@ do.body:                                          ; preds = %if.end
   tail call void @free(ptr noundef %call.i) #9
   %2 = load ptr, ptr @the_repository, align 8
   %3 = load ptr, ptr @opts, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 3), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %call6 = tail call i32 @midx_repack(ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #9
   ret i32 %call6
 }
@@ -189,9 +189,9 @@ define internal i32 @cmd_multi_pack_index_write(i32 noundef %argc, ptr noundef %
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %packs = alloca %struct.string_list, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %or = or i32 %0, 8
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   tail call void @git_config(ptr noundef nonnull @git_multi_pack_index_write_config, ptr noundef null) #9
   %call.i = tail call ptr @parse_options_concat(ptr noundef nonnull @common_opts, ptr noundef nonnull @cmd_multi_pack_index_write.builtin_multi_pack_index_write_options) #9
   %1 = load ptr, ptr %argv, align 8
@@ -201,9 +201,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %or2 = or i32 %2, 1
-  store i32 %or2, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or2, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -217,7 +217,7 @@ if.then5:                                         ; preds = %if.end
 
 do.body:                                          ; preds = %if.end
   tail call void @free(ptr noundef %call.i) #9
-  %3 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 5), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 36), align 4
   %tobool7.not = icmp eq i32 %3, 0
   br i1 %tobool7.not, label %if.end10, label %if.then8
 
@@ -249,18 +249,18 @@ read_packs_from_stdin.exit:                       ; preds = %while.body.i, %if.t
   call void @strbuf_release(ptr noundef nonnull %buf.i) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   %8 = load ptr, ptr @opts, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 2), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 16), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %call9 = call i32 @write_midx_file_only(ptr noundef %8, ptr noundef nonnull %packs, ptr noundef %9, ptr noundef %10, i32 noundef %11) #9
   call void @string_list_clear(ptr noundef nonnull %packs, i32 noundef 0) #9
   br label %return
 
 if.end10:                                         ; preds = %do.body
   %12 = load ptr, ptr @opts, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 1), align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 2), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 16), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %call11 = tail call i32 @write_midx_file(ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) #9
   br label %return
 
@@ -280,9 +280,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %or = or i32 %1, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -298,7 +298,7 @@ do.body:                                          ; preds = %if.end
   tail call void @free(ptr noundef %call.i) #9
   %2 = load ptr, ptr @the_repository, align 8
   %3 = load ptr, ptr @opts, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %call6 = tail call i32 @verify_midx_file(ptr noundef %2, ptr noundef %3, i32 noundef %4) #9
   ret i32 %call6
 }
@@ -314,9 +314,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %or = or i32 %1, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -332,7 +332,7 @@ do.body:                                          ; preds = %if.end
   tail call void @free(ptr noundef %call.i) #9
   %2 = load ptr, ptr @the_repository, align 8
   %3 = load ptr, ptr @opts, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %call6 = tail call i32 @expire_midx_packs(ptr noundef %2, ptr noundef %3, i32 noundef %4) #9
   ret i32 %call6
 }
@@ -373,11 +373,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #9
   %tobool2.not = icmp eq i32 %call1, 0
-  %0 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %and = and i32 %0, -9
   %masksel = select i1 %tobool2.not, i32 0, i32 8
   %or.sink = or disjoint i32 %and, %masksel
-  store i32 %or.sink, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or.sink, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %entry
@@ -388,11 +388,11 @@ if.end4:                                          ; preds = %if.then, %entry
 if.then7:                                         ; preds = %if.end4
   %call8 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #9
   %tobool9.not = icmp eq i32 %call8, 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   %and13 = and i32 %1, -17
   %masksel5 = select i1 %tobool9.not, i32 0, i32 16
   %or11.sink = or disjoint i32 %and13, %masksel5
-  store i32 %or11.sink, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i64 0, i32 4), align 8
+  store i32 %or11.sink, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then7, %if.end4

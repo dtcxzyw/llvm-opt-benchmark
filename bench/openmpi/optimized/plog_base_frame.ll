@@ -56,7 +56,7 @@ define internal noundef i32 @pmix_plog_register(i32 %0) #1 {
 
 4:                                                ; preds = %1
   %5 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %3, i32 noundef 44) #9
-  store ptr %5, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 4), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 392), align 8
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -65,10 +65,10 @@ define internal noundef i32 @pmix_plog_register(i32 %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_plog_open(i32 noundef %0) #1 {
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 4), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 384), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 392), align 8
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -77,10 +77,10 @@ define internal i32 @pmix_plog_open(i32 noundef %0) #1 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 264), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 280), i8 0, i64 64, i1 false)
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -88,16 +88,16 @@ define internal i32 @pmix_plog_open(i32 noundef %0) #1 {
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
   %.07.i = phi ptr [ %9, %.lr.ph.i ], [ %6, %5 ]
-  tail call void %8(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1)) #9
+  tail call void %8(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 224)) #9
   %9 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %11 = tail call i32 @pmix_pointer_array_init(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1), i32 noundef 1, i32 noundef 2147483647, i32 noundef 1) #9
+  %11 = tail call i32 @pmix_pointer_array_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 224), i32 noundef 1, i32 noundef 2147483647, i32 noundef 1) #9
   %12 = load i32, ptr @pmix_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 4), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not1 = icmp eq i32 %12, %13
   br i1 %.not1, label %15, label %14
 
@@ -106,10 +106,10 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   br label %15
 
 15:                                               ; preds = %14, %pmix_obj_run_constructors.exit
-  store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 56), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 64), i8 0, i64 64, i1 false)
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i2 = icmp eq ptr %17, null
   br i1 %.not6.i2, label %pmix_obj_run_constructors.exit6, label %.lr.ph.i3
@@ -117,35 +117,35 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 .lr.ph.i3:                                        ; preds = %15, %.lr.ph.i3
   %18 = phi ptr [ %20, %.lr.ph.i3 ], [ %17, %15 ]
   %.07.i4 = phi ptr [ %19, %.lr.ph.i3 ], [ %16, %15 ]
-  tail call void %18(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1)) #9
+  tail call void %18(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 8)) #9
   %19 = getelementptr inbounds i8, ptr %.07.i4, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i5 = icmp eq ptr %20, null
   br i1 %.not.i5, label %pmix_obj_run_constructors.exit6, label %.lr.ph.i3, !llvm.loop !4
 
 pmix_obj_run_constructors.exit6:                  ; preds = %.lr.ph.i3, %15
-  %21 = tail call i32 @pthread_cond_init(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 2), ptr noundef null) #9
-  store volatile i8 1, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 3), align 8
-  store volatile i8 0, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 3), align 8
+  %21 = tail call i32 @pthread_cond_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 168), ptr noundef null) #9
+  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 216), align 8
   %22 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_plog_base_framework, i32 noundef %0) #9
   ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_plog_close() #1 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 2), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 384), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %66
 
 3:                                                ; preds = %0
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 3), align 1
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 3), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 384), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 385), align 1
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 352), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.preheader:       ; preds = %3
-  %.pre38 = load ptr, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 7), align 8
+  %.pre38 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 376), align 8
   br label %pmix_pointer_array_get_item.exit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %45
@@ -225,9 +225,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
 
 42:                                               ; preds = %39, %41, %22
   %43 = trunc nuw nsw i64 %indvars.iv to i32
-  %44 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1), i32 noundef %43, ptr noundef null) #9
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 7), align 8
-  %.pre39 = load i32, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 3), align 8
+  %44 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 224), i32 noundef %43, ptr noundef null) #9
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 376), align 8
+  %.pre39 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 352), align 8
   br label %45
 
 45:                                               ; preds = %pmix_pointer_array_get_item.exit, %42
@@ -239,7 +239,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
   br i1 %49, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %45, %3
-  %50 = load ptr, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1, i32 0, i32 1), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 264), align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
@@ -249,14 +249,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
 .lr.ph.i27:                                       ; preds = %._crit_edge, %.lr.ph.i27
   %54 = phi ptr [ %56, %.lr.ph.i27 ], [ %53, %._crit_edge ]
   %.07.i28 = phi ptr [ %55, %.lr.ph.i27 ], [ %52, %._crit_edge ]
-  tail call void %54(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 1)) #9
+  tail call void %54(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 224)) #9
   %55 = getelementptr inbounds i8, ptr %.07.i28, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i29 = icmp eq ptr %56, null
   br i1 %.not.i29, label %pmix_obj_run_destructors.exit30, label %.lr.ph.i27, !llvm.loop !6
 
 pmix_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %._crit_edge
-  %57 = load ptr, ptr getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 48), align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
@@ -266,14 +266,14 @@ pmix_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %._crit
 .lr.ph.i32:                                       ; preds = %pmix_obj_run_destructors.exit30, %.lr.ph.i32
   %61 = phi ptr [ %63, %.lr.ph.i32 ], [ %60, %pmix_obj_run_destructors.exit30 ]
   %.07.i33 = phi ptr [ %62, %.lr.ph.i32 ], [ %59, %pmix_obj_run_destructors.exit30 ]
-  tail call void %61(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 1)) #9
+  tail call void %61(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 8)) #9
   %62 = getelementptr inbounds i8, ptr %.07.i33, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i34 = icmp eq ptr %63, null
   br i1 %.not.i34, label %pmix_obj_run_destructors.exit35, label %.lr.ph.i32, !llvm.loop !6
 
 pmix_obj_run_destructors.exit35:                  ; preds = %.lr.ph.i32, %pmix_obj_run_destructors.exit30
-  %64 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_globals_t, ptr @pmix_plog_globals, i64 0, i32 0, i32 2)) #9
+  %64 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_plog_globals, i64 168)) #9
   %65 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_plog_base_framework, ptr noundef null) #9
   br label %66
 

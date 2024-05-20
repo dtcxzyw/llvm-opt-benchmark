@@ -133,7 +133,7 @@ define internal i32 @efivarfs_create(ptr nocapture readnone %0, ptr nocapture no
   br i1 %24, label %25, label %111
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %27 = tail call noalias noundef align 8 dereferenceable_or_null(2168) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 2168) #5
   %28 = icmp eq ptr %27, null
   br i1 %28, label %111, label %29

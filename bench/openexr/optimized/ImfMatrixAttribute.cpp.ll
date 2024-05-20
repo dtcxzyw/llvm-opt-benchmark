@@ -186,7 +186,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 4 dereferenceable(36) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEC5ERKS3_) align 2 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %value, align 4
   store float %0, ptr %_value, align 8
@@ -283,7 +283,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %_value.i, align 4
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -316,7 +316,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %_value.i, align 4
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -543,7 +543,7 @@ declare void @_ZN7Imf_3_29Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(72) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEC5ERKS3_) align 2 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 16), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %value, align 8
   store double %0, ptr %_value, align 8
@@ -632,7 +632,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -661,7 +661,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -874,7 +874,7 @@ entry:
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(64) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEC5ERKS3_) align 2 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 16), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %value, align 4
   store float %0, ptr %_value, align 8
@@ -991,7 +991,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store float 1.000000e+00, ptr %_value.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -1024,7 +1024,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store float 1.000000e+00, ptr %_value.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -1269,7 +1269,7 @@ entry:
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(128) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEC5ERKS3_) align 2 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 16), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %value, align 8
   store double %0, ptr %_value, align 8
@@ -1386,7 +1386,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -1419,7 +1419,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 16

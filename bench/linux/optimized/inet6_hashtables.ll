@@ -887,7 +887,7 @@ define internal fastcc ptr @inet6_lhash2_lookup(ptr noundef readonly %0, ptr nou
   %53 = phi i32 [ 1, %44 ], [ 2, %48 ]
   %54 = getelementptr i8, ptr %19, i64 20
   %55 = load volatile i32, ptr %54, align 4
-  %56 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #7, !srcloc !23
+  %56 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %57 = icmp eq i32 %55, %56
   %58 = zext i1 %57 to i32
   %59 = add nuw nsw i32 %53, %58

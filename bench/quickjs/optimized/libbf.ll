@@ -2442,7 +2442,7 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %240
   %255 = icmp eq i32 %251, 0
   %.0.i146 = select i1 %255, i64 -1, i64 %253
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %256 = getelementptr [5 x i64], ptr @ntt_mods, i64 1, i64 %245
+  %256 = getelementptr i64, ptr getelementptr inbounds (i8, ptr @ntt_mods, i64 40), i64 %245
   %257 = getelementptr i64, ptr %250, i64 %249
   %258 = shl i64 %107, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %244, i8 0, i64 %258, i1 false)
@@ -8718,7 +8718,7 @@ define internal fastcc i32 @bf_atof_internal(ptr noundef %0, ptr nocapture nound
   %21 = getelementptr i8, ptr %.01017.i, i64 1
   %22 = getelementptr i8, ptr %.018.i, i64 1
   %23 = load i8, ptr %22, align 1
-  %exitcond = icmp eq ptr %22, getelementptr inbounds ([4 x i8], ptr @.str.12, i64 0, i64 3)
+  %exitcond = icmp eq ptr %22, getelementptr inbounds (i8, ptr @.str.12, i64 3)
   br i1 %exitcond, label %strcasestart.exit, label %.lr.ph.i, !llvm.loop !63
 
 strcasestart.exit:                                ; preds = %20
@@ -8898,7 +8898,7 @@ bf_set_nan.exit273:                               ; preds = %68, %70
   %83 = getelementptr i8, ptr %.01017.i276, i64 1
   %84 = getelementptr i8, ptr %.018.i275, i64 1
   %85 = load i8, ptr %84, align 1
-  %exitcond641 = icmp eq ptr %84, getelementptr inbounds ([4 x i8], ptr @.str.13, i64 0, i64 3)
+  %exitcond641 = icmp eq ptr %84, getelementptr inbounds (i8, ptr @.str.13, i64 3)
   br i1 %exitcond641, label %strcasestart.exit283, label %.lr.ph.i274, !llvm.loop !63
 
 strcasestart.exit283:                             ; preds = %82

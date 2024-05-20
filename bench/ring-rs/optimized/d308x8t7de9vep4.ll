@@ -57,7 +57,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h13bc0bb185bac1d6E
 "_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.exit": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !12
-  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly getelementptr inbounds (<{ ptr, ptr, [48 x i8] }>, ptr @_ZN4ring2ec7suite_b3ops4p38418PRIVATE_SCALAR_OPS17hcccc24243ed6cd20E, i64 0, i32 2, i64 0)), !noalias !18
+  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p38418PRIVATE_SCALAR_OPS17hcccc24243ed6cd20E, i64 16)), !noalias !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !12
   call void @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17h36e262e131b19b2fE(ptr noalias nocapture noundef nonnull writeonly sret({ [6 x i64], {}, {} }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
@@ -75,7 +75,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9a83a73e618bd9afE
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9), !noalias !20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false), !alias.scope !39, !noalias !32
-  call void @ring_core_0_17_8__p384_point_mul(ptr noundef nonnull %5, ptr noundef nonnull readonly %1, ptr noundef nonnull @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, ptr noundef nonnull getelementptr inbounds (<{ [96 x i8] }>, ptr @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, i64 0, i32 0, i64 48)), !noalias !42
+  call void @ring_core_0_17_8__p384_point_mul(ptr noundef nonnull %5, ptr noundef nonnull readonly %1, ptr noundef nonnull @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, i64 48)), !noalias !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !noalias !43
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8), !noalias !20
@@ -2690,7 +2690,7 @@ define void @_ZN4ring2ec7suite_b3ops4p38424p384_point_mul_base_impl17h83653d9a4c
   %3 = alloca { [18 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !382
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false), !alias.scope !386, !noalias !382
-  call void @ring_core_0_17_8__p384_point_mul(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, ptr noundef nonnull getelementptr inbounds (<{ [96 x i8] }>, ptr @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, i64 0, i32 0, i64 48)), !noalias !389
+  call void @ring_core_0_17_8__p384_point_mul(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E, i64 48)), !noalias !389
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %3, i64 144, i1 false), !noalias !390
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !382
   ret void

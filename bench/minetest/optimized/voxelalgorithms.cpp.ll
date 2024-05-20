@@ -8948,54 +8948,54 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   store <4 x i16> <i16 15, i16 0, i16 0, i16 15>, ptr @_ZN7voxalgoL13block_bordersE, align 16, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 0, i32 1, i32 1), align 8, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 0, i32 1, i32 2), align 2, !tbaa !18
-  store i48 68720525313, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 0, i32 2, i32 0), align 4, !tbaa.struct !71
-  store <4 x i16> <i16 0, i16 15, i16 0, i16 15>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 1, i32 1, i32 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 1, i32 1, i32 2), align 4, !tbaa !18
-  store i48 68719542288, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 1, i32 2, i32 0), align 2, !tbaa.struct !71
-  store <4 x i16> <i16 0, i16 0, i16 15, i16 15>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 2), align 4, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 2, i32 1, i32 1), align 4, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 2, i32 1, i32 2), align 2, !tbaa !18
-  store i48 4296015888, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 2, i32 2, i32 0), align 16, !tbaa.struct !71
-  store <4 x i16> <i16 0, i16 0, i16 0, i16 15>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 3), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 3, i32 1, i32 1), align 2, !tbaa !18
-  store i16 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 3, i32 1, i32 2), align 16, !tbaa !18
-  store i48 4296015888, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 3, i32 2, i32 0), align 2, !tbaa.struct !71
-  store <4 x i16> <i16 0, i16 0, i16 0, i16 15>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 4), align 8, !tbaa !18
-  store i16 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 4, i32 1, i32 1), align 16, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 4, i32 1, i32 2), align 2, !tbaa !18
-  store i48 68719542288, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 4, i32 2, i32 0), align 4, !tbaa.struct !71
-  store i64 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 5), align 2
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 5, i32 1, i32 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 5, i32 1, i32 2), align 4, !tbaa !18
-  store i48 68720525313, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 5, i32 2, i32 0), align 2, !tbaa.struct !71
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 8), align 8, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 10), align 2, !tbaa !18
+  store i48 68720525313, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 12), align 4, !tbaa.struct !71
+  store <4 x i16> <i16 0, i16 15, i16 0, i16 15>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 18), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 26), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 28), align 4, !tbaa !18
+  store i48 68719542288, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 30), align 2, !tbaa.struct !71
+  store <4 x i16> <i16 0, i16 0, i16 15, i16 15>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 36), align 4, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 44), align 4, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 46), align 2, !tbaa !18
+  store i48 4296015888, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 48), align 16, !tbaa.struct !71
+  store <4 x i16> <i16 0, i16 0, i16 0, i16 15>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 54), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 62), align 2, !tbaa !18
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 64), align 16, !tbaa !18
+  store i48 4296015888, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 66), align 2, !tbaa.struct !71
+  store <4 x i16> <i16 0, i16 0, i16 0, i16 15>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 72), align 8, !tbaa !18
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 80), align 16, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 82), align 2, !tbaa !18
+  store i48 68719542288, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 84), align 4, !tbaa.struct !71
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 90), align 2
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 98), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 100), align 4, !tbaa !18
+  store i48 68720525313, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 102), align 2, !tbaa.struct !71
   %1 = tail call ptr @llvm.invariant.start.p0(i64 108, ptr nonnull @_ZN7voxalgoL13block_bordersE)
   store <4 x i16> <i16 15, i16 0, i16 0, i16 15>, ptr @_ZN7voxalgoL9block_padE, align 16, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 0, i32 1, i32 1), align 8, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 0, i32 1, i32 2), align 2, !tbaa !18
-  store i48 68720525313, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 0, i32 2, i32 0), align 4, !tbaa.struct !71
-  store <4 x i16> <i16 1, i16 15, i16 0, i16 14>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 1, i32 1, i32 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 1, i32 1, i32 2), align 4, !tbaa !18
-  store i48 68719542286, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 1, i32 2, i32 0), align 2, !tbaa.struct !71
-  store <4 x i16> <i16 1, i16 1, i16 15, i16 14>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 2), align 4, !tbaa !18
-  store i16 14, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 2, i32 1, i32 1), align 4, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 2, i32 1, i32 2), align 2, !tbaa !18
-  store i48 4295884814, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 2, i32 2, i32 0), align 16, !tbaa.struct !71
-  store <4 x i16> <i16 1, i16 1, i16 0, i16 14>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 3), align 2, !tbaa !18
-  store i16 14, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 3, i32 1, i32 1), align 2, !tbaa !18
-  store i16 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 3, i32 1, i32 2), align 16, !tbaa !18
-  store i48 4295884814, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 3, i32 2, i32 0), align 2, !tbaa.struct !71
-  store <4 x i16> <i16 1, i16 0, i16 0, i16 14>, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 4), align 8, !tbaa !18
-  store i16 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 4, i32 1, i32 1), align 16, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 4, i32 1, i32 2), align 2, !tbaa !18
-  store i48 68719542286, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 4, i32 2, i32 0), align 4, !tbaa.struct !71
-  store i64 0, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 5), align 2
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 5, i32 1, i32 1), align 2, !tbaa !18
-  store i16 15, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 5, i32 1, i32 2), align 4, !tbaa !18
-  store i48 68720525313, ptr getelementptr inbounds ([6 x %class.VoxelArea], ptr @_ZN7voxalgoL9block_padE, i64 0, i64 5, i32 2, i32 0), align 2, !tbaa.struct !71
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 8), align 8, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 10), align 2, !tbaa !18
+  store i48 68720525313, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 12), align 4, !tbaa.struct !71
+  store <4 x i16> <i16 1, i16 15, i16 0, i16 14>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 18), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 26), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 28), align 4, !tbaa !18
+  store i48 68719542286, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 30), align 2, !tbaa.struct !71
+  store <4 x i16> <i16 1, i16 1, i16 15, i16 14>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 36), align 4, !tbaa !18
+  store i16 14, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 44), align 4, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 46), align 2, !tbaa !18
+  store i48 4295884814, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 48), align 16, !tbaa.struct !71
+  store <4 x i16> <i16 1, i16 1, i16 0, i16 14>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 54), align 2, !tbaa !18
+  store i16 14, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 62), align 2, !tbaa !18
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 64), align 16, !tbaa !18
+  store i48 4295884814, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 66), align 2, !tbaa.struct !71
+  store <4 x i16> <i16 1, i16 0, i16 0, i16 14>, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 72), align 8, !tbaa !18
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 80), align 16, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 82), align 2, !tbaa !18
+  store i48 68719542286, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 84), align 4, !tbaa.struct !71
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 90), align 2
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 98), align 2, !tbaa !18
+  store i16 15, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 100), align 4, !tbaa !18
+  store i48 68720525313, ptr getelementptr inbounds (i8, ptr @_ZN7voxalgoL9block_padE, i64 102), align 2, !tbaa.struct !71
   %2 = tail call ptr @llvm.invariant.start.p0(i64 108, ptr nonnull @_ZN7voxalgoL9block_padE)
   ret void
 }

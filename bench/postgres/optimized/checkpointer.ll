@@ -276,9 +276,9 @@ UpdateSharedMemoryConfig.exit.i:                  ; preds = %91, %89, %87
 
 94:                                               ; preds = %UpdateSharedMemoryConfig.exit.i
   store i8 1, ptr @ExitOnAnyError, align 1
-  %95 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 1), align 8
+  %95 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %96 = add i64 %95, 1
-  store i64 %96, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 1), align 8
+  store i64 %96, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   call void @ShutdownXLOG(i32 noundef 0, i64 noundef 0) #13
   call void @pgstat_report_checkpointer() #13
   call void @pgstat_report_wal(i1 noundef zeroext true) #13
@@ -347,14 +347,14 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   br i1 %129, label %131, label %130
 
 130:                                              ; preds = %117
-  %.PendingCheckpointerStats = select i1 %spec.select60, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 2), ptr @PendingCheckpointerStats
+  %.PendingCheckpointerStats = select i1 %spec.select60, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 16), ptr @PendingCheckpointerStats
   br label %.sink.split
 
 131:                                              ; preds = %117
   br i1 %.not51, label %132, label %135
 
 132:                                              ; preds = %131
-  %. = select i1 %spec.select60, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 3), ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 1)
+  %. = select i1 %spec.select60, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 24), ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %132, %130
@@ -440,9 +440,9 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   br i1 %spec.select60, label %168, label %176
 
 168:                                              ; preds = %167
-  %169 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 4), align 8
+  %169 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   %170 = add i64 %169, 1
-  store i64 %170, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 4), align 8
+  store i64 %170, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   br label %176
 
 171:                                              ; preds = %159
@@ -488,9 +488,9 @@ UpdateSharedMemoryConfig.exit.i66:                ; preds = %183, %181, %179
 
 186:                                              ; preds = %UpdateSharedMemoryConfig.exit.i66
   store i8 1, ptr @ExitOnAnyError, align 1
-  %187 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 1), align 8
+  %187 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %188 = add i64 %187, 1
-  store i64 %188, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 1), align 8
+  store i64 %188, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   call void @ShutdownXLOG(i32 noundef 0, i64 noundef 0) #13
   call void @pgstat_report_checkpointer() #13
   call void @pgstat_report_wal(i1 noundef zeroext true) #13

@@ -49,7 +49,7 @@ declare i32 @mca_vprotocol_pessimist_start(i64 noundef, ptr noundef) #0
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_pessimist_dump(ptr noundef %0, i32 noundef %1) #1 {
   %3 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #2
-  %4 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 20), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 464), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1) #2
   ret i32 %5
 }

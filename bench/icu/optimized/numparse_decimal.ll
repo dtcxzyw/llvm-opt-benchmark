@@ -46,13 +46,13 @@ $_ZTIN6icu_757UMemoryE = comdat any
 define void @_ZN6icu_758numparse4impl14DecimalMatcherC2ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperEi(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(2883) %symbols, ptr noundef nonnull align 4 dereferenceable(12) %grouper, i32 noundef %parseFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
   %groupingSeparator = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %groupingSeparator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupingSeparator, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %decimalSeparator = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %decimalSeparator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %decimalSeparator, align 8
   %fUnion2.i36 = getelementptr inbounds i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i36, align 8
   %fLocalDecimalUniSet = getelementptr inbounds i8, ptr %this, i64 176
@@ -271,7 +271,7 @@ new.notnull119:                                   ; preds = %if.then116
 invoke.cont125:                                   ; preds = %new.notnull119, %invoke.cont125
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull119 ], [ %arrayctor.cur.add, %invoke.cont125 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call117, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i49 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i49, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -489,10 +489,10 @@ invoke.cont8:                                     ; preds = %entry
   call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %digitsConsumed)
   %bogus = getelementptr inbounds i8, ptr %digitsConsumed, i64 8
   store i8 1, ptr %bogus, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %actualGroupingString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %actualGroupingString, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %actualGroupingString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %actualDecimalString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %actualDecimalString, align 8
   %fUnion2.i113 = getelementptr inbounds i8, ptr %actualDecimalString, i64 8
   store i16 2, ptr %fUnion2.i113, align 8
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %actualGroupingString)
@@ -1404,7 +1404,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl14DecimalMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
   %fLocalDigitStrings = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %fLocalDigitStrings, align 8
   %isnull.i = icmp eq ptr %0, null

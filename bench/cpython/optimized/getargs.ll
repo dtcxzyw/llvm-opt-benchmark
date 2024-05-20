@@ -1139,7 +1139,7 @@ cond.false4:                                      ; preds = %lor.lhs.false
   unreachable
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %call.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 19), align 8
+  %call.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 168), align 8
   %2 = and i64 %call.val.i, 536870912
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %cond.false.i, label %PyDict_GET_SIZE.exit

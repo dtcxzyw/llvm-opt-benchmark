@@ -36,10 +36,10 @@ define dso_local void @uv__threadpool_cleanup() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr @exit_message, align 16
-  %4 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  store ptr %4, ptr getelementptr inbounds ([2 x ptr], ptr @exit_message, i64 0, i64 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @exit_message, i64 8), align 8
   store ptr @exit_message, ptr %4, align 8
-  store ptr @exit_message, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr @exit_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %5 = load i32, ptr @idle_threads, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %post.exit, label %6
@@ -119,11 +119,11 @@ define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef %1, i32 nound
 
 10:                                               ; preds = %5
   store ptr @slow_io_pending_wq, ptr %8, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %11, ptr %12, align 8
   store ptr %8, ptr %11, align 8
-  store ptr %8, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   %13 = load ptr, ptr @run_slow_work_message, align 16
   %14 = icmp eq ptr %13, @run_slow_work_message
   br i1 %14, label %15, label %post.exit
@@ -131,11 +131,11 @@ define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef %1, i32 nound
 15:                                               ; preds = %10, %5
   %.0.i = phi ptr [ %8, %5 ], [ @run_slow_work_message, %10 ]
   store ptr @wq, ptr %.0.i, align 8
-  %16 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store ptr %16, ptr %17, align 8
   store ptr %.0.i, ptr %16, align 8
-  store ptr %.0.i, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %18 = load i32, ptr @idle_threads, align 4
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %post.exit, label %19
@@ -227,11 +227,11 @@ define internal void @init_once() #0 {
 
 24:                                               ; preds = %21
   store ptr @wq, ptr @wq, align 16
-  store ptr @wq, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr @wq, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   store ptr @slow_io_pending_wq, ptr @slow_io_pending_wq, align 16
-  store ptr @slow_io_pending_wq, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
+  store ptr @slow_io_pending_wq, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 16
-  store ptr @run_slow_work_message, ptr getelementptr inbounds ([2 x ptr], ptr @run_slow_work_message, i64 0, i64 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   %25 = call i32 @uv_sem_init(ptr noundef nonnull %1, i32 noundef 0) #9
   %.not10.i = icmp eq i32 %25, 0
   br i1 %.not10.i, label %.preheader14.i, label %27
@@ -380,11 +380,11 @@ define dso_local range(i32 -22, 1) i32 @uv_queue_work(ptr noundef %0, ptr nounde
   %17 = getelementptr inbounds i8, ptr %1, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %18, ptr %19, align 8
   store ptr %17, ptr %18, align 8
-  store ptr %17, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %20 = load i32, ptr @idle_threads, align 4
   %.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i, label %uv__work_submit.exit, label %21
@@ -612,10 +612,10 @@ define internal void @worker(ptr noundef %0) #0 {
 
 31:                                               ; preds = %26
   store ptr @wq, ptr @run_slow_work_message, align 16
-  %32 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   store ptr %32, ptr %21, align 8
   store ptr @run_slow_work_message, ptr %32, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   br label %.backedge.backedge
 
 33:                                               ; preds = %26
@@ -641,10 +641,10 @@ define internal void @worker(ptr noundef %0) #0 {
 
 45:                                               ; preds = %36
   store ptr @wq, ptr @run_slow_work_message, align 16
-  %46 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  store ptr %46, ptr getelementptr inbounds ([2 x ptr], ptr @run_slow_work_message, i64 0, i64 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr @run_slow_work_message, ptr %46, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %47 = load i32, ptr @idle_threads, align 4
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %49, label %48

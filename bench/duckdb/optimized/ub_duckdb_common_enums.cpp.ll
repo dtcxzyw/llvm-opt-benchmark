@@ -3686,7 +3686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !24
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !13
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -4321,7 +4321,7 @@ entry:
   br i1 %tobool.not29, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds ([19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 0, i32 1), align 8, !tbaa !32
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 8), align 8, !tbaa !32
   %cmp35 = icmp eq i32 %1, %type
   br i1 %cmp35, label %if.end.i, label %for.cond
 

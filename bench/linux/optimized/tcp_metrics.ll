@@ -614,7 +614,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr nocapture noundef readonly %0, p
   br i1 %177, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit22.thread.thread:                        ; preds = %106, %153, %163
-  %178 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %179 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %178, i32 noundef 2336, i64 noundef 144) #12
   %180 = icmp eq ptr %179, null
   br i1 %180, label %192, label %.loopexit
@@ -1080,7 +1080,7 @@ define dso_local void @tcp_fastopen_cache_set(ptr noundef %0, i16 noundef zeroex
   br i1 %11, label %60, label %12
 
 12:                                               ; preds = %9
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @fastopen_seqlock, i64 0, i32 1)) #11
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @fastopen_seqlock, i64 4)) #11
   %13 = load i32, ptr @fastopen_seqlock, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr @fastopen_seqlock, align 4
@@ -1163,7 +1163,7 @@ define dso_local void @tcp_fastopen_cache_set(ptr noundef %0, i16 noundef zeroex
   %58 = load i32, ptr @fastopen_seqlock, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr @fastopen_seqlock, align 4
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @fastopen_seqlock, i64 0, i32 1)) #11
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @fastopen_seqlock, i64 4)) #11
   br label %60
 
 60:                                               ; preds = %57, %9
@@ -1326,7 +1326,7 @@ define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr nocapture noundef
   br i1 %2, label %49, label %60
 
 49:                                               ; preds = %3
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @fastopen_seqlock, i64 0, i32 1)) #11
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @fastopen_seqlock, i64 4)) #11
   %50 = load i32, ptr @fastopen_seqlock, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr @fastopen_seqlock, align 4
@@ -1345,7 +1345,7 @@ define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr nocapture noundef
   %58 = load i32, ptr @fastopen_seqlock, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr @fastopen_seqlock, align 4
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @fastopen_seqlock, i64 0, i32 1)) #11
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @fastopen_seqlock, i64 4)) #11
   br label %60
 
 60:                                               ; preds = %49, %3

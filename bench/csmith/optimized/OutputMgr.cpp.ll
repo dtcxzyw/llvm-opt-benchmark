@@ -183,13 +183,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_unnamed_addr #4 align 2 {
   %1 = load ptr, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8
   %3 = icmp eq ptr %1, %2
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %1, ptr %2, ptr nonnull @_ZN9OutputMgr10curr_func_B5cxx11E)
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8
   %7 = icmp ne ptr %5, %6
   br label %8
 
@@ -200,7 +200,7 @@ define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN9OutputMgrC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9OutputMgr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9OutputMgr, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -276,7 +276,7 @@ define dso_local void @_ZN9OutputMgr10OutputMainERSo(ptr noundef nonnull align 8
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %26
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %28 = load ptr, ptr @_ZN16VariableSelector10GlobalListE, align 8
   %.not = icmp eq ptr %27, %28
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -298,7 +298,7 @@ define dso_local void @_ZN9OutputMgr10OutputMainERSo(ptr noundef nonnull align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   %35 = add nuw i64 %.041, 1
-  %36 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %37 = load ptr, ptr @_ZN16VariableSelector10GlobalListE, align 8
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -667,13 +667,13 @@ define dso_local void @_ZN9OutputMgr11output_tab_ERSoi(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9OutputMgr28OutputStepHashFuncInvocationERSoii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN9OutputMgr17is_monitored_funcEv.exit.thread, label %_ZN9OutputMgr17is_monitored_funcEv.exit
 
 _ZN9OutputMgr17is_monitored_funcEv.exit:          ; preds = %3
   %7 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %4, ptr %5, ptr nonnull @_ZN9OutputMgr10curr_func_B5cxx11E)
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8
   %.not = icmp eq ptr %7, %8
   br i1 %.not, label %17, label %_ZN9OutputMgr17is_monitored_funcEv.exit.thread
 

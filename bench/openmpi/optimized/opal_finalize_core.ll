@@ -61,10 +61,10 @@ define internal void @opal_finalize_domain_destruct(ptr nocapture noundef %0) #2
 
 ; Function Attrs: nounwind uwtable
 define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cleanup_fn_item_t_class, i64 0, i32 8), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cleanup_fn_item_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cleanup_fn_item_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cleanup_fn_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 
@@ -80,7 +80,7 @@ define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef 
   store ptr @opal_cleanup_fn_item_t_class, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cleanup_fn_item_t_class, i64 0, i32 6), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cleanup_fn_item_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -99,7 +99,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %2, ptr %18, align 8
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @opal_finalize_cleanup_fns_lock, i64 0, i32 1)) #10
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_finalize_cleanup_fns_lock, i64 16)) #10
   %20 = load ptr, ptr @current_finalize_domain, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %20, i64 40
@@ -116,7 +116,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %29 = load volatile i64, ptr %28, align 8
   %30 = add i64 %29, 1
   store volatile i64 %30, ptr %28, align 8
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @opal_finalize_cleanup_fns_lock, i64 0, i32 1)) #10
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_finalize_cleanup_fns_lock, i64 16)) #10
   ret void
 }
 
@@ -253,10 +253,10 @@ define range(i32 -1, 1) i32 @opal_finalize_util() local_unnamed_addr #3 {
   br label %50
 
 5:                                                ; preds = %0
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_util_domain, i64 0, i32 0, i32 1, i32 2), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 40), align 8
   %.0.in15.i = getelementptr inbounds i8, ptr %6, i64 24
   %.016.i = load volatile ptr, ptr %.0.in15.i, align 8
-  %.not17.i = icmp eq ptr %6, getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_util_domain, i64 0, i32 0, i32 1, i32 0, i32 0)
+  %.not17.i = icmp eq ptr %6, getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 16)
   br i1 %.not17.i, label %opal_finalize_cleanup_domain.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %40
@@ -277,9 +277,9 @@ define range(i32 -1, 1) i32 @opal_finalize_util() local_unnamed_addr #3 {
   %16 = load volatile ptr, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   store volatile ptr %15, ptr %17, align 8
-  %18 = load volatile i64, ptr getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_util_domain, i64 0, i32 0, i32 2), align 8
+  %18 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 56), align 8
   %19 = add i64 %18, -1
-  store volatile i64 %19, ptr getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_util_domain, i64 0, i32 0, i32 2), align 8
+  store volatile i64 %19, ptr getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 56), align 8
   %20 = load volatile ptr, ptr %.0.in19.i, align 8
   %21 = getelementptr inbounds i8, ptr %.01418.i, i64 8
   %22 = load i8, ptr @opal_uses_threads, align 1
@@ -327,7 +327,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %32
 40:                                               ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i
   %.0.in.i = getelementptr inbounds i8, ptr %.020.i, i64 24
   %.0.i = load volatile ptr, ptr %.0.in.i, align 8
-  %.not.i = icmp eq ptr %.020.i, getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_util_domain, i64 0, i32 0, i32 1, i32 0, i32 0)
+  %.not.i = icmp eq ptr %.020.i, getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 16)
   br i1 %.not.i, label %opal_finalize_cleanup_domain.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_finalize_cleanup_domain.exit:                ; preds = %40, %5
@@ -349,9 +349,9 @@ opal_finalize_cleanup_domain.exit:                ; preds = %40, %5
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i2, %opal_finalize_cleanup_domain.exit
   %48 = tail call i32 @opal_class_finalize() #10
-  %49 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   tail call void @free(ptr noundef %49) #10
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %50
 
 50:                                               ; preds = %3, %opal_obj_run_destructors.exit

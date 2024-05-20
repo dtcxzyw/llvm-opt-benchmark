@@ -403,9 +403,9 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCa
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
   %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 0, i32 0, i64 2), ptr %t.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t.i.i.i.i, align 8
   %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracers_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
@@ -615,9 +615,9 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCa
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
   %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 0, i32 0, i64 2), ptr %t.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t.i.i.i.i, align 8
   %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracers_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
@@ -713,7 +713,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -763,9 +763,9 @@ declare noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %this, align 8
   %t = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 0, i32 0, i64 2), ptr %t, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -782,9 +782,9 @@ _ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit: ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %this, align 8
   %t.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 0, i32 0, i64 2), ptr %t.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t.i, align 8
   %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -802,7 +802,7 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %this, align 8
   %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -819,7 +819,7 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %this, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1098,9 +1098,9 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33De
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i17 ], [ %call4.i.i.i18, %if.else.i.i.i ]
   %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 0, i32 0, i64 2), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 0, i32 0, i64 2), ptr %t.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t.i.i.i.i, align 8
   %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   store ptr %attempt_tracers.sroa.0.1.lcssa, ptr %tracers_.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
@@ -1115,9 +1115,9 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33De
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %this, align 8
   %t = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 0, i32 0, i64 2), ptr %t, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1134,9 +1134,9 @@ _ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %this, align 8
   %t.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 0, i32 0, i64 2), ptr %t.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t.i, align 8
   %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -1154,7 +1154,7 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingC
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %this, align 8
   %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %this, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1646,9 +1646,9 @@ declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %this, align 8
   %t = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 0, i32 0, i64 2), ptr %t, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1665,9 +1665,9 @@ _ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit: ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %this, align 8
   %t.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 0, i32 0, i64 2), ptr %t.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t.i, align 8
   %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -1685,7 +1685,7 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %this, align 8
   %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1702,7 +1702,7 @@ _ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %this, align 8
   %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -5643,191 +5643,191 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
 define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %1 = load i32, ptr @wtap_opttypes_initialize.shb_block, align 8
   %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %2, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %3 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %4 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %6 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %7 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %8 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %10 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %12 = zext i32 %1 to i64
   %13 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %12
   store ptr @wtap_opttypes_initialize.shb_block, ptr %13, align 8
-  %wtap_opttypes_initialize.shb_block.val = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.shb_block.val = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_hardware) #15
-  %wtap_opttypes_initialize.shb_block.val1 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.shb_block.val1 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %15 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val1, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_os) #15
-  %wtap_opttypes_initialize.shb_block.val2 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.shb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.shb_block.val2 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %16 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val2, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_userappl) #15
   %17 = load i32, ptr @wtap_opttypes_initialize.idb_block, align 8
   %18 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %18, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %20 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %21 = tail call i32 @g_hash_table_insert(ptr noundef %20, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %22 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %23 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %24 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %26 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %28 = zext i32 %17 to i64
   %29 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %28
   store ptr @wtap_opttypes_initialize.idb_block, ptr %29, align 8
-  %wtap_opttypes_initialize.idb_block.val = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %30 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_name) #15
-  %wtap_opttypes_initialize.idb_block.val3 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val3 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %31 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val3, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_description) #15
-  %wtap_opttypes_initialize.idb_block.val4 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val4 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %32 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val4, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_speed) #15
-  %wtap_opttypes_initialize.idb_block.val5 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val5 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %33 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val5, ptr noundef nonnull inttoptr (i64 9 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsresol) #15
-  %wtap_opttypes_initialize.idb_block.val6 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val6 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %34 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val6, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_filter) #15
-  %wtap_opttypes_initialize.idb_block.val7 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val7 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val7, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_os) #15
-  %wtap_opttypes_initialize.idb_block.val8 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val8 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %36 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val8, ptr noundef nonnull inttoptr (i64 13 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_fcslen) #15
-  %wtap_opttypes_initialize.idb_block.val9 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val9 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %37 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val9, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsoffset) #15
-  %wtap_opttypes_initialize.idb_block.val10 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.idb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.idb_block.val10 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %38 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val10, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_hardware) #15
   %39 = load i32, ptr @wtap_opttypes_initialize.nrb_block, align 8
   %40 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %40, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %41 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %42 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %43 = tail call i32 @g_hash_table_insert(ptr noundef %42, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %44 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %45 = tail call i32 @g_hash_table_insert(ptr noundef %44, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %46 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %48 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %49 = tail call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %50 = zext i32 %39 to i64
   %51 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %50
   store ptr @wtap_opttypes_initialize.nrb_block, ptr %51, align 8
-  %wtap_opttypes_initialize.nrb_block.val = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.nrb_block.val = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %52 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsname) #15
-  %wtap_opttypes_initialize.nrb_block.val11 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.nrb_block.val11 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %53 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val11, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP4addr) #15
-  %wtap_opttypes_initialize.nrb_block.val12 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.nrb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.nrb_block.val12 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %54 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val12, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP6addr) #15
   %55 = load i32, ptr @wtap_opttypes_initialize.isb_block, align 8
   %56 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %56, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %57 = tail call i32 @g_hash_table_insert(ptr noundef %56, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %58 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %59 = tail call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %60 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %61 = tail call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %62 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %63 = tail call i32 @g_hash_table_insert(ptr noundef %62, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %64 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %65 = tail call i32 @g_hash_table_insert(ptr noundef %64, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %66 = zext i32 %55 to i64
   %67 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %66
   store ptr @wtap_opttypes_initialize.isb_block, ptr %67, align 8
-  %wtap_opttypes_initialize.isb_block.val = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %68 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_starttime) #15
-  %wtap_opttypes_initialize.isb_block.val13 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val13 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %69 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val13, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_endtime) #15
-  %wtap_opttypes_initialize.isb_block.val14 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val14 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %70 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val14, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifrecv) #15
-  %wtap_opttypes_initialize.isb_block.val15 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val15 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %71 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val15, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifdrop) #15
-  %wtap_opttypes_initialize.isb_block.val16 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val16 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %72 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val16, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_filteraccept) #15
-  %wtap_opttypes_initialize.isb_block.val17 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val17 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %73 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val17, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_osdrop) #15
-  %wtap_opttypes_initialize.isb_block.val18 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.isb_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.isb_block.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %74 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val18, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_usrdeliv) #15
   %75 = load i32, ptr @wtap_opttypes_initialize.dsb_block, align 8
   %76 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %76, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.dsb_block, i64 0, i32 6), align 8
+  store ptr %76, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %77 = tail call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %78 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.dsb_block, i64 0, i32 6), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %79 = tail call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %80 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.dsb_block, i64 0, i32 6), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %81 = tail call i32 @g_hash_table_insert(ptr noundef %80, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %82 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.dsb_block, i64 0, i32 6), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %83 = tail call i32 @g_hash_table_insert(ptr noundef %82, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %84 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.dsb_block, i64 0, i32 6), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %85 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %86 = zext i32 %75 to i64
   %87 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %86
   store ptr @wtap_opttypes_initialize.dsb_block, ptr %87, align 8
   %88 = load i32, ptr @wtap_opttypes_initialize.mev_block, align 8
   %89 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %89, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.mev_block, i64 0, i32 6), align 8
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %90 = tail call i32 @g_hash_table_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %91 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.mev_block, i64 0, i32 6), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %93 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.mev_block, i64 0, i32 6), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %94 = tail call i32 @g_hash_table_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %95 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.mev_block, i64 0, i32 6), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %96 = tail call i32 @g_hash_table_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %97 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.mev_block, i64 0, i32 6), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %98 = tail call i32 @g_hash_table_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %99 = zext i32 %88 to i64
   %100 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %99
   store ptr @wtap_opttypes_initialize.mev_block, ptr %100, align 8
   %101 = load i32, ptr @wtap_opttypes_initialize.pkt_block, align 8
   %102 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %102, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  store ptr %102, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %103 = tail call i32 @g_hash_table_insert(ptr noundef %102, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %104 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %105 = tail call i32 @g_hash_table_insert(ptr noundef %104, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %106 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %107 = tail call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %108 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %109 = tail call i32 @g_hash_table_insert(ptr noundef %108, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %110 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %111 = tail call i32 @g_hash_table_insert(ptr noundef %110, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %112 = zext i32 %101 to i64
   %113 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %112
   store ptr @wtap_opttypes_initialize.pkt_block, ptr %113, align 8
-  %wtap_opttypes_initialize.pkt_block.val = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %114 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_flags) #15
-  %wtap_opttypes_initialize.pkt_block.val19 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val19 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %115 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val19, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_dropcount) #15
-  %wtap_opttypes_initialize.pkt_block.val20 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val20 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %116 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val20, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_id) #15
-  %wtap_opttypes_initialize.pkt_block.val21 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val21 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %117 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val21, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_queue) #15
-  %wtap_opttypes_initialize.pkt_block.val22 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val22 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %118 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val22, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_hash) #15
-  %wtap_opttypes_initialize.pkt_block.val23 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.pkt_block, i64 0, i32 6), align 8
+  %wtap_opttypes_initialize.pkt_block.val23 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %119 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val23, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_verdict) #15
   %120 = load i32, ptr @wtap_opttypes_initialize.journal_block, align 8
   %121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %121, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.journal_block, i64 0, i32 6), align 8
+  store ptr %121, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %122 = tail call i32 @g_hash_table_insert(ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %123 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.journal_block, i64 0, i32 6), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %124 = tail call i32 @g_hash_table_insert(ptr noundef %123, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %125 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.journal_block, i64 0, i32 6), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %126 = tail call i32 @g_hash_table_insert(ptr noundef %125, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %127 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.journal_block, i64 0, i32 6), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %128 = tail call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %129 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.journal_block, i64 0, i32 6), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %130 = tail call i32 @g_hash_table_insert(ptr noundef %129, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %131 = zext i32 %120 to i64
   %132 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %131
   store ptr @wtap_opttypes_initialize.journal_block, ptr %132, align 8
   %133 = load i32, ptr @wtap_opttypes_initialize.cb_block, align 8
   %134 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %134, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.cb_block, i64 0, i32 6), align 8
+  store ptr %134, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %135 = tail call i32 @g_hash_table_insert(ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %136 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.cb_block, i64 0, i32 6), align 8
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %137 = tail call i32 @g_hash_table_insert(ptr noundef %136, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %138 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.cb_block, i64 0, i32 6), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %139 = tail call i32 @g_hash_table_insert(ptr noundef %138, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %140 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.cb_block, i64 0, i32 6), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %141 = tail call i32 @g_hash_table_insert(ptr noundef %140, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %142 = load ptr, ptr getelementptr inbounds (%struct.wtap_blocktype_t, ptr @wtap_opttypes_initialize.cb_block, i64 0, i32 6), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %143 = tail call i32 @g_hash_table_insert(ptr noundef %142, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %144 = zext i32 %133 to i64
   %145 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %144

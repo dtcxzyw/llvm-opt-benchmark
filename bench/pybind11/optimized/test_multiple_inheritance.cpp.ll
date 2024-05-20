@@ -28722,7 +28722,7 @@ define internal void @_ZN12_GLOBAL__N_17Vanilla7vanillaB5cxx11Ev(ptr dead_on_unw
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.62, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -28785,7 +28785,7 @@ define internal void @_ZN12_GLOBAL__N_111WithStatic112static_func1B5cxx11Ev(ptr 
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.64, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -28848,7 +28848,7 @@ define internal void @_ZN12_GLOBAL__N_111WithStatic212static_func2B5cxx11Ev(ptr 
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.67, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -28911,7 +28911,7 @@ define internal void @_ZN12_GLOBAL__N_117VanillaStaticMix111static_funcB5cxx11Ev
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.70, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 17))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -28974,7 +28974,7 @@ define internal void @_ZN12_GLOBAL__N_117VanillaStaticMix211static_funcB5cxx11Ev
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.73, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 17))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -30588,7 +30588,7 @@ _ZN8pybind116detail12generic_typeD2Ev.exit:       ; preds = %0, %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -30669,7 +30669,7 @@ _ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31943,7 +31943,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail25make_static_propert
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.149)
   store ptr %3, ptr %1, align 8, !alias.scope !1298
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -32107,7 +32107,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail22make_default_metacl
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.154)
   store ptr %3, ptr %1, align 8, !alias.scope !1301
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -32572,7 +32572,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
           to label %4 unwind label %24
@@ -32621,7 +32621,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 24
@@ -34138,7 +34138,7 @@ _ZNO8pybind116object4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %17 unwind label %24
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
           to label %31 unwind label %24
 
@@ -34532,7 +34532,7 @@ define linkonce_odr hidden void @_ZN8pybind114moveINSt7__cxx1112basic_stringIcSt
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
           to label %37 unwind label %28
 
@@ -35177,7 +35177,7 @@ _ZNKR8pybind116handle7inc_refEv.exit5:            ; preds = %_ZNKR8pybind116hand
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_static_get(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i64 0, i32 32), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 272), align 8
   %5 = tail call noundef ptr %4(ptr noundef %0, ptr noundef %2, ptr noundef %2)
   ret ptr %5
 }
@@ -35191,7 +35191,7 @@ define linkonce_odr hidden i32 @pybind11_static_set(ptr noundef %0, ptr noundef 
   %6 = and i64 %.val.val, 2147483648
   %.not6 = icmp eq i64 %6, 0
   %spec.select = select i1 %.not6, ptr %.val, ptr %1
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i64 0, i32 33), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 280), align 8
   %8 = tail call noundef i32 %7(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
   ret i32 %8
 }
@@ -35203,7 +35203,7 @@ declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 14), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 128), align 8
   %6 = tail call noundef ptr %5(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZL10_Py_DECREFP7_object.exit, label %8
@@ -35376,7 +35376,7 @@ define linkonce_odr hidden i32 @pybind11_meta_setattro(ptr noundef %0, ptr nound
   br label %23
 
 .critedge:                                        ; preds = %10, %3, %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 17), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 152), align 8
   %22 = tail call noundef i32 %21(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %23
 
@@ -35404,7 +35404,7 @@ define linkonce_odr hidden ptr @pybind11_meta_getattro(ptr noundef %0, ptr nound
   br label %12
 
 9:                                                ; preds = %4, %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 144), align 8
   %11 = tail call noundef ptr %10(ptr noundef %0, ptr noundef %1)
   br label %12
 
@@ -35684,7 +35684,7 @@ _ZN8pybind116detail9type_infoD2Ev.exit:           ; preds = %_ZNSt6vectorISt4pai
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i, %30, %9, %14, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116detail9type_infoD2Ev.exit, %43
-  %127 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 4), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 48), align 8
   call void %127(ptr noundef %0)
   ret void
 }
@@ -38787,7 +38787,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   %705 = phi ptr [ %702, %703 ], [ %685, %_ZN8pybind1112cpp_function12strdup_guard7releaseEv.exit432 ], [ %685, %688 ], [ %685, %691 ], [ %702, %699 ]
   %.0175480 = phi ptr [ %.0176, %703 ], [ %46, %_ZN8pybind1112cpp_function12strdup_guard7releaseEv.exit432 ], [ %46, %688 ], [ %46, %691 ], [ %.0176, %699 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #27
-  %706 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %706 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %707 = trunc i8 %706 to i1
   br i1 %707, label %708, label %.lr.ph562.preheader
 
@@ -38825,7 +38825,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   %.0144560 = phi ptr [ %771, %769 ], [ %.0175474, %.lr.ph562.preheader ]
   %.0145559 = phi i1 [ %.2147, %769 ], [ true, %.lr.ph562.preheader ]
   %.0148558 = phi i32 [ %.2150, %769 ], [ 0, %.lr.ph562.preheader ]
-  %716 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %716 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %717 = trunc i8 %716 to i1
   br i1 %717, label %718, label %743
 
@@ -38906,7 +38906,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   br i1 %750, label %751, label %769
 
 751:                                              ; preds = %748
-  %752 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %752 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %753 = trunc i8 %752 to i1
   %brmerge = select i1 %753, i1 true, i1 %.0145559
   %.0145.mux = select i1 %753, i1 %.0145559, i1 false
@@ -38917,7 +38917,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
           to label %._crit_edge619 unwind label %.loopexit
 
 ._crit_edge619:                                   ; preds = %754
-  %.pre620 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %.pre620 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   br label %756
 
 756:                                              ; preds = %._crit_edge619, %751
@@ -38936,7 +38936,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
           to label %764 unwind label %.loopexit
 
 764:                                              ; preds = %761
-  %765 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %765 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %766 = trunc i8 %765 to i1
   br i1 %766, label %767, label %769
 
@@ -39857,7 +39857,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idERNSt7__cxx11
           to label %22 unwind label %.body15
 
 22:                                               ; preds = %20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.184, i64 0, i64 10)) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.184, i64 10)) #27
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 10)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body15
@@ -43324,7 +43324,7 @@ _ZN8pybind115tupleD2Ev.exit590:                   ; preds = %_ZN8pybind119set_er
           to label %.noexc592 unwind label %1211
 
 .noexc592:                                        ; preds = %.noexc591
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.200, ptr noundef nonnull getelementptr inbounds ([78 x i8], ptr @.str.200, i64 0, i64 77))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.200, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.200, i64 77))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit595 unwind label %1197
 
 1197:                                             ; preds = %.noexc592
@@ -43698,7 +43698,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15local_internalsC2Ev(ptr no
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.182, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.182, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.182, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.182, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %13
 
 13:                                               ; preds = %.noexc11
@@ -46917,7 +46917,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   ret void
@@ -48099,7 +48099,7 @@ select.unfold:                                    ; preds = %19, %_ZN8pybind116d
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
   unreachable
 
@@ -52084,7 +52084,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind114moveIbEENSt9enable_i
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
           to label %37 unwind label %27
 
@@ -52221,7 +52221,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
           to label %33 unwind label %40
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %24, align 8
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
           to label %46 unwind label %40
 
@@ -54237,7 +54237,7 @@ declare void @llvm.assume(i1 noundef) #18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -57503,7 +57503,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %23
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.158)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -65137,7 +65137,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_16Base1aEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base1aELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base1aELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -65766,7 +65766,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_16Base2aEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base2aELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base2aELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -66395,7 +66395,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_17Base12aEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_17Base12aELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_17Base12aELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -68036,7 +68036,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_16I801B1EEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B1ELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B1ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -68286,7 +68286,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -69280,7 +69280,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_16I801B2EEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B2ELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B2ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -69530,7 +69530,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 2, ptr %6, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -69912,7 +69912,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_15I801CEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801CELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801CELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -70180,8 +70180,8 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 2, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 0, i64 2), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 48), ptr %7, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -70461,7 +70461,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_15I801DEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801DELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801DELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -70721,8 +70721,8 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 2, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 0, i64 2), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 48), ptr %7, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -71047,7 +71047,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 
 .invoke:                                          ; preds = %70, %60, %52
   %.sink = phi ptr [ %53, %52 ], [ %61, %60 ], [ %71, %70 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
           to label %.cont unwind label %38
 
@@ -72023,7 +72023,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6detail15keep_alive_implENS_6handleE
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B1EE21make_copy_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIKS6_EEEtlPFPvPKvEEEPS7_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -72034,7 +72034,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B1EE21make_move_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIOS6_EEEtlPFPvPKvEEEPKS6_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -72183,7 +72183,7 @@ _ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE12src_and_typeEPKS
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE21make_copy_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIKS6_EEEtlPFPvPKvEEEPS7_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -72194,7 +72194,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE21make_move_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIOS6_EEEtlPFPvPKvEEEPKS6_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -72372,8 +72372,8 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 2, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 48), ptr %13, align 8
   %15 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B1EE4castEPKS3_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %11, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_23PN12_GLOBAL__N_16I801B1EJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
@@ -72409,8 +72409,8 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 2, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 48), ptr %13, align 8
   %15 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE4castEPKS3_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %13, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_24PN12_GLOBAL__N_16I801B2EJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
@@ -72446,8 +72446,8 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 2, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 48), ptr %13, align 8
   %15 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B1EE4castEPKS3_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %11, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_25PN12_GLOBAL__N_16I801B1EJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
@@ -72483,8 +72483,8 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 2, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 0, i32 1, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801DE, i64 48), ptr %13, align 8
   %15 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE4castEPKS3_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %13, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_26PN12_GLOBAL__N_16I801B2EJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
@@ -72524,9 +72524,9 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i: ; preds = %1
   %15 = getelementptr inbounds i8, ptr %11, i64 32
   %16 = getelementptr inbounds i8, ptr %11, i64 40
   store i32 2, ptr %16, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 1, i64 2), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 2, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 48), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 80), ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, ptr %2, align 8
   %17 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -72610,8 +72610,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 48), ptr %6, align 8
   ret ptr %2
 }
 
@@ -72627,8 +72627,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 0, i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_15I801CE, i64 48), ptr %6, align 8
   ret ptr %2
 }
 
@@ -72662,9 +72662,9 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %15 = getelementptr inbounds i8, ptr %11, i64 32
   %16 = getelementptr inbounds i8, ptr %11, i64 40
   store i32 2, ptr %16, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 0, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 1, i64 2), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 0, i32 2, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 48), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i64 80), ptr %15, align 8
   %17 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_16I801B2EE4castEPKS3_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %15, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_28PN12_GLOBAL__N_16I801B2EJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
@@ -77246,7 +77246,7 @@ _ZN8pybind116detail16type_caster_baseIZ35test_submodule_multiple_inheritanceRNS_
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ35test_submodule_multiple_inheritanceRNS_7module_EE1BE21make_copy_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIKS7_EEEtlPFPvPKvEEEPS8_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -77268,7 +77268,7 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ35test_submodule_multiple_inheritanceRNS_7module_EE1BE21make_move_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIOS7_EEEtlPFPvPKvEEEPKS7_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -77748,8 +77748,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 64), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -77795,8 +77795,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 64), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -78276,8 +78276,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 64), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -78323,8 +78323,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 64), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -78670,9 +78670,9 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 0, i32 2, i64 3), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 104), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 64), ptr %7, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -79041,7 +79041,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -79888,8 +79888,8 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 1, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i64 0, i32 0, i64 3), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i64 0, i32 1, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 2, ptr %8, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -80754,9 +80754,9 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 2, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 0, i32 0, i64 4), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 0, i32 1, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 0, i32 2, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 32), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 80), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 120), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 3, ptr %10, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -81636,9 +81636,9 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 2, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 0, i32 0, i64 4), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 0, i32 1, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 0, i32 2, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 32), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 80), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 120), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 4, ptr %10, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -82541,11 +82541,11 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %12 = getelementptr inbounds i8, ptr %5, i64 64
   %13 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 4, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i32 0, i64 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i32 1, i64 5), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i32 2, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i32 3, i64 3), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i32 4, i64 5), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 48), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 104), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 152), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 192), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 248), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 5, ptr %14, align 8
   store ptr %5, ptr %.val15.val.i, align 8
@@ -83449,12 +83449,12 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 5, ptr %15, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 0, i64 7), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 1, i64 7), ptr %14, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 2, i64 5), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 3, i64 4), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 4, i64 3), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i32 5, i64 5), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 56), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 128), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 184), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 232), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 272), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 328), ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 6, ptr %16, align 8
   store ptr %5, ptr %.val15.val.i, align 8

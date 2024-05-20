@@ -128,7 +128,7 @@ define dso_local i32 @xfrm6_output(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %3
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([11 x [5 x %struct.static_key]], ptr @nf_hooks_needed, i64 0, i64 10, i64 4), i32 2) #5
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 864), i32 2) #5
           to label %.thread [label %17], !srcloc !6
 
 17:                                               ; preds = %16
@@ -231,7 +231,7 @@ define internal i32 @__xfrm6_output(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds (%struct.softnet_data, ptr @softnet_data, i64 0, i32 11)) #5, !srcloc !8
+  %41 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds (i8, ptr @softnet_data, i64 96)) #5, !srcloc !8
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %43, label %..thread_crit_edge
 

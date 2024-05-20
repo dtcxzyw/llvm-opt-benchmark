@@ -159,7 +159,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %52 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 40) #9
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %54
@@ -386,7 +386,7 @@ define dso_local void @ata_acpi_bind_dev(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %65
-  %70 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %71 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %70, i32 noundef 3520, i64 noundef 40) #9
   %72 = icmp eq ptr %71, null
   br i1 %72, label %75, label %73

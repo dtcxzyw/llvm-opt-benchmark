@@ -1332,7 +1332,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %845 = insertelement <4 x i64> %844, i64 %843, i64 2
   %846 = insertelement <4 x i64> %845, i64 %842, i64 3
   %847 = load <8 x i64>, ptr @__const.dgemm_small_kernel_b0_nn.permute_table, align 64
-  %848 = load <8 x i64>, ptr getelementptr inbounds ([16 x i64], ptr @__const.dgemm_small_kernel_b0_nn.permute_table, i64 0, i64 8), align 64
+  %848 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @__const.dgemm_small_kernel_b0_nn.permute_table, i64 64), align 64
   %849 = icmp slt i64 %584, %14
   br i1 %849, label %850, label %874
 

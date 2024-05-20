@@ -83,7 +83,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16VoxelManipulatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %this, align 8, !tbaa !4
   %m_area.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 1, ptr %m_area.i, align 8, !tbaa !7
   %ref.tmp.sroa.5.0.m_area.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -133,7 +133,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16VoxelManipulatorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %this, align 8, !tbaa !4
   %m_area.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 1, ptr %m_area.i.i, align 8, !tbaa !7
   %ref.tmp.sroa.5.0.m_area.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -1505,8 +1505,8 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   store i16 127, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, align 4, !tbaa !107
-  store i8 0, ptr getelementptr inbounds (%struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 1), align 2, !tbaa !114
-  store i8 0, ptr getelementptr inbounds (%struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 2), align 1, !tbaa !115
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 2), align 2, !tbaa !114
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 3), align 1, !tbaa !115
   %1 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN16VoxelManipulator17ContentIgnoreNodeE)
   ret void
 }

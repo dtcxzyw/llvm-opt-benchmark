@@ -684,7 +684,7 @@ define ptr @fd_resolve_peer(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not7 = icmp eq i64 %10, 0
   br i1 %.not7, label %17, label %11

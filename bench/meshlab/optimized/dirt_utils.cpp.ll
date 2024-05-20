@@ -1199,7 +1199,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg4math18MarsenneTwisterRNGC2Ev(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3vcg4math18MarsenneTwisterRNGE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg4math18MarsenneTwisterRNGE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 5489, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2504
@@ -2243,7 +2243,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -2359,7 +2359,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE27FixPaddedPerVertexAttributeI8ParticleIS2_EEEvRS2_RNS_18PointerToAttributeE(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2433,7 +2433,7 @@ _ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vec
 _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit: ; preds = %._ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit_crit_edge, %_ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i
   %.pre-phi26 = phi i64 [ %.pre25, %._ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i ]
   %.pre-phi = phi i64 [ %.pre24, %._ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i ]
-  %31 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 0, i32 0, i64 2), %_ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i ]
+  %31 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 16), %_ZNSt6vectorI8ParticleI6CMeshOESaIS2_EE7reserveEm.exit.i ]
   %32 = sub i64 %.pre-phi, %.pre-phi26
   %33 = sdiv exact i64 %32, 48
   %34 = getelementptr inbounds i8, ptr %31, i64 16
@@ -2643,7 +2643,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2669,7 +2669,7 @@ _ZN3vcg9VectorNBWI8ParticleI6CMeshOEJEED2Ev.exit: ; preds = %_ZNSt6vectorI8Parti
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3766,7 +3766,7 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE17PerVertexFromFaceER
 
 ._crit_edge59:                                    ; preds = %179, %._crit_edge.._crit_edge59_crit_edge
   %182 = phi ptr [ %.pre62, %._crit_edge.._crit_edge59_crit_edge ], [ %122, %179 ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 16), ptr %3, align 8
   %183 = getelementptr inbounds i8, ptr %3, i64 24
   %184 = load ptr, ptr %183, align 8
   %.not.i.i.i16 = icmp eq ptr %184, %182
@@ -3843,7 +3843,7 @@ define linkonce_odr void @_ZN3vcg3tri19RequirePerFaceColorI6CMeshOEEvRKT_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEC2ERKS4_RKS9_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(249) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3929,7 +3929,7 @@ _ZN3vcg9VectorNBWINS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEJEED2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3958,7 +3958,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 16), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10)
           to label %4 unwind label %9
 
@@ -4109,7 +4109,7 @@ _ZNSt6vectorIN3vcg3tri11UpdateColorI6CMeshOE12ColorAvgInfoESaIS5_EE17_M_default_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri11UpdateColorI6CMeshOE12ColorAvgInfoEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4925,26 +4925,26 @@ _ZN3vcg3tri5TmarkI6CMeshO6CFaceOE7SetMeshEPS2_.exit: ; preds = %36
   br label %_Z17RandomBaricentricv.exit.us
 
 _Z17RandomBaricentricv.exit.us:                   ; preds = %91, %88, %85
-  %92 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %93 = icmp sgt i32 %92, 623
   br i1 %93, label %.preheader27.i61.us, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us
 
 .preheader27.i61.us:                              ; preds = %_Z17RandomBaricentricv.exit.us
-  %.pre.i62.us = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i62.us = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %94
 
 94:                                               ; preds = %94, %.preheader27.i61.us
   %95 = phi i32 [ %.pre.i62.us, %.preheader27.i61.us ], [ %99, %94 ]
   %indvars.iv.i63.us = phi i64 [ 0, %.preheader27.i61.us ], [ %indvars.iv.next.i64.us, %94 ]
-  %96 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i63.us
+  %96 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i63.us
   %97 = and i32 %95, -2147483648
   %indvars.iv.next.i64.us = add nuw nsw i64 %indvars.iv.i63.us, 1
-  %98 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i64.us
+  %98 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i64.us
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 2147483646
   %101 = or disjoint i32 %100, %97
   %102 = add nuw nsw i64 %indvars.iv.i63.us, 397
-  %103 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %102
+  %103 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = lshr exact i32 %101, 1
   %106 = and i32 %99, 1
@@ -4958,21 +4958,21 @@ _Z17RandomBaricentricv.exit.us:                   ; preds = %91, %88, %85
   br i1 %exitcond.not.i65.us, label %.lr.ph.i66.us, label %94, !llvm.loop !12
 
 .lr.ph.i66.us:                                    ; preds = %94
-  %.pre35.i67.us = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i67.us = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %112
 
 112:                                              ; preds = %112, %.lr.ph.i66.us
   %113 = phi i32 [ %.pre35.i67.us, %.lr.ph.i66.us ], [ %117, %112 ]
   %indvars.iv31.i68.us = phi i64 [ 227, %.lr.ph.i66.us ], [ %indvars.iv.next32.i69.us, %112 ]
-  %114 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i68.us
+  %114 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i68.us
   %115 = and i32 %113, -2147483648
   %indvars.iv.next32.i69.us = add nuw nsw i64 %indvars.iv31.i68.us, 1
-  %116 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i69.us
+  %116 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i69.us
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 2147483646
   %119 = or disjoint i32 %118, %115
   %120 = add nsw i64 %indvars.iv31.i68.us, -227
-  %121 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %120
+  %121 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = lshr exact i32 %119, 1
   %124 = and i32 %117, 1
@@ -4986,12 +4986,12 @@ _Z17RandomBaricentricv.exit.us:                   ; preds = %91, %88, %85
   br i1 %exitcond34.not.i70.us, label %._crit_edge.i71.us, label %112, !llvm.loop !13
 
 ._crit_edge.i71.us:                               ; preds = %112
-  %130 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %131 = and i32 %130, -2147483648
-  %132 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %133 = and i32 %132, 2147483646
   %134 = or disjoint i32 %133, %131
-  %135 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %136 = lshr exact i32 %134, 1
   %137 = and i32 %132, 1
   %138 = zext nneg i32 %137 to i64
@@ -4999,15 +4999,15 @@ _Z17RandomBaricentricv.exit.us:                   ; preds = %91, %88, %85
   %140 = load i32, ptr %139, align 4
   %141 = xor i32 %140, %135
   %142 = xor i32 %141, %136
-  store i32 %142, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %142, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us
 
 _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i71.us, %_Z17RandomBaricentricv.exit.us
   %143 = phi i32 [ 0, %._crit_edge.i71.us ], [ %92, %_Z17RandomBaricentricv.exit.us ]
   %144 = add nsw i32 %143, 1
-  store i32 %144, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %144, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %145
+  %146 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = lshr i32 %147, 11
   %149 = xor i32 %148, %147
@@ -5027,21 +5027,21 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   br i1 %161, label %.preheader27.i.us, label %_ZNSt6vectorIN3vcg11RayIteratorINS0_13GridStaticPtrI6CFaceOfEENS0_30RayTriangleIntersectionFunctorILb0EEENS0_3tri9FaceTmarkI6CMeshOEEE10Entry_TypeESaISC_EE5clearEv.exit.i.us
 
 .preheader27.i.us:                                ; preds = %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us
-  %.pre.i.us = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i.us = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %162
 
 162:                                              ; preds = %162, %.preheader27.i.us
   %163 = phi i32 [ %.pre.i.us, %.preheader27.i.us ], [ %167, %162 ]
   %indvars.iv.i.us = phi i64 [ 0, %.preheader27.i.us ], [ %indvars.iv.next.i.us, %162 ]
-  %164 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i.us
+  %164 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i.us
   %165 = and i32 %163, -2147483648
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %166 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i.us
+  %166 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i.us
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, 2147483646
   %169 = or disjoint i32 %168, %165
   %170 = add nuw nsw i64 %indvars.iv.i.us, 397
-  %171 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %170
+  %171 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = lshr exact i32 %169, 1
   %174 = and i32 %167, 1
@@ -5055,21 +5055,21 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   br i1 %exitcond.not.i.us, label %.lr.ph.i.us, label %162, !llvm.loop !12
 
 .lr.ph.i.us:                                      ; preds = %162
-  %.pre35.i.us = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i.us = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %180
 
 180:                                              ; preds = %180, %.lr.ph.i.us
   %181 = phi i32 [ %.pre35.i.us, %.lr.ph.i.us ], [ %185, %180 ]
   %indvars.iv31.i.us = phi i64 [ 227, %.lr.ph.i.us ], [ %indvars.iv.next32.i.us, %180 ]
-  %182 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i.us
+  %182 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i.us
   %183 = and i32 %181, -2147483648
   %indvars.iv.next32.i.us = add nuw nsw i64 %indvars.iv31.i.us, 1
-  %184 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i.us
+  %184 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i.us
   %185 = load i32, ptr %184, align 4
   %186 = and i32 %185, 2147483646
   %187 = or disjoint i32 %186, %183
   %188 = add nsw i64 %indvars.iv31.i.us, -227
-  %189 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %188
+  %189 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = lshr exact i32 %187, 1
   %192 = and i32 %185, 1
@@ -5083,12 +5083,12 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   br i1 %exitcond34.not.i.us, label %._crit_edge.i.us, label %180, !llvm.loop !13
 
 ._crit_edge.i.us:                                 ; preds = %180
-  %198 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %198 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %199 = and i32 %198, -2147483648
-  %200 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %201 = and i32 %200, 2147483646
   %202 = or disjoint i32 %201, %199
-  %203 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %203 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %204 = lshr exact i32 %202, 1
   %205 = and i32 %200, 1
   %206 = zext nneg i32 %205 to i64
@@ -5096,15 +5096,15 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   %208 = load i32, ptr %207, align 4
   %209 = xor i32 %208, %203
   %210 = xor i32 %209, %204
-  store i32 %210, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %210, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZNSt6vectorIN3vcg11RayIteratorINS0_13GridStaticPtrI6CFaceOfEENS0_30RayTriangleIntersectionFunctorILb0EEENS0_3tri9FaceTmarkI6CMeshOEEE10Entry_TypeESaISC_EE5clearEv.exit.i.us
 
 _ZNSt6vectorIN3vcg11RayIteratorINS0_13GridStaticPtrI6CFaceOfEENS0_30RayTriangleIntersectionFunctorILb0EEENS0_3tri9FaceTmarkI6CMeshOEEE10Entry_TypeESaISC_EE5clearEv.exit.i.us: ; preds = %._crit_edge.i.us, %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us
   %211 = phi i32 [ 0, %._crit_edge.i.us ], [ %144, %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us ]
   %212 = add nsw i32 %211, 1
-  store i32 %212, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %212, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %213 = sext i32 %211 to i64
-  %214 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %213
+  %214 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %213
   %215 = load i32, ptr %214, align 4
   %216 = lshr i32 %215, 11
   %217 = xor i32 %216, %215
@@ -6049,7 +6049,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -6384,7 +6384,7 @@ _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EED2Ev.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6410,7 +6410,7 @@ _ZN3vcg9VectorNBWIfJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10688,30 +10688,30 @@ common.resume:                                    ; preds = %62, %54
   br label %common.resume
 
 _Z17RandomBaricentricv.exit:                      ; preds = %55, %58, %61
-  %64 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %65 = icmp sgt i32 %64, 623
   br i1 %65, label %.preheader27.i71, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82
 
 .preheader27.i71:                                 ; preds = %_Z17RandomBaricentricv.exit
-  %.pre.i72 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %66
 
 .lr.ph.i76:                                       ; preds = %66
-  %.pre35.i77 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i77 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %84
 
 66:                                               ; preds = %66, %.preheader27.i71
   %67 = phi i32 [ %.pre.i72, %.preheader27.i71 ], [ %71, %66 ]
   %indvars.iv.i73 = phi i64 [ 0, %.preheader27.i71 ], [ %indvars.iv.next.i74, %66 ]
-  %68 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i73
+  %68 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i73
   %69 = and i32 %67, -2147483648
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
-  %70 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i74
+  %70 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i74
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 2147483646
   %73 = or disjoint i32 %72, %69
   %74 = add nuw nsw i64 %indvars.iv.i73, 397
-  %75 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %74
+  %75 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = lshr exact i32 %73, 1
   %78 = and i32 %71, 1
@@ -10727,15 +10727,15 @@ _Z17RandomBaricentricv.exit:                      ; preds = %55, %58, %61
 84:                                               ; preds = %84, %.lr.ph.i76
   %85 = phi i32 [ %.pre35.i77, %.lr.ph.i76 ], [ %89, %84 ]
   %indvars.iv31.i78 = phi i64 [ 227, %.lr.ph.i76 ], [ %indvars.iv.next32.i79, %84 ]
-  %86 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i78
+  %86 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i78
   %87 = and i32 %85, -2147483648
   %indvars.iv.next32.i79 = add nuw nsw i64 %indvars.iv31.i78, 1
-  %88 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i79
+  %88 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i79
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 2147483646
   %91 = or disjoint i32 %90, %87
   %92 = add nsw i64 %indvars.iv31.i78, -227
-  %93 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %92
+  %93 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = lshr exact i32 %91, 1
   %96 = and i32 %89, 1
@@ -10749,12 +10749,12 @@ _Z17RandomBaricentricv.exit:                      ; preds = %55, %58, %61
   br i1 %exitcond34.not.i80, label %._crit_edge.i81, label %84, !llvm.loop !13
 
 ._crit_edge.i81:                                  ; preds = %84
-  %102 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %103 = and i32 %102, -2147483648
-  %104 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %105 = and i32 %104, 2147483646
   %106 = or disjoint i32 %105, %103
-  %107 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %107 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %108 = lshr exact i32 %106, 1
   %109 = and i32 %104, 1
   %110 = zext nneg i32 %109 to i64
@@ -10762,15 +10762,15 @@ _Z17RandomBaricentricv.exit:                      ; preds = %55, %58, %61
   %112 = load i32, ptr %111, align 4
   %113 = xor i32 %112, %107
   %114 = xor i32 %113, %108
-  store i32 %114, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %114, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82
 
 _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricentricv.exit, %._crit_edge.i81
   %115 = phi i32 [ 0, %._crit_edge.i81 ], [ %64, %_Z17RandomBaricentricv.exit ]
   %116 = add nsw i32 %115, 1
-  store i32 %116, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %116, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %117
+  %118 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = lshr i32 %119, 11
   %121 = xor i32 %120, %119
@@ -10790,25 +10790,25 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
   br i1 %133, label %.preheader27.i, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit
 
 .preheader27.i:                                   ; preds = %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82
-  %.pre.i = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %134
 
 .lr.ph.i:                                         ; preds = %134
-  %.pre35.i = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %152
 
 134:                                              ; preds = %134, %.preheader27.i
   %135 = phi i32 [ %.pre.i, %.preheader27.i ], [ %139, %134 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next.i, %134 ]
-  %136 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i
+  %136 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i
   %137 = and i32 %135, -2147483648
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %138 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i
+  %138 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %139, 2147483646
   %141 = or disjoint i32 %140, %137
   %142 = add nuw nsw i64 %indvars.iv.i, 397
-  %143 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %142
+  %143 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = lshr exact i32 %141, 1
   %146 = and i32 %139, 1
@@ -10824,15 +10824,15 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
 152:                                              ; preds = %152, %.lr.ph.i
   %153 = phi i32 [ %.pre35.i, %.lr.ph.i ], [ %157, %152 ]
   %indvars.iv31.i = phi i64 [ 227, %.lr.ph.i ], [ %indvars.iv.next32.i, %152 ]
-  %154 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i
+  %154 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i
   %155 = and i32 %153, -2147483648
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %156 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i
+  %156 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, 2147483646
   %159 = or disjoint i32 %158, %155
   %160 = add nsw i64 %indvars.iv31.i, -227
-  %161 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %160
+  %161 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = lshr exact i32 %159, 1
   %164 = and i32 %157, 1
@@ -10846,12 +10846,12 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
   br i1 %exitcond34.not.i, label %._crit_edge.i, label %152, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %152
-  %170 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %170 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %171 = and i32 %170, -2147483648
-  %172 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %172 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %173 = and i32 %172, 2147483646
   %174 = or disjoint i32 %173, %171
-  %175 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %176 = lshr exact i32 %174, 1
   %177 = and i32 %172, 1
   %178 = zext nneg i32 %177 to i64
@@ -10859,15 +10859,15 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
   %180 = load i32, ptr %179, align 4
   %181 = xor i32 %180, %175
   %182 = xor i32 %181, %176
-  store i32 %182, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %182, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit
 
 _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit: ; preds = %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82, %._crit_edge.i
   %183 = phi i32 [ 0, %._crit_edge.i ], [ %116, %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82 ]
   %184 = add nsw i32 %183, 1
-  store i32 %184, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %184, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %185 = sext i32 %183 to i64
-  %186 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %185
+  %186 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = lshr i32 %187, 11
   %189 = xor i32 %188, %187
@@ -11196,7 +11196,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE25FixPaddedPerFaceAttributeIfEEvRS2_RNS_18PointerToAttributeE(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   %4 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -11271,7 +11271,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
 _ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit: ; preds = %._ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit_crit_edge, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i
   %.pre-phi26 = phi i64 [ %.pre25, %._ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ]
   %.pre-phi = phi i64 [ %.pre24, %._ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit_crit_edge ], [ %11, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ]
-  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 0, i32 0, i64 2), %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ]
+  %32 = phi ptr [ %.pre23, %._ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i64 16), %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i ]
   %33 = sub i64 %.pre-phi, %.pre-phi26
   %34 = sdiv exact i64 %33, 48
   %35 = getelementptr inbounds i8, ptr %32, i64 16
@@ -22713,30 +22713,30 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %60, %70, %_ZNK3vcg6
   br label %.body
 
 _Z17RandomBaricentricv.exit:                      ; preds = %85, %88, %91
-  %94 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %95 = icmp sgt i32 %94, 623
   br i1 %95, label %.preheader27.i56, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67
 
 .preheader27.i56:                                 ; preds = %_Z17RandomBaricentricv.exit
-  %.pre.i57 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %96
 
 .lr.ph.i61:                                       ; preds = %96
-  %.pre35.i62 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i62 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %114
 
 96:                                               ; preds = %96, %.preheader27.i56
   %97 = phi i32 [ %.pre.i57, %.preheader27.i56 ], [ %101, %96 ]
   %indvars.iv.i58 = phi i64 [ 0, %.preheader27.i56 ], [ %indvars.iv.next.i59, %96 ]
-  %98 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i58
+  %98 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i58
   %99 = and i32 %97, -2147483648
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
-  %100 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i59
+  %100 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i59
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 2147483646
   %103 = or disjoint i32 %102, %99
   %104 = add nuw nsw i64 %indvars.iv.i58, 397
-  %105 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %104
+  %105 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = lshr exact i32 %103, 1
   %108 = and i32 %101, 1
@@ -22752,15 +22752,15 @@ _Z17RandomBaricentricv.exit:                      ; preds = %85, %88, %91
 114:                                              ; preds = %114, %.lr.ph.i61
   %115 = phi i32 [ %.pre35.i62, %.lr.ph.i61 ], [ %119, %114 ]
   %indvars.iv31.i63 = phi i64 [ 227, %.lr.ph.i61 ], [ %indvars.iv.next32.i64, %114 ]
-  %116 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i63
+  %116 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i63
   %117 = and i32 %115, -2147483648
   %indvars.iv.next32.i64 = add nuw nsw i64 %indvars.iv31.i63, 1
-  %118 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i64
+  %118 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i64
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 2147483646
   %121 = or disjoint i32 %120, %117
   %122 = add nsw i64 %indvars.iv31.i63, -227
-  %123 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %122
+  %123 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = lshr exact i32 %121, 1
   %126 = and i32 %119, 1
@@ -22774,12 +22774,12 @@ _Z17RandomBaricentricv.exit:                      ; preds = %85, %88, %91
   br i1 %exitcond34.not.i65, label %._crit_edge.i66, label %114, !llvm.loop !13
 
 ._crit_edge.i66:                                  ; preds = %114
-  %132 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %133 = and i32 %132, -2147483648
-  %134 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %135 = and i32 %134, 2147483646
   %136 = or disjoint i32 %135, %133
-  %137 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %138 = lshr exact i32 %136, 1
   %139 = and i32 %134, 1
   %140 = zext nneg i32 %139 to i64
@@ -22787,15 +22787,15 @@ _Z17RandomBaricentricv.exit:                      ; preds = %85, %88, %91
   %142 = load i32, ptr %141, align 4
   %143 = xor i32 %142, %137
   %144 = xor i32 %143, %138
-  store i32 %144, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %144, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67
 
 _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricentricv.exit, %._crit_edge.i66
   %145 = phi i32 [ 0, %._crit_edge.i66 ], [ %94, %_Z17RandomBaricentricv.exit ]
   %146 = add nsw i32 %145, 1
-  store i32 %146, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %146, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %147 = sext i32 %145 to i64
-  %148 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %147
+  %148 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = lshr i32 %149, 11
   %151 = xor i32 %150, %149
@@ -22815,25 +22815,25 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   br i1 %163, label %.preheader27.i, label %_ZN3vcg4Ray3IfLb0EE9NormalizeEv.exit
 
 .preheader27.i:                                   ; preds = %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67
-  %.pre.i = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   br label %164
 
 .lr.ph.i:                                         ; preds = %164
-  %.pre35.i = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 227), align 4
+  %.pre35.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 916), align 4
   br label %182
 
 164:                                              ; preds = %164, %.preheader27.i
   %165 = phi i32 [ %.pre.i, %.preheader27.i ], [ %169, %164 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next.i, %164 ]
-  %166 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.i
+  %166 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.i
   %167 = and i32 %165, -2147483648
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %168 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next.i
+  %168 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next.i
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 2147483646
   %171 = or disjoint i32 %170, %167
   %172 = add nuw nsw i64 %indvars.iv.i, 397
-  %173 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %172
+  %173 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = lshr exact i32 %171, 1
   %176 = and i32 %169, 1
@@ -22849,15 +22849,15 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
 182:                                              ; preds = %182, %.lr.ph.i
   %183 = phi i32 [ %.pre35.i, %.lr.ph.i ], [ %187, %182 ]
   %indvars.iv31.i = phi i64 [ 227, %.lr.ph.i ], [ %indvars.iv.next32.i, %182 ]
-  %184 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv31.i
+  %184 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv31.i
   %185 = and i32 %183, -2147483648
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %186 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv.next32.i
+  %186 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %indvars.iv.next32.i
   %187 = load i32, ptr %186, align 4
   %188 = and i32 %187, 2147483646
   %189 = or disjoint i32 %188, %185
   %190 = add nsw i64 %indvars.iv31.i, -227
-  %191 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %190
+  %191 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %190
   %192 = load i32, ptr %191, align 4
   %193 = lshr exact i32 %189, 1
   %194 = and i32 %187, 1
@@ -22871,12 +22871,12 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   br i1 %exitcond34.not.i, label %._crit_edge.i, label %182, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %182
-  %200 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   %201 = and i32 %200, -2147483648
-  %202 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), align 8
+  %202 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), align 8
   %203 = and i32 %202, 2147483646
   %204 = or disjoint i32 %203, %201
-  %205 = load i32, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 396), align 8
+  %205 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 1592), align 8
   %206 = lshr exact i32 %204, 1
   %207 = and i32 %202, 1
   %208 = zext nneg i32 %207 to i64
@@ -22884,15 +22884,15 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   %210 = load i32, ptr %209, align 4
   %211 = xor i32 %210, %205
   %212 = xor i32 %211, %206
-  store i32 %212, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 623), align 4
+  store i32 %212, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2500), align 4
   br label %_ZN3vcg4Ray3IfLb0EE9NormalizeEv.exit
 
 _ZN3vcg4Ray3IfLb0EE9NormalizeEv.exit:             ; preds = %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67, %._crit_edge.i
   %213 = phi i32 [ 0, %._crit_edge.i ], [ %146, %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67 ]
   %214 = add nsw i32 %213, 1
-  store i32 %214, ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 2), align 8
+  store i32 %214, ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 2504), align 8
   %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (%"class.vcg::math::MarsenneTwisterRNG", ptr @_ZZ17RandomBaricentricvE3rnd, i64 0, i32 1, i64 0), i64 0, i64 %215
+  %216 = getelementptr inbounds [624 x i32], ptr getelementptr inbounds (i8, ptr @_ZZ17RandomBaricentricvE3rnd, i64 8), i64 0, i64 %215
   %217 = load i32, ptr %216, align 4
   %218 = lshr i32 %217, 11
   %219 = xor i32 %218, %217
@@ -26312,9 +26312,9 @@ define internal void @_GLOBAL__sub_I_dirt_utils.cpp() #21 section ".text.startup
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #27
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

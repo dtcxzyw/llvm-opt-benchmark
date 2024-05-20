@@ -33,7 +33,7 @@ do.body.i.i:                                      ; preds = %entry, %do.body.i.i
 
 do.body5.i.i:                                     ; preds = %do.body.i.i
   store ptr null, ptr @dso_init_list, align 8
-  store ptr @dso_init_list, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
+  store ptr @dso_init_list, ptr getelementptr inbounds (i8, ptr @dso_init_list, i64 8), align 8
   store i1 true, ptr @init_lists.inited, align 4
   br label %find_type.exit
 
@@ -71,7 +71,7 @@ do.body.i:                                        ; preds = %entry, %do.body.i
 
 do.body5.i:                                       ; preds = %do.body.i
   store ptr null, ptr @dso_init_list, align 8
-  store ptr @dso_init_list, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
+  store ptr @dso_init_list, ptr getelementptr inbounds (i8, ptr @dso_init_list, i64 8), align 8
   store i1 true, ptr @init_lists.inited, align 4
   br label %init_lists.exit
 
@@ -82,11 +82,11 @@ init_lists.exit:                                  ; preds = %entry, %do.body5.i
   store i32 %type, ptr %type1, align 8
   %node = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %node, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @dso_init_list, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
-  store ptr %node, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
+  store ptr %node, ptr getelementptr inbounds (i8, ptr @dso_init_list, i64 8), align 8
   ret void
 }
 
@@ -115,7 +115,7 @@ do.body.i.i:                                      ; preds = %if.end, %do.body.i.
 
 do.body5.i.i:                                     ; preds = %do.body.i.i
   store ptr null, ptr @dso_init_list, align 8
-  store ptr @dso_init_list, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
+  store ptr @dso_init_list, ptr getelementptr inbounds (i8, ptr @dso_init_list, i64 8), align 8
   store i1 true, ptr @init_lists.inited, align 4
   br label %find_type.exit
 

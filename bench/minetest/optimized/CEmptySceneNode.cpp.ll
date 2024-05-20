@@ -218,8 +218,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !42
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 264
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !44
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -272,12 +272,12 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3irr5scene10ISceneNodeC2EPS1_PNS0_13ISceneManagerEiRKNS_4core8vector3dIfEES9_S9_.exit
 
 _ZN3irr5scene10ISceneNodeC2EPS1_PNS0_13ISceneManagerEiRKNS_4core8vector3dIfEES9_S9_.exit: ; preds = %if.then.i, %entry
-  %vtable4.i = phi ptr [ getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %entry ], [ %vtable4.i.pre, %if.then.i ]
+  %vtable4.i = phi ptr [ getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.pre, %if.then.i ]
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 256
   %3 = load ptr, ptr %vfn5.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #18
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %Box = getelementptr inbounds i8, ptr %this, i64 224
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box, align 8, !tbaa !10
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -389,8 +389,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !42
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 264
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !44
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %3, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -443,12 +443,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3irr5scene15CEmptySceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit
 
 _ZN3irr5scene15CEmptySceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %entry ], [ %vtable4.i.pre.i, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.pre.i, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
   %6 = load ptr, ptr %vfn5.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(222) %call) #18
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 336), ptr %3, align 8, !tbaa !3
   %Box.i = getelementptr inbounds i8, ptr %call, i64 224
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !10
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 240
@@ -1707,9 +1707,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene15CEmptySceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Children.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i = load ptr, ptr %Children.i, align 8, !tbaa !15
   %cmp.i.not16.i = icmp eq ptr %__begin2.sroa.0.015.i, %Children.i
@@ -1804,9 +1804,9 @@ _ZN3irr5scene15CEmptySceneNodeD2Ev.exit:          ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene15CEmptySceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -1912,9 +1912,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -2013,9 +2013,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene15CEmptySceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i.i = load ptr, ptr %Children.i.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i.i, %Children.i.i.i

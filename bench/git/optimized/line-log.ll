@@ -2481,7 +2481,7 @@ do.body:                                          ; preds = %cond.end, %same_pat
   br i1 %tobool8.not, label %if.end16, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %do.body
-  %12 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp3.i = icmp sgt i32 %12, 0
   br i1 %cmp3.i, label %for.body.lr.ph.i20, label %if.end16
 
@@ -3183,7 +3183,7 @@ define internal fastcc void @filter_diffs_for_paths(ptr noundef readonly %range,
 entry:
   %outq = alloca %struct.diff_queue_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp13 = icmp sgt i32 %0, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end18
 
@@ -3202,7 +3202,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %2 = load ptr, ptr %arrayidx.us.us, align 8
   tail call void @diff_free_filepair(ptr noundef nonnull %2) #16
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %3 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %4 = sext i32 %3 to i64
   %cmp.us.us = icmp slt i64 %indvars.iv.next39, %4
   br i1 %cmp.us.us, label %for.body.us.us, label %for.end18, !llvm.loop !44
@@ -3225,7 +3225,7 @@ if.then.us:                                       ; preds = %for.body.us
 
 for.inc17.us:                                     ; preds = %if.then.us, %for.cond5.preheader.us
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %10 = sext i32 %9 to i64
   %cmp.us = icmp slt i64 %indvars.iv.next36, %10
   br i1 %cmp.us, label %for.body.us, label %for.end18, !llvm.loop !44
@@ -3272,7 +3272,7 @@ if.then.us22:                                     ; preds = %for.body.us15
 
 for.inc17.us24:                                   ; preds = %for.cond5.if.else15_crit_edge.us, %if.then.us22, %if.then14.us
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %17 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %18 = sext i32 %17 to i64
   %cmp.us26 = icmp slt i64 %indvars.iv.next33, %18
   br i1 %cmp.us26, label %for.body.us15, label %for.end18, !llvm.loop !44
@@ -3330,7 +3330,7 @@ for.cond5.if.else15_crit_edge:                    ; preds = %for.inc
 
 for.inc17:                                        ; preds = %if.then14, %for.cond5.if.else15_crit_edge, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %28 = sext i32 %27 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %28
   br i1 %cmp, label %for.body, label %for.end18, !llvm.loop !44

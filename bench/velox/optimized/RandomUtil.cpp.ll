@@ -21,7 +21,7 @@ entry:
 define noundef i32 @_ZN8facebook5velox6random7getSeedEv() local_unnamed_addr #1 {
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
-  %0 = load i8, ptr getelementptr inbounds ({ { { %"struct.std::_Optional_payload_base<unsigned int>::_Empty_byte", [3 x i8] }, i8, [3 x i8] } }, ptr @_ZN8facebook5velox6random12_GLOBAL__N_110customSeedE, i64 0, i32 0, i32 1), align 4
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6random12_GLOBAL__N_110customSeedE, i64 4), align 4
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %cond.true, label %cond.false
 

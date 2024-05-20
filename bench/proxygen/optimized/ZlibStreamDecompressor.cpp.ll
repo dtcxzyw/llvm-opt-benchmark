@@ -90,7 +90,7 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen22ZlibStreamDecompressorC2ENS_15CompressionTypeEmm(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %type, i64 noundef %zlib_decompressor_buffer_growth, i64 noundef %zlib_decompressor_buffer_minsize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   %decompressor_buffer_growth_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %zlib_decompressor_buffer_growth, ptr %decompressor_buffer_growth_, align 8
@@ -117,7 +117,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen22ZlibStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %type_, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -513,7 +513,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 

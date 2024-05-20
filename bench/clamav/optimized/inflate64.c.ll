@@ -2180,8 +2180,8 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
 .preheader:                                       ; preds = %63, %._crit_edge266, %64
   %66 = phi i1 [ true, %64 ], [ false, %._crit_edge266 ], [ false, %63 ]
   %.0321 = phi i32 [ 256, %64 ], [ 19, %._crit_edge266 ], [ -1, %63 ]
-  %.0185320 = phi ptr [ getelementptr inbounds ([31 x i16], ptr @inflate_table.lext, i64 -9, i64 22), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dext, %63 ]
-  %.0186319 = phi ptr [ getelementptr inbounds ([31 x i16], ptr @inflate_table.lbase, i64 -9, i64 22), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dbase, %63 ]
+  %.0185320 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lext, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dext, %63 ]
+  %.0186319 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lbase, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dbase, %63 ]
   %67 = shl nuw i32 1, %spec.select240
   %68 = add i32 %67, -1
   %69 = load ptr, ptr %3, align 8

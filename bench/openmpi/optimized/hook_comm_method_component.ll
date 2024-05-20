@@ -56,7 +56,7 @@ define internal noundef i32 @ompi_hook_comm_method_component_close() #0 {
 define internal noundef i32 @ompi_hook_comm_method_component_register() #1 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i64 0, i32 10), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_hook_base_framework, i64 72), align 8
   %. = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
   store i32 %., ptr @mca_hook_comm_method_verbose, align 4
   %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_hook_comm_method_component, ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @mca_hook_comm_method_verbose) #5

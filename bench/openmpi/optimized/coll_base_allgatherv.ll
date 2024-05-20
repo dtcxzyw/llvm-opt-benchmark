@@ -261,7 +261,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   br i1 %63, label %64, label %77
 
 64:                                               ; preds = %.lr.ph
-  %65 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %66 = getelementptr inbounds i32, ptr %5, i64 %60
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
@@ -284,7 +284,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   br i1 %81, label %82, label %95
 
 82:                                               ; preds = %77
-  %83 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %84 = getelementptr inbounds i32, ptr %5, i64 %78
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
@@ -306,7 +306,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
 
 ._crit_edge:                                      ; preds = %95, %44
   %.1.lcssa = phi i32 [ 0, %44 ], [ %.3, %95 ]
-  %97 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %98 = sext i32 %.1.lcssa to i64
   %99 = tail call i32 %97(i64 noundef %98, ptr noundef %29, ptr noundef null) #7
   %100 = lshr i32 %.086105, 1

@@ -29,7 +29,7 @@ define dso_local void @_ZN29btSoftRigidCollisionAlgorithmC2EP20btPersistentManif
 entry:
   %frombool = zext i1 %isSwapped to i8
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV29btSoftRigidCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29btSoftRigidCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_isSwapped = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %m_isSwapped, align 8
   ret void

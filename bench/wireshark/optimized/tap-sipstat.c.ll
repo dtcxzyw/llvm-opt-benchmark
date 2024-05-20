@@ -66,7 +66,7 @@ define internal void @sipstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %16 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int_hash, ptr noundef nonnull @g_int_equal) #10
   %17 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %16, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @sip_response_code_vals, i64 0, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @sip_response_code_vals, i64 8), align 8
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %sip_init_hash.exit, label %.lr.ph.i
 

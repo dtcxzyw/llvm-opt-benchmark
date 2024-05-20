@@ -38,10 +38,10 @@ define dso_local noundef zeroext i1 @pgstat_flush_wal(i1 noundef zeroext %0) loc
   %5 = load i64, ptr @pgWalUsage, align 8
   %6 = load i64, ptr @prevWalUsage, align 8
   %7 = icmp ne i64 %5, %6
-  %8 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 1), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
   %9 = icmp ne i64 %8, 0
   %or.cond.i = select i1 %7, i1 true, i1 %9
-  %10 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 16
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
   %11 = icmp ne i64 %10, 0
   %or.cond = select i1 %or.cond.i, i1 true, i1 %11
   br i1 %or.cond, label %pgstat_have_pending_wal.exit.thread, label %.loopexit
@@ -75,18 +75,18 @@ pgstat_have_pending_wal.exit.thread:              ; preds = %1
   %27 = load <2 x i64>, ptr %25, align 8
   %28 = add <2 x i64> %27, %26
   store <2 x i64> %28, ptr %25, align 8
-  %29 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 16
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
   %30 = getelementptr inbounds i8, ptr %3, i64 17816
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %29
   store i64 %32, ptr %30, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 3), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
   %34 = sdiv i64 %33, 1000
   %35 = getelementptr inbounds i8, ptr %3, i64 17824
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %34
   store i64 %37, ptr %35, align 8
-  %38 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 16
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 16
   %39 = sdiv i64 %38, 1000
   %40 = getelementptr inbounds i8, ptr %3, i64 17832
   %41 = load i64, ptr %40, align 8
@@ -107,7 +107,7 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_wal() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 11) #6
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 8)
+  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17200)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -120,13 +120,13 @@ define dso_local zeroext i1 @pgstat_have_pending_wal() local_unnamed_addr #3 {
   %1 = load i64, ptr @pgWalUsage, align 8
   %2 = load i64, ptr @prevWalUsage, align 8
   %3 = icmp ne i64 %1, %2
-  %4 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
   %5 = icmp ne i64 %4, 0
   %or.cond = select i1 %3, i1 true, i1 %5
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %0
-  %7 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 16
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
   %8 = icmp ne i64 %7, 0
   br label %9
 
@@ -171,7 +171,7 @@ define dso_local void @pgstat_wal_snapshot_cb() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %1, i64 17760
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #6
   %4 = getelementptr inbounds i8, ptr %1, i64 17776
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 8), ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @pgStatLocal, i64 17200), ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   tail call void @LWLockRelease(ptr noundef nonnull %2) #6
   ret void
 }

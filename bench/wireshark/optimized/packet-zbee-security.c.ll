@@ -649,7 +649,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   store i16 0, ptr %110, align 2
   %111 = load i16, ptr %12, align 8
   store i16 %111, ptr %6, align 2
-  %112 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i64 0, i32 1), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
   %113 = call ptr @g_hash_table_lookup(ptr noundef %112, ptr noundef nonnull %6) #11
   %.not230 = icmp eq ptr %113, null
   br i1 %.not230, label %.thread, label %114

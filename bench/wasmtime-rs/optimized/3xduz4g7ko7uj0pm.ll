@@ -5152,8 +5152,8 @@ define hidden void @_ZN16wasmtime_environ9component9translate6inline3run17h7fa8b
   br i1 %trunc.i.i.i.i, label %._crit_edge.i.i, label %44
 
 ._crit_edge.i.i:                                  ; preds = %5
-  %.pre.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1398
-  %.pre1.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1395
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1398
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1395
   br label %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
 
 44:                                               ; preds = %5
@@ -5164,7 +5164,7 @@ define hidden void @_ZN16wasmtime_environ9component9translate6inline3run17h7fa8b
   %46 = extractvalue { i64, i64 } %45, 0
   %47 = extractvalue { i64, i64 } %45, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !1401
-  store i64 %47, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1401
+  store i64 %47, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1401
   br label %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
 
 "_ZN4core3ptr116drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$wasmtime_environ..component..dfg..Export$GT$$GT$17h4754dec9ebc75523E.exit.i": ; preds = %44
@@ -5198,7 +5198,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %56 = add i64 %52, 4
   %57 = add i64 %52, 5
   %58 = add i64 %52, 6
-  store i64 %58, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1410
+  store i64 %58, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   %59 = getelementptr inbounds i8, ptr %41, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
@@ -5311,7 +5311,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   br i1 %trunc.i.i.i, label %._crit_edge.i, label %70
 
 ._crit_edge.i:                                    ; preds = %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
-  %.pre1.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !5
+  %.pre1.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !5
   br label %76
 
 70:                                               ; preds = %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
@@ -5322,7 +5322,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %72 = extractvalue { i64, i64 } %71, 0
   %73 = extractvalue { i64, i64 } %71, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !1415
-  store i64 %73, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1415
+  store i64 %73, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1415
   br label %76
 
 74:                                               ; preds = %70
@@ -5336,7 +5336,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %.pre1.i146 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %73, %.noexc ]
   %78 = phi i64 [ %58, %._crit_edge.i ], [ %72, %.noexc ]
   %79 = add i64 %78, 1
-  store i64 %79, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1426
+  store i64 %79, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1426
   %80 = getelementptr inbounds i8, ptr %42, i64 664
   store ptr %3, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %42, i64 672
@@ -5369,7 +5369,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %88 = extractvalue { i64, i64 } %87, 0
   %89 = extractvalue { i64, i64 } %87, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !1427
-  store i64 %89, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1427
+  store i64 %89, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1427
   br label %._crit_edge.i144
 
 90:                                               ; preds = %336, %227
@@ -5384,7 +5384,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %92 = phi i64 [ %89, %.noexc147 ], [ %.pre1.i146, %76 ]
   %93 = phi i64 [ %88, %.noexc147 ], [ %79, %76 ]
   %94 = add i64 %93, 1
-  store i64 %94, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1438
+  store i64 %94, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1438
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !1439
   invoke void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc01ad312de741752E.llvm.3742250856985121297(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 160, i64 noundef 16, i64 noundef %85, i1 noundef zeroext true)
@@ -5648,8 +5648,8 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   br i1 %trunc.i.i.i161, label %._crit_edge.i162, label %165
 
 ._crit_edge.i162:                                 ; preds = %163
-  %.pre.i163 = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1480
-  %.pre1.i164 = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1480
+  %.pre.i163 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1480
+  %.pre1.i164 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1480
   br label %171
 
 165:                                              ; preds = %163
@@ -5660,7 +5660,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %167 = extractvalue { i64, i64 } %166, 0
   %168 = extractvalue { i64, i64 } %166, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !1481
-  store i64 %168, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !1481
+  store i64 %168, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1481
   br label %171
 
 169:                                              ; preds = %158
@@ -5676,7 +5676,7 @@ common.resume:                                    ; preds = %74, %236, %353, %51
   %172 = phi i64 [ %.pre1.i164, %._crit_edge.i162 ], [ %168, %.noexc165 ]
   %173 = phi i64 [ %.pre.i163, %._crit_edge.i162 ], [ %167, %.noexc165 ]
   %174 = add i64 %173, 1
-  store i64 %174, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !1480
+  store i64 %174, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1480
   store i64 0, ptr %22, align 8, !alias.scope !1486
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !1486
@@ -8888,8 +8888,8 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   br i1 %trunc.i.i.i.i, label %._crit_edge.i.i, label %1036
 
 ._crit_edge.i.i:                                  ; preds = %1034
-  %.pre.i256.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !2169
-  %.pre1.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !2169
+  %.pre.i256.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !2169
+  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !2169
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h14a04d7b0a5ff830E.exit.i"
 
 1036:                                             ; preds = %1034
@@ -8897,14 +8897,14 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   %1038 = extractvalue { i64, i64 } %1037, 0
   %1039 = extractvalue { i64, i64 } %1037, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !2177
-  store i64 %1039, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !2177
+  store i64 %1039, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !2177
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h14a04d7b0a5ff830E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h14a04d7b0a5ff830E.exit.i": ; preds = %1036, %._crit_edge.i.i
   %1040 = phi i64 [ %.pre1.i.i, %._crit_edge.i.i ], [ %1039, %1036 ]
   %1041 = phi i64 [ %.pre.i256.i, %._crit_edge.i.i ], [ %1038, %1036 ]
   %1042 = add i64 %1041, 1
-  store i64 %1042, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !2169
+  store i64 %1042, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !2169
   store i64 0, ptr %103, align 8, !alias.scope !2178, !noalias !1712
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.43.0..sroa_idx.i.i, align 8, !alias.scope !2178, !noalias !1712
   store i64 0, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !alias.scope !2178, !noalias !1712
@@ -9298,8 +9298,8 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   br i1 %trunc.i.i.i277.i, label %._crit_edge.i278.i, label %1185
 
 ._crit_edge.i278.i:                               ; preds = %1183
-  %.pre.i279.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !2254
-  %.pre1.i280.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !2254
+  %.pre.i279.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !2254
+  %.pre1.i280.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !2254
   br label %1189
 
 1185:                                             ; preds = %1183
@@ -9310,7 +9310,7 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   %1187 = extractvalue { i64, i64 } %1186, 0
   %1188 = extractvalue { i64, i64 } %1186, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !2255
-  store i64 %1188, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !2255
+  store i64 %1188, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !2255
   br label %1189
 
 .body293.i:                                       ; preds = %1197, %.thread3.i.i
@@ -9322,7 +9322,7 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   %1190 = phi i64 [ %.pre1.i280.i, %._crit_edge.i278.i ], [ %1188, %.noexc281.i ]
   %1191 = phi i64 [ %.pre.i279.i, %._crit_edge.i278.i ], [ %1187, %.noexc281.i ]
   %1192 = add i64 %1191, 1
-  store i64 %1192, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !2254
+  store i64 %1192, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !2254
   store i64 0, ptr %98, align 8, !alias.scope !2260, !noalias !1712
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.43.0..sroa_idx.i286.i, align 8, !alias.scope !2260, !noalias !1712
   store i64 0, ptr %.sroa.54.0..sroa_idx.i287.i, align 8, !alias.scope !2260, !noalias !1712
@@ -12940,8 +12940,8 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ9component9translate6in
   br i1 %trunc.i.i.i, label %._crit_edge.i, label %52
 
 ._crit_edge.i:                                    ; preds = %49
-  %.pre.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3162
-  %.pre1.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3162
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !3162
+  %.pre1.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !3162
   br label %80
 
 52:                                               ; preds = %49
@@ -12952,7 +12952,7 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ9component9translate6in
   %54 = extractvalue { i64, i64 } %53, 0
   %55 = extractvalue { i64, i64 } %53, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !3163
-  store i64 %55, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3163
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !3163
   br label %80
 
 56:                                               ; preds = %6
@@ -13028,7 +13028,7 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ9component9translate6in
   %81 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %55, %.noexc ]
   %82 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %54, %.noexc ]
   %83 = add i64 %82, 1
-  store i64 %83, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3162
+  store i64 %83, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !3162
   store i64 0, ptr %26, align 8, !alias.scope !3168
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !3168

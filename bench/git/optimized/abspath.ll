@@ -615,8 +615,8 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @absolute_path(ptr noundef %path) local_unnamed_addr #2 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @absolute_path.sb, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @absolute_path.sb, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -626,7 +626,7 @@ if.then4.i:                                       ; preds = %entry
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   tail call void @strbuf_add_absolute_path(ptr noundef nonnull @absolute_path.sb, ptr noundef %path)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @absolute_path.sb, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 16), align 8
   ret ptr %1
 }
 

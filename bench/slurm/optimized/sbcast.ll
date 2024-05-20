@@ -17,7 +17,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %4 = tail call i32 @log_init(ptr noundef nonnull @.str, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 24, ptr noundef null) #3
   tail call void @slurm_init(ptr noundef null) #3
   tail call void @parse_command_line(i32 noundef %0, ptr noundef %1) #3
-  %5 = load i32, ptr getelementptr inbounds (%struct.bcast_parameters, ptr @params, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 68), align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 

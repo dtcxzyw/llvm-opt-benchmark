@@ -419,7 +419,7 @@ define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(2112) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 2112) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %50, label %8
@@ -443,7 +443,7 @@ define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align
   %18 = phi i32 [ %15, %8 ], [ %25, %24 ]
   %19 = phi ptr [ %14, %8 ], [ %22, %24 ]
   %20 = phi i32 [ 0, %8 ], [ %26, %24 ]
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %22 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 2048) #8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -471,7 +471,7 @@ define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align
   %37 = phi i32 [ %34, %28 ], [ %44, %43 ]
   %38 = phi ptr [ %33, %28 ], [ %41, %43 ]
   %39 = phi i32 [ 0, %28 ], [ %45, %43 ]
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 2048) #8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %47, label %43
@@ -541,7 +541,7 @@ define internal void @pid_list_refill_irq(ptr noundef %0) #0 align 16 {
   %28 = phi i32 [ %36, %34 ], [ %25, %.lr.ph.preheader ]
   %29 = phi i32 [ %35, %34 ], [ %12, %.lr.ph.preheader ]
   %30 = phi ptr [ %32, %34 ], [ %10, %.lr.ph.preheader ]
-  %31 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %32 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 2048) #8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %34
@@ -572,7 +572,7 @@ define internal void @pid_list_refill_irq(ptr noundef %0) #0 align 16 {
   %45 = phi i32 [ %53, %51 ], [ %42, %.lr.ph15.preheader ]
   %46 = phi i32 [ %52, %51 ], [ %13, %.lr.ph15.preheader ]
   %47 = phi ptr [ %49, %51 ], [ %11, %.lr.ph15.preheader ]
-  %48 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %49 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 2048) #8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread5, label %51

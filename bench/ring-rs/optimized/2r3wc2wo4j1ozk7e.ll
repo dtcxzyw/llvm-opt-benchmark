@@ -622,7 +622,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_pkcs8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !92
-  store ptr getelementptr inbounds (<{ [19 x i8] }>, ptr @anon.0f131c1448f32f4cf12b0cd6fa3810b4.24, i64 0, i32 0, i64 7), ptr %8, align 8, !noalias !97
+  store ptr getelementptr inbounds (i8, ptr @anon.0f131c1448f32f4cf12b0cd6fa3810b4.24, i64 7), ptr %8, align 8, !noalias !97
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 5, ptr %11, align 8, !noalias !97
   store ptr %1, ptr %7, align 8, !noalias !97
@@ -766,7 +766,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair26from_pkcs8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !127
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !127
-  store ptr getelementptr inbounds (<{ [19 x i8] }>, ptr @anon.0f131c1448f32f4cf12b0cd6fa3810b4.24, i64 0, i32 0, i64 7), ptr %9, align 8, !noalias !132
+  store ptr getelementptr inbounds (i8, ptr @anon.0f131c1448f32f4cf12b0cd6fa3810b4.24, i64 7), ptr %9, align 8, !noalias !132
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 5, ptr %12, align 8, !noalias !132
   store ptr %1, ptr %8, align 8, !noalias !132
@@ -1037,7 +1037,7 @@ define internal fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519Key
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   store ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, ptr %15, align 8, !alias.scope !181, !noalias !183
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (<{ ptr, ptr, [97 x i8], [7 x i8] }>, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 0, i32 2, i64 32), i64 64, i1 false), !alias.scope !184, !noalias !185
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 48), i64 64, i1 false), !alias.scope !184, !noalias !185
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 144, i1 false), !alias.scope !181, !noalias !183
   call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %15, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef 32), !noalias !186
@@ -1105,7 +1105,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %2
 "_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h844461a0d7cfade2E.exit", %37
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11), !noalias !215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 160, i1 false)
-  %39 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 2), align 4, !noalias !215, !noundef !9
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 8), align 4, !noalias !215, !noundef !9
   %40 = and i32 %39, 524296
   %or.cond.not.i = icmp eq i32 %40, 524296
   %41 = lshr i32 %39, 8
@@ -1207,7 +1207,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair4sign17h4337
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   store ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, ptr %24, align 8, !alias.scope !251, !noalias !253
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (<{ ptr, ptr, [97 x i8], [7 x i8] }>, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 0, i32 2, i64 32), i64 64, i1 false), !alias.scope !254, !noalias !246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 48), i64 64, i1 false), !alias.scope !254, !noalias !246
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 144, i1 false), !alias.scope !251, !noalias !253
   %28 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1280,7 +1280,7 @@ _ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit.i": ; preds = %47, %_ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d51b0E.exit.i
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %16), !noalias !292
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %16, i8 0, i64 160, i1 false), !noalias !246
-  %49 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 0, i64 2), align 4, !noalias !292, !noundef !9
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 8), align 4, !noalias !292, !noundef !9
   %50 = and i32 %49, 524296
   %or.cond.not.i.i = icmp eq i32 %50, 524296
   %51 = lshr i32 %49, 8
@@ -1329,7 +1329,7 @@ _ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
   store ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, ptr %8, align 8, !alias.scope !327, !noalias !329
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (<{ ptr, ptr, [97 x i8], [7 x i8] }>, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 0, i32 2, i64 32), i64 64, i1 false), !alias.scope !330, !noalias !318
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4ring6digest6SHA51217h2dcadb1189ed2649E, i64 48), i64 64, i1 false), !alias.scope !330, !noalias !318
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx.i.i.i, i8 0, i64 144, i1 false), !alias.scope !327, !noalias !329
   call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %8, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef 32), !noalias !331

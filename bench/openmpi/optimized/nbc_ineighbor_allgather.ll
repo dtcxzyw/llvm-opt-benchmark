@@ -51,10 +51,10 @@ define internal fastcc i32 @nbc_neighbor_allgather_init(ptr noundef %0, i32 noun
   %16 = getelementptr i8, ptr %5, i64 56
   %.val91 = load i64, ptr %16, align 8
   %17 = sub nsw i64 %.val91, %.val
-  %18 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 8), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #5
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 4), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 
@@ -70,7 +70,7 @@ define internal fastcc i32 @nbc_neighbor_allgather_init(ptr noundef %0, i32 noun
   store ptr @NBC_Schedule_class, ptr %19, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 8
   store volatile i32 1, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 6), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i.i = icmp eq ptr %27, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread121, label %.lr.ph.i.i

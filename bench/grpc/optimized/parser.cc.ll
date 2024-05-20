@@ -315,7 +315,7 @@ sw.bb.i:                                          ; preds = %for.body, %for.body
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %sw.bb.i
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http1_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8, !noalias !7
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http1_trace, i64 16) monotonic, align 8, !noalias !7
   %tobool.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i, label %if.then1.i, label %if.end.i
 

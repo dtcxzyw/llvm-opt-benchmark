@@ -2983,7 +2983,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9011, label %720, label %707
 
 707:                                              ; preds = %706
-  %708 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 1), align 2
+  %708 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %709 = zext i16 %708 to i32
   %710 = shl nuw nsw i32 %709, 7
   %711 = and i32 %696, 127
@@ -3371,7 +3371,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %986, label %987, label %1000
 
 987:                                              ; preds = %985
-  %988 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 1), align 2
+  %988 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %989 = zext i16 %988 to i32
   %990 = shl nuw nsw i32 %989, 7
   %991 = and i32 %980, 127
@@ -27374,7 +27374,7 @@ thread-pre-split9442:                             ; preds = %14917
   br label %.backedge.backedge
 
 15650:                                            ; preds = %.preheader9856
-  %15651 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 161), align 1
+  %15651 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 161), align 1
   %15652 = zext i8 %15651 to i64
   %15653 = getelementptr inbounds i8, ptr %142, i64 %15652
   br label %.loopexit9864
@@ -27410,7 +27410,7 @@ thread-pre-split9442:                             ; preds = %14917
   br label %.backedge.backedge
 
 15674:                                            ; preds = %.preheader9856
-  %15675 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 155), align 1
+  %15675 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 155), align 1
   %15676 = zext i8 %15675 to i64
   %15677 = getelementptr inbounds i8, ptr %142, i64 %15676
   br label %.loopexit9864
@@ -27446,7 +27446,7 @@ thread-pre-split9442:                             ; preds = %14917
   br label %.backedge.backedge
 
 15698:                                            ; preds = %.preheader9856
-  %15699 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 157), align 1
+  %15699 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 157), align 1
   %15700 = zext i8 %15699 to i64
   %15701 = getelementptr inbounds i8, ptr %142, i64 %15700
   br label %.loopexit9864
@@ -27501,7 +27501,7 @@ thread-pre-split9442:                             ; preds = %14917
   br label %.backedge.backedge
 
 15734:                                            ; preds = %.preheader9856
-  %15735 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 159), align 1
+  %15735 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 159), align 1
   %15736 = zext i8 %15735 to i64
   %15737 = getelementptr inbounds i8, ptr %142, i64 %15736
   br label %.loopexit9864
@@ -28494,7 +28494,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef rea
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %9 = zext i8 %8 to i64
   br label %19
 

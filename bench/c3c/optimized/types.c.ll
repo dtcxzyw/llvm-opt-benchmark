@@ -28,38 +28,38 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FuncTypeEntry = type { i32, ptr }
 
 @t = internal global %struct.anon zeroinitializer, align 8
-@type_bool = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1, i32 0), align 8
+@type_bool = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 80), align 8
 @type_void = dso_local local_unnamed_addr global ptr @t, align 8
-@type_voidptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 0), align 8
-@type_float16 = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12, i32 0), align 8
-@type_float = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13, i32 0), align 8
-@type_double = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14, i32 0), align 8
-@type_f128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15, i32 0), align 8
-@type_typeid = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22, i32 0), align 8
-@type_any = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27, i32 0), align 8
-@type_anyptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 0), align 8
-@type_typeinfo = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25, i32 0), align 8
-@type_ichar = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2, i32 0), align 8
-@type_short = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3, i32 0), align 8
-@type_int = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4, i32 0), align 8
-@type_long = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5, i32 0), align 8
-@type_i128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6, i32 0), align 8
-@type_iptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 0), align 8
-@type_isz = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17, i32 0), align 8
-@type_char = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7, i32 0), align 8
-@type_ushort = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8, i32 0), align 8
-@type_uint = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9, i32 0), align 8
-@type_ulong = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10, i32 0), align 8
-@type_u128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11, i32 0), align 8
-@type_uptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18, i32 0), align 8
-@type_usz = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16, i32 0), align 8
-@type_anyfault = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23, i32 0), align 8
-@type_untypedlist = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26, i32 0), align 8
-@type_wildcard = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29, i32 0), align 8
-@type_member = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24, i32 0), align 8
+@type_voidptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1680), align 8
+@type_float16 = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 960), align 8
+@type_float = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1040), align 8
+@type_double = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1120), align 8
+@type_f128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1200), align 8
+@type_typeid = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1760), align 8
+@type_any = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 2160), align 8
+@type_anyptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 2240), align 8
+@type_typeinfo = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 2000), align 8
+@type_ichar = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 160), align 8
+@type_short = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 240), align 8
+@type_int = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 320), align 8
+@type_long = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 400), align 8
+@type_i128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 480), align 8
+@type_iptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1520), align 8
+@type_isz = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1360), align 8
+@type_char = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 560), align 8
+@type_ushort = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 640), align 8
+@type_uint = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 720), align 8
+@type_ulong = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 800), align 8
+@type_u128 = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 880), align 8
+@type_uptr = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1440), align 8
+@type_usz = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1280), align 8
+@type_anyfault = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1840), align 8
+@type_untypedlist = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 2080), align 8
+@type_wildcard = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 2320), align 8
+@type_member = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1920), align 8
 @type_chars = dso_local local_unnamed_addr global ptr null, align 8
 @type_wildcard_optional = dso_local local_unnamed_addr global ptr null, align 8
-@type_string = dso_local local_unnamed_addr global ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 20, i32 0), align 8
+@type_string = dso_local local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @t, i64 1600), align 8
 @platform_target = external local_unnamed_addr global %struct.PlatformTarget, align 8
 @type_cint = dso_local local_unnamed_addr global ptr null, align 8
 @type_cuint = dso_local local_unnamed_addr global ptr null, align 8
@@ -153,7 +153,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @type_init_cint() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   switch i32 %1, label %2 [
     i32 8, label %type_int_unsigned_by_bitsize.exit
     i32 16, label %4
@@ -351,7 +351,7 @@ tailrecurse:                                      ; preds = %49, %1
   %10 = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not34 = icmp eq ptr %11, null
-  %. = select i1 %.not34, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %11
+  %. = select i1 %.not34, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %11
   %12 = load ptr, ptr %., align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
@@ -369,7 +369,7 @@ tailrecurse:                                      ; preds = %49, %1
   tail call void @scratch_buffer_append(ptr noundef %19) #14
   %20 = load ptr, ptr %10, align 8
   %.not36 = icmp eq ptr %20, null
-  %.38 = select i1 %.not36, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %20
+  %.38 = select i1 %.not36, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %20
   %21 = load ptr, ptr %.38, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
@@ -714,7 +714,7 @@ define dso_local i32 @type_size(ptr nocapture noundef readonly %0) local_unnamed
   br label %common.ret82
 
 65:                                               ; preds = %4, %4
-  %66 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @t, i64 1528), align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 56
   %68 = load i32, ptr %67, align 8
   %69 = lshr i32 %68, 7
@@ -722,7 +722,7 @@ define dso_local i32 @type_size(ptr nocapture noundef readonly %0) local_unnamed
   br label %common.ret82
 
 71:                                               ; preds = %4, %4
-  %72 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 1), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @t, i64 1528), align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = lshr i32 %74, 8
@@ -1394,7 +1394,7 @@ tailrecurse.backedge:                             ; preds = %8, %10, %12, %14, %
   %34 = getelementptr inbounds i8, ptr %32, i64 56
   %35 = load ptr, ptr %34, align 8
   %.not32 = icmp eq ptr %35, null
-  %. = select i1 %.not32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %35
+  %. = select i1 %.not32, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %35
   %36 = load ptr, ptr %., align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -1785,7 +1785,7 @@ define dso_local i32 @type_abi_alignment(ptr nocapture noundef readonly %0) loca
   br label %.backedge
 
 53:                                               ; preds = %2
-  %54 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @t, i64 1528), align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 56
   %56 = load i32, ptr %55, align 8
   %57 = lshr i32 %56, 16
@@ -1807,7 +1807,7 @@ define dso_local i32 @type_abi_alignment(ptr nocapture noundef readonly %0) loca
   br label %.loopexit
 
 69:                                               ; preds = %2, %2, %2, %2, %2
-  %70 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 1), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @t, i64 1528), align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 56
   %72 = load i32, ptr %71, align 8
   %73 = lshr i32 %72, 16
@@ -3468,12 +3468,12 @@ define dso_local void @type_func_prototype_init(i32 noundef %0) local_unnamed_ad
   %2 = zext i32 %0 to i64
   %3 = shl nuw nsw i64 %2, 4
   %4 = tail call ptr @calloc_arena(i64 noundef %3) #14
-  store ptr %4, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 3), align 8
-  store i32 %0, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 1), align 4
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @map, i64 16), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @map, i64 4), align 4
   %5 = uitofp i32 %0 to double
   %6 = fmul double %5, 5.000000e-01
   %7 = fptoui double %6 to i32
-  store i32 %7, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 2), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @map, i64 8), align 8
   ret void
 }
 
@@ -3549,9 +3549,9 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %31 = lshr i64 %.017.lcssa.i, 16
   %32 = xor i64 %31, %.017.lcssa.i
   %33 = trunc i64 %32 to i32
-  %34 = load i32, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 1), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @map, i64 4), align 4
   %35 = add i32 %34, -1
-  %36 = load ptr, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 3), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @map, i64 16), align 8
   %.01760 = and i32 %35, %33
   %37 = zext i32 %.01760 to i64
   %38 = getelementptr inbounds %struct.FuncTypeEntry, ptr %36, i64 %37
@@ -3837,19 +3837,19 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %183 = load i32, ptr @map, align 8
   %184 = add i32 %183, 1
   store i32 %184, ptr @map, align 8
-  %185 = load i32, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 2), align 8
+  %185 = load i32, ptr getelementptr inbounds (i8, ptr @map, i64 8), align 8
   %.not156.i = icmp ult i32 %184, %185
   br i1 %.not156.i, label %func_create_new_func_proto.exit, label %186
 
 186:                                              ; preds = %._crit_edge.i
-  %187 = load ptr, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 3), align 8
-  %188 = load i32, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 1), align 4
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @map, i64 16), align 8
+  %188 = load i32, ptr getelementptr inbounds (i8, ptr @map, i64 4), align 4
   %189 = shl i32 %188, 2
-  store i32 %189, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 1), align 4
+  store i32 %189, ptr getelementptr inbounds (i8, ptr @map, i64 4), align 4
   %190 = uitofp i32 %189 to double
   %191 = fmul double %190, 5.000000e-01
   %192 = fptoui double %191 to i32
-  store i32 %192, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 2), align 8
+  store i32 %192, ptr getelementptr inbounds (i8, ptr @map, i64 8), align 8
   %193 = zext i32 %189 to i64
   %194 = shl nuw nsw i64 %193, 4
   %195 = tail call ptr @calloc_arena(i64 noundef %194) #14
@@ -3892,7 +3892,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   br i1 %exitcond192.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !21
 
 ._crit_edge177.i:                                 ; preds = %207, %186
-  store ptr %195, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 3), align 8
+  store ptr %195, ptr getelementptr inbounds (i8, ptr @map, i64 16), align 8
   br label %func_create_new_func_proto.exit
 
 208:                                              ; preds = %.lr.ph, %compare_function.exit.thread
@@ -4115,7 +4115,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %2 = getelementptr inbounds i8, ptr %0, i64 292
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr @max_alignment_vector, align 4
-  %4 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 12, i64 2), align 4
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 132), align 4
   %.sroa.015.0.extract.trunc.i.i = trunc i64 %4 to i32
   %.sroa.317.0.extract.shift.i.i = lshr i64 %4, 32
   %.sroa.317.0.extract.trunc.i.i = trunc nuw i64 %.sroa.317.0.extract.shift.i.i to i32
@@ -4127,13 +4127,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %9 = and i32 %8, -16777216
   %10 = or disjoint i32 %6, %9
   %11 = or disjoint i32 %10, 528
-  store i32 13, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12, i32 3), i8 0, i64 32, i1 false)
-  store i32 %11, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.24, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 12)) #14
-  %12 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 12, i64 3), align 4
+  store i32 13, ptr getelementptr inbounds (i8, ptr @t, i64 960), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 984), i8 0, i64 32, i1 false)
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @t, i64 1016), align 8
+  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @t, i64 976), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 960), ptr getelementptr inbounds (i8, ptr @t, i64 968), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 960)) #14
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 140), align 4
   %.sroa.015.0.extract.trunc.i.i36 = trunc i64 %12 to i32
   %.sroa.317.0.extract.shift.i.i37 = lshr i64 %12, 32
   %.sroa.317.0.extract.trunc.i.i38 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i37 to i32
@@ -4145,13 +4145,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %17 = and i32 %16, -16777216
   %18 = or disjoint i32 %14, %17
   %19 = or disjoint i32 %18, 1056
-  store i32 15, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13, i32 3), i8 0, i64 32, i1 false)
-  store i32 %19, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.25, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 13)) #14
-  %20 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 12, i64 4), align 4
+  store i32 15, ptr getelementptr inbounds (i8, ptr @t, i64 1040), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1064), i8 0, i64 32, i1 false)
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @t, i64 1096), align 8
+  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @t, i64 1056), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1040), ptr getelementptr inbounds (i8, ptr @t, i64 1048), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1040)) #14
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 148), align 4
   %.sroa.015.0.extract.trunc.i.i40 = trunc i64 %20 to i32
   %.sroa.317.0.extract.shift.i.i41 = lshr i64 %20, 32
   %.sroa.317.0.extract.trunc.i.i42 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i41 to i32
@@ -4163,13 +4163,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %25 = and i32 %24, -16777216
   %26 = or disjoint i32 %22, %25
   %27 = or disjoint i32 %26, 2112
-  store i32 16, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14, i32 3), i8 0, i64 32, i1 false)
-  store i32 %27, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.26, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 14)) #14
-  %28 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 12, i64 5), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @t, i64 1120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1144), i8 0, i64 32, i1 false)
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @t, i64 1176), align 8
+  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @t, i64 1136), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1120), ptr getelementptr inbounds (i8, ptr @t, i64 1128), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1120)) #14
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 156), align 4
   %.sroa.015.0.extract.trunc.i.i44 = trunc i64 %28 to i32
   %.sroa.317.0.extract.shift.i.i45 = lshr i64 %28, 32
   %.sroa.317.0.extract.trunc.i.i46 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i45 to i32
@@ -4181,13 +4181,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %33 = and i32 %32, -16777216
   %34 = or disjoint i32 %30, %33
   %35 = or disjoint i32 %34, 4224
-  store i32 17, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15, i32 3), i8 0, i64 32, i1 false)
-  store i32 %35, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.27, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 15)) #14
-  %36 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 1), align 4
+  store i32 17, ptr getelementptr inbounds (i8, ptr @t, i64 1200), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1224), i8 0, i64 32, i1 false)
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @t, i64 1256), align 8
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @t, i64 1216), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1200), ptr getelementptr inbounds (i8, ptr @t, i64 1208), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1200)) #14
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i48 = trunc i64 %36 to i32
   %.sroa.317.0.extract.shift.i.i49 = lshr i64 %36, 32
   %.sroa.317.0.extract.trunc.i.i50 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i49 to i32
@@ -4199,13 +4199,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %41 = and i32 %40, -16777216
   %42 = or disjoint i32 %38, %41
   %43 = or disjoint i32 %42, 264
-  store i32 3, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2, i32 3), i8 0, i64 32, i1 false)
-  store i32 %43, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.28, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 2)) #14
-  %44 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 2), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @t, i64 160), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 184), i8 0, i64 32, i1 false)
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @t, i64 216), align 8
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @t, i64 176), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 160), ptr getelementptr inbounds (i8, ptr @t, i64 168), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 160)) #14
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 76), align 4
   %.sroa.015.0.extract.trunc.i.i52 = trunc i64 %44 to i32
   %.sroa.317.0.extract.shift.i.i53 = lshr i64 %44, 32
   %.sroa.317.0.extract.trunc.i.i54 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i53 to i32
@@ -4217,13 +4217,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %49 = and i32 %48, -16777216
   %50 = or disjoint i32 %46, %49
   %51 = or disjoint i32 %50, 528
-  store i32 4, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3, i32 3), i8 0, i64 32, i1 false)
-  store i32 %51, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.29, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 3)) #14
-  %52 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 3), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @t, i64 240), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 264), i8 0, i64 32, i1 false)
+  store i32 %51, ptr getelementptr inbounds (i8, ptr @t, i64 296), align 8
+  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @t, i64 256), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 240), ptr getelementptr inbounds (i8, ptr @t, i64 248), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 240)) #14
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 84), align 4
   %.sroa.015.0.extract.trunc.i.i56 = trunc i64 %52 to i32
   %.sroa.317.0.extract.shift.i.i57 = lshr i64 %52, 32
   %.sroa.317.0.extract.trunc.i.i58 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i57 to i32
@@ -4235,13 +4235,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %57 = and i32 %56, -16777216
   %58 = or disjoint i32 %54, %57
   %59 = or disjoint i32 %58, 1056
-  store i32 5, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4, i32 3), i8 0, i64 32, i1 false)
-  store i32 %59, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.30, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 4)) #14
-  %60 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 4), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @t, i64 320), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 344), i8 0, i64 32, i1 false)
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @t, i64 376), align 8
+  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @t, i64 336), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 320), ptr getelementptr inbounds (i8, ptr @t, i64 328), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 320)) #14
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 92), align 4
   %.sroa.015.0.extract.trunc.i.i60 = trunc i64 %60 to i32
   %.sroa.317.0.extract.shift.i.i61 = lshr i64 %60, 32
   %.sroa.317.0.extract.trunc.i.i62 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i61 to i32
@@ -4253,13 +4253,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %65 = and i32 %64, -16777216
   %66 = or disjoint i32 %62, %65
   %67 = or disjoint i32 %66, 2112
-  store i32 6, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5, i32 3), i8 0, i64 32, i1 false)
-  store i32 %67, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.31, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 5)) #14
-  %68 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 5), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @t, i64 400), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 424), i8 0, i64 32, i1 false)
+  store i32 %67, ptr getelementptr inbounds (i8, ptr @t, i64 456), align 8
+  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @t, i64 416), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 400), ptr getelementptr inbounds (i8, ptr @t, i64 408), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 400)) #14
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 100), align 4
   %.sroa.015.0.extract.trunc.i.i64 = trunc i64 %68 to i32
   %.sroa.317.0.extract.shift.i.i65 = lshr i64 %68, 32
   %.sroa.317.0.extract.trunc.i.i66 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i65 to i32
@@ -4271,13 +4271,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %73 = and i32 %72, -16777216
   %74 = or disjoint i32 %70, %73
   %75 = or disjoint i32 %74, 4224
-  store i32 7, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6, i32 3), i8 0, i64 32, i1 false)
-  store i32 %75, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.32, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 6)) #14
-  %76 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 1), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @t, i64 480), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 504), i8 0, i64 32, i1 false)
+  store i32 %75, ptr getelementptr inbounds (i8, ptr @t, i64 536), align 8
+  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @t, i64 496), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 480), ptr getelementptr inbounds (i8, ptr @t, i64 488), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 480)) #14
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i68 = trunc i64 %76 to i32
   %.sroa.317.0.extract.shift.i.i69 = lshr i64 %76, 32
   %.sroa.317.0.extract.trunc.i.i70 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i69 to i32
@@ -4289,13 +4289,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %81 = and i32 %80, -16777216
   %82 = or disjoint i32 %78, %81
   %83 = or disjoint i32 %82, 264
-  store i32 2, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1, i32 3), i8 0, i64 32, i1 false)
-  store i32 %83, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.33, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 1)) #14
-  %84 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 1), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @t, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 104), i8 0, i64 32, i1 false)
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @t, i64 136), align 8
+  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @t, i64 96), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 80), ptr getelementptr inbounds (i8, ptr @t, i64 88), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 80)) #14
+  %84 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i72 = trunc i64 %84 to i32
   %.sroa.317.0.extract.shift.i.i73 = lshr i64 %84, 32
   %.sroa.317.0.extract.trunc.i.i74 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i73 to i32
@@ -4307,13 +4307,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %89 = and i32 %88, -16777216
   %90 = or disjoint i32 %86, %89
   %91 = or disjoint i32 %90, 264
-  store i32 8, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7, i32 3), i8 0, i64 32, i1 false)
-  store i32 %91, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.34, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 7)) #14
-  %92 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 2), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @t, i64 560), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 584), i8 0, i64 32, i1 false)
+  store i32 %91, ptr getelementptr inbounds (i8, ptr @t, i64 616), align 8
+  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @t, i64 576), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 560), ptr getelementptr inbounds (i8, ptr @t, i64 568), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 560)) #14
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 76), align 4
   %.sroa.015.0.extract.trunc.i.i76 = trunc i64 %92 to i32
   %.sroa.317.0.extract.shift.i.i77 = lshr i64 %92, 32
   %.sroa.317.0.extract.trunc.i.i78 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i77 to i32
@@ -4325,13 +4325,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %97 = and i32 %96, -16777216
   %98 = or disjoint i32 %94, %97
   %99 = or disjoint i32 %98, 528
-  store i32 9, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8, i32 3), i8 0, i64 32, i1 false)
-  store i32 %99, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.35, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 8)) #14
-  %100 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 3), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @t, i64 640), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 664), i8 0, i64 32, i1 false)
+  store i32 %99, ptr getelementptr inbounds (i8, ptr @t, i64 696), align 8
+  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @t, i64 656), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 640), ptr getelementptr inbounds (i8, ptr @t, i64 648), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 640)) #14
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 84), align 4
   %.sroa.015.0.extract.trunc.i.i80 = trunc i64 %100 to i32
   %.sroa.317.0.extract.shift.i.i81 = lshr i64 %100, 32
   %.sroa.317.0.extract.trunc.i.i82 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i81 to i32
@@ -4343,13 +4343,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %105 = and i32 %104, -16777216
   %106 = or disjoint i32 %102, %105
   %107 = or disjoint i32 %106, 1056
-  store i32 10, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9, i32 3), i8 0, i64 32, i1 false)
-  store i32 %107, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.36, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 9)) #14
-  %108 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 4), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @t, i64 720), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 744), i8 0, i64 32, i1 false)
+  store i32 %107, ptr getelementptr inbounds (i8, ptr @t, i64 776), align 8
+  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @t, i64 736), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 720), ptr getelementptr inbounds (i8, ptr @t, i64 728), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 720)) #14
+  %108 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 92), align 4
   %.sroa.015.0.extract.trunc.i.i84 = trunc i64 %108 to i32
   %.sroa.317.0.extract.shift.i.i85 = lshr i64 %108, 32
   %.sroa.317.0.extract.trunc.i.i86 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i85 to i32
@@ -4361,13 +4361,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %113 = and i32 %112, -16777216
   %114 = or disjoint i32 %110, %113
   %115 = or disjoint i32 %114, 2112
-  store i32 11, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10, i32 3), i8 0, i64 32, i1 false)
-  store i32 %115, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.37, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 10)) #14
-  %116 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 5), align 4
+  store i32 11, ptr getelementptr inbounds (i8, ptr @t, i64 800), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 824), i8 0, i64 32, i1 false)
+  store i32 %115, ptr getelementptr inbounds (i8, ptr @t, i64 856), align 8
+  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @t, i64 816), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 800), ptr getelementptr inbounds (i8, ptr @t, i64 808), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 800)) #14
+  %116 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 100), align 4
   %.sroa.015.0.extract.trunc.i.i88 = trunc i64 %116 to i32
   %.sroa.317.0.extract.shift.i.i89 = lshr i64 %116, 32
   %.sroa.317.0.extract.trunc.i.i90 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i89 to i32
@@ -4379,13 +4379,13 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %121 = and i32 %120, -16777216
   %122 = or disjoint i32 %118, %121
   %123 = or disjoint i32 %122, 4224
-  store i32 12, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11, i32 3), i8 0, i64 32, i1 false)
-  store i32 %123, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.38, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 11)) #14
-  %124 = load i64, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 11, i64 1), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @t, i64 880), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 904), i8 0, i64 32, i1 false)
+  store i32 %123, ptr getelementptr inbounds (i8, ptr @t, i64 936), align 8
+  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @t, i64 896), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 880), ptr getelementptr inbounds (i8, ptr @t, i64 888), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 880)) #14
+  %124 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i92 = trunc i64 %124 to i32
   %.sroa.317.0.extract.shift.i.i93 = lshr i64 %124, 32
   %.sroa.317.0.extract.trunc.i.i94 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i93 to i32
@@ -4398,35 +4398,35 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %130 = or disjoint i32 %126, %129
   %131 = or disjoint i32 %130, 264
   store i32 1, ptr @t, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 0, i32 3), i8 0, i64 32, i1 false)
-  store i32 %131, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 0, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.39, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 0, i32 2), align 8
-  store ptr @t, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 0, i32 1), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 24), i8 0, i64 32, i1 false)
+  store i32 %131, ptr getelementptr inbounds (i8, ptr @t, i64 56), align 8
+  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @t, i64 16), align 8
+  store ptr @t, ptr getelementptr inbounds (i8, ptr @t, i64 8), align 8
   tail call void @global_context_add_type(ptr noundef nonnull @t) #14
-  store i32 42, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25, i32 3), i8 0, i64 32, i1 false)
-  store i32 16843009, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.9, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 25)) #14
-  store i32 43, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24, i32 3), i8 0, i64 32, i1 false)
-  store i32 16843009, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.40, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 24)) #14
-  store i32 39, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26, i32 3), i8 0, i64 32, i1 false)
-  store i32 16843009, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.41, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 26)) #14
-  store i32 41, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29, i32 3), i8 0, i64 32, i1 false)
-  store i32 16843009, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.39, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 29)) #14
+  store i32 42, ptr getelementptr inbounds (i8, ptr @t, i64 2000), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 2024), i8 0, i64 32, i1 false)
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @t, i64 2056), align 8
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @t, i64 2016), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2000), ptr getelementptr inbounds (i8, ptr @t, i64 2008), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 2000)) #14
+  store i32 43, ptr getelementptr inbounds (i8, ptr @t, i64 1920), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1944), i8 0, i64 32, i1 false)
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @t, i64 1976), align 8
+  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @t, i64 1936), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1920), ptr getelementptr inbounds (i8, ptr @t, i64 1928), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1920)) #14
+  store i32 39, ptr getelementptr inbounds (i8, ptr @t, i64 2080), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 2104), i8 0, i64 32, i1 false)
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @t, i64 2136), align 8
+  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @t, i64 2096), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2080), ptr getelementptr inbounds (i8, ptr @t, i64 2088), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 2080)) #14
+  store i32 41, ptr getelementptr inbounds (i8, ptr @t, i64 2320), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 2344), i8 0, i64 32, i1 false)
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @t, i64 2376), align 8
+  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @t, i64 2336), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2320), ptr getelementptr inbounds (i8, ptr @t, i64 2328), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 2320)) #14
   %132 = getelementptr inbounds i8, ptr %0, i64 304
   %133 = load i32, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 284
@@ -4447,12 +4447,12 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %145 = shl i32 %144, 21
   %146 = and i32 %145, -16777216
   %147 = or disjoint i32 %143, %146
-  store i32 22, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22, i32 3), i8 0, i64 32, i1 false)
-  store i32 %147, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.10, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 22)) #14
+  store i32 22, ptr getelementptr inbounds (i8, ptr @t, i64 1760), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1784), i8 0, i64 32, i1 false)
+  store i32 %147, ptr getelementptr inbounds (i8, ptr @t, i64 1816), align 8
+  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @t, i64 1776), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1760), ptr getelementptr inbounds (i8, ptr @t, i64 1768), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1760)) #14
   %148 = load i32, ptr %132, align 8
   %149 = load i64, ptr %134, align 4
   %.sroa.015.0.extract.trunc.i96 = trunc i64 %149 to i32
@@ -4471,12 +4471,12 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %159 = shl i32 %158, 21
   %160 = and i32 %159, -16777216
   %161 = or disjoint i32 %157, %160
-  store i32 23, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 3), i8 0, i64 32, i1 false)
-  store i32 %161, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.42, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21)) #14
+  store i32 23, ptr getelementptr inbounds (i8, ptr @t, i64 1680), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1704), i8 0, i64 32, i1 false)
+  store i32 %161, ptr getelementptr inbounds (i8, ptr @t, i64 1736), align 8
+  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @t, i64 1696), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1680), ptr getelementptr inbounds (i8, ptr @t, i64 1688), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1680)) #14
   %162 = load ptr, ptr @type_void, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 24
   br label %164
@@ -4546,15 +4546,15 @@ create_type_cache.exit:                           ; preds = %189
   %198 = load ptr, ptr @type_void, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21), ptr %200, align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1680), ptr %200, align 8
   %201 = load ptr, ptr @type_void, align 8
-  store ptr %201, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21, i32 7), align 8
-  store i32 18, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27, i32 3), i8 0, i64 32, i1 false)
-  store i32 16843009, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.43, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 27)) #14
+  store ptr %201, ptr getelementptr inbounds (i8, ptr @t, i64 1736), align 8
+  store i32 18, ptr getelementptr inbounds (i8, ptr @t, i64 2160), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 2184), i8 0, i64 32, i1 false)
+  store i32 16843009, ptr getelementptr inbounds (i8, ptr @t, i64 2216), align 8
+  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @t, i64 2176), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2160), ptr getelementptr inbounds (i8, ptr @t, i64 2168), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 2160)) #14
   %202 = load i32, ptr %132, align 8
   %203 = shl i32 %202, 1
   %204 = load i64, ptr %134, align 4
@@ -4574,12 +4574,12 @@ create_type_cache.exit:                           ; preds = %189
   %214 = shl i32 %213, 21
   %215 = and i32 %214, -16777216
   %216 = or disjoint i32 %212, %215
-  store i32 19, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 3), i8 0, i64 32, i1 false)
-  store i32 %216, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.44, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28)) #14
+  store i32 19, ptr getelementptr inbounds (i8, ptr @t, i64 2240), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 2264), i8 0, i64 32, i1 false)
+  store i32 %216, ptr getelementptr inbounds (i8, ptr @t, i64 2296), align 8
+  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @t, i64 2256), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2240), ptr getelementptr inbounds (i8, ptr @t, i64 2248), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 2240)) #14
   %217 = load ptr, ptr @type_any, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 24
   br label %219
@@ -4649,9 +4649,9 @@ create_type_cache.exit113:                        ; preds = %244
   %253 = load ptr, ptr @type_any, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28), ptr %255, align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 2240), ptr %255, align 8
   %256 = load ptr, ptr @type_any, align 8
-  store ptr %256, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 28, i32 7), align 8
+  store ptr %256, ptr getelementptr inbounds (i8, ptr @t, i64 2296), align 8
   %257 = load i32, ptr %132, align 8
   switch i32 %257, label %262 [
     i32 8, label %type_int_unsigned_by_bitsize.exit
@@ -4681,12 +4681,12 @@ create_type_cache.exit113:                        ; preds = %244
 type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.exit113, %258, %259, %260, %261
   %.0.in.i = phi ptr [ @type_u128, %261 ], [ @type_ulong, %260 ], [ @type_uint, %259 ], [ @type_ushort, %258 ], [ @type_char, %create_type_cache.exit113 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  store i32 31, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16), i64 4), align 4
-  store ptr %.0.i, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16, i32 1), align 8
-  store ptr @.str.45, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16, i32 3), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16)) #14
+  store i32 31, ptr getelementptr inbounds (i8, ptr @t, i64 1280), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @t, i64 1284), align 4
+  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @t, i64 1288), align 8
+  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @t, i64 1296), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @t, i64 1304), i8 0, i64 56, i1 false)
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1280)) #14
   %264 = load i32, ptr %132, align 8
   switch i32 %264, label %269 [
     i32 8, label %type_int_signed_by_bitsize.exit
@@ -4716,12 +4716,12 @@ type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.e
 type_int_signed_by_bitsize.exit:                  ; preds = %type_int_unsigned_by_bitsize.exit, %265, %266, %267, %268
   %.0.in.i114 = phi ptr [ @type_i128, %268 ], [ @type_long, %267 ], [ @type_int, %266 ], [ @type_short, %265 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit ]
   %.0.i115 = load ptr, ptr %.0.in.i114, align 8
-  store i32 31, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17), i64 4), align 4
-  store ptr %.0.i115, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17, i32 1), align 8
-  store ptr @.str.46, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17, i32 3), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 17)) #14
+  store i32 31, ptr getelementptr inbounds (i8, ptr @t, i64 1360), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @t, i64 1364), align 4
+  store ptr %.0.i115, ptr getelementptr inbounds (i8, ptr @t, i64 1368), align 8
+  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @t, i64 1376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @t, i64 1384), i8 0, i64 56, i1 false)
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1360)) #14
   %271 = load i32, ptr %132, align 8
   switch i32 %271, label %276 [
     i32 8, label %type_int_unsigned_by_bitsize.exit118
@@ -4751,12 +4751,12 @@ type_int_signed_by_bitsize.exit:                  ; preds = %type_int_unsigned_b
 type_int_unsigned_by_bitsize.exit118:             ; preds = %type_int_signed_by_bitsize.exit, %272, %273, %274, %275
   %.0.in.i116 = phi ptr [ @type_u128, %275 ], [ @type_ulong, %274 ], [ @type_uint, %273 ], [ @type_ushort, %272 ], [ @type_char, %type_int_signed_by_bitsize.exit ]
   %.0.i117 = load ptr, ptr %.0.in.i116, align 8
-  store i32 31, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18), i64 4), align 4
-  store ptr %.0.i117, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18, i32 1), align 8
-  store ptr @.str.47, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18, i32 3), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 18)) #14
+  store i32 31, ptr getelementptr inbounds (i8, ptr @t, i64 1440), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @t, i64 1444), align 4
+  store ptr %.0.i117, ptr getelementptr inbounds (i8, ptr @t, i64 1448), align 8
+  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @t, i64 1456), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @t, i64 1464), i8 0, i64 56, i1 false)
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1440)) #14
   %278 = load i32, ptr %132, align 8
   switch i32 %278, label %283 [
     i32 8, label %type_int_signed_by_bitsize.exit121
@@ -4786,14 +4786,14 @@ type_int_unsigned_by_bitsize.exit118:             ; preds = %type_int_signed_by_
 type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_by_bitsize.exit118, %279, %280, %281, %282
   %.0.in.i119 = phi ptr [ @type_i128, %282 ], [ @type_long, %281 ], [ @type_int, %280 ], [ @type_short, %279 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit118 ]
   %.0.i120 = load ptr, ptr %.0.in.i119, align 8
-  store i32 31, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19), i64 4), align 4
-  store ptr %.0.i120, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 1), align 8
-  store ptr @.str.48, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19, i32 3), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 19)) #14
-  %285 = tail call i32 @type_abi_alignment(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 21))
-  %286 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 16, i32 1), align 8
+  store i32 31, ptr getelementptr inbounds (i8, ptr @t, i64 1520), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @t, i64 1524), align 4
+  store ptr %.0.i120, ptr getelementptr inbounds (i8, ptr @t, i64 1528), align 8
+  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @t, i64 1536), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @t, i64 1544), i8 0, i64 56, i1 false)
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1520)) #14
+  %285 = tail call i32 @type_abi_alignment(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1680))
+  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @t, i64 1288), align 8
   %287 = tail call i32 @type_abi_alignment(ptr noundef %286)
   %288 = tail call i32 @llvm.umax.i32(i32 %285, i32 %287)
   store i32 %288, ptr @alignment_subarray, align 4
@@ -4817,12 +4817,12 @@ type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_b
   %301 = shl i32 %300, 21
   %302 = and i32 %301, -16777216
   %303 = or disjoint i32 %299, %302
-  store i32 21, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23, i32 3), i8 0, i64 32, i1 false)
-  store i32 %303, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23, i32 7, i32 0, i32 0), align 8
-  store ptr @.str.49, ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23, i32 2), align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23), ptr getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23, i32 1), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @t, i64 0, i32 23)) #14
+  store i32 21, ptr getelementptr inbounds (i8, ptr @t, i64 1840), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @t, i64 1864), i8 0, i64 32, i1 false)
+  store i32 %303, ptr getelementptr inbounds (i8, ptr @t, i64 1896), align 8
+  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @t, i64 1856), align 8
+  store ptr getelementptr inbounds (i8, ptr @t, i64 1840), ptr getelementptr inbounds (i8, ptr @t, i64 1848), align 8
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @t, i64 1840)) #14
   %304 = load ptr, ptr @type_char, align 8
   %305 = tail call fastcc ptr @type_generate_subarray(ptr noundef %304, i1 noundef zeroext false)
   store ptr %305, ptr @type_chars, align 8
@@ -6822,7 +6822,7 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
   %10 = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %11, null
-  %. = select i1 %.not17, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %11
+  %. = select i1 %.not17, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %11
   br label %.loopexit.sink.split
 
 12:                                               ; preds = %2, %2, %2, %2, %2, %2, %2

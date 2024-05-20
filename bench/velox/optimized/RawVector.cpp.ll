@@ -38,7 +38,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN8facebook5velox4iotaEiRNS0_10raw_vectorIiEE(i32 noundef %size, ptr nocapture noundef nonnull align 8 dereferenceable(16) %storage) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 8), align 8
   %1 = load ptr, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -268,7 +268,7 @@ define internal void @_GLOBAL__sub_I_RawVector.cpp() #10 section ".text.startup"
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i8 0, i64 24, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, ptr nonnull @__dso_handle) #16
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 8), align 8
   %2 = load ptr, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -281,7 +281,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i = sub nuw nsw i64 10000, %sub.ptr.div.i.i.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, align 8
-  %.pre1.i.i = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre1.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -294,7 +294,7 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.thread.i.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread.i.i:    ; preds = %if.then5.i.i.i
-  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox12_GLOBAL__N_18iotaDataE, i64 8), align 8
   br label %for.body.i.preheader.i.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %if.then5.i.i.i, %if.else.i.i.i, %if.then.i.i.i

@@ -458,7 +458,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_08__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_stderrthreshold, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_stderrthreshold, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_0clEv.exit"
 
@@ -493,7 +493,7 @@ declare noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_18__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_minloglevel, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_minloglevel, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_1clEv.exit"
 
@@ -725,7 +725,7 @@ declare noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17ba
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_38__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i8, [7 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_log_prefix, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_log_prefix, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont.thread.i.i.i.i
 
@@ -750,7 +750,7 @@ declare noundef zeroext i1 @_ZNK4absl14flags_internal8FlagImpl11ReadOneBoolEv(pt
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_48__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } }, ptr @FLAGS_v, i64 0, i32 1, i32 0, i32 0) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_v, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_4clEv.exit"
 

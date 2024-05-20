@@ -92,7 +92,7 @@ define internal void @flat_send_IPI_mask_allbutself(ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = load i64, ptr %0, align 8
   store i64 %5, ptr %4, align 8
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #9, !srcloc !10
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #9, !srcloc !10
   %7 = icmp slt i32 %6, 64
   br i1 %7, label %8, label %10
 
@@ -222,12 +222,12 @@ define internal noundef range(i32 0, 2) i32 @physflat_probe() #6 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @physflat_acpi_madt_oem_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %4 = icmp ugt i8 %3, 2
   br i1 %4, label %5, label %sub_0
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %7 = and i32 %6, 524288
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %sub_0, label %21

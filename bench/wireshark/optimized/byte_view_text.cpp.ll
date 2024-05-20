@@ -222,10 +222,10 @@ define void @_ZN12ByteViewTextC2ERK10QByteArray15packet_char_encP7QWidget(ptr no
   %8 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN19QAbstractScrollAreaC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %3)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 1, i64 2), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 496), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 576), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %13 unwind label %80
@@ -287,7 +287,7 @@ _ZN10QByteArrayC2ERKS_.exit:                      ; preds = %14, %23
   %39 = getelementptr inbounds i8, ptr %0, i64 194
   store i8 1, ptr %39, align 2
   %40 = getelementptr inbounds i8, ptr %0, i64 196
-  %41 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %42 = icmp eq i32 %41, 1
   %43 = select i1 %42, i32 8, i32 16
   store i32 %43, ptr %40, align 4
@@ -851,10 +851,10 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %132, %_ZN17QArrayDa
   %140 = load ptr, ptr %133, align 8
   call void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %140, i1 noundef zeroext true)
   %141 = load ptr, ptr %39, align 8
-  %142 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  %142 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   %143 = icmp ne i32 %142, 0
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %141, i1 noundef zeroext %143)
-  %144 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %144 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %145 = icmp ult i32 %144, 4
   br i1 %145, label %switch.lookup, label %149
 
@@ -868,7 +868,7 @@ switch.lookup:                                    ; preds = %139
   br label %149
 
 149:                                              ; preds = %139, %switch.lookup
-  %150 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   %151 = icmp ult i32 %150, 3
   br i1 %151, label %switch.lookup135, label %_ZN12ByteViewText17updateContextMenuEv.exit
 
@@ -1238,11 +1238,11 @@ declare void @_ZN19QAbstractScrollAreaD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12ByteViewTextD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 496), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 2, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 576), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   invoke void @_ZN5QMenu5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %5 unwind label %26
@@ -1387,7 +1387,7 @@ define void @_ZN12ByteViewText18toggleHoverAllowedEb(ptr nocapture noundef nonnu
   %5 = zext i1 %3 to i8
   store i8 %5, ptr %4, align 8
   %6 = zext i1 %1 to i32
-  store i32 %6, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   ret void
 }
 
@@ -1422,7 +1422,7 @@ define void @_ZN12ByteViewText19setHexDisplayFormatEP7QAction(ptr noundef nonnul
           to label %_ZNK8QVariant5valueI15bytes_view_typeEET_v.exit unwind label %7
 
 _ZNK8QVariant5valueI15bytes_view_typeEET_v.exit:  ; preds = %4
-  store i32 %5, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZN12ByteViewText23byteViewSettingsChangedEv(ptr noundef nonnull align 8 dereferenceable(328) %0)
   br label %6
@@ -1441,10 +1441,10 @@ _ZNK8QVariant5valueI15bytes_view_typeEET_v.exit:  ; preds = %4
 define void @_ZN12ByteViewText17updateContextMenuEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   %5 = icmp ne i32 %4, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %5)
-  %6 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %7 = icmp ult i32 %6, 4
   br i1 %7, label %switch.lookup, label %11
 
@@ -1458,7 +1458,7 @@ switch.lookup:                                    ; preds = %1
   br label %11
 
 11:                                               ; preds = %1, %switch.lookup
-  %12 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   %13 = icmp ult i32 %12, 3
   br i1 %13, label %switch.lookup6, label %19
 
@@ -1487,7 +1487,7 @@ define void @_ZN12ByteViewText20setCharacterEncodingEP7QAction(ptr noundef nonnu
           to label %_ZNK8QVariant5valueI19bytes_encoding_typeEET_v.exit unwind label %7
 
 _ZNK8QVariant5valueI19bytes_encoding_typeEET_v.exit: ; preds = %4
-  store i32 %5, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZN12ByteViewText23byteViewSettingsChangedEv(ptr noundef nonnull align 8 dereferenceable(328) %0)
   br label %6
@@ -1823,17 +1823,17 @@ declare void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12ByteViewText22updateByteViewSettingsEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %3 = icmp eq i32 %2, 1
   %4 = select i1 %3, i32 8, i32 16
   %5 = getelementptr inbounds i8, ptr %0, i64 196
   store i32 %4, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 264
   %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   %9 = icmp ne i32 %8, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext %9)
-  %10 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %11 = icmp ult i32 %10, 4
   br i1 %11, label %switch.lookup, label %15
 
@@ -1847,7 +1847,7 @@ switch.lookup:                                    ; preds = %1
   br label %15
 
 15:                                               ; preds = %1, %switch.lookup
-  %16 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   %17 = icmp ult i32 %16, 3
   br i1 %17, label %switch.lookup1, label %_ZN12ByteViewText17updateContextMenuEv.exit
 
@@ -2806,7 +2806,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i153:    ; preds = %159
   br label %.body
 
 _ZN5QListIiED2Ev.exit151:                         ; preds = %157, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i149, %_ZN5QListIiEpLERKS0_.exit147, %139, %_ZN7QStringpLE5QChar.exit
-  %165 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %165 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   switch i32 %165, label %_ZN7QStringpLE5QChar.exit165 [
     i32 0, label %167
     i32 1, label %.preheader457
@@ -3137,7 +3137,7 @@ _ZN5QListIiED2Ev.exit215:                         ; preds = %307, %_ZN17QArrayDa
   br i1 %or.cond, label %319, label %_ZN5QListI5QRectE6appendERKS0_.exit
 
 319:                                              ; preds = %_ZN5QListIiED2Ev.exit215
-  %320 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %320 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %321 = icmp ult i32 %320, 4
   br i1 %321, label %switch.lookup, label %.invoke521
 
@@ -3386,7 +3386,7 @@ _ZN5QListIiED2Ev.exit249:                         ; preds = %388, %_ZN17QArrayDa
   br i1 %or.cond20.i, label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit, label %413
 
 413:                                              ; preds = %410
-  %414 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %414 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %415 = icmp ult i32 %414, 4
   br i1 %415, label %switch.lookup536, label %.invoke521
 
@@ -3435,7 +3435,7 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
   br i1 %or.cond20.i261, label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit268.thread, label %446
 
 446:                                              ; preds = %443
-  %447 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %447 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %448 = icmp ult i32 %447, 4
   br i1 %448, label %switch.lookup539, label %.invoke521
 
@@ -3489,7 +3489,7 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
   br i1 %or.cond20.i270, label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit277, label %480
 
 480:                                              ; preds = %477
-  %481 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %481 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %482 = icmp ult i32 %481, 4
   br i1 %482, label %switch.lookup542, label %.invoke521
 
@@ -3617,7 +3617,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i287:    ; preds = %540
   br label %.body
 
 _ZN5QListIiED2Ev.exit285:                         ; preds = %538, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i283, %_ZN5QListIiEpLERKS0_.exit281, %_ZN7QStringpLE5QChar.exit279, %518, %517
-  %546 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  %546 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   %.not113 = icmp ne i32 %546, 2
   %547 = load i32, ptr %507, align 8
   %548 = icmp eq i32 %547, 0
@@ -4876,7 +4876,7 @@ define noundef zeroext i1 @_ZN12ByteViewText17addHexFormatRangeER5QListIN11QText
   br i1 %or.cond20, label %39, label %15
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %17 = icmp ult i32 %16, 4
   br i1 %17, label %switch.lookup, label %18
 
@@ -5996,7 +5996,7 @@ _Z17qRegisterMetaTypeI15bytes_view_typeEiPKc.exit: ; preds = %25, %_ZN17QArrayDa
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI15bytes_view_typeEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI15bytes_view_typeE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI15bytes_view_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI15bytes_view_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -6339,7 +6339,7 @@ _Z17qRegisterMetaTypeI19bytes_encoding_typeEiPKc.exit: ; preds = %25, %_ZN17QArr
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI19bytes_encoding_typeEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI19bytes_encoding_typeE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI19bytes_encoding_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI19bytes_encoding_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -8376,7 +8376,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI15bytes_view_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI15bytes_view_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -8482,7 +8482,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI19bytes_encoding_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI19bytes_encoding_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 

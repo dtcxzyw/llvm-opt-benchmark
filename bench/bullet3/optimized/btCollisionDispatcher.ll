@@ -67,7 +67,7 @@ $_ZTI23btCollisionPairCallback = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(20816) %this, ptr noundef %collisionConfiguration) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21btCollisionDispatcher, i64 16), ptr %this, align 8
   %m_dispatcherFlags = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_dispatcherFlags, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -324,7 +324,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21btCollisionDispatcher, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -362,7 +362,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21btCollisionDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(20816) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21btCollisionDispatcher, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -822,7 +822,7 @@ define dso_local void @_ZN21btCollisionDispatcher25dispatchAllCollisionPairsEP22
 entry:
   %collisionCallback = alloca %class.btCollisionPairCallback, align 8
   %__profile = alloca %class.CProfileSample, align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btCollisionPairCallback, i64 0, i32 0, i64 2), ptr %collisionCallback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23btCollisionPairCallback, i64 16), ptr %collisionCallback, align 8
   %m_dispatchInfo.i = getelementptr inbounds i8, ptr %collisionCallback, i64 8
   store ptr %dispatchInfo, ptr %m_dispatchInfo.i, align 8
   %m_dispatcher.i = getelementptr inbounds i8, ptr %collisionCallback, i64 16

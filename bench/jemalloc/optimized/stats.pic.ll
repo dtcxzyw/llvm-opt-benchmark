@@ -3457,7 +3457,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @stats_interval_event_handler(ptr nocapture noundef readnone %tsd, i64 noundef %elapsed) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.counter_accum_s, ptr @stats_interval_accumulated, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @stats_interval_accumulated, i64 8), align 8
   %1 = load atomic i64, ptr @stats_interval_accumulated monotonic, align 8
   br label %do.body1.i
 
@@ -3937,15 +3937,15 @@ sw.bb:                                            ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %sw.bb
-  %call.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 if.then2.i:                                       ; preds = %sw.bb
-  %call3.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call3.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 if.else4.i:                                       ; preds = %sw.bb
-  %call5.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call5.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 emitter_gen_fmt.exit:                             ; preds = %if.then.i, %if.then2.i, %if.else4.i
@@ -3962,15 +3962,15 @@ sw.bb1:                                           ; preds = %entry
   ]
 
 if.then.i39:                                      ; preds = %sw.bb1
-  %call.i40 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.200, i64 0, i64 1)) #13
+  %call.i40 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.200, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 if.then2.i37:                                     ; preds = %sw.bb1
-  %call3.i38 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.200, i64 0, i64 1)) #13
+  %call3.i38 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.200, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 if.else4.i41:                                     ; preds = %sw.bb1
-  %call5.i42 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.200, i64 0, i64 1)) #13
+  %call5.i42 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.200, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 emitter_gen_fmt.exit43:                           ; preds = %if.then.i39, %if.then2.i37, %if.else4.i41
@@ -3985,15 +3985,15 @@ sw.bb4:                                           ; preds = %entry
   ]
 
 if.then.i46:                                      ; preds = %sw.bb4
-  %call.i47 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.201, i64 0, i64 1)) #13
+  %call.i47 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.201, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 if.then2.i44:                                     ; preds = %sw.bb4
-  %call3.i45 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.201, i64 0, i64 1)) #13
+  %call3.i45 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.201, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 if.else4.i48:                                     ; preds = %sw.bb4
-  %call5.i49 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.201, i64 0, i64 1)) #13
+  %call5.i49 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.201, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 emitter_gen_fmt.exit50:                           ; preds = %if.then.i46, %if.then2.i44, %if.else4.i48
@@ -4008,15 +4008,15 @@ sw.bb7:                                           ; preds = %entry
   ]
 
 if.then.i53:                                      ; preds = %sw.bb7
-  %call.i54 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call.i54 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 if.then2.i51:                                     ; preds = %sw.bb7
-  %call3.i52 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call3.i52 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 if.else4.i55:                                     ; preds = %sw.bb7
-  %call5.i56 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call5.i56 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 emitter_gen_fmt.exit57:                           ; preds = %if.then.i53, %if.then2.i51, %if.else4.i55
@@ -4031,15 +4031,15 @@ sw.bb10:                                          ; preds = %entry
   ]
 
 if.then.i60:                                      ; preds = %sw.bb10
-  %call.i61 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.203, i64 0, i64 1)) #13
+  %call.i61 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.203, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 if.then2.i58:                                     ; preds = %sw.bb10
-  %call3.i59 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.203, i64 0, i64 1)) #13
+  %call3.i59 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.203, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 if.else4.i62:                                     ; preds = %sw.bb10
-  %call5.i63 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.203, i64 0, i64 1)) #13
+  %call5.i63 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.203, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 emitter_gen_fmt.exit64:                           ; preds = %if.then.i60, %if.then2.i58, %if.else4.i62
@@ -4054,15 +4054,15 @@ sw.bb13:                                          ; preds = %entry
   ]
 
 if.then.i67:                                      ; preds = %sw.bb13
-  %call.i68 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.204, i64 0, i64 1)) #13
+  %call.i68 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.204, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 if.then2.i65:                                     ; preds = %sw.bb13
-  %call3.i66 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.204, i64 0, i64 1)) #13
+  %call3.i66 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.204, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 if.else4.i69:                                     ; preds = %sw.bb13
-  %call5.i70 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.204, i64 0, i64 1)) #13
+  %call5.i70 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.204, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 emitter_gen_fmt.exit71:                           ; preds = %if.then.i67, %if.then2.i65, %if.else4.i69
@@ -4079,15 +4079,15 @@ sw.bb16:                                          ; preds = %entry
   ]
 
 if.then.i74:                                      ; preds = %sw.bb16
-  %call.i75 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call.i75 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 if.then2.i72:                                     ; preds = %sw.bb16
-  %call3.i73 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call3.i73 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 if.else4.i76:                                     ; preds = %sw.bb16
-  %call5.i77 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call5.i77 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 emitter_gen_fmt.exit78:                           ; preds = %if.then.i74, %if.then2.i72, %if.else4.i76
@@ -4101,15 +4101,15 @@ sw.bb22:                                          ; preds = %entry
   ]
 
 if.then.i81:                                      ; preds = %sw.bb22
-  %call.i82 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call.i82 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 if.then2.i79:                                     ; preds = %sw.bb22
-  %call3.i80 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call3.i80 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 if.else4.i83:                                     ; preds = %sw.bb22
-  %call5.i84 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.202, i64 0, i64 1)) #13
+  %call5.i84 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 emitter_gen_fmt.exit85:                           ; preds = %if.then.i81, %if.then2.i79, %if.else4.i83
@@ -4124,15 +4124,15 @@ sw.bb25:                                          ; preds = %entry
   ]
 
 if.then.i88:                                      ; preds = %sw.bb25
-  %call.i89 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.206, i64 0, i64 1)) #13
+  %call.i89 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 if.then2.i86:                                     ; preds = %sw.bb25
-  %call3.i87 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.206, i64 0, i64 1)) #13
+  %call3.i87 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 if.else4.i90:                                     ; preds = %sw.bb25
-  %call5.i91 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.206, i64 0, i64 1)) #13
+  %call5.i91 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 emitter_gen_fmt.exit92:                           ; preds = %if.then.i88, %if.then2.i86, %if.else4.i90
@@ -4147,15 +4147,15 @@ sw.bb28:                                          ; preds = %entry
   ]
 
 if.then.i95:                                      ; preds = %sw.bb28
-  %call.i96 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call.i96 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 if.then2.i93:                                     ; preds = %sw.bb28
-  %call3.i94 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call3.i94 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.208, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 if.else4.i97:                                     ; preds = %sw.bb28
-  %call5.i98 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.7, i64 0, i64 1)) #13
+  %call5.i98 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.209, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 emitter_gen_fmt.exit99:                           ; preds = %if.then.i95, %if.then2.i93, %if.else4.i97

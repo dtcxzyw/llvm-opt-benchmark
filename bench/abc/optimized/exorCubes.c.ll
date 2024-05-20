@@ -85,8 +85,8 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 ._crit_edge:                                      ; preds = %.lr.ph53, %16, %.preheader
   %.pre6063 = phi ptr [ %.pre60.pre, %.preheader ], [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
   store ptr %.pre6063, ptr @s_CubesFree, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  store i32 %0, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 7), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   store ptr %10, ptr @s_pCoverMemory, align 8
   %38 = trunc i64 %9 to i32
   %39 = add i32 %13, %38
@@ -136,9 +136,9 @@ define void @AddToFreeCubes(ptr noundef %0) local_unnamed_addr #4 {
   store ptr %0, ptr @s_CubesFree, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
-  %5 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 7), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 7), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   ret void
 }
 
@@ -149,9 +149,9 @@ define ptr @GetFreeCube() local_unnamed_addr #5 {
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @s_CubesFree, align 8
   store ptr null, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 7), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   %5 = add nsw i32 %4, -1
-  store i32 %5, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 7), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   ret ptr %1
 }
 

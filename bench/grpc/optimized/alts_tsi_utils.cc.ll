@@ -107,7 +107,7 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i, %if.end.
   %bytes16 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond18 = select i1 %tobool11.not, ptr %bytes16, ptr %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i, ptr align 1 %cond18, i64 %cond, i1 false)
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__HandshakerResp_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__HandshakerResp_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %6 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23

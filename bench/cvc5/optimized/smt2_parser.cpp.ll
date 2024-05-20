@@ -96,7 +96,7 @@ call.i.noexc:                                     ; preds = %init
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc56parser9Smt2Lexer18s_extraSymbolCharsB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc56parser9Smt2Lexer18s_extraSymbolCharsB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 17))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -172,7 +172,7 @@ call.i.noexc:                                     ; preds = %init
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc56parser9Smt2Lexer21s_printableAsciiCharsB5cxx11E, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([99 x i8], ptr @.str.2, i64 0, i64 98))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc56parser9Smt2Lexer21s_printableAsciiCharsB5cxx11E, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 98))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -211,7 +211,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 define hidden void @_ZN4cvc56parser10Smt2ParserC2EPNS_6SolverEPNS0_10SymManagerEbb(ptr noundef nonnull align 8 dereferenceable(33856) %this, ptr noundef %solver, ptr noundef %sm, i1 noundef zeroext %isStrict, i1 noundef zeroext %isSygus) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc56parser6ParserC2EPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %solver, ptr noundef %sm)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser10Smt2ParserE, i64 16), ptr %this, align 8
   %d_slex = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4cvc56parser9Smt2LexerC1Ebb(ptr noundef nonnull align 8 dereferenceable(33178) %d_slex, i1 noundef zeroext %isStrict, i1 noundef zeroext %isSygus)
           to label %invoke.cont unwind label %lpad
@@ -268,7 +268,7 @@ ehcleanup18:                                      ; preds = %ehcleanup, %lpad6
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup18 ], [ %0, %lpad ]
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser6ParserE, i64 16), ptr %this, align 8
   %d_flexInput.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_flexInput.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -302,7 +302,7 @@ declare void @_ZN4cvc56parser9Smt2StateD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(33178) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 16), ptr %this, align 8
   %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -314,7 +314,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %this, align 8
   %d_peeked.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_peeked.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -398,9 +398,9 @@ declare void @_ZN4cvc56parser14Smt2TermParser9parseTermEv(ptr sret(%"class.cvc5:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser10Smt2ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(33856) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser10Smt2ParserE, i64 16), ptr %this, align 8
   %d_cmdParser = getelementptr inbounds i8, ptr %this, i64 33768
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %d_cmdParser, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 16), ptr %d_cmdParser, align 8
   %d_table.i = getelementptr inbounds i8, ptr %this, i64 33800
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 33816
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -418,7 +418,7 @@ _ZN4cvc56parser13Smt2CmdParserD2Ev.exit:          ; preds = %entry
   %d_state = getelementptr inbounds i8, ptr %this, i64 33232
   tail call void @_ZN4cvc56parser9Smt2StateD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %d_state) #8
   %d_slex = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 0, i32 0, i64 2), ptr %d_slex, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 16), ptr %d_slex, align 8
   %d_token.i = getelementptr inbounds i8, ptr %this, i64 32944
   %3 = load ptr, ptr %d_token.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
@@ -430,7 +430,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4cvc56parser13Sm
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %_ZN4cvc56parser13Smt2CmdParserD2Ev.exit
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token.i) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i64 0, i32 0, i64 2), ptr %d_slex, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %d_slex, align 8
   %d_peeked.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %d_peeked.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -443,7 +443,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcE
 _ZN4cvc56parser9Smt2LexerD2Ev.exit:               ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i.i
   %d_inputName.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i.i) #8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser6ParserE, i64 16), ptr %this, align 8
   %d_flexInput.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_flexInput.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
@@ -495,7 +495,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser13Smt2CmdParserD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 16), ptr %this, align 8
   %d_table = getelementptr inbounds i8, ptr %this, i64 32
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -516,7 +516,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5Toke
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser13Smt2CmdParserD0Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 16), ptr %this, align 8
   %d_table.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

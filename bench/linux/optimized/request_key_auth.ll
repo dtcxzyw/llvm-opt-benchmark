@@ -132,7 +132,7 @@ define dso_local ptr @request_key_auth_new(ptr noundef %0, ptr noundef %1, ptr n
   %9 = getelementptr inbounds i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #12
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 72) #14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %116, label %14

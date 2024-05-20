@@ -208,7 +208,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr %struct.lc_time_T, ptr @C_time_locale, i64 0, i32 3, i64 %44
+  %45 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 248), i64 0, i64 %44
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -238,7 +238,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 56:                                               ; preds = %54
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr %struct.lc_time_T, ptr @C_time_locale, i64 0, i32 2, i64 %57
+  %58 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 192), i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -268,7 +268,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr %struct.lc_time_T, ptr @C_time_locale, i64 0, i32 1, i64 %70
+  %71 = getelementptr [12 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 96), i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -354,7 +354,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
   %.067.i.i = phi ptr [ %110, %108 ], [ %.0207, %105 ]
   %107 = load i8, ptr %.08.i.i, align 1
   store i8 %107, ptr %.067.i.i, align 1
-  %exitcond.i = icmp eq ptr %.08.i.i, getelementptr inbounds ([3 x i8], ptr @.str.57, i64 0, i64 2)
+  %exitcond.i = icmp eq ptr %.08.i.i, getelementptr inbounds (i8, ptr @.str.57, i64 2)
   br i1 %exitcond.i, label %_add.exit, label %108
 
 108:                                              ; preds = %.lr.ph.i.i
@@ -669,7 +669,7 @@ _conv.exit328:                                    ; preds = %.lr.ph.i.i323, %205
   %.067.i332 = phi ptr [ %213, %211 ], [ %.0207, %208 ]
   %210 = load i8, ptr %.08.i331, align 1
   store i8 %210, ptr %.067.i332, align 1
-  %exitcond755 = icmp eq ptr %.08.i331, getelementptr inbounds ([2 x i8], ptr @.str.6, i64 0, i64 1)
+  %exitcond755 = icmp eq ptr %.08.i331, getelementptr inbounds (i8, ptr @.str.6, i64 1)
   br i1 %exitcond755, label %_add.exit, label %211
 
 211:                                              ; preds = %.lr.ph.i330
@@ -749,7 +749,7 @@ _conv.exit349:                                    ; preds = %.lr.ph.i.i344, %232
   %.067.i353 = phi ptr [ %242, %240 ], [ %.0207, %237 ]
   %239 = load i8, ptr %.08.i352, align 1
   store i8 %239, ptr %.067.i353, align 1
-  %exitcond754 = icmp eq ptr %.08.i352, getelementptr inbounds ([2 x i8], ptr @.str.10, i64 0, i64 1)
+  %exitcond754 = icmp eq ptr %.08.i352, getelementptr inbounds (i8, ptr @.str.10, i64 1)
   br i1 %exitcond754, label %_add.exit, label %240
 
 240:                                              ; preds = %.lr.ph.i351
@@ -1191,7 +1191,7 @@ _yconv.exit415:                                   ; preds = %.lr.ph.i.i40.i410, 
   %.067.i426 = phi ptr [ %423, %421 ], [ %.0207, %.split214 ]
   %420 = load i8, ptr %.08.i425, align 1
   store i8 %420, ptr %.067.i426, align 1
-  %exitcond753 = icmp eq ptr %.08.i425, getelementptr inbounds ([2 x i8], ptr @.str.13, i64 0, i64 1)
+  %exitcond753 = icmp eq ptr %.08.i425, getelementptr inbounds (i8, ptr @.str.13, i64 1)
   br i1 %exitcond753, label %_add.exit429, label %421
 
 421:                                              ; preds = %.lr.ph.i424
@@ -1209,7 +1209,7 @@ _yconv.exit415:                                   ; preds = %.lr.ph.i.i40.i410, 
   %.067.i433 = phi ptr [ %428, %426 ], [ %.0207, %.split ]
   %425 = load i8, ptr %.08.i432, align 1
   store i8 %425, ptr %.067.i433, align 1
-  %exitcond = icmp eq ptr %.08.i432, getelementptr inbounds ([2 x i8], ptr @.str.14, i64 0, i64 1)
+  %exitcond = icmp eq ptr %.08.i432, getelementptr inbounds (i8, ptr @.str.14, i64 1)
   br i1 %exitcond, label %_add.exit429, label %426
 
 426:                                              ; preds = %.lr.ph.i431
@@ -1336,7 +1336,7 @@ define internal fastcc noundef ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 no
   %.067.i = phi ptr [ %38, %36 ], [ %4, %33 ]
   %35 = load i8, ptr %.08.i, align 1
   store i8 %35, ptr %.067.i, align 1
-  %exitcond = icmp eq ptr %.08.i, getelementptr inbounds ([3 x i8], ptr @.str.57, i64 0, i64 2)
+  %exitcond = icmp eq ptr %.08.i, getelementptr inbounds (i8, ptr @.str.57, i64 2)
   br i1 %exitcond, label %_add.exit, label %36
 
 36:                                               ; preds = %.lr.ph.i

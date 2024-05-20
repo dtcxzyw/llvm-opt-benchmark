@@ -871,7 +871,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %22) #21
   tail call void @gtk_widget_set_sensitive(ptr noundef %23, i32 noundef 0) #21
   store i32 0, ptr %5, align 4, !tbaa !27
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %24, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %29
 
@@ -1031,7 +1031,7 @@ define internal fastcc void @_deflicker_prepare_histogram(ptr nocapture noundef 
   %5 = alloca %struct.dt_mipmap_buffer_t, align 8
   %6 = alloca %struct.dt_dev_histogram_collection_params_t, align 8
   %7 = alloca %struct.dt_histogram_roi_t, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !114
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !114
   %9 = getelementptr inbounds i8, ptr %0, i64 664
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds i8, ptr %10, i64 1544
@@ -1039,7 +1039,7 @@ define internal fastcc void @_deflicker_prepare_histogram(ptr nocapture noundef 
   %13 = tail call ptr @dt_image_cache_get(ptr noundef %8, i32 noundef %12, i8 noundef signext 114) #21
   call void @llvm.lifetime.start.p0(i64 1856, ptr nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1856) %4, ptr noundef nonnull align 16 dereferenceable(1856) %13, i64 1856, i1 false), !tbaa.struct !116
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !114
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !114
   tail call void @dt_image_cache_read_release(ptr noundef %14, ptr noundef %13) #21
   %15 = getelementptr inbounds i8, ptr %4, i64 1488
   %16 = load i32, ptr %15, align 16, !tbaa !121
@@ -1052,7 +1052,7 @@ define internal fastcc void @_deflicker_prepare_histogram(ptr nocapture noundef 
 
 22:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !122
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !122
   %24 = load ptr, ptr %9, align 8, !tbaa !38
   %25 = getelementptr inbounds i8, ptr %24, i64 1544
   %26 = load i32, ptr %25, align 8, !tbaa !115
@@ -1066,7 +1066,7 @@ define internal fastcc void @_deflicker_prepare_histogram(ptr nocapture noundef 
   %31 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #21
   %32 = getelementptr inbounds i8, ptr %4, i64 1116
   call void (ptr, ...) @dt_control_log(ptr noundef %31, ptr noundef nonnull %32) #21
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !122
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !122
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %33, ptr noundef nonnull %5, ptr noundef nonnull @.str.46, i32 noundef 374) #21
   br label %42
 
@@ -1084,7 +1084,7 @@ define internal fastcc void @_deflicker_prepare_histogram(ptr nocapture noundef 
   store <4 x i32> %40, ptr %38, align 8, !tbaa !22
   store ptr %7, ptr %6, align 8, !tbaa !125
   call void @dt_histogram_helper(ptr noundef nonnull %6, ptr noundef %2, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %28, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null) #21
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !122
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !122
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %41, ptr noundef nonnull %5, ptr noundef nonnull @.str.46, i32 noundef 395) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
@@ -1123,7 +1123,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #8 {
 
 ; Function Attrs: nounwind uwtable
 define void @color_picker_apply(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !130
   %7 = icmp eq i32 %6, 0
@@ -1329,7 +1329,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %105, %107
   %167 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #21
   %168 = fpext float %50 to double
   %169 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %167, double noundef %168) #21
-  %170 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %171 = getelementptr inbounds i8, ptr %170, i64 120
   %172 = load i32, ptr %171, align 8, !tbaa !130
   %173 = add nsw i32 %172, 1
@@ -1339,7 +1339,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %105, %107
   %176 = tail call i64 @gtk_label_get_type() #23
   %177 = tail call ptr @g_type_check_instance_cast(ptr noundef %175, i64 noundef %176) #21
   tail call void @gtk_label_set_text(ptr noundef %177, ptr noundef %169) #21
-  %178 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %179 = getelementptr inbounds i8, ptr %178, i64 120
   %180 = load i32, ptr %179, align 8, !tbaa !130
   %181 = add nsw i32 %180, -1
@@ -1418,7 +1418,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %105, %107
   %231 = phi reassoc nsz arcp contract afn float [ %229, %217 ], [ %216, %214 ]
   %232 = fmul reassoc nsz arcp contract afn float %231, 1.160000e+02
   %233 = fadd reassoc nsz arcp contract afn float %232, -1.600000e+01
-  %234 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %235 = getelementptr inbounds i8, ptr %234, i64 120
   %236 = load i32, ptr %235, align 8, !tbaa !130
   %237 = add nsw i32 %236, 1
@@ -1428,7 +1428,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %105, %107
   tail call void @dt_bauhaus_slider_set(ptr noundef %239, float noundef %233) #21
   %240 = load ptr, ptr %3, align 16, !tbaa !50
   tail call fastcc void @_paint_hue(ptr %240)
-  %241 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %242 = getelementptr inbounds i8, ptr %241, i64 120
   %243 = load i32, ptr %242, align 8, !tbaa !130
   %244 = add nsw i32 %243, -1
@@ -1604,7 +1604,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
 71:                                               ; preds = %65, %63
   %72 = phi ptr [ %70, %65 ], [ %5, %63 ]
   %73 = phi float [ %69, %65 ], [ %61, %63 ]
-  %74 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %75 = getelementptr inbounds i8, ptr %74, i64 120
   %76 = load i32, ptr %75, align 8, !tbaa !130
   %77 = add nsw i32 %76, 1
@@ -1612,12 +1612,12 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %78 = getelementptr inbounds i8, ptr %72, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !136
   tail call void @dt_bauhaus_slider_set(ptr noundef %79, float noundef %73) #21
-  %80 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %81 = getelementptr inbounds i8, ptr %80, i64 120
   %82 = load i32, ptr %81, align 8, !tbaa !130
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %81, align 8, !tbaa !130
-  %84 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %84, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %101
 
@@ -1694,7 +1694,7 @@ define internal fastcc void @_exposure_set_white(ptr noundef %0, float noundef %
   %28 = phi float [ %26, %22 ], [ %18, %20 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 704
   %30 = load ptr, ptr %29, align 16, !tbaa !50
-  %31 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %32 = getelementptr inbounds i8, ptr %31, i64 120
   %33 = load i32, ptr %32, align 8, !tbaa !130
   %34 = add nsw i32 %33, 1
@@ -1702,12 +1702,12 @@ define internal fastcc void @_exposure_set_white(ptr noundef %0, float noundef %
   %35 = getelementptr inbounds i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !136
   tail call void @dt_bauhaus_slider_set(ptr noundef %36, float noundef %28) #21
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %38 = getelementptr inbounds i8, ptr %37, i64 120
   %39 = load i32, ptr %38, align 8, !tbaa !130
   %40 = add nsw i32 %39, -1
   store i32 %40, ptr %38, align 8, !tbaa !130
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %41, ptr noundef nonnull %0, i32 noundef 1) #21
   %42 = load float, ptr %8, align 4, !tbaa !40
   br label %43
@@ -1716,7 +1716,7 @@ define internal fastcc void @_exposure_set_white(ptr noundef %0, float noundef %
   %44 = phi float [ %42, %27 ], [ %7, %15 ], [ %7, %11 ]
   %45 = getelementptr inbounds i8, ptr %0, i64 704
   %46 = load ptr, ptr %45, align 16, !tbaa !50
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %48 = getelementptr inbounds i8, ptr %47, i64 120
   %49 = load i32, ptr %48, align 8, !tbaa !130
   %50 = add nsw i32 %49, 1
@@ -1724,12 +1724,12 @@ define internal fastcc void @_exposure_set_white(ptr noundef %0, float noundef %
   %51 = getelementptr inbounds i8, ptr %46, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !135
   tail call void @dt_bauhaus_slider_set(ptr noundef %52, float noundef %44) #21
-  %53 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %54 = getelementptr inbounds i8, ptr %53, i64 120
   %55 = load i32, ptr %54, align 8, !tbaa !130
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %54, align 8, !tbaa !130
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %57, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %58
 
@@ -1888,11 +1888,11 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %94 = load ptr, ptr %90, align 8, !tbaa !113
   %95 = tail call ptr @g_type_check_instance_cast(ptr noundef %94, i64 noundef %52) #21
   tail call void @gtk_box_pack_start(ptr noundef %93, ptr noundef %95, i32 noundef 1, i32 noundef 1, i32 noundef 0) #21
-  %96 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !142
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !142
   %97 = getelementptr inbounds i8, ptr %96, i64 328
   %98 = load float, ptr %97, align 8, !tbaa !143
   %99 = fpext float %98 to double
-  %100 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %101 = getelementptr inbounds i8, ptr %100, i64 1448
   %102 = load double, ptr %101, align 8, !tbaa !149
   %103 = fmul reassoc nsz arcp contract afn double %102, %99
@@ -1913,11 +1913,11 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %113 = tail call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef %52) #21
   %114 = getelementptr inbounds i8, ptr %9, i64 120
   store ptr %113, ptr %114, align 8, !tbaa !150
-  %115 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !142
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !142
   %116 = getelementptr inbounds i8, ptr %115, i64 328
   %117 = load float, ptr %116, align 8, !tbaa !143
   %118 = fpext float %117 to double
-  %119 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %120 = getelementptr inbounds i8, ptr %119, i64 1448
   %121 = load double, ptr %120, align 8, !tbaa !149
   %122 = fmul reassoc nsz arcp contract afn double %121, %118
@@ -1964,11 +1964,11 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %151 = tail call ptr @g_type_check_instance_cast(ptr noundef %150, i64 noundef %52) #21
   %152 = getelementptr inbounds i8, ptr %9, i64 128
   store ptr %151, ptr %152, align 16, !tbaa !151
-  %153 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !142
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !142
   %154 = getelementptr inbounds i8, ptr %153, i64 328
   %155 = load float, ptr %154, align 8, !tbaa !143
   %156 = fpext float %155 to double
-  %157 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %158 = getelementptr inbounds i8, ptr %157, i64 1448
   %159 = load double, ptr %158, align 8, !tbaa !149
   %160 = fmul reassoc nsz arcp contract afn double %159, %156
@@ -2006,7 +2006,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %185 = tail call ptr @g_type_check_instance_cast(ptr noundef %184, i64 noundef %44) #21
   %186 = tail call ptr @g_type_check_instance_cast(ptr noundef %105, i64 noundef %52) #21
   tail call void @gtk_box_pack_start(ptr noundef %185, ptr noundef %186, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
-  %187 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   %188 = getelementptr inbounds i8, ptr %187, i64 2192
   store ptr %0, ptr %188, align 8, !tbaa !152
   %189 = getelementptr inbounds i8, ptr %187, i64 2200
@@ -2055,7 +2055,7 @@ declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal void @_spot_settings_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %4 = getelementptr inbounds i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !130
   %6 = icmp eq i32 %5, 0
@@ -2068,14 +2068,14 @@ define internal void @_spot_settings_changed_callback(ptr nocapture readnone %0,
   %11 = load ptr, ptr %10, align 16, !tbaa !110
   %12 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %11) #21
   tail call void @dt_conf_set_float(ptr noundef nonnull @.str.8, float noundef %12) #21
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %14 = getelementptr inbounds i8, ptr %13, i64 120
   %15 = load i32, ptr %14, align 8, !tbaa !130
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8, !tbaa !130
   %17 = load ptr, ptr %8, align 16, !tbaa !50
   tail call fastcc void @_paint_hue(ptr %17)
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %19 = getelementptr inbounds i8, ptr %18, i64 120
   %20 = load i32, ptr %19, align 8, !tbaa !130
   %21 = add nsw i32 %20, -1
@@ -2087,7 +2087,7 @@ define internal void @_spot_settings_changed_callback(ptr nocapture readnone %0,
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %7
-  %27 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   %28 = getelementptr inbounds i8, ptr %27, i64 2696
   %29 = load ptr, ptr %28, align 8, !tbaa !157
   tail call fastcc void @_auto_set_exposure(ptr noundef nonnull %1, ptr noundef %29)
@@ -2117,7 +2117,7 @@ define internal noundef i32 @_origin_color_draw(ptr noundef %0, ptr noundef %1, 
   %9 = getelementptr inbounds i8, ptr %4, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !159
   %11 = sitofp i32 %8 to double
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %13 = getelementptr inbounds i8, ptr %12, i64 1456
   %14 = load double, ptr %13, align 8, !tbaa !160
   %15 = fmul reassoc nsz arcp contract afn double %14, %11
@@ -2126,12 +2126,12 @@ define internal noundef i32 @_origin_color_draw(ptr noundef %0, ptr noundef %1, 
   %18 = fmul reassoc nsz arcp contract afn double %14, %17
   %19 = fptosi double %18 to i32
   %20 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %16, i32 noundef %19) #21
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %22 = getelementptr inbounds i8, ptr %21, i64 1456
   %23 = load double, ptr %22, align 8, !tbaa !160
   call void @cairo_surface_set_device_scale(ptr noundef %20, double noundef %23, double noundef %23) #21
   %24 = call ptr @cairo_create(ptr noundef %20) #21
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %26 = getelementptr inbounds i8, ptr %25, i64 1448
   %27 = load double, ptr %26, align 8, !tbaa !149
   %28 = fmul reassoc nsz arcp contract afn double %27, 3.000000e+00
@@ -2180,7 +2180,7 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
   %9 = getelementptr inbounds i8, ptr %4, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !159
   %11 = sitofp i32 %8 to double
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %13 = getelementptr inbounds i8, ptr %12, i64 1456
   %14 = load double, ptr %13, align 8, !tbaa !160
   %15 = fmul reassoc nsz arcp contract afn double %14, %11
@@ -2189,12 +2189,12 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
   %18 = fmul reassoc nsz arcp contract afn double %14, %17
   %19 = fptosi double %18 to i32
   %20 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %16, i32 noundef %19) #21
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %22 = getelementptr inbounds i8, ptr %21, i64 1456
   %23 = load double, ptr %22, align 8, !tbaa !160
   call void @cairo_surface_set_device_scale(ptr noundef %20, double noundef %23, double noundef %23) #21
   %24 = call ptr @cairo_create(ptr noundef %20) #21
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %26 = getelementptr inbounds i8, ptr %25, i64 1448
   %27 = load double, ptr %26, align 8, !tbaa !149
   %28 = getelementptr inbounds i8, ptr %6, i64 112
@@ -2349,7 +2349,7 @@ define internal void @_exposure_proxy_set_exposure(ptr noundef %0, float noundef
   %9 = load ptr, ptr %8, align 16, !tbaa !50
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   store float %1, ptr %10, align 4, !tbaa !73
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %12 = getelementptr inbounds i8, ptr %11, i64 120
   %13 = load i32, ptr %12, align 8, !tbaa !130
   %14 = add nsw i32 %13, 1
@@ -2357,12 +2357,12 @@ define internal void @_exposure_proxy_set_exposure(ptr noundef %0, float noundef
   %15 = getelementptr inbounds i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !139
   tail call void @dt_bauhaus_slider_set(ptr noundef %16, float noundef %1) #21
-  %17 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %18 = getelementptr inbounds i8, ptr %17, i64 120
   %19 = load i32, ptr %18, align 8, !tbaa !130
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr %18, align 8, !tbaa !130
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %25
 
@@ -2420,7 +2420,7 @@ define internal void @_exposure_proxy_set_black(ptr noundef %0, float noundef %1
   %20 = phi float [ %18, %14 ], [ %1, %8 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 704
   %22 = load ptr, ptr %21, align 16, !tbaa !50
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %24 = getelementptr inbounds i8, ptr %23, i64 120
   %25 = load i32, ptr %24, align 8, !tbaa !130
   %26 = add nsw i32 %25, 1
@@ -2428,12 +2428,12 @@ define internal void @_exposure_proxy_set_black(ptr noundef %0, float noundef %1
   %27 = getelementptr inbounds i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !136
   tail call void @dt_bauhaus_slider_set(ptr noundef %28, float noundef %20) #21
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !129
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !129
   %30 = getelementptr inbounds i8, ptr %29, i64 120
   %31 = load i32, ptr %30, align 8, !tbaa !130
   %32 = add nsw i32 %31, -1
   store i32 %32, ptr %30, align 8, !tbaa !130
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   tail call void @dt_dev_add_history_item(ptr noundef %33, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %34
 
@@ -2454,7 +2454,7 @@ define internal float @_exposure_proxy_get_black(ptr nocapture noundef readonly 
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !50
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !102
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !102
   %5 = getelementptr inbounds i8, ptr %4, i64 2192
   %6 = load ptr, ptr %5, align 16, !tbaa !161
   %7 = icmp eq ptr %6, %0
@@ -2506,16 +2506,16 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7), align 16, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 7), align 8, !tbaa !117
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 7), align 16, !tbaa !117
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 2), align 8, !tbaa !117
-  store ptr @introspection_init.f6, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 2), align 8, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 408), align 8, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 496), align 16, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 584), align 8, !tbaa !117
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 672), align 16, !tbaa !117
+  store ptr @introspection_init.f0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 72), align 8, !tbaa !117
+  store ptr @introspection_init.f6, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 600), align 8, !tbaa !117
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -2609,11 +2609,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 16:                                               ; preds = %13
   %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.12) #21
   %18 = icmp eq i32 %17, 0
-  %19 = select i1 %18, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 0), ptr null
+  %19 = select i1 %18, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 440), ptr null
   br label %20
 
 20:                                               ; preds = %16, %13, %10, %7, %4, %1
-  %21 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), %10 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_bool_t, [16 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0), %13 ], [ %19, %16 ]
+  %21 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 176), %7 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 264), %10 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 352), %13 ], [ %19, %16 ]
   ret ptr %21
 }
 

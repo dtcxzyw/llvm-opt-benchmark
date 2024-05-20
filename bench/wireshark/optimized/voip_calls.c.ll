@@ -1134,7 +1134,7 @@ define internal void @rtp_draw(ptr noundef %0) #0 {
   br i1 %.not94, label %155, label %23
 
 23:                                               ; preds = %22
-  %24 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 99), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 524), align 4
   %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef %24) #12
   %26 = getelementptr inbounds i8, ptr %.1, i64 96
   %27 = load i16, ptr %26, align 8
@@ -1674,7 +1674,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %63
   %140 = load i32, ptr %139, align 4
   %141 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %140, ptr noundef nonnull @t38_T30_data_vals, ptr noundef nonnull @.str.37) #12
   %142 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef %141) #12
-  %143 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 99), align 4
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 524), align 4
   %144 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef %143) #12
   %145 = getelementptr inbounds i8, ptr %3, i64 153
   %146 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %144, ptr noundef %141, double noundef %138, ptr noundef nonnull %145) #12

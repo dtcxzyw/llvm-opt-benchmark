@@ -359,7 +359,7 @@ define void @_ZN15ManufTableModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %4 = alloca %struct.ws_manuf_iter, align 8
   %5 = alloca %struct.ws_manuf, align 8
   tail call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ManufTableModel, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @ws_manuf_iter_init(ptr noundef nonnull %4)
@@ -458,7 +458,7 @@ declare void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15ManufTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ManufTableModel, i64 16), ptr %0, align 8
   invoke void @_ZN15ManufTableModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %2 unwind label %8
 
@@ -997,7 +997,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %_ZN7QStringD2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN25ManufSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25ManufSortFilterProxyModel, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25ManufSortFilterProxyModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

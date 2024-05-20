@@ -539,9 +539,9 @@ if.then:                                          ; preds = %entry
   store i8 %conv, ptr @obuf, align 16
   %2 = load i32, ptr @ffasmfunc, align 4
   %conv1 = trunc i32 %2 to i8
-  store i8 %conv1, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 1), align 1
-  store ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 3), ptr @optr, align 8
-  store i8 0, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  store i8 %conv1, ptr getelementptr inbounds (i8, ptr @obuf, i64 1), align 1
+  store ptr getelementptr inbounds (i8, ptr @obuf, i64 3), ptr @optr, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   store i32 1, ptr @modstate, align 4
   %fp = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %fp, align 8
@@ -616,7 +616,7 @@ if.end5:                                          ; preds = %if.then2
 if.then7:                                         ; preds = %if.end5
   %6 = load ptr, ptr @optr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 1
-  %cmp8 = icmp ugt ptr %add.ptr, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp8 = icmp ugt ptr %add.ptr, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.then7
@@ -659,9 +659,9 @@ if.end20:                                         ; preds = %if.end17, %if.else
   br i1 %cmp21.not, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load i8, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   %inc23 = add i8 %13, 1
-  store i8 %inc23, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  store i8 %inc23, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.end20
@@ -832,9 +832,9 @@ if.then5:                                         ; preds = %for.body.if.then5_c
   %ofs11 = getelementptr inbounds [9 x %struct.anon], ptr @libbc_map, i64 0, i64 %indvars.iv.lcssa, i32 1
   %5 = load i32, ptr %ofs11, align 8
   %sub = sub nsw i32 %5, %4
-  %6 = load i8, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   %inc = add i8 %6, 1
-  store i8 %inc, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  store i8 %inc, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   %7 = load ptr, ptr @optr, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr, ptr @optr, align 8
@@ -1101,7 +1101,7 @@ if.end13.i:                                       ; preds = %if.then10
   %add.ptr14.i = getelementptr inbounds i8, ptr %4, i64 1
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 %call.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 2
-  %cmp17.i = icmp ugt ptr %add.ptr16.i, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp17.i = icmp ugt ptr %add.ptr16.i, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp17.i, label %if.then19.i, label %libdef_name.exit
 
 if.then19.i:                                      ; preds = %if.end13.i
@@ -1133,7 +1133,7 @@ if.then21:                                        ; preds = %if.else
 if.then26:                                        ; preds = %if.then21
   %11 = load ptr, ptr @optr, align 8
   %add.ptr28 = getelementptr inbounds i8, ptr %11, i64 9
-  %cmp29 = icmp ugt ptr %add.ptr28, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp29 = icmp ugt ptr %add.ptr28, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp29, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.then26
@@ -1157,7 +1157,7 @@ if.else36:                                        ; preds = %if.else
 if.then38:                                        ; preds = %if.else36
   %14 = load ptr, ptr @optr, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %14, i64 1
-  %cmp40 = icmp ugt ptr %add.ptr39, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp40 = icmp ugt ptr %add.ptr39, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp40, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.then38
@@ -1183,7 +1183,7 @@ land.lhs.true49:                                  ; preds = %if.else46
 if.then52:                                        ; preds = %land.lhs.true49
   %17 = load ptr, ptr @optr, align 8
   %add.ptr53 = getelementptr inbounds i8, ptr %17, i64 2
-  %cmp54 = icmp ugt ptr %add.ptr53, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp54 = icmp ugt ptr %add.ptr53, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp54, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.then52
@@ -1252,7 +1252,7 @@ if.end13.i:                                       ; preds = %if.end
   %add.ptr14.i = getelementptr inbounds i8, ptr %4, i64 1
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 %call.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 2
-  %cmp17.i = icmp ugt ptr %add.ptr16.i, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp17.i = icmp ugt ptr %add.ptr16.i, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp17.i, label %if.then19.i, label %libdef_name.exit
 
 if.then19.i:                                      ; preds = %if.end13.i
@@ -1269,9 +1269,9 @@ libdef_name.exit:                                 ; preds = %if.end13.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr15.i, i64 1
   store ptr %incdec.ptr, ptr @optr, align 8
   store i8 -6, ptr %add.ptr15.i, align 1
-  %8 = load i8, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   %inc = add i8 %8, 1
-  store i8 %inc, ptr getelementptr inbounds ([8192 x i8], ptr @obuf, i64 0, i64 2), align 2
+  store i8 %inc, ptr getelementptr inbounds (i8, ptr @obuf, i64 2), align 2
   br label %if.end9
 
 if.end9:                                          ; preds = %libdef_name.exit, %entry
@@ -1334,7 +1334,7 @@ if.end13:                                         ; preds = %if.end8
   %add.ptr14 = getelementptr inbounds i8, ptr %3, i64 1
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr14, i64 %n.0
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr15, i64 2
-  %cmp17 = icmp ugt ptr %add.ptr16, getelementptr inbounds ([8192 x i8], ptr @obuf, i64 1, i64 0)
+  %cmp17 = icmp ugt ptr %add.ptr16, getelementptr inbounds (i8, ptr @obuf, i64 8192)
   br i1 %cmp17, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end13

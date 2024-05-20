@@ -106,7 +106,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br label %20
 
 19:                                               ; preds = %8
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #9
   br label %20
 
 20:                                               ; preds = %19, %.loopexit30
@@ -141,7 +141,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br label %37
 
 36:                                               ; preds = %22
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @rename_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
   br label %37
 
 37:                                               ; preds = %36, %.loopexit
@@ -282,7 +282,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br i1 %.not, label %.thread22, label %22
 
 123:                                              ; preds = %.thread20
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @rename_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
   br label %.thread22
 
 .thread22:                                        ; preds = %121, %123
@@ -298,7 +298,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br i1 %.not25, label %.thread24, label %8
 
 128:                                              ; preds = %.thread22
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #9
   br label %.thread24
 
 .thread24:                                        ; preds = %126, %128
@@ -738,7 +738,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr nocapture noundef 
   br label %19
 
 18:                                               ; preds = %5
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @rename_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
   br label %19
 
 19:                                               ; preds = %18, %.loopexit
@@ -822,7 +822,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr nocapture noundef 
 
 66:                                               ; preds = %.thread9
   %.fr.le42.le85.le147 = freeze i32 %61
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @rename_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
   br label %.thread11
 
 .thread11.loopexit:                               ; preds = %64

@@ -915,7 +915,7 @@ error_severity.exit.i:                            ; preds = %29, %switch.lookup
   br i1 %exitcond.not.i.i, label %unpack_sql_state.exit.i, label %39, !llvm.loop !9
 
 unpack_sql_state.exit.i:                          ; preds = %39
-  store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull @unpack_sql_state.buf) #28
   br label %45
 
@@ -1061,7 +1061,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
 
 121:                                              ; preds = %112, %111, %105
   %122 = load i8, ptr %91, align 1
-  %exitcond.i = icmp eq ptr %91, getelementptr inbounds ([19 x i8], ptr @.str.50, i64 0, i64 18)
+  %exitcond.i = icmp eq ptr %91, getelementptr inbounds (i8, ptr @.str.50, i64 18)
   br i1 %exitcond.i, label %append_with_tabs.exit.i, label %89, !llvm.loop !10
 
 append_with_tabs.exit.i:                          ; preds = %84, %121, %48
@@ -2177,7 +2177,7 @@ err_sendstring.exit56.i:                          ; preds = %646, %645
   br i1 %exitcond.not.i.i16, label %unpack_sql_state.exit.i17, label %654, !llvm.loop !9
 
 unpack_sql_state.exit.i17:                        ; preds = %654
-  store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   %660 = load i32, ptr @recursion_depth, align 4
   %661 = icmp sgt i32 %660, 2
   br i1 %661, label %662, label %663
@@ -5212,12 +5212,12 @@ define dso_local noundef nonnull ptr @get_formatted_log_time() local_unnamed_add
   %9 = load ptr, ptr @log_timezone, align 8
   %10 = call ptr @pg_localtime(ptr noundef nonnull %1, ptr noundef %9) #28
   %11 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %10) #28
-  %12 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %13 = sdiv i64 %12, 1000
   %14 = trunc i64 %13 to i32
   %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, i32 noundef %14) #28
   %16 = load i32, ptr %2, align 4
-  store i32 %16, ptr getelementptr inbounds ([128 x i8], ptr @formatted_log_time, i64 0, i64 19), align 1
+  store i32 %16, ptr getelementptr inbounds (i8, ptr @formatted_log_time, i64 19), align 1
   br label %17
 
 17:                                               ; preds = %0, %7
@@ -5722,12 +5722,12 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
   %148 = load ptr, ptr @log_timezone, align 8
   %149 = call ptr @pg_localtime(ptr noundef nonnull %5, ptr noundef %148) #28
   %150 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %149) #28
-  %151 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
+  %151 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %152 = sdiv i64 %151, 1000
   %153 = trunc i64 %152 to i32
   %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i32 noundef %153) #28
   %155 = load i32, ptr %6, align 4
-  store i32 %155, ptr getelementptr inbounds ([128 x i8], ptr @formatted_log_time, i64 0, i64 19), align 1
+  store i32 %155, ptr getelementptr inbounds (i8, ptr @formatted_log_time, i64 19), align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
   %.not164 = icmp eq i32 %.2220, 0
@@ -5769,7 +5769,7 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
 
 168:                                              ; preds = %166, %165
   %169 = load i64, ptr @saved_timeval, align 8
-  %170 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
+  %170 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %171 = sdiv i64 %170, 1000
   %172 = trunc i64 %171 to i32
   %173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str.29, i64 noundef %169, i32 noundef %172) #28
@@ -6005,7 +6005,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader230, !llvm.loop !9
 
 unpack_sql_state.exit:                            ; preds = %.preheader230
-  store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @unpack_sql_state.buf) #28
   br label %267
 
@@ -6023,7 +6023,7 @@ unpack_sql_state.exit:                            ; preds = %.preheader230
   br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader229, !llvm.loop !9
 
 unpack_sql_state.exit186:                         ; preds = %.preheader229
-  store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @unpack_sql_state.buf) #28
   br label %267
 
@@ -6084,7 +6084,7 @@ define dso_local noundef nonnull ptr @unpack_sql_state(i32 noundef %0) local_unn
   br i1 %exitcond.not, label %8, label %2, !llvm.loop !9
 
 8:                                                ; preds = %2
-  store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   ret ptr @unpack_sql_state.buf
 }
 

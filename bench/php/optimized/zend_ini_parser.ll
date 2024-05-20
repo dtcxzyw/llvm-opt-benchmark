@@ -116,14 +116,14 @@ define dso_local range(i32 -1, 1) i32 @zend_parse_ini_file(ptr noundef %0, i1 no
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %8 = call i32 @zend_ini_open_file_for_scanning(ptr noundef %0, i32 noundef %2) #17
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = zext i1 %1 to i8
-  store i8 %11, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  store i8 %11, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %12 = call i32 @ini_parse()
   call void @shutdown_ini_scanner() #17
   %13 = icmp ne i32 %12, 0
@@ -364,7 +364,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   ]
 
 92:                                               ; preds = %85
-  %93 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %.2347, i64 -16
   %96 = getelementptr inbounds i8, ptr %93, i64 8
@@ -400,7 +400,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br label %zval_ini_dtor.exit
 
 111:                                              ; preds = %85
-  %112 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %.2347, i64 -32
   %115 = getelementptr inbounds i8, ptr %112, i64 8
@@ -472,7 +472,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br label %zval_ini_dtor.exit
 
 148:                                              ; preds = %85
-  %149 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %.2347, i64 -64
   %152 = getelementptr inbounds i8, ptr %.2347, i64 -48
@@ -581,7 +581,7 @@ zval_ini_dtor.exit428:                            ; preds = %168, %172, %177, %1
   br label %zval_ini_dtor.exit
 
 203:                                              ; preds = %85
-  %204 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %204, i64 8
   %207 = load ptr, ptr %206, align 8
@@ -620,7 +620,7 @@ zval_ini_dtor.exit428:                            ; preds = %168, %172, %177, %1
   br label %zval_ini_dtor.exit
 
 222:                                              ; preds = %85
-  %223 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %223 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %224 = trunc i8 %223 to i1
   br i1 %224, label %225, label %229
 
@@ -647,7 +647,7 @@ zend_ini_init_string.exit:                        ; preds = %225, %229
 
 231:                                              ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.2347, i64 16, i1 false)
-  %232 = load i32, ptr getelementptr inbounds (%struct._zend_ini_scanner_globals, ptr @ini_scanner_globals, i64 0, i32 12), align 4
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %.not.i432 = icmp eq i32 %232, 2
   br i1 %.not.i432, label %233, label %zval_ini_dtor.exit
 
@@ -721,7 +721,7 @@ convert_to_number.exit.thread.i:                  ; preds = %247, %244, %237
   br label %zval_ini_dtor.exit
 
 256:                                              ; preds = %85
-  %257 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %257 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %258 = trunc i8 %257 to i1
   br i1 %258, label %259, label %263
 
@@ -751,7 +751,7 @@ zend_ini_init_string.exit435:                     ; preds = %259, %263
   br label %zval_ini_dtor.exit
 
 266:                                              ; preds = %85
-  %267 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %267 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %268 = trunc i8 %267 to i1
   br i1 %268, label %269, label %273
 
@@ -823,7 +823,7 @@ zend_ini_init_string.exit438:                     ; preds = %269, %273
   br label %zval_ini_dtor.exit
 
 295:                                              ; preds = %85
-  %296 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %296 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %297 = trunc i8 %296 to i1
   br i1 %297, label %298, label %302
 
@@ -1119,7 +1119,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
   br label %zval_ini_dtor.exit
 
 416:                                              ; preds = %85
-  %417 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %417 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %418 = trunc i8 %417 to i1
   br i1 %418, label %419, label %423
 
@@ -1241,7 +1241,7 @@ zend_ini_init_string.exit444:                     ; preds = %419, %423
   %468 = getelementptr inbounds i8, ptr %467, i64 24
   %469 = getelementptr inbounds i8, ptr %467, i64 16
   %470 = load i64, ptr %469, align 8
-  %471 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %471 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %472 = trunc i8 %471 to i1
   %473 = and i64 %470, -8
   %474 = add i64 %473, 32
@@ -1540,14 +1540,14 @@ define dso_local range(i32 -1, 1) i32 @zend_parse_ini_string(ptr noundef %0, i1 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 14), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 144), align 8
   %8 = call i32 @zend_ini_prepare_string_for_scanning(ptr noundef %0, i32 noundef %2) #17
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = zext i1 %1 to i8
-  store i8 %11, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  store i8 %11, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %12 = call i32 @ini_parse()
   call void @shutdown_ini_scanner() #17
   %13 = icmp ne i32 %12, 0
@@ -1574,7 +1574,7 @@ declare i32 @ini_lex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_ini_init_string(ptr nocapture noundef writeonly %0) unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %8
 
@@ -1610,7 +1610,7 @@ define internal fastcc void @zend_ini_add_string(ptr nocapture noundef writeonly
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %3
-  %7 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %8 = trunc i8 %7 to i1
   %9 = tail call ptr @zval_get_string_func(ptr noundef nonnull %1) #17
   br i1 %8, label %10, label %31
@@ -1689,7 +1689,7 @@ define internal fastcc void @zend_ini_add_string(ptr nocapture noundef writeonly
   %49 = add i64 %48, %39
   %sext = shl i64 %49, 32
   %50 = ashr exact i64 %sext, 32
-  %51 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %51 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %52 = trunc i8 %51 to i1
   %53 = getelementptr inbounds i8, ptr %45, i64 16
   %54 = icmp uge i64 %50, %44
@@ -1919,14 +1919,14 @@ get_int_val.exit82:                               ; preds = %45, %44, %35, %32, 
 
 58:                                               ; preds = %get_int_val.exit82, %56, %54, %52, %50, %48
   %.0 = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ 0, %get_int_val.exit82 ]
-  %59 = load i32, ptr getelementptr inbounds (%struct._zend_ini_scanner_globals, ptr @ini_scanner_globals, i64 0, i32 12), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %.not78 = icmp eq i32 %59, 2
   br i1 %.not78, label %79, label %60
 
 60:                                               ; preds = %58
   %61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0) #17
   %62 = sext i32 %61 to i64
-  %63 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %64 = trunc i8 %63 to i1
   %65 = and i64 %62, -8
   %66 = add nsw i64 %65, 32
@@ -1982,7 +1982,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %12 = trunc i8 %11 to i1
   %13 = and i64 %10, -8
   %14 = add i64 %13, 32
@@ -2035,7 +2035,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0
 39:                                               ; preds = %28, %35
   %.0 = phi ptr [ %34, %28 ], [ %38, %35 ]
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #19
-  %41 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %42 = trunc i8 %41 to i1
   %43 = and i64 %40, -8
   %44 = add i64 %43, 32
@@ -2076,7 +2076,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0
   %60 = load ptr, ptr %2, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #19
-  %63 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %64 = trunc i8 %63 to i1
   %65 = and i64 %62, -8
   %66 = add i64 %65, 32
@@ -2392,7 +2392,7 @@ define internal fastcc void @ini_error(ptr noundef %0) unnamed_addr #0 {
 
 14:                                               ; preds = %12, %3
   %.0 = phi ptr [ %9, %3 ], [ %13, %12 ]
-  %15 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %20
 

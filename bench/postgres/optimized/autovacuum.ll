@@ -284,7 +284,7 @@ define internal fastcc void @AutoVacLauncherMain() unnamed_addr #3 {
   call void @MemoryContextReset(ptr noundef %34) #18
   store ptr null, ptr @DatabaseListCxt, align 8
   store ptr @DatabaseList, ptr @DatabaseList, align 8
-  store ptr @DatabaseList, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  store ptr @DatabaseList, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %35 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %36 = add i32 %35, -1
   store volatile i32 %36, ptr @InterruptHoldoffCount, align 4
@@ -359,7 +359,7 @@ define internal fastcc void @AutoVacLauncherMain() unnamed_addr #3 {
   br label %80
 
 65:                                               ; preds = %.lr.ph
-  %66 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %67 = icmp eq ptr %66, null
   %68 = icmp eq ptr %66, @DatabaseList
   %spec.select.i.i = or i1 %67, %68
@@ -398,7 +398,7 @@ define internal fastcc void @AutoVacLauncherMain() unnamed_addr #3 {
   br i1 %spec.select.i.not, label %84, label %launcher_determine_sleep.exit.i.thread
 
 84:                                               ; preds = %83
-  %85 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %86 = icmp eq ptr %85, null
   %87 = icmp eq ptr %85, @DatabaseList
   %spec.select.i.i.i = or i1 %86, %87
@@ -680,7 +680,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   br i1 %spec.select.i28.not, label %212, label %.backedge
 
 212:                                              ; preds = %209
-  %213 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %214 = icmp eq ptr %213, null
   %215 = icmp eq ptr %213, @DatabaseList
   %spec.select.i29 = or i1 %214, %215
@@ -692,7 +692,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   br i1 %.not.i30, label %.backedge, label %218
 
 218:                                              ; preds = %216
-  %219 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %.not14.i = icmp eq ptr %219, null
   %.not15.not1720.i = icmp eq ptr %219, @DatabaseList
   %.not15.not17.i = or i1 %.not14.i, %.not15.not1720.i
@@ -713,7 +713,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   %228 = add i64 %227, %168
   %229 = getelementptr i8, ptr %.sroa.0.018.i, i64 -16
   store i64 %228, ptr %229, align 8
-  %230 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %231 = icmp eq ptr %230, %.sroa.0.018.i
   br i1 %231, label %.backedge, label %232
 
@@ -725,7 +725,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   store ptr %234, ptr %236, align 8
   %237 = load ptr, ptr %.sroa.0.018.i, align 8
   store ptr %237, ptr %234, align 8
-  %238 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %239 = icmp eq ptr %238, null
   br i1 %239, label %240, label %dlist_push_head.exit.i.i
 
@@ -738,7 +738,7 @@ dlist_push_head.exit.i.i:                         ; preds = %240, %232
   store ptr %241, ptr %233, align 8
   store ptr @DatabaseList, ptr %.sroa.0.018.i, align 8
   store ptr %.sroa.0.018.i, ptr %241, align 8
-  store ptr %.sroa.0.018.i, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  store ptr %.sroa.0.018.i, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   br label %.backedge
 
 select.unfold.i:                                  ; preds = %.lr.ph.i31
@@ -764,7 +764,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i31
   br i1 %.not.i32, label %.backedge, label %251
 
 251:                                              ; preds = %249
-  %252 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %.not14.i33 = icmp eq ptr %252, null
   %.not15.not1720.i34 = icmp eq ptr %252, @DatabaseList
   %.not15.not17.i35 = or i1 %.not14.i33, %.not15.not1720.i34
@@ -785,7 +785,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i31
   %261 = add i64 %260, %168
   %262 = getelementptr i8, ptr %.sroa.0.018.i37, i64 -16
   store i64 %261, ptr %262, align 8
-  %263 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %264 = icmp eq ptr %263, %.sroa.0.018.i37
   br i1 %264, label %.backedge, label %265
 
@@ -797,7 +797,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i31
   store ptr %267, ptr %269, align 8
   %270 = load ptr, ptr %.sroa.0.018.i37, align 8
   store ptr %270, ptr %267, align 8
-  %271 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %272 = icmp eq ptr %271, null
   br i1 %272, label %273, label %dlist_push_head.exit.i.i41
 
@@ -810,7 +810,7 @@ dlist_push_head.exit.i.i41:                       ; preds = %273, %265
   store ptr %274, ptr %266, align 8
   store ptr @DatabaseList, ptr %.sroa.0.018.i37, align 8
   store ptr %.sroa.0.018.i37, ptr %274, align 8
-  store ptr %.sroa.0.018.i37, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  store ptr %.sroa.0.018.i37, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   br label %.backedge
 
 select.unfold.i38:                                ; preds = %.lr.ph.i36
@@ -1781,7 +1781,7 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
 
 20:                                               ; preds = %15, %17, %1
   %.058 = phi i32 [ 1, %17 ], [ 0, %15 ], [ 0, %1 ]
-  %21 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %.not66 = icmp eq ptr %21, null
   %.not6775102 = icmp eq ptr %21, @DatabaseList
   %.not6775 = or i1 %.not66, %.not6775102
@@ -1863,7 +1863,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %.3.lcssa = phi i32 [ %.159.lcssa, %select.unfold._crit_edge ], [ %.159.lcssa, %.lr.ph80 ], [ %.4, %53 ]
   store ptr %8, ptr @CurrentMemoryContext, align 8
   store ptr @DatabaseList, ptr @DatabaseList, align 8
-  store ptr @DatabaseList, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  store ptr @DatabaseList, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %57 = icmp sgt i32 %.3.lcssa, 0
   br i1 %57, label %58, label %.loopexit
 
@@ -1912,7 +1912,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %81 = getelementptr inbounds i8, ptr %79, i64 8
   store i64 %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %79, i64 24
-  %83 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %dlist_push_head.exit
 
@@ -1926,7 +1926,7 @@ dlist_push_head.exit:                             ; preds = %78, %85
   store ptr %86, ptr %87, align 8
   store ptr @DatabaseList, ptr %82, align 8
   store ptr %82, ptr %86, align 8
-  store ptr %82, ptr getelementptr inbounds (%struct.dlist_head, ptr @DatabaseList, i64 0, i32 0, i32 1), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !15

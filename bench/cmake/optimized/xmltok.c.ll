@@ -248,7 +248,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
 
 8:                                                ; preds = %4, %15
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %indvars.iv
+  %9 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %11 [
     i8 28, label %15
@@ -311,7 +311,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %18 to i64
-  %39 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %38
+  %39 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %41 [
     i8 28, label %42
@@ -354,7 +354,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %18 to i64
-  %55 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %54
+  %55 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %60, label %checkCharRefNumber.exit
@@ -606,7 +606,7 @@ define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr nocapture noundef rea
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %11
+  %12 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %checkCharRefNumber.exit, label %17
@@ -950,7 +950,7 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
   %.023.i = phi ptr [ %1, %.lr.ph.i ], [ %.2.i, %50 ]
   %11 = load i8, ptr %.023.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @utf8_encoding, i64 0, i32 1, i64 0), i64 0, i64 %12
+  %13 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %46 [
     i8 5, label %15
@@ -1002,7 +1002,7 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
 38:                                               ; preds = %31
   %39 = load i8, ptr %34, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @utf8_encoding, i64 0, i32 1, i64 0), i64 0, i64 %40
+  %41 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 10
   %44 = getelementptr inbounds i8, ptr %.023.i, i64 2
@@ -4004,7 +4004,7 @@ define internal i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocaptu
 .loopexit.thread:                                 ; preds = %2, %.loopexit
   %.344 = phi i32 [ %.3, %.loopexit ], [ 0, %2 ]
   %34 = sext i32 %.344 to i64
-  %35 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %34
+  %35 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %checkCharRefNumber.exit, label %40
@@ -9326,7 +9326,7 @@ define internal i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapt
 
 51:                                               ; preds = %.loopexit
   %52 = sext i32 %.3 to i64
-  %53 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %52
+  %53 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %checkCharRefNumber.exit, label %58
@@ -14851,7 +14851,7 @@ define internal i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture
 
 51:                                               ; preds = %.loopexit
   %52 = sext i32 %.3 to i64
-  %53 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i64 0, i32 1, i64 %52
+  %53 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %checkCharRefNumber.exit, label %58

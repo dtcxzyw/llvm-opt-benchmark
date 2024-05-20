@@ -914,7 +914,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   ]
 
 19:                                               ; preds = %.backedge
-  %20 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i8, ptr %.0246, i64 %21
   br label %.backedge.backedge

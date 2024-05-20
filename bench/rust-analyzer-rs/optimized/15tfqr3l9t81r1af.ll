@@ -12543,7 +12543,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %"_ZN4co
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %12, align 8, !noalias !3000
   %13 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds (<{ [3 x i8] }>, ptr @anon.4403288d20c13f5dd705abcb94830296.299, i64 0, i32 0, i64 1), ptr %13, align 8, !noalias !3000
+  store ptr getelementptr inbounds (i8, ptr @anon.4403288d20c13f5dd705abcb94830296.299, i64 1), ptr %13, align 8, !noalias !3000
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %14, align 8, !noalias !3000
   %15 = icmp ugt i64 %1, 66
@@ -13707,7 +13707,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h710d621caac76404E.
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -27496,7 +27496,7 @@ define hidden void @_ZN3ide10references13find_all_refs17h735cef89475f78d6E(ptr n
   br label %.body.thread
 
 58:                                               ; preds = %5
-  %59 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3ide10references13find_all_refs10__CALLSITE17h82e41447a6b26080E, i64 0, i32 1, i64 8) monotonic, align 8
+  %59 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3ide10references13find_all_refs10__CALLSITE17h82e41447a6b26080E, i64 16) monotonic, align 8
   switch i8 %59, label %60 [
     i8 0, label %.thread175
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -31285,7 +31285,7 @@ define noundef zeroext i1 @_ZN3ide19syntax_highlighting4tags6HlMods8contains17h3
 define void @_ZN3ide19syntax_highlighting4tags6HlMods4iter17h96aca902026aa603E(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, {} } }, i32, [1 x i32] }) align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #16 {
   store ptr @anon.4403288d20c13f5dd705abcb94830296.404, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (<{ [22 x i8] }>, ptr @anon.4403288d20c13f5dd705abcb94830296.404, i64 1, i32 0, i64 0), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.4403288d20c13f5dd705abcb94830296.404, i64 22), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %4, align 8
   ret void
@@ -31683,7 +31683,7 @@ define hidden void @_ZN3ide19syntax_highlighting9highlight17h7ed4cee2901e6ac8E(p
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %5
-  %24 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3ide19syntax_highlighting9highlight10__CALLSITE17h2b7768e3f1c44931E, i64 0, i32 1, i64 8) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3ide19syntax_highlighting9highlight10__CALLSITE17h2b7768e3f1c44931E, i64 16) monotonic, align 8
   switch i8 %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

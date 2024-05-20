@@ -4572,7 +4572,7 @@ if.then698:                                       ; preds = %if.end695
   br i1 %cmp4.i2366, label %if.then5.i2376, label %if.end.i2367
 
 if.then5.i2376:                                   ; preds = %if.then698
-  %630 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %630 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2386
 
 if.end.i2367:                                     ; preds = %if.then698
@@ -10054,7 +10054,7 @@ if.then698:                                       ; preds = %if.end695
   br i1 %cmp4.i2366, label %if.then5.i2376, label %if.end.i2367
 
 if.then5.i2376:                                   ; preds = %if.then698
-  %630 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %630 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2386
 
 if.end.i2367:                                     ; preds = %if.then698
@@ -15599,7 +15599,7 @@ if.then697:                                       ; preds = %if.end694
   br i1 %cmp4.i2478, label %if.then5.i2488, label %if.end.i2479
 
 if.then5.i2488:                                   ; preds = %if.then697
-  %657 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %657 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2498
 
 if.end.i2479:                                     ; preds = %if.then697
@@ -21153,7 +21153,7 @@ if.then697:                                       ; preds = %if.end694
   br i1 %cmp4.i2478, label %if.then5.i2488, label %if.end.i2479
 
 if.then5.i2488:                                   ; preds = %if.then697
-  %657 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %657 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2498
 
 if.end.i2479:                                     ; preds = %if.then697
@@ -26755,7 +26755,7 @@ if.then698:                                       ; preds = %if.end695
   br i1 %cmp4.i2605, label %if.then5.i2615, label %if.end.i2606
 
 if.then5.i2615:                                   ; preds = %if.then698
-  %681 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %681 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2625
 
 if.end.i2606:                                     ; preds = %if.then698
@@ -32366,7 +32366,7 @@ if.then698:                                       ; preds = %if.end695
   br i1 %cmp4.i2605, label %if.then5.i2615, label %if.end.i2606
 
 if.then5.i2615:                                   ; preds = %if.then698
-  %681 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %681 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2625
 
 if.end.i2606:                                     ; preds = %if.then698
@@ -38025,7 +38025,7 @@ if.then699:                                       ; preds = %if.end696
   br i1 %cmp4.i2737, label %if.then5.i2747, label %if.end.i2738
 
 if.then5.i2747:                                   ; preds = %if.then699
-  %705 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %705 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2757
 
 if.end.i2738:                                     ; preds = %if.then699
@@ -43693,7 +43693,7 @@ if.then699:                                       ; preds = %if.end696
   br i1 %cmp4.i2737, label %if.then5.i2747, label %if.end.i2738
 
 if.then5.i2747:                                   ; preds = %if.then699
-  %705 = load <2 x i64>, ptr getelementptr inbounds ([17 x [32 x i8]], ptr @p_mask_arr, i64 0, i64 16, i64 16), align 16
+  %705 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @p_mask_arr, i64 528), align 16
   br label %vectoredLoad128.exit2757
 
 if.end.i2738:                                     ; preds = %if.then699

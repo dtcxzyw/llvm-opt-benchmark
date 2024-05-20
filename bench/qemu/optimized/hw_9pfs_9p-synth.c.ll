@@ -294,7 +294,7 @@ if.end.i:
   %dir = alloca ptr, align 8
   store ptr null, ptr @synth_root, align 8
   tail call void @qemu_mutex_init(ptr noundef nonnull @synth_mutex) #18
-  %0 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i64 0, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @synth_root, i64 280), align 8
   %call.i = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #19
   %nlink.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %nlink.i, align 8
@@ -322,7 +322,7 @@ if.then24.i:                                      ; preds = %if.end.i
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.end.i, %if.then24.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @synth_root, i64 280), align 8
   %call.i16 = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #19
   %nlink.i19 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %nlink.i19, align 8

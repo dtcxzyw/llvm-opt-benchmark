@@ -1334,33 +1334,33 @@ define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = load ptr, ptr %18, align 8
   %22 = load i32, ptr @proto_sctp, align 4
   call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4294967295 to ptr)) #17
-  store i32 0, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @sctp_info, i8 0, i64 20, i1 false)
   %23 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #17
-  store i32 %23, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
-  store i16 -1, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 12), align 4
-  store i16 5, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 13), align 2
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 84), align 4
+  store i16 5, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 86), align 2
   %24 = load i32, ptr %12, align 4
   %25 = trunc i32 %24 to i16
-  store i16 %25, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  store i16 %25, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   %26 = load i32, ptr %14, align 8
   %27 = trunc i32 %26 to i16
-  store i16 %27, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 8), align 2
+  store i16 %27, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 30), align 2
   %28 = getelementptr inbounds i8, ptr %1, i64 208
   %29 = getelementptr inbounds i8, ptr %1, i64 216
   %30 = load ptr, ptr %29, align 8
   %31 = load <2 x i32>, ptr %28, align 8
-  store <2 x i32> %31, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 9), align 8
-  store ptr %30, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 9, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 9, i32 3), align 8
+  store <2 x i32> %31, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 32), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 48), align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 232
   %33 = getelementptr inbounds i8, ptr %1, i64 240
   %34 = load ptr, ptr %33, align 8
   %35 = load <2 x i32>, ptr %32, align 8
-  store <2 x i32> %35, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 10), align 8
-  store ptr %34, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 10, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 10, i32 3), align 8
+  store <2 x i32> %35, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 56), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 72), align 8
   %36 = load ptr, ptr %18, align 8
   %37 = load i32, ptr @hf_source_port, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 376
@@ -1436,7 +1436,7 @@ define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %72 = icmp eq i8 %71, 0
-  %73 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %74 = icmp ne i32 %73, 0
   %or.cond = select i1 %72, i1 %74, i1 false
   br i1 %or.cond, label %75, label %77
@@ -2022,7 +2022,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #17
   %14 = icmp eq i32 %13, 0
   %15 = zext i1 %14 to i32
-  store i32 %15, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 5), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 20), align 4
   %16 = icmp eq i32 %11, %12
   %17 = icmp ugt i32 %11, 11
   %or.cond = and i1 %17, %16
@@ -2046,8 +2046,8 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   %27 = tail call i32 @update_adler32(i32 noundef %23, ptr noundef %24, i64 noundef %26) #17
   %28 = icmp eq i32 %13, %27
   %29 = zext i1 %28 to i32
-  store i32 1, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 1), align 4
-  store i32 %29, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 2), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 4), align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 8), align 8
   br label %60
 
 30:                                               ; preds = %18
@@ -2064,8 +2064,8 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %39 = icmp eq i32 %13, %38
   %40 = zext i1 %39 to i32
-  store i32 1, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 3), align 4
-  store i32 %40, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 4), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 12), align 4
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 16), align 8
   br label %60
 
 41:                                               ; preds = %18
@@ -2090,10 +2090,10 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %58 = icmp eq i32 %13, %57
   %59 = zext i1 %58 to i32
-  store i32 1, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 1), align 4
-  store i32 %50, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 3), align 4
-  store i32 %59, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 4), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 4), align 4
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 12), align 4
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 16), align 8
   br label %60
 
 60:                                               ; preds = %18, %20, %30, %41, %4
@@ -2424,15 +2424,15 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
   br i1 %.not86.i, label %239, label %247
 
 239:                                              ; preds = %236
-  %240 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %241 = icmp ult i32 %240, 2048
   br i1 %241, label %242, label %246
 
 242:                                              ; preds = %239
   %243 = add nuw nsw i32 %240, 1
-  store i32 %243, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  store i32 %243, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %244 = zext nneg i32 %240 to i64
-  %245 = getelementptr %struct._sctp_info, ptr @sctp_info, i64 0, i32 15, i64 %244
+  %245 = getelementptr [2048 x ptr], ptr getelementptr inbounds (i8, ptr @sctp_info, i64 96), i64 0, i64 %244
   store ptr %238, ptr %245, align 8
   br label %247
 
@@ -2461,7 +2461,7 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
   store <2 x i32> %254, ptr %210, align 8
   store ptr %253, ptr %214, align 8
   store ptr null, ptr %215, align 8
-  %255 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %255 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %255, ptr %216, align 8
   %256 = call zeroext i8 @tvb_get_guint8(ptr noundef %238, i32 noundef 0) #17
   %257 = icmp eq i8 %256, 6
@@ -2491,11 +2491,11 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
 
 268:                                              ; preds = %266
   store i32 0, ptr %218, align 4
-  %269 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %269 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   br label %272
 
 270:                                              ; preds = %266
-  %271 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %271 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   store i32 %271, ptr %218, align 4
   br label %272
 
@@ -2508,7 +2508,7 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
 
 275:                                              ; preds = %272
   store i32 0, ptr %218, align 4
-  %276 = load ptr, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 15), align 8
+  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 96), align 8
   %277 = call i32 @tvb_get_ntohl(ptr noundef %276, i32 noundef 4) #17
   store i32 %277, ptr %219, align 8
   br label %278
@@ -2519,7 +2519,7 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
   br i1 %280, label %281, label %284
 
 281:                                              ; preds = %278
-  %282 = load ptr, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 15), align 8
+  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 96), align 8
   %283 = call i32 @tvb_get_ntohl(ptr noundef %282, i32 noundef 4) #17
   store i32 %283, ptr %219, align 8
   br label %284
@@ -2912,13 +2912,13 @@ find_assoc_index.exit:                            ; preds = %289, %321, %374, %3
   %.sroa.0.0.insert.ext.i = zext i16 %.sroa.0.0.i to i32
   %497 = load i32, ptr @hf_sctp_assoc_index, align 4
   %498 = call ptr @proto_tree_add_uint(ptr noundef %.073.i133, i32 noundef %497, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.0.0.insert.ext.i) #17
-  store i16 %.sroa.0.0.i, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 12), align 4
-  store i16 %.sroa.6.1.i, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 13), align 2
+  store i16 %.sroa.0.0.i, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 84), align 4
+  store i16 %.sroa.6.1.i, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 86), align 2
   br label %504
 
 499:                                              ; preds = %248
   %500 = load i32, ptr @hf_sctp_assoc_index, align 4
-  %501 = load i16, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 12), align 4
+  %501 = load i16, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 84), align 4
   %502 = zext i16 %501 to i32
   %503 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.073.i133, i32 noundef %500, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %502, ptr noundef nonnull @.str.465) #17
   br label %504
@@ -4167,9 +4167,9 @@ sctp_tsn.exit:                                    ; preds = %123, %124, %tsn_tre
 
 389:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
-  %390 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %390 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %390, ptr %14, align 4
-  %391 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %391 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %392 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %391, ptr %392, align 4
   %393 = getelementptr inbounds i8, ptr %14, i64 8
@@ -4211,9 +4211,9 @@ sctp_tsn.exit:                                    ; preds = %123, %124, %tsn_tre
 
 407:                                              ; preds = %405, %404, %403
   %408 = call noalias dereferenceable_or_null(20) ptr @g_malloc_n(i64 noundef 1, i64 noundef 20) #22
-  %409 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %409 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %409, ptr %408, align 4
-  %410 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %410 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %411 = getelementptr inbounds i8, ptr %408, i64 4
   store i32 %410, ptr %411, align 4
   %412 = getelementptr inbounds i8, ptr %408, i64 8
@@ -4238,9 +4238,9 @@ sctp_tsn.exit:                                    ; preds = %123, %124, %tsn_tre
 420:                                              ; preds = %418, %417, %407
   %.0133.i.i = phi ptr [ %397, %418 ], [ %397, %417 ], [ %399, %407 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13)
-  %421 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %421 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %421, ptr %13, align 4
-  %422 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %422 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %423 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %422, ptr %423, align 4
   %424 = getelementptr inbounds i8, ptr %13, i64 8
@@ -4455,9 +4455,9 @@ find_fragment.exit.i.i:                           ; preds = %.lr.ph.i.i.i
 add_fragment.exit.thread.i:                       ; preds = %475, %.critedge8.i.i, %508, %501, %.critedge3.i.i, %487, %480, %find_fragment.exit.i.i
   %.0.i50.i = phi ptr [ %448, %487 ], [ %448, %480 ], [ %448, %508 ], [ %.015.i.i.i, %find_fragment.exit.i.i ], [ %448, %.critedge3.i.i ], [ %448, %501 ], [ %448, %.critedge8.i.i ], [ %448, %475 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12)
-  %517 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %517 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %517, ptr %12, align 4
-  %518 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %518 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %519 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %518, ptr %519, align 4
   %520 = getelementptr inbounds i8, ptr %12, i64 8
@@ -4546,9 +4546,9 @@ add_fragment.exit.thread.i:                       ; preds = %475, %.critedge8.i.
 
 559:                                              ; preds = %541
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
-  %560 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %560 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %560, ptr %11, align 4
-  %561 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %561 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %562 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %561, ptr %562, align 4
   %563 = getelementptr inbounds i8, ptr %11, i64 8
@@ -4646,9 +4646,9 @@ add_fragment.exit.thread.i:                       ; preds = %475, %.critedge8.i.
 
 609:                                              ; preds = %541
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
-  %610 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %610 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %610, ptr %10, align 4
-  %611 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %611 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %612 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %611, ptr %612, align 4
   %613 = getelementptr inbounds i8, ptr %10, i64 8
@@ -5814,7 +5814,7 @@ define internal fastcc void @dissect_abort_chunk(ptr noundef %0, i16 noundef zer
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #17
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i32
-  store i32 %8, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 6), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 24), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %29, label %9
 
@@ -5947,7 +5947,7 @@ define internal fastcc void @dissect_shutdown_complete_chunk(ptr noundef %0, ptr
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #17
   %5 = and i8 %4, 1
   %6 = zext nneg i8 %5 to i32
-  store i32 %6, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 6), align 8
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 24), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 
@@ -7019,9 +7019,9 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal fastcc ptr @find_fragment(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct._frag_key, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  %6 = load <2 x i16>, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 7), align 4
+  %6 = load <2 x i16>, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
   store <2 x i16> %6, ptr %5, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 11), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 80), align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %7, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -7270,15 +7270,15 @@ dissect_heartbeat_info_parameter.exit:            ; preds = %44, %49
   br i1 %.not12.i, label %dissect_ipv4_parameter.exit, label %65
 
 65:                                               ; preds = %64
-  %66 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %67 = icmp ult i32 %66, 2048
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %65
   %69 = add nuw nsw i32 %66, 1
-  store i32 %69, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  store i32 %69, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr %struct._sctp_info, ptr @sctp_info, i64 0, i32 15, i64 %70
+  %71 = getelementptr [2048 x ptr], ptr getelementptr inbounds (i8, ptr @sctp_info, i64 96), i64 0, i64 %70
   store ptr %0, ptr %71, align 8
   br label %dissect_ipv4_parameter.exit
 
@@ -7311,15 +7311,15 @@ dissect_heartbeat_info_parameter.exit:            ; preds = %44, %49
   br i1 %.not12.i109, label %dissect_ipv4_parameter.exit, label %84
 
 84:                                               ; preds = %83
-  %85 = load i32, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %86 = icmp ult i32 %85, 2048
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %84
   %88 = add nuw nsw i32 %85, 1
-  store i32 %88, ptr getelementptr inbounds (%struct._sctp_info, ptr @sctp_info, i64 0, i32 14), align 8
+  store i32 %88, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 88), align 8
   %89 = zext nneg i32 %85 to i64
-  %90 = getelementptr %struct._sctp_info, ptr @sctp_info, i64 0, i32 15, i64 %89
+  %90 = getelementptr [2048 x ptr], ptr getelementptr inbounds (i8, ptr @sctp_info, i64 96), i64 0, i64 %89
   store ptr %0, ptr %90, align 8
   br label %dissect_ipv4_parameter.exit
 

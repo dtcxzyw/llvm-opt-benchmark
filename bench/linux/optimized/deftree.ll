@@ -641,11 +641,11 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
   %35 = phi i16 [ %9, %32 ], [ %30, %10 ]
   %36 = phi i32 [ %33, %32 ], [ %31, %10 ]
   store i32 %36, ptr %2, align 4
-  %37 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1), align 2
+  %37 = load i16, ptr getelementptr inbounds (i8, ptr @static_ltree, i64 1026), align 2
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 16, %38
   %40 = icmp sgt i32 %36, %39
-  %41 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256), align 16
+  %41 = load i16, ptr getelementptr inbounds (i8, ptr @static_ltree, i64 1024), align 16
   %42 = zext i16 %41 to i32
   %43 = shl i32 %42, %36
   %44 = trunc i32 %43 to i16
@@ -804,11 +804,11 @@ thread-pre-split:                                 ; preds = %94, %109
   %148 = phi i16 [ %122, %145 ], [ %143, %123 ]
   %149 = phi i32 [ %146, %145 ], [ %144, %123 ]
   store i32 %149, ptr %2, align 4
-  %150 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1), align 2
+  %150 = load i16, ptr getelementptr inbounds (i8, ptr @static_ltree, i64 1026), align 2
   %151 = zext i16 %150 to i32
   %152 = sub nsw i32 16, %151
   %153 = icmp sgt i32 %149, %152
-  %154 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256), align 16
+  %154 = load i16, ptr getelementptr inbounds (i8, ptr @static_ltree, i64 1024), align 16
   %155 = zext i16 %154 to i32
   %156 = shl i32 %155, %149
   %157 = trunc i32 %156 to i16

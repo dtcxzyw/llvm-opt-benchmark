@@ -24,11 +24,11 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i32 9, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, align 8
-  store ptr @.str, ptr getelementptr inbounds (%"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 0, i32 1), align 8
-  store ptr @.str.1, ptr getelementptr inbounds (%"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 0, i32 2), align 8
-  store i8 101, ptr getelementptr inbounds (%"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 0, i32 3), align 8
-  store <4 x i32> <i32 -6, i32 21, i32 6, i32 0>, ptr getelementptr inbounds (%"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 0, i32 4), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 0, i32 8), align 4
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8
+  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8
+  store i8 101, ptr getelementptr inbounds (i8, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8
+  store <4 x i32> <i32 -6, i32 21, i32 6, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #12
   br label %init.end
 

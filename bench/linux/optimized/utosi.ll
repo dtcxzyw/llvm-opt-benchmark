@@ -156,7 +156,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ut_install_interface(ptr noca
   %5 = and i64 %4, 512
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %6, i32 2336, i32 3520
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %9 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %8, i32 noundef %7, i64 noundef 24) #10
   %10 = icmp eq ptr %9, null
   br i1 %10, label %26, label %11

@@ -486,7 +486,7 @@ define internal fastcc void @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32
 
 11:                                               ; preds = %.lr.ph
   %12 = load i32, ptr @job_info, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %14 = call i32 @slurm_kill_job_step(i32 noundef %12, i32 noundef %13, i16 noundef zeroext 9, i16 noundef zeroext 0) #8
   br label %15
 

@@ -99,7 +99,7 @@ lor.lhs.false:                                    ; preds = %if.then8.i, %if.the
 
 if.end.i28:                                       ; preds = %lor.lhs.false
   store i1 true, ptr @prog_init.prog_inited, align 4
-  %4 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp.not7.i = icmp eq ptr %4, null
   br i1 %cmp.not7.i, label %for.end.i, label %for.inc.i
 
@@ -122,7 +122,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end.
   br i1 %cmp1.i, label %if.then, label %for.cond4.preheader.i
 
 for.cond4.preheader.i:                            ; preds = %for.end.i
-  %6 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp6.not10.i = icmp eq ptr %6, null
   br i1 %cmp6.not10.i, label %if.end, label %for.body7.i
 
@@ -549,7 +549,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   store i1 true, ptr @prog_init.prog_inited, align 4
-  %3 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp.not7.i = icmp eq ptr %3, null
   br i1 %cmp.not7.i, label %for.end.i, label %for.inc.i
 
@@ -572,7 +572,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end.
   br i1 %cmp1.i, label %prog_init.exit, label %for.cond4.preheader.i
 
 for.cond4.preheader.i:                            ; preds = %for.end.i
-  %5 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp6.not10.i = icmp eq ptr %5, null
   br i1 %cmp6.not10.i, label %prog_init.exit, label %for.body7.i
 
@@ -609,7 +609,7 @@ if.end15:                                         ; preds = %if.end
   call void @calculate_columns(ptr noundef nonnull @functions, ptr noundef nonnull %dc) #10
   %9 = load ptr, ptr @bio_err, align 8
   %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.23, ptr noundef %call) #10
-  %10 = load ptr, ptr getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
   %cmp17.not10 = icmp eq ptr %10, null
   br i1 %cmp17.not10, label %for.end, label %for.body.lr.ph
 
@@ -618,7 +618,7 @@ for.body.lr.ph:                                   ; preds = %if.end15
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
-  %name14 = phi ptr [ getelementptr inbounds ([0 x %struct.function_st], ptr @functions, i64 0, i64 0, i32 1), %for.body.lr.ph ], [ %name, %if.end37 ]
+  %name14 = phi ptr [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.lr.ph ], [ %name, %if.end37 ]
   %fp.013 = phi ptr [ @functions, %for.body.lr.ph ], [ %incdec.ptr, %if.end37 ]
   %tp.012 = phi i32 [ 0, %for.body.lr.ph ], [ %tp.1, %if.end37 ]
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %i.1, %if.end37 ]

@@ -572,7 +572,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   unreachable
 
 198:                                              ; preds = %186
-  %199 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  %199 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %200 = trunc i8 %199 to i1
   br i1 %200, label %201, label %207
 

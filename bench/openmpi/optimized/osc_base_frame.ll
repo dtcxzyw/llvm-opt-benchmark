@@ -104,10 +104,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_osc_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 112), align 8
   %.015.in17 = getelementptr inbounds i8, ptr %3, i64 16
   %.01518 = load volatile ptr, ptr %.015.in17, align 8
-  %.not19 = icmp eq ptr %3, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1)
+  %.not19 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 96)
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %40
@@ -132,11 +132,11 @@ define noundef i32 @ompi_osc_base_find_available(i1 noundef zeroext %0, i1 nound
   %15 = load volatile ptr, ptr %.015.in21, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   store volatile ptr %14, ptr %16, align 8
-  %17 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
+  %17 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
   %18 = add i64 %17, -1
-  store volatile i64 %18, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
+  store volatile i64 %18, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
   %19 = load volatile ptr, ptr %11, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
   tail call void @mca_base_component_close(ptr noundef nonnull %5, i32 noundef %20) #4
   %21 = getelementptr inbounds i8, ptr %.020, i64 8
   %22 = load i8, ptr @opal_uses_threads, align 1
@@ -184,7 +184,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
 40:                                               ; preds = %.lr.ph, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %.015.in = getelementptr inbounds i8, ptr %.01522, i64 16
   %.015 = load volatile ptr, ptr %.015.in, align 8
-  %.not = icmp eq ptr %.01522, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.01522, getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %40, %2
@@ -198,15 +198,15 @@ declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ompi_osc_base_finalize() #0 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %36
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 112), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load volatile ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -214,7 +214,7 @@ define internal noundef i32 @ompi_osc_base_finalize() #0 {
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
-  store volatile ptr %11, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  store volatile ptr %11, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 112), align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 288
@@ -264,7 +264,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
   br label %36
 
 36:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %37 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 2), align 8
+  %37 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 136), align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 

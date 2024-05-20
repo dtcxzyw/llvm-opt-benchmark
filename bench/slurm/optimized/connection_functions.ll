@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurmdb_connection_get(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %3 = tail call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef %0, i1 noundef zeroext true, ptr noundef %2) #2
   ret ptr %3
 }

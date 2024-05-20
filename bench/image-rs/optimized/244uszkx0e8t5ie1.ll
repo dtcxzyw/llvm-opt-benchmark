@@ -7655,7 +7655,7 @@ _ZN5image6codecs4jpeg7encoder18encode_coefficient17hbba18810899d0abbE.exit: ; pr
 
 50:                                               ; preds = %.preheader75, %75
   %.05097 = phi i8 [ 0, %.preheader75 ], [ %.1, %75 ]
-  %.sroa.0.096 = phi ptr [ getelementptr inbounds (<{ [64 x i8] }>, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 0, i32 0, i64 1), %.preheader75 ], [ %51, %75 ]
+  %.sroa.0.096 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader75 ], [ %51, %75 ]
   %51 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 1
   %52 = load i8, ptr %.sroa.0.096, align 1, !noundef !7
   %53 = zext i8 %52 to i64
@@ -7719,7 +7719,7 @@ _ZN5image6codecs4jpeg7encoder18encode_coefficient17hbba18810899d0abbE.exit: ; pr
 
 75:                                               ; preds = %103, %73
   %.1 = phi i8 [ %74, %73 ], [ 0, %103 ]
-  %76 = icmp eq ptr %51, getelementptr inbounds (<{ [64 x i8] }>, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1, i32 0, i64 0)
+  %76 = icmp eq ptr %51, getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
   br i1 %76, label %46, label %50
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60": ; preds = %.lr.ph, %110

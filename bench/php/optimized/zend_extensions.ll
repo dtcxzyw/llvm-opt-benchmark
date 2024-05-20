@@ -607,11 +607,11 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit196, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 24
@@ -661,7 +661,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   unreachable
 
 34:                                               ; preds = %._crit_edge
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %36 = load ptr, ptr %35, align 8
   %37 = add i64 %31, 7
   %38 = and i64 %37, -8
@@ -692,13 +692,13 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %35, ptr %55, align 8
-  store ptr %50, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %56
 
 56:                                               ; preds = %46, %44
   %.0 = phi ptr [ %36, %44 ], [ %51, %46 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0, i8 0, i64 %31, i1 false)
-  %57 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %57, i64 24
@@ -740,7 +740,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %79, label %84, label %86
 
 .thread:                                          ; preds = %73
-  %80 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 %76
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
@@ -760,7 +760,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 ._crit_edge205:                                   ; preds = %86, %56
   %.0167.lcssa = phi ptr [ %.0, %56 ], [ %.1168, %86 ]
-  %88 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %88, i64 24
@@ -826,7 +826,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %124, label %129, label %131
 
 .thread194:                                       ; preds = %118
-  %125 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 %121
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null

@@ -23367,7 +23367,7 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EE9push_backERKS1_.exit: ; preds = %863
           to label %865 unwind label %903
 
 865:                                              ; preds = %_ZNSt6vectorIN2mu6ParserESaIS1_EE9push_backERKS1_.exit
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i64 0, i32 0, i64 2), ptr %186, align 8
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %186, align 8
   %866 = load ptr, ptr %185, align 8
   %867 = load ptr, ptr %864, align 8
   %.not.i.i411 = icmp eq ptr %867, %866
@@ -26651,7 +26651,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
           to label %25 unwind label %.body
 
 25:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %24, align 8
   %.not14.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not14.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -26662,7 +26662,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
           to label %26 unwind label %29
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i64 0, i32 0, i64 2), ptr %.016.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 600
   %28 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 600
   %.not.i.i.i.i.i = icmp eq ptr %27, %1
@@ -26724,7 +26724,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
           to label %44 unwind label %46
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i64 0, i32 0, i64 2), ptr %.016.i.i.i.i.i30.ptr, align 8
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i30.ptr, align 8
   %45 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 600
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 600
   %.not.i.i.i.i.i37 = icmp eq ptr %45, %5

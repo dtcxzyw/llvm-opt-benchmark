@@ -473,7 +473,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_pci_irq_find_prt_entr
   br i1 %65, label %66, label %143
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %68 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 32) #10
   %69 = icmp eq ptr %68, null
   br i1 %69, label %._crit_edge, label %70

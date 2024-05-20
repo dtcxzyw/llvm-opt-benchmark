@@ -152,10 +152,10 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
   br i1 %or.cond152, label %55, label %.backedge
 
 55:                                               ; preds = %52
-  %56 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pif_t_class, i64 0, i32 8), align 8
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_pif_t_class, i64 56), align 8
   %57 = call noalias noundef ptr @malloc(i64 noundef %56) #13
   %58 = load i32, ptr @pmix_class_init_epoch, align 4
-  %59 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pif_t_class, i64 0, i32 4), align 8
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pif_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %58, %59
   br i1 %.not.i, label %61, label %60
 
@@ -177,7 +177,7 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
   %67 = getelementptr inbounds i8, ptr %57, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  %68 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pif_t_class, i64 0, i32 6), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pif_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i = icmp eq ptr %69, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread177, label %.lr.ph.i.i
@@ -229,12 +229,12 @@ pmix_strncpy.exit:                                ; preds = %77, %80
   %85 = sext i16 %84 to i32
   %86 = getelementptr inbounds i8, ptr %57, i64 412
   store i32 %85, ptr %86, align 4
-  %87 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 2), align 8
+  %87 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
   %88 = trunc i64 %87 to i32
   %89 = add i32 %88, 1
   %90 = getelementptr inbounds i8, ptr %57, i64 404
   store i32 %89, ptr %90, align 4
-  %91 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pif_base_framework, i64 0, i32 11), align 4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pif_base_framework, i64 76), align 4
   %or.cond6 = icmp ult i32 %91, 64
   br i1 %or.cond6, label %92, label %98
 
@@ -536,7 +536,7 @@ prefix.exit:                                      ; preds = %200, %.preheader.i,
   %225 = load i32, ptr %38, align 8
   %226 = getelementptr inbounds i8, ptr %57, i64 568
   store i32 %225, ptr %226, align 8
-  %227 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pif_base_framework, i64 0, i32 11), align 4
+  %227 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pif_base_framework, i64 76), align 4
   %or.cond8 = icmp ult i32 %227, 64
   br i1 %or.cond8, label %228, label %234
 
@@ -552,17 +552,17 @@ prefix.exit:                                      ; preds = %200, %.preheader.i,
   br label %234
 
 234:                                              ; preds = %233, %228, %224
-  %235 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 2), align 8
+  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 248), align 8
   %236 = getelementptr inbounds i8, ptr %57, i64 128
   store ptr %235, ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %235, i64 120
   store volatile ptr %57, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %57, i64 120
-  store ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1), ptr %238, align 8
-  store ptr %57, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 2), align 8
-  %239 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 120), ptr %238, align 8
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 248), align 8
+  %239 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
   %240 = add i64 %239, 1
-  store volatile i64 %240, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 2), align 8
+  store volatile i64 %240, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %149, %150, %135, %221, %214

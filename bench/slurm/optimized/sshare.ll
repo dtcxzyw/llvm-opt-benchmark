@@ -589,13 +589,13 @@ declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @_help_format_msg() unnamed_addr #8 {
-  %1 = load ptr, ptr getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), %0 ]
+  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split

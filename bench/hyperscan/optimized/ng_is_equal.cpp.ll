@@ -212,7 +212,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117full_check_reportE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117full_check_reportE, i64 16), ptr %ref.tmp, align 8
   %call = call fastcc noundef zeroext i1 @_ZN3ue2L10is_equal_iERKNS_8NGHolderES2_RKNS_12_GLOBAL__N_112check_reportE(ptr noundef nonnull align 8 dereferenceable(136) %a, ptr noundef nonnull align 8 dereferenceable(136) %b, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %return
 
@@ -1063,7 +1063,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_118equiv_check_reportE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_118equiv_check_reportE, i64 16), ptr %ref.tmp, align 8
   %a_rep.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %a_rep, ptr %a_rep.i, align 8
   %b_rep.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12

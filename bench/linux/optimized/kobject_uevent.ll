@@ -170,7 +170,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 
 .thread22:                                        ; preds = %46, %50
   %53 = phi i64 [ %51, %50 ], [ %44, %46 ]
-  %54 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %55 = tail call noalias align 8 dereferenceable_or_null(2592) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3520, i64 noundef 2592) #13
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread33, label %57
@@ -393,7 +393,7 @@ define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %47, label %.loopexit18, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %50 = tail call noalias align 8 dereferenceable_or_null(2592) ptr @kmalloc_trace(ptr noundef %49, i32 noundef 3520, i64 noundef 2592) #13
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit18, label %52
@@ -938,7 +938,7 @@ define internal noundef range(i32 -19, 1) i32 @uevent_net_init(ptr noundef %0) #
   store ptr @uevent_net_rcv, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %25, label %9
@@ -967,8 +967,8 @@ define internal noundef range(i32 -19, 1) i32 @uevent_net_init(ptr noundef %0) #
 
 22:                                               ; preds = %15
   call void @mutex_lock(ptr noundef nonnull @uevent_sock_mutex) #12
-  %23 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @uevent_sock_list, i64 0, i32 1), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @uevent_sock_list, i64 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @uevent_sock_list, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @uevent_sock_list, i64 8), align 8
   store ptr @uevent_sock_list, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8

@@ -92,17 +92,17 @@ _ZN2EA6EAMain16SignalToExitCodeEi.exit:           ; preds = %entry, %switch.look
 define dso_local void @_ZN2EA6EAMain23InitializeSignalHandlerEv() local_unnamed_addr #4 {
 entry:
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain10ABRTActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain10ABRTActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain10ABRTActionE, i64 136), align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain10SEGVActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain10SEGVActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain10SEGVActionE, i64 136), align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGILLActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGILLActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain12SIGILLActionE, i64 136), align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGHUPActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGHUPActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain12SIGHUPActionE, i64 136), align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGFPEActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGFPEActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain12SIGFPEActionE, i64 136), align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGBUSActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGBUSActionE, i64 0, i32 2), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN2EA6EAMain12SIGBUSActionE, i64 136), align 8
   %call = tail call i32 @sigaction(i32 noundef 6, ptr noundef nonnull @_ZN2EA6EAMain10ABRTActionE, ptr noundef null) #8
   %call1 = tail call i32 @sigaction(i32 noundef 11, ptr noundef nonnull @_ZN2EA6EAMain10SEGVActionE, ptr noundef null) #8
   %call2 = tail call i32 @sigaction(i32 noundef 4, ptr noundef nonnull @_ZN2EA6EAMain12SIGILLActionE, ptr noundef null) #8

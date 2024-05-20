@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_xts(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_generic_xts.aesni_xts = select i1 %tobool.not, ptr @aes_generic_xts, ptr @aesni_xts
@@ -94,7 +94,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_aes_xts_generic_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %div2940 = lshr i64 %keylen, 1
   %mul31 = shl i64 %div2940, 3
   %enc32 = getelementptr inbounds i8, ptr %ctx, i64 108

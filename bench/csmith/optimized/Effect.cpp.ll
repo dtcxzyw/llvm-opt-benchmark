@@ -2932,8 +2932,8 @@ define internal void @_GLOBAL__sub_I_Effect.cpp() #15 section ".text.startup" pe
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) @_ZN6Effect12empty_effectE, i8 0, i64 72, i1 false)
-  store i8 1, ptr getelementptr inbounds (%class.Effect, ptr @_ZN6Effect12empty_effectE, i64 0, i32 3), align 8
-  store i8 1, ptr getelementptr inbounds (%class.Effect, ptr @_ZN6Effect12empty_effectE, i64 0, i32 4), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN6Effect12empty_effectE, i64 72), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN6Effect12empty_effectE, i64 73), align 1
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6EffectD2Ev, ptr nonnull @_ZN6Effect12empty_effectE, ptr nonnull @__dso_handle) #23
   ret void
 }

@@ -7292,13 +7292,13 @@ declare dso_local i32 @xfrm_sk_policy_insert(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xfrm_register_km(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_km_lock) #15
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @xfrm_km_list, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @xfrm_km_list, i64 8), align 8
   store ptr @xfrm_km_list, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !128
   store volatile ptr %0, ptr %2, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @xfrm_km_list, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @xfrm_km_list, i64 8), align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @xfrm_km_lock) #15
   ret void
 }

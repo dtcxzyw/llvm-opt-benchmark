@@ -265,11 +265,11 @@ define linkonce_odr hidden void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 152
   %Default.i = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %Default.i, align 8
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i.i) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -749,7 +749,7 @@ _ZN4llvh11raw_ostream13SetUnbufferedEv.exit:      ; preds = %_ZN6hermes2vm13Muta
 
 while.cond:                                       ; preds = %while.cond.backedge, %_ZN4llvh11raw_ostream13SetUnbufferedEv.exit
   %call98 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
-  %. = select i1 %call98, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 0, i32 0, i32 0)
+  %. = select i1 %call98, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 152), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 152)
   %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.) #20
   %call104 = call fastcc noundef i32 @_ZL13readInputLinePKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %call102, ptr noundef nonnull align 8 dereferenceable(32) %code)
   switch i32 %call104, label %if.end122 [
@@ -3036,68 +3036,68 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) @_ZL20kHistoryFileBaseNameB5cxx11, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
   %call.i.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL20kHistoryFileBaseNameB5cxx11) #20
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL20kHistoryFileBaseNameB5cxx11) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str, i64 0, i64 15)) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 15)) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL20kHistoryFileBaseNameB5cxx11, i64 noundef 15) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
   %1 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL20kHistoryFileBaseNameB5cxx11, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
   store ptr @.str.4, ptr %ref.tmp.i1, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZL12PromptStringB5cxx11, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 1), align 8
-  %bf.load.i.i.i = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 2), align 4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr @_ZL12PromptStringB5cxx11, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 8), align 8
+  %bf.load.i.i.i = load i16, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 12), align 4
   %bf.clear.i.i.i = and i16 %bf.load.i.i.i, -4096
-  store i16 %bf.clear.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 2), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 4), i8 0, i64 56, i1 false)
-  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 9), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 11), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 0, i32 0, i32 0)) #20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #20
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZL12PromptStringB5cxx11, align 8
-  call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZL12PromptStringB5cxx11) #20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store i16 %bf.clear.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 12), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 16), i8 0, i64 56, i1 false)
+  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 80), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 88), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 100), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 144), align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 152)) #20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 184), align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 192)) #20
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 224), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 184), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL12PromptStringB5cxx11, align 8
+  call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 232), ptr noundef nonnull align 8 dereferenceable(145) @_ZL12PromptStringB5cxx11) #20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 232), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZL12PromptStringB5cxx11, ptr nonnull @.str.3, i64 6) #20
   call void @_ZNK4llvh2cl11initializerIA4_cE5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserISB_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(240) @_ZL12PromptStringB5cxx11)
-  store ptr @.str.5, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 7, i32 0), align 8
-  store i64 27, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL12PromptStringB5cxx11, i64 0, i32 0, i32 7, i32 1), align 8
+  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 40), align 8
+  store i64 27, ptr getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 48), align 8
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) @_ZL12PromptStringB5cxx11) #20
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL12PromptStringB5cxx11, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2)
   store ptr @.str.8, ptr %ref.tmp.i2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZL13Prompt2StringB5cxx11, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 1), align 8
-  %bf.load.i.i.i3 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 2), align 4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr @_ZL13Prompt2StringB5cxx11, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 8), align 8
+  %bf.load.i.i.i3 = load i16, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 12), align 4
   %bf.clear.i.i.i4 = and i16 %bf.load.i.i.i3, -4096
-  store i16 %bf.clear.i.i.i4, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 2), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 4), i8 0, i64 56, i1 false)
-  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 9), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
-  store i32 4, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 11), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 0, i32 0, i32 0)) #20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #20
-  store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZL13Prompt2StringB5cxx11, align 8
-  call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZL13Prompt2StringB5cxx11) #20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store i16 %bf.clear.i.i.i4, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 12), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 16), i8 0, i64 56, i1 false)
+  store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 72), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 80), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 88), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 100), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 144), align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 152)) #20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 184), align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 192)) #20
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 224), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 184), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL13Prompt2StringB5cxx11, align 8
+  call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 232), ptr noundef nonnull align 8 dereferenceable(145) @_ZL13Prompt2StringB5cxx11) #20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 232), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZL13Prompt2StringB5cxx11, ptr nonnull @.str.7, i64 7) #20
   call void @_ZNK4llvh2cl11initializerIA6_cE5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserISB_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(240) @_ZL13Prompt2StringB5cxx11)
-  store ptr @.str.9, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 7, i32 0), align 8
-  store i64 49, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZL13Prompt2StringB5cxx11, i64 0, i32 0, i32 7, i32 1), align 8
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 40), align 8
+  store i64 49, ptr getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 48), align 8
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) @_ZL13Prompt2StringB5cxx11) #20
   %3 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL13Prompt2StringB5cxx11, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2)

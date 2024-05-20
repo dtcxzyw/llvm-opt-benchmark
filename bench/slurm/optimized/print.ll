@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 4), align 4
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %print_job_from_format.exit, label %5
 
@@ -78,7 +78,7 @@ define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) l
   br label %print_job_from_format.exit
 
 print_job_from_format.exit:                       ; preds = %9, %19, %2
-  %20 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 7), align 1
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 7), align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %37
 

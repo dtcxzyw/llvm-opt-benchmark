@@ -307,7 +307,7 @@ define hidden void @zim_SQLite3_open(ptr nocapture noundef readonly %0, ptr noca
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %70
@@ -320,7 +320,7 @@ define hidden void @zim_SQLite3_open(ptr nocapture noundef readonly %0, ptr noca
 20:                                               ; preds = %18
   %21 = load ptr, ptr @zend_ce_exception, align 8
   %22 = call ptr @zend_throw_exception(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef 0) #17
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %70
@@ -346,7 +346,7 @@ define hidden void @zim_SQLite3_open(ptr nocapture noundef readonly %0, ptr noca
 29:                                               ; preds = %._crit_edge36
   %30 = load ptr, ptr @zend_ce_exception, align 8
   %31 = call ptr @zend_throw_exception(ptr noundef %30, ptr noundef nonnull @.str.3, i64 noundef 0) #17
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %70
@@ -360,7 +360,7 @@ define hidden void @zim_SQLite3_open(ptr nocapture noundef readonly %0, ptr noca
   %37 = load ptr, ptr @zend_ce_exception, align 8
   %38 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %37, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %28) #17
   call void @_efree(ptr noundef nonnull %28) #17
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %70
@@ -407,7 +407,7 @@ define hidden void @zim_SQLite3_open(ptr nocapture noundef readonly %0, ptr noca
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
   %61 = load ptr, ptr %41, align 8
   %62 = call i32 @sqlite3_set_authorizer(ptr noundef %61, ptr noundef nonnull @php_sqlite3_authorizer, ptr noundef nonnull %10) #17
-  %63 = load i32, ptr getelementptr inbounds (%struct._zend_sqlite3_globals, ptr @sqlite3_globals, i64 0, i32 1), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @sqlite3_globals, i64 8), align 8
   %.not32 = icmp eq i32 %63, 0
   br i1 %.not32, label %67, label %64
 
@@ -461,7 +461,7 @@ declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local
 define internal i32 @php_sqlite3_authorizer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [5 x %struct._zval_struct], align 16
-  %9 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 18), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %23, label %10
 
@@ -705,7 +705,7 @@ define hidden void @zim_SQLite3_close(ptr nocapture noundef readonly %0, ptr noc
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %25
@@ -809,7 +809,7 @@ define hidden void @zim_SQLite3_exec(ptr nocapture noundef readonly %0, ptr noca
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %32
@@ -821,7 +821,7 @@ define hidden void @zim_SQLite3_exec(ptr nocapture noundef readonly %0, ptr noca
 
 17:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %32
@@ -868,7 +868,7 @@ define hidden void @zim_SQLite3_version(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -906,7 +906,7 @@ define hidden void @zim_SQLite3_lastInsertRowID(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %20
@@ -919,7 +919,7 @@ define hidden void @zim_SQLite3_lastInsertRowID(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %20
@@ -951,7 +951,7 @@ define hidden void @zim_SQLite3_lastErrorCode(ptr nocapture noundef readonly %0,
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %24
@@ -964,7 +964,7 @@ define hidden void @zim_SQLite3_lastErrorCode(ptr nocapture noundef readonly %0,
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %24
@@ -1006,7 +1006,7 @@ define hidden void @zim_SQLite3_lastExtendedErrorCode(ptr nocapture noundef read
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %24
@@ -1019,7 +1019,7 @@ define hidden void @zim_SQLite3_lastExtendedErrorCode(ptr nocapture noundef read
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %24
@@ -1063,7 +1063,7 @@ define hidden void @zim_SQLite3_enableExtendedResultCodes(ptr nocapture noundef 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %32
@@ -1076,7 +1076,7 @@ define hidden void @zim_SQLite3_enableExtendedResultCodes(ptr nocapture noundef 
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %32
@@ -1122,7 +1122,7 @@ define hidden void @zim_SQLite3_lastErrorMsg(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %33
@@ -1135,7 +1135,7 @@ define hidden void @zim_SQLite3_lastErrorMsg(ptr nocapture noundef readonly %0, 
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %33
@@ -1193,7 +1193,7 @@ define hidden void @zim_SQLite3_busyTimeout(ptr nocapture noundef readonly %0, p
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %26
@@ -1206,7 +1206,7 @@ define hidden void @zim_SQLite3_busyTimeout(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %13
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %26
@@ -1245,7 +1245,7 @@ define hidden void @zim_SQLite3_loadExtension(ptr nocapture noundef readonly %0,
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %71
@@ -1257,7 +1257,7 @@ define hidden void @zim_SQLite3_loadExtension(ptr nocapture noundef readonly %0,
 
 20:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %71
@@ -1280,7 +1280,7 @@ define hidden void @zim_SQLite3_loadExtension(ptr nocapture noundef readonly %0,
 
 30:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.16) #17
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %71
@@ -1384,7 +1384,7 @@ define hidden void @zim_SQLite3_changes(ptr nocapture noundef readonly %0, ptr n
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %21
@@ -1397,7 +1397,7 @@ define hidden void @zim_SQLite3_changes(ptr nocapture noundef readonly %0, ptr n
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %21
@@ -1428,7 +1428,7 @@ define hidden void @zim_SQLite3_escapeString(ptr nocapture noundef readonly %0, 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %32
@@ -1495,7 +1495,7 @@ define hidden void @zim_SQLite3_prepare(ptr nocapture noundef readonly %0, ptr n
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %56
@@ -1507,7 +1507,7 @@ define hidden void @zim_SQLite3_prepare(ptr nocapture noundef readonly %0, ptr n
 
 17:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %56
@@ -1605,7 +1605,7 @@ define hidden void @zim_SQLite3_query(ptr nocapture noundef readonly %0, ptr nou
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %105
@@ -1617,7 +1617,7 @@ define hidden void @zim_SQLite3_query(ptr nocapture noundef readonly %0, ptr nou
 
 19:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %105
@@ -1748,7 +1748,7 @@ define hidden void @zim_SQLite3_query(ptr nocapture noundef readonly %0, ptr nou
   br label %105
 
 94:                                               ; preds = %72
-  %95 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not63 = icmp eq ptr %95, null
   br i1 %.not63, label %96, label %101
 
@@ -1798,7 +1798,7 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %100
@@ -1810,7 +1810,7 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
 
 20:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %100
@@ -1943,7 +1943,7 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
   br label %.loopexit
 
 89:                                               ; preds = %60
-  %90 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not53 = icmp eq ptr %90, null
   br i1 %.not53, label %91, label %96
 
@@ -2060,7 +2060,7 @@ define hidden void @zim_SQLite3_createFunction(ptr nocapture noundef readonly %0
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %77
@@ -2073,7 +2073,7 @@ define hidden void @zim_SQLite3_createFunction(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %77
@@ -2120,7 +2120,7 @@ define hidden void @zim_SQLite3_createFunction(ptr nocapture noundef readonly %0
   %49 = getelementptr inbounds i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
-  %51 = icmp eq ptr %50, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %51 = icmp eq ptr %50, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %48
@@ -2215,7 +2215,7 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %100
@@ -2228,7 +2228,7 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 
 22:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %100
@@ -2272,7 +2272,7 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
   %47 = getelementptr inbounds i8, ptr %30, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
-  %49 = icmp eq ptr %48, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %49 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
@@ -2322,7 +2322,7 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
   %72 = getelementptr inbounds i8, ptr %30, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %73 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
-  %74 = icmp eq ptr %73, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %74 = icmp eq ptr %73, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71
@@ -2420,7 +2420,7 @@ define hidden void @zim_SQLite3_createCollation(ptr nocapture noundef readonly %
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %67
@@ -2433,7 +2433,7 @@ define hidden void @zim_SQLite3_createCollation(ptr nocapture noundef readonly %
 
 19:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %67
@@ -2475,7 +2475,7 @@ define hidden void @zim_SQLite3_createCollation(ptr nocapture noundef readonly %
   %42 = getelementptr inbounds i8, ptr %27, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
-  %44 = icmp eq ptr %43, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %44 = icmp eq ptr %43, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
@@ -2536,7 +2536,7 @@ declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr
 define internal i32 @php_sqlite3_callback_compare(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %61
 
@@ -2613,7 +2613,7 @@ define internal i32 @php_sqlite3_callback_compare(ptr nocapture noundef readonly
   call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %49, ptr noundef %51, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull %6, ptr noundef null) #17
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #17
   call void @zval_ptr_dtor(ptr noundef nonnull %20) #17
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not144 = icmp eq ptr %52, null
   br i1 %.not144, label %53, label %60
 
@@ -2666,7 +2666,7 @@ define hidden void @zim_SQLite3_openBlob(ptr nocapture noundef readonly %0, ptr 
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %64
@@ -2678,7 +2678,7 @@ define hidden void @zim_SQLite3_openBlob(ptr nocapture noundef readonly %0, ptr 
 
 24:                                               ; preds = %22
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %64
@@ -2770,7 +2770,7 @@ define hidden void @zim_SQLite3_enableExceptions(ptr nocapture noundef readonly 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %25
@@ -2863,7 +2863,7 @@ define hidden void @zim_SQLite3_setAuthorizer(ptr noundef %0, ptr nocapture noun
 
 26:                                               ; preds = %24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %91
@@ -2957,7 +2957,7 @@ define hidden void @zim_SQLite3_setAuthorizer(ptr noundef %0, ptr nocapture noun
 70:                                               ; preds = %67, %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %71 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %72 = icmp eq ptr %71, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
+  %72 = icmp eq ptr %71, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
@@ -3023,7 +3023,7 @@ define hidden void @zim_SQLite3_backup(ptr nocapture noundef readonly %0, ptr no
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %57
@@ -3038,7 +3038,7 @@ define hidden void @zim_SQLite3_backup(ptr nocapture noundef readonly %0, ptr no
 
 21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %57
@@ -3053,7 +3053,7 @@ define hidden void @zim_SQLite3_backup(ptr nocapture noundef readonly %0, ptr no
 
 29:                                               ; preds = %24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %57
@@ -3153,7 +3153,7 @@ define hidden void @zim_SQLite3Stmt_paramCount(ptr nocapture noundef readonly %0
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %27
@@ -3165,7 +3165,7 @@ define hidden void @zim_SQLite3Stmt_paramCount(ptr nocapture noundef readonly %0
 
 20:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %27
@@ -3211,7 +3211,7 @@ define hidden void @zim_SQLite3Stmt_close(ptr noundef %0, ptr nocapture noundef 
 
 14:                                               ; preds = %11, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %20
@@ -3279,7 +3279,7 @@ define hidden void @zim_SQLite3Stmt_reset(ptr nocapture noundef readonly %0, ptr
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %36
@@ -3291,7 +3291,7 @@ define hidden void @zim_SQLite3Stmt_reset(ptr nocapture noundef readonly %0, ptr
 
 20:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %36
@@ -3353,7 +3353,7 @@ define hidden void @zim_SQLite3Stmt_clear(ptr nocapture noundef readonly %0, ptr
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %41
@@ -3365,7 +3365,7 @@ define hidden void @zim_SQLite3Stmt_clear(ptr nocapture noundef readonly %0, ptr
 
 20:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %41
@@ -3444,7 +3444,7 @@ define hidden void @zim_SQLite3Stmt_readOnly(ptr nocapture noundef readonly %0, 
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %28
@@ -3456,7 +3456,7 @@ define hidden void @zim_SQLite3Stmt_readOnly(ptr nocapture noundef readonly %0, 
 
 20:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -3545,7 +3545,7 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
 
 25:                                               ; preds = %22, %.thread216
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %67
@@ -3557,7 +3557,7 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
 
 30:                                               ; preds = %28
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %67
@@ -3565,7 +3565,7 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
 33:                                               ; preds = %28
   %34 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6)
   %35 = icmp eq i32 %34, -1
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   %or.cond = select i1 %35, i1 true, i1 %37
   br i1 %or.cond, label %38, label %40
@@ -4042,7 +4042,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr nocapture noun
 
 41:                                               ; preds = %38, %.thread171
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %158
@@ -4054,7 +4054,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr nocapture noun
 
 46:                                               ; preds = %44
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %47 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %48 = icmp ne ptr %47, null
   call void @llvm.assume(i1 %48)
   br label %158
@@ -4329,7 +4329,7 @@ define hidden void @zim_SQLite3Stmt_execute(ptr nocapture noundef readonly %0, p
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %62
@@ -4339,7 +4339,7 @@ define hidden void @zim_SQLite3Stmt_execute(ptr nocapture noundef readonly %0, p
   %20 = tail call i32 @sqlite3_reset(ptr noundef %19) #17
   %21 = tail call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %5)
   %22 = icmp eq i32 %21, -1
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   %or.cond = select i1 %22, i1 true, i1 %24
   br i1 %or.cond, label %25, label %27
@@ -4391,7 +4391,7 @@ define hidden void @zim_SQLite3Stmt_execute(ptr nocapture noundef readonly %0, p
   br label %50
 
 50:                                               ; preds = %47, %27
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not36 = icmp eq ptr %51, null
   br i1 %.not36, label %52, label %60
 
@@ -4432,7 +4432,7 @@ define hidden void @zim_SQLite3Stmt___construct(ptr nocapture noundef readonly %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %57
@@ -4447,7 +4447,7 @@ define hidden void @zim_SQLite3Stmt___construct(ptr nocapture noundef readonly %
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %57
@@ -4543,7 +4543,7 @@ define hidden void @zim_SQLite3Result_numColumns(ptr nocapture noundef readonly 
 
 16:                                               ; preds = %11, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %24
@@ -4617,7 +4617,7 @@ define hidden void @zim_SQLite3Result_columnName(ptr noundef %0, ptr nocapture n
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %47
@@ -4715,7 +4715,7 @@ define hidden void @zim_SQLite3Result_columnType(ptr noundef %0, ptr nocapture n
 
 24:                                               ; preds = %19, %.thread97
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %40
@@ -4809,7 +4809,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
 
 29:                                               ; preds = %24, %.thread244
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %.loopexit
@@ -5070,7 +5070,7 @@ define hidden void @zim_SQLite3Result_reset(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %11, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %52
@@ -5189,7 +5189,7 @@ define hidden void @zim_SQLite3Result_finalize(ptr nocapture noundef readonly %0
 
 16:                                               ; preds = %11, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %59
@@ -5395,9 +5395,9 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_stmt_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_result_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 136, ptr @sqlite3_object_handlers, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_object_handlers, i64 0, i32 3), align 8
-  store ptr @php_sqlite3_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_object_handlers, i64 0, i32 1), align 8
-  store ptr @php_sqlite3_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_object_handlers, i64 0, i32 21), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sqlite3_object_handlers, i64 24), align 8
+  store ptr @php_sqlite3_object_free_storage, ptr getelementptr inbounds (i8, ptr @sqlite3_object_handlers, i64 8), align 8
+  store ptr @php_sqlite3_get_gc, ptr getelementptr inbounds (i8, ptr @sqlite3_object_handlers, i64 168), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -6974,8 +6974,8 @@ register_class_SQLite3.exit:                      ; preds = %747, %756, %763, %7
   %766 = getelementptr inbounds i8, ptr %96, i64 360
   store ptr @sqlite3_object_handlers, ptr %766, align 8
   store i32 48, ptr @sqlite3_stmt_object_handlers, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_stmt_object_handlers, i64 0, i32 3), align 8
-  store ptr @php_sqlite3_stmt_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_stmt_object_handlers, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sqlite3_stmt_object_handlers, i64 24), align 8
+  store ptr @php_sqlite3_stmt_object_free_storage, ptr getelementptr inbounds (i8, ptr @sqlite3_stmt_object_handlers, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %767 = load ptr, ptr @zend_string_init_interned, align 8
@@ -6998,8 +6998,8 @@ register_class_SQLite3.exit:                      ; preds = %747, %756, %763, %7
   %777 = getelementptr inbounds i8, ptr %772, i64 360
   store ptr @sqlite3_stmt_object_handlers, ptr %777, align 8
   store i32 56, ptr @sqlite3_result_object_handlers, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_result_object_handlers, i64 0, i32 3), align 8
-  store ptr @php_sqlite3_result_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @sqlite3_result_object_handlers, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sqlite3_result_object_handlers, i64 24), align 8
+  store ptr @php_sqlite3_result_object_free_storage, ptr getelementptr inbounds (i8, ptr @sqlite3_result_object_handlers, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %778 = load ptr, ptr @zend_string_init_interned, align 8

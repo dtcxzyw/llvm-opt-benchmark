@@ -531,7 +531,7 @@ declare dso_local i32 @dm_create(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -16, 1) i32 @dm_hash_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 88) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -1291,7 +1291,7 @@ define internal i32 @dm_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %4, label %5, label %12, !prof !31
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 4) #23
   %8 = getelementptr inbounds i8, ptr %1, i64 200
   store ptr %7, ptr %8, align 8

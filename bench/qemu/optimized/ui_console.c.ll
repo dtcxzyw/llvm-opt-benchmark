@@ -4306,11 +4306,11 @@ if.then4.i:                                       ; preds = %if.end.i
   store i32 0, ptr %index.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr null, ptr %next.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%union.anon.3, ptr @consoles, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 224
   store ptr %4, ptr %tql_prev.i, align 8
   store ptr %call.i, ptr %4, align 8
-  store ptr %next.i, ptr getelementptr inbounds (%union.anon.3, ptr @consoles, i64 0, i32 0, i32 1), align 8
+  store ptr %next.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
   br label %qemu_console_register.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -4323,7 +4323,7 @@ lor.lhs.false9.i:                                 ; preds = %if.else.i
   br i1 %call10.i, label %if.then11.i, label %while.cond.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false9.i, %if.else.i
-  %5 = load ptr, ptr getelementptr inbounds (%union.anon.3, ptr @consoles, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
   %tql_prev12.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %tql_prev12.i, align 8
   %7 = load ptr, ptr %6, align 8
@@ -4337,7 +4337,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false9.i, %
   %tql_prev19.i = getelementptr inbounds i8, ptr %call.i, i64 224
   store ptr %5, ptr %tql_prev19.i, align 8
   store ptr %call.i, ptr %5, align 8
-  store ptr %next17.i, ptr getelementptr inbounds (%union.anon.3, ptr @consoles, i64 0, i32 0, i32 1), align 8
+  store ptr %next17.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
   br label %qemu_console_register.exit
 
 while.cond.i:                                     ; preds = %lor.lhs.false9.i, %land.rhs.i
@@ -4369,7 +4369,7 @@ if.then31.i:                                      ; preds = %while.end.i
   store ptr %11, ptr %next58.i, align 8
   %cmp38.not.i = icmp eq ptr %11, null
   %tql_prev43.i = getelementptr inbounds i8, ptr %11, i64 224
-  %.sink.i = select i1 %cmp38.not.i, ptr getelementptr inbounds (%union.anon.3, ptr @consoles, i64 0, i32 0, i32 1), ptr %tql_prev43.i
+  %.sink.i = select i1 %cmp38.not.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), ptr %tql_prev43.i
   store ptr %next58.i, ptr %.sink.i, align 8
   store ptr %call.i, ptr %next24.i, align 8
   %tql_prev50.i = getelementptr inbounds i8, ptr %call.i, i64 224

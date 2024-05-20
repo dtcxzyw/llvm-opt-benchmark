@@ -308,7 +308,7 @@ do.body27:                                        ; preds = %if.then18, %if.end1
   br i1 %tobool29.not, label %do.end34, label %if.then30
 
 if.then30:                                        ; preds = %do.body27
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call32 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #6
   br label %do.end34
 
@@ -320,7 +320,7 @@ do.end34:                                         ; preds = %if.then30, %do.body
   br i1 %tobool41.not, label %do.end47, label %if.then42
 
 if.then42:                                        ; preds = %do.end34
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call44 = tail call i32 %11(i32 noundef 0, ptr noundef nonnull %10) #6
   br label %do.end47
 

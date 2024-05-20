@@ -28,13 +28,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @zend_init_fpu() local_unnamed_addr #0 {
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 62), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1280), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @zend_shutdown_fpu() local_unnamed_addr #0 {
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 62), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1280), align 8
   ret void
 }
 

@@ -122,7 +122,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
   %41 = zext i32 %16 to i64
   %42 = zext i32 %36 to i64
   call void @_ZN16htif_hexwriter_tC1Emmm(ptr noundef nonnull align 8 dereferenceable(80) %3, i64 noundef %.022, i64 noundef %41, i64 noundef %42)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV7memif_t, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7memif_t, i64 16), ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 24
@@ -148,7 +148,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
           to label %53 unwind label %60
 
 53:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16htif_hexwriter_t, i64 16), ptr %3, align 8
   %54 = getelementptr inbounds i8, ptr %3, i64 32
   %55 = getelementptr inbounds i8, ptr %3, i64 48
   %56 = load ptr, ptr %55, align 8
@@ -200,7 +200,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK16htif_hexwrite
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16htif_hexwriter_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16htif_hexwriter_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8

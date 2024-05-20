@@ -78,11 +78,11 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 5), ptr @_ZZN13cmCursesColor8GetColorEcsE3env, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 48), ptr @_ZZN13cmCursesColor8GetColorEcsE3env, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 40), i8 0, i64 16, i1 false)
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEED2Ev, ptr nonnull @_ZZN13cmCursesColor8GetColorEcsE3env, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13cmCursesColor8GetColorEcsE3env) #13
   br label %12
@@ -169,12 +169,12 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   br label %50
 
 50:                                               ; preds = %.critedge, %12
-  %51 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 3), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 24), align 8
   %.not.not.i.i = icmp eq i64 %51, 0
   br i1 %.not.not.i.i, label %.preheader, label %56
 
 .preheader:                                       ; preds = %50, %52
-  %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %52 ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 2, i32 0), %50 ]
+  %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %52 ], [ getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 16), %50 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread, label %52
@@ -187,7 +187,7 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
 
 56:                                               ; preds = %50
   %57 = sext i8 %0 to i64
-  %58 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 0, i32 0, i32 1), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 8), align 8
   %59 = urem i64 %57, %58
   %60 = load ptr, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, align 8
   %61 = getelementptr inbounds ptr, ptr %60, i64 %59

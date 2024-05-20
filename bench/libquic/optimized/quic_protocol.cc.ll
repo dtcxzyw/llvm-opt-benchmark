@@ -1776,7 +1776,7 @@ call.i.noexc:                                     ; preds = %sw.bb
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.3, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 15))
           to label %return unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1800,7 +1800,7 @@ call.i.noexc6:                                    ; preds = %sw.bb1
           to label %.noexc8 unwind label %lpad3
 
 .noexc8:                                          ; preds = %call.i.noexc6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.4, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 15))
           to label %return unwind label %lpad.i5
 
 lpad.i5:                                          ; preds = %.noexc8
@@ -1824,7 +1824,7 @@ call.i.noexc14:                                   ; preds = %sw.bb5
           to label %.noexc16 unwind label %lpad7
 
 .noexc16:                                         ; preds = %call.i.noexc14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.5, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 15))
           to label %return unwind label %lpad.i13
 
 lpad.i13:                                         ; preds = %.noexc16
@@ -1848,7 +1848,7 @@ call.i.noexc22:                                   ; preds = %sw.bb9
           to label %.noexc24 unwind label %lpad11
 
 .noexc24:                                         ; preds = %call.i.noexc22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.6, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 15))
           to label %return unwind label %lpad.i21
 
 lpad.i21:                                         ; preds = %.noexc24
@@ -1872,7 +1872,7 @@ call.i.noexc30:                                   ; preds = %sw.bb13
           to label %.noexc32 unwind label %lpad15
 
 .noexc32:                                         ; preds = %call.i.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.7, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 15))
           to label %return unwind label %lpad.i29
 
 lpad.i29:                                         ; preds = %.noexc32
@@ -1896,7 +1896,7 @@ call.i.noexc38:                                   ; preds = %sw.bb17
           to label %.noexc40 unwind label %lpad19
 
 .noexc40:                                         ; preds = %call.i.noexc38
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.8, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 15))
           to label %return unwind label %lpad.i37
 
 lpad.i37:                                         ; preds = %.noexc40
@@ -1920,7 +1920,7 @@ call.i.noexc46:                                   ; preds = %sw.bb21
           to label %.noexc48 unwind label %lpad23
 
 .noexc48:                                         ; preds = %call.i.noexc46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.9, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 15))
           to label %return unwind label %lpad.i45
 
 lpad.i45:                                         ; preds = %.noexc48
@@ -1944,7 +1944,7 @@ call.i.noexc54:                                   ; preds = %sw.default
           to label %.noexc56 unwind label %lpad26
 
 .noexc56:                                         ; preds = %call.i.noexc54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([25 x i8], ptr @.str.10, i64 0, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 24))
           to label %return unwind label %lpad.i53
 
 lpad.i53:                                         ; preds = %.noexc56
@@ -3923,7 +3923,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net8QuicDataC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %buffer, i64 noundef %length) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %buffer, ptr %buffer_, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3937,7 +3937,7 @@ entry:
 define dso_local void @_ZN3net8QuicDataC2EPKcmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %buffer, i64 noundef %length, i1 noundef zeroext %owns_buffer) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %owns_buffer to i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %buffer, ptr %buffer_, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3950,7 +3950,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net8QuicDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_, align 8
   %tobool = trunc i8 %0 to i1
@@ -3976,7 +3976,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net8QuicDataD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -4036,7 +4036,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10QuicPacketE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %buffer, ptr %buffer_, align 8
   %connection_id_length_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -4061,7 +4061,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -4075,7 +4075,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -4095,7 +4095,7 @@ entry:
   store i64 %0, ptr %length_.i.i, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   store i8 1, ptr %owns_buffer_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 16), ptr %call5, align 8
   ret ptr %call5
 }
 
@@ -4124,7 +4124,7 @@ entry:
   store i64 %length, ptr %length_.i.i.i.i, align 8
   %owns_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %owns_buffer_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18QuicReceivedPacketE, i64 16), ptr %this, align 8
   %receipt_time_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_.i.i, align 8
   %ttl_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -4144,7 +4144,7 @@ entry:
   store i64 %length, ptr %length_.i.i.i, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i.i.i, ptr %owns_buffer_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18QuicReceivedPacketE, i64 16), ptr %this, align 8
   %receipt_time_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_.i, align 8
   %ttl_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -4165,7 +4165,7 @@ entry:
   store i64 %length, ptr %length_.i.i, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i.i, ptr %owns_buffer_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18QuicReceivedPacketE, i64 16), ptr %this, align 8
   %receipt_time_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_, align 8
   %ttl_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -4199,7 +4199,7 @@ entry:
   store i64 %0, ptr %length_.i.i.i, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   store i8 1, ptr %owns_buffer_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18QuicReceivedPacketE, i64 16), ptr %call5, align 8
   %receipt_time_.i5 = getelementptr inbounds i8, ptr %call5, i64 32
   store i64 %retval.sroa.0.0.copyload.i, ptr %receipt_time_.i5, align 8
   %ttl_.i6 = getelementptr inbounds i8, ptr %call5, i64 40
@@ -5138,7 +5138,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net10QuicPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -5161,7 +5161,7 @@ _ZN3net8QuicDataD2Ev.exit:                        ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net10QuicPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
@@ -5185,7 +5185,7 @@ _ZN3net10QuicPacketD2Ev.exit:                     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net19QuicEncryptedPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -5208,7 +5208,7 @@ _ZN3net8QuicDataD2Ev.exit:                        ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net19QuicEncryptedPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
@@ -5232,7 +5232,7 @@ _ZN3net19QuicEncryptedPacketD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18QuicReceivedPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
@@ -5255,7 +5255,7 @@ _ZN3net19QuicEncryptedPacketD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18QuicReceivedPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net8QuicDataE, i64 16), ptr %this, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %0 to i1

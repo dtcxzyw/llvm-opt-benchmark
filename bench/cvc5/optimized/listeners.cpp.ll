@@ -32,7 +32,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal3smt19ResourceOutListenerC2ERNS0_12SolverEngineE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(224) %slv) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i64 16), ptr %this, align 8
   %d_slv = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %slv, ptr %d_slv, align 8
   ret void

@@ -56,7 +56,7 @@ define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef %0, ptr
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 128, ptr %8, align 16
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %9, %10
   br i1 %.not, label %12, label %11
 
@@ -69,7 +69,7 @@ define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef %0, ptr
   store ptr @opal_mutex_t_class, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 96
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i = icmp eq ptr %16, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -97,7 +97,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %27 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %26, ptr %27, align 16
   %28 = load i32, ptr @opal_class_init_epoch, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_rb_tree_t_class, i64 0, i32 4), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @opal_rb_tree_t_class, i64 32), align 8
   %.not23 = icmp eq i32 %28, %29
   br i1 %.not23, label %31, label %30
 
@@ -110,7 +110,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   store ptr @opal_rb_tree_t_class, ptr %32, align 16
   %33 = getelementptr inbounds i8, ptr %0, i64 168
   store volatile i32 1, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_rb_tree_t_class, i64 0, i32 6), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_rb_tree_t_class, i64 40), align 8
   %35 = load ptr, ptr %34, align 8
   %.not6.i25 = icmp eq ptr %35, null
   br i1 %.not6.i25, label %opal_obj_run_constructors.exit29, label %.lr.ph.i26
@@ -319,12 +319,12 @@ define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %48
-  %51 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i64 0, i32 10), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 72), align 8
   %52 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %51) #10
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i64 0, i32 10), align 8
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 72), align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %54, ptr noundef nonnull @.str.3) #10
   br label %55
 
@@ -340,7 +340,7 @@ define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %
   %60 = getelementptr inbounds i8, ptr %0, i64 160
   %61 = inttoptr i64 %12 to ptr
   %62 = call i32 @opal_rb_tree_insert(ptr noundef nonnull %60, ptr noundef %.03744, ptr noundef %61) #10
-  %63 = atomicrmw volatile add ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i64 0, i32 5), i64 %12 monotonic, align 8
+  %63 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 360), i64 %12 monotonic, align 8
   %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #10
   store i64 %12, ptr %1, align 8
   br label %65
@@ -366,7 +366,7 @@ define void @mca_mpool_hugepage_seg_free(ptr noundef %0, ptr noundef %1) #2 {
   %11 = tail call i32 @opal_rb_tree_delete(ptr noundef nonnull %5, ptr noundef %1) #10
   %12 = tail call i32 @munmap(ptr noundef %1, i64 noundef %10) #10
   %13 = sub i64 0, %10
-  %14 = atomicrmw volatile add ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i64 0, i32 5), i64 %13 monotonic, align 8
+  %14 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 360), i64 %13 monotonic, align 8
   br label %15
 
 15:                                               ; preds = %9, %2

@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 33554433) i32 @ossl_cipher_capable_aes_cbc_hmac_sha1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   ret i32 %and
 }
@@ -1271,7 +1271,7 @@ if.end19:                                         ; preds = %if.then15
   br i1 %cmp20, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %if.end19
-  %8 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and = and i32 %8, 32
   %tobool22.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool22.not, i32 1, i32 2

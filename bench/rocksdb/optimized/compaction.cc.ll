@@ -1775,7 +1775,7 @@ if.else:                                          ; preds = %invoke.cont24
 invoke.cont38:                                    ; preds = %if.else
   %and.i17 = and i64 %39, 4611686018427387903
   %call39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #26
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([121 x i8], ptr @.str.2, i64 0, i64 93), i64 noundef %and.i17, ptr noundef %call39)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93), i64 noundef %and.i17, ptr noundef %call39)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
@@ -5764,7 +5764,7 @@ invoke.cont17:                                    ; preds = %if.end.i.i
 
 if.then21:                                        ; preds = %if.end10, %invoke.cont17
   %info_log = getelementptr inbounds i8, ptr %this, i64 96
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([121 x i8], ptr @.str.2, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 93))
           to label %if.end25 unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.end25, %if.then21
@@ -6918,7 +6918,7 @@ define linkonce_odr void @_ZN7rocksdb18ImmutableCFOptionsC2ERKS0_(ptr noundef no
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %internal_comparator = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 0, i32 0, i64 2), ptr %internal_comparator, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %internal_comparator, align 8
   %user_comparator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %user_comparator_2.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %user_comparator_2.i, align 8

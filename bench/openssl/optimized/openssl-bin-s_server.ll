@@ -1342,11 +1342,11 @@ sw.bb211:                                         ; preds = %if.end46, %if.end46
   br i1 %tobool213.not, label %end, label %sw.epilog
 
 sw.bb216:                                         ; preds = %if.end46
-  store i32 1, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i64 0, i32 3), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 12), align 4
   br label %sw.epilog
 
 sw.bb217:                                         ; preds = %if.end46
-  store i32 1, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i64 0, i32 1), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
   br label %sw.epilog
 
 sw.bb218:                                         ; preds = %if.end46
@@ -1396,7 +1396,7 @@ sw.bb232:                                         ; preds = %if.end46
   br label %sw.epilog
 
 sw.bb233:                                         ; preds = %if.end46
-  store i32 1, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 8), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 60), align 4
   br label %sw.epilog
 
 sw.bb234:                                         ; preds = %if.end46
@@ -1407,17 +1407,17 @@ sw.bb234:                                         ; preds = %if.end46
 
 sw.bb237:                                         ; preds = %if.end46
   %call238 = call ptr @opt_arg() #14
-  store ptr %call238, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 5), align 8
+  store ptr %call238, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 40), align 8
   br label %sw.epilog
 
 sw.bb239:                                         ; preds = %if.end46
   %call240 = call ptr @opt_arg() #14
-  store ptr %call240, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 6), align 8
+  store ptr %call240, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 48), align 8
   br label %sw.epilog
 
 sw.bb241:                                         ; preds = %if.end46
   %call242 = call ptr @opt_arg() #14
-  %call243 = call i32 @OSSL_HTTP_parse_url(ptr noundef %call242, ptr noundef nonnull getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 7), ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 4), ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 3), ptr noundef null, ptr noundef null) #14
+  %call243 = call i32 @OSSL_HTTP_parse_url(ptr noundef %call242, ptr noundef nonnull getelementptr inbounds (i8, ptr @tlscstatp, i64 56), ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @tlscstatp, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @tlscstatp, i64 32), ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @tlscstatp, i64 24), ptr noundef null, ptr noundef null) #14
   %tobool244.not = icmp eq i32 %call243, 0
   br i1 %tobool244.not, label %if.then245, label %sw.epilog
 
@@ -1428,7 +1428,7 @@ if.then245:                                       ; preds = %sw.bb241
 
 sw.bb248:                                         ; preds = %if.end46
   %call249 = call ptr @opt_arg() #14
-  store ptr %call249, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 1), align 8
+  store ptr %call249, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 8), align 8
   br label %sw.epilog
 
 sw.bb250:                                         ; preds = %if.end46
@@ -1470,7 +1470,7 @@ sw.bb265:                                         ; preds = %if.end46
   br label %sw.epilog
 
 sw.bb266:                                         ; preds = %if.end46
-  store i32 1, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i64 0, i32 1), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
   store i1 true, ptr @s_brief, align 4
   store i1 true, ptr @s_quiet, align 4
   br label %sw.epilog
@@ -3102,11 +3102,11 @@ for.body.i:                                       ; preds = %end, %for.body.i
 
 free_sessions.exit:                               ; preds = %for.body.i, %end
   store ptr null, ptr @first, align 8
-  %224 = load ptr, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 2), align 8
+  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 16), align 8
   call void @CRYPTO_free(ptr noundef %224, ptr noundef nonnull @.str.410, i32 noundef 2335) #14
-  %225 = load ptr, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 4), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 32), align 8
   call void @CRYPTO_free(ptr noundef %225, ptr noundef nonnull @.str.410, i32 noundef 2336) #14
-  %226 = load ptr, ptr getelementptr inbounds (%struct.tlsextstatusctx_st, ptr @tlscstatp, i64 0, i32 3), align 8
+  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @tlscstatp, i64 24), align 8
   call void @CRYPTO_free(ptr noundef %226, ptr noundef nonnull @.str.410, i32 noundef 2337) #14
   %227 = load ptr, ptr @ctx2, align 8
   call void @SSL_CTX_free(ptr noundef %227) #14

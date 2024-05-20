@@ -2181,7 +2181,7 @@ if.then105:                                       ; preds = %sw.bb102
   store i32 -1, ptr %numCpFwd.i.i, align 8
   %isNumeric.i.i = getelementptr inbounds i8, ptr %iter, i64 388
   store i8 0, ptr %isNumeric.i.i, align 4
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 0, i32 0, i64 2), ptr %iter, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 16), ptr %iter, align 8
   %start.i = getelementptr inbounds i8, ptr %iter, i64 392
   %pos.i = getelementptr inbounds i8, ptr %iter, i64 400
   %limit.i = getelementptr inbounds i8, ptr %iter, i64 408

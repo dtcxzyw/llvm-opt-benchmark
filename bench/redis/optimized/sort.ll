@@ -339,7 +339,7 @@ declare ptr @hashTypeGetValueObject(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sortCompare(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 334), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4972), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else11
 
@@ -362,7 +362,7 @@ if.else8:                                         ; preds = %if.else
   br label %if.end55
 
 if.else11:                                        ; preds = %entry
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 335), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4976), align 8
   %tobool12.not = icmp eq i32 %5, 0
   br i1 %tobool12.not, label %if.else43, label %if.then13
 
@@ -386,7 +386,7 @@ if.then18:                                        ; preds = %if.then13, %lor.lhs
   br label %if.end55
 
 if.else30:                                        ; preds = %lor.lhs.false
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 336), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4980), align 4
   %tobool31.not = icmp eq i32 %8, 0
   br i1 %tobool31.not, label %if.else36, label %if.then32
 
@@ -403,7 +403,7 @@ if.else36:                                        ; preds = %if.else30
   br label %if.end55
 
 if.else43:                                        ; preds = %if.else11
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 336), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4980), align 4
   %tobool44.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %s1, align 8
   %13 = load ptr, ptr %s2, align 8
@@ -419,7 +419,7 @@ if.else49:                                        ; preds = %if.else43
 
 if.end55:                                         ; preds = %if.then18, %if.else, %if.then, %if.then32, %if.else36, %if.else49, %if.then45, %if.else8
   %cmp.0 = phi i32 [ %call35, %if.then32 ], [ %call40, %if.else36 ], [ %call48, %if.then45 ], [ %call52, %if.else49 ], [ %call, %if.else8 ], [ 1, %if.then ], [ -1, %if.else ], [ %spec.select, %if.then18 ]
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 333), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4968), align 8
   %tobool56.not = icmp eq i32 %14, 0
   %sub = sub nsw i32 0, %cmp.0
   %cond = select i1 %tobool56.not, i32 %cmp.0, i32 %sub
@@ -558,7 +558,7 @@ if.then70:                                        ; preds = %if.else61
   br i1 %cmp81, label %if.end153, label %if.else83
 
 if.else83:                                        ; preds = %if.then70
-  %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool84.not = icmp eq i32 %16, 0
   br i1 %tobool84.not, label %if.end94, label %land.lhs.true85
 
@@ -629,7 +629,7 @@ if.else101:                                       ; preds = %if.else61
   br i1 %or.cond3, label %if.then111, label %if.else145
 
 if.then111:                                       ; preds = %if.else101
-  %23 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool112.not = icmp eq i32 %23, 0
   br i1 %tobool112.not, label %if.end132, label %land.lhs.true113
 
@@ -712,7 +712,7 @@ if.end136:                                        ; preds = %if.end132
   br label %if.end153
 
 if.else145:                                       ; preds = %if.else101
-  %34 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %34) #12
   br label %if.then156
 
@@ -758,7 +758,7 @@ land.lhs.true162:                                 ; preds = %if.end157
 
 if.then175:                                       ; preds = %land.lhs.true162
   call void @listRelease(ptr noundef %call) #12
-  %39 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 13), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 200), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %39) #12
   br label %return
 
@@ -1344,13 +1344,13 @@ for.inc:                                          ; preds = %if.end528, %if.end5
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %int_conversion_error.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %int_conversion_error.2, %for.inc ]
-  store i32 %desc.0.lcssa, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 333), align 8
-  store i32 %alpha.2553, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 334), align 4
+  store i32 %desc.0.lcssa, ptr getelementptr inbounds (i8, ptr @server, i64 4968), align 8
+  store i32 %alpha.2553, ptr getelementptr inbounds (i8, ptr @server, i64 4972), align 4
   %85 = insertelement <2 x ptr> poison, ptr %sortby.3549, i64 0
   %86 = insertelement <2 x ptr> %85, ptr %storekey.0.lcssa, i64 1
   %87 = icmp ne <2 x ptr> %86, zeroinitializer
   %88 = zext <2 x i1> %87 to <2 x i32>
-  store <2 x i32> %88, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 335), align 8
+  store <2 x i32> %88, ptr getelementptr inbounds (i8, ptr @server, i64 4976), align 8
   %89 = extractelement <2 x i1> %87, i64 0
   br i1 %89, label %land.lhs.true594, label %if.else604
 
@@ -1572,9 +1572,9 @@ if.then741:                                       ; preds = %if.else737
 
 if.end747.sink.split:                             ; preds = %if.then732, %if.then741
   %.sink557 = phi i64 [ 1, %if.then741 ], [ %102, %if.then732 ]
-  %110 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %110 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc745 = add nsw i64 %110, %.sink557
-  store i64 %inc745, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc745, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end747
 
 if.end747:                                        ; preds = %if.end747.sink.split, %if.else737

@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_bridge_c
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_bridge_connector_init(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(2016) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 2016) #3
   %5 = icmp eq ptr %4, null
   br i1 %5, label %92, label %6

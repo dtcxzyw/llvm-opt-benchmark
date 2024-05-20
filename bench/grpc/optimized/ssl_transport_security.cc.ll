@@ -2199,7 +2199,7 @@ if.then13:                                        ; preds = %if.end7
 if.end14:                                         ; preds = %if.end7
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call11) #24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 0, i32 0, i64 2), ptr %cert_impl, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %cert_impl, align 8
   %issuer_.i = getelementptr inbounds i8, ptr %cert_impl, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -2434,13 +2434,13 @@ if.end8.sink.split.i.i.i.i30:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN9grpc_core12experimental3CrlEED2Ev.exit
 
 _ZNSt10shared_ptrIN9grpc_core12experimental3CrlEED2Ev.exit: ; preds = %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i27, %if.end8.sink.split.i.i.i.i30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 0, i32 0, i64 2), ptr %cert_impl, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %cert_impl, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %issuer_.i) #24
   br label %return
 
 ehcleanup27:                                      ; preds = %lpad15, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %9, %lpad ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 0, i32 0, i64 2), ptr %cert_impl, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %cert_impl, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %issuer_.i) #24
   br label %common.resume
 
@@ -4049,7 +4049,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit
 
@@ -4065,7 +4065,7 @@ _ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit:       ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i6, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12, label %land.lhs.true.i7
 
 land.lhs.true.i7:                                 ; preds = %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i8 = trunc i8 %1 to i1
   br i1 %tobool.i.i.i.i8, label %if.then.i9, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12
 
@@ -4081,7 +4081,7 @@ _ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12:     ; preds = %_ZL18ssl_log_where_
   br i1 %tobool.not.i14, label %return, label %land.lhs.true.i15
 
 land.lhs.true.i15:                                ; preds = %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i16 = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i16, label %if.then.i17, label %return
 
@@ -5278,7 +5278,7 @@ _ZNSt12__shared_ptrIN9grpc_core12experimental3CrlELN9__gnu_cxx12_Lock_policyE2EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %this, align 8
   %issuer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %issuer_) #24
   ret void
@@ -5311,7 +5311,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %this, align 8
   %issuer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %issuer_.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23

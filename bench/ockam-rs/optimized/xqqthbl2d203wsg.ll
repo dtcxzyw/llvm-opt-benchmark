@@ -327,7 +327,7 @@ default.unreachable156:                           ; preds = %3
   br i1 %46, label %47, label %.thread138
 
 47:                                               ; preds = %24
-  %48 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8182c973184a3634E", i64 0, i32 2, i32 0) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8182c973184a3634E", i64 16) monotonic, align 8
   switch i8 %48, label %49 [
     i8 0, label %.thread138
     i8 1, label %.thread
@@ -6924,7 +6924,7 @@ common.ret:                                       ; preds = %820, %821
   br i1 %114, label %115, label %.thread499.i
 
 115:                                              ; preds = %109
-  %116 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7166fc04223f11e1E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !999
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7166fc04223f11e1E", i64 16) monotonic, align 8, !noalias !999
   switch i8 %116, label %117 [
     i8 0, label %.thread499.i
     i8 1, label %.thread.i
@@ -8394,7 +8394,7 @@ common.ret:                                       ; preds = %820, %821
   br i1 %507, label %508, label %.thread517.i
 
 508:                                              ; preds = %503
-  %509 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h257c425b223e23beE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !999
+  %509 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h257c425b223e23beE", i64 16) monotonic, align 8, !noalias !999
   switch i8 %509, label %510 [
     i8 0, label %.thread517.i
     i8 1, label %.thread514.i
@@ -8975,7 +8975,7 @@ common.ret:                                       ; preds = %820, %821
   br i1 %676, label %677, label %.thread529.i
 
 677:                                              ; preds = %674
-  %678 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h26b03af785042463E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !999
+  %678 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h26b03af785042463E", i64 16) monotonic, align 8, !noalias !999
   switch i8 %678, label %679 [
     i8 0, label %.thread529.i
     i8 1, label %.thread526.i
@@ -9808,7 +9808,7 @@ common.ret:                                       ; preds = %973, %974
   br i1 %145, label %146, label %.thread792.i
 
 146:                                              ; preds = %142
-  %147 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb5fb8585876824f9E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1378
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb5fb8585876824f9E", i64 16) monotonic, align 8, !noalias !1378
   switch i8 %147, label %148 [
     i8 0, label %.thread792.i
     i8 1, label %.thread.i
@@ -11358,7 +11358,7 @@ common.ret:                                       ; preds = %973, %974
   br i1 %543, label %544, label %.thread809.i
 
 544:                                              ; preds = %541
-  %545 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h336fb8a8b2964eefE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1378
+  %545 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h336fb8a8b2964eefE", i64 16) monotonic, align 8, !noalias !1378
   switch i8 %545, label %546 [
     i8 0, label %.thread809.i
     i8 1, label %.thread806.i
@@ -11830,7 +11830,7 @@ common.ret:                                       ; preds = %973, %974
   br i1 %684, label %685, label %.thread821.i
 
 685:                                              ; preds = %682
-  %686 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd1ae1bdcd2b8140dE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1378
+  %686 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd1ae1bdcd2b8140dE", i64 16) monotonic, align 8, !noalias !1378
   switch i8 %686, label %687 [
     i8 0, label %.thread821.i
     i8 1, label %.thread818.i
@@ -12237,7 +12237,7 @@ common.ret:                                       ; preds = %973, %974
   br i1 %800, label %801, label %.thread833.i
 
 801:                                              ; preds = %798
-  %802 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haa429b3db91c654fE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1378
+  %802 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haa429b3db91c654fE", i64 16) monotonic, align 8, !noalias !1378
   switch i8 %802, label %803 [
     i8 0, label %.thread833.i
     i8 1, label %.thread830.i
@@ -14320,7 +14320,7 @@ common.ret:                                       ; preds = %324, %65
 333:                                              ; preds = %329
   %334 = icmp ult i64 %330, 5
   call void @llvm.assume(i1 %334)
-  %335 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$u20$as$u20$ockam_vault_aws..aws_kms_client..KmsClient$GT$9list_keys28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8ab08c860c05a646E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1988
+  %335 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$u20$as$u20$ockam_vault_aws..aws_kms_client..KmsClient$GT$9list_keys28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8ab08c860c05a646E", i64 16) monotonic, align 8, !noalias !1988
   switch i8 %335, label %336 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread140.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i
@@ -15230,7 +15230,7 @@ common.ret:                                       ; preds = %1229, %1230
   br i1 %181, label %182, label %.thread1066.i
 
 182:                                              ; preds = %178
-  %183 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf91a20b14a50547bE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2027
+  %183 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf91a20b14a50547bE", i64 16) monotonic, align 8, !noalias !2027
   switch i8 %183, label %184 [
     i8 0, label %.thread1066.i
     i8 1, label %.thread.i
@@ -16781,7 +16781,7 @@ common.ret:                                       ; preds = %1229, %1230
 581:                                              ; preds = %576
   %582 = icmp ult i64 %577, 5
   call void @llvm.assume(i1 %582)
-  %583 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he93cae2247863102E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2263
+  %583 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he93cae2247863102E", i64 16) monotonic, align 8, !noalias !2263
   switch i8 %583, label %584 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread192.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i.i
@@ -17296,7 +17296,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %704
   br i1 %713, label %714, label %.thread1124.i
 
 714:                                              ; preds = %712
-  %715 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7eea47b6ccb74892E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2027
+  %715 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7eea47b6ccb74892E", i64 16) monotonic, align 8, !noalias !2027
   switch i8 %715, label %716 [
     i8 0, label %.thread1124.i
     i8 1, label %.thread1121.i
@@ -17906,7 +17906,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %704
   br i1 %874, label %875, label %.thread1164.i
 
 875:                                              ; preds = %873
-  %876 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3d3f205378e46a01E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2027
+  %876 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3d3f205378e46a01E", i64 16) monotonic, align 8, !noalias !2027
   switch i8 %876, label %877 [
     i8 0, label %.thread1164.i
     i8 1, label %.thread1161.i
@@ -18313,7 +18313,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.thread.i: ; preds = %_ZN4core
   br i1 %990, label %991, label %.thread1176.i
 
 991:                                              ; preds = %_ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.thread.i
-  %992 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5cf4c5c17da766e8E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2027
+  %992 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5cf4c5c17da766e8E", i64 16) monotonic, align 8, !noalias !2027
   switch i8 %992, label %993 [
     i8 0, label %.thread1176.i
     i8 1, label %.thread1173.i
@@ -18692,7 +18692,7 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
   br i1 %1099, label %1100, label %.thread1188.i
 
 1100:                                             ; preds = %_ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i
-  %1101 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9e4a83333ab4b730E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2027
+  %1101 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9e4a83333ab4b730E", i64 16) monotonic, align 8, !noalias !2027
   switch i8 %1101, label %1102 [
     i8 0, label %.thread1188.i
     i8 1, label %.thread1185.i
@@ -19509,7 +19509,7 @@ common.ret:                                       ; preds = %999, %1000
   br i1 %165, label %166, label %.thread686.i
 
 166:                                              ; preds = %162
-  %167 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h307f0eafb3997ca2E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2569
+  %167 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h307f0eafb3997ca2E", i64 16) monotonic, align 8, !noalias !2569
   switch i8 %167, label %168 [
     i8 0, label %.thread686.i
     i8 1, label %.thread.i
@@ -21101,7 +21101,7 @@ common.ret:                                       ; preds = %999, %1000
 575:                                              ; preds = %570
   %576 = icmp ult i64 %571, 5
   call void @llvm.assume(i1 %576)
-  %577 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h489b8d2120d44d98E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2806
+  %577 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h489b8d2120d44d98E", i64 16) monotonic, align 8, !noalias !2806
   switch i8 %577, label %578 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread192.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread.i.i.i
@@ -21580,7 +21580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %693, label %694, label %.thread712.i
 
 694:                                              ; preds = %692
-  %695 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he2a319786687c470E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2569
+  %695 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he2a319786687c470E", i64 16) monotonic, align 8, !noalias !2569
   switch i8 %695, label %696 [
     i8 0, label %.thread712.i
     i8 1, label %.thread709.i
@@ -22207,7 +22207,7 @@ thread-pre-split:                                 ; preds = %806
   br i1 %867, label %868, label %.thread734.i
 
 868:                                              ; preds = %866
-  %869 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h543c2e36a6b22a76E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2569
+  %869 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h543c2e36a6b22a76E", i64 16) monotonic, align 8, !noalias !2569
   switch i8 %869, label %870 [
     i8 0, label %.thread734.i
     i8 1, label %.thread731.i

@@ -35,8 +35,8 @@ define i32 @mca_bml_base_init(i1 noundef zeroext %0, i1 noundef zeroext %1) loca
 
 6:                                                ; preds = %2
   store i8 1, ptr @mca_bml_component_init_called, align 1
-  %.025 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not26 = icmp eq ptr %.025, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
+  %.025 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_bml_base_framework, i64 112), align 8
+  %.not26 = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @ompi_bml_base_framework, i64 96)
   br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %25
@@ -52,12 +52,12 @@ define i32 @mca_bml_base_init(i1 noundef zeroext %0, i1 noundef zeroext %1) loca
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_bml_base_framework, i64 76), align 4
   %14 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13) #4
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 11), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_bml_base_framework, i64 76), align 4
   %17 = getelementptr inbounds i8, ptr %8, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %17) #4
   br label %25
@@ -81,7 +81,7 @@ define i32 @mca_bml_base_init(i1 noundef zeroext %0, i1 noundef zeroext %1) loca
   %.1 = phi i32 [ %.01629, %15 ], [ %.01629, %12 ], [ %.01629, %18 ], [ %22, %24 ], [ %.01629, %21 ]
   %26 = getelementptr inbounds i8, ptr %.030, i64 16
   %.0 = load volatile ptr, ptr %26, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @ompi_bml_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %25

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @pmix_mca_base_alias_init(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -36,7 +36,7 @@ define internal void @pmix_mca_base_alias_init(ptr noundef %0) #0 {
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -340,10 +340,10 @@ define i32 @pmix_mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i, label %10, label %pmix_mca_base_alias_setup.exit.thread
 
 10:                                               ; preds = %8
-  %11 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i64 0, i32 8), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 56), align 8
   %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #21
   %13 = load i32, ptr @pmix_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i64 0, i32 4), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %13, %14
   br i1 %.not.i.i, label %16, label %15
 
@@ -365,7 +365,7 @@ define i32 @pmix_mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = getelementptr inbounds i8, ptr %12, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i64 0, i32 6), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i.i = icmp eq ptr %24, null
   br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.thread20.i, label %.lr.ph.i.i.i
@@ -472,10 +472,10 @@ pmix_mca_base_alias_lookup_internal.exit:         ; preds = %pmix_mca_base_alias
   br i1 %63, label %64, label %85
 
 64:                                               ; preds = %pmix_mca_base_alias_lookup_internal.exit.thread, %pmix_mca_base_alias_lookup_internal.exit
-  %65 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_t_class, i64 0, i32 8), align 8
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_t_class, i64 56), align 8
   %66 = call noalias noundef ptr @malloc(i64 noundef %65) #21
   %67 = load i32, ptr @pmix_class_init_epoch, align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_t_class, i64 0, i32 4), align 8
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_t_class, i64 32), align 8
   %.not.i35 = icmp eq i32 %67, %68
   br i1 %.not.i35, label %70, label %69
 
@@ -497,7 +497,7 @@ pmix_mca_base_alias_lookup_internal.exit:         ; preds = %pmix_mca_base_alias
   %76 = getelementptr inbounds i8, ptr %66, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  %77 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_t_class, i64 0, i32 6), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_t_class, i64 40), align 8
   %78 = load ptr, ptr %77, align 8
   %.not6.i.i36 = icmp eq ptr %78, null
   br i1 %.not6.i.i36, label %pmix_obj_new_tma.exit.thread54, label %.lr.ph.i.i37
@@ -525,10 +525,10 @@ pmix_obj_new_tma.exit.thread54:                   ; preds = %.lr.ph.i.i37, %71
 85:                                               ; preds = %pmix_obj_new_tma.exit.thread54, %pmix_mca_base_alias_lookup_internal.exit
   %.026 = phi ptr [ null, %pmix_obj_new_tma.exit.thread54 ], [ %57, %pmix_mca_base_alias_lookup_internal.exit ]
   %.025 = phi ptr [ %66, %pmix_obj_new_tma.exit.thread54 ], [ %62, %pmix_mca_base_alias_lookup_internal.exit ]
-  %86 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_item_t_class, i64 0, i32 8), align 8
+  %86 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_item_t_class, i64 56), align 8
   %87 = call noalias noundef ptr @malloc(i64 noundef %86) #21
   %88 = load i32, ptr @pmix_class_init_epoch, align 4
-  %89 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_item_t_class, i64 0, i32 4), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_item_t_class, i64 32), align 8
   %.not.i40 = icmp eq i32 %88, %89
   br i1 %.not.i40, label %91, label %90
 
@@ -550,7 +550,7 @@ pmix_obj_new_tma.exit.thread54:                   ; preds = %.lr.ph.i.i37, %71
   %97 = getelementptr inbounds i8, ptr %87, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
-  %98 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_alias_item_t_class, i64 0, i32 6), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_item_t_class, i64 40), align 8
   %99 = load ptr, ptr %98, align 8
   %.not6.i.i42 = icmp eq ptr %99, null
   br i1 %.not6.i.i42, label %pmix_obj_new_tma.exit46.thread55, label %.lr.ph.i.i43

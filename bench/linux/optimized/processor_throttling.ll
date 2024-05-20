@@ -493,7 +493,7 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %30
-  %35 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !17
+  %35 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
   %36 = icmp eq i32 %35, %23
   br i1 %36, label %37, label %41
 
@@ -735,7 +735,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %133, label %134, label %141
 
 134:                                              ; preds = %130
-  %135 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !17
+  %135 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
   %136 = icmp eq i32 %135, %122
   br i1 %136, label %137, label %141
 
@@ -804,7 +804,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %180, label %181, label %189
 
 181:                                              ; preds = %177
-  %182 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !17
+  %182 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
   %183 = icmp eq i32 %182, %170
   br i1 %183, label %184, label %189
 
@@ -1189,7 +1189,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br label %.thread23
 
 165:                                              ; preds = %156
-  %166 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 32), align 1
+  %166 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 105), align 1
   %167 = zext nneg i8 %166 to i32
   %168 = shl nuw i32 1, %167
   %169 = getelementptr inbounds i8, ptr %0, i64 680
@@ -1334,7 +1334,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br label %240
 
 240:                                              ; preds = %234, %227
-  %241 = load i8, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1), align 4
+  %241 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
   %242 = and i8 %241, 1
   %243 = icmp eq i8 %242, 0
   br i1 %243, label %244, label %.thread23
@@ -1374,7 +1374,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %267, label %268, label %275
 
 268:                                              ; preds = %264
-  %269 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !17
+  %269 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
   %270 = icmp eq i32 %269, %257
   br i1 %270, label %271, label %275
 
@@ -1521,7 +1521,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fad
   %31 = load i8, ptr %30, align 4
   %32 = zext nneg i8 %31 to i32
   %33 = shl i32 %29, %32
-  %34 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 31), align 1
+  %34 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 104), align 1
   %35 = zext nneg i8 %34 to i32
   %36 = shl i32 %11, %35
   %37 = xor i32 %36, -1
@@ -1617,12 +1617,12 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   br label %51
 
 30:                                               ; preds = %9
-  %31 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @cpu_info, i64 0, i32 1)) #9, !srcloc !29
+  %31 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_info, i64 1)) #9, !srcloc !29
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @cpu_info, i64 0, i32 11, i32 0)) #10, !srcloc !30
+  %34 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 40)) #10, !srcloc !30
   %35 = and i64 %34, 4194304
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %39
@@ -1635,7 +1635,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   %40 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 410) #9, !srcloc !31
   %41 = extractvalue { i32, i64, i64 } %40, 1
   %42 = extractvalue { i32, i64, i64 } %40, 2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #9
           to label %._crit_edge [label %43], !srcloc !32
 
 ._crit_edge:                                      ; preds = %39
@@ -1778,12 +1778,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   br label %72
 
 54:                                               ; preds = %28
-  %55 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @cpu_info, i64 0, i32 1)) #9, !srcloc !34
+  %55 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_info, i64 1)) #9, !srcloc !34
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %54
-  %58 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @cpu_info, i64 0, i32 11, i32 0)) #10, !srcloc !30
+  %58 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 40)) #10, !srcloc !30
   %59 = and i64 %58, 4194304
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %63
@@ -1797,7 +1797,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   %65 = lshr i64 %33, 32
   %66 = trunc nuw i64 %65 to i32
   %67 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 410, i32 %64, i32 %66) #9, !srcloc !35
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #9
           to label %72 [label %68], !srcloc !32
 
 68:                                               ; preds = %63

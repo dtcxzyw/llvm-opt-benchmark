@@ -495,14 +495,14 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = load i32, ptr getelementptr inbounds ([76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 64, i32 4), align 16
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @power_supply_attrs, i64 5712), align 16
   %28 = icmp sgt i32 %27, 0
   %29 = icmp ult i32 %26, %27
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %22
-  %32 = load ptr, ptr getelementptr inbounds ([76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 64, i32 3), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @power_supply_attrs, i64 5704), align 8
   %33 = zext nneg i32 %26 to i64
   %34 = getelementptr ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -534,7 +534,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br label %47
 
 47:                                               ; preds = %43, %46
-  %48 = load ptr, ptr getelementptr inbounds ([76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 64), align 16
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @power_supply_attrs, i64 5632), align 16
   %49 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.145, ptr noundef %48, ptr noundef nonnull %20) #9
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.thread, label %.thread17

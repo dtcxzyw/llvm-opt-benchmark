@@ -518,7 +518,7 @@ mca_io_ompio_file_iread_all.exit:                 ; preds = %18, %22
 define i32 @mca_io_ompio_file_read_all_end(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 152
   %8 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef %2) #4
   %9 = getelementptr inbounds i8, ptr %5, i64 160
@@ -574,7 +574,7 @@ define i32 @mca_io_ompio_file_read_at_all_begin(ptr noundef %0, i64 noundef %1, 
 define i32 @mca_io_ompio_file_read_at_all_end(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 152
   %8 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef %2) #4
   %9 = getelementptr inbounds i8, ptr %5, i64 160

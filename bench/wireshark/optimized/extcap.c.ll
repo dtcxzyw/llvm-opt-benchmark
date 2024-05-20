@@ -72,7 +72,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_get_descriptions(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %extcap_loaded_interfaces.exit, label %extcap_loaded_interfaces.exit.thread
 
@@ -175,7 +175,7 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %12 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %extcap_load_interface_list.exit
 
@@ -1070,7 +1070,7 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %14, %.lr.ph.i, %12,
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @append_extcap_interface_list(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %.loopexit
 
@@ -1186,7 +1186,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_register_preferences() local_unnamed_addr #0 {
   tail call void @profile_register_persconffile(ptr noundef nonnull @.str.3) #11
-  %1 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %5
 
@@ -2087,7 +2087,7 @@ define hidden noalias noundef ptr @extcap_get_tool_by_ifname(ptr noundef %0) loc
 5:                                                ; preds = %1
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %3, ptr noundef nonnull %0) #11
   %.not = icmp eq ptr %6, null
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not.i = icmp ne i32 %7, 0
   %or.cond9 = select i1 %.not, i1 true, i1 %.not.i
   br i1 %or.cond9, label %extcap_ensure_interface.exit, label %8
@@ -2113,7 +2113,7 @@ extcap_ensure_interface.exit:                     ; preds = %12, %1, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not = icmp ne i32 %3, 0
   %.not13 = icmp eq ptr %0, null
   %or.cond = or i1 %.not13, %.not
@@ -2154,7 +2154,7 @@ define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @extcap_get_tool_info(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
-  %2 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not.i = icmp ne i32 %2, 0
   %.not13.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %.not13.i, %.not.i

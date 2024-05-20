@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.16", align 8
   %6 = zext i1 %3 to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = atomicrmw add ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, i64 1 seq_cst, align 8
   store i64 %8, ptr %7, align 8
@@ -609,7 +609,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFSt6vectorINS_23cmDebuggerVariableEntryESaISC_EEvEE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::function.16", align 8
   %7 = zext i1 %3 to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = atomicrmw add ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, i64 1 seq_cst, align 8
   store i64 %9, ptr %8, align 8
@@ -875,22 +875,22 @@ _ZNKSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEclE
           to label %.noexc25 unwind label %82
 
 .noexc25:                                         ; preds = %48
-  %49 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 0, i32 1), align 8
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 24), align 8
   %50 = and i8 %49, 1
   store i8 %50, ptr %22, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 1, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32))
           to label %51 unwind label %57
 
 51:                                               ; preds = %.noexc25
-  %52 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 1, i32 1), align 8
+  %52 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 64), align 8
   %53 = and i8 %52, 1
   store i8 %53, ptr %24, align 8
-  %54 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 2, i32 0, i32 0), align 8
+  %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 72), align 8
   store i8 %54, ptr %25, align 8
-  %55 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 2, i32 1), align 1
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 73), align 1
   %56 = and i8 %55, 1
   store i8 %56, ptr %26, align 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 4, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 80))
           to label %62 unwind label %59
 
 57:                                               ; preds = %.noexc25
@@ -910,7 +910,7 @@ _ZNKSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEclE
   br label %.body
 
 62:                                               ; preds = %51
-  %63 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 4, i32 1), align 8
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 112), align 8
   %64 = and i8 %63, 1
   store i8 %64, ptr %28, align 8
   store i8 1, ptr %29, align 8
@@ -1293,22 +1293,22 @@ define dso_local void @_ZNK10cmDebugger19cmDebuggerVariables26EnumerateSubVariab
           to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %37
-  %38 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 0, i32 1), align 8
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 24), align 8
   %39 = and i8 %38, 1
   store i8 %39, ptr %16, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 1, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32))
           to label %40 unwind label %46
 
 40:                                               ; preds = %.noexc
-  %41 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 1, i32 1), align 8
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 64), align 8
   %42 = and i8 %41, 1
   store i8 %42, ptr %18, align 8
-  %43 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 2, i32 0, i32 0), align 8
+  %43 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 72), align 8
   store i8 %43, ptr %19, align 8
-  %44 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 2, i32 1), align 1
+  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 73), align 1
   %45 = and i8 %44, 1
   store i8 %45, ptr %20, align 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 4, i32 0, i32 0, i32 0))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 80))
           to label %51 unwind label %48
 
 46:                                               ; preds = %.noexc
@@ -1328,7 +1328,7 @@ define dso_local void @_ZNK10cmDebugger19cmDebuggerVariables26EnumerateSubVariab
   br label %.body
 
 51:                                               ; preds = %40
-  %52 = load i8, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 4, i32 1), align 8
+  %52 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 112), align 8
   %53 = and i8 %52, 1
   store i8 %53, ptr %22, align 8
   store i8 1, ptr %23, align 8
@@ -1593,7 +1593,7 @@ _ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE5clearEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4324,12 +4324,12 @@ _ZN3dap24VariablePresentationHintC2ERKS0_.exit:   ; preds = %9
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cmDebuggerVariables.cxx() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i8 0, i64 32, i1 false)
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 1), ptr noundef nonnull align 1 dereferenceable(9) @.str)
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(9) @.str)
           to label %1 unwind label %2
 
 1:                                                ; preds = %0
-  store i16 0, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 2), align 8
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 4), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 72), align 8
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
           to label %__cxx_global_var_init.exit unwind label %4
 
 2:                                                ; preds = %0
@@ -4340,7 +4340,7 @@ define internal void @_GLOBAL__sub_I_cmDebuggerVariables.cxx() #14 section ".tex
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 0, i32 1)) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32)) #18
   br label %common.resume
 
 common.resume:                                    ; preds = %8, %10, %2, %4
@@ -4352,12 +4352,12 @@ common.resume:                                    ; preds = %8, %10, %2, %4
 __cxx_global_var_init.exit:                       ; preds = %1
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3dap24VariablePresentationHintD2Ev, ptr nonnull @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, ptr nonnull @__dso_handle) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i8 0, i64 32, i1 false)
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 1), ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
           to label %7 unwind label %8
 
 7:                                                ; preds = %__cxx_global_var_init.exit
-  store i16 0, ptr getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 2), align 8
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 4), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 72), align 8
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
           to label %__cxx_global_var_init.2.exit unwind label %10
 
 8:                                                ; preds = %__cxx_global_var_init.exit
@@ -4368,7 +4368,7 @@ __cxx_global_var_init.exit:                       ; preds = %1
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 0, i32 1)) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32)) #18
   br label %common.resume
 
 __cxx_global_var_init.2.exit:                     ; preds = %7

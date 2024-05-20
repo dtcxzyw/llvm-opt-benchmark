@@ -85,7 +85,7 @@ find_prterun.exit.thread:                         ; preds = %24
   br label %33
 
 find_prterun.exit:                                ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 2), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
   %27 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.15, ptr noundef %26, ptr noundef nonnull @.str.16) #11
   %28 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -100,7 +100,7 @@ find_prterun.exit:                                ; preds = %24
 
 33:                                               ; preds = %find_prterun.exit.thread, %find_prterun.exit
   %.0.i20 = phi ptr [ %25, %find_prterun.exit.thread ], [ %28, %find_prterun.exit ]
-  %34 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 10), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
   %35 = call i32 @setenv(ptr noundef nonnull @.str.11, ptr noundef %34, i32 noundef 1) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

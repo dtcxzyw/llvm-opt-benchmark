@@ -2071,12 +2071,12 @@ define internal void @fsnotify_mark_destroy_workfn(ptr nocapture readnone %0) #0
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @destroy_list, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @destroy_list, i64 8), align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   store ptr %2, ptr %5, align 8
   store volatile ptr @destroy_list, ptr @destroy_list, align 8
-  store volatile ptr @destroy_list, ptr getelementptr inbounds (%struct.list_head, ptr @destroy_list, i64 0, i32 1), align 8
+  store volatile ptr @destroy_list, ptr getelementptr inbounds (i8, ptr @destroy_list, i64 8), align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @destroy_lock) #6
   call void @synchronize_srcu(ptr noundef nonnull @fsnotify_mark_srcu) #6
   %7 = load ptr, ptr %2, align 8

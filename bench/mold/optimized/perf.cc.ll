@@ -309,7 +309,7 @@ define dso_local void @_ZN4mold7Counter5printEv() local_unnamed_addr #4 align 2 
 entry:
   %location.i.i = alloca %"struct.tbb::detail::d1::ets_element", align 8
   %0 = load ptr, ptr @_ZN4mold7Counter9instancesE, align 8
-  %1 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %for.end, label %if.end.i.i.i
 
@@ -346,7 +346,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i.
   %__buf.sroa.4.013.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.else.i.i.i ], [ null, %if.then5.i.i.i ]
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.013.i.i.i) #15
   %.pre = load ptr, ptr @_ZN4mold7Counter9instancesE, align 8
-  %.pre14 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold7Counter9instancesE, i64 0, i32 0, i32 1), align 8
+  %.pre14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold7Counter9instancesE, i64 8), align 8
   %cmp.i8 = icmp eq ptr %.pre, %.pre14
   br i1 %cmp.i8, label %for.end, label %for.body.lr.ph
 

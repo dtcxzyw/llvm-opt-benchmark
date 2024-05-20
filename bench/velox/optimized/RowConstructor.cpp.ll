@@ -692,7 +692,7 @@ if.end.i12.i:                                     ; preds = %.noexc.i.i
           to label %invoke.cont.i15.i unwind label %lpad.i14.i, !noalias !19
 
 invoke.cont.i15.i:                                ; preds = %if.end.i12.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i13.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.1, i64 0, i64 15)) #17, !noalias !19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i13.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 15)) #17, !noalias !19
   store ptr null, ptr %__guard.i8.i, align 8, !noalias !19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 noundef 15)
           to label %invoke.cont.i.i unwind label %lpad.i14.i, !noalias !19
@@ -742,7 +742,7 @@ if.end.i.i:                                       ; preds = %.noexc15.i.i
           to label %invoke.cont.i5.i unwind label %lpad.i4.i, !noalias !19
 
 invoke.cont.i5.i:                                 ; preds = %if.end.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.1, i64 0, i64 15)) #17, !noalias !19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 15)) #17, !noalias !19
   store ptr null, ptr %__guard.i.i, align 8, !noalias !19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i, i64 noundef 15)
           to label %invoke.cont15.i.i unwind label %lpad.i4.i, !noalias !19
@@ -871,7 +871,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %"_ZNK5folly16Synchr
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !27
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec4ExprESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i1, align 8, !noalias !27
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec4ExprESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i1, align 8, !noalias !27
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox4exec4ExprEJRKSt10shared_ptrIKNS1_4TypeEESt6vectorIS4_IS3_ESaISB_EERS4_INS2_14VectorFunctionEERKPKcRbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %compiledChildren, ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox4exec31RowConstructorCallToSpecialForm15kRowConstructorE, ptr noundef nonnull align 1 dereferenceable(1) %trackCpuUsage.addr)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec4ExprESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !27

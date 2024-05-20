@@ -46141,7 +46141,7 @@ default.unreachable:                              ; preds = %122, %"_ZN9hashbrow
   br i1 %908, label %909, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread81.i
 
 909:                                              ; preds = %906
-  %910 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN28ra_ap_rustc_pattern_analysis11constructor24ConstructorSet$LT$Cx$GT$5split10__CALLSITE17h7baad558263b5481E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !13394
+  %910 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN28ra_ap_rustc_pattern_analysis11constructor24ConstructorSet$LT$Cx$GT$5split10__CALLSITE17h7baad558263b5481E", i64 16) monotonic, align 8, !noalias !13394
   switch i8 %910, label %911 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread81.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -46219,7 +46219,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %932, label %933, label %.critedge.i
 
 933:                                              ; preds = %930
-  %934 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN28ra_ap_rustc_pattern_analysis11constructor24ConstructorSet$LT$Cx$GT$5split10__CALLSITE17h1c92f03651259d53E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !13394
+  %934 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN28ra_ap_rustc_pattern_analysis11constructor24ConstructorSet$LT$Cx$GT$5split10__CALLSITE17h1c92f03651259d53E", i64 16) monotonic, align 8, !noalias !13394
   switch i8 %934, label %935 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit61.thread.i
@@ -47610,7 +47610,7 @@ define hidden void @_ZN28ra_ap_rustc_pattern_analysis10usefulness24compute_match
   br i1 %45, label %46, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread156
 
 46:                                               ; preds = %43
-  %47 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness24compute_match_usefulness10__CALLSITE17hf4c63ed713b4d7dcE, i64 0, i32 2, i32 0) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness24compute_match_usefulness10__CALLSITE17hf4c63ed713b4d7dcE, i64 16) monotonic, align 8
   switch i8 %47, label %48 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread156
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -48792,7 +48792,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %1286, %1283,
   br i1 %.02.i.not, label %1196, label %1190
 
 133:                                              ; preds = %120
-  %134 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h92e671f126ab79d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %134 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h92e671f126ab79d8E", i64 16) monotonic, align 8
   switch i8 %134, label %135 [
     i8 0, label %.critedge.i
     i8 1, label %.noexc70.thread
@@ -49690,7 +49690,7 @@ _ZN28ra_ap_rustc_pattern_analysis10usefulness38collect_non_contiguous_range_endp
   br label %.body140
 
 430:                                              ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
-  %431 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h09d4a00c41d09a03E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !14477
+  %431 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h09d4a00c41d09a03E", i64 16) monotonic, align 8, !noalias !14477
   switch i8 %431, label %432 [
     i8 0, label %.critedge187.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit174.thread
@@ -52260,7 +52260,7 @@ _ZN17ra_ap_rustc_index7bit_set19inclusive_start_end17h037c73ee00c811a9E.exit.i: 
   br i1 %1265, label %1266, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread402
 
 1266:                                             ; preds = %1263
-  %1267 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness10__CALLSITE17hf2b68a0eb78bb3b6E, i64 0, i32 2, i32 0) monotonic, align 8
+  %1267 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness10__CALLSITE17hf2b68a0eb78bb3b6E, i64 16) monotonic, align 8
   switch i8 %1267, label %1268 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread402
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52367,7 +52367,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1296, label %1297, label %.critedge
 
 1297:                                             ; preds = %1294
-  %1298 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness10__CALLSITE17hbc8bbfa3f1c70c29E, i64 0, i32 2, i32 0) monotonic, align 8
+  %1298 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN28ra_ap_rustc_pattern_analysis10usefulness37compute_exhaustiveness_and_usefulness10__CALLSITE17hbc8bbfa3f1c70c29E, i64 16) monotonic, align 8
   switch i8 %1298, label %1299 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread

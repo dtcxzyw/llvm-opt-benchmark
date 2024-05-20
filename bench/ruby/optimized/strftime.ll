@@ -1154,7 +1154,7 @@ rbimpl_rstring_getmem.exit2417:                   ; preds = %buffer_size_check.e
   %493 = load i32, ptr %48, align 8
   %494 = and i32 %493, 7340032
   %495 = icmp ult i32 %494, 3145728
-  %rb_strftime_with_timespec.ampm. = select i1 %495, ptr @rb_strftime_with_timespec.ampm, ptr getelementptr inbounds ([2 x [3 x i8]], ptr @rb_strftime_with_timespec.ampm, i64 0, i64 1)
+  %rb_strftime_with_timespec.ampm. = select i1 %495, ptr @rb_strftime_with_timespec.ampm, ptr getelementptr inbounds (i8, ptr @rb_strftime_with_timespec.ampm, i64 3)
   br label %.critedge.thread
 
 496:                                              ; preds = %.lr.ph

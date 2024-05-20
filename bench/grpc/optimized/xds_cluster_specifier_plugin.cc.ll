@@ -248,7 +248,7 @@ if.end:                                           ; preds = %entry
   %_M_str.i34 = getelementptr inbounds i8, ptr %extension, i64 24
   %1 = load ptr, ptr %_M_str.i34, align 8
   %2 = load i64, ptr %value, align 8
-  %3 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__lookup__v1__RouteLookupClusterSpecifier_msg_init, i64 0, i32 2), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lookup__v1__RouteLookupClusterSpecifier_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %3 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -1979,7 +1979,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core36XdsRouteLookupClusterSpecifierPluginE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core36XdsRouteLookupClusterSpecifierPluginE, i64 16), ptr %call.i2, align 8, !noalias !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %name.i)
   store i64 42, ptr %name.i, align 8
   %1 = getelementptr inbounds i8, ptr %name.i, i64 8

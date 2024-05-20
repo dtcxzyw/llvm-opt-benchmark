@@ -40,36 +40,36 @@ define internal noundef i32 @sm_close() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sm_register() #1 {
-  store i32 0, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 1), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 1)) #4
-  store i32 4096, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2)) #4
-  store i32 8192, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5)) #4
-  store i32 2, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3), align 8
-  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3)) #4
-  store i32 8, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4), align 4
-  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4)) #4
-  store i32 4, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 6), align 4
-  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 6)) #4
-  store i32 4, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 7), align 8
-  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 7)) #4
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 280), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 280)) #4
+  store i32 4096, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284)) #4
+  store i32 8192, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296)) #4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288)) #4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292)) #4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
+  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300)) #4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 304), align 8
+  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 304)) #4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %10 = add i32 %9, 4
   %11 = mul i32 %10, %8
-  %12 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4), align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 7), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 304), align 8
   %14 = shl i32 %8, 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %reass.add31 = add i32 %14, %15
   %reass.mul32 = mul i32 %13, %12
   %reass.mul = mul i32 %reass.mul32, %reass.add31
   %16 = add i32 %reass.mul, %11
   store i32 %16, ptr @coll_sm_shared_mem_used_data, align 4
   %17 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_sm_component, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @coll_sm_shared_mem_used_data) #4
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %20 = srem i32 %18, %19
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %24, label %21
@@ -77,21 +77,21 @@ define internal noundef i32 @sm_register() #1 {
 21:                                               ; preds = %0
   %22 = add i32 %19, %18
   %23 = sub i32 %22, %20
-  store i32 %23, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
   br label %24
 
 24:                                               ; preds = %21, %0
-  %25 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %26 = icmp slt i32 %25, 2
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
-  store i32 2, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   br label %28
 
 28:                                               ; preds = %27, %24
   %29 = phi i32 [ 2, %27 ], [ %25, %24 ]
-  %30 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
   %.not48.i = icmp slt i32 %30, %29
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 %29)
   %32 = urem i32 %31, %29
@@ -103,21 +103,21 @@ define internal noundef i32 @sm_register() #1 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %28
-  store i32 %35, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4), align 4
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
   br label %38
 
 38:                                               ; preds = %37, %28
   %39 = sdiv i32 %35, %29
-  store i32 %39, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 8), align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 6), align 4
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 308), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
   %41 = icmp sgt i32 %40, %19
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @opal_show_help, align 8
   %44 = tail call i32 (ptr, ptr, i32, ...) %43(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1, i32 noundef %40, i32 noundef %19) #4
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
-  store i32 %45, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 6), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
   br label %46
 
 46:                                               ; preds = %42, %38
@@ -129,19 +129,19 @@ define internal noundef i32 @sm_register() #1 {
 50:                                               ; preds = %46
   %51 = load ptr, ptr @opal_show_help, align 8
   %52 = tail call i32 (ptr, ptr, i32, ...) %51(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef %48) #4
-  store i32 255, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 6), align 4
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
+  store i32 255, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   br label %sm_verify_mca_variables.exit
 
 sm_verify_mca_variables.exit:                     ; preds = %46, %50
   %53 = phi i32 [ %.pre.i, %50 ], [ %47, %46 ]
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 3), align 8
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %55 = add i32 %54, 4
   %56 = mul i32 %55, %53
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 4), align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 7), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 304), align 8
   %59 = shl i32 %53, 1
-  %60 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %reass.add46.i = add i32 %60, %59
   %reass.mul47.i = mul i32 %58, %57
   %reass.mul.i = mul i32 %reass.mul47.i, %reass.add46.i

@@ -217,7 +217,7 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
 
 136:                                              ; preds = %105
   %137 = load i32, ptr @opal_class_init_epoch, align 4
-  %138 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
+  %138 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 32), align 8
   %.not135 = icmp eq i32 %137, %138
   br i1 %.not135, label %140, label %139
 
@@ -229,7 +229,7 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
   store ptr @opal_info_t_class, ptr %4, align 8
   %141 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %141, align 8
-  %142 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 6), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 40), align 8
   %143 = load ptr, ptr %142, align 8
   %.not6.i = icmp eq ptr %143, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -575,7 +575,7 @@ define range(i32 -8, 1) i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapt
   %138 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #4
   %139 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #4
   %140 = load i32, ptr @opal_class_init_epoch, align 4
-  %141 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 32), align 8
   %.not126 = icmp eq i32 %140, %141
   br i1 %.not126, label %143, label %142
 
@@ -587,7 +587,7 @@ define range(i32 -8, 1) i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapt
   store ptr @opal_info_t_class, ptr %4, align 8
   %144 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile i32 1, ptr %144, align 8
-  %145 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 6), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 40), align 8
   %146 = load ptr, ptr %145, align 8
   %.not6.i = icmp eq ptr %146, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

@@ -72,9 +72,9 @@ define void @_ZN18DisplayFilterComboC2EP7QWidget(ptr noundef nonnull align 8 der
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18DisplayFilterCombo, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i64 0, i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18DisplayFilterCombo, i64 480), ptr %11, align 8
   invoke void @_ZN9QComboBox11setEditableEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
           to label %12 unwind label %47
 
@@ -455,7 +455,7 @@ declare void @_ZN15MainApplication18preferencesChangedEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18DisplayFilterCombo14updateMaxCountEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 27), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 156), align 4
   tail call void @_ZN9QComboBox11setMaxCountEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %2)
   ret void
 }

@@ -174,8 +174,8 @@ switch.lookup:                                    ; preds = %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %.preheader38
   %fputc = tail call i32 @fputc(i32 32, ptr %0)
-  %12 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 1), align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 4), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge44
 
@@ -208,7 +208,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 
 26:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
   br i1 %29, label %.preheader, label %._crit_edge44, !llvm.loop !11
@@ -298,7 +298,7 @@ define range(i32 0, 2) i32 @WriteResultIntoFile(ptr nocapture noundef readonly %
 
 CountLiteralsCheck.exit:                          ; preds = %8, %._crit_edge29.i, %29
   %.016.lcssa35.i = phi i32 [ %.1.lcssa.i, %29 ], [ %16, %._crit_edge29.i ], [ 0, %8 ]
-  store i32 %.016.lcssa35.i, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 9), align 4
+  store i32 %.016.lcssa35.i, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 36), align 4
   %31 = call ptr (...) @IterCubeSetStart() #5
   %.not7.i = icmp eq ptr %31, null
   br i1 %.not7.i, label %CountQCost.exit, label %.lr.ph.i21
@@ -314,42 +314,42 @@ CountLiteralsCheck.exit:                          ; preds = %8, %._crit_edge29.i
 
 CountQCost.exit:                                  ; preds = %.lr.ph.i21, %CountLiteralsCheck.exit
   %.05.lcssa.i = phi i32 [ 0, %CountLiteralsCheck.exit ], [ %33, %.lr.ph.i21 ]
-  store i32 %.05.lcssa.i, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 11), align 4
+  store i32 %.05.lcssa.i, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 44), align 4
   %35 = call i64 @fwrite(ptr nonnull @.str.8, i64 48, i64 1, ptr nonnull %3)
-  %36 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 14), align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 56), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef %36, i32 noundef %37) #5
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %11) #5
   %40 = call i64 @fwrite(ptr nonnull @.str.11, i64 22, i64 1, ptr nonnull %3)
-  %41 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 5), align 4
-  %42 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 8), align 8
-  %43 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 10), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 20), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 32), align 8
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 40), align 8
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %41, i32 noundef %42, i32 noundef %43) #5
   %45 = call i64 @fwrite(ptr nonnull @.str.13, i64 22, i64 1, ptr nonnull %3)
-  %46 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 9), align 4
-  %48 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 11), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 36), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 44), align 4
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %46, i32 noundef %47, i32 noundef %48) #5
-  %50 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 17), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 72), align 8
   %51 = sitofp i64 %50 to float
   %52 = fdiv float %51, 1.000000e+06
   %53 = fpext float %52 to double
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, double noundef %53) #5
-  %55 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 18), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 80), align 8
   %56 = sitofp i64 %55 to float
   %57 = fdiv float %56, 1.000000e+06
   %58 = fpext float %57 to double
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, double noundef %58) #5
-  %60 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 19), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 88), align 8
   %61 = sitofp i64 %60 to float
   %62 = fdiv float %61, 1.000000e+06
   %63 = fpext float %62 to double
   %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, double noundef %63) #5
   %65 = load i32, ptr @g_CoverInfo, align 8
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, i32 noundef %65) #5
-  %67 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 1), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 4), align 4
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, i32 noundef %67) #5
-  %69 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, i32 noundef %69) #5
   %71 = call i64 @fwrite(ptr nonnull @.str.20, i64 11, i64 1, ptr nonnull %3)
   call void @WriteTableIntoFile(ptr noundef nonnull %3)

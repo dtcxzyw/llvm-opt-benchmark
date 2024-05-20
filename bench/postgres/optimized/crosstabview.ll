@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br label %121
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 264), align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %28, label %25
 
@@ -80,7 +80,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
 
 28:                                               ; preds = %22, %25
   %.068 = phi i32 [ %26, %25 ], [ 0, %22 ]
-  %29 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 16, i64 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 272), align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
@@ -99,7 +99,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br label %121
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 16, i64 2), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 280), align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %49
 
@@ -137,7 +137,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
 
 .loopexit:                                        ; preds = %45, %.lr.ph, %.preheader, %49
   %.066 = phi i32 [ %50, %49 ], [ -1, %.preheader ], [ -1, %45 ], [ %.06386, %.lr.ph ]
-  %52 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 16, i64 3), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 288), align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %57, label %54
 
@@ -341,7 +341,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) unname
   br label %31
 
 16:                                               ; preds = %4, %2
-  %17 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   tail call void @dequote_downcase_identifier(ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef %17) #10
   %18 = tail call i32 @PQnfields(ptr noundef %1) #10
   %19 = icmp sgt i32 %18, 0
@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %9 = alloca %struct.printQueryOpt, align 8
   %10 = alloca %struct.printTableContent, align 8
   %11 = alloca %struct._pivot_field, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
   %12 = getelementptr inbounds i8, ptr %9, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %1, 1
@@ -738,8 +738,8 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br i1 %122, label %110, label %._crit_edge126, !llvm.loop !15
 
 ._crit_edge126:                                   ; preds = %118, %.preheader
-  %123 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
-  %124 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %10, ptr noundef %123, i1 noundef zeroext false, ptr noundef %124) #10
   br label %125
 

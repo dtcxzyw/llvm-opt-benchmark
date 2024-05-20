@@ -72,7 +72,7 @@ define dso_local i32 @ttm_eu_reserve_buffers(ptr noundef %0, ptr noundef %1, i1 
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 20
   store i16 0, ptr %16, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.ww_class, ptr @reservation_ww_class, i64 0, i32 5), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @reservation_ww_class, i64 24), align 8
   %18 = trunc i32 %17 to i16
   %19 = getelementptr inbounds i8, ptr %0, i64 22
   store i16 %18, ptr %19, align 2

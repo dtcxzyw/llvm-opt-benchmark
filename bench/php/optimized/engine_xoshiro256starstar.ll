@@ -573,7 +573,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 29:                                               ; preds = %26
   %30 = load ptr, ptr @random_ce_Random_RandomException, align 8
   %31 = call ptr @zend_throw_exception(ptr noundef %30, ptr noundef nonnull @.str, i64 noundef 0) #7
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %108
@@ -666,7 +666,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 77:                                               ; preds = %65
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #7
-  %78 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
   br label %108
@@ -683,7 +683,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 83:                                               ; preds = %47
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #7
-  %84 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %85 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %85)
   br label %108

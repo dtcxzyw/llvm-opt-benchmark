@@ -75,7 +75,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %39
 
@@ -93,10 +93,10 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   br label %39
 
 14:                                               ; preds = %1
-  %15 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_odls_launch_local_t_class, i64 0, i32 8), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @prte_odls_launch_local_t_class, i64 56), align 8
   %16 = call noalias noundef ptr @malloc(i64 noundef %15) #17
   %17 = load i32, ptr @pmix_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_odls_launch_local_t_class, i64 0, i32 4), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_launch_local_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %17, %18
   br i1 %.not.i, label %20, label %19
 
@@ -118,7 +118,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   %26 = getelementptr inbounds i8, ptr %16, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %27 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_odls_launch_local_t_class, i64 0, i32 6), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_odls_launch_local_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i = icmp eq ptr %28, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -191,7 +191,7 @@ define internal i32 @prte_odls_default_restart_proc(ptr noundef %0) #1 {
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i64 0, i32 11), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %13
 
@@ -231,7 +231,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
   br i1 %.not18, label %19, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %10, 64
   br i1 %or.cond, label %11, label %28
 
@@ -250,7 +250,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
   br label %28
 
 19:                                               ; preds = %6, %2
-  %20 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %20, 64
   br i1 %or.cond3, label %21, label %28
 
@@ -471,7 +471,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 110:                                              ; preds = %95
   %111 = getelementptr inbounds i8, ptr %102, i64 144
-  %112 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 10), align 8
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %133
 
@@ -484,7 +484,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %120 = sitofp i64 %119 to double
   %121 = fdiv double %120, 1.000000e+06
   %122 = fadd double %121, %117
-  %123 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 11), align 4
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %123, 64
   br i1 %or.cond.i, label %124, label %133
 
@@ -503,7 +503,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br label %133
 
 133:                                              ; preds = %129, %124, %114, %110
-  %134 = load ptr, ptr getelementptr inbounds (%struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i64 0, i32 6), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 48), align 8
   call void %134(ptr noundef nonnull %111, i32 noundef 9) #16
   br label %135
 
@@ -575,7 +575,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not97.i, label %178, label %166
 
 166:                                              ; preds = %164
-  %167 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 288
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 136
@@ -612,7 +612,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not98.i, label %199, label %187
 
 187:                                              ; preds = %185
-  %188 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %189 = getelementptr inbounds i8, ptr %0, i64 288
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 136
@@ -651,7 +651,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %210, label %211, label %223
 
 211:                                              ; preds = %206
-  %212 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %213 = getelementptr inbounds i8, ptr %0, i64 288
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 136
@@ -785,7 +785,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %17
 
 17:                                               ; preds = %2, %15
-  %18 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 288
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 136
@@ -823,7 +823,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %38
 
 38:                                               ; preds = %32, %36
-  %39 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 288
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 136
@@ -832,7 +832,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   unreachable
 
 44:                                               ; preds = %32, %31
-  %45 = load ptr, ptr getelementptr inbounds (%struct.prte_rtc_API_module_t, ptr @prte_rtc, i64 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc, i64 8), align 8
   tail call void %45(ptr noundef nonnull %0, i32 noundef %1) #16
   br label %.loopexit
 
@@ -940,7 +940,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %92, align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %99 = load ptr, ptr %24, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %104, label %101
@@ -972,7 +972,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 115:                                              ; preds = %111
   %116 = call ptr @strerror(i32 noundef %114) #16
-  %117 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %118 = load ptr, ptr %24, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %123, label %120
@@ -1030,7 +1030,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 152:                                              ; preds = %148, %143
   %153 = phi ptr [ %151, %148 ], [ %.pre66, %143 ]
-  %154 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %155 = getelementptr inbounds i8, ptr %0, i64 288
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 136
@@ -1220,11 +1220,11 @@ declare i32 @prte_odls_base_default_signal_local_procs(ptr noundef, i32 noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -17, 1) i32 @send_signal(i32 noundef %0, i32 noundef %1) #1 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i64 0, i32 9), align 4
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 324), align 4
   %4 = trunc i8 %3 to i1
   %5 = sub nsw i32 0, %0
   %.0 = select i1 %4, i32 %0, i32 %5
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %15
 

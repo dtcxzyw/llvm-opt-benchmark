@@ -171,12 +171,12 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #14
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 48), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 40), i8 0, i64 16, i1 false)
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 56)) #14
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec22SimpleFunctionRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, ptr nonnull @__dso_handle) #14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance) #14
   br label %_ZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEv.exit
@@ -198,12 +198,12 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SimpleFunctionRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #14
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 48), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 40), i8 0, i64 16, i1 false)
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, i64 56)) #14
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec22SimpleFunctionRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance, ptr nonnull @__dso_handle) #14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEvE8instance) #14
   br label %_ZN8facebook5velox4exec12_GLOBAL__N_123simpleFunctionsInternalEv.exit
@@ -1305,7 +1305,7 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec17FunctionSignatureD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
   %constantArguments_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %constantArguments_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3197,7 +3197,7 @@ land.end:                                         ; preds = %land.lhs.true4, %la
 define linkonce_odr void @_ZN8facebook5velox4exec17FunctionSignatureC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(225) %this, ptr noundef nonnull align 8 dereferenceable(225) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 8
   %variables_2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)

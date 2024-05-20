@@ -902,7 +902,7 @@ invoke.cont150:                                   ; preds = %invoke.cont145
 
 invoke.cont154:                                   ; preds = %invoke.cont150
   %call156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %full_key) #17
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), ptr noundef %call142, ptr noundef %call146, i64 noundef %call155, ptr noundef %call156, i64 noundef %20, i64 noundef %add, i64 noundef %add65)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), ptr noundef %call142, ptr noundef %call146, i64 noundef %call155, ptr noundef %call156, i64 noundef %20, i64 noundef %add, i64 noundef %add65)
           to label %cleanup163.thread383 unwind label %lpad149
 
 cleanup163.thread383:                             ; preds = %invoke.cont154
@@ -1100,7 +1100,7 @@ invoke.cont207:                                   ; preds = %invoke.cont199
 
 invoke.cont213:                                   ; preds = %invoke.cont207
   %call214 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp209) #17
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log200, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), i64 noundef %78, ptr noundef %call208, ptr noundef %call214)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log200, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), i64 noundef %78, ptr noundef %call208, ptr noundef %call214)
           to label %invoke.cont216 unwind label %lpad215
 
 invoke.cont216:                                   ; preds = %invoke.cont213
@@ -1377,7 +1377,7 @@ invoke.cont269:                                   ; preds = %invoke.cont261
 
 invoke.cont275:                                   ; preds = %invoke.cont269
   %call276 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp271) #17
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log262, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), i64 noundef %116, ptr noundef %call270, ptr noundef %call276)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log262, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), i64 noundef %116, ptr noundef %call270, ptr noundef %call276)
           to label %invoke.cont313 unwind label %lpad277
 
 lpad263:                                          ; preds = %invoke.cont261
@@ -1483,7 +1483,7 @@ invoke.cont301:                                   ; preds = %invoke.cont291
 
 invoke.cont305:                                   ; preds = %invoke.cont301
   %call306 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp303) #17
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log292, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), i64 noundef %131, ptr noundef %call302, ptr noundef %call306)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log292, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), i64 noundef %131, ptr noundef %call302, ptr noundef %call306)
           to label %invoke.cont313 unwind label %lpad307
 
 lpad293:                                          ; preds = %invoke.cont291
@@ -1658,7 +1658,7 @@ invoke.cont375:                                   ; preds = %invoke.cont369
 
 invoke.cont381:                                   ; preds = %invoke.cont375
   %call382 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp377) #17
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log370, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), ptr noundef %call376, ptr noundef %call382)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log370, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), ptr noundef %call376, ptr noundef %call382)
           to label %invoke.cont384 unwind label %lpad383
 
 invoke.cont384:                                   ; preds = %invoke.cont381
@@ -3726,7 +3726,7 @@ cond.end119:                                      ; preds = %invoke.cont103, %co
   %42 = load i64, ptr %8, align 8
   %conv123 = trunc i64 %42 to i32
   %43 = load ptr, ptr %key, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), i64 noundef %cond117, i64 noundef %cond120, i32 noundef %conv123, ptr noundef %43, i64 noundef %call.i.i)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), i64 noundef %cond117, i64 noundef %cond120, i32 noundef %conv123, ptr noundef %43, i64 noundef %call.i.i)
           to label %invoke.cont126 unwind label %lpad104
 
 invoke.cont126:                                   ; preds = %cond.end119
@@ -3841,7 +3841,7 @@ cond.true188:                                     ; preds = %invoke.cont179
 
 cond.end195:                                      ; preds = %invoke.cont179, %cond.true188
   %cond196 = phi i64 [ %call193, %cond.true188 ], [ 0, %invoke.cont179 ]
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log180, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.7, i64 0, i64 93), i32 noundef %conv185, i64 noundef %total.2, i64 noundef %cond196)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log180, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 93), i32 noundef %conv185, i64 noundef %total.2, i64 noundef %cond196)
           to label %invoke.cont197 unwind label %lpad181
 
 invoke.cont197:                                   ; preds = %cond.end195
@@ -4211,7 +4211,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.24, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc

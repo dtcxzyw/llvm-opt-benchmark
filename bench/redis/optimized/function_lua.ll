@@ -239,7 +239,7 @@ if.end.i.i.i:                                     ; preds = %if.end39.i.i, %for.
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %call5.i.i.i = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #8
-  %2 = load ptr, ptr getelementptr inbounds ([0 x %struct.scriptFlag], ptr @scripts_flags_def, i64 0, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @scripts_flags_def, i64 8), align 8
   %tobool6.not16.i.i.i = icmp eq ptr %2, null
   br i1 %tobool6.not16.i.i.i, label %error.sink.split.i.i, label %for.body.i.i.i
 

@@ -237,19 +237,19 @@ define dso_local noundef range(i32 -22, 1) i32 @register_cdrom(ptr noundef %0, p
   store ptr %26, ptr @cdrom_sysctl_header, align 8
   %27 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
   %28 = zext nneg i8 %27 to i32
-  store i32 %28, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 1), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
   %29 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
   %30 = zext nneg i8 %29 to i32
-  store i32 %30, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 2), align 4
+  store i32 %30, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
   %31 = load i8, ptr @debug, align 1, !range !13, !noundef !14
   %32 = zext nneg i8 %31 to i32
-  store i32 %32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 3), align 4
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
   %33 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
   %34 = zext nneg i8 %33 to i32
-  store i32 %34, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 4), align 4
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
   %35 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
   %36 = zext nneg i8 %35 to i32
-  store i32 %36, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 5), align 4
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
   br label %.thread1
 
 .thread1:                                         ; preds = %22, %12, %25, %10
@@ -1872,7 +1872,7 @@ define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef %0) 
   %2 = alloca %struct.packet_command, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 1032) #17
   %6 = icmp eq ptr %5, null
   br i1 %6, label %52, label %7
@@ -2770,7 +2770,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 187:                                              ; preds = %182
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !49
-  %188 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %189 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %188, i32 noundef 3264, i64 noundef 1032) #17
   %190 = icmp eq ptr %189, null
   br i1 %190, label %766, label %191
@@ -3085,7 +3085,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %766
 
 395:                                              ; preds = %371
-  %396 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %396 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %397 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %396, i32 noundef 3264, i64 noundef 1032) #17
   %398 = icmp eq ptr %397, null
   br i1 %398, label %766, label %399
@@ -3355,7 +3355,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %574, label %575, label %766
 
 575:                                              ; preds = %570
-  %576 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %576 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %577 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %576, i32 noundef 3264, i64 noundef 1032) #17
   %578 = icmp eq ptr %577, null
   br i1 %578, label %766, label %579
@@ -4189,19 +4189,19 @@ define internal noundef i32 @cdrom_init() #9 section ".init.text" align 16 {
   store ptr %13, ptr @cdrom_sysctl_header, align 8
   %14 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
   %15 = zext nneg i8 %14 to i32
-  store i32 %15, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 1), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
   %16 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
   %17 = zext nneg i8 %16 to i32
-  store i32 %17, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 2), align 4
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
   %18 = load i8, ptr @debug, align 1, !range !13, !noundef !14
   %19 = zext nneg i8 %18 to i32
-  store i32 %19, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 3), align 4
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
   %20 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
   %21 = zext nneg i8 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 4), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
   %22 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
   %23 = zext nneg i8 %22 to i32
-  store i32 %23, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 5), align 4
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
   br label %.thread1
 
 .thread1:                                         ; preds = %9, %0, %12
@@ -5511,7 +5511,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
 
 151:                                              ; preds = %21
   %152 = load ptr, ptr %0, align 8
-  %153 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %154 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %153, i32 noundef 3264, i64 noundef 2052) #17
   %155 = icmp eq ptr %154, null
   br i1 %155, label %.thread, label %156
@@ -5558,7 +5558,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
 
 177:                                              ; preds = %21
   %178 = load ptr, ptr %0, align 8
-  %179 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %180 = tail call noalias align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 3264, i64 noundef 192) #17
   %181 = icmp eq ptr %180, null
   br i1 %181, label %.thread, label %182
@@ -5614,7 +5614,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
 
 211:                                              ; preds = %21
   %212 = load ptr, ptr %0, align 8
-  %213 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %214 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %213, i32 noundef 3264, i64 noundef 2052) #17
   %215 = icmp eq ptr %214, null
   br i1 %215, label %.thread, label %216
@@ -6624,7 +6624,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
 14:                                               ; preds = %8
   tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(49) @cdrom_sysctl_settings, ptr noundef nonnull align 1 dereferenceable(49) @.str.30, i64 49, i1 false)
-  %15 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 0, i64 48), i64 noundef 952, ptr noundef nonnull @.str.31) #16
+  %15 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 48), i64 noundef 952, ptr noundef nonnull @.str.31) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit, label %17
 
@@ -7483,23 +7483,23 @@ define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %7, label %174, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 1), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i8
   store i8 %11, ptr @autoclose, align 1
-  %12 = load i32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 2), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i8
   store i8 %14, ptr @autoeject, align 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 3), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i8
   store i8 %17, ptr @debug, align 1
-  %18 = load i32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 4), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i8
   store i8 %20, ptr @lockdoor, align 1
-  %21 = load i32, ptr getelementptr inbounds (%struct.cdrom_sysctl_settings, ptr @cdrom_sysctl_settings, i64 0, i32 5), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i8
   store i8 %23, ptr @check_media_type, align 1

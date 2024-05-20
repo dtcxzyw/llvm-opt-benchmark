@@ -22354,7 +22354,7 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.body.i ]
-  %out_ranges.addr.011.i = phi ptr [ getelementptr inbounds ([5013 x i16], ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, i64 0, i64 12), %if.then ], [ %add.ptr.i, %for.body.i ]
+  %out_ranges.addr.011.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, i64 24), %if.then ], [ %add.ptr.i, %for.body.i ]
   %base_codepoint.addr.010.i = phi i16 [ 19968, %if.then ], [ %conv1.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE32accumulative_offsets_from_0x4E00, i64 %indvars.iv.i
   %1 = load i16, ptr %arrayidx.i, align 2
@@ -22388,7 +22388,7 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.body.i ]
-  %out_ranges.addr.011.i = phi ptr [ getelementptr inbounds ([6009 x i16], ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, i64 0, i64 10), %if.then ], [ %add.ptr.i, %for.body.i ]
+  %out_ranges.addr.011.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, i64 20), %if.then ], [ %add.ptr.i, %for.body.i ]
   %base_codepoint.addr.010.i = phi i16 [ 19968, %if.then ], [ %conv1.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE32accumulative_offsets_from_0x4E00, i64 %indvars.iv.i
   %1 = load i16, ptr %arrayidx.i, align 2

@@ -487,7 +487,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 189:                                              ; preds = %187
   %190 = add nsw i32 %.0.ph, 1
   %191 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @onas_dsresult.last_filename, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096) #14
-  store i8 0, ptr getelementptr inbounds ([4097 x i8], ptr @onas_dsresult.last_filename, i64 0, i64 4096), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @onas_dsresult.last_filename, i64 4096), align 16
   br label %.thread204
 
 192:                                              ; preds = %185

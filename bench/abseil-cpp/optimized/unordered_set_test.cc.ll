@@ -5605,7 +5605,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont43 unwind label %lpad29
 
 invoke.cont43:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -6126,7 +6126,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -6411,7 +6411,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -6702,7 +6702,7 @@ invoke.cont19.i.i.i.i.i:                          ; preds = %entry
   store i32 3, ptr %0, align 8, !noalias !54
   %matcher_describers_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !54
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %call9.i.i.i.i.i, align 8, !noalias !54
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 16), ptr %call9.i.i.i.i.i, align 8, !noalias !54
   %matchers_.i.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !54
   %vtable_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
@@ -6727,12 +6727,12 @@ _ZN7testing15SafeMatcherCastIRKSt6vectorIiSaIiEENS_8internal27UnorderedElementsA
   %2 = ptrtoint ptr %call9.i.i.i.i.i to i64
   store i64 %2, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !54
   store ptr %call.i.i1.i.i2.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !54
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8, !alias.scope !54
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIiSaIiEEEE, i64 16), ptr %matcher, align 8, !alias.scope !54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matchers.i.i.i.i.i), !noalias !53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -6840,7 +6840,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -6946,7 +6946,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #24
   br label %cleanup
@@ -6979,7 +6979,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad16 ], [ %20, %lpad28 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %ehcleanup41
 
@@ -6989,7 +6989,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %matcher, align 8
   %23 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIiSaIiEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEE8IsSharedEv.exit.i.i.i
@@ -7273,7 +7273,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
@@ -7313,7 +7313,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %inner_listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %inner_listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds i8, ptr %matcher, i64 8
@@ -7414,7 +7414,7 @@ call1.i23.noexc:                                  ; preds = %if.then.i
 invoke.cont25:                                    ; preds = %invoke.cont21, %call1.i23.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %return
 
@@ -7431,7 +7431,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad7
 
 ehcleanup26:                                      ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad ], [ %6, %lpad.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %common.resume
 
@@ -7451,7 +7451,7 @@ declare void @_ZN7testing15AssertionResultC1ERKS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #24
   ret void
@@ -7463,7 +7463,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7542,7 +7542,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7583,7 +7583,7 @@ _ZN7testing8internal11MatcherBaseIRKiED2Ev.exit:  ; preds = %entry, %_ZNK7testin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7691,7 +7691,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7732,7 +7732,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7774,7 +7774,7 @@ _ZN7testing8internal11MatcherBaseIRKiED2Ev.exit:  ; preds = %entry, %_ZNK7testin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7821,7 +7821,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8011,7 +8011,7 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %4 = load i64, ptr %buffer_3.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %add.ptr, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
@@ -8041,7 +8041,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKiE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -8056,7 +8056,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i35, %for.inc.i.i.i.i.i33 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %for.inc.i.i.i.i.i33 ], [ %__position.coerce, %invoke.cont10 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %vtable_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %vtable_2.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i25, align 8
@@ -8080,7 +8080,7 @@ if.then.i.i.i.i.i.i.i.i32:                        ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i33
 
 for.inc.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i.i.i.i.i32, %_ZNK7testing8internal11MatcherBaseIRKiE8IsSharedEv.exit.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %incdec.ptr.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 24
   %incdec.ptr1.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 24
   %cmp.not.i.i.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i.i.i34, %0
@@ -8154,7 +8154,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %did_match, i8 0, i64 24, i1 false)
   %stream_.i.i = getelementptr inbounds i8, ptr %dummy, i64 8
   store ptr null, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
   %cmp.i.not63 = icmp eq ptr %elem_first.coerce, %elem_last.coerce
   br i1 %cmp.i.not63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.for.end23_crit_edge, label %for.body.lr.ph
 
@@ -8686,7 +8686,7 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorIiSaIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -8761,7 +8761,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -8802,7 +8802,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -8910,7 +8910,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -9188,7 +9188,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_6NoArgsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -9442,7 +9442,7 @@ invoke.cont19.i.i.i.i.i:                          ; preds = %entry
   store i32 3, ptr %0, align 8, !noalias !88
   %matcher_describers_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !88
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %call9.i.i.i.i.i, align 8, !noalias !88
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %call9.i.i.i.i.i, align 8, !noalias !88
   %matchers_.i.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !88
   %vtable_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
@@ -9467,12 +9467,12 @@ _ZN7testing15SafeMatcherCastIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_tra
   %2 = ptrtoint ptr %call9.i.i.i.i.i to i64
   store i64 %2, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !88
   store ptr %call.i.i1.i.i2.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !88
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8, !alias.scope !88
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %matcher, align 8, !alias.scope !88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matchers.i.i.i.i.i), !noalias !87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -9580,7 +9580,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -9686,7 +9686,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #24
   br label %cleanup
@@ -9719,7 +9719,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad16 ], [ %20, %lpad28 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %ehcleanup41
 
@@ -9729,7 +9729,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %matcher, align 8
   %23 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE8IsSharedEv.exit.i.i.i
@@ -9859,7 +9859,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
@@ -9899,7 +9899,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %inner_listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %inner_listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds i8, ptr %matcher, i64 8
@@ -10000,7 +10000,7 @@ call1.i23.noexc:                                  ; preds = %if.then.i
 invoke.cont21:                                    ; preds = %invoke.cont18, %call1.i23.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %return
 
@@ -10017,7 +10017,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad9
 
 ehcleanup22:                                      ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad ], [ %6, %lpad.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %common.resume
 
@@ -10029,7 +10029,7 @@ return:                                           ; preds = %invoke.cont21, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -10105,7 +10105,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_trai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -10146,7 +10146,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -10254,7 +10254,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -10295,7 +10295,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -10337,7 +10337,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10384,7 +10384,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10574,7 +10574,7 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %4 = load i64, ptr %buffer_3.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %add.ptr, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
@@ -10604,7 +10604,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -10619,7 +10619,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i35, %for.inc.i.i.i.i.i33 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %for.inc.i.i.i.i.i33 ], [ %__position.coerce, %invoke.cont10 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %vtable_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %vtable_2.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i25, align 8
@@ -10643,7 +10643,7 @@ if.then.i.i.i.i.i.i.i.i32:                        ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i33
 
 for.inc.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i.i.i.i.i32, %_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IsSharedEv.exit.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %incdec.ptr.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i23, i64 24
   %incdec.ptr1.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 24
   %cmp.not.i.i.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i.i.i34, %0
@@ -10710,7 +10710,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %did_match, i8 0, i64 24, i1 false)
   %stream_.i.i = getelementptr inbounds i8, ptr %dummy, i64 8
   store ptr null, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
   %cmp.i.not63 = icmp eq ptr %elem_first.coerce, %elem_last.coerce
   br i1 %cmp.i.not63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.for.end22_crit_edge, label %for.body.lr.ph
 
@@ -11026,7 +11026,7 @@ declare void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -11101,7 +11101,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -11142,7 +11142,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11617,7 +11617,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -12113,7 +12113,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -12248,7 +12248,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -13400,7 +13400,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_11BucketCountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -14127,7 +14127,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -14623,7 +14623,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -14758,7 +14758,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -15563,7 +15563,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15BucketCountHashISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -16407,7 +16407,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -16903,7 +16903,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -17038,7 +17038,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -17957,7 +17957,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashEqualISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -18919,7 +18919,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -19415,7 +19415,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -19550,7 +19550,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -21292,7 +21292,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_25BucketCountHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -23246,7 +23246,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -23742,7 +23742,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -23877,7 +23877,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -24013,7 +24013,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16BucketCountAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -24175,7 +24175,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -24671,7 +24671,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -24806,7 +24806,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -24942,7 +24942,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20BucketCountHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -25104,7 +25104,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -25600,7 +25600,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -25735,7 +25735,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -25871,7 +25871,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_5AllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -26033,7 +26033,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -26529,7 +26529,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -26664,7 +26664,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -27666,11 +27666,11 @@ _ZN7testing15SafeMatcherCastIRKSt6vectorIiSaIiEENS_8internal32UnorderedElementsA
   %4 = ptrtoint ptr %call.i.i.i.i.i to i64
   store i64 %4, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !512
   store ptr %call.i.i1.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !512
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8, !alias.scope !512
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIiSaIiEEEE, i64 16), ptr %matcher, align 8, !alias.scope !512
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -27778,7 +27778,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -27884,7 +27884,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #24
   br label %cleanup
@@ -27917,7 +27917,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad16 ], [ %22, %lpad28 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %ehcleanup41
 
@@ -27927,7 +27927,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEEE, i64 16), ptr %matcher, align 8
   %25 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIiSaIiEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIiSaIiEEE8IsSharedEv.exit.i.i.i
@@ -28387,7 +28387,7 @@ entry:
   store i32 %matcher_flags, ptr %0, align 8
   %matcher_describers_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIiSaIiEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not29 = icmp eq ptr %first.coerce, %last.coerce
@@ -28405,7 +28405,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   call void @llvm.experimental.noalias.scope.decl(metadata !518)
   call void @llvm.experimental.noalias.scope.decl(metadata !521)
   call void @llvm.experimental.noalias.scope.decl(metadata !524)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !527
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !527
   %1 = load i32, ptr %first.sroa.0.030, align 4, !noalias !527
   %ref.tmp.i.sroa.2.16.insert.ext.i.i.i = zext i32 %1 to i64
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i, align 8, !alias.scope !527
@@ -28416,7 +28416,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %2, align 8
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %vtable_.i.i.i.i.i, align 8
   store ptr %4, ptr %vtable_.i.i.i.i.i.i, align 8
@@ -28424,7 +28424,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %5 = load i64, ptr %buffer_3.i.i.i.i.i.i, align 8
   store i64 %5, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %2, align 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
@@ -28435,7 +28435,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then.i.i, %if.else.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i64 16), ptr %ref.tmp, align 8
   %7 = load ptr, ptr %vtable_.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKiED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKiE8IsSharedEv.exit.i.i.i
@@ -28740,7 +28740,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_33InputIteratorBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -29832,11 +29832,11 @@ _ZN7testing15SafeMatcherCastIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_tra
   %4 = ptrtoint ptr %call.i.i.i.i.i to i64
   store i64 %4, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !594
   store ptr %call.i.i1.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !594
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8, !alias.scope !594
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %matcher, align 8, !alias.scope !594
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 0, i32 0, i64 2), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -29944,7 +29944,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -30050,7 +30050,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #24
   br label %cleanup
@@ -30083,7 +30083,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad16 ], [ %22, %lpad28 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %listener, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #24
   br label %ehcleanup41
 
@@ -30093,7 +30093,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %matcher, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %matcher, align 8
   %25 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE8IsSharedEv.exit.i.i.i
@@ -30818,7 +30818,7 @@ entry:
   store i32 %matcher_flags, ptr %0, align 8
   %matcher_describers_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not31 = icmp eq ptr %first.coerce, %last.coerce
@@ -30843,7 +30843,7 @@ invoke.cont:                                      ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %1, align 8
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
   store ptr %3, ptr %vtable_.i.i.i.i.i.i, align 8
@@ -30851,7 +30851,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %4 = load i64, ptr %buffer_3.i.i.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %1, align 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
@@ -30862,7 +30862,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then.i.i, %if.else.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %ref.tmp, align 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IsSharedEv.exit.i.i.i
@@ -31172,7 +31172,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -31668,7 +31668,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -31803,7 +31803,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -31939,7 +31939,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_24InputIteratorBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -32101,7 +32101,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -32597,7 +32597,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -32732,7 +32732,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -32868,7 +32868,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28InputIteratorBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -33030,7 +33030,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -33526,7 +33526,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -33661,7 +33661,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -35748,7 +35748,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15CopyConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -37889,7 +37889,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -38385,7 +38385,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -38520,7 +38520,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -38656,7 +38656,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20CopyConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -38818,7 +38818,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -39314,7 +39314,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -39449,7 +39449,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -40415,7 +40415,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_15MoveConstructorISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -41362,7 +41362,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -41858,7 +41858,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -41993,7 +41993,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -42129,7 +42129,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_20MoveConstructorAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -42291,7 +42291,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -42787,7 +42787,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -42922,7 +42922,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -43874,7 +43874,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_35InitializerListBucketHashEqualAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -45073,7 +45073,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -45569,7 +45569,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -45704,7 +45704,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -45840,7 +45840,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_26InitializerListBucketAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46002,7 +46002,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -46498,7 +46498,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -46633,7 +46633,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46769,7 +46769,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_30InitializerListBucketHashAllocISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46931,7 +46931,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -47427,7 +47427,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -47562,7 +47562,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -48688,7 +48688,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14CopyAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -49879,7 +49879,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -50375,7 +50375,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -50510,7 +50510,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -51368,7 +51368,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_14MoveAssignmentISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -52297,7 +52297,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -52793,7 +52793,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -52928,7 +52928,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -53596,7 +53596,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_29AssignmentFromInitializerListISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -54469,7 +54469,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -54965,7 +54965,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -55100,7 +55100,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -55714,7 +55714,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_28AssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -56328,7 +56328,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -56824,7 +56824,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -56959,7 +56959,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -57699,7 +57699,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_32MoveAssignmentOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -58380,7 +58380,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -58841,7 +58841,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -58976,7 +58976,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -59370,7 +59370,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_47AssignmentFromInitializerListOverwritesExistingISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -60012,7 +60012,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -60343,7 +60343,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal15ConstructorTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -60478,7 +60478,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -60956,7 +60956,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal28gtest_suite_ConstructorTest_16AssignmentOnSelfISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -61832,7 +61832,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -62328,7 +62328,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -62463,7 +62463,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -63467,7 +63467,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_5CountISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -64413,7 +64413,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -64874,7 +64874,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -65009,7 +65009,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -65955,7 +65955,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_4FindISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -66940,7 +66940,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -67271,7 +67271,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal10LookupTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -67406,7 +67406,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -68309,7 +68309,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal23gtest_suite_LookupTest_10EqualRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -69075,7 +69075,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -69571,7 +69571,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -69706,7 +69706,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -69842,7 +69842,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8TypedefsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -70004,7 +70004,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -70465,7 +70465,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -70600,7 +70600,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -70898,7 +70898,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_15SimpleFunctionsISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -71224,7 +71224,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -71555,7 +71555,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal11MembersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -71690,7 +71690,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -73477,7 +73477,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal24gtest_suite_MembersTest_8BeginEndISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -75297,7 +75297,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -75793,7 +75793,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
           to label %invoke.cont40 unwind label %lpad29
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call41, align 8
   %call45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call34, ptr noundef %call39, ptr noundef nonnull %call41)
           to label %invoke.cont44 unwind label %lpad29
 
@@ -75928,7 +75928,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -76687,7 +76687,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5ClearISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -77649,7 +77649,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -78145,7 +78145,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -78280,7 +78280,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -78820,7 +78820,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_6InsertISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -79377,7 +79377,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -79873,7 +79873,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -80008,7 +80008,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -80659,7 +80659,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10InsertHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -81317,7 +81317,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -81813,7 +81813,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -81948,7 +81948,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -82396,7 +82396,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11InsertRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -83036,7 +83036,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -83532,7 +83532,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -83667,7 +83667,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -84198,7 +84198,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_20InsertWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -84677,7 +84677,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -85173,7 +85173,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -85308,7 +85308,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -85444,7 +85444,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_25InsertRangeWithinCapacityISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -85606,7 +85606,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -86102,7 +86102,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -86237,7 +86237,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -86988,7 +86988,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_7EmplaceISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -87785,7 +87785,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -88281,7 +88281,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -88416,7 +88416,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -88853,7 +88853,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_11EmplaceHintISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -89297,7 +89297,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -89793,7 +89793,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -89928,7 +89928,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -91074,7 +91074,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_5EraseISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -92623,7 +92623,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -93119,7 +93119,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -93254,7 +93254,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -94133,7 +94133,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_10EraseRangeISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -95305,7 +95305,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -95766,7 +95766,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -95901,7 +95901,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -97046,7 +97046,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_8EraseKeyISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -98495,7 +98495,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setIiNS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocIiEEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -98826,7 +98826,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont39 unwind label %lpad31
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 0, i32 0, i64 2), ptr %call40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISC_EEEEEEE, i64 16), ptr %call40, align 8
   %call44 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15, ptr noundef %call21, ptr noundef %call25, ptr noundef null, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl18container_internal13ModifiersTestISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_19StatefulTestingHashENS3_20StatefulTestingEqualENS3_5AllocISB_EEEEEE6dummy_E, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call40)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -98961,7 +98961,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setIiNS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -100298,7 +100298,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal26gtest_suite_ModifiersTest_4SwapISt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS9_EEEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -102158,11 +102158,11 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   store i8 0, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, i64 48), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8internal20TypedTestSuitePStateD2Ev, ptr nonnull @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, ptr nonnull @__dso_handle) #24
   %call.i = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, ptr noundef nonnull @.str, i32 noundef 37, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   %call.i1 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6)
@@ -102192,11 +102192,11 @@ entry:
   %call.i25 = tail call noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL47gtest_typed_test_suite_p_state_ConstructorTest_E, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 490, ptr noundef nonnull @.str.54)
   store ptr %call.i25, ptr @_ZN4absl18container_internalL44gtest_registered_test_names_ConstructorTest_E, align 8
   store i8 0, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8internal20TypedTestSuitePStateD2Ev, ptr nonnull @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, ptr nonnull @__dso_handle) #24
   %call.i26 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, ptr noundef nonnull @.str.57, i32 noundef 32, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59)
   %call.i27 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, ptr noundef nonnull @.str.57, i32 noundef 45, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.61)
@@ -102204,11 +102204,11 @@ entry:
   %call.i29 = tail call noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL42gtest_typed_test_suite_p_state_LookupTest_E, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.57, i32 noundef 85, ptr noundef nonnull @.str.65)
   store ptr %call.i29, ptr @_ZN4absl18container_internalL39gtest_registered_test_names_LookupTest_E, align 8
   store i8 0, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, i64 48), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8internal20TypedTestSuitePStateD2Ev, ptr nonnull @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, ptr nonnull @__dso_handle) #24
   %call.i30 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, ptr noundef nonnull @.str.68, i32 noundef 35, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70)
   %call.i31 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, ptr noundef nonnull @.str.68, i32 noundef 68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.72)
@@ -102216,11 +102216,11 @@ entry:
   %call.i33 = tail call noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL43gtest_typed_test_suite_p_state_MembersTest_E, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.68, i32 noundef 80, ptr noundef nonnull @.str.76)
   store ptr %call.i33, ptr @_ZN4absl18container_internalL40gtest_registered_test_names_MembersTest_E, align 8
   store i8 0, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.testing::internal::TypedTestSuitePState", ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 32), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, i64 48), align 8
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8internal20TypedTestSuitePStateD2Ev, ptr nonnull @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, ptr nonnull @__dso_handle) #24
   %call.i34 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, ptr noundef nonnull @.str.79, i32 noundef 32, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81)
   %call.i35 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL45gtest_typed_test_suite_p_state_ModifiersTest_E, ptr noundef nonnull @.str.79, i32 noundef 44, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.83)
@@ -102249,7 +102249,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str.108, i64 0, i64 144))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 144))
           to label %invoke.cont.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -102359,7 +102359,7 @@ call.i.noexc.i56:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i57 unwind label %lpad.i53
 
 .noexc.i57:                                       ; preds = %call.i.noexc.i56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str.108, i64 0, i64 144))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 144))
           to label %invoke.cont.i59 unwind label %lpad.i.i58
 
 lpad.i.i58:                                       ; preds = %.noexc.i57
@@ -102463,7 +102463,7 @@ call.i.noexc.i91:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i92 unwind label %lpad.i88
 
 .noexc.i92:                                       ; preds = %call.i.noexc.i91
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i84, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str.108, i64 0, i64 144))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i84, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 144))
           to label %invoke.cont.i94 unwind label %lpad.i.i93
 
 lpad.i.i93:                                       ; preds = %.noexc.i92
@@ -102567,7 +102567,7 @@ call.i.noexc.i126:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i127 unwind label %lpad.i123
 
 .noexc.i127:                                      ; preds = %call.i.noexc.i126
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i119, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds ([145 x i8], ptr @.str.108, i64 0, i64 144))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i119, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 144))
           to label %invoke.cont.i129 unwind label %lpad.i.i128
 
 lpad.i.i128:                                      ; preds = %.noexc.i127

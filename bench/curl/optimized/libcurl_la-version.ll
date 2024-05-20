@@ -186,22 +186,22 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 define noundef ptr @curl_version_info(i32 noundef %stamp) local_unnamed_addr #0 {
 entry:
   tail call void @Curl_ssl_version(ptr noundef nonnull @curl_version_info.ssl_buffer, i64 noundef 80) #7
-  store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 5), align 8
+  store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds (i8, ptr @version_info, i64 40), align 8
   %call = tail call ptr @zlibVersion() #7
-  store ptr %call, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 7), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @version_info, i64 56), align 8
   %call1 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str.4) #8
-  store ptr %call1, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 11), align 8
+  store ptr %call1, ptr getelementptr inbounds (i8, ptr @version_info, i64 88), align 8
   %call2 = tail call i32 @BrotliDecoderVersion() #7
-  store i32 %call2, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 14), align 8
+  store i32 %call2, ptr getelementptr inbounds (i8, ptr @version_info, i64 112), align 8
   %call.i = tail call i32 @BrotliDecoderVersion() #7
   %shr.i = lshr i32 %call.i, 24
   %and.i = lshr i32 %call.i, 12
   %shr1.i = and i32 %and.i, 4095
   %and2.i = and i32 %call.i, 4095
   %call3.i = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull @curl_version_info.brotli_buffer, i64 noundef 80, ptr noundef nonnull @.str.5, i32 noundef %shr.i, i32 noundef %shr1.i, i32 noundef %and2.i) #7
-  store ptr @curl_version_info.brotli_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 15), align 8
+  store ptr @curl_version_info.brotli_buffer, ptr getelementptr inbounds (i8, ptr @version_info, i64 120), align 8
   %call3 = tail call i32 @ZSTD_versionNumber() #7
-  store i32 %call3, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 21), align 8
+  store i32 %call3, ptr getelementptr inbounds (i8, ptr @version_info, i64 168), align 8
   %call.i8 = tail call i32 @ZSTD_versionNumber() #7
   %conv.i = zext i32 %call.i8 to i64
   %div.i = udiv i32 %call.i8, 10000
@@ -214,7 +214,7 @@ entry:
   %sub12.i = add i64 %mul10.neg.i, %sub.i
   %conv13.i = trunc i64 %sub12.i to i32
   %call14.i = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull @curl_version_info.zstd_buffer, i64 noundef 80, ptr noundef nonnull @.str.5, i32 noundef %div.i, i32 noundef %conv5.i, i32 noundef %conv13.i) #7
-  store ptr @curl_version_info.zstd_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 22), align 8
+  store ptr @curl_version_info.zstd_buffer, ptr getelementptr inbounds (i8, ptr @version_info, i64 176), align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -252,7 +252,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
 for.end:                                          ; preds = %for.inc
   %arrayidx9 = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %n.1
   store ptr null, ptr %arrayidx9, align 8
-  store i32 %features.1, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i64 0, i32 4), align 8
+  store i32 %features.1, ptr getelementptr inbounds (i8, ptr @version_info, i64 32), align 8
   ret ptr @version_info
 }
 

@@ -138,7 +138,7 @@ parent_path.exit:                                 ; preds = %10
   br i1 %.not, label %parent_path.exit.thread, label %17
 
 17:                                               ; preds = %parent_path.exit
-  %18 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 2), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %.not46 = icmp eq ptr %18, null
   br i1 %.not46, label %._crit_edge, label %19
 
@@ -1847,7 +1847,7 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
   br i1 %.not15.i, label %42, label %39
 
 39:                                               ; preds = %35
-  %40 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %52
 
@@ -1857,7 +1857,7 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
   br i1 %.not16.i, label %47, label %44
 
 44:                                               ; preds = %42
-  %45 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %52
 
@@ -2236,7 +2236,7 @@ define dso_local void @sema_analysis_pass_functions(ptr nocapture noundef readon
   br i1 %.not15.i, label %35, label %32
 
 32:                                               ; preds = %28
-  %33 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %analyse_func_body.exit
 
@@ -2246,7 +2246,7 @@ define dso_local void @sema_analysis_pass_functions(ptr nocapture noundef readon
   br i1 %.not16.i, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %analyse_func_body.exit
 
@@ -2313,7 +2313,7 @@ analyse_func_body.exit:                           ; preds = %.lr.ph, %32, %37, %
   br i1 %.not15.i50, label %69, label %66
 
 66:                                               ; preds = %62
-  %67 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %analyse_func_body.exit52
 
@@ -2323,7 +2323,7 @@ analyse_func_body.exit:                           ; preds = %.lr.ph, %32, %37, %
   br i1 %.not16.i51, label %74, label %71
 
 71:                                               ; preds = %69
-  %72 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %72 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %analyse_func_body.exit52
 
@@ -2381,7 +2381,7 @@ analyse_func_body.exit52:                         ; preds = %.lr.ph63, %66, %71,
   br i1 %.not15.i57, label %100, label %97
 
 97:                                               ; preds = %93
-  %98 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %analyse_func_body.exit59
 
@@ -2391,7 +2391,7 @@ analyse_func_body.exit52:                         ; preds = %.lr.ph63, %66, %71,
   br i1 %.not16.i58, label %105, label %102
 
 102:                                              ; preds = %100
-  %103 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %103 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %analyse_func_body.exit59
 
@@ -2424,7 +2424,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca %struct.SemaContext_, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 40), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 176), align 8
   %5 = icmp ult i32 %4, 2
   br i1 %5, label %6, label %9
 
@@ -2662,20 +2662,20 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br i1 %exitcond128.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !54
 
 ._crit_edge108:                                   ; preds = %99, %53, %55
-  %100 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 18), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %.not91 = icmp eq ptr %100, null
   br i1 %.not91, label %109, label %101
 
 101:                                              ; preds = %._crit_edge108
   %102 = call ptr @getcwd(ptr noundef null, i64 noundef 0) #11
-  %103 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 18), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %104 = call zeroext i1 @dir_change(ptr noundef %103) #11
   br i1 %104, label %109, label %105
 
 105:                                              ; preds = %101
   call void @free(ptr noundef %102) #11
   %106 = getelementptr inbounds i8, ptr %1, i64 16
-  %107 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 18), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %108 = load i64, ptr %106, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %108, ptr noundef nonnull @.str.19, ptr noundef %107) #11
   br label %134
@@ -2708,15 +2708,15 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds i8, ptr %1, i64 16
-  %123 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 18), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %124 = load i64, ptr %122, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %124, ptr noundef nonnull @.str.20, ptr noundef %123) #11
   br label %134
 
 125:                                              ; preds = %119, %118
-  %126 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 12), align 4
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 92), align 4
   %127 = add i32 %126, 1
-  store i32 %127, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 12), align 4
+  store i32 %127, ptr getelementptr inbounds (i8, ptr @global_context, i64 92), align 4
   %128 = icmp ugt i32 %126, 2048
   br i1 %128, label %129, label %132
 
@@ -2742,7 +2742,7 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.SemaContext_, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 40), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 176), align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
 
@@ -2847,14 +2847,14 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
   br label %.thread
 
 61:                                               ; preds = %57
-  %62 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 10), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
   %.not45 = icmp eq i32 %62, 0
   br i1 %.not45, label %63, label %.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 12), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 92), align 4
   %65 = add i32 %64, 1
-  store i32 %65, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 12), align 4
+  store i32 %65, ptr getelementptr inbounds (i8, ptr @global_context, i64 92), align 4
   %66 = icmp ugt i32 %64, 2048
   br i1 %66, label %67, label %69
 

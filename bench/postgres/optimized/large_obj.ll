@@ -54,7 +54,7 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
   br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %fail_lo_xact.exit
 
@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %30
 
@@ -154,28 +154,28 @@ declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  %3 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 3, i64 1, ptr %9)
   br label %11
 
 11:                                               ; preds = %8, %5
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %12 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   %13 = call i32 @pg_vfprintf(ptr noundef %12, ptr noundef %0, ptr noundef nonnull %2) #7
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %14 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
   %15 = icmp eq i32 %14, 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   br i1 %15, label %17, label %19
 
 17:                                               ; preds = %11
@@ -187,16 +187,16 @@ define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %17, %19, %1
-  %21 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %20
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %23 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   %24 = call i32 @pg_vfprintf(ptr noundef %23, ptr noundef %0, ptr noundef nonnull %2) #7
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   %fputc2 = call i32 @fputc(i32 10, ptr %25)
   br label %26
 
@@ -228,7 +228,7 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %fail_lo_xact.exit
 
@@ -255,7 +255,7 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   br i1 %28, label %29, label %fail_lo_xact.exit
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %fail_lo_xact.exit
 
@@ -283,7 +283,7 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   br i1 %44, label %45, label %fail_lo_xact.exit
 
 45:                                               ; preds = %42
-  %46 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %46 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %fail_lo_xact.exit
 
@@ -303,7 +303,7 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %51
-  %55 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %61
 
@@ -324,7 +324,7 @@ finish_lo_xact.exit:                              ; preds = %57
 61:                                               ; preds = %59, %54, %51
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.6, i32 noundef %8)
   %62 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %8) #7
-  %63 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 28), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
   %64 = call zeroext i1 @SetVariable(ptr noundef %63, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #7
   br label %fail_lo_xact.exit
 
@@ -378,7 +378,7 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
   br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %fail_lo_xact.exit
 
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %30
 

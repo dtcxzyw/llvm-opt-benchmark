@@ -215,7 +215,7 @@ define i32 @casadi_c_id(ptr noundef %0) local_unnamed_addr #5 personality ptr @_
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %14 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %.not36 = icmp eq ptr %13, %14
   br i1 %.not36, label %._crit_edge.thread, label %.lr.ph
@@ -300,7 +300,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread22: ; preds = %18, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.1 = phi i32 [ %.01130, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %28, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.01130, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %40 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
@@ -335,7 +335,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %.not2331 = icmp eq ptr %57, %58
   br i1 %.not2331, label %._crit_edge35, label %.lr.ph34
 
@@ -394,7 +394,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @casadi_c_n_loaded() local_unnamed_addr #6 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %2 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %2 to i64
@@ -407,7 +407,7 @@ define i32 @casadi_c_n_loaded() local_unnamed_addr #6 {
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @casadi_c_push_file(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca i32, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %4 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -415,7 +415,7 @@ define noundef i32 @casadi_c_push_file(ptr noundef %0) local_unnamed_addr #5 {
   %8 = lshr exact i64 %7, 3
   %9 = trunc i64 %8 to i32
   %10 = tail call noundef i32 @_Z27casadi_c_push_file_internalPKc(ptr noundef %0)
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %12 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -424,17 +424,17 @@ define noundef i32 @casadi_c_push_file(ptr noundef %0) local_unnamed_addr #5 {
   %17 = trunc i64 %16 to i32
   %18 = sub nsw i32 %17, %9
   store i32 %18, ptr %2, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 64), align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %.not.i.i = icmp eq ptr %19, %21
   br i1 %.not.i.i, label %25, label %22
 
 22:                                               ; preds = %1
   store i32 %18, ptr %19, align 4
-  %23 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 4
-  store ptr %24, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
   br label %_ZNSt5dequeIiSaIiEE9push_backEOi.exit
 
 25:                                               ; preds = %1
@@ -508,8 +508,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %23 unwind label %34
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 16), align 8
   %.not.i.i = icmp eq ptr %24, %25
   br i1 %.not.i.i, label %29, label %26
 
@@ -518,9 +518,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc32 unwind label %36
 
 .noexc32:                                         ; preds = %26
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %28, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE9push_backEOS1_.exit
 
 29:                                               ; preds = %23
@@ -601,8 +601,8 @@ _ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %39, %_ZSt
 
 .lr.ph:                                           ; preds = %39, %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE9push_backERKS1_.exit
   %.sroa.038.042 = phi ptr [ %52, %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE9push_backERKS1_.exit ], [ %40, %39 ]
-  %46 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %47 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 16), align 8
   %.not.i = icmp eq ptr %46, %47
   br i1 %.not.i, label %51, label %48
 
@@ -611,9 +611,9 @@ _ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %39, %_ZSt
           to label %.noexc34 unwind label %53
 
 .noexc34:                                         ; preds = %48
-  %49 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %50, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE9push_backERKS1_.exit
 
 51:                                               ; preds = %.lr.ph
@@ -766,10 +766,10 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EED2Ev.exit: ; preds = %45, %_ZSt8_DestroyI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @casadi_c_clear() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %1 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), align 8, !noalias !8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 2, i32 2), align 8, !noalias !8
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 2, i32 3), align 8, !noalias !8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %1 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 16), align 8, !noalias !8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 32), align 8, !noalias !8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 40), align 8, !noalias !8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
   %5 = icmp ult ptr %3, %4
   br i1 %5, label %.lr.ph.i.i.i, label %_ZNSt5dequeIiSaIiEE5clearEv.exit
 
@@ -782,11 +782,11 @@ define void @casadi_c_clear() local_unnamed_addr #3 personality ptr @__gxx_perso
   br i1 %7, label %.lr.ph.i.i.i, label %_ZNSt5dequeIiSaIiEE5clearEv.exit, !llvm.loop !6
 
 _ZNSt5dequeIiSaIiEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %0
-  store <2 x ptr> %1, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  store ptr %2, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
-  store ptr %3, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store <2 x ptr> %1, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 64), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
   %8 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %.not.i.i = icmp eq ptr %9, %8
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -798,7 +798,7 @@ _ZNSt5dequeIiSaIiEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %0
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  store ptr %8, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN6casadi8FunctionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt5dequeIiSaIiEE5clearEv.exit, %_ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i
@@ -808,8 +808,8 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt5dequeIiSa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @casadi_c_pop() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 56), align 8
   %3 = icmp eq ptr %1, %2
   br i1 %3, label %7, label %4
 
@@ -819,28 +819,28 @@ define void @casadi_c_pop() local_unnamed_addr #3 personality ptr @__gxx_persona
   br label %_ZNSt5dequeIiSaIiEE8pop_backEv.exit
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8, !noalias !11
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8, !noalias !11
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 508
   %12 = load i32, ptr %11, align 4
   tail call void @_ZdlPv(ptr noundef %2) #19
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
-  store ptr %14, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 3), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 1), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 56), align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 512
-  store ptr %16, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 2), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 64), align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 508
   br label %_ZNSt5dequeIiSaIiEE8pop_backEv.exit
 
 _ZNSt5dequeIiSaIiEE8pop_backEv.exit:              ; preds = %4, %7
   %18 = phi i32 [ %6, %4 ], [ %12, %7 ]
   %storemerge.i = phi ptr [ %5, %4 ], [ %17, %7 ]
-  store ptr %storemerge.i, ptr getelementptr inbounds (%"class.std::deque", ptr @_ZL19casadi_c_load_stack, i64 0, i32 0, i32 0, i32 0, i32 3, i32 0), align 8
+  store ptr %storemerge.i, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
   %19 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
   %23 = sub i64 %21, %22
@@ -859,7 +859,7 @@ _ZNSt5dequeIiSaIiEE8pop_backEv.exit:              ; preds = %4, %7
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  store ptr %27, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit
 
 _ZNSt6vectorIN6casadi8FunctionESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit: ; preds = %_ZNSt5dequeIiSaIiEE8pop_backEv.exit, %_ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit.i.i.i
@@ -888,7 +888,7 @@ define linkonce_odr hidden noundef i32 @_Z11sanitize_idi(i32 noundef %0) local_u
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %6 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -901,7 +901,7 @@ define linkonce_odr hidden noundef i32 @_Z11sanitize_idi(i32 noundef %0) local_u
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.13)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %0)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.14)
-  %15 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %16 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -952,7 +952,7 @@ define noundef i32 @casadi_c_checkout_id(i32 noundef %0) local_unnamed_addr #5 p
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %6 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -1070,7 +1070,7 @@ define void @casadi_c_release(i32 noundef %0) local_unnamed_addr #5 {
 define void @casadi_c_release_id(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_Z11sanitize_idi(i32 noundef %0)
   %4 = sext i32 %0 to i64
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %6 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -1170,7 +1170,7 @@ define noundef double @casadi_c_default_in_id(i32 noundef %0, i64 noundef %1) lo
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %7 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1272,7 +1272,7 @@ define noundef i64 @casadi_c_n_in_id(i32 noundef %0) local_unnamed_addr #5 perso
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %6 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -1374,7 +1374,7 @@ define noundef i64 @casadi_c_n_out_id(i32 noundef %0) local_unnamed_addr #5 pers
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %6 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -1492,7 +1492,7 @@ define noundef ptr @casadi_c_name_id(i32 noundef %0) local_unnamed_addr #5 {
 
 10:                                               ; preds = %8, %6, %3
   %11 = sext i32 %0 to i64
-  %12 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %13 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -1546,7 +1546,7 @@ define noundef ptr @casadi_c_name_in_id(i32 noundef %0, i64 noundef %1) local_un
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %7 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1655,7 +1655,7 @@ define noundef ptr @casadi_c_name_out_id(i32 noundef %0, i64 noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %7 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1764,7 +1764,7 @@ define noundef ptr @casadi_c_sparsity_in_id(i32 noundef %0, i64 noundef %1) loca
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %7 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1871,7 +1871,7 @@ define noundef ptr @casadi_c_sparsity_out_id(i32 noundef %0, i64 noundef %1) loc
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %7 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1976,7 +1976,7 @@ define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noun
 
 7:                                                ; preds = %5
   %8 = sext i32 %0 to i64
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %10 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -1992,7 +1992,7 @@ define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noun
 
 18:                                               ; preds = %15
   store i64 %17, ptr %1, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %20 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
@@ -2008,7 +2008,7 @@ define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noun
 
 28:                                               ; preds = %25
   store i64 %27, ptr %2, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %30 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -2024,7 +2024,7 @@ define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noun
 
 38:                                               ; preds = %35
   store i64 %37, ptr %3, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %40 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
@@ -2140,7 +2140,7 @@ define noundef i32 @casadi_c_eval_id(i32 noundef %0, ptr noundef %1, ptr noundef
 
 8:                                                ; preds = %6
   %9 = sext i32 %0 to i64
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL25casadi_c_loaded_functions, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %11 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64

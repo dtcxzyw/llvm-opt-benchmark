@@ -42,7 +42,7 @@ define dso_local noundef range(i32 -12, 1) i32 @refill_pi_state_cache() local_un
   br i1 %5, label %6, label %15, !prof !7
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 88) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -867,7 +867,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %13, label %14, label %23, !prof !7
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 88) #12
   %17 = icmp eq ptr %16, null
   br i1 %17, label %113, label %18

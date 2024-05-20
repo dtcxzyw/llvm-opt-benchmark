@@ -927,7 +927,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @_PyPegen_dummy_name(ptr nocapture noundef readnone %p, ...) local_unnamed_addr #0 {
 entry:
-  ret ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 19, i32 1)
+  ret ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1880)
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3740,7 +3740,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   br i1 %cmp1, label %if.then, label %cond.end.i.i
 
 if.then:                                          ; preds = %cond.end
-  %call2 = tail call ptr @_PyAST_Call(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 19, i32 1), ptr noundef %a, ptr noundef null, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset, ptr noundef %arena) #8
+  %call2 = tail call ptr @_PyAST_Call(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 1880), ptr noundef %a, ptr noundef null, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset, ptr noundef %arena) #8
   br label %return
 
 cond.end.i.i:                                     ; preds = %cond.end
@@ -3945,7 +3945,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %exitcond75.not, label %for.end26, label %for.body19, !llvm.loop !31
 
 for.end26:                                        ; preds = %for.body19, %for.cond17.preheader
-  %call28 = tail call ptr @_PyAST_Call(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 19, i32 1), ptr noundef %call13, ptr noundef %retval.0.i37, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset, ptr noundef %arena) #8
+  %call28 = tail call ptr @_PyAST_Call(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 1880), ptr noundef %call13, ptr noundef %retval.0.i37, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset, ptr noundef %arena) #8
   br label %return
 
 return:                                           ; preds = %for.end26, %if.then

@@ -67,7 +67,7 @@ if.then.i.i.i:                                    ; preds = %if.end14
   unreachable
 
 loadBlock.exit.i.i:                               ; preds = %if.end14
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 1), ptr noundef nonnull dereferenceable(3) %buff.i.i, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) getelementptr inbounds (i8, ptr @.str, i64 1), ptr noundef nonnull dereferenceable(3) %buff.i.i, i64 3)
   %cmp.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.not.i.i, label %checkliteral.exit.i, label %if.then.i.i
 

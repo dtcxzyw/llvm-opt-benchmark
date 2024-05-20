@@ -506,7 +506,7 @@ if.then199:                                       ; preds = %if.end197
 
 land.rhs.preheader:                               ; preds = %if.then199
   %9 = load ptr, ptr @patterns, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %add.ptr24 = getelementptr inbounds %struct.string_list_item, ptr %9, i64 %10
   %cmp20225 = icmp ult ptr %8, %add.ptr24
   br i1 %cmp20225, label %for.body, label %for.end
@@ -517,7 +517,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %call203 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.42, ptr noundef %11) #15
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01826, i64 16
   %12 = load ptr, ptr @patterns, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
   %cmp202 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp202, label %for.body, label %for.end
@@ -529,7 +529,7 @@ for.end:                                          ; preds = %for.body, %land.rhs
 
 land.rhs206.preheader:                            ; preds = %for.end
   %15 = load ptr, ptr @exclude_patterns, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   %add.ptr20727 = getelementptr inbounds %struct.string_list_item, ptr %15, i64 %16
   %cmp20828 = icmp ult ptr %14, %add.ptr20727
   br i1 %cmp20828, label %for.body210, label %if.end216
@@ -540,7 +540,7 @@ for.body210:                                      ; preds = %land.rhs206.prehead
   %call212 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.43, ptr noundef %17) #15
   %incdec.ptr214 = getelementptr inbounds i8, ptr %item.12029, i64 16
   %18 = load ptr, ptr @exclude_patterns, align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   %add.ptr207 = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %19
   %cmp208 = icmp ult ptr %incdec.ptr214, %add.ptr207
   br i1 %cmp208, label %for.body210, label %if.end216
@@ -568,7 +568,7 @@ if.end221:                                        ; preds = %if.else219, %if.the
 if.end223:                                        ; preds = %if.end191
   call void @hashmap_init(ptr noundef nonnull @names, ptr noundef nonnull @commit_name_neq, ptr noundef null, i64 noundef 0) #15
   %call224 = call i32 @for_each_rawref(ptr noundef nonnull @get_name, ptr noundef null) #15
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.hashmap, ptr @names, i64 0, i32 7), align 8
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @names, i64 40), align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %hashmap_get_size.exit
@@ -578,7 +578,7 @@ if.end.i:                                         ; preds = %if.end223
   unreachable
 
 hashmap_get_size.exit:                            ; preds = %if.end223
-  %22 = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @names, i64 0, i32 3), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @names, i64 24), align 8
   %tobool226 = icmp ne i32 %22, 0
   %23 = load i32, ptr @always, align 4
   %tobool228 = icmp ne i32 %23, 0
@@ -880,9 +880,9 @@ if.else:                                          ; preds = %do.cond.i
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.else
-  %3 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   %tobool2 = icmp ne i64 %3, 0
-  %4 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %tobool3 = icmp ne i64 %4, 0
   %or.cond = select i1 %tobool2, i1 true, i1 %tobool3
   br i1 %or.cond, label %do.body.i14.preheader, label %if.end40
@@ -927,7 +927,7 @@ do.cond.i28:                                      ; preds = %do.body.i24
 
 if.end10.loopexit68:                              ; preds = %do.body.i
   %tobool.not.i.le86 = icmp eq i8 %0, 0
-  %.pr.pre = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %.pr.pre = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %do.body.i14, %do.body.i24, %if.end10.loopexit68
@@ -942,7 +942,7 @@ if.end10:                                         ; preds = %do.body.i14, %do.bo
 
 land.rhs.preheader:                               ; preds = %if.end10
   %10 = load ptr, ptr @exclude_patterns, align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   %add.ptr92 = getelementptr inbounds %struct.string_list_item, ptr %10, i64 %11
   %cmp93 = icmp ult ptr %9, %add.ptr92
   br i1 %cmp93, label %for.body, label %if.end18
@@ -950,7 +950,7 @@ land.rhs.preheader:                               ; preds = %if.end10
 land.rhs:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %item.06194, i64 16
   %12 = load ptr, ptr @exclude_patterns, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @exclude_patterns, i64 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @exclude_patterns, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %if.end18
@@ -963,7 +963,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   br i1 %tobool15.not, label %return, label %land.rhs
 
 if.end18:                                         ; preds = %land.rhs, %land.rhs.preheader, %if.end10
-  %.pr47 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %.pr47 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %tobool19.not = icmp eq i64 %.pr47, 0
   br i1 %tobool19.not, label %if.end40, label %if.then20
 
@@ -974,7 +974,7 @@ if.then20:                                        ; preds = %if.end18
 
 land.rhs24.preheader:                             ; preds = %if.then20
   %16 = load ptr, ptr @patterns, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %add.ptr2595 = getelementptr inbounds %struct.string_list_item, ptr %16, i64 %17
   %cmp2696 = icmp ult ptr %15, %add.ptr2595
   br i1 %cmp2696, label %for.body28, label %return
@@ -982,7 +982,7 @@ land.rhs24.preheader:                             ; preds = %if.then20
 land.rhs24:                                       ; preds = %for.body28
   %incdec.ptr35 = getelementptr inbounds i8, ptr %item21.06397, i64 16
   %18 = load ptr, ptr @patterns, align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @patterns, i64 0, i32 1), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @patterns, i64 8), align 8
   %add.ptr25 = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %19
   %cmp26 = icmp ult ptr %incdec.ptr35, %add.ptr25
   br i1 %cmp26, label %for.body28, label %return

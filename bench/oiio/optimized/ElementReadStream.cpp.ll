@@ -30,7 +30,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %fd) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6cineon17ElementReadStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon17ElementReadStreamE, i64 16), ptr %this, align 8
   %fd2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %fd, ptr %fd2, align 8
   ret void

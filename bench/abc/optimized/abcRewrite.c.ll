@@ -76,19 +76,19 @@ Abc_Clock.exit:                                   ; preds = %6, %15
 Abc_Clock.exit93:                                 ; preds = %26, %29
   %.0.i92.neg = phi i64 [ %.neg104, %29 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 2), i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), i8 0, i64 68, i1 false)
   store i32 4, ptr @Abc_NtkStartCutManForRewrite.Params, align 4
-  store i32 250, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 5), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 6), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 19), align 4
+  store i32 250, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 24), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 76), align 4
   %33 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %34, align 4
-  store i32 %.val.val.i, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 2), align 4
+  store i32 %.val.val.i, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), align 4
   %35 = call ptr @Cut_ManStart(ptr noundef nonnull @Abc_NtkStartCutManForRewrite.Params) #11
-  %36 = load i32, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForRewrite.Params, i64 0, i32 8), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 32), align 4
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %39, label %37
 

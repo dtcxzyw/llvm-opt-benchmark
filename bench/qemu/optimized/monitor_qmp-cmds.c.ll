@@ -325,7 +325,7 @@ entry:
   tail call void @qmp_init_marshal(ptr noundef nonnull @qmp_commands) #6
   tail call void @qmp_register_command(ptr noundef nonnull @qmp_commands, ptr noundef nonnull @.str.11, ptr noundef nonnull @qmp_device_add, i32 noundef 0, i32 noundef 0) #6
   store ptr null, ptr @qmp_cap_negotiation_commands, align 8
-  store ptr @qmp_cap_negotiation_commands, ptr getelementptr inbounds (%union.QmpCommandList, ptr @qmp_cap_negotiation_commands, i64 0, i32 0, i32 1), align 8
+  store ptr @qmp_cap_negotiation_commands, ptr getelementptr inbounds (i8, ptr @qmp_cap_negotiation_commands, i64 8), align 8
   tail call void @qmp_register_command(ptr noundef nonnull @qmp_cap_negotiation_commands, ptr noundef nonnull @.str.12, ptr noundef nonnull @qmp_marshal_qmp_capabilities, i32 noundef 4, i32 noundef 0) #6
   ret void
 }

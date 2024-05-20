@@ -32,7 +32,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_individual_write(ptr nocapture noundef
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef nonnull @.str) #4
   br label %32
 
@@ -97,7 +97,7 @@ define i32 @mca_sharedfp_individual_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %13, ptr noundef nonnull @.str.3) #4
   br label %90
 

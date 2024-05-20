@@ -83,9 +83,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %4 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 0, i32 6), align 2
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool = icmp ne i8 %4, 0
-  %5 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool3 = icmp ne i8 %5, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool3
   br i1 %or.cond, label %if.then4, label %if.end5
@@ -99,9 +99,9 @@ if.then4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %7 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool6 = icmp ne i8 %7, 0
-  %8 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool7 = icmp ne i8 %8, 0
   %or.cond1 = select i1 %tobool6, i1 %tobool7, i1 false
   br i1 %or.cond1, label %if.end10, label %if.then8
@@ -117,27 +117,27 @@ if.then8:                                         ; preds = %if.end5
   unreachable
 
 if.end10:                                         ; preds = %if.end5
-  %12 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 1), align 16
-  %13 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 1), align 16
-  %14 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 128), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 208), align 16
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool11.not = icmp eq i8 %14, 0
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %15 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 248), align 8
   tail call void @u_setDataDirectory_75(ptr noundef %15)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
   store i32 0, ptr %status, align 4
-  %16 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool14.not = icmp eq i8 %16, 0
-  %17 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   %spec.select = select i1 %tobool14.not, ptr null, ptr %17
-  %18 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool17.not = icmp eq i8 %18, 0
   %copyright.0 = select i1 %tobool17.not, ptr null, ptr @.str.4
-  %19 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6), align 2
+  %19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %tobool20.not = icmp eq i8 %19, 0
   call void @u_init_75(ptr noundef nonnull %status)
   %20 = load i32, ptr %status, align 4
@@ -222,8 +222,8 @@ if.end49:                                         ; preds = %if.end43
   %call51 = call i32 @uspoof_serialize_75(ptr noundef %call35, ptr noundef nonnull %call50, i32 noundef %call44, ptr noundef nonnull %status)
   %fFormatVersion = getelementptr inbounds i8, ptr %call50, i64 4
   %31 = load i32, ptr %fFormatVersion, align 4
-  store i32 %31, ptr getelementptr inbounds (%struct.DataHeader, ptr @dh, i64 0, i32 1, i32 7), align 2
-  %call52 = call ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (%struct.DataHeader, ptr @dh, i64 0, i32 1), ptr noundef %copyright.0, ptr noundef nonnull %status)
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @dh, i64 16), align 2
+  %call52 = call ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @dh, i64 4), ptr noundef %copyright.0, ptr noundef nonnull %status)
   %32 = load i32, ptr %status, align 4
   %cmp.i37 = icmp slt i32 %32, 1
   br i1 %cmp.i37, label %if.end58, label %if.then55

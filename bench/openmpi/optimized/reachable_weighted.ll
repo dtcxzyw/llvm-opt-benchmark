@@ -205,7 +205,7 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
 101:                                              ; preds = %87, %84, %81, %60, %57, %36, %30
   %.026.i = phi ptr [ @.str, %57 ], [ @.str.1, %60 ], [ @.str.4, %87 ], [ @.str.2, %81 ], [ @.str.3, %84 ], [ @.str.5, %36 ], [ @.str.5, %30 ]
   %.0.i = phi i32 [ %59, %57 ], [ %62, %60 ], [ %100, %87 ], [ %83, %81 ], [ %86, %84 ], [ 0, %36 ], [ 0, %30 ]
-  %102 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_prtereachable_base_framework, i64 0, i32 11), align 4
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @prte_prtereachable_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %102, 64
   br i1 %or.cond.i, label %103, label %get_weights.exit
 

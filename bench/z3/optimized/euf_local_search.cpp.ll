@@ -232,7 +232,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3sat4ddfwC2Ev(ptr noundef nonnull align 8 dereferenceable(920) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3sat4ddfwE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3sat4ddfwE, i64 16), ptr %this, align 8
   %m_config = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x i32> <i32 15, i32 8, i32 1024, i32 100333>, ptr %m_config, align 8
   %m_reinit_base.i.i = getelementptr inbounds i8, ptr %this, i64 24

@@ -196,7 +196,7 @@ define void @_ZN12vectorUnit_t5resetEv(ptr noundef nonnull align 8 dereferenceab
   store i32 1, ptr %27, align 8, !noalias !9
   %28 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 1, ptr %28, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11vxsat_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %26, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11vxsat_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8, !noalias !9
   %29 = getelementptr inbounds i8, ptr %26, i64 16
   invoke void @_ZN11vxsat_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef %24, i64 noundef 9)
           to label %_ZSt11make_sharedI11vxsat_csr_tJRP11processor_tiEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11vxsat_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !9
@@ -541,7 +541,7 @@ _ZNSt10shared_ptrI11vxsat_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %180, align 8, !noalias !17
   %181 = getelementptr inbounds i8, ptr %179, i64 12
   store i32 1, ptr %181, align 4, !noalias !17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %179, align 8, !noalias !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %179, align 8, !noalias !17
   %182 = getelementptr inbounds i8, ptr %179, i64 16
   %183 = load ptr, ptr %0, align 8, !noalias !17
   invoke void @_ZN12vector_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %182, ptr noundef %183, i64 noundef 8, i64 noundef %178, i64 noundef 0)
@@ -880,7 +880,7 @@ _ZNSt10shared_ptrI12vector_csr_tED2Ev.exit:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %331, align 8, !noalias !23
   %332 = getelementptr inbounds i8, ptr %330, i64 12
   store i32 1, ptr %332, align 4, !noalias !23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %330, align 8, !noalias !23
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %330, align 8, !noalias !23
   %333 = getelementptr inbounds i8, ptr %330, i64 16
   %334 = load ptr, ptr %0, align 8, !noalias !23
   invoke void @_ZN12vector_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %333, ptr noundef %334, i64 noundef 10, i64 noundef 3, i64 noundef 0)
@@ -1219,7 +1219,7 @@ _ZNSt10shared_ptrI12vector_csr_tED2Ev.exit97:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %482, align 8, !noalias !29
   %483 = getelementptr inbounds i8, ptr %481, i64 12
   store i32 1, ptr %483, align 4, !noalias !29
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %481, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %481, align 8, !noalias !29
   %484 = getelementptr inbounds i8, ptr %481, i64 16
   %485 = load ptr, ptr %0, align 8, !noalias !29
   invoke void @_ZN12vector_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %484, ptr noundef %485, i64 noundef 3104, i64 noundef 0, i64 noundef 0)
@@ -1558,7 +1558,7 @@ _ZNSt10shared_ptrI12vector_csr_tED2Ev.exit138:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %633, align 8, !noalias !35
   %634 = getelementptr inbounds i8, ptr %632, i64 12
   store i32 1, ptr %634, align 4, !noalias !35
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %632, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %632, align 8, !noalias !35
   %635 = getelementptr inbounds i8, ptr %632, i64 16
   %636 = load ptr, ptr %0, align 8, !noalias !35
   invoke void @_ZN12vector_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %635, ptr noundef %636, i64 noundef 3105, i64 noundef 0, i64 noundef 0)
@@ -1898,7 +1898,7 @@ _ZNSt10shared_ptrI12vector_csr_tED2Ev.exit180:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %784, align 8, !noalias !36
   %785 = getelementptr inbounds i8, ptr %783, i64 12
   store i32 1, ptr %785, align 4, !noalias !36
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %783, align 8, !noalias !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12vector_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %783, align 8, !noalias !36
   %786 = getelementptr inbounds i8, ptr %783, i64 16
   %787 = load ptr, ptr %0, align 8, !noalias !36
   %788 = load i64, ptr %21, align 8, !noalias !36
@@ -2132,7 +2132,7 @@ _ZNSt10shared_ptrI12vector_csr_tED2Ev.exit205:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %887, align 8, !noalias !42
   %888 = getelementptr inbounds i8, ptr %886, i64 12
   store i32 1, ptr %888, align 4, !noalias !42
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %886, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %886, align 8, !noalias !42
   %889 = getelementptr inbounds i8, ptr %886, i64 16
   invoke void @_ZSt10_ConstructI15composite_csr_tJRP11processor_tiRSt10shared_ptrI12vector_csr_tERS4_I5csr_tEiEEvPT_DpOT0_(ptr noundef nonnull %889, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(16) %337, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %_ZSt11make_sharedI15composite_csr_tJRP11processor_tiRSt10shared_ptrI12vector_csr_tERS4_I5csr_tEiEES4_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !42

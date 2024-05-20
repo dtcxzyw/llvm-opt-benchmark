@@ -1119,7 +1119,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 100:                                              ; preds = %92
   %101 = load ptr, ptr %.21591, align 8
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   br label %2368
 
 102:                                              ; preds = %92
@@ -1282,7 +1282,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %192 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %193 = load ptr, ptr %192, align 8
   %194 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %193, ptr noundef null) #12
-  %195 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not1665 = icmp eq ptr %195, null
   br i1 %.not1665, label %2368, label %196
 
@@ -1307,11 +1307,11 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %206
 
 206:                                              ; preds = %200, %205, %196
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %2368
 
 207:                                              ; preds = %92
-  %208 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not1663 = icmp eq ptr %208, null
   br i1 %.not1663, label %2368, label %209
 
@@ -1336,7 +1336,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %219
 
 219:                                              ; preds = %213, %218, %209
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %2368
 
 220:                                              ; preds = %92
@@ -1348,7 +1348,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 226:                                              ; preds = %92
-  %227 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not1661 = icmp eq ptr %227, null
   br i1 %.not1661, label %2368, label %228
 
@@ -1373,7 +1373,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %238
 
 238:                                              ; preds = %232, %237, %228
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %2368
 
 239:                                              ; preds = %92
@@ -1813,7 +1813,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %531 = getelementptr inbounds i8, ptr %.21591, i64 -32
   %532 = load i64, ptr %531, align 8
   %533 = trunc i64 %532 to i32
-  store i32 %533, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %533, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 534:                                              ; preds = %92
@@ -1829,7 +1829,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 538:                                              ; preds = %92
-  %539 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %539 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %540 = sext i32 %539 to i64
   %541 = inttoptr i64 %540 to ptr
   br label %2368
@@ -1860,7 +1860,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 564:                                              ; preds = %92
-  %565 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %565 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %566 = sext i32 %565 to i64
   %567 = inttoptr i64 %566 to ptr
   br label %2368
@@ -1943,7 +1943,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 621:                                              ; preds = %92
-  %622 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %622 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %623 = sext i32 %622 to i64
   %624 = inttoptr i64 %623 to ptr
   br label %2368
@@ -1967,7 +1967,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 640:                                              ; preds = %92
-  %641 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %641 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %642 = sext i32 %641 to i64
   %643 = inttoptr i64 %642 to ptr
   br label %2368
@@ -1993,7 +1993,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 661:                                              ; preds = %92
-  %662 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %662 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %663 = sext i32 %662 to i64
   %664 = inttoptr i64 %663 to ptr
   br label %2368
@@ -2709,7 +2709,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1129 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %1130 = load i64, ptr %1129, align 8
   %1131 = trunc i64 %1130 to i32
-  store i32 %1131, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1131, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1132:                                             ; preds = %92
@@ -3109,7 +3109,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 1368:                                             ; preds = %92
-  %1369 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %1369 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %1370 = sext i32 %1369 to i64
   %1371 = inttoptr i64 %1370 to ptr
   br label %2368
@@ -3716,17 +3716,17 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 1772:                                             ; preds = %92
   %1773 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef null, ptr noundef null) #12
-  %1774 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  %1774 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   %1775 = or i32 %1774, 16777216
-  store i32 %1775, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1775, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1776:                                             ; preds = %92
   %1777 = load ptr, ptr %.21591, align 8
   %1778 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1777, ptr noundef null) #12
-  %1779 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  %1779 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   %1780 = or i32 %1779, 16777216
-  store i32 %1780, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1780, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1781:                                             ; preds = %92
@@ -3734,17 +3734,17 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1783 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %1784 = load ptr, ptr %1783, align 8
   %1785 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1782, ptr noundef %1784) #12
-  %1786 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  %1786 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   %1787 = or i32 %1786, 16777216
-  store i32 %1787, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1787, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1788:                                             ; preds = %92
   %1789 = load ptr, ptr %.21591, align 8
   %1790 = call ptr @zend_ast_create_1(i16 noundef zeroext 275, ptr noundef %1789) #12
-  %1791 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  %1791 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   %1792 = or i32 %1791, 16777216
-  store i32 %1792, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1792, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1793:                                             ; preds = %92
@@ -3821,7 +3821,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1844 = getelementptr inbounds i8, ptr %.21591, i64 -32
   %1845 = load i64, ptr %1844, align 8
   %1846 = trunc i64 %1845 to i32
-  store i32 %1846, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1846, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1847:                                             ; preds = %92
@@ -3857,35 +3857,35 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1871 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %1872 = load i64, ptr %1871, align 8
   %1873 = trunc i64 %1872 to i32
-  store i32 %1873, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 %1873, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1874:                                             ; preds = %92
-  %1875 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %1875 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %1876 = sext i32 %1875 to i64
   %1877 = inttoptr i64 %1876 to ptr
   br label %2368
 
 1878:                                             ; preds = %92
-  %1879 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %1879 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %1880 = sext i32 %1879 to i64
   %1881 = inttoptr i64 %1880 to ptr
   br label %2368
 
 1882:                                             ; preds = %92
-  %1883 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %1883 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %2368
 
 1884:                                             ; preds = %92
-  %1885 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  %1885 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   %1886 = zext i32 %1885 to i64
   %1887 = inttoptr i64 %1886 to ptr
-  store i32 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
   br label %2368
 
 1888:                                             ; preds = %92
-  %1889 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1889 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %2368
 
 1890:                                             ; preds = %92
@@ -3963,7 +3963,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 1937:                                             ; preds = %92
-  %1938 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %1938 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %1939 = sext i32 %1938 to i64
   %1940 = inttoptr i64 %1939 to ptr
   br label %2368
@@ -6171,7 +6171,7 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   %3 = alloca [120 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %5 = icmp ne ptr %0, null
-  %6 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 8), align 8
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
   %7 = icmp ult i8 %6, 2
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %.thread173, label %8
@@ -6184,11 +6184,11 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
 .thread173:                                       ; preds = %2, %8
   %11 = phi i8 [ %6, %8 ], [ 2, %2 ]
   %12 = or disjoint i8 %11, 1
-  store i8 %12, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 8), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i8 %12, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %17 = icmp eq i32 %16, 1
   %or.cond4 = select i1 %15, i1 %17, i1 false
   br i1 %or.cond4, label %18, label %23

@@ -24,43 +24,43 @@ invoke.cont22:
   %currencyUsage = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %currencyUsage, align 8
   %negativePrefix = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negativePrefix, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negativePrefix, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 136
   store i16 2, ptr %fUnion2.i, align 8
   %negativePrefixPattern = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negativePrefixPattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negativePrefixPattern, align 8
   %fUnion2.i11 = getelementptr inbounds i8, ptr %this, i64 200
   store i16 2, ptr %fUnion2.i11, align 8
   %negativeSuffix = getelementptr inbounds i8, ptr %this, i64 256
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negativeSuffix, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negativeSuffix, align 8
   %fUnion2.i12 = getelementptr inbounds i8, ptr %this, i64 264
   store i16 2, ptr %fUnion2.i12, align 8
   %negativeSuffixPattern = getelementptr inbounds i8, ptr %this, i64 320
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %negativeSuffixPattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %negativeSuffixPattern, align 8
   %fUnion2.i13 = getelementptr inbounds i8, ptr %this, i64 328
   store i16 2, ptr %fUnion2.i13, align 8
   %padPosition = getelementptr inbounds i8, ptr %this, i64 384
   store i8 1, ptr %padPosition, align 8
   %padString = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %padString, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %padString, align 8
   %fUnion2.i14 = getelementptr inbounds i8, ptr %this, i64 400
   store i16 2, ptr %fUnion2.i14, align 8
   %parseMode = getelementptr inbounds i8, ptr %this, i64 460
   store i8 1, ptr %parseMode, align 4
   %positivePrefix = getelementptr inbounds i8, ptr %this, i64 480
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %positivePrefix, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %positivePrefix, align 8
   %fUnion2.i15 = getelementptr inbounds i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i15, align 8
   %positivePrefixPattern = getelementptr inbounds i8, ptr %this, i64 544
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %positivePrefixPattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %positivePrefixPattern, align 8
   %fUnion2.i16 = getelementptr inbounds i8, ptr %this, i64 552
   store i16 2, ptr %fUnion2.i16, align 8
   %positiveSuffix = getelementptr inbounds i8, ptr %this, i64 608
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %positiveSuffix, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %positiveSuffix, align 8
   %fUnion2.i17 = getelementptr inbounds i8, ptr %this, i64 616
   store i16 2, ptr %fUnion2.i17, align 8
   %positiveSuffixPattern = getelementptr inbounds i8, ptr %this, i64 672
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %positiveSuffixPattern, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %positiveSuffixPattern, align 8
   %fUnion2.i18 = getelementptr inbounds i8, ptr %this, i64 680
   store i16 2, ptr %fUnion2.i18, align 8
   %roundingMode = getelementptr inbounds i8, ptr %this, i64 744
@@ -688,7 +688,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @_ZN6icu_756number4impl23DecimalFormatPropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(757) @_ZN12_GLOBAL__N_121kRawDefaultPropertiesE)
-  store i32 0, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
@@ -711,7 +711,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @_ZN6icu_756number4impl23DecimalFormatPropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(757) @_ZN12_GLOBAL__N_121kRawDefaultPropertiesE)
-  store i32 0, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_126gDefaultPropertiesInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 

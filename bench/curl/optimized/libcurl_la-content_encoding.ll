@@ -132,7 +132,7 @@ entry:
   %cond = select i1 %tobool.not.not, i32 3, i32 1
   %http_transfer_encoding = getelementptr inbounds i8, ptr %data, i64 2706
   %0 = load ptr, ptr @Curl_httpchunk_unencoder, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.Curl_cwtype, ptr @Curl_httpchunk_unencoder, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
   %tobool5.not.i = icmp eq ptr %1, null
   br label %while.cond
 

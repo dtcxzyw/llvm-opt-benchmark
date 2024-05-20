@@ -70,7 +70,7 @@ declare void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14htif_pthread_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(896) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14htif_pthread_t, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 696
   invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %5 unwind label %16
@@ -196,7 +196,7 @@ declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14htif_pthread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14htif_pthread_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

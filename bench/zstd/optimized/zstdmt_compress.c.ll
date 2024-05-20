@@ -1521,7 +1521,7 @@ if.then8.i:                                       ; preds = %if.end4.i
   store i32 2, ptr %dictLimit.i.i, align 8
   %lowLimit.i.i = getelementptr inbounds i8, ptr %mtctx, i64 676
   store i32 2, ptr %lowLimit.i.i, align 4
-  store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %ldmState.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %ldmState.i, align 8
   %hashTable.i = getelementptr inbounds i8, ptr %mtctx, i64 688
   %74 = load ptr, ptr %hashTable.i, align 8
   %cmp26.i = icmp eq ptr %74, null

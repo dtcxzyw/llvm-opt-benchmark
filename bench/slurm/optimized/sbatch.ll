@@ -187,9 +187,9 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
 
 50:                                               ; preds = %48, %45
   %51 = tail call ptr @process_options_first_pass(i32 noundef %0, ptr noundef nonnull %1) #14
-  %52 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 61), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 360), align 8
   %53 = icmp ne i32 %52, 0
-  %54 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 62), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 364), align 4
   %55 = icmp ne i32 %54, 0
   %or.cond = select i1 %55, i1 true, i1 %53
   br i1 %or.cond, label %56, label %62
@@ -205,7 +205,7 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
   br label %62
 
 62:                                               ; preds = %50, %56
-  %63 = load ptr, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 13), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 64), align 8
   %.not120 = icmp eq ptr %63, null
   br i1 %.not120, label %66, label %64
 
@@ -443,7 +443,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   unreachable
 
 154:                                              ; preds = %150
-  %155 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 8), align 8
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 64), align 8
   %156 = sub nsw i32 %0, %155
   %.not137 = icmp eq ptr %51, null
   br label %157
@@ -502,7 +502,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   %.1104 = phi ptr [ %175, %171 ], [ %.0103190, %176 ]
   %.1102 = phi i32 [ %173, %171 ], [ %.0101191, %176 ]
   %.194 = phi i8 [ %.093193, %171 ], [ %spec.select, %176 ]
-  %180 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 11), align 8
+  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 88), align 8
   %.not139 = icmp eq ptr %180, null
   br i1 %.not139, label %189, label %181
 
@@ -536,7 +536,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   unreachable
 
 195:                                              ; preds = %189
-  %196 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 92), align 8
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %244
 
@@ -545,7 +545,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %199 = call ptr @slurm_conf_lock() #14
   call void @slurm_conf_unlock() #14
-  %200 = load ptr, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 7), align 8
+  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
   %.not.i146 = icmp eq ptr %200, null
   br i1 %.not.i146, label %207, label %201
 
@@ -555,7 +555,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   br i1 %.not14.i, label %207, label %203
 
 203:                                              ; preds = %201
-  %204 = load ptr, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 7), align 8
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
   %205 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, ptr noundef %204) #14
   %206 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %206) #15
@@ -591,7 +591,7 @@ _get_script_buffer.exit:                          ; preds = %.lr.ph._crit_edge.i
   %222 = load i64, ptr %7, align 16
   %223 = load ptr, ptr %211, align 8
   %224 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %223) #14
-  %225 = load ptr, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 7), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
   %.not17.i = icmp eq ptr %225, null
   br i1 %.not17.i, label %229, label %226
 
@@ -670,13 +670,13 @@ _set_rlimit_env.exit:                             ; preds = %240, %207
   br label %_set_prio_process_env.exit
 
 _set_prio_process_env.exit:                       ; preds = %250, %255, %257, %260
-  %261 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 99), align 8
+  %261 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
   %262 = icmp sgt i32 %261, 0
   br i1 %262, label %.lr.ph.i151, label %_set_spank_env.exit
 
 .lr.ph.i151:                                      ; preds = %_set_prio_process_env.exit, %273
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %273 ], [ 0, %_set_prio_process_env.exit ]
-  %263 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 98), align 8
+  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
   %264 = getelementptr inbounds ptr, ptr %263, i64 %indvars.iv.i
   %265 = load ptr, ptr %264, align 8
   %266 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.31, ptr noundef %265) #14
@@ -684,7 +684,7 @@ _set_prio_process_env.exit:                       ; preds = %250, %255, %257, %2
   br i1 %267, label %268, label %273
 
 268:                                              ; preds = %.lr.ph.i151
-  %269 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 98), align 8
+  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
   %270 = getelementptr inbounds ptr, ptr %269, i64 %indvars.iv.i
   %271 = load ptr, ptr %270, align 8
   %272 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %271) #14
@@ -692,7 +692,7 @@ _set_prio_process_env.exit:                       ; preds = %250, %255, %257, %2
 
 273:                                              ; preds = %268, %.lr.ph.i151
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %274 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 99), align 8
+  %274 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next.i, %275
   br i1 %276, label %.lr.ph.i151, label %_set_spank_env.exit, !llvm.loop !12
@@ -738,7 +738,7 @@ _set_submit_dir_env.exit:                         ; preds = %285, %.sink.split1.
   br i1 %.not.i153, label %290, label %_set_umask_env.exit
 
 290:                                              ; preds = %_set_submit_dir_env.exit
-  %291 = load i32, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 10), align 8
+  %291 = load i32, ptr getelementptr inbounds (i8, ptr @sbopt, i64 56), align 8
   %292 = icmp sgt i32 %291, -1
   br i1 %292, label %296, label %293
 
@@ -796,7 +796,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br i1 %.not.i155, label %_fill_job_desc_from_opts.exit, label %319
 
 319:                                              ; preds = %316
-  %320 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 43), align 8
+  %320 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 264), align 8
   %.not30.i = icmp eq ptr %320, null
   br i1 %.not30.i, label %321, label %324
 
@@ -810,24 +810,24 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   %325 = load ptr, ptr @sbopt, align 8
   %326 = getelementptr inbounds i8, ptr %318, i64 56
   store ptr %325, ptr %326, align 8
-  %327 = load ptr, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 1), align 8
+  %327 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 8), align 8
   %328 = getelementptr inbounds i8, ptr %318, i64 72
   store ptr %327, ptr %328, align 8
-  %329 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 79), align 8
+  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 496), align 8
   %330 = call ptr @xstrdup(ptr noundef %329) #14
   %331 = getelementptr inbounds i8, ptr %318, i64 136
   store ptr %330, ptr %331, align 8
   %332 = getelementptr inbounds i8, ptr %318, i64 144
   call void @slurm_xfree(ptr noundef nonnull %332) #14
-  %333 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 80), align 8
+  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 504), align 8
   %334 = call ptr @xstrdup(ptr noundef %333) #14
   store ptr %334, ptr %332, align 8
-  %335 = load i16, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 12), align 2
+  %335 = load i16, ptr getelementptr inbounds (i8, ptr @sbopt, i64 62), align 2
   %336 = getelementptr inbounds i8, ptr %318, i64 716
   store i16 %335, ptr %336, align 4
   %337 = getelementptr inbounds i8, ptr %318, i64 232
   store ptr null, ptr %337, align 8
-  %338 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 119), align 8
+  %338 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
   %339 = icmp eq ptr %338, null
   br i1 %339, label %340, label %342
 
@@ -847,7 +847,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %359
 
 346:                                              ; preds = %342
-  %347 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 119), align 8
+  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
   %348 = call i32 @xstrcasecmp(ptr noundef %347, ptr noundef nonnull @.str.24) #14
   %.not32.i = icmp eq i32 %348, 0
   br i1 %.not32.i, label %349, label %352
@@ -860,7 +860,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %359
 
 352:                                              ; preds = %346
-  %353 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 119), align 8
+  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
   %354 = call i32 @xstrcasecmp(ptr noundef %353, ptr noundef nonnull @.str.25) #14
   %.not33.i = icmp eq i32 %354, 0
   br i1 %.not33.i, label %355, label %358
@@ -877,12 +877,12 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %.thread.sink.split.i
 
 359:                                              ; preds = %349, %344, %340
-  %.pr.i = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 92), align 8
+  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
   %360 = icmp sgt i32 %.pr.i, -1
   br i1 %360, label %.thread.i, label %362
 
 .thread.sink.split.i:                             ; preds = %358, %355
-  store i32 0, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 92), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %359
@@ -890,7 +890,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %362
 
 362:                                              ; preds = %.thread.i, %359
-  %363 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 41), align 4
+  %363 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 252), align 4
   %364 = and i32 %363, 65535
   %365 = icmp eq i32 %364, 3
   br i1 %365, label %366, label %370
@@ -906,25 +906,25 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   %372 = call i32 @envcount(ptr noundef %371) #14
   %373 = getelementptr inbounds i8, ptr %318, i64 276
   store i32 %372, ptr %373, align 4
-  %374 = load i32, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 8), align 8
+  %374 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 64), align 8
   %375 = getelementptr inbounds i8, ptr %318, i64 40
   store i32 %374, ptr %375, align 8
-  %376 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 9), align 8
+  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 72), align 8
   %377 = getelementptr inbounds i8, ptr %318, i64 48
   store ptr %376, ptr %377, align 8
-  %378 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 120), align 8
+  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 768), align 8
   %379 = call ptr @xstrdup(ptr noundef %378) #14
   %380 = getelementptr inbounds i8, ptr %318, i64 824
   store ptr %379, ptr %380, align 8
-  %381 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 121), align 8
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 776), align 8
   %382 = call ptr @xstrdup(ptr noundef %381) #14
   %383 = getelementptr inbounds i8, ptr %318, i64 832
   store ptr %382, ptr %383, align 8
-  %384 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 122), align 8
+  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 784), align 8
   %385 = call ptr @xstrdup(ptr noundef %384) #14
   %386 = getelementptr inbounds i8, ptr %318, i64 840
   store ptr %385, ptr %386, align 8
-  %387 = load i32, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 8), align 8
+  %387 = load i32, ptr getelementptr inbounds (i8, ptr @sbopt, i64 48), align 8
   %.not34.i = icmp eq i32 %387, -2
   br i1 %.not34.i, label %392, label %388
 
@@ -1024,7 +1024,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %316
 
 421:                                              ; preds = %.thread, %._crit_edge
   %.1166 = phi ptr [ %318, %.thread ], [ %407, %._crit_edge ]
-  %422 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   %.not126 = icmp eq ptr %422, null
   br i1 %.not126, label %432, label %423
 
@@ -1045,14 +1045,14 @@ _fill_job_desc_from_opts.exit:                    ; preds = %316
   br i1 %.not128, label %432, label %429
 
 429:                                              ; preds = %428
-  %430 = load ptr, ptr getelementptr inbounds (%struct.slurm_opt_t, ptr @opt, i64 0, i32 12), align 8
+  %430 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
   call void @print_db_notok(ptr noundef %430, i1 noundef zeroext false) #14
   %431 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %431) #15
   unreachable
 
 432:                                              ; preds = %428, %421
-  %433 = load i8, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 9), align 4
+  %433 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 52), align 4
   %434 = trunc i8 %433 to i1
   br i1 %434, label %435, label %.preheader
 
@@ -1197,7 +1197,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %316
   br i1 %53, label %503, label %489
 
 489:                                              ; preds = %488
-  %490 = load i8, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 6), align 8
+  %490 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 32), align 8
   %491 = trunc i8 %490 to i1
   %492 = load ptr, ptr %13, align 8
   %493 = load i32, ptr %492, align 8
@@ -1228,7 +1228,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %316
   br label %503
 
 503:                                              ; preds = %.sink.split, %488
-  %504 = load i8, ptr getelementptr inbounds (%struct.sbatch_opt_t, ptr @sbopt, i64 0, i32 11), align 4
+  %504 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 60), align 4
   %505 = trunc i8 %504 to i1
   br i1 %505, label %506, label %541
 
@@ -1247,7 +1247,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %316
 509:                                              ; preds = %539, %.outer.i
   %.02036.i = phi i32 [ %spec.select.i, %539 ], [ %.02036.ph.i, %.outer.i ]
   %510 = call i32 @sleep(i32 noundef %.02036.i) #14
-  %511 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 101), align 8
+  %511 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 688), align 8
   %512 = lshr i32 %511, 1
   %513 = icmp ult i32 %.02036.i, %512
   %514 = icmp slt i32 %.02036.i, 32

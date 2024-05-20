@@ -275,11 +275,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %descriptor, ptr %descriptor_, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %variables_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %variables_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %messageBitIndex_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1415,7 +1415,7 @@ if.end170:                                        ; preds = %invoke.cont167, %in
   %159 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %160 = load i32, ptr @_ZN2pb4javaE, align 8
   %161 = getelementptr inbounds i8, ptr %159, i64 16
-  %162 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i402 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %161, i32 noundef %160, ptr noundef nonnull align 8 dereferenceable(16) %162)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i402, i64 24
   %163 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -1658,7 +1658,7 @@ declare void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorD2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
@@ -1702,7 +1702,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
@@ -1878,7 +1878,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   %16 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %17 = load i32, ptr @_ZN2pb4javaE, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %19)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %20 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -2310,7 +2310,7 @@ if.end25:                                         ; preds = %_ZN6google8protobuf
   %19 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %20 = load i32, ptr @_ZN2pb4javaE, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 16
-  %22 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %23 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -2505,7 +2505,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %54 = load ptr, ptr %merged_features_.i.i.i.i113, align 8
   %55 = load i32, ptr @_ZN2pb4javaE, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 16
-  %57 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %56, i32 noundef %55, ptr noundef nonnull align 8 dereferenceable(16) %57)
   %legacy_closed_enum_.i.i.i115 = getelementptr inbounds i8, ptr %call.i.i.i114, i64 24
   %58 = load i8, ptr %legacy_closed_enum_.i.i.i115, align 8
@@ -2782,7 +2782,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   %16 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %17 = load i32, ptr @_ZN2pb4javaE, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %19)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %20 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -3297,7 +3297,7 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %5 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %6 = load i32, ptr @_ZN2pb4javaE, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %9 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -3459,7 +3459,7 @@ if.end:                                           ; preds = %if.then, %entry
   %6 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %7 = load i32, ptr @_ZN2pb4javaE, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %10 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -3514,11 +3514,11 @@ declare noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8compiler4java36ImmutableEnumOneofFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %descriptor, ptr %descriptor_.i, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %variables_.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %variables_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %messageBitIndex_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3551,7 +3551,7 @@ lpad2.i:                                          ; preds = %invoke.cont4.i, %in
   br label %common.resume
 
 _ZN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE.exit: ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java36ImmutableEnumOneofFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java36ImmutableEnumOneofFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %is_oneof_.i = getelementptr inbounds i8, ptr %descriptor, i64 1
   %bf.load.i = load i8, ptr %is_oneof_.i, align 1
   %2 = and i8 %bf.load.i, 16
@@ -3583,7 +3583,7 @@ declare void @_ZN6google8protobuf8compiler4java23SetCommonOneofVariablesEPKNS0_1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java36ImmutableEnumOneofFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
@@ -3627,7 +3627,7 @@ _ZN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorD2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java36ImmutableEnumOneofFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -3778,7 +3778,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %15 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %16 = load i32, ptr @_ZN2pb4javaE, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %18)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %19 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -3978,7 +3978,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %51 = load ptr, ptr %merged_features_.i.i.i.i103, align 8
   %52 = load i32, ptr @_ZN2pb4javaE, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
-  %54 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i104 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %53, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %54)
   %legacy_closed_enum_.i.i.i105 = getelementptr inbounds i8, ptr %call.i.i.i104, i64 24
   %55 = load i8, ptr %legacy_closed_enum_.i.i.i105, align 8
@@ -4158,7 +4158,7 @@ entry:
   %9 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %10 = load i32, ptr @_ZN2pb4javaE, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %13 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -4307,7 +4307,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %15 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %16 = load i32, ptr @_ZN2pb4javaE, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %18)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %19 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -4776,11 +4776,11 @@ lpad74:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %descriptor, ptr %descriptor_, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %variables_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %variables_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %context_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -4813,7 +4813,7 @@ lpad2:                                            ; preds = %invoke.cont4, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
@@ -4857,7 +4857,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java39RepeatedImmutableEnumFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
@@ -5176,7 +5176,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %43 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %44 = load i32, ptr @_ZN2pb4javaE, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %45, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %46)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %47 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -5675,7 +5675,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %43 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %44 = load i32, ptr @_ZN2pb4javaE, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %45, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %46)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %47 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -6038,7 +6038,7 @@ invoke.cont117:                                   ; preds = %_ZN6google8protobuf
   %102 = load ptr, ptr %merged_features_.i.i.i.i266, align 8
   %103 = load i32, ptr @_ZN2pb4javaE, align 8
   %104 = getelementptr inbounds i8, ptr %102, i64 16
-  %105 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i267 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %104, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(16) %105)
   %legacy_closed_enum_.i.i.i268 = getelementptr inbounds i8, ptr %call.i.i.i267, i64 24
   %106 = load i8, ptr %legacy_closed_enum_.i.i.i268, align 8
@@ -6227,7 +6227,7 @@ entry:
   %4 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %5 = load i32, ptr @_ZN2pb4javaE, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %8 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
@@ -6873,7 +6873,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %99 = load ptr, ptr %merged_features_.i.i.i.i, align 8
   %100 = load i32, ptr @_ZN2pb4javaE, align 8
   %101 = getelementptr inbounds i8, ptr %99, i64 16
-  %102 = load ptr, ptr getelementptr inbounds (%"class.google::protobuf::internal::ExtensionIdentifier", ptr @_ZN2pb4javaE, i64 0, i32 1), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %101, i32 noundef %100, ptr noundef nonnull align 8 dereferenceable(16) %102)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %103 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8

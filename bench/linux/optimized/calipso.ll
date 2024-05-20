@@ -128,7 +128,7 @@ define dso_local noundef range(i32 -12, 1) i32 @calipso_init() local_unnamed_add
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -12, 1) i32 @calipso_cache_init() unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 3072) #16
   store ptr %2, ptr @calipso_cache, align 8
   %3 = icmp eq ptr %2, null
@@ -315,13 +315,13 @@ define internal noundef range(i32 -22, 1) i32 @calipso_doi_add(ptr noundef %0, p
 
 .loopexit:                                        ; preds = %20, %23, %7
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @calipso_doi_list, i64 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @calipso_doi_list, i64 8), align 8
   store ptr @calipso_doi_list, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %27, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !15
   store volatile ptr %26, ptr %27, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.list_head, ptr @calipso_doi_list, i64 0, i32 1), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @calipso_doi_list, i64 8), align 8
   br label %29
 
 29:                                               ; preds = %.loopexit, %23
@@ -1781,7 +1781,7 @@ define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0,
   %9 = getelementptr i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 2336, i64 noundef 56) #16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %111, label %15

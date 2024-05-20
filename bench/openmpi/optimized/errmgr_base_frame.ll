@@ -35,7 +35,7 @@ define internal i32 @prte_errmgr_base_open(i32 noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_errmgr_base_close() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_errmgr_base_module_2_3_0_t, ptr @prte_errmgr, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_errmgr, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 

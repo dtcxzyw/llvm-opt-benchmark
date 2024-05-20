@@ -116,8 +116,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %v.0.sroa.phi = phi ptr [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 1), %entry ]
-  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 2), %entry ]
+  %v.0.sroa.phi = phi ptr [ getelementptr inbounds (i8, ptr @.str.1, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds (i8, ptr @.str.1, i64 1), %entry ]
+  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds (i8, ptr @.str.1, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds (i8, ptr @.str.1, i64 2), %entry ]
   %v.0 = phi ptr [ @.str.1, %land.lhs.true ], [ %verstr, %if.end ], [ @.str.1, %entry ]
   %8 = load i8, ptr %v.0, align 1
   switch i8 %8, label %if.else70 [

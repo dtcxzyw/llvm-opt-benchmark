@@ -23,12 +23,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 12) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 96) monotonic, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 11) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 88) monotonic, align 8
   %call5 = tail call i64 @migration_transferred_bytes()
   %sub = sub i64 %call5, %1
   %cmp7 = icmp ugt i64 %sub, %0
@@ -44,7 +44,7 @@ declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @migration_rate_get() local_unnamed_addr #2 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 12) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 96) monotonic, align 8
   ret i64 %0
 }
 
@@ -52,9 +52,9 @@ entry:
 define dso_local i64 @migration_transferred_bytes() local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 5) monotonic, align 8
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 13) monotonic, align 8
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 10) monotonic, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 104) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 80) monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -98,7 +98,7 @@ trace_migration_transferred_bytes.exit:           ; preds = %entry, %land.lhs.tr
 define dso_local void @migration_rate_set(i64 noundef %limit) local_unnamed_addr #2 {
 entry:
   %div = udiv i64 %limit, 10
-  store atomic i64 %div, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 12) monotonic, align 8
+  store atomic i64 %div, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 96) monotonic, align 8
   ret void
 }
 
@@ -106,7 +106,7 @@ entry:
 define dso_local void @migration_rate_reset() local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @migration_transferred_bytes()
-  store atomic i64 %call, ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 11) monotonic, align 8
+  store atomic i64 %call, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 88) monotonic, align 8
   ret void
 }
 

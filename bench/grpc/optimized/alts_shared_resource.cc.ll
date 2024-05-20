@@ -79,8 +79,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_Z40grpc_alts_shared_resource_dedicated_initv() local_unnamed_addr #5 {
 entry:
-  store ptr null, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
-  tail call void @gpr_mu_init(ptr noundef nonnull getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 4))
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
+  tail call void @gpr_mu_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 88))
   ret void
 }
 
@@ -93,8 +93,8 @@ entry:
   %args = alloca %struct.grpc_channel_args, align 8
   %ref.tmp = alloca %"class.grpc_core::Thread", align 8
   %ref.tmp4 = alloca %"class.grpc_core::Thread::Options", align 8
-  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 4))
-  %0 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 88))
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %_ZN9grpc_core6ThreadD2Ev.exit, label %if.end
 
@@ -105,10 +105,10 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %entry
   %args1 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %disable_retries_arg, ptr %args1, align 8
   %call2 = call ptr @grpc_channel_create(ptr noundef %handshaker_service_url, ptr noundef %call, ptr noundef nonnull %args)
-  store ptr %call2, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 5), align 8
+  store ptr %call2, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 96), align 8
   call void @grpc_channel_credentials_release(ptr noundef %call)
   %call3 = call ptr @grpc_completion_queue_create_for_next(ptr noundef null)
-  store ptr %call3, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  store ptr %call3, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   store i8 1, ptr %ref.tmp4, align 8
   %tracked_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 1
   store i8 1, ptr %tracked_.i, align 1
@@ -119,9 +119,9 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %entry
   store i32 %1, ptr @_ZL25g_alts_resource_dedicated, align 8
   %impl_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %impl_.i, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   %options_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 2, i32 0), ptr noundef nonnull align 8 dereferenceable(16) %options_.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 16), ptr noundef nonnull align 8 dereferenceable(16) %options_.i, i64 16, i1 false)
   store i32 5, ptr %ref.tmp, align 8
   store ptr null, ptr %impl_.i, align 8
   store i8 1, ptr %options_.i, align 8
@@ -130,11 +130,11 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %entry
   %ref.tmp.sroa.37.0.options_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i64 0, ptr %ref.tmp.sroa.37.0.options_.sroa_idx.i, align 8
   %call6 = call noundef ptr @_Z23grpc_pollset_set_createv()
-  store ptr %call6, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 2), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  store ptr %call6, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   %call7 = call noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef %3)
   call void @_Z28grpc_pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %call6, ptr noundef %call7)
-  %4 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   %cmp.not.i = icmp eq ptr %4, null
   %5 = load i32, ptr @_ZL25g_alts_resource_dedicated, align 8
   br i1 %cmp.not.i, label %do.body6.i, label %do.body.i
@@ -164,7 +164,7 @@ if.then10.i:                                      ; preds = %do.body6.i
   unreachable
 
 if.end:                                           ; preds = %do.body6.i, %do.end.i, %entry
-  call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 4))
+  call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 88))
   ret void
 }
 
@@ -186,7 +186,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %do.end12, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   %call = tail call { i64, i64 } @gpr_inf_future(i32 noundef 1)
   %2 = extractvalue { i64, i64 } %call, 0
   %3 = extractvalue { i64, i64 } %call, 1
@@ -230,17 +230,17 @@ declare void @gpr_mu_unlock(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_Z44grpc_alts_shared_resource_dedicated_shutdownv() local_unnamed_addr #5 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 40), align 8
   %call = tail call noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef nonnull %0)
   tail call void @_Z28grpc_pollset_set_del_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %1, ptr noundef %call)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   tail call void @grpc_completion_queue_shutdown(ptr noundef %2)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %do.body.i, label %if.then.i
 
@@ -249,7 +249,7 @@ if.then.i:                                        ; preds = %if.then
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   %isnull.i = icmp eq ptr %5, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
@@ -262,7 +262,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i
   store i32 3, ptr @_ZL25g_alts_resource_dedicated, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   br label %_ZN9grpc_core6Thread4JoinEv.exit
 
 do.body.i:                                        ; preds = %if.then
@@ -275,16 +275,16 @@ if.then9.i:                                       ; preds = %do.body.i
   unreachable
 
 _ZN9grpc_core6Thread4JoinEv.exit:                 ; preds = %delete.end.i, %do.body.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 40), align 8
   tail call void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %8)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 32), align 8
   tail call void @grpc_completion_queue_destroy(ptr noundef %9)
-  %10 = load ptr, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 96), align 8
   tail call void @grpc_channel_destroy(ptr noundef %10)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9grpc_core6Thread4JoinEv.exit, %entry
-  tail call void @gpr_mu_destroy(ptr noundef nonnull getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 4))
+  tail call void @gpr_mu_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 88))
   ret void
 }
 
@@ -331,10 +331,10 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   store i32 0, ptr @_ZL25g_alts_resource_dedicated, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 2, i32 0), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 2, i32 1), align 1
-  store i64 0, ptr getelementptr inbounds (%struct.alts_shared_resource_dedicated, ptr @_ZL25g_alts_resource_dedicated, i64 0, i32 0, i32 2, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 17), align 1
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 24), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30alts_shared_resource_dedicatedD2Ev, ptr nonnull @_ZL25g_alts_resource_dedicated, ptr nonnull @__dso_handle) #12
   ret void
 }

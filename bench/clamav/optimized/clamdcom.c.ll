@@ -1057,7 +1057,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
 112:                                              ; preds = %110
   %113 = add nsw i32 %.0, 1
   %114 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @dsresult.last_filename, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096) #14
-  store i8 0, ptr getelementptr inbounds ([4097 x i8], ptr @dsresult.last_filename, i64 0, i64 4096), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @dsresult.last_filename, i64 4096), align 16
   br label %.thread127
 
 115:                                              ; preds = %108

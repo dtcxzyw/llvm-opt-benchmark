@@ -569,8 +569,8 @@ define i32 @mca_io_ompio_file_sync(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %6
-  %10 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_common_ompio_pending_requests, i64 0, i32 1, i32 1), align 8
-  %11 = icmp eq ptr %10, getelementptr inbounds (%struct.opal_list_t, ptr @mca_common_ompio_pending_requests, i64 0, i32 1)
+  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 32), align 8
+  %11 = icmp eq ptr %10, getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 16)
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %9

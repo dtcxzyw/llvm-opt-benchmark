@@ -25,8 +25,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @pmix_ifnametoindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not11 = icmp eq ptr %2, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not11 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %15
@@ -57,7 +57,7 @@ define i32 @pmix_ifnametoindex(ptr nocapture noundef readonly %0) local_unnamed_
 
 15:                                               ; preds = %11, %12
   %16 = phi ptr [ %14, %12 ], [ null, %11 ]
-  %.not = icmp eq ptr %16, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %16, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %15, %1, %8
@@ -70,8 +70,8 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define signext i16 @pmix_ifnametokindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not11 = icmp eq ptr %2, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not11 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %15
@@ -102,7 +102,7 @@ define signext i16 @pmix_ifnametokindex(ptr nocapture noundef readonly %0) local
 
 15:                                               ; preds = %11, %12
   %16 = phi ptr [ %14, %12 ], [ null, %11 ]
-  %.not = icmp eq ptr %16, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %16, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %15, %1, %8
@@ -112,8 +112,8 @@ define signext i16 @pmix_ifnametokindex(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 65536) i32 @pmix_ifindextokindex(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not9 = icmp eq ptr %2, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not9 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %14
@@ -140,7 +140,7 @@ define range(i32 -1, 65536) i32 @pmix_ifindextokindex(i32 noundef %0) local_unna
 
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %.not = icmp eq ptr %15, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %15, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %14, %1, %6
@@ -183,8 +183,8 @@ define range(i32 -46, 1) i32 @pmix_ifaddrtoname(ptr noundef %0, ptr nocapture no
   br i1 %.not3553, label %._crit_edge57.thread, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not3750 = icmp eq ptr %17, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not3750 = icmp eq ptr %17, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not3750, label %._crit_edge57.thread62, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph56
@@ -218,7 +218,7 @@ define range(i32 -46, 1) i32 @pmix_ifaddrtoname(ptr noundef %0, ptr nocapture no
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %.03151.us, i64 120
   %32 = load ptr, ptr %31, align 8
-  %.not37.us = icmp eq ptr %32, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not37.us = icmp eq ptr %32, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not37.us, label %._crit_edge, label %26, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -328,7 +328,7 @@ pmix_strncpy.exit47:                              ; preds = %.lr.ph.i41, %75, %6
 80:                                               ; preds = %59, %54, %40, %64
   %81 = getelementptr inbounds i8, ptr %.03151, i64 120
   %82 = load ptr, ptr %81, align 8
-  %.not37 = icmp eq ptr %82, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not37 = icmp eq ptr %82, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not37, label %._crit_edge, label %40, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %80, %30
@@ -382,8 +382,8 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not3245, label %._crit_edge47.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader38
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %11 = icmp eq ptr %10, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %11 = icmp eq ptr %10, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %11, label %._crit_edge47.thread52, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
@@ -399,13 +399,13 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   br label %._crit_edge47.thread
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
-  %.02741.pr = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
+  %.02741.pr = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheaderthread-pre-split, %.preheader.preheader
   %.02741 = phi ptr [ %.02741.pr, %.preheaderthread-pre-split ], [ %10, %.preheader.preheader ]
   %.046 = phi ptr [ %.0, %.preheaderthread-pre-split ], [ %.044, %.preheader.preheader ]
-  %.not3442 = icmp eq ptr %.02741, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not3442 = icmp eq ptr %.02741, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not3442, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -481,7 +481,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
 .thread:                                          ; preds = %19, %21, %25, %40, %36
   %51 = getelementptr inbounds i8, ptr %.02743, i64 120
   %.027 = load ptr, ptr %51, align 8
-  %.not34 = icmp eq ptr %.027, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not34 = icmp eq ptr %.027, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not34, label %._crit_edge, label %19, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
@@ -509,14 +509,14 @@ declare zeroext i1 @pmix_net_samenetwork(ptr noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define i32 @pmix_ifcount() local_unnamed_addr #8 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 2), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @pmix_ifbegin() local_unnamed_addr #9 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
 
@@ -532,8 +532,8 @@ define i32 @pmix_ifbegin() local_unnamed_addr #9 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not20 = icmp eq ptr %2, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not20 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
@@ -549,7 +549,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
   tail call void @llvm.assume(i1 %.not17)
   %6 = getelementptr inbounds i8, ptr %.1, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %8 = icmp eq ptr %7, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %8, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %.preheader
@@ -569,7 +569,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
 
 16:                                               ; preds = %12, %13
   %17 = phi ptr [ %15, %13 ], [ null, %12 ]
-  %.not = icmp eq ptr %17, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %17, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %.thread, %.preheader, %1
@@ -579,8 +579,8 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %4, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not12 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextoaddr(i32 noundef %0, ptr nocapture no
 
 16:                                               ; preds = %12, %13
   %17 = phi ptr [ %15, %13 ], [ null, %12 ]
-  %.not = icmp eq ptr %17, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %17, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %16, %3, %8
@@ -618,8 +618,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextoaddr(i32 noundef %0, ptr nocapture no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifkindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %4, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not12 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %17
@@ -648,7 +648,7 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoaddr(i32 noundef %0, ptr nocapture n
 
 17:                                               ; preds = %13, %14
   %18 = phi ptr [ %16, %14 ], [ null, %13 ]
-  %.not = icmp eq ptr %18, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %18, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %17, %3, %9
@@ -658,8 +658,8 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoaddr(i32 noundef %0, ptr nocapture n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifindextomask(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not11 = icmp eq ptr %4, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not11 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %15
@@ -686,7 +686,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomask(i32 noundef %0, ptr nocapture no
 
 15:                                               ; preds = %11, %12
   %16 = phi ptr [ %14, %12 ], [ null, %11 ]
-  %.not = icmp eq ptr %16, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %16, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %15, %3, %8
@@ -696,8 +696,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextomask(i32 noundef %0, ptr nocapture no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifindextomac(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not10 = icmp eq ptr %3, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not10 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %13
@@ -723,7 +723,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomac(i32 noundef %0, ptr nocapture nou
 
 13:                                               ; preds = %9, %10
   %14 = phi ptr [ %12, %10 ], [ null, %9 ]
-  %.not = icmp eq ptr %14, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %14, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %13, %2, %7
@@ -733,8 +733,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextomac(i32 noundef %0, ptr nocapture nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifindextomtu(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not10 = icmp eq ptr %3, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not10 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %14
@@ -761,7 +761,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomtu(i32 noundef %0, ptr nocapture nou
 
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %.not = icmp eq ptr %15, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %15, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %14, %2, %7
@@ -771,8 +771,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextomtu(i32 noundef %0, ptr nocapture nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pmix_ifindextoflags(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not10 = icmp eq ptr %3, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not10 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %14
@@ -799,7 +799,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextoflags(i32 noundef %0, ptr nocapture n
 
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %.not = icmp eq ptr %15, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %15, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %14, %2, %7
@@ -811,8 +811,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextoflags(i32 noundef %0, ptr nocapture n
 define range(i32 -1, 1) i32 @pmix_ifindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = sext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %4, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not13 = icmp eq ptr %5, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not13 = icmp eq ptr %5, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %23
@@ -864,7 +864,7 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %15, %9
 
 23:                                               ; preds = %19, %20
   %24 = phi ptr [ %22, %20 ], [ null, %19 ]
-  %.not = icmp eq ptr %24, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %24, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %23, %3, %pmix_strncpy.exit
@@ -876,8 +876,8 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %15, %9
 define range(i32 -1, 1) i32 @pmix_ifkindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = sext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %4, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not13 = icmp eq ptr %5, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not13 = icmp eq ptr %5, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %24
@@ -930,7 +930,7 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %16, %10
 
 24:                                               ; preds = %20, %21
   %25 = phi ptr [ %23, %21 ], [ null, %20 ]
-  %.not = icmp eq ptr %25, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %25, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %24, %3, %pmix_strncpy.exit
@@ -1164,8 +1164,8 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @pmix_ifisloopback(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not9.not = icmp eq ptr %2, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not9.not = icmp eq ptr %2, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not9.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %14
@@ -1193,7 +1193,7 @@ define noundef zeroext i1 @pmix_ifisloopback(i32 noundef %0) local_unnamed_addr 
 
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %.not.not = icmp eq ptr %15, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not.not = icmp eq ptr %15, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %6, %14, %1
@@ -1205,8 +1205,8 @@ define noundef zeroext i1 @pmix_ifisloopback(i32 noundef %0) local_unnamed_addr 
 define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not12.i = icmp eq ptr %5, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not12.i = icmp eq ptr %5, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not12.i, label %pmix_ifkindextoaddr.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %14
@@ -1228,7 +1228,7 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
 
 14:                                               ; preds = %11, %10
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %.not.i = icmp eq ptr %15, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not.i = icmp eq ptr %15, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not.i, label %pmix_ifkindextoaddr.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 16:                                               ; preds = %.lr.ph.i
@@ -1270,8 +1270,8 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %or.cond, label %23, label %32
 
 32:                                               ; preds = %25
-  %33 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not11.i = icmp eq ptr %33, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not11.i = icmp eq ptr %33, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not11.i, label %pmix_ifnametokindex.exit.thread, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %32, %43
@@ -1297,7 +1297,7 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
 
 43:                                               ; preds = %40, %39
   %44 = phi ptr [ %42, %40 ], [ null, %39 ]
-  %.not.i39 = icmp eq ptr %44, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not.i39 = icmp eq ptr %44, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not.i39, label %pmix_ifnametokindex.exit.thread, label %.lr.ph.i38, !llvm.loop !6
 
 pmix_ifnametokindex.exit:                         ; preds = %36
@@ -1353,8 +1353,8 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define void @pmix_ifgetaliases(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca [16 x i8], align 16
-  %.09 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1, i32 1), align 8
-  %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.09 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  %.not10 = icmp eq ptr %.09, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %18
@@ -1390,7 +1390,7 @@ define void @pmix_ifgetaliases(ptr noundef %0) local_unnamed_addr #3 {
 18:                                               ; preds = %6, %16, %10, %14, %.lr.ph
   %19 = getelementptr inbounds i8, ptr %.011, i64 120
   %.0 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_if_list, i64 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %18, %1

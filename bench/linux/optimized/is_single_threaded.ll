@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @current_is_single_threaded() local_unnamed_
 
 14:                                               ; preds = %10
   tail call void @__rcu_read_lock() #3
-  %15 = load volatile ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 45, i32 0), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
   %16 = getelementptr i8, ptr %15, i64 -1112
   %17 = icmp eq ptr %16, @init_task
   br i1 %17, label %.loopexit, label %18

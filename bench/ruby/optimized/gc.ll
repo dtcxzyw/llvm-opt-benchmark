@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @malloc_offset = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [79 x i8] c"rb_malloc_grow_capa: current_capacity=%zu, new_capacity=%zu, malloc_offset=%zu\00", align 1
 @gc_params = internal global %struct.ruby_gc_params_t { [5 x i64] zeroinitializer, i64 4096, double 1.800000e+00, i64 0, double 2.000000e-01, double 4.000000e-01, double 6.500000e-01, double 1.000000e-02, double 2.000000e+00, i64 16777216, i64 33554432, double 1.400000e+00, i64 16777216, i64 134217728, double 1.200000e+00, i64 0 }, align 8
-@ruby_initial_gc_stress_ptr = hidden local_unnamed_addr global ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 15), align 8
+@ruby_initial_gc_stress_ptr = hidden local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @gc_params, i64 152), align 8
 @ruby_disable_gc = hidden local_unnamed_addr global i32 0, align 4
 @ruby_enable_autocompact = hidden local_unnamed_addr global i32 0, align 4
 @.str.1 = private unnamed_addr constant [43 x i8] c"Could not preregister postponed job for GC\00", align 1
@@ -647,7 +647,7 @@ define hidden noundef ptr @rb_objspace_alloc() local_unnamed_addr #0 {
   %1 = tail call noalias noundef dereferenceable_or_null(2608) ptr @calloc(i64 noundef 1, i64 noundef 2608) #55
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store i16 4096, ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 9), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 104), align 8
   store i64 %3, ptr %1, align 8
   %4 = tail call i32 @rb_postponed_job_preregister(i32 noundef 0, ptr noundef nonnull @gc_finalize_deferred, ptr noundef nonnull %1) #37
   %5 = getelementptr inbounds i8, ptr %1, i64 2600
@@ -1945,7 +1945,7 @@ define hidden void @Init_heap() local_unnamed_addr #0 {
   %9 = tail call ptr @rb_st_init_numtable() #37
   %10 = getelementptr inbounds i8, ptr %5, i64 2584
   store ptr %9, ptr %10, align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 12), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 128), align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 1544
   store i64 %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 32
@@ -2162,7 +2162,7 @@ define hidden void @Init_gc_stress() local_unnamed_addr #4 {
   %1 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 1304
   %3 = load ptr, ptr %2, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 15), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 152), align 8
   %5 = and i64 %4, -5
   %.not.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -8781,127 +8781,127 @@ define internal fastcc i64 @gc_stat_internal(i64 noundef %0) unnamed_addr #0 {
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.245, i64 noundef 4) #37
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.245, i64 noundef 4) #37
   %13 = tail call i64 @rb_id2sym(i64 noundef %12) #37
-  store i64 %13, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 8), align 8
   %14 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.246, i64 noundef 12) #37
   %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.246, i64 noundef 12) #37
   %16 = tail call i64 @rb_id2sym(i64 noundef %15) #37
-  store i64 %16, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 16), align 16
   %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.247, i64 noundef 13) #37
   %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.247, i64 noundef 13) #37
   %19 = tail call i64 @rb_id2sym(i64 noundef %18) #37
-  store i64 %19, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 24), align 8
   %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.248, i64 noundef 20) #37
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.248, i64 noundef 20) #37
   %22 = tail call i64 @rb_id2sym(i64 noundef %21) #37
-  store i64 %22, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 32), align 16
   %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 18) #37
   %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 18) #37
   %25 = tail call i64 @rb_id2sym(i64 noundef %24) #37
-  store i64 %25, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
+  store i64 %25, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 40), align 8
   %26 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 22) #37
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 22) #37
   %28 = tail call i64 @rb_id2sym(i64 noundef %27) #37
-  store i64 %28, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
+  store i64 %28, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 48), align 16
   %29 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.251, i64 noundef 20) #37
   %30 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.251, i64 noundef 20) #37
   %31 = tail call i64 @rb_id2sym(i64 noundef %30) #37
-  store i64 %31, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
+  store i64 %31, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 56), align 8
   %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.252, i64 noundef 15) #37
   %33 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.252, i64 noundef 15) #37
   %34 = tail call i64 @rb_id2sym(i64 noundef %33) #37
-  store i64 %34, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
+  store i64 %34, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 64), align 16
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.253, i64 noundef 15) #37
   %36 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.253, i64 noundef 15) #37
   %37 = tail call i64 @rb_id2sym(i64 noundef %36) #37
-  store i64 %37, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 72), align 8
   %38 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.254, i64 noundef 16) #37
   %39 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.254, i64 noundef 16) #37
   %40 = tail call i64 @rb_id2sym(i64 noundef %39) #37
-  store i64 %40, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 80), align 16
   %41 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.255, i64 noundef 17) #37
   %42 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.255, i64 noundef 17) #37
   %43 = tail call i64 @rb_id2sym(i64 noundef %42) #37
-  store i64 %43, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
+  store i64 %43, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 88), align 8
   %44 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 15) #37
   %45 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 15) #37
   %46 = tail call i64 @rb_id2sym(i64 noundef %45) #37
-  store i64 %46, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
+  store i64 %46, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 96), align 16
   %47 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 15) #37
   %48 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 15) #37
   %49 = tail call i64 @rb_id2sym(i64 noundef %48) #37
-  store i64 %49, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 104), align 8
   %50 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 21) #37
   %51 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 21) #37
   %52 = tail call i64 @rb_id2sym(i64 noundef %51) #37
-  store i64 %52, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 112), align 16
   %53 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 17) #37
   %54 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 17) #37
   %55 = tail call i64 @rb_id2sym(i64 noundef %54) #37
-  store i64 %55, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 120), align 8
   %56 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 23) #37
   %57 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 23) #37
   %58 = tail call i64 @rb_id2sym(i64 noundef %57) #37
-  store i64 %58, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
+  store i64 %58, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 128), align 16
   %59 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 19) #37
   %60 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 19) #37
   %61 = tail call i64 @rb_id2sym(i64 noundef %60) #37
-  store i64 %61, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
+  store i64 %61, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 136), align 8
   %62 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.262, i64 noundef 21) #37
   %63 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.262, i64 noundef 21) #37
   %64 = tail call i64 @rb_id2sym(i64 noundef %63) #37
-  store i64 %64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
+  store i64 %64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 144), align 16
   %65 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.263, i64 noundef 27) #37
   %66 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.263, i64 noundef 27) #37
   %67 = tail call i64 @rb_id2sym(i64 noundef %66) #37
-  store i64 %67, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
+  store i64 %67, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 152), align 8
   %68 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.264, i64 noundef 14) #37
   %69 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.264, i64 noundef 14) #37
   %70 = tail call i64 @rb_id2sym(i64 noundef %69) #37
-  store i64 %70, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
+  store i64 %70, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 160), align 16
   %71 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.265, i64 noundef 14) #37
   %72 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.265, i64 noundef 14) #37
   %73 = tail call i64 @rb_id2sym(i64 noundef %72) #37
-  store i64 %73, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
+  store i64 %73, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 168), align 8
   %74 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.266, i64 noundef 13) #37
   %75 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.266, i64 noundef 13) #37
   %76 = tail call i64 @rb_id2sym(i64 noundef %75) #37
-  store i64 %76, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
+  store i64 %76, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 176), align 16
   %77 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.267, i64 noundef 19) #37
   %78 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.267, i64 noundef 19) #37
   %79 = tail call i64 @rb_id2sym(i64 noundef %78) #37
-  store i64 %79, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
+  store i64 %79, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 184), align 8
   %80 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.268, i64 noundef 19) #37
   %81 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.268, i64 noundef 19) #37
   %82 = tail call i64 @rb_id2sym(i64 noundef %81) #37
-  store i64 %82, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
+  store i64 %82, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 192), align 16
   %83 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.269, i64 noundef 33) #37
   %84 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.269, i64 noundef 33) #37
   %85 = tail call i64 @rb_id2sym(i64 noundef %84) #37
-  store i64 %85, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
+  store i64 %85, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 200), align 8
   %86 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.270, i64 noundef 39) #37
   %87 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.270, i64 noundef 39) #37
   %88 = tail call i64 @rb_id2sym(i64 noundef %87) #37
-  store i64 %88, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
+  store i64 %88, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 208), align 16
   %89 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.271, i64 noundef 11) #37
   %90 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.271, i64 noundef 11) #37
   %91 = tail call i64 @rb_id2sym(i64 noundef %90) #37
-  store i64 %91, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
+  store i64 %91, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 216), align 8
   %92 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 17) #37
   %93 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 17) #37
   %94 = tail call i64 @rb_id2sym(i64 noundef %93) #37
-  store i64 %94, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
+  store i64 %94, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 224), align 16
   %95 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.273, i64 noundef 24) #37
   %96 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.273, i64 noundef 24) #37
   %97 = tail call i64 @rb_id2sym(i64 noundef %96) #37
-  store i64 %97, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
+  store i64 %97, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 232), align 8
   %98 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 30) #37
   %99 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 30) #37
   %100 = tail call i64 @rb_id2sym(i64 noundef %99) #37
-  store i64 %100, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
+  store i64 %100, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 240), align 16
   %101 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.240, i64 noundef 21) #37
   %102 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.240, i64 noundef 21) #37
   %103 = tail call i64 @rb_id2sym(i64 noundef %102) #37
-  store i64 %103, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 31), align 8
+  store i64 %103, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 248), align 8
   br label %setup_gc_stat_symbols.exit
 
 setup_gc_stat_symbols.exit:                       ; preds = %1, %7
@@ -8965,14 +8965,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %.thread350
 
 130:                                              ; preds = %120
-  %131 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
+  %131 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 8), align 8
   %132 = icmp eq i64 %.0, %131
   br i1 %132, label %136, label %143
 
 .thread350:                                       ; preds = %128, %125
   %.0.i = phi i64 [ %127, %125 ], [ %129, %128 ]
   %133 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %115, i64 noundef %.0.i) #37
-  %134 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
+  %134 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 8), align 8
   %135 = icmp eq i64 %.0, %134
   br i1 %135, label %136, label %.thread352
 
@@ -8986,7 +8986,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %heap_allocatable_pages.exit
 
 143:                                              ; preds = %130
-  %144 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
+  %144 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 16), align 16
   %145 = icmp eq i64 %.0, %144
   br i1 %145, label %157, label %161
 
@@ -9000,7 +9000,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   %152 = shl nuw nsw i64 %151, 1
   %153 = or disjoint i64 %152, 1
   %154 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %134, i64 noundef %153) #37
-  %155 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
+  %155 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 16), align 16
   %156 = icmp eq i64 %.0, %155
   br i1 %156, label %157, label %.thread354
 
@@ -9011,7 +9011,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %heap_allocatable_pages.exit
 
 161:                                              ; preds = %143
-  %162 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
+  %162 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 24), align 8
   %163 = icmp eq i64 %.0, %162
   br i1 %163, label %171, label %175
 
@@ -9021,7 +9021,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   %166 = shl nuw nsw i64 %165, 1
   %167 = or disjoint i64 %166, 1
   %168 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %155, i64 noundef %167) #37
-  %169 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
+  %169 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 24), align 8
   %170 = icmp eq i64 %.0, %169
   br i1 %170, label %171, label %.thread356
 
@@ -9032,7 +9032,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %heap_allocatable_pages.exit
 
 175:                                              ; preds = %161
-  %176 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
+  %176 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 32), align 16
   %177 = icmp eq i64 %.0, %176
   br i1 %177, label %185, label %197
 
@@ -9042,7 +9042,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   %180 = shl nuw nsw i64 %179, 1
   %181 = or disjoint i64 %180, 1
   %182 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %169, i64 noundef %181) #37
-  %183 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
+  %183 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 32), align 16
   %184 = icmp eq i64 %.0, %183
   br i1 %184, label %185, label %188
 
@@ -9067,14 +9067,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %.thread358
 
 197:                                              ; preds = %175
-  %198 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
+  %198 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 40), align 8
   %199 = icmp eq i64 %.0, %198
   br i1 %199, label %203, label %215
 
 .thread358:                                       ; preds = %195, %192
   %.0.i218 = phi i64 [ %194, %192 ], [ %196, %195 ]
   %200 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %183, i64 noundef %.0.i218) #37
-  %201 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
+  %201 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 40), align 8
   %202 = icmp eq i64 %.0, %201
   br i1 %202, label %203, label %206
 
@@ -9099,14 +9099,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %108, %RB_SYMBOL_P.e
   br label %.thread360
 
 215:                                              ; preds = %197
-  %216 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
+  %216 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 48), align 16
   %217 = icmp eq i64 %.0, %216
   br i1 %217, label %221, label %.thread362
 
 .thread360:                                       ; preds = %213, %210
   %.0.i220 = phi i64 [ %212, %210 ], [ %214, %213 ]
   %218 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %201, i64 noundef %.0.i220) #37
-  %219 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
+  %219 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 48), align 16
   %220 = icmp eq i64 %.0, %219
   br i1 %220, label %221, label %.thread361
 
@@ -9154,12 +9154,12 @@ heap_allocatable_pages.exit226:                   ; preds = %228
 238:                                              ; preds = %236, %233
   %.0.i227 = phi i64 [ %235, %233 ], [ %237, %236 ]
   %239 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %219, i64 noundef %.0.i227) #37
-  %240 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
+  %240 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 56), align 8
   %241 = icmp eq i64 %.0, %240
   br i1 %241, label %244, label %.preheader497
 
 .thread362:                                       ; preds = %215
-  %242 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
+  %242 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 56), align 8
   %243 = icmp eq i64 %.0, %242
   br i1 %243, label %244, label %.thread363.thread
 
@@ -9211,12 +9211,12 @@ objspace_available_slots.exit236:                 ; preds = %.preheader497
 .thread363:                                       ; preds = %265, %262
   %.0.i237 = phi i64 [ %264, %262 ], [ %266, %265 ]
   %267 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %240, i64 noundef %.0.i237) #37
-  %268 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
+  %268 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 64), align 16
   %269 = icmp eq i64 %.0, %268
   br i1 %269, label %272, label %285
 
 .thread363.thread:                                ; preds = %.thread362
-  %270 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
+  %270 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 64), align 16
   %271 = icmp eq i64 %.0, %270
   br i1 %271, label %272, label %.thread364
 
@@ -9298,12 +9298,12 @@ objspace_live_slots.exit249:                      ; preds = %total_allocated_obj
 305:                                              ; preds = %303, %300
   %.0.i250 = phi i64 [ %302, %300 ], [ %304, %303 ]
   %306 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %268, i64 noundef %.0.i250) #37
-  %307 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
+  %307 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 72), align 8
   %308 = icmp eq i64 %.0, %307
   br i1 %308, label %311, label %313
 
 .thread364:                                       ; preds = %.thread363.thread, %285
-  %309 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
+  %309 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 72), align 8
   %310 = icmp eq i64 %.0, %309
   br i1 %310, label %311, label %.thread365
 
@@ -9326,14 +9326,14 @@ objspace_live_slots.exit249:                      ; preds = %total_allocated_obj
   br label %.thread366
 
 .thread365:                                       ; preds = %.thread364
-  %321 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
+  %321 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 80), align 16
   %322 = icmp eq i64 %.0, %321
   br i1 %322, label %326, label %337
 
 .thread366:                                       ; preds = %319, %316
   %.0.i252 = phi i64 [ %318, %316 ], [ %320, %319 ]
   %323 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %307, i64 noundef %.0.i252) #37
-  %324 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
+  %324 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 80), align 16
   %325 = icmp eq i64 %.0, %324
   br i1 %325, label %326, label %.thread367
 
@@ -9358,14 +9358,14 @@ objspace_live_slots.exit249:                      ; preds = %total_allocated_obj
   br label %.thread368
 
 337:                                              ; preds = %.thread365
-  %338 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
+  %338 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 88), align 8
   %339 = icmp eq i64 %.0, %338
   br i1 %339, label %343, label %355
 
 .thread368:                                       ; preds = %335, %332
   %.0.i254 = phi i64 [ %334, %332 ], [ %336, %335 ]
   %340 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %324, i64 noundef %.0.i254) #37
-  %341 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
+  %341 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 88), align 8
   %342 = icmp eq i64 %.0, %341
   br i1 %342, label %343, label %346
 
@@ -9390,14 +9390,14 @@ objspace_live_slots.exit249:                      ; preds = %total_allocated_obj
   br label %.thread370
 
 355:                                              ; preds = %337
-  %356 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
+  %356 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 96), align 16
   %357 = icmp eq i64 %.0, %356
   br i1 %357, label %361, label %.thread459
 
 .thread370:                                       ; preds = %353, %350
   %.0.i256 = phi i64 [ %352, %350 ], [ %354, %353 ]
   %358 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %341, i64 noundef %.0.i256) #37
-  %359 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
+  %359 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 96), align 16
   %360 = icmp eq i64 %.0, %359
   br i1 %360, label %361, label %367
 
@@ -9445,12 +9445,12 @@ heap_eden_total_pages.exit266:                    ; preds = %369
 379:                                              ; preds = %377, %374
   %.0.i267 = phi i64 [ %376, %374 ], [ %378, %377 ]
   %380 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %359, i64 noundef %.0.i267) #37
-  %381 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
+  %381 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 104), align 8
   %382 = icmp eq i64 %.0, %381
   br i1 %382, label %385, label %391
 
 .thread459:                                       ; preds = %355
-  %383 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
+  %383 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 104), align 8
   %384 = icmp eq i64 %.0, %383
   br i1 %384, label %385, label %.thread372
 
@@ -9501,12 +9501,12 @@ heap_tomb_total_pages.exit277:                    ; preds = %394
 404:                                              ; preds = %402, %399
   %.0.i278 = phi i64 [ %401, %399 ], [ %403, %402 ]
   %405 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %381, i64 noundef %.0.i278) #37
-  %406 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
+  %406 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 112), align 16
   %407 = icmp eq i64 %.0, %406
   br i1 %407, label %410, label %.preheader496
 
 .thread372:                                       ; preds = %.thread459, %391
-  %408 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
+  %408 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 112), align 16
   %409 = icmp eq i64 %.0, %408
   br i1 %409, label %410, label %.thread373.thread
 
@@ -9550,12 +9550,12 @@ total_allocated_pages.exit287:                    ; preds = %.preheader496
 .thread373:                                       ; preds = %423, %420
   %.0.i288 = phi i64 [ %422, %420 ], [ %424, %423 ]
   %425 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %406, i64 noundef %.0.i288) #37
-  %426 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
+  %426 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 120), align 8
   %427 = icmp eq i64 %.0, %426
   br i1 %427, label %430, label %436
 
 .thread373.thread:                                ; preds = %.thread372
-  %428 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
+  %428 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 120), align 8
   %429 = icmp eq i64 %.0, %428
   br i1 %429, label %430, label %.thread374
 
@@ -9606,12 +9606,12 @@ total_freed_pages.exit298:                        ; preds = %439
 449:                                              ; preds = %447, %444
   %.0.i299 = phi i64 [ %446, %444 ], [ %448, %447 ]
   %450 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %426, i64 noundef %.0.i299) #37
-  %451 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
+  %451 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 128), align 16
   %452 = icmp eq i64 %.0, %451
   br i1 %452, label %455, label %.preheader
 
 .thread374:                                       ; preds = %.thread373.thread, %436
-  %453 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
+  %453 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 128), align 16
   %454 = icmp eq i64 %.0, %453
   br i1 %454, label %455, label %.thread375.thread
 
@@ -9655,12 +9655,12 @@ total_allocated_objects.exit309:                  ; preds = %.preheader
 .thread375:                                       ; preds = %468, %465
   %.0.i310 = phi i64 [ %467, %465 ], [ %469, %468 ]
   %470 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %451, i64 noundef %.0.i310) #37
-  %471 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
+  %471 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 136), align 8
   %472 = icmp eq i64 %.0, %471
   br i1 %472, label %475, label %481
 
 .thread375.thread:                                ; preds = %.thread374
-  %473 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
+  %473 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 136), align 8
   %474 = icmp eq i64 %.0, %473
   br i1 %474, label %475, label %.thread376
 
@@ -9711,12 +9711,12 @@ total_freed_objects.exit320:                      ; preds = %484
 494:                                              ; preds = %492, %489
   %.0.i321 = phi i64 [ %491, %489 ], [ %493, %492 ]
   %495 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %471, i64 noundef %.0.i321) #37
-  %496 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
+  %496 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 144), align 16
   %497 = icmp eq i64 %.0, %496
   br i1 %497, label %500, label %503
 
 .thread376:                                       ; preds = %.thread375.thread, %481
-  %498 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
+  %498 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 144), align 16
   %499 = icmp eq i64 %.0, %498
   br i1 %499, label %500, label %.thread377
 
@@ -9741,14 +9741,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread378
 
 .thread377:                                       ; preds = %.thread376
-  %512 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
+  %512 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 152), align 8
   %513 = icmp eq i64 %.0, %512
   br i1 %513, label %517, label %526
 
 .thread378:                                       ; preds = %510, %507
   %.0.i323 = phi i64 [ %509, %507 ], [ %511, %510 ]
   %514 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %496, i64 noundef %.0.i323) #37
-  %515 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
+  %515 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 152), align 8
   %516 = icmp eq i64 %.0, %515
   br i1 %516, label %517, label %.thread379
 
@@ -9771,14 +9771,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread380
 
 526:                                              ; preds = %.thread377
-  %527 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
+  %527 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 160), align 16
   %528 = icmp eq i64 %.0, %527
   br i1 %528, label %532, label %544
 
 .thread380:                                       ; preds = %524, %521
   %.0.i325 = phi i64 [ %523, %521 ], [ %525, %524 ]
   %529 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %515, i64 noundef %.0.i325) #37
-  %530 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
+  %530 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 160), align 16
   %531 = icmp eq i64 %.0, %530
   br i1 %531, label %532, label %535
 
@@ -9803,14 +9803,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread382
 
 544:                                              ; preds = %526
-  %545 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
+  %545 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 168), align 8
   %546 = icmp eq i64 %.0, %545
   br i1 %546, label %550, label %562
 
 .thread382:                                       ; preds = %542, %539
   %.0.i327 = phi i64 [ %541, %539 ], [ %543, %542 ]
   %547 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %530, i64 noundef %.0.i327) #37
-  %548 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
+  %548 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 168), align 8
   %549 = icmp eq i64 %.0, %548
   br i1 %549, label %550, label %553
 
@@ -9835,14 +9835,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread384
 
 562:                                              ; preds = %544
-  %563 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
+  %563 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 176), align 16
   %564 = icmp eq i64 %.0, %563
   br i1 %564, label %568, label %579
 
 .thread384:                                       ; preds = %560, %557
   %.0.i329 = phi i64 [ %559, %557 ], [ %561, %560 ]
   %565 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %548, i64 noundef %.0.i329) #37
-  %566 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
+  %566 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 176), align 16
   %567 = icmp eq i64 %.0, %566
   br i1 %567, label %568, label %.thread385
 
@@ -9867,14 +9867,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread386
 
 579:                                              ; preds = %562
-  %580 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
+  %580 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 184), align 8
   %581 = icmp eq i64 %.0, %580
   br i1 %581, label %585, label %597
 
 .thread386:                                       ; preds = %577, %574
   %.0.i331 = phi i64 [ %576, %574 ], [ %578, %577 ]
   %582 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %566, i64 noundef %.0.i331) #37
-  %583 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
+  %583 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 184), align 8
   %584 = icmp eq i64 %.0, %583
   br i1 %584, label %585, label %588
 
@@ -9899,14 +9899,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread388
 
 597:                                              ; preds = %579
-  %598 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
+  %598 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 192), align 16
   %599 = icmp eq i64 %.0, %598
   br i1 %599, label %603, label %615
 
 .thread388:                                       ; preds = %595, %592
   %.0.i333 = phi i64 [ %594, %592 ], [ %596, %595 ]
   %600 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %583, i64 noundef %.0.i333) #37
-  %601 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
+  %601 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 192), align 16
   %602 = icmp eq i64 %.0, %601
   br i1 %602, label %603, label %606
 
@@ -9931,14 +9931,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread390
 
 615:                                              ; preds = %597
-  %616 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
+  %616 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 200), align 8
   %617 = icmp eq i64 %.0, %616
   br i1 %617, label %621, label %632
 
 .thread390:                                       ; preds = %613, %610
   %.0.i335 = phi i64 [ %612, %610 ], [ %614, %613 ]
   %618 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %601, i64 noundef %.0.i335) #37
-  %619 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
+  %619 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 200), align 8
   %620 = icmp eq i64 %.0, %619
   br i1 %620, label %621, label %.thread391
 
@@ -9963,14 +9963,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread392
 
 632:                                              ; preds = %615
-  %633 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
+  %633 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 208), align 16
   %634 = icmp eq i64 %.0, %633
   br i1 %634, label %638, label %650
 
 .thread392:                                       ; preds = %630, %627
   %.0.i337 = phi i64 [ %629, %627 ], [ %631, %630 ]
   %635 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %619, i64 noundef %.0.i337) #37
-  %636 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
+  %636 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 208), align 16
   %637 = icmp eq i64 %.0, %636
   br i1 %637, label %638, label %641
 
@@ -9995,14 +9995,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread394
 
 650:                                              ; preds = %632
-  %651 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
+  %651 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 216), align 8
   %652 = icmp eq i64 %.0, %651
   br i1 %652, label %656, label %668
 
 .thread394:                                       ; preds = %648, %645
   %.0.i339 = phi i64 [ %647, %645 ], [ %649, %648 ]
   %653 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %636, i64 noundef %.0.i339) #37
-  %654 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
+  %654 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 216), align 8
   %655 = icmp eq i64 %.0, %654
   br i1 %655, label %656, label %659
 
@@ -10027,14 +10027,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread396
 
 668:                                              ; preds = %650
-  %669 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
+  %669 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 224), align 16
   %670 = icmp eq i64 %.0, %669
   br i1 %670, label %674, label %685
 
 .thread396:                                       ; preds = %666, %663
   %.0.i341 = phi i64 [ %665, %663 ], [ %667, %666 ]
   %671 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %654, i64 noundef %.0.i341) #37
-  %672 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
+  %672 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 224), align 16
   %673 = icmp eq i64 %.0, %672
   br i1 %673, label %674, label %.thread397
 
@@ -10059,14 +10059,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread398
 
 685:                                              ; preds = %668
-  %686 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
+  %686 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 232), align 8
   %687 = icmp eq i64 %.0, %686
   br i1 %687, label %691, label %703
 
 .thread398:                                       ; preds = %683, %680
   %.0.i343 = phi i64 [ %682, %680 ], [ %684, %683 ]
   %688 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %672, i64 noundef %.0.i343) #37
-  %689 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
+  %689 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 232), align 8
   %690 = icmp eq i64 %.0, %689
   br i1 %690, label %691, label %694
 
@@ -10091,14 +10091,14 @@ total_freed_objects.exit320:                      ; preds = %484
   br label %.thread400
 
 703:                                              ; preds = %685
-  %704 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
+  %704 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 240), align 16
   %705 = icmp eq i64 %.0, %704
   br i1 %705, label %709, label %722
 
 .thread400:                                       ; preds = %701, %698
   %.0.i345 = phi i64 [ %700, %698 ], [ %702, %701 ]
   %706 = tail call i64 @rb_hash_aset(i64 noundef %.0181, i64 noundef %689, i64 noundef %.0.i345) #37
-  %707 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
+  %707 = load i64, ptr getelementptr inbounds (i8, ptr @gc_stat_symbols, i64 240), align 16
   %708 = icmp eq i64 %.0, %707
   br i1 %708, label %709, label %712
 
@@ -10625,7 +10625,7 @@ define hidden void @ruby_gc_set_params() local_unnamed_addr #0 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1304
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 1))
+  %6 = tail call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 40))
   call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   tail call fastcc void @gc_rest(ptr noundef %5)
@@ -10679,50 +10679,50 @@ gc_set_initial_pages.exit:                        ; preds = %29
   call fastcc void @heap_pages_expand_sorted(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 2), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %31 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 3))
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 4), double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
-  %32 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 4), align 8
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 6), double noundef %32, double noundef 1.000000e+00, i32 noundef 0)
-  %33 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 4), align 8
-  %34 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 6), align 8
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 5), double noundef %33, double noundef %34, i32 noundef 1)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 8), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 7), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  %35 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 9))
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 48), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %31 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 56))
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 64), double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
+  %32 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 80), double noundef %32, double noundef 1.000000e+00, i32 noundef 0)
+  %33 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
+  %34 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 80), align 8
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 72), double noundef %33, double noundef %34, i32 noundef 1)
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 96), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 88), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  %35 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 104))
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %38, label %36
 
 36:                                               ; preds = %gc_set_initial_pages.exit
-  %37 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 9), align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 104), align 8
   store i64 %37, ptr %5, align 8
   br label %38
 
 38:                                               ; preds = %36, %gc_set_initial_pages.exit
-  %39 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 10))
-  %40 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 10), align 8
+  %39 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 112))
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 112), align 8
   %.not3 = icmp eq i64 %40, 0
   br i1 %.not3, label %41, label %42
 
 41:                                               ; preds = %38
-  store i64 -1, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 10), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @gc_params, i64 112), align 8
   br label %42
 
 42:                                               ; preds = %41, %38
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 11), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %43 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 12))
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 120), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %43 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 128))
   %.not4 = icmp eq i32 %43, 0
   br i1 %.not4, label %47, label %44
 
 44:                                               ; preds = %42
-  %45 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 12), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 128), align 8
   %46 = getelementptr inbounds i8, ptr %5, i64 1544
   store i64 %45, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %44, %42
-  %48 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 13))
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 14), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %48 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 136))
+  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 144), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
   ret void
 }
 
@@ -19280,7 +19280,7 @@ gc_ref_update.exit.i.i.i:                         ; preds = %gc_update_object_re
 1011:                                             ; preds = %._crit_edge.i.i.i
   call void @rb_vm_update_references(ptr noundef %.0.i.i.i.i) #37
   call void @rb_gc_update_global_tbl() #37
-  %1012 = load i64, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i64 0, i32 2), align 8
+  %1012 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
   %1013 = and i64 %1012, 7
   %1014 = icmp ne i64 %1013, 0
   %1015 = icmp eq i64 %1012, 0
@@ -19301,8 +19301,8 @@ gc_ref_update.exit.i.i.i:                         ; preds = %gc_update_object_re
 
 rb_gc_location.exit.i.i.i:                        ; preds = %1022, %1017, %1011
   %.1.i.i.i.i = phi i64 [ %1024, %1022 ], [ %1012, %1017 ], [ %1012, %1011 ]
-  store i64 %.1.i.i.i.i, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i64 0, i32 2), align 8
-  %1025 = load i64, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i64 0, i32 3), align 8
+  store i64 %.1.i.i.i.i, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %1025 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
   %1026 = and i64 %1025, 7
   %1027 = icmp ne i64 %1026, 0
   %1028 = icmp eq i64 %1025, 0
@@ -19323,7 +19323,7 @@ rb_gc_location.exit.i.i.i:                        ; preds = %1022, %1017, %1011
 
 rb_gc_location.exit36.i.i.i:                      ; preds = %1035, %1030, %rb_gc_location.exit.i.i.i
   %.1.i35.i.i.i = phi i64 [ %1037, %1035 ], [ %1025, %1030 ], [ %1025, %rb_gc_location.exit.i.i.i ]
-  store i64 %.1.i35.i.i.i, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i64 0, i32 3), align 8
+  store i64 %.1.i35.i.i.i, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
   %1038 = getelementptr inbounds i8, ptr %0, i64 2584
   %1039 = load ptr, ptr %1038, align 8
   %.not.i37.i.i.i = icmp eq ptr %1039, null
@@ -19368,7 +19368,7 @@ gc_ref_update_table_values_only.exit.i.i.i:       ; preds = %1044, %1040, %rb_gc
   unreachable
 
 gc_update_table_refs.exit.i.i.i:                  ; preds = %1054, %1050, %gc_ref_update_table_values_only.exit.i.i.i
-  %1058 = load ptr, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i64 0, i32 1), align 8
+  %1058 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %.not.i40.i.i.i = icmp eq ptr %1058, null
   br i1 %.not.i40.i.i.i, label %gc_update_table_refs.exit42.i.i.i, label %1059
 
@@ -20030,9 +20030,9 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   %151 = getelementptr inbounds i8, ptr %0, i64 1200
   %152 = load i64, ptr %151, align 8
   %153 = uitofp i64 %150 to double
-  %154 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 6), align 8
+  %154 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 80), align 8
   %155 = fmul double %154, %153
-  %156 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 4), align 8
+  %156 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
   %157 = fmul double %156, %153
   %158 = load i16, ptr %3, align 8
   %159 = and i16 %158, 1024
@@ -20072,7 +20072,7 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   %.sink = phi i64 [ %178, %176 ], [ 0, %170 ]
   %180 = getelementptr inbounds i8, ptr %0, i64 1256
   store i64 %.sink, ptr %180, align 8
-  %181 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 1), align 8
+  %181 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 40), align 8
   %182 = mul i64 %181, %164
   %spec.select73 = tail call i64 @llvm.umax.i64(i64 %182, i64 %173)
   %183 = icmp uge i64 %171, %spec.select73
@@ -20099,7 +20099,7 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   br i1 %174, label %.critedge, label %211
 
 .critedge:                                        ; preds = %184, %194
-  %195 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 8), align 8
+  %195 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 96), align 8
   %196 = getelementptr inbounds i8, ptr %0, i64 1504
   %197 = load i64, ptr %196, align 8
   %198 = uitofp i64 %197 to double
@@ -20108,7 +20108,7 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   %201 = getelementptr inbounds i8, ptr %0, i64 1520
   %202 = load i64, ptr %201, align 8
   %203 = uitofp i64 %202 to double
-  %204 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 7), align 8
+  %204 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 88), align 8
   %205 = fmul double %204, %203
   %206 = fptoui double %205 to i64
   %. = tail call i64 @llvm.umax.i64(i64 %200, i64 %206)
@@ -21595,7 +21595,7 @@ define internal fastcc void @gc_sweep_finish_size_pool(ptr noundef %0, ptr nound
   %26 = icmp ult i64 %8, %25
   %27 = tail call i64 @llvm.umax.i64(i64 %8, i64 %25)
   %28 = uitofp i64 %27 to double
-  %29 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 4), align 8
+  %29 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
   %30 = fmul double %29, %28
   %31 = fptoui double %30 to i64
   %32 = icmp ult i64 %18, %31
@@ -21723,13 +21723,13 @@ heap_page_resurrect.exit:                         ; preds = %38
   br i1 %brmerge, label %.thread61, label %.critedge54
 
 .thread61:                                        ; preds = %.critedge, %99
-  %100 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 5), align 8
+  %100 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 72), align 8
   %101 = fcmp oeq double %100, 0.000000e+00
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %.thread61
   %103 = uitofp i64 %13 to double
-  %104 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 2), align 8
+  %104 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 48), align 8
   %105 = fmul double %104, %103
   %106 = fptoui double %105 to i64
   br label %131
@@ -21757,7 +21757,7 @@ heap_page_resurrect.exit:                         ; preds = %38
   %122 = uitofp i64 %8 to double
   %123 = fmul double %121, %122
   %124 = fdiv double %120, %123
-  %125 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 2), align 8
+  %125 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 48), align 8
   %126 = fcmp ogt double %124, %125
   %.020.i = select i1 %126, double %125, double %124
   %127 = fcmp olt double %.020.i, 1.000000e+00
@@ -21769,7 +21769,7 @@ heap_page_resurrect.exit:                         ; preds = %38
 
 131:                                              ; preds = %118, %109, %102
   %.0.i = phi i64 [ %106, %102 ], [ %117, %109 ], [ %130, %118 ]
-  %132 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 3), align 8
+  %132 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 56), align 8
   %.not.i57 = icmp eq i64 %132, 0
   br i1 %.not.i57, label %heap_extend_pages.exit, label %133
 
@@ -25236,11 +25236,11 @@ gc_prof_setup_new_record.exit:                    ; preds = %total_allocated_obj
 
 158:                                              ; preds = %gc_prof_setup_new_record.exit
   %159 = uitofp i64 %155 to double
-  %160 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 11), align 8
+  %160 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 120), align 8
   %161 = fmul double %160, %159
   %162 = fptoui double %161 to i64
   store i64 %162, ptr %0, align 8
-  %163 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 10), align 8
+  %163 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 112), align 8
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %163, i64 %162)
   br label %169
 
@@ -25249,7 +25249,7 @@ gc_prof_setup_new_record.exit:                    ; preds = %total_allocated_obj
   %166 = fmul double %165, 0x3FEF5C28F5C28F5C
   %167 = fptoui double %166 to i64
   store i64 %167, ptr %0, align 8
-  %168 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 9), align 8
+  %168 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 104), align 8
   %spec.store.select31.i = call i64 @llvm.umax.i64(i64 %168, i64 %167)
   br label %169
 
@@ -25271,10 +25271,10 @@ gc_prof_setup_new_record.exit:                    ; preds = %total_allocated_obj
   %178 = or i32 %177, 32
   store i32 %178, ptr %66, align 8
   %179 = uitofp i64 %174 to double
-  %180 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 14), align 8
+  %180 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 144), align 8
   %181 = fmul double %180, %179
   %182 = fptoui double %181 to i64
-  %183 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 13), align 8
+  %183 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 136), align 8
   %spec.store.select32.i = call i64 @llvm.umin.i64(i64 %183, i64 %182)
   store i64 %spec.store.select32.i, ptr %173, align 8
   br label %gc_reset_malloc_info.exit
@@ -25290,13 +25290,13 @@ gc_prof_setup_new_record.exit:                    ; preds = %total_allocated_obj
   %189 = getelementptr inbounds i8, ptr %0, i64 1544
   %190 = load i64, ptr %189, align 8
   %191 = uitofp i64 %190 to double
-  %192 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 14), align 8
+  %192 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 144), align 8
   %193 = fadd double %192, -1.000000e+00
   %194 = fdiv double %193, 1.000000e+01
   %195 = fadd double %194, 1.000000e+00
   %196 = fdiv double %191, %195
   %197 = fptoui double %196 to i64
-  %198 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i64 0, i32 12), align 8
+  %198 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 128), align 8
   %spec.store.select33.i = call i64 @llvm.umax.i64(i64 %198, i64 %197)
   store i64 %spec.store.select33.i, ptr %189, align 8
   br label %gc_reset_malloc_info.exit

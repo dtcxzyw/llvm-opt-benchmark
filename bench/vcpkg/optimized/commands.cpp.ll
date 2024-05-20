@@ -516,13 +516,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 65:                                               ; preds = %61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
-  %66 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandExportMetadataE, i64 0, i32 1, i32 0)) #15
+  %66 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandExportMetadataE, i64 16)) #15
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %65
   %.sroa.01.0.copyload.i = load ptr, ptr @_ZN5vcpkg21CommandExportMetadataE, align 8
-  %.sroa.22.0.copyload.i = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandExportMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandExportMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandExportMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandExportMetadataE, i64 16))
           to label %.noexc unwind label %378
 
 .noexc:                                           ; preds = %67
@@ -545,13 +545,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 74:                                               ; preds = %71, %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  %75 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 0, i32 1, i32 0)) #15
+  %75 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 16)) #15
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %74
   %.sroa.01.0.copyload.i55 = load ptr, ptr @_ZN5vcpkg22CommandInstallMetadataE, align 8
-  %.sroa.22.0.copyload.i56 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i56 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandInstallMetadataE, i64 16))
           to label %.noexc57 unwind label %378
 
 .noexc57:                                         ; preds = %76
@@ -574,13 +574,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 83:                                               ; preds = %80, %74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  %84 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 0, i32 1, i32 0)) #15
+  %84 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 16)) #15
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %83
   %.sroa.01.0.copyload.i61 = load ptr, ptr @_ZN5vcpkg21CommandRemoveMetadataE, align 8
-  %.sroa.22.0.copyload.i62 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i62 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandRemoveMetadataE, i64 16))
           to label %.noexc63 unwind label %378
 
 .noexc63:                                         ; preds = %85
@@ -603,13 +603,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 92:                                               ; preds = %89, %83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  %93 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 0, i32 1, i32 0)) #15
+  %93 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 16)) #15
   br i1 %93, label %94, label %101
 
 94:                                               ; preds = %92
   %.sroa.01.0.copyload.i67 = load ptr, ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, align 8
-  %.sroa.22.0.copyload.i68 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i68 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandSetInstalledMetadataE, i64 16))
           to label %.noexc69 unwind label %378
 
 .noexc69:                                         ; preds = %94
@@ -632,13 +632,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 101:                                              ; preds = %98, %92
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  %102 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 0, i32 1, i32 0)) #15
+  %102 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 16)) #15
   br i1 %102, label %103, label %110
 
 103:                                              ; preds = %101
   %.sroa.01.0.copyload.i73 = load ptr, ptr @_ZN5vcpkg22CommandUpgradeMetadataE, align 8
-  %.sroa.22.0.copyload.i74 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i74 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandUpgradeMetadataE, i64 16))
           to label %.noexc75 unwind label %378
 
 .noexc75:                                         ; preds = %103
@@ -678,13 +678,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 116:                                              ; preds = %112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  %117 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 0, i32 1, i32 0)) #15
+  %117 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 16)) #15
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %116
   %.sroa.01.0.copyload.i79 = load ptr, ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, align 8
-  %.sroa.22.0.copyload.i80 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i80 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandCheckSupportMetadataE, i64 16))
           to label %.noexc81 unwind label %378
 
 .noexc81:                                         ; preds = %118
@@ -707,13 +707,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 125:                                              ; preds = %122, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  %126 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 0, i32 1, i32 0)) #15
+  %126 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 16)) #15
   br i1 %126, label %127, label %134
 
 127:                                              ; preds = %125
   %.sroa.01.0.copyload.i85 = load ptr, ptr @_ZN5vcpkg25CommandDependInfoMetadataE, align 8
-  %.sroa.22.0.copyload.i86 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i86 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandDependInfoMetadataE, i64 16))
           to label %.noexc87 unwind label %378
 
 .noexc87:                                         ; preds = %127
@@ -736,13 +736,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 134:                                              ; preds = %131, %125
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %135 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandListMetadataE, i64 0, i32 1, i32 0)) #15
+  %135 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandListMetadataE, i64 16)) #15
   br i1 %135, label %136, label %143
 
 136:                                              ; preds = %134
   %.sroa.01.0.copyload.i91 = load ptr, ptr @_ZN5vcpkg19CommandListMetadataE, align 8
-  %.sroa.22.0.copyload.i92 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandListMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandListMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i92 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandListMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandListMetadataE, i64 16))
           to label %.noexc93 unwind label %378
 
 .noexc93:                                         ; preds = %136
@@ -765,13 +765,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 143:                                              ; preds = %140, %134
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  %144 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 0, i32 1, i32 0)) #15
+  %144 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 16)) #15
   br i1 %144, label %145, label %152
 
 145:                                              ; preds = %143
   %.sroa.01.0.copyload.i97 = load ptr, ptr @_ZN5vcpkg19CommandOwnsMetadataE, align 8
-  %.sroa.22.0.copyload.i98 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i98 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandOwnsMetadataE, i64 16))
           to label %.noexc99 unwind label %378
 
 .noexc99:                                         ; preds = %145
@@ -794,13 +794,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 152:                                              ; preds = %149, %143
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  %153 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 0, i32 1, i32 0)) #15
+  %153 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 16)) #15
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %152
   %.sroa.01.0.copyload.i103 = load ptr, ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, align 8
-  %.sroa.22.0.copyload.i104 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %20, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i104 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %20, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg26CommandPackageInfoMetadataE, i64 16))
           to label %.noexc105 unwind label %378
 
 .noexc105:                                        ; preds = %154
@@ -823,13 +823,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 161:                                              ; preds = %158, %152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  %162 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 0, i32 1, i32 0)) #15
+  %162 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 16)) #15
   br i1 %162, label %163, label %170
 
 163:                                              ; preds = %161
   %.sroa.01.0.copyload.i109 = load ptr, ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, align 8
-  %.sroa.22.0.copyload.i110 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i110 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandPortsdiffMetadataE, i64 16))
           to label %.noexc111 unwind label %378
 
 .noexc111:                                        ; preds = %163
@@ -852,13 +852,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 170:                                              ; preds = %167, %161
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  %171 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 0, i32 1, i32 0)) #15
+  %171 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 16)) #15
   br i1 %171, label %172, label %179
 
 172:                                              ; preds = %170
   %.sroa.01.0.copyload.i115 = load ptr, ptr @_ZN5vcpkg21CommandSearchMetadataE, align 8
-  %.sroa.22.0.copyload.i116 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i116 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandSearchMetadataE, i64 16))
           to label %.noexc117 unwind label %378
 
 .noexc117:                                        ; preds = %172
@@ -881,13 +881,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 179:                                              ; preds = %176, %170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %180 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 0, i32 1, i32 0)) #15
+  %180 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 16)) #15
   br i1 %180, label %181, label %188
 
 181:                                              ; preds = %179
   %.sroa.01.0.copyload.i121 = load ptr, ptr @_ZN5vcpkg21CommandUpdateMetadataE, align 8
-  %.sroa.22.0.copyload.i122 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i122 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandUpdateMetadataE, i64 16))
           to label %.noexc123 unwind label %378
 
 .noexc123:                                        ; preds = %181
@@ -927,13 +927,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 194:                                              ; preds = %190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %195 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandAddMetadataE, i64 0, i32 1, i32 0)) #15
+  %195 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandAddMetadataE, i64 16)) #15
   br i1 %195, label %196, label %203
 
 196:                                              ; preds = %194
   %.sroa.01.0.copyload.i127 = load ptr, ptr @_ZN5vcpkg18CommandAddMetadataE, align 8
-  %.sroa.22.0.copyload.i128 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandAddMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandAddMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i128 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandAddMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandAddMetadataE, i64 16))
           to label %.noexc129 unwind label %378
 
 .noexc129:                                        ; preds = %196
@@ -956,13 +956,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 203:                                              ; preds = %200, %194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %204 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 0, i32 1, i32 0)) #15
+  %204 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 16)) #15
   br i1 %204, label %205, label %212
 
 205:                                              ; preds = %203
   %.sroa.01.0.copyload.i133 = load ptr, ptr @_ZN5vcpkg25CommandAddVersionMetadataE, align 8
-  %.sroa.22.0.copyload.i134 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i134 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg25CommandAddVersionMetadataE, i64 16))
           to label %.noexc135 unwind label %378
 
 .noexc135:                                        ; preds = %205
@@ -985,13 +985,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 212:                                              ; preds = %209, %203
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %213 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 0, i32 1, i32 0)) #15
+  %213 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 16)) #15
   br i1 %213, label %214, label %221
 
 214:                                              ; preds = %212
   %.sroa.01.0.copyload.i139 = load ptr, ptr @_ZN5vcpkg21CommandCreateMetadataE, align 8
-  %.sroa.22.0.copyload.i140 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i140 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg21CommandCreateMetadataE, i64 16))
           to label %.noexc141 unwind label %378
 
 .noexc141:                                        ; preds = %214
@@ -1014,13 +1014,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 221:                                              ; preds = %218, %212
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %222 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandEditMetadataE, i64 0, i32 1, i32 0)) #15
+  %222 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandEditMetadataE, i64 16)) #15
   br i1 %222, label %223, label %230
 
 223:                                              ; preds = %221
   %.sroa.01.0.copyload.i145 = load ptr, ptr @_ZN5vcpkg19CommandEditMetadataE, align 8
-  %.sroa.22.0.copyload.i146 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandEditMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandEditMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i146 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandEditMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandEditMetadataE, i64 16))
           to label %.noexc147 unwind label %378
 
 .noexc147:                                        ; preds = %223
@@ -1043,13 +1043,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 230:                                              ; preds = %227, %221
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %231 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 0, i32 1, i32 0)) #15
+  %231 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 16)) #15
   br i1 %231, label %232, label %239
 
 232:                                              ; preds = %230
   %.sroa.01.0.copyload.i151 = load ptr, ptr @_ZN5vcpkg18CommandEnvMetadataE, align 8
-  %.sroa.22.0.copyload.i152 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i152 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandEnvMetadataE, i64 16))
           to label %.noexc153 unwind label %378
 
 .noexc153:                                        ; preds = %232
@@ -1072,13 +1072,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 239:                                              ; preds = %236, %230
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %240 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 0, i32 1, i32 0)) #15
+  %240 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 16)) #15
   br i1 %240, label %241, label %248
 
 241:                                              ; preds = %239
   %.sroa.01.0.copyload.i157 = load ptr, ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, align 8
-  %.sroa.22.0.copyload.i158 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i158 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandFormatManifestMetadataE, i64 16))
           to label %.noexc159 unwind label %378
 
 .noexc159:                                        ; preds = %241
@@ -1101,13 +1101,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 248:                                              ; preds = %245, %239
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %249 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandHashMetadataE, i64 0, i32 1, i32 0)) #15
+  %249 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandHashMetadataE, i64 16)) #15
   br i1 %249, label %250, label %257
 
 250:                                              ; preds = %248
   %.sroa.01.0.copyload.i163 = load ptr, ptr @_ZN5vcpkg19CommandHashMetadataE, align 8
-  %.sroa.22.0.copyload.i164 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandHashMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg19CommandHashMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i164 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandHashMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg19CommandHashMetadataE, i64 16))
           to label %.noexc165 unwind label %378
 
 .noexc165:                                        ; preds = %250
@@ -1130,13 +1130,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 257:                                              ; preds = %254, %248
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %258 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 0, i32 1, i32 0)) #15
+  %258 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 16)) #15
   br i1 %258, label %259, label %266
 
 259:                                              ; preds = %257
   %.sroa.01.0.copyload.i169 = load ptr, ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, align 8
-  %.sroa.22.0.copyload.i170 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i170 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg27CommandInitRegistryMetadataE, i64 16))
           to label %.noexc171 unwind label %378
 
 .noexc171:                                        ; preds = %259
@@ -1159,13 +1159,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 266:                                              ; preds = %263, %257
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %267 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandNewMetadataE, i64 0, i32 1, i32 0)) #15
+  %267 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandNewMetadataE, i64 16)) #15
   br i1 %267, label %268, label %275
 
 268:                                              ; preds = %266
   %.sroa.01.0.copyload.i175 = load ptr, ptr @_ZN5vcpkg18CommandNewMetadataE, align 8
-  %.sroa.22.0.copyload.i176 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandNewMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg18CommandNewMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i176 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandNewMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg18CommandNewMetadataE, i64 16))
           to label %.noexc177 unwind label %378
 
 .noexc177:                                        ; preds = %268
@@ -1188,13 +1188,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 275:                                              ; preds = %272, %266
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %276 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 0, i32 1, i32 0)) #15
+  %276 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 16)) #15
   br i1 %276, label %277, label %284
 
 277:                                              ; preds = %275
   %.sroa.01.0.copyload.i181 = load ptr, ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, align 8
-  %.sroa.22.0.copyload.i182 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i182 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg29CommandUpdateBaselineMetadataE, i64 16))
           to label %.noexc183 unwind label %378
 
 .noexc183:                                        ; preds = %277
@@ -1234,13 +1234,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 290:                                              ; preds = %286
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %291 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg17CommandCiMetadataE, i64 0, i32 1, i32 0)) #15
+  %291 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg17CommandCiMetadataE, i64 16)) #15
   br i1 %291, label %292, label %299
 
 292:                                              ; preds = %290
   %.sroa.01.0.copyload.i187 = load ptr, ptr @_ZN5vcpkg17CommandCiMetadataE, align 8
-  %.sroa.22.0.copyload.i188 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg17CommandCiMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg17CommandCiMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i188 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg17CommandCiMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg17CommandCiMetadataE, i64 16))
           to label %.noexc189 unwind label %378
 
 .noexc189:                                        ; preds = %292
@@ -1263,13 +1263,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 299:                                              ; preds = %296, %290
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %300 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 0, i32 1, i32 0)) #15
+  %300 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 16)) #15
   br i1 %300, label %301, label %308
 
 301:                                              ; preds = %299
   %.sroa.01.0.copyload.i193 = load ptr, ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, align 8
-  %.sroa.22.0.copyload.i194 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i194 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg31CommandCiVerifyVersionsMetadataE, i64 16))
           to label %.noexc195 unwind label %378
 
 .noexc195:                                        ; preds = %301
@@ -1292,13 +1292,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 308:                                              ; preds = %305, %299
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %309 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandContactMetadataE, i64 0, i32 1, i32 0)) #15
+  %309 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandContactMetadataE, i64 16)) #15
   br i1 %309, label %310, label %317
 
 310:                                              ; preds = %308
   %.sroa.01.0.copyload.i199 = load ptr, ptr @_ZN5vcpkg22CommandContactMetadataE, align 8
-  %.sroa.22.0.copyload.i200 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandContactMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg22CommandContactMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i200 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandContactMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg22CommandContactMetadataE, i64 16))
           to label %.noexc201 unwind label %378
 
 .noexc201:                                        ; preds = %310
@@ -1321,13 +1321,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 317:                                              ; preds = %314, %308
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %318 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 0, i32 1, i32 0)) #15
+  %318 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 16)) #15
   br i1 %318, label %319, label %326
 
 319:                                              ; preds = %317
   %.sroa.01.0.copyload.i205 = load ptr, ptr @_ZN5vcpkg20CommandFetchMetadataE, align 8
-  %.sroa.22.0.copyload.i206 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i206 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg20CommandFetchMetadataE, i64 16))
           to label %.noexc207 unwind label %378
 
 .noexc207:                                        ; preds = %319
@@ -1350,13 +1350,13 @@ define dso_local void @_ZN5vcpkg19get_zero_args_usageB5cxx11Ev(ptr dead_on_unwin
 326:                                              ; preds = %323, %317
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %327 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 0, i32 1, i32 0)) #15
+  %327 = call noundef zeroext i1 @_ZNK5vcpkg15MetadataMessagecvbEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 16)) #15
   br i1 %327, label %328, label %335
 
 328:                                              ; preds = %326
   %.sroa.01.0.copyload.i211 = load ptr, ptr @_ZN5vcpkg24CommandIntegrateMetadataE, align 8
-  %.sroa.22.0.copyload.i212 = load i64, ptr getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.vcpkg::CommandMetadata", ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 0, i32 1, i32 0))
+  %.sroa.22.0.copyload.i212 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 8), align 8
+  invoke void @_ZNK5vcpkg15MetadataMessage9to_stringEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5vcpkg24CommandIntegrateMetadataE, i64 16))
           to label %.noexc213 unwind label %378
 
 .noexc213:                                        ; preds = %328

@@ -17,10 +17,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %0 = load i64, ptr @mpd_moduli, align 8
-  %1 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_moduli, i64 0, i64 1), align 8
+  %1 = load i64, ptr getelementptr (i8, ptr @mpd_moduli, i64 8), align 8
   %2 = load i64, ptr @INV_P1_MOD_P2, align 8
   %conv1.i = zext i64 %0 to i128
-  %3 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_moduli, i64 0, i64 2), align 8
+  %3 = load i64, ptr getelementptr (i8, ptr @mpd_moduli, i64 16), align 8
   %conv2.i.i.i = zext i64 %3 to i128
   %4 = load i64, ptr @INV_P1P2_MOD_P3, align 8
   %5 = load i64, ptr @LH_P1P2, align 8

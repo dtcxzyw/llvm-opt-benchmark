@@ -36,8 +36,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_preg_base_generate_node_regex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.011 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %.011, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.011 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not12 = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
@@ -57,7 +57,7 @@ define noundef i32 @pmix_preg_base_generate_node_regex(ptr noundef %0, ptr nound
 10:                                               ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %.013, i64 120
   %.0 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -74,8 +74,8 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_preg_base_generate_ppn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.011 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %.011, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.011 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not12 = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
@@ -95,7 +95,7 @@ define noundef i32 @pmix_preg_base_generate_ppn(ptr noundef %0, ptr noundef %1) 
 10:                                               ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %.013, i64 120
   %.0 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -109,8 +109,8 @@ define noundef i32 @pmix_preg_base_generate_ppn(ptr noundef %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_preg_base_parse_nodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.011 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %.011, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.011 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not12 = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
@@ -130,7 +130,7 @@ define noundef i32 @pmix_preg_base_parse_nodes(ptr noundef %0, ptr noundef %1) l
 10:                                               ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %.013, i64 120
   %.0 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -146,8 +146,8 @@ declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_preg_base_parse_procs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.011 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not12 = icmp eq ptr %.011, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.011 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not12 = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
@@ -167,7 +167,7 @@ define noundef i32 @pmix_preg_base_parse_procs(ptr noundef %0, ptr noundef %1) l
 10:                                               ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %.013, i64 120
   %.0 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -181,8 +181,8 @@ define noundef i32 @pmix_preg_base_parse_procs(ptr noundef %0, ptr noundef %1) l
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_preg_base_copy(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.014 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not15 = icmp eq ptr %.014, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.014 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not15 = icmp eq ptr %.014, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %11
@@ -202,7 +202,7 @@ define noundef i32 @pmix_preg_base_copy(ptr noundef %0, ptr noundef %1, ptr noun
 11:                                               ; preds = %.lr.ph, %8
   %12 = getelementptr inbounds i8, ptr %.016, i64 120
   %.0 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %11, %3
@@ -222,8 +222,8 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_preg_base_pack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.01521 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not22 = icmp eq ptr %.01521, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.01521 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not22 = icmp eq ptr %.01521, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
@@ -243,7 +243,7 @@ define i32 @pmix_preg_base_pack(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 10:                                               ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %.01523, i64 120
   %.015 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -259,7 +259,7 @@ define i32 @pmix_preg_base_pack(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 488
@@ -273,7 +273,7 @@ define i32 @pmix_preg_base_pack(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 0
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 120
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 480
@@ -282,7 +282,7 @@ define i32 @pmix_preg_base_pack(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 35:                                               ; preds = %26
   store i8 %34, ptr %27, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
   br label %.loopexit.sink.split
@@ -313,8 +313,8 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2
 define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 1, ptr %3, align 4
-  %.01116 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not17 = icmp eq ptr %.01116, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.01116 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not17 = icmp eq ptr %.01116, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %11
@@ -334,7 +334,7 @@ define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_
 11:                                               ; preds = %.lr.ph, %8
   %12 = getelementptr inbounds i8, ptr %.01118, i64 120
   %.011 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.011, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %11, %2
@@ -350,7 +350,7 @@ define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 488
@@ -363,7 +363,7 @@ define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_
 27:                                               ; preds = %19, %14, %._crit_edge
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   %29 = load i8, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 120
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 480
@@ -386,8 +386,8 @@ define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -27, 1) i32 @pmix_preg_base_release(ptr noundef %0) local_unnamed_addr #0 {
-  %.08 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not9 = icmp eq ptr %.08, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.08 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 240), align 8
+  %.not9 = icmp eq ptr %.08, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %9
@@ -407,7 +407,7 @@ define range(i32 -27, 1) i32 @pmix_preg_base_release(ptr noundef %0) local_unnam
 9:                                                ; preds = %.lr.ph, %6
   %10 = getelementptr inbounds i8, ptr %.010, i64 120
   %.0 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_preg_globals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %6, %9, %1

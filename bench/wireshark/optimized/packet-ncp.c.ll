@@ -536,7 +536,7 @@ define hidden void @proto_register_ncp() local_unnamed_addr #0 {
   %10 = tail call i32 @register_tap(ptr noundef nonnull @.str.279) #6
   store i32 %10, ptr @ncp_tap, align 4
   %11 = tail call i32 @register_tap(ptr noundef nonnull @.str.252) #6
-  store i32 %11, ptr getelementptr inbounds (%struct.novell_tap, ptr @ncp_tap, i64 0, i32 1), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @ncp_tap, i64 4), align 4
   %12 = load i32, ptr @proto_ncp, align 4
   tail call void @register_conversation_table(i32 noundef %12, i32 noundef 0, ptr noundef nonnull @ncp_conversation_packet, ptr noundef nonnull @ncp_endpoint_packet) #6
   %13 = load i32, ptr @proto_ncp, align 4
@@ -1396,24 +1396,24 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   store i16 %54, ptr @header, align 2
   %55 = add nuw nsw i32 %.2, 2
   %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #6
-  store i8 %56, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  store i8 %56, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %57 = add nuw nsw i32 %.2, 3
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #6
-  store i8 %58, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 2), align 1
+  store i8 %58, ptr getelementptr inbounds (i8, ptr @header, i64 3), align 1
   %59 = add nuw nsw i32 %.2, 4
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #6
-  store i8 %60, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  store i8 %60, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   %61 = add nuw nsw i32 %.2, 5
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #6
-  store i8 %62, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 4), align 1
+  store i8 %62, ptr getelementptr inbounds (i8, ptr @header, i64 5), align 1
   %63 = load i32, ptr @hf_ncp_type, align 4
   %64 = load i16, ptr @header, align 2
   %65 = zext i16 %64 to i32
   %66 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %63, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef %65) #6
-  %67 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 4), align 1
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 5), align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 2), align 1
+  %70 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 3), align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
   %73 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1442,7 +1442,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not437, label %99, label %90
 
 90:                                               ; preds = %89
-  %91 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %91 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %81, ptr %8, align 8
   %92 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1456,7 +1456,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %96, label %97, label %154
 
 97:                                               ; preds = %90
-  %98 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call fastcc void @mncp_hash_insert(ptr noundef nonnull %81, i32 noundef %72, i8 noundef zeroext %98, ptr noundef nonnull %1)
   br label %154
 
@@ -1465,12 +1465,12 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %101 = load i32, ptr %77, align 4
   %102 = load i32, ptr %79, align 8
   %103 = tail call nonnull ptr @conversation_new(i32 noundef %100, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef 6, i32 noundef %101, i32 noundef %102, i32 noundef 0) #6
-  %104 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %104 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   tail call fastcc void @mncp_hash_insert(ptr noundef nonnull %103, i32 noundef %72, i8 noundef zeroext %104, ptr noundef nonnull %1)
   br label %154
 
 105:                                              ; preds = %88
-  %106 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %106 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %81, ptr %7, align 8
   %107 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1493,7 +1493,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond4, label %117, label %154
 
 117:                                              ; preds = %111
-  %118 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %118 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   %119 = zext i8 %118 to i32
   %120 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_ncp_new_server_session, ptr noundef nonnull @.str.302, i32 noundef %72, i32 noundef %119) #6
   br label %154
@@ -1506,7 +1506,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not434, label %132, label %123
 
 123:                                              ; preds = %122
-  %124 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %124 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %81, ptr %6, align 8
   %125 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1520,7 +1520,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %129, label %130, label %154
 
 130:                                              ; preds = %123
-  %131 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %131 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call fastcc void @mncp_hash_insert(ptr noundef nonnull %81, i32 noundef %72, i8 noundef zeroext %131, ptr noundef nonnull %1)
   br label %154
 
@@ -1529,12 +1529,12 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %134 = load i32, ptr %77, align 4
   %135 = load i32, ptr %79, align 8
   %136 = tail call nonnull ptr @conversation_new(i32 noundef %133, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef 6, i32 noundef %134, i32 noundef %135, i32 noundef 0) #6
-  %137 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %137 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   tail call fastcc void @mncp_hash_insert(ptr noundef nonnull %136, i32 noundef %72, i8 noundef zeroext %137, ptr noundef nonnull %1)
   br label %154
 
 138:                                              ; preds = %121
-  %139 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %139 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %81, ptr %5, align 8
   %140 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1557,13 +1557,13 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond6, label %150, label %154
 
 150:                                              ; preds = %144
-  %151 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 3), align 2
+  %151 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   %152 = zext i8 %151 to i32
   %153 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_ncp_new_server_session, ptr noundef nonnull @.str.302, i32 noundef %72, i32 noundef %152) #6
   br label %154
 
 154:                                              ; preds = %99, %97, %90, %123, %130, %132, %144, %150, %138, %111, %117, %105
-  %155 = load i32, ptr getelementptr inbounds (%struct.novell_tap, ptr @ncp_tap, i64 0, i32 1), align 4
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @ncp_tap, i64 4), align 4
   call void @tap_queue_packet(i32 noundef %155, ptr noundef nonnull %1, ptr noundef nonnull @header) #6
   %156 = load ptr, ptr %9, align 8
   %157 = load i16, ptr @header, align 2
@@ -1580,7 +1580,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 
 161:                                              ; preds = %154
   %162 = load i32, ptr @hf_ncp_seq, align 4
-  %163 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %163 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %164 = zext i8 %163 to i32
   %165 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %162, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %164) #6
   %166 = load i32, ptr @hf_ncp_connection, align 4
@@ -1787,14 +1787,14 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %304 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.313) #6
   %305 = load i32, ptr @hf_ncp_seq, align 4
-  %306 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %306 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %307 = zext i8 %306 to i32
   %308 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %305, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %307) #6
   br label %317
 
 .critedge:                                        ; preds = %297, %300, %154
   %309 = load i32, ptr @hf_ncp_seq, align 4
-  %310 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %310 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %311 = zext i8 %310 to i32
   %312 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %309, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %311) #6
   %313 = load i32, ptr @hf_ncp_connection, align 4
@@ -1839,14 +1839,14 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 
 331:                                              ; preds = %321, %326, %320
   %332 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #6
-  %333 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %333 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %334 = load i16, ptr @header, align 2
   call void @dissect_ncp_request(ptr noundef %332, ptr noundef nonnull %1, i32 noundef %72, i8 noundef zeroext %333, i16 noundef zeroext %334, i1 noundef zeroext %318, ptr noundef %15) #6
   br label %396
 
 335:                                              ; preds = %317
   %336 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #6
-  %337 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %337 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %338 = load i16, ptr @header, align 2
   call void @dissect_ncp_request(ptr noundef %336, ptr noundef nonnull %1, i32 noundef %72, i8 noundef zeroext %337, i16 noundef zeroext %338, i1 noundef zeroext false, ptr noundef %15) #6
   br label %396
@@ -1861,7 +1861,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 344:                                              ; preds = %339
   %345 = add nuw nsw i32 %.2, 7
   %346 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %345) #6
-  %347 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %347 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %348 = load i16, ptr @header, align 2
   switch i8 %346, label %351 [
     i8 2, label %349
@@ -1881,21 +1881,21 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br label %396
 
 352:                                              ; preds = %339
-  %353 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %353 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %354 = load i16, ptr @header, align 2
   call void @dissect_ncp_request(ptr noundef %340, ptr noundef nonnull %1, i32 noundef %72, i8 noundef zeroext %353, i16 noundef zeroext %354, i1 noundef zeroext false, ptr noundef %15) #6
   br label %396
 
 355:                                              ; preds = %317
   %356 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #6
-  %357 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %357 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %358 = load i16, ptr @header, align 2
   call void @nds_defrag(ptr noundef %356, ptr noundef nonnull %1, i32 noundef %72, i8 noundef zeroext %357, i16 noundef zeroext %358, ptr noundef %15, ptr noundef nonnull @ncp_tap) #6
   br label %396
 
 359:                                              ; preds = %317
   %360 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #6
-  %361 = load i8, ptr getelementptr inbounds (%struct.ncp_common_header, ptr @header, i64 0, i32 1), align 2
+  %361 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 2), align 2
   %362 = load i16, ptr @header, align 2
   call void @dissect_ncp_reply(ptr noundef %360, ptr noundef nonnull %1, i32 noundef %72, i8 noundef zeroext %361, i16 noundef zeroext %362, ptr noundef %15, ptr noundef nonnull @ncp_tap) #6
   br label %396

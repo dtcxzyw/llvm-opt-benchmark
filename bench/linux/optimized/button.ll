@@ -243,7 +243,7 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br i1 %7, label %130, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 80) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %130, label %12

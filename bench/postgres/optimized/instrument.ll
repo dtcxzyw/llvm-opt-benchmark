@@ -216,7 +216,7 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 376
   %41 = getelementptr inbounds i8, ptr %0, i64 168
-  %42 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 16
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 16
   %43 = getelementptr inbounds i8, ptr %0, i64 184
   %44 = load i64, ptr %43, align 8
   %45 = sub i64 %42, %44
@@ -736,8 +736,8 @@ define dso_local void @InstrEndParallelQuery(ptr nocapture noundef %0, ptr nocap
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   tail call void @BufferUsageAccumDiff(ptr noundef %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %3 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 16
-  %4 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @save_pgWalUsage, i64 0, i32 2), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 16
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @save_pgWalUsage, i64 16), align 8
   %5 = sub i64 %3, %4
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %5, ptr %6, align 8
@@ -745,8 +745,8 @@ define dso_local void @InstrEndParallelQuery(ptr nocapture noundef %0, ptr nocap
   %8 = load i64, ptr @save_pgWalUsage, align 8
   %9 = sub i64 %7, %8
   store i64 %9, ptr %1, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 1), align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @save_pgWalUsage, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @save_pgWalUsage, i64 8), align 8
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
@@ -761,44 +761,44 @@ define dso_local void @InstrAccumParallelQuery(ptr nocapture noundef readonly %0
   store <2 x i64> %5, ptr @pgBufferUsage, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load <2 x i64>, ptr %6, align 8
-  %8 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 16
+  %8 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 16
   %9 = add <2 x i64> %8, %7
-  store <2 x i64> %9, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 2), align 16
+  store <2 x i64> %9, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load <2 x i64>, ptr %10, align 8
-  %12 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 4), align 16
+  %12 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 16
   %13 = add <2 x i64> %12, %11
-  store <2 x i64> %13, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 4), align 16
+  store <2 x i64> %13, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 16
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load <2 x i64>, ptr %14, align 8
-  %16 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 6), align 16
+  %16 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 16
   %17 = add <2 x i64> %16, %15
-  store <2 x i64> %17, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 6), align 16
+  store <2 x i64> %17, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 16
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load <2 x i64>, ptr %18, align 8
-  %20 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 8), align 16
+  %20 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 16
   %21 = add <2 x i64> %20, %19
-  store <2 x i64> %21, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 8), align 16
+  store <2 x i64> %21, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 16
   %22 = getelementptr inbounds i8, ptr %0, i64 80
   %23 = load <2 x i64>, ptr %22, align 8
-  %24 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 10, i32 0), align 16
+  %24 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 16
   %25 = add <2 x i64> %24, %23
-  store <2 x i64> %25, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 10, i32 0), align 16
+  store <2 x i64> %25, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 16
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   %27 = load <2 x i64>, ptr %26, align 8
-  %28 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 12, i32 0), align 16
+  %28 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 16
   %29 = add <2 x i64> %28, %27
-  store <2 x i64> %29, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 12, i32 0), align 16
+  store <2 x i64> %29, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 16
   %30 = getelementptr inbounds i8, ptr %0, i64 112
   %31 = load <2 x i64>, ptr %30, align 8
-  %32 = load <2 x i64>, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 14, i32 0), align 16
+  %32 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 16
   %33 = add <2 x i64> %32, %31
-  store <2 x i64> %33, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 14, i32 0), align 16
+  store <2 x i64> %33, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 16
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i64, ptr %34, align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 16
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 16
   %37 = add i64 %36, %35
-  store i64 %37, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 16
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 16
   %38 = load <2 x i64>, ptr %1, align 8
   %39 = load <2 x i64>, ptr @pgWalUsage, align 16
   %40 = add <2 x i64> %39, %38

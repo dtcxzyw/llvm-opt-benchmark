@@ -161,10 +161,10 @@ invoke.cont:
   %ref.tmp531 = alloca %"class.icu_75::UnicodeString", align 8
   %str563 = alloca %"class.icu_75::UnicodeString", align 8
   store i32 0, ptr %err, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %chunk, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %chunk, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %u, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %u, align 8
   %fUnion2.i114 = getelementptr inbounds i8, ptr %u, i64 8
   store i16 2, ptr %fUnion2.i114, align 8
   %cmp.not = icmp eq ptr %infilestr, null
@@ -333,7 +333,7 @@ if.then33:                                        ; preds = %land.lhs.true31
           to label %invoke.cont36 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %if.then33
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %pestr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pestr, align 8
   %fUnion2.i128 = getelementptr inbounds i8, ptr %pestr, i64 8
   store i16 2, ptr %fUnion2.i128, align 8
   store i32 -1, ptr %parse, align 4
@@ -756,7 +756,7 @@ if.end225:                                        ; preds = %invoke.cont217, %if
   %sub = sub i64 %.neg, %67
   %conv234 = trunc i64 %sub to i32
   %call235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %pos, i64 noundef 32, ptr noundef nonnull @.str.12, i32 noundef %conv234) #21
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str237, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str237, align 8
   store i16 2, ptr %fUnion2.i145, align 8
   %68 = load i8, ptr %errorLength, align 1
   %cmp241329 = icmp sgt i8 %68, 0
@@ -918,7 +918,7 @@ if.end300:                                        ; preds = %if.then284, %invoke
   br i1 %cmp301.not, label %if.end342, label %if.then302
 
 if.then302:                                       ; preds = %if.end300
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %out, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %out, align 8
   store i16 2, ptr %fUnion2.i160, align 8
   %.pre = load i16, ptr %fUnion2.i, align 8
   br label %do.body304
@@ -940,12 +940,12 @@ invoke.cont.i:                                    ; preds = %do.body304
   br i1 %tobool.not.i166, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %call5.i21.i = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %u, i32 noundef 0, i32 noundef 1, ptr noundef nonnull getelementptr inbounds ([5 x i16], ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 0, i64 1), i32 noundef 0, i32 noundef 1)
+  %call5.i21.i = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %u, i32 noundef 0, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 2), i32 noundef 0, i32 noundef 1)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %if.then.i
   %tobool5.not.i = icmp eq i8 %call5.i21.i, 0
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([5 x i16], ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 0, i64 1)) #21, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 2)) #21, !srcloc !5
   br i1 %tobool5.not.i, label %if.else.i168, label %if.then318
 
 lpad.i:                                           ; preds = %do.body304
@@ -957,7 +957,7 @@ lpad.i:                                           ; preds = %do.body304
 lpad2.i:                                          ; preds = %if.then.i
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([5 x i16], ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 0, i64 1)) #21, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @_ZZL13getChunkLimitRKN6icu_7513UnicodeStringES2_E8paraEnds, i64 2)) #21, !srcloc !5
   br label %lpad305.body
 
 if.else.i168:                                     ; preds = %invoke.cont3.i
@@ -1308,7 +1308,7 @@ if.end445:                                        ; preds = %if.else437, %do.end
   %errtag.0 = phi ptr [ @.str.14, %do.end427 ], [ @.str.15, %if.else437 ]
   %ferroffset.1 = phi i32 [ %conv436, %do.end427 ], [ %conv444, %if.else437 ]
   %call447 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %pos390, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %ferroffset.1) #21
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str449, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str449, align 8
   store i16 2, ptr %fUnion2.i239, align 8
   %144 = load i8, ptr %errorLength393, align 1
   %cmp454331 = icmp sgt i8 %144, 0

@@ -29,7 +29,7 @@ $_ZNK12aiMatrix4x4tIfE11DeterminantEv = comdat any
 define void @_ZN6Assimp12ScaleProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp12ScaleProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp12ScaleProcessE, i64 16), ptr %this, align 8
   %mScale = getelementptr inbounds i8, ptr %this, i64 24
   store float 1.000000e+00, ptr %mScale, align 8
   ret void

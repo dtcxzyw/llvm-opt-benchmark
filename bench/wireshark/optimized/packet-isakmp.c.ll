@@ -4140,7 +4140,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i162, %.lr.p
   %hf_isakmp_cfg_attr_type_v2.sink.i.i = phi ptr [ @hf_isakmp_cfg_attr_type_v2, %.split.i.i ], [ @hf_isakmp_cfg_attr_type_v1, %.lr.ph.i175 ]
   %vs_v2_cfgattr.sink.i.i = phi ptr [ @vs_v2_cfgattr, %.split.i.i ], [ @vs_v1_cfgattr, %.lr.ph.i175 ]
   %977 = load i32, ptr %hf_isakmp_cfg_attr_type_v2.sink.i.i, align 4
-  store i32 %977, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_cfg_attr, i64 0, i32 2), align 8
+  store i32 %977, ptr getelementptr inbounds (i8, ptr @hf_isakmp_cfg_attr, i64 8), align 8
   call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %84, i32 noundef %.146.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_cfg_attr, ptr noundef nonnull %vs_v2_cfgattr.sink.i.i, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
   %978 = load i32, ptr %16, align 4
   %979 = add i32 %978, %.146.i
@@ -4739,10 +4739,10 @@ dissect_config_attribute.exit.i:                  ; preds = %.loopexit.i.i, %983
 .lr.ph.i179:                                      ; preds = %1297, %dissect_tek_key_attribute.exit.i
   %.262.i = phi i32 [ %1323, %dissect_tek_key_attribute.exit.i ], [ %.1.i178, %1297 ]
   %hf_isakmp_tek_key_attr.sroa.0.0.copyload.i = load i32, ptr @hf_isakmp_tek_key_attr, align 8
-  %hf_isakmp_tek_key_attr.sroa.4.0.copyload.i = load i32, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_tek_key_attr, i64 0, i32 1), align 4
-  %hf_isakmp_tek_key_attr.sroa.5.0.copyload.i = load i32, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_tek_key_attr, i64 0, i32 2), align 8
-  %hf_isakmp_tek_key_attr.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_tek_key_attr, i64 0, i32 3), align 4
-  %hf_isakmp_tek_key_attr.sroa.7.0.copyload.i = load i32, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_tek_key_attr, i64 0, i32 4), align 8
+  %hf_isakmp_tek_key_attr.sroa.4.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @hf_isakmp_tek_key_attr, i64 4), align 4
+  %hf_isakmp_tek_key_attr.sroa.5.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @hf_isakmp_tek_key_attr, i64 8), align 8
+  %hf_isakmp_tek_key_attr.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @hf_isakmp_tek_key_attr, i64 12), align 4
+  %hf_isakmp_tek_key_attr.sroa.7.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @hf_isakmp_tek_key_attr, i64 16), align 8
   %1299 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.262.i) #17
   %.not.i.i180 = icmp sgt i16 %1299, -1
   %1300 = and i16 %1299, 32767

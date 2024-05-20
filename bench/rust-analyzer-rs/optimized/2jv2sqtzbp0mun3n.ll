@@ -1402,7 +1402,7 @@ define void @_ZN6parser13TopEntryPoint5parse17h969a27913f26e20dE(ptr noalias noc
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6parser13TopEntryPoint5parse10__CALLSITE17he23d9b941f29802eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6parser13TopEntryPoint5parse10__CALLSITE17he23d9b941f29802eE, i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

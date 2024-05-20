@@ -600,16 +600,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %136 unwind label %.thread430
 
 136:                                              ; preds = %135
-  %137 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %138 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i = icmp eq ptr %137, %138
   br i1 %.not.i.i, label %142, label %139
 
 139:                                              ; preds = %136
   store ptr %131, ptr %137, align 8
-  %140 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr %141, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %141, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 142:                                              ; preds = %136
@@ -665,9 +665,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pre
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %163, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %157, ptr @func_attr_generator, align 8
-  store ptr %162, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %162, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %164 = getelementptr inbounds ptr, ptr %157, i64 %153
-  store ptr %164, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %164, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %139
@@ -1101,16 +1101,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %271 unwind label %543
 
 271:                                              ; preds = %269
-  %272 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %273 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %273 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i261 = icmp eq ptr %272, %273
   br i1 %.not.i.i261, label %277, label %274
 
 274:                                              ; preds = %271
   store ptr %239, ptr %272, align 8
-  %275 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %275 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 8
-  store ptr %276, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %276, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit271
 
 277:                                              ; preds = %271
@@ -1166,9 +1166,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i266: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i268: ; preds = %298, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i266
   store ptr %292, ptr @func_attr_generator, align 8
-  store ptr %297, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %297, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %299 = getelementptr inbounds ptr, ptr %292, i64 %288
-  store ptr %299, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %299, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit271
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit271: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i268, %274
@@ -1349,16 +1349,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %347 unwind label %572
 
 347:                                              ; preds = %345
-  %348 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %349 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %348 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i280 = icmp eq ptr %348, %349
   br i1 %.not.i.i280, label %353, label %350
 
 350:                                              ; preds = %347
   store ptr %309, ptr %348, align 8
-  %351 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %351 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %352 = getelementptr inbounds i8, ptr %351, i64 8
-  store ptr %352, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %352, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit290
 
 353:                                              ; preds = %347
@@ -1414,9 +1414,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i285: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i287: ; preds = %374, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i285
   store ptr %368, ptr @func_attr_generator, align 8
-  store ptr %373, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %373, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %375 = getelementptr inbounds ptr, ptr %368, i64 %364
-  store ptr %375, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %375, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit290
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit290: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i287, %350
@@ -1600,16 +1600,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %423 unwind label %605
 
 423:                                              ; preds = %421
-  %424 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %425 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %425 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i306 = icmp eq ptr %424, %425
   br i1 %.not.i.i306, label %429, label %426
 
 426:                                              ; preds = %423
   store ptr %385, ptr %424, align 8
-  %427 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %427 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %428 = getelementptr inbounds i8, ptr %427, i64 8
-  store ptr %428, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %428, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit316
 
 429:                                              ; preds = %423
@@ -1665,9 +1665,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i311: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i313: ; preds = %450, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i311
   store ptr %444, ptr @func_attr_generator, align 8
-  store ptr %449, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %449, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %451 = getelementptr inbounds ptr, ptr %444, i64 %440
-  store ptr %451, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %451, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit316
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit316: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i313, %426
@@ -1733,16 +1733,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %466 unwind label %623
 
 466:                                              ; preds = %465
-  %467 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %468 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %467 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %468 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i327 = icmp eq ptr %467, %468
   br i1 %.not.i.i327, label %472, label %469
 
 469:                                              ; preds = %466
   store ptr %461, ptr %467, align 8
-  %470 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %470 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 8
-  store ptr %471, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %471, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit337
 
 472:                                              ; preds = %466
@@ -1798,9 +1798,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i332: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i334: ; preds = %493, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i332
   store ptr %487, ptr @func_attr_generator, align 8
-  store ptr %492, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %492, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %494 = getelementptr inbounds ptr, ptr %487, i64 %483
-  store ptr %494, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %494, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit337
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit337: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i334, %469
@@ -1823,16 +1823,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit337: ; preds = %_ZNSt6vector
           to label %500 unwind label %627
 
 500:                                              ; preds = %499
-  %501 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %502 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %501 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
+  %502 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   %.not.i.i338 = icmp eq ptr %501, %502
   br i1 %.not.i.i338, label %506, label %503
 
 503:                                              ; preds = %500
   store ptr %495, ptr %501, align 8
-  %504 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 8
-  store ptr %505, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %505, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit348
 
 506:                                              ; preds = %500
@@ -1888,9 +1888,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i343: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i345: ; preds = %527, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i343
   store ptr %521, ptr @func_attr_generator, align 8
-  store ptr %526, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %526, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 8), align 8
   %528 = getelementptr inbounds ptr, ptr %521, i64 %517
-  store ptr %528, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @func_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %528, ptr getelementptr inbounds (i8, ptr @func_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit348
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit348: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i345, %503
@@ -2369,7 +2369,7 @@ declare void @_ZN16SectionAttributeC1ENSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z21get_fact_mgr_for_funcPK8Function(ptr noundef readnone %0) local_unnamed_addr #8 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %3 = load ptr, ptr @_ZL8FuncList, align 8
   %.not = icmp eq ptr %2, %3
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
@@ -2408,7 +2408,7 @@ define dso_local noundef ptr @_Z21get_fact_mgr_for_funcPK8Function(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %4 = load ptr, ptr @_ZL8FuncList, align 8
   %.not.i = icmp eq ptr %3, %4
   br i1 %.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.preheader.i
@@ -2446,7 +2446,7 @@ _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %16, %1, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_Z21find_function_by_nameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %3 = load ptr, ptr @_ZL8FuncList, align 8
   %.not = icmp eq ptr %2, %3
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -2481,7 +2481,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %19 = add nuw i64 %.08, 1
-  %20 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %21 = load ptr, ptr @_ZL8FuncList, align 8
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -2541,7 +2541,7 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %7 = load ptr, ptr @_ZL8FuncList, align 8
   %.not25 = icmp eq ptr %6, %7
   br i1 %.not25, label %.loopexit, label %.lr.ph24
@@ -2596,7 +2596,7 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
 
 ._crit_edge:                                      ; preds = %23, %18
   %37 = add nuw i64 %.01623, 1
-  %38 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %39 = load ptr, ptr @_ZL8FuncList, align 8
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
@@ -2808,7 +2808,7 @@ _ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread: ; preds = %.l
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN8Function23reach_max_functions_cntEv() local_unnamed_addr #4 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %2 = load ptr, ptr @_ZL8FuncList, align 8
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %2 to i64
@@ -2831,7 +2831,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_Z17get_all_fu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_Z12FuncListSizev() local_unnamed_addr #10 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %2 = load ptr, ptr @_ZL8FuncList, align 8
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %2 to i64
@@ -3285,16 +3285,16 @@ define dso_local void @_ZN8FunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %17 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 16), align 8
   %.not.i.i = icmp eq ptr %17, %18
   br i1 %.not.i.i, label %22, label %19
 
 19:                                               ; preds = %13
   store ptr %0, ptr %17, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %21, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit
 
 22:                                               ; preds = %13
@@ -3350,9 +3350,9 @@ _ZNSt6vectorIP8FunctionSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pred
 
 _ZNSt6vectorIP8FunctionSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIP8FunctionSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %37, ptr @_ZL8FuncList, align 8
-  store ptr %42, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %44 = getelementptr inbounds ptr, ptr %37, i64 %33
-  store ptr %44, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 16), align 8
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %19
@@ -3482,16 +3482,16 @@ define dso_local void @_ZN8FunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %21 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %22 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 16), align 8
   %.not.i.i = icmp eq ptr %21, %22
   br i1 %.not.i.i, label %26, label %23
 
 23:                                               ; preds = %17
   store ptr %0, ptr %21, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %25, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit
 
 26:                                               ; preds = %17
@@ -3547,9 +3547,9 @@ _ZNSt6vectorIP8FunctionSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pred
 
 _ZNSt6vectorIP8FunctionSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorIP8FunctionSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %41, ptr @_ZL8FuncList, align 8
-  store ptr %46, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %48 = getelementptr inbounds ptr, ptr %41, i64 %37
-  store ptr %48, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 16), align 8
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP8FunctionSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %23
@@ -3803,16 +3803,16 @@ _ZL21GenerateParameterListR8Function.exit:        ; preds = %.noexc38, %.noexc37
           to label %53 unwind label %91
 
 53:                                               ; preds = %52
-  %54 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %55 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   %.not.i.i = icmp eq ptr %54, %55
   br i1 %.not.i.i, label %59, label %56
 
 56:                                               ; preds = %53
   store ptr %51, ptr %54, align 8
-  %57 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %58, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %58, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backEOS1_.exit
 
 59:                                               ; preds = %53
@@ -3868,9 +3868,9 @@ _ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %80, %_ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %74, ptr @_ZL6FMList, align 8
-  store ptr %79, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %79, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %81 = getelementptr inbounds ptr, ptr %74, i64 %70
-  store ptr %81, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %81, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %56
@@ -3990,7 +3990,7 @@ define dso_local void @_ZN8Function12GenerateBodyERK9CGContext(ptr noundef nonnu
           to label %17 unwind label %.loopexit.split-lp
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %19 = load ptr, ptr @_ZL8FuncList, align 8
   %.not.i = icmp eq ptr %18, %19
   br i1 %.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.preheader.i
@@ -4417,16 +4417,16 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %43 unwind label %83
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %45 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   %.not.i = icmp eq ptr %44, %45
   br i1 %.not.i, label %49, label %46
 
 46:                                               ; preds = %43
   store ptr %41, ptr %44, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %48, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit
 
 49:                                               ; preds = %43
@@ -4482,9 +4482,9 @@ _ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds =
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %64, ptr @_ZL6FMList, align 8
-  store ptr %69, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %69, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %71 = getelementptr inbounds ptr, ptr %64, i64 %60
-  store ptr %71, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %71, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %46
@@ -5000,7 +5000,7 @@ define dso_local void @_ZN8Function6OutputERSo(ptr noundef nonnull align 8 deref
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %25 = load ptr, ptr @_ZL8FuncList, align 8
   %.not.i = icmp eq ptr %24, %25
   br i1 %.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.preheader.i
@@ -5193,7 +5193,7 @@ define dso_local void @_ZN8Function31generate_body_with_known_paramsERK9CGContex
 
 16:                                               ; preds = %3
   store i32 1, ptr %11, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %18 = load ptr, ptr @_ZL8FuncList, align 8
   %.not.i = icmp eq ptr %17, %18
   br i1 %.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.preheader.i
@@ -5441,7 +5441,7 @@ define dso_local void @_ZN8Function15compute_summaryEv(ptr noundef nonnull align
   %2 = alloca %"class.std::tuple", align 8
   %3 = alloca %"class.std::tuple.131", align 1
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %6 = load ptr, ptr @_ZL8FuncList, align 8
   %.not.i = icmp eq ptr %5, %6
   br i1 %.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.preheader.i
@@ -6133,16 +6133,16 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %67 unwind label %207
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %69 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   %.not.i = icmp eq ptr %68, %69
   br i1 %.not.i, label %73, label %70
 
 70:                                               ; preds = %67
   store ptr %65, ptr %68, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %72, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %72, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit
 
 73:                                               ; preds = %67
@@ -6198,9 +6198,9 @@ _ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds =
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIP7FactMgrSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %88, ptr @_ZL6FMList, align 8
-  store ptr %93, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %93, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %95 = getelementptr inbounds ptr, ptr %88, i64 %84
-  store ptr %95, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %95, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 16), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP7FactMgrSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %70
@@ -6596,7 +6596,7 @@ define dso_local void @_Z17GenerateFunctionsv() local_unnamed_addr #4 {
 
 .preheader:                                       ; preds = %4
   store i64 0, ptr @_ZL12cur_func_idx, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %8 = load ptr, ptr @_ZL8FuncList, align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -6623,7 +6623,7 @@ define dso_local void @_Z17GenerateFunctionsv() local_unnamed_addr #4 {
 
 ._crit_edge3:                                     ; preds = %20
   %.pre = load i64, ptr @_ZL12cur_func_idx, align 8
-  %.pre4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.pre5 = load ptr, ptr @_ZL8FuncList, align 8
   br label %22
 
@@ -6677,7 +6677,7 @@ define dso_local void @_Z25OutputForwardDeclarationsRSo(ptr noundef nonnull alig
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %8 = load ptr, ptr @_ZL8FuncList, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.not5.i = icmp eq ptr %8, %9
   br i1 %.not5.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SF_SE_.exit, label %.lr.ph.i
 
@@ -6720,7 +6720,7 @@ _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
   %21 = load ptr, ptr @_ZL8FuncList, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.not5.i29 = icmp eq ptr %21, %22
   br i1 %.not5.i29, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SF_SE_.exit35, label %.lr.ph.i30
 
@@ -6784,7 +6784,7 @@ define dso_local void @_Z15OutputFunctionsRSo(ptr noundef nonnull align 8 derefe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %6 = load ptr, ptr @_ZL8FuncList, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.not5.i = icmp eq ptr %6, %7
   br i1 %.not5.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SF_SE_.exit, label %.lr.ph.i
 
@@ -6833,7 +6833,7 @@ define dso_local noundef i32 @_ZN8Function14deleteFunctionEPS_(ptr noundef %0) l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8Function14doFinalizationEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZL8FuncList, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.not5.i = icmp eq ptr %1, %2
   br i1 %.not5.i, label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, label %.lr.ph.i
 
@@ -6855,17 +6855,17 @@ _ZN8Function14deleteFunctionEPS_.exit:            ; preds = %.lr.ph.i, %5
 
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit: ; preds = %_ZN8Function14deleteFunctionEPS_.exit
   %.pre = load ptr, ptr @_ZL8FuncList, align 8
-  %.pre12 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %.not.i.i = icmp eq ptr %.pre12, %.pre
   br i1 %.not.i.i, label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, label %7
 
 7:                                                ; preds = %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit
-  store ptr %.pre, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL8FuncList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit:     ; preds = %0, %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit, %7
   %8 = load ptr, ptr @_ZL6FMList, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   %.not9 = icmp eq ptr %8, %9
   br i1 %.not9, label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit, label %.lr.ph
 
@@ -6879,7 +6879,7 @@ _ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit:     ; preds = %0, %_ZSt8for_eachIN
 13:                                               ; preds = %.lr.ph
   tail call void @_ZN7FactMgrD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %11) #20
   tail call void @_ZdlPv(ptr noundef nonnull %11) #19
-  %.pre13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %13
@@ -6894,7 +6894,7 @@ _ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit:     ; preds = %0, %_ZSt8for_eachIN
   br i1 %.not.i.i5, label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit, label %17
 
 17:                                               ; preds = %._crit_edge
-  store ptr %.pre14, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZL6FMList, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre14, ptr getelementptr inbounds (i8, ptr @_ZL6FMList, i64 8), align 8
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, %._crit_edge, %17

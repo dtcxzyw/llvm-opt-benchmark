@@ -262,7 +262,7 @@ define dso_local noundef ptr @llvm_create_builder(ptr nocapture noundef readonly
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMCreateBuilderInContext(ptr noundef %3) #10
-  %5 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 1), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 332), align 4
   tail call void @LLVMBuilderSetFastMathFlags(ptr noundef %4, i32 noundef %5) #10
   ret ptr %4
 }
@@ -349,7 +349,7 @@ define dso_local ptr @llvm_get_selector(ptr nocapture noundef readonly %0, ptr n
   %21 = tail call ptr @LLVMConstStringInContext(ptr noundef %20, ptr noundef %1, i32 noundef %11, i32 noundef 0) #10
   tail call void @LLVMSetInitializer(ptr noundef %15, ptr noundef %21) #10
   tail call void @LLVMSetLinkage(ptr noundef %15, i32 noundef 3) #10
-  %22 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 15), align 8
+  %22 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %23 = and i16 %22, 8192
   %.not.i = icmp eq i16 %23, 0
   br i1 %.not.i, label %llvm_set_comdat.exit, label %24
@@ -388,7 +388,7 @@ declare void @LLVMSetLinkage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llvm_set_comdat(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 15), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %4 = and i16 %3, 8192
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %10, label %5
@@ -1700,7 +1700,7 @@ define dso_local void @llvm_emit_global_variable_init(ptr noundef %0, ptr nounde
   br i1 %.not138, label %82, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 31), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524704), align 8
   %76 = zext i16 %73 to i64
   %77 = add nuw nsw i64 %76, 4294967295
   %78 = and i64 %77, 4294967295
@@ -2180,7 +2180,7 @@ declare void @LLVMSetComdat(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @llvm_set_linkonce(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @LLVMSetLinkage(ptr noundef %1, i32 noundef 2) #10
   tail call void @LLVMSetVisibility(ptr noundef %1, i32 noundef 0) #10
-  %3 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 15), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %4 = and i16 %3, 8192
   %.not.i = icmp eq i16 %4, 0
   br i1 %.not.i, label %llvm_set_comdat.exit, label %5
@@ -2202,7 +2202,7 @@ llvm_set_comdat.exit:                             ; preds = %2, %5
 define dso_local void @llvm_set_weak(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @LLVMSetLinkage(ptr noundef %1, i32 noundef 5) #10
   tail call void @LLVMSetVisibility(ptr noundef %1, i32 noundef 0) #10
-  %3 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 15), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %4 = and i16 %3, 8192
   %.not.i = icmp eq i16 %4, 0
   br i1 %.not.i, label %llvm_set_comdat.exit, label %5
@@ -2314,11 +2314,11 @@ define dso_local ptr @llvm_codegen(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @LLVMCreatePassBuilderOptions() #10
-  %7 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32
   tail call void @LLVMPassBuilderOptionsSetVerifyEach(ptr noundef %6, i32 noundef %9) #10
-  %10 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 44), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 192), align 8
   switch i32 %10, label %13 [
     i32 1, label %11
     i32 2, label %12
@@ -2335,7 +2335,7 @@ define dso_local ptr @llvm_codegen(ptr noundef %0) local_unnamed_addr #0 {
   %.not14.i = phi ptr [ @.str.29, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
   %.not15.i = phi ptr [ @.str.28, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
   %.0.i = phi ptr [ null, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
-  %14 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 42), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   switch i32 %14, label %19 [
     i32 0, label %15
     i32 -1, label %15
@@ -2373,7 +2373,7 @@ define dso_local ptr @llvm_codegen(ptr noundef %0) local_unnamed_addr #0 {
 
 llvm_optimize.exit:                               ; preds = %19
   tail call void @LLVMDisposePassBuilderOptions(ptr noundef %6) #10
-  %27 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %46
 
@@ -2424,7 +2424,7 @@ gencontext_verify_ir.exit:                        ; preds = %gencontext_print_ll
   br label %46
 
 46:                                               ; preds = %gencontext_verify_ir.exit, %llvm_optimize.exit
-  %47 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 31), align 4
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 164), align 4
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %73
 
@@ -2478,7 +2478,7 @@ gencontext_emit_object_file.exit:                 ; preds = %64
 
 73:                                               ; preds = %gencontext_emit_object_file.exit, %46
   %.0 = phi ptr [ %72, %gencontext_emit_object_file.exit ], [ null, %46 ]
-  %74 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 30), align 1
+  %74 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 163), align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %90
 
@@ -2543,7 +2543,7 @@ define dso_local void @llvm_add_global_decl(ptr noundef %0, ptr noundef %1) loca
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %. = select i1 %.not, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %4
+  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %4
   %5 = load ptr, ptr %., align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 368
   %7 = load ptr, ptr %6, align 8
@@ -2828,10 +2828,10 @@ common.ret169:                                    ; preds = %70, %72, %46, %39, 
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 268435456
   %32 = icmp eq i64 %31, 0
-  %33 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %34 = icmp ne i32 %33, 15
   %or.cond.not61 = select i1 %32, i1 true, i1 %34
-  %35 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 69, i32 1), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
   %36 = icmp ne ptr %35, null
   %or.cond3 = select i1 %or.cond.not61, i1 true, i1 %36
   br i1 %or.cond3, label %39, label %37
@@ -2873,10 +2873,10 @@ common.ret169:                                    ; preds = %70, %72, %46, %39, 
   %58 = load i64, ptr %50, align 8
   %59 = and i64 %58, 268435456
   %60 = icmp eq i64 %59, 0
-  %61 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %62 = icmp ne i32 %61, 15
   %or.cond5.not56 = select i1 %60, i1 true, i1 %62
-  %63 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 69, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
   %64 = icmp ne ptr %63, null
   %or.cond7 = select i1 %or.cond5.not56, i1 true, i1 %64
   br i1 %or.cond7, label %70, label %65
@@ -2967,7 +2967,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %21, ptr noundef nonnull @.str.15, i32 noundef 13, ptr noundef nonnull @.str.16, i32 noundef 3) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %22) #10
-  %23 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 23), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 92), align 4
   %24 = load ptr, ptr %20, align 8
   %25 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %24, i32 noundef %23, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %25) #10
@@ -3029,7 +3029,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br i1 %.not76, label %60, label %56
 
 56:                                               ; preds = %._crit_edge
-  %57 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 14), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 56), align 4
   %58 = load ptr, ptr %27, align 8
   %59 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %58, i32 noundef %57, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %59) #10
@@ -3043,7 +3043,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br i1 %.not77, label %68, label %64
 
 64:                                               ; preds = %60
-  %65 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 15), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 60), align 4
   %66 = load ptr, ptr %27, align 8
   %67 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %66, i32 noundef %65, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %67) #10
@@ -3057,7 +3057,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br i1 %.not78, label %89, label %72
 
 72:                                               ; preds = %68
-  %73 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %74 = tail call zeroext i1 @arch_is_wasm(i32 noundef %73) #10
   br i1 %74, label %75, label %89
 
@@ -3067,7 +3067,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   %78 = getelementptr inbounds i8, ptr %1, i64 56
   %79 = load ptr, ptr %78, align 8
   %.not79 = icmp eq ptr %79, null
-  %. = select i1 %.not79, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %79
+  %. = select i1 %.not79, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %79
   %80 = load ptr, ptr %., align 8
   %81 = icmp eq ptr %77, %80
   br i1 %81, label %82, label %89
@@ -3089,7 +3089,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br i1 %.not80, label %102, label %92
 
 92:                                               ; preds = %89
-  %93 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %94 = tail call zeroext i1 @arch_is_wasm(i32 noundef %93) #10
   br i1 %94, label %95, label %102
 
@@ -3117,12 +3117,12 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br label %109
 
 109:                                              ; preds = %107, %102
-  %110 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 16), align 4
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 64), align 4
   %111 = load ptr, ptr %27, align 8
   %112 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %111, i32 noundef %110, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %112) #10
-  %113 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 25), align 4
-  %114 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 100), align 4
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
   %115 = icmp eq i32 %114, 13
   %116 = select i1 %115, i64 1, i64 2
   %117 = load ptr, ptr %27, align 8
@@ -3134,7 +3134,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   br i1 %.not82, label %125, label %121
 
 121:                                              ; preds = %109
-  %122 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 10), align 4
+  %122 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 40), align 4
   %123 = load ptr, ptr %27, align 8
   %124 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %123, i32 noundef %122, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %124) #10
@@ -3170,7 +3170,7 @@ define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noun
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 27), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 108), align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %13, i32 noundef %11, i64 noundef 0) #10
@@ -3185,7 +3185,7 @@ define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noun
   br i1 %.not33, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 21), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 84), align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %21, i32 noundef %19, i64 noundef 0) #10
@@ -3199,7 +3199,7 @@ define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noun
   br i1 %25, label %26, label %llvm_attribute_add_range.exit
 
 26:                                               ; preds = %23
-  %27 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 9), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 36), align 4
   %.not7.i = icmp sgt i32 %4, %5
   br i1 %.not7.i, label %llvm_attribute_add_range.exit, label %.lr.ph.i
 
@@ -3227,7 +3227,7 @@ llvm_attribute_add_range.exit:                    ; preds = %29, %26, %23
   br i1 %3, label %37, label %54
 
 37:                                               ; preds = %36
-  %38 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 22), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 88), align 4
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = getelementptr inbounds i8, ptr %2, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -3236,11 +3236,11 @@ llvm_attribute_add_range.exit:                    ; preds = %29, %26, %23
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @LLVMCreateTypeAttribute(ptr noundef %44, i32 noundef %38, ptr noundef %42) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %1, i32 noundef 1, ptr noundef %45) #10
-  %46 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 13), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 52), align 4
   %47 = load ptr, ptr %43, align 8
   %48 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %47, i32 noundef %46, i64 noundef 0) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %1, i32 noundef 1, ptr noundef %48) #10
-  %49 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   %50 = load i32, ptr %39, align 8
   %51 = zext i32 %50 to i64
   %52 = load ptr, ptr %43, align 8
@@ -3255,7 +3255,7 @@ llvm_attribute_add_range.exit:                    ; preds = %29, %26, %23
   br i1 %.not34, label %65, label %57
 
 57:                                               ; preds = %54
-  %58 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 4), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 16), align 4
   %59 = getelementptr inbounds i8, ptr %2, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %60) #10
@@ -3266,7 +3266,7 @@ llvm_attribute_add_range.exit:                    ; preds = %29, %26, %23
   br label %65
 
 65:                                               ; preds = %57, %54
-  %66 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   %67 = getelementptr inbounds i8, ptr %2, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
@@ -3338,252 +3338,252 @@ define dso_local ptr @llvm_gen(ptr nocapture noundef readonly %0, i32 noundef %1
   %5 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.38, i64 noundef 8) #10
   store i32 %5, ptr @intrinsic_id, align 4
   %6 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.39, i64 noundef 11) #10
-  store i32 %6, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 1), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 4), align 4
   %7 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.40, i64 noundef 15) #10
-  store i32 %7, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 2), align 4
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 8), align 4
   %8 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.41, i64 noundef 10) #10
-  store i32 %8, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 3), align 4
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 12), align 4
   %9 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.42, i64 noundef 9) #10
-  store i32 %9, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 4), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 16), align 4
   %10 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.43, i64 noundef 22) #10
-  store i32 %10, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 5), align 4
+  store i32 %10, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 20), align 4
   %11 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.44, i64 noundef 20) #10
-  store i32 %11, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 6), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 24), align 4
   %12 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.45, i64 noundef 13) #10
-  store i32 %12, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 7), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 28), align 4
   %13 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.46, i64 noundef 8) #10
-  store i32 %13, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 8), align 4
+  store i32 %13, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 32), align 4
   %14 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.47, i64 noundef 9) #10
-  store i32 %14, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 9), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 36), align 4
   %15 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.48, i64 noundef 10) #10
-  store i32 %15, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 10), align 4
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 40), align 4
   %16 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.49, i64 noundef 9) #10
-  store i32 %16, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 11), align 4
+  store i32 %16, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 44), align 4
   %17 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.50, i64 noundef 8) #10
-  store i32 %17, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 12), align 4
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 48), align 4
   %18 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.51, i64 noundef 9) #10
-  store i32 %18, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 13), align 4
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 52), align 4
   %19 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.52, i64 noundef 11) #10
-  store i32 %19, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 14), align 4
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 56), align 4
   %20 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.53, i64 noundef 28) #10
-  store i32 %20, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 15), align 4
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 60), align 4
   %21 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.54, i64 noundef 9) #10
-  store i32 %21, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 16), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 64), align 4
   %22 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.55, i64 noundef 10) #10
-  store i32 %22, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 17), align 4
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 68), align 4
   %23 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.56, i64 noundef 8) #10
-  store i32 %23, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 18), align 4
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 72), align 4
   %24 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.57, i64 noundef 17) #10
-  store i32 %24, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 20), align 4
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 80), align 4
   %25 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.58, i64 noundef 9) #10
-  store i32 %25, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 21), align 4
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 84), align 4
   %26 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.59, i64 noundef 9) #10
-  store i32 %26, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 22), align 4
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 88), align 4
   %27 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.60, i64 noundef 18) #10
-  store i32 %27, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 23), align 4
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 92), align 4
   %28 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.61, i64 noundef 17) #10
-  store i32 %28, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 24), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 96), align 4
   %29 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.62, i64 noundef 17) #10
-  store i32 %29, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 25), align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 100), align 4
   %30 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.63, i64 noundef 19) #10
-  store i32 %30, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 26), align 4
+  store i32 %30, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 104), align 4
   %31 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.64, i64 noundef 11) #10
-  store i32 %31, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 27), align 4
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 108), align 4
   %32 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.65, i64 noundef 12) #10
-  store i32 %32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 28), align 4
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 112), align 4
   %33 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.66, i64 noundef 8) #10
-  store i32 %33, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 29), align 4
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 116), align 4
   %34 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.67, i64 noundef 9) #10
-  store i32 %34, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 30), align 4
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 120), align 4
   %35 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.68, i64 noundef 10) #10
-  store i32 %35, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 31), align 4
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 124), align 4
   %36 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.69, i64 noundef 10) #10
-  store i32 %36, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 32), align 4
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 128), align 4
   %37 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.70, i64 noundef 11) #10
-  store i32 %37, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 33), align 4
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 132), align 4
   %38 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.71, i64 noundef 25) #10
-  store i32 %38, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 34), align 4
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 136), align 4
   %39 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.72, i64 noundef 22) #10
-  store i32 %39, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 35), align 4
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 140), align 4
   %40 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.73, i64 noundef 16) #10
-  store i32 %40, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 36), align 4
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 144), align 4
   %41 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.74, i64 noundef 17) #10
-  store i32 %41, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 37), align 4
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 148), align 4
   %42 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.75, i64 noundef 12) #10
-  store i32 %42, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 38), align 4
+  store i32 %42, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 152), align 4
   %43 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.76, i64 noundef 11) #10
-  store i32 %43, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 39), align 4
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 156), align 4
   %44 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.77, i64 noundef 11) #10
-  store i32 %44, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 40), align 4
+  store i32 %44, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 160), align 4
   %45 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.78, i64 noundef 18) #10
-  store i32 %45, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 41), align 4
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 164), align 4
   %46 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.79, i64 noundef 12) #10
-  store i32 %46, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 42), align 4
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 168), align 4
   %47 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.80, i64 noundef 11) #10
-  store i32 %47, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 43), align 4
+  store i32 %47, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 172), align 4
   %48 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.81, i64 noundef 18) #10
-  store i32 %48, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 44), align 4
+  store i32 %48, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 176), align 4
   %49 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.82, i64 noundef 12) #10
-  store i32 %49, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 45), align 4
+  store i32 %49, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 180), align 4
   %50 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.83, i64 noundef 11) #10
-  store i32 %50, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 46), align 4
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 184), align 4
   %51 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.84, i64 noundef 12) #10
-  store i32 %51, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 19), align 4
+  store i32 %51, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 76), align 4
   %52 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.85, i64 noundef 14) #10
-  store i32 %52, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 47), align 4
+  store i32 %52, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 188), align 4
   %53 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.86, i64 noundef 8) #10
-  store i32 %53, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 48), align 4
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 192), align 4
   %54 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.87, i64 noundef 9) #10
-  store i32 %54, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 49), align 4
+  store i32 %54, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 196), align 4
   %55 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.88, i64 noundef 13) #10
-  store i32 %55, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 50), align 4
+  store i32 %55, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 200), align 4
   %56 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.89, i64 noundef 21) #10
-  store i32 %56, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 51), align 4
+  store i32 %56, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 204), align 4
   %57 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.90, i64 noundef 18) #10
-  store i32 %57, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 52), align 4
+  store i32 %57, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 208), align 4
   %58 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.91, i64 noundef 9) #10
-  store i32 %58, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 53), align 4
+  store i32 %58, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 212), align 4
   %59 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.92, i64 noundef 10) #10
-  store i32 %59, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 54), align 4
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 216), align 4
   %60 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.93, i64 noundef 14) #10
-  store i32 %60, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 55), align 4
+  store i32 %60, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 220), align 4
   %61 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.94, i64 noundef 23) #10
-  store i32 %61, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 56), align 4
+  store i32 %61, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 224), align 4
   %62 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.95, i64 noundef 13) #10
-  store i32 %62, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 57), align 4
+  store i32 %62, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 228), align 4
   %63 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.96, i64 noundef 19) #10
-  store i32 %63, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 58), align 4
+  store i32 %63, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 232), align 4
   %64 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.97, i64 noundef 17) #10
-  store i32 %64, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 59), align 4
+  store i32 %64, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 236), align 4
   %65 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.98, i64 noundef 8) #10
-  store i32 %65, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 60), align 4
+  store i32 %65, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 240), align 4
   %66 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.99, i64 noundef 13) #10
-  store i32 %66, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 65), align 4
+  store i32 %66, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 260), align 4
   %67 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.100, i64 noundef 9) #10
-  store i32 %67, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 61), align 4
+  store i32 %67, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 244), align 4
   %68 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.101, i64 noundef 9) #10
-  store i32 %68, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 62), align 4
+  store i32 %68, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 248), align 4
   %69 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.102, i64 noundef 23) #10
-  store i32 %69, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 63), align 4
+  store i32 %69, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 252), align 4
   %70 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.103, i64 noundef 9) #10
-  store i32 %70, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 64), align 4
+  store i32 %70, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 256), align 4
   %71 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.104, i64 noundef 23) #10
-  store i32 %71, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 66), align 4
+  store i32 %71, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 264), align 4
   %72 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.105, i64 noundef 13) #10
-  store i32 %72, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 67), align 4
+  store i32 %72, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 268), align 4
   %73 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.106, i64 noundef 9) #10
-  store i32 %73, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 68), align 4
+  store i32 %73, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 272), align 4
   %74 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.107, i64 noundef 10) #10
-  store i32 %74, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 69), align 4
+  store i32 %74, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 276), align 4
   %75 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.108, i64 noundef 23) #10
-  store i32 %75, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 70), align 4
+  store i32 %75, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 280), align 4
   %76 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.109, i64 noundef 13) #10
-  store i32 %76, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 71), align 4
+  store i32 %76, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 284), align 4
   %77 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.110, i64 noundef 9) #10
-  store i32 %77, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 72), align 4
+  store i32 %77, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 288), align 4
   %78 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.111, i64 noundef 9) #10
-  store i32 %78, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 73), align 4
+  store i32 %78, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 292), align 4
   %79 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.112, i64 noundef 23) #10
-  store i32 %79, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 74), align 4
+  store i32 %79, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 296), align 4
   %80 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.113, i64 noundef 23) #10
-  store i32 %80, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 76), align 4
+  store i32 %80, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 304), align 4
   %81 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.114, i64 noundef 13) #10
-  store i32 %81, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 75), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 300), align 4
   %82 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.115, i64 noundef 13) #10
-  store i32 %82, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 77), align 4
+  store i32 %82, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 308), align 4
   %83 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.116, i64 noundef 23) #10
-  store i32 %83, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 78), align 4
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 312), align 4
   %84 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.117, i64 noundef 23) #10
-  store i32 %84, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 79), align 4
+  store i32 %84, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 316), align 4
   %85 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.118, i64 noundef 23) #10
-  store i32 %85, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 80), align 4
+  store i32 %85, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 320), align 4
   %86 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.119, i64 noundef 23) #10
-  store i32 %86, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 81), align 4
+  store i32 %86, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 324), align 4
   %87 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.120, i64 noundef 23) #10
-  store i32 %87, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 82), align 4
+  store i32 %87, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 328), align 4
   %88 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.121, i64 noundef 23) #10
-  store i32 %88, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 83), align 4
+  store i32 %88, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 332), align 4
   %89 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.122, i64 noundef 22) #10
-  store i32 %89, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 84), align 4
+  store i32 %89, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 336), align 4
   %90 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.123, i64 noundef 23) #10
-  store i32 %90, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 85), align 4
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 340), align 4
   %91 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.124, i64 noundef 22) #10
-  store i32 %91, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 86), align 4
+  store i32 %91, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 344), align 4
   %92 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.125, i64 noundef 23) #10
-  store i32 %92, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 87), align 4
+  store i32 %92, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 348), align 4
   %93 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.126, i64 noundef 22) #10
-  store i32 %93, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 88), align 4
+  store i32 %93, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 352), align 4
   %94 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.127, i64 noundef 21) #10
-  store i32 %94, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 89), align 4
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 356), align 4
   %95 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.128, i64 noundef 22) #10
-  store i32 %95, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 90), align 4
+  store i32 %95, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 360), align 4
   %96 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.129, i64 noundef 14) #10
-  store i32 %96, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 91), align 4
+  store i32 %96, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 364), align 4
   %97 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.130, i64 noundef 21) #10
-  store i32 %97, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 93), align 4
+  store i32 %97, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 372), align 4
   %98 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.131, i64 noundef 21) #10
-  store i32 %98, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 92), align 4
+  store i32 %98, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 368), align 4
   %99 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.132, i64 noundef 3) #10
   store i32 %99, ptr @attribute_id, align 4
   %100 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.133, i64 noundef 5) #10
-  store i32 %100, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 1), align 4
+  store i32 %100, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 4), align 4
   %101 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.134, i64 noundef 12) #10
-  store i32 %101, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 2), align 4
+  store i32 %101, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 8), align 4
   %102 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.135, i64 noundef 4) #10
-  store i32 %102, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 3), align 4
+  store i32 %102, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 12), align 4
   %103 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.136, i64 noundef 5) #10
-  store i32 %103, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 4), align 4
+  store i32 %103, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 16), align 4
   %104 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.137, i64 noundef 8) #10
-  store i32 %104, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 5), align 4
+  store i32 %104, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 20), align 4
   %105 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.138, i64 noundef 11) #10
-  store i32 %105, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 6), align 4
+  store i32 %105, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 24), align 4
   %106 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.139, i64 noundef 4) #10
-  store i32 %106, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 7), align 4
+  store i32 %106, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 28), align 4
   %107 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.140, i64 noundef 10) #10
-  store i32 %107, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 8), align 4
+  store i32 %107, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 32), align 4
   %108 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.141, i64 noundef 5) #10
-  store i32 %108, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 9), align 4
+  store i32 %108, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 36), align 4
   %109 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.142, i64 noundef 5) #10
-  store i32 %109, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 10), align 4
+  store i32 %109, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 40), align 4
   %110 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.143, i64 noundef 4) #10
-  store i32 %110, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 11), align 4
+  store i32 %110, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 44), align 4
   %111 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.144, i64 noundef 4) #10
-  store i32 %111, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 12), align 4
+  store i32 %111, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 48), align 4
   %112 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.145, i64 noundef 7) #10
-  store i32 %112, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 13), align 4
+  store i32 %112, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 52), align 4
   %113 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.146, i64 noundef 8) #10
-  store i32 %113, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 14), align 4
+  store i32 %113, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 56), align 4
   %114 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.147, i64 noundef 8) #10
-  store i32 %114, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 15), align 4
+  store i32 %114, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 60), align 4
   %115 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.148, i64 noundef 8) #10
-  store i32 %115, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 16), align 4
+  store i32 %115, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 64), align 4
   %116 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.149, i64 noundef 3) #10
-  store i32 %116, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 17), align 4
+  store i32 %116, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 68), align 4
   %117 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.150, i64 noundef 7) #10
-  store i32 %117, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 18), align 4
+  store i32 %117, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 72), align 4
   %118 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.151, i64 noundef 8) #10
-  store i32 %118, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 19), align 4
+  store i32 %118, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 76), align 4
   %119 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.152, i64 noundef 7) #10
-  store i32 %119, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 20), align 4
+  store i32 %119, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 80), align 4
   %120 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.153, i64 noundef 7) #10
-  store i32 %120, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 21), align 4
+  store i32 %120, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 84), align 4
   %121 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.154, i64 noundef 4) #10
-  store i32 %121, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 22), align 4
+  store i32 %121, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 88), align 4
   %122 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.155, i64 noundef 3) #10
-  store i32 %122, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 23), align 4
+  store i32 %122, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 92), align 4
   %123 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.156, i64 noundef 15) #10
-  store i32 %123, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 24), align 4
+  store i32 %123, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 96), align 4
   %124 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.157, i64 noundef 7) #10
-  store i32 %124, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 25), align 4
+  store i32 %124, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 100), align 4
   %125 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.158, i64 noundef 9) #10
-  store i32 %125, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 26), align 4
+  store i32 %125, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 104), align 4
   %126 = tail call i32 @LLVMGetEnumAttributeKindForName(ptr noundef nonnull @.str.159, i64 noundef 7) #10
-  store i32 %126, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 27), align 4
+  store i32 %126, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 108), align 4
   store i1 true, ptr @intrinsics_setup, align 1
   br label %llvm_codegen_setup.exit
 
 llvm_codegen_setup.exit:                          ; preds = %3, %4
-  %127 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 45), align 4
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 196), align 4
   %128 = icmp eq i32 %127, 1
   br i1 %128, label %129, label %.preheader.preheader
 
@@ -3671,7 +3671,7 @@ llvm_codegen_setup.exit:                          ; preds = %3, %4
 
 167:                                              ; preds = %166
   %168 = load ptr, ptr %.1, align 8
-  %169 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %169 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %170 = trunc i8 %169 to i1
   br i1 %170, label %171, label %397
 
@@ -3711,7 +3711,7 @@ expand_.exit940:                                  ; preds = %171, %175
   %191 = tail call ptr @path_create_from_string(ptr noundef nonnull @.str.160, i32 noundef 10, i64 0) #10
   %192 = tail call ptr @compiler_find_or_create_module(ptr noundef %191, ptr noundef null) #10
   %193 = tail call ptr @cmalloc(i64 noundef 472) #10
-  store i32 0, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %193, i8 0, i64 472, i1 false)
   %.not.i941 = icmp eq ptr %130, null
   br i1 %.not.i941, label %195, label %194
@@ -3737,17 +3737,17 @@ expand_.exit940:                                  ; preds = %171, %175
   br label %203
 
 203:                                              ; preds = %202, %197
-  %204 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %204 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %205 = trunc i8 %204 to i1
   br i1 %205, label %gencontext_init.exit, label %206
 
 206:                                              ; preds = %203
-  %207 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %207 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %208 = trunc i8 %207 to i1
   br i1 %208, label %gencontext_init.exit, label %209
 
 209:                                              ; preds = %206
-  %210 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %210 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %211 = trunc i8 %210 to i1
   br i1 %211, label %gencontext_init.exit, label %212
 
@@ -4096,7 +4096,7 @@ gencontext_init.exit:                             ; preds = %203, %206, %209, %2
 
 397:                                              ; preds = %392, %167
   %.2 = phi ptr [ %190, %392 ], [ %.1, %167 ]
-  %398 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %398 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %399 = trunc i8 %398 to i1
   br i1 %399, label %400, label %626
 
@@ -4136,7 +4136,7 @@ expand_.exit962:                                  ; preds = %400, %404
   %420 = tail call ptr @path_create_from_string(ptr noundef nonnull @.str.172, i32 noundef 5, i64 0) #10
   %421 = tail call ptr @compiler_find_or_create_module(ptr noundef %420, ptr noundef null) #10
   %422 = tail call ptr @cmalloc(i64 noundef 472) #10
-  store i32 0, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %422, i8 0, i64 472, i1 false)
   %.not.i963 = icmp eq ptr %130, null
   br i1 %.not.i963, label %424, label %423
@@ -4162,17 +4162,17 @@ expand_.exit962:                                  ; preds = %400, %404
   br label %432
 
 432:                                              ; preds = %431, %426
-  %433 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %433 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %434 = trunc i8 %433 to i1
   br i1 %434, label %gencontext_init.exit964, label %435
 
 435:                                              ; preds = %432
-  %436 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %436 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %437 = trunc i8 %436 to i1
   br i1 %437, label %gencontext_init.exit964, label %438
 
 438:                                              ; preds = %435
-  %439 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %439 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %440 = trunc i8 %439 to i1
   br i1 %440, label %gencontext_init.exit964, label %441
 
@@ -4638,7 +4638,7 @@ gencontext_destroy.exit:                          ; preds = %631, %642
   br i1 %exitcond.not, label %683, label %.preheader, !llvm.loop !20
 
 683:                                              ; preds = %682
-  %684 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %684 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %685 = trunc i8 %684 to i1
   br i1 %685, label %686, label %915
 
@@ -4694,7 +4694,7 @@ expand_.exit993:                                  ; preds = %692, %696
   %713 = tail call ptr @path_create_from_string(ptr noundef nonnull @.str.160, i32 noundef 10, i64 0) #10
   %714 = tail call ptr @compiler_find_or_create_module(ptr noundef %713, ptr noundef null) #10
   %715 = tail call ptr @cmalloc(i64 noundef 472) #10
-  store i32 0, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %715, i8 0, i64 472, i1 false)
   %716 = tail call ptr @LLVMContextCreate() #10
   %717 = getelementptr inbounds i8, ptr %715, i64 40
@@ -4708,17 +4708,17 @@ expand_.exit993:                                  ; preds = %692, %696
   br label %721
 
 721:                                              ; preds = %720, %expand_.exit993
-  %722 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %722 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %723 = trunc i8 %722 to i1
   br i1 %723, label %gencontext_init.exit994, label %724
 
 724:                                              ; preds = %721
-  %725 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %725 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %726 = trunc i8 %725 to i1
   br i1 %726, label %gencontext_init.exit994, label %727
 
 727:                                              ; preds = %724
-  %728 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %728 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %729 = trunc i8 %728 to i1
   br i1 %729, label %gencontext_init.exit994, label %730
 
@@ -5067,7 +5067,7 @@ gencontext_init.exit994:                          ; preds = %721, %724, %727, %7
 
 915:                                              ; preds = %910, %683
   %.6 = phi ptr [ %712, %910 ], [ %.5, %683 ]
-  %916 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %916 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %917 = trunc i8 %916 to i1
   br i1 %917, label %918, label %1147
 
@@ -5123,7 +5123,7 @@ expand_.exit1015:                                 ; preds = %924, %928
   %945 = tail call ptr @path_create_from_string(ptr noundef nonnull @.str.172, i32 noundef 5, i64 0) #10
   %946 = tail call ptr @compiler_find_or_create_module(ptr noundef %945, ptr noundef null) #10
   %947 = tail call ptr @cmalloc(i64 noundef 472) #10
-  store i32 0, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %947, i8 0, i64 472, i1 false)
   %948 = tail call ptr @LLVMContextCreate() #10
   %949 = getelementptr inbounds i8, ptr %947, i64 40
@@ -5137,17 +5137,17 @@ expand_.exit1015:                                 ; preds = %924, %928
   br label %953
 
 953:                                              ; preds = %952, %expand_.exit1015
-  %954 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %954 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %955 = trunc i8 %954 to i1
   br i1 %955, label %gencontext_init.exit1016, label %956
 
 956:                                              ; preds = %953
-  %957 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %957 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %958 = trunc i8 %957 to i1
   br i1 %958, label %gencontext_init.exit1016, label %959
 
 959:                                              ; preds = %956
-  %960 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %960 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %961 = trunc i8 %960 to i1
   br i1 %961, label %gencontext_init.exit1016, label %962
 
@@ -5519,7 +5519,7 @@ define internal fastcc ptr @llvm_gen_module(ptr noundef %0, ptr noundef %1) unna
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 47), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 204), align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %module_is_stdlib.exit
 
@@ -5599,17 +5599,17 @@ module_is_stdlib.exit:                            ; preds = %22, %33, %35, %40, 
   br label %53
 
 53:                                               ; preds = %52, %47
-  %54 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 29), align 2
+  %54 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 162), align 2
   %55 = trunc i8 %54 to i1
   br i1 %55, label %gencontext_init.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %57 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %58 = trunc i8 %57 to i1
   br i1 %58, label %gencontext_init.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %60 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %61 = trunc i8 %60 to i1
   br i1 %61, label %gencontext_init.exit, label %62
 
@@ -5622,7 +5622,7 @@ gencontext_init.exit:                             ; preds = %53, %56, %59, %62
   %64 = getelementptr inbounds i8, ptr %43, i64 368
   store ptr %0, ptr %64, align 8
   tail call void @gencontext_begin_module(ptr noundef nonnull %43) #10
-  %65 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 49), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
   %.not295 = icmp ne i32 %65, 0
   %66 = load ptr, ptr %7, align 8
   %.not296 = icmp eq ptr %66, null
@@ -5893,7 +5893,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not324, label %181, label %145
 
 145:                                              ; preds = %141
-  %146 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %146 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %221
 
@@ -5963,7 +5963,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not326, label %220, label %184
 
 184:                                              ; preds = %181
-  %185 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %185 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %186 = trunc i8 %185 to i1
   br i1 %186, label %187, label %221
 
@@ -6253,7 +6253,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not309, label %301, label %298
 
 298:                                              ; preds = %.lr.ph389
-  %299 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %299 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %300 = trunc i8 %299 to i1
   br i1 %300, label %301, label %315
 
@@ -6263,7 +6263,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not310, label %306, label %303
 
 303:                                              ; preds = %301
-  %304 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %304 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %305 = trunc i8 %304 to i1
   br i1 %305, label %306, label %315
 
@@ -6419,7 +6419,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   tail call void @llvm_emit_dynamic_functions(ptr noundef %43, ptr noundef %357) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %358 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 8), align 8
+  %358 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   %359 = icmp eq i32 %358, 4
   %360 = getelementptr inbounds i8, ptr %43, i64 104
   %361 = load ptr, ptr %360, align 8
@@ -6561,12 +6561,12 @@ llvm_emit_constructors_and_destructors.exit:      ; preds = %362, %368, %403, %4
   br label %439
 
 439:                                              ; preds = %437, %llvm_emit_constructors_and_destructors.exit
-  %440 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 23), align 4
+  %440 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
   %441 = trunc i8 %440 to i1
   br i1 %441, label %445, label %442
 
 442:                                              ; preds = %439
-  %443 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 22), align 1
+  %443 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
   %444 = trunc i8 %443 to i1
   br i1 %444, label %445, label %463
 
@@ -6994,7 +6994,7 @@ declare ptr @llvm_emit_aggregate_two(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @llvm_gen_benchmark_main(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 27), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 392), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -7003,7 +7003,7 @@ define internal fastcc void @llvm_gen_benchmark_main(ptr noundef %0) unnamed_add
   unreachable
 
 4:                                                ; preds = %1
-  store ptr %2, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   %5 = load ptr, ptr @type_cint, align 8
   %6 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %5) #10
   %7 = tail call ptr @LLVMFunctionType(ptr noundef %6, ptr noundef null, i32 noundef 0, i32 noundef 1) #10
@@ -7023,7 +7023,7 @@ define internal fastcc void @llvm_gen_benchmark_main(ptr noundef %0) unnamed_add
   %21 = tail call ptr @LLVMAppendBasicBlockInContext(ptr noundef %20, ptr noundef %14, ptr noundef nonnull @.str.171) #10
   %22 = load ptr, ptr %19, align 8
   %23 = tail call ptr @LLVMCreateBuilderInContext(ptr noundef %22) #10
-  %24 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 1), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 332), align 4
   tail call void @LLVMBuilderSetFastMathFlags(ptr noundef %23, i32 noundef %24) #10
   tail call void @LLVMPositionBuilderAtEnd(ptr noundef %23, ptr noundef %21) #10
   %25 = tail call ptr @LLVMBuildCall2(ptr noundef %23, ptr noundef %10, ptr noundef %18, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.35) #10
@@ -7086,7 +7086,7 @@ declare ptr @LLVMBuildRet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @llvm_gen_test_main(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 26), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 384), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -7095,7 +7095,7 @@ define internal fastcc void @llvm_gen_test_main(ptr noundef %0) unnamed_addr #0 
   unreachable
 
 4:                                                ; preds = %1
-  store ptr %2, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   %5 = load ptr, ptr @type_cint, align 8
   %6 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %5) #10
   %7 = tail call ptr @LLVMFunctionType(ptr noundef %6, ptr noundef null, i32 noundef 0, i32 noundef 1) #10
@@ -7115,7 +7115,7 @@ define internal fastcc void @llvm_gen_test_main(ptr noundef %0) unnamed_addr #0 
   %21 = tail call ptr @LLVMAppendBasicBlockInContext(ptr noundef %20, ptr noundef %14, ptr noundef nonnull @.str.171) #10
   %22 = load ptr, ptr %19, align 8
   %23 = tail call ptr @LLVMCreateBuilderInContext(ptr noundef %22) #10
-  %24 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 1), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 332), align 4
   tail call void @LLVMBuilderSetFastMathFlags(ptr noundef %23, i32 noundef %24) #10
   tail call void @LLVMPositionBuilderAtEnd(ptr noundef %23, ptr noundef %21) #10
   %25 = tail call ptr @LLVMBuildCall2(ptr noundef %23, ptr noundef %10, ptr noundef %18, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.35) #10

@@ -48,7 +48,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %3 = load ptr, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, align 8
-  %4 = load i32, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 3), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %cmp.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i.i
 
@@ -118,12 +118,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes2vmL9funcNamesEv() unnamed_addr #0 {
 entry:
-  store i32 1024, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 3), align 8
+  store i32 1024, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16384) ptr @_Znwm(i64 noundef 16384) #8
   store ptr %call.i.i.i, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 2), align 4
-  %0 = load i32, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 3), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 12), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %idx.ext.i.i.i.i = zext i32 %0 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i.i.i, i64 %idx.ext.i.i.i.i
   %cmp.not3.i.i.i = icmp eq i32 %0, 0
@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.04 = phi i64 [ %inc, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ 0, %for.body.preheader ]
   %curStr.03 = phi ptr [ %add.ptr, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ @_ZZN6hermes2vmL9funcNamesEvE5names, %for.body.preheader ]
   %arrayidx = getelementptr inbounds [417 x ptr], ptr @_ZZN6hermes2vmL9funcNamesEvE16functionPointers, i64 0, i64 %i.04
-  %2 = load i32, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 0, i32 3), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %cmp.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
 

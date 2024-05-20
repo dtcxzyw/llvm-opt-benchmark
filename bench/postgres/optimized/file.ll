@@ -416,7 +416,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %brmerge.not, label %113, label %72
 
 72:                                               ; preds = %._crit_edge
-  %73 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 0, i32 21), align 8
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 104), align 8
   %.not77 = icmp eq i32 %73, 0
   br i1 %.not77, label %100, label %74
 
@@ -537,9 +537,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @check_file_clone() local_unnamed_addr #1 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %3) #10
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %5) #10
   %7 = call i32 @unlink(ptr noundef nonnull %2) #10
   %8 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #10
@@ -591,9 +591,9 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 define dso_local void @check_hard_link() local_unnamed_addr #1 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %3) #10
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %5) #10
   %7 = call i32 @unlink(ptr noundef nonnull %2) #10
   %8 = call i32 @link(ptr noundef nonnull %1, ptr noundef nonnull %2) #10

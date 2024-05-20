@@ -774,7 +774,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end8, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %0 = load i32, ptr getelementptr inbounds (%struct.tls_group_st, ptr @xor_group, i64 0, i32 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @xor_group, i64 4), align 4
   %call5 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call2, i32 noundef %0) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
@@ -5106,13 +5106,13 @@ if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
   %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PrivateKeyInfo_xorhmacsig_desc, ptr %desc2.i, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8
   %cmp3.i = icmp eq i32 %0, 0
   br i1 %cmp3.i, label %if.then4.i, label %der2key_newctx.exit
 
 if.then4.i:                                       ; preds = %if.then.i
   %call5.i = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.1) #14
-  store i32 %call5.i, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
+  store i32 %call5.i, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %entry, %if.then.i, %if.then4.i
@@ -5129,7 +5129,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
 entry:
-  %PrivateKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 0, i32 4), align 4
+  %PrivateKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
@@ -5662,13 +5662,13 @@ if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
   %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @SubjectPublicKeyInfo_xorhmacsig_desc, ptr %desc2.i, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8
   %cmp3.i = icmp eq i32 %0, 0
   br i1 %cmp3.i, label %if.then4.i, label %der2key_newctx.exit
 
 if.then4.i:                                       ; preds = %if.then.i
   %call5.i = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.1) #14
-  store i32 %call5.i, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
+  store i32 %call5.i, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %entry, %if.then.i, %if.then4.i
@@ -5678,7 +5678,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
 entry:
-  %SubjectPublicKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 0, i32 4), align 4
+  %SubjectPublicKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
@@ -5817,13 +5817,13 @@ if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
   %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PrivateKeyInfo_xorhmacsha2sig_desc, ptr %desc2.i, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8
   %cmp3.i = icmp eq i32 %0, 0
   br i1 %cmp3.i, label %if.then4.i, label %der2key_newctx.exit
 
 if.then4.i:                                       ; preds = %if.then.i
   %call5.i = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.5) #14
-  store i32 %call5.i, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
+  store i32 %call5.i, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %entry, %if.then.i, %if.then4.i
@@ -5833,7 +5833,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
 entry:
-  %PrivateKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 0, i32 4), align 4
+  %PrivateKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
@@ -5872,13 +5872,13 @@ if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
   %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, ptr %desc2.i, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8
   %cmp3.i = icmp eq i32 %0, 0
   br i1 %cmp3.i, label %if.then4.i, label %der2key_newctx.exit
 
 if.then4.i:                                       ; preds = %if.then.i
   %call5.i = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.5) #14
-  store i32 %call5.i, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
+  store i32 %call5.i, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %entry, %if.then.i, %if.then4.i
@@ -5888,7 +5888,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
 entry:
-  %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 0, i32 4), align 4
+  %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 

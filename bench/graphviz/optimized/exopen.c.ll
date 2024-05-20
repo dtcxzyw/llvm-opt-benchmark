@@ -77,7 +77,7 @@ define noundef ptr @exopen(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load ptr, ptr %7, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %30, ptr noundef nonnull %26, i32 noundef 1) #5
-  %33 = load i8, ptr getelementptr inbounds ([0 x %struct.Exid_s], ptr @exbuiltin, i64 0, i64 0, i32 9, i64 0), align 8
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @exbuiltin, i64 80), align 8
   %.not4043 = icmp eq i8 %33, 0
   br i1 %.not4043, label %._crit_edge, label %.lr.ph
 

@@ -68,7 +68,7 @@ define noundef i32 @wireshark_load_module(ptr noundef writeonly %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal void @plugin_register() #1 {
   store ptr @init, ptr @plugin_register.plug, align 8
-  store ptr @cleanup, ptr getelementptr inbounds (%struct.dfilter_plugin, ptr @plugin_register.plug, i64 0, i32 1), align 8
+  store ptr @cleanup, ptr getelementptr inbounds (i8, ptr @plugin_register.plug, i64 8), align 8
   tail call void @dfilter_plugins_register(ptr noundef nonnull @plugin_register.plug) #4
   ret void
 }

@@ -542,7 +542,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %36 = load i32, ptr %7, align 8
   %.off = add i32 %36, -7
   %switch = icmp ult i32 %.off, 2
-  %37 = load i32, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 2), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 16), align 8
   %38 = icmp eq i32 %36, %37
   %or.cond845 = select i1 %switch, i1 %38, i1 false
   br i1 %or.cond845, label %39, label %99
@@ -559,7 +559,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %3, i64 48
   %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 1), align 8
+  %48 = load i64, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 8), align 8
   %49 = icmp eq i64 %47, %48
   %.pre = load ptr, ptr @current_aggregate, align 8
   br i1 %49, label %57, label %50
@@ -588,11 +588,11 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %58 = tail call ptr @wmem_file_scope() #9
   %59 = tail call noalias ptr @wmem_alloc0(ptr noundef %58, i64 noundef 28) #9
   store ptr %59, ptr @current_aggregate, align 8
-  %60 = load i32, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 2), align 8
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 16), align 8
   store i32 %60, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %59, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 3), i64 16, i1 false)
-  %62 = load ptr, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 5), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @previous_frame, i64 20), i64 16, i1 false)
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   %.not654 = icmp eq ptr %62, null
   br i1 %.not654, label %64, label %63
 
@@ -603,7 +603,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 64:                                               ; preds = %.thread883, %63, %57
   %65 = phi ptr [ %59, %.thread883 ], [ %59, %63 ], [ %.pre, %57 ]
   store ptr %65, ptr %29, align 8
-  %66 = load i32, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 4), align 4
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 36), align 4
   %67 = and i32 %66, 3
   %.not655 = icmp eq i32 %67, 0
   %68 = or i32 %66, 3
@@ -613,7 +613,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %72 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %71, ptr %72, align 8
   %73 = add i32 %71, %6
-  store i32 %73, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 4), align 4
+  store i32 %73, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 36), align 4
   %74 = load i32, ptr %7, align 8
   switch i32 %74, label %96 [
     i32 7, label %75
@@ -665,7 +665,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 99:                                               ; preds = %35, %53, %56, %39, %28
   store ptr null, ptr @current_aggregate, align 8
-  store i32 %6, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 4), align 4
+  store i32 %6, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 36), align 4
   br label %100
 
 100:                                              ; preds = %99, %96
@@ -678,10 +678,10 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   store i32 %104, ptr @previous_frame, align 8
   %105 = getelementptr inbounds i8, ptr %3, i64 48
   %106 = load i64, ptr %105, align 8
-  store i64 %106, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 1), align 8
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 8), align 8
   %107 = load i32, ptr %7, align 8
-  store i32 %107, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 3), ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
+  store i32 %107, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 16), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @previous_frame, i64 20), ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
   br label %116
 
 108:                                              ; preds = %21
@@ -1827,7 +1827,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %791 = add i32 %790, %.0599
   %792 = getelementptr inbounds i8, ptr %788, i64 24
   store i32 %791, ptr %792, align 4
-  %793 = load ptr, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 5), align 8
+  %793 = load ptr, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   %.not729 = icmp eq ptr %793, null
   br i1 %.not729, label %799, label %794
 
@@ -1937,7 +1937,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %855 = load ptr, ptr %22, align 8
   %856 = load i32, ptr %855, align 8
   %857 = icmp ugt i32 %856, 1
-  %858 = load ptr, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 5), align 8
+  %858 = load ptr, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   %859 = icmp ne ptr %858, null
   %or.cond71 = select i1 %857, i1 %859, i1 false
   br i1 %or.cond71, label %860, label %867
@@ -2236,7 +2236,7 @@ proto_item_set_generated.exit787:                 ; preds = %645, %981, %978, %9
   br i1 %.not750, label %1003, label %1004
 
 1003:                                             ; preds = %998
-  store ptr %.0618, ptr getelementptr inbounds (%struct.previous_frame_info, ptr @previous_frame, i64 0, i32 5), align 8
+  store ptr %.0618, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   br label %1004
 
 1004:                                             ; preds = %1003, %998

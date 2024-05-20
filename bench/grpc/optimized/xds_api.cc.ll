@@ -178,7 +178,7 @@ entry:
   store ptr %2, ptr %def_pool, align 16
   %arena2 = getelementptr inbounds i8, ptr %context, i64 24
   store ptr %call.i.i, ptr %arena2, align 8
-  %3 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__discovery__v3__DiscoveryRequest_msg_init, i64 0, i32 2), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__discovery__v3__DiscoveryRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %3 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -272,7 +272,7 @@ if.then33:                                        ; preds = %invoke.cont31
   br i1 %cmp.i31, label %if.then.i, label %invoke.cont38
 
 if.then.i:                                        ; preds = %if.then33
-  %13 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__rpc__Status_msg_init, i64 0, i32 2), align 8
+  %13 = load i16, ptr getelementptr inbounds (i8, ptr @google__rpc__Status_msg_init, i64 16), align 8
   %conv.i.i.i32 = zext i16 %13 to i64
   %add.i.i.i33 = add nuw nsw i64 %conv.i.i.i32, 8
   %sub.i.i.i34 = add nuw nsw i64 %conv.i.i.i32, 23
@@ -388,7 +388,7 @@ if.then52:                                        ; preds = %if.end51
   br i1 %cmp.i58, label %if.then.i60, label %invoke.cont55
 
 if.then.i60:                                      ; preds = %if.then52
-  %31 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__core__v3__Node_msg_init, i64 0, i32 2), align 8
+  %31 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Node_msg_init, i64 16), align 8
   %conv.i.i.i61 = zext i16 %31 to i64
   %add.i.i.i62 = add nuw nsw i64 %conv.i.i.i61, 8
   %sub.i.i.i63 = add nuw nsw i64 %conv.i.i.i61, 23
@@ -720,7 +720,7 @@ if.then22:                                        ; preds = %if.end17
   br i1 %cmp.i, label %if.then.i, label %envoy_config_core_v3_Node_mutable_metadata.exit
 
 if.then.i:                                        ; preds = %if.then22
-  %9 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Struct_msg_init, i64 0, i32 2), align 8
+  %9 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Struct_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %9 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -801,7 +801,7 @@ if.then41:                                        ; preds = %lor.lhs.false36, %l
   br i1 %cmp.i35, label %if.then.i37, label %envoy_config_core_v3_Node_mutable_locality.exit
 
 if.then.i37:                                      ; preds = %if.then41
-  %21 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__core__v3__Locality_msg_init, i64 0, i32 2), align 8
+  %21 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Locality_msg_init, i64 16), align 8
   %conv.i.i.i38 = zext i16 %21 to i64
   %add.i.i.i39 = add nuw nsw i64 %conv.i.i.i38, 8
   %sub.i.i.i40 = add nuw nsw i64 %conv.i.i.i38, 23
@@ -979,7 +979,7 @@ entry:
   %2 = load ptr, ptr %def_pool_, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__discovery__v3__DiscoveryResponse_msg_init, i64 0, i32 2), align 8
+  %4 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__discovery__v3__DiscoveryResponse_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %4 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -1255,7 +1255,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i, label %if.then71, label %if.end116
 
 if.then71:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %28 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__discovery__v3__Resource_msg_init, i64 0, i32 2), align 8
+  %28 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__discovery__v3__Resource_msg_init, i64 16), align 8
   %conv.i.i.i.i114 = zext i16 %28 to i64
   %add.i.i.i.i115 = add nuw nsw i64 %conv.i.i.i.i114, 8
   %sub.i.i.i.i116 = add nuw nsw i64 %conv.i.i.i.i114, 23
@@ -1476,7 +1476,7 @@ entry:
   store ptr %2, ptr %def_pool, align 16
   %arena2 = getelementptr inbounds i8, ptr %context, i64 24
   store ptr %call.i.i, ptr %arena2, align 8
-  %3 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__load_0stats__v3__LoadStatsRequest_msg_init, i64 0, i32 2), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__load_0stats__v3__LoadStatsRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %3 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -1518,7 +1518,7 @@ invoke.cont7:                                     ; preds = %if.end.i.i, %upb_Ar
   br i1 %cmp.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %invoke.cont7
-  %8 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__core__v3__Node_msg_init, i64 0, i32 2), align 8
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Node_msg_init, i64 16), align 8
   %conv.i.i.i9 = zext i16 %8 to i64
   %add.i.i.i10 = add nuw nsw i64 %conv.i.i.i9, 8
   %sub.i.i.i11 = add nuw nsw i64 %conv.i.i.i9, 23
@@ -1717,7 +1717,7 @@ entry:
   %2 = load ptr, ptr %def_pool_, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__load_0stats__v3__LoadStatsRequest_msg_init, i64 0, i32 2), align 8
+  %4 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__load_0stats__v3__LoadStatsRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %4 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -1802,7 +1802,7 @@ call.i.i.i.noexc:                                 ; preds = %_upb_array_reserve.
 
 if.end.i:                                         ; preds = %call.i.i.i.noexc, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %10 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__endpoint__v3__ClusterStats_msg_init, i64 0, i32 2), align 8
+  %10 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__ClusterStats_msg_init, i64 16), align 8
   %conv.i.i.i30 = zext i16 %10 to i64
   %add.i.i.i31 = add nuw nsw i64 %conv.i.i.i30, 8
   %sub.i.i.i32 = add nuw nsw i64 %conv.i.i.i30, 23
@@ -2054,7 +2054,7 @@ call.i.i.i.noexc94:                               ; preds = %_upb_array_reserve.
 
 if.end.i70:                                       ; preds = %call.i.i.i.noexc94, %lor.lhs.false.i65
   store i64 %add.i67, ptr %size.i66, align 8
-  %39 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__endpoint__v3__UpstreamLocalityStats_msg_init, i64 0, i32 2), align 8
+  %39 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__UpstreamLocalityStats_msg_init, i64 16), align 8
   %conv.i.i.i71 = zext i16 %39 to i64
   %add.i.i.i72 = add nuw nsw i64 %conv.i.i.i71, 8
   %sub.i.i.i73 = add nuw nsw i64 %conv.i.i.i71, 23
@@ -2105,7 +2105,7 @@ invoke.cont45:                                    ; preds = %if.end7.i85, %upb_A
   br i1 %cmp.i.i, label %if.then.i.i103, label %envoy_config_endpoint_v3_UpstreamLocalityStats_mutable_locality.exit.i
 
 if.then.i.i103:                                   ; preds = %invoke.cont45
-  %48 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__core__v3__Locality_msg_init, i64 0, i32 2), align 8
+  %48 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Locality_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %48 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -2340,7 +2340,7 @@ call.i.i.i.i.noexc:                               ; preds = %_upb_array_reserve.
 
 if.end.i.i101:                                    ; preds = %call.i.i.i.i.noexc, %lor.lhs.false.i.i
   store i64 %add.i.i, ptr %size.i.i, align 8
-  %76 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__endpoint__v3__EndpointLoadMetricStats_msg_init, i64 0, i32 2), align 8
+  %76 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__EndpointLoadMetricStats_msg_init, i64 16), align 8
   %conv.i.i.i46.i = zext i16 %76 to i64
   %add.i.i.i47.i = add nuw nsw i64 %conv.i.i.i46.i, 8
   %sub.i.i.i48.i = add nuw nsw i64 %conv.i.i.i46.i, 23
@@ -2547,7 +2547,7 @@ call.i.i.i.noexc147:                              ; preds = %_upb_array_reserve.
 
 if.end.i123:                                      ; preds = %call.i.i.i.noexc147, %lor.lhs.false.i118
   store i64 %add.i120, ptr %size.i119, align 8
-  %105 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__endpoint__v3__ClusterStats__DroppedRequests_msg_init, i64 0, i32 2), align 8
+  %105 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__ClusterStats__DroppedRequests_msg_init, i64 16), align 8
   %conv.i.i.i124 = zext i16 %105 to i64
   %add.i.i.i125 = add nuw nsw i64 %conv.i.i.i124, 8
   %sub.i.i.i126 = add nuw nsw i64 %conv.i.i.i124, 23
@@ -2622,7 +2622,7 @@ invoke.cont79:                                    ; preds = %invoke.cont78
   br i1 %cmp.i161, label %if.then.i162, label %for.inc88
 
 if.then.i162:                                     ; preds = %invoke.cont79
-  %116 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Duration_msg_init, i64 0, i32 2), align 8
+  %116 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Duration_msg_init, i64 16), align 8
   %conv.i.i.i163 = zext i16 %116 to i64
   %add.i.i.i164 = add nuw nsw i64 %conv.i.i.i163, 8
   %sub.i.i.i165 = add nuw nsw i64 %conv.i.i.i163, 23
@@ -2754,7 +2754,7 @@ entry:
   %buf.i = alloca [10240 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__load_0stats__v3__LoadStatsResponse_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__load_0stats__v3__LoadStatsResponse_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %0 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -2994,7 +2994,7 @@ entry:
   %output_length = alloca i64, align 8
   %ref.tmp104 = alloca %"class.std::allocator", align 1
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__status__v3__ClientConfig_msg_init, i64 0, i32 2), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__status__v3__ClientConfig_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -3036,7 +3036,7 @@ invoke.cont2:                                     ; preds = %if.end.i.i, %upb_Ar
   br i1 %cmp.i, label %if.then.i, label %invoke.cont6
 
 if.then.i:                                        ; preds = %invoke.cont2
-  %5 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__config__core__v3__Node_msg_init, i64 0, i32 2), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Node_msg_init, i64 16), align 8
   %conv.i.i.i31 = zext i16 %5 to i64
   %add.i.i.i32 = add nuw nsw i64 %conv.i.i.i31, 8
   %sub.i.i.i33 = add nuw nsw i64 %conv.i.i.i31, 23
@@ -3288,7 +3288,7 @@ call.i.i.i.noexc:                                 ; preds = %_upb_array_reserve.
 
 if.end.i:                                         ; preds = %call.i.i.i.noexc, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %42 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init, i64 0, i32 2), align 8
+  %42 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init, i64 16), align 8
   %conv.i.i.i59 = zext i16 %42 to i64
   %add.i.i.i60 = add nuw nsw i64 %conv.i.i.i59, 8
   %sub.i.i.i61 = add nuw nsw i64 %conv.i.i.i59, 23
@@ -3364,7 +3364,7 @@ invoke.cont57:                                    ; preds = %invoke.cont52
   %context.val = load ptr, ptr %arena10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %agg.tmp58.sroa.0.0.copyload, ptr %value.i, align 8
-  %51 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Timestamp_msg_init, i64 0, i32 2), align 8
+  %51 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %51 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -3424,7 +3424,7 @@ invoke.cont62:                                    ; preds = %google_protobuf_Tim
   br i1 %cmp.i99, label %if.then.i101, label %invoke.cont70
 
 if.then.i101:                                     ; preds = %invoke.cont62
-  %61 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Any_msg_init, i64 0, i32 2), align 8
+  %61 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Any_msg_init, i64 16), align 8
   %conv.i.i.i102 = zext i16 %61 to i64
   %add.i.i.i103 = add nuw nsw i64 %conv.i.i.i102, 8
   %sub.i.i.i104 = add nuw nsw i64 %conv.i.i.i102, 23
@@ -3512,7 +3512,7 @@ if.end:                                           ; preds = %invoke.cont70, %inv
 
 if.then77:                                        ; preds = %if.end
   %70 = load ptr, ptr %arena10, align 8
-  %71 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__admin__v3__UpdateFailureState_msg_init, i64 0, i32 2), align 8
+  %71 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__admin__v3__UpdateFailureState_msg_init, i64 16), align 8
   %conv.i.i.i135 = zext i16 %71 to i64
   %add.i.i.i136 = add nuw nsw i64 %conv.i.i.i135, 8
   %sub.i.i.i137 = add nuw nsw i64 %conv.i.i.i135, 23
@@ -3565,7 +3565,7 @@ invoke.cont88:                                    ; preds = %if.end.i.i149, %upb
   %agg.tmp89.sroa.0.0.copyload = load i64, ptr %failed_update_time, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i167)
   store i64 %agg.tmp89.sroa.0.0.copyload, ptr %value.i167, align 8
-  %74 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Timestamp_msg_init, i64 0, i32 2), align 8
+  %74 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
   %conv.i.i.i.i168 = zext i16 %74 to i64
   %add.i.i.i.i169 = add nuw nsw i64 %conv.i.i.i.i168, 8
   %sub.i.i.i.i170 = add nuw nsw i64 %conv.i.i.i.i168, 23
@@ -3791,7 +3791,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %go
   %__begin2.sroa.0.012 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i8, %google_protobuf_Struct_fields_set.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012, i64 32
   %1 = load ptr, ptr %arena, align 8
-  %2 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Value_msg_init, i64 0, i32 2), align 8
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Value_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %2 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -3874,7 +3874,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
@@ -3930,7 +3930,7 @@ google_protobuf_Value_struct_value.exit.i:        ; preds = %sw.bb10
   br i1 %cmp.i, label %if.then.i, label %google_protobuf_Value_mutable_struct_value.exit
 
 if.then.i:                                        ; preds = %google_protobuf_Value_struct_value.exit.i, %sw.bb10
-  %6 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Struct_msg_init, i64 0, i32 2), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Struct_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %6 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
@@ -3976,7 +3976,7 @@ google_protobuf_Value_mutable_struct_value.exit:  ; preds = %google_protobuf_Val
 if.then.i.i.i39:                                  ; preds = %google_protobuf_Value_mutable_struct_value.exit
   %cmp.i.not.i.i.i.i40 = icmp eq i8 %10, -1
   %exception.i.i.i.i.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i41, align 8
   %_M_reason.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i41, i64 8
   br i1 %cmp.i.not.i.i.i.i40, label %if.then.i.i.i.i44, label %if.else.i.i.i.i43
 
@@ -4009,7 +4009,7 @@ google_protobuf_Value_list_value.exit.i:          ; preds = %sw.bb13
   br i1 %cmp.i68, label %if.then.i46, label %google_protobuf_Value_mutable_list_value.exit
 
 if.then.i46:                                      ; preds = %google_protobuf_Value_list_value.exit.i, %sw.bb13
-  %15 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__ListValue_msg_init, i64 0, i32 2), align 8
+  %15 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__ListValue_msg_init, i64 16), align 8
   %conv.i.i.i47 = zext i16 %15 to i64
   %add.i.i.i48 = add nuw nsw i64 %conv.i.i.i47, 8
   %sub.i.i.i49 = add nuw nsw i64 %conv.i.i.i47, 23
@@ -4055,7 +4055,7 @@ google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Val
 if.then.i.i.i71:                                  ; preds = %google_protobuf_Value_mutable_list_value.exit
   %cmp.i.not.i.i.i.i72 = icmp eq i8 %19, -1
   %exception.i.i.i.i.i73 = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i73, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i73, align 8
   %_M_reason.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i73, i64 8
   br i1 %cmp.i.not.i.i.i.i72, label %if.then.i.i.i.i76, label %if.else.i.i.i.i75
 
@@ -4100,7 +4100,7 @@ _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
 
 if.end.i:                                         ; preds = %_upb_array_reserve.exit.i.i, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %25 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Value_msg_init, i64 0, i32 2), align 8
+  %25 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Value_msg_init, i64 16), align 8
   %conv.i.i.i81 = zext i16 %25 to i64
   %add.i.i.i82 = add nuw nsw i64 %conv.i.i.i81, 8
   %sub.i.i.i83 = add nuw nsw i64 %conv.i.i.i81, 23

@@ -105,7 +105,7 @@ define noundef nonnull ptr @_ZNK12RichFileSave5cloneEv(ptr noundef nonnull align
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12RichFileSave, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -238,7 +238,7 @@ define void @_ZN12RichFileSaveC2ERK7QStringS2_S2_S2_S2_bS2_(ptr noundef nonnull 
           to label %10 unwind label %22
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11StringValue, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load atomic i32, ptr %12 monotonic, align 4
@@ -262,7 +262,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11StringValueD2Ev.exit
 
 _ZN11StringValueD2Ev.exit:                        ; preds = %10, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12RichFileSave, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   %17 = load ptr, ptr %3, align 8
   store ptr %17, ptr %16, align 8
@@ -293,7 +293,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11StringValue, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -352,7 +352,7 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12RichFileSaveD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12RichFileSave, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4

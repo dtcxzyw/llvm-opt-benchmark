@@ -56,16 +56,16 @@ define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
 17:                                               ; preds = %16
   %18 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %18, ptr %1, align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %22 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %21, ptr %22, align 4
   br label %29
 
 23:                                               ; preds = %13
-  %24 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef %1) #2
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %27

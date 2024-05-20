@@ -1049,7 +1049,7 @@ if.then.i.i13:                                    ; preds = %if.end23
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %if.then.i.i13
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %14 = load ptr, ptr %test_name_.i, align 8
   %15 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -1194,7 +1194,7 @@ declare void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %this, align 8
   %test_name_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %test_name_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 120
@@ -1305,7 +1305,7 @@ if.then:                                          ; preds = %invoke.cont3
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %if.then
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting2, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting2, i64 104
   %2 = load ptr, ptr %test_name_.i, align 8
   %3 = getelementptr inbounds i8, ptr %setting2, i64 120
@@ -1355,7 +1355,7 @@ lpad2:                                            ; preds = %if.then, %invoke.co
   br label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit26
 
 if.end:                                           ; preds = %_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD2Ev.exit, %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting1, align 8
   %test_name_.i7 = getelementptr inbounds i8, ptr %setting1, i64 104
   %9 = load ptr, ptr %test_name_.i7, align 8
   %10 = getelementptr inbounds i8, ptr %setting1, i64 120
@@ -1457,7 +1457,7 @@ invoke.cont:                                      ; preds = %_ZN12_GLOBAL__N_114
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %2 = load ptr, ptr %test_name_.i, align 8
   %3 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -2391,7 +2391,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i157:
   br i1 %cmp.not.i.i.i159, label %if.else.i.i.i162, label %invoke.cont34
 
 if.else.i.i.i162:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %56, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %56, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i162.invoke.cont34_crit_edge unwind label %lpad
 
 if.else.i.i.i162.invoke.cont34_crit_edge:         ; preds = %if.else.i.i.i162
@@ -2420,7 +2420,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i174:
   br i1 %cmp.not.i.i.i176, label %if.else.i.i.i179, label %invoke.cont36
 
 if.else.i.i.i179:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i174
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %60, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %60, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i179.invoke.cont36_crit_edge unwind label %lpad
 
 if.else.i.i.i179.invoke.cont36_crit_edge:         ; preds = %if.else.i.i.i179
@@ -2449,7 +2449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i191:
   br i1 %cmp.not.i.i.i193, label %if.else.i.i.i196, label %invoke.cont38
 
 if.else.i.i.i196:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i191
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %64, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %64, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i196.invoke.cont38_crit_edge unwind label %lpad
 
 if.else.i.i.i196.invoke.cont38_crit_edge:         ; preds = %if.else.i.i.i196
@@ -2478,7 +2478,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i208:
   br i1 %cmp.not.i.i.i210, label %if.else.i.i.i213, label %invoke.cont40
 
 if.else.i.i.i213:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i208
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %68, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %68, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i213.invoke.cont40_crit_edge unwind label %lpad
 
 if.else.i.i.i213.invoke.cont40_crit_edge:         ; preds = %if.else.i.i.i213
@@ -2507,7 +2507,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i225:
   br i1 %cmp.not.i.i.i227, label %if.else.i.i.i230, label %invoke.cont42
 
 if.else.i.i.i230:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i225
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %72, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %72, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i230.invoke.cont42_crit_edge unwind label %lpad
 
 if.else.i.i.i230.invoke.cont42_crit_edge:         ; preds = %if.else.i.i.i230
@@ -2536,7 +2536,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i242:
   br i1 %cmp.not.i.i.i244, label %if.else.i.i.i247, label %nrvo.skipdtor
 
 if.else.i.i.i247:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i242
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %76, i64 noundef 0, ptr noundef nonnull getelementptr inbounds ({ %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } }, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 0, i32 2, i32 0, i64 0), i64 noundef 0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %76, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_15emptyB5cxx11E, i64 16), i64 noundef 0)
           to label %if.else.i.i.i247.nrvo.skipdtor_crit_edge unwind label %lpad
 
 if.else.i.i.i247.nrvo.skipdtor_crit_edge:         ; preds = %if.else.i.i.i247
@@ -2713,7 +2713,7 @@ if.then.i.i11:                                    ; preds = %if.end21
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %if.then.i.i11
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %12 = load ptr, ptr %test_name_.i, align 8
   %13 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -3035,7 +3035,7 @@ if.then.i.i19:                                    ; preds = %if.end42
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %if.then.i.i19
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 16), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %18 = load ptr, ptr %test_name_.i, align 8
   %19 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -4797,14 +4797,14 @@ cond.false:                                       ; preds = %entry
           to label %cleanup.action unwind label %ehcleanup.thread
 
 cleanup.action:                                   ; preds = %cond.false
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 0, i32 13), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
   %arrayidx.i.i20 = getelementptr inbounds i8, ptr %0, i64 384
   %retval.sroa.0.0.copyload.i.i21 = load ptr, ptr %arrayidx.i.i20, align 8
   call void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2D1Ev(ptr noundef nonnull align 8 dereferenceable(3152) %ref.tmp2) #22
   br label %cleanup.done13
 
 cleanup.action12:                                 ; preds = %cond.true
-  %1 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 0, i32 13), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 88), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 320
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %arrayidx.i.i, align 8
   call void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3D1Ev(ptr noundef nonnull align 8 dereferenceable(3648) %ref.tmp) #22
@@ -19882,14 +19882,14 @@ cond.false:                                       ; preds = %entry
           to label %cleanup.action unwind label %ehcleanup.thread
 
 cleanup.action:                                   ; preds = %cond.false
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 0, i32 13), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %0, i64 384
   %retval.sroa.0.0.copyload.i.i15 = load ptr, ptr %arrayidx.i.i14, align 8
   call void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2D1Ev(ptr noundef nonnull align 8 dereferenceable(3152) %ref.tmp1) #22
   br label %cleanup.done12
 
 cleanup.action11:                                 ; preds = %cond.true
-  %1 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 0, i32 13), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 88), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 320
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %arrayidx.i.i, align 8
   call void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3D1Ev(ptr noundef nonnull align 8 dereferenceable(3648) %ref.tmp) #22
@@ -23772,14 +23772,14 @@ cond.false:                                       ; preds = %entry
           to label %cleanup.action unwind label %ehcleanup.thread
 
 cleanup.action:                                   ; preds = %cond.false
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 0, i32 13), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %0, i64 384
   %retval.sroa.0.0.copyload.i.i14 = load ptr, ptr %arrayidx.i.i13, align 8
   call void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2D1Ev(ptr noundef nonnull align 8 dereferenceable(3152) %ref.tmp2) #22
   br label %cleanup.done13
 
 cleanup.action12:                                 ; preds = %cond.true
-  %1 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 0, i32 13), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 88), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 320
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %arrayidx.i.i, align 8
   call void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3D1Ev(ptr noundef nonnull align 8 dereferenceable(3648) %ref.tmp) #22
@@ -28115,7 +28115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit311: ; preds = %_Z
           to label %invoke.cont56 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit311
-  %24 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 0, i32 13), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i64 88), align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %24, i64 320
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -45812,7 +45812,7 @@ eh.resume:                                        ; preds = %ehcleanup90, %ehcle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 16), ptr %this, align 8
   %type_url_ = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %type_url_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 424
@@ -45853,7 +45853,7 @@ _ZNSt10unique_ptrIN6google8protobuf4util12TypeResolverESt14default_deleteIS3_EED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 16), ptr %this, align 8
   %type_url_.i = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %type_url_.i, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 424
@@ -46683,7 +46683,7 @@ declare void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2C2EPN6google
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 16), ptr %this, align 8
   %skipped_ = getelementptr inbounds i8, ptr %this, i64 352
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

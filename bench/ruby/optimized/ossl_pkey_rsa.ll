@@ -371,7 +371,7 @@ define internal i64 @ossl_rsa_sign_pss(i32 noundef %0, ptr noundef %1, i64 nound
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 11) #5
   store i64 %12, ptr @ossl_rsa_sign_pss.kwargs_ids, align 16
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 9) #5
-  store i64 %13, ptr getelementptr inbounds ([2 x i64], ptr @ossl_rsa_sign_pss.kwargs_ids, i64 0, i64 1), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @ossl_rsa_sign_pss.kwargs_ids, i64 8), align 8
   br label %14
 
 14:                                               ; preds = %11, %3
@@ -540,7 +540,7 @@ define internal range(i64 0, 21) i64 @ossl_rsa_verify_pss(i32 noundef %0, ptr no
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 11) #5
   store i64 %12, ptr @ossl_rsa_verify_pss.kwargs_ids, align 16
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 9) #5
-  store i64 %13, ptr getelementptr inbounds ([2 x i64], ptr @ossl_rsa_verify_pss.kwargs_ids, i64 0, i64 1), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @ossl_rsa_verify_pss.kwargs_ids, i64 8), align 8
   br label %14
 
 14:                                               ; preds = %11, %3

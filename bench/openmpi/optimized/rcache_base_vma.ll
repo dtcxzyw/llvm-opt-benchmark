@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @mca_rcache_base_vma_module_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_recursive_mutex_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -28,7 +28,7 @@ define internal void @mca_rcache_base_vma_module_construct(ptr noundef %0) #0 {
   store ptr @opal_recursive_mutex_t_class, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1408
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_recursive_mutex_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -73,10 +73,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_rcache_base_vma_module_t_class, i64 0, i32 8), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 56), align 8
   %2 = tail call noalias ptr @malloc(i64 noundef %1) #4
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_rcache_base_vma_module_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %3, %4
   br i1 %.not.i, label %6, label %5
 
@@ -92,7 +92,7 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
   store ptr @mca_rcache_base_vma_module_t_class, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_rcache_base_vma_module_t_class, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i

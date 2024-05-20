@@ -2870,7 +2870,7 @@ ptvcursor_tree.exit:                              ; preds = %4
   %35 = load ptr, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -2894,7 +2894,7 @@ ptvcursor_tree.exit:                              ; preds = %4
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -3148,7 +3148,7 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
   %41 = load ptr, ptr %17, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %45 = icmp ugt i32 %43, %44
   br i1 %45, label %46, label %61
 
@@ -3172,7 +3172,7 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %38, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %60 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %56, ptr noundef nonnull @.str.12, ptr noundef %58, i32 noundef %59) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %60) #34
   unreachable
@@ -3323,7 +3323,7 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
   %34 = load ptr, ptr %10, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %39, label %54
 
@@ -3347,7 +3347,7 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %31, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %51, i32 noundef %52) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %53) #34
   unreachable
@@ -3505,10 +3505,10 @@ get_hfi_length.exit:                              ; preds = %2
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not32.i = icmp ne i32 %18, 0
-  %19 = load i32, ptr getelementptr inbounds (%struct._header_field_info, ptr @hfi_text_only, i64 0, i32 9), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @hfi_text_only, i64 56), align 8
   %.not33.i = icmp eq i32 %19, 3
   %or.cond = select i1 %.not32.i, i1 true, i1 %.not33.i
-  %.pre = load i32, ptr getelementptr inbounds (%struct._header_field_info, ptr @hfi_text_only, i64 0, i32 2), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @hfi_text_only, i64 16), align 8
   br i1 %or.cond, label %proto_tree_add_text_node.exit, label %20
 
 20:                                               ; preds = %get_hfi_length.exit
@@ -3634,7 +3634,7 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
   %32 = load ptr, ptr %8, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %36 = icmp ugt i32 %34, %35
   br i1 %36, label %37, label %52
 
@@ -3658,7 +3658,7 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %29, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %49, i32 noundef %50) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %51) #34
   unreachable
@@ -3864,7 +3864,7 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
   %32 = load ptr, ptr %8, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %36 = icmp ugt i32 %34, %35
   br i1 %36, label %37, label %52
 
@@ -3888,7 +3888,7 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %29, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %49, i32 noundef %50) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %51) #34
   unreachable
@@ -4187,7 +4187,7 @@ ws_sign_ext32.exit:                               ; preds = %54, %60
   %93 = load ptr, ptr %68, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8
-  %96 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %97 = icmp ugt i32 %95, %96
   br i1 %97, label %98, label %113
 
@@ -4211,7 +4211,7 @@ ws_sign_ext32.exit:                               ; preds = %54, %60
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %90, i64 8
   %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %112 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %108, ptr noundef nonnull @.str.12, ptr noundef %110, i32 noundef %111) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %112) #34
   unreachable
@@ -4588,7 +4588,7 @@ define internal fastcc noundef ptr @proto_tree_add_node(ptr noundef %0, ptr noun
   br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   br label %6
 
 6:                                                ; preds = %.preheader, %24
@@ -4609,7 +4609,7 @@ define internal fastcc noundef ptr @proto_tree_add_node(ptr noundef %0, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %19 = load ptr, ptr %1, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 8
@@ -4916,7 +4916,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
   %86 = load ptr, ptr %61, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load i32, ptr %87, align 8
-  %89 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %90 = icmp ugt i32 %88, %89
   br i1 %90, label %91, label %106
 
@@ -4940,7 +4940,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %83, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %105 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %101, ptr noundef nonnull @.str.12, ptr noundef %103, i32 noundef %104) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %105) #34
   unreachable
@@ -5415,7 +5415,7 @@ test_length.exit:                                 ; preds = %33, %49
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8
-  %96 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %97 = icmp ugt i32 %95, %96
   br i1 %97, label %98, label %115
 
@@ -5441,7 +5441,7 @@ test_length.exit:                                 ; preds = %33, %49
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %88, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %114 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %110, ptr noundef nonnull @.str.12, ptr noundef %112, i32 noundef %113) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %114) #34
   unreachable
@@ -6833,7 +6833,7 @@ ws_sign_ext32.exit:                               ; preds = %65, %71
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load i32, ptr %107, align 8
-  %109 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %110 = icmp ugt i32 %108, %109
   br i1 %110, label %111, label %128
 
@@ -6859,7 +6859,7 @@ ws_sign_ext32.exit:                               ; preds = %65, %71
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %101, i64 8
   %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %126 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %127 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %123, ptr noundef nonnull @.str.12, ptr noundef %125, i32 noundef %126) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %127) #34
   unreachable
@@ -7146,7 +7146,7 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %118 = icmp ugt i32 %116, %117
   br i1 %118, label %119, label %136
 
@@ -7172,7 +7172,7 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %109, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %134 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %135 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %131, ptr noundef nonnull @.str.12, ptr noundef %133, i32 noundef %134) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %135) #34
   unreachable
@@ -7459,7 +7459,7 @@ test_length.exit:                                 ; preds = %41, %57
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 8
-  %106 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %106 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %107 = icmp ugt i32 %105, %106
   br i1 %107, label %108, label %125
 
@@ -7485,7 +7485,7 @@ test_length.exit:                                 ; preds = %41, %57
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %98, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %124 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef nonnull @.str.12, ptr noundef %122, i32 noundef %123) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %124) #34
   unreachable
@@ -7861,7 +7861,7 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
   %84 = load ptr, ptr %59, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = load i32, ptr %85, align 8
-  %87 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %88 = icmp ugt i32 %86, %87
   br i1 %88, label %89, label %104
 
@@ -7885,7 +7885,7 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %81, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %99, ptr noundef nonnull @.str.12, ptr noundef %101, i32 noundef %102) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %103) #34
   unreachable
@@ -8280,7 +8280,7 @@ get_int64_value.exit:                             ; preds = %45, %47, %50, %53, 
   %98 = load ptr, ptr %73, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %102 = icmp ugt i32 %100, %101
   br i1 %102, label %103, label %118
 
@@ -8304,7 +8304,7 @@ get_int64_value.exit:                             ; preds = %45, %47, %50, %53, 
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %95, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %117 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %113, ptr noundef nonnull @.str.12, ptr noundef %115, i32 noundef %116) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %117) #34
   unreachable
@@ -8676,7 +8676,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
   %81 = load ptr, ptr %56, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
-  %84 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %85 = icmp ugt i32 %83, %84
   br i1 %85, label %86, label %101
 
@@ -8700,7 +8700,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %78, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %100 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %96, ptr noundef nonnull @.str.12, ptr noundef %98, i32 noundef %99) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %100) #34
   unreachable
@@ -8919,7 +8919,7 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
   %74 = load ptr, ptr %49, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
-  %77 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %78 = icmp ugt i32 %76, %77
   br i1 %78, label %79, label %94
 
@@ -8943,7 +8943,7 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %71, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %89, ptr noundef nonnull @.str.12, ptr noundef %91, i32 noundef %92) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %93) #34
   unreachable
@@ -9146,7 +9146,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %67 = load ptr, ptr %42, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %71 = icmp ugt i32 %69, %70
   br i1 %71, label %72, label %87
 
@@ -9170,7 +9170,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %64, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %86 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %82, ptr noundef nonnull @.str.12, ptr noundef %84, i32 noundef %85) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %86) #34
   unreachable
@@ -9399,7 +9399,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %67 = load ptr, ptr %42, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %71 = icmp ugt i32 %69, %70
   br i1 %71, label %72, label %87
 
@@ -9423,7 +9423,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %64, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %86 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %82, ptr noundef nonnull @.str.12, ptr noundef %84, i32 noundef %85) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %86) #34
   unreachable
@@ -9638,7 +9638,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
   %68 = load ptr, ptr %43, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
-  %71 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %72 = icmp ugt i32 %70, %71
   br i1 %72, label %73, label %88
 
@@ -9662,7 +9662,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %65, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %86 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %87 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.12, ptr noundef %85, i32 noundef %86) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %87) #34
   unreachable
@@ -9859,7 +9859,7 @@ proto_registrar_get_nth.exit:                     ; preds = %19
   %61 = load ptr, ptr %36, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %65 = icmp ugt i32 %63, %64
   br i1 %65, label %66, label %81
 
@@ -9883,7 +9883,7 @@ proto_registrar_get_nth.exit:                     ; preds = %19
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %58, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %80 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %76, ptr noundef nonnull @.str.12, ptr noundef %78, i32 noundef %79) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %80) #34
   unreachable
@@ -10084,7 +10084,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %61 = load ptr, ptr %36, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %65 = icmp ugt i32 %63, %64
   br i1 %65, label %66, label %81
 
@@ -10108,7 +10108,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %58, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %80 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %76, ptr noundef nonnull @.str.12, ptr noundef %78, i32 noundef %79) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %80) #34
   unreachable
@@ -10378,7 +10378,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
   %95 = load ptr, ptr %70, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load i32, ptr %96, align 8
-  %98 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %99 = icmp ugt i32 %97, %98
   br i1 %99, label %100, label %115
 
@@ -10402,7 +10402,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %92, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %114 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %110, ptr noundef nonnull @.str.12, ptr noundef %112, i32 noundef %113) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %114) #34
   unreachable
@@ -10792,7 +10792,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
   %122 = load ptr, ptr %97, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load i32, ptr %123, align 8
-  %125 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %125 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %126 = icmp ugt i32 %124, %125
   br i1 %126, label %127, label %142
 
@@ -10816,7 +10816,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %119, i64 8
   %139 = load ptr, ptr %138, align 8
-  %140 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %141 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %137, ptr noundef nonnull @.str.12, ptr noundef %139, i32 noundef %140) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %141) #34
   unreachable
@@ -11148,7 +11148,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
   %66 = load ptr, ptr %41, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8
-  %69 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %70 = icmp ugt i32 %68, %69
   br i1 %70, label %71, label %86
 
@@ -11172,7 +11172,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %63, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %85 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %81, ptr noundef nonnull @.str.12, ptr noundef %83, i32 noundef %84) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %85) #34
   unreachable
@@ -12297,7 +12297,7 @@ test_length.exit:                                 ; preds = %26, %43
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %77 = icmp ugt i32 %75, %76
   br i1 %77, label %78, label %95
 
@@ -12323,7 +12323,7 @@ test_length.exit:                                 ; preds = %26, %43
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %68, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %94 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %90, ptr noundef nonnull @.str.12, ptr noundef %92, i32 noundef %93) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %94) #34
   unreachable
@@ -12506,7 +12506,7 @@ test_length.exit:                                 ; preds = %10, %24
   %51 = load ptr, ptr %26, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %55 = icmp ugt i32 %53, %54
   br i1 %55, label %56, label %71
 
@@ -12530,7 +12530,7 @@ test_length.exit:                                 ; preds = %10, %24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %48, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %70 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %66, ptr noundef nonnull @.str.12, ptr noundef %68, i32 noundef %69) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %70) #34
   unreachable
@@ -12765,7 +12765,7 @@ test_length.exit:                                 ; preds = %11, %25
   %55 = load ptr, ptr %30, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %59 = icmp ugt i32 %57, %58
   br i1 %59, label %60, label %80
 
@@ -12780,7 +12780,7 @@ test_length.exit:                                 ; preds = %11, %25
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %52, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 4363, ptr noundef nonnull @__func__.proto_tree_add_item_new_ret_length, ptr noundef nonnull @.str.12, ptr noundef %66, i32 noundef %67) #34
   unreachable
 
@@ -12795,7 +12795,7 @@ test_length.exit:                                 ; preds = %11, %25
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %52, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %79 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %75, ptr noundef nonnull @.str.12, ptr noundef %77, i32 noundef %78) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %79) #34
   unreachable
@@ -13153,7 +13153,7 @@ validate_proto_tree_add_bytes_ftype.exit.thread:  ; preds = %29, %29, %29, %29, 
   %106 = load ptr, ptr %81, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load i32, ptr %107, align 8
-  %109 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %110 = icmp ugt i32 %108, %109
   br i1 %110, label %111, label %132
 
@@ -13173,7 +13173,7 @@ validate_proto_tree_add_bytes_ftype.exit.thread:  ; preds = %29, %29, %29, %29, 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds i8, ptr %103, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 4491, ptr noundef nonnull @__func__.proto_tree_add_bytes_item, ptr noundef nonnull @.str.12, ptr noundef %118, i32 noundef %119) #34
   unreachable
 
@@ -13188,7 +13188,7 @@ validate_proto_tree_add_bytes_ftype.exit.thread:  ; preds = %29, %29, %29, %29, 
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %103, i64 8
   %129 = load ptr, ptr %128, align 8
-  %130 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %131 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %127, ptr noundef nonnull @.str.12, ptr noundef %129, i32 noundef %130) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %131) #34
   unreachable
@@ -13526,7 +13526,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
   %89 = load ptr, ptr %64, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
-  %92 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %93 = icmp ugt i32 %91, %92
   br i1 %93, label %94, label %109
 
@@ -13550,7 +13550,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %86, i64 8
   %106 = load ptr, ptr %105, align 8
-  %107 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %107 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %108 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %104, ptr noundef nonnull @.str.12, ptr noundef %106, i32 noundef %107) #32
   call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %108) #34
   unreachable
@@ -13693,7 +13693,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %39, label %54
 
@@ -13717,7 +13717,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %31, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %51, i32 noundef %52) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %53) #34
   unreachable
@@ -13882,7 +13882,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -13906,7 +13906,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -14140,7 +14140,7 @@ test_length.exit:                                 ; preds = %27, %28
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %57 = icmp ugt i32 %55, %56
   br i1 %57, label %58, label %73
 
@@ -14164,7 +14164,7 @@ test_length.exit:                                 ; preds = %27, %28
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %50, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %68, ptr noundef nonnull @.str.12, ptr noundef %70, i32 noundef %71) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %72) #34
   unreachable
@@ -14367,7 +14367,7 @@ test_length.exit:                                 ; preds = %28, %29
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %58 = icmp ugt i32 %56, %57
   br i1 %58, label %59, label %74
 
@@ -14391,7 +14391,7 @@ test_length.exit:                                 ; preds = %28, %29
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %51, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %73 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %69, ptr noundef nonnull @.str.12, ptr noundef %71, i32 noundef %72) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %73) #34
   unreachable
@@ -14879,7 +14879,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -14903,7 +14903,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -15102,7 +15102,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -15126,7 +15126,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -15317,7 +15317,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %39, label %54
 
@@ -15341,7 +15341,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %31, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %51, i32 noundef %52) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %53) #34
   unreachable
@@ -15535,7 +15535,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %39, label %54
 
@@ -15559,7 +15559,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %31, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %51, i32 noundef %52) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %53) #34
   unreachable
@@ -15762,7 +15762,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -15786,7 +15786,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -15984,7 +15984,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -16008,7 +16008,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -16268,7 +16268,7 @@ test_length.exit:                                 ; preds = %29, %27
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %57 = icmp ugt i32 %55, %56
   br i1 %57, label %58, label %73
 
@@ -16292,7 +16292,7 @@ test_length.exit:                                 ; preds = %29, %27
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %50, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %68, ptr noundef nonnull @.str.12, ptr noundef %70, i32 noundef %71) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %72) #34
   unreachable
@@ -16498,7 +16498,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -16522,7 +16522,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -16712,7 +16712,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -16736,7 +16736,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -16924,7 +16924,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -16948,7 +16948,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -17139,7 +17139,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -17163,7 +17163,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -17353,7 +17353,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -17377,7 +17377,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -17571,7 +17571,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -17595,7 +17595,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -17788,7 +17788,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -17812,7 +17812,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -18001,7 +18001,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -18025,7 +18025,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -18214,7 +18214,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %37 = icmp ugt i32 %35, %36
   br i1 %37, label %38, label %53
 
@@ -18238,7 +18238,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %30, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %50, i32 noundef %51) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %52) #34
   unreachable
@@ -19803,7 +19803,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nocap
   br label %61
 
 46:                                               ; preds = %.loopexit
-  %47 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 75), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 424), align 8
   %.not58 = icmp eq i32 %47, 0
   %48 = zext i32 %3 to i64
   br i1 %.not58, label %52, label %49
@@ -30947,7 +30947,7 @@ test_length.exit:                                 ; preds = %27, %43
   %64 = load ptr, ptr %45, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %68 = icmp ugt i32 %66, %67
   br i1 %68, label %69, label %84
 
@@ -30971,7 +30971,7 @@ test_length.exit:                                 ; preds = %27, %43
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %61, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %83 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %79, ptr noundef nonnull @.str.12, ptr noundef %81, i32 noundef %82) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %83) #34
   unreachable
@@ -31207,7 +31207,7 @@ _proto_tree_add_bits_ret_val.exit.thread23:       ; preds = %69
   %90 = load ptr, ptr %71, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %94 = icmp ugt i32 %92, %93
   br i1 %94, label %95, label %110
 
@@ -31231,7 +31231,7 @@ _proto_tree_add_bits_ret_val.exit.thread23:       ; preds = %69
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %87, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %109 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %105, ptr noundef nonnull @.str.12, ptr noundef %107, i32 noundef %108) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %109) #34
   unreachable
@@ -31637,7 +31637,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_ed
   %111 = load ptr, ptr %92, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 16
   %113 = load i32, ptr %112, align 8
-  %114 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %115 = icmp ugt i32 %113, %114
   br i1 %115, label %116, label %131
 
@@ -31661,7 +31661,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_ed
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %108, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %129 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %130 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %126, ptr noundef nonnull @.str.12, ptr noundef %128, i32 noundef %129) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %130) #34
   unreachable
@@ -32021,7 +32021,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -32045,7 +32045,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -32161,7 +32161,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %33 = icmp ugt i32 %31, %32
   br i1 %33, label %34, label %49
 
@@ -32185,7 +32185,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %26, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %44, ptr noundef nonnull @.str.12, ptr noundef %46, i32 noundef %47) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %48) #34
   unreachable
@@ -32450,7 +32450,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -32474,7 +32474,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -32608,7 +32608,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -32632,7 +32632,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -32765,7 +32765,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -32789,7 +32789,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -32923,7 +32923,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -32947,7 +32947,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -33081,7 +33081,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %39 = icmp ugt i32 %37, %38
   br i1 %39, label %40, label %55
 
@@ -33105,7 +33105,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %32, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %52, i32 noundef %53) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %54) #34
   unreachable
@@ -33237,7 +33237,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %36 = icmp ugt i32 %34, %35
   br i1 %36, label %37, label %52
 
@@ -33261,7 +33261,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %29, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %49, i32 noundef %50) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %51) #34
   unreachable
@@ -33420,7 +33420,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %36 = icmp ugt i32 %34, %35
   br i1 %36, label %37, label %52
 
@@ -33444,7 +33444,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %29, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 41), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %49, i32 noundef %50) #32
   tail call void @except_throw(i64 noundef 1, i64 noundef 6, ptr noundef %51) #34
   unreachable

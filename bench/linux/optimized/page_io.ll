@@ -455,7 +455,7 @@ define dso_local void @__swap_writepage(ptr noundef %0, ptr nocapture noundef re
 
 67:                                               ; preds = %63, %57
   %68 = phi i64 [ %66, %63 ], [ 1, %57 ]
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3), i64 %68, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3)) #6, !srcloc !12
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24), i64 %68, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24)) #6, !srcloc !12
   tail call void @__folio_start_writeback(ptr noundef %0, i1 noundef zeroext false) #6
   tail call void @folio_unlock(ptr noundef %0) #6
   %69 = getelementptr inbounds i8, ptr %1, i64 40
@@ -736,7 +736,7 @@ define dso_local void @__swap_writepage(ptr noundef %0, ptr nocapture noundef re
 
 238:                                              ; preds = %234, %228
   %239 = phi i64 [ %237, %234 ], [ 1, %228 ]
-  call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3), i64 %239, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3)) #6, !srcloc !12
+  call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24), i64 %239, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24)) #6, !srcloc !12
   call void @__folio_start_writeback(ptr noundef %0, i1 noundef zeroext false) #6
   call void @folio_unlock(ptr noundef %0) #6
   %240 = call i32 @submit_bio_wait(ptr noundef nonnull %4) #6
@@ -797,7 +797,7 @@ define dso_local void @__swap_writepage(ptr noundef %0, ptr nocapture noundef re
 
 276:                                              ; preds = %272, %266
   %277 = phi i64 [ %275, %272 ], [ 1, %266 ]
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3), i64 %277, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 3)) #6, !srcloc !12
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24), i64 %277, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 24)) #6, !srcloc !12
   tail call void @__folio_start_writeback(ptr noundef %0, i1 noundef zeroext false) #6
   tail call void @folio_unlock(ptr noundef %0) #6
   tail call void @submit_bio(ptr noundef %255) #6
@@ -1424,7 +1424,7 @@ define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, pt
   br label %229
 
 229:                                              ; preds = %227, %223
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2)) #6, !srcloc !20
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16)) #6, !srcloc !20
   %230 = call i32 @submit_bio_wait(ptr noundef nonnull %6) #6
   call fastcc void @__end_swap_bio_read(ptr noundef nonnull %6)
   %231 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %220, i32 -1, ptr elementtype(i32) %220) #6, !srcloc !21
@@ -1473,7 +1473,7 @@ define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, pt
   %252 = phi i64 [ %250, %247 ], [ 0, %237 ]
   %253 = shl i64 4096, %252
   call void @bio_add_folio_nofail(ptr noundef %240, ptr noundef %0, i64 noundef %253, i64 noundef 0) #6
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2)) #6, !srcloc !20
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16)) #6, !srcloc !20
   call void @submit_bio(ptr noundef %240) #6
   br label %254
 
@@ -1641,7 +1641,7 @@ define internal void @sio_read_complete(ptr noundef %0, i64 noundef %1) #0 align
 
 .loopexit:                                        ; preds = %46, %..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %51, %46 ]
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2), i64 %.pre-phi, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 2)) #6, !srcloc !12
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16), i64 %.pre-phi, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 16)) #6, !srcloc !12
   br label %94
 
 53:                                               ; preds = %83, %11

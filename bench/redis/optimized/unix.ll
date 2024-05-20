@@ -54,7 +54,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %do.end12
   %dec2 = phi i32 [ 999, %entry ], [ %dec, %do.end12 ]
-  %call = tail call i32 @anetUnixAccept(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 70), i32 noundef %fd) #8
+  %call = tail call i32 @anetUnixAccept(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592), i32 noundef %fd) #8
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %do.body8
 
@@ -62,22 +62,22 @@ if.then:                                          ; preds = %while.body
   %call1 = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %0, 11
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %1, 3
   %or.cond = select i1 %cmp2, i1 true, i1 %cmp4
   br i1 %or.cond, label %while.end, label %if.end
 
 if.end:                                           ; preds = %if.then
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 70)) #8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592)) #8
   br label %while.end
 
 do.body8:                                         ; preds = %while.body
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp9 = icmp sgt i32 %2, 1
   br i1 %cmp9, label %do.end12, label %if.end11
 
 if.end11:                                         ; preds = %do.body8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 50), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 472), align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %3) #8
   br label %do.end12
 
@@ -137,18 +137,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %3 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @unlink(ptr noundef %3) #8
   %4 = load i32, ptr %0, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 46), align 8
-  %call3 = tail call i32 @anetUnixServer(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 70), ptr noundef %3, i32 noundef %4, i32 noundef %5) #8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 320), align 8
+  %call3 = tail call i32 @anetUnixServer(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592), ptr noundef %3, i32 noundef %4, i32 noundef %5) #8
   %cmp4 = icmp eq i32 %call3, -1
   br i1 %cmp4, label %do.body, label %if.end9
 
 do.body:                                          ; preds = %for.body
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp6 = icmp sgt i32 %6, 3
   br i1 %cmp6, label %do.end, label %if.end8
 
 if.end8:                                          ; preds = %do.body
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 70)) #8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592)) #8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.end8

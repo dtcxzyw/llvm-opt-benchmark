@@ -1793,7 +1793,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %read_buffer_.i, i8 0, i64 32, i1 false)
   %max_manifest_read_size_.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 -1, ptr %max_manifest_read_size_.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i64 16), ptr %this, align 8
   %read_only_ = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %frombool, ptr %read_only_, align 8
   %column_families_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -3272,7 +3272,7 @@ if.then18:                                        ; preds = %if.then12
   %db_options_.i = getelementptr inbounds i8, ptr %6, i64 208
   %7 = load ptr, ptr %db_options_.i, align 8
   %info_log = getelementptr inbounds i8, ptr %7, i64 48
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([120 x i8], ptr @.str.18, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 93))
           to label %if.end33 unwind label %lpad
 
 if.else:                                          ; preds = %if.then12
@@ -4668,7 +4668,7 @@ call.i57.noexc:                                   ; preds = %if.then8
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i57.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.8, i64 0, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 3))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6818,7 +6818,7 @@ declare void @_ZN7rocksdb30PadInternalKeyWithMinTimestampEPNSt7__cxx1112basic_st
 define void @_ZN7rocksdb29VersionEditHandlerPointInTimeC2EbSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_10VersionSetERKSt10shared_ptrINS_8IOTracerEERKNS_11ReadOptionsENS_22EpochNumberRequirementE(ptr noundef nonnull align 8 dereferenceable(1064) %this, i1 noundef zeroext %read_only, ptr noundef nonnull %column_families, ptr noundef %version_set, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i32 noundef %epoch_number_requirement) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN7rocksdb18VersionEditHandlerC2EbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_10VersionSetEbbRKSt10shared_ptrINS_8IOTracerEERKNS_11ReadOptionsENS_22EpochNumberRequirementE(ptr noundef nonnull align 8 dereferenceable(1008) %this, i1 noundef zeroext %read_only, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef %version_set, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i32 noundef %epoch_number_requirement)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i64 16), ptr %this, align 8
   %versions_ = getelementptr inbounds i8, ptr %this, i64 1008
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 1056
   store ptr %_M_single_bucket.i.i, ptr %versions_, align 8
@@ -6914,7 +6914,7 @@ _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit: ; preds = %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb29VersionEditHandlerPointInTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i64 16), ptr %this, align 8
   %versions_ = getelementptr inbounds i8, ptr %this, i64 1008
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 1024
   %__begin1.sroa.0.05 = load ptr, ptr %_M_before_begin.i.i.i, align 8
@@ -9084,7 +9084,7 @@ declare noundef i32 @_ZN7rocksdb15ColumnFamilySet18GetMaxColumnFamilyEv(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb25ListColumnFamiliesHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i64 16), ptr %this, align 8
   %column_family_names_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -9099,7 +9099,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEED2Ev.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %replay_buffer_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9145,7 +9145,7 @@ _ZN7rocksdb22VersionEditHandlerBaseD2Ev.exit:     ; preds = %_ZN7rocksdb21Atomic
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb25ListColumnFamiliesHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i64 16), ptr %this, align 8
   %column_family_names_.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -9160,7 +9160,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEED2Ev.exit.i: ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %replay_buffer_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9221,7 +9221,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21FileChecksumRetrieverD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %replay_buffer_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9267,7 +9267,7 @@ _ZN7rocksdb22VersionEditHandlerBaseD2Ev.exit:     ; preds = %_ZN7rocksdb21Atomic
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21FileChecksumRetrieverD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %replay_buffer_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9313,7 +9313,7 @@ _ZN7rocksdb21FileChecksumRetrieverD2Ev.exit:      ; preds = %_ZN7rocksdb21Atomic
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18VersionEditHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(1008) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i64 16), ptr %this, align 8
   %cfds_to_mark_no_udt_ = getelementptr inbounds i8, ptr %this, i64 952
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -9689,7 +9689,7 @@ if.then.i.i.i55:                                  ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i55
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %56 = load ptr, ptr %replay_buffer_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9753,7 +9753,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb14ManifestTailerD2Ev(ptr noundef nonnull align 8 dereferenceable(1128) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb14ManifestTailerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14ManifestTailerE, i64 16), ptr %this, align 8
   %cfds_changed_ = getelementptr inbounds i8, ptr %this, i64 1072
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1088
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -9791,7 +9791,7 @@ _ZNSt13unordered_setIPN7rocksdb16ColumnFamilyDataESt4hashIS2_ESt8equal_toIS2_ESa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb14ManifestTailerD0Ev(ptr noundef nonnull align 8 dereferenceable(1128) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb14ManifestTailerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14ManifestTailerE, i64 16), ptr %this, align 8
   %cfds_changed_.i = getelementptr inbounds i8, ptr %this, i64 1072
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1088
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -9976,7 +9976,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22VersionEditHandlerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i64 16), ptr %this, align 8
   %replay_buffer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %replay_buffer_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48

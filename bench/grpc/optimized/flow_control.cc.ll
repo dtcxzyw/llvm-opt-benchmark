@@ -450,7 +450,7 @@ call.i.noexc:                                     ; preds = %if.then61
           to label %.noexc64 unwind label %lpad63
 
 .noexc64:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.12, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 9))
           to label %invoke.cont64 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc64
@@ -1068,7 +1068,7 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_flowctl_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then5, label %if.end
 
@@ -1363,8 +1363,8 @@ if.then10:                                        ; preds = %cond.end
 if.end14:                                         ; preds = %if.then10, %cond.end
   %target.0 = phi i32 [ %conv13, %if.then10 ], [ %spec.store.select, %cond.end ]
   %target_initial_window_size_15 = getelementptr inbounds i8, ptr %this, i64 200
-  %19 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 2), align 4
-  %20 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 3), align 16
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 108), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 112), align 16
   %cmp.i.i20 = icmp ugt i32 %19, %target.0
   %max.val.i.i = call i32 @llvm.umin.i32(i32 %20, i32 %target.0)
   %retval.0.i.i = select i1 %cmp.i.i20, i32 %19, i32 %max.val.i.i
@@ -1374,12 +1374,12 @@ if.end14:                                         ; preds = %if.then10, %cond.en
   br i1 %cmp.not.i, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_flowctl_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %22 to i1
   br i1 %tobool.i.i.i.i, label %if.then5.i23, label %if.end.i
 
 if.then5.i23:                                     ; preds = %if.then.i
-  %23 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 96), align 16
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %23, i64 noundef %21, i32 noundef %retval.0.i.i)
   %.pre.i24 = load i64, ptr %target_initial_window_size_15, align 8
   br label %if.end.i
@@ -1397,8 +1397,8 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   %action.sroa.2.0 = phi i8 [ 0, %if.end14 ], [ %spec.store.select.i, %if.end.i ]
   %action.sroa.571.0 = phi i32 [ 0, %if.end14 ], [ %retval.0.i.i, %if.end.i ]
   %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
-  %25 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 2), align 4
-  %26 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 3), align 16
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 140), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 144), align 16
   %cmp.i.i25 = icmp ugt i32 %25, %target.0
   %max.val.i.i26 = call i32 @llvm.umin.i32(i32 %26, i32 %target.0)
   %retval.0.i.i27 = select i1 %cmp.i.i25, i32 %25, i32 %max.val.i.i26
@@ -1408,12 +1408,12 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   br i1 %cmp.not.i29, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit
-  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_flowctl_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i31 = trunc i8 %28 to i1
   br i1 %tobool.i.i.i.i31, label %if.then5.i38, label %if.end.i32
 
 if.then5.i38:                                     ; preds = %if.then.i30
-  %29 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4), align 16
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 128), align 16
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %29, i64 noundef %27, i32 noundef %retval.0.i.i27)
   %.pre.i39 = load i64, ptr %target_frame_size_, align 8
   br label %if.end.i32
@@ -1440,8 +1440,8 @@ if.then18:                                        ; preds = %_ZN9grpc_core6chttp
   %conv20 = shl i32 %.tr, 1
   %max.val.i43 = call i32 @llvm.umin.i32(i32 %conv20, i32 134217727)
   %retval.0.i44 = call i32 @llvm.umax.i32(i32 %max.val.i43, i32 16384)
-  %32 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 2), align 4
-  %33 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 3), align 16
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 236), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 240), align 16
   %cmp.i.i45 = icmp ugt i32 %32, %retval.0.i44
   %max.val.i.i46 = call i32 @llvm.umin.i32(i32 %33, i32 %retval.0.i44)
   %retval.0.i.i47 = select i1 %cmp.i.i45, i32 %32, i32 %max.val.i.i46
@@ -1451,12 +1451,12 @@ if.then18:                                        ; preds = %_ZN9grpc_core6chttp
   br i1 %cmp.not.i49, label %if.end24, label %if.then.i50
 
 if.then.i50:                                      ; preds = %if.then18
-  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_flowctl_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i51 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i.i51, label %if.then5.i58, label %if.end.i52
 
 if.then5.i58:                                     ; preds = %if.then.i50
-  %36 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7), align 16
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 224), align 16
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %36, i64 noundef %34, i32 noundef %retval.0.i.i47)
   %.pre.i59 = load i64, ptr %target_preferred_rx_crypto_frame_size_, align 8
   br label %if.end.i52
@@ -2155,7 +2155,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

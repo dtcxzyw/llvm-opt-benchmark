@@ -860,9 +860,9 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   store <2 x double> <double 0x3FE7AE147AE147AE, double 2.700000e-01>, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, align 16
-  store <2 x double> <double 1.700000e-01, double 1.140000e+00>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 0, i32 1, i32 0, i64 0), align 16
-  store <2 x double> <double 8.000000e-02, double -1.000000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 0, i32 2, i32 0, i64 0), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 0, i32 3, i32 0, i64 0), align 16
+  store <2 x double> <double 1.700000e-01, double 1.140000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 16), align 16
+  store <2 x double> <double 8.000000e-02, double -1.000000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 32), align 16
+  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 48), align 16
   ret void
 }
 

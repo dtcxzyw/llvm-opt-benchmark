@@ -68680,7 +68680,7 @@ define hidden noundef zeroext i1 @"_ZN7hir_def7nameres15attr_resolution42_$LT$im
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr @anon.17a269f1fe17e49777498bab26e06c97.188, ptr %5, align 8, !alias.scope !20471
   %22 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.17a269f1fe17e49777498bab26e06c97.188, i64 1, i32 0), ptr %22, align 8, !alias.scope !20471
+  store ptr getelementptr inbounds (i8, ptr @anon.17a269f1fe17e49777498bab26e06c97.188, i64 32), ptr %22, align 8, !alias.scope !20471
   %23 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %18, ptr %23, align 8, !alias.scope !20471
   %24 = getelementptr inbounds i8, ptr %5, i64 24
@@ -68764,7 +68764,7 @@ default.unreachable:                              ; preds = %74, %29
 60:                                               ; preds = %48, %43, %37
   %.sroa.4.0.i = phi i64 [ %50, %48 ], [ %47, %43 ], [ %41, %37 ]
   %.sroa.0.0.i = phi ptr [ %51, %48 ], [ %45, %43 ], [ %42, %37 ]
-  %61 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17hf336202932b09715E.llvm.14212318151792154407(ptr noundef nonnull getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 1, i64 0), i8 noundef 2)
+  %61 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17hf336202932b09715E.llvm.14212318151792154407(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 32), i8 noundef 2)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %60
@@ -68773,7 +68773,7 @@ default.unreachable:                              ; preds = %74, %29
 
 62:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !20491
-  invoke void @_ZN3std4sync4once4Once15call_once_force17h1513e2af2417c490E.llvm.15602210471604820194(ptr noundef nonnull align 4 getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, ptr noalias noundef nonnull align 1 %3)
+  invoke void @_ZN3std4sync4once4Once15call_once_force17h1513e2af2417c490E.llvm.15602210471604820194(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 32), ptr noundef nonnull align 8 @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, ptr noalias noundef nonnull align 1 %3)
           to label %.noexc33 unwind label %.loopexit.split-lp
 
 .noexc33:                                         ; preds = %62
@@ -68782,7 +68782,7 @@ default.unreachable:                              ; preds = %74, %29
 
 "_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h8489899dc16f741eE.llvm.14212318151792154407.exit.i": ; preds = %.noexc33, %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !20494)
-  %63 = load i64, ptr getelementptr inbounds (<{ [32 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 0, i32 0, i64 24), align 8, !alias.scope !20494, !noalias !20497, !noundef !4
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def4attr7builtin21find_builtin_attr_idx20BUILTIN_LOOKUP_TABLE17h95430b714702bbaeE.llvm.14212318151792154407, i64 24), align 8, !alias.scope !20494, !noalias !20497, !noundef !4
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %.preheader, label %65
 
@@ -69194,7 +69194,7 @@ _ZN7hir_def6per_ns5PerNs10take_types17h39781be7ecf040e6E.exit.thread: ; preds = 
   br i1 %48, label %49, label %.critedge45
 
 49:                                               ; preds = %44
-  %50 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$18resolve_visibility10__CALLSITE17hd49360b5d95b4dd4E", i64 0, i32 2, i32 0) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$18resolve_visibility10__CALLSITE17hd49360b5d95b4dd4E", i64 16) monotonic, align 8
   switch i8 %50, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge45
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -69765,7 +69765,7 @@ default.unreachable1332:                          ; preds = %181, %9
   br i1 %137, label %138, label %.critedge
 
 138:                                              ; preds = %131
-  %139 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hf56a7e75fb430860E", i64 0, i32 2, i32 0) monotonic, align 8
+  %139 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hf56a7e75fb430860E", i64 16) monotonic, align 8
   switch i8 %139, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -70984,7 +70984,7 @@ _ZN7hir_def6per_ns5PerNs2or17h2b0b409916244bbeE.exit182.i: ; preds = %360, %358
 429:                                              ; preds = %427
   %430 = icmp ult i64 %428, 5
   call void @llvm.assume(i1 %430)
-  %431 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hf7dc3e9a90d66a03E", i64 0, i32 2, i32 0) monotonic, align 8
+  %431 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hf7dc3e9a90d66a03E", i64 16) monotonic, align 8
   switch i8 %431, label %432 [
     i8 0, label %.critedge405
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit464.thread
@@ -71297,7 +71297,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h110cb082d4e23d46E.llvm.11603491
   br i1 %537, label %538, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483.thread969
 
 538:                                              ; preds = %535
-  %539 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h71c96cff5dff8ee6E", i64 0, i32 2, i32 0) monotonic, align 8
+  %539 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h71c96cff5dff8ee6E", i64 16) monotonic, align 8
   switch i8 %539, label %540 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483.thread969
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483.thread
@@ -71390,7 +71390,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
   br i1 %563, label %564, label %.critedge416
 
 564:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483.thread969
-  %565 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hc95d86a113cda92bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %565 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hc95d86a113cda92bE", i64 16) monotonic, align 8
   switch i8 %565, label %566 [
     i8 0, label %.critedge416
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit493.thread
@@ -71549,7 +71549,7 @@ common.resume:                                    ; preds = %909, %913, %656, %6
   br i1 %612, label %613, label %.critedge423
 
 613:                                              ; preds = %609
-  %614 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hc31fe5fd49e5d1bcE", i64 0, i32 2, i32 0) monotonic, align 8
+  %614 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hc31fe5fd49e5d1bcE", i64 16) monotonic, align 8
   switch i8 %614, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit514 [
     i8 0, label %.critedge423
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit514.thread
@@ -72032,7 +72032,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   br label %845
 
 779:                                              ; preds = %.loopexit1061
-  %780 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hbc3e860b1baec8ebE", i64 0, i32 2, i32 0) monotonic, align 8
+  %780 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17hbc3e860b1baec8ebE", i64 16) monotonic, align 8
   switch i8 %780, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit553 [
     i8 0, label %.critedge428
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit553.thread
@@ -72512,7 +72512,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h110cb082d4e23d46E.llvm.11603491
   br i1 %923, label %924, label %.critedge435
 
 924:                                              ; preds = %920
-  %925 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h4220ae86d0b6f5b9E", i64 0, i32 2, i32 0) monotonic, align 8
+  %925 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h4220ae86d0b6f5b9E", i64 16) monotonic, align 8
   switch i8 %925, label %926 [
     i8 0, label %.critedge435
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit594.thread
@@ -73180,7 +73180,7 @@ select.unfold1013:                                ; preds = %1008, %1018
           to label %common.resume unwind label %503
 
 1147:                                             ; preds = %853
-  %1148 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h615beed8961e636fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1148 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def7nameres15path_resolution42_$LT$impl$u20$hir_def..nameres..DefMap$GT$33resolve_path_fp_with_macro_single10__CALLSITE17h615beed8961e636fE", i64 16) monotonic, align 8
   switch i8 %1148, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit671 [
     i8 0, label %.critedge445
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit671.thread
@@ -73850,7 +73850,7 @@ define hidden noundef nonnull ptr @_ZN7hir_def7nameres6DefMap19crate_def_map_que
   br i1 %46, label %47, label %.thread99
 
 47:                                               ; preds = %.thread
-  %48 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def7nameres6DefMap19crate_def_map_query10__CALLSITE17h0d9addcfc3986777E, i64 0, i32 1, i64 8) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def7nameres6DefMap19crate_def_map_query10__CALLSITE17h0d9addcfc3986777E, i64 16) monotonic, align 8
   switch i8 %48, label %49 [
     i8 0, label %.thread99
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

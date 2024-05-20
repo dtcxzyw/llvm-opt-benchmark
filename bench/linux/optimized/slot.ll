@@ -173,7 +173,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %77
 
 .thread:                                          ; preds = %8, %17, %4
-  %39 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 3520, i64 noundef 104) #8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %77, label %42

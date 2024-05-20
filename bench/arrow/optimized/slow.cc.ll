@@ -211,9 +211,9 @@ _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !6
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !6
   %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %sext = shl i64 %call, 32
   %conv.i.i.i.i.i.i.i.i = ashr exact i64 %sext, 32
@@ -247,9 +247,9 @@ _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !9
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
   %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %conv.i.i.i.i.i.i.i.i = sext i32 %seed to i64
   %rem.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, 2147483647
@@ -498,8 +498,8 @@ _ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit: ; preds = %_ZNSt10shared_p
 define void @_ZN5arrow2io15SlowInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 64), ptr %this, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i)
           to label %_ZN5arrow2io15SlowInputStreamD2Ev.exit unwind label %terminate.lpad.i
 
@@ -511,7 +511,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN5arrow2io15SlowInputStreamD2Ev.exit:           ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i) #23
   ret void
 }
@@ -527,8 +527,8 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 64), ptr %3, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %_ZN5arrow2io15SlowInputStreamD1Ev.exit unwind label %terminate.lpad.i.i
 
@@ -540,7 +540,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN5arrow2io15SlowInputStreamD1Ev.exit:           ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i) #23
   ret void
 }
@@ -549,8 +549,8 @@ _ZN5arrow2io15SlowInputStreamD1Ev.exit:           ; preds = %entry
 define void @_ZN5arrow2io15SlowInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 64), ptr %this, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %_ZN5arrow2io15SlowInputStreamD1Ev.exit unwind label %terminate.lpad.i.i
 
@@ -562,7 +562,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN5arrow2io15SlowInputStreamD1Ev.exit:           ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
@@ -579,8 +579,8 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 64), ptr %3, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN5arrow2io15SlowInputStreamD0Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -592,7 +592,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN5arrow2io15SlowInputStreamD0Ev.exit:           ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   ret void
@@ -985,7 +985,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %add.ptr7, align 8
   %vtable8 = load ptr, ptr %this, align 8
   %vbase.offset.ptr9 = getelementptr i8, ptr %vtable8, i64 -56
   %vbase.offset10 = load i64, ptr %vbase.offset.ptr9, align 8
@@ -1025,7 +1025,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEEE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEEE, i64 200), ptr %add.ptr7, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -1183,10 +1183,10 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZNSt10sha
 define void @_ZN5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %this, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %add.ptr7.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1198,7 +1198,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD2Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i) #23
   ret void
 }
@@ -1211,10 +1211,10 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %3, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %add.ptr7.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD1Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1226,7 +1226,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i) #23
   ret void
 }
@@ -1236,9 +1236,9 @@ define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef %this) unna
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %this, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD1Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1250,7 +1250,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i) #23
   ret void
 }
@@ -1259,10 +1259,10 @@ _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
 define void @_ZN5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %this, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %add.ptr7.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD1Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1274,7 +1274,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
@@ -1288,10 +1288,10 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %3, align 8
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %add.ptr7.i.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD0Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1303,7 +1303,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   ret void
@@ -1314,9 +1314,9 @@ define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef %this) unna
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 2, i64 8), ptr %add.ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 0, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 64), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 240), ptr %this, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN5arrow2io20SlowRandomAccessFileD0Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1328,7 +1328,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
-  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 0, i64 1)) #23
+  tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #23
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void

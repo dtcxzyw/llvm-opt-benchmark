@@ -23238,7 +23238,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   unreachable
 
 548:                                              ; preds = %.noexc.i.i, %538
-  %.0.i.i2.i.i.i.i = phi ptr [ %545, %.noexc.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %538 ]
+  %.0.i.i2.i.i.i.i = phi ptr [ %545, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %538 ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %27, i64 32
   %549 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !3591
   %550 = extractelement <2 x i64> %549, i64 0

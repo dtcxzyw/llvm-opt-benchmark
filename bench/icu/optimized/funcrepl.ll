@@ -44,8 +44,8 @@ entry:
 define void @_ZN6icu_7516FunctionReplacerC2EPNS_14TransliteratorEPNS_14UnicodeFunctorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %adoptedTranslit, ptr noundef %adoptedReplacer) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 112), ptr %0, align 8
   %translit = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %adoptedTranslit, ptr %translit, align 8
   %replacer = getelementptr inbounds i8, ptr %this, i64 24
@@ -57,8 +57,8 @@ entry:
 define void @_ZN6icu_7516FunctionReplacerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 112), ptr %0, align 8
   %translit = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %translit, align 8
   %vtable = load ptr, ptr %1, align 8
@@ -102,9 +102,9 @@ declare void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7516FunctionReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 112), ptr %add.ptr, align 8
   %translit = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %translit, align 8
   %isnull = icmp eq ptr %0, null
@@ -248,7 +248,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7516FunctionRep
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %str = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %rule, i64 8

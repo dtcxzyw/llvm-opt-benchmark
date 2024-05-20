@@ -595,9 +595,9 @@ if.end4.thread:                                   ; preds = %entry
   br label %if.then9
 
 if.end4:                                          ; preds = %entry
-  %3 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 0, i32 6), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool6 = icmp ne i8 %3, 0
-  %4 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool8 = icmp ne i8 %4, 0
   %or.cond2 = select i1 %tobool6, i1 true, i1 %tobool8
   br i1 %or.cond2, label %if.then9, label %if.end16
@@ -612,7 +612,7 @@ if.then9:                                         ; preds = %if.end4.thread, %if
   br label %return
 
 if.end16:                                         ; preds = %if.end4
-  %7 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 6), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 434), align 2
   %tobool17.not = icmp eq i8 %7, 0
   br i1 %tobool17.not, label %if.end20, label %if.then18
 
@@ -622,11 +622,11 @@ if.then18:                                        ; preds = %if.end16
   br label %return
 
 if.end20:                                         ; preds = %if.end16
-  %9 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool21.not = icmp ne i8 %9, 0
-  %10 = load ptr, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 88), align 8
   %spec.select = select i1 %tobool21.not, ptr %10, ptr null
-  %11 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool24.not = icmp ne i8 %11, 0
   %or.cond76.not = select i1 %tobool24.not, i1 %tobool21.not, i1 false
   br i1 %or.cond76.not, label %if.then27, label %if.end30
@@ -637,13 +637,13 @@ if.then27:                                        ; preds = %if.end20
   br label %return
 
 if.end30:                                         ; preds = %if.end20
-  %13 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool31.not = icmp eq i8 %13, 0
   br i1 %tobool31.not, label %if.else38, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
   store i1 true, ptr @_ZL12opt_truncate, align 1
-  %14 = load ptr, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 168), align 8
   %cmp33.not = icmp eq ptr %14, null
   br i1 %cmp33.not, label %if.else36, label %if.then34
 
@@ -661,7 +661,7 @@ if.else38:                                        ; preds = %if.end30
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %if.else36, %if.else38
-  %15 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool40.not = icmp eq i8 %15, 0
   br i1 %tobool40.not, label %if.end42, label %if.then41
 
@@ -670,27 +670,27 @@ if.then41:                                        ; preds = %if.end39
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end39
-  %16 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool43.not = icmp eq i8 %16, 0
-  %17 = load ptr, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 248), align 8
   %spec.select75 = select i1 %tobool43.not, ptr null, ptr %17
-  %18 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool46.not = icmp eq i8 %18, 0
-  %19 = load ptr, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   %inputDir.0 = select i1 %tobool46.not, ptr @.str, ptr %19
-  %20 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool49.not = icmp eq i8 %20, 0
-  %21 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6), align 2
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %tobool52.not = icmp eq i8 %21, 0
   br i1 %tobool52.not, label %if.end54, label %if.then53
 
 if.then53:                                        ; preds = %if.end42
-  %22 = load ptr, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 1), align 16
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 368), align 16
   tail call void @u_setDataDirectory_75(ptr noundef %22)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then53, %if.end42
-  %23 = load i8, ptr getelementptr inbounds ([12 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 6), align 2
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 474), align 2
   %tobool55.not = icmp eq i8 %23, 0
   br i1 %tobool55.not, label %if.end57, label %if.then56
 

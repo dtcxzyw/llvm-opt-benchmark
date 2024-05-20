@@ -422,7 +422,7 @@ define dso_local i32 @acpi_ut_execute_CLS(ptr noundef %0, ptr nocapture noundef 
   %53 = and i64 %52, 512
   %54 = icmp eq i64 %53, 0
   %55 = select i1 %54, i32 2336, i32 3520
-  %56 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %57 = call noalias align 8 dereferenceable_or_null(23) ptr @kmalloc_trace(ptr noundef %56, i32 noundef %55, i64 noundef 23) #9
   %58 = icmp eq ptr %57, null
   br i1 %58, label %62, label %59

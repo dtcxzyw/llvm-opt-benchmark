@@ -92,7 +92,7 @@ $_ZNK12aiMatrix4x4tIfE11DeterminantEv = comdat any
 define hidden void @_ZN6Assimp13DeboneProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #17
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13DeboneProcessE, i64 16), ptr %this, align 8
   %mNumBones = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %mNumBones, align 8
   %mNumBonesCanDoWithout = getelementptr inbounds i8, ptr %this, i64 28
@@ -3485,7 +3485,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp13DeboneProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13DeboneProcessE, i64 16), ptr %this, align 8
   %mSubMeshIndices = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %mSubMeshIndices, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3529,7 +3529,7 @@ _ZNSt6vectorIS_ISt4pairIjP6aiNodeESaIS3_EESaIS5_EED2Ev.exit: ; preds = %invoke.c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp13DeboneProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13DeboneProcessE, i64 16), ptr %this, align 8
   %mSubMeshIndices.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %mSubMeshIndices.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48

@@ -82,7 +82,7 @@ define dso_local noundef ptr @drm_property_create(ptr noundef %0, i32 noundef %1
   br label %54
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 120) #10
   %24 = icmp eq ptr %23, null
   br i1 %24, label %54, label %25
@@ -328,7 +328,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_property_add_enum(ptr nounde
   br label %54
 
 39:                                               ; preds = %.loopexit
-  %40 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %41 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 56) #10
   %42 = icmp eq ptr %41, null
   br i1 %42, label %54, label %43

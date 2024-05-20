@@ -232,7 +232,7 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
   br i1 %.not34, label %.critedge40, label %35
 
 35:                                               ; preds = %.critedge
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %37 = and i64 %36, 36028797018963968
   %.not36 = icmp eq i64 %37, 0
   br i1 %.not36, label %43, label %38
@@ -344,7 +344,7 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %11 = and i64 %10, 36028797018963968
   %.not29 = icmp eq i64 %11, 0
   br i1 %.not29, label %47, label %12
@@ -396,7 +396,7 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not27, label %44, label %35
 
 35:                                               ; preds = %32
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %37 = and i64 %36, 36028797018963968
   %.not28 = icmp eq i64 %37, 0
   br i1 %.not28, label %.backedge, label %38
@@ -446,7 +446,7 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 36028797018963968
   %.not15 = icmp eq i64 %12, 0
   br i1 %.not15, label %37, label %13
@@ -468,7 +468,7 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not, label %29, label %21
 
 21:                                               ; preds = %19
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 36028797018963968
   %.not14 = icmp eq i64 %23, 0
   br i1 %.not14, label %37, label %24
@@ -547,7 +547,7 @@ define void @xcgroup_wait_pid_moved(ptr noundef %0, ptr noundef %1) local_unname
 
 ._crit_edge:                                      ; preds = %6, %12
   call void @slurm_xfree(ptr noundef nonnull %3) #6
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %20 = and i64 %19, 36028797018963968
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %27, label %21
@@ -589,7 +589,7 @@ define i32 @xcgroup_get_uint32_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 36028797018963968
   %.not15 = icmp eq i64 %13, 0
   br i1 %.not15, label %41, label %14
@@ -609,7 +609,7 @@ define i32 @xcgroup_get_uint32_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %27, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 36028797018963968
   %.not14 = icmp eq i64 %22, 0
   br i1 %.not14, label %40, label %23
@@ -629,7 +629,7 @@ define i32 @xcgroup_get_uint32_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 36028797018963968
   %.not13 = icmp eq i64 %32, 0
   br i1 %.not13, label %40, label %33
@@ -673,7 +673,7 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 36028797018963968
   %.not15 = icmp eq i64 %13, 0
   br i1 %.not15, label %41, label %14
@@ -693,7 +693,7 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %27, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 36028797018963968
   %.not14 = icmp eq i64 %22, 0
   br i1 %.not14, label %40, label %23
@@ -713,7 +713,7 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 36028797018963968
   %.not13 = icmp eq i64 %32, 0
   br i1 %.not13, label %40, label %33
@@ -758,7 +758,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %.not, label %10, label %20
 
 10:                                               ; preds = %1
-  %11 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 36028797018963968
   %.not20 = icmp eq i64 %12, 0
   br i1 %.not20, label %19, label %13
@@ -786,7 +786,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %.not21, label %33, label %23
 
 23:                                               ; preds = %20
-  %24 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %25 = and i64 %24, 36028797018963968
   %.not27 = icmp eq i64 %25, 0
   br i1 %.not27, label %32, label %26
@@ -820,7 +820,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %.not22, label %49, label %39
 
 39:                                               ; preds = %34
-  %40 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %41 = and i64 %40, 36028797018963968
   %.not26 = icmp eq i64 %41, 0
   br i1 %.not26, label %48, label %42
@@ -859,7 +859,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %.not24, label %69, label %58
 
 58:                                               ; preds = %55
-  %59 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %59 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %60 = and i64 %59, 36028797018963968
   %.not25 = icmp eq i64 %60, 0
   br i1 %.not25, label %68, label %61
@@ -901,7 +901,7 @@ declare i32 @common_cgroup_set_param(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @xcgroup_create_slurm_cg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), align 8
   %5 = tail call ptr @xstrdup(ptr noundef %4) #6
   store ptr %5, ptr %3, align 8
   %6 = tail call i32 @getuid() #6

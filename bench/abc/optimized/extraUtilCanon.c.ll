@@ -30,7 +30,7 @@ define i32 @Extra_TruthCanonFastN(i32 noundef %0, i32 noundef %1, ptr noundef %2
   store i32 %12, ptr @Extra_TruthCanonFastN.uTruthStore6, align 4
   %13 = load ptr, ptr %3, align 8
   %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr getelementptr inbounds ([2 x i32], ptr @Extra_TruthCanonFastN.uTruthStore6, i64 0, i64 1), align 4
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @Extra_TruthCanonFastN.uTruthStore6, i64 4), align 4
   store ptr @Extra_TruthCanonFastN.uTruthStore6, ptr %3, align 8
   br label %15
 

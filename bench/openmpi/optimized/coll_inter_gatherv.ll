@@ -50,7 +50,7 @@ ompi_comm_remote_size.exit:                       ; preds = %14, %18
   %29 = call i32 @ompi_datatype_create_indexed(i32 noundef %23, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %12) #4
   %.val94 = load ptr, ptr %12, align 8
   %30 = call i32 @opal_datatype_commit(ptr noundef %.val94) #4
-  %31 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %32 = load ptr, ptr %12, align 8
   %33 = call i32 %31(ptr noundef %3, i64 noundef 1, ptr noundef %32, i32 noundef 0, i32 noundef -20, ptr noundef nonnull %8, ptr noundef null) #4
   %34 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %12) #4
@@ -185,7 +185,7 @@ opal_datatype_span.exit:                          ; preds = %68, %72
   br i1 %or.cond3, label %101, label %104
 
 101:                                              ; preds = %._crit_edge.thread
-  %102 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %103 = call i32 %102(ptr noundef %.071, i64 noundef %.178, ptr noundef %2, i32 noundef %7, i32 noundef -20, i32 noundef 4, ptr noundef nonnull %8) #4
   br label %104
 

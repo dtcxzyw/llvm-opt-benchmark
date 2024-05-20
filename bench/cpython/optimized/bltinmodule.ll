@@ -1425,7 +1425,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFilter_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFilter_Type, i64 296), align 8
   %cmp1 = icmp ne ptr %0, %1
   %cmp2 = icmp eq ptr %kwds, null
   %or.cond = or i1 %cmp2, %cmp1
@@ -1798,7 +1798,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMap_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMap_Type, i64 296), align 8
   %cmp1 = icmp ne ptr %0, %1
   %cmp2 = icmp eq ptr %kwds, null
   %or.cond = or i1 %cmp2, %cmp1
@@ -3073,7 +3073,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br i1 %cmp4.i, label %if.then.i.i, label %for.inc48.i
 
 if.end7.i:                                        ; preds = %for.body.i
-  %call8.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 106), ptr noundef nonnull %meth.i) #7
+  %call8.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31608), ptr noundef nonnull %meth.i) #7
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %error.i, label %if.end11.i
 
@@ -3315,7 +3315,7 @@ if.else:                                          ; preds = %if.end18
   br i1 %cmp23, label %Py_XDECREF.exit97, label %if.end25
 
 if.end25:                                         ; preds = %if.else
-  %call26 = call i32 @PyDict_GetItemRef(ptr noundef nonnull %call22, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 481), ptr noundef nonnull %meta) #7
+  %call26 = call i32 @PyDict_GetItemRef(ptr noundef nonnull %call22, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51584), ptr noundef nonnull %meta) #7
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %Py_XDECREF.exit97, label %if.end29
 
@@ -3325,7 +3325,7 @@ if.end29:                                         ; preds = %if.end25
   br i1 %cmp30.not, label %if.then40, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %call32 = call i32 @PyDict_DelItem(ptr noundef nonnull %call22, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 481)) #7
+  %call32 = call i32 @PyDict_DelItem(ptr noundef nonnull %call22, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51584)) #7
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %Py_XDECREF.exit97, label %if.end38
 
@@ -3413,7 +3413,7 @@ if.end59:                                         ; preds = %if.end54, %if.end.i
   %tobool49.not138 = phi i1 [ false, %if.end54 ], [ false, %if.end.i155 ], [ false, %if.then1.i158 ], [ false, %_Py_NewRef.exit ], [ true, %if.end48 ]
   %mkw.0127134 = phi ptr [ %mkw.0127133, %if.end54 ], [ %mkw.0127133, %if.end.i155 ], [ %mkw.0127133, %if.then1.i158 ], [ %mkw.0127133, %_Py_NewRef.exit ], [ %call22, %if.end48 ]
   %48 = load ptr, ptr %meta, align 8
-  %call60 = call i32 @PyObject_GetOptionalAttr(ptr noundef %48, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 124), ptr noundef nonnull %prep) #7
+  %call60 = call i32 @PyObject_GetOptionalAttr(ptr noundef %48, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32560), ptr noundef nonnull %prep) #7
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %Py_XDECREF.exit97, label %if.else63
 
@@ -4659,13 +4659,13 @@ if.then29.i:                                      ; preds = %if.end26.i
   br label %if.then.i42.i
 
 if.end30.i:                                       ; preds = %if.end26.i
-  %call31.i = tail call i32 @PyDict_Contains(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 30)) #7
+  %call31.i = tail call i32 @PyDict_Contains(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384)) #7
   %cmp32.i = icmp eq i32 %call31.i, 0
   br i1 %cmp32.i, label %if.then33.i, label %if.end36.i
 
 if.then33.i:                                      ; preds = %if.end30.i
   %call34.i = tail call ptr @PyEval_GetBuiltins() #7
-  %call35.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 30), ptr noundef %call34.i) #7
+  %call35.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384), ptr noundef %call34.i) #7
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then33.i, %if.end30.i
@@ -4923,13 +4923,13 @@ if.then26.i:                                      ; preds = %if.end23.i
   br label %if.then.i71.i
 
 if.end30.i:                                       ; preds = %if.end23.i
-  %call31.i = call i32 @PyDict_Contains(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 30)) #7
+  %call31.i = call i32 @PyDict_Contains(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384)) #7
   %cmp32.i = icmp eq i32 %call31.i, 0
   br i1 %cmp32.i, label %if.then33.i, label %if.end36.i
 
 if.then33.i:                                      ; preds = %if.end30.i
   %call34.i = call ptr @PyEval_GetBuiltins() #7
-  %call35.i = call i32 @PyDict_SetItem(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 30), ptr noundef %call34.i) #7
+  %call35.i = call i32 @PyDict_SetItem(ptr noundef nonnull %globals.addr.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384), ptr noundef %call34.i) #7
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then33.i, %if.end30.i
@@ -5381,9 +5381,9 @@ skip_optional:                                    ; preds = %if.end, %if.end4
   %prompt.0 = phi ptr [ null, %if.end ], [ %0, %if.end4 ]
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %call1.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 627)) #7
-  %call2.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 628)) #7
-  %call3.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 626)) #7
+  %call1.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59160)) #7
+  %call2.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208)) #7
+  %call3.i = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112)) #7
   %cmp.i = icmp eq ptr %call1.i, null
   %cmp4.i = icmp eq ptr %call1.i, @_Py_NoneStruct
   %or.cond.i = or i1 %cmp.i, %cmp4.i
@@ -5435,7 +5435,7 @@ if.then21.i:                                      ; preds = %if.end18.i
 if.end22.i:                                       ; preds = %if.then21.i, %if.end18.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %call1.i, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 363), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #7
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 45496), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp24.i = icmp eq ptr %call.i.i, null
   br i1 %cmp24.i, label %if.end216.sink.split.i, label %if.else.i
@@ -5482,7 +5482,7 @@ if.end38.i:                                       ; preds = %if.end31.i
 if.then40.i:                                      ; preds = %if.end38.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i95.i)
   store ptr %call2.i, ptr %self.addr.i95.i, align 8
-  %call.i96.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 363), ptr noundef nonnull %self.addr.i95.i, i64 noundef -9223372036854775807, ptr noundef null) #7
+  %call.i96.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 45496), ptr noundef nonnull %self.addr.i95.i, i64 noundef -9223372036854775807, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i95.i)
   %cmp42.i = icmp eq ptr %call.i96.i, null
   br i1 %cmp42.i, label %if.end216.sink.split.i, label %if.else45.i
@@ -5527,12 +5527,12 @@ if.end65.i:                                       ; preds = %if.end53.i
   br i1 %tobool61.not.i, label %if.end216.i, label %if.then67.i
 
 if.then67.i:                                      ; preds = %if.end65.i
-  %call68.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 334)) #7
+  %call68.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44000)) #7
   %cmp69.i = icmp eq ptr %call68.i, null
   br i1 %cmp69.i, label %if.end216.sink.split.i, label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.then67.i
-  %call73.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 341)) #7
+  %call73.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44368)) #7
   %cmp74.i = icmp eq ptr %call73.i, null
   br i1 %cmp74.i, label %if.then.i.i, label %if.end77.i
 
@@ -5577,12 +5577,12 @@ if.end101.i:                                      ; preds = %if.then100.i, %if.e
   br i1 %tobool.not.i, label %if.end172.i, label %if.then104.i
 
 if.then104.i:                                     ; preds = %if.end101.i
-  %call105.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call2.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 334)) #7
+  %call105.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call2.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44000)) #7
   %cmp106.i = icmp eq ptr %call105.i, null
   br i1 %cmp106.i, label %if.then.i.i, label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then104.i
-  %call110.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call2.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 341)) #7
+  %call110.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call2.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44368)) #7
   %cmp111.i = icmp eq ptr %call110.i, null
   br i1 %cmp111.i, label %if.then.i.i, label %if.end114.i
 
@@ -6533,7 +6533,7 @@ if.then.i:                                        ; preds = %if.end, %if.then8, 
   %sep.127 = phi ptr [ %sep.0, %skip_optional_kwonly ], [ %sep.0, %if.then16 ], [ %2, %if.then8 ], [ @_Py_NoneStruct, %if.end ]
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %7 = load ptr, ptr %6, align 8
-  %call1.i = call ptr @_PySys_GetAttr(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 628)) #7
+  %call1.i = call ptr @_PySys_GetAttr(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208)) #7
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
@@ -6769,7 +6769,7 @@ if.then.i:                                        ; preds = %skip_optional_pos
   br i1 %cmp.i, label %exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then.i, %skip_optional_pos
-  %call6.i = call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 140)) #7
+  %call6.i = call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33456)) #7
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end15.i
 
@@ -6886,7 +6886,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 617)) #7
+  %call4 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 58640)) #7
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -7709,7 +7709,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %call3 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47), ptr noundef nonnull %d) #7
+  %call3 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360), ptr noundef nonnull %d) #7
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.end7
 

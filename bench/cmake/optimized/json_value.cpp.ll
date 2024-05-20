@@ -252,10 +252,10 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %7 = and i16 %6, -512
-  store i16 %7, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %7, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %9
@@ -681,7 +681,7 @@ define dso_local void @_ZN4Json13ValueIteratorC2ERKNS_18ValueConstIteratorE(ptr 
           to label %.noexc5 unwind label %9
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([51 x i8], ptr @.str.3, i64 0, i64 50))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 50))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc5
@@ -784,7 +784,7 @@ define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4Json13Value
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Json9ExceptionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #14 align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   ret void
@@ -795,7 +795,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Json9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -807,7 +807,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Json9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -832,11 +832,11 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define dso_local void @_ZN4Json12RuntimeErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12RuntimeErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json12RuntimeErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -846,11 +846,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define dso_local void @_ZN4Json10LogicErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10LogicErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json10LogicErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -860,7 +860,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Json12RuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -888,7 +888,7 @@ define dso_local void @_ZN4Json15throwLogicErrorERKNSt7__cxx1112basic_stringIcSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Json10LogicErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -4806,10 +4806,10 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %58 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %59 = and i16 %58, -512
-  store i16 %59, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %59, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %60 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -4826,7 +4826,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %57, %55, %.critedge
           to label %63 unwind label %.body.i
 
 63:                                               ; preds = %.noexc13
-  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0))
+  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %73 unwind label %.body.i
 
 .body.i:                                          ; preds = %63, %.noexc13
@@ -4850,7 +4850,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %57, %55, %.critedge
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds i8, ptr %7, i64 40
-  %75 = load <2 x i64>, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 3), align 8
+  %75 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 24), align 8
   store <2 x i64> %75, ptr %74, align 8
   %76 = load ptr, ptr %0, align 8
   %77 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr %.08.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %7)
@@ -5040,10 +5040,10 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5Valu
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %24 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %25 = and i16 %24, -512
-  store i16 %25, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %25, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -5099,10 +5099,10 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.e
   br i1 %.not.i12, label %_ZN4Json5Value13nullSingletonEv.exit13, label %46
 
 46:                                               ; preds = %44
-  %47 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %47 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %48 = and i16 %47, -512
-  store i16 %48, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %48, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %49 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit13
@@ -5447,10 +5447,10 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %60
 
 60:                                               ; preds = %58
-  %61 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %61 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %62 = and i16 %61, -512
-  store i16 %62, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %62, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %63 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -5467,7 +5467,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %60, %58, %.critedge
           to label %66 unwind label %.body.i
 
 66:                                               ; preds = %.noexc15
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0))
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %76 unwind label %.body.i
 
 .body.i:                                          ; preds = %66, %.noexc15
@@ -5491,7 +5491,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %60, %58, %.critedge
 
 76:                                               ; preds = %66
   %77 = getelementptr inbounds i8, ptr %7, i64 40
-  %78 = load <2 x i64>, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 3), align 8
+  %78 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 24), align 8
   store <2 x i64> %78, ptr %77, align 8
   %79 = load ptr, ptr %0, align 8
   %80 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr %.08.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %7)
@@ -5726,10 +5726,10 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %65 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %66 = and i16 %65, -512
-  store i16 %66, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %66, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %67 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -5746,7 +5746,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %64, %62, %.critedge
           to label %70 unwind label %.body.i
 
 70:                                               ; preds = %.noexc16
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0))
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %80 unwind label %.body.i
 
 .body.i:                                          ; preds = %70, %.noexc16
@@ -5770,7 +5770,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %64, %62, %.critedge
 
 80:                                               ; preds = %70
   %81 = getelementptr inbounds i8, ptr %8, i64 40
-  %82 = load <2 x i64>, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 3), align 8
+  %82 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 24), align 8
   store <2 x i64> %82, ptr %81, align 8
   %83 = load ptr, ptr %0, align 8
   %84 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr %.08.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %8)
@@ -5850,10 +5850,10 @@ define dso_local void @_ZNK4Json5Value3getEjRKS0_(ptr dead_on_unwind noalias wri
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %12 = and i16 %11, -512
-  store i16 %12, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %12, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -6092,10 +6092,10 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5Valu
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %13 = and i16 %12, -512
-  store i16 %13, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %13, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %14 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -6126,10 +6126,10 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5Valu
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %15 = and i16 %14, -512
-  store i16 %15, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %15, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %16 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -8972,10 +8972,10 @@ _ZNK4Json5Value12isValidIndexEj.exit.thread:      ; preds = %13, %_ZNK4Json5Valu
   br i1 %.not.i22, label %_ZN4Json5Value13nullSingletonEv.exit23, label %48
 
 48:                                               ; preds = %46
-  %49 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %49 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %50 = and i16 %49, -512
-  store i16 %50, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %50, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit23
@@ -9001,10 +9001,10 @@ _ZN4Json5Value13nullSingletonEv.exit23:           ; preds = %42, %46, %48
   br i1 %.not, label %_ZN4Json5Value13nullSingletonEv.exit, label %.lr.ph
 
 _ZN4Json5Value13nullSingletonEv.exit.sink.split:  ; preds = %56, %40, %28
-  %60 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %60 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %61 = and i16 %60, -512
-  store i16 %61, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %61, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %62 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -9118,10 +9118,10 @@ common.resume:                                    ; preds = %72, %64, %46, %32
   br i1 %.not.i, label %_ZN4Json5Value13nullSingletonEv.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %55 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %56 = and i16 %55, -512
-  store i16 %56, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %56, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %57 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %_ZN4Json5Value13nullSingletonEv.exit
@@ -9227,7 +9227,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json4Path
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Json12RuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -9237,7 +9237,7 @@ define linkonce_odr dso_local void @_ZN4Json12RuntimeErrorD0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Json10LogicErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #14 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json9ExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #35
@@ -10791,10 +10791,10 @@ define internal void @_GLOBAL__sub_I_json_value.cpp() #30 section ".text.startup
   br i1 %.not.i.i, label %__cxx_global_var_init.1.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %7 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %8 = and i16 %7, -512
-  store i16 %8, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %8, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %__cxx_global_var_init.1.exit
@@ -10811,10 +10811,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %4, %6
   br i1 %.not.i.i1, label %__cxx_global_var_init.2.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = load i16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
+  %15 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
   %16 = and i16 %15, -512
-  store i16 %16, ptr getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 1, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.Json::Value", ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
+  store i16 %16, ptr getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16), i8 0, i64 24, i1 false)
   %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4Json5ValueD2Ev, ptr nonnull @_ZZN4Json5Value13nullSingletonEvE10nullStatic, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Json5Value13nullSingletonEvE10nullStatic) #35
   br label %__cxx_global_var_init.2.exit

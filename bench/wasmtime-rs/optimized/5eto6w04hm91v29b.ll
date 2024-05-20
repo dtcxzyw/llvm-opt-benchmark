@@ -31,7 +31,7 @@ define range(i8 0, 5) i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_name17h83d8bf
   store i64 %1, ptr %5, align 8
   store ptr @anon.20a582f737fa3601ca67c489f5713313.10, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.20a582f737fa3601ca67c489f5713313.10, i64 1, i32 0, i64 0), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.20a582f737fa3601ca67c489f5713313.10, i64 4), ptr %6, align 8
   %7 = call i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h144b1801eca24e35E(ptr nonnull align 8 %3, ptr nonnull align 8 %4), !range !3
   ret i8 %7
 }

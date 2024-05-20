@@ -132,13 +132,13 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @xxsubtype_exec(ptr noundef %m) #0 {
 entry:
-  store ptr @PyDict_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @spamdict_type, i64 0, i32 30), align 8
+  store ptr @PyDict_Type, ptr getelementptr inbounds (i8, ptr @spamdict_type, i64 256), align 8
   %call = tail call i32 @PyType_Ready(ptr noundef nonnull @spamdict_type) #3
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr @PyList_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @spamlist_type, i64 0, i32 30), align 8
+  store ptr @PyList_Type, ptr getelementptr inbounds (i8, ptr @spamlist_type, i64 256), align 8
   %call1 = tail call i32 @PyType_Ready(ptr noundef nonnull @spamlist_type) #3
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
@@ -175,7 +175,7 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @spamdict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 35), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 296), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #3
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
@@ -240,7 +240,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @spamlist_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyList_Type, i64 0, i32 35), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyList_Type, i64 296), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #3
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end

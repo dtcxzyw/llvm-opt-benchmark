@@ -270,7 +270,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17ProbabilityFilterC2E8ProbName(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -654,7 +654,7 @@ declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14SingleProbElemC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8ProbNameii(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SingleProbElem, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -672,7 +672,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14SingleProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SingleProbElem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   ret void
@@ -683,7 +683,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14SingleProbElemD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SingleProbElem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
@@ -757,7 +757,7 @@ define dso_local noundef zeroext i1 @_Z16single_elem_lessP14SingleProbElemS0_(pt
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13GroupProbElemC2EbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GroupProbElem, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -777,7 +777,7 @@ define dso_local void @_ZN13GroupProbElemC2EbRKNSt7__cxx1112basic_stringIcSt11ch
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13GroupProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GroupProbElem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -1137,7 +1137,7 @@ _ZN13Probabilities9get_snameB5cxx11E8ProbName.exit: ; preds = %_ZNSt3mapI8ProbNa
 
 90:                                               ; preds = %_ZN13Probabilities9get_snameB5cxx11E8ProbName.exit
   %91 = load i32, ptr %6, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i64 0, i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SingleProbElem, i64 16), ptr %89, align 8
   %92 = getelementptr inbounds i8, ptr %89, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %93 unwind label %124
@@ -2849,7 +2849,7 @@ _ZN13Probabilities9get_snameB5cxx11E8ProbName.exit: ; preds = %_ZNSt3mapI8ProbNa
 
 216:                                              ; preds = %_ZN13Probabilities9get_snameB5cxx11E8ProbName.exit
   %217 = load i32, ptr %43, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i64 0, i32 0, i64 2), ptr %215, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SingleProbElem, i64 16), ptr %215, align 8
   %218 = getelementptr inbounds i8, ptr %215, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %219 unwind label %228
@@ -3612,7 +3612,7 @@ define dso_local void @_ZN13Probabilities26set_default_unary_ops_probEv(ptr noun
           to label %55 unwind label %59
 
 55:                                               ; preds = %.noexc15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 16
   store i32 52, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 192
@@ -4128,7 +4128,7 @@ define dso_local void @_ZN13Probabilities27set_default_binary_ops_probEv(ptr nou
           to label %164 unwind label %168
 
 164:                                              ; preds = %.noexc60
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %163, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %163, i64 16
   store i32 57, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %0, i64 192
@@ -4772,7 +4772,7 @@ define dso_local void @_ZN13Probabilities29set_default_simple_types_probEv(ptr n
           to label %210 unwind label %214
 
 210:                                              ; preds = %.noexc69
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %209, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %209, i64 16
   store i32 76, ptr %211, align 8
   %212 = getelementptr inbounds i8, ptr %0, i64 192
@@ -5003,7 +5003,7 @@ define dso_local void @_ZN13Probabilities30set_default_safe_ops_size_probEv(ptr 
           to label %71 unwind label %75
 
 71:                                               ; preds = %.noexc18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %70, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %70, i64 16
   store i32 91, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 192
@@ -5084,7 +5084,7 @@ _ZN13Probabilities9get_snameB5cxx11E8ProbName.exit: ; preds = %4, %_ZNSt8_Rb_tre
 
 22:                                               ; preds = %_ZN13Probabilities9get_snameB5cxx11E8ProbName.exit
   %23 = zext i1 %1 to i8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GroupProbElem, i64 16), ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   store i8 %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 16
@@ -5214,7 +5214,7 @@ define dso_local void @_ZN13Probabilities15set_prob_filterE8ProbName(ptr noundef
           to label %5 unwind label %9
 
 5:                                                ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ProbabilityFilter, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 192

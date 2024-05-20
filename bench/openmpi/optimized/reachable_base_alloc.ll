@@ -12,10 +12,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @prte_reachable_allocate(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_reachable_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @prte_reachable_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #8
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_reachable_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_reachable_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -37,7 +37,7 @@ define noundef ptr @prte_reachable_allocate(i32 noundef %0, i32 noundef %1) loca
   %14 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_reachable_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_reachable_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i

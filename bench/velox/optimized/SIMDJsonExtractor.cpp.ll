@@ -139,11 +139,11 @@ entry:
   br i1 %.b, label %init.end, label %init.check, !prof !4
 
 init.check:                                       ; preds = %entry
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 48), ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %0 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9functions6detail17SIMDJsonExtractorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SC_EEED2Ev, ptr nonnull @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, ptr nonnull @__dso_handle) #2
   store i1 true, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor11getInstanceEN5folly5RangeIPKcEEE14extractorCacheB5cxx11, align 1
   br label %init.end
@@ -402,10 +402,10 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.simdjson::haswell::ondemand::parser", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 0, i32 1), i8 0, i64 16, i1 false)
-  store i64 4294967295, ptr getelementptr inbounds (%"class.simdjson::haswell::ondemand::parser", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 0, i32 3), align 8
-  store i64 1024, ptr getelementptr inbounds (%"class.simdjson::haswell::ondemand::parser", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.simdjson::haswell::ondemand::parser", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 0, i32 5), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 8), i8 0, i64 16, i1 false)
+  store i64 4294967295, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 24), align 8
+  store i64 1024, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 32), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 40), align 8
   %0 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN8simdjson7haswell8ondemand6parserD2Ev, ptr nonnull @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, ptr nonnull @__dso_handle) #2
   store i1 true, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 1
   br label %if.end.i
@@ -580,7 +580,7 @@ entry:
   br i1 %.b, label %init.end, label %init.check, !prof !4
 
 init.check:                                       ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::functions::JsonPathTokenizer", ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor8tokenizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9tokenizer, i64 0, i32 1, i32 0), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor8tokenizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9tokenizer, i64 8), i8 0, i64 16, i1 false)
   store i1 true, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor8tokenizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9tokenizer, align 1
   br label %init.end
 
@@ -2606,7 +2606,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call, align 8
   %_M_ptr.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %__p, ptr %_M_ptr.i, align 8
   store ptr %call, ptr %this, align 8

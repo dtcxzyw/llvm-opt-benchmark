@@ -684,7 +684,7 @@ get_xml_attr.exit73:                              ; preds = %.lr.ph.i68
 get_xml_attr.exit73.thread:                       ; preds = %43, %get_xml_attr.exit.thread.thread, %get_xml_attr.exit73
   %.060117 = phi ptr [ %.060, %get_xml_attr.exit73 ], [ %.060116, %get_xml_attr.exit.thread.thread ], [ %.060, %43 ]
   %.059 = phi ptr [ %49, %get_xml_attr.exit73 ], [ @.str.16, %get_xml_attr.exit.thread.thread ], [ @.str.16, %43 ]
-  %Gstack.val = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %Gstack.val = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %50 = icmp eq i64 %Gstack.val, 0
   br i1 %50, label %51, label %65
 
@@ -711,7 +711,7 @@ get_xml_attr.exit73.thread:                       ; preds = %43, %get_xml_attr.e
   %.sroa.0.0.in = phi ptr [ @Agdirected, %51 ], [ @Agundirected, %54 ], [ @Agdirected, %58 ], [ @Agdirected, %57 ]
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
   %62 = tail call ptr @agopen(ptr noundef %.060117, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #20
-  %Gstack.val.i = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %Gstack.val.i = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %63 = icmp eq i64 %Gstack.val.i, 0
   br i1 %63, label %64, label %push_subg.exit
 
@@ -752,7 +752,7 @@ isAnonGraph.exit.thread:                          ; preds = %65, %71, %isAnonGra
   %.1 = phi ptr [ %4, %71 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %65 ]
   %75 = load ptr, ptr @G, align 8
   %76 = call ptr @agsubg(ptr noundef %75, ptr noundef nonnull %.1, i32 noundef 1) #20
-  %Gstack.val.i75 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %Gstack.val.i75 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %77 = icmp eq i64 %Gstack.val.i75, 0
   br i1 %77, label %78, label %push_subg.exit76
 
@@ -1044,7 +1044,7 @@ define internal void @endElementHandler(ptr nocapture noundef %0, ptr nocapture 
   br i1 %4, label %5, label %30
 
 5:                                                ; preds = %2
-  %Gstack.val1.i = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  %Gstack.val1.i = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %6 = icmp eq i64 %Gstack.val1.i, 0
   br i1 %6, label %7, label %10
 
@@ -1057,7 +1057,7 @@ define internal void @endElementHandler(ptr nocapture noundef %0, ptr nocapture 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @Gstack, align 8
   %12 = add i64 %Gstack.val1.i, -1
-  store i64 %12, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %pop_subg.exit, label %14
 

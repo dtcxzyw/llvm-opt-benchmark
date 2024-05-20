@@ -19749,7 +19749,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17hf298834eb0b62a1f
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -30207,7 +30207,7 @@ default.unreachable1183:                          ; preds = %"_ZN4core3ptr161dro
   unreachable
 
 77:                                               ; preds = %4
-  %78 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db7imports10insert_use28insert_use_with_alias_option10__CALLSITE17h212446d28c3fe8d6E, i64 0, i32 1, i64 8) monotonic, align 8
+  %78 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db7imports10insert_use28insert_use_with_alias_option10__CALLSITE17h212446d28c3fe8d6E, i64 16) monotonic, align 8
   switch i8 %78, label %79 [
     i8 0, label %.thread1188
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -35055,7 +35055,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i.i: ; preds
 .noexc19.i.i.i.i.i.i:                             ; preds = %1709
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !8371
   store ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, ptr %7, align 8, !noalias !8371
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, i64 1, i32 0, i64 0), ptr %1675, align 8, !noalias !8371
+  store ptr getelementptr inbounds (i8, ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, i64 6), ptr %1675, align 8, !noalias !8371
   br label %1712
 
 1712:                                             ; preds = %1714, %.noexc19.i.i.i.i.i.i

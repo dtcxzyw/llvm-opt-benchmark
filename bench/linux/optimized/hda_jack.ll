@@ -695,7 +695,7 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
   br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %9
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %22 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 40) #12
   %23 = icmp eq ptr %22, null
   br i1 %23, label %55, label %24

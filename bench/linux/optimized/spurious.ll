@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @irq_wait_for_poll(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @irq_poll_cpu, align 4
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !5
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #4, !srcloc !5
   %4 = icmp ne i32 %2, %3
   %5 = load i1, ptr @irq_wait_for_poll.__already_done, align 1
   %6 = select i1 %4, i1 true, i1 %5
@@ -67,7 +67,7 @@ define dso_local zeroext i1 @irq_wait_for_poll(ptr noundef %0) local_unnamed_add
 7:                                                ; preds = %1
   store i1 true, ptr @irq_wait_for_poll.__already_done, align 1
   tail call void asm sideeffect "312: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 312b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 312) #5, !srcloc !7
-  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !8
+  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #4, !srcloc !8
   %9 = getelementptr inbounds i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %10) #5
@@ -323,7 +323,7 @@ define internal fastcc range(i32 0, 2) i32 @misrouted_irq(i32 noundef %0) unname
   br i1 %3, label %4, label %.loopexit
 
 4:                                                ; preds = %1
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !23
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #4, !srcloc !23
   store i32 %5, ptr @irq_poll_cpu, align 4
   %6 = tail call ptr @irq_to_desc(i32 noundef 0) #5
   %7 = load i32, ptr @nr_irqs, align 4
@@ -540,7 +540,7 @@ define internal void @poll_spurious_irqs(ptr nocapture readnone %0) #0 align 16 
   br i1 %3, label %4, label %.loopexit
 
 4:                                                ; preds = %1
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !28
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #4, !srcloc !28
   store i32 %5, ptr @irq_poll_cpu, align 4
   %6 = tail call ptr @irq_to_desc(i32 noundef 0) #5
   %7 = load i32, ptr @nr_irqs, align 4

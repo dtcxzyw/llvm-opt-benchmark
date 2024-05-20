@@ -136,9 +136,9 @@ for.body.preheader:
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull dereferenceable(40000) ptr @_Znwm(i64 noundef 40000) #19
   store ptr %call5.i.i.i.i2.i.i4, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i4, i64 40000
-  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call5.i.i.i.i2.i.i4, i8 0, i64 40000, i1 false)
-  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 8), align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -148,7 +148,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %1, ptr %add.ptr.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 8), align 8
   %3 = load ptr, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -207,9 +207,9 @@ init:                                             ; preds = %init.check
 invoke.cont:                                      ; preds = %init
   store ptr %call5.i.i.i.i2.i.i1, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 40000
-  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call5.i.i.i.i2.i.i1, i8 0, i64 40000, i1 false)
-  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 8), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, ptr nonnull @__dso_handle) #18
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices) #18
   br label %init.end
@@ -2238,9 +2238,9 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i2.i.i1.i, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i, i64 40000
-  store ptr %add.ptr.i.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call5.i.i.i.i2.i.i1.i, i8 0, i64 40000, i1 false)
-  store ptr %add.ptr.i.i.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 8), align 8
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, ptr nonnull @__dso_handle) #18
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices) #18
   br label %_ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit
@@ -2257,7 +2257,7 @@ lpad.i:                                           ; preds = %init.i
   br label %common.resume
 
 _ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont.i
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 8), align 8
   %7 = load ptr, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -2341,9 +2341,9 @@ init.i4:                                          ; preds = %init.check.i2
 invoke.cont.i7:                                   ; preds = %init.i4
   store ptr %call5.i.i.i.i2.i.i1.i5, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, align 8
   %add.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i5, i64 40000
-  store ptr %add.ptr.i.i.i.i8, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i.i.i.i8, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call5.i.i.i.i2.i.i1.i5, i8 0, i64 40000, i1 false)
-  store ptr %add.ptr.i.i.i.i8, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i.i.i.i8, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, i64 8), align 8
   %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices, ptr nonnull @__dso_handle) #18
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox13DecodedVector11zeroIndicesEvE7indices) #18
   br label %_ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit9
@@ -2390,7 +2390,7 @@ lpad.i14:                                         ; preds = %init.i13
   br label %common.resume
 
 _ZN8facebook5velox13DecodedVector18consecutiveIndicesEv.exit: ; preds = %if.then23, %init.check.i11, %invoke.cont.i15
-  %26 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, i64 8), align 8
   %27 = load ptr, ptr @_ZZN8facebook5velox13DecodedVector18consecutiveIndicesEvE18consecutiveIndices, align 8
   %sub.ptr.lhs.cast.i16 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i17 = ptrtoint ptr %27 to i64
@@ -3804,7 +3804,7 @@ _ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i: ; preds = %if.end
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !32
   %padding_.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !32
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !32
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i, align 8, !noalias !32
   store i64 %6, ptr %size_.i.i.i.i, align 8, !noalias !32
   store ptr %call6.i.i, ptr %indices, align 8, !alias.scope !32
   %10 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !32
@@ -3903,7 +3903,7 @@ call6.i.i.i.noexc:                                ; preds = %call3.i.i.i.noexc
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !42
   %padding_.i.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i.i12, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i.i.i, i8 -1, i64 16, i1 false), !noalias !42
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %call6.i.i.i12, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i.i.i12, align 8, !noalias !42
   store i64 %conv.i.i.i, ptr %size_.i.i.i.i.i, align 8, !noalias !42
   store ptr %call6.i.i.i12, ptr %nulls, align 8, !alias.scope !42
   %24 = atomicrmw add ptr %referenceCount_.i.i.i.i.i, i32 1 seq_cst, align 4, !noalias !42
@@ -4845,7 +4845,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -5018,7 +5018,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #11 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #22
   unreachable
 }

@@ -343,14 +343,14 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 _ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %new.cont.i, %if.then.i
   %2 = phi i32 [ %.pre, %new.cont.i ], [ 7, %if.then.i ]
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE)
   %.pr.old = load i32, ptr %status, align 4
   %cmp.i.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i.old, label %if.end, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   %.pr = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pr, 1

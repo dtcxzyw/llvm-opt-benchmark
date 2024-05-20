@@ -8435,7 +8435,7 @@ ehcleanup347:                                     ; preds = %ehcleanup346, %lpad
   br label %ehcleanup496
 
 if.else348:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1952
-  %307 = load ptr, ptr getelementptr inbounds (%"class.cvc5::internal::WarningC", ptr @_ZN4cvc58internal14WarningChannelE, i64 0, i32 1), align 8
+  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4cvc58internal14WarningChannelE, i64 48), align 8
   %cmp.i.not = icmp eq ptr %307, @_ZN4cvc58internal7null_osE
   %cmp.not.i2278 = icmp eq ptr %307, null
   %or.cond3211 = or i1 %cmp.i.not, %cmp.not.i2278

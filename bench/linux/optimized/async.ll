@@ -49,7 +49,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_current_is_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2336, i64 noundef 96) #5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
@@ -110,8 +110,8 @@ define dso_local i64 @async_schedule_node_domain(ptr noundef %0, ptr noundef %1,
   br i1 %35, label %__async_schedule_node_domain.exit, label %36
 
 36:                                               ; preds = %15
-  %37 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
   store ptr @async_global_pending, ptr %17, align 8
   store ptr %37, ptr %18, align 8
   store volatile ptr %17, ptr %37, align 8
@@ -143,7 +143,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @async_schedule_node(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 2336, i64 noundef 96) #5
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -191,19 +191,19 @@ define dso_local i64 @async_schedule_node(ptr noundef %0, ptr noundef %1, i32 no
   store i64 %27, ptr @next_cookie, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 64
   store i64 %26, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 0, i32 1), align 8
-  store ptr %5, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 8), align 8
   store ptr @async_dfl_domain, ptr %5, align 8
   store ptr %29, ptr %15, align 8
   store volatile ptr %5, ptr %29, align 8
-  %30 = load i8, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 1), align 8
+  %30 = load i8, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 16), align 8
   %31 = and i8 %30, 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %__async_schedule_node_domain.exit, label %33
 
 33:                                               ; preds = %14
-  %34 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
   store ptr @async_global_pending, ptr %16, align 8
   store ptr %34, ptr %17, align 8
   store volatile ptr %16, ptr %34, align 8
@@ -223,7 +223,7 @@ __async_schedule_node_domain.exit:                ; preds = %14, %33
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @async_schedule_dev_nocall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 96) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -267,19 +267,19 @@ define dso_local noundef zeroext i1 @async_schedule_dev_nocall(ptr noundef %0, p
   store i64 %25, ptr @next_cookie, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 64
   store i64 %24, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 0, i32 1), align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 8), align 8
   store ptr @async_dfl_domain, ptr %4, align 8
   store ptr %27, ptr %13, align 8
   store volatile ptr %4, ptr %27, align 8
-  %28 = load i8, ptr getelementptr inbounds (%struct.async_domain, ptr @async_dfl_domain, i64 0, i32 1), align 8
+  %28 = load i8, ptr getelementptr inbounds (i8, ptr @async_dfl_domain, i64 16), align 8
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %__async_schedule_node_domain.exit, label %31
 
 31:                                               ; preds = %10
-  %32 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @async_global_pending, i64 8), align 8
   store ptr @async_global_pending, ptr %14, align 8
   store ptr %32, ptr %15, align 8
   store volatile ptr %14, ptr %32, align 8
@@ -446,7 +446,7 @@ define dso_local void @async_synchronize_cookie(i64 noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @current_is_async() #0 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !7
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !7
   %2 = and i32 %1, 16711936
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.thread

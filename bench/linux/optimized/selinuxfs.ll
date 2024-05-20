@@ -211,16 +211,16 @@ define internal i32 @init_sel_fs() #0 section ".init.text" align 16 {
   %25 = phi i32 [ %22, %18 ], [ 0, %15 ]
   %26 = load ptr, ptr %24, align 8
   %27 = call ptr @d_hash_and_lookup(ptr noundef %26, ptr noundef nonnull %1) #14
-  store ptr %27, ptr getelementptr inbounds (%struct.path, ptr @selinux_null, i64 0, i32 1), align 8
+  store ptr %27, ptr getelementptr inbounds (i8, ptr @selinux_null, i64 8), align 8
   %28 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %23
   %30 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #15
-  %31 = load ptr, ptr getelementptr inbounds (%struct.path, ptr @selinux_null, i64 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_null, i64 8), align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i32
-  store ptr null, ptr getelementptr inbounds (%struct.path, ptr @selinux_null, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @selinux_null, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %29, %23, %13, %6, %0
@@ -317,7 +317,7 @@ declare dso_local i32 @get_tree_single(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sel_fill_super(ptr noundef %0, ptr nocapture readnone %1) #5 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 80) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
@@ -371,7 +371,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   %34 = getelementptr inbounds i8, ptr %27, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  %37 = load i32, ptr getelementptr inbounds (%struct.lsm_blob_sizes, ptr @selinux_blob_sizes, i64 0, i32 2), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %35, i64 %38
   %40 = select i1 %36, ptr null, ptr %39, !prof !8
@@ -727,7 +727,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_load(ptr nocap
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 1784
@@ -818,7 +818,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_load(ptr nocap
 65:                                               ; preds = %58, %57, %45, %42, %35, %34, %29, %26, %4
   %66 = phi ptr [ null, %4 ], [ null, %26 ], [ %30, %35 ], [ %30, %45 ], [ %30, %42 ], [ %30, %57 ], [ %30, %58 ], [ null, %29 ], [ %30, %34 ]
   %67 = phi i64 [ %24, %4 ], [ -22, %26 ], [ -14, %35 ], [ %40, %45 ], [ %40, %42 ], [ %50, %57 ], [ %2, %58 ], [ -12, %29 ], [ -14, %34 ]
-  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   call void @vfree(ptr noundef %66) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   ret i64 %67
@@ -1030,7 +1030,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr nocapture noundef %0, ptr 
   %113 = getelementptr inbounds i8, ptr %109, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
-  %116 = load i32, ptr getelementptr inbounds (%struct.lsm_blob_sizes, ptr @selinux_blob_sizes, i64 0, i32 2), align 4
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %117 = sext i32 %116 to i64
   %118 = getelementptr i8, ptr %114, i64 %117
   %119 = select i1 %115, ptr null, ptr %118, !prof !8
@@ -1447,7 +1447,7 @@ define internal i64 @sel_read_bool(ptr nocapture noundef readonly %0, ptr nounde
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %19 = getelementptr inbounds i8, ptr %10, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp ult i32 %14, %20
@@ -1485,7 +1485,7 @@ define internal i64 @sel_read_bool(ptr nocapture noundef readonly %0, ptr nounde
   %43 = load i32, ptr %42, align 4
   %44 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %32, i64 noundef 4096, ptr noundef nonnull @.str.40, i32 noundef %35, i32 noundef %43) #14
   %45 = sext i32 %44 to i64
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %46 = tail call i64 @simple_read_from_buffer(ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %32, i64 noundef %45) #14
   br label %47
 
@@ -1498,7 +1498,7 @@ define internal i64 @sel_read_bool(ptr nocapture noundef readonly %0, ptr nounde
 50:                                               ; preds = %37, %30, %22, %4
   %51 = phi i64 [ 0, %4 ], [ 0, %22 ], [ %31, %37 ], [ 0, %30 ]
   %52 = phi i64 [ -22, %4 ], [ -22, %22 ], [ %38, %37 ], [ -12, %30 ]
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   br label %47
 }
 
@@ -1539,7 +1539,7 @@ define internal i64 @sel_write_bool(ptr nocapture noundef readonly %0, ptr nound
 
 29:                                               ; preds = %24
   store i32 0, ptr %5, align 4, !annotation !12
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds i8, ptr %31, i64 1784
@@ -1596,7 +1596,7 @@ define internal i64 @sel_write_bool(ptr nocapture noundef readonly %0, ptr nound
 
 68:                                               ; preds = %63, %56, %48, %44, %29
   %69 = phi i64 [ %42, %29 ], [ -22, %44 ], [ -22, %48 ], [ -22, %56 ], [ %2, %63 ]
-  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   call void @kfree(ptr noundef %25) #14
   br label %70
 
@@ -2595,7 +2595,7 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
 
 21:                                               ; preds = %16
   store i32 0, ptr %5, align 4, !annotation !12
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 1784
@@ -2642,7 +2642,7 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
 
 52:                                               ; preds = %.thread, %46, %36, %21
   %53 = phi i64 [ %34, %21 ], [ -22, %36 ], [ %2, %.thread ], [ %50, %46 ]
-  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   call void @kfree(ptr noundef %17) #14
   br label %54
 
@@ -3081,7 +3081,7 @@ define internal i32 @sel_open_policy(ptr noundef %0, ptr nocapture noundef %1) #
   unreachable
 
 11:                                               ; preds = %2
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 1784
@@ -3104,7 +3104,7 @@ define internal i32 @sel_open_policy(ptr noundef %0, ptr nocapture noundef %1) #
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %31 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3520, i64 noundef 16) #16
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread, label %33
@@ -3133,16 +3133,16 @@ define internal i32 @sel_open_policy(ptr noundef %0, ptr nocapture noundef %1) #
 45:                                               ; preds = %42, %37
   store i8 1, ptr %26, align 8
   store ptr %31, ptr %7, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   br label %51
 
 .thread:                                          ; preds = %11, %25, %29
   %.ph = phi i32 [ -12, %29 ], [ -16, %25 ], [ %23, %11 ]
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   br label %48
 
 46:                                               ; preds = %33
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
+  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64)) #14
   %47 = load ptr, ptr %34, align 8
   tail call void @vfree(ptr noundef %47) #14
   br label %48

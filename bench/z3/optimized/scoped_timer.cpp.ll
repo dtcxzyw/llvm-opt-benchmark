@@ -149,7 +149,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %if.end
   %1 = load ptr, ptr @_ZL17available_workers, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then3, label %if.else
 
@@ -183,7 +183,7 @@ invoke.cont:                                      ; preds = %if.then3
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i1.i.i, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !4
   store ptr %call5.i.i.i2.i.i.i.i1.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !4
@@ -213,7 +213,7 @@ _ZN12scoped_timer10init_stateEjP13event_handler.exit: ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP18scoped_timer_stateES4_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP18scoped_timer_stateES4_EEEEEE, i64 16), ptr %call.i, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %9 = load ptr, ptr %this, align 8
   store ptr %9, ptr %_M_func.i.i, align 8
@@ -277,9 +277,9 @@ if.else:                                          ; preds = %_ZNSt5mutex4lockEv.
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %18 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %18, ptr %this, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %20 = load ptr, ptr %this, align 8
   %ms2.i11 = getelementptr inbounds i8, ptr %20, i64 56
   store i32 %ms, ptr %ms2.i11, align 8
@@ -492,17 +492,17 @@ if.then.i:                                        ; preds = %while.end
   unreachable
 
 invoke.cont4:                                     ; preds = %while.end
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 16), align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i2
 
 if.then.i2:                                       ; preds = %invoke.cont4
   %7 = load ptr, ptr %this, align 8
   store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   br label %invoke.cont6
 
 if.else.i:                                        ; preds = %invoke.cont4
@@ -559,9 +559,9 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIP18sco
 
 _ZNSt6vectorIP18scoped_timer_stateSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
   store ptr %cond.i10.i.i, ptr @_ZL17available_workers, align 8
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 16), align 8
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i2
@@ -627,7 +627,7 @@ if.then.i:                                        ; preds = %while.body
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %while.body
   %1 = load ptr, ptr @_ZL17available_workers, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %cmp.i.not27 = icmp eq ptr %1, %2
   br i1 %cmp.i.not27, label %invoke.cont, label %for.body
 
@@ -666,7 +666,7 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %for.body
 
 invoke.cont.loopexit:                             ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit
   %.pre = load ptr, ptr @_ZL17available_workers, align 8
-  %.pre43 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.loopexit, %_ZNSt5mutex4lockEv.exit
@@ -806,12 +806,12 @@ _ZNSt6vectorIP18scoped_timer_stateSaIS1_EED2Ev.exit12: ; preds = %for.end23, %if
 while.end:                                        ; preds = %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EED2Ev.exit12, %entry
   store atomic i32 0, ptr @_ZL11num_workers seq_cst, align 4
   %23 = load ptr, ptr @_ZL17available_workers, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   %tobool.not.i.i = icmp eq ptr %24, %23
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %while.end
-  store ptr %23, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZL17available_workers, i64 8), align 8
   br label %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP18scoped_timer_stateSaIS1_EE5clearEv.exit: ; preds = %while.end, %invoke.cont.i.i

@@ -139,7 +139,7 @@ _ZN3ozz3log6LoggerlsIA28_cEERSoRKT_.exit:         ; preds = %14
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z20InitializeEndiannessv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.ozz::log::LogV", align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL14OPTIONS_endian, i64 0, i32 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL14OPTIONS_endian, i64 48), align 8
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.8) #13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
@@ -249,7 +249,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 define dso_local void @_Z18InitializeLogLevelv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.ozz::log::LogV", align 8
   %2 = tail call noundef i32 @_ZN3ozz3log8GetLevelEv()
-  %3 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL17OPTIONS_log_level, i64 0, i32 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL17OPTIONS_log_level, i64 48), align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.17) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %12, label %6
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN3ozz9animation7offline11OzzImpo
   br label %74
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL12OPTIONS_file, i64 0, i32 0, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12OPTIONS_file, i64 48), align 8
   %20 = invoke noundef zeroext i1 @_ZN3ozz2io4File5ExistEPKc(ptr noundef %19)
           to label %21 unwind label %16
 
@@ -340,7 +340,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN3ozz9animation7offline11OzzImpo
           to label %_ZN3ozz3log6LoggerlsIA7_cEERSoRKT_.exit unwind label %33
 
 _ZN3ozz3log6LoggerlsIA7_cEERSoRKT_.exit:          ; preds = %23
-  %26 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL12OPTIONS_file, i64 0, i32 0, i32 2), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12OPTIONS_file, i64 48), align 8
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26)
           to label %28 unwind label %33
 
@@ -372,7 +372,7 @@ _ZN3ozz3log6LoggerlsIA7_cEERSoRKT_.exit:          ; preds = %23
           to label %_ZN3ozz3log6LoggerlsIA17_cEERSoRKT_.exit unwind label %63
 
 _ZN3ozz3log6LoggerlsIA17_cEERSoRKT_.exit:         ; preds = %36
-  %39 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL12OPTIONS_file, i64 0, i32 0, i32 2), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12OPTIONS_file, i64 48), align 8
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39)
           to label %41 unwind label %63
 
@@ -386,7 +386,7 @@ _ZN3ozz3log6LoggerlsIA17_cEERSoRKT_.exit:         ; preds = %36
 
 45:                                               ; preds = %43
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  %46 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL12OPTIONS_file, i64 0, i32 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12OPTIONS_file, i64 48), align 8
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
@@ -406,7 +406,7 @@ _ZN3ozz3log6LoggerlsIA17_cEERSoRKT_.exit:         ; preds = %36
           to label %_ZN3ozz3log6LoggerlsIA24_cEERSoRKT_.exit unwind label %65
 
 _ZN3ozz3log6LoggerlsIA24_cEERSoRKT_.exit:         ; preds = %53
-  %56 = load ptr, ptr getelementptr inbounds (%"class.ozz::options::internal::Registrer", ptr @_ZL12OPTIONS_file, i64 0, i32 0, i32 2), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12OPTIONS_file, i64 48), align 8
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %56)
           to label %58 unwind label %65
 

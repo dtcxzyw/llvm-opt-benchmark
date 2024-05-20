@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_ecdh_context_mbed = type { %struct.mbedtls_ecp_group, %struct.mbedtls_mpi, %struct.mbedtls_ecp_point, %struct.mbedtls_ecp_point, %struct.mbedtls_mpi }
 
 @global_data = internal global %struct.psa_global_data_t zeroinitializer, align 8
-@mbedtls_psa_random_state = hidden local_unnamed_addr constant ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), align 8
+@mbedtls_psa_random_state = hidden local_unnamed_addr constant ptr getelementptr inbounds (i8, ptr @global_data, i64 1056), align 8
 @switch.table.psa_key_derivation_setup_kdf = private unnamed_addr constant [17 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64], align 8
 @switch.table.psa_key_derivation_input_internal.23 = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48], align 8
 @switch.table.psa_key_derivation_input_internal.24 = private unnamed_addr constant [16 x i8] c"\10\14\14\10\10\1C 0@\1C \10\10\1C 0", align 1
@@ -3141,7 +3141,7 @@ define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef 
   %.01117.i = phi ptr [ %27, %25 ], [ %5, %.preheader.i ]
   %.01216.i = phi i64 [ %26, %25 ], [ %15, %.preheader.i ]
   %23 = call i64 @llvm.umin.i64(i64 %.01216.i, i64 1024)
-  %24 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef nonnull %.01117.i, i64 noundef %23) #15
+  %24 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef nonnull %.01117.i, i64 noundef %23) #15
   %.not14.i = icmp eq i32 %24, 0
   br i1 %.not14.i, label %25, label %psa_generate_random.exit
 
@@ -3205,7 +3205,7 @@ define hidden noundef i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) l
   %.01117 = phi ptr [ %12, %10 ], [ %0, %.preheader ]
   %.01216 = phi i64 [ %11, %10 ], [ %1, %.preheader ]
   %6 = tail call i64 @llvm.umin.i64(i64 %.01216, i64 1024)
-  %7 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef %.01117, i64 noundef %6) #15
+  %7 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef %.01117, i64 noundef %6) #15
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %10, label %8
 
@@ -3466,7 +3466,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   %.01117.i = phi ptr [ %50, %48 ], [ %9, %42 ]
   %.01216.i = phi i64 [ %49, %48 ], [ %40, %42 ]
   %46 = call i64 @llvm.umin.i64(i64 %.01216.i, i64 1024)
-  %47 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef %.01117.i, i64 noundef %46) #15
+  %47 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef %.01117.i, i64 noundef %46) #15
   %.not14.i = icmp eq i32 %47, 0
   br i1 %.not14.i, label %48, label %psa_generate_random.exit
 
@@ -3990,7 +3990,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
   %.01117.i = phi ptr [ %44, %42 ], [ %5, %.preheader.i ]
   %.01216.i = phi i64 [ %43, %42 ], [ %31, %.preheader.i ]
   %40 = call i64 @llvm.umin.i64(i64 %.01216.i, i64 1024)
-  %41 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef nonnull %.01117.i, i64 noundef %40) #15
+  %41 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef nonnull %.01117.i, i64 noundef %40) #15
   %.not14.i = icmp eq i32 %41, 0
   br i1 %.not14.i, label %42, label %psa_generate_random.exit
 
@@ -6762,7 +6762,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
   %.01117.i = phi ptr [ %37, %.lr.ph.i ], [ %4, %.thread26 ]
   %.01216.i = phi i64 [ %36, %.lr.ph.i ], [ %5, %.thread26 ]
   %34 = call i64 @llvm.umin.i64(i64 %.01216.i, i64 1024)
-  %35 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef %.01117.i, i64 noundef %34) #15
+  %35 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef %.01117.i, i64 noundef %34) #15
   %.not14.i = icmp ne i32 %35, 0
   %36 = sub i64 %.01216.i, %34
   %37 = getelementptr inbounds i8, ptr %.01117.i, i64 %34
@@ -6854,7 +6854,7 @@ mbedtls_ecc_group_to_psa.exit.i:                  ; preds = %24, %switch.lookup
   br i1 %.not21.i, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = call i32 @mbedtls_ecdh_calc_secret(ptr noundef nonnull %9, ptr noundef %6, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0)) #15
+  %39 = call i32 @mbedtls_ecdh_calc_secret(ptr noundef nonnull %9, ptr noundef %6, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056)) #15
   %40 = call i32 @mbedtls_to_psa_error(i32 noundef %39)
   %.not22.i = icmp eq i32 %40, 0
   br i1 %.not22.i, label %41, label %45
@@ -6928,7 +6928,7 @@ define hidden i32 @psa_generate_key_internal(ptr noundef %0, ptr noundef %1, i64
   %.01117.i = phi ptr [ %22, %20 ], [ %1, %.preheader.i ]
   %.01216.i = phi i64 [ %21, %20 ], [ %2, %.preheader.i ]
   %18 = tail call i64 @llvm.umin.i64(i64 %.01216.i, i64 1024)
-  %19 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef %.01117.i, i64 noundef %18) #15
+  %19 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef %.01117.i, i64 noundef %18) #15
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %20, label %psa_generate_random.exit
 
@@ -7337,8 +7337,8 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_crypto_configure_entropy_sourc
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @global_data, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
   br label %6
 
 6:                                                ; preds = %2, %5
@@ -7355,9 +7355,9 @@ define hidden void @mbedtls_psa_crypto_free() local_unnamed_addr #5 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
-  tail call void @mbedtls_ctr_drbg_free(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0)) #15
-  %4 = load ptr, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 1), align 8
-  tail call void %4(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 2)) #15
+  tail call void @mbedtls_ctr_drbg_free(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056)) #15
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
+  tail call void %4(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24)) #15
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -7379,34 +7379,34 @@ define hidden i32 @psa_crypto_init() local_unnamed_addr #5 {
   br i1 %.not, label %4, label %33
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @global_data, i64 8), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  store ptr @mbedtls_entropy_init, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1), align 8
+  store ptr @mbedtls_entropy_init, ptr getelementptr inbounds (i8, ptr @global_data, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %7, %4
   %9 = phi ptr [ @mbedtls_entropy_init, %7 ], [ %5, %4 ]
-  %10 = load ptr, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %mbedtls_psa_random_init.exit
 
 12:                                               ; preds = %8
-  store ptr @mbedtls_entropy_free, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 1), align 8
+  store ptr @mbedtls_entropy_free, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
   br label %mbedtls_psa_random_init.exit
 
 mbedtls_psa_random_init.exit:                     ; preds = %8, %12
-  tail call void %9(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 2)) #15
-  tail call void @mbedtls_ctr_drbg_init(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0)) #15
+  tail call void %9(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24)) #15
+  tail call void @mbedtls_ctr_drbg_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056)) #15
   %13 = load i8, ptr @global_data, align 8
   %14 = and i8 %13, -7
   %15 = or disjoint i8 %14, 2
   store i8 %15, ptr @global_data, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 4281168, ptr %1, align 4
-  %16 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0), ptr noundef nonnull @mbedtls_entropy_func, ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 2), ptr noundef nonnull %1, i64 noundef 3) #15
+  %16 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef nonnull @mbedtls_entropy_func, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24), ptr noundef nonnull %1, i64 noundef 3) #15
   %17 = call noundef i32 @mbedtls_to_psa_error(i32 noundef %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %.not10 = icmp eq i32 %17, 0
@@ -7441,9 +7441,9 @@ mbedtls_psa_random_init.exit:                     ; preds = %8, %12
   br i1 %.not.i, label %mbedtls_psa_crypto_free.exit, label %31
 
 31:                                               ; preds = %28
-  call void @mbedtls_ctr_drbg_free(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 3, i32 0, i64 0)) #15
-  %32 = load ptr, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 1), align 8
-  call void %32(ptr noundef nonnull getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i64 0, i32 1, i32 2)) #15
+  call void @mbedtls_ctr_drbg_free(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056)) #15
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
+  call void %32(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24)) #15
   br label %mbedtls_psa_crypto_free.exit
 
 mbedtls_psa_crypto_free.exit:                     ; preds = %28, %31

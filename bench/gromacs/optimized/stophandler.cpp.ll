@@ -548,7 +548,7 @@ define void @_ZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIP
   store i32 1, ptr %26, align 8, !noalias !19
   %27 = getelementptr inbounds i8, ptr %25, i64 12
   store i32 1, ptr %27, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %25, align 8, !noalias !19
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !19
   %28 = getelementptr inbounds i8, ptr %25, i64 16
   invoke void @_ZN3gmx19StopConditionSignalC1Eibi(ptr noundef nonnull align 4 dereferenceable(16) %28, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7)
           to label %30 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !19
@@ -752,7 +752,7 @@ _ZNSt10shared_ptrIN3gmx19StopConditionSignalEED2Ev.exit: ; preds = %_ZNSt16_Sp_c
   store i32 1, ptr %107, align 8, !noalias !22
   %108 = getelementptr inbounds i8, ptr %106, i64 12
   store i32 1, ptr %108, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %106, align 8, !noalias !22
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %106, align 8, !noalias !22
   %109 = getelementptr inbounds i8, ptr %106, i64 16
   invoke void @_ZN3gmx17StopConditionTimeC1Eifi(ptr noundef nonnull align 4 dereferenceable(20) %109, i32 noundef %5, float noundef %8, i32 noundef %7)
           to label %111 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !22

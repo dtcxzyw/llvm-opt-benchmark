@@ -476,7 +476,7 @@ define internal ptr @nonstatic_find_mem_region(i64 noundef %0, i64 noundef %1, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 72) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %144, label %5
@@ -584,7 +584,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
   br i1 %72, label %73, label %52, !llvm.loop !13
 
 73:                                               ; preds = %70, %66
-  %74 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %75 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %74, i32 noundef 3264, i64 noundef 24) #11
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %79
@@ -663,7 +663,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
   br i1 %122, label %123, label %.preheader.i, !llvm.loop !13
 
 123:                                              ; preds = %120, %116
-  %124 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %125 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %124, i32 noundef 3264, i64 noundef 24) #11
   %126 = icmp eq ptr %125, null
   br i1 %126, label %132, label %127
@@ -1256,7 +1256,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   br i1 %92, label %93, label %73, !llvm.loop !13
 
 93:                                               ; preds = %90, %86
-  %94 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %95 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %94, i32 noundef 3264, i64 noundef 24) #11
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %99
@@ -1344,7 +1344,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sub_interval(ptr noundef %
   br label %49
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %34 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3264, i64 noundef 24) #11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
@@ -1530,7 +1530,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef 
   br i1 %31, label %32, label %.preheader, !llvm.loop !13
 
 32:                                               ; preds = %29, %25
-  %33 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %34 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3264, i64 noundef 24) #11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %41, label %36
@@ -1729,7 +1729,7 @@ define internal noundef i64 @store_io_db(ptr nocapture noundef readonly %0, ptr 
   br i1 %55, label %56, label %.preheader.i, !llvm.loop !13
 
 56:                                               ; preds = %53, %49
-  %57 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %58 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3264, i64 noundef 24) #11
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62

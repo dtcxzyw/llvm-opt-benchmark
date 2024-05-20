@@ -219,7 +219,7 @@ _set_exit_code.exit:                              ; preds = %28, %33, %35
   store i8 0, ptr %49, align 1
   store i8 0, ptr %52, align 1
   store i8 0, ptr %55, align 1
-  %59 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %60 = tail call i32 @xstrcmp(ptr noundef %59, ptr noundef nonnull %46) #15
   %.not13.i = icmp eq i32 %60, 0
   br i1 %.not13.i, label %84, label %61
@@ -269,13 +269,13 @@ _setup_env_working_cluster.exit:                  ; preds = %44, %84
   br i1 %.not9, label %92, label %87
 
 87:                                               ; preds = %_setup_env_working_cluster.exit
-  %88 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 159), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %89 = call ptr @xstrcasestr(ptr noundef %88, ptr noundef nonnull @.str.6) #15
   %.not.i20 = icmp eq ptr %89, null
   br i1 %.not.i20, label %_enable_het_job_steps.exit, label %_enable_het_job_steps.exit.thread
 
 _enable_het_job_steps.exit:                       ; preds = %87
-  %90 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 159), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %91 = call ptr @xstrcasestr(ptr noundef %90, ptr noundef nonnull @.str.7) #15
   %.not1.i = icmp eq ptr %91, null
   br i1 %.not1.i, label %92, label %_enable_het_job_steps.exit.thread
@@ -1159,7 +1159,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   store ptr %160, ptr %488, align 8
   %489 = getelementptr inbounds i8, ptr %487, i64 16
   store ptr @opt, ptr %489, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 31), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @sropt, i64 152), align 8
   %490 = call ptr @_launch_one_app(ptr noundef nonnull %487)
   br label %_launch_app.exit.sink.split
 
@@ -1579,7 +1579,7 @@ define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 33:                                               ; preds = %27
-  %34 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 24), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 192), align 8
   %35 = tail call ptr @conf_get_opt_str(ptr noundef %34, ptr noundef nonnull @.str.34) #15
   store ptr %35, ptr %6, align 8
   %.not20.i = icmp eq ptr %35, null
@@ -1615,7 +1615,7 @@ define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef %1, 
   br label %60
 
 52:                                               ; preds = %46, %39
-  %53 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 24), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 192), align 8
   %54 = call ptr @conf_get_opt_str(ptr noundef %53, ptr noundef nonnull @.str.35) #15
   %55 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %54, ptr %55, align 8

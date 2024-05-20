@@ -2301,7 +2301,7 @@ get_uint32.exit454:                               ; preds = %334, %336
 341:                                              ; preds = %get_uint32.exit454
   %342 = load i32, ptr @hf_alljoyn_uint32, align 4
   %343 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %342, ptr noundef %0, i32 noundef %321, i32 noundef 4, i32 noundef %3) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %343, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @parse_arg.format, i64 0, i64 1), i32 noundef %338) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %343, ptr noundef nonnull getelementptr inbounds (i8, ptr @parse_arg.format, i64 1), i32 noundef %338) #5
   br label %347
 
 344:                                              ; preds = %add_padding_item.exit453

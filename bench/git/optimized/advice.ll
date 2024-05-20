@@ -138,7 +138,7 @@ _.exit:                                           ; preds = %for.body, %if.end3.
   %4 = load i32, ptr @advice_use_color, align 4
   %call.i7 = call i32 @want_color_fd(i32 noundef 2, i32 noundef %4) #11
   %tobool.not.i = icmp eq i32 %call.i7, 0
-  %retval.0.i8 = select i1 %tobool.not.i, ptr @.str, ptr getelementptr inbounds ([2 x [75 x i8]], ptr @advice_colors, i64 0, i64 1)
+  %retval.0.i8 = select i1 %tobool.not.i, ptr @.str, ptr getelementptr inbounds (i8, ptr @advice_colors, i64 75)
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cp.013 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -168,9 +168,9 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 23, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 376), align 8
   %tobool = icmp ne i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 22, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 360), align 8
   %tobool1 = icmp ne i32 %1, 0
   %2 = select i1 %tobool, i1 %tobool1, i1 false
   %land.ext = zext i1 %2 to i32
@@ -195,9 +195,9 @@ entry:
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 23, i32 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 376), align 8
   %tobool.i = icmp ne i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 22, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 360), align 8
   %tobool1.i = icmp ne i32 %1, 0
   %2 = select i1 %tobool.i, i1 %tobool1.i, i1 false
   %land.ext.i = zext i1 %2 to i32
@@ -432,7 +432,7 @@ if.end43.sink.split:                              ; preds = %if.then34, %if.then
 if.end43:                                         ; preds = %if.end43.sink.split, %if.then34, %if.then27, %if.then20, %if.then13, %if.then6, %if.then
   %retval.0.i10.sink = phi ptr [ @.str.5, %if.then ], [ @.str.7, %if.then6 ], [ @.str.9, %if.then13 ], [ @.str.11, %if.then20 ], [ @.str.13, %if.then27 ], [ @.str.15, %if.then34 ], [ %call.i29, %if.end43.sink.split ]
   %call8 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i10.sink) #11
-  %6 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 26, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 424), align 8
   %tobool45.not = icmp eq i32 %6, 0
   br i1 %tobool45.not, label %if.end48, label %if.then46
 
@@ -506,7 +506,7 @@ if.end3.i:                                        ; preds = %entry
 _.exit:                                           ; preds = %entry, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.20, %entry ]
   %call1 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #11
-  %1 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 26, i32 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 424), align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 

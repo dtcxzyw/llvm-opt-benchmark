@@ -1524,7 +1524,7 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %callable.val.i.i.i = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 0, i32 0, i32 1), align 8
+  %callable.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 8), align 8
   %3 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
   %call.val.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %call.val.i.i.i, 2048
@@ -4819,7 +4819,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call14 = call ptr @PyObject_RichCompare(ptr noundef nonnull %call9, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), i32 noundef %op) #6
+  %call14 = call ptr @PyObject_RichCompare(ptr noundef nonnull %call9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef %op) #6
   %7 = load i64, ptr %call9, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i16.not = icmp eq i64 %8, 0

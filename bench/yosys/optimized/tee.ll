@@ -209,7 +209,7 @@ define internal void @_ZN12_GLOBAL__N_17TeePass7executeESt6vectorINSt7__cxx1112b
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %10 = load i32, ptr @_ZN5Yosys17log_verbose_levelE, align 4
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector.8", ptr @_ZN5Yosys11log_streamsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys11log_streamsE, i64 8), align 8
   %12 = load ptr, ptr @_ZN5Yosys11log_streamsE, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -252,7 +252,7 @@ _ZNSt12_Vector_baseIPSoSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %.noexc44
   %24 = getelementptr inbounds i8, ptr %23, i64 %15
   %25 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   %27 = load ptr, ptr @_ZN5Yosys9log_filesE, align 8
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
@@ -320,22 +320,22 @@ _ZNSt12_Vector_baseIP8_IO_FILESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %.
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr @_ZN5Yosys9log_filesE, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   %.not.i.i61 = icmp eq ptr %58, %57
   br i1 %.not.i.i61, label %_ZNSt6vectorIP8_IO_FILESaIS1_EE5clearEv.exit, label %59
 
 59:                                               ; preds = %56
-  store ptr %57, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE5clearEv.exit:     ; preds = %56, %59
   %60 = load ptr, ptr @_ZN5Yosys11log_streamsE, align 8
-  %61 = load ptr, ptr getelementptr inbounds (%"class.std::vector.8", ptr @_ZN5Yosys11log_streamsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys11log_streamsE, i64 8), align 8
   %.not.i.i62 = icmp eq ptr %61, %60
   br i1 %.not.i.i62, label %_ZNSt6vectorIPSoSaIS0_EE5clearEv.exit, label %62
 
 62:                                               ; preds = %_ZNSt6vectorIP8_IO_FILESaIS1_EE5clearEv.exit
-  store ptr %60, ptr getelementptr inbounds (%"class.std::vector.8", ptr @_ZN5Yosys11log_streamsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys11log_streamsE, i64 8), align 8
   br label %_ZNSt6vectorIPSoSaIS0_EE5clearEv.exit
 
 .loopexit:                                        ; preds = %167, %187, %193, %200, %207, %82, %120, %143
@@ -418,16 +418,16 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE5clearEv.exit:     ; preds = %56, %59
   unreachable
 
 103:                                              ; preds = %94
-  %104 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %105 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 16), align 8
   %.not.i = icmp eq ptr %104, %105
   br i1 %.not.i, label %109, label %106
 
 106:                                              ; preds = %103
   store ptr %90, ptr %104, align 8
-  %107 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
-  store ptr %108, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %108, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit
 
 109:                                              ; preds = %103
@@ -483,9 +483,9 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds 
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %129, %_ZNSt6vectorIP8_IO_FILESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %123, ptr @_ZN5Yosys9log_filesE, align 8
-  store ptr %128, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %128, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 8), align 8
   %130 = getelementptr inbounds ptr, ptr %123, i64 %119
-  store ptr %130, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys9log_filesE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %130, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys9log_filesE, i64 16), align 8
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %106
@@ -576,8 +576,8 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norm
           to label %173 unwind label %180
 
 173:                                              ; preds = %171
-  %174 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %175 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 8), align 8
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 16), align 8
   %.not.i78 = icmp eq ptr %174, %175
   br i1 %.not.i78, label %179, label %176
 
@@ -586,9 +586,9 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norm
           to label %.noexc79 unwind label %180
 
 .noexc79:                                         ; preds = %176
-  %177 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 8), align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 32
-  store ptr %178, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %178, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys15log_scratchpadsB5cxx11E, i64 8), align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 179:                                              ; preds = %173
@@ -2376,7 +2376,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 
 11:                                               ; preds = %9, %6, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.16", ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 8), align 8
   %.not1112 = icmp eq ptr %12, %13
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -3192,7 +3192,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_17TeePassE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_17TeePassE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_17TeePassE, i64 16), ptr @_ZN12_GLOBAL__N_17TeePassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

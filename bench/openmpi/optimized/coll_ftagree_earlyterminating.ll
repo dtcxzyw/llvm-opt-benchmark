@@ -157,7 +157,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %or.cond286, label %.thread296, label %66
 
 .thread296:                                       ; preds = %53
-  %57 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %58 = mul i64 %17, %indvars.iv367
   %59 = getelementptr inbounds i8, ptr %23, i64 %58
   %60 = add nsw i32 %.0238317, 1
@@ -180,7 +180,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %or.cond287, label %70, label %78
 
 70:                                               ; preds = %68
-  %71 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %72 = add nsw i32 %.1239298, 1
   %73 = sext i32 %.1239298 to i64
   %74 = getelementptr inbounds ptr, ptr %20, i64 %73
@@ -217,7 +217,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 
 .preheader303:                                    ; preds = %.preheader303.preheader, %._crit_edge329
   %.3241 = phi i32 [ %.8, %._crit_edge329 ], [ %.0238.lcssa, %.preheader303.preheader ]
-  %84 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %85 = sext i32 %.3241 to i64
   %86 = tail call i32 %84(i64 noundef %85, ptr noundef %20, ptr noundef %22) #9
   switch i32 %86, label %.loopexit [

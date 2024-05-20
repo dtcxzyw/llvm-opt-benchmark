@@ -247,7 +247,7 @@ invoke.cont52:                                    ; preds = %invoke.cont49
   store <2 x ptr> %2, ptr @_ZZN12_GLOBAL__N_116getMethodStringsB5cxx11EvE13methodStringsB5cxx11, align 16
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 16
-  store ptr %3, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN12_GLOBAL__N_116getMethodStringsB5cxx11EvE13methodStringsB5cxx11, i64 0, i32 0, i32 0, i32 0, i64 16), align 16
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_116getMethodStringsB5cxx11EvE13methodStringsB5cxx11, i64 16), align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 416

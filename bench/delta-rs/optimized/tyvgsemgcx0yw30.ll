@@ -5745,7 +5745,7 @@ default.unreachable939:                           ; preds = %262, %237, %226, %1
   br i1 %288, label %289, label %.thread117.i.i.i.i
 
 289:                                              ; preds = %264
-  %290 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h61a4f17d835ad191E", i64 0, i32 2) monotonic, align 8, !noalias !997
+  %290 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h61a4f17d835ad191E", i64 16) monotonic, align 8, !noalias !997
   switch i8 %290, label %291 [
     i8 0, label %.thread117.i.i.i.i
     i8 1, label %.thread.i.i.i.i

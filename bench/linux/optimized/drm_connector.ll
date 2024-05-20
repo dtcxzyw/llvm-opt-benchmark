@@ -1227,8 +1227,8 @@ define dso_local i32 @drm_connector_register(ptr noundef %0) #2 align 16 {
   tail call void @drm_sysfs_connector_hotplug_event(ptr noundef %0) #21
   tail call void @mutex_lock(ptr noundef nonnull @connector_list_lock) #21
   %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @connector_list, i64 0, i32 1), align 8
-  store ptr %29, ptr getelementptr inbounds (%struct.list_head, ptr @connector_list, i64 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @connector_list, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @connector_list, i64 8), align 8
   store ptr @connector_list, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %30, ptr %31, align 8
@@ -3790,7 +3790,7 @@ declare dso_local ptr @idr_get_next(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_mode_create_tile_group(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 32) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %19, label %6

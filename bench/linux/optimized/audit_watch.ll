@@ -221,7 +221,7 @@ define dso_local noundef i32 @audit_to_watch(ptr nocapture noundef %0, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @audit_init_watch(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 64) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5, !prof !6
@@ -332,7 +332,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
   %56 = load ptr, ptr %44, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %60 = call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 3520, i64 noundef 88) #9
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread14, label %62, !prof !6
@@ -1141,7 +1141,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br i1 %33, label %.thread16, label %34, !prof !6
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %36 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 64) #9
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38, !prof !6

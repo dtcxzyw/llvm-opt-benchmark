@@ -115,7 +115,7 @@ define hidden void @zim_SplHeap_count(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
@@ -151,7 +151,7 @@ define hidden void @zim_SplHeap_isEmpty(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -200,7 +200,7 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr nocapture noundef wri
 15:                                               ; preds = %7
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %30
@@ -321,7 +321,7 @@ define internal fastcc void @spl_ptr_heap_insert(ptr nocapture noundef %0, ptr n
   %.0.lcssa = phi i32 [ %21, %20 ], [ %.0.lcssa.ph, %.critedge.loopexit ]
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %4, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %56, label %52
 
@@ -394,7 +394,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %13, %19
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %24
@@ -527,7 +527,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocaptu
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %.086.lcssa = phi i64 [ 0, %22 ], [ %71, %._crit_edge.loopexit ]
-  %72 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not96 = icmp eq ptr %72, null
   br i1 %.not96, label %77, label %73
 
@@ -593,7 +593,7 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr nocapture no
 16:                                               ; preds = %8
   %17 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #14
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %60
@@ -705,7 +705,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %33
 
@@ -725,7 +725,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @zend_call_method(ptr noundef nonnull %10, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
@@ -777,7 +777,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %33
@@ -795,7 +795,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #14
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %33
@@ -808,7 +808,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 24:                                               ; preds = %21
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %26 = call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.1, i64 noundef 0) #14
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %33
@@ -932,7 +932,7 @@ define hidden void @zim_SplPriorityQueue_top(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -951,7 +951,7 @@ define hidden void @zim_SplPriorityQueue_top(ptr nocapture noundef readonly %0, 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %32
@@ -970,7 +970,7 @@ spl_ptr_heap_top.exit:                            ; preds = %20
 spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_top.exit
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #14
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   br label %32
@@ -996,7 +996,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr nocapture noundef r
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %25
@@ -1011,7 +1011,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr nocapture noundef r
 15:                                               ; preds = %12
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %17 = call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str.4, i64 noundef 0) #14
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %25
@@ -1041,7 +1041,7 @@ define hidden void @zim_SplPriorityQueue_getExtractFlags(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -1070,7 +1070,7 @@ define hidden void @zim_SplHeap_recoverFromCorruption(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -1101,7 +1101,7 @@ define hidden void @zim_SplHeap_isCorrupted(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %17
@@ -1131,7 +1131,7 @@ define hidden void @zim_SplPriorityQueue_compare(ptr nocapture noundef readonly 
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %2
@@ -1164,7 +1164,7 @@ spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %12, %13
 ; Function Attrs: nounwind uwtable
 define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %31
 
@@ -1184,7 +1184,7 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #14
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
@@ -1234,7 +1234,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %52
@@ -1253,7 +1253,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %52
@@ -1272,7 +1272,7 @@ spl_ptr_heap_top.exit:                            ; preds = %20
 spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_top.exit
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #14
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   br label %52
@@ -1332,7 +1332,7 @@ define hidden void @zim_SplMinHeap_compare(ptr nocapture noundef readonly %0, pt
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %2
@@ -1365,7 +1365,7 @@ spl_ptr_heap_zval_min_cmp.exit:                   ; preds = %12, %13
 ; Function Attrs: nounwind uwtable
 define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %31
 
@@ -1385,7 +1385,7 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #14
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
@@ -1434,7 +1434,7 @@ define hidden void @zim_SplMaxHeap_compare(ptr nocapture noundef readonly %0, pt
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %2
@@ -1473,7 +1473,7 @@ define hidden void @zim_SplHeap_key(ptr nocapture noundef readonly %0, ptr nocap
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %17
@@ -1505,7 +1505,7 @@ define hidden void @zim_SplHeap_next(ptr noundef %0, ptr nocapture readnone %1) 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1531,7 +1531,7 @@ define hidden void @zim_SplHeap_valid(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -1562,7 +1562,7 @@ define hidden void @zim_SplHeap_rewind(ptr nocapture noundef readonly %0, ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.critedge
@@ -1580,7 +1580,7 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -1659,7 +1659,7 @@ define hidden void @zim_SplPriorityQueue_current(ptr nocapture noundef readonly 
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %20
@@ -1697,7 +1697,7 @@ define hidden void @zim_SplHeap___debugInfo(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1916,7 +1916,7 @@ define hidden void @zim_SplPriorityQueue___debugInfo(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1975,10 +1975,10 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   store ptr @spl_heap_get_iterator, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplHeap, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 32, ptr @spl_handler_SplHeap, align 8
-  store ptr @spl_heap_object_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplHeap, i64 0, i32 3), align 8
-  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplHeap, i64 0, i32 18), align 8
-  store ptr @spl_heap_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplHeap, i64 0, i32 21), align 8
-  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplHeap, i64 0, i32 1), align 8
+  store ptr @spl_heap_object_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_SplHeap, i64 24), align 8
+  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds (i8, ptr @spl_handler_SplHeap, i64 144), align 8
+  store ptr @spl_heap_object_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_SplHeap, i64 168), align 8
+  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_SplHeap, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %11, i8 0, i64 512, i1 false)
   %27 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2164,10 +2164,10 @@ register_class_SplPriorityQueue.exit:             ; preds = %87, %96, %103, %104
   store ptr @spl_pqueue_get_iterator, ptr %107, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplPriorityQueue, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 32, ptr @spl_handler_SplPriorityQueue, align 8
-  store ptr @spl_heap_object_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplPriorityQueue, i64 0, i32 3), align 8
-  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplPriorityQueue, i64 0, i32 18), align 8
-  store ptr @spl_pqueue_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplPriorityQueue, i64 0, i32 21), align 8
-  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplPriorityQueue, i64 0, i32 1), align 8
+  store ptr @spl_heap_object_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_SplPriorityQueue, i64 24), align 8
+  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds (i8, ptr @spl_handler_SplPriorityQueue, i64 144), align 8
+  store ptr @spl_pqueue_object_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_SplPriorityQueue, i64 168), align 8
+  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_SplPriorityQueue, i64 8), align 8
   ret i32 0
 }
 

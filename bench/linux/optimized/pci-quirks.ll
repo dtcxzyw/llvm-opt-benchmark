@@ -110,7 +110,7 @@ declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @usb_hcd_amd_remote_wakeup_quirk(ptr nocapture readnone %0) #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
-  %2 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 20), align 4
   %3 = and i32 %2, -2
   %4 = icmp eq i32 %3, 6
   %5 = zext i1 %4 to i32
@@ -120,13 +120,13 @@ define dso_local range(i32 0, 2) i32 @usb_hcd_amd_remote_wakeup_quirk(ptr nocapt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 16 {
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_lock) #8
-  %2 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %0
   %5 = add nuw i32 %2, 1
-  store i32 %5, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_lock, i64 noundef %1) #8
   br label %62
 
@@ -226,13 +226,13 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
   %54 = phi i32 [ 0, %.critedge ], [ %47, %45 ], [ 0, %28 ]
   %55 = phi i8 [ 0, %.critedge ], [ 1, %45 ], [ 0, %28 ]
   %56 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_lock) #8
-  %57 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %49
   %60 = add nuw i32 %57, 1
-  store i32 %60, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  store i32 %60, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_lock, i64 noundef %56) #8
   tail call void @pci_dev_put(ptr noundef %52) #8
   tail call void @pci_dev_put(ptr noundef %53) #8
@@ -240,13 +240,13 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
 
 61:                                               ; preds = %49
   store ptr %52, ptr @amd_chipset, align 8
-  store ptr %53, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 1), align 8
-  store i32 %54, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 2), align 8
-  store i32 %51, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3, i32 0), align 4
-  store i8 %50, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3, i32 1), align 8
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 8), align 8
+  store i32 %54, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 16), align 8
+  store i32 %51, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 20), align 4
+  store i8 %50, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @amd_chipset, i64 25), i8 0, i64 7, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
-  store i8 %55, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 6), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
+  store i8 %55, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @amd_chipset, i64 37), i8 0, i64 3, i1 false)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_lock, i64 noundef %56) #8
   br label %62
@@ -258,12 +258,12 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @usb_amd_hang_symptom_quirk() #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
-  %1 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 20), align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3, i32 1), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 24), align 8
   %5 = icmp eq i32 %1, 2
   %6 = and i8 %4, -2
   %7 = icmp eq i8 %6, 58
@@ -278,7 +278,7 @@ define dso_local zeroext i1 @usb_amd_hang_symptom_quirk() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @usb_amd_prefetch_quirk() #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
-  %1 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 20), align 4
   %2 = icmp eq i32 %1, 3
   ret i1 %2
 }
@@ -286,7 +286,7 @@ define dso_local zeroext i1 @usb_amd_prefetch_quirk() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @usb_amd_quirk_pll_check() #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
-  %1 = load i8, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 6), align 4, !range !7, !noundef !8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 36), align 4, !range !7, !noundef !8
   %2 = icmp ne i8 %1, 0
   ret i1 %2
 }
@@ -308,23 +308,23 @@ define internal fastcc void @usb_amd_quirk_pll(i32 noundef %0) unnamed_addr #0 a
   %4 = icmp eq i32 %0, 0
   %5 = zext i1 %4 to i32
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_lock) #8
-  %7 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 4), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 28), align 4
   br i1 %4, label %11, label %8
 
 8:                                                ; preds = %1
   %9 = add i32 %7, 1
-  store i32 %9, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 4), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 28), align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %126, label %14
 
 11:                                               ; preds = %1
   %12 = add i32 %7, -1
-  store i32 %12, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 4), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 28), align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %126, label %14
 
 14:                                               ; preds = %11, %8
-  %15 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 20), align 4
   %16 = add i32 %15, -3
   %17 = icmp ult i32 %16, 3
   br i1 %17, label %18, label %52
@@ -381,13 +381,13 @@ define internal fastcc void @usb_amd_quirk_pll(i32 noundef %0) unnamed_addr #0 a
 
 52:                                               ; preds = %14
   %53 = icmp eq i32 %15, 2
-  %54 = load i8, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3, i32 1), align 8
+  %54 = load i8, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 24), align 8
   %55 = icmp ult i8 %54, 60
   %56 = select i1 %53, i1 %55, i1 false
   br i1 %56, label %57, label %126
 
 57:                                               ; preds = %52
-  %58 = load ptr, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 8), align 8
   %59 = call i32 @pci_read_config_dword(ptr noundef %58, i32 noundef 240, ptr noundef nonnull %2) #8
   %60 = load i32, ptr %2, align 4
   %61 = trunc i32 %60 to i16
@@ -425,7 +425,7 @@ define internal fastcc void @usb_amd_quirk_pll(i32 noundef %0) unnamed_addr #0 a
   br i1 %79, label %126, label %80
 
 80:                                               ; preds = %71
-  %81 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 2), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 16), align 8
   %82 = and i32 %81, -3
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %84, label %103
@@ -503,9 +503,9 @@ define dso_local void @usb_amd_quirk_pll_enable() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_amd_dev_put() #0 align 16 {
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_lock) #8
-  %2 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   %3 = add i32 %2, -1
-  store i32 %3, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 5), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 32), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
@@ -515,8 +515,8 @@ define dso_local void @usb_amd_dev_put() #0 align 16 {
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr @amd_chipset, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 6), align 4
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @amd_chipset, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @amd_chipset, i8 0, i64 32, i1 false)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_lock, i64 noundef %1) #8
   tail call void @pci_dev_put(ptr noundef %7) #8

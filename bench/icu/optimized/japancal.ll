@@ -66,7 +66,7 @@ entry:
 define void @_ZN6icu_7516JapaneseCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 16), ptr %this, align 8
   invoke fastcc void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont unwind label %lpad
 
@@ -133,12 +133,12 @@ if.end.i2:                                        ; preds = %_ZN6icu_7516Japanes
   br label %_ZN6icu_75L14initializeErasER10UErrorCode.exit
 
 _ZN6icu_75L14initializeErasER10UErrorCode.exit:   ; preds = %_ZN6icu_7516JapaneseCalendar18enableTentativeEraEv.exit.i, %if.end.i2
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL25gJapaneseEraRulesInitOnce, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZL25gJapaneseEraRulesInitOnce, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL25gJapaneseEraRulesInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %4 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL25gJapaneseEraRulesInitOnce, i64 0, i32 1), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL25gJapaneseEraRulesInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %4, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -183,7 +183,7 @@ define void @_ZN6icu_7516JapaneseCalendarC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   %status = alloca i32, align 4
   tail call void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(654) %source)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 16), ptr %this, align 8
   store i32 0, ptr %status, align 4
   invoke fastcc void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad

@@ -95,7 +95,7 @@ $_ZN20btAlignedObjectArrayIS_IiEE13copyFromArrayERKS1_ = comdat any
 define dso_local void @_ZN12btMLCPSolverC2EP21btMLCPSolverInterface(ptr noundef nonnull align 8 dereferenceable(1392) %this, ptr noundef %solver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont35:
   tail call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12btMLCPSolver, i64 16), ptr %this, align 8
   %m_A = getelementptr inbounds i8, ptr %this, i64 408
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_A, i8 0, i64 20, i1 false)
@@ -477,7 +477,7 @@ declare void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12btMLCPSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1392) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12btMLCPSolver, i64 16), ptr %this, align 8
   %m_scratchTmp = getelementptr inbounds i8, ptr %this, i64 1304
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchTmp) #12
   %m_scratchJTranspose = getelementptr inbounds i8, ptr %this, i64 1216

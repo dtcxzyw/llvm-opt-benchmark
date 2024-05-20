@@ -5592,7 +5592,7 @@ _ZN6duckdb9make_uniqINS_15AttachStatementEJEEENS_11__unique_ifIT_Lb1EE15__unique
 invoke.cont:                                      ; preds = %_ZN6duckdb9make_uniqINS_15AttachStatementEJEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_.exit
   %info_type2.i.i.i = getelementptr inbounds i8, ptr %call.i131132, i64 8
   store i8 1, ptr %info_type2.i.i.i, align 8, !tbaa !75, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb10AttachInfoE, i64 0, i32 0, i64 2), ptr %call.i131132, align 8, !tbaa !47, !noalias !72
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb10AttachInfoE, i64 16), ptr %call.i131132, align 8, !tbaa !47, !noalias !72
   %name.i.i = getelementptr inbounds i8, ptr %call.i131132, i64 16
   %1 = getelementptr inbounds i8, ptr %call.i131132, i64 32
   store ptr %1, ptr %name.i.i, align 8, !tbaa !25, !noalias !72
@@ -9084,7 +9084,7 @@ entry:
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !191
   store i8 0, ptr %0, align 1, !tbaa !24, !noalias !191
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SelectStatementE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !47, !noalias !191
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !191
   %node.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr null, ptr %node.i.i, align 8, !tbaa !201, !noalias !191
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !22, !alias.scope !191
@@ -17602,7 +17602,7 @@ invoke.cont:                                      ; preds = %_ZN6duckdb9make_uni
   %_M_string_length.i.i.i.i5.i = getelementptr inbounds i8, ptr %call.i5658, i64 96
   store i64 0, ptr %_M_string_length.i.i.i.i5.i, align 8, !tbaa !18, !noalias !438
   store i8 0, ptr %3, align 8, !tbaa !24, !noalias !438
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb16CreateSchemaInfoE, i64 0, i32 0, i64 2), ptr %call.i5658, align 8, !tbaa !47, !noalias !438
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb16CreateSchemaInfoE, i64 16), ptr %call.i5658, align 8, !tbaa !47, !noalias !438
   store ptr %call.i5658, ptr %info, align 8, !tbaa !22, !alias.scope !438
   %catalogname = getelementptr inbounds i8, ptr %stmt, i64 8
   %4 = load ptr, ptr %catalogname, align 8, !tbaa !443
@@ -23211,7 +23211,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #23, !noalias !589
   %info_type2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 2, ptr %info_type2.i.i.i, align 8, !tbaa !75, !noalias !589
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb8CopyInfoE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !47, !noalias !589
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb8CopyInfoE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !589
   %catalog.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %0, ptr %catalog.i.i, align 8, !tbaa !25, !noalias !589
@@ -24667,7 +24667,7 @@ entry:
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !636, !noalias !633
   %query_location.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !637, !noalias !633
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ExpressionListRefE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !47, !noalias !633
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb17ExpressionListRefE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !633
   %values.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %values.i.i, i8 0, i64 72, i1 false), !noalias !633
   store ptr %call.i, ptr %result, align 8, !tbaa !22, !alias.scope !633
@@ -26825,7 +26825,7 @@ _ZN6duckdb9make_uniqINS_13LoadStatementEJEEENS_11__unique_ifIT_Lb1EE15__unique_s
 invoke.cont:                                      ; preds = %_ZN6duckdb9make_uniqINS_13LoadStatementEJEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_.exit
   %info_type2.i.i.i = getelementptr inbounds i8, ptr %call.i5152, i64 8
   store i8 7, ptr %info_type2.i.i.i, align 8, !tbaa !75, !noalias !728
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb8LoadInfoE, i64 0, i32 0, i64 2), ptr %call.i5152, align 8, !tbaa !47, !noalias !728
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb8LoadInfoE, i64 16), ptr %call.i5152, align 8, !tbaa !47, !noalias !728
   %filename.i.i = getelementptr inbounds i8, ptr %call.i5152, i64 16
   %1 = getelementptr inbounds i8, ptr %call.i5152, i64 32
   store ptr %1, ptr %filename.i.i, align 8, !tbaa !25, !noalias !728
@@ -33365,7 +33365,7 @@ invoke.cont202:                                   ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !636, !noalias !903
   %query_location.i.i.i = getelementptr inbounds i8, ptr %call.i705, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !637, !noalias !903
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb8PivotRefE, i64 0, i32 0, i64 2), ptr %call.i705, align 8, !tbaa !47, !noalias !903
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb8PivotRefE, i64 16), ptr %call.i705, align 8, !tbaa !47, !noalias !903
   %source.i.i = getelementptr inbounds i8, ptr %call.i705, i64 64
   %bound_pivot_values.i.i = getelementptr inbounds i8, ptr %call.i705, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(129) %source.i.i, i8 0, i64 129, i1 false), !noalias !903
@@ -34623,7 +34623,7 @@ if.then68:                                        ; preds = %if.end66
 invoke.cont75:                                    ; preds = %if.then68
   %type2.i.i.i = getelementptr inbounds i8, ptr %call.i428, i64 8
   store i8 3, ptr %type2.i.i.i, align 8, !tbaa !935, !noalias !932
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb16DistinctModifierE, i64 0, i32 0, i64 2), ptr %call.i428, align 8, !tbaa !47, !noalias !932
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb16DistinctModifierE, i64 16), ptr %call.i428, align 8, !tbaa !47, !noalias !932
   %distinct_on_targets.i.i = getelementptr inbounds i8, ptr %call.i428, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %distinct_on_targets.i.i, i8 0, i64 24, i1 false), !noalias !932
   store ptr %call.i428, ptr %modifier, align 8, !tbaa !22, !alias.scope !932
@@ -35359,7 +35359,7 @@ sw.bb183:                                         ; preds = %entry, %entry, %ent
           to label %call.i.noexc544 unwind label %lpad186
 
 call.i.noexc544:                                  ; preds = %sw.bb183
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb9QueryNodeE, i64 0, i32 0, i64 2), ptr %call.i545, align 8, !tbaa !47, !noalias !977
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb9QueryNodeE, i64 16), ptr %call.i545, align 8, !tbaa !47, !noalias !977
   %type2.i.i.i542 = getelementptr inbounds i8, ptr %call.i545, i64 8
   store i8 2, ptr %type2.i.i.i542, align 8, !tbaa !980, !noalias !977
   %modifiers.i.i.i = getelementptr inbounds i8, ptr %call.i545, i64 16
@@ -35376,7 +35376,7 @@ lpad.i.i.i:                                       ; preds = %call.i.noexc544
   br label %ehcleanup322
 
 invoke.cont187:                                   ; preds = %call.i.noexc544
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb16SetOperationNodeE, i64 0, i32 0, i64 2), ptr %call.i545, align 8, !tbaa !47, !noalias !977
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb16SetOperationNodeE, i64 16), ptr %call.i545, align 8, !tbaa !47, !noalias !977
   %setop_type.i.i = getelementptr inbounds i8, ptr %call.i545, i64 96
   store i8 0, ptr %setop_type.i.i, align 8, !tbaa !987, !noalias !977
   %setop_all.i.i = getelementptr inbounds i8, ptr %call.i545, i64 97
@@ -35973,7 +35973,7 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %if.then
   %type2.i.i.i = getelementptr inbounds i8, ptr %call.i147, i64 8
   store i8 2, ptr %type2.i.i.i, align 8, !tbaa !935, !noalias !1024
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb13OrderModifierE, i64 0, i32 0, i64 2), ptr %call.i147, align 8, !tbaa !47, !noalias !1024
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb13OrderModifierE, i64 16), ptr %call.i147, align 8, !tbaa !47, !noalias !1024
   %orders.i.i = getelementptr inbounds i8, ptr %call.i147, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %orders.i.i, i8 0, i64 24, i1 false), !noalias !1024
   store ptr %call.i147, ptr %order_modifier, align 8, !tbaa !22, !alias.scope !1024
@@ -36257,7 +36257,7 @@ if.then18:                                        ; preds = %land.lhs.true
 invoke.cont24:                                    ; preds = %if.then18
   %type2.i.i.i162 = getelementptr inbounds i8, ptr %call.i163, i64 8
   store i8 4, ptr %type2.i.i.i162, align 8, !tbaa !935, !noalias !1045
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb20LimitPercentModifierE, i64 0, i32 0, i64 2), ptr %call.i163, align 8, !tbaa !47, !noalias !1045
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb20LimitPercentModifierE, i64 16), ptr %call.i163, align 8, !tbaa !47, !noalias !1045
   %limit.i.i = getelementptr inbounds i8, ptr %call.i163, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %limit.i.i, i8 0, i64 16, i1 false), !noalias !1045
   store ptr %call.i163, ptr %limit_percent_modifier, align 8, !tbaa !22, !alias.scope !1045
@@ -36608,7 +36608,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 invoke.cont67:                                    ; preds = %if.else
   %type2.i.i.i214 = getelementptr inbounds i8, ptr %call.i216, i64 8
   store i8 1, ptr %type2.i.i.i214, align 8, !tbaa !935, !noalias !1065
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb13LimitModifierE, i64 0, i32 0, i64 2), ptr %call.i216, align 8, !tbaa !47, !noalias !1065
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb13LimitModifierE, i64 16), ptr %call.i216, align 8, !tbaa !47, !noalias !1065
   %limit.i.i215 = getelementptr inbounds i8, ptr %call.i216, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %limit.i.i215, i8 0, i64 16, i1 false), !noalias !1065
   store ptr %call.i216, ptr %limit_modifier, align 8, !tbaa !22, !alias.scope !1065
@@ -40455,7 +40455,7 @@ invoke.cont54:                                    ; preds = %_ZNSt10unique_ptrIN
 invoke.cont59:                                    ; preds = %invoke.cont54
   %type2.i.i.i = getelementptr inbounds i8, ptr %call.i198199, i64 8
   store i8 3, ptr %type2.i.i.i, align 8, !tbaa !935, !noalias !1145
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb16DistinctModifierE, i64 0, i32 0, i64 2), ptr %call.i198199, align 8, !tbaa !47, !noalias !1145
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb16DistinctModifierE, i64 16), ptr %call.i198199, align 8, !tbaa !47, !noalias !1145
   %distinct_on_targets.i.i = getelementptr inbounds i8, ptr %call.i198199, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %distinct_on_targets.i.i, i8 0, i64 24, i1 false), !noalias !1145
   %modifiers = getelementptr inbounds i8, ptr %call55, i64 16
@@ -40609,7 +40609,7 @@ _ZNSt10unique_ptrIN6duckdb16DistinctModifierESt14default_deleteIS1_EED2Ev.exit: 
 invoke.cont64:                                    ; preds = %_ZNSt10unique_ptrIN6duckdb16DistinctModifierESt14default_deleteIS1_EED2Ev.exit
   %type2.i.i.i215 = getelementptr inbounds i8, ptr %call.i214216, i64 8
   store i8 2, ptr %type2.i.i.i215, align 8, !tbaa !935, !noalias !1160
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6duckdb13OrderModifierE, i64 0, i32 0, i64 2), ptr %call.i214216, align 8, !tbaa !47, !noalias !1160
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb13OrderModifierE, i64 16), ptr %call.i214216, align 8, !tbaa !47, !noalias !1160
   %orders.i.i = getelementptr inbounds i8, ptr %call.i214216, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %orders.i.i, i8 0, i64 24, i1 false), !noalias !1160
   store ptr %call.i214216, ptr %modifier, align 8, !tbaa !22, !alias.scope !1160
@@ -41121,7 +41121,7 @@ invoke.cont109:                                   ; preds = %if.end
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i325327, i64 104
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !1185
   store i8 0, ptr %155, align 1, !tbaa !24, !noalias !1185
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SelectStatementE, i64 0, i32 0, i64 2), ptr %call.i325327, align 8, !tbaa !47, !noalias !1185
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %call.i325327, align 8, !tbaa !47, !noalias !1185
   %node.i.i = getelementptr inbounds i8, ptr %call.i325327, i64 128
   store ptr null, ptr %node.i.i, align 8, !tbaa !201, !noalias !1185
   store ptr %call.i325327, ptr %select, align 8, !tbaa !22, !alias.scope !1185
@@ -44134,7 +44134,7 @@ declare void @_ZN6duckdb21InvalidInputExceptionC1ERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !47
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !47
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !14
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -44844,7 +44844,7 @@ invoke.cont20:                                    ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !636, !noalias !1254
   %query_location.i.i.i = getelementptr inbounds i8, ptr %call.i103104, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !637, !noalias !1254
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb12BaseTableRefE, i64 0, i32 0, i64 2), ptr %call.i103104, align 8, !tbaa !47, !noalias !1254
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb12BaseTableRefE, i64 16), ptr %call.i103104, align 8, !tbaa !47, !noalias !1254
   %catalog_name.i.i = getelementptr inbounds i8, ptr %call.i103104, i64 64
   %31 = getelementptr inbounds i8, ptr %call.i103104, i64 80
   store ptr %31, ptr %catalog_name.i.i, align 8, !tbaa !25, !noalias !1254

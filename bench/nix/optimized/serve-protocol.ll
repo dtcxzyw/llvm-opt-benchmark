@@ -2866,7 +2866,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -3242,7 +3242,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_S5_S5_EEC
 .noexc:                                           ; preds = %_ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_S5_S5_EEC2IJRA1_KcRA3_S8_RA13_S8_RA10_S8_RA25_S8_ELb1ETnNSt9enable_ifIXclsr4_TCCIXT0_EEE29__is_implicitly_constructibleIDpT_EEEbE4typeELb1EEEDpOSK_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !9
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !9
   %21 = getelementptr inbounds i8, ptr %3, i64 24
@@ -3319,7 +3319,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %21, ptr %20, align 8, !noalias !9
   store i64 0, ptr %22, align 8, !noalias !9
   store i8 0, ptr %21, align 8, !noalias !9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !9
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %46 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -3940,7 +3940,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %79 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %79, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -4493,7 +4493,7 @@ _ZNSt5tupleIJN3nix9StorePathES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__i
 .noexc:                                           ; preds = %_ZNSt5tupleIJN3nix9StorePathES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !24
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !24
   %47 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !24
   %48 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4555,7 +4555,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %48, ptr %47, align 8, !noalias !24
   store i64 0, ptr %49, align 8, !noalias !24
   store i8 0, ptr %48, align 8, !noalias !24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !24
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !24
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %70 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -5177,7 +5177,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %5, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.val9.i.i, ptr %60, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -5465,7 +5465,7 @@ define void @_ZN3nix40ServeProtoTest_contentAddress_write_Test8TestBodyEv(ptr no
   call void %27(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 15, ptr nonnull @.str.24)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !35
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !35
   %29 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5531,7 +5531,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %29, ptr %28, align 8, !noalias !35
   store i64 0, ptr %30, align 8, !noalias !35
   store i8 0, ptr %29, align 8, !noalias !35
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !35
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %51 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -6089,7 +6089,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %63 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %63, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -6611,7 +6611,7 @@ _ZNSt5tupleIJN3nix9DrvOutputES1_EEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is
 .noexc10:                                         ; preds = %_ZNSt5tupleIJN3nix9DrvOutputES1_EEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS1_S6_EEEbE4typeELb1EEES6_S6_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !43
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !43
   %32 = getelementptr inbounds i8, ptr %3, i64 24
@@ -6673,7 +6673,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %32, ptr %31, align 8, !noalias !43
   store i64 0, ptr %33, align 8, !noalias !43
   store i8 0, ptr %32, align 8, !noalias !43
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !43
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %54 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -7494,7 +7494,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %5, align 8
   %128 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.val9.i.i, ptr %128, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -8627,7 +8627,7 @@ _ZNSt4pairIKN3nix9DrvOutputENS0_9StorePathEEC2IS1_S3_Qcl16_S_constructibleITL0__
 .noexc:                                           ; preds = %92
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !59
   %96 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !59
   %97 = getelementptr inbounds i8, ptr %3, i64 24
@@ -8689,7 +8689,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %97, ptr %96, align 8, !noalias !59
   store i64 0, ptr %98, align 8, !noalias !59
   store i8 0, ptr %97, align 8, !noalias !59
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !59
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %119 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -9832,7 +9832,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.val9.i, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -10617,7 +10617,7 @@ define internal fastcc void @_ZN3nix18VersionedProtoTestINS_10ServeProtoEXadsoKc
   call void %19(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1, ptr %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !67
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !67
   %21 = getelementptr inbounds i8, ptr %7, i64 24
@@ -10685,7 +10685,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %21, ptr %20, align 8, !noalias !67
   store i64 0, ptr %22, align 8, !noalias !67
   store i8 0, ptr %21, align 8, !noalias !67
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !67
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !67
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %45 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -13032,7 +13032,7 @@ define void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_Test8TestBody
   %8 = alloca [1 x %"class.nix::StorePath"], align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) @_ZN3nix4Hash5dummyE, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 136
@@ -13063,7 +13063,7 @@ define void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_Test8TestBody
           to label %23 unwind label %145
 
 23:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 208
   %25 = load ptr, ptr %17, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %25)
@@ -13120,7 +13120,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i: ; 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i
   %44 = getelementptr inbounds i8, ptr %6, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %44, ptr noundef nonnull align 8 dereferenceable(80) @_ZN3nix4Hash5dummyE, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %6, align 8
   %45 = getelementptr inbounds i8, ptr %6, i64 40
   store i8 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %6, i64 136
@@ -13203,7 +13203,7 @@ _ZN3nix9StorePathD2Ev.exit14:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %76 unwind label %147
 
 76:                                               ; preds = %_ZN3nix9StorePathD2Ev.exit14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %6, align 8
   %77 = getelementptr inbounds i8, ptr %6, i64 208
   %78 = load ptr, ptr %52, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %78)
@@ -13276,7 +13276,7 @@ _ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TC
 
 98:                                               ; preds = %_ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit
   call void @_ZNSt11_Tuple_implILm0EJN3nix20UnkeyedValidPathInfoES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %2) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %5, align 8
   %99 = getelementptr inbounds i8, ptr %5, i64 208
   %100 = getelementptr inbounds i8, ptr %5, i64 224
   %101 = load ptr, ptr %100, align 8
@@ -13334,7 +13334,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i24: 
   br label %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit26
 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit26:         ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i22, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %3, align 8
   %122 = getelementptr inbounds i8, ptr %3, i64 208
   %123 = getelementptr inbounds i8, ptr %3, i64 224
   %124 = load ptr, ptr %123, align 8
@@ -13556,7 +13556,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.val9.i, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -13792,7 +13792,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -13938,7 +13938,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -14160,7 +14160,7 @@ define void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_Test8TestBod
   %8 = alloca [1 x %"class.nix::StorePath"], align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) @_ZN3nix4Hash5dummyE, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 136
@@ -14191,7 +14191,7 @@ define void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_Test8TestBod
           to label %23 unwind label %145
 
 23:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 208
   %25 = load ptr, ptr %17, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %25)
@@ -14248,7 +14248,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i: ; 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i
   %44 = getelementptr inbounds i8, ptr %6, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %44, ptr noundef nonnull align 8 dereferenceable(80) @_ZN3nix4Hash5dummyE, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %6, align 8
   %45 = getelementptr inbounds i8, ptr %6, i64 40
   store i8 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %6, i64 136
@@ -14331,7 +14331,7 @@ _ZN3nix9StorePathD2Ev.exit14:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %76 unwind label %147
 
 76:                                               ; preds = %_ZN3nix9StorePathD2Ev.exit14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %6, align 8
   %77 = getelementptr inbounds i8, ptr %6, i64 208
   %78 = load ptr, ptr %52, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %78)
@@ -14404,7 +14404,7 @@ _ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TC
 
 98:                                               ; preds = %_ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit
   call void @_ZNSt11_Tuple_implILm0EJN3nix20UnkeyedValidPathInfoES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %2) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %5, align 8
   %99 = getelementptr inbounds i8, ptr %5, i64 208
   %100 = getelementptr inbounds i8, ptr %5, i64 224
   %101 = load ptr, ptr %100, align 8
@@ -14462,7 +14462,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i24: 
   br label %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit26
 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit26:         ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i22, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %3, align 8
   %122 = getelementptr inbounds i8, ptr %3, i64 208
   %123 = getelementptr inbounds i8, ptr %3, i64 224
   %124 = load ptr, ptr %123, align 8
@@ -14596,7 +14596,7 @@ define internal fastcc void @_ZN3nix18VersionedProtoTestINS_10ServeProtoEXadsoKc
   call void %19(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1, ptr %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !78
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !78
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !78
   %21 = getelementptr inbounds i8, ptr %7, i64 24
@@ -14659,7 +14659,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %21, ptr %20, align 8, !noalias !78
   store i64 0, ptr %22, align 8, !noalias !78
   store i8 0, ptr %21, align 8, !noalias !78
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !78
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !78
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %44 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -15077,7 +15077,7 @@ define void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_Test8TestBody
   call void @_ZN3nix4Hash8parseSRIESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Hash") align 8 %5, i64 51, ptr nonnull @.str.33)
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 136
@@ -15160,7 +15160,7 @@ _ZN3nix9StorePathD2Ev.exit35:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %52 unwind label %204
 
 52:                                               ; preds = %_ZN3nix9StorePathD2Ev.exit35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 208
   %54 = load ptr, ptr %28, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef %54)
@@ -15452,7 +15452,7 @@ _ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TC
 
 157:                                              ; preds = %_ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit
   call void @_ZNSt11_Tuple_implILm0EJN3nix20UnkeyedValidPathInfoES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %2) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %8, align 8
   %158 = getelementptr inbounds i8, ptr %8, i64 208
   %159 = getelementptr inbounds i8, ptr %8, i64 224
   %160 = load ptr, ptr %159, align 8
@@ -15510,7 +15510,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i45: 
   br label %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit47
 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit47:         ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i43, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %3, align 8
   %181 = getelementptr inbounds i8, ptr %3, i64 208
   %182 = getelementptr inbounds i8, ptr %3, i64 224
   %183 = load ptr, ptr %182, align 8
@@ -15835,7 +15835,7 @@ _ZN3nix15StoreReferencesD2Ev.exit:                ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix13ValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix13ValidPathInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -15855,7 +15855,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   %10 = getelementptr inbounds i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
@@ -15949,7 +15949,7 @@ define void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_Test8TestBod
   call void @_ZN3nix4Hash8parseSRIESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Hash") align 8 %5, i64 51, ptr nonnull @.str.33)
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 136
@@ -16032,7 +16032,7 @@ _ZN3nix9StorePathD2Ev.exit35:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %52 unwind label %204
 
 52:                                               ; preds = %_ZN3nix9StorePathD2Ev.exit35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 208
   %54 = load ptr, ptr %28, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef %54)
@@ -16324,7 +16324,7 @@ _ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TC
 
 157:                                              ; preds = %_ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit
   call void @_ZNSt11_Tuple_implILm0EJN3nix20UnkeyedValidPathInfoES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %2) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %8, align 8
   %158 = getelementptr inbounds i8, ptr %8, i64 208
   %159 = getelementptr inbounds i8, ptr %8, i64 224
   %160 = load ptr, ptr %159, align 8
@@ -16382,7 +16382,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i45: 
   br label %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit47
 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit47:         ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i43, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %3, align 8
   %181 = getelementptr inbounds i8, ptr %3, i64 208
   %182 = getelementptr inbounds i8, ptr %3, i64 224
   %183 = load ptr, ptr %182, align 8
@@ -16695,7 +16695,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.val9.i, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -17013,7 +17013,7 @@ define internal fastcc void @_ZN3nix18VersionedProtoTestINS_10ServeProtoEXadsoKc
   call void %19(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1, ptr %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !92
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !92
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !92
   %21 = getelementptr inbounds i8, ptr %7, i64 24
@@ -17071,7 +17071,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %21, ptr %20, align 8, !noalias !92
   store i64 0, ptr %22, align 8, !noalias !92
   store i8 0, ptr %21, align 8, !noalias !92
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !92
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %7, align 8, !noalias !92
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %44 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -18279,7 +18279,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %183 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %183, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -19626,7 +19626,7 @@ _ZNSt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6
 .noexc101:                                        ; preds = %_ZNSt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES8_S8_S0_IS8_SaIS8_EEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS8_SF_SF_RKSA_EEEbE4typeELb1EEESF_SF_SF_SH_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !104
   %155 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !104
   %156 = getelementptr inbounds i8, ptr %5, i64 24
@@ -19694,7 +19694,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %156, ptr %155, align 8, !noalias !104
   store i64 0, ptr %157, align 8, !noalias !104
   store i8 0, ptr %156, align 8, !noalias !104
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !104
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %181 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -20895,7 +20895,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %116 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %116, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -21707,7 +21707,7 @@ _ZNSt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessI
 .noexc:                                           ; preds = %_ZNSt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EESA_SA_S0_ISA_S7_ISA_ESaISA_EEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKSA_SI_SI_RKSD_EEEbE4typeELb1EEESI_SI_SI_SK_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !113
   %88 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !113
   %89 = getelementptr inbounds i8, ptr %5, i64 24
@@ -21778,7 +21778,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %89, ptr %88, align 8, !noalias !113
   store i64 0, ptr %90, align 8, !noalias !113
   store i8 0, ptr %89, align 8, !noalias !113
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %5, align 8, !noalias !113
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %117 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -22742,7 +22742,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %78 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val9.i.i, ptr %78, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -23323,7 +23323,7 @@ _ZNSt5tupleIJSt8optionalIN3nix9StorePathEES3_EEC2IRKSt9nullopt_tS3_TnNSt9enable_
 .noexc:                                           ; preds = %_ZNSt5tupleIJSt8optionalIN3nix9StorePathEES3_EEC2IRKSt9nullopt_tS3_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISA_T0_EEEbE4typeELb1EEEOSA_OSB_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !121
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !121
   %46 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !121
   %47 = getelementptr inbounds i8, ptr %3, i64 24
@@ -23386,7 +23386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %47, ptr %46, align 8, !noalias !121
   store i64 0, ptr %48, align 8, !noalias !121
   store i8 0, ptr %47, align 8, !noalias !121
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !121
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !121
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %70 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -24016,7 +24016,7 @@ _ZN7testing7MessageD2Ev.exit12.i.i:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %4, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.val9.i.i, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -24272,7 +24272,7 @@ define void @_ZN3nix48ServeProtoTest_optionalContentAddress_write_Test8TestBodyE
   call void %20(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 24, ptr nonnull @.str.118)
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !132
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !132
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !132
   %22 = getelementptr inbounds i8, ptr %3, i64 24
@@ -24335,7 +24335,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %22, ptr %21, align 8, !noalias !132
   store i64 0, ptr %23, align 8, !noalias !132
   store i8 0, ptr %22, align 8, !noalias !132
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !132
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %3, align 8, !noalias !132
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %45 = invoke fastcc noundef zeroext i1 @_ZN3nixL10testAcceptEv()
@@ -24772,7 +24772,7 @@ define void @_ZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEv(ptr noundef n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8, !noalias !140
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !140
   %24 = getelementptr inbounds i8, ptr %4, i64 24
@@ -24829,7 +24829,7 @@ _ZN3nix4PipeC2Ev.exit16.i.i.i:                    ; preds = %.noexc13.i.i.i
           to label %.noexc17.i.i.i unwind label %103, !noalias !140
 
 .noexc17.i.i.i:                                   ; preds = %34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11EvEUlvE_EEEEEE", i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11EvEUlvE_EEEEEE", i64 16), ptr %35, align 8, !noalias !140
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %6, ptr %36, align 8, !noalias !140
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
@@ -24876,8 +24876,8 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i: ; preds = %42
           to label %50 unwind label %105, !noalias !140
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 1), align 8, !noalias !140
-  %52 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 2), align 8, !noalias !140
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8, !noalias !140
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8, !noalias !140
   %53 = getelementptr i8, ptr %51, i64 -48
   %54 = load i64, ptr %53, align 8, !noalias !140
   %55 = getelementptr inbounds i8, ptr %9, i64 %54
@@ -24886,7 +24886,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i: ; preds = %42
   store i64 32768, ptr %56, align 8, !noalias !140
   %57 = getelementptr inbounds i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false), !noalias !140
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix6FdSinkE, i64 0, i32 0, i64 6), ptr %9, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6FdSinkE, i64 48), ptr %9, align 8, !noalias !140
   %58 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 %49, ptr %58, align 8, !noalias !140
   %59 = getelementptr inbounds i8, ptr %9, i64 40
@@ -24901,7 +24901,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i: ; preds = %42
   store i64 32768, ptr %63, align 8, !noalias !140
   %64 = getelementptr inbounds i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false), !noalias !140
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %10, align 8, !noalias !140
   %65 = getelementptr inbounds i8, ptr %10, i64 40
   store i32 %61, ptr %65, align 8, !noalias !140
   %66 = getelementptr inbounds i8, ptr %10, i64 48
@@ -24920,7 +24920,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i: ; preds = %42
           to label %73 unwind label %109, !noalias !140
 
 73:                                               ; preds = %62
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %10, align 8, !noalias !140
   %74 = load i8, ptr %68, align 8, !noalias !140
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %75, label %_ZN3nix16BackedStringViewD2Ev.exit.i.i.i.i
@@ -24947,7 +24947,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 
 _ZN3nix16BackedStringViewD2Ev.exit.i.i.i.i:       ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS7_EEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %73
   store i8 -1, ptr %68, align 8, !noalias !140
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14BufferedSourceE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14BufferedSourceE, i64 16), ptr %10, align 8, !noalias !140
   %81 = getelementptr inbounds i8, ptr %10, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !140
   %.not.i.i.i.i.i.i = icmp eq ptr %82, null
@@ -25006,7 +25006,7 @@ _ZNSt6threadD2Ev.exit.i.i.i:                      ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #27
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %27) #27
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !140
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8, !noalias !140
   %95 = load ptr, ptr %23, align 8, !noalias !140
   %96 = icmp eq ptr %95, %24
   br i1 %96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -25608,8 +25608,8 @@ _ZN7testing7MessageD2Ev.exit13.i:                 ; preds = %_ZNKSt14default_del
   store i64 32768, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix16NullBufferedSinkE, i64 0, i32 0, i64 6), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix16NullBufferedSinkE, i64 48), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %49 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.val10.i, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -25748,7 +25748,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %87
   store ptr null, ptr %88, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %2, align 8
   %97 = getelementptr inbounds i8, ptr %2, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %98, null
@@ -25765,7 +25765,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 100:                                              ; preds = %99, %61
   %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %99 ], [ %62, %61 ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %2, align 8
   %101 = getelementptr inbounds i8, ptr %2, i64 24
   %102 = load ptr, ptr %101, align 8
   %.not.i.i.i.i14.i.i = icmp eq ptr %102, null
@@ -25999,14 +25999,14 @@ _ZN7testing7MessageD2Ev.exit11.i:                 ; preds = %_ZNKSt14default_del
   %.03.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %222, %_ZN3nix16NullBufferedSinkD1Ev.exit.i.i ]
   store i64 32768, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix16NullBufferedSinkE, i64 0, i32 0, i64 6), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix16NullBufferedSinkE, i64 48), ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 0, i64 noundef %.03.i.i)
           to label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i.i unwind label %80
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i.i: ; preds = %67
   %68 = load ptr, ptr %6, align 8
   %69 = load i64, ptr %57, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %5, align 8
   store i64 %69, ptr %58, align 8
   store ptr %68, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store i64 0, ptr %59, align 8
@@ -26423,7 +26423,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN7testing8internal14TrueWithStringD2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i56.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   %.sink.i.i = phi ptr [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57.i.i ], [ %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i56.i.i ]
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i.i) #27
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %4, align 8
   %221 = load ptr, ptr %66, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3nix16NullBufferedSinkD1Ev.exit.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -26441,7 +26441,7 @@ _ZN3nix16NullBufferedSinkD1Ev.exit.i.i:           ; preds = %_ZNKSt14default_del
 
 225:                                              ; preds = %220, %147, %80
   %.pn39.pn.pn.pn.i.i = phi { ptr, i32 } [ %81, %80 ], [ %.pn39.pn.i.i, %147 ], [ %.pn34.pn.i.i, %220 ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %4, align 8
   %226 = load ptr, ptr %66, align 8
   %.not.i.i.i.i59.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i.i.i59.i.i, label %.body.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i60.i.i
@@ -26712,10 +26712,10 @@ _ZN7testing7MessageD2Ev.exit11.i:                 ; preds = %_ZNKSt14default_del
   store i8 %80, ptr %78, align 1
   store i64 32768, ptr %59, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix16NullBufferedSinkE, i64 0, i32 0, i64 6), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix16NullBufferedSinkE, i64 48), ptr %5, align 8
   %81 = load ptr, ptr %4, align 8
   %82 = load i64, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %6, align 8
   store i64 %82, ptr %62, align 8
   store ptr %81, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store i64 0, ptr %63, align 8
@@ -27266,7 +27266,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
   br label %284
 
 275:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i, %_ZN7testing8internal14TrueWithStringD2Ev.exit68.i.i, %_ZN7testing8internal14TrueWithStringD2Ev.exit.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %5, align 8
   %276 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %276, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3nix16NullBufferedSinkD1Ev.exit.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -27300,7 +27300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 284:                                              ; preds = %274, %240, %230, %155
   %.pn50.pn.pn.i.i = phi { ptr, i32 } [ %.pn50.pn.i.i, %155 ], [ %.pn45.pn.i.i, %230 ], [ %.pn.pn.i.i, %274 ], [ %241, %240 ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %5, align 8
   %285 = load ptr, ptr %70, align 8
   %.not.i.i.i.i78.i.i = icmp eq ptr %285, null
   br i1 %.not.i.i.i.i78.i.i, label %_ZN3nix16NullBufferedSinkD1Ev.exit80.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i79.i.i
@@ -27648,7 +27648,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ServeProtoTest_string_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27656,7 +27656,7 @@ define linkonce_odr void @_ZN3nix31ServeProtoTest_string_read_TestD1Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ServeProtoTest_string_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27666,7 +27666,7 @@ define linkonce_odr void @_ZN3nix31ServeProtoTest_string_read_TestD0Ev(ptr nound
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_string_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27675,7 +27675,7 @@ define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_string_read_TestD1Ev(ptr 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_string_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27688,7 +27688,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_string_read_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -27700,7 +27700,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_string_read_TestD0Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -27709,7 +27709,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_string_read_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ServeProtoTest_string_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27717,7 +27717,7 @@ define linkonce_odr void @_ZN3nix32ServeProtoTest_string_write_TestD1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ServeProtoTest_string_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27727,7 +27727,7 @@ define linkonce_odr void @_ZN3nix32ServeProtoTest_string_write_TestD0Ev(ptr noun
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_string_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27736,7 +27736,7 @@ define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_string_write_TestD1Ev(ptr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_string_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27749,7 +27749,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_string_write_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -27761,7 +27761,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_string_write_TestD0Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -27770,7 +27770,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_string_write_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ServeProtoTest_storePath_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27778,7 +27778,7 @@ define linkonce_odr void @_ZN3nix34ServeProtoTest_storePath_read_TestD1Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ServeProtoTest_storePath_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27788,7 +27788,7 @@ define linkonce_odr void @_ZN3nix34ServeProtoTest_storePath_read_TestD0Ev(ptr no
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_storePath_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27797,7 +27797,7 @@ define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_storePath_read_TestD1Ev(p
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_storePath_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27810,7 +27810,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_storePath_read_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -27822,7 +27822,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_storePath_read_TestD0E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -27831,7 +27831,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_storePath_read_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ServeProtoTest_storePath_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27839,7 +27839,7 @@ define linkonce_odr void @_ZN3nix35ServeProtoTest_storePath_write_TestD1Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ServeProtoTest_storePath_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27849,7 +27849,7 @@ define linkonce_odr void @_ZN3nix35ServeProtoTest_storePath_write_TestD0Ev(ptr n
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_storePath_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27858,7 +27858,7 @@ define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_storePath_write_TestD1Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_storePath_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27871,7 +27871,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_storePath_write_TestD1
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -27883,7 +27883,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_storePath_write_TestD0
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -27892,7 +27892,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_storePath_write_TestD0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ServeProtoTest_contentAddress_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27900,7 +27900,7 @@ define linkonce_odr void @_ZN3nix39ServeProtoTest_contentAddress_read_TestD1Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ServeProtoTest_contentAddress_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27910,7 +27910,7 @@ define linkonce_odr void @_ZN3nix39ServeProtoTest_contentAddress_read_TestD0Ev(p
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix39ServeProtoTest_contentAddress_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27919,7 +27919,7 @@ define linkonce_odr void @_ZThn8_N3nix39ServeProtoTest_contentAddress_read_TestD
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix39ServeProtoTest_contentAddress_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27932,7 +27932,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ServeProtoTest_contentAddress_read_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -27944,7 +27944,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ServeProtoTest_contentAddress_read_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -27953,7 +27953,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ServeProtoTest_contentAddress_read_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_contentAddress_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -27961,7 +27961,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_contentAddress_write_TestD1Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_contentAddress_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27971,7 +27971,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_contentAddress_write_TestD0Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_contentAddress_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -27980,7 +27980,7 @@ define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_contentAddress_write_Test
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_contentAddress_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -27993,7 +27993,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_contentAddress_write_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28005,7 +28005,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_contentAddress_write_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28014,7 +28014,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_contentAddress_write_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ServeProtoTest_drvOutput_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28022,7 +28022,7 @@ define linkonce_odr void @_ZN3nix34ServeProtoTest_drvOutput_read_TestD1Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ServeProtoTest_drvOutput_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28032,7 +28032,7 @@ define linkonce_odr void @_ZN3nix34ServeProtoTest_drvOutput_read_TestD0Ev(ptr no
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_drvOutput_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28041,7 +28041,7 @@ define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_drvOutput_read_TestD1Ev(p
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix34ServeProtoTest_drvOutput_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28054,7 +28054,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_drvOutput_read_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28066,7 +28066,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_drvOutput_read_TestD0E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28075,7 +28075,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ServeProtoTest_drvOutput_read_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ServeProtoTest_drvOutput_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28083,7 +28083,7 @@ define linkonce_odr void @_ZN3nix35ServeProtoTest_drvOutput_write_TestD1Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix35ServeProtoTest_drvOutput_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28093,7 +28093,7 @@ define linkonce_odr void @_ZN3nix35ServeProtoTest_drvOutput_write_TestD0Ev(ptr n
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_drvOutput_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28102,7 +28102,7 @@ define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_drvOutput_write_TestD1Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix35ServeProtoTest_drvOutput_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28115,7 +28115,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_drvOutput_write_TestD1
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28127,7 +28127,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_drvOutput_write_TestD0
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28136,7 +28136,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ServeProtoTest_drvOutput_write_TestD0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ServeProtoTest_realisation_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28144,7 +28144,7 @@ define linkonce_odr void @_ZN3nix36ServeProtoTest_realisation_read_TestD1Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ServeProtoTest_realisation_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28154,7 +28154,7 @@ define linkonce_odr void @_ZN3nix36ServeProtoTest_realisation_read_TestD0Ev(ptr 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix36ServeProtoTest_realisation_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28163,7 +28163,7 @@ define linkonce_odr void @_ZThn8_N3nix36ServeProtoTest_realisation_read_TestD1Ev
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix36ServeProtoTest_realisation_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28176,7 +28176,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ServeProtoTest_realisation_read_TestD
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28188,7 +28188,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ServeProtoTest_realisation_read_TestD
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28197,7 +28197,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ServeProtoTest_realisation_read_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix37ServeProtoTest_realisation_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28205,7 +28205,7 @@ define linkonce_odr void @_ZN3nix37ServeProtoTest_realisation_write_TestD1Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix37ServeProtoTest_realisation_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28215,7 +28215,7 @@ define linkonce_odr void @_ZN3nix37ServeProtoTest_realisation_write_TestD0Ev(ptr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix37ServeProtoTest_realisation_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28224,7 +28224,7 @@ define linkonce_odr void @_ZThn8_N3nix37ServeProtoTest_realisation_write_TestD1E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix37ServeProtoTest_realisation_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28237,7 +28237,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix37ServeProtoTest_realisation_write_Test
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28249,7 +28249,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix37ServeProtoTest_realisation_write_Test
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28258,7 +28258,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix37ServeProtoTest_realisation_write_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_2_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28266,7 +28266,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_2_read_TestD1Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_2_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28276,7 +28276,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_2_read_TestD0Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_2_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28285,7 +28285,7 @@ define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_2_read_Test
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_2_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28298,7 +28298,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_2_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28310,7 +28310,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_2_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28319,7 +28319,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_2_read_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_2_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28327,7 +28327,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_2_write_TestD1Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_2_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28337,7 +28337,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_2_write_TestD0Ev
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_2_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28346,7 +28346,7 @@ define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_2_write_Tes
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_2_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28359,7 +28359,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_2_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28371,7 +28371,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_2_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28380,7 +28380,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_2_write_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_3_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28388,7 +28388,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_3_read_TestD1Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_3_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28398,7 +28398,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_3_read_TestD0Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_3_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28407,7 +28407,7 @@ define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_3_read_Test
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_3_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28420,7 +28420,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_3_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28432,7 +28432,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_3_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28441,7 +28441,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_3_read_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_3_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28449,7 +28449,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_3_write_TestD1Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_3_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28459,7 +28459,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_3_write_TestD0Ev
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_3_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28468,7 +28468,7 @@ define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_3_write_Tes
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_3_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28481,7 +28481,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_3_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28493,7 +28493,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_3_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28502,7 +28502,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_3_write_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_6_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28510,7 +28510,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_6_read_TestD1Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_6_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28520,7 +28520,7 @@ define linkonce_odr void @_ZN3nix40ServeProtoTest_buildResult_2_6_read_TestD0Ev(
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_6_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28529,7 +28529,7 @@ define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_6_read_Test
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix40ServeProtoTest_buildResult_2_6_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28542,7 +28542,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_6_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28554,7 +28554,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_6_read_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28563,7 +28563,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ServeProtoTest_buildResult_2_6_read_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_6_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28571,7 +28571,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_6_write_TestD1Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_6_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28581,7 +28581,7 @@ define linkonce_odr void @_ZN3nix41ServeProtoTest_buildResult_2_6_write_TestD0Ev
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_6_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28590,7 +28590,7 @@ define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_6_write_Tes
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix41ServeProtoTest_buildResult_2_6_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28603,7 +28603,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_6_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28615,7 +28615,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_6_write_
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28624,7 +28624,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix41ServeProtoTest_buildResult_2_6_write_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28632,7 +28632,7 @@ define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28642,7 +28642,7 @@ define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28651,7 +28651,7 @@ define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28664,7 +28664,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28676,7 +28676,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28685,7 +28685,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28693,7 +28693,7 @@ define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28703,7 +28703,7 @@ define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28712,7 +28712,7 @@ define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28725,7 +28725,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28737,7 +28737,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28746,7 +28746,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28754,7 +28754,7 @@ define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28764,7 +28764,7 @@ define linkonce_odr void @_ZN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28773,7 +28773,7 @@ define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28786,7 +28786,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28798,7 +28798,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28807,7 +28807,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ServeProtoTest_unkeyedValidPathInfo_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28815,7 +28815,7 @@ define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28825,7 +28825,7 @@ define linkonce_odr void @_ZN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28834,7 +28834,7 @@ define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28847,7 +28847,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28859,7 +28859,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28868,7 +28868,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix50ServeProtoTest_unkeyedValidPathInfo_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_1_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28876,7 +28876,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_1_read_TestD1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_1_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28886,7 +28886,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_1_read_TestD0E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_1_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28895,7 +28895,7 @@ define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_1_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_1_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28908,7 +28908,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_1_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28920,7 +28920,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_1_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28929,7 +28929,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_1_read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_1_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28937,7 +28937,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_1_write_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_1_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -28947,7 +28947,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_1_write_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_1_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -28956,7 +28956,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_1_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_1_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -28969,7 +28969,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_1_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -28981,7 +28981,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_1_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -28990,7 +28990,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_1_writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_2_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -28998,7 +28998,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_2_read_TestD1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_2_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29008,7 +29008,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_2_read_TestD0E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_2_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29017,7 +29017,7 @@ define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_2_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_2_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29030,7 +29030,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_2_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29042,7 +29042,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_2_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29051,7 +29051,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_2_read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_2_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29059,7 +29059,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_2_write_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_2_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29069,7 +29069,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_2_write_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_2_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29078,7 +29078,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_2_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_2_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29091,7 +29091,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_2_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29103,7 +29103,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_2_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29112,7 +29112,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_2_writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_3_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29120,7 +29120,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_3_read_TestD1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_3_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29130,7 +29130,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_3_read_TestD0E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_3_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29139,7 +29139,7 @@ define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_3_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_3_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29152,7 +29152,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_3_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29164,7 +29164,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_3_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29173,7 +29173,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_3_read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_3_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29181,7 +29181,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_3_write_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_3_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29191,7 +29191,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_3_write_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_3_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29200,7 +29200,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_3_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_3_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29213,7 +29213,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_3_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29225,7 +29225,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_3_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29234,7 +29234,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_3_writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_7_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29242,7 +29242,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_7_read_TestD1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_7_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29252,7 +29252,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_build_options_2_7_read_TestD0E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_7_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29261,7 +29261,7 @@ define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_7_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_build_options_2_7_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29274,7 +29274,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_7_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29286,7 +29286,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_7_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29295,7 +29295,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_build_options_2_7_read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_7_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29303,7 +29303,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_7_write_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_7_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29313,7 +29313,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_build_options_2_7_write_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_7_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29322,7 +29322,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_7_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_build_options_2_7_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29335,7 +29335,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_7_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29347,7 +29347,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_7_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29356,7 +29356,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_build_options_2_7_writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ServeProtoTest_vector_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29364,7 +29364,7 @@ define linkonce_odr void @_ZN3nix31ServeProtoTest_vector_read_TestD1Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ServeProtoTest_vector_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29374,7 +29374,7 @@ define linkonce_odr void @_ZN3nix31ServeProtoTest_vector_read_TestD0Ev(ptr nound
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_vector_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29383,7 +29383,7 @@ define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_vector_read_TestD1Ev(ptr 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix31ServeProtoTest_vector_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29396,7 +29396,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_vector_read_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29408,7 +29408,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_vector_read_TestD0Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29417,7 +29417,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ServeProtoTest_vector_read_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ServeProtoTest_vector_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29425,7 +29425,7 @@ define linkonce_odr void @_ZN3nix32ServeProtoTest_vector_write_TestD1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix32ServeProtoTest_vector_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29435,7 +29435,7 @@ define linkonce_odr void @_ZN3nix32ServeProtoTest_vector_write_TestD0Ev(ptr noun
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_vector_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29444,7 +29444,7 @@ define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_vector_write_TestD1Ev(ptr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix32ServeProtoTest_vector_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29457,7 +29457,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_vector_write_TestD1Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29469,7 +29469,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_vector_write_TestD0Ev(
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29478,7 +29478,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ServeProtoTest_vector_write_TestD0Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ServeProtoTest_set_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29486,7 +29486,7 @@ define linkonce_odr void @_ZN3nix28ServeProtoTest_set_read_TestD1Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ServeProtoTest_set_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29496,7 +29496,7 @@ define linkonce_odr void @_ZN3nix28ServeProtoTest_set_read_TestD0Ev(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix28ServeProtoTest_set_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29505,7 +29505,7 @@ define linkonce_odr void @_ZThn8_N3nix28ServeProtoTest_set_read_TestD1Ev(ptr nou
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix28ServeProtoTest_set_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29518,7 +29518,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ServeProtoTest_set_read_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29530,7 +29530,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ServeProtoTest_set_read_TestD0Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29539,7 +29539,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ServeProtoTest_set_read_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ServeProtoTest_set_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29547,7 +29547,7 @@ define linkonce_odr void @_ZN3nix29ServeProtoTest_set_write_TestD1Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ServeProtoTest_set_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29557,7 +29557,7 @@ define linkonce_odr void @_ZN3nix29ServeProtoTest_set_write_TestD0Ev(ptr noundef
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix29ServeProtoTest_set_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29566,7 +29566,7 @@ define linkonce_odr void @_ZThn8_N3nix29ServeProtoTest_set_write_TestD1Ev(ptr no
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix29ServeProtoTest_set_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29579,7 +29579,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ServeProtoTest_set_write_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29591,7 +29591,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ServeProtoTest_set_write_TestD0Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29600,7 +29600,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ServeProtoTest_set_write_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_optionalStorePath_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29608,7 +29608,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_optionalStorePath_read_TestD1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix42ServeProtoTest_optionalStorePath_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29618,7 +29618,7 @@ define linkonce_odr void @_ZN3nix42ServeProtoTest_optionalStorePath_read_TestD0E
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_optionalStorePath_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29627,7 +29627,7 @@ define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_optionalStorePath_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix42ServeProtoTest_optionalStorePath_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29640,7 +29640,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_optionalStorePath_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29652,7 +29652,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_optionalStorePath_read
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29661,7 +29661,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix42ServeProtoTest_optionalStorePath_read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_optionalStorePath_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29669,7 +29669,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_optionalStorePath_write_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_optionalStorePath_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29679,7 +29679,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_optionalStorePath_write_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_optionalStorePath_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29688,7 +29688,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_optionalStorePath_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_optionalStorePath_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29701,7 +29701,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_optionalStorePath_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29713,7 +29713,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_optionalStorePath_writ
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29722,7 +29722,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_optionalStorePath_writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix47ServeProtoTest_optionalContentAddress_read_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29730,7 +29730,7 @@ define linkonce_odr void @_ZN3nix47ServeProtoTest_optionalContentAddress_read_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix47ServeProtoTest_optionalContentAddress_read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29740,7 +29740,7 @@ define linkonce_odr void @_ZN3nix47ServeProtoTest_optionalContentAddress_read_Te
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix47ServeProtoTest_optionalContentAddress_read_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29749,7 +29749,7 @@ define linkonce_odr void @_ZThn8_N3nix47ServeProtoTest_optionalContentAddress_re
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix47ServeProtoTest_optionalContentAddress_read_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29762,7 +29762,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix47ServeProtoTest_optionalContentAddress
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29774,7 +29774,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix47ServeProtoTest_optionalContentAddress
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29783,7 +29783,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix47ServeProtoTest_optionalContentAddress
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix48ServeProtoTest_optionalContentAddress_write_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29791,7 +29791,7 @@ define linkonce_odr void @_ZN3nix48ServeProtoTest_optionalContentAddress_write_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix48ServeProtoTest_optionalContentAddress_write_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29801,7 +29801,7 @@ define linkonce_odr void @_ZN3nix48ServeProtoTest_optionalContentAddress_write_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix48ServeProtoTest_optionalContentAddress_write_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29810,7 +29810,7 @@ define linkonce_odr void @_ZThn8_N3nix48ServeProtoTest_optionalContentAddress_wr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix48ServeProtoTest_optionalContentAddress_write_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29823,7 +29823,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix48ServeProtoTest_optionalContentAddress
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29835,7 +29835,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix48ServeProtoTest_optionalContentAddress
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29844,7 +29844,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix48ServeProtoTest_optionalContentAddress
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ServeProtoTest_handshake_log_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29852,7 +29852,7 @@ define linkonce_odr void @_ZN3nix33ServeProtoTest_handshake_log_TestD1Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ServeProtoTest_handshake_log_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29862,7 +29862,7 @@ define linkonce_odr void @_ZN3nix33ServeProtoTest_handshake_log_TestD0Ev(ptr nou
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix33ServeProtoTest_handshake_log_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29871,7 +29871,7 @@ define linkonce_odr void @_ZThn8_N3nix33ServeProtoTest_handshake_log_TestD1Ev(pt
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix33ServeProtoTest_handshake_log_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29884,7 +29884,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ServeProtoTest_handshake_log_TestD1Ev
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29896,7 +29896,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ServeProtoTest_handshake_log_TestD0Ev
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29905,7 +29905,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ServeProtoTest_handshake_log_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_handshake_client_replay_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29913,7 +29913,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_handshake_client_replay_TestD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ServeProtoTest_handshake_client_replay_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29923,7 +29923,7 @@ define linkonce_odr void @_ZN3nix43ServeProtoTest_handshake_client_replay_TestD0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_handshake_client_replay_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29932,7 +29932,7 @@ define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_handshake_client_replay_T
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix43ServeProtoTest_handshake_client_replay_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -29945,7 +29945,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_handshake_client_repla
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -29957,7 +29957,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_handshake_client_repla
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -29966,7 +29966,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ServeProtoTest_handshake_client_repla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -29974,7 +29974,7 @@ define linkonce_odr void @_ZN3nix60ServeProtoTest_handshake_client_truncated_rep
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -29984,7 +29984,7 @@ define linkonce_odr void @_ZN3nix60ServeProtoTest_handshake_client_truncated_rep
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -29993,7 +29993,7 @@ define linkonce_odr void @_ZThn8_N3nix60ServeProtoTest_handshake_client_truncate
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -30006,7 +30006,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix60ServeProtoTest_handshake_client_trunc
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -30018,7 +30018,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix60ServeProtoTest_handshake_client_trunc
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -30027,7 +30027,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix60ServeProtoTest_handshake_client_trunc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   ret void
@@ -30035,7 +30035,7 @@ define linkonce_odr void @_ZN3nix53ServeProtoTest_handshake_client_corrupted_thr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -30045,7 +30045,7 @@ define linkonce_odr void @_ZN3nix53ServeProtoTest_handshake_client_corrupted_thr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix53ServeProtoTest_handshake_client_corrupted_throws_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
@@ -30054,7 +30054,7 @@ define linkonce_odr void @_ZThn8_N3nix53ServeProtoTest_handshake_client_corrupte
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N3nix53ServeProtoTest_handshake_client_corrupted_throws_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
@@ -30067,7 +30067,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix53ServeProtoTest_handshake_client_corru
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   ret void
@@ -30079,7 +30079,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix53ServeProtoTest_handshake_client_corru
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1)) #27
+  tail call void @_ZN3nix14ServeProtoTestD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8)) #27
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30
@@ -30221,7 +30221,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_string_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -30231,10 +30231,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_string_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31004,7 +31004,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #18 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #28
   unreachable
 }
@@ -31344,7 +31344,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_string_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31354,10 +31354,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_string_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31390,7 +31390,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_storePath_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31400,10 +31400,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_storePath_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31436,7 +31436,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_storePath_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31446,10 +31446,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_storePath_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31482,7 +31482,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ServeProtoTest_contentAddress_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31492,10 +31492,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ServeProtoTest_contentAddress_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31528,7 +31528,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_contentAddress_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31538,10 +31538,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_contentAddress_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31574,7 +31574,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ServeProtoTest_drvOutput_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31584,10 +31584,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ServeProtoTest_drvOutput_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31644,7 +31644,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35ServeProtoTest_drvOutput_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31654,10 +31654,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35ServeProtoTest_drvOutput_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -31690,7 +31690,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ServeProtoTest_realisation_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -31700,10 +31700,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ServeProtoTest_realisation_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -32033,7 +32033,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ServeProtoTest_realisation_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -32043,10 +32043,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37ServeProtoTest_realisation_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -32079,7 +32079,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -32089,10 +32089,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_2_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33385,7 +33385,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33395,10 +33395,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_2_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33431,7 +33431,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33441,10 +33441,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_3_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33477,7 +33477,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33487,10 +33487,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_3_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33523,7 +33523,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33533,10 +33533,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ServeProtoTest_buildResult_2_6_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33569,7 +33569,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33579,10 +33579,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41ServeProtoTest_buildResult_2_6_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33615,7 +33615,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -33625,10 +33625,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -33890,7 +33890,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm1EJN3nix20UnkeyedValidPathInfoEEED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -33954,7 +33954,7 @@ _ZNSt10_Head_baseILm1EN3nix20UnkeyedValidPathInfoELb0EED2Ev.exit: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm0EJN3nix20UnkeyedValidPathInfoES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(704) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 560
   %4 = getelementptr inbounds i8, ptr %0, i64 576
   %5 = load ptr, ptr %4, align 8
@@ -34012,7 +34012,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i.i: 
   br label %_ZNSt10_Head_baseILm0EN3nix20UnkeyedValidPathInfoELb0EED2Ev.exit
 
 _ZNSt10_Head_baseILm0EN3nix20UnkeyedValidPathInfoELb0EED2Ev.exit: ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i.i, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 208
   %27 = getelementptr inbounds i8, ptr %0, i64 224
   %28 = load ptr, ptr %27, align 8
@@ -34092,7 +34092,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34102,10 +34102,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34138,7 +34138,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34148,10 +34148,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34193,7 +34193,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34203,10 +34203,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34239,7 +34239,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34249,10 +34249,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_1_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34285,7 +34285,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34295,10 +34295,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_1_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34331,7 +34331,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34341,10 +34341,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_2_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34377,7 +34377,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34387,10 +34387,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_2_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34423,7 +34423,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34433,10 +34433,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_3_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34469,7 +34469,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34479,10 +34479,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_3_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34515,7 +34515,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34525,10 +34525,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_build_options_2_7_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34561,7 +34561,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34571,10 +34571,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_build_options_2_7_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -34607,7 +34607,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ServeProtoTest_vector_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -34617,10 +34617,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ServeProtoTest_vector_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -35279,7 +35279,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32ServeProtoTest_vector_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -35289,10 +35289,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32ServeProtoTest_vector_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -35325,7 +35325,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ServeProtoTest_set_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -35335,10 +35335,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ServeProtoTest_set_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36016,7 +36016,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ServeProtoTest_set_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36026,10 +36026,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ServeProtoTest_set_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36062,7 +36062,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36072,10 +36072,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42ServeProtoTest_optionalStorePath_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36108,7 +36108,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36118,10 +36118,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_optionalStorePath_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36154,7 +36154,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36164,10 +36164,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47ServeProtoTest_optionalContentAddress_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36200,7 +36200,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36210,10 +36210,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48ServeProtoTest_optionalContentAddress_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36246,7 +36246,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ServeProtoTest_handshake_log_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36256,10 +36256,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ServeProtoTest_handshake_log_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36292,7 +36292,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36302,10 +36302,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ServeProtoTest_handshake_client_replay_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36338,7 +36338,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36348,10 +36348,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -36384,7 +36384,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix53Se
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds ([16 x ptr], ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i64 1))
+  invoke void @_ZN3nix14ServeProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -36394,10 +36394,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix53Se
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -37276,7 +37276,7 @@ declare void @_ZN3nix5dirOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10StringSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -40188,7 +40188,7 @@ define linkonce_odr void @_ZN3nix25LengthPrefixedProtoHelperINS_10ServeProtoESt5
   br label %.body
 
 _ZNSt5tupleIJN3nix20UnkeyedValidPathInfoES1_EEC2IS1_S1_TnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleIS5_T0_EEEbE4typeELb1EEEOS5_OS6_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 208
   %12 = getelementptr inbounds i8, ptr %6, i64 224
   %13 = load ptr, ptr %12, align 8
@@ -40246,7 +40246,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i: ; 
   br label %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit
 
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 16), ptr %5, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 208
   %35 = getelementptr inbounds i8, ptr %5, i64 224
   %36 = load ptr, ptr %35, align 8
@@ -45295,7 +45295,7 @@ declare noundef i32 @_ZN3nix10ServeProto21BasicServerConnection9handshakeERNS_12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix8FdSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
@@ -45325,7 +45325,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 
 _ZN3nix16BackedStringViewD2Ev.exit:               ; preds = %1, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS7_EEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit.i.i.i.i.i.i.i.i.i.i
   store i8 -1, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14BufferedSourceE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14BufferedSourceE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
@@ -45382,8 +45382,8 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = tail call noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %11 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTN3nix6FdSinkE, i64 0, i64 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %13 = getelementptr i8, ptr %11, i64 -48
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
@@ -45392,7 +45392,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   store i64 32768, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix6FdSinkE, i64 0, i32 0, i64 6), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6FdSinkE, i64 48), ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %10, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %2, i64 40
@@ -45409,7 +45409,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   store i64 32768, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %23, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 48
@@ -45424,7 +45424,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix9TeeSourceE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix9TeeSourceE, i64 16), ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 16
@@ -45438,7 +45438,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
   store i32 %38, ptr %41, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix8FdSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %3, align 8
   %42 = load i8, ptr %30, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %43, label %_ZN3nix16BackedStringViewD2Ev.exit.i.i.i.i.i.i
@@ -45465,7 +45465,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 
 _ZN3nix16BackedStringViewD2Ev.exit.i.i.i.i.i.i:   ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS7_EEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %39
   store i8 -1, ptr %30, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14BufferedSourceE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14BufferedSourceE, i64 16), ptr %3, align 8
   %49 = getelementptr inbounds i8, ptr %3, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
@@ -45535,7 +45535,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix16NullBufferedSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -45566,7 +45566,7 @@ declare void @_ZN3nix12BufferedSinkclESt17basic_string_viewIcSt11char_traitsIcEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix16NullBufferedSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 0, i32 0, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix16NullBufferedSinkE0_NS_12BufferedSinkE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -47235,7 +47235,7 @@ define internal void @_GLOBAL__sub_I_serve_protocol.cc() #8 section ".text.start
           to label %130 unwind label %149
 
 130:                                              ; preds = %128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ServeProtoTest_string_read_TestEEE, i64 0, i32 0, i64 2), ptr %129, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ServeProtoTest_string_read_TestEEE, i64 16), ptr %129, align 8
   %131 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %125, ptr noundef %127, ptr noundef nonnull %129)
           to label %132 unwind label %149
 
@@ -47334,7 +47334,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %160 unwind label %179
 
 160:                                              ; preds = %158
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ServeProtoTest_string_write_TestEEE, i64 0, i32 0, i64 2), ptr %159, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ServeProtoTest_string_write_TestEEE, i64 16), ptr %159, align 8
   %161 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %155, ptr noundef %157, ptr noundef nonnull %159)
           to label %162 unwind label %179
 
@@ -47427,7 +47427,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %190 unwind label %209
 
 190:                                              ; preds = %188
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ServeProtoTest_storePath_read_TestEEE, i64 0, i32 0, i64 2), ptr %189, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ServeProtoTest_storePath_read_TestEEE, i64 16), ptr %189, align 8
   %191 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %185, ptr noundef %187, ptr noundef nonnull %189)
           to label %192 unwind label %209
 
@@ -47520,7 +47520,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %220 unwind label %239
 
 220:                                              ; preds = %218
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ServeProtoTest_storePath_write_TestEEE, i64 0, i32 0, i64 2), ptr %219, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ServeProtoTest_storePath_write_TestEEE, i64 16), ptr %219, align 8
   %221 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %215, ptr noundef %217, ptr noundef nonnull %219)
           to label %222 unwind label %239
 
@@ -47613,7 +47613,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %250 unwind label %269
 
 250:                                              ; preds = %248
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ServeProtoTest_contentAddress_read_TestEEE, i64 0, i32 0, i64 2), ptr %249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ServeProtoTest_contentAddress_read_TestEEE, i64 16), ptr %249, align 8
   %251 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %245, ptr noundef %247, ptr noundef nonnull %249)
           to label %252 unwind label %269
 
@@ -47706,7 +47706,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %280 unwind label %299
 
 280:                                              ; preds = %278
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_contentAddress_write_TestEEE, i64 0, i32 0, i64 2), ptr %279, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_contentAddress_write_TestEEE, i64 16), ptr %279, align 8
   %281 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %275, ptr noundef %277, ptr noundef nonnull %279)
           to label %282 unwind label %299
 
@@ -47799,7 +47799,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %310 unwind label %329
 
 310:                                              ; preds = %308
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ServeProtoTest_drvOutput_read_TestEEE, i64 0, i32 0, i64 2), ptr %309, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ServeProtoTest_drvOutput_read_TestEEE, i64 16), ptr %309, align 8
   %311 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %305, ptr noundef %307, ptr noundef nonnull %309)
           to label %312 unwind label %329
 
@@ -47892,7 +47892,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %340 unwind label %359
 
 340:                                              ; preds = %338
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ServeProtoTest_drvOutput_write_TestEEE, i64 0, i32 0, i64 2), ptr %339, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ServeProtoTest_drvOutput_write_TestEEE, i64 16), ptr %339, align 8
   %341 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %335, ptr noundef %337, ptr noundef nonnull %339)
           to label %342 unwind label %359
 
@@ -47985,7 +47985,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %370 unwind label %389
 
 370:                                              ; preds = %368
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ServeProtoTest_realisation_read_TestEEE, i64 0, i32 0, i64 2), ptr %369, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ServeProtoTest_realisation_read_TestEEE, i64 16), ptr %369, align 8
   %371 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %365, ptr noundef %367, ptr noundef nonnull %369)
           to label %372 unwind label %389
 
@@ -48078,7 +48078,7 @@ __cxx_global_var_init.39.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %400 unwind label %419
 
 400:                                              ; preds = %398
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ServeProtoTest_realisation_write_TestEEE, i64 0, i32 0, i64 2), ptr %399, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ServeProtoTest_realisation_write_TestEEE, i64 16), ptr %399, align 8
   %401 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %395, ptr noundef %397, ptr noundef nonnull %399)
           to label %402 unwind label %419
 
@@ -48171,7 +48171,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %430 unwind label %449
 
 430:                                              ; preds = %428
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_2_read_TestEEE, i64 0, i32 0, i64 2), ptr %429, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_2_read_TestEEE, i64 16), ptr %429, align 8
   %431 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %425, ptr noundef %427, ptr noundef nonnull %429)
           to label %432 unwind label %449
 
@@ -48264,7 +48264,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %460 unwind label %479
 
 460:                                              ; preds = %458
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_2_write_TestEEE, i64 0, i32 0, i64 2), ptr %459, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_2_write_TestEEE, i64 16), ptr %459, align 8
   %461 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %455, ptr noundef %457, ptr noundef nonnull %459)
           to label %462 unwind label %479
 
@@ -48357,7 +48357,7 @@ __cxx_global_var_init.50.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %490 unwind label %509
 
 490:                                              ; preds = %488
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_3_read_TestEEE, i64 0, i32 0, i64 2), ptr %489, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_3_read_TestEEE, i64 16), ptr %489, align 8
   %491 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %485, ptr noundef %487, ptr noundef nonnull %489)
           to label %492 unwind label %509
 
@@ -48450,7 +48450,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %520 unwind label %539
 
 520:                                              ; preds = %518
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_3_write_TestEEE, i64 0, i32 0, i64 2), ptr %519, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_3_write_TestEEE, i64 16), ptr %519, align 8
   %521 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %515, ptr noundef %517, ptr noundef nonnull %519)
           to label %522 unwind label %539
 
@@ -48543,7 +48543,7 @@ __cxx_global_var_init.55.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %550 unwind label %569
 
 550:                                              ; preds = %548
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_6_read_TestEEE, i64 0, i32 0, i64 2), ptr %549, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ServeProtoTest_buildResult_2_6_read_TestEEE, i64 16), ptr %549, align 8
   %551 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %545, ptr noundef %547, ptr noundef nonnull %549)
           to label %552 unwind label %569
 
@@ -48636,7 +48636,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %580 unwind label %599
 
 580:                                              ; preds = %578
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_6_write_TestEEE, i64 0, i32 0, i64 2), ptr %579, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41ServeProtoTest_buildResult_2_6_write_TestEEE, i64 16), ptr %579, align 8
   %581 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %575, ptr noundef %577, ptr noundef nonnull %579)
           to label %582 unwind label %599
 
@@ -48729,7 +48729,7 @@ __cxx_global_var_init.63.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %610 unwind label %629
 
 610:                                              ; preds = %608
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestEEE, i64 0, i32 0, i64 2), ptr %609, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ServeProtoTest_unkeyedValidPathInfo_2_3_read_TestEEE, i64 16), ptr %609, align 8
   %611 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %605, ptr noundef %607, ptr noundef nonnull %609)
           to label %612 unwind label %629
 
@@ -48822,7 +48822,7 @@ __cxx_global_var_init.65.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %640 unwind label %659
 
 640:                                              ; preds = %638
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestEEE, i64 0, i32 0, i64 2), ptr %639, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50ServeProtoTest_unkeyedValidPathInfo_2_3_write_TestEEE, i64 16), ptr %639, align 8
   %641 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %635, ptr noundef %637, ptr noundef nonnull %639)
           to label %642 unwind label %659
 
@@ -48915,7 +48915,7 @@ __cxx_global_var_init.70.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %670 unwind label %689
 
 670:                                              ; preds = %668
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestEEE, i64 0, i32 0, i64 2), ptr %669, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ServeProtoTest_unkeyedValidPathInfo_2_4_read_TestEEE, i64 16), ptr %669, align 8
   %671 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %665, ptr noundef %667, ptr noundef nonnull %669)
           to label %672 unwind label %689
 
@@ -49008,7 +49008,7 @@ __cxx_global_var_init.72.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %700 unwind label %719
 
 700:                                              ; preds = %698
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestEEE, i64 0, i32 0, i64 2), ptr %699, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50ServeProtoTest_unkeyedValidPathInfo_2_4_write_TestEEE, i64 16), ptr %699, align 8
   %701 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %695, ptr noundef %697, ptr noundef nonnull %699)
           to label %702 unwind label %719
 
@@ -49101,7 +49101,7 @@ __cxx_global_var_init.77.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %730 unwind label %749
 
 730:                                              ; preds = %728
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_1_read_TestEEE, i64 0, i32 0, i64 2), ptr %729, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_1_read_TestEEE, i64 16), ptr %729, align 8
   %731 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.80, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %725, ptr noundef %727, ptr noundef nonnull %729)
           to label %732 unwind label %749
 
@@ -49194,7 +49194,7 @@ __cxx_global_var_init.79.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %760 unwind label %779
 
 760:                                              ; preds = %758
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_1_write_TestEEE, i64 0, i32 0, i64 2), ptr %759, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_1_write_TestEEE, i64 16), ptr %759, align 8
   %761 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.83, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %755, ptr noundef %757, ptr noundef nonnull %759)
           to label %762 unwind label %779
 
@@ -49287,7 +49287,7 @@ __cxx_global_var_init.82.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %790 unwind label %809
 
 790:                                              ; preds = %788
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_2_read_TestEEE, i64 0, i32 0, i64 2), ptr %789, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_2_read_TestEEE, i64 16), ptr %789, align 8
   %791 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.85, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %785, ptr noundef %787, ptr noundef nonnull %789)
           to label %792 unwind label %809
 
@@ -49380,7 +49380,7 @@ __cxx_global_var_init.84.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %820 unwind label %839
 
 820:                                              ; preds = %818
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_2_write_TestEEE, i64 0, i32 0, i64 2), ptr %819, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_2_write_TestEEE, i64 16), ptr %819, align 8
   %821 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %815, ptr noundef %817, ptr noundef nonnull %819)
           to label %822 unwind label %839
 
@@ -49473,7 +49473,7 @@ __cxx_global_var_init.87.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %850 unwind label %869
 
 850:                                              ; preds = %848
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_3_read_TestEEE, i64 0, i32 0, i64 2), ptr %849, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_3_read_TestEEE, i64 16), ptr %849, align 8
   %851 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.90, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %845, ptr noundef %847, ptr noundef nonnull %849)
           to label %852 unwind label %869
 
@@ -49566,7 +49566,7 @@ __cxx_global_var_init.89.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %880 unwind label %899
 
 880:                                              ; preds = %878
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_3_write_TestEEE, i64 0, i32 0, i64 2), ptr %879, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_3_write_TestEEE, i64 16), ptr %879, align 8
   %881 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.93, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %875, ptr noundef %877, ptr noundef nonnull %879)
           to label %882 unwind label %899
 
@@ -49659,7 +49659,7 @@ __cxx_global_var_init.92.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %910 unwind label %929
 
 910:                                              ; preds = %908
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_7_read_TestEEE, i64 0, i32 0, i64 2), ptr %909, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_build_options_2_7_read_TestEEE, i64 16), ptr %909, align 8
   %911 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.95, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %905, ptr noundef %907, ptr noundef nonnull %909)
           to label %912 unwind label %929
 
@@ -49752,7 +49752,7 @@ __cxx_global_var_init.94.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %940 unwind label %959
 
 940:                                              ; preds = %938
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_7_write_TestEEE, i64 0, i32 0, i64 2), ptr %939, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_build_options_2_7_write_TestEEE, i64 16), ptr %939, align 8
   %941 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %935, ptr noundef %937, ptr noundef nonnull %939)
           to label %942 unwind label %959
 
@@ -49845,7 +49845,7 @@ __cxx_global_var_init.97.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %970 unwind label %989
 
 970:                                              ; preds = %968
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ServeProtoTest_vector_read_TestEEE, i64 0, i32 0, i64 2), ptr %969, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ServeProtoTest_vector_read_TestEEE, i64 16), ptr %969, align 8
   %971 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %965, ptr noundef %967, ptr noundef nonnull %969)
           to label %972 unwind label %989
 
@@ -49938,7 +49938,7 @@ __cxx_global_var_init.99.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %1000 unwind label %1019
 
 1000:                                             ; preds = %998
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ServeProtoTest_vector_write_TestEEE, i64 0, i32 0, i64 2), ptr %999, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ServeProtoTest_vector_write_TestEEE, i64 16), ptr %999, align 8
   %1001 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.105, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %995, ptr noundef %997, ptr noundef nonnull %999)
           to label %1002 unwind label %1019
 
@@ -50031,7 +50031,7 @@ __cxx_global_var_init.104.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1030 unwind label %1049
 
 1030:                                             ; preds = %1028
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ServeProtoTest_set_read_TestEEE, i64 0, i32 0, i64 2), ptr %1029, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ServeProtoTest_set_read_TestEEE, i64 16), ptr %1029, align 8
   %1031 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.107, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1025, ptr noundef %1027, ptr noundef nonnull %1029)
           to label %1032 unwind label %1049
 
@@ -50124,7 +50124,7 @@ __cxx_global_var_init.106.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1060 unwind label %1079
 
 1060:                                             ; preds = %1058
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ServeProtoTest_set_write_TestEEE, i64 0, i32 0, i64 2), ptr %1059, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ServeProtoTest_set_write_TestEEE, i64 16), ptr %1059, align 8
   %1061 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.110, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1055, ptr noundef %1057, ptr noundef nonnull %1059)
           to label %1062 unwind label %1079
 
@@ -50217,7 +50217,7 @@ __cxx_global_var_init.109.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1090 unwind label %1109
 
 1090:                                             ; preds = %1088
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_optionalStorePath_read_TestEEE, i64 0, i32 0, i64 2), ptr %1089, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42ServeProtoTest_optionalStorePath_read_TestEEE, i64 16), ptr %1089, align 8
   %1091 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1085, ptr noundef %1087, ptr noundef nonnull %1089)
           to label %1092 unwind label %1109
 
@@ -50310,7 +50310,7 @@ __cxx_global_var_init.111.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1120 unwind label %1139
 
 1120:                                             ; preds = %1118
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_optionalStorePath_write_TestEEE, i64 0, i32 0, i64 2), ptr %1119, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_optionalStorePath_write_TestEEE, i64 16), ptr %1119, align 8
   %1121 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.115, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1115, ptr noundef %1117, ptr noundef nonnull %1119)
           to label %1122 unwind label %1139
 
@@ -50403,7 +50403,7 @@ __cxx_global_var_init.114.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1150 unwind label %1169
 
 1150:                                             ; preds = %1148
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ServeProtoTest_optionalContentAddress_read_TestEEE, i64 0, i32 0, i64 2), ptr %1149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ServeProtoTest_optionalContentAddress_read_TestEEE, i64 16), ptr %1149, align 8
   %1151 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1145, ptr noundef %1147, ptr noundef nonnull %1149)
           to label %1152 unwind label %1169
 
@@ -50496,7 +50496,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1180 unwind label %1199
 
 1180:                                             ; preds = %1178
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48ServeProtoTest_optionalContentAddress_write_TestEEE, i64 0, i32 0, i64 2), ptr %1179, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48ServeProtoTest_optionalContentAddress_write_TestEEE, i64 16), ptr %1179, align 8
   %1181 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1175, ptr noundef %1177, ptr noundef nonnull %1179)
           to label %1182 unwind label %1199
 
@@ -50589,7 +50589,7 @@ __cxx_global_var_init.119.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1210 unwind label %1229
 
 1210:                                             ; preds = %1208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ServeProtoTest_handshake_log_TestEEE, i64 0, i32 0, i64 2), ptr %1209, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ServeProtoTest_handshake_log_TestEEE, i64 16), ptr %1209, align 8
   %1211 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.122, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1205, ptr noundef %1207, ptr noundef nonnull %1209)
           to label %1212 unwind label %1229
 
@@ -50682,7 +50682,7 @@ __cxx_global_var_init.121.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1240 unwind label %1259
 
 1240:                                             ; preds = %1238
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_handshake_client_replay_TestEEE, i64 0, i32 0, i64 2), ptr %1239, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ServeProtoTest_handshake_client_replay_TestEEE, i64 16), ptr %1239, align 8
   %1241 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.125, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1235, ptr noundef %1237, ptr noundef nonnull %1239)
           to label %1242 unwind label %1259
 
@@ -50775,7 +50775,7 @@ __cxx_global_var_init.124.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1270 unwind label %1289
 
 1270:                                             ; preds = %1268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestEEE, i64 0, i32 0, i64 2), ptr %1269, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60ServeProtoTest_handshake_client_truncated_replay_throws_TestEEE, i64 16), ptr %1269, align 8
   %1271 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.127, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1265, ptr noundef %1267, ptr noundef nonnull %1269)
           to label %1272 unwind label %1289
 
@@ -50868,7 +50868,7 @@ __cxx_global_var_init.126.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1300 unwind label %1319
 
 1300:                                             ; preds = %1298
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestEEE, i64 0, i32 0, i64 2), ptr %1299, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53ServeProtoTest_handshake_client_corrupted_throws_TestEEE, i64 16), ptr %1299, align 8
   %1301 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.129, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14ServeProtoTestEE6dummy_E, ptr noundef %1295, ptr noundef %1297, ptr noundef nonnull %1299)
           to label %1302 unwind label %1319
 

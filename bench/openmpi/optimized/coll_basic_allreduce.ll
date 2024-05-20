@@ -153,7 +153,7 @@ opal_datatype_span.exit:                          ; preds = %19, %25
 
 .lr.ph:                                           ; preds = %49, %54
   %.085154 = phi i32 [ %55, %54 ], [ 1, %49 ]
-  %52 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %53 = tail call i32 %52(ptr noundef nonnull %41, i64 noundef %20, ptr noundef %3, i32 noundef %.085154, i32 noundef -12, ptr noundef %5, ptr noundef null) #4
   %.not108 = icmp eq i32 %53, 0
   br i1 %.not108, label %54, label %.thread122
@@ -165,7 +165,7 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 56:                                               ; preds = %ompi_comm_remote_size.exit
-  %57 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %58 = sext i32 %2 to i64
   %59 = tail call i32 %57(ptr noundef %0, i64 noundef %58, ptr noundef %3, i32 noundef 0, i32 noundef -12, i32 noundef 4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %59, 0
@@ -195,7 +195,7 @@ opal_datatype_span.exit:                          ; preds = %19, %25
 
 .preheader:                                       ; preds = %.preheader.preheader, %63
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %63 ]
-  %64 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = tail call i32 %64(ptr noundef nonnull %41, i64 noundef %20, ptr noundef %3, i32 noundef %65, i32 noundef -12, i32 noundef 4, ptr noundef %5, ptr noundef %gep) #4
@@ -203,14 +203,14 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   br i1 %.not107, label %63, label %.thread122
 
 67:                                               ; preds = %63
-  %68 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %69 = add nsw i32 %17, -1
   %70 = zext nneg i32 %69 to i64
   %71 = tail call i32 %68(i64 noundef %70, ptr noundef nonnull %47, ptr noundef null) #4
   br label %74
 
 .thread:                                          ; preds = %56
-  %72 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %73 = tail call i32 %72(ptr noundef %1, i64 noundef %58, ptr noundef %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
   br label %74
 
@@ -260,7 +260,7 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   br label %ompi_request_cancel.exit.i
 
 ompi_request_cancel.exit.i:                       ; preds = %86, %83
-  %88 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %89 = tail call i32 %88(ptr noundef nonnull %78, ptr noundef null) #4
   br label %94
 

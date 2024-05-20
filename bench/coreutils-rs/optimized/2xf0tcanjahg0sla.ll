@@ -1561,7 +1561,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   %185 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sink, ptr %185, align 8, !noalias !304
   %186 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds (<{ [4 x i8] }>, ptr @anon.649175428c9806cefc06116151ea7500.49, i64 0, i32 0, i64 1), ptr %186, align 8, !noalias !304
+  store ptr getelementptr inbounds (i8, ptr @anon.649175428c9806cefc06116151ea7500.49, i64 1), ptr %186, align 8, !noalias !304
   %187 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 3, ptr %187, align 8, !noalias !304
   %188 = icmp ugt i64 %.sink, 67

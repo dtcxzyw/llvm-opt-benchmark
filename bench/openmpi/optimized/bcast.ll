@@ -36,7 +36,7 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, %1
   %24 = srem i32 %23, %5
-  %25 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %26 = sext i32 %2 to i64
   %27 = call i32 %25(ptr noundef %0, i64 noundef %26, ptr noundef %3, i32 noundef %24, i32 noundef -98, ptr noundef %7, ptr noundef null) #3
   %28 = icmp slt i32 %27, 0
@@ -60,7 +60,7 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, %1
   %40 = srem i32 %39, %5
-  %41 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %42 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %indvars.iv
   %43 = call i32 %41(ptr noundef %0, i64 noundef %34, ptr noundef %3, i32 noundef %40, i32 noundef -98, i32 noundef 4, ptr noundef %7, ptr noundef nonnull %42) #3
   %44 = icmp slt i32 %43, 0
@@ -74,7 +74,7 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %48, label %35, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %50 = and i64 %indvars.iv.next, 4294967295
   %51 = call i32 %49(i64 noundef %50, ptr noundef nonnull %9, ptr noundef null) #3
   br label %._crit_edge.thread

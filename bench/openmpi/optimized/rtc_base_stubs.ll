@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @prte_rtc_base_assign(ptr noundef %0) local_unnamed_addr #0 {
-  %.07 = load ptr, ptr getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.07 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
+  %.not8 = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
@@ -40,7 +40,7 @@ define void @prte_rtc_base_assign(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %6
   %8 = getelementptr inbounds i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -49,8 +49,8 @@ define void @prte_rtc_base_assign(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.07 = load ptr, ptr getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.07 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
+  %.not8 = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
@@ -69,7 +69,7 @@ define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) local_unnamed_add
 8:                                                ; preds = %.lr.ph, %7
   %9 = getelementptr inbounds i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %8, %2
@@ -78,8 +78,8 @@ define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @prte_rtc_base_get_avail_vals(ptr noundef %0) local_unnamed_addr #0 {
-  %.07 = load ptr, ptr getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.07 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
+  %.not8 = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
@@ -98,7 +98,7 @@ define void @prte_rtc_base_get_avail_vals(ptr noundef %0) local_unnamed_addr #0 
 7:                                                ; preds = %.lr.ph, %6
   %8 = getelementptr inbounds i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %7, %1

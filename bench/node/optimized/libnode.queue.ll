@@ -640,12 +640,12 @@ if.end:                                           ; preds = %for.end.i.i.i.i.i, 
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !12
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !12
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %65 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %66 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 0, ptr %66, align 8, !noalias !12
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !12
   %entries_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %67 = load <2 x ptr>, ptr %list, align 8, !noalias !12
   store <2 x ptr> %67, ptr %entries_.i.i.i.i.i.i.i.i, align 8, !noalias !12
@@ -742,12 +742,12 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !18
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 0, ptr %1, align 8, !noalias !18
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !18
   %entries_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %size_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 72
   store i64 0, ptr %size_.i.i.i.i.i.i.i.i, align 8, !noalias !18
@@ -1037,7 +1037,7 @@ if.end8:                                          ; preds = %do.end4
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %store, i64 8
   %2 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %store, i8 0, i64 16, i1 false), !noalias !19
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 16), ptr %call.i, align 8, !noalias !19
   %backing_store_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %1, ptr %backing_store_.i.i, align 8, !noalias !19
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1076,7 +1076,7 @@ entry:
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %data_queue, i64 8
   %1 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !noalias !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_queue, i8 0, i64 16, i1 false), !noalias !22
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %call.i, align 8, !noalias !22
   %data_queue_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %data_queue_.i.i, align 8, !noalias !22
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1107,7 +1107,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !33
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !33
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node11BufferValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node11BufferValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !33
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
   tail call void @_ZN4node11BufferValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %_M_impl.i.i.i.i.i.i.i, ptr noundef %0, ptr %path.coerce) #20, !noalias !33
   %buf_.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
@@ -1123,7 +1123,7 @@ cleanup9.thread.i:                                ; preds = %entry
   %stat_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %statbuf.i, i64 160, i1 false), !noalias !34
   %2 = load i64, ptr %st_size.i, align 8, !noalias !34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 16), ptr %call.i.i, align 8, !noalias !34
   %env_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %env, ptr %env_.i.i.i, align 8, !noalias !34
   %path_2.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
@@ -1544,7 +1544,7 @@ _ZNSt10unique_ptrIN4node12_GLOBAL__N_17FdEntryESt14default_deleteIS2_EED2Ev.exit
   %new_end.0 = select i1 %tobool.i.i, i64 %.sroa.speculated, i64 %1
   %stat_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %stat_, i64 160, i1 false), !noalias !37
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 16), ptr %call.i, align 8, !noalias !37
   %env_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store <2 x ptr> %2, ptr %env_.i.i, align 8, !noalias !37
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
@@ -1703,7 +1703,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs10FileHandleELb0EEC2EPS2_.exit.i: ; preds = %d
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !48
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !48
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_17FdEntry10ReaderImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_17FdEntry10ReaderImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !48
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
   %15 = ptrtoint ptr %call16.i to i64
   %16 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 24
@@ -1711,9 +1711,9 @@ _ZN4node17BaseObjectPtrImplINS_2fs10FileHandleELb0EEC2EPS2_.exit.i: ; preds = %d
   %stream_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 40
   %18 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false), !noalias !48
-  store ptr getelementptr inbounds ({ [13 x ptr], [5 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !48
-  store ptr getelementptr inbounds ({ [13 x ptr], [5 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 0, i32 1, i64 2), ptr %16, align 8, !noalias !48
-  store ptr getelementptr inbounds ({ [13 x ptr], [5 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 0, i32 2, i64 2), ptr %17, align 8, !noalias !48
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !48
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 120), ptr %16, align 8, !noalias !48
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 160), ptr %17, align 8, !noalias !48
   %env_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 72
   %realm_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call16.i, i64 16
   %19 = load ptr, ptr %realm_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
@@ -4332,7 +4332,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -5062,13 +5062,13 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_113DataQueueImplEE16shared_fro
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1, align 8, !noalias !77
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !77
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_125IdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !77
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_125IdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !77
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %7 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store i64 0, ptr %8, align 8, !noalias !77
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_125IdempotentDataQueueReaderE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !77
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_125IdempotentDataQueueReaderE, i64 0, i32 1, i64 2), ptr %7, align 8, !noalias !77
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_125IdempotentDataQueueReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !77
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_125IdempotentDataQueueReaderE, i64 104), ptr %7, align 8, !noalias !77
   %data_queue_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 48
   store ptr %6, ptr %data_queue_.i.i.i.i.i.i.i.i, align 8, !noalias !77
   %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 56
@@ -5185,13 +5185,13 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_113DataQueueImplEE16shared_fro
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i51, align 8, !noalias !86
   %_M_weak_count.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i52, align 4, !noalias !86
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i50, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i50, align 8, !noalias !86
   %_M_impl.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 16
   %24 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 24
   %25 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 40
   store i64 0, ptr %25, align 8, !noalias !86
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i53, align 8, !noalias !86
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderE, i64 0, i32 1, i64 2), ptr %24, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i53, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderE, i64 104), ptr %24, align 8, !noalias !86
   %data_queue_.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 48
   store ptr %23, ptr %data_queue_.i.i.i.i.i.i.i.i55, align 8, !noalias !86
   %_M_refcount.i.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i50, i64 56
@@ -5593,12 +5593,12 @@ if.end41:                                         ; preds = %_ZNSt10unique_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !98
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !98
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113DataQueueImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !98
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %18 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 0, ptr %18, align 8, !noalias !98
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !98
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113DataQueueImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !98
   %entries_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store ptr %slices.sroa.0.3, ptr %entries_.i.i.i.i.i.i.i.i, align 8, !noalias !98
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 48
@@ -6009,7 +6009,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -6802,7 +6802,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.10", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -10513,7 +10513,7 @@ _ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit:  ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -10594,7 +10594,7 @@ _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -10819,7 +10819,7 @@ cleanup.thread:                                   ; preds = %entry
   %call.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22, !noalias !154
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %sliced, i64 8
   %3 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !noalias !154
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !154
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %call.i, align 8, !noalias !154
   %data_queue_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %2, ptr %data_queue_.i.i, align 8, !noalias !154
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -10945,7 +10945,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !162
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !162
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !162
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !162
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
@@ -10955,8 +10955,8 @@ entry:
   %5 = load <2 x ptr>, ptr %ref.tmp2, align 16, !noalias !162
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false), !noalias !162
   store i64 0, ptr %4, align 8, !noalias !162
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !162
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 1, i64 2), ptr %2, align 8, !noalias !162
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !162
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 104), ptr %2, align 8, !noalias !162
   store <2 x ptr> %5, ptr %inner_.i.i.i.i.i.i.i.i, align 8, !noalias !162
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !162
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !162
@@ -11132,9 +11132,9 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 104), ptr %add.ptr, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11249,9 +11249,9 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 104), ptr %add.ptr.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -11522,8 +11522,8 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplEED2Ev.exit: ;
 define internal void @_ZThn8_N4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD1Ev(ptr nocapture noundef %this) unnamed_addr #14 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 0, i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 104), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -11807,7 +11807,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end.i10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 0, i32 0, i64 2), ptr %call.i2.i, align 8, !noalias !169
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 16), ptr %call.i2.i, align 8, !noalias !169
   %backing_store_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 8
   store ptr %backing_store_.val.i, ptr %backing_store_.i.i.i, align 8, !noalias !169
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 16
@@ -11856,7 +11856,7 @@ if.else.i.i.i.i.i.i.i32:                          ; preds = %if.then.i.i.i.i.i18
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23: ; preds = %if.else.i.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i21, %if.end.i12
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 0, i32 0, i64 2), ptr %call.i2.i16, align 8, !noalias !175
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntryE, i64 16), ptr %call.i2.i16, align 8, !noalias !175
   %backing_store_.i.i.i24 = getelementptr inbounds i8, ptr %call.i2.i16, i64 8
   store ptr %backing_store_.val.i14, ptr %backing_store_.i.i.i24, align 8, !noalias !175
   %_M_refcount.i.i.i.i.i25 = getelementptr inbounds i8, ptr %call.i2.i16, i64 16
@@ -11876,7 +11876,7 @@ do.body8.i.i.i31:                                 ; preds = %_ZNSt10shared_ptrIN
 
 return.sink.split:                                ; preds = %if.end, %_ZNRSt8optionalImE5valueEv.exit
   %call.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !99
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !99
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 16), ptr %call.i.i, align 8, !noalias !99
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i
@@ -11909,14 +11909,14 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !183
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !183
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !183
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !183
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store i64 0, ptr %2, align 8, !noalias !183
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !183
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderE, i64 0, i32 1, i64 2), ptr %0, align 8, !noalias !183
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !183
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderE, i64 104), ptr %0, align 8, !noalias !183
   %entry_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 48
   store ptr %this, ptr %entry_.i.i.i.i.i.i.i.i, align 8, !noalias !183
   %ended_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 56
@@ -11983,7 +11983,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -12099,7 +12099,7 @@ entry:
 
 _ZNSt10unique_ptrIN4node12_GLOBAL__N_110EmptyEntryESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !184
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !184
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 16), ptr %call.i, align 8, !noalias !184
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10unique_ptrIN4node12_GLOBAL__N_110EmptyEntryESt14default_deleteIS2_EED2Ev.exit
@@ -12128,14 +12128,14 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !192
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !192
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !192
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !192
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false), !noalias !192
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !192
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 0, i32 1, i64 2), ptr %0, align 8, !noalias !192
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !192
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 104), ptr %0, align 8, !noalias !192
   store ptr %_M_impl.i.i.i.i.i.i, ptr %1, align 8, !noalias !192
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !192
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0

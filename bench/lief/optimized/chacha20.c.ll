@@ -568,14 +568,14 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
   store i64 64, ptr %5, align 16
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %2, align 16
-  %gep = getelementptr inbounds [2 x [32 x i8]], ptr getelementptr inbounds ([2 x [32 x i8]], ptr @test_keys, i64 0, i64 0, i64 28), i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   %22 = load i32, ptr %gep, align 4
   store i32 %22, ptr %7, align 4
   store i32 %18, ptr %8, align 16
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 8
-  %gep22 = getelementptr inbounds [2 x [12 x i8]], ptr getelementptr inbounds ([2 x [12 x i8]], ptr @test_nonces, i64 0, i64 0, i64 8), i64 0, i64 %indvars.iv
+  %gep22 = getelementptr inbounds [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
   %23 = load i32, ptr %gep22, align 4
   store i32 %23, ptr %11, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10

@@ -315,7 +315,7 @@ invoke.cont101:                                   ; preds = %if.end
 
 if.then.i91.invoke.sink.split:                    ; preds = %invoke.cont101, %if.end
   %exception.i92 = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, i32 0, i64 2), ptr %exception.i92, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i92, align 8
   br label %if.then.i91.invoke
 
 if.then.i91.invoke:                               ; preds = %if.then.i91.invoke.sink.split, %if.then.i.i78
@@ -517,7 +517,7 @@ _ZNSt10unique_ptrI9noodTableN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.e
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI9noodTableN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14
           to label %unreachable unwind label %lpad
 

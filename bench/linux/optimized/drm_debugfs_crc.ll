@@ -687,7 +687,7 @@ define internal i32 @crtc_crc_open(ptr nocapture noundef readonly %0, ptr nocapt
   br label %73
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %53 = call noalias noundef align 8 dereferenceable_or_null(6144) ptr @kmalloc_trace(ptr noundef %52, i32 noundef 3520, i64 noundef 6144) #9
   %54 = icmp eq ptr %53, null
   br i1 %54, label %73, label %55

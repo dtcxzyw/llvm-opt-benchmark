@@ -207,13 +207,13 @@ define void @_ZN5Yosys11load_pluginENSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %79
 
 15:                                               ; preds = %13, %9
-  %16 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 16), align 8
   %.not11.i.i.i = icmp eq ptr %16, null
   br i1 %.not11.i.i.i, label %.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %16, %15 ]
-  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %15 ]
+  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8), %15 ]
   %17 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %19
@@ -235,7 +235,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %23 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %23 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
@@ -624,7 +624,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPassC2Ev(ptr noundef nonnull align 8 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys10PluginPassE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10PluginPassE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -1013,15 +1013,15 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .invoke:                                          ; preds = %96
-  %97 = load i64, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %97 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 40), align 8
   %98 = icmp eq i64 %97, 0
   %.str.24..str.25 = select i1 %98, ptr @.str.24, ptr @.str.25
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull %.str.24..str.25)
           to label %99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 99:                                               ; preds = %.invoke
-  %100 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not80 = icmp eq ptr %100, getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 24), align 8
+  %.not80 = icmp eq ptr %100, getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
   br i1 %.not80, label %._crit_edge84, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %99, %103
@@ -1033,11 +1033,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 103:                                              ; preds = %.lr.ph83
   %104 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.060.081) #19
-  %.not = icmp eq ptr %104, getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not = icmp eq ptr %104, getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
   br i1 %.not, label %._crit_edge84, label %.lr.ph83
 
 ._crit_edge84:                                    ; preds = %103, %99
-  %105 = load i64, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 40), align 8
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %.loopexit, label %107
 
@@ -1046,8 +1046,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %108 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 108:                                              ; preds = %107
-  %109 = load ptr, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not6485 = icmp eq ptr %109, getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 24), align 8
+  %.not6485 = icmp eq ptr %109, getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8)
   br i1 %.not6485, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %108, %.lr.ph89
@@ -1058,12 +1058,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %112 = trunc i64 %111 to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06387, i32 %112)
   %113 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.053.086) #19
-  %.not64 = icmp eq ptr %113, getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not64 = icmp eq ptr %113, getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8)
   br i1 %.not64, label %._crit_edge90, label %.lr.ph89
 
 ._crit_edge90:                                    ; preds = %.lr.ph89
-  %.pre98 = load ptr, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not6592 = icmp eq ptr %.pre98, getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.pre98 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 24), align 8
+  %.not6592 = icmp eq ptr %.pre98, getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8)
   br i1 %.not6592, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %._crit_edge90, %118
@@ -1077,7 +1077,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 118:                                              ; preds = %.lr.ph95
   %119 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.048.093) #19
-  %.not65 = icmp eq ptr %119, getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not65 = icmp eq ptr %119, getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8)
   br i1 %.not65, label %.loopexit, label %.lr.ph95
 
 .loopexit:                                        ; preds = %118, %108, %._crit_edge90, %._crit_edge84, %95
@@ -2339,17 +2339,17 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define internal void @_GLOBAL__sub_I_plugin.cc() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 40), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev, ptr nonnull @_ZN5Yosys14loaded_pluginsB5cxx11E, ptr nonnull @__dso_handle) #16
-  store i32 0, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map.0", ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 40), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev, ptr nonnull @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, ptr nonnull @__dso_handle) #16
   tail call void @_ZN5Yosys10PluginPassC2Ev(ptr noundef nonnull align 8 dereferenceable(104) @_ZN5Yosys10PluginPassE)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5Yosys10PluginPassD2Ev, ptr nonnull @_ZN5Yosys10PluginPassE, ptr nonnull @__dso_handle) #16

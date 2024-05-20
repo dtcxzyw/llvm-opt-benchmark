@@ -260,14 +260,14 @@ define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), i32 1 monotonic, align 4
+  %11 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 12:                                               ; preds = %7
-  %13 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
+  %13 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %14 = add nsw i32 %13, 1
-  store volatile i32 %14, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
-  %15 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), align 8
+  store volatile i32 %14, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %15 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 16:                                               ; preds = %4

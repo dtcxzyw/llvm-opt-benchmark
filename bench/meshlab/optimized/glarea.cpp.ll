@@ -923,9 +923,9 @@ define void @_ZN6GLAreaC2EP7QWidgetP21MultiViewer_ContainerP17RichParameterList(
   %19 = getelementptr inbounds i8, ptr %2, i64 240
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN9QGLWidgetC2EP7QWidgetPKS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %20, i32 0)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV6GLArea, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6GLArea, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV6GLArea, i64 0, i32 1, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6GLArea, i64 528), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN3vcg9TrackballC1Ev(ptr noundef nonnull align 8 dereferenceable(597) %22)
           to label %23 unwind label %124
@@ -2332,9 +2332,9 @@ _ZN8QMapNodeIi5QListIP7QActionEE16doDestroySubTreeESt17integral_constantIbLb1EE.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6GLAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(1676) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV6GLArea, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6GLArea, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV6GLArea, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6GLArea, i64 528), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1664
   %4 = load ptr, ptr %3, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
@@ -3469,7 +3469,7 @@ define void @_ZN6GLArea9pasteTileEv(ptr noundef nonnull align 8 dereferenceable(
 
 _ZNO6QImage8mirroredEbb.exit:                     ; preds = %37
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %6, align 8
   %38 = getelementptr inbounds i8, ptr %6, i64 24
   %39 = getelementptr inbounds i8, ptr %7, i64 24
   %40 = load ptr, ptr %39, align 8
@@ -6739,7 +6739,7 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit128.preheader: ; preds = %_ZN12Me
   store i8 0, ptr %302, align 4
   store i8 1, ptr %303, align 1
   store float 1.000000e+00, ptr %304, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18MLPerViewGLOptions, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %14, align 8
   store i8 1, ptr %310, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %311, i8 0, i64 10, i1 false)
   store i8 1, ptr %312, align 1
@@ -8782,7 +8782,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -8855,7 +8855,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -12550,11 +12550,11 @@ _ZN6GLArea2mmEv.exit504:                          ; preds = %677, %680
   br label %688
 
 688:                                              ; preds = %687, %685, %_ZN6GLArea2mmEv.exit504
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%"class.vcg::Matrix44", ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44", ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44", ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44", ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 60), align 4
   %689 = getelementptr inbounds i8, ptr %.0.i502, i64 1132
   br label %.preheader.i
 
@@ -14835,7 +14835,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -15890,7 +15890,7 @@ define linkonce_odr void @_ZNK9QMultiMapI7QString5QPairIS0_S0_EE10uniqueKeysEv(p
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = load i32, ptr getelementptr inbounds (%"struct.QListData::Data", ptr @_ZN9QListData11shared_nullE, i64 0, i32 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN9QListData11shared_nullE, i64 4), align 4
   %7 = icmp slt i32 %6, %5
   br i1 %7, label %8, label %13
 
@@ -20567,14 +20567,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   unreachable
 
 _ZN5QHashIP7QAction15QHashDummyValueEaSEOS3_.exit.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i72, %308
-  %315 = load atomic i32, ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0) monotonic, align 8
+  %315 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16) monotonic, align 8
   switch i32 %315, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i70 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i69
     i32 -1, label %_ZN4QSetIP7QActionE5clearEv.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i.i.i70:      ; preds = %_ZN5QHashIP7QAction15QHashDummyValueEaSEOS3_.exit.i.i
-  %316 = atomicrmw sub ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i32 1 seq_cst, align 4
+  %316 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16), i32 1 seq_cst, align 4
   %.not.i.i.i71 = icmp eq i32 %316, 1
   br i1 %.not.i.i.i71, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i69, label %_ZN4QSetIP7QActionE5clearEv.exit
 
@@ -20705,7 +20705,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN4QMapIi5QListIP7
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i, label %_ZN4QMapIi5QListIP7QActionEED2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN4QMapIi5QListIP7QActionEEaSEOS4_.exit
-  %14 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   %.not.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i1, label %.noexc1.i, label %15
 
@@ -20714,7 +20714,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %17
 
 .noexc.i:                                         ; preds = %15
-  %16 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   invoke void @_ZN12QMapDataBase8freeTreeEP12QMapNodeBasei(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE, ptr noundef %16, i32 noundef 8)
           to label %.noexc1.i unwind label %17
 
@@ -21831,7 +21831,7 @@ _ZN3vcg4math5ClampIfEET_RKS2_S4_S4_.exit43:       ; preds = %18
   store i8 0, ptr %79, align 4
   store i8 1, ptr %80, align 1
   store float 1.000000e+00, ptr %81, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18MLPerViewGLOptions, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %4, align 8
   store i8 1, ptr %87, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %88, i8 0, i64 10, i1 false)
   store i8 1, ptr %89, align 1
@@ -27381,7 +27381,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN4QMapIibEaSEOS0_
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i, label %_ZN4QMapIibED2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN4QMapIibEaSEOS0_.exit
-  %13 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   %.not.i.i1 = icmp eq ptr %13, null
   br i1 %.not.i.i1, label %.noexc.i, label %14
 
@@ -41496,9 +41496,9 @@ define internal void @_GLOBAL__sub_I_glarea.cpp() #26 section ".text.startup" pe
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #32
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

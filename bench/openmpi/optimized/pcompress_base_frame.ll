@@ -45,12 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @compress_block(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
@@ -59,7 +59,7 @@ define internal noundef zeroext i1 @compress_block(ptr nocapture readnone %0, i6
 
 12:                                               ; preds = %7
   %13 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #3
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9), align 1
   br label %14
 
 14:                                               ; preds = %12, %7, %4
@@ -73,12 +73,12 @@ define internal noundef zeroext i1 @decompress_block(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @compress_string(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
-  %4 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 136
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
@@ -87,7 +87,7 @@ define internal noundef zeroext i1 @compress_string(ptr nocapture readnone %0, p
 
 11:                                               ; preds = %6
   %12 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #3
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9), align 1
   br label %13
 
 13:                                               ; preds = %11, %6, %3
@@ -103,8 +103,8 @@ define internal noundef zeroext i1 @decompress_string(ptr nocapture readnone %0,
 define internal noundef i32 @pmix_compress_base_register(i32 %0) #0 {
   store i64 4096, ptr @pmix_compress_base, align 8
   %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 4, ptr noundef nonnull @pmix_compress_base) #3
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
-  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2)) #3
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9), align 1
+  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_compress_base, i64 9)) #3
   ret i32 0
 }
 
@@ -116,8 +116,8 @@ define internal i32 @pmix_compress_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_compress_base_close() #0 {
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i64 0, i32 1), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 

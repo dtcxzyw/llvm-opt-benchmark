@@ -1237,7 +1237,7 @@ define internal noundef i64 @numa_node_store(ptr noundef %0, ptr nocapture readn
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %11 to i64
-  %18 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %17) #11, !srcloc !20
+  %18 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %17) #11, !srcloc !20
   %19 = icmp ult i8 %18, 2
   call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
@@ -3129,7 +3129,7 @@ define internal zeroext i16 @pci_dev_attrs_are_visible(ptr nocapture noundef rea
   %9 = icmp eq i32 %8, 768
   %10 = icmp eq i32 %8, 1
   %11 = or i1 %9, %10
-  %12 = load i16, ptr getelementptr inbounds (%struct.device_attribute, ptr @dev_attr_boot_vga, i64 0, i32 0, i32 1), align 8
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @dev_attr_boot_vga, i64 8), align 8
   %13 = select i1 %11, i16 %12, i16 0
   br label %14
 

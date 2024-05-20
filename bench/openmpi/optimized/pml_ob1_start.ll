@@ -161,13 +161,13 @@ opal_convertor_set_position.exit:                 ; preds = %66, %65, %55, %50, 
   br i1 %75, label %76, label %.thread.i.i
 
 76:                                               ; preds = %73
-  %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #6
+  %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #6
   %.pr.i.i = load ptr, ptr %70, align 8
   %78 = icmp eq ptr %.pr.i.i, null
   br i1 %78, label %.thread.i.i, label %81
 
 .thread.i.i:                                      ; preds = %76, %73
-  %79 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i64 0, i32 1), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
   %80 = call i32 %79(ptr noundef nonnull %69) #6
   br label %81
 
@@ -177,7 +177,7 @@ opal_convertor_set_position.exit:                 ; preds = %66, %65, %55, %50, 
   br i1 %83, label %84, label %mca_bml_base_get_endpoint.exitthread-pre-split.i
 
 84:                                               ; preds = %81
-  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #6
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #6
   br label %mca_bml_base_get_endpoint.exitthread-pre-split.i
 
 mca_bml_base_get_endpoint.exitthread-pre-split.i: ; preds = %84, %81
@@ -596,30 +596,30 @@ mca_pml_ob1_send_request_start.exit.thread48:     ; preds = %288
   br i1 %292, label %293, label %295
 
 293:                                              ; preds = %290
-  %294 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 11, i32 1, i32 0, i32 0)) #6
+  %294 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #6
   %.pre.i.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %295
 
 295:                                              ; preds = %293, %290
   %296 = phi i8 [ %291, %290 ], [ %.pre.i.i.i, %293 ]
   store i32 2, ptr %131, align 4
-  %297 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 1, i32 2), align 8
+  %297 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2168), align 8
   %298 = getelementptr inbounds i8, ptr %.033, i64 24
   store volatile ptr %297, ptr %298, align 8
-  %299 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 1, i32 2), align 8
+  %299 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2168), align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 16
   store volatile ptr %.033, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %.033, i64 16
-  store volatile ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 1), ptr %301, align 8
-  store volatile ptr %.033, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 1, i32 2), align 8
-  %302 = load volatile i64, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 2), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2144), ptr %301, align 8
+  store volatile ptr %.033, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2168), align 8
+  %302 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2184), align 8
   %303 = add i64 %302, 1
-  store volatile i64 %303, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 2), align 8
+  store volatile i64 %303, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2184), align 8
   %304 = trunc i8 %296 to i1
   br i1 %304, label %305, label %add_request_to_send_pending.exit.i.i
 
 305:                                              ; preds = %295
-  %306 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 11, i32 1, i32 0, i32 0)) #6
+  %306 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #6
   br label %add_request_to_send_pending.exit.i.i
 
 add_request_to_send_pending.exit.i.i:             ; preds = %305, %295

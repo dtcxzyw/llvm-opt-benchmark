@@ -21,7 +21,7 @@ $_ZN21OffMeshConnectionTool4typeEv = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV21OffMeshConnectionTool, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -35,7 +35,7 @@ define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21OffMeshConnectionToolD2Ev(ptr noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV21OffMeshConnectionTool, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -60,7 +60,7 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21OffMeshConnectionToolD0Ev(ptr noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV21OffMeshConnectionTool, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

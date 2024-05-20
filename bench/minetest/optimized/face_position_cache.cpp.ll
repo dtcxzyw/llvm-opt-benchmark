@@ -89,12 +89,12 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 3), align 8, !tbaa !20
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 24), align 8, !tbaa !20
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 2, i32 0), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 16), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !13
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i
@@ -107,7 +107,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %conv.i.i.i.i = zext i16 %d to i64
-  %2 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr @_ZN17FacePositionCache5cacheE, align 8, !tbaa !18
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -175,7 +175,7 @@ entry:
   %__node5.i.i259 = alloca %"struct.std::_Hashtable<unsigned short, std::pair<const unsigned short, std::vector<irr::core::vector3d<short>>>, std::allocator<std::pair<const unsigned short, std::vector<irr::core::vector3d<short>>>>, std::__detail::_Select1st, std::equal_to<unsigned short>, std::hash<unsigned short>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i.i = alloca %"struct.std::_Hashtable<unsigned short, std::pair<const unsigned short, std::vector<irr::core::vector3d<short>>>, std::allocator<std::pair<const unsigned short, std::vector<irr::core::vector3d<short>>>>, std::__detail::_Select1st, std::equal_to<unsigned short>, std::hash<unsigned short>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %conv.i.i.i.i = zext i16 %d to i64
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %0
   %1 = load ptr, ptr @_ZN17FacePositionCache5cacheE, align 8, !tbaa !18
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %rem.i.i.i.i.i
@@ -246,7 +246,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %9 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 1), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 8), align 8
   %rem.i.i.i.i.i261 = urem i64 %conv.i.i.i.i, %9
   %10 = load ptr, ptr @_ZN17FacePositionCache5cacheE, align 8, !tbaa !18
   %arrayidx.i.i.i.i262 = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i261
@@ -3666,11 +3666,11 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_face_position_cache.cpp() #13 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 5), ptr @_ZN17FacePositionCache5cacheE, align 8, !tbaa !18
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 1), align 8, !tbaa !19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !199
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN17FacePositionCache5cacheE, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 48), ptr @_ZN17FacePositionCache5cacheE, align 8, !tbaa !18
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 8), align 8, !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 32), align 8, !tbaa !199
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN17FacePositionCache5cacheE, i64 40), i8 0, i64 16, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapItSt6vectorIN3irr4core8vector3dIsEESaIS4_EESt4hashItESt8equal_toItESaISt4pairIKtS6_EEED2Ev, ptr nonnull @_ZN17FacePositionCache5cacheE, ptr nonnull @__dso_handle) #16
   ret void
 }

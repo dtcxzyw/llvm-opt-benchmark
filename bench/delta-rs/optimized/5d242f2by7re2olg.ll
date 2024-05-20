@@ -3960,7 +3960,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %40, label %41, label %.critedge168
 
 41:                                               ; preds = %1
-  %42 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17h7a48ace84ee2e0d1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17h7a48ace84ee2e0d1E", i64 16) monotonic, align 8
   switch i8 %42, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge168
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -4212,7 +4212,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %130, label %132, label %.critedge177
 
 132:                                              ; preds = %131
-  %133 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17hccc73d0bb950933bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %133 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17hccc73d0bb950933bE", i64 16) monotonic, align 8
   switch i8 %133, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit210 [
     i8 0, label %.critedge177
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit210.thread
@@ -4428,7 +4428,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit210
   br i1 %130, label %208, label %.critedge185
 
 208:                                              ; preds = %207
-  %209 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17h55ea8300d5ac7046E", i64 0, i32 2, i32 0) monotonic, align 8
+  %209 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint10__CALLSITE17h55ea8300d5ac7046E", i64 16) monotonic, align 8
   switch i8 %209, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit232 [
     i8 0, label %.critedge185
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit232.thread
@@ -4686,7 +4686,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %16, label %.critedge51
 
 16:                                               ; preds = %1
-  %17 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$20enter_transmit_phase10__CALLSITE17h264dcfbafbc0efa0E", i64 0, i32 2, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$20enter_transmit_phase10__CALLSITE17h264dcfbafbc0efa0E", i64 16) monotonic, align 8
   switch i8 %17, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -4932,7 +4932,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %16, label %.critedge51
 
 16:                                               ; preds = %1
-  %17 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$25enter_serialization_phase10__CALLSITE17h3f4f5ff329fdcaa7E", i64 0, i32 2, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$25enter_serialization_phase10__CALLSITE17h3f4f5ff329fdcaa7E", i64 16) monotonic, align 8
   switch i8 %17, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -5179,7 +5179,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %16, label %17, label %.critedge56
 
 17:                                               ; preds = %1
-  %18 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_before_transmit_phase10__CALLSITE17h4644f1f7cd618774E", i64 0, i32 2, i32 0) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_before_transmit_phase10__CALLSITE17h4644f1f7cd618774E", i64 16) monotonic, align 8
   switch i8 %18, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge56
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -5454,7 +5454,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %16, label %.critedge51
 
 16:                                               ; preds = %1
-  %17 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_deserialization_phase10__CALLSITE17hcb706eee752d697dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_deserialization_phase10__CALLSITE17hcb706eee752d697dE", i64 16) monotonic, align 8
   switch i8 %17, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -5700,7 +5700,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %16, label %.critedge51
 
 16:                                               ; preds = %1
-  %17 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$33enter_after_deserialization_phase10__CALLSITE17hd1c053e528e02a2eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$33enter_after_deserialization_phase10__CALLSITE17hd1c053e528e02a2eE", i64 16) monotonic, align 8
   switch i8 %17, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge51
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -5952,7 +5952,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %18, label %19, label %.critedge53
 
 19:                                               ; preds = %16
-  %20 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$34enter_before_deserialization_phase10__CALLSITE17h250864da89036fc1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$34enter_before_deserialization_phase10__CALLSITE17h250864da89036fc1E", i64 16) monotonic, align 8
   switch i8 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge53
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -6222,7 +6222,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %37, label %38, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread248
 
 38:                                               ; preds = %35
-  %39 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail10__CALLSITE17h4902af92df9435ecE", i64 0, i32 2, i32 0) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail10__CALLSITE17h4902af92df9435ecE", i64 16) monotonic, align 8
   switch i8 %39, label %40 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread248
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -6499,7 +6499,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %130, label %131, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit163.thread254
 
 131:                                              ; preds = %128
-  %132 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail10__CALLSITE17h07280d6cdc649881E", i64 0, i32 2, i32 0) monotonic, align 8
+  %132 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail10__CALLSITE17h07280d6cdc649881E", i64 16) monotonic, align 8
   switch i8 %132, label %133 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit163.thread254
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit163.thread
@@ -21347,7 +21347,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
 
 14:                                               ; preds = %.noexc, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3051)
-  %15 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !range !474, !noalias !3054, !noundef !5
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !range !474, !noalias !3054, !noundef !5
   %.not.i.i = icmp eq i8 %15, 2
   br i1 %.not.i.i, label %16, label %.thread31
 
@@ -21356,7 +21356,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
   br label %37
 
 16:                                               ; preds = %14
-  store i8 %11, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !noalias !3054
+  store i8 %11, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !noalias !3054
   %.val.i.i = load i64, ptr %1, align 8, !range !110, !alias.scope !3056, !noalias !3057, !noundef !5
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11.i.i = load ptr, ptr %17, align 8, !alias.scope !3056, !noalias !3057
@@ -21369,7 +21369,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
 .noexc8:                                          ; preds = %16
   %19 = extractvalue { i32, i32 } %18, 0
   %20 = extractvalue { i32, i32 } %18, 1
-  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3054
+  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3054
   %switch.i.i = icmp eq i32 %.sroa.04.0.copyload.i.i, 0
   br i1 %switch.i.i, label %21, label %25
 
@@ -21383,16 +21383,16 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
   br label %26
 
 25:                                               ; preds = %.noexc8
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3054
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3054
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3054
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3054
   br label %26
 
 26:                                               ; preds = %25, %.noexc9
   %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %25 ], [ %23, %.noexc9 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %25 ], [ %24, %.noexc9 ]
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3054
-  store i32 %19, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3054
-  store i32 %20, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3054
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3054
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3054
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3054
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.08.i.i), !noalias !3054
   invoke void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hc131f638c2ff41f7E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, i64, {} }) align 8 dereferenceable(24) %.sroa.08.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c15cc316ca16525E.exit" unwind label %.thread
@@ -21557,7 +21557,7 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
 
 12:                                               ; preds = %.noexc, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3081)
-  %13 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !range !474, !noalias !3084, !noundef !5
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !range !474, !noalias !3084, !noundef !5
   %.not.i.i = icmp eq i8 %13, 2
   br i1 %.not.i.i, label %14, label %.thread31
 
@@ -21566,7 +21566,7 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
   br label %35
 
 14:                                               ; preds = %12
-  store i8 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !noalias !3084
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !noalias !3084
   %.val.i.i = load i64, ptr %1, align 8, !range !110, !alias.scope !3086, !noalias !3087, !noundef !5
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11.i.i = load ptr, ptr %15, align 8, !alias.scope !3086, !noalias !3087
@@ -21579,7 +21579,7 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
 .noexc8:                                          ; preds = %14
   %17 = extractvalue { i32, i32 } %16, 0
   %18 = extractvalue { i32, i32 } %16, 1
-  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3084
+  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3084
   %switch.i.i = icmp eq i32 %.sroa.04.0.copyload.i.i, 0
   br i1 %switch.i.i, label %19, label %23
 
@@ -21593,16 +21593,16 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
   br label %24
 
 23:                                               ; preds = %.noexc8
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3084
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3084
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3084
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3084
   br label %24
 
 24:                                               ; preds = %23, %.noexc9
   %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %23 ], [ %21, %.noexc9 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %23 ], [ %22, %.noexc9 ]
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3084
-  store i32 %17, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3084
-  store i32 %18, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3084
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3084
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3084
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3084
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.08.i.i), !noalias !3084
   invoke void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hc131f638c2ff41f7E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, i64, {} }) align 8 dereferenceable(24) %.sroa.08.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h528ff7890345325dE.exit" unwind label %.thread
@@ -21782,7 +21782,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
 
 28:                                               ; preds = %27, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3111)
-  %29 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !range !474, !noalias !3114, !noundef !5
+  %29 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !range !474, !noalias !3114, !noundef !5
   %.not.i.i = icmp eq i8 %29, 2
   br i1 %.not.i.i, label %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd3c3aeccc16040cbE.exit.thread"
 
@@ -21794,7 +21794,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %341
 
 30:                                               ; preds = %28
-  store i8 %25, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !noalias !3114
+  store i8 %25, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !noalias !3114
   %.val.i.i = load i64, ptr %1, align 8, !range !110, !alias.scope !3120, !noalias !3121, !noundef !5
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11.i.i = load ptr, ptr %31, align 8, !alias.scope !3120, !noalias !3121
@@ -21804,7 +21804,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   %32 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h2e06a4edda86aa03E(ptr noundef nonnull align 4 %.0.i.i.i), !noalias !3114
   %33 = extractvalue { i32, i32 } %32, 0
   %34 = extractvalue { i32, i32 } %32, 1
-  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3114
+  %.sroa.04.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3114
   %switch.i.i = icmp eq i32 %.sroa.04.0.copyload.i.i, 0
   br i1 %switch.i.i, label %35, label %39
 
@@ -21815,16 +21815,16 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h115db2b06b8f5f00E.exit"
 
 39:                                               ; preds = %30
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3114
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3114
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3114
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3114
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h115db2b06b8f5f00E.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h115db2b06b8f5f00E.exit": ; preds = %35, %39
   %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %39 ], [ %37, %35 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %39 ], [ %38, %35 ]
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !3114
-  store i32 %33, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !3114
-  store i32 %34, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3114
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3114
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3114
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3114
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.08.i.i), !noalias !3114
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hc131f638c2ff41f7E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, i64, {} }) align 8 dereferenceable(24) %.sroa.08.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3121
   %.sroa.0.0.copyload1.i = load i64, ptr %.sroa.08.i.i, align 8, !noalias !3122
@@ -21964,13 +21964,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
 
 .body.i.i.i.i.i:                                  ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i, %.thread46.sink.split.i.i.i.i.i.i.i.i.i, %213, %203, %.noexc17.i.i.i.i.i.i.i.i.i.i, %189, %.noexc8.i.i.i.i.i.i.i.i.i.i.i, %182, %180, %121, %119, %113, %111, %97
   %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn45.i.i.i.i.i.i.i.i.i, %213 ], [ %112, %113 ], [ %112, %111 ], [ %98, %97 ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %121 ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %119 ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %203 ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i.i.i ], [ %181, %180 ], [ %181, %182 ], [ %187, %189 ], [ %187, %.noexc8.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn44.ph.i.i.i.i.i.i.i.i.i, %.thread46.sink.split.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit10.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp11.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i ]
-  store ptr %80, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3163
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3163
   br label %.body.i.i.i
 
 79:                                               ; preds = %.noexc.i.i.i.i.i, %76
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %.sroa.7.i.i.i.i.i)
-  %80 = load ptr, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3163, !noundef !5
-  store ptr %19, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3163
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3163, !noundef !5
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3163
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %.sroa.6.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !3170
   %81 = invoke { ptr, ptr } @_ZN5tokio7runtime9scheduler14current_thread6Handle9waker_ref17hab934d03ea3de7faE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54)
@@ -22075,10 +22075,10 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %107
 
 107:                                              ; preds = %.noexc.i.i.i.i.i.i.i, %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$$GT$17h7ae3bced2df1579dE.exit.i.i.i.i.i.i.i.i.i.i"
-  %108 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !543, !noalias !3202, !noundef !5
-  %109 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !3202
-  store i8 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !noalias !3202
-  store i8 -128, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !3202
+  %108 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !range !543, !noalias !3202, !noundef !5
+  %109 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1, !noalias !3202
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !noalias !3202
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1, !noalias !3202
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h801955a39a590dc1E.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h801955a39a590dc1E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %107, %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$$GT$17h7ae3bced2df1579dE.exit.i.i.i.i.i.i.i.i.i.i"
@@ -22205,7 +22205,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !3170
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %.sroa.6.i.i.i.i.i.i.i.i.i)
-  store ptr %80, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3163
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.sroa.7.i.i.i.i.i, i64 376, i1 false), !noalias !3225
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %.sroa.7.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !3226
@@ -22290,10 +22290,10 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   br label %175
 
 175:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i, %171
-  %176 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !range !543, !noalias !3245, !noundef !5
-  %177 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !3245
-  store i8 1, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 4, !noalias !3245
-  store i8 -128, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i64 0), align 1, !noalias !3245
+  %176 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !range !543, !noalias !3245, !noundef !5
+  %177 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1, !noalias !3245
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 76), align 4, !noalias !3245
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1, !noalias !3245
   br label %178
 
 178:                                              ; preds = %175, %171
@@ -22481,7 +22481,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h3348d4564fca2e31E.exit.i.i.i.i.i: ; 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !3170
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %.sroa.6.i.i.i.i.i.i.i.i.i)
-  store ptr %80, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3163
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.sroa.7.i.i.i.i.i, i64 376, i1 false), !noalias !3225
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %.sroa.7.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !3226
@@ -23016,7 +23016,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   br label %16
 
 16:                                               ; preds = %.noexc, %3
-  %.val.i.i.i = load ptr, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 3), align 8, !noalias !3384, !noundef !5
+  %.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3384, !noundef !5
   %17 = icmp eq ptr %.val.i.i.i, null
   br i1 %17, label %18, label %23
 
@@ -23275,7 +23275,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   br label %103
 
 103:                                              ; preds = %.noexc.i, %95
-  %104 = load i8, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !range !474, !noalias !3428, !noundef !5
+  %104 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !range !474, !noalias !3428, !noundef !5
   %.not.i.i.i = icmp eq i8 %104, 2
   br i1 %.not.i.i.i, label %105, label %111
 
@@ -23305,7 +23305,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   unreachable
 
 111:                                              ; preds = %103
-  store i8 2, ptr getelementptr inbounds ({ { { i64, { { i64, [1 x i64] } } }, i64 }, { { { i64, [1 x i64] } } }, i64, ptr, { { { i32, [2 x i32] } } }, { { { { i8, [1 x i8] } } } }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 0, i32 6), align 2, !noalias !3428
+  store i8 2, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 78), align 2, !noalias !3428
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !3428
   store i8 %104, ptr %8, align 1, !noalias !3428
   call void @llvm.lifetime.start.p0(i64 7160, ptr nonnull %7), !noalias !3428
@@ -26722,7 +26722,7 @@ default.unreachable77:                            ; preds = %3
   br i1 %26, label %27, label %.thread66
 
 27:                                               ; preds = %24
-  %28 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h58a0435a1a2dad93E", i64 0, i32 1, i64 8) monotonic, align 8
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h58a0435a1a2dad93E", i64 16) monotonic, align 8
   switch i8 %28, label %29 [
     i8 0, label %.thread66
     i8 1, label %.thread

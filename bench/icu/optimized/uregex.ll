@@ -3463,7 +3463,7 @@ if.else234:                                       ; preds = %if.end144
   br i1 %cmp235, label %if.then236, label %while.end353.sink.split
 
 if.then236:                                       ; preds = %if.else234
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %groupName, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupName, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %55 = load i32, ptr %replIdx, align 4
   %inc238 = add nsw i32 %55, 1

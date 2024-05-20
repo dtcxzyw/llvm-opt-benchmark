@@ -265,7 +265,7 @@ define dso_local void @_ZN24b3GpuPgsConstraintSolverC2EP11_cl_contextP13_cl_devi
 invoke.cont9:
   %errNum = alloca i32, align 4
   %frombool = zext i1 %usePgs to i8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24b3GpuPgsConstraintSolver, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -380,7 +380,7 @@ invoke.cont30:                                    ; preds = %invoke.cont21
   %3 = load ptr, ptr %2, align 8
   %m_queue28 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %m_queue28, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call24, align 8
   %m_size.i = getelementptr inbounds i8, ptr %call24, i64 8
   %m_clContext.i = getelementptr inbounds i8, ptr %call24, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
@@ -401,7 +401,7 @@ invoke.cont39:                                    ; preds = %invoke.cont30
   %6 = load ptr, ptr %5, align 8
   %m_queue37 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %m_queue37, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 0, i32 0, i64 2), ptr %call33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 16), ptr %call33, align 8
   %m_size.i37 = getelementptr inbounds i8, ptr %call33, i64 8
   %m_clContext.i38 = getelementptr inbounds i8, ptr %call33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i37, i8 0, i64 24, i1 false)
@@ -422,7 +422,7 @@ invoke.cont48:                                    ; preds = %invoke.cont39
   %9 = load ptr, ptr %8, align 8
   %m_queue46 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %m_queue46, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 0, i32 0, i64 2), ptr %call42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 16), ptr %call42, align 8
   %m_size.i42 = getelementptr inbounds i8, ptr %call42, i64 8
   %m_clContext.i43 = getelementptr inbounds i8, ptr %call42, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i42, i8 0, i64 24, i1 false)
@@ -443,7 +443,7 @@ invoke.cont57:                                    ; preds = %invoke.cont48
   %12 = load ptr, ptr %11, align 8
   %m_queue55 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %m_queue55, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 0, i32 0, i64 2), ptr %call51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 16), ptr %call51, align 8
   %m_size.i47 = getelementptr inbounds i8, ptr %call51, i64 8
   %m_clContext.i48 = getelementptr inbounds i8, ptr %call51, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i47, i8 0, i64 24, i1 false)
@@ -464,7 +464,7 @@ invoke.cont66:                                    ; preds = %invoke.cont57
   %15 = load ptr, ptr %14, align 8
   %m_queue64 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %m_queue64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %call60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call60, align 8
   %m_size.i52 = getelementptr inbounds i8, ptr %call60, i64 8
   %m_clContext.i53 = getelementptr inbounds i8, ptr %call60, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i52, i8 0, i64 24, i1 false)
@@ -722,7 +722,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24b3GpuPgsConstraintSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24b3GpuPgsConstraintSolver, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_gpuData, align 8
@@ -1425,7 +1425,7 @@ entry:
   store i32 %numBodies, ptr %numBodies.addr, align 4
   store i32 %numConstraints, ptr %numConstraints.addr, align 4
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.9)
-  %0 = load i32, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 4), align 4
   %cmp4.i = icmp slt i32 %0, %numConstraints
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont
 
@@ -1440,7 +1440,7 @@ for.body9.lr.ph.i:                                ; preds = %entry
 
 for.body9.i:                                      ; preds = %for.body9.i, %.noexc
   %indvars.iv.i = phi i64 [ %1, %.noexc ], [ %indvars.iv.next.i, %for.body9.i ]
-  %2 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %arrayidx12.i = getelementptr inbounds %struct.b3BatchConstraint, ptr %2, i64 %indvars.iv.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i, i8 0, i64 16, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -1453,7 +1453,7 @@ invoke.cont.loopexit:                             ; preds = %for.body9.i
 
 invoke.cont:                                      ; preds = %invoke.cont.loopexit, %entry
   %3 = phi i32 [ %.pre, %invoke.cont.loopexit ], [ %numConstraints, %entry ]
-  store i32 %numConstraints, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 2), align 4
+  store i32 %numConstraints, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 4), align 4
   %m_gpuData = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_gpuData, align 8
   %m_gpuBatchConstraints = getelementptr inbounds i8, ptr %4, i64 104
@@ -3623,7 +3623,7 @@ for.body266:                                      ; preds = %for.body266.lr.ph, 
   br i1 %tobool272.not, label %for.inc645, label %if.then273
 
 if.then273:                                       ; preds = %for.body266
-  %339 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %arrayidx.i615 = getelementptr inbounds %struct.b3BatchConstraint, ptr %339, i64 %indvars.iv1199
   %m_originalConstraintIndex = getelementptr inbounds i8, ptr %arrayidx.i615, i64 8
   %340 = load i32, ptr %m_originalConstraintIndex, align 4
@@ -3691,7 +3691,7 @@ if.end331:                                        ; preds = %if.then329, %if.els
 
 if.end336:                                        ; preds = %if.end321, %if.end331
   %sub332.sink = phi i32 [ %sub332, %if.end331 ], [ %348, %if.end321 ]
-  %352 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %m_bodyBPtrAndSignBit335 = getelementptr inbounds %struct.b3BatchConstraint, ptr %352, i64 %indvars.iv1199, i32 1
   store i32 %sub332.sink, ptr %m_bodyBPtrAndSignBit335, align 4
   %353 = load i32, ptr %m_maxOverrideNumSolverIterations, align 4
@@ -5164,7 +5164,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %add = add nsw i32 %numConstraints, 1
   %m_size.i23 = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %m_size.i23, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %m_staticIdx = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %m_staticIdx, align 8
   %call15 = invoke noundef i32 @_ZN24b3GpuPgsConstraintSolver22sortConstraintByBatch3EP17b3BatchConstraintiiii(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef nonnull %5, i32 noundef %numConstraints, i32 noundef %add, i32 noundef %6, i32 noundef %4)
@@ -5724,7 +5724,7 @@ for.body98:                                       ; preds = %for.cond96.preheade
   %b.0181 = phi i32 [ %inc136, %for.inc135 ], [ 0, %for.cond96.preheader ]
   %104 = load i32, ptr %batchOffset, align 4
   %add99 = add nsw i32 %104, %b.0181
-  %105 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %idxprom.i78 = sext i32 %add99 to i64
   %106 = load ptr, ptr %m_gpuData, align 8
   %m_originalConstraintIndex = getelementptr inbounds %struct.b3BatchConstraint, ptr %105, i64 %idxprom.i78, i32 2
@@ -5898,7 +5898,7 @@ entry:
   %tmp.i = alloca %struct.b3BatchConstraint, align 4
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.32)
   %mul = shl nsw i32 %simdWidth, 1
-  %0 = load i32, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 4), align 4
   %cmp4.i = icmp slt i32 %0, %mul
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont
 
@@ -5913,7 +5913,7 @@ for.body9.lr.ph.i:                                ; preds = %entry
 
 for.body9.i:                                      ; preds = %for.body9.i, %.noexc
   %indvars.iv.i = phi i64 [ %1, %.noexc ], [ %indvars.iv.next.i, %for.body9.i ]
-  %2 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
   %arrayidx12.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   store i32 0, ptr %arrayidx12.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -5921,7 +5921,7 @@ for.body9.i:                                      ; preds = %for.body9.i, %.noex
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body9.i, !llvm.loop !22
 
 invoke.cont:                                      ; preds = %for.body9.i, %entry
-  store i32 %mul, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 2), align 4
+  store i32 %mul, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 4), align 4
   %3 = load i32, ptr @_ZZN24b3GpuPgsConstraintSolver22sortConstraintByBatch3EP17b3BatchConstraintiiiiE17maxNumConstraints, align 4
   %cmp = icmp slt i32 %3, %numConstraints
   br i1 %cmp, label %if.then, label %if.end
@@ -5938,7 +5938,7 @@ lpad:                                             ; preds = %for.end, %for.body9
 if.end:                                           ; preds = %if.then, %invoke.cont
   %div = sdiv i32 %numBodies, 32
   %add = add nsw i32 %div, 1
-  %5 = load i32, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 2), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 4), align 4
   %cmp4.i54.not = icmp sgt i32 %5, %div
   br i1 %cmp4.i54.not, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64, label %for.body9.lr.ph.i55
 
@@ -5953,7 +5953,7 @@ for.body9.lr.ph.i55:                              ; preds = %if.end
 
 for.body9.i58:                                    ; preds = %for.body9.i58, %.noexc63
   %indvars.iv.i59 = phi i64 [ %6, %.noexc63 ], [ %indvars.iv.next.i61, %for.body9.i58 ]
-  %7 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %arrayidx12.i60 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i59
   store i32 0, ptr %arrayidx12.i60, align 4
   %indvars.iv.next.i61 = add nsw i64 %indvars.iv.i59, 1
@@ -5961,7 +5961,7 @@ for.body9.i58:                                    ; preds = %for.body9.i58, %.no
   br i1 %exitcond.not.i62, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64, label %for.body9.i58, !llvm.loop !22
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64:  ; preds = %for.body9.i58, %if.end
-  store i32 %add, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 2), align 4
+  store i32 %add, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 4), align 4
   %cmp4.not100 = icmp slt i32 %numBodies, -31
   br i1 %cmp4.not100, label %for.end, label %for.body.preheader
 
@@ -5971,7 +5971,7 @@ for.body.preheader:                               ; preds = %_ZN20b3AlignedObjec
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %8 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   store i32 0, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6013,11 +6013,11 @@ for.body25.preheader:                             ; preds = %for.cond23.preheade
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
   %indvars.iv124 = phi i64 [ 0, %for.body12.preheader ], [ %indvars.iv.next125, %for.body12 ]
-  %10 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
   %arrayidx.i67 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv124
   %11 = load i32, ptr %arrayidx.i67, align 4
   %div16 = sdiv i32 %11, 32
-  %12 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i68 = sext i32 %div16 to i64
   %arrayidx.i69 = getelementptr inbounds i32, ptr %12, i64 %idxprom.i68
   store i32 0, ptr %arrayidx.i69, align 4
@@ -6060,7 +6060,7 @@ for.body25:                                       ; preds = %for.body25.preheade
 
 if.then35:                                        ; preds = %for.body25
   %div3650 = lshr i32 %18, 5
-  %21 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i70 = zext nneg i32 %div3650 to i64
   %arrayidx.i71 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i70
   %22 = load i32, ptr %arrayidx.i71, align 4
@@ -6077,7 +6077,7 @@ if.end40:                                         ; preds = %if.then35, %for.bod
 
 if.then44:                                        ; preds = %if.end40
   %div4551 = lshr i32 %19, 5
-  %23 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i72 = zext nneg i32 %div4551 to i64
   %arrayidx.i73 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i72
   %24 = load i32, ptr %arrayidx.i73, align 4
@@ -6099,14 +6099,14 @@ if.then57:                                        ; preds = %if.then55
   %and58 = and i32 %18, 31
   %shl59 = shl nuw i32 1, %and58
   %div6052 = lshr i32 %18, 5
-  %25 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i74 = zext nneg i32 %div6052 to i64
   %arrayidx.i75 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i74
   %26 = load i32, ptr %arrayidx.i75, align 4
   %or = or i32 %26, %shl59
   store i32 %or, ptr %arrayidx.i75, align 4
   %inc63 = add nsw i32 %curBodyUsed.1110, 1
-  %27 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
   %idxprom.i76 = sext i32 %curBodyUsed.1110 to i64
   %arrayidx.i77 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i76
   store i32 %18, ptr %arrayidx.i77, align 4
@@ -6120,14 +6120,14 @@ if.then68:                                        ; preds = %if.end66
   %and69 = and i32 %19, 31
   %shl70 = shl nuw i32 1, %and69
   %div7153 = lshr i32 %19, 5
-  %28 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i78 = zext nneg i32 %div7153 to i64
   %arrayidx.i79 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i78
   %29 = load i32, ptr %arrayidx.i79, align 4
   %or74 = or i32 %29, %shl70
   store i32 %or74, ptr %arrayidx.i79, align 4
   %inc75 = add nsw i32 %curBodyUsed.2, 1
-  %30 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
   %idxprom.i80 = sext i32 %curBodyUsed.2 to i64
   %arrayidx.i81 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i80
   store i32 %19, ptr %arrayidx.i81, align 4
@@ -6169,11 +6169,11 @@ for.body97.preheader:                             ; preds = %for.cond95.preheade
 
 for.body97:                                       ; preds = %for.body97.preheader, %for.body97
   %indvars.iv129 = phi i64 [ 0, %for.body97.preheader ], [ %indvars.iv.next130, %for.body97 ]
-  %32 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
   %arrayidx.i83 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv129
   %33 = load i32, ptr %arrayidx.i83, align 4
   %div100 = sdiv i32 %33, 32
-  %34 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i84 = sext i32 %div100 to i64
   %arrayidx.i85 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i84
   store i32 0, ptr %arrayidx.i85, align 4
@@ -6894,7 +6894,7 @@ for.cond.preheader:                               ; preds = %invoke.cont38
 for.body:                                         ; preds = %for.cond.preheader, %for.inc79
   %52 = phi i32 [ %70, %for.inc79 ], [ %51, %for.cond.preheader ]
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %for.inc79 ], [ 0, %for.cond.preheader ]
-  %53 = load ptr, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
   %m_originalConstraintIndex = getelementptr inbounds %struct.b3BatchConstraint, ptr %53, i64 %indvars.iv334, i32 2
   %54 = load i32, ptr %m_originalConstraintIndex, align 4
   %55 = load ptr, ptr %m_gpuData23, align 8
@@ -8078,7 +8078,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -8111,7 +8111,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -8241,7 +8241,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI15b3GpuSolverBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -8274,7 +8274,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI15b3GpuSolverBodyED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -8404,7 +8404,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI17b3BatchConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -8437,7 +8437,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI17b3BatchConstraintED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -8567,7 +8567,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -8600,7 +8600,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -9180,20 +9180,20 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_b3GpuPgsConstraintSolver.cpp() #16 section ".text.startup" {
 entry:
-  store i8 1, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 6), align 8
-  store ptr null, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.8, ptr @_ZL16batchConstraints, i64 0, i32 3), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 8), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN20b3AlignedObjectArrayI17b3BatchConstraintED2Ev, ptr nonnull @_ZL16batchConstraints, ptr nonnull @__dso_handle) #21
-  store i8 1, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 6), align 8
-  store ptr null, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL8bodyUsed, i64 0, i32 3), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 8), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN20b3AlignedObjectArrayIiED2Ev, ptr nonnull @_ZL8bodyUsed, ptr nonnull @__dso_handle) #21
-  store i8 1, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 6), align 8
-  store ptr null, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%class.b3AlignedObjectArray.24, ptr @_ZL7curUsed, i64 0, i32 3), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 8), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN20b3AlignedObjectArrayIiED2Ev, ptr nonnull @_ZL7curUsed, ptr nonnull @__dso_handle) #21
   ret void
 }

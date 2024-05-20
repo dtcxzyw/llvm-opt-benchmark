@@ -1291,7 +1291,7 @@ define void @_ZN3mbe8expander7matcher6match_17h83b7bdc8cc932d7eE(ptr noalias noc
 165:                                              ; preds = %163
   %166 = icmp ult i64 %164, 5
   call void @llvm.assume(i1 %166)
-  %167 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h362a3f5215c30128E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !256
+  %167 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h362a3f5215c30128E, i64 16) monotonic, align 8, !noalias !256
   switch i8 %167, label %168 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread119.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -1397,7 +1397,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 197:                                              ; preds = %195
   %198 = icmp ult i64 %196, 5
   call void @llvm.assume(i1 %198)
-  %199 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h6a038554404c8964E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !256
+  %199 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h6a038554404c8964E, i64 16) monotonic, align 8, !noalias !256
   switch i8 %199, label %200 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit351.thread128.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit351.thread.i
@@ -1867,7 +1867,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit385.i: ;
 361:                                              ; preds = %359
   %362 = icmp ult i64 %360, 5
   call void @llvm.assume(i1 %362)
-  %363 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h0cc2531a88a0d1b7E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !256
+  %363 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h0cc2531a88a0d1b7E, i64 16) monotonic, align 8, !noalias !256
   switch i8 %363, label %364 [
     i8 0, label %.critedge310.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit408.thread.i
@@ -2534,7 +2534,7 @@ _ZN3mbe8expander7matcher5Match7add_err17he7af4b77b1c66346E.exit434.i: ; preds = 
 578:                                              ; preds = %576
   %579 = icmp ult i64 %577, 5
   call void @llvm.assume(i1 %579)
-  %580 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h5472560094e53287E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !256
+  %580 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher10match_loop10__CALLSITE17h5472560094e53287E, i64 16) monotonic, align 8, !noalias !256
   switch i8 %580, label %581 [
     i8 0, label %.critedge316.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit482.thread.i
@@ -8083,7 +8083,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder12push_missing17h4c4a3f80036074caE.exit
   br i1 %950, label %951, label %.critedge.thread237
 
 951:                                              ; preds = %948
-  %952 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN3mbe8expander7matcher16match_loop_inner10__CALLSITE17hf415d04041c880a9E, i64 0, i32 1, i64 8) monotonic, align 8
+  %952 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher16match_loop_inner10__CALLSITE17hf415d04041c880a9E, i64 16) monotonic, align 8
   switch i8 %952, label %953 [
     i8 0, label %.critedge.thread237
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

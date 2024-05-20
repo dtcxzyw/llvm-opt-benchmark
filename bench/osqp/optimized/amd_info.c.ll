@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -61,7 +61,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %or.cond = select i1 %17, i1 %18, i1 false
   %19 = fadd double %8, %16
   %20 = select i1 %or.cond, double %19, double -1.000000e+00
-  %21 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not135 = icmp eq ptr %21, null
   br i1 %.not135, label %24, label %22
 
@@ -75,7 +75,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not140 = icmp eq ptr %28, null
   br i1 %.not140, label %52, label %29
 
@@ -88,7 +88,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not139 = icmp eq ptr %34, null
   br i1 %.not139, label %52, label %35
 
@@ -101,7 +101,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not138 = icmp eq ptr %40, null
   br i1 %.not138, label %52, label %41
 
@@ -111,7 +111,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %37
   %44 = fcmp oeq double %25, 1.000000e+00
-  %45 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not137 = icmp eq ptr %45, null
   br i1 %44, label %46, label %49
 
@@ -130,14 +130,14 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %35, %33, %47, %46, %50, %49, %39, %41, %27, %29
-  %53 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %54 = icmp ne ptr %53, null
   %or.cond9 = select i1 %17, i1 %54, i1 false
   br i1 %or.cond9, label %55, label %57
 
 55:                                               ; preds = %52
   %56 = tail call i32 (ptr, ...) %53(ptr noundef nonnull @.str.8, double noundef %8) #2
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %57
 
 57:                                               ; preds = %55, %52
@@ -151,7 +151,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %57
   %64 = tail call i32 (ptr, ...) %58(ptr noundef nonnull @.str.9, double noundef %60) #2
-  %.pre142 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre142 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %65
 
 65:                                               ; preds = %63, %57
@@ -165,7 +165,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 71:                                               ; preds = %65
   %72 = tail call i32 (ptr, ...) %66(ptr noundef nonnull @.str.10, double noundef %68) #2
-  %.pre143 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre143 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %73
 
 73:                                               ; preds = %71, %65
@@ -179,7 +179,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 79:                                               ; preds = %73
   %80 = tail call i32 (ptr, ...) %74(ptr noundef nonnull @.str.11, double noundef %76) #2
-  %.pre144 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre144 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %81
 
 81:                                               ; preds = %79, %73
@@ -193,7 +193,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 87:                                               ; preds = %81
   %88 = tail call i32 (ptr, ...) %82(ptr noundef nonnull @.str.12, double noundef %84) #2
-  %.pre145 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre145 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %89
 
 89:                                               ; preds = %87, %81
@@ -207,7 +207,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 95:                                               ; preds = %89
   %96 = tail call i32 (ptr, ...) %90(ptr noundef nonnull @.str.13, double noundef %92) #2
-  %.pre146 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre146 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %97
 
 97:                                               ; preds = %95, %89
@@ -221,7 +221,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 103:                                              ; preds = %97
   %104 = tail call i32 (ptr, ...) %98(ptr noundef nonnull @.str.14, double noundef %100) #2
-  %.pre147 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre147 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %105
 
 105:                                              ; preds = %103, %97
@@ -235,7 +235,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 111:                                              ; preds = %105
   %112 = tail call i32 (ptr, ...) %106(ptr noundef nonnull @.str.15, double noundef %108) #2
-  %.pr = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %113
 
 113:                                              ; preds = %111, %105
@@ -245,14 +245,14 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 115:                                              ; preds = %113
   %116 = tail call i32 (ptr, ...) %114(ptr noundef nonnull @.str.16) #2
-  %.pre148 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre148 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %117 = icmp ne ptr %.pre148, null
   %or.cond25 = select i1 %18, i1 %117, i1 false
   br i1 %or.cond25, label %118, label %120
 
 118:                                              ; preds = %115
   %119 = tail call i32 (ptr, ...) %.pre148(ptr noundef nonnull @.str.17, double noundef %16) #2
-  %.pre149 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre149 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %120
 
 120:                                              ; preds = %118, %115
@@ -264,7 +264,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 124:                                              ; preds = %120
   %125 = tail call i32 (ptr, ...) %121(ptr noundef nonnull @.str.18, double noundef %20) #2
-  %.pre150 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre150 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %126
 
 126:                                              ; preds = %124, %120
@@ -276,7 +276,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 130:                                              ; preds = %126
   %131 = tail call i32 (ptr, ...) %127(ptr noundef nonnull @.str.19, double noundef %10) #2
-  %.pre151 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre151 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %132
 
 132:                                              ; preds = %130, %126
@@ -288,7 +288,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 136:                                              ; preds = %132
   %137 = tail call i32 (ptr, ...) %133(ptr noundef nonnull @.str.20, double noundef %12) #2
-  %.pre152 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre152 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %138
 
 138:                                              ; preds = %136, %132
@@ -300,7 +300,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 142:                                              ; preds = %138
   %143 = tail call i32 (ptr, ...) %139(ptr noundef nonnull @.str.21, double noundef %14) #2
-  %.pre153 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre153 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %144
 
 144:                                              ; preds = %142, %138
@@ -314,7 +314,7 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 150:                                              ; preds = %144
   %151 = tail call i32 (ptr, ...) %145(ptr noundef nonnull @.str.22, double noundef %147) #2
-  %.pre154 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pre154 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %152
 
 152:                                              ; preds = %150, %144

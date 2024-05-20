@@ -191,8 +191,8 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture 
 
 .preheader:                                       ; preds = %63, %._crit_edge289, %65
   %68 = phi i1 [ %67, %65 ], [ false, %._crit_edge289 ], [ false, %63 ]
-  %.0195258349 = phi ptr [ @inflate_table.dbase, %65 ], [ %5, %._crit_edge289 ], [ getelementptr inbounds ([31 x i16], ptr @inflate_table.lbase, i64 -9, i64 22), %63 ]
-  %.0194259348 = phi ptr [ @inflate_table.dext, %65 ], [ %5, %._crit_edge289 ], [ getelementptr inbounds ([31 x i16], ptr @inflate_table.lext, i64 -9, i64 22), %63 ]
+  %.0195258349 = phi ptr [ @inflate_table.dbase, %65 ], [ %5, %._crit_edge289 ], [ getelementptr inbounds (i8, ptr @inflate_table.lbase, i64 -514), %63 ]
+  %.0194259348 = phi ptr [ @inflate_table.dext, %65 ], [ %5, %._crit_edge289 ], [ getelementptr inbounds (i8, ptr @inflate_table.lext, i64 -514), %63 ]
   %.0260347 = phi i32 [ -1, %65 ], [ 19, %._crit_edge289 ], [ 256, %63 ]
   %69 = phi i1 [ false, %65 ], [ false, %._crit_edge289 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select249

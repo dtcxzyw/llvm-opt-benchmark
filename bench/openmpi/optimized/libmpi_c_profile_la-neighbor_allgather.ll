@@ -254,7 +254,7 @@ ompi_comm_iface_coll_check.exit:                  ; preds = %108
 
 .lr.ph.i117:                                      ; preds = %.preheader.i115, %129
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i122, %129 ], [ 0, %.preheader.i115 ]
-  %133 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %133 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %134 = sext i32 %133 to i64
   %.not.i119 = icmp slt i64 %indvars.iv.i118, %134
   br i1 %.not.i119, label %135, label %opal_pointer_array_get_item.exit.i120
@@ -265,20 +265,20 @@ ompi_comm_iface_coll_check.exit:                  ; preds = %108
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %135
-  %139 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %139 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   %.pre.i.i123 = load i8, ptr @opal_uses_threads, align 1
   br label %140
 
 140:                                              ; preds = %138, %135
   %141 = phi i8 [ %136, %135 ], [ %.pre.i.i123, %138 ]
-  %142 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %143 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv.i118
   %144 = load ptr, ptr %143, align 8
   %145 = trunc i8 %141 to i1
   br i1 %145, label %146, label %opal_pointer_array_get_item.exit.i120
 
 146:                                              ; preds = %140
-  %147 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %147 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   br label %opal_pointer_array_get_item.exit.i120
 
 opal_pointer_array_get_item.exit.i120:            ; preds = %146, %140, %.lr.ph.i117

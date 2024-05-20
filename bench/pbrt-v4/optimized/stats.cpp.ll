@@ -436,7 +436,7 @@ $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 define internal fastcc void @__cxx_global_var_init.2() unnamed_addr #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr @_ZN4pbrtL16threadStatsStateE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.pbrt::ThreadStatsState", ptr @_ZN4pbrtL16threadStatsStateE, i64 0, i32 2, i32 0, i32 0), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4pbrtL16threadStatsStateE, i64 16), i8 0, i64 16, i1 false)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #21
   %call.i.i.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #22
   store i32 0, ptr %call.i.i, align 8
@@ -463,7 +463,7 @@ entry:
   store i64 %1, ptr %p32.i.i.i.i, align 8
   %ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ptr.i3.i.i.i.i, i8 0, i64 120, i1 false)
-  store ptr %call.i.i, ptr getelementptr inbounds (%"struct.pbrt::ThreadStatsState", ptr @_ZN4pbrtL16threadStatsStateE, i64 0, i32 3, i32 0), align 8
+  store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL16threadStatsStateE, i64 24), align 8
   ret void
 }
 
@@ -672,9 +672,9 @@ entry:
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
   %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
-  %0 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 0), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 8), align 8
   %sub.i.i = sub nsw i32 %0, %p.sroa.0.0.extract.trunc.i.i
-  %1 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 12), align 4
   %sub4.i.i = sub nsw i32 %1, %p.sroa.2.0.extract.trunc.i.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -696,7 +696,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.9, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 2))
           to label %invoke.cont17 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1454,7 +1454,7 @@ call.i339.noexc:                                  ; preds = %if.then173
           to label %.noexc345 unwind label %lpad184
 
 .noexc345:                                        ; preds = %call.i339.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp180, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.10, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp180, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 5))
           to label %invoke.cont193 unwind label %lpad.i343
 
 lpad.i343:                                        ; preds = %.noexc345
@@ -1997,7 +1997,7 @@ call.i553.noexc:                                  ; preds = %if.then310
           to label %.noexc559 unwind label %lpad321
 
 .noexc559:                                        ; preds = %call.i553.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.11, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 9))
           to label %invoke.cont322 unwind label %lpad.i557
 
 lpad.i557:                                        ; preds = %.noexc559
@@ -2016,7 +2016,7 @@ call.i562.noexc:                                  ; preds = %invoke.cont322
           to label %.noexc568 unwind label %lpad324
 
 .noexc568:                                        ; preds = %call.i562.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.12, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 11))
           to label %invoke.cont325 unwind label %lpad.i566
 
 lpad.i566:                                        ; preds = %.noexc568
@@ -2035,7 +2035,7 @@ call.i571.noexc:                                  ; preds = %invoke.cont325
           to label %.noexc577 unwind label %lpad328
 
 .noexc577:                                        ; preds = %call.i571.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element326, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.13, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element326, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 5))
           to label %invoke.cont337 unwind label %lpad.i575
 
 lpad.i575:                                        ; preds = %.noexc577
@@ -3743,9 +3743,9 @@ entry:
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
   %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
-  %0 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 0), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 8), align 8
   %sub.i.i = sub nsw i32 %0, %p.sroa.0.0.extract.trunc.i.i
-  %1 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 12), align 4
   %sub4.i.i = sub nsw i32 %1, %p.sroa.2.0.extract.trunc.i.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -3772,7 +3772,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.9, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 2))
           to label %invoke.cont18 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4745,9 +4745,9 @@ if.end:                                           ; preds = %_ZNSt6vectorINSt7__
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
   %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
-  %9 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 0), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 8), align 8
   %sub.i.i = sub nsw i32 %9, %p.sroa.0.0.extract.trunc.i.i
-  %10 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 12), align 4
   %sub4.i.i = sub nsw i32 %10, %p.sroa.2.0.extract.trunc.i.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -4773,7 +4773,7 @@ call.i.noexc:                                     ; preds = %if.then25
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.10, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 5))
           to label %invoke.cont35 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4977,9 +4977,9 @@ if.end:                                           ; preds = %_ZNSt6vectorINSt7__
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
   %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
-  %9 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 0), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 8), align 8
   %sub.i.i = sub nsw i32 %9, %p.sroa.0.0.extract.trunc.i.i
-  %10 = load i32, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 12), align 4
   %sub4.i.i = sub nsw i32 %10, %p.sroa.2.0.extract.trunc.i.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -5005,7 +5005,7 @@ call.i.noexc:                                     ; preds = %if.then25
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.11, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -5025,7 +5025,7 @@ call.i.noexc45:                                   ; preds = %invoke.cont
           to label %.noexc47 unwind label %lpad33
 
 .noexc47:                                         ; preds = %call.i.noexc45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.12, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 11))
           to label %invoke.cont34 unwind label %lpad.i44
 
 lpad.i44:                                         ; preds = %.noexc47
@@ -5045,7 +5045,7 @@ call.i.noexc53:                                   ; preds = %invoke.cont34
           to label %.noexc55 unwind label %lpad37
 
 .noexc55:                                         ; preds = %call.i.noexc53
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element35, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.13, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element35, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 5))
           to label %invoke.cont42 unwind label %lpad.i52
 
 lpad.i52:                                         ; preds = %.noexc55
@@ -6698,7 +6698,7 @@ call.i67.noexc:                                   ; preds = %if.then59
           to label %.noexc70 unwind label %lpad62
 
 .noexc70:                                         ; preds = %call.i67.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.21, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 6))
           to label %invoke.cont63 unwind label %lpad.i68
 
 lpad.i68:                                         ; preds = %.noexc70
@@ -20952,7 +20952,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ptr.i3.i.i.i.i, i8 0, i64 120, i1 false)
   store ptr %call.i.i, ptr @_ZN4pbrtL16statsAccumulatorE, align 8
   store i64 9223372034707292159, ptr @_ZN4pbrtL11imageBoundsE, align 8
-  store i64 -9223372034707292160, ptr getelementptr inbounds (%"class.pbrt::Bounds2", ptr @_ZN4pbrtL11imageBoundsE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i64 -9223372034707292160, ptr getelementptr inbounds (i8, ptr @_ZN4pbrtL11imageBoundsE, i64 8), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4pbrt18pixelStatsBaseNameB5cxx11E) #22
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN4pbrt18pixelStatsBaseNameB5cxx11E, ptr nonnull @__dso_handle) #22
   ret void

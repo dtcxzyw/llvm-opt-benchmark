@@ -567,7 +567,7 @@ if.end8:                                          ; preds = %if.then.i8, %_ZN7ro
   %db_options_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %db_options_, align 8
   %info_log = getelementptr inbounds i8, ptr %7, i64 48
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
   %8 = load ptr, ptr %db_options_, align 8
   %paranoid_checks = getelementptr inbounds i8, ptr %8, i64 3
   %9 = load i8, ptr %paranoid_checks, align 1
@@ -578,13 +578,13 @@ if.end8:                                          ; preds = %if.then.i8, %_ZN7ro
   %10 = load i8, ptr %bg_err, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %bg_err, i64 1
   %11 = load i8, ptr %subcode_.i, align 1
-  %12 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 16), align 8
   %cmp.not7.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not7.i.i.i, label %if.then29, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end8, %if.end.i.i.i
   %__x.addr.09.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %if.end.i.i.i ], [ %12, %if.end8 ]
-  %__y.addr.08.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %if.end.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %if.end8 ]
+  %__y.addr.08.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %if.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 8), %if.end8 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i, i64 32
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i, i64 36
   %13 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 4
@@ -633,7 +633,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZN
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS8_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS8_.exit.i.i: ; preds = %if.end.i.i.i
-  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 8)
   br i1 %cmp.i.i.i, label %if.then29, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS8_.exit.i.i
@@ -679,13 +679,13 @@ lpad:                                             ; preds = %if.then138, %if.the
   br label %ehcleanup
 
 if.then29:                                        ; preds = %land.rhs.i.i.i.i8.i.i, %land.rhs.i.i.i.i.i, %lor.lhs.false.i.i, %if.end8, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS8_.exit.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit.i.i
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::map.12", ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 16), align 8
   %cmp.not7.i.i.i13 = icmp eq ptr %24, null
   br i1 %cmp.not7.i.i.i13, label %if.then49, label %while.body.i.i.i17
 
 while.body.i.i.i17:                               ; preds = %if.then29, %if.end.i.i.i31
   %__x.addr.09.i.i.i18 = phi ptr [ %__x.addr.1.i.i.i35, %if.end.i.i.i31 ], [ %24, %if.then29 ]
-  %__y.addr.08.i.i.i19 = phi ptr [ %__y.addr.1.i.i.i33, %if.end.i.i.i31 ], [ getelementptr inbounds (%"class.std::map.12", ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %if.then29 ]
+  %__y.addr.08.i.i.i19 = phi ptr [ %__y.addr.1.i.i.i33, %if.end.i.i.i31 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 8), %if.then29 ]
   %_M_storage.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i18, i64 32
   %add.ptr.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i18, i64 36
   %25 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i21, align 4
@@ -724,7 +724,7 @@ if.end.i.i.i31:                                   ; preds = %if.else.i.i.i51, %_
   br i1 %cmp.not.i.i.i36, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i17, !llvm.loop !8
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %if.end.i.i.i31
-  %cmp.i.i.i37 = icmp eq ptr %__y.addr.1.i.i.i33, getelementptr inbounds (%"class.std::map.12", ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i37 = icmp eq ptr %__y.addr.1.i.i.i33, getelementptr inbounds (i8, ptr @_ZN7rocksdb23DefaultErrorSeverityMapE, i64 8)
   br i1 %cmp.i.i.i37, label %if.then49, label %lor.lhs.false.i.i38
 
 lor.lhs.false.i.i38:                              ; preds = %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
@@ -755,13 +755,13 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   br i1 %cmp.i.i.i.i.i9.i.i, label %if.then49, label %if.end64.sink.split
 
 if.then49:                                        ; preds = %land.rhs.i.i.i.i.i44, %lor.lhs.false.i.i38, %if.then29, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i
-  %33 = load ptr, ptr getelementptr inbounds (%"class.std::map.32", ptr @_ZN7rocksdb16DefaultReasonMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16DefaultReasonMapE, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.not6.i.i.i, label %if.end64, label %while.body.i.i.i56
 
 while.body.i.i.i56:                               ; preds = %if.then49, %if.end.i.i.i63
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i67, %if.end.i.i.i63 ], [ %33, %if.then49 ]
-  %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i65, %if.end.i.i.i63 ], [ getelementptr inbounds (%"class.std::map.32", ptr @_ZN7rocksdb16DefaultReasonMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %if.then49 ]
+  %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i65, %if.end.i.i.i63 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb16DefaultReasonMapE, i64 8), %if.then49 ]
   %_M_storage.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
   %add.ptr.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 36
   %34 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i58, align 4
@@ -790,7 +790,7 @@ if.end.i.i.i63:                                   ; preds = %if.else.i.i.i78, %_
   br i1 %cmp.not.i.i.i68, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %while.body.i.i.i56, !llvm.loop !9
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %if.end.i.i.i63
-  %cmp.i.i.i69 = icmp eq ptr %__y.addr.1.i.i.i65, getelementptr inbounds (%"class.std::map.32", ptr @_ZN7rocksdb16DefaultReasonMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %cmp.i.i.i69 = icmp eq ptr %__y.addr.1.i.i.i65, getelementptr inbounds (i8, ptr @_ZN7rocksdb16DefaultReasonMapE, i64 8)
   br i1 %cmp.i.i.i69, label %if.end64, label %lor.lhs.false.i.i70
 
 lor.lhs.false.i.i70:                              ; preds = %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
@@ -1618,7 +1618,7 @@ if.end:                                           ; preds = %invoke.cont3
 invoke.cont6:                                     ; preds = %if.end
   %info_log = getelementptr inbounds i8, ptr %10, i64 48
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93), ptr noundef %call7)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), ptr noundef %call7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -1822,7 +1822,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad19, %_ZNKSt14de
 if.end35:                                         ; preds = %invoke.cont25, %invoke.cont28, %invoke.cont31, %if.then.i75, %invoke.cont20
   %39 = load ptr, ptr %db_options_, align 8
   %info_log37 = getelementptr inbounds i8, ptr %39, i64 48
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log37, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log37, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
           to label %invoke.cont40 unwind label %lpad19
 
 invoke.cont40:                                    ; preds = %if.end35
@@ -1949,7 +1949,7 @@ if.then.i123:                                     ; preds = %invoke.cont78
 if.end82:                                         ; preds = %invoke.cont69, %invoke.cont66, %invoke.cont72, %invoke.cont75, %invoke.cont78, %if.then.i123, %invoke.cont60
   %56 = load ptr, ptr %db_options_, align 8
   %info_log84 = getelementptr inbounds i8, ptr %56, i64 48
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log84, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log84, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
           to label %invoke.cont87 unwind label %lpad11
 
 invoke.cont87:                                    ; preds = %if.end82
@@ -1971,7 +1971,7 @@ if.then.i130:                                     ; preds = %if.then89
 if.end96:                                         ; preds = %if.then.i130, %if.then89
   %59 = load ptr, ptr %db_options_, align 8
   %info_log98 = getelementptr inbounds i8, ptr %59, i64 48
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log98, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log98, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
           to label %invoke.cont101 unwind label %lpad11
 
 invoke.cont101:                                   ; preds = %if.end96
@@ -2487,7 +2487,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %if.end18
 if.end23:                                         ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit, %if.end18
   %15 = phi ptr [ %.pre, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit ], [ %4, %if.end18 ]
   %info_log = getelementptr inbounds i8, ptr %15, i64 48
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
   store i8 1, ptr %recovery_in_prog_, align 1
   %recovery_thread_ = getelementptr inbounds i8, ptr %this, i64 136
   %16 = load ptr, ptr %recovery_thread_, align 8
@@ -2529,7 +2529,7 @@ if.end37:                                         ; preds = %invoke.cont36, %if.
           to label %call.i.noexc unwind label %lpad42
 
 call.i.noexc:                                     ; preds = %if.end37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb12ErrorHandlerEFvvEPS4_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb12ErrorHandlerEFvvEPS4_EEEEEE, i64 16), ptr %call.i9, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i9, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %call.i9, i64 16
@@ -2813,7 +2813,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 invoke.cont34:                                    ; preds = %for.cond.cleanup
   %info_log = getelementptr inbounds i8, ptr %4, i64 48
   %call35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93), ptr noundef %call35)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), ptr noundef %call35)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
@@ -2875,7 +2875,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit:      ; preds = %while.end.i, %invok
   %db_options_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %db_options_, align 8
   %info_log = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([113 x i8], ptr @.str.5, i64 0, i64 93))
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93))
   ret void
 }
 
@@ -5541,11 +5541,11 @@ entry:
   store i32 6, ptr %81, align 4
   %second.i130.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 320
   store i8 3, ptr %second.i130.i, align 4
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb16ErrorSeverityMapE, i64 40), align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 324
   invoke void @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE22_M_insert_range_uniqueIPKSA_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESL_SL_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7rocksdb16ErrorSeverityMapE, ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %__cxx_global_var_init.1.exit unwind label %lpad4.i.i

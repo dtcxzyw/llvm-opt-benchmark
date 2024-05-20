@@ -3635,7 +3635,7 @@ define internal fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev() unnamed_ad
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr @_ZZL10mixbox_lutvE12decompressed, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr getelementptr inbounds (%struct.mixbox_init_t, ptr @_ZZL10mixbox_lutvE12decompressed, i64 1, i32 0, i64 0), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 799107), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -4528,7 +4528,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
   %480 = mul nuw nsw i64 %indvars.iv80.i, 3
-  %gep105.i = getelementptr i8, ptr getelementptr (%struct.mixbox_init_t, ptr @_ZZL10mixbox_lutvE12decompressed, i64 -1, i32 0, i64 799104), i64 %480
+  %gep105.i = getelementptr i8, ptr getelementptr (i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 -3), i64 %480
   %invariant.gep.i = getelementptr inbounds i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %480
   br label %.preheader.split.i
 

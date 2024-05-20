@@ -1195,9 +1195,9 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %caller) #25
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 3), align 8, !tbaa !71
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 24), align 8, !tbaa !71
   %cmp.not.not.i.i = icmp eq i64 %0, 0
-  %1 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 8), align 8
   %2 = load ptr, ptr @_ZL19g_httpfetch_results, align 8
   br i1 %cmp.not.not.i.i, label %for.body.us, label %for.body
 
@@ -1206,7 +1206,7 @@ for.body.us:                                      ; preds = %_ZNSt11unique_lockI
   br label %for.cond.i.i.us
 
 for.cond.i.i.us:                                  ; preds = %for.body.i.i.us, %for.body.us
-  %retval.sroa.0.0.in.i.i.us = phi ptr [ %retval.sroa.0.0.i.i.us, %for.body.i.i.us ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 2, i32 0), %for.body.us ]
+  %retval.sroa.0.0.in.i.i.us = phi ptr [ %retval.sroa.0.0.i.i.us, %for.body.i.i.us ], [ getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 16), %for.body.us ]
   %retval.sroa.0.0.i.i.us = load ptr, ptr %retval.sroa.0.0.in.i.i.us, align 8, !tbaa !13
   %cmp.i.not.i.i.us = icmp eq ptr %retval.sroa.0.0.i.i.us, null
   br i1 %cmp.i.not.i.i.us, label %if.then.loopexit, label %for.body.i.i.us
@@ -1464,12 +1464,12 @@ do.cond:                                          ; preds = %invoke.cont1
   br i1 %cmp5, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.cond
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 3), align 8, !tbaa !71
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 24), align 8, !tbaa !71
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %land.rhs, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 2, i32 0), %land.rhs ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 16), %land.rhs ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !13
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %do.end, label %for.body.i.i
@@ -1481,7 +1481,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %invoke.cont7, label %for.cond.i.i, !llvm.loop !72
 
 if.end15.i.i:                                     ; preds = %land.rhs
-  %2 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %or, %2
   %3 = load ptr, ptr @_ZL19g_httpfetch_results, align 8, !tbaa !29
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -1826,12 +1826,12 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 3), align 8, !tbaa !71
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 24), align 8, !tbaa !71
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 2, i32 0), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 16), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !13
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %for.body.i.i
@@ -1843,7 +1843,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !72
 
 if.end15.i.i:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %2 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %caller, %2
   %3 = load ptr, ptr @_ZL19g_httpfetch_results, align 8, !tbaa !29
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -2109,7 +2109,7 @@ invoke.cont4.thread:                              ; preds = %call2.i.noexc
 
 if.then3.i:                                       ; preds = %call2.i.noexc
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception.i, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8, !tbaa !86
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
           to label %.noexc unwind label %lpad3
 
@@ -7996,7 +7996,7 @@ if.then.i.i17:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15CurlFetchThread, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15CurlFetchThread, i64 16), ptr %this, align 8, !tbaa !86
   %m_requests = getelementptr inbounds i8, ptr %this, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_requests, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN15CurlFetchThread7RequestESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %m_requests, i64 noundef 0)
@@ -8076,7 +8076,7 @@ define linkonce_odr dso_local void @_ZN15CurlFetchThreadD2Ev(ptr noundef nonnull
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.75", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.75", align 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15CurlFetchThread, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15CurlFetchThread, i64 16), ptr %this, align 8, !tbaa !86
   %m_queued_fetches = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load ptr, ptr %m_queued_fetches, align 8, !tbaa !204
   %cmp.not9.i.i = icmp eq ptr %0, %m_queued_fetches
@@ -11261,7 +11261,7 @@ declare noundef zeroext i1 @_ZN9Semaphore4waitEj(ptr noundef nonnull align 8 der
 define linkonce_odr dso_local void @_ZN21ItemNotFoundExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !86
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !31
@@ -11314,14 +11314,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #25
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV21ItemNotFoundException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV21ItemNotFoundException, i64 16), ptr %this, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !86
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !36
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -11349,7 +11349,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21ItemNotFoundExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !86
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !36
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -11384,7 +11384,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !86
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !86
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !36
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -11418,11 +11418,11 @@ define internal void @_GLOBAL__sub_I_httpfetch.cpp() #18 section ".text.startup"
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 5), ptr @_ZL19g_httpfetch_results, align 8, !tbaa !29
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 1), align 8, !tbaa !30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZL19g_httpfetch_results, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 48), ptr @_ZL19g_httpfetch_results, align 8, !tbaa !29
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 8), align 8, !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 32), align 8, !tbaa !52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL19g_httpfetch_results, i64 40), i8 0, i64 16, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt5queueI15HTTPFetchResultSt5dequeIS1_SaIS1_EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEED2Ev, ptr nonnull @_ZL19g_httpfetch_results, ptr nonnull @__dso_handle) #25
   tail call void @_ZN9PcgRandomC1Emm(ptr noundef nonnull align 8 dereferenceable(16) @_ZL21g_callerid_randomness, i64 noundef -8846114313915602277, i64 noundef -2720673578348880933)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI15CurlFetchThreadSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZL18g_httpfetch_thread, ptr nonnull @__dso_handle) #25

@@ -64,13 +64,13 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 28:                                               ; preds = %25
   store ptr %0, ptr @g_wdactivelist, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %59
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   store ptr %0, ptr %30, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %59
 
 .lr.ph127:                                        ; preds = %.lr.ph.preheader, %.lr.ph
@@ -134,7 +134,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not88, label %50, label %51
 
 50:                                               ; preds = %48
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %51
 
 51:                                               ; preds = %50, %48
@@ -154,13 +154,13 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 56:                                               ; preds = %53
   store ptr %0, ptr @g_wdactivelist, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %59
 
 57:                                               ; preds = %53
-  %58 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   store ptr %0, ptr %58, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %59
 
 59:                                               ; preds = %52, %51, %57, %56, %29, %28

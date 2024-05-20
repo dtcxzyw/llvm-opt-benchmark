@@ -55,7 +55,7 @@ init:                                             ; preds = %entry
   %call.i.i = tail call i32 @gpr_cpu_current_cpu()
   %conv.i.i = trunc i32 %call.i.i to i16
   store i16 %conv.i.i, ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, align 2
-  store i16 -1, ptr getelementptr inbounds (%"struct.grpc_core::PerCpuShardingHelper::State", ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, i64 0, i32 1), align 2
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, i64 2), align 2
   br label %exit
 
 exit:                                             ; preds = %init, %entry

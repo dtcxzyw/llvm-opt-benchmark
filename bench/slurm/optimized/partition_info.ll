@@ -172,9 +172,9 @@ define ptr @slurm_sprint_partition_info(ptr nocapture noundef readonly %0, i32 n
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
   %8 = select i1 %.not, ptr @.str.3, ptr @.str.2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 199), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1368), align 8
   %10 = icmp ne ptr %9, null
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 150), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1008), align 8
   %12 = icmp ne ptr %11, null
   %or.cond = select i1 %10, i1 %12, i1 false
   %13 = getelementptr inbounds i8, ptr %0, i64 152
@@ -520,7 +520,7 @@ define ptr @slurm_sprint_partition_info(ptr nocapture noundef readonly %0, i32 n
   %151 = getelementptr inbounds i8, ptr %0, i64 186
   %152 = load i16, ptr %151, align 2
   %153 = icmp eq i16 %152, -2
-  %154 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
+  %154 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %spec.select = select i1 %153, i16 %154, i16 %152
   %155 = call ptr @preempt_mode_string(i16 noundef zeroext %spec.select) #11
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.56, ptr noundef %155) #11
@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   %12 = load ptr, ptr @working_cluster_rec, align 8
   %.not = icmp eq ptr %12, null
   %13 = getelementptr inbounds i8, ptr %12, i64 272
-  %.016.in = select i1 %.not, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), ptr %13
+  %.016.in = select i1 %.not, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), ptr %13
   %.016 = load ptr, ptr %.016.in, align 8
   %14 = and i16 %2, 80
   %or.cond24 = icmp eq i16 %14, 64

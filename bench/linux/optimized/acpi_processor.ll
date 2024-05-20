@@ -335,7 +335,7 @@ cpufreq_add_device.exit:                          ; preds = %14, %8, %5, %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @acpi_processor_claim_cst_control() #6 align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 26), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 95), align 1
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %14, label %3
 
@@ -344,7 +344,7 @@ define dso_local noundef zeroext i1 @acpi_processor_claim_cst_control() #6 align
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %7 = zext i32 %6 to i64
   %8 = zext i8 %1 to i32
   %9 = tail call i32 @acpi_os_write_port(i64 noundef %7, i32 noundef %8, i32 noundef 8) #14
@@ -880,7 +880,7 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   %7 = alloca %union.acpi_object, align 8
   %8 = alloca %struct.acpi_buffer, align 8
   %9 = alloca i64, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(992) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 992) #17
   %12 = icmp eq ptr %11, null
   br i1 %12, label %249, label %13
@@ -924,9 +924,9 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   ]
 
 26:                                               ; preds = %23, %23
-  %27 = load i8, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1), align 4
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
   %28 = or i8 %27, 1
-  store i8 %28, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1), align 4
+  store i8 %28, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
   br label %29
 
 29:                                               ; preds = %26, %23, %23
@@ -938,7 +938,7 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   %33 = getelementptr i8, ptr %30, i64 1176
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
-  store i32 %35, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1, i32 1), align 4
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @errata, i64 8), align 4
   call void @pci_dev_put(ptr noundef nonnull %30) #14
   br label %36
 
@@ -958,9 +958,9 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %39
-  %48 = load i8, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1), align 4
+  %48 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
   %49 = or i8 %48, 2
-  store i8 %49, ptr getelementptr inbounds (%struct.acpi_processor_errata, ptr @errata, i64 0, i32 1), align 4
+  store i8 %49, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
   br label %50
 
 50:                                               ; preds = %47, %39
@@ -974,9 +974,9 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   br label %52
 
 52:                                               ; preds = %51, %13
-  %53 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 15), align 1
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 72), align 1
   %54 = icmp ne i32 %53, 0
-  %55 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 21), align 1
+  %55 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 90), align 1
   %56 = icmp ne i8 %55, 0
   %57 = select i1 %54, i1 %56, i1 false
   br i1 %57, label %58, label %62
@@ -1226,10 +1226,10 @@ thread-pre-split:                                 ; preds = %129, %132, %139
   %193 = trunc i64 %184 to i32
   %194 = getelementptr inbounds i8, ptr %11, i64 760
   store i32 %193, ptr %194, align 8
-  %195 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 31), align 1
+  %195 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 104), align 1
   %196 = getelementptr inbounds i8, ptr %11, i64 764
   store i8 %195, ptr %196, align 4
-  %197 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 32), align 1
+  %197 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 105), align 1
   %198 = getelementptr inbounds i8, ptr %11, i64 765
   store i8 %197, ptr %198, align 1
   %199 = getelementptr inbounds i8, ptr %11, i64 20

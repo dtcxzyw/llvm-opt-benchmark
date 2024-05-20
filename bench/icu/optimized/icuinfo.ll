@@ -107,9 +107,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 0, i32 6), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool2 = icmp ne i8 %3, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool2
   br i1 %or.cond, label %if.then3, label %if.end9
@@ -126,17 +126,17 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %9 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool10.not = icmp eq i8 %9, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %10 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 88), align 8
   tail call void @u_setDataDirectory_75(ptr noundef %10)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end9
-  %11 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool13.not = icmp eq i8 %11, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
@@ -147,10 +147,10 @@ if.then14:                                        ; preds = %if.end12
 
 if.end15:                                         ; preds = %if.then14, %if.end12
   %didSomething.0 = phi i8 [ 1, %if.then14 ], [ 0, %if.end12 ]
-  %12 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool16.not = icmp eq i8 %12, 0
   %spec.select = select i1 %tobool16.not, i8 %didSomething.0, i8 1
-  %13 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool19.not = icmp eq i8 %13, 0
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
@@ -175,24 +175,24 @@ _Z11cmd_versionaR10UErrorCode.exit:               ; preds = %if.then20, %if.then
 
 if.end21:                                         ; preds = %_Z11cmd_versionaR10UErrorCode.exit, %if.end15
   %didSomething.2 = phi i8 [ 1, %_Z11cmd_versionaR10UErrorCode.exit ], [ %spec.select, %if.end15 ]
-  %18 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool22.not = icmp eq i8 %18, 0
   br i1 %tobool22.not, label %if.end31, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %19 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   %call24 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.12)
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then26, label %if.end31.thread
 
 if.then26:                                        ; preds = %if.then23
   %20 = load ptr, ptr @stderr, align 8
-  %21 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 16
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   %call27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef %21) #6
   br label %return
 
 if.end31:                                         ; preds = %if.end21
-  %22 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool32.not = icmp eq i8 %22, 0
   br i1 %tobool32.not, label %if.end34, label %if.end34.thread
 
@@ -200,7 +200,7 @@ if.end31.thread:                                  ; preds = %if.then23
   %23 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 40, i64 1, ptr nonnull %call24)
   tail call void @udbg_writeIcuInfo(ptr noundef nonnull %call24)
   %call30 = tail call i32 @fclose(ptr noundef nonnull %call24)
-  %24 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool32.not17 = icmp eq i8 %24, 0
   br i1 %tobool32.not17, label %if.end37, label %if.end34.thread
 

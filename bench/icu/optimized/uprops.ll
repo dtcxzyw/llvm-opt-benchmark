@@ -537,12 +537,12 @@ if.end25.i:                                       ; preds = %if.then21.i, %if.en
 
 _ZN12_GLOBAL__N_112ulayout_loadER10UErrorCode.exit: ; preds = %if.then4.i, %if.then3.i, %if.end25.i
   %8 = phi i32 [ %2, %if.then4.i ], [ 3, %if.then3.i ], [ %.pre, %if.end25.i ]
-  store i32 %8, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_115gLayoutInitOnceE, i64 0, i32 1), align 4
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_115gLayoutInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_115gLayoutInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %9 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_115gLayoutInitOnceE, i64 0, i32 1), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_115gLayoutInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %9, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -602,7 +602,7 @@ if.end6:                                          ; preds = %lor.lhs.false2
   br i1 %cmp.i31, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %folded1String, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %folded1String, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %folded1String, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call12 = invoke i32 @ucase_toFullFolding_75(i32 noundef %c, ptr noundef nonnull %folded1, i32 noundef 0)
@@ -670,7 +670,7 @@ lpad34:                                           ; preds = %if.else32
 
 if.end38:                                         ; preds = %if.then29.invoke, %invoke.cont35
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %kc1, align 8, !alias.scope !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %kc1, align 8, !alias.scope !7
   %fUnion2.i.i = getelementptr inbounds i8, ptr %kc1, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !7
   %vtable.i = load ptr, ptr %call7, align 8, !noalias !7
@@ -695,7 +695,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %kc2, align 8, !alias.scope !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %kc2, align 8, !alias.scope !10
   %fUnion2.i.i34 = getelementptr inbounds i8, ptr %kc2, i64 8
   store i16 2, ptr %fUnion2.i.i34, align 8, !alias.scope !10
   %vtable.i35 = load ptr, ptr %call7, align 8, !noalias !10
@@ -1162,7 +1162,7 @@ entry:
   %errorCode = alloca i32, align 4
   %resultString = alloca ptr, align 8
   %dest = alloca [62 x i16], align 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %nfd, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nfd, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %nfd, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i32 0, ptr %errorCode, align 4
@@ -1339,7 +1339,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %src, i32 noundef %c)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %dest, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %dest, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr %call, ptr %buffer, align 8

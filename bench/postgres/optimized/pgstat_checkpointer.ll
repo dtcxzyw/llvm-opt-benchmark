@@ -41,17 +41,17 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %12 = add <2 x i64> %11, %10
   store <2 x i64> %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 456
-  %14 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 2), align 16
+  %14 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 16), align 16
   %15 = load <2 x i64>, ptr %13, align 8
   %16 = add <2 x i64> %15, %14
   store <2 x i64> %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 472
-  %18 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 4), align 16
+  %18 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 16
   %19 = load <2 x i64>, ptr %17, align 8
   %20 = add <2 x i64> %19, %18
   store <2 x i64> %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 488
-  %22 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 6), align 16
+  %22 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 48), align 16
   %23 = load <2 x i64>, ptr %21, align 8
   %24 = add <2 x i64> %23, %22
   store <2 x i64> %24, ptr %21, align 8
@@ -75,7 +75,7 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_checkpointer() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 8) #5
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5)
+  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -146,7 +146,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5), ptr noundef nonnull readonly align 1 dereferenceable(72) %2, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), ptr noundef nonnull readonly align 1 dereferenceable(72) %2, i64 72, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
   %7 = and i32 %4, 1
   %.not.i5.i = icmp eq i32 %7, 0
@@ -172,18 +172,18 @@ pgstat_copy_changecounted_stats.exit:             ; preds = %8
   %16 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 8
   %17 = load <2 x i64>, ptr %.sroa.7.0..sroa_idx, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %12) #5
-  %18 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5), align 8
+  %18 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), align 8
   %19 = sub <2 x i64> %18, %14
-  store <2 x i64> %19, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5), align 8
-  %20 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 2), align 8
+  store <2 x i64> %19, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), align 8
+  %20 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 240), align 8
   %21 = sub <2 x i64> %20, %15
-  store <2 x i64> %21, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 2), align 8
-  %22 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 4), align 8
+  store <2 x i64> %21, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 240), align 8
+  %22 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 256), align 8
   %23 = sub <2 x i64> %22, %16
-  store <2 x i64> %23, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 4), align 8
-  %24 = load <2 x i64>, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 6), align 8
+  store <2 x i64> %23, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 256), align 8
+  %24 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 272), align 8
   %25 = sub <2 x i64> %24, %17
-  store <2 x i64> %25, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 5, i32 6), align 8
+  store <2 x i64> %25, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 272), align 8
   ret void
 }
 

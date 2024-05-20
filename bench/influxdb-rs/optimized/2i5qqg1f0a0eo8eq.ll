@@ -11867,8 +11867,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %trunc.i.i.i.i.i, label %._crit_edge.i.i.i, label %46
 
 ._crit_edge.i.i.i:                                ; preds = %42
-  %.pre.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3028
-  %.pre1.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3028
+  %.pre.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3028
+  %.pre1.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3028
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 46:                                               ; preds = %42
@@ -11876,14 +11876,14 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   store i64 1, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !noalias !3036
-  store i64 %49, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3036
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3036
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i": ; preds = %46, %._crit_edge.i.i.i
   %50 = phi i64 [ %.pre1.i.i.i, %._crit_edge.i.i.i ], [ %49, %46 ]
   %51 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %48, %46 ]
   %52 = add i64 %51, 1
-  store i64 %52, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3028
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3028
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !3017
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3037
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf9d47102436bbe1eE.llvm.171605402441639591(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 32, i64 noundef 16, i64 noundef 0, i1 noundef zeroext true), !noalias !3040
@@ -12363,8 +12363,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %trunc.i.i.i.i.i, label %._crit_edge.i.i.i, label %46
 
 ._crit_edge.i.i.i:                                ; preds = %42
-  %.pre.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3167
-  %.pre1.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3167
+  %.pre.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3167
+  %.pre1.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3167
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 46:                                               ; preds = %42
@@ -12372,14 +12372,14 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   store i64 1, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !noalias !3175
-  store i64 %49, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3175
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3175
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i": ; preds = %46, %._crit_edge.i.i.i
   %50 = phi i64 [ %.pre1.i.i.i, %._crit_edge.i.i.i ], [ %49, %46 ]
   %51 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %48, %46 ]
   %52 = add i64 %51, 1
-  store i64 %52, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3167
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3167
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !3156
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3176
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf9d47102436bbe1eE.llvm.171605402441639591(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 72, i64 noundef 16, i64 noundef 0, i1 noundef zeroext true), !noalias !3179
@@ -12845,8 +12845,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %trunc.i.i.i.i.i, label %._crit_edge.i.i.i, label %46
 
 ._crit_edge.i.i.i:                                ; preds = %42
-  %.pre.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3287
-  %.pre1.i.i.i = load i64, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3287
+  %.pre.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3287
+  %.pre1.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3287
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 46:                                               ; preds = %42
@@ -12854,14 +12854,14 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   store i64 1, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !noalias !3295
-  store i64 %49, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !3295
+  store i64 %49, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 16), align 8, !noalias !3295
   br label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i"
 
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.exit.i": ; preds = %46, %._crit_edge.i.i.i
   %50 = phi i64 [ %.pre1.i.i.i, %._crit_edge.i.i.i ], [ %49, %46 ]
   %51 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %48, %46 ]
   %52 = add i64 %51, 1
-  store i64 %52, ptr getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), align 8, !noalias !3287
+  store i64 %52, ptr getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), align 8, !noalias !3287
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !3276
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3296
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf9d47102436bbe1eE.llvm.171605402441639591(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 96, i64 noundef 16, i64 noundef 0, i1 noundef zeroext true), !noalias !3299

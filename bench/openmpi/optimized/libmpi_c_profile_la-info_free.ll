@@ -72,7 +72,7 @@ define i32 @PMPI_Info_free(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %.preheader.i ]
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %25 = sext i32 %24 to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %25
   br i1 %.not.i, label %26, label %opal_pointer_array_get_item.exit.i
@@ -83,20 +83,20 @@ define i32 @PMPI_Info_free(ptr noundef %0) #0 {
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %31
 
 31:                                               ; preds = %29, %26
   %32 = phi i8 [ %27, %26 ], [ %.pre.i.i, %29 ]
-  %33 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = trunc i8 %32 to i1
   br i1 %36, label %37, label %opal_pointer_array_get_item.exit.i
 
 37:                                               ; preds = %31
-  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #3
   br label %opal_pointer_array_get_item.exit.i
 
 opal_pointer_array_get_item.exit.i:               ; preds = %37, %31, %.lr.ph.i

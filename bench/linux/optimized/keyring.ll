@@ -141,9 +141,9 @@ define internal noundef i32 @keyring_instantiate(ptr noundef %0, ptr nocapture r
 9:                                                ; preds = %7
   tail call void @_raw_write_lock(ptr noundef nonnull @keyring_name_lock) #20
   %10 = getelementptr inbounds i8, ptr %0, i64 176
-  %11 = load ptr, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10, i32 1), align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10), ptr %10, align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 288), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 288), align 8
+  store ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 280), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %11, ptr %12, align 8
   store volatile ptr %10, ptr %11, align 8
@@ -1322,7 +1322,7 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 24) #22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -1505,8 +1505,8 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
 
 4:                                                ; preds = %2
   tail call void @_raw_read_lock(ptr noundef nonnull @keyring_name_lock) #20
-  %5 = load ptr, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10), align 8
-  %6 = icmp eq ptr %5, getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 280), align 8
+  %6 = icmp eq ptr %5, getelementptr inbounds (i8, ptr @init_user_ns, i64 280)
   br i1 %6, label %.loopexit, label %.preheader5
 
 .preheader5:                                      ; preds = %4
@@ -1579,7 +1579,7 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
 
 46:                                               ; preds = %44, %24, %19, %14, %.preheader5.split.us
   %47 = load ptr, ptr %7, align 8
-  %48 = icmp eq ptr %47, getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10)
+  %48 = icmp eq ptr %47, getelementptr inbounds (i8, ptr @init_user_ns, i64 280)
   br i1 %48, label %.loopexit, label %.preheader5.split.us, !llvm.loop !27
 
 .preheader5.split:                                ; preds = %.preheader5, %93
@@ -1660,7 +1660,7 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
 
 93:                                               ; preds = %89, %66, %61, %56, %.preheader5.split
   %94 = load ptr, ptr %49, align 8
-  %95 = icmp eq ptr %94, getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 10)
+  %95 = icmp eq ptr %94, getelementptr inbounds (i8, ptr @init_user_ns, i64 280)
   br i1 %95, label %.loopexit, label %.preheader5.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %93, %46, %.split.us, %4

@@ -56,7 +56,7 @@ define void @_ZN3gmx29DensityFittingAmplitudeLookupC2ERKNS_29DensityFittingAmpli
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114UnitAmplitudesESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114UnitAmplitudesESt14default_deleteIS2_EED2Ev.exit: ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_114UnitAmplitudesE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !5
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_114UnitAmplitudesE, i64 16), ptr %5, align 8, !noalias !5
   br label %.sink.split
 
 _ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %4, %7, %9
@@ -70,7 +70,7 @@ _ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit: ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_118MassesAsAmplitudesE, i64 0, i32 0, i64 2), ptr %8, align 8, !noalias !8
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118MassesAsAmplitudesE, i64 16), ptr %8, align 8, !noalias !8
   br label %.sink.split
 
 9:                                                ; preds = %2
@@ -78,7 +78,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit: ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_119ChargesAsAmplitudesE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !11
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_119ChargesAsAmplitudesE, i64 16), ptr %10, align 8, !noalias !11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114UnitAmplitudesESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit
@@ -186,7 +186,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_114UnitAmplitudes5cloneEv(ptr dead_on_
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val1 = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_114UnitAmplitudesE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !15
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_114UnitAmplitudesE, i64 16), ptr %5, align 8, !noalias !15
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64
@@ -538,7 +538,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118MassesAsAmplitudes5cloneEv(ptr dead
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val1 = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_118MassesAsAmplitudesE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !21
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118MassesAsAmplitudesE, i64 16), ptr %5, align 8, !noalias !21
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64
@@ -796,7 +796,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119ChargesAsAmplitudes5cloneEv(ptr dea
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val1 = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_119ChargesAsAmplitudesE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !25
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_119ChargesAsAmplitudesE, i64 16), ptr %5, align 8, !noalias !25
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64

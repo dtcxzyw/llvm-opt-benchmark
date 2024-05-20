@@ -2882,7 +2882,7 @@ for.inc9.i:                                       ; preds = %for.body5.i, %if.th
 _mi_commit_mask_committed_size.exit:              ; preds = %for.inc9.i
   %mul.i = shl i64 %count.3.i, 16
   %sub = sub i64 %3, %mul.i
-  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %sub) #13
+  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %sub) #13
   br label %for.body.i22
 
 for.body.i22:                                     ; preds = %for.body.i22, %_mi_commit_mask_committed_size.exit
@@ -3298,7 +3298,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
   %thread_id = getelementptr inbounds i8, ptr %call7.i, i64 256
   store atomic i64 %call21, ptr %thread_id seq_cst, align 8
   %21 = ptrtoint ptr %call7.i to i64
-  %22 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i = xor i64 %22, %21
   %cookie = getelementptr inbounds i8, ptr %call7.i, i64 216
   store i64 %xor.i, ptr %cookie, align 8
@@ -3585,7 +3585,7 @@ for.inc9.i.i.i:                                   ; preds = %for.body5.i.i.i, %i
 
 _mi_commit_mask_committed_size.exit.i.i:          ; preds = %for.inc9.i.i.i
   %mul.i.i.i = shl i64 %count.3.i.i.i, 16
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %mul.i.i.i) #13
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %mul.i.i.i) #13
   %14 = load ptr, ptr %start.i.i, align 8
   %call5.i.i = call zeroext i1 @_mi_os_commit(ptr noundef %14, i64 noundef %7, ptr noundef nonnull %is_zero.i.i, ptr noundef %tld.896.val) #13
   br i1 %call5.i.i, label %for.body.i23.i.i, label %mi_segment_ensure_committed.exit

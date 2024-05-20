@@ -70,7 +70,7 @@ define noundef i32 @acct_gather_filesystem_init() local_unnamed_addr #0 {
   br i1 %.not10, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 15), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 120), align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %.sink.split, label %8
 
@@ -91,7 +91,7 @@ define noundef i32 @acct_gather_filesystem_init() local_unnamed_addr #0 {
   br i1 %.not13, label %20, label %15
 
 .thread:                                          ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 15), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 120), align 8
   %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %12) #5
   store i32 0, ptr @plugin_inited, align 4
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #5
@@ -106,7 +106,7 @@ define noundef i32 @acct_gather_filesystem_init() local_unnamed_addr #0 {
   unreachable
 
 18:                                               ; preds = %.thread
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 15), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 120), align 8
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %19) #7
   unreachable
 
@@ -164,7 +164,7 @@ define i32 @acct_gather_filesystem_fini() local_unnamed_addr #0 {
   unreachable
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 3)) #5
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 272)) #5
   %.not29 = icmp eq i32 %13, 0
   br i1 %.not29, label %16, label %14
 
@@ -175,7 +175,7 @@ define i32 @acct_gather_filesystem_fini() local_unnamed_addr #0 {
   unreachable
 
 16:                                               ; preds = %12
-  %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 2)) #5
+  %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 224)) #5
   %.not30 = icmp eq i32 %17, 0
   br i1 %.not30, label %21, label %18
 
@@ -186,7 +186,7 @@ define i32 @acct_gather_filesystem_fini() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %16
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 3)) #5
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 272)) #5
   %.not31 = icmp eq i32 %22, 0
   br i1 %.not31, label %25, label %23
 
@@ -265,7 +265,7 @@ define i32 @acct_gather_filesystem_g_get_data(ptr noundef %0) local_unnamed_addr
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_filesystem_ops, ptr @ops, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %6 = tail call i32 %5(ptr noundef %0) #5
   br label %7
 
@@ -434,7 +434,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   unreachable
 
 21:                                               ; preds = %15
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 3)) #5
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 272)) #5
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %25, label %23
 
@@ -445,7 +445,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   unreachable
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 2), ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 3)) #5
+  %26 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 224), ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 272)) #5
   %.not16 = icmp eq i32 %26, 0
   br i1 %.not16, label %30, label %27
 
@@ -456,7 +456,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   br label %30
 
 30:                                               ; preds = %27, %25
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds ([4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 2, i32 3)) #5
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 272)) #5
   %.not17 = icmp eq i32 %31, 0
   br i1 %.not17, label %6, label %32, !llvm.loop !6
 
@@ -480,7 +480,7 @@ define noundef i32 @acct_gather_filesystem_g_conf_options(ptr noundef %0, ptr no
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_filesystem_ops, ptr @ops, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #5
   br label %7
 
@@ -495,7 +495,7 @@ define noundef i32 @acct_gather_filesystem_g_conf_set(ptr noundef %0) local_unna
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_filesystem_ops, ptr @ops, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   tail call void %5(ptr noundef %0) #5
   br label %6
 
@@ -510,7 +510,7 @@ define noundef i32 @acct_gather_filesystem_g_conf_values(ptr noundef %0) local_u
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_gather_filesystem_ops, ptr @ops, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   tail call void %5(ptr noundef %0) #5
   br label %6
 

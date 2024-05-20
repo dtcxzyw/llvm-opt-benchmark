@@ -75,12 +75,12 @@ define dso_local ptr @calloc_arena(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @print_arena_status() local_unnamed_addr #2 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %1 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i64 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @arena, i64 8), align 8
   %2 = lshr i64 %1, 10
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i64 noundef %2)
   %4 = load i32, ptr @allocations_done, align 4
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4)
-  %6 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @char_arena, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @char_arena, i64 8), align 8
   %7 = lshr i64 %6, 10
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %7)
   ret void
@@ -139,7 +139,7 @@ define dso_local void @run_arena_allocator_tests() local_unnamed_addr #0 {
 
 17:                                               ; preds = %6
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %18 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i64 0, i32 1), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @arena, i64 8), align 8
   %.not4 = icmp eq i64 %18, 48
   br i1 %.not4, label %20, label %19
 
@@ -152,7 +152,7 @@ define dso_local void @run_arena_allocator_tests() local_unnamed_addr #0 {
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr @allocations_done, align 4
   %23 = tail call ptr @vmem_alloc(ptr noundef nonnull @arena, i64 noundef 16) #8
-  %24 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i64 0, i32 1), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arena, i64 8), align 8
   %.not5 = icmp eq i64 %24, 64
   br i1 %.not5, label %26, label %25
 
@@ -175,7 +175,7 @@ define dso_local void @run_arena_allocator_tests() local_unnamed_addr #0 {
 
 31:                                               ; preds = %26
   tail call void @vmem_free(ptr noundef nonnull @arena) #8
-  %32 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i64 0, i32 1), align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @arena, i64 8), align 8
   %.not8 = icmp eq i64 %32, 0
   br i1 %.not8, label %34, label %33
 

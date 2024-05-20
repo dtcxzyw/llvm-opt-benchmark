@@ -346,7 +346,7 @@ _set_cond.exit:                                   ; preds = %145, %33
 
 167:                                              ; preds = %164
   %168 = load ptr, ptr %7, align 8
-  %169 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %170 = call ptr @xstrdup(ptr noundef %169) #9
   call void @list_append(ptr noundef %168, ptr noundef %170) #9
   br label %171

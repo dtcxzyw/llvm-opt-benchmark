@@ -61,7 +61,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory23ModelManagerDistributedC2ERNS0_3EnvERNS0_12TheoryEngineERNS1_15EqEngineManagerE(ptr noundef nonnull align 8 dereferenceable(122) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(1448) %te, ptr noundef nonnull align 8 dereferenceable(80) %eem) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory12ModelManagerC2ERNS0_3EnvERNS0_12TheoryEngineERNS1_15EqEngineManagerE(ptr noundef nonnull align 8 dereferenceable(122) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(1448) %te, ptr noundef nonnull align 8 dereferenceable(80) %eem)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -70,7 +70,7 @@ declare void @_ZN4cvc58internal6theory12ModelManagerC2ERNS0_3EnvERNS0_12TheoryEn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory23ModelManagerDistributedD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 16), ptr %this, align 8
   %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
           to label %invoke.cont unwind label %terminate.lpad
@@ -108,7 +108,7 @@ declare void @_ZN4cvc58internal6theory12ModelManagerD2Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory23ModelManagerDistributedD0Ev(ptr noundef nonnull align 8 dereferenceable(122) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 16), ptr %this, align 8
   %d_modelEeContext.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext.i)
           to label %_ZN4cvc58internal6theory23ModelManagerDistributedD2Ev.exit unwind label %terminate.lpad.i

@@ -76,7 +76,7 @@ define dso_local range(i32 -2147483648, 1) i32 @hda_widget_sysfs_init(ptr nounde
   br i1 %4, label %5, label %68
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #7
   store ptr %7, ptr %2, align 8
   %8 = icmp eq ptr %7, null
@@ -117,7 +117,7 @@ define dso_local range(i32 -2147483648, 1) i32 @hda_widget_sysfs_init(ptr nounde
   %31 = load ptr, ptr %19, align 8
   %32 = sext i32 %29 to i64
   %33 = getelementptr ptr, ptr %31, i64 %32
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 3520, i64 noundef 64) #7
   %36 = icmp eq ptr %35, null
   br i1 %36, label %add_widget_node.exit.thread, label %37
@@ -151,7 +151,7 @@ define dso_local range(i32 -2147483648, 1) i32 @hda_widget_sysfs_init(ptr nounde
 52:                                               ; preds = %.loopexit
   %53 = load ptr, ptr %7, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 8
-  %55 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %56 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 3520, i64 noundef 64) #7
   %57 = icmp eq ptr %56, null
   br i1 %57, label %add_widget_node.exit.thread, label %58
@@ -376,7 +376,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hda_widget_sysfs_reinit(ptr noca
   %66 = phi ptr [ %.pre9, %._crit_edge ], [ %.pre10, %62 ]
   %67 = load ptr, ptr %10, align 8
   %68 = getelementptr ptr, ptr %66, i64 %56
-  %69 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %70 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %69, i32 noundef 3520, i64 noundef 64) #7
   %71 = icmp eq ptr %70, null
   br i1 %71, label %add_widget_node.exit, label %72

@@ -107,7 +107,7 @@ lor.lhs.false.i:                                  ; preds = %cond.end.i
   br i1 %cmp7.not.i, label %if.end.i, label %listTypeTryConvertQuicklist.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5064), align 8
   call void @quicklistNodeLimit(i32 noundef %5, ptr noundef nonnull %sz_limit.i, ptr noundef nonnull %count_limit.i) #9
   %.pre.i = load i64, ptr %sz_limit.i, align 8
   br i1 %cmp3.not, label %if.then10.i, label %if.end12.i
@@ -270,7 +270,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
 if.end22.i:                                       ; preds = %for.end.i, %cond.end.i11
   %add_length.0.i = phi i64 [ %conv2125.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %add_bytes.2.i = phi i64 [ %add_bytes.0.lcssa.i, %for.end.i ], [ 0, %cond.end.i11 ]
-  %25 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5064), align 8
   %ptr23.i = getelementptr inbounds i8, ptr %o, i64 8
   %26 = load ptr, ptr %ptr23.i, align 8
   %call24.i = tail call i64 @lpBytes(ptr noundef %26) #9
@@ -293,8 +293,8 @@ if.then34.i:                                      ; preds = %if.then32.i
 
 if.end35.i:                                       ; preds = %if.then34.i, %if.then32.i
   %call36.i = tail call ptr @quicklistCreate() #9
-  %28 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 348), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5064), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5068), align 4
   tail call void @quicklistSetOptions(ptr noundef %call36.i, i32 noundef %28, i32 noundef %29) #9
   %30 = load ptr, ptr %ptr23.i, align 8
   %call38.i = tail call i64 @lpLength(ptr noundef %30) #9
@@ -1654,7 +1654,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %3) #9
   br label %return
 
@@ -1684,9 +1684,9 @@ for.body:                                         ; preds = %if.end11, %for.body
   %arrayidx15 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx15, align 8
   tail call void @listTypePush(ptr noundef %lobj.0, ptr noundef %11, i32 noundef %where)
-  %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %12, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %argc, align 8
   %14 = sext i32 %13 to i64
@@ -1806,7 +1806,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.else
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %3) #9
   br label %return
 
@@ -1814,7 +1814,7 @@ if.end9:                                          ; preds = %if.else, %entry
   %where.0 = phi i32 [ 1, %entry ], [ 0, %if.else ]
   %arrayidx11 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %arrayidx11, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call12 = tail call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef %5) #9
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %return, label %lor.lhs.false
@@ -1908,9 +1908,9 @@ if.then30:                                        ; preds = %if.then.i21, %if.th
   %id = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %21, i32 noundef %23) #9
-  %24 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %24, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %bf.load.i23 = load i32, ptr %call12, align 8
   %bf.lshr.i = lshr i32 %bf.load.i23, 4
   %bf.clear.i = and i32 %bf.lshr.i, 15
@@ -1974,7 +1974,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2035,7 +2035,7 @@ entry:
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx1, align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #9
   %cmp = icmp eq ptr %call, null
@@ -2194,7 +2194,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 14), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 208), align 8
   %call = tail call ptr @lookupKeyWriteOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end19, label %lor.lhs.false
@@ -2240,13 +2240,13 @@ if.then13:                                        ; preds = %if.end9
   %id = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %13, i32 noundef %15) #9
-  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %16, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.end9
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 17), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 232), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %17) #9
   br label %if.end19
 
@@ -2372,7 +2372,7 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
   br i1 %or.cond, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %listTypeLength.exit
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   tail call void @addReply(ptr noundef %c, ptr noundef %2) #9
   br label %if.end30
 
@@ -2488,9 +2488,9 @@ if.then12:                                        ; preds = %if.end10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end10
-  %8 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add = add nsw i64 %8, %count
-  store i64 %add, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %add, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   ret void
 }
 
@@ -2655,7 +2655,7 @@ if.then:                                          ; preds = %entry
   br label %if.end67
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp, label %cond.false, label %if.then4
+  br i1 %cmp, label %cond.end, label %if.then4
 
 if.then4:                                         ; preds = %if.else
   %argv = getelementptr inbounds i8, ptr %c, i64 96
@@ -2664,30 +2664,20 @@ if.then4:                                         ; preds = %if.else
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %count, ptr noundef null) #9
   %cmp5.not = icmp eq i32 %call, 0
-  br i1 %cmp5.not, label %cond.true, label %if.end67
+  br i1 %cmp5.not, label %cond.end, label %if.end67
 
-cond.true:                                        ; preds = %if.then4
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
-  %3 = load i32, ptr %resp, align 8
-  %idxprom = sext i32 %3 to i64
-  %arrayidx13 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 9, i64 %idxprom
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else
+cond.end:                                         ; preds = %if.else, %if.then4
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @shared, i64 96), %if.then4 ], [ getelementptr inbounds (i8, ptr @shared, i64 64), %if.else ]
   %resp14 = getelementptr inbounds i8, ptr %c, i64 24
-  %4 = load i32, ptr %resp14, align 8
-  %idxprom15 = sext i32 %4 to i64
-  %arrayidx16 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom15
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond.in = phi ptr [ %arrayidx13, %cond.true ], [ %arrayidx16, %cond.false ]
+  %3 = load i32, ptr %resp14, align 8
+  %idxprom15 = sext i32 %3 to i64
+  %arrayidx16 = getelementptr inbounds [4 x ptr], ptr %.sink, i64 0, i64 %idxprom15
   %argv1049 = getelementptr inbounds i8, ptr %c, i64 96
   %.pn = load ptr, ptr %argv1049, align 8
   %.in = getelementptr inbounds i8, ptr %.pn, i64 8
-  %5 = load ptr, ptr %.in, align 8
-  %cond = load ptr, ptr %cond.in, align 8
-  %call17 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %cond) #9
+  %4 = load ptr, ptr %.in, align 8
+  %cond = load ptr, ptr %arrayidx16, align 8
+  %call17 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef %cond) #9
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.end67, label %lor.lhs.false
 
@@ -2697,14 +2687,14 @@ lor.lhs.false:                                    ; preds = %cond.end
   br i1 %tobool21.not, label %if.end23, label %if.end67
 
 if.end23:                                         ; preds = %lor.lhs.false
-  %6 = load i64, ptr %count, align 8
-  %tobool25 = icmp ne i64 %6, 0
+  %5 = load i64, ptr %count, align 8
+  %tobool25 = icmp ne i64 %5, 0
   %or.cond = select i1 %cmp, i1 true, i1 %tobool25
   br i1 %or.cond, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
-  call void @addReply(ptr noundef nonnull %c, ptr noundef %7) #9
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %6) #9
   br label %if.end67
 
 if.end27:                                         ; preds = %if.end23
@@ -2723,10 +2713,10 @@ cond.false37:                                     ; preds = %if.then29
 cond.end38:                                       ; preds = %if.then29
   call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef nonnull %call30) #9
   call void @decrRefCount(ptr noundef nonnull %call30) #9
-  %8 = load ptr, ptr %argv1049, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %arrayidx40, align 8
-  call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %9, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef 1, i32 noundef 1, ptr noundef null)
+  %7 = load ptr, ptr %argv1049, align 8
+  %arrayidx40 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %arrayidx40, align 8
+  call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %8, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef 1, i32 noundef 1, ptr noundef null)
   br label %if.end67
 
 if.else41:                                        ; preds = %if.end27
@@ -2740,14 +2730,14 @@ if.else41:                                        ; preds = %if.end27
 
 if.then.i:                                        ; preds = %if.else41
   %ptr.i = getelementptr inbounds i8, ptr %call17, i64 8
-  %10 = load ptr, ptr %ptr.i, align 8
-  %call.i = call i64 @quicklistCount(ptr noundef %10) #9
+  %9 = load ptr, ptr %ptr.i, align 8
+  %call.i = call i64 @quicklistCount(ptr noundef %9) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.else41
   %ptr6.i = getelementptr inbounds i8, ptr %call17, i64 8
-  %11 = load ptr, ptr %ptr6.i, align 8
-  %call7.i = call i64 @lpLength(ptr noundef %11) #9
+  %10 = load ptr, ptr %ptr6.i, align 8
+  %call7.i = call i64 @lpLength(ptr noundef %10) #9
   br label %listTypeLength.exit
 
 if.else8.i:                                       ; preds = %if.else41
@@ -2757,8 +2747,8 @@ if.else8.i:                                       ; preds = %if.else41
 
 listTypeLength.exit:                              ; preds = %if.then.i, %if.then5.i
   %retval.0.i = phi i64 [ %call.i, %if.then.i ], [ %call7.i, %if.then5.i ]
-  %12 = load i64, ptr %count, align 8
-  %cond48 = call i64 @llvm.smin.i64(i64 %12, i64 %retval.0.i)
+  %11 = load i64, ptr %count, align 8
+  %cond48 = call i64 @llvm.smin.i64(i64 %11, i64 %retval.0.i)
   %cmp49 = icmp ne i32 %where, 0
   %sub = sub nsw i64 0, %cond48
   %cond54 = select i1 %cmp49, i64 %sub, i64 0
@@ -2776,14 +2766,14 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
 
 if.then.i44:                                      ; preds = %listTypeLength.exit
   %ptr.i45 = getelementptr inbounds i8, ptr %call17, i64 8
-  %13 = load ptr, ptr %ptr.i45, align 8
-  %call.i46 = call i32 @quicklistDelRange(ptr noundef %13, i64 noundef %cond54, i64 noundef %cond48) #9
+  %12 = load ptr, ptr %ptr.i45, align 8
+  %call.i46 = call i32 @quicklistDelRange(ptr noundef %12, i64 noundef %cond54, i64 noundef %cond48) #9
   br label %listTypeDelRange.exit
 
 if.then5.i41:                                     ; preds = %listTypeLength.exit
   %ptr6.i42 = getelementptr inbounds i8, ptr %call17, i64 8
-  %14 = load ptr, ptr %ptr6.i42, align 8
-  %call7.i43 = call ptr @lpDeleteRange(ptr noundef %14, i64 noundef %cond54, i64 noundef %cond48) #9
+  %13 = load ptr, ptr %ptr6.i42, align 8
+  %call7.i43 = call ptr @lpDeleteRange(ptr noundef %13, i64 noundef %cond54, i64 noundef %cond48) #9
   store ptr %call7.i43, ptr %ptr6.i42, align 8
   br label %listTypeDelRange.exit
 
@@ -2793,10 +2783,10 @@ if.else9.i:                                       ; preds = %listTypeLength.exit
   unreachable
 
 listTypeDelRange.exit:                            ; preds = %if.then.i44, %if.then5.i41
-  %15 = load ptr, ptr %argv1049, align 8
-  %arrayidx66 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %arrayidx66, align 8
-  call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %16, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef %cond48, i32 noundef 1, ptr noundef null)
+  %14 = load ptr, ptr %argv1049, align 8
+  %arrayidx66 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %arrayidx66, align 8
+  call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %15, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef %cond48, i32 noundef 1, ptr noundef null)
   br label %if.end67
 
 if.end67:                                         ; preds = %cond.end, %lor.lhs.false, %if.then4, %listTypeDelRange.exit, %cond.end38, %if.then26, %if.then
@@ -2868,8 +2858,8 @@ if.end8:                                          ; preds = %listTypeLength.exit
   %cond = tail call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %count)
   %call10 = tail call ptr @createStringObjectFromLongLong(i64 noundef %cond) #9
   %cmp11 = icmp eq i32 %where, 0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 41), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 424), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 416), align 8
   %cond15 = select i1 %cmp11, ptr %4, ptr %5
   tail call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %cond15, ptr noundef %0, ptr noundef %call10) #9
   tail call void @decrRefCount(ptr noundef %call10) #9
@@ -2931,7 +2921,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %argv, align 8
   %arrayidx6 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx6, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   %call7 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %6) #9
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %lor.lhs.false9
@@ -3165,9 +3155,9 @@ if.end70:                                         ; preds = %if.else69, %if.then
   %34 = load ptr, ptr %arrayidx73, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %32, ptr noundef %34) #9
   %add74 = add nsw i64 %rtrim.0, %ltrim.0
-  %35 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add75 = add nsw i64 %add74, %35
-  store i64 %add75, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %add75, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %36 = load ptr, ptr @shared, align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %36) #9
   br label %return
@@ -3254,7 +3244,7 @@ if.then33:                                        ; preds = %if.else28
   br i1 %cmp39.not, label %for.inc, label %if.end121
 
 if.else42:                                        ; preds = %if.else28
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %13) #9
   br label %if.end121
 
@@ -3294,7 +3284,7 @@ if.then55:                                        ; preds = %if.end50
   br i1 %cmp56.not, label %if.else58, label %if.then57
 
 if.then57:                                        ; preds = %if.then55
-  %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %21) #9
   br label %if.end121
 
@@ -3302,7 +3292,7 @@ if.else58:                                        ; preds = %if.then55
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %22 = load i32, ptr %resp, align 8
   %idxprom59 = sext i32 %22 to i64
-  %arrayidx60 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom59
   %23 = load ptr, ptr %arrayidx60, align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %23) #9
   br label %if.end121
@@ -3556,7 +3546,7 @@ if.else116:                                       ; preds = %if.else112
   %resp117 = getelementptr inbounds i8, ptr %c, i64 24
   %49 = load i32, ptr %resp117, align 8
   %idxprom118 = sext i32 %49 to i64
-  %arrayidx119 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom118
+  %arrayidx119 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom118
   %50 = load ptr, ptr %arrayidx119, align 8
   call void @addReply(ptr noundef %c, ptr noundef %50) #9
   br label %if.end121
@@ -3594,7 +3584,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %argv, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call5 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef %5) #9
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %return, label %lor.lhs.false
@@ -3699,9 +3689,9 @@ while.body:                                       ; preds = %if.end14, %if.end26
 
 if.then20:                                        ; preds = %while.body
   call void @listTypeDelete(ptr noundef nonnull %li.0, ptr noundef nonnull %entry15)
-  %15 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %15, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc21 = add nsw i64 %removed.050, 1
   %16 = load i64, ptr %toremove, align 8
   %tobool22.not = icmp ne i64 %16, 0
@@ -3855,7 +3845,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.else
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %1) #9
   br label %return
 
@@ -3873,8 +3863,8 @@ return:                                           ; preds = %if.end6, %if.else5
 define dso_local ptr @getStringObjectFromListPosition(i32 noundef %position) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i32 %position, 0
-  %.val = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 51), align 8
-  %.val1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 52), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 504), align 8
+  %.val1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 512), align 8
   %retval.0 = select i1 %cmp, ptr %.val, ptr %.val1
   ret ptr %retval.0
 }
@@ -3889,7 +3879,7 @@ entry:
   %resp = getelementptr inbounds i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx1, align 8
   %call = tail call ptr @lookupKeyWriteOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #9
   %cmp = icmp eq ptr %call, null
@@ -3974,7 +3964,7 @@ cond.end:                                         ; preds = %if.end14
   br i1 %cmp21, label %if.then23, label %if.else32
 
 if.then23:                                        ; preds = %cond.end
-  %15 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 44), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 448), align 8
   %16 = load ptr, ptr %argv, align 8
   %arrayidx25 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %arrayidx25, align 8
@@ -3992,7 +3982,7 @@ if.else32:                                        ; preds = %cond.end
   br i1 %cmp35, label %if.then37, label %if.end44
 
 if.then37:                                        ; preds = %if.else32
-  %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 43), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 440), align 8
   %22 = load ptr, ptr %argv, align 8
   %arrayidx39 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %arrayidx39, align 8
@@ -4025,7 +4015,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.end, label %getListPositionFromObjectOrReply.exit
 
 getListPositionFromObjectOrReply.exit:            ; preds = %if.else.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %3) #9
   br label %return
 
@@ -4045,7 +4035,7 @@ if.else.i10:                                      ; preds = %if.end
   br i1 %cmp3.i12, label %if.end6, label %getListPositionFromObjectOrReply.exit17
 
 getListPositionFromObjectOrReply.exit17:          ; preds = %if.else.i10
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %6) #9
   br label %return
 
@@ -4106,7 +4096,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.end, label %getListPositionFromObjectOrReply.exit
 
 getListPositionFromObjectOrReply.exit:            ; preds = %if.else.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %3) #9
   br label %return
 
@@ -4126,7 +4116,7 @@ if.else.i8:                                       ; preds = %if.end
   br i1 %cmp3.i10, label %if.end6, label %getListPositionFromObjectOrReply.exit15
 
 getListPositionFromObjectOrReply.exit15:          ; preds = %if.else.i8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %6) #9
   br label %return
 
@@ -4222,8 +4212,8 @@ if.then16:                                        ; preds = %if.end14
   %cond = call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %count)
   %call18 = call ptr @createStringObjectFromLongLong(i64 noundef %cond) #9
   %cmp19 = icmp eq i32 %where, 0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 41), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 424), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 416), align 8
   %cond23 = select i1 %cmp19, ptr %6, ptr %7
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %cond23, ptr noundef %2, ptr noundef %call18) #9
   call void @decrRefCount(ptr noundef %call18) #9
@@ -4246,8 +4236,8 @@ cond.end31:                                       ; preds = %if.end24
   call void @decrRefCount(ptr noundef nonnull %call25) #9
   call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %2, i32 noundef %where, ptr noundef nonnull %call4, i64 noundef 1, i32 noundef 1, ptr noundef null)
   %cmp32 = icmp eq i32 %where, 0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 41), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 424), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 416), align 8
   %cond37 = select i1 %cmp32, ptr %8, ptr %9
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %cond37, ptr noundef %2) #9
   br label %return
@@ -4415,7 +4405,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %4) #9
   br label %if.end55
 
@@ -4435,7 +4425,7 @@ if.else.i:                                        ; preds = %if.end6
   br i1 %cmp3.i, label %getListPositionFromObjectOrReply.exit, label %getListPositionFromObjectOrReply.exit.thread
 
 getListPositionFromObjectOrReply.exit.thread:     ; preds = %if.else.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #9
   br label %if.end55
 
@@ -4478,7 +4468,7 @@ if.then30:                                        ; preds = %land.lhs.true
   br i1 %cmp34.not, label %for.cond, label %if.end55, !llvm.loop !16
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
-  %16 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %16) #9
   br label %if.end55
 

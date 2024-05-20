@@ -3371,7 +3371,7 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i: ; preds = %90, %88, %86,
 98:                                               ; preds = %96
   %99 = icmp ult i64 %97, 5
   call void @llvm.assume(i1 %99)
-  %100 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14proc_macro_api3msg9read_json10__CALLSITE17haa07f52b3b8a16f0E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !914
+  %100 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14proc_macro_api3msg9read_json10__CALLSITE17haa07f52b3b8a16f0E, i64 16) monotonic, align 8, !noalias !914
   switch i8 %100, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.critedge39.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -4941,7 +4941,7 @@ _ZN10serde_json3ser6to_vec17hec0bfd183592d4a6E.exit: ; preds = %_ZN10serde_json3
   br i1 %390, label %391, label %.critedge.i
 
 391:                                              ; preds = %387
-  %392 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14proc_macro_api3msg10write_json10__CALLSITE17hde07b298f0ce08f9E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1464
+  %392 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14proc_macro_api3msg10write_json10__CALLSITE17hde07b298f0ce08f9E, i64 16) monotonic, align 8, !noalias !1464
   switch i8 %392, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

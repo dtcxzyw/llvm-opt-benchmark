@@ -4513,7 +4513,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 
 82:                                               ; preds = %68
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %83 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !322, !noalias !323, !noundef !4
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !322, !noalias !323, !noundef !4
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h393b1edf09cff23eE.exit.i.i.i.i"
 
@@ -4553,7 +4553,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 "_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$$GT$17h9bf57dd817274d46E.exit.i.i.i.i.i": ; preds = %.noexc.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !324
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !324
-  store ptr %89, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !328, !noalias !323
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !328, !noalias !323
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h393b1edf09cff23eE.exit.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h393b1edf09cff23eE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$$GT$17h9bf57dd817274d46E.exit.i.i.i.i.i", %82
@@ -4599,12 +4599,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 .thread.i.i.i.i:                                  ; preds = %.noexc41.i.i.i.i, %110
   %111 = landingpad { ptr, i32 }
           cleanup
-  %112 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !322, !noalias !323, !nonnull !4, !align !50, !noundef !4
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !322, !noalias !323, !nonnull !4, !align !50, !noundef !4
   store ptr %105, ptr %112, align 8, !noalias !303
   br label %.thread104.i.i.i.i
 
 "_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i": ; preds = %.noexc41.i.i.i.i, %106
-  %113 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !322, !noalias !323, !nonnull !4, !align !50, !noundef !4
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !322, !noalias !323, !nonnull !4, !align !50, !noundef !4
   store ptr %105, ptr %113, align 8, !noalias !303
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !303
   %114 = getelementptr inbounds i8, ptr %21, i64 88
@@ -5256,7 +5256,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 
 82:                                               ; preds = %68
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
-  %83 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !421, !noalias !422, !noundef !4
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !421, !noalias !422, !noundef !4
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h04da97b1917934e4E.exit.i.i.i.i"
 
@@ -5296,7 +5296,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 "_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$$GT$17h9bf57dd817274d46E.exit.i.i.i.i.i": ; preds = %.noexc.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !423
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !423
-  store ptr %89, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !427, !noalias !422
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !427, !noalias !422
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h04da97b1917934e4E.exit.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h04da97b1917934e4E.exit.i.i.i.i": ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$$GT$17h9bf57dd817274d46E.exit.i.i.i.i.i", %82
@@ -5342,12 +5342,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i: ; preds = %7
 .thread.i.i.i.i:                                  ; preds = %.noexc41.i.i.i.i, %110
   %111 = landingpad { ptr, i32 }
           cleanup
-  %112 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !421, !noalias !422, !nonnull !4, !align !50, !noundef !4
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !421, !noalias !422, !nonnull !4, !align !50, !noundef !4
   store ptr %105, ptr %112, align 8, !noalias !402
   br label %.thread104.i.i.i.i
 
 "_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i": ; preds = %.noexc41.i.i.i.i, %106
-  %113 = load ptr, ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 0, i32 0, i64 8), align 8, !alias.scope !421, !noalias !422, !nonnull !4, !align !50, !noundef !4
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, i64 8), align 8, !alias.scope !421, !noalias !422, !nonnull !4, !align !50, !noundef !4
   store ptr %105, ptr %113, align 8, !noalias !402
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !402
   %114 = getelementptr inbounds i8, ptr %21, i64 88

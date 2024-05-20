@@ -1392,7 +1392,7 @@ define dso_local i64 @drm_dp_mst_dpcd_read(ptr nocapture noundef readonly %0, i3
   br i1 %13, label %80, label %14
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 768) #24
   %17 = icmp eq ptr %16, null
   br i1 %17, label %78, label %18
@@ -1540,7 +1540,7 @@ define internal fastcc i32 @drm_dp_send_dpcd_write(ptr noundef %0, ptr nocapture
   br i1 %11, label %56, label %12
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 768) #24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %54, label %16
@@ -1695,7 +1695,7 @@ define dso_local i32 @drm_dp_send_power_updown_phy(ptr noundef %0, ptr noundef %
   br i1 %7, label %53, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 768) #24
   %11 = icmp eq ptr %10, null
   br i1 %11, label %51, label %12
@@ -2097,7 +2097,7 @@ define dso_local i32 @drm_dp_send_query_stream_enc_status(ptr noundef %0, ptr no
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6) #21
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 768) #24
   %9 = icmp eq ptr %8, null
   br i1 %9, label %78, label %10
@@ -2719,7 +2719,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_topology_mgr_set_mst(
   br label %.thread8
 
 37:                                               ; preds = %20
-  %38 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %39 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 96) #24
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread8, label %41
@@ -3964,7 +3964,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
   br i1 %461, label %645, label %462
 
 462:                                              ; preds = %458
-  %463 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %463 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %464 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %463, i32 noundef 3520, i64 noundef 152) #24
   %465 = icmp eq ptr %464, null
   br i1 %465, label %645, label %466
@@ -4156,7 +4156,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 579:                                              ; preds = %567, %567
   %580 = getelementptr inbounds i8, ptr %0, i64 856
   %581 = load ptr, ptr %580, align 8
-  %582 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %582 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %583 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %582, i32 noundef 3520, i64 noundef 768) #24
   %584 = icmp eq ptr %583, null
   br i1 %584, label %590, label %585
@@ -4617,7 +4617,7 @@ define dso_local i32 @drm_dp_atomic_find_time_slots(ptr noundef %0, ptr noundef 
   br i1 %78, label %113, label %145
 
 113:                                              ; preds = %106
-  %114 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %115 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %114, i32 noundef 3520, i64 noundef 48) #24
   %116 = icmp eq ptr %115, null
   br i1 %116, label %149, label %117
@@ -7335,7 +7335,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_topology_mgr_init(ptr
   store i32 %4, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %5, ptr %45, align 4
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %47 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 80) #24
   %48 = icmp eq ptr %47, null
   br i1 %48, label %55, label %49
@@ -7459,7 +7459,7 @@ define internal void @drm_dp_mst_link_probe_work(ptr noundef %0) #3 align 16 {
 52:                                               ; preds = %49, %47
   %53 = phi ptr [ %51, %49 ], [ null, %47 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %53, i32 noundef 2, ptr noundef nonnull @.str.183) #21
-  %54 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %55 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3520, i64 noundef 768) #24
   %56 = icmp eq ptr %55, null
   br i1 %56, label %95, label %57
@@ -9359,7 +9359,7 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
   %78 = phi i8 [ %72, %76 ], [ %9, %4 ]
   %79 = phi ptr [ %74, %76 ], [ %12, %4 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !28
-  %80 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %81 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %80, i32 noundef 3520, i64 noundef 768) #24
   %82 = icmp eq ptr %81, null
   br i1 %82, label %133, label %83
@@ -10283,7 +10283,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = alloca [64 x i8], align 16
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 768) #24
   %9 = icmp eq ptr %8, null
   br i1 %9, label %509, label %10
@@ -11123,7 +11123,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @drm_dp_mst_add_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #3 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(1392) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 1392) #24
   %7 = icmp eq ptr %6, null
   br i1 %7, label %40, label %8
@@ -11192,7 +11192,7 @@ define internal fastcc noundef ptr @drm_dp_mst_add_port(ptr noundef %0, ptr noun
 define internal fastcc range(i32 -12, 2) i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 768) #24
   %8 = icmp eq ptr %7, null
   br i1 %8, label %89, label %9
@@ -11491,7 +11491,7 @@ define internal fastcc i32 @drm_dp_port_set_pdt(ptr noundef %0, i8 noundef zeroe
   %86 = or i8 %82, %85
   store i8 %86, ptr %84, align 1
   %87 = add i8 %68, 1
-  %88 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %89 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %88, i32 noundef 3520, i64 noundef 96) #24
   %90 = icmp eq ptr %89, null
   br i1 %90, label %98, label %91
@@ -11843,7 +11843,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
   %81 = trunc nuw i16 %45 to i8
   %82 = getelementptr inbounds i8, ptr %7, i64 113
   store i8 %81, ptr %82, align 1
-  %83 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %84 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %83, i32 noundef 3520, i64 noundef 768) #24
   %85 = icmp eq ptr %84, null
   br i1 %85, label %125, label %86
@@ -11972,7 +11972,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #21
-  %154 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %155 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %154, i32 noundef 3520, i64 noundef 768) #24
   %156 = icmp eq ptr %155, null
   br i1 %156, label %.loopexit, label %157

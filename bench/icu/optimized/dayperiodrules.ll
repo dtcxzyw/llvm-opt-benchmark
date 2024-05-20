@@ -637,12 +637,12 @@ invoke.cont5:                                     ; preds = %if.end, %new.notnul
   store ptr %call2, ptr %1, align 8
   %call3 = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %errorCode)
   store ptr %call3, ptr %rb_dayPeriods, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523DayPeriodRulesCountSinkE, i64 0, i32 0, i64 2), ptr %countSink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523DayPeriodRulesCountSinkE, i64 16), ptr %countSink, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %countSink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522DayPeriodRulesDataSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522DayPeriodRulesDataSinkE, i64 16), ptr %sink, align 8
   %cutoffs.i = getelementptr inbounds i8, ptr %sink, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %cutoffs.i, i8 0, i64 100, i1 false)
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -750,12 +750,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @_ZN6icu_7514DayPeriodRules4loadER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
-  store i32 %2, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_18initOnceE, i64 0, i32 1), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_18initOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7512_GLOBAL__N_18initOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_18initOnceE, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_18initOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

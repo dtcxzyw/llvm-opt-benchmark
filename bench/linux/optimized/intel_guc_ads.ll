@@ -223,7 +223,7 @@ define dso_local i32 @intel_guc_global_policies_update(ptr noundef %0) local_unn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 1286, ptr %3, align 8, !annotation !10
   store i32 %29, ptr %68, align 4
-  %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !11
+  %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !11
   %71 = and i32 %70, 2147483647
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %.thread3

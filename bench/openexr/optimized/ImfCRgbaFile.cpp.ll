@@ -336,7 +336,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -426,7 +426,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -678,7 +678,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -798,7 +798,7 @@ catch:                                            ; preds = %lpad.body
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -868,7 +868,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -979,7 +979,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -1093,7 +1093,7 @@ catch:                                            ; preds = %lpad.body
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -1166,7 +1166,7 @@ catch:                                            ; preds = %lpad.body
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -1293,7 +1293,7 @@ catch:                                            ; preds = %catch.dispatch
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -1418,7 +1418,7 @@ catch:                                            ; preds = %lpad.body
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -1497,7 +1497,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -1626,7 +1626,7 @@ catch:                                            ; preds = %lpad.body
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -1702,7 +1702,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -1831,7 +1831,7 @@ catch:                                            ; preds = %lpad.body
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -1903,7 +1903,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -2022,7 +2022,7 @@ catch:                                            ; preds = %lpad.body
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -2094,7 +2094,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -2213,7 +2213,7 @@ catch:                                            ; preds = %lpad.body
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -2287,7 +2287,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -2411,7 +2411,7 @@ catch:                                            ; preds = %lpad.body
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -2485,7 +2485,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -2609,7 +2609,7 @@ catch:                                            ; preds = %lpad.body
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -2688,7 +2688,7 @@ catch:                                            ; preds = %catch.dispatch
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -2838,7 +2838,7 @@ catch:                                            ; preds = %lpad.body
   %16 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -2921,7 +2921,7 @@ catch:                                            ; preds = %catch.dispatch
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   call void @__cxa_end_catch()
   br label %return
 
@@ -3101,7 +3101,7 @@ catch:                                            ; preds = %lpad.body
   %23 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3156,7 +3156,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3211,7 +3211,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3247,7 +3247,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3329,7 +3329,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3382,7 +3382,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3418,7 +3418,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3454,7 +3454,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3563,7 +3563,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3616,7 +3616,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3652,7 +3652,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3734,7 +3734,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3787,7 +3787,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3823,7 +3823,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -3859,7 +3859,7 @@ catch:                                            ; preds = %lpad
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -4053,7 +4053,7 @@ catch:                                            ; preds = %catch.dispatch
   %13 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 
@@ -4109,7 +4109,7 @@ catch:                                            ; preds = %catch.dispatch
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
-  store i8 0, ptr getelementptr inbounds ([1024 x i8], ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 0, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1
   tail call void @__cxa_end_catch()
   br label %return
 

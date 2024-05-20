@@ -27,7 +27,7 @@ define internal noundef i32 @sysv_open() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @sysv_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_sysv_module, ptr %0, align 8
   ret i32 0
@@ -35,8 +35,8 @@ define internal noundef i32 @sysv_query(ptr nocapture noundef writeonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sysv_register() #2 {
-  store i32 30, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 1), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_sysv_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 1)) #6
+  store i32 30, ptr getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_sysv_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272)) #6
   ret i32 0
 }
 
@@ -49,12 +49,12 @@ define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly 
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 0, i32 0, i32 11)) #7
+  %6 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 84)) #7
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 1), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
   store i32 %9, ptr %1, align 4
   store ptr @opal_shmem_sysv_module, ptr %0, align 8
   br label %30
@@ -88,7 +88,7 @@ define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly 
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i64 0, i32 1), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
   store i32 %26, ptr %1, align 4
   store ptr @opal_shmem_sysv_module, ptr %0, align 8
   br label %27

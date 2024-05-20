@@ -31,7 +31,7 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef %0) #
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   store i8 1, ptr %5, align 4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -44,7 +44,7 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef %0) #
   store ptr @opal_convertor_t_class, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 6), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i

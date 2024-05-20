@@ -245,7 +245,7 @@ define internal fastcc void @unix98_pty_init() unnamed_addr #4 section ".init.te
 
 44:                                               ; preds = %39
   tail call void @tty_default_fops(ptr noundef nonnull @ptmx_fops) #12
-  store ptr @ptmx_open, ptr getelementptr inbounds (%struct.file_operations, ptr @ptmx_fops, i64 0, i32 13), align 8
+  store ptr @ptmx_open, ptr getelementptr inbounds (i8, ptr @ptmx_fops, i64 104), align 8
   tail call void @cdev_init(ptr noundef nonnull @ptmx_cdev, ptr noundef nonnull @ptmx_fops) #12
   %45 = tail call i32 @cdev_add(ptr noundef nonnull @ptmx_cdev, i32 noundef 5242882, i32 noundef 1) #12
   %46 = icmp eq i32 %45, 0
@@ -404,9 +404,9 @@ define internal noundef range(i32 -12, 1) i32 @pty_unix98_install(ptr noundef %0
   br i1 %7, label %8, label %73
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 376) #16
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 376) #16
   %13 = icmp ne ptr %10, null
   %14 = icmp ne ptr %12, null

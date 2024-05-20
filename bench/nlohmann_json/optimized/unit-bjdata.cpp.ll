@@ -2787,7 +2787,7 @@ entry:
   %ref.tmp2 = alloca %"struct.doctest::detail::Expression_lhs", align 8
   %ref.tmp3 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_6, align 8, !alias.scope !5
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_6, align 8, !alias.scope !5
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, i32 noundef 12)
           to label %invoke.cont unwind label %lpad
 
@@ -2818,7 +2818,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_6, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_6, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_6, i64 8
   %1 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %1 to i1
@@ -7915,7 +7915,7 @@ for.body:                                         ; preds = %invoke.cont352, %"_
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKllTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad360
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKllTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_42, align 8, !alias.scope !29
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_42, align 8, !alias.scope !29
   store i64 %130, ptr %lambda_.i.i, align 8, !alias.scope !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j362, i8 0, i64 16, i1 false)
   %136 = load i64, ptr %i, align 8
@@ -8215,7 +8215,7 @@ terminate.lpad.i.i2656:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit2657: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit2654
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_42, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_42, align 8
   %177 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %177 to i1
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0ED2Ev.exit"
@@ -8457,7 +8457,7 @@ for.body567:                                      ; preds = %invoke.cont556, %"_
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad571
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body567
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_46, align 8, !alias.scope !38
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_46, align 8, !alias.scope !38
   store i64 %202, ptr %lambda_.i.i2691, align 8, !alias.scope !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j573, i8 0, i64 16, i1 false)
   %208 = load i32, ptr %i568, align 4
@@ -8721,7 +8721,7 @@ terminate.lpad.i.i2759:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit2760: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit2757
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_46, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_46, align 8
   %243 = load i8, ptr %need_to_destroy.i2761, align 8
   %tobool.i2762 = trunc i8 %243 to i1
   br i1 %tobool.i2762, label %if.then.i2763, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1ED2Ev.exit"
@@ -8928,7 +8928,7 @@ for.body737:                                      ; preds = %for.cond736.prehead
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad731.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body737
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_50, align 8, !alias.scope !47
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_50, align 8, !alias.scope !47
   store i64 %263, ptr %lambda_.i.i2788, align 8, !alias.scope !47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j740, i8 0, i64 16, i1 false)
   %268 = load i32, ptr %i735, align 4
@@ -9184,7 +9184,7 @@ terminate.lpad.i.i2855:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit2856: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit2853
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_50, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_50, align 8
   %303 = load i8, ptr %need_to_destroy.i2857, align 8
   %tobool.i2858 = trunc i8 %303 to i1
   br i1 %tobool.i2858, label %if.then.i2859, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2ED2Ev.exit"
@@ -9762,7 +9762,7 @@ for.body1012:                                     ; preds = %for.cond1010.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit2955 unwind label %lpad1005.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit2955: ; preds = %for.body1012
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_55, align 8, !alias.scope !63
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_55, align 8, !alias.scope !63
   store i64 %370, ptr %lambda_.i.i2951, align 8, !alias.scope !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1015, i8 0, i64 16, i1 false)
   %374 = load i32, ptr %i1009, align 4
@@ -10016,7 +10016,7 @@ terminate.lpad.i.i3020:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3021: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3018
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_55, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_55, align 8
   %408 = load i8, ptr %need_to_destroy.i3022, align 8
   %tobool.i3023 = trunc i8 %408 to i1
   br i1 %tobool.i3023, label %if.then.i3024, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3ED2Ev.exit"
@@ -10216,7 +10216,7 @@ for.body1153:                                     ; preds = %for.cond1151.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3045 unwind label %lpad1146.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3045: ; preds = %for.body1153
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_59, align 8, !alias.scope !73
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 16), ptr %DOCTEST_CAPTURE_59, align 8, !alias.scope !73
   store i64 %427, ptr %lambda_.i.i3041, align 8, !alias.scope !73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1156, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1156, align 8
@@ -10470,7 +10470,7 @@ terminate.lpad.i.i3109:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3110: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3107
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_59, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 16), ptr %DOCTEST_CAPTURE_59, align 8
   %465 = load i8, ptr %need_to_destroy.i3111, align 8
   %tobool.i3112 = trunc i8 %465 to i1
   br i1 %tobool.i3112, label %if.then.i3113, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4ED2Ev.exit"
@@ -10670,7 +10670,7 @@ for.body1296:                                     ; preds = %for.cond1294.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3134 unwind label %lpad1289.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3134: ; preds = %for.body1296
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_63, align 8, !alias.scope !83
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 16), ptr %DOCTEST_CAPTURE_63, align 8, !alias.scope !83
   store i64 %484, ptr %lambda_.i.i3130, align 8, !alias.scope !83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1299, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1299, align 8
@@ -10924,7 +10924,7 @@ terminate.lpad.i.i3199:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3200: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3197
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_63, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 16), ptr %DOCTEST_CAPTURE_63, align 8
   %522 = load i8, ptr %need_to_destroy.i3201, align 8
   %tobool.i3202 = trunc i8 %522 to i1
   br i1 %tobool.i3202, label %if.then.i3203, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5ED2Ev.exit"
@@ -11124,7 +11124,7 @@ for.body1439:                                     ; preds = %for.cond1437.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3224 unwind label %lpad1432.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3224: ; preds = %for.body1439
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_67, align 8, !alias.scope !93
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 16), ptr %DOCTEST_CAPTURE_67, align 8, !alias.scope !93
   store i64 %541, ptr %lambda_.i.i3220, align 8, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1442, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1442, align 8
@@ -11384,7 +11384,7 @@ terminate.lpad.i.i3290:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3291: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3288
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_67, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 16), ptr %DOCTEST_CAPTURE_67, align 8
   %581 = load i8, ptr %need_to_destroy.i3292, align 8
   %tobool.i3293 = trunc i8 %581 to i1
   br i1 %tobool.i3293, label %if.then.i3294, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6ED2Ev.exit"
@@ -11592,7 +11592,7 @@ for.body1605:                                     ; preds = %if.then1589, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3316 unwind label %lpad1586.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3316: ; preds = %for.body1605
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_71, align 8, !alias.scope !103
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 16), ptr %DOCTEST_CAPTURE_71, align 8, !alias.scope !103
   store i64 %600, ptr %lambda_.i.i3312, align 8, !alias.scope !103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1609, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1609, align 8
@@ -11853,7 +11853,7 @@ terminate.lpad.i.i3382:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3383: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3380
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_71, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 16), ptr %DOCTEST_CAPTURE_71, align 8
   %641 = load i8, ptr %need_to_destroy.i3384, align 8
   %tobool.i3385 = trunc i8 %641 to i1
   br i1 %tobool.i3385, label %if.then.i3386, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7ED2Ev.exit"
@@ -12059,7 +12059,7 @@ for.body1773:                                     ; preds = %if.then1757, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3409 unwind label %lpad1754.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3409: ; preds = %for.body1773
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_75, align 8, !alias.scope !112
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 16), ptr %DOCTEST_CAPTURE_75, align 8, !alias.scope !112
   store i64 %659, ptr %lambda_.i.i3405, align 8, !alias.scope !112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1777, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1777, align 8
@@ -12328,7 +12328,7 @@ terminate.lpad.i.i3477:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3478: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3475
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_75, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 16), ptr %DOCTEST_CAPTURE_75, align 8
   %700 = load i8, ptr %need_to_destroy.i3479, align 8
   %tobool.i3480 = trunc i8 %700 to i1
   br i1 %tobool.i3480, label %if.then.i3481, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8ED2Ev.exit"
@@ -12534,7 +12534,7 @@ for.body1957:                                     ; preds = %if.then1941, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3504 unwind label %lpad1938.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3504: ; preds = %for.body1957
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_79, align 8, !alias.scope !121
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 16), ptr %DOCTEST_CAPTURE_79, align 8, !alias.scope !121
   store i64 %718, ptr %lambda_.i.i3500, align 8, !alias.scope !121
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j1961, i8 0, i64 16, i1 false)
   store i8 5, ptr %j1961, align 8
@@ -12803,7 +12803,7 @@ terminate.lpad.i.i3572:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3573: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3570
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_79, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 16), ptr %DOCTEST_CAPTURE_79, align 8
   %759 = load i8, ptr %need_to_destroy.i3574, align 8
   %tobool.i3575 = trunc i8 %759 to i1
   br i1 %tobool.i3575, label %if.then.i3576, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9ED2Ev.exit"
@@ -13016,7 +13016,7 @@ for.body2146:                                     ; preds = %invoke.cont2135, %"
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3608 unwind label %lpad2150
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit3608: ; preds = %for.body2146
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_83, align 8, !alias.scope !130
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 16), ptr %DOCTEST_CAPTURE_83, align 8, !alias.scope !130
   store i64 %778, ptr %lambda_.i.i3604, align 8, !alias.scope !130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j2152, i8 0, i64 16, i1 false)
   store i8 5, ptr %j2152, align 8
@@ -13321,7 +13321,7 @@ terminate.lpad.i.i3680:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3681: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3678
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_83, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 16), ptr %DOCTEST_CAPTURE_83, align 8
   %825 = load i8, ptr %need_to_destroy.i3682, align 8
   %tobool.i3683 = trunc i8 %825 to i1
   br i1 %tobool.i3683, label %if.then.i3684, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10ED2Ev.exit"
@@ -13543,7 +13543,7 @@ for.body2370:                                     ; preds = %invoke.cont2359, %"
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad2374
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body2370
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_87, align 8, !alias.scope !139
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 16), ptr %DOCTEST_CAPTURE_87, align 8, !alias.scope !139
   store i64 %846, ptr %lambda_.i.i3722, align 8, !alias.scope !139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j2376, i8 0, i64 16, i1 false)
   %852 = load i64, ptr %i2371, align 8
@@ -13842,7 +13842,7 @@ terminate.lpad.i.i3794:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3795: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3792
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_87, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 16), ptr %DOCTEST_CAPTURE_87, align 8
   %892 = load i8, ptr %need_to_destroy.i3796, align 8
   %tobool.i3797 = trunc i8 %892 to i1
   br i1 %tobool.i3797, label %if.then.i3798, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11ED2Ev.exit"
@@ -14074,7 +14074,7 @@ for.body2585:                                     ; preds = %for.cond2583.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad2578.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body2585
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_92, align 8, !alias.scope !148
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 16), ptr %DOCTEST_CAPTURE_92, align 8, !alias.scope !148
   store i64 %912, ptr %lambda_.i.i3824, align 8, !alias.scope !148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j2588, i8 0, i64 16, i1 false)
   %917 = load i64, ptr %i2582, align 8
@@ -14324,7 +14324,7 @@ terminate.lpad.i.i3889:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3890: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3887
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_92, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 16), ptr %DOCTEST_CAPTURE_92, align 8
   %950 = load i8, ptr %need_to_destroy.i3891, align 8
   %tobool.i3892 = trunc i8 %950 to i1
   br i1 %tobool.i3892, label %if.then.i3893, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12ED2Ev.exit"
@@ -14535,7 +14535,7 @@ for.body2726:                                     ; preds = %for.cond2724.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit3913 unwind label %lpad2719.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit3913: ; preds = %for.body2726
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_96, align 8, !alias.scope !158
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 16), ptr %DOCTEST_CAPTURE_96, align 8, !alias.scope !158
   store i64 %971, ptr %lambda_.i.i3910, align 8, !alias.scope !158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j2729, i8 0, i64 16, i1 false)
   %976 = load i64, ptr %i2723, align 8
@@ -14785,7 +14785,7 @@ terminate.lpad.i.i3976:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit3977: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3974
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_96, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 16), ptr %DOCTEST_CAPTURE_96, align 8
   %1009 = load i8, ptr %need_to_destroy.i3978, align 8
   %tobool.i3979 = trunc i8 %1009 to i1
   br i1 %tobool.i3979, label %if.then.i3980, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13ED2Ev.exit"
@@ -14985,7 +14985,7 @@ for.body2867:                                     ; preds = %for.cond2865.prehea
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit4000 unwind label %lpad2860.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit4000: ; preds = %for.body2867
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_100, align 8, !alias.scope !168
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 16), ptr %DOCTEST_CAPTURE_100, align 8, !alias.scope !168
   store i64 %1028, ptr %lambda_.i.i3997, align 8, !alias.scope !168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j2870, i8 0, i64 16, i1 false)
   %1033 = load i64, ptr %i2864, align 8
@@ -15239,7 +15239,7 @@ terminate.lpad.i.i4064:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4065: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4062
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_100, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 16), ptr %DOCTEST_CAPTURE_100, align 8
   %1067 = load i8, ptr %need_to_destroy.i4066, align 8
   %tobool.i4067 = trunc i8 %1067 to i1
   br i1 %tobool.i4067, label %if.then.i4068, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14ED2Ev.exit"
@@ -15447,7 +15447,7 @@ for.body3031:                                     ; preds = %if.then3015, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %lpad3012.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %for.body3031
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_104, align 8, !alias.scope !178
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 16), ptr %DOCTEST_CAPTURE_104, align 8, !alias.scope !178
   store i64 %1086, ptr %lambda_.i.i4087, align 8, !alias.scope !178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j3035, i8 0, i64 16, i1 false)
   %1092 = load i32, ptr %i3032, align 4
@@ -15702,7 +15702,7 @@ terminate.lpad.i.i4154:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4155: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4152
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_104, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 16), ptr %DOCTEST_CAPTURE_104, align 8
   %1126 = load i8, ptr %need_to_destroy.i4156, align 8
   %tobool.i4157 = trunc i8 %1126 to i1
   br i1 %tobool.i4157, label %if.then.i4158, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15ED2Ev.exit"
@@ -15908,7 +15908,7 @@ for.body3196:                                     ; preds = %if.then3180, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4181 unwind label %lpad3177.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4181: ; preds = %for.body3196
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_108, align 8, !alias.scope !187
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 16), ptr %DOCTEST_CAPTURE_108, align 8, !alias.scope !187
   store i64 %1144, ptr %lambda_.i.i4177, align 8, !alias.scope !187
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j3200, i8 0, i64 16, i1 false)
   %1150 = load i32, ptr %i3197, align 4
@@ -16171,7 +16171,7 @@ terminate.lpad.i.i4247:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4248: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4245
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_108, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 16), ptr %DOCTEST_CAPTURE_108, align 8
   %1184 = load i8, ptr %need_to_destroy.i4249, align 8
   %tobool.i4250 = trunc i8 %1184 to i1
   br i1 %tobool.i4250, label %if.then.i4251, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16ED2Ev.exit"
@@ -16377,7 +16377,7 @@ for.body3376:                                     ; preds = %if.then3360, %"_ZN7
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4274 unwind label %lpad3357.loopexit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKjjTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4274: ; preds = %for.body3376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_112, align 8, !alias.scope !196
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 16), ptr %DOCTEST_CAPTURE_112, align 8, !alias.scope !196
   store i64 %1202, ptr %lambda_.i.i4270, align 8, !alias.scope !196
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j3380, i8 0, i64 16, i1 false)
   %1208 = load i32, ptr %i3377, align 4
@@ -16640,7 +16640,7 @@ terminate.lpad.i.i4340:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4341: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4338
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_112, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 16), ptr %DOCTEST_CAPTURE_112, align 8
   %1242 = load i8, ptr %need_to_destroy.i4342, align 8
   %tobool.i4343 = trunc i8 %1242 to i1
   br i1 %tobool.i4343, label %if.then.i4344, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17ED2Ev.exit"
@@ -16853,7 +16853,7 @@ for.body3562:                                     ; preds = %invoke.cont3551, %"
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4377 unwind label %lpad3566
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4377: ; preds = %for.body3562
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_116, align 8, !alias.scope !205
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 16), ptr %DOCTEST_CAPTURE_116, align 8, !alias.scope !205
   store i64 %1261, ptr %lambda_.i.i4374, align 8, !alias.scope !205
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j3568, i8 0, i64 16, i1 false)
   %1267 = load i64, ptr %i3563, align 8
@@ -17152,7 +17152,7 @@ terminate.lpad.i.i4447:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4448: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4445
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_116, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 16), ptr %DOCTEST_CAPTURE_116, align 8
   %1307 = load i8, ptr %need_to_destroy.i4449, align 8
   %tobool.i4450 = trunc i8 %1307 to i1
   br i1 %tobool.i4450, label %if.then.i4451, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18ED2Ev.exit"
@@ -17374,7 +17374,7 @@ for.body3783:                                     ; preds = %invoke.cont3772, %"
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4493 unwind label %lpad3787
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKmmTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit4493: ; preds = %for.body3783
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_120, align 8, !alias.scope !214
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 16), ptr %DOCTEST_CAPTURE_120, align 8, !alias.scope !214
   store i64 %1328, ptr %lambda_.i.i4490, align 8, !alias.scope !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j3789, i8 0, i64 16, i1 false)
   %1334 = load i64, ptr %i3784, align 8
@@ -17673,7 +17673,7 @@ terminate.lpad.i.i4563:                           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit4564: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit4561
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_120, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 16), ptr %DOCTEST_CAPTURE_120, align 8
   %1374 = load i8, ptr %need_to_destroy.i4565, align 8
   %tobool.i4566 = trunc i8 %1374 to i1
   br i1 %tobool.i4566, label %if.then.i4567, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19ED2Ev.exit"
@@ -22805,7 +22805,7 @@ for.body5530:                                     ; preds = %for.cond5528.prehea
           to label %invoke.cont5532 unwind label %lpad5524.loopexit
 
 invoke.cont5532:                                  ; preds = %for.body5530
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_151, align 8, !alias.scope !273
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 16), ptr %DOCTEST_CAPTURE_151, align 8, !alias.scope !273
   store i64 %1913, ptr %lambda_.i.i5459, align 8, !alias.scope !273
   %1917 = load i64, ptr %N, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5533) #24
@@ -23235,7 +23235,7 @@ terminate.lpad.i.i5611:                           ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit5612: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit5609
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_151, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 16), ptr %DOCTEST_CAPTURE_151, align 8
   %1967 = load i8, ptr %need_to_destroy.i5613, align 8
   %tobool.i5614 = trunc i8 %1967 to i1
   br i1 %tobool.i5614, label %if.then.i5615, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20ED2Ev.exit"
@@ -23374,7 +23374,7 @@ for.body5658:                                     ; preds = %for.cond5656.prehea
           to label %invoke.cont5660 unwind label %lpad5651.loopexit
 
 invoke.cont5660:                                  ; preds = %for.body5658
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_155, align 8, !alias.scope !284
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 16), ptr %DOCTEST_CAPTURE_155, align 8, !alias.scope !284
   store i64 %1977, ptr %lambda_.i.i5627, align 8, !alias.scope !284
   %1981 = load i64, ptr %N5655, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5662) #24
@@ -23762,7 +23762,7 @@ terminate.lpad.i.i5813:                           ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit5814: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit5811
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s5661) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_155, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 16), ptr %DOCTEST_CAPTURE_155, align 8
   %2024 = load i8, ptr %need_to_destroy.i5815, align 8
   %tobool.i5816 = trunc i8 %2024 to i1
   br i1 %tobool.i5816, label %if.then.i5817, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21ED2Ev.exit"
@@ -23928,7 +23928,7 @@ for.body5791:                                     ; preds = %for.cond5789.prehea
           to label %invoke.cont5795 unwind label %lpad5777.loopexit
 
 invoke.cont5795:                                  ; preds = %for.body5791
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_159, align 8, !alias.scope !295
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 16), ptr %DOCTEST_CAPTURE_159, align 8, !alias.scope !295
   store i64 %2038, ptr %lambda_.i.i5834, align 8, !alias.scope !295
   %2043 = load i64, ptr %N5792, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5797) #24
@@ -24501,7 +24501,7 @@ terminate.lpad.i.i5901:                           ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit5902: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit5899
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s5796) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_159, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 16), ptr %DOCTEST_CAPTURE_159, align 8
   %2095 = load i8, ptr %need_to_destroy.i5903, align 8
   %tobool.i5904 = trunc i8 %2095 to i1
   br i1 %tobool.i5904, label %if.then.i5905, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22ED2Ev.exit"
@@ -24718,7 +24718,7 @@ for.body5964:                                     ; preds = %if.then5948, %"_ZN7
           to label %invoke.cont5968 unwind label %lpad5945.loopexit
 
 invoke.cont5968:                                  ; preds = %for.body5964
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_163, align 8, !alias.scope !304
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 16), ptr %DOCTEST_CAPTURE_163, align 8, !alias.scope !304
   store i64 %2110, ptr %lambda_.i.i5922, align 8, !alias.scope !304
   %2115 = load i64, ptr %N5965, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5970) #24
@@ -25291,7 +25291,7 @@ terminate.lpad.i.i6000:                           ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit6001: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit5998
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s5969) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_163, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 16), ptr %DOCTEST_CAPTURE_163, align 8
   %2167 = load i8, ptr %need_to_destroy.i6002, align 8
   %tobool.i6003 = trunc i8 %2167 to i1
   br i1 %tobool.i6003, label %if.then.i6004, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23ED2Ev.exit"
@@ -25508,7 +25508,7 @@ for.body6138:                                     ; preds = %if.then6122, %"_ZN7
           to label %invoke.cont6142 unwind label %lpad6119.loopexit
 
 invoke.cont6142:                                  ; preds = %for.body6138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_167, align 8, !alias.scope !313
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 16), ptr %DOCTEST_CAPTURE_167, align 8, !alias.scope !313
   store i64 %2182, ptr %lambda_.i.i6021, align 8, !alias.scope !313
   %2187 = load i64, ptr %N6139, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6144) #24
@@ -26277,7 +26277,7 @@ terminate.lpad.i.i6103:                           ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit6104: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s6143) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_167, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 16), ptr %DOCTEST_CAPTURE_167, align 8
   %2255 = load i8, ptr %need_to_destroy.i6105, align 8
   %tobool.i6106 = trunc i8 %2255 to i1
   br i1 %tobool.i6106, label %if.then.i6107, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24ED2Ev.exit"
@@ -26515,7 +26515,7 @@ for.body6338:                                     ; preds = %for.cond6336.prehea
           to label %invoke.cont6340 unwind label %lpad6331.loopexit
 
 invoke.cont6340:                                  ; preds = %for.body6338
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_172, align 8, !alias.scope !322
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 16), ptr %DOCTEST_CAPTURE_172, align 8, !alias.scope !322
   store i64 %2270, ptr %lambda_.i.i6122, align 8, !alias.scope !322
   %2275 = load i64, ptr %N6335, align 8
   %cmp.i.i6124 = icmp slt i64 %2275, 0
@@ -27245,7 +27245,7 @@ if.then.i.i.i6436:                                ; preds = %_ZN8nlohmann16json_
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit6438
 
 _ZNSt6vectorIhSaIhEED2Ev.exit6438:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit6434, %if.then.i.i.i6436
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_172, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 16), ptr %DOCTEST_CAPTURE_172, align 8
   %2349 = load i8, ptr %need_to_destroy.i6439, align 8
   %tobool.i6440 = trunc i8 %2349 to i1
   br i1 %tobool.i6440, label %if.then.i6441, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25ED2Ev.exit"
@@ -27399,7 +27399,7 @@ for.body6499:                                     ; preds = %for.cond6497.prehea
           to label %invoke.cont6501 unwind label %lpad6492.loopexit
 
 invoke.cont6501:                                  ; preds = %for.body6499
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_176, align 8, !alias.scope !336
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 16), ptr %DOCTEST_CAPTURE_176, align 8, !alias.scope !336
   store i64 %2361, ptr %lambda_.i.i6457, align 8, !alias.scope !336
   %2365 = load i64, ptr %N6496, align 8
   %cmp.i.i6459 = icmp slt i64 %2365, 0
@@ -28027,7 +28027,7 @@ if.then.i.i.i6789:                                ; preds = %_ZN8nlohmann16json_
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit6791
 
 _ZNSt6vectorIhSaIhEED2Ev.exit6791:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit6787, %if.then.i.i.i6789
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_176, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 16), ptr %DOCTEST_CAPTURE_176, align 8
   %2423 = load i8, ptr %need_to_destroy.i6792, align 8
   %tobool.i6793 = trunc i8 %2423 to i1
   br i1 %tobool.i6793, label %if.then.i6794, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26ED2Ev.exit"
@@ -28208,7 +28208,7 @@ for.body6646:                                     ; preds = %for.cond6644.prehea
           to label %invoke.cont6650 unwind label %lpad6629.loopexit
 
 invoke.cont6650:                                  ; preds = %for.body6646
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_180, align 8, !alias.scope !350
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 16), ptr %DOCTEST_CAPTURE_180, align 8, !alias.scope !350
   store i64 %2439, ptr %lambda_.i.i6815, align 8, !alias.scope !350
   %2444 = load i64, ptr %N6647, align 8
   %cmp.i.i6817 = icmp slt i64 %2444, 0
@@ -28575,7 +28575,7 @@ if.then.i.i.i6939:                                ; preds = %_ZN8nlohmann16json_
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit6941
 
 _ZNSt6vectorIhSaIhEED2Ev.exit6941:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit6937, %if.then.i.i.i6939
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_180, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 16), ptr %DOCTEST_CAPTURE_180, align 8
   %2480 = load i8, ptr %need_to_destroy.i6942, align 8
   %tobool.i6943 = trunc i8 %2480 to i1
   br i1 %tobool.i6943, label %if.then.i6944, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27ED2Ev.exit"
@@ -28805,7 +28805,7 @@ for.body6793:                                     ; preds = %if.then6777, %"_ZN7
           to label %invoke.cont6797 unwind label %lpad6774.loopexit
 
 invoke.cont6797:                                  ; preds = %for.body6793
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_184, align 8, !alias.scope !362
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 16), ptr %DOCTEST_CAPTURE_184, align 8, !alias.scope !362
   store i64 %2497, ptr %lambda_.i.i6965, align 8, !alias.scope !362
   %2502 = load i64, ptr %N6794, align 8
   %cmp.i.i6967 = icmp slt i64 %2502, 0
@@ -29172,7 +29172,7 @@ if.then.i.i.i7089:                                ; preds = %_ZN8nlohmann16json_
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7091
 
 _ZNSt6vectorIhSaIhEED2Ev.exit7091:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit7087, %if.then.i.i.i7089
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_184, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 16), ptr %DOCTEST_CAPTURE_184, align 8
   %2538 = load i8, ptr %need_to_destroy.i7092, align 8
   %tobool.i7093 = trunc i8 %2538 to i1
   br i1 %tobool.i7093, label %if.then.i7094, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28ED2Ev.exit"
@@ -29402,7 +29402,7 @@ for.body6940:                                     ; preds = %if.then6924, %"_ZN7
           to label %invoke.cont6944 unwind label %lpad6921.loopexit
 
 invoke.cont6944:                                  ; preds = %for.body6940
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_188, align 8, !alias.scope !374
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 16), ptr %DOCTEST_CAPTURE_188, align 8, !alias.scope !374
   store i64 %2555, ptr %lambda_.i.i7115, align 8, !alias.scope !374
   %2560 = load i64, ptr %N6941, align 8
   %cmp.i.i7117 = icmp slt i64 %2560, 0
@@ -29777,7 +29777,7 @@ if.then.i.i.i7241:                                ; preds = %_ZN8nlohmann16json_
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7243
 
 _ZNSt6vectorIhSaIhEED2Ev.exit7243:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit7239, %if.then.i.i.i7241
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_188, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 16), ptr %DOCTEST_CAPTURE_188, align 8
   %2596 = load i8, ptr %need_to_destroy.i7244, align 8
   %tobool.i7245 = trunc i8 %2596 to i1
   br i1 %tobool.i7245, label %if.then.i7246, label %"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29ED2Ev.exit"
@@ -100759,7 +100759,7 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %for.body
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_336, align 8, !alias.scope !1254
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_336, align 8, !alias.scope !1254
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !1254
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i10 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #27
@@ -100847,7 +100847,7 @@ catch:                                            ; preds = %ehcleanup
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %catch
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_340, align 8, !alias.scope !1257
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_340, align 8, !alias.scope !1257
   store i64 %1, ptr %lambda_.i.i14, align 8, !alias.scope !1257
   %21 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %21, null
@@ -100945,7 +100945,7 @@ if.end:                                           ; preds = %invoke.cont43, %inv
           to label %try.cont unwind label %lpad49
 
 try.cont:                                         ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.end
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_336, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_336, align 8
   %31 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %31 to i1
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0ED2Ev.exit"
@@ -101145,7 +101145,7 @@ invoke.cont10:                                    ; preds = %for.body
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_346, align 8, !alias.scope !1262
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_346, align 8, !alias.scope !1262
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !1262
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %DOCTEST_STD_STRING_347, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %.noexc unwind label %lpad14
@@ -101165,7 +101165,7 @@ invoke.cont15:                                    ; preds = %.noexc
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_350, align 8, !alias.scope !1265
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_350, align 8, !alias.scope !1265
   store i64 %1, ptr %lambda_.i.i31, align 8, !alias.scope !1265
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %f_json, ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 8)
           to label %invoke.cont20 unwind label %lpad19
@@ -101413,7 +101413,7 @@ terminate.lpad.i.i49:                             ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit50: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %f_json) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_350, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_350, align 8
   %47 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %47 to i1
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1ED2Ev.exit"
@@ -101450,7 +101450,7 @@ invoke.cont63:                                    ; preds = %.noexc53
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont63
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_354, align 8, !alias.scope !1269
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_354, align 8, !alias.scope !1269
   store i64 %3, ptr %lambda_.i.i57, align 8, !alias.scope !1269
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %f_json67, ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 8)
           to label %invoke.cont69 unwind label %lpad68
@@ -101705,7 +101705,7 @@ terminate.lpad.i.i97:                             ; preds = %_ZN8nlohmann16json_
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit98: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit95
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %f_json67) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_354, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_354, align 8
   %84 = load i8, ptr %need_to_destroy.i99, align 8
   %tobool.i100 = trunc i8 %84 to i1
   br i1 %tobool.i100, label %if.then.i101, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2ED2Ev.exit"
@@ -101742,7 +101742,7 @@ invoke.cont128:                                   ; preds = %.noexc105
           to label %invoke.cont131 unwind label %lpad130
 
 invoke.cont131:                                   ; preds = %invoke.cont128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_358, align 8, !alias.scope !1273
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_358, align 8, !alias.scope !1273
   store i64 %5, ptr %lambda_.i.i109, align 8, !alias.scope !1273
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %f_json132, ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 8)
           to label %invoke.cont134 unwind label %lpad133
@@ -101806,7 +101806,7 @@ invoke.cont148:                                   ; preds = %.noexc124
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %invoke.cont148
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_362, align 8, !alias.scope !1276
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 16), ptr %DOCTEST_CAPTURE_362, align 8, !alias.scope !1276
   store i64 %6, ptr %lambda_.i.i127, align 8, !alias.scope !1276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vec, i8 0, i64 24, i1 false)
   %call5.i.i.i2.i.i.i.i.i129 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
@@ -101817,9 +101817,9 @@ invoke.cont154:                                   ; preds = %invoke.cont151
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !1279
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i129, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !1279
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i.i129, align 8, !noalias !1279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i129, align 8, !noalias !1279
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i129, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1279
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1279
   %v.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i129, i64 24
   store ptr %vec, ptr %v.i.i.i.i.i.i.i.i.i, align 8, !noalias !1279
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %agg.tmp152, align 8
@@ -101926,7 +101926,7 @@ if.then.i.i.i136:                                 ; preds = %invoke.cont166
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit137
 
 _ZNSt6vectorIhSaIhEED2Ev.exit137:                 ; preds = %invoke.cont166, %if.then.i.i.i136
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_362, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 16), ptr %DOCTEST_CAPTURE_362, align 8
   %106 = load i8, ptr %need_to_destroy.i138, align 8
   %tobool.i139 = trunc i8 %106 to i1
   br i1 %tobool.i139, label %if.then.i140, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4ED2Ev.exit"
@@ -101967,7 +101967,7 @@ terminate.lpad.i.i146:                            ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit147: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit144
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %f_json132) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_358, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_358, align 8
   %113 = load i8, ptr %need_to_destroy.i148, align 8
   %tobool.i149 = trunc i8 %113 to i1
   br i1 %tobool.i149, label %if.then.i150, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3ED2Ev.exit"
@@ -101986,7 +101986,7 @@ terminate.lpad.i151:                              ; preds = %if.then.i150
 "_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3ED2Ev.exit": ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit147, %if.then.i150
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_358) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %DOCTEST_STD_STRING_355) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_346, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_346, align 8
   %116 = load i8, ptr %need_to_destroy.i152, align 8
   %tobool.i153 = trunc i8 %116 to i1
   br i1 %tobool.i153, label %if.then.i154, label %"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0ED2Ev.exit"
@@ -102258,7 +102258,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(10) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -102285,7 +102285,7 @@ declare void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(10) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -102680,9 +102680,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !1292
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !1292
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i.i2, align 8, !noalias !1292
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i2, align 8, !noalias !1292
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i2, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1292
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1292
   %v.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i2, i64 24
   store ptr %agg.result, ptr %v.i.i.i.i.i.i.i.i.i, align 8, !noalias !1292
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %agg.tmp, align 8
@@ -103306,7 +103306,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103391,7 +103391,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103477,7 +103477,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103618,7 +103618,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103756,7 +103756,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103781,7 +103781,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103867,7 +103867,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -103953,7 +103953,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104038,7 +104038,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104063,7 +104063,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104148,7 +104148,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104195,7 +104195,7 @@ _ZN8nlohmann16json_abi_v3_11_314adl_serializerImvE7to_jsonINS0_10basic_jsonISt3m
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104220,7 +104220,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104245,7 +104245,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104270,7 +104270,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104295,7 +104295,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104320,7 +104320,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104345,7 +104345,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104370,7 +104370,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -104395,7 +104395,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -105336,9 +105336,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !1304
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !1304
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i.i4, align 8, !noalias !1304
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i4, align 8, !noalias !1304
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i4, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1304
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1304
   %str.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i4, i64 24
   store ptr %agg.result, ptr %str.i.i.i.i.i.i.i.i.i, align 8, !noalias !1304
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %ref.tmp, align 8
@@ -106116,7 +106116,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106141,7 +106141,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106166,7 +106166,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106191,7 +106191,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106216,7 +106216,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106241,7 +106241,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106266,7 +106266,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106291,7 +106291,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106316,7 +106316,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -106341,7 +106341,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -107663,7 +107663,7 @@ invoke.cont37.i:                                  ; preds = %invoke.cont35.i13
           to label %invoke.cont39.i unwind label %lpad38.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont37.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24.i7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24.i7, align 8
   %m.i.i.i = getelementptr inbounds i8, ptr %ref.tmp24.i7, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24.i7) #24
@@ -108882,7 +108882,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -108892,7 +108892,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -114483,7 +114483,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -114498,7 +114498,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -114533,7 +114533,7 @@ eh.resume:                                        ; preds = %lpad.i.i, %ehcleanu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -114543,7 +114543,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -115355,7 +115355,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -115370,7 +115370,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -115453,7 +115453,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -115465,7 +115465,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -117206,7 +117206,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 
 if.then.i:                                        ; preds = %invoke.cont39
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %25 = load i32, ptr %id2.i.i, align 8
@@ -117214,7 +117214,7 @@ if.then.i:                                        ; preds = %invoke.cont39
   %m.i.i30 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 32
   %26 = load i64, ptr %byte2.i, align 8
@@ -117226,7 +117226,7 @@ if.then.i:                                        ; preds = %invoke.cont39
   unreachable
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -117256,7 +117256,7 @@ lpad38:                                           ; preds = %invoke.cont37
 lpad40:                                           ; preds = %if.then.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
   br label %ehcleanup
@@ -118255,7 +118255,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
 
 if.then.i:                                        ; preds = %invoke.cont175
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %47 = load i32, ptr %id2.i.i, align 8
@@ -118263,7 +118263,7 @@ if.then.i:                                        ; preds = %invoke.cont175
   %m.i.i135 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i135, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %48 = load i64, ptr %byte2.i, align 8
@@ -118275,7 +118275,7 @@ if.then.i:                                        ; preds = %invoke.cont175
   unreachable
 
 invoke.cont177:                                   ; preds = %invoke.cont175
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -118304,7 +118304,7 @@ lpad174:                                          ; preds = %invoke.cont173
 lpad176:                                          ; preds = %if.then.i
   %52 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -118707,7 +118707,7 @@ invoke.cont355:                                   ; preds = %invoke.cont353
           to label %invoke.cont357 unwind label %lpad356
 
 invoke.cont357:                                   ; preds = %invoke.cont355
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp342, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp342, align 8
   %m.i.i133 = getelementptr inbounds i8, ptr %ref.tmp342, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i133) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp342) #24
@@ -118741,7 +118741,7 @@ lpad354:                                          ; preds = %invoke.cont353
 lpad356:                                          ; preds = %invoke.cont355
   %94 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp342, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp342, align 8
   %m.i.i134 = getelementptr inbounds i8, ptr %ref.tmp342, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i134) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp342) #24
@@ -119517,7 +119517,7 @@ invoke.cont198:                                   ; preds = %invoke.cont196
           to label %invoke.cont200 unwind label %lpad199
 
 invoke.cont200:                                   ; preds = %invoke.cont198
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp185, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp185, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp185, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp185) #24
@@ -119551,7 +119551,7 @@ lpad197:                                          ; preds = %invoke.cont196
 lpad199:                                          ; preds = %invoke.cont198
   %54 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp185, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp185, align 8
   %m.i.i53 = getelementptr inbounds i8, ptr %ref.tmp185, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i53) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp185) #24
@@ -119737,7 +119737,7 @@ cleanup.done26:                                   ; preds = %cleanup.action, %cl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -119752,7 +119752,7 @@ lpad.i.i:                                         ; preds = %cleanup.done26
   br label %eh.resume
 
 invoke.cont35:                                    ; preds = %cleanup.done26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %agg.result, align 8
   %byte.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %byte_, ptr %byte.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
@@ -119863,7 +119863,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -120209,7 +120209,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 if.then.i:                                        ; preds = %invoke.cont18
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = load i32, ptr %id2.i.i, align 8
@@ -120217,7 +120217,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   %m.i.i7 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   %5 = load i64, ptr %byte2.i, align 8
@@ -120229,7 +120229,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   unreachable
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp4, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
@@ -120270,7 +120270,7 @@ lpad17:                                           ; preds = %invoke.cont16
 lpad19:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp4, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
   br label %ehcleanup
@@ -120479,7 +120479,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -120494,7 +120494,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -120683,7 +120683,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -120816,7 +120816,7 @@ unreachable:                                      ; preds = %invoke.cont19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -121461,7 +121461,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
 
 if.then.i:                                        ; preds = %invoke.cont84
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
   %74 = load i32, ptr %id2.i.i, align 8
@@ -121469,7 +121469,7 @@ if.then.i:                                        ; preds = %invoke.cont84
   %m.i.i167 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i167, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 32
   %75 = load i64, ptr %byte2.i, align 8
@@ -121481,7 +121481,7 @@ if.then.i:                                        ; preds = %invoke.cont84
   unreachable
 
 invoke.cont86:                                    ; preds = %invoke.cont84
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp79, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #24
@@ -121503,7 +121503,7 @@ lpad83:                                           ; preds = %invoke.cont82
 lpad85:                                           ; preds = %if.then.i
   %78 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp79, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #24
   br label %ehcleanup90
@@ -122150,7 +122150,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then.i:                                        ; preds = %invoke.cont14
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i32, ptr %id2.i.i, align 8
@@ -122158,7 +122158,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   %m.i.i12 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %7 = load i64, ptr %byte2.i, align 8
@@ -122170,7 +122170,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   unreachable
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -122200,7 +122200,7 @@ lpad13:                                           ; preds = %invoke.cont12
 lpad15:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -122394,7 +122394,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then.i:                                        ; preds = %invoke.cont14
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i32, ptr %id2.i.i, align 8
@@ -122402,7 +122402,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   %m.i.i10 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %7 = load i64, ptr %byte2.i, align 8
@@ -122414,7 +122414,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   unreachable
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -122444,7 +122444,7 @@ lpad13:                                           ; preds = %invoke.cont12
 lpad15:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -124705,7 +124705,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont58
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp45, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #24
@@ -124739,7 +124739,7 @@ lpad57:                                           ; preds = %invoke.cont56
 lpad59:                                           ; preds = %invoke.cont58
   %22 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp45, align 8
   %m.i.i16 = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i16) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #24
@@ -124990,7 +124990,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -125024,7 +125024,7 @@ lpad45:                                           ; preds = %invoke.cont44
 lpad47:                                           ; preds = %invoke.cont46
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i12) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -126845,7 +126845,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -126879,7 +126879,7 @@ lpad30:                                           ; preds = %invoke.cont29
 lpad32:                                           ; preds = %invoke.cont31
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i8) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -128706,7 +128706,7 @@ invoke.cont208:                                   ; preds = %invoke.cont206
           to label %invoke.cont210 unwind label %lpad209
 
 invoke.cont210:                                   ; preds = %invoke.cont208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp194, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp194) #24
@@ -128740,7 +128740,7 @@ lpad207:                                          ; preds = %invoke.cont206
 lpad209:                                          ; preds = %invoke.cont208
   %138 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp194, align 8
   %m.i.i274 = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i274) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp194) #24
@@ -128887,7 +128887,7 @@ invoke.cont262:                                   ; preds = %invoke.cont260
 
 if.then.i:                                        ; preds = %invoke.cont262
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 8
   %150 = load i32, ptr %id2.i.i, align 8
@@ -128895,7 +128895,7 @@ if.then.i:                                        ; preds = %invoke.cont262
   %m.i.i285 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i285, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 32
   %151 = load i64, ptr %byte2.i, align 8
@@ -128907,7 +128907,7 @@ if.then.i:                                        ; preds = %invoke.cont262
   unreachable
 
 invoke.cont264:                                   ; preds = %invoke.cont262
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp248, align 8
   %m.i.i283 = getelementptr inbounds i8, ptr %ref.tmp248, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i283) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp248) #24
@@ -128941,7 +128941,7 @@ lpad261:                                          ; preds = %invoke.cont260
 lpad263:                                          ; preds = %if.then.i
   %156 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp248, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp248) #24
   br label %ehcleanup267
@@ -129344,7 +129344,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
 
 if.then.i43:                                      ; preds = %invoke.cont45
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %32 = load i32, ptr %id2.i.i, align 8
@@ -129352,7 +129352,7 @@ if.then.i43:                                      ; preds = %invoke.cont45
   %m.i.i94 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i94, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 32
   %33 = load i64, ptr %byte2.i, align 8
@@ -129364,7 +129364,7 @@ if.then.i43:                                      ; preds = %invoke.cont45
   unreachable
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp29, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #24
@@ -129403,7 +129403,7 @@ lpad44:                                           ; preds = %invoke.cont43
 lpad46:                                           ; preds = %if.then.i43
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp29, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #24
   br label %ehcleanup
@@ -129555,7 +129555,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
 
 if.then.i84:                                      ; preds = %invoke.cont87
   %exception.i85 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i85, align 8
   %id.i.i95 = getelementptr inbounds i8, ptr %exception.i85, i64 8
   %id2.i.i96 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   %51 = load i32, ptr %id2.i.i96, align 8
@@ -129563,7 +129563,7 @@ if.then.i84:                                      ; preds = %invoke.cont87
   %m.i.i97 = getelementptr inbounds i8, ptr %exception.i85, i64 16
   %m3.i.i98 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i97, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i98) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i85, align 8
   %byte.i99 = getelementptr inbounds i8, ptr %exception.i85, i64 32
   %byte2.i100 = getelementptr inbounds i8, ptr %ref.tmp71, i64 32
   %52 = load i64, ptr %byte2.i100, align 8
@@ -129575,7 +129575,7 @@ if.then.i84:                                      ; preds = %invoke.cont87
   unreachable
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp71, align 8
   %m.i.i88 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i88) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #24
@@ -129604,7 +129604,7 @@ lpad86:                                           ; preds = %invoke.cont85
 lpad88:                                           ; preds = %if.then.i84
   %56 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp71, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i98) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #24
   br label %ehcleanup92
@@ -130445,7 +130445,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 if.then.i:                                        ; preds = %invoke.cont97
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   %116 = load i32, ptr %id2.i.i, align 8
@@ -130453,7 +130453,7 @@ if.then.i:                                        ; preds = %invoke.cont97
   %m.i.i272 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i272, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 32
   %117 = load i64, ptr %byte2.i, align 8
@@ -130465,7 +130465,7 @@ if.then.i:                                        ; preds = %invoke.cont97
   unreachable
 
 invoke.cont99:                                    ; preds = %invoke.cont97
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp86, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86) #24
@@ -130494,7 +130494,7 @@ lpad96:                                           ; preds = %invoke.cont95
 lpad98:                                           ; preds = %if.then.i
   %121 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp86, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86) #24
   br label %ehcleanup
@@ -130652,7 +130652,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
 
 if.then.i:                                        ; preds = %invoke.cont40
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %13 = load i32, ptr %id2.i.i, align 8
@@ -130660,7 +130660,7 @@ if.then.i:                                        ; preds = %invoke.cont40
   %m.i.i32 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 32
   %14 = load i64, ptr %byte2.i, align 8
@@ -130672,7 +130672,7 @@ if.then.i:                                        ; preds = %invoke.cont40
   unreachable
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
@@ -130716,7 +130716,7 @@ lpad39:                                           ; preds = %invoke.cont38
 lpad41:                                           ; preds = %if.then.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
   br label %ehcleanup
@@ -131111,7 +131111,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 if.then.i:                                        ; preds = %invoke.cont20
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i32, ptr %id2.i.i, align 8
@@ -131119,7 +131119,7 @@ if.then.i:                                        ; preds = %invoke.cont20
   %m.i.i44 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i44, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %10 = load i64, ptr %byte2.i, align 8
@@ -131131,7 +131131,7 @@ if.then.i:                                        ; preds = %invoke.cont20
   unreachable
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -131165,7 +131165,7 @@ lpad19:                                           ; preds = %invoke.cont18
 lpad21:                                           ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -131720,7 +131720,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp20, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
@@ -131755,7 +131755,7 @@ lpad32:                                           ; preds = %invoke.cont31
 lpad34:                                           ; preds = %invoke.cont33
   %23 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp20, align 8
   %m.i.i90 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i90) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
@@ -131875,7 +131875,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp60, align 8
   %m.i.i103 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i103) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60) #24
@@ -131910,7 +131910,7 @@ lpad74:                                           ; preds = %invoke.cont73
 lpad76:                                           ; preds = %invoke.cont75
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp60, align 8
   %m.i.i104 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i104) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60) #24
@@ -132033,7 +132033,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont118
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp103, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp103, align 8
   %m.i.i127 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i127) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #24
@@ -132068,7 +132068,7 @@ lpad117:                                          ; preds = %invoke.cont116
 lpad119:                                          ; preds = %invoke.cont118
   %61 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp103, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp103, align 8
   %m.i.i128 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i128) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #24
@@ -132192,7 +132192,7 @@ invoke.cont161:                                   ; preds = %invoke.cont159
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %invoke.cont161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp146, align 8
   %m.i.i156 = getelementptr inbounds i8, ptr %ref.tmp146, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i156) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #24
@@ -132227,7 +132227,7 @@ lpad160:                                          ; preds = %invoke.cont159
 lpad162:                                          ; preds = %invoke.cont161
   %80 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp146, align 8
   %m.i.i157 = getelementptr inbounds i8, ptr %ref.tmp146, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i157) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #24
@@ -132527,7 +132527,7 @@ invoke.cont304:                                   ; preds = %invoke.cont302
 
 if.then.i:                                        ; preds = %invoke.cont304
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 8
   %118 = load i32, ptr %id2.i.i, align 8
@@ -132535,7 +132535,7 @@ if.then.i:                                        ; preds = %invoke.cont304
   %m.i.i303 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i303, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 32
   %119 = load i64, ptr %byte2.i, align 8
@@ -132547,7 +132547,7 @@ if.then.i:                                        ; preds = %invoke.cont304
   unreachable
 
 invoke.cont306:                                   ; preds = %invoke.cont304
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp289, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp289, align 8
   %m.i.i241 = getelementptr inbounds i8, ptr %ref.tmp289, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i241) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp289) #24
@@ -132582,7 +132582,7 @@ lpad303:                                          ; preds = %invoke.cont302
 lpad305:                                          ; preds = %if.then.i
   %124 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp289, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp289, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp289) #24
   br label %ehcleanup309
@@ -132784,7 +132784,7 @@ invoke.cont404:                                   ; preds = %invoke.cont402
           to label %invoke.cont406 unwind label %lpad405
 
 invoke.cont406:                                   ; preds = %invoke.cont404
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp390, align 8
   %m.i.i275 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i275) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp390) #24
@@ -132819,7 +132819,7 @@ lpad403:                                          ; preds = %invoke.cont402
 lpad405:                                          ; preds = %invoke.cont404
   %150 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp390, align 8
   %m.i.i276 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i276) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp390) #24
@@ -132979,7 +132979,7 @@ invoke.cont458:                                   ; preds = %invoke.cont456
 
 if.then.i297:                                     ; preds = %invoke.cont458
   %exception.i298 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i298, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i298, align 8
   %id.i.i304 = getelementptr inbounds i8, ptr %exception.i298, i64 8
   %id2.i.i305 = getelementptr inbounds i8, ptr %ref.tmp447, i64 8
   %165 = load i32, ptr %id2.i.i305, align 8
@@ -132987,7 +132987,7 @@ if.then.i297:                                     ; preds = %invoke.cont458
   %m.i.i306 = getelementptr inbounds i8, ptr %exception.i298, i64 16
   %m3.i.i307 = getelementptr inbounds i8, ptr %ref.tmp447, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i306, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i307) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i298, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i298, align 8
   %byte.i308 = getelementptr inbounds i8, ptr %exception.i298, i64 32
   %byte2.i309 = getelementptr inbounds i8, ptr %ref.tmp447, i64 32
   %166 = load i64, ptr %byte2.i309, align 8
@@ -132999,7 +132999,7 @@ if.then.i297:                                     ; preds = %invoke.cont458
   unreachable
 
 invoke.cont460:                                   ; preds = %invoke.cont458
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp447, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp447, align 8
   %m.i.i301 = getelementptr inbounds i8, ptr %ref.tmp447, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i301) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp447) #24
@@ -133028,7 +133028,7 @@ lpad457:                                          ; preds = %invoke.cont456
 lpad459:                                          ; preds = %if.then.i297
   %170 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp447, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp447, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i307) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp447) #24
   br label %ehcleanup463
@@ -133389,7 +133389,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -133404,7 +133404,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -133773,7 +133773,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail12out_of_rangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %id.i = getelementptr inbounds i8, ptr %this, i64 8
   %id2.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %id2.i, align 8
@@ -133781,7 +133781,7 @@ entry:
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   %m3.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i, ptr noundef nonnull align 8 dereferenceable(16) %m3.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -133967,7 +133967,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 if.then.i:                                        ; preds = %invoke.cont23
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %13 = load i32, ptr %id2.i.i, align 8
@@ -133975,7 +133975,7 @@ if.then.i:                                        ; preds = %invoke.cont23
   %m.i.i83 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i83, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %14 = load i64, ptr %byte2.i, align 8
@@ -133987,7 +133987,7 @@ if.then.i:                                        ; preds = %invoke.cont23
   unreachable
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -134021,7 +134021,7 @@ lpad22:                                           ; preds = %invoke.cont21
 lpad24:                                           ; preds = %if.then.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -134153,7 +134153,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
 
 if.then.i58:                                      ; preds = %invoke.cont68
   %exception.i59 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i59, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i59, align 8
   %id.i.i84 = getelementptr inbounds i8, ptr %exception.i59, i64 8
   %id2.i.i85 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   %30 = load i32, ptr %id2.i.i85, align 8
@@ -134161,7 +134161,7 @@ if.then.i58:                                      ; preds = %invoke.cont68
   %m.i.i86 = getelementptr inbounds i8, ptr %exception.i59, i64 16
   %m3.i.i87 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i86, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i87) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i59, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i59, align 8
   %byte.i88 = getelementptr inbounds i8, ptr %exception.i59, i64 32
   %byte2.i89 = getelementptr inbounds i8, ptr %ref.tmp54, i64 32
   %31 = load i64, ptr %byte2.i89, align 8
@@ -134173,7 +134173,7 @@ if.then.i58:                                      ; preds = %invoke.cont68
   unreachable
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp54, align 8
   %m.i.i62 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i62) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54) #24
@@ -134202,7 +134202,7 @@ lpad67:                                           ; preds = %invoke.cont66
 lpad69:                                           ; preds = %if.then.i58
   %35 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp54, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i87) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54) #24
   br label %ehcleanup73
@@ -134271,7 +134271,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp91, align 8
   %m.i.i64 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i64) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91) #24
@@ -134306,7 +134306,7 @@ lpad105:                                          ; preds = %invoke.cont104
 lpad107:                                          ; preds = %invoke.cont106
   %46 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp91, align 8
   %m.i.i65 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i65) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91) #24
@@ -134405,7 +134405,7 @@ invoke.cont152:                                   ; preds = %invoke.cont150
 
 if.then.i77:                                      ; preds = %invoke.cont152
   %exception.i78 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i78, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i78, align 8
   %id.i.i90 = getelementptr inbounds i8, ptr %exception.i78, i64 8
   %id2.i.i91 = getelementptr inbounds i8, ptr %ref.tmp137, i64 8
   %56 = load i32, ptr %id2.i.i91, align 8
@@ -134413,7 +134413,7 @@ if.then.i77:                                      ; preds = %invoke.cont152
   %m.i.i92 = getelementptr inbounds i8, ptr %exception.i78, i64 16
   %m3.i.i93 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i92, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i93) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i78, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i78, align 8
   %byte.i94 = getelementptr inbounds i8, ptr %exception.i78, i64 32
   %byte2.i95 = getelementptr inbounds i8, ptr %ref.tmp137, i64 32
   %57 = load i64, ptr %byte2.i95, align 8
@@ -134425,7 +134425,7 @@ if.then.i77:                                      ; preds = %invoke.cont152
   unreachable
 
 invoke.cont154:                                   ; preds = %invoke.cont152
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp137, align 8
   %m.i.i81 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i81) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp137) #24
@@ -134460,7 +134460,7 @@ lpad151:                                          ; preds = %invoke.cont150
 lpad153:                                          ; preds = %if.then.i77
   %62 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp137, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i93) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp137) #24
   br label %ehcleanup157
@@ -136317,7 +136317,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail11parse_errorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %id.i = getelementptr inbounds i8, ptr %this, i64 8
   %id2.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %id2.i, align 8
@@ -136325,7 +136325,7 @@ entry:
   %m.i = getelementptr inbounds i8, ptr %this, i64 16
   %m3.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i, ptr noundef nonnull align 8 dereferenceable(16) %m3.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %this, align 8
   %byte = getelementptr inbounds i8, ptr %this, i64 32
   %byte2 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %byte2, align 8
@@ -136336,7 +136336,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %this, align 8
   %m.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
@@ -137168,9 +137168,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !1812
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !1812
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i.i, align 8, !noalias !1812
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i, align 8, !noalias !1812
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1812
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !1812
   %stream.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 24
   store ptr %o, ptr %stream.i.i.i.i.i.i.i.i.i, align 8, !noalias !1812
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %ref.tmp, align 8
@@ -139684,7 +139684,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -139699,7 +139699,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -140389,7 +140389,7 @@ return:                                           ; preds = %while.body.i, %lor.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -140727,7 +140727,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -140872,7 +140872,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141019,7 +141019,7 @@ declare void @_ZN7doctest8toStringEs(ptr sret(%"class.doctest::String") align 8,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141166,7 +141166,7 @@ declare void @_ZN7doctest8toStringEa(ptr sret(%"class.doctest::String") align 8,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141353,7 +141353,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -141368,7 +141368,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -141502,7 +141502,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_5EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141578,7 +141578,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_6EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141725,7 +141725,7 @@ declare void @_ZN7doctest8toStringEt(ptr sret(%"class.doctest::String") align 8,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_7EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -141872,7 +141872,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_8EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142017,7 +142017,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE3$_9EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142093,7 +142093,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_10EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142238,7 +142238,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_11EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142314,7 +142314,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_12EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142390,7 +142390,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_13EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142466,7 +142466,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_14EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142542,7 +142542,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_15EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142618,7 +142618,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_16EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142694,7 +142694,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_17EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142770,7 +142770,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_18EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -142846,7 +142846,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_19EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -143154,7 +143154,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 
 if.then.i34:                                      ; preds = %invoke.cont26
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %15 = load i32, ptr %id2.i.i, align 8
@@ -143162,7 +143162,7 @@ if.then.i34:                                      ; preds = %invoke.cont26
   %m.i.i105 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
   %16 = load i64, ptr %byte2.i, align 8
@@ -143174,7 +143174,7 @@ if.then.i34:                                      ; preds = %invoke.cont26
   unreachable
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp15, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #24
@@ -143225,7 +143225,7 @@ lpad25:                                           ; preds = %invoke.cont24
 lpad27:                                           ; preds = %if.then.i34
   %25 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp15, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #24
   br label %ehcleanup
@@ -143396,7 +143396,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
 
 if.then.i84:                                      ; preds = %invoke.cont76
   %exception.i85 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i85, align 8
   %id.i.i106 = getelementptr inbounds i8, ptr %exception.i85, i64 8
   %id2.i.i107 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   %39 = load i32, ptr %id2.i.i107, align 8
@@ -143404,7 +143404,7 @@ if.then.i84:                                      ; preds = %invoke.cont76
   %m.i.i108 = getelementptr inbounds i8, ptr %exception.i85, i64 16
   %m3.i.i109 = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i108, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i109) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i85, align 8
   %byte.i110 = getelementptr inbounds i8, ptr %exception.i85, i64 32
   %byte2.i111 = getelementptr inbounds i8, ptr %ref.tmp65, i64 32
   %40 = load i64, ptr %byte2.i111, align 8
@@ -143416,7 +143416,7 @@ if.then.i84:                                      ; preds = %invoke.cont76
   unreachable
 
 invoke.cont78:                                    ; preds = %invoke.cont76
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp65, align 8
   %m.i.i87 = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i87) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65) #24
@@ -143449,7 +143449,7 @@ lpad75:                                           ; preds = %invoke.cont74
 lpad77:                                           ; preds = %if.then.i84
   %45 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp65, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i109) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65) #24
   br label %ehcleanup81
@@ -145977,7 +145977,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
@@ -146004,7 +146004,7 @@ lpad36:                                           ; preds = %invoke.cont35
 lpad38:                                           ; preds = %invoke.cont37
   %4 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   %m.i.i73 = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i73) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
@@ -146067,7 +146067,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %invoke.cont79
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp68, align 8
   %m.i.i80 = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i80) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp68) #24
@@ -146094,7 +146094,7 @@ lpad78:                                           ; preds = %invoke.cont77
 lpad80:                                           ; preds = %invoke.cont79
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp68, align 8
   %m.i.i81 = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i81) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp68) #24
@@ -146240,7 +146240,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont139
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp129, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp129, align 8
   %m.i.i107 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i107) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129) #24
@@ -146266,7 +146266,7 @@ lpad138:                                          ; preds = %invoke.cont137
 lpad140:                                          ; preds = %invoke.cont139
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp129, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp129, align 8
   %m.i.i108 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i108) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129) #24
@@ -146387,7 +146387,7 @@ invoke.cont232:                                   ; preds = %invoke.cont230
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %invoke.cont232
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp221, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp221, align 8
   %m.i.i125 = getelementptr inbounds i8, ptr %ref.tmp221, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i125) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221) #24
@@ -146414,7 +146414,7 @@ lpad231:                                          ; preds = %invoke.cont230
 lpad233:                                          ; preds = %invoke.cont232
   %31 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp221, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp221, align 8
   %m.i.i126 = getelementptr inbounds i8, ptr %ref.tmp221, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i126) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221) #24
@@ -146461,7 +146461,7 @@ invoke.cont263:                                   ; preds = %invoke.cont261
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %invoke.cont263
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp255, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp255, align 8
   %m.i.i130 = getelementptr inbounds i8, ptr %ref.tmp255, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i130) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp255) #24
@@ -146482,7 +146482,7 @@ lpad262:                                          ; preds = %invoke.cont261
 lpad264:                                          ; preds = %invoke.cont263
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp255, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp255, align 8
   %m.i.i131 = getelementptr inbounds i8, ptr %ref.tmp255, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i131) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp255) #24
@@ -146522,7 +146522,7 @@ invoke.cont290:                                   ; preds = %invoke.cont288
           to label %invoke.cont292 unwind label %lpad291
 
 invoke.cont292:                                   ; preds = %invoke.cont290
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp279, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp279, align 8
   %m.i.i134 = getelementptr inbounds i8, ptr %ref.tmp279, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i134) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp279) #24
@@ -146549,7 +146549,7 @@ lpad289:                                          ; preds = %invoke.cont288
 lpad291:                                          ; preds = %invoke.cont290
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp279, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp279, align 8
   %m.i.i135 = getelementptr inbounds i8, ptr %ref.tmp279, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i135) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp279) #24
@@ -146596,7 +146596,7 @@ invoke.cont318:                                   ; preds = %invoke.cont316
           to label %invoke.cont320 unwind label %lpad319
 
 invoke.cont320:                                   ; preds = %invoke.cont318
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp307, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp307, align 8
   %m.i.i138 = getelementptr inbounds i8, ptr %ref.tmp307, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i138) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp307) #24
@@ -146623,7 +146623,7 @@ lpad317:                                          ; preds = %invoke.cont316
 lpad319:                                          ; preds = %invoke.cont318
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp307, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp307, align 8
   %m.i.i139 = getelementptr inbounds i8, ptr %ref.tmp307, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i139) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp307) #24
@@ -146768,7 +146768,7 @@ invoke.cont375:                                   ; preds = %invoke.cont373
 
 if.then.i162:                                     ; preds = %invoke.cont375
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp364, i64 8
   %58 = load i32, ptr %id2.i.i, align 8
@@ -146776,7 +146776,7 @@ if.then.i162:                                     ; preds = %invoke.cont375
   %m.i.i295 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp364, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i295, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp364, i64 32
   %59 = load i64, ptr %byte2.i, align 8
@@ -146788,7 +146788,7 @@ if.then.i162:                                     ; preds = %invoke.cont375
   unreachable
 
 invoke.cont377:                                   ; preds = %invoke.cont375
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp364, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp364, align 8
   %m.i.i164 = getelementptr inbounds i8, ptr %ref.tmp364, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i164) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp364) #24
@@ -146815,7 +146815,7 @@ lpad374:                                          ; preds = %invoke.cont373
 lpad376:                                          ; preds = %if.then.i162
   %63 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp364, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp364, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp364) #24
   br label %ehcleanup380
@@ -146920,7 +146920,7 @@ invoke.cont413:                                   ; preds = %invoke.cont411
 
 if.then.i198:                                     ; preds = %invoke.cont413
   %exception.i199 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i199, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i199, align 8
   %id.i.i296 = getelementptr inbounds i8, ptr %exception.i199, i64 8
   %id2.i.i297 = getelementptr inbounds i8, ptr %ref.tmp402, i64 8
   %69 = load i32, ptr %id2.i.i297, align 8
@@ -146928,7 +146928,7 @@ if.then.i198:                                     ; preds = %invoke.cont413
   %m.i.i298 = getelementptr inbounds i8, ptr %exception.i199, i64 16
   %m3.i.i299 = getelementptr inbounds i8, ptr %ref.tmp402, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i298, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i299) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i199, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i199, align 8
   %byte.i300 = getelementptr inbounds i8, ptr %exception.i199, i64 32
   %byte2.i301 = getelementptr inbounds i8, ptr %ref.tmp402, i64 32
   %70 = load i64, ptr %byte2.i301, align 8
@@ -146940,7 +146940,7 @@ if.then.i198:                                     ; preds = %invoke.cont413
   unreachable
 
 invoke.cont415:                                   ; preds = %invoke.cont413
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp402, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp402, align 8
   %m.i.i202 = getelementptr inbounds i8, ptr %ref.tmp402, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i202) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp402) #24
@@ -146967,7 +146967,7 @@ lpad412:                                          ; preds = %invoke.cont411
 lpad414:                                          ; preds = %if.then.i198
   %74 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp402, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp402, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i299) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp402) #24
   br label %ehcleanup418
@@ -147068,7 +147068,7 @@ invoke.cont457:                                   ; preds = %invoke.cont455
 
 if.then.i233:                                     ; preds = %invoke.cont457
   %exception.i234 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i234, align 8
   %id.i.i302 = getelementptr inbounds i8, ptr %exception.i234, i64 8
   %id2.i.i303 = getelementptr inbounds i8, ptr %ref.tmp446, i64 8
   %80 = load i32, ptr %id2.i.i303, align 8
@@ -147076,7 +147076,7 @@ if.then.i233:                                     ; preds = %invoke.cont457
   %m.i.i304 = getelementptr inbounds i8, ptr %exception.i234, i64 16
   %m3.i.i305 = getelementptr inbounds i8, ptr %ref.tmp446, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i304, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i305) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i234, align 8
   %byte.i306 = getelementptr inbounds i8, ptr %exception.i234, i64 32
   %byte2.i307 = getelementptr inbounds i8, ptr %ref.tmp446, i64 32
   %81 = load i64, ptr %byte2.i307, align 8
@@ -147088,7 +147088,7 @@ if.then.i233:                                     ; preds = %invoke.cont457
   unreachable
 
 invoke.cont459:                                   ; preds = %invoke.cont457
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp446, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp446, align 8
   %m.i.i237 = getelementptr inbounds i8, ptr %ref.tmp446, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i237) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp446) #24
@@ -147115,7 +147115,7 @@ lpad456:                                          ; preds = %invoke.cont455
 lpad458:                                          ; preds = %if.then.i233
   %85 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp446, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp446, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i305) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp446) #24
   br label %ehcleanup462
@@ -147218,7 +147218,7 @@ invoke.cont502:                                   ; preds = %invoke.cont500
 
 if.then.i274:                                     ; preds = %invoke.cont502
   %exception.i275 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i275, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i275, align 8
   %id.i.i308 = getelementptr inbounds i8, ptr %exception.i275, i64 8
   %id2.i.i309 = getelementptr inbounds i8, ptr %ref.tmp491, i64 8
   %93 = load i32, ptr %id2.i.i309, align 8
@@ -147226,7 +147226,7 @@ if.then.i274:                                     ; preds = %invoke.cont502
   %m.i.i310 = getelementptr inbounds i8, ptr %exception.i275, i64 16
   %m3.i.i311 = getelementptr inbounds i8, ptr %ref.tmp491, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i310, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i311) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i275, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i275, align 8
   %byte.i312 = getelementptr inbounds i8, ptr %exception.i275, i64 32
   %byte2.i313 = getelementptr inbounds i8, ptr %ref.tmp491, i64 32
   %94 = load i64, ptr %byte2.i313, align 8
@@ -147238,7 +147238,7 @@ if.then.i274:                                     ; preds = %invoke.cont502
   unreachable
 
 invoke.cont504:                                   ; preds = %invoke.cont502
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp491, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp491, align 8
   %m.i.i278 = getelementptr inbounds i8, ptr %ref.tmp491, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i278) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp491) #24
@@ -147265,7 +147265,7 @@ lpad501:                                          ; preds = %invoke.cont500
 lpad503:                                          ; preds = %if.then.i274
   %98 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp491, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp491, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i311) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp491) #24
   br label %ehcleanup507
@@ -147459,7 +147459,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %2 = load i64, ptr %pos, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -147474,7 +147474,7 @@ lpad.i.i:                                         ; preds = %invoke.cont12
   br label %eh.resume
 
 invoke.cont17:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %agg.result, align 8
   %byte.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %2, ptr %byte.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
@@ -148145,7 +148145,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -148172,7 +148172,7 @@ lpad34:                                           ; preds = %invoke.cont33
 lpad36:                                           ; preds = %invoke.cont35
   %5 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i73 = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i73) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -148238,7 +148238,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp64, align 8
   %m.i.i83 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i83) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64) #24
@@ -148265,7 +148265,7 @@ lpad74:                                           ; preds = %invoke.cont73
 lpad76:                                           ; preds = %invoke.cont75
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp64, align 8
   %m.i.i84 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i84) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64) #24
@@ -148410,7 +148410,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %invoke.cont135 unwind label %lpad134
 
 invoke.cont135:                                   ; preds = %invoke.cont133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp123, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp123, align 8
   %m.i.i112 = getelementptr inbounds i8, ptr %ref.tmp123, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i112) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp123) #24
@@ -148436,7 +148436,7 @@ lpad132:                                          ; preds = %invoke.cont131
 lpad134:                                          ; preds = %invoke.cont133
   %26 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp123, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp123, align 8
   %m.i.i113 = getelementptr inbounds i8, ptr %ref.tmp123, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i113) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp123) #24
@@ -148557,7 +148557,7 @@ invoke.cont223:                                   ; preds = %invoke.cont221
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %invoke.cont223
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp212, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp212, align 8
   %m.i.i130 = getelementptr inbounds i8, ptr %ref.tmp212, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i130) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp212) #24
@@ -148584,7 +148584,7 @@ lpad222:                                          ; preds = %invoke.cont221
 lpad224:                                          ; preds = %invoke.cont223
   %36 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp212, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp212, align 8
   %m.i.i131 = getelementptr inbounds i8, ptr %ref.tmp212, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i131) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp212) #24
@@ -148631,7 +148631,7 @@ invoke.cont253:                                   ; preds = %invoke.cont251
           to label %invoke.cont255 unwind label %lpad254
 
 invoke.cont255:                                   ; preds = %invoke.cont253
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp245, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp245, align 8
   %m.i.i135 = getelementptr inbounds i8, ptr %ref.tmp245, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i135) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp245) #24
@@ -148652,7 +148652,7 @@ lpad252:                                          ; preds = %invoke.cont251
 lpad254:                                          ; preds = %invoke.cont253
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp245, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp245, align 8
   %m.i.i136 = getelementptr inbounds i8, ptr %ref.tmp245, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i136) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp245) #24
@@ -148692,7 +148692,7 @@ invoke.cont279:                                   ; preds = %invoke.cont277
           to label %invoke.cont281 unwind label %lpad280
 
 invoke.cont281:                                   ; preds = %invoke.cont279
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp268, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp268, align 8
   %m.i.i139 = getelementptr inbounds i8, ptr %ref.tmp268, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i139) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp268) #24
@@ -148719,7 +148719,7 @@ lpad278:                                          ; preds = %invoke.cont277
 lpad280:                                          ; preds = %invoke.cont279
   %43 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp268, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp268, align 8
   %m.i.i140 = getelementptr inbounds i8, ptr %ref.tmp268, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i140) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp268) #24
@@ -148766,7 +148766,7 @@ invoke.cont306:                                   ; preds = %invoke.cont304
           to label %invoke.cont308 unwind label %lpad307
 
 invoke.cont308:                                   ; preds = %invoke.cont306
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp295, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp295, align 8
   %m.i.i143 = getelementptr inbounds i8, ptr %ref.tmp295, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i143) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp295) #24
@@ -148793,7 +148793,7 @@ lpad305:                                          ; preds = %invoke.cont304
 lpad307:                                          ; preds = %invoke.cont306
   %47 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp295, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp295, align 8
   %m.i.i144 = getelementptr inbounds i8, ptr %ref.tmp295, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i144) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp295) #24
@@ -148934,7 +148934,7 @@ invoke.cont361:                                   ; preds = %invoke.cont359
 
 if.then.i169:                                     ; preds = %invoke.cont361
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp350, i64 8
   %64 = load i32, ptr %id2.i.i, align 8
@@ -148942,7 +148942,7 @@ if.then.i169:                                     ; preds = %invoke.cont361
   %m.i.i311 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp350, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i311, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp350, i64 32
   %65 = load i64, ptr %byte2.i, align 8
@@ -148954,7 +148954,7 @@ if.then.i169:                                     ; preds = %invoke.cont361
   unreachable
 
 invoke.cont363:                                   ; preds = %invoke.cont361
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp350, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp350, align 8
   %m.i.i171 = getelementptr inbounds i8, ptr %ref.tmp350, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i171) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp350) #24
@@ -148981,7 +148981,7 @@ lpad360:                                          ; preds = %invoke.cont359
 lpad362:                                          ; preds = %if.then.i169
   %69 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp350, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp350, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp350) #24
   br label %ehcleanup366
@@ -149086,7 +149086,7 @@ invoke.cont398:                                   ; preds = %invoke.cont396
 
 if.then.i205:                                     ; preds = %invoke.cont398
   %exception.i206 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i206, align 8
   %id.i.i312 = getelementptr inbounds i8, ptr %exception.i206, i64 8
   %id2.i.i313 = getelementptr inbounds i8, ptr %ref.tmp387, i64 8
   %75 = load i32, ptr %id2.i.i313, align 8
@@ -149094,7 +149094,7 @@ if.then.i205:                                     ; preds = %invoke.cont398
   %m.i.i314 = getelementptr inbounds i8, ptr %exception.i206, i64 16
   %m3.i.i315 = getelementptr inbounds i8, ptr %ref.tmp387, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i314, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i315) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i206, align 8
   %byte.i316 = getelementptr inbounds i8, ptr %exception.i206, i64 32
   %byte2.i317 = getelementptr inbounds i8, ptr %ref.tmp387, i64 32
   %76 = load i64, ptr %byte2.i317, align 8
@@ -149106,7 +149106,7 @@ if.then.i205:                                     ; preds = %invoke.cont398
   unreachable
 
 invoke.cont400:                                   ; preds = %invoke.cont398
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp387, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp387, align 8
   %m.i.i209 = getelementptr inbounds i8, ptr %ref.tmp387, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i209) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp387) #24
@@ -149133,7 +149133,7 @@ lpad397:                                          ; preds = %invoke.cont396
 lpad399:                                          ; preds = %if.then.i205
   %80 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp387, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp387, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i315) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp387) #24
   br label %ehcleanup403
@@ -149237,7 +149237,7 @@ invoke.cont440:                                   ; preds = %invoke.cont438
 
 if.then.i246:                                     ; preds = %invoke.cont440
   %exception.i247 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i247, align 8
   %id.i.i318 = getelementptr inbounds i8, ptr %exception.i247, i64 8
   %id2.i.i319 = getelementptr inbounds i8, ptr %ref.tmp429, i64 8
   %89 = load i32, ptr %id2.i.i319, align 8
@@ -149245,7 +149245,7 @@ if.then.i246:                                     ; preds = %invoke.cont440
   %m.i.i320 = getelementptr inbounds i8, ptr %exception.i247, i64 16
   %m3.i.i321 = getelementptr inbounds i8, ptr %ref.tmp429, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i320, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i321) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i247, align 8
   %byte.i322 = getelementptr inbounds i8, ptr %exception.i247, i64 32
   %byte2.i323 = getelementptr inbounds i8, ptr %ref.tmp429, i64 32
   %90 = load i64, ptr %byte2.i323, align 8
@@ -149257,7 +149257,7 @@ if.then.i246:                                     ; preds = %invoke.cont440
   unreachable
 
 invoke.cont442:                                   ; preds = %invoke.cont440
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp429, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp429, align 8
   %m.i.i250 = getelementptr inbounds i8, ptr %ref.tmp429, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i250) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp429) #24
@@ -149284,7 +149284,7 @@ lpad439:                                          ; preds = %invoke.cont438
 lpad441:                                          ; preds = %if.then.i246
   %94 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp429, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp429, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i321) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp429) #24
   br label %ehcleanup445
@@ -149383,7 +149383,7 @@ invoke.cont483:                                   ; preds = %invoke.cont481
 
 if.then.i289:                                     ; preds = %invoke.cont483
   %exception.i290 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i290, align 8
   %id.i.i324 = getelementptr inbounds i8, ptr %exception.i290, i64 8
   %id2.i.i325 = getelementptr inbounds i8, ptr %ref.tmp472, i64 8
   %103 = load i32, ptr %id2.i.i325, align 8
@@ -149391,7 +149391,7 @@ if.then.i289:                                     ; preds = %invoke.cont483
   %m.i.i326 = getelementptr inbounds i8, ptr %exception.i290, i64 16
   %m3.i.i327 = getelementptr inbounds i8, ptr %ref.tmp472, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i326, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i327) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i290, align 8
   %byte.i328 = getelementptr inbounds i8, ptr %exception.i290, i64 32
   %byte2.i329 = getelementptr inbounds i8, ptr %ref.tmp472, i64 32
   %104 = load i64, ptr %byte2.i329, align 8
@@ -149403,7 +149403,7 @@ if.then.i289:                                     ; preds = %invoke.cont483
   unreachable
 
 invoke.cont485:                                   ; preds = %invoke.cont483
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp472, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp472, align 8
   %m.i.i293 = getelementptr inbounds i8, ptr %ref.tmp472, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i293) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp472) #24
@@ -149430,7 +149430,7 @@ lpad482:                                          ; preds = %invoke.cont481
 lpad484:                                          ; preds = %if.then.i289
   %108 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp472, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp472, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i327) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp472) #24
   br label %ehcleanup488
@@ -151633,7 +151633,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %agg.result, align 8
   %id.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %id_, ptr %id.i.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -151648,7 +151648,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9
   br label %eh.resume
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i64 16), ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %w) #24
   ret void
 
@@ -154162,7 +154162,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_20EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154238,7 +154238,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_21EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154314,7 +154314,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_22EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154390,7 +154390,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_23EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154466,7 +154466,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_24EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154542,7 +154542,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_25EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154692,7 +154692,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_26EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154768,7 +154768,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_27EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154844,7 +154844,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_28EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -154920,7 +154920,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_28vE4$_29EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -155834,7 +155834,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp4, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
@@ -157066,7 +157066,7 @@ invoke.cont43.i:                                  ; preds = %invoke.cont41.i
           to label %invoke.cont45.i unwind label %lpad44.i
 
 invoke.cont45.i:                                  ; preds = %invoke.cont43.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp29.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp29.i, align 8
   %m.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29.i) #24
@@ -157228,7 +157228,7 @@ invoke.cont79.i:                                  ; preds = %invoke.cont77.i
           to label %invoke.cont81.i unwind label %lpad80.i
 
 invoke.cont81.i:                                  ; preds = %invoke.cont79.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp65.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp65.i, align 8
   %m.i.i76.i = getelementptr inbounds i8, ptr %ref.tmp65.i, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i76.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65.i) #24
@@ -157394,7 +157394,7 @@ invoke.cont190:                                   ; preds = %invoke.cont188
           to label %invoke.cont192 unwind label %lpad191
 
 invoke.cont192:                                   ; preds = %invoke.cont190
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp178, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp178, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp178, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp178) #24
@@ -157588,7 +157588,7 @@ invoke.cont38.i:                                  ; preds = %invoke.cont36.i
           to label %invoke.cont40.i unwind label %lpad39.i
 
 invoke.cont40.i:                                  ; preds = %invoke.cont38.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26.i, align 8
   %m.i.i382 = getelementptr inbounds i8, ptr %ref.tmp26.i, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i382) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26.i) #24
@@ -157974,7 +157974,7 @@ invoke.cont18.i344:                               ; preds = %invoke.cont16.i
           to label %invoke.cont20.i345 unwind label %lpad19.i
 
 invoke.cont20.i345:                               ; preds = %invoke.cont18.i344
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp.i306, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp.i306, align 8
   %m.i.i435 = getelementptr inbounds i8, ptr %ref.tmp.i306, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i435) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i306) #24
@@ -158303,7 +158303,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %invoke.cont235
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp223, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp223, align 8
   %m.i.i350 = getelementptr inbounds i8, ptr %ref.tmp223, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i350) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp223) #24
@@ -159109,7 +159109,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %invoke.cont97 unwind label %lpad96
 
 invoke.cont97:                                    ; preds = %invoke.cont95
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp86, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86) #24
@@ -159385,7 +159385,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp20, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
@@ -159520,7 +159520,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp57, align 8
   %m.i.i101 = getelementptr inbounds i8, ptr %ref.tmp57, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i101) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57) #24
@@ -159658,7 +159658,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %invoke.cont112 unwind label %lpad111
 
 invoke.cont112:                                   ; preds = %invoke.cont110
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp97, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp97, align 8
   %m.i.i124 = getelementptr inbounds i8, ptr %ref.tmp97, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i124) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp97) #24
@@ -159797,7 +159797,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %invoke.cont150
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp137, align 8
   %m.i.i152 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i152) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp137) #24
@@ -160104,7 +160104,7 @@ invoke.cont284:                                   ; preds = %invoke.cont282
           to label %invoke.cont286 unwind label %lpad285
 
 invoke.cont286:                                   ; preds = %invoke.cont284
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp271, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp271, align 8
   %m.i.i233 = getelementptr inbounds i8, ptr %ref.tmp271, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i233) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp271) #24
@@ -160644,7 +160644,7 @@ invoke.cont378:                                   ; preds = %invoke.cont376
           to label %invoke.cont380 unwind label %lpad379
 
 invoke.cont380:                                   ; preds = %invoke.cont378
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp366, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp366, align 8
   %m.i.i278 = getelementptr inbounds i8, ptr %ref.tmp366, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i278) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp366) #24
@@ -160814,7 +160814,7 @@ invoke.cont428:                                   ; preds = %invoke.cont426
           to label %invoke.cont430 unwind label %lpad429
 
 invoke.cont430:                                   ; preds = %invoke.cont428
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp419, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp419, align 8
   %m.i.i295 = getelementptr inbounds i8, ptr %ref.tmp419, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i295) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp419) #24
@@ -161030,7 +161030,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -161173,7 +161173,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp51, align 8
   %m.i.i51 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i51) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp51) #24
@@ -161253,7 +161253,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp85, align 8
   %m.i.i52 = getelementptr inbounds i8, ptr %ref.tmp85, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i52) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85) #24
@@ -161363,7 +161363,7 @@ invoke.cont141:                                   ; preds = %invoke.cont139
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp128, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp128, align 8
   %m.i.i60 = getelementptr inbounds i8, ptr %ref.tmp128, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i60) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp128) #24
@@ -162210,7 +162210,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -162235,7 +162235,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -162319,7 +162319,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -162440,7 +162440,7 @@ lpad:                                             ; preds = %_ZN7doctest8toStrin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_332vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -162920,7 +162920,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -163109,7 +163109,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3m
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -163228,7 +163228,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -163253,7 +163253,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -163278,7 +163278,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -163303,7 +163303,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -163431,7 +163431,7 @@ lpad:                                             ; preds = %_ZN7doctest8toStrin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -163668,7 +163668,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 
 if.then.i34:                                      ; preds = %invoke.cont25
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %15 = load i32, ptr %id2.i.i, align 8
@@ -163676,7 +163676,7 @@ if.then.i34:                                      ; preds = %invoke.cont25
   %m.i.i105 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 32
   %16 = load i64, ptr %byte2.i, align 8
@@ -163688,7 +163688,7 @@ if.then.i34:                                      ; preds = %invoke.cont25
   unreachable
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp14, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14) #24
@@ -163739,7 +163739,7 @@ lpad24:                                           ; preds = %invoke.cont23
 lpad26:                                           ; preds = %if.then.i34
   %25 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp14, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14) #24
   br label %ehcleanup
@@ -163910,7 +163910,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
 
 if.then.i84:                                      ; preds = %invoke.cont73
   %exception.i85 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i85, align 8
   %id.i.i106 = getelementptr inbounds i8, ptr %exception.i85, i64 8
   %id2.i.i107 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
   %39 = load i32, ptr %id2.i.i107, align 8
@@ -163918,7 +163918,7 @@ if.then.i84:                                      ; preds = %invoke.cont73
   %m.i.i108 = getelementptr inbounds i8, ptr %exception.i85, i64 16
   %m3.i.i109 = getelementptr inbounds i8, ptr %ref.tmp62, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i108, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i109) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i85, align 8
   %byte.i110 = getelementptr inbounds i8, ptr %exception.i85, i64 32
   %byte2.i111 = getelementptr inbounds i8, ptr %ref.tmp62, i64 32
   %40 = load i64, ptr %byte2.i111, align 8
@@ -163930,7 +163930,7 @@ if.then.i84:                                      ; preds = %invoke.cont73
   unreachable
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp62, align 8
   %m.i.i87 = getelementptr inbounds i8, ptr %ref.tmp62, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i87) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62) #24
@@ -163963,7 +163963,7 @@ lpad72:                                           ; preds = %invoke.cont71
 lpad74:                                           ; preds = %if.then.i84
   %45 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp62, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i109) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62) #24
   br label %ehcleanup78
@@ -166463,7 +166463,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp25, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25) #24
@@ -166490,7 +166490,7 @@ lpad35:                                           ; preds = %invoke.cont34
 lpad37:                                           ; preds = %invoke.cont36
   %4 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp25, align 8
   %m.i.i73 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i73) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25) #24
@@ -166553,7 +166553,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont77
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp66, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp66, align 8
   %m.i.i80 = getelementptr inbounds i8, ptr %ref.tmp66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i80) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp66) #24
@@ -166580,7 +166580,7 @@ lpad76:                                           ; preds = %invoke.cont75
 lpad78:                                           ; preds = %invoke.cont77
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp66, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp66, align 8
   %m.i.i81 = getelementptr inbounds i8, ptr %ref.tmp66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i81) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp66) #24
@@ -166726,7 +166726,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %invoke.cont135
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp125, align 8
   %m.i.i107 = getelementptr inbounds i8, ptr %ref.tmp125, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i107) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp125) #24
@@ -166752,7 +166752,7 @@ lpad134:                                          ; preds = %invoke.cont133
 lpad136:                                          ; preds = %invoke.cont135
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp125, align 8
   %m.i.i108 = getelementptr inbounds i8, ptr %ref.tmp125, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i108) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp125) #24
@@ -166873,7 +166873,7 @@ invoke.cont227:                                   ; preds = %invoke.cont225
           to label %invoke.cont229 unwind label %lpad228
 
 invoke.cont229:                                   ; preds = %invoke.cont227
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp216, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp216, align 8
   %m.i.i125 = getelementptr inbounds i8, ptr %ref.tmp216, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i125) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp216) #24
@@ -166900,7 +166900,7 @@ lpad226:                                          ; preds = %invoke.cont225
 lpad228:                                          ; preds = %invoke.cont227
   %31 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp216, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp216, align 8
   %m.i.i126 = getelementptr inbounds i8, ptr %ref.tmp216, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i126) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp216) #24
@@ -166947,7 +166947,7 @@ invoke.cont257:                                   ; preds = %invoke.cont255
           to label %invoke.cont259 unwind label %lpad258
 
 invoke.cont259:                                   ; preds = %invoke.cont257
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp249, align 8
   %m.i.i130 = getelementptr inbounds i8, ptr %ref.tmp249, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i130) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp249) #24
@@ -166968,7 +166968,7 @@ lpad256:                                          ; preds = %invoke.cont255
 lpad258:                                          ; preds = %invoke.cont257
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp249, align 8
   %m.i.i131 = getelementptr inbounds i8, ptr %ref.tmp249, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i131) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp249) #24
@@ -167008,7 +167008,7 @@ invoke.cont283:                                   ; preds = %invoke.cont281
           to label %invoke.cont285 unwind label %lpad284
 
 invoke.cont285:                                   ; preds = %invoke.cont283
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp272, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp272, align 8
   %m.i.i134 = getelementptr inbounds i8, ptr %ref.tmp272, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i134) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp272) #24
@@ -167035,7 +167035,7 @@ lpad282:                                          ; preds = %invoke.cont281
 lpad284:                                          ; preds = %invoke.cont283
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp272, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp272, align 8
   %m.i.i135 = getelementptr inbounds i8, ptr %ref.tmp272, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i135) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp272) #24
@@ -167082,7 +167082,7 @@ invoke.cont310:                                   ; preds = %invoke.cont308
           to label %invoke.cont312 unwind label %lpad311
 
 invoke.cont312:                                   ; preds = %invoke.cont310
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp299, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp299, align 8
   %m.i.i138 = getelementptr inbounds i8, ptr %ref.tmp299, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i138) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp299) #24
@@ -167109,7 +167109,7 @@ lpad309:                                          ; preds = %invoke.cont308
 lpad311:                                          ; preds = %invoke.cont310
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp299, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp299, align 8
   %m.i.i139 = getelementptr inbounds i8, ptr %ref.tmp299, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i139) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp299) #24
@@ -167254,7 +167254,7 @@ invoke.cont366:                                   ; preds = %invoke.cont364
 
 if.then.i162:                                     ; preds = %invoke.cont366
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp355, i64 8
   %58 = load i32, ptr %id2.i.i, align 8
@@ -167262,7 +167262,7 @@ if.then.i162:                                     ; preds = %invoke.cont366
   %m.i.i295 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp355, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i295, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp355, i64 32
   %59 = load i64, ptr %byte2.i, align 8
@@ -167274,7 +167274,7 @@ if.then.i162:                                     ; preds = %invoke.cont366
   unreachable
 
 invoke.cont368:                                   ; preds = %invoke.cont366
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp355, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp355, align 8
   %m.i.i164 = getelementptr inbounds i8, ptr %ref.tmp355, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i164) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp355) #24
@@ -167301,7 +167301,7 @@ lpad365:                                          ; preds = %invoke.cont364
 lpad367:                                          ; preds = %if.then.i162
   %63 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp355, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp355, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp355) #24
   br label %ehcleanup371
@@ -167406,7 +167406,7 @@ invoke.cont403:                                   ; preds = %invoke.cont401
 
 if.then.i198:                                     ; preds = %invoke.cont403
   %exception.i199 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i199, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i199, align 8
   %id.i.i296 = getelementptr inbounds i8, ptr %exception.i199, i64 8
   %id2.i.i297 = getelementptr inbounds i8, ptr %ref.tmp392, i64 8
   %69 = load i32, ptr %id2.i.i297, align 8
@@ -167414,7 +167414,7 @@ if.then.i198:                                     ; preds = %invoke.cont403
   %m.i.i298 = getelementptr inbounds i8, ptr %exception.i199, i64 16
   %m3.i.i299 = getelementptr inbounds i8, ptr %ref.tmp392, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i298, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i299) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i199, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i199, align 8
   %byte.i300 = getelementptr inbounds i8, ptr %exception.i199, i64 32
   %byte2.i301 = getelementptr inbounds i8, ptr %ref.tmp392, i64 32
   %70 = load i64, ptr %byte2.i301, align 8
@@ -167426,7 +167426,7 @@ if.then.i198:                                     ; preds = %invoke.cont403
   unreachable
 
 invoke.cont405:                                   ; preds = %invoke.cont403
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp392, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp392, align 8
   %m.i.i202 = getelementptr inbounds i8, ptr %ref.tmp392, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i202) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp392) #24
@@ -167453,7 +167453,7 @@ lpad402:                                          ; preds = %invoke.cont401
 lpad404:                                          ; preds = %if.then.i198
   %74 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp392, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp392, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i299) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp392) #24
   br label %ehcleanup408
@@ -167554,7 +167554,7 @@ invoke.cont446:                                   ; preds = %invoke.cont444
 
 if.then.i233:                                     ; preds = %invoke.cont446
   %exception.i234 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i234, align 8
   %id.i.i302 = getelementptr inbounds i8, ptr %exception.i234, i64 8
   %id2.i.i303 = getelementptr inbounds i8, ptr %ref.tmp435, i64 8
   %80 = load i32, ptr %id2.i.i303, align 8
@@ -167562,7 +167562,7 @@ if.then.i233:                                     ; preds = %invoke.cont446
   %m.i.i304 = getelementptr inbounds i8, ptr %exception.i234, i64 16
   %m3.i.i305 = getelementptr inbounds i8, ptr %ref.tmp435, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i304, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i305) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i234, align 8
   %byte.i306 = getelementptr inbounds i8, ptr %exception.i234, i64 32
   %byte2.i307 = getelementptr inbounds i8, ptr %ref.tmp435, i64 32
   %81 = load i64, ptr %byte2.i307, align 8
@@ -167574,7 +167574,7 @@ if.then.i233:                                     ; preds = %invoke.cont446
   unreachable
 
 invoke.cont448:                                   ; preds = %invoke.cont446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp435, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp435, align 8
   %m.i.i237 = getelementptr inbounds i8, ptr %ref.tmp435, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i237) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp435) #24
@@ -167601,7 +167601,7 @@ lpad445:                                          ; preds = %invoke.cont444
 lpad447:                                          ; preds = %if.then.i233
   %85 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp435, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp435, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i305) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp435) #24
   br label %ehcleanup451
@@ -167704,7 +167704,7 @@ invoke.cont490:                                   ; preds = %invoke.cont488
 
 if.then.i274:                                     ; preds = %invoke.cont490
   %exception.i275 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i275, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i275, align 8
   %id.i.i308 = getelementptr inbounds i8, ptr %exception.i275, i64 8
   %id2.i.i309 = getelementptr inbounds i8, ptr %ref.tmp479, i64 8
   %93 = load i32, ptr %id2.i.i309, align 8
@@ -167712,7 +167712,7 @@ if.then.i274:                                     ; preds = %invoke.cont490
   %m.i.i310 = getelementptr inbounds i8, ptr %exception.i275, i64 16
   %m3.i.i311 = getelementptr inbounds i8, ptr %ref.tmp479, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i310, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i311) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i275, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i275, align 8
   %byte.i312 = getelementptr inbounds i8, ptr %exception.i275, i64 32
   %byte2.i313 = getelementptr inbounds i8, ptr %ref.tmp479, i64 32
   %94 = load i64, ptr %byte2.i313, align 8
@@ -167724,7 +167724,7 @@ if.then.i274:                                     ; preds = %invoke.cont490
   unreachable
 
 invoke.cont492:                                   ; preds = %invoke.cont490
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp479, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp479, align 8
   %m.i.i278 = getelementptr inbounds i8, ptr %ref.tmp479, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i278) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp479) #24
@@ -167751,7 +167751,7 @@ lpad489:                                          ; preds = %invoke.cont488
 lpad491:                                          ; preds = %if.then.i274
   %98 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp479, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp479, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i311) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp479) #24
   br label %ehcleanup495
@@ -168390,7 +168390,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -168417,7 +168417,7 @@ lpad34:                                           ; preds = %invoke.cont33
 lpad36:                                           ; preds = %invoke.cont35
   %5 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i73 = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i73) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -168483,7 +168483,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp64, align 8
   %m.i.i83 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i83) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64) #24
@@ -168510,7 +168510,7 @@ lpad74:                                           ; preds = %invoke.cont73
 lpad76:                                           ; preds = %invoke.cont75
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp64, align 8
   %m.i.i84 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i84) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64) #24
@@ -168655,7 +168655,7 @@ invoke.cont132:                                   ; preds = %invoke.cont130
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %invoke.cont132
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp122, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp122, align 8
   %m.i.i112 = getelementptr inbounds i8, ptr %ref.tmp122, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i112) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp122) #24
@@ -168681,7 +168681,7 @@ lpad131:                                          ; preds = %invoke.cont130
 lpad133:                                          ; preds = %invoke.cont132
   %26 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp122, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp122, align 8
   %m.i.i113 = getelementptr inbounds i8, ptr %ref.tmp122, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i113) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp122) #24
@@ -168802,7 +168802,7 @@ invoke.cont222:                                   ; preds = %invoke.cont220
           to label %invoke.cont224 unwind label %lpad223
 
 invoke.cont224:                                   ; preds = %invoke.cont222
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp211, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp211, align 8
   %m.i.i130 = getelementptr inbounds i8, ptr %ref.tmp211, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i130) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp211) #24
@@ -168829,7 +168829,7 @@ lpad221:                                          ; preds = %invoke.cont220
 lpad223:                                          ; preds = %invoke.cont222
   %36 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp211, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp211, align 8
   %m.i.i131 = getelementptr inbounds i8, ptr %ref.tmp211, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i131) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp211) #24
@@ -168876,7 +168876,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
           to label %invoke.cont254 unwind label %lpad253
 
 invoke.cont254:                                   ; preds = %invoke.cont252
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp244, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp244, align 8
   %m.i.i135 = getelementptr inbounds i8, ptr %ref.tmp244, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i135) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp244) #24
@@ -168897,7 +168897,7 @@ lpad251:                                          ; preds = %invoke.cont250
 lpad253:                                          ; preds = %invoke.cont252
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp244, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp244, align 8
   %m.i.i136 = getelementptr inbounds i8, ptr %ref.tmp244, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i136) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp244) #24
@@ -168937,7 +168937,7 @@ invoke.cont278:                                   ; preds = %invoke.cont276
           to label %invoke.cont280 unwind label %lpad279
 
 invoke.cont280:                                   ; preds = %invoke.cont278
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp267, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp267, align 8
   %m.i.i139 = getelementptr inbounds i8, ptr %ref.tmp267, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i139) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp267) #24
@@ -168964,7 +168964,7 @@ lpad277:                                          ; preds = %invoke.cont276
 lpad279:                                          ; preds = %invoke.cont278
   %43 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp267, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp267, align 8
   %m.i.i140 = getelementptr inbounds i8, ptr %ref.tmp267, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i140) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp267) #24
@@ -169011,7 +169011,7 @@ invoke.cont305:                                   ; preds = %invoke.cont303
           to label %invoke.cont307 unwind label %lpad306
 
 invoke.cont307:                                   ; preds = %invoke.cont305
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp294, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp294, align 8
   %m.i.i143 = getelementptr inbounds i8, ptr %ref.tmp294, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i143) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp294) #24
@@ -169038,7 +169038,7 @@ lpad304:                                          ; preds = %invoke.cont303
 lpad306:                                          ; preds = %invoke.cont305
   %47 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp294, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp294, align 8
   %m.i.i144 = getelementptr inbounds i8, ptr %ref.tmp294, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i144) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp294) #24
@@ -169179,7 +169179,7 @@ invoke.cont360:                                   ; preds = %invoke.cont358
 
 if.then.i169:                                     ; preds = %invoke.cont360
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp349, i64 8
   %64 = load i32, ptr %id2.i.i, align 8
@@ -169187,7 +169187,7 @@ if.then.i169:                                     ; preds = %invoke.cont360
   %m.i.i311 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp349, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i311, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp349, i64 32
   %65 = load i64, ptr %byte2.i, align 8
@@ -169199,7 +169199,7 @@ if.then.i169:                                     ; preds = %invoke.cont360
   unreachable
 
 invoke.cont362:                                   ; preds = %invoke.cont360
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp349, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp349, align 8
   %m.i.i171 = getelementptr inbounds i8, ptr %ref.tmp349, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i171) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp349) #24
@@ -169226,7 +169226,7 @@ lpad359:                                          ; preds = %invoke.cont358
 lpad361:                                          ; preds = %if.then.i169
   %69 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp349, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp349, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp349) #24
   br label %ehcleanup365
@@ -169331,7 +169331,7 @@ invoke.cont397:                                   ; preds = %invoke.cont395
 
 if.then.i205:                                     ; preds = %invoke.cont397
   %exception.i206 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i206, align 8
   %id.i.i312 = getelementptr inbounds i8, ptr %exception.i206, i64 8
   %id2.i.i313 = getelementptr inbounds i8, ptr %ref.tmp386, i64 8
   %75 = load i32, ptr %id2.i.i313, align 8
@@ -169339,7 +169339,7 @@ if.then.i205:                                     ; preds = %invoke.cont397
   %m.i.i314 = getelementptr inbounds i8, ptr %exception.i206, i64 16
   %m3.i.i315 = getelementptr inbounds i8, ptr %ref.tmp386, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i314, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i315) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i206, align 8
   %byte.i316 = getelementptr inbounds i8, ptr %exception.i206, i64 32
   %byte2.i317 = getelementptr inbounds i8, ptr %ref.tmp386, i64 32
   %76 = load i64, ptr %byte2.i317, align 8
@@ -169351,7 +169351,7 @@ if.then.i205:                                     ; preds = %invoke.cont397
   unreachable
 
 invoke.cont399:                                   ; preds = %invoke.cont397
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp386, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp386, align 8
   %m.i.i209 = getelementptr inbounds i8, ptr %ref.tmp386, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i209) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp386) #24
@@ -169378,7 +169378,7 @@ lpad396:                                          ; preds = %invoke.cont395
 lpad398:                                          ; preds = %if.then.i205
   %80 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp386, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp386, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i315) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp386) #24
   br label %ehcleanup402
@@ -169482,7 +169482,7 @@ invoke.cont439:                                   ; preds = %invoke.cont437
 
 if.then.i246:                                     ; preds = %invoke.cont439
   %exception.i247 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i247, align 8
   %id.i.i318 = getelementptr inbounds i8, ptr %exception.i247, i64 8
   %id2.i.i319 = getelementptr inbounds i8, ptr %ref.tmp428, i64 8
   %89 = load i32, ptr %id2.i.i319, align 8
@@ -169490,7 +169490,7 @@ if.then.i246:                                     ; preds = %invoke.cont439
   %m.i.i320 = getelementptr inbounds i8, ptr %exception.i247, i64 16
   %m3.i.i321 = getelementptr inbounds i8, ptr %ref.tmp428, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i320, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i321) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i247, align 8
   %byte.i322 = getelementptr inbounds i8, ptr %exception.i247, i64 32
   %byte2.i323 = getelementptr inbounds i8, ptr %ref.tmp428, i64 32
   %90 = load i64, ptr %byte2.i323, align 8
@@ -169502,7 +169502,7 @@ if.then.i246:                                     ; preds = %invoke.cont439
   unreachable
 
 invoke.cont441:                                   ; preds = %invoke.cont439
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp428, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp428, align 8
   %m.i.i250 = getelementptr inbounds i8, ptr %ref.tmp428, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i250) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp428) #24
@@ -169529,7 +169529,7 @@ lpad438:                                          ; preds = %invoke.cont437
 lpad440:                                          ; preds = %if.then.i246
   %94 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp428, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp428, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i321) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp428) #24
   br label %ehcleanup444
@@ -169628,7 +169628,7 @@ invoke.cont482:                                   ; preds = %invoke.cont480
 
 if.then.i289:                                     ; preds = %invoke.cont482
   %exception.i290 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i290, align 8
   %id.i.i324 = getelementptr inbounds i8, ptr %exception.i290, i64 8
   %id2.i.i325 = getelementptr inbounds i8, ptr %ref.tmp471, i64 8
   %103 = load i32, ptr %id2.i.i325, align 8
@@ -169636,7 +169636,7 @@ if.then.i289:                                     ; preds = %invoke.cont482
   %m.i.i326 = getelementptr inbounds i8, ptr %exception.i290, i64 16
   %m3.i.i327 = getelementptr inbounds i8, ptr %ref.tmp471, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i326, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i327) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i290, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i290, align 8
   %byte.i328 = getelementptr inbounds i8, ptr %exception.i290, i64 32
   %byte2.i329 = getelementptr inbounds i8, ptr %ref.tmp471, i64 32
   %104 = load i64, ptr %byte2.i329, align 8
@@ -169648,7 +169648,7 @@ if.then.i289:                                     ; preds = %invoke.cont482
   unreachable
 
 invoke.cont484:                                   ; preds = %invoke.cont482
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp471, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp471, align 8
   %m.i.i293 = getelementptr inbounds i8, ptr %ref.tmp471, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i293) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp471) #24
@@ -169675,7 +169675,7 @@ lpad481:                                          ; preds = %invoke.cont480
 lpad483:                                          ; preds = %if.then.i289
   %108 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp471, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp471, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i327) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp471) #24
   br label %ehcleanup487
@@ -170360,7 +170360,7 @@ if.end120:                                        ; preds = %if.then.i.i.i.i.i43
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -170907,7 +170907,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 
 if.then.i:                                        ; preds = %invoke.cont39
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %19 = load i32, ptr %id2.i.i, align 8
@@ -170915,7 +170915,7 @@ if.then.i:                                        ; preds = %invoke.cont39
   %m.i.i21 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 32
   %20 = load i64, ptr %byte2.i, align 8
@@ -170927,7 +170927,7 @@ if.then.i:                                        ; preds = %invoke.cont39
   unreachable
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
@@ -170957,7 +170957,7 @@ lpad38:                                           ; preds = %invoke.cont37
 lpad40:                                           ; preds = %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp24, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #24
   br label %ehcleanup
@@ -171895,7 +171895,7 @@ invoke.cont174:                                   ; preds = %invoke.cont172
 
 if.then.i:                                        ; preds = %invoke.cont174
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %47 = load i32, ptr %id2.i.i, align 8
@@ -171903,7 +171903,7 @@ if.then.i:                                        ; preds = %invoke.cont174
   %m.i.i105 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %48 = load i64, ptr %byte2.i, align 8
@@ -171915,7 +171915,7 @@ if.then.i:                                        ; preds = %invoke.cont174
   unreachable
 
 invoke.cont176:                                   ; preds = %invoke.cont174
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -171944,7 +171944,7 @@ lpad173:                                          ; preds = %invoke.cont172
 lpad175:                                          ; preds = %if.then.i
   %52 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -172291,7 +172291,7 @@ invoke.cont350:                                   ; preds = %invoke.cont348
           to label %invoke.cont352 unwind label %lpad351
 
 invoke.cont352:                                   ; preds = %invoke.cont350
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp337, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp337, align 8
   %m.i.i103 = getelementptr inbounds i8, ptr %ref.tmp337, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i103) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp337) #24
@@ -172325,7 +172325,7 @@ lpad349:                                          ; preds = %invoke.cont348
 lpad351:                                          ; preds = %invoke.cont350
   %82 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp337, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp337, align 8
   %m.i.i104 = getelementptr inbounds i8, ptr %ref.tmp337, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i104) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp337) #24
@@ -173108,7 +173108,7 @@ invoke.cont197:                                   ; preds = %invoke.cont195
           to label %invoke.cont199 unwind label %lpad198
 
 invoke.cont199:                                   ; preds = %invoke.cont197
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp184, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp184, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp184, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp184) #24
@@ -173142,7 +173142,7 @@ lpad196:                                          ; preds = %invoke.cont195
 lpad198:                                          ; preds = %invoke.cont197
   %51 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp184, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp184, align 8
   %m.i.i53 = getelementptr inbounds i8, ptr %ref.tmp184, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i53) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp184) #24
@@ -173487,7 +173487,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 if.then.i:                                        ; preds = %invoke.cont18
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = load i32, ptr %id2.i.i, align 8
@@ -173495,7 +173495,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   %m.i.i7 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   %5 = load i64, ptr %byte2.i, align 8
@@ -173507,7 +173507,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   unreachable
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp4, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
@@ -173548,7 +173548,7 @@ lpad17:                                           ; preds = %invoke.cont16
 lpad19:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp4, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
   br label %ehcleanup
@@ -174201,7 +174201,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
 
 if.then.i:                                        ; preds = %invoke.cont84
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
   %60 = load i32, ptr %id2.i.i, align 8
@@ -174209,7 +174209,7 @@ if.then.i:                                        ; preds = %invoke.cont84
   %m.i.i196 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i196, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 32
   %61 = load i64, ptr %byte2.i, align 8
@@ -174221,7 +174221,7 @@ if.then.i:                                        ; preds = %invoke.cont84
   unreachable
 
 invoke.cont86:                                    ; preds = %invoke.cont84
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp79, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #24
@@ -174243,7 +174243,7 @@ lpad83:                                           ; preds = %invoke.cont82
 lpad85:                                           ; preds = %if.then.i
   %64 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp79, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #24
   br label %ehcleanup90
@@ -174351,7 +174351,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then.i:                                        ; preds = %invoke.cont14
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i32, ptr %id2.i.i, align 8
@@ -174359,7 +174359,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   %m.i.i13 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %7 = load i64, ptr %byte2.i, align 8
@@ -174371,7 +174371,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   unreachable
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -174401,7 +174401,7 @@ lpad13:                                           ; preds = %invoke.cont12
 lpad15:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -174600,7 +174600,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then.i:                                        ; preds = %invoke.cont14
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i32, ptr %id2.i.i, align 8
@@ -174608,7 +174608,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   %m.i.i11 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %7 = load i64, ptr %byte2.i, align 8
@@ -174620,7 +174620,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   unreachable
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -174650,7 +174650,7 @@ lpad13:                                           ; preds = %invoke.cont12
 lpad15:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -175266,7 +175266,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont58
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp45, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #24
@@ -175300,7 +175300,7 @@ lpad57:                                           ; preds = %invoke.cont56
 lpad59:                                           ; preds = %invoke.cont58
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp45, align 8
   %m.i.i17 = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i17) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #24
@@ -175557,7 +175557,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -175591,7 +175591,7 @@ lpad45:                                           ; preds = %invoke.cont44
 lpad47:                                           ; preds = %invoke.cont46
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i12) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -177034,7 +177034,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -177068,7 +177068,7 @@ lpad30:                                           ; preds = %invoke.cont29
 lpad32:                                           ; preds = %invoke.cont31
   %14 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i8) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -178949,7 +178949,7 @@ invoke.cont208:                                   ; preds = %invoke.cont206
           to label %invoke.cont210 unwind label %lpad209
 
 invoke.cont210:                                   ; preds = %invoke.cont208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp194, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp194) #24
@@ -178983,7 +178983,7 @@ lpad207:                                          ; preds = %invoke.cont206
 lpad209:                                          ; preds = %invoke.cont208
   %124 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp194, align 8
   %m.i.i304 = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i304) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp194) #24
@@ -179129,7 +179129,7 @@ invoke.cont262:                                   ; preds = %invoke.cont260
 
 if.then.i:                                        ; preds = %invoke.cont262
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 8
   %136 = load i32, ptr %id2.i.i, align 8
@@ -179137,7 +179137,7 @@ if.then.i:                                        ; preds = %invoke.cont262
   %m.i.i315 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i315, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp248, i64 32
   %137 = load i64, ptr %byte2.i, align 8
@@ -179149,7 +179149,7 @@ if.then.i:                                        ; preds = %invoke.cont262
   unreachable
 
 invoke.cont264:                                   ; preds = %invoke.cont262
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp248, align 8
   %m.i.i313 = getelementptr inbounds i8, ptr %ref.tmp248, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i313) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp248) #24
@@ -179183,7 +179183,7 @@ lpad261:                                          ; preds = %invoke.cont260
 lpad263:                                          ; preds = %if.then.i
   %142 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp248, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp248, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp248) #24
   br label %ehcleanup267
@@ -179595,7 +179595,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
 
 if.then.i47:                                      ; preds = %invoke.cont45
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %31 = load i32, ptr %id2.i.i, align 8
@@ -179603,7 +179603,7 @@ if.then.i47:                                      ; preds = %invoke.cont45
   %m.i.i98 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i98, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 32
   %32 = load i64, ptr %byte2.i, align 8
@@ -179615,7 +179615,7 @@ if.then.i47:                                      ; preds = %invoke.cont45
   unreachable
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp29, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #24
@@ -179654,7 +179654,7 @@ lpad44:                                           ; preds = %invoke.cont43
 lpad46:                                           ; preds = %if.then.i47
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp29, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #24
   br label %ehcleanup
@@ -179806,7 +179806,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
 
 if.then.i88:                                      ; preds = %invoke.cont87
   %exception.i89 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i89, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i89, align 8
   %id.i.i99 = getelementptr inbounds i8, ptr %exception.i89, i64 8
   %id2.i.i100 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   %50 = load i32, ptr %id2.i.i100, align 8
@@ -179814,7 +179814,7 @@ if.then.i88:                                      ; preds = %invoke.cont87
   %m.i.i101 = getelementptr inbounds i8, ptr %exception.i89, i64 16
   %m3.i.i102 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i101, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i102) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i89, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i89, align 8
   %byte.i103 = getelementptr inbounds i8, ptr %exception.i89, i64 32
   %byte2.i104 = getelementptr inbounds i8, ptr %ref.tmp71, i64 32
   %51 = load i64, ptr %byte2.i104, align 8
@@ -179826,7 +179826,7 @@ if.then.i88:                                      ; preds = %invoke.cont87
   unreachable
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp71, align 8
   %m.i.i92 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i92) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #24
@@ -179855,7 +179855,7 @@ lpad86:                                           ; preds = %invoke.cont85
 lpad88:                                           ; preds = %if.then.i88
   %55 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp71, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i102) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #24
   br label %ehcleanup92
@@ -180709,7 +180709,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 if.then.i:                                        ; preds = %invoke.cont97
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   %102 = load i32, ptr %id2.i.i, align 8
@@ -180717,7 +180717,7 @@ if.then.i:                                        ; preds = %invoke.cont97
   %m.i.i319 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i319, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 32
   %103 = load i64, ptr %byte2.i, align 8
@@ -180729,7 +180729,7 @@ if.then.i:                                        ; preds = %invoke.cont97
   unreachable
 
 invoke.cont99:                                    ; preds = %invoke.cont97
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp86, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86) #24
@@ -180758,7 +180758,7 @@ lpad96:                                           ; preds = %invoke.cont95
 lpad98:                                           ; preds = %if.then.i
   %107 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp86, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp86, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86) #24
   br label %ehcleanup
@@ -180916,7 +180916,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
 
 if.then.i:                                        ; preds = %invoke.cont40
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %13 = load i32, ptr %id2.i.i, align 8
@@ -180924,7 +180924,7 @@ if.then.i:                                        ; preds = %invoke.cont40
   %m.i.i35 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i35, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 32
   %14 = load i64, ptr %byte2.i, align 8
@@ -180936,7 +180936,7 @@ if.then.i:                                        ; preds = %invoke.cont40
   unreachable
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
@@ -180980,7 +180980,7 @@ lpad39:                                           ; preds = %invoke.cont38
 lpad41:                                           ; preds = %if.then.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp26, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
   br label %ehcleanup
@@ -181374,7 +181374,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 if.then.i:                                        ; preds = %invoke.cont20
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i32, ptr %id2.i.i, align 8
@@ -181382,7 +181382,7 @@ if.then.i:                                        ; preds = %invoke.cont20
   %m.i.i54 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i54, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %10 = load i64, ptr %byte2.i, align 8
@@ -181394,7 +181394,7 @@ if.then.i:                                        ; preds = %invoke.cont20
   unreachable
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -181428,7 +181428,7 @@ lpad19:                                           ; preds = %invoke.cont18
 lpad21:                                           ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -182000,7 +182000,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp20, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
@@ -182035,7 +182035,7 @@ lpad32:                                           ; preds = %invoke.cont31
 lpad34:                                           ; preds = %invoke.cont33
   %23 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp20, align 8
   %m.i.i99 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i99) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
@@ -182159,7 +182159,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp60, align 8
   %m.i.i116 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i116) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60) #24
@@ -182194,7 +182194,7 @@ lpad74:                                           ; preds = %invoke.cont73
 lpad76:                                           ; preds = %invoke.cont75
   %41 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp60, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp60, align 8
   %m.i.i117 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i117) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60) #24
@@ -182320,7 +182320,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont118
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp103, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp103, align 8
   %m.i.i144 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i144) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #24
@@ -182355,7 +182355,7 @@ lpad117:                                          ; preds = %invoke.cont116
 lpad119:                                          ; preds = %invoke.cont118
   %59 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp103, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp103, align 8
   %m.i.i145 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i145) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #24
@@ -182482,7 +182482,7 @@ invoke.cont161:                                   ; preds = %invoke.cont159
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %invoke.cont161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp146, align 8
   %m.i.i177 = getelementptr inbounds i8, ptr %ref.tmp146, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i177) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #24
@@ -182517,7 +182517,7 @@ lpad160:                                          ; preds = %invoke.cont159
 lpad162:                                          ; preds = %invoke.cont161
   %77 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp146, align 8
   %m.i.i178 = getelementptr inbounds i8, ptr %ref.tmp146, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i178) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #24
@@ -182825,7 +182825,7 @@ invoke.cont304:                                   ; preds = %invoke.cont302
 
 if.then.i:                                        ; preds = %invoke.cont304
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 8
   %112 = load i32, ptr %id2.i.i, align 8
@@ -182833,7 +182833,7 @@ if.then.i:                                        ; preds = %invoke.cont304
   %m.i.i336 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i336, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp289, i64 32
   %113 = load i64, ptr %byte2.i, align 8
@@ -182845,7 +182845,7 @@ if.then.i:                                        ; preds = %invoke.cont304
   unreachable
 
 invoke.cont306:                                   ; preds = %invoke.cont304
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp289, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp289, align 8
   %m.i.i274 = getelementptr inbounds i8, ptr %ref.tmp289, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i274) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp289) #24
@@ -182880,7 +182880,7 @@ lpad303:                                          ; preds = %invoke.cont302
 lpad305:                                          ; preds = %if.then.i
   %118 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp289, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp289, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp289) #24
   br label %ehcleanup309
@@ -183082,7 +183082,7 @@ invoke.cont404:                                   ; preds = %invoke.cont402
           to label %invoke.cont406 unwind label %lpad405
 
 invoke.cont406:                                   ; preds = %invoke.cont404
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp390, align 8
   %m.i.i309 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i309) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp390) #24
@@ -183117,7 +183117,7 @@ lpad403:                                          ; preds = %invoke.cont402
 lpad405:                                          ; preds = %invoke.cont404
   %144 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp390, align 8
   %m.i.i310 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i310) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp390) #24
@@ -183276,7 +183276,7 @@ invoke.cont458:                                   ; preds = %invoke.cont456
 
 if.then.i330:                                     ; preds = %invoke.cont458
   %exception.i331 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i331, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i331, align 8
   %id.i.i337 = getelementptr inbounds i8, ptr %exception.i331, i64 8
   %id2.i.i338 = getelementptr inbounds i8, ptr %ref.tmp447, i64 8
   %159 = load i32, ptr %id2.i.i338, align 8
@@ -183284,7 +183284,7 @@ if.then.i330:                                     ; preds = %invoke.cont458
   %m.i.i339 = getelementptr inbounds i8, ptr %exception.i331, i64 16
   %m3.i.i340 = getelementptr inbounds i8, ptr %ref.tmp447, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i339, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i340) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i331, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i331, align 8
   %byte.i341 = getelementptr inbounds i8, ptr %exception.i331, i64 32
   %byte2.i342 = getelementptr inbounds i8, ptr %ref.tmp447, i64 32
   %160 = load i64, ptr %byte2.i342, align 8
@@ -183296,7 +183296,7 @@ if.then.i330:                                     ; preds = %invoke.cont458
   unreachable
 
 invoke.cont460:                                   ; preds = %invoke.cont458
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp447, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp447, align 8
   %m.i.i334 = getelementptr inbounds i8, ptr %ref.tmp447, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i334) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp447) #24
@@ -183325,7 +183325,7 @@ lpad457:                                          ; preds = %invoke.cont456
 lpad459:                                          ; preds = %if.then.i330
   %164 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp447, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp447, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i340) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp447) #24
   br label %ehcleanup463
@@ -183876,7 +183876,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 if.then.i:                                        ; preds = %invoke.cont23
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   %id2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %16 = load i32, ptr %id2.i.i, align 8
@@ -183884,7 +183884,7 @@ if.then.i:                                        ; preds = %invoke.cont23
   %m.i.i85 = getelementptr inbounds i8, ptr %exception.i, i64 16
   %m3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i85, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i, align 8
   %byte.i = getelementptr inbounds i8, ptr %exception.i, i64 32
   %byte2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %17 = load i64, ptr %byte2.i, align 8
@@ -183896,7 +183896,7 @@ if.then.i:                                        ; preds = %invoke.cont23
   unreachable
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   %m.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
@@ -183930,7 +183930,7 @@ lpad22:                                           ; preds = %invoke.cont21
 lpad24:                                           ; preds = %if.then.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %ehcleanup
@@ -184060,7 +184060,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
 
 if.then.i61:                                      ; preds = %invoke.cont68
   %exception.i62 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i62, align 8
   %id.i.i86 = getelementptr inbounds i8, ptr %exception.i62, i64 8
   %id2.i.i87 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   %34 = load i32, ptr %id2.i.i87, align 8
@@ -184068,7 +184068,7 @@ if.then.i61:                                      ; preds = %invoke.cont68
   %m.i.i88 = getelementptr inbounds i8, ptr %exception.i62, i64 16
   %m3.i.i89 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i88, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i89) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i62, align 8
   %byte.i90 = getelementptr inbounds i8, ptr %exception.i62, i64 32
   %byte2.i91 = getelementptr inbounds i8, ptr %ref.tmp54, i64 32
   %35 = load i64, ptr %byte2.i91, align 8
@@ -184080,7 +184080,7 @@ if.then.i61:                                      ; preds = %invoke.cont68
   unreachable
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp54, align 8
   %m.i.i65 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i65) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54) #24
@@ -184109,7 +184109,7 @@ lpad67:                                           ; preds = %invoke.cont66
 lpad69:                                           ; preds = %if.then.i61
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp54, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i89) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54) #24
   br label %ehcleanup73
@@ -184178,7 +184178,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp91, align 8
   %m.i.i67 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i67) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91) #24
@@ -184213,7 +184213,7 @@ lpad105:                                          ; preds = %invoke.cont104
 lpad107:                                          ; preds = %invoke.cont106
   %50 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp91, align 8
   %m.i.i68 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i68) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91) #24
@@ -184311,7 +184311,7 @@ invoke.cont152:                                   ; preds = %invoke.cont150
 
 if.then.i79:                                      ; preds = %invoke.cont152
   %exception.i80 = call ptr @__cxa_allocate_exception(i64 40) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %exception.i80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %exception.i80, align 8
   %id.i.i92 = getelementptr inbounds i8, ptr %exception.i80, i64 8
   %id2.i.i93 = getelementptr inbounds i8, ptr %ref.tmp137, i64 8
   %60 = load i32, ptr %id2.i.i93, align 8
@@ -184319,7 +184319,7 @@ if.then.i79:                                      ; preds = %invoke.cont152
   %m.i.i94 = getelementptr inbounds i8, ptr %exception.i80, i64 16
   %m3.i.i95 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i94, ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i95) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 0, i32 0, i64 2), ptr %exception.i80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i64 16), ptr %exception.i80, align 8
   %byte.i96 = getelementptr inbounds i8, ptr %exception.i80, i64 32
   %byte2.i97 = getelementptr inbounds i8, ptr %ref.tmp137, i64 32
   %61 = load i64, ptr %byte2.i97, align 8
@@ -184331,7 +184331,7 @@ if.then.i79:                                      ; preds = %invoke.cont152
   unreachable
 
 invoke.cont154:                                   ; preds = %invoke.cont152
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp137, align 8
   %m.i.i83 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m.i.i83) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp137) #24
@@ -184366,7 +184366,7 @@ lpad151:                                          ; preds = %invoke.cont150
 lpad153:                                          ; preds = %if.then.i79
   %66 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i64 16), ptr %ref.tmp137, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m3.i.i95) #24
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp137) #24
   br label %ehcleanup157
@@ -184401,7 +184401,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -184478,7 +184478,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_341vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -184621,7 +184621,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2237
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2237
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2237
@@ -184643,7 +184643,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2240
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2240
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2240
@@ -184651,7 +184651,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2243
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2243
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2243
@@ -184659,7 +184659,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2246
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2246
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2246
@@ -184667,7 +184667,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2249
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2249
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2249
@@ -184675,7 +184675,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2252
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2252
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2252
@@ -184755,7 +184755,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
 invoke.cont92:                                    ; preds = %invoke.cont90
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -184774,7 +184774,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont92, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -184793,7 +184793,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -184812,7 +184812,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -184831,7 +184831,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -184851,7 +184851,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -185053,7 +185053,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185078,7 +185078,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185103,7 +185103,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185128,7 +185128,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185153,7 +185153,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185178,7 +185178,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -185203,7 +185203,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185331,7 +185331,7 @@ lpad:                                             ; preds = %_ZN7doctest8toStrin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185414,7 +185414,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185490,7 +185490,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185612,7 +185612,7 @@ lpad:                                             ; preds = %_ZN7doctest8toStrin
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185688,7 +185688,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -185837,7 +185837,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2269
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2269
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2269
@@ -185863,7 +185863,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2272
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2272
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2272
@@ -185871,7 +185871,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2275
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2275
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2275
@@ -185879,7 +185879,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2278
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2278
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2278
@@ -185887,7 +185887,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2281
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2281
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2281
@@ -185895,7 +185895,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2284
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2284
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2284
@@ -185973,7 +185973,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -185992,7 +185992,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -186011,7 +186011,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -186030,7 +186030,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -186049,7 +186049,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -186069,7 +186069,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -186217,7 +186217,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186242,7 +186242,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186267,7 +186267,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186292,7 +186292,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186317,7 +186317,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186342,7 +186342,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -186367,7 +186367,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186450,7 +186450,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186533,7 +186533,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186609,7 +186609,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186686,7 +186686,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186762,7 +186762,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -186909,7 +186909,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2287
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2287
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2287
@@ -186931,7 +186931,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2290
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2290
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2290
@@ -186939,7 +186939,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2293
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2293
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2293
@@ -186947,7 +186947,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2296
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2296
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2296
@@ -186955,7 +186955,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2299
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2299
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2299
@@ -186963,7 +186963,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2302
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2302
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2302
@@ -187041,7 +187041,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -187060,7 +187060,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -187079,7 +187079,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -187098,7 +187098,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -187117,7 +187117,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -187137,7 +187137,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -187285,7 +187285,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187310,7 +187310,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187335,7 +187335,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187360,7 +187360,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187385,7 +187385,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187410,7 +187410,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -187435,7 +187435,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187518,7 +187518,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187601,7 +187601,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187677,7 +187677,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187754,7 +187754,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187830,7 +187830,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -187977,7 +187977,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2305
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2305
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2305
@@ -188003,7 +188003,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2308
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2308
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2308
@@ -188011,7 +188011,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2311
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2311
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2311
@@ -188019,7 +188019,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2314
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2314
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2314
@@ -188027,7 +188027,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2317
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2317
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2317
@@ -188035,7 +188035,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2320
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2320
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2320
@@ -188115,7 +188115,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 invoke.cont96:                                    ; preds = %invoke.cont94
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -188134,7 +188134,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont96, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -188153,7 +188153,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -188172,7 +188172,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -188191,7 +188191,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -188211,7 +188211,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -188359,7 +188359,7 @@ eh.resume:                                        ; preds = %ehcleanup104, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188384,7 +188384,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188409,7 +188409,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188434,7 +188434,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188459,7 +188459,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188484,7 +188484,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -188509,7 +188509,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -188592,7 +188592,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -188675,7 +188675,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -188751,7 +188751,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -188828,7 +188828,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -188904,7 +188904,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189047,7 +189047,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2323
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2323
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2323
@@ -189069,7 +189069,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2326
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2326
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2326
@@ -189077,7 +189077,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2329
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2329
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2329
@@ -189085,7 +189085,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2332
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2332
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2332
@@ -189093,7 +189093,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2335
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2335
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2335
@@ -189101,7 +189101,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2338
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2338
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2338
@@ -189177,7 +189177,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
 invoke.cont92:                                    ; preds = %invoke.cont90
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -189196,7 +189196,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont92, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -189215,7 +189215,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -189234,7 +189234,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -189253,7 +189253,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -189273,7 +189273,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -189421,7 +189421,7 @@ eh.resume:                                        ; preds = %ehcleanup100, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189446,7 +189446,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189471,7 +189471,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189496,7 +189496,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189521,7 +189521,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189546,7 +189546,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -189571,7 +189571,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189654,7 +189654,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189737,7 +189737,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189813,7 +189813,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189890,7 +189890,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -189966,7 +189966,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -190109,7 +190109,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2341
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2341
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2341
@@ -190135,7 +190135,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2344
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2344
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2344
@@ -190143,7 +190143,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2347
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2347
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2347
@@ -190151,7 +190151,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2350
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2350
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2350
@@ -190159,7 +190159,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2353
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2353
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2353
@@ -190167,7 +190167,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2356
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2356
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2356
@@ -190245,7 +190245,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -190264,7 +190264,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -190283,7 +190283,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -190302,7 +190302,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -190321,7 +190321,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -190341,7 +190341,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -190489,7 +190489,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190514,7 +190514,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190539,7 +190539,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190564,7 +190564,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190589,7 +190589,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190614,7 +190614,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -190639,7 +190639,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -190722,7 +190722,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -190805,7 +190805,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -190881,7 +190881,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -190958,7 +190958,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -191034,7 +191034,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -191181,7 +191181,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2359
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2359
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2359
@@ -191203,7 +191203,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2362
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2362
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2362
@@ -191211,7 +191211,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2365
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2365
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2365
@@ -191219,7 +191219,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2368
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2368
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2368
@@ -191227,7 +191227,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2371
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2371
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2371
@@ -191235,7 +191235,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2374
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2374
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2374
@@ -191311,7 +191311,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -191330,7 +191330,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -191349,7 +191349,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -191368,7 +191368,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -191387,7 +191387,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -191407,7 +191407,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -191555,7 +191555,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191580,7 +191580,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191605,7 +191605,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191630,7 +191630,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191655,7 +191655,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191680,7 +191680,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -191705,7 +191705,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -191788,7 +191788,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -191871,7 +191871,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -191947,7 +191947,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -192024,7 +192024,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -192100,7 +192100,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -192247,7 +192247,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2377
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2377
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2377
@@ -192273,7 +192273,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2380
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2380
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2380
@@ -192281,7 +192281,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2383
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2383
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2383
@@ -192289,7 +192289,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2386
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2386
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2386
@@ -192297,7 +192297,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2389
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2389
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2389
@@ -192305,7 +192305,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2392
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2392
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2392
@@ -192383,7 +192383,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 invoke.cont96:                                    ; preds = %invoke.cont94
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -192402,7 +192402,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont96, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -192421,7 +192421,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -192440,7 +192440,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -192459,7 +192459,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -192479,7 +192479,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -192627,7 +192627,7 @@ eh.resume:                                        ; preds = %ehcleanup104, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192652,7 +192652,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192677,7 +192677,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192702,7 +192702,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192727,7 +192727,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192752,7 +192752,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -192777,7 +192777,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -192860,7 +192860,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -192943,7 +192943,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -193019,7 +193019,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -193096,7 +193096,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -193172,7 +193172,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -193315,7 +193315,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2395
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2395
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2395
@@ -193337,7 +193337,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2398
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2398
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2398
@@ -193345,7 +193345,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2401
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2401
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2401
@@ -193353,7 +193353,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2404
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2404
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2404
@@ -193361,7 +193361,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2407
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2407
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2407
@@ -193369,7 +193369,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2410
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2410
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2410
@@ -193449,7 +193449,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
 invoke.cont92:                                    ; preds = %invoke.cont90
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -193468,7 +193468,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont92, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -193487,7 +193487,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -193506,7 +193506,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -193525,7 +193525,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -193545,7 +193545,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -193693,7 +193693,7 @@ eh.resume:                                        ; preds = %ehcleanup100, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193718,7 +193718,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193743,7 +193743,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193768,7 +193768,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193793,7 +193793,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193818,7 +193818,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -193843,7 +193843,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -193926,7 +193926,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194009,7 +194009,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194085,7 +194085,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194162,7 +194162,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194238,7 +194238,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194381,7 +194381,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2413
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2413
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2413
@@ -194407,7 +194407,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2416
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2416
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2416
@@ -194415,7 +194415,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2419
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2419
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2419
@@ -194423,7 +194423,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2422
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2422
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2422
@@ -194431,7 +194431,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2425
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2425
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2425
@@ -194439,7 +194439,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2428
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2428
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2428
@@ -194519,7 +194519,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -194538,7 +194538,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -194557,7 +194557,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -194576,7 +194576,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -194595,7 +194595,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -194615,7 +194615,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -194763,7 +194763,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194788,7 +194788,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194813,7 +194813,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194838,7 +194838,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194863,7 +194863,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194888,7 +194888,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -194913,7 +194913,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -194996,7 +194996,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -195079,7 +195079,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -195155,7 +195155,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -195232,7 +195232,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -195308,7 +195308,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -195455,7 +195455,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2431
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2431
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2431
@@ -195477,7 +195477,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2434
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2434
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2434
@@ -195485,7 +195485,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2437
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2437
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2437
@@ -195493,7 +195493,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2440
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2440
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2440
@@ -195501,7 +195501,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2443
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2443
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2443
@@ -195509,7 +195509,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2446
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2446
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2446
@@ -195587,7 +195587,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -195606,7 +195606,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -195625,7 +195625,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -195644,7 +195644,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -195663,7 +195663,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -195683,7 +195683,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -195831,7 +195831,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195856,7 +195856,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195881,7 +195881,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195906,7 +195906,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195931,7 +195931,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195956,7 +195956,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -195981,7 +195981,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196064,7 +196064,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196147,7 +196147,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196223,7 +196223,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196300,7 +196300,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196376,7 +196376,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -196523,7 +196523,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2449
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2449
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2449
@@ -196549,7 +196549,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2452
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2452
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2452
@@ -196557,7 +196557,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2455
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2455
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2455
@@ -196565,7 +196565,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2458
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2458
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2458
@@ -196573,7 +196573,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2461
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2461
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2461
@@ -196581,7 +196581,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2464
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2464
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2464
@@ -196661,7 +196661,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 invoke.cont96:                                    ; preds = %invoke.cont94
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -196680,7 +196680,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont96, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -196699,7 +196699,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -196718,7 +196718,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -196737,7 +196737,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -196757,7 +196757,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -196905,7 +196905,7 @@ eh.resume:                                        ; preds = %ehcleanup104, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -196930,7 +196930,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -196955,7 +196955,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -196980,7 +196980,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -197005,7 +197005,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -197030,7 +197030,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -197055,7 +197055,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197138,7 +197138,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197221,7 +197221,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197297,7 +197297,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197374,7 +197374,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197450,7 +197450,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -197593,7 +197593,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2467
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2467
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2467
@@ -197615,7 +197615,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2470
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2470
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2470
@@ -197623,7 +197623,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2473
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2473
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2473
@@ -197631,7 +197631,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2476
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2476
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2476
@@ -197639,7 +197639,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2479
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2479
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2479
@@ -197647,7 +197647,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2482
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2482
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2482
@@ -197727,7 +197727,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
 invoke.cont92:                                    ; preds = %invoke.cont90
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -197746,7 +197746,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont92, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -197765,7 +197765,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -197784,7 +197784,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -197803,7 +197803,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -197823,7 +197823,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -197971,7 +197971,7 @@ eh.resume:                                        ; preds = %ehcleanup100, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -197996,7 +197996,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -198021,7 +198021,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -198046,7 +198046,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -198071,7 +198071,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -198096,7 +198096,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -198121,7 +198121,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198204,7 +198204,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198287,7 +198287,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198363,7 +198363,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198440,7 +198440,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198516,7 +198516,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -198659,7 +198659,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2485
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2485
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2485
@@ -198685,7 +198685,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2488
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2488
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2488
@@ -198693,7 +198693,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2491
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2491
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2491
@@ -198701,7 +198701,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2494
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2494
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2494
@@ -198709,7 +198709,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2497
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2497
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2497
@@ -198717,7 +198717,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2500
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2500
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2500
@@ -198795,7 +198795,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -198814,7 +198814,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -198833,7 +198833,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -198852,7 +198852,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -198871,7 +198871,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -198891,7 +198891,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -199173,7 +199173,7 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199198,7 +199198,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199223,7 +199223,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199248,7 +199248,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199273,7 +199273,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199298,7 +199298,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -199323,7 +199323,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199406,7 +199406,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199489,7 +199489,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199565,7 +199565,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199642,7 +199642,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199718,7 +199718,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -199865,7 +199865,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2509
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2509
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2509
@@ -199887,7 +199887,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2512
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2512
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2512
@@ -199895,7 +199895,7 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2515
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2515
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2515
@@ -199903,7 +199903,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2518
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2518
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2518
@@ -199911,7 +199911,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2521
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2521
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2521
@@ -199919,7 +199919,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2524
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2524
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2524
@@ -199997,7 +199997,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont94:                                    ; preds = %invoke.cont92
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -200016,7 +200016,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont94, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -200035,7 +200035,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -200054,7 +200054,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -200073,7 +200073,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -200093,7 +200093,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -200241,7 +200241,7 @@ eh.resume:                                        ; preds = %ehcleanup102, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200266,7 +200266,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200291,7 +200291,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200316,7 +200316,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200341,7 +200341,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200366,7 +200366,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -200391,7 +200391,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200474,7 +200474,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200557,7 +200557,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200633,7 +200633,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200710,7 +200710,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200786,7 +200786,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -200933,7 +200933,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2527
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2527
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
   %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2527
@@ -200959,7 +200959,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2530
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2530
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2530
@@ -200967,7 +200967,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2533
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2533
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2533
@@ -200975,7 +200975,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2536
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2536
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
   %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2536
@@ -200983,7 +200983,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2539
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2539
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
   %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2539
@@ -200991,7 +200991,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2542
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2542
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
   %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2542
@@ -201071,7 +201071,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 invoke.cont96:                                    ; preds = %invoke.cont94
   %m_decomp.i34 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i34) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 8
   %11 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %11 to i1
@@ -201090,7 +201090,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit: ; preds = %invoke.cont96, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_25) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8
   %need_to_destroy.i35 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 8
   %14 = load i8, ptr %need_to_destroy.i35, align 8
   %tobool.i36 = trunc i8 %14 to i1
@@ -201109,7 +201109,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_ED2Ev.exit, %if.then.i37
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_22) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8
   %need_to_destroy.i39 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 8
   %17 = load i8, ptr %need_to_destroy.i39, align 8
   %tobool.i40 = trunc i8 %17 to i1
@@ -201128,7 +201128,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i41
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_ED2Ev.exit, %if.then.i41
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_19) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8
   %need_to_destroy.i43 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 8
   %20 = load i8, ptr %need_to_destroy.i43, align 8
   %tobool.i44 = trunc i8 %20 to i1
@@ -201147,7 +201147,7 @@ terminate.lpad.i46:                               ; preds = %if.then.i45
 
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_ED2Ev.exit, %if.then.i45
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i47 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 8
   %23 = load i8, ptr %need_to_destroy.i47, align 8
   %tobool.i48 = trunc i8 %23 to i1
@@ -201167,7 +201167,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i49
 _ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_ED2Ev.exit: ; preds = %_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_ED2Ev.exit, %if.then.i49
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i51 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 8
   %26 = load i8, ptr %need_to_destroy.i51, align 8
   %tobool.i52 = trunc i8 %26 to i1
@@ -201315,7 +201315,7 @@ eh.resume:                                        ; preds = %ehcleanup104, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201340,7 +201340,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201365,7 +201365,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201390,7 +201390,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201415,7 +201415,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201440,7 +201440,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy, align 8
   %tobool = trunc i8 %0 to i1
@@ -201465,7 +201465,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -201548,7 +201548,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvENKUlPSoE_clES2_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -201631,7 +201631,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvENKUlPSoE0_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -201707,7 +201707,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvENKUlPSoE1_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -201784,7 +201784,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvENKUlPSoE2_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -201860,7 +201860,7 @@ _ZZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvENKUlPSoE3_clES2_.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %need_to_destroy.i, align 8
   %tobool.i = trunc i8 %0 to i1

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @fmtbuf(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @nxt, align 8
   %3 = ptrtoint ptr %2 to i64
-  %4 = sub i64 ptrtoint (ptr getelementptr inbounds ([16384 x i8], ptr @buf, i64 1, i64 0) to i64), %3
+  %4 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @buf, i64 16384) to i64), %3
   %5 = icmp ult i64 %4, %0
   %spec.select = select i1 %5, ptr @buf, ptr %2
   %6 = getelementptr inbounds i8, ptr %spec.select, i64 %0

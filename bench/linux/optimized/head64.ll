@@ -113,7 +113,7 @@ define dso_local noundef i64 @__startup_64(i64 noundef %0, ptr nocapture noundef
   br label %.preheader8, !llvm.loop !7
 
 20:                                               ; preds = %14
-  %21 = sub i64 %0, ptrtoint (ptr getelementptr ([0 x i8], ptr @_text, i64 0, i64 2147483648) to i64)
+  %21 = sub i64 %0, ptrtoint (ptr getelementptr (i8, ptr @_text, i64 2147483648) to i64)
   %22 = and i64 %21, 2097151
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %.preheader7
@@ -604,7 +604,7 @@ define dso_local void @x86_64_start_kernel(ptr noundef %0) local_unnamed_addr #5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 sub (i64 ptrtoint (ptr @__brk_limit to i64), i64 ptrtoint (ptr @__brk_base to i64)), i1 false)
   tail call fastcc void @clear_page()
-  %6 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !22
+  %6 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_tlbstate, i64 24)) #12, !srcloc !22
   tail call fastcc void @__native_tlb_flush_global(i64 noundef %6)
   tail call void @idt_setup_early_handler() #12
   %7 = ptrtoint ptr %0 to i64
@@ -613,8 +613,8 @@ define dso_local void @x86_64_start_kernel(ptr noundef %0) local_unnamed_addr #5
   %10 = inttoptr i64 %9 to ptr
   tail call fastcc void @copy_bootdata(ptr noundef %10) #13
   tail call void @load_ucode_bsp() #12
-  %11 = load i64, ptr getelementptr inbounds ([512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 511), align 8
-  store i64 %11, ptr getelementptr ([0 x %struct.pgd_t], ptr @init_top_pgt, i64 0, i64 511), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @early_top_pgt, i64 4088), align 8
+  store i64 %11, ptr getelementptr (i8, ptr @init_top_pgt, i64 4088), align 8
   tail call void @x86_64_start_reservations(ptr noundef %0) #14
   unreachable
 }
@@ -622,7 +622,7 @@ define dso_local void @x86_64_start_kernel(ptr noundef %0) local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @cr4_init_shadow() unnamed_addr #6 align 16 {
   %1 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !6
-  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6), i64 %1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !23
+  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_tlbstate, i64 24), i64 %1, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_tlbstate, i64 24)) #12, !srcloc !23
   ret void
 }
 
@@ -649,7 +649,7 @@ declare dso_local void @idt_setup_early_handler() local_unnamed_addr #3
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none)
 define internal fastcc void @copy_bootdata(ptr nocapture noundef readonly %0) unnamed_addr #7 section ".init.text" align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) @boot_params, ptr noundef align 1 dereferenceable(4096) %0, i64 4096, i1 false)
-  %2 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 26), align 1
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 495), align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %18, label %4
 
@@ -677,9 +677,9 @@ define internal fastcc void @copy_bootdata(ptr nocapture noundef readonly %0) un
   br label %18
 
 18:                                               ; preds = %17, %1
-  %19 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 23), align 1
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 552), align 1
   %20 = zext i32 %19 to i64
-  %21 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 13), align 1
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 200), align 1
   %22 = zext i32 %21 to i64
   %23 = shl nuw i64 %22, 32
   %24 = or disjoint i64 %23, %20
@@ -705,7 +705,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid optsize
 define dso_local void @x86_64_start_reservations(ptr noundef %0) local_unnamed_addr #5 section ".init.text" align 16 {
-  %2 = load i16, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9), align 1
+  %2 = load i16, ptr getelementptr inbounds (i8, ptr @boot_params, i64 518), align 1
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %4, label %9
 
@@ -731,7 +731,7 @@ declare dso_local void @start_kernel() local_unnamed_addr #9 section ".init.text
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @early_setup_idt() local_unnamed_addr #0 align 16 {
-  store i64 ptrtoint (ptr @bringup_idt_table to i64), ptr getelementptr inbounds (%struct.desc_ptr, ptr @bringup_idt_descr, i64 0, i32 1), align 1
+  store i64 ptrtoint (ptr @bringup_idt_table to i64), ptr getelementptr inbounds (i8, ptr @bringup_idt_descr, i64 2), align 1
   tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @bringup_idt_descr) #12, !srcloc !26
   ret void
 }
@@ -741,7 +741,7 @@ define dso_local void @startup_64_setup_env(i64 noundef %0) local_unnamed_addr #
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr i8, ptr %2, i64 sub (i64 ptrtoint (ptr @startup_gdt to i64), i64 ptrtoint (ptr @_text to i64))
   %4 = ptrtoint ptr %3 to i64
-  store i64 %4, ptr getelementptr inbounds (%struct.desc_ptr, ptr @startup_gdt_descr, i64 0, i32 1), align 1
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @startup_gdt_descr, i64 2), align 1
   tail call void asm sideeffect "lgdt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @startup_gdt_descr) #12, !srcloc !27
   tail call void asm sideeffect "movl %eax, %ds\0Amovl %eax, %ss\0Amovl %eax, %es\0A", "{ax},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 24) #12, !srcloc !28
   %5 = getelementptr i8, ptr %2, i64 sub (i64 ptrtoint (ptr @bringup_idt_descr to i64), i64 ptrtoint (ptr @_text to i64))

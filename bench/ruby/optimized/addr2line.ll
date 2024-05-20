@@ -3023,7 +3023,7 @@ define internal fastcc void @follow_debuglink(ptr noundef %0, i32 noundef %1, pt
   store i8 0, ptr %11, align 1
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @binary_filename) #18
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %12, i64 4081)
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 getelementptr inbounds ([4097 x i8], ptr @binary_filename, i64 0, i64 14), ptr nonnull align 16 @binary_filename, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 getelementptr inbounds (i8, ptr @binary_filename, i64 14), ptr nonnull align 16 @binary_filename, i64 %spec.store.select, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) @binary_filename, ptr noundef nonnull align 1 dereferenceable(14) @follow_debuglink.global_debug_dir, i64 14, i1 false)
   %13 = getelementptr i8, ptr @binary_filename, i64 %spec.store.select
   %14 = getelementptr i8, ptr %13, i64 14
@@ -3066,7 +3066,7 @@ define internal fastcc void @follow_debuglink_build_id(ptr nocapture noundef rea
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %28
-  %.027 = phi ptr [ %.1, %28 ], [ getelementptr inbounds ([4097 x i8], ptr @binary_filename, i64 0, i64 25), %11 ]
+  %.027 = phi ptr [ %.1, %28 ], [ getelementptr inbounds (i8, ptr @binary_filename, i64 25), %11 ]
   %.02526 = phi i64 [ %29, %28 ], [ 0, %11 ]
   %12 = getelementptr i8, ptr %0, i64 %.02526
   %13 = load i8, ptr %12, align 1
@@ -3098,7 +3098,7 @@ define internal fastcc void @follow_debuglink_build_id(ptr nocapture noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %28, %11
-  %.0.lcssa = phi ptr [ getelementptr inbounds ([4097 x i8], ptr @binary_filename, i64 0, i64 25), %11 ], [ %.1, %28 ]
+  %.0.lcssa = phi ptr [ getelementptr inbounds (i8, ptr @binary_filename, i64 25), %11 ], [ %.1, %28 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.0.lcssa, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, i64 7, i1 false) #17
   %30 = tail call noalias dereferenceable_or_null(272) ptr @calloc(i64 noundef 1, i64 noundef 272) #16
   %31 = load ptr, ptr %4, align 8

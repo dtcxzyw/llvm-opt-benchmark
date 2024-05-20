@@ -33,7 +33,7 @@ define ptr @alloc_parser_obj(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 13:                                               ; preds = %7, %9
   %.0 = phi ptr [ %8, %7 ], [ %12, %9 ]
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 256
   %.not9 = icmp eq i64 %15, 0
   br i1 %.not9, label %24, label %16
@@ -74,7 +74,7 @@ define void @free_parser_obj(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br i1 %.not, label %22, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 256
   %.not10 = icmp eq i64 %8, 0
   br i1 %.not10, label %17, label %9

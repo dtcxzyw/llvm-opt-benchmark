@@ -497,7 +497,7 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
 
 160:                                              ; preds = %158, %.loopexit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  store ptr @SerialPagePrecedesLogically, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @SerialSlruCtlData, i64 0, i32 4), align 8
+  store ptr @SerialPagePrecedesLogically, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 16), align 8
   %161 = load i32, ptr @serializable_buffers, align 4
   call void @SimpleLruInit(ptr noundef nonnull @SerialSlruCtlData, ptr noundef nonnull @.str.22, i32 noundef %161, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false) #12
   %162 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.24, i64 noundef 12, ptr noundef nonnull %1) #12
@@ -1027,7 +1027,7 @@ CreatePredXact.exit.thread:                       ; preds = %13, %CreatePredXact
   %65 = phi i64 [ %63, %61 ], [ -1, %59 ]
   %66 = zext i32 %54 to i64
   %67 = lshr i64 %66, 10
-  %68 = load i16, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @SerialSlruCtlData, i64 0, i32 1), align 8
+  %68 = load i16, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 8), align 8
   %69 = zext i16 %68 to i64
   %70 = and i64 %67, %69
   %71 = load ptr, ptr @SerialSlruCtlData, align 8
@@ -4493,7 +4493,7 @@ SerialGetMinConflictCommitSeqNo.exit:             ; preds = %52
   %64 = and i64 %63, 8184
   %65 = getelementptr i8, ptr %62, i64 %64
   %66 = load i64, ptr %65, align 8
-  %67 = load i16, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @SerialSlruCtlData, i64 0, i32 1), align 8
+  %67 = load i16, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 8), align 8
   %68 = zext i16 %67 to i64
   %69 = and i64 %55, %68
   %70 = getelementptr inbounds i8, ptr %57, i64 56

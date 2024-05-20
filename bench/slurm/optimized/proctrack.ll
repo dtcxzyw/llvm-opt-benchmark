@@ -67,14 +67,14 @@ define range(i32 -1, 1) i32 @proctrack_g_init() local_unnamed_addr #0 {
   br i1 %.not8, label %6, label %12
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 137), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 912), align 8
   %8 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 64) #10
   store ptr %8, ptr @g_context, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 137), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 912), align 8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %10) #10
   br label %12
 
@@ -137,7 +137,7 @@ define i32 @proctrack_g_create(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @proctrack_g_add(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %4 = tail call i32 %3(ptr noundef %0, i32 noundef %1) #10
   %.not7 = icmp eq i32 %4, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -166,7 +166,7 @@ define i32 @proctrack_g_add(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 16:                                               ; preds = %13, %9
   %17 = tail call i32 @sleep(i32 noundef 1) #10
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1) #10
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !6
@@ -196,7 +196,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %11 = call i32 %10(i64 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.preheader, label %77
@@ -365,7 +365,7 @@ _spawn_signal_thread.exit:                        ; preds = %72, %74
   br label %80
 
 77:                                               ; preds = %.thread, %9, %2
-  %78 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 2), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %79 = call i32 %78(i64 noundef %0, i32 noundef %1) #10
   br label %80
 
@@ -376,7 +376,7 @@ _spawn_signal_thread.exit:                        ; preds = %72, %74
 
 ; Function Attrs: nounwind uwtable
 define i32 @proctrack_g_get_pids(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %5 = tail call i32 %4(i64 noundef %0, ptr noundef %1, ptr noundef %2) #10
   ret i32 %5
 }
@@ -518,28 +518,28 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @proctrack_g_destroy(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %3 = tail call i32 %2(i64 noundef %0) #10
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @proctrack_g_find(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %3 = tail call i64 %2(i32 noundef %0) #10
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @proctrack_g_has_pid(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 5), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %4 = tail call zeroext i1 %3(i64 noundef %0, i32 noundef %1) #10
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @proctrack_g_wait(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 6), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %3 = tail call i32 %2(i64 noundef %0) #10
   ret i32 %3
 }
@@ -595,7 +595,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
   %5 = load i64, ptr %0, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %7 = call i32 %6(i64 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.preheader16, label %.loopexit
@@ -651,7 +651,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
   store ptr null, ptr %4, align 8
   %30 = call i32 @sleep(i32 noundef 5) #10
   %31 = load i64, ptr %0, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %33 = call i32 %32(i64 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.preheader16, label %.loopexit
@@ -674,7 +674,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.critedge, %._crit_edge
-  %44 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 2), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %45 = load i64, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8

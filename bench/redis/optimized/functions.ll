@@ -533,7 +533,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %do.body
 
 do.body:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp = icmp sgt i32 %1, 3
   br i1 %cmp, label %do.end, label %if.end
 
@@ -604,7 +604,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 20), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 256), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %0) #11
   br label %return
 
@@ -1205,7 +1205,7 @@ if.else77:                                        ; preds = %sdslen.exit132
 
 if.end78:                                         ; preds = %if.else77, %sdslen.exit151
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.20) #11
-  %55 = load ptr, ptr getelementptr inbounds ([0 x %struct.scriptFlag], ptr @scripts_flags_def, i64 0, i64 0, i32 1), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @scripts_flags_def, i64 8), align 8
   %tobool.not9.i = icmp eq ptr %55, null
   br i1 %tobool.not9.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -1235,7 +1235,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end78
   %flagcount.0.lcssa.i = phi i64 [ 0, %if.end78 ], [ %59, %for.end.loopexit.i ]
   tail call void @addReplySetLen(ptr noundef %c, i64 noundef %flagcount.0.lcssa.i) #11
-  %60 = load ptr, ptr getelementptr inbounds ([0 x %struct.scriptFlag], ptr @scripts_flags_def, i64 0, i64 0, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @scripts_flags_def, i64 8), align 8
   %tobool6.not12.i = icmp eq ptr %60, null
   br i1 %tobool6.not12.i, label %functionListReplyFlags.exit, label %for.body7.lr.ph.i
 
@@ -1385,9 +1385,9 @@ engineLibraryFree.exit:                           ; preds = %entry
   %8 = load ptr, ptr %code.i, align 8
   tail call void @sdsfree(ptr noundef %8) #11
   tail call void @zfree(ptr noundef nonnull %call) #11
-  %9 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %9, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %10 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %10) #11
   br label %return
@@ -1592,7 +1592,7 @@ define internal fastcc void @fcallCommandGeneric(ptr noundef %c, i32 noundef %ro
 entry:
   %numkeys = alloca i64, align 8
   %run_ctx = alloca %struct.scriptRunCtx, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 60), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1472), align 8
   %db = getelementptr inbounds i8, ptr %c, i64 32
   %1 = load ptr, ptr %db, align 8
   %id = getelementptr inbounds i8, ptr %1, i64 48
@@ -1952,9 +1952,9 @@ if.else52:                                        ; preds = %while.end
 
 if.end60:                                         ; preds = %if.else52, %if.then51
   %functions_lib_ctx.0 = phi ptr [ null, %if.then51 ], [ %call25, %if.else52 ]
-  %15 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %15, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %load_errorthread-pre-split
 
 load_errorthread-pre-split:                       ; preds = %if.end60, %if.else52
@@ -2209,7 +2209,7 @@ if.else18:                                        ; preds = %if.end, %land.lhs.t
   br label %return
 
 if.end21:                                         ; preds = %if.end
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 392), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5344), align 8
   %tobool17.not.not = icmp eq i32 %6, 0
   %7 = load ptr, ptr @curr_functions_lib_ctx, align 8
   br i1 %tobool17.not.not, label %if.else.i, label %if.then.i
@@ -2227,9 +2227,9 @@ if.else.i:                                        ; preds = %if.end21.thread, %i
   br label %functionsLibCtxClearCurrent.exit
 
 functionsLibCtxClearCurrent.exit:                 ; preds = %if.then.i, %if.else.i
-  %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %10, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %11 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %11) #11
   br label %return
@@ -2944,9 +2944,9 @@ if.then16:                                        ; preds = %if.end5
   br label %return
 
 if.end17:                                         ; preds = %if.end5
-  %11 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc18 = add nsw i64 %11, 1
-  store i64 %inc18, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  store i64 %inc18, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef nonnull %call14) #11
   br label %return
 

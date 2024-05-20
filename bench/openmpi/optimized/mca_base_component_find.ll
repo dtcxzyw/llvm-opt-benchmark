@@ -84,10 +84,10 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %28
-  %34 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 8), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 56), align 8
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #9
   %36 = load i32, ptr @opal_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 4), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i34 = icmp eq i32 %36, %37
   br i1 %.not.i34, label %39, label %38
 
@@ -103,7 +103,7 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   store ptr @mca_base_component_list_item_t_class, ptr %35, align 8
   %41 = getelementptr inbounds i8, ptr %35, i64 8
   store volatile i32 1, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_component_list_item_t_class, i64 0, i32 6), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %43 = load ptr, ptr %42, align 8
   %.not6.i.i = icmp eq ptr %43, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread49, label %.lr.ph.i.i
@@ -431,13 +431,13 @@ define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %
   br i1 %.not35, label %._crit_edge, label %.lr.ph50, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %8, %.loopexit
-  %32 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %opal_gethostname.exit
 
 34:                                               ; preds = %._crit_edge
   %35 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %._crit_edge, %34

@@ -826,7 +826,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i39, align 8, !noalias !6
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i39, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %m)
           to label %invoke.cont19 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !6
@@ -1345,7 +1345,7 @@ call5.i.i.i3.i.i.i.i.noexc216:                    ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i211, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i212 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i217, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i212, align 4, !noalias !10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i217, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i217, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i213 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i217, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i213, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(16) %z73, ptr noundef nonnull align 8 dereferenceable(16) %z73, ptr noundef nonnull align 8 dereferenceable(16) %z73, ptr noundef nonnull align 8 dereferenceable(16) %m60)
           to label %invoke.cont77 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i214, !noalias !10
@@ -2191,7 +2191,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !14
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i66, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i66, align 8, !noalias !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i66, align 8, !noalias !14
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i66, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull align 8 dereferenceable(16) %m)
           to label %invoke.cont20 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !14
@@ -2689,7 +2689,7 @@ call5.i.i.i3.i.i.i.i.noexc235:                    ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i230, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i231 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i236, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i231, align 4, !noalias !18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i236, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i236, align 8, !noalias !18
   %_M_impl.i.i.i.i.i.i232 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i236, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i232, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(16) %z68, ptr noundef nonnull align 8 dereferenceable(16) %z68, ptr noundef nonnull align 8 dereferenceable(16) %z68, ptr noundef nonnull align 8 dereferenceable(16) %m55)
           to label %invoke.cont72 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i233, !noalias !18
@@ -3187,7 +3187,7 @@ call5.i.i.i3.i.i.i.i.noexc433:                    ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i428, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i429 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i434, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i429, align 4, !noalias !22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i434, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i434, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i430 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i434, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i430, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(16) %z123, ptr noundef nonnull align 8 dereferenceable(16) %z123, ptr noundef nonnull align 8 dereferenceable(16) %z123, ptr noundef nonnull align 8 dereferenceable(16) %m110)
           to label %invoke.cont127 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i431, !noalias !22
@@ -3685,7 +3685,7 @@ call5.i.i.i3.i.i.i.i.noexc631:                    ; preds = %_ZNSt10shared_ptrIK
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i626, align 8, !noalias !26
   %_M_weak_count.i.i.i.i.i.i627 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i632, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i627, align 4, !noalias !26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i632, align 8, !noalias !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i632, align 8, !noalias !26
   %_M_impl.i.i.i.i.i.i628 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i632, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS0_12GradingStyleERSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i628, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp180, ptr noundef nonnull align 8 dereferenceable(16) %z178, ptr noundef nonnull align 8 dereferenceable(16) %z178, ptr noundef nonnull align 8 dereferenceable(16) %z178, ptr noundef nonnull align 8 dereferenceable(16) %m165)
           to label %invoke.cont182 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i629, !noalias !26
@@ -8702,9 +8702,9 @@ entry:
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 40
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector.13", ptr @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(40) @constinit, i64 40, i1 false)
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector.13", ptr @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, i64 8), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIdSaIdEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, ptr nonnull @__dso_handle) #17
   tail call void @_ZN19OpenColorIO_v2_4dev9LogOpDataC1EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL3logE, double noundef 2.000000e+00, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL6paramsE, i32 noundef 1)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_4dev9LogOpDataD1Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev17ACEScct_to_LINEARL3logE, ptr nonnull @__dso_handle) #17

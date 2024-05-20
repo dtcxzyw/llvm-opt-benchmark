@@ -66,8 +66,8 @@ define internal i32 @ptp_kvm_init() #0 section ".init.text" align 16 {
   br label %10
 
 4:                                                ; preds = %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) getelementptr inbounds (%struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(184) @ptp_kvm_caps, i64 184, i1 false)
-  %5 = tail call ptr @ptp_clock_register(ptr noundef nonnull getelementptr inbounds (%struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1), ptr noundef null) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) getelementptr inbounds (i8, ptr @kvm_ptp_clock, i64 8), ptr noundef nonnull align 8 dereferenceable(184) @ptp_kvm_caps, i64 184, i1 false)
+  %5 = tail call ptr @ptp_clock_register(ptr noundef nonnull getelementptr inbounds (i8, ptr @kvm_ptp_clock, i64 8), ptr noundef null) #11
   store ptr %5, ptr @kvm_ptp_clock, align 8
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   %7 = ptrtoint ptr %5 to i64
@@ -171,7 +171,7 @@ define internal i32 @ptp_kvm_get_time_fn(ptr nocapture noundef writeonly %0, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !annotation !6
   tail call void @_raw_spin_lock(ptr noundef nonnull @kvm_ptp_lock) #11
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !7
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
   %7 = call i32 @kvm_arch_ptp_get_crosststamp(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %8 = icmp eq i32 %7, 0
@@ -180,7 +180,7 @@ define internal i32 @ptp_kvm_get_time_fn(ptr nocapture noundef writeonly %0, ptr
 9:                                                ; preds = %3
   call void @_raw_spin_unlock(ptr noundef nonnull @kvm_ptp_lock) #11
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
-  %10 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !10
+  %10 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !10
   %11 = icmp ult i8 %10, 2
   call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
@@ -194,7 +194,7 @@ define internal i32 @ptp_kvm_get_time_fn(ptr nocapture noundef writeonly %0, ptr
 
 16:                                               ; preds = %3
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
-  %17 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !10
+  %17 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !10
   %18 = icmp ult i8 %17, 2
   call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0

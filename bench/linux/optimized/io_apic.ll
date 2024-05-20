@@ -2418,7 +2418,7 @@ define dso_local void @native_restore_boot_irq_mode() local_unnamed_addr #3 alig
   br label %36
 
 36:                                               ; preds = %3, %0
-  %37 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %37 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %38 = and i64 %37, 512
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %46
@@ -2453,7 +2453,7 @@ define dso_local void @restore_boot_irq_mode() local_unnamed_addr #3 align 16 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.x86_apic_ops, ptr @x86_apic_ops, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_apic_ops, i64 8), align 8
   tail call void %5() #25
   br label %6
 
@@ -2520,7 +2520,7 @@ define dso_local void @setup_IO_APIC() local_unnamed_addr #8 section ".init.text
   unreachable
 
 .loopexit5:                                       ; preds = %18, %15
-  %26 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 24), align 8
   tail call void %26() #25
   tail call void @sync_Arb_IDs() #25
   tail call fastcc void @setup_IO_APIC_irqs() #26
@@ -3739,7 +3739,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
   br i1 %25, label %26, label %140
 
 26:                                               ; preds = %13
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %28 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 32) #27
   %29 = icmp eq ptr %28, null
   br i1 %29, label %140, label %30
@@ -3839,7 +3839,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
   br i1 %88, label %.loopexit9, label %.preheader, !llvm.loop !74
 
 .loopexit9:                                       ; preds = %86, %74
-  %89 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %90 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %89, i32 noundef 2336, i32 noundef %75, i64 noundef 24) #28
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %94
@@ -4351,7 +4351,7 @@ define internal fastcc i32 @alloc_isa_irq_from_domain(ptr noundef %0, i32 nounde
   br i1 %41, label %.loopexit6, label %.preheader, !llvm.loop !74
 
 .loopexit6:                                       ; preds = %39, %24
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %43 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %42, i32 noundef 2336, i32 noundef %16, i64 noundef 24) #28
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
@@ -5002,7 +5002,7 @@ define internal fastcc range(i32 0, 2) i32 @timer_irq_works() unnamed_addr #8 se
 
 4:                                                ; preds = %0
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !60
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %6 = and i64 %5, 16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %9, label %8
@@ -5079,7 +5079,7 @@ define internal fastcc void @replace_pin_at_irq_node(ptr noundef %0, i32 noundef
   br i1 %33, label %.loopexit3.i, label %.preheader.i, !llvm.loop !74
 
 .loopexit3.i:                                     ; preds = %31, %6
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %35 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %34, i32 noundef 2336, i32 noundef %1, i64 noundef 24) #28
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
@@ -5195,7 +5195,7 @@ define internal fastcc zeroext i1 @apic_is_x2apic_enabled() unnamed_addr #17 ali
   %1 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 27) #25, !srcloc !97
   %2 = extractvalue { i32, i64, i64 } %1, 0
   %3 = extractvalue { i32, i64, i64 } %1, 1
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #25
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #25
           to label %8 [label %4], !srcloc !98
 
 4:                                                ; preds = %0

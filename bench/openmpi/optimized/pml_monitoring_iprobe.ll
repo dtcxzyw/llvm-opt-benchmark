@@ -9,28 +9,28 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_iprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 13), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 104), align 8
   %7 = tail call i32 %6(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_probe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 14), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 112), align 8
   %6 = tail call i32 %5(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #1
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_improbe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 128), align 8
   %8 = tail call i32 %7(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_mprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 17), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 136), align 8
   %7 = tail call i32 %6(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1
   ret i32 %7
 }

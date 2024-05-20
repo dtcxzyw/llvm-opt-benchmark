@@ -117,7 +117,7 @@ define dso_local void @jit_release_context(ptr noundef %0) local_unnamed_addr #0
   br i1 %.b2, label %2, label %4
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.JitProviderCallbacks, ptr @provider, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @provider, i64 8), align 8
   tail call void %3(ptr noundef %0) #3
   br label %4
 
@@ -149,7 +149,7 @@ define dso_local zeroext i1 @jit_compile_expr(ptr noundef %0) local_unnamed_addr
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr getelementptr inbounds (%struct.JitProviderCallbacks, ptr @provider, i64 0, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @provider, i64 16), align 8
   %14 = tail call zeroext i1 %13(ptr noundef nonnull %0) #3
   br label %15
 

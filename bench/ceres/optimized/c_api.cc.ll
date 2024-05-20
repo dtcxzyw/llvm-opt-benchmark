@@ -184,7 +184,7 @@ declare void @_ZN5ceres7ProblemD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ceres_create_huber_loss_function_data(double noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres9HuberLossE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres9HuberLossE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store double %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
@@ -196,7 +196,7 @@ define hidden noalias noundef nonnull ptr @ceres_create_huber_loss_function_data
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ceres_create_softl1_loss_function_data(double noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12SoftLOneLossE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12SoftLOneLossE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = fmul double %0, %0
   store double %4, ptr %3, align 8
@@ -209,7 +209,7 @@ define hidden noalias noundef nonnull ptr @ceres_create_softl1_loss_function_dat
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ceres_create_cauchy_loss_function_data(double noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres10CauchyLossE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres10CauchyLossE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = fmul double %0, %0
   store double %4, ptr %3, align 8
@@ -222,7 +222,7 @@ define hidden noalias noundef nonnull ptr @ceres_create_cauchy_loss_function_dat
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ceres_create_arctan_loss_function_data(double noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres10ArctanLossE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres10ArctanLossE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store double %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
@@ -304,7 +304,7 @@ _ZSt11make_uniqueI20CallbackCostFunctionJRPFiPvPPdS2_S3_ERS1_RiS8_RPiEENSt8__det
           to label %_ZNSt10unique_ptrI20CallbackLossFunctionSt14default_deleteIS0_EED2Ev.exit unwind label %19
 
 _ZNSt10unique_ptrI20CallbackLossFunctionSt14default_deleteIS0_EED2Ev.exit: ; preds = %15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20CallbackLossFunction, i64 0, i32 0, i64 2), ptr %16, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20CallbackLossFunction, i64 16), ptr %16, align 8, !noalias !7
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %3, ptr %17, align 8, !noalias !7
   %18 = getelementptr inbounds i8, ptr %16, i64 16
@@ -581,7 +581,7 @@ define linkonce_odr hidden void @_ZN5ceres6Solver7OptionsC2Ev(ptr noundef nonnul
           to label %.noexc2 unwind label %53
 
 .noexc2:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.1, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %46
 
 46:                                               ; preds = %.noexc2
@@ -643,7 +643,7 @@ define linkonce_odr hidden void @_ZN5ceres6Solver7SummaryC2Ev(ptr noundef nonnul
           to label %.noexc2 unwind label %37
 
 .noexc2:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.3, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc2
@@ -1235,7 +1235,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_iiPi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20CallbackCostFunction, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20CallbackCostFunction, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48

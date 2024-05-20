@@ -3385,7 +3385,7 @@ declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, double noundef %2) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22QCPAbstractPaintBuffer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPaintBuffer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %4, align 8
@@ -3480,7 +3480,7 @@ define void @_ZN22QCPAbstractPaintBuffer19setDevicePixelRatioEd(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN20QCPPaintBufferPixmapC2ERK5QSized(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, double noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22QCPAbstractPaintBuffer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPaintBuffer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %4, align 8
@@ -3488,7 +3488,7 @@ define void @_ZN20QCPPaintBufferPixmapC2ERK5QSized(ptr noundef nonnull align 8 d
   store double %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20QCPPaintBufferPixmap, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
   invoke void @_ZN20QCPPaintBufferPixmap16reallocateBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -3554,7 +3554,7 @@ define void @_ZN20QCPPaintBufferPixmap16reallocateBufferEv(ptr noundef nonnull a
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = getelementptr inbounds i8, ptr %4, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -3574,7 +3574,7 @@ define void @_ZN20QCPPaintBufferPixmap16reallocateBufferEv(ptr noundef nonnull a
   call void @_ZN7QPixmapC1ERK5QSize(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(8) %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %2, align 8
   %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = getelementptr inbounds i8, ptr %6, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -3597,7 +3597,7 @@ declare void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20QCPPaintBufferPixmapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20QCPPaintBufferPixmap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #47
   ret void
@@ -3699,7 +3699,7 @@ declare void @_ZN7QPixmap19setDevicePixelRatioEd(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QCPLayerC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPLayer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3738,7 +3738,7 @@ declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16),
 define void @_ZN8QCPLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPLayer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -5599,7 +5599,7 @@ define void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull a
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5873,7 +5873,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12QCPLayerableD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9239,7 +9239,7 @@ _ZN7QStringD2Ev.exit:
   %3 = alloca %class.QBrush, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16QCPSelectionRect, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -9295,7 +9295,7 @@ declare void @_ZN6QBrushC1EN2Qt10BrushStyleE(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16QCPSelectionRectD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16QCPSelectionRect, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -9312,7 +9312,7 @@ _ZN16QCPSelectionRect6cancelEv.exit:              ; preds = %1, %5
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #47
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -9807,7 +9807,7 @@ define void @_ZN14QCPMarginGroupC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %9 = alloca %class.QList.59, align 8
   %10 = alloca %class.QList.59, align 8
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPMarginGroup, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10093,7 +10093,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %3, %7, %_ZN12QHashP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14QCPMarginGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPMarginGroup, i64 16), ptr %0, align 8
   invoke void @_ZN14QCPMarginGroup5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %2 unwind label %4
 
@@ -11326,7 +11326,7 @@ _ZN7QStringD2Ev.exit:
   %2 = alloca %class.QString, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16QCPLayoutElement, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -11348,7 +11348,7 @@ _ZN7QStringD2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16QCPLayoutElementD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16QCPLayoutElement, i64 16), ptr %0, align 8
   invoke void @_ZN16QCPLayoutElement14setMarginGroupE6QFlagsIN3QCP10MarginSideEEP14QCPMarginGroup(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 255, ptr noundef null)
           to label %2 unwind label %53
 
@@ -11433,7 +11433,7 @@ _ZN12QHashPrivate4DataINS_4NodeIN3QCP10MarginSideEP14QCPMarginGroupEEED2Ev.exit.
   br label %_ZN5QHashIN3QCP10MarginSideEP14QCPMarginGroupED2Ev.exit
 
 _ZN5QHashIN3QCP10MarginSideEP14QCPMarginGroupED2Ev.exit: ; preds = %12, %15, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %19, %_ZN12QHashPrivate4DataINS_4NodeIN3QCP10MarginSideEP14QCPMarginGroupEEED2Ev.exit.i
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not.i1 = icmp eq ptr %38, null
@@ -13004,7 +13004,7 @@ define void @_ZN9QCPLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(168) 
   store i32 255, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLayout, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9QCPLayout, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -15686,7 +15686,7 @@ define void @_ZN13QCPLayoutGridC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store i32 255, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPLayoutGrid, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 168
   %14 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 72, i1 false)
@@ -15696,8 +15696,8 @@ define void @_ZN13QCPLayoutGridC2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13QCPLayoutGridD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i64 0, i32 0, i64 33), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPLayoutGrid, i64 16), ptr %0, align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV13QCPLayoutGrid, i64 264), align 8
   %3 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -22050,7 +22050,7 @@ define void @_ZN14QCPLayoutInsetC2Ev(ptr noundef nonnull align 8 dereferenceable
   store i32 255, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPLayoutInset, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 96, i1 false)
   ret void
@@ -22058,8 +22058,8 @@ define void @_ZN14QCPLayoutInsetC2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14QCPLayoutInsetD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i64 0, i32 0, i64 33), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPLayoutInset, i64 16), ptr %0, align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV14QCPLayoutInset, i64 264), align 8
   %3 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -25170,7 +25170,7 @@ define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd(ptr nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22QCPLabelPainterPrivateC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPLabelPainterPrivate, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
@@ -25369,7 +25369,7 @@ declare void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22QCPLabelPainterPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPLabelPainterPrivate, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZN12QHashPrivate4DataIN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEE4NodeEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -28277,7 +28277,7 @@ _ZN22QCPLabelPainterPrivate11CachedLabelC2Ev.exit: ; preds = %2
   call void @_ZN7QPixmapC1ERK5QSize(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %4) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %4, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 16
   %53 = getelementptr inbounds i8, ptr %5, i64 16
   %54 = load ptr, ptr %53, align 8
@@ -28315,7 +28315,7 @@ _ZN22QCPLabelPainterPrivate11CachedLabelC2Ev.exit: ; preds = %2
   call void @_ZN7QPixmapC1ERK5QSize(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %68 = getelementptr inbounds i8, ptr %3, i64 16
   %69 = getelementptr inbounds i8, ptr %7, i64 16
   %70 = load ptr, ptr %69, align 8
@@ -29099,7 +29099,7 @@ declare noundef i32 @_ZNK12QFontMetrics7descentEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13QCPAxisTickerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13QCPAxisTicker, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPAxisTicker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -30795,7 +30795,7 @@ define void @_ZN21QCPAxisTickerDateTimeC2Ev(ptr noundef nonnull align 8 derefere
   store i32 5, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAxisTickerDateTime, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 17, ptr nonnull @.str.49)
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -31874,7 +31874,7 @@ define void @_ZN17QCPAxisTickerTimeC2Ev(ptr noundef nonnull align 8 dereferencea
   store i32 5, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPAxisTickerTime, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 8, ptr nonnull @.str.50)
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -33434,7 +33434,7 @@ define void @_ZN18QCPAxisTickerFixedC2Ev(ptr nocapture noundef nonnull writeonly
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 5, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18QCPAxisTickerFixed, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18QCPAxisTickerFixed, i64 16), ptr %0, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
@@ -33584,7 +33584,7 @@ define void @_ZN17QCPAxisTickerTextC2Ev(ptr nocapture noundef nonnull writeonly 
   store i32 5, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPAxisTickerText, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -34412,7 +34412,7 @@ define void @_ZN15QCPAxisTickerPiC2Ev(ptr noundef nonnull align 8 dereferenceabl
   store i32 5, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPAxisTickerPi, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 1, ptr nonnull @.str.59)
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
@@ -36010,7 +36010,7 @@ define void @_ZN16QCPAxisTickerLogC2Ev(ptr nocapture noundef nonnull writeonly a
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 5, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16QCPAxisTickerLog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16QCPAxisTickerLog, i64 16), ptr %0, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+01>, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 8, ptr %5, align 8
@@ -36453,7 +36453,7 @@ _ZN7QStringD2Ev.exit:
   %13 = load ptr, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %13, ptr noundef nonnull %2, ptr noundef nonnull %1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV7QCPGrid, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPGrid, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 58
@@ -37786,7 +37786,7 @@ _ZN7QStringD2Ev.exit:
   %13 = load ptr, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPAxis, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %2, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 64
@@ -38443,7 +38443,7 @@ _ZN14QSharedPointerI13QCPAxisTickerE5derefEv.exit: ; preds = %1, %_ZN15QtSharedP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7QCPAxisD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPAxis, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -38619,7 +38619,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN14QSharedPointer
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #47
   %70 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #47
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 48
   %72 = load ptr, ptr %71, align 8
   %.not.i = icmp eq ptr %72, null
@@ -41421,7 +41421,7 @@ _Zeq9QMetaTypeS_.exit.thread6:                    ; preds = %17
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %21, %18
   %.0.i.i = phi i32 [ %22, %21 ], [ %20, %18 ]
-  %23 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %23 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %23, 0
   br i1 %.not5.i7.i, label %24, label %_Zeq9QMetaTypeS_.exit
 
@@ -44310,7 +44310,7 @@ define void @_ZN21QCPAxisPainterPrivateC2EP11QCustomPlot(ptr noundef nonnull ali
   %3 = alloca %class.QBrush, align 8
   %4 = alloca %class.QBrush, align 8
   %5 = alloca %class.QBrush, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAxisPainterPrivate, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44513,7 +44513,7 @@ _ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEEC2Ex.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21QCPAxisPainterPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAxisPainterPrivate, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @_ZN12QHashPrivate4DataIN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE4NodeEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -47585,7 +47585,7 @@ _ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit: ; preds = %_ZN6QCacheI7QString
 121:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %8) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %8, align 8
   %122 = getelementptr inbounds i8, ptr %8, i64 16
   %123 = getelementptr inbounds i8, ptr %10, i64 16
   %124 = load ptr, ptr %123, align 8
@@ -47634,7 +47634,7 @@ _ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit: ; preds = %_ZN6QCacheI7QString
 141:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %7, align 8
   %142 = getelementptr inbounds i8, ptr %7, i64 16
   %143 = getelementptr inbounds i8, ptr %12, i64 16
   %144 = load ptr, ptr %143, align 8
@@ -51506,7 +51506,7 @@ declare void @_ZN8QPainter8drawPathERK12QPainterPath(ptr noundef nonnull align 8
 define void @_ZN21QCPSelectionDecoratorC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QBrush, align 8
   %3 = alloca %class.QColor, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPSelectionDecorator, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 4
@@ -51564,7 +51564,7 @@ define void @_ZN21QCPSelectionDecoratorC2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21QCPSelectionDecoratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPSelectionDecorator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN12QPainterPathD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -51917,7 +51917,7 @@ _ZN7QStringD2Ev.exit:
   %11 = getelementptr inbounds i8, ptr %1, i64 64
   %12 = load ptr, ptr %11, align 8
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %10, ptr noundef nonnull %3, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20QCPAbstractPlottable, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 88
@@ -52389,7 +52389,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20QCPAbstractPlottableD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20QCPAbstractPlottable, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -52480,7 +52480,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN8QPointerI7QCPAx
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN8QPointerI7QCPAxisED2Ev.exit3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %35
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
@@ -54662,7 +54662,7 @@ _ZN16QCPDataSelectionD2Ev.exit16:                 ; preds = %52, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #31 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %6, align 8
@@ -54697,7 +54697,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %5, %14
 define void @_ZN13QCPItemAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.125, align 8
   %3 = alloca %class.QList.125, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZNK4QSetIP15QCPItemPositionE6valuesEv(ptr dead_on_unwind nonnull writable sret(%class.QList.125) align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN5QListIP15QCPItemPositionED2Ev.exit unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -56158,7 +56158,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc, %23
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN15QCPItemPositionC2EP11QCustomPlotP15QCPAbstractItemRK7QString(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #31 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
@@ -56186,7 +56186,7 @@ _ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi.exit: ; preds =
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPItemPosition, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %19, i8 0, i64 88, i1 false)
   ret void
@@ -56196,7 +56196,7 @@ _ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi.exit: ; preds =
 define void @_ZN15QCPItemPositionD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.125, align 8
   %3 = alloca %class.QList.125, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPItemPosition, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZNK4QSetIP15QCPItemPositionE6valuesEv(ptr dead_on_unwind nonnull writable sret(%class.QList.125) align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN5QListIP15QCPItemPositionED2Ev.exit unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -57960,7 +57960,7 @@ _ZN7QStringD2Ev.exit:
   %3 = alloca %class.QList.145, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPAbstractItem, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -58951,7 +58951,7 @@ _ZN17QArrayDataPointerIP13QCPItemAnchorED2Ev.exit: ; preds = %1, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15QCPAbstractItemD2Ev(ptr noundef nonnull align 8 dereferenceable(130) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPAbstractItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -59032,7 +59032,7 @@ _ZN5QListIP15QCPItemPositionED2Ev.exit:           ; preds = %_ZN5QListIP13QCPIte
   br label %_ZN8QPointerI11QCPAxisRectED2Ev.exit
 
 _ZN8QPointerI11QCPAxisRectED2Ev.exit:             ; preds = %_ZN5QListIP15QCPItemPositionED2Ev.exit, %27, %29, %32
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
@@ -60383,9 +60383,9 @@ define void @_ZN11QCustomPlotC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %30 = alloca %class.QString, align 8
   %31 = alloca %class.QString, align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCustomPlot, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i64 0, i32 1, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCustomPlot, i64 504), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   %35 = getelementptr inbounds i8, ptr %0, i64 56
@@ -62542,9 +62542,9 @@ declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCustomPlotD2Ev(ptr noundef nonnull align 8 dereferenceable(513) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCustomPlot, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCustomPlot, i64 504), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
@@ -63513,7 +63513,7 @@ define void @_ZN11QCustomPlot13setBackgroundERK7QPixmap(ptr noundef nonnull alig
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -63545,7 +63545,7 @@ define void @_ZN11QCustomPlot13setBackgroundERK7QPixmapbN2Qt15AspectRatioModeE(p
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -69739,7 +69739,7 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   call void @_ZNK7QPixmap6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef %53, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %7, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 16
   %55 = getelementptr inbounds i8, ptr %10, i64 16
   %56 = load ptr, ptr %55, align 8
@@ -74272,7 +74272,7 @@ _ZN11QCustomPlot11setViewportERK5QRect.exit45:    ; preds = %116, %_ZneRK5QRectS
 
 159:                                              ; preds = %_ZN11QCustomPlot11setViewportERK5QRect.exit45
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %0, align 8
   %160 = getelementptr inbounds i8, ptr %0, i64 16
   %161 = getelementptr inbounds i8, ptr %6, i64 16
   %162 = load ptr, ptr %161, align 8
@@ -79409,7 +79409,7 @@ declare noundef float @_ZNK6QColor6alphaFEv(ptr noundef nonnull align 4 derefere
 define void @_ZN28QCPSelectionDecoratorBracketC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QColor, align 4
   tail call void @_ZN21QCPSelectionDecoratorC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28QCPSelectionDecoratorBracket, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %2, i32 noundef 2) #47
   invoke void @_ZN4QPenC1ERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(14) %2)
@@ -79452,12 +79452,12 @@ define void @_ZN28QCPSelectionDecoratorBracketC2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN28QCPSelectionDecoratorBracketD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28QCPSelectionDecoratorBracket, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #47
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPSelectionDecorator, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN12QPainterPathD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #47
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -80569,7 +80569,7 @@ define void @_ZN11QCPAxisRectC2EP11QCustomPlotb(ptr noundef nonnull align 8 dere
   %23 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPAxisRect, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZN6QBrushC1EN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef 0)
           to label %25 unwind label %142
@@ -81913,7 +81913,7 @@ _ZN17QArrayDataPointerI8QPointerI7QCPAxisEED2Ev.exit: ; preds = %1, %_ZN17QArray
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCPAxisRectD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.136, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPAxisRect, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -84895,7 +84895,7 @@ define void @_ZN11QCPAxisRect14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   call void @_ZNK7QPixmap6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef %62, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %7, align 8
   %63 = getelementptr inbounds i8, ptr %7, i64 16
   %64 = getelementptr inbounds i8, ptr %11, i64 16
   %65 = load ptr, ptr %64, align 8
@@ -85019,7 +85019,7 @@ define void @_ZN11QCPAxisRect13setBackgroundERK7QPixmap(ptr noundef nonnull alig
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -85051,7 +85051,7 @@ define void @_ZN11QCPAxisRect13setBackgroundERK7QPixmapbN2Qt15AspectRatioModeE(p
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -88446,7 +88446,7 @@ define void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 
   %16 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV21QCPAbstractLegendItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAbstractLegendItem, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 176
@@ -88797,7 +88797,7 @@ _ZN21QCPAbstractLegendItem11setSelectedEb.exit:   ; preds = %11, %15
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22QCPPlottableLegendItemC2EP9QCPLegendP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   tail call void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV22QCPPlottableLegendItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPPlottableLegendItem, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -89414,7 +89414,7 @@ define void @_ZN9QCPLegendC2Ev(ptr noundef nonnull align 8 dereferenceable(392) 
   %32 = getelementptr inbounds i8, ptr %0, i64 244
   %33 = getelementptr inbounds i8, ptr %0, i64 248
   store <4 x i32> <i32 5, i32 5, i32 0, i32 1>, ptr %31, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9QCPLegend, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 256
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %35 unwind label %138
@@ -90157,8 +90157,8 @@ define void @_ZN9QCPLegend20setSelectedTextColorERK6QColor(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9QCPLegendD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i64 0, i32 0, i64 33), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9QCPLegend, i64 16), ptr %0, align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV9QCPLegend, i64 264), align 8
   %3 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -90797,7 +90797,7 @@ _Zeq9QMetaTypeS_.exit.thread6:                    ; preds = %17
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %21, %18
   %.0.i.i = phi i32 [ %22, %21 ], [ %20, %18 ]
-  %23 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %23 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %23, 0
   br i1 %.not5.i7.i, label %24, label %_Zeq9QMetaTypeS_.exit
 
@@ -91133,7 +91133,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %18 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPTextElement, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 192
@@ -91337,7 +91337,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QString(ptr noundef nonnull 
   %19 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPTextElement, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 168
   %21 = load ptr, ptr %2, align 8
   store ptr %21, ptr %20, align 8
@@ -91558,7 +91558,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringd(ptr noundef nonnull
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPTextElement, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 168
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %21, align 8
@@ -91790,7 +91790,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringS4_d(ptr noundef nonn
   %19 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPTextElement, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 168
   %21 = load ptr, ptr %2, align 8
   store ptr %21, ptr %20, align 8
@@ -91925,7 +91925,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringRK5QFont(ptr noundef 
   %18 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPTextElement, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 168
   %20 = load ptr, ptr %2, align 8
   store ptr %20, ptr %19, align 8
@@ -92479,7 +92479,7 @@ define void @_ZN13QCPColorScaleC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPColorScale, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 176
@@ -93568,7 +93568,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13QCPColorScaleD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPColorScale, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -95894,7 +95894,7 @@ define void @_ZN28QCPColorScaleAxisRectPrivateC2EP13QCPColorScale(ptr noundef no
   %20 = getelementptr inbounds i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN11QCPAxisRectC2EP11QCustomPlotb(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %21, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV28QCPColorScaleAxisRectPrivate, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28QCPColorScaleAxisRectPrivate, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 432
   store ptr %1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 440
@@ -96565,7 +96565,7 @@ _ZNK17QArrayDataPointerIdE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   %45 = getelementptr inbounds i8, ptr %0, i64 440
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %4) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 16
   %47 = getelementptr inbounds i8, ptr %7, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -96732,7 +96732,7 @@ _ZN17QArrayDataPointerIPjE5derefEv.exit.i.i63:    ; preds = %._crit_edge112
   %95 = getelementptr inbounds i8, ptr %0, i64 440
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %2, align 8
   %96 = getelementptr inbounds i8, ptr %2, i64 16
   %97 = getelementptr inbounds i8, ptr %10, i64 16
   %98 = load ptr, ptr %97, align 8
@@ -96867,7 +96867,7 @@ declare void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereference
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QImage, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -97451,8 +97451,8 @@ define void @_ZN8QCPGraphC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereference
   %6 = alloca %class.QBrush, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 344), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %9 unwind label %13
 
@@ -97485,8 +97485,8 @@ _ZN22QCPAbstractPlottable1DI12QCPGraphDataEC2EP7QCPAxisS3_.exit: ; preds = %9
   store atomic i32 1, ptr %12 monotonic, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %12, ptr %18, align 8
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPGraph, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPGraph, i64 392), ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 216
@@ -97757,9 +97757,9 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8QCPGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(313) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPGraph, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPGraph, i64 392), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -97788,8 +97788,8 @@ _ZN8QPointerI8QCPGraphED2Ev.exit:                 ; preds = %1, %5, %7, %10
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #47
   %14 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #47
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 344), ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 200
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %16, null
@@ -99569,7 +99569,7 @@ _Zeq9QMetaTypeS_.exit.thread6:                    ; preds = %17
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %21, %18
   %.0.i.i = phi i32 [ %22, %21 ], [ %20, %18 ]
-  %23 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %23 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %23, 0
   br i1 %.not5.i7.i, label %24, label %_Zeq9QMetaTypeS_.exit
 
@@ -100640,7 +100640,7 @@ _ZNK21QCPSelectionDecorator20getFinalScatterStyleERK15QCPScatterStyle.exit: ; pr
   store <2 x ptr> %157, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %158 = load ptr, ptr %91, align 8
   store ptr null, ptr %91, align 8
   %159 = load ptr, ptr %92, align 8
@@ -110053,8 +110053,8 @@ define void @_ZN8QCPCurveC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereference
   %7 = alloca %class.QCPScatterStyle, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %8 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 344), ptr %8, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %10 unwind label %14
 
@@ -110087,8 +110087,8 @@ _ZN22QCPAbstractPlottable1DI12QCPCurveDataEC2EP7QCPAxisS3_.exit: ; preds = %10
   store atomic i32 1, ptr %13 monotonic, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %13, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPCurve, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPCurve, i64 360), ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 208
   invoke void @_ZN15QCPScatterStyleC1Ev(ptr noundef nonnull align 8 dereferenceable(65) %20)
           to label %21 unwind label %49
@@ -110239,9 +110239,9 @@ define void @_ZN8QCPCurve14setScatterSkipEi(ptr nocapture noundef nonnull writeo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8QCPCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPCurve, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8QCPCurve, i64 360), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @_ZN12QPainterPathD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #47
   %4 = getelementptr inbounds i8, ptr %0, i64 240
@@ -110250,8 +110250,8 @@ define void @_ZN8QCPCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #47
   %6 = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #47
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 344), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -113229,7 +113229,7 @@ _ZNK21QCPSelectionDecorator20getFinalScatterStyleERK15QCPScatterStyle.exit: ; pr
   store <2 x ptr> %150, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %151 = load ptr, ptr %55, align 8
   store ptr null, ptr %55, align 8
   %152 = load ptr, ptr %56, align 8
@@ -119420,7 +119420,7 @@ _ZNSt3_V26rotateIP7QPointFEET_S3_S3_S3_.exit:     ; preds = %._crit_edge.i.i21, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12QCPBarsGroupC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPBarsGroup, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -119434,7 +119434,7 @@ define void @_ZN12QCPBarsGroupC2EP11QCustomPlot(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12QCPBarsGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPBarsGroup, i64 16), ptr %0, align 8
   invoke void @_ZN12QCPBarsGroup5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %2 unwind label %8
 
@@ -121234,8 +121234,8 @@ define void @_ZN7QCPBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferencea
   %7 = alloca %class.QColor, align 4
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %8 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 344), ptr %8, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %10 unwind label %14
 
@@ -121268,8 +121268,8 @@ _ZN22QCPAbstractPlottable1DI11QCPBarsDataEC2EP7QCPAxisS3_.exit: ; preds = %10
   store atomic i32 1, ptr %13 monotonic, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %13, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPBars, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPBars, i64 344), ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 208
   store double 7.500000e-01, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 216
@@ -121378,9 +121378,9 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7QCPBarsD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPBars, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QCPBars, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -121508,8 +121508,8 @@ _ZN8QPointerI7QCPBarsED2Ev.exit:                  ; preds = %_ZNK8QPointerI7QCPB
   br label %_ZN8QPointerI7QCPBarsED2Ev.exit6
 
 _ZN8QPointerI7QCPBarsED2Ev.exit6:                 ; preds = %_ZN8QPointerI7QCPBarsED2Ev.exit, %55, %57, %60
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 344), ptr %3, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 200
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.i.i = icmp eq ptr %62, null
@@ -126832,8 +126832,8 @@ define void @_ZN17QCPStatisticalBoxC2EP7QCPAxisS1_(ptr noundef nonnull align 8 d
   %10 = alloca %class.QBrush, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %11 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 344), ptr %11, align 8
   %12 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %13 unwind label %17
 
@@ -126866,8 +126866,8 @@ _ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataEC2EP7QCPAxisS3_.exit: ; pred
   store atomic i32 1, ptr %16 monotonic, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %16, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i64 0, i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPStatisticalBox, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPStatisticalBox, i64 352), ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 208
   store <2 x double> <double 5.000000e-01, double 2.000000e-01>, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 224
@@ -130660,7 +130660,7 @@ _ZNK21QCPSelectionDecorator20getFinalScatterStyleERK15QCPScatterStyle.exit: ; pr
   store <2 x ptr> %146, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %147 = load ptr, ptr %92, align 8
   store ptr null, ptr %92, align 8
   %148 = load ptr, ptr %93, align 8
@@ -133452,7 +133452,7 @@ define void @_ZN11QCPColorMapC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefer
   %4 = alloca %class.QCPRange, align 8
   %5 = alloca %class.QCPRange, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPColorMap, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 184
   invoke void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %25
@@ -133554,7 +133554,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCPColorMapD2Ev(ptr noundef nonnull align 8 dereferenceable(393) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPColorMap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -134592,7 +134592,7 @@ _ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE.exit: ; preds 
 78:                                               ; preds = %_ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %4) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %4, align 8
   %79 = getelementptr inbounds i8, ptr %4, i64 16
   %80 = getelementptr inbounds i8, ptr %5, i64 16
   %81 = load ptr, ptr %80, align 8
@@ -135065,7 +135065,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit:              ; preds = %29
   call void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %10) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %10, align 8
   %71 = getelementptr inbounds i8, ptr %10, i64 16
   %72 = getelementptr inbounds i8, ptr %11, i64 16
   %73 = load ptr, ptr %72, align 8
@@ -135118,7 +135118,7 @@ thread-pre-split:                                 ; preds = %64
   call void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %9) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %9, align 8
   %94 = getelementptr inbounds i8, ptr %9, i64 16
   %95 = getelementptr inbounds i8, ptr %13, i64 16
   %96 = load ptr, ptr %95, align 8
@@ -135163,7 +135163,7 @@ thread-pre-split:                                 ; preds = %64
   call void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(8) %18, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %8) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %8, align 8
   %110 = getelementptr inbounds i8, ptr %8, i64 16
   %111 = getelementptr inbounds i8, ptr %17, i64 16
   %112 = load ptr, ptr %111, align 8
@@ -135214,7 +135214,7 @@ thread-pre-split:                                 ; preds = %64
   call void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(8) %20, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %7, align 8
   %132 = getelementptr inbounds i8, ptr %7, i64 16
   %133 = getelementptr inbounds i8, ptr %19, i64 16
   %134 = load ptr, ptr %133, align 8
@@ -135274,7 +135274,7 @@ thread-pre-split110:                              ; preds = %128
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #47
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %6, align 8
   %156 = getelementptr inbounds i8, ptr %6, i64 16
   %157 = getelementptr inbounds i8, ptr %23, i64 16
   %158 = load ptr, ptr %157, align 8
@@ -135424,7 +135424,7 @@ thread-pre-split110:                              ; preds = %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %4) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %4, align 8
   %226 = getelementptr inbounds i8, ptr %4, i64 16
   %227 = getelementptr inbounds i8, ptr %24, i64 16
   %228 = load ptr, ptr %227, align 8
@@ -135446,7 +135446,7 @@ thread-pre-split110:                              ; preds = %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %2, align 8
   %233 = getelementptr inbounds i8, ptr %2, i64 16
   %234 = getelementptr inbounds i8, ptr %25, i64 16
   %235 = load ptr, ptr %234, align 8
@@ -135611,7 +135611,7 @@ define void @_ZN11QCPColorMap4drawEP10QCPPainter(ptr noundef nonnull align 8 der
 89:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %6, align 8
   %90 = getelementptr inbounds i8, ptr %6, i64 16
   %91 = getelementptr inbounds i8, ptr %9, i64 16
   %92 = load ptr, ptr %91, align 8
@@ -136135,8 +136135,8 @@ define void @_ZN12QCPFinancialC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefe
   %9 = alloca %class.QColor, align 4
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %10 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 1, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 344), ptr %10, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %12 unwind label %16
 
@@ -136169,8 +136169,8 @@ _ZN22QCPAbstractPlottable1DI16QCPFinancialDataEC2EP7QCPAxisS3_.exit: ; preds = %
   store atomic i32 1, ptr %15 monotonic, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %15, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i64 0, i32 1, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPFinancial, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPFinancial, i64 344), ptr %10, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 216
@@ -136297,9 +136297,9 @@ _ZN21QCPSelectionDecorator8setBrushERK6QBrush.exit: ; preds = %46
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12QCPFinancialD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPFinancial, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPFinancial, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #47
   %4 = getelementptr inbounds i8, ptr %0, i64 248
@@ -136308,8 +136308,8 @@ define void @_ZN12QCPFinancialD2Ev(ptr noundef nonnull align 8 dereferenceable(2
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #47
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #47
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 344), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -143694,8 +143694,8 @@ define void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefe
   %6 = alloca %class.QBrush, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPErrorBars, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPErrorBars, i64 344), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #50
           to label %10 unwind label %27
@@ -143845,9 +143845,9 @@ _ZN14QSharedPointerI5QListI16QCPErrorBarsDataEE5derefEv.exit: ; preds = %1, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12QCPErrorBarsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPErrorBars, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPErrorBars, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -149206,7 +149206,7 @@ define void @_ZN19QCPItemStraightLineC2EP11QCustomPlot(ptr noundef nonnull align
   %7 = alloca %class.QPen, align 8
   %8 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QCPItemStraightLine, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 6, ptr nonnull @.str.193)
           to label %10 unwind label %38
@@ -149380,7 +149380,7 @@ define void @_ZN19QCPItemStraightLine14setSelectedPenERK4QPen(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19QCPItemStraightLineD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QCPItemStraightLine, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -150185,7 +150185,7 @@ define void @_ZN11QCPItemLineC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %7 = alloca %class.QPen, align 8
   %8 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemLine, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 5, ptr nonnull @.str.195)
           to label %10 unwind label %42
@@ -150369,7 +150369,7 @@ define void @_ZN11QCPItemLine14setSelectedPenERK4QPen(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCPItemLineD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemLine, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -151228,7 +151228,7 @@ define void @_ZN12QCPItemCurveC2EP11QCustomPlot(ptr noundef nonnull align 8 dere
   %9 = alloca %class.QPen, align 8
   %10 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPItemCurve, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 5, ptr nonnull @.str.195)
           to label %12 unwind label %64
@@ -151502,7 +151502,7 @@ define void @_ZN12QCPItemCurve14setSelectedPenERK4QPen(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12QCPItemCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPItemCurve, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -152182,7 +152182,7 @@ define void @_ZN11QCPItemRectC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %15 = alloca %class.QBrush, align 8
   %16 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemRect, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 7, ptr nonnull @.str.199)
           to label %18 unwind label %102
@@ -152682,7 +152682,7 @@ define void @_ZN11QCPItemRect16setSelectedBrushERK6QBrush(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCPItemRectD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemRect, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 216
@@ -153098,7 +153098,7 @@ define void @_ZN11QCPItemTextC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %16 = alloca %class.QColor, align 4
   %17 = alloca %class.QColor, align 4
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemText, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 8, ptr nonnull @.str.208)
           to label %19 unwind label %123
@@ -153706,7 +153706,7 @@ define void @_ZN11QCPItemText16setSelectedColorERK6QColor(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11QCPItemTextD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QCPItemText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -154917,7 +154917,7 @@ define void @_ZN14QCPItemEllipseC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %18 = alloca %class.QBrush, align 8
   %19 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPItemEllipse, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 7, ptr nonnull @.str.199)
           to label %21 unwind label %129
@@ -155543,7 +155543,7 @@ define void @_ZN14QCPItemEllipse16setSelectedBrushERK6QBrush(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14QCPItemEllipseD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPItemEllipse, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 240
@@ -156068,7 +156068,7 @@ define void @_ZN13QCPItemPixmapC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %12 = alloca %class.QPen, align 8
   %13 = alloca %class.QColor, align 4
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemPixmap, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 7, ptr nonnull @.str.199)
           to label %15 unwind label %98
@@ -156517,7 +156517,7 @@ define void @_ZN13QCPItemPixmap14setSelectedPenERK4QPen(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13QCPItemPixmapD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemPixmap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 264
@@ -157091,7 +157091,7 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
   %75 = getelementptr inbounds i8, ptr %0, i64 224
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %8) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %8, align 8
   %76 = getelementptr inbounds i8, ptr %8, i64 16
   %77 = getelementptr inbounds i8, ptr %11, i64 16
   %78 = load ptr, ptr %77, align 8
@@ -157124,7 +157124,7 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
 
 91:                                               ; preds = %86
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %14) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i64 0, i32 0, i64 2), ptr %14, align 8, !alias.scope !1322
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %14, align 8, !alias.scope !1322
   %92 = getelementptr inbounds i8, ptr %14, i64 16
   %93 = getelementptr inbounds i8, ptr %15, i64 16
   %94 = load ptr, ptr %93, align 8, !noalias !1322
@@ -157136,7 +157136,7 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
 _ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE.exit: ; preds = %91
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %7, align 8
   %95 = getelementptr inbounds i8, ptr %7, i64 16
   %96 = getelementptr inbounds i8, ptr %13, i64 16
   %97 = load ptr, ptr %96, align 8
@@ -157180,7 +157180,7 @@ _ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE.exit: ; preds 
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %6, align 8
   %109 = getelementptr inbounds i8, ptr %6, i64 16
   %110 = getelementptr inbounds i8, ptr %16, i64 16
   %111 = load ptr, ptr %110, align 8
@@ -157381,7 +157381,7 @@ define void @_ZN13QCPItemTracerC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %8 = alloca %class.QPen, align 8
   %9 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemTracer, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 8, ptr nonnull @.str.208)
           to label %11 unwind label %40
@@ -157590,7 +157590,7 @@ define void @_ZN13QCPItemTracer14setSelectedPenERK4QPen(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13QCPItemTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(209) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPItemTracer, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -159386,7 +159386,7 @@ define void @_ZN14QCPItemBracketC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %8 = alloca %class.QPen, align 8
   %9 = alloca %class.QBrush, align 8
   tail call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPItemBracket, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   invoke void @_ZN7QStringC2E13QLatin1String(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 4, ptr nonnull @.str.206)
           to label %11 unwind label %49
@@ -159606,7 +159606,7 @@ define void @_ZN14QCPItemBracket14setSelectedPenERK4QPen(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14QCPItemBracketD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14QCPItemBracket, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -161766,7 +161766,7 @@ _ZN7QStringD2Ev.exit:
   %12 = load ptr, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18QCPPolarAxisRadial, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 1, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %0, i64 58
@@ -162258,7 +162258,7 @@ define void @_ZN18QCPPolarAxisRadial16setTickLabelModeENS_9LabelModeE(ptr nocapt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18QCPPolarAxisRadialD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18QCPPolarAxisRadial, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   tail call void @_ZN22QCPLabelPainterPrivateD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 464
@@ -162410,7 +162410,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN14QSharedPointer
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #47
   %55 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #47
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
@@ -165599,7 +165599,7 @@ define void @_ZN19QCPPolarAxisAngularC2EP11QCustomPlot(ptr noundef nonnull align
   %22 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QCPPolarAxisAngular, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZN6QBrushC1EN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 0)
           to label %24 unwind label %148
@@ -166687,7 +166687,7 @@ _ZN17QArrayDataPointerIP18QCPPolarAxisRadialED2Ev.exit: ; preds = %1, %_ZN17QArr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19QCPPolarAxisAngularD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QCPPolarAxisAngular, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -169187,7 +169187,7 @@ define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(p
 94:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %9) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %9, align 8
   %95 = getelementptr inbounds i8, ptr %9, i64 16
   %96 = getelementptr inbounds i8, ptr %17, i64 16
   %97 = load ptr, ptr %96, align 8
@@ -169418,7 +169418,7 @@ define void @_ZN19QCPPolarAxisAngular13setBackgroundERK7QPixmap(ptr noundef nonn
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -169450,7 +169450,7 @@ define void @_ZN19QCPPolarAxisAngular13setBackgroundERK7QPixmapbN2Qt15AspectRati
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -171184,7 +171184,7 @@ _ZN7QStringD2Ev.exit:
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPPolarGrid, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPPolarGrid, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 64
@@ -172058,7 +172058,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEcvPS0_Ev.exit.thread: ; preds = %110, %_ZNK8Q
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18QCPPolarLegendItemC2EP9QCPLegendP13QCPPolarGraph(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   tail call void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV18QCPPolarLegendItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18QCPPolarLegendItem, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -172635,7 +172635,7 @@ _ZN7QStringD2Ev.exit:
   %11 = load ptr, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPPolarGraph, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
           to label %14 unwind label %56
@@ -172919,7 +172919,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13QCPPolarGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13QCPPolarGraph, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -173038,7 +173038,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %39, 
   unreachable
 
 _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %_ZN7QStringD2Ev.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %43
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12QCPLayerable, i64 16), ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
@@ -178952,7 +178952,7 @@ define linkonce_odr void @_ZN22QCPAbstractPaintBuffer12donePaintingEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21QCPAxisTickerDateTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAxisTickerDateTime, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN9QTimeZoneD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -178976,7 +178976,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21QCPAxisTickerDateTimeD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21QCPAxisTickerDateTime, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN9QTimeZoneD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -179001,7 +179001,7 @@ _ZN21QCPAxisTickerDateTimeD2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17QCPAxisTickerTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPAxisTickerTime, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN5QHashIN17QCPAxisTickerTime8TimeUnitE7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #47
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -179105,7 +179105,7 @@ define linkonce_odr void @_ZN18QCPAxisTickerFixedD0Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17QCPAxisTickerTextD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPAxisTickerText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -179145,7 +179145,7 @@ _ZN4QMapId7QStringED2Ev.exit:                     ; preds = %1, %4, %6, %_ZN8QMa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17QCPAxisTickerTextD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17QCPAxisTickerText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -179186,7 +179186,7 @@ _ZN17QCPAxisTickerTextD2Ev.exit:                  ; preds = %1, %4, %6, %_ZN8QMa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15QCPAxisTickerPiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPAxisTickerPi, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -179208,7 +179208,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15QCPAxisTickerPiD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15QCPAxisTickerPi, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -196986,7 +196986,7 @@ _Z17qRegisterMetaTypeIN7QCPAxis14SelectablePartEEiPKc.exit: ; preds = %25, %_ZN1
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN7QCPAxis14SelectablePartEEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -198925,7 +198925,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -200640,7 +200640,7 @@ _Zeq9QMetaTypeS_.exit.thread12:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -201095,7 +201095,7 @@ _Z17qRegisterMetaTypeI16QCPDataSelectionEiPKc.exit: ; preds = %25, %_ZN17QArrayD
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI16QCPDataSelectionEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -214383,7 +214383,7 @@ _Z17qRegisterMetaTypeIN9QCPLegend14SelectablePartEEiPKc.exit: ; preds = %25, %_Z
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN9QCPLegend14SelectablePartEEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -214500,7 +214500,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -216380,9 +216380,9 @@ declare noundef i32 @_ZN20QCPAbstractPlottable11qt_metacallEN11QMetaObject4CallE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPGraphDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -217947,8 +217947,8 @@ _ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit: ; preds = %15, %_ZSt11up
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn184_N22QCPAbstractPlottable1DI12QCPGraphDataED1Ev(ptr noundef %0) unnamed_addr #34 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i64 344), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -218265,7 +218265,7 @@ _Zeq9QMetaTypeS_.exit.thread6:                    ; preds = %17
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %21, %18
   %.0.i.i = phi i32 [ %22, %21 ], [ %20, %18 ]
-  %23 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %23 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %23, 0
   br i1 %.not5.i7.i, label %24, label %_Zeq9QMetaTypeS_.exit
 
@@ -221927,9 +221927,9 @@ _ZNK17QArrayDataPointerISt4pairI12QCPDataRangeS1_EE5flagsEv.exit: ; preds = %39,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPCurveDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -223242,8 +223242,8 @@ _ZNK16QCPDataContainerI12QCPCurveDataE7findEndEdb.exit: ; preds = %15, %_ZSt11up
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn184_N22QCPAbstractPlottable1DI12QCPCurveDataED1Ev(ptr noundef %0) unnamed_addr #34 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i64 344), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -228197,9 +228197,9 @@ _ZNK17QArrayDataPointerIPK7QCPBarsE5flagsEv.exit: ; preds = %39, %_ZNK17QArrayDa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22QCPAbstractPlottable1DI11QCPBarsDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -229750,8 +229750,8 @@ _ZNK16QCPDataContainerI11QCPBarsDataE7findEndEdb.exit: ; preds = %15, %_ZSt11upp
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn184_N22QCPAbstractPlottable1DI11QCPBarsDataED1Ev(ptr noundef %0) unnamed_addr #34 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i64 344), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -232515,9 +232515,9 @@ _ZN9QtPrivate12QPodArrayOpsI11QCPBarsDataE10createHoleEN10QArrayData14GrowthPosi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -233798,8 +233798,8 @@ define linkonce_odr noundef i32 @_ZNK22QCPAbstractPlottable1DI21QCPStatisticalBo
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn184_N22QCPAbstractPlottable1DI21QCPStatisticalBoxDataED1Ev(ptr noundef %0) unnamed_addr #34 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i64 344), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -238532,9 +238532,9 @@ _ZNK17QArrayDataPointerI6QLineFE5flagsEv.exit:    ; preds = %39, %_ZNK17QArrayDa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22QCPAbstractPlottable1DI16QCPFinancialDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 344), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -240102,8 +240102,8 @@ _ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit: ; preds = %15, %_ZSt
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn184_N22QCPAbstractPlottable1DI16QCPFinancialDataED1Ev(ptr noundef %0) unnamed_addr #34 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i64 344), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -245857,7 +245857,7 @@ _Z17qRegisterMetaTypeIN18QCPPolarAxisRadial14SelectablePartEEiPKc.exit: ; preds 
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN18QCPPolarAxisRadial14SelectablePartEEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -245974,7 +245974,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 

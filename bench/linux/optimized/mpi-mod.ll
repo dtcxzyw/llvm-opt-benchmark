@@ -17,7 +17,7 @@ declare dso_local void @mpi_fdiv_r(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @mpi_barrett_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @mpi_normalize(ptr noundef %0) #3
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 48) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %6

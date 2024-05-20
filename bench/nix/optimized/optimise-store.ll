@@ -945,7 +945,7 @@ define linkonce_odr void @_ZN3nix8make_refI16CmdOptimiseStoreJEEENS_3refIT_EEDpO
   store i32 1, ptr %4, align 8, !noalias !9
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !9
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   %8 = getelementptr inbounds i8, ptr %3, i64 56
@@ -977,9 +977,9 @@ define linkonce_odr void @_ZN3nix8make_refI16CmdOptimiseStoreJEEENS_3refIT_EEDpO
   store ptr %19, ptr %22, align 8, !noalias !9
   %23 = getelementptr inbounds i8, ptr %3, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !noalias !9
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %6, align 8, !noalias !9
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %7, align 8, !noalias !9
-  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds ([8 x ptr], ptr @_ZTT16CmdOptimiseStore, i64 0, i64 1))
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i64 56), ptr %6, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i64 184), ptr %7, align 8, !noalias !9
+  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT16CmdOptimiseStore, i64 8))
           to label %25 unwind label %.body.i.i.i.i.i, !noalias !9
 
 common.resume:                                    ; preds = %.body, %.body.i.i.i.i.i
@@ -995,8 +995,8 @@ common.resume:                                    ; preds = %.body, %.body.i.i.i
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i64 0, i32 0, i64 8), ptr %6, align 8, !noalias !9
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i64 0, i32 1, i64 11), ptr %7, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16CmdOptimiseStore, i64 64), ptr %6, align 8, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16CmdOptimiseStore, i64 224), ptr %7, align 8, !noalias !9
   store ptr %3, ptr %26, align 8, !alias.scope !9
   store ptr %6, ptr %2, align 8, !alias.scope !9
   store ptr %6, ptr %0, align 8
@@ -1267,7 +1267,7 @@ declare void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -1413,9 +1413,9 @@ define linkonce_odr void @_ZN3nix7CommandD0Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16CmdOptimiseStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 0, i32 0, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 64), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 208), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1496,9 +1496,9 @@ _ZN16CmdOptimiseStoreD2Ev.exit:                   ; preds = %1, %21, %34, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16CmdOptimiseStoreD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 0, i32 0, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 64), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i64 208), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null

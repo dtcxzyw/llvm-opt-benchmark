@@ -392,14 +392,14 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
   %next.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
   %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   %2 = load ptr, ptr %queryList.addr.013.i, align 8
   tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
   tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
   br i1 %cmp4.not.i, label %uriFreeQueryListMmA.exit, label %while.body.i, !llvm.loop !6
@@ -1280,14 +1280,14 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
   %next.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
   %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   %2 = load ptr, ptr %queryList.addr.013.i, align 8
   tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
   tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
   br i1 %cmp4.not.i, label %uriFreeQueryListMmW.exit, label %while.body.i, !llvm.loop !9

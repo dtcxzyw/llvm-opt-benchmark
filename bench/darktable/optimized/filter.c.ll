@@ -110,7 +110,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %11) #7
   %32 = load ptr, ptr %27, align 8, !tbaa !17
   tail call void @gtk_box_pack_start(ptr noundef %31, ptr noundef %32, i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !18
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !18
   %34 = getelementptr inbounds i8, ptr %33, i64 304
   store ptr %0, ptr %34, align 8, !tbaa !28
   %35 = getelementptr inbounds i8, ptr %33, i64 312
@@ -153,7 +153,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_pref_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !18
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !18
   tail call void @dt_view_filtering_show_pref_menu(ptr noundef %4, ptr noundef %0) #7
   ret i32 1
 }

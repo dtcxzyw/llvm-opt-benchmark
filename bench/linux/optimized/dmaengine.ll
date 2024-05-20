@@ -165,8 +165,8 @@ module asm ".previous\09\09\09\09\09"
 define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 section ".init.text" align 16 {
   store i64 -1, ptr @dma_cap_mask_all, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @dma_cap_mask_all, i32 -129, ptr nonnull elementtype(i8) @dma_cap_mask_all) #12, !srcloc !5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @dma_cap_mask_all, i64 1), i32 -2, ptr elementtype(i8) getelementptr (i8, ptr @dma_cap_mask_all, i64 1)) #12, !srcloc !5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @dma_cap_mask_all, i64 1), i32 -5, ptr elementtype(i8) getelementptr (i8, ptr @dma_cap_mask_all, i64 1)) #12, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @dma_cap_mask_all, i64 1), i32 -2, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @dma_cap_mask_all, i64 1)) #12, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @dma_cap_mask_all, i64 1), i32 -5, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @dma_cap_mask_all, i64 1)) #12, !srcloc !5
   br label %1
 
 1:                                                ; preds = %15, %0
@@ -1781,7 +1781,7 @@ define internal fastcc i32 @__dma_async_device_channel_register(ptr noundef %0, 
   br i1 %5, label %52, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 744) #16
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %8, ptr %9, align 8
@@ -2171,13 +2171,13 @@ define dso_local range(i32 -2147483648, 1) i32 @dma_async_device_register(ptr no
 
 .loopexit12:                                      ; preds = %.preheader11, %127, %124
   %139 = getelementptr inbounds i8, ptr %0, i64 32
-  %140 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dma_device_list, i64 0, i32 1), align 8
+  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @dma_device_list, i64 8), align 8
   store ptr @dma_device_list, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %140, ptr %141, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !62
   store volatile ptr %139, ptr %140, align 8
-  store ptr %139, ptr getelementptr inbounds (%struct.list_head, ptr @dma_device_list, i64 0, i32 1), align 8
+  store ptr %139, ptr getelementptr inbounds (i8, ptr @dma_device_list, i64 8), align 8
   %142 = load volatile i64, ptr %15, align 8
   %143 = and i64 %142, 256
   %144 = icmp eq i64 %143, 0

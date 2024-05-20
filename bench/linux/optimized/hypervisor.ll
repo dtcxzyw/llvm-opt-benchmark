@@ -62,7 +62,7 @@ define dso_local void @init_hypervisor_platform() local_unnamed_addr #1 section 
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 8), i64 %6
+  %11 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 176), i64 %6
   store ptr %8, ptr %11, align 8
   br label %12
 
@@ -83,7 +83,7 @@ define dso_local void @init_hypervisor_platform() local_unnamed_addr #1 section 
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 15), i64 %18
+  %23 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 136), i64 %18
   store ptr %20, ptr %23, align 8
   br label %24
 
@@ -96,7 +96,7 @@ define dso_local void @init_hypervisor_platform() local_unnamed_addr #1 section 
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr @x86_hyper_type, align 4
-  %30 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 176), align 8
   tail call void %30() #6
   br label %31
 
@@ -139,7 +139,7 @@ define internal fastcc ptr @detect_hypervisor_vendor() unnamed_addr #2 section "
   %20 = phi i32 [ %4, %7 ], [ %16, %11 ]
   %21 = phi ptr [ %3, %7 ], [ %17, %11 ]
   %22 = getelementptr i8, ptr %5, i64 8
-  %23 = icmp ult ptr %22, getelementptr inbounds ([3 x ptr], ptr @hypervisors, i64 1, i64 0)
+  %23 = icmp ult ptr %22, getelementptr inbounds (i8, ptr @hypervisors, i64 24)
   br i1 %23, label %1, label %24, !llvm.loop !11
 
 24:                                               ; preds = %18

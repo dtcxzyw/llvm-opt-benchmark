@@ -138,7 +138,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @proc_init_fs_context(ptr nocapture noundef writeonly %0) #2 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5
@@ -493,7 +493,7 @@ declare dso_local i32 @get_tree_nodev(ptr noundef, ptr noundef) local_unnamed_ad
 define internal i32 @proc_fill_super(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 56) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %86, label %8
@@ -587,7 +587,7 @@ define internal i32 @proc_fill_super(ptr noundef %0, ptr nocapture noundef reado
   %60 = load ptr, ptr %59, align 64
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   store i32 0, ptr %61, align 8
-  %62 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.proc_dir_entry, ptr @proc_root, i64 0, i32 1), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.proc_dir_entry, ptr @proc_root, i64 0, i32 1)) #8, !srcloc !6
+  %62 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @proc_root, i64 4), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @proc_root, i64 4)) #8, !srcloc !6
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %68, label %64, !prof !7
 
@@ -599,7 +599,7 @@ define internal i32 @proc_fill_super(ptr noundef %0, ptr nocapture noundef reado
 
 68:                                               ; preds = %64, %45
   %69 = phi i32 [ 2, %45 ], [ 1, %64 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (%struct.proc_dir_entry, ptr @proc_root, i64 0, i32 1), i32 noundef %69) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (i8, ptr @proc_root, i64 4), i32 noundef %69) #8
   br label %70
 
 70:                                               ; preds = %68, %64
@@ -688,7 +688,7 @@ define internal noundef i32 @proc_root_getattr(ptr nocapture readnone %0, ptr no
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   tail call void @generic_fillattr(ptr noundef nonnull @nop_mnt_idmap, i32 noundef %3, ptr noundef %9, ptr noundef %2) #8
-  %10 = load i32, ptr getelementptr inbounds (%struct.proc_dir_entry, ptr @proc_root, i64 0, i32 13), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @proc_root, i64 96), align 8
   %11 = tail call i32 @nr_processes() #8
   %12 = add i32 %11, %10
   %13 = getelementptr inbounds i8, ptr %2, i64 8

@@ -400,9 +400,9 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call i32 @repo_read_index(ptr noundef %0) #12
   store i32 -1, ptr @init_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_init_opts, ptr @init_opts, i64 0, i32 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @init_opts, i64 4), align 4
   %call1 = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @sparse_checkout_init.builtin_sparse_checkout_init_options, ptr noundef nonnull @builtin_sparse_checkout_init_usage, i32 noundef 0) #12
-  %call2 = tail call fastcc i32 @update_modes(ptr noundef nonnull @init_opts, ptr noundef nonnull getelementptr inbounds (%struct.sparse_checkout_init_opts, ptr @init_opts, i64 0, i32 1))
+  %call2 = tail call fastcc i32 @update_modes(ptr noundef nonnull @init_opts, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_opts, i64 4))
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -475,16 +475,16 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call i32 @repo_read_index(ptr noundef %0) #12
   store i32 -1, ptr @set_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i64 0, i32 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @set_opts, i64 4), align 4
   %call1 = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @sparse_checkout_set.builtin_sparse_checkout_set_options, ptr noundef nonnull @builtin_sparse_checkout_set_usage, i32 noundef 0) #12
-  %call2 = tail call fastcc i32 @update_modes(ptr noundef nonnull @set_opts, ptr noundef nonnull getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i64 0, i32 1))
+  %call2 = tail call fastcc i32 @update_modes(ptr noundef nonnull @set_opts, ptr noundef nonnull getelementptr inbounds (i8, ptr @set_opts, i64 4))
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr @core_sparse_checkout_cone, align 4
   %tobool3 = icmp eq i32 %1, 0
-  %2 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i64 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @set_opts, i64 12), align 4
   %tobool4 = icmp eq i32 %2, 0
   %or.cond.not8 = select i1 %tobool3, i1 %tobool4, i1 false
   %cmp = icmp eq i32 %call1, 0
@@ -492,9 +492,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i64 0, i32 2), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @set_opts, i64 8), align 4
   tail call fastcc void @sanitize_paths(i32 noundef %call1, ptr noundef %argv, ptr noundef %prefix, i32 noundef %3)
-  %.pre = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i64 0, i32 3), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @set_opts, i64 12), align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %if.else
@@ -528,7 +528,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @sparse_checkout_add.builtin_sparse_checkout_add_options, ptr noundef nonnull @builtin_sparse_checkout_add_usage, i32 noundef 0) #12
   %2 = load i32, ptr @add_opts, align 4
   tail call fastcc void @sanitize_paths(i32 noundef %call2, ptr noundef %argv, ptr noundef %prefix, i32 noundef %2)
-  %3 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_add_opts, ptr @add_opts, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @add_opts, i64 4), align 4
   %call3 = tail call fastcc i32 @modify_pattern_list(i32 noundef %call2, ptr noundef %argv, i32 noundef %3, i32 noundef 1)
   ret i32 %call3
 }
@@ -548,11 +548,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 -1, ptr @reapply_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i64 0, i32 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @reapply_opts, i64 4), align 4
   %call1 = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @sparse_checkout_reapply.builtin_sparse_checkout_reapply_options, ptr noundef nonnull @builtin_sparse_checkout_reapply_usage, i32 noundef 0) #12
   %1 = load ptr, ptr @the_repository, align 8
   %call2 = tail call i32 @repo_read_index(ptr noundef %1) #12
-  %call3 = tail call fastcc i32 @update_modes(ptr noundef nonnull @reapply_opts, ptr noundef nonnull getelementptr inbounds (%struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i64 0, i32 1))
+  %call3 = tail call fastcc i32 @update_modes(ptr noundef nonnull @reapply_opts, ptr noundef nonnull getelementptr inbounds (i8, ptr @reapply_opts, i64 4))
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
@@ -615,7 +615,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %pl, i8 0, i64 136, i1 false)
   store i32 -1, ptr @check_rules_opts, align 8
   %call = tail call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull @sparse_checkout_check_rules.builtin_sparse_checkout_check_rules_options, ptr noundef nonnull @builtin_sparse_checkout_check_rules_usage, i32 noundef 0) #12
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @check_rules_opts, i64 8), align 8
   %tobool = icmp ne ptr %0, null
   %1 = load i32, ptr @check_rules_opts, align 8
   %cmp = icmp slt i32 %1, 0
@@ -673,7 +673,7 @@ if.end11:                                         ; preds = %if.else
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.then3
-  %7 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i64 0, i32 1), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @check_rules_opts, i64 4), align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %line.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unquoted.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.check_rules.unquoted, i64 24, i1 false)

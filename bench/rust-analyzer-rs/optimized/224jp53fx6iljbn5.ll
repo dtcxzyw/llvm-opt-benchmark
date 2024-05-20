@@ -569,7 +569,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %70, %74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !88
   store ptr @anon.48e64575eb3ecb51a4b49cddc09271b6.4, ptr %5, align 8, !noalias !88
   %84 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.48e64575eb3ecb51a4b49cddc09271b6.4, i64 1, i32 0, i64 0), ptr %84, align 8, !noalias !88
+  store ptr getelementptr inbounds (i8, ptr @anon.48e64575eb3ecb51a4b49cddc09271b6.4, i64 6), ptr %84, align 8, !noalias !88
   br label %85
 
 85:                                               ; preds = %87, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit

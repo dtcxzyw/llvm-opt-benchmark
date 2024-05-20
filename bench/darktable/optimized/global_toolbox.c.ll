@@ -129,7 +129,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %8 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_grouping, i32 noundef 0, ptr noundef null) #10
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !14
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = tail call ptr @dt_action_define(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef nonnull @dt_action_def_toggle) #10
   %13 = load ptr, ptr %7, align 8, !tbaa !13
@@ -137,7 +137,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #10
   %16 = load ptr, ptr %9, align 8, !tbaa !14
   tail call void @gtk_box_pack_start(ptr noundef %15, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  %17 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %18 = getelementptr inbounds i8, ptr %17, i64 1380
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 0
@@ -148,7 +148,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %24 = load ptr, ptr %9, align 8, !tbaa !14
   %25 = tail call i64 @gtk_toggle_button_get_type() #12
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #10
-  %27 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %28 = getelementptr inbounds i8, ptr %27, i64 1380
   %29 = load i32, ptr %28, align 4, !tbaa !27
   tail call void @gtk_toggle_button_set_active(ptr noundef %26, i32 noundef %29) #10
@@ -158,7 +158,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %33 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_overlays, i32 noundef 0, ptr noundef null) #10
   %34 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !31
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = tail call ptr @dt_action_define(ptr noundef nonnull %36, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %33, ptr noundef nonnull @dt_action_def_button) #10
   %38 = load ptr, ptr %34, align 8, !tbaa !31
@@ -199,7 +199,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %14) #10
   %65 = load ptr, ptr %62, align 8, !tbaa !34
   tail call void @gtk_box_pack_start(ptr noundef %64, ptr noundef %65, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  %66 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @.str.11, ptr %3, align 8, !tbaa !35
@@ -327,7 +327,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %162 = call ptr @g_type_check_instance_cast(ptr noundef %161, i64 noundef %14) #10
   %163 = load ptr, ptr %160, align 8, !tbaa !46
   call void @gtk_box_pack_start(ptr noundef %162, ptr noundef %163, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  %164 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @.str.24, ptr %2, align 8, !tbaa !35
@@ -413,7 +413,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %226 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_help, i32 noundef 0, ptr noundef null) #10
   %227 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %226, ptr %227, align 8, !tbaa !53
-  %228 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %229 = getelementptr inbounds i8, ptr %228, i64 16
   %230 = call ptr @dt_action_define(ptr noundef nonnull %229, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %226, ptr noundef nonnull @dt_action_def_toggle) #10
   %231 = load ptr, ptr %7, align 8, !tbaa !13
@@ -429,7 +429,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %239 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_shortcut, i32 noundef 0, ptr noundef null) #10
   %240 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %239, ptr %240, align 8, !tbaa !54
-  %241 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %242 = getelementptr inbounds i8, ptr %241, i64 16
   %243 = call ptr @dt_action_define(ptr noundef nonnull %242, ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %239, ptr noundef nonnull @dt_action_def_toggle) #10
   %244 = load ptr, ptr %7, align 8, !tbaa !13
@@ -450,7 +450,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %257 = call i64 @g_signal_connect_data(ptr noundef %256, ptr noundef nonnull @.str.30, ptr noundef nonnull @_lib_keymap_button_press_release, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #10
   %258 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_preferences, i32 noundef 0, ptr noundef null) #10
   store ptr %258, ptr %4, align 8, !tbaa !55
-  %259 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %260 = getelementptr inbounds i8, ptr %259, i64 16
   %261 = call ptr @dt_action_define(ptr noundef nonnull %260, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %258, ptr noundef nonnull @dt_action_def_button) #10
   %262 = load ptr, ptr %7, align 8, !tbaa !13
@@ -501,21 +501,21 @@ define internal void @_lib_filter_grouping_button_clicked(ptr noundef %0, ptr no
   %3 = tail call i64 @gtk_toggle_button_get_type() #12
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #10
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #10
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %7 = getelementptr inbounds i8, ptr %6, i64 1380
   store i32 %5, ptr %7, align 4, !tbaa !27
   %8 = icmp eq i32 %5, 0
   %9 = select i1 %8, ptr @.str.3, ptr @.str.2
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %9, i32 noundef 5) #10
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %0, ptr noundef %10) #10
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %12 = getelementptr inbounds i8, ptr %11, i64 1380
   %13 = load i32, ptr %12, align 4, !tbaa !27
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.43, i32 noundef %13) #10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %15 = getelementptr inbounds i8, ptr %14, i64 1384
   store i32 0, ptr %15, align 8, !tbaa !56
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !57
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !57
   tail call void @dt_collection_update_query(ptr noundef %16, i32 noundef 3, i32 noundef 27, ptr noundef null) #10
   ret void
 }
@@ -547,19 +547,19 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   ]
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %13 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %12) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %17 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %16) #10
   %18 = icmp eq i32 %17, 2
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15, %11, %2
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = tail call i32 @dt_ui_panel_visible(ptr noundef %21, i32 noundef 5) #10
   %23 = icmp eq i32 %22, 0
@@ -567,12 +567,12 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
 
 24:                                               ; preds = %19, %15
   %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #10
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = tail call ptr @dt_ui_thumbtable(ptr noundef %27) #10
   %29 = getelementptr inbounds i8, ptr %28, i64 52
   %30 = load i32, ptr %29, align 4, !tbaa !61
-  %31 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = tail call ptr @dt_ui_thumbtable(ptr noundef %32) #10
   %34 = getelementptr inbounds i8, ptr %33, i64 48
@@ -585,7 +585,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %39, i64 noundef %40) #10
   tail call void @gtk_label_set_text(ptr noundef %41, ptr noundef %37) #10
   tail call void @g_free(ptr noundef %37) #10
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %43 = load ptr, ptr %42, align 8, !tbaa !60
   %44 = tail call ptr @dt_ui_thumbtable(ptr noundef %43) #10
   %45 = getelementptr inbounds i8, ptr %44, i64 4
@@ -594,7 +594,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   %48 = load ptr, ptr %47, align 8, !tbaa !43
   %49 = tail call i64 @gtk_spin_button_get_type() #12
   %50 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %49) #10
-  %51 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %52 = load ptr, ptr %51, align 8, !tbaa !60
   %53 = tail call ptr @dt_ui_thumbtable(ptr noundef %52) #10
   %54 = getelementptr inbounds i8, ptr %53, i64 8
@@ -653,7 +653,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   %78 = getelementptr inbounds i8, ptr %8, i64 136
   %79 = load ptr, ptr %78, align 8, !tbaa !44
   %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %58) #10
-  %81 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %82 = load ptr, ptr %81, align 8, !tbaa !60
   %83 = tail call ptr @dt_ui_thumbtable(ptr noundef %82) #10
   %84 = getelementptr inbounds i8, ptr %83, i64 12
@@ -676,19 +676,19 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   br i1 %93, label %94, label %156
 
 94:                                               ; preds = %91
-  %95 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %96 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %95) #10
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %94
-  %99 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %100 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %99) #10
   %101 = icmp eq i32 %100, 2
   br i1 %101, label %102, label %156
 
 102:                                              ; preds = %98, %94
-  %103 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %104 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %103) #10
   %105 = icmp ne i32 %104, 0
   %106 = zext i1 %105 to i32
@@ -906,7 +906,7 @@ define internal void @_main_icons_register_size(ptr noundef %0, ptr nocapture no
   %50 = fmul reassoc nsz arcp contract afn double %49, %39
   %51 = call reassoc nsz arcp contract afn double @llvm.round.f64(double %50)
   %52 = fptosi double %51 to i32
-  %53 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %54 = getelementptr inbounds i8, ptr %53, i64 1476
   store i32 %52, ptr %54, align 4, !tbaa !87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
@@ -999,12 +999,12 @@ define internal void @_overlays_toggle_button(ptr nocapture readnone %0, ptr noc
   %51 = load ptr, ptr %50, align 8, !tbaa !44
   %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %11) #10
   %53 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %52) #10
-  %54 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %55 = load ptr, ptr %54, align 8, !tbaa !60
   %56 = tail call ptr @dt_ui_thumbtable(ptr noundef %55) #10
   %57 = getelementptr inbounds i8, ptr %56, i64 12
   store i32 %53, ptr %57, align 4, !tbaa !68
-  %58 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %59 = load ptr, ptr %58, align 8, !tbaa !60
   %60 = tail call ptr @dt_ui_thumbtable(ptr noundef %59) #10
   tail call void @dt_thumbtable_set_overlays_mode(ptr noundef %60, i32 noundef %49) #10
@@ -1038,7 +1038,7 @@ define internal void @_overlays_timeout_changed(ptr noundef %0, ptr nocapture no
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = tail call ptr @dt_ui_thumbtable(ptr noundef %13) #10
   tail call void @dt_thumbtable_set_overlays_block_timeout(ptr noundef %14, i32 noundef %7) #10
@@ -1051,14 +1051,14 @@ define internal void @_overlays_timeout_changed(ptr noundef %0, ptr nocapture no
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %21 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %20) #10
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
   %24 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %23) #10
   tail call void @dt_conf_set_int(ptr noundef %24, i32 noundef %7) #10
   tail call void @g_free(ptr noundef %24) #10
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   tail call void @dt_view_lighttable_culling_preview_reload_overlays(ptr noundef %25) #10
   br label %26
 
@@ -1111,7 +1111,7 @@ define internal void @_overlays_toggle_culling_button(ptr nocapture readnone %0,
   %29 = phi i32 [ 0, %27 ], [ 1, %21 ], [ 0, %8 ], [ 0, %15 ]
   %30 = phi i1 [ false, %27 ], [ true, %21 ], [ false, %8 ], [ false, %15 ]
   %31 = phi i32 [ 4, %27 ], [ 6, %21 ], [ 0, %8 ], [ 3, %15 ]
-  %32 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   %33 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %32) #10
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
@@ -1125,7 +1125,7 @@ define internal void @_overlays_toggle_culling_button(ptr nocapture readnone %0,
   %41 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %40) #10
   tail call void @dt_conf_set_bool(ptr noundef %37, i32 noundef %41) #10
   tail call void @g_free(ptr noundef %37) #10
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !59
   tail call void @dt_view_lighttable_culling_preview_reload_overlays(ptr noundef %42) #10
   %43 = getelementptr inbounds i8, ptr %4, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !51
@@ -1187,7 +1187,7 @@ define internal void @_lib_keymap_button_clicked(ptr noundef %0, ptr noundef %1)
   br label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %10 = getelementptr inbounds i8, ptr %9, i64 576
   store ptr null, ptr %10, align 8, !tbaa !88
   tail call void (...) @dt_control_allow_change_cursor() #10
@@ -1210,7 +1210,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_keymap_button_press_release(pt
   %10 = and i32 %9, %7
   %11 = icmp ne i32 %10, 4
   %12 = zext i1 %11 to i32
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %14 = getelementptr inbounds i8, ptr %13, i64 584
   store i32 %12, ptr %14, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -1449,7 +1449,7 @@ declare ptr @dt_gui_get_help_url(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_addr #1 {
   %2 = tail call ptr @gdk_display_get_default() #10
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = tail call ptr @dt_ui_main_window(ptr noundef %4) #10
   %6 = tail call ptr @gtk_widget_get_window(ptr noundef %5) #10
@@ -1492,12 +1492,12 @@ define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_ad
 
 30:                                               ; preds = %23, %18, %1
   %31 = phi ptr [ %24, %23 ], [ null, %18 ], [ null, %1 ]
-  %32 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %33 = getelementptr inbounds i8, ptr %32, i64 576
   %34 = load ptr, ptr %33, align 8, !tbaa !88
   %35 = tail call ptr @dt_action_widget(ptr noundef %34) #10
   %36 = icmp ne ptr %35, null
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8
   %38 = icmp ne ptr %37, null
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %40, label %52
@@ -1509,7 +1509,7 @@ define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_ad
   %44 = fptosi double %43 to i32
   %45 = tail call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %44, i32 noundef %41) #10
   %46 = tail call ptr @cairo_create(ptr noundef %45) #10
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !104
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !104
   %48 = tail call i32 @dt_dev_modulegroups_basics_module_toggle(ptr noundef %47, ptr noundef %31, i32 noundef 0) #10
   tail call void @dtgtk_cairo_paint_shortcut(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %41, i32 noundef %41, i32 noundef %48, ptr noundef nonnull inttoptr (i64 1 to ptr)) #10
   %49 = lshr i32 %41, 1
@@ -1544,7 +1544,7 @@ define internal void @_main_do_event_keymap(ptr noundef %0, ptr noundef %1) #1 {
   ]
 
 5:                                                ; preds = %2, %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %7 = getelementptr inbounds i8, ptr %6, i64 576
   %8 = load ptr, ptr %7, align 8, !tbaa !88
   %9 = icmp eq ptr %8, null
@@ -1557,7 +1557,7 @@ define internal void @_main_do_event_keymap(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %13, label %117, label %14
 
 14:                                               ; preds = %10, %5, %2, %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
   %16 = getelementptr inbounds i8, ptr %15, i64 576
   store ptr %3, ptr %16, align 8, !tbaa !88
   tail call fastcc void @_set_mapping_mode_cursor(ptr noundef %3)
@@ -1574,7 +1574,7 @@ define internal void @_main_do_event_keymap(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %24, label %25, label %117
 
 25:                                               ; preds = %17
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = tail call ptr @dt_ui_main_window(ptr noundef %27) #10
   %29 = tail call ptr @gtk_widget_get_toplevel(ptr noundef %3) #10
@@ -1647,7 +1647,7 @@ define internal void @_main_do_event_keymap(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %62
-  %71 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !104
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !104
   %72 = icmp eq ptr %71, null
   br i1 %72, label %118, label %73
 
@@ -1791,13 +1791,13 @@ declare i32 @dt_shortcut_dispatcher(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_show_shortcuts_prefs(ptr noundef %0) unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #10
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = tail call ptr @dt_ui_main_window(ptr noundef %4) #10
   %6 = tail call i64 @gtk_window_get_type() #12
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #10
   %8 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %2, ptr noundef %7, i32 noundef 2, ptr noundef null, ptr noundef null) #10
-  %9 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 2), align 4, !tbaa !105
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 8), align 4, !tbaa !105
   %10 = icmp eq i32 %9, 0
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %6) #10
   br i1 %10, label %12, label %27
@@ -1805,14 +1805,14 @@ define internal fastcc void @_show_shortcuts_prefs(ptr noundef %0) unnamed_addr 
 12:                                               ; preds = %1
   %13 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.47) #10
   %14 = sitofp i32 %13 to double
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %16 = getelementptr inbounds i8, ptr %15, i64 1448
   %17 = load double, ptr %16, align 8, !tbaa !107
   %18 = fmul reassoc nsz arcp contract afn double %17, %14
   %19 = fptosi double %18 to i32
   %20 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.48) #10
   %21 = sitofp i32 %20 to double
-  %22 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !26
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %23 = getelementptr inbounds i8, ptr %22, i64 1448
   %24 = load double, ptr %23, align 8, !tbaa !107
   %25 = fmul reassoc nsz arcp contract afn double %24, %21
@@ -1822,11 +1822,11 @@ define internal fastcc void @_show_shortcuts_prefs(ptr noundef %0) unnamed_addr 
 
 27:                                               ; preds = %1
   %28 = load i32, ptr @_shortcuts_dialog_posize, align 4, !tbaa !108
-  %29 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 1), align 4, !tbaa !109
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 4), align 4, !tbaa !109
   tail call void @gtk_window_move(ptr noundef %11, i32 noundef %28, i32 noundef %29) #10
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %6) #10
-  %31 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 2), align 4, !tbaa !105
-  %32 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 3), align 4, !tbaa !110
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 8), align 4, !tbaa !105
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 12), align 4, !tbaa !110
   tail call void @gtk_window_resize(ptr noundef %30, i32 noundef %31, i32 noundef %32) #10
   br label %33
 
@@ -1866,12 +1866,12 @@ declare void @gtk_window_resize(ptr noundef, i32 noundef, i32 noundef) local_unn
 define internal noundef i32 @_resize_shortcuts_dialog(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
   %4 = tail call i64 @gtk_window_get_type() #12
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #10
-  tail call void @gtk_window_get_position(ptr noundef %5, ptr noundef nonnull @_shortcuts_dialog_posize, ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 1)) #10
+  tail call void @gtk_window_get_position(ptr noundef %5, ptr noundef nonnull @_shortcuts_dialog_posize, ptr noundef nonnull getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 4)) #10
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #10
-  tail call void @gtk_window_get_size(ptr noundef %6, ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 3)) #10
-  %7 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 2), align 4, !tbaa !105
+  tail call void @gtk_window_get_size(ptr noundef %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 8), ptr noundef nonnull getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 12)) #10
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 8), align 4, !tbaa !105
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.47, i32 noundef %7) #10
-  %8 = load i32, ptr getelementptr inbounds (%struct.anon.4, ptr @_shortcuts_dialog_posize, i64 0, i32 3), align 4, !tbaa !110
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_shortcuts_dialog_posize, i64 12), align 4, !tbaa !110
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.48, i32 noundef %8) #10
   ret i32 0
 }

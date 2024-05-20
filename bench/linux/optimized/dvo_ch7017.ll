@@ -31,7 +31,7 @@ define internal noundef zeroext i1 @ch7017_init(ptr nocapture noundef %0, ptr no
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %36, label %9

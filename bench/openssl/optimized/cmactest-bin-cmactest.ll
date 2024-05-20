@@ -85,9 +85,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %0 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv6 = sext i32 %0 to i64
-  %call7 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv6) #6
+  %call7 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv6) #6
   %cmp8 = icmp ne i32 %call7, 0
   %conv9 = zext i1 %cmp8 to i32
   %call10 = tail call i32 @test_false(ptr noundef nonnull @.str.3, i32 noundef 148, ptr noundef nonnull @.str.6, i32 noundef %conv9) #6
@@ -104,9 +104,9 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false5
   br i1 %tobool18.not, label %err, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false12
-  %1 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv20 = sext i32 %1 to i64
-  %call21 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv20) #6
+  %call21 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv20) #6
   %cmp22 = icmp ne i32 %call21, 0
   %conv23 = zext i1 %cmp22 to i32
   %call24 = tail call i32 @test_false(ptr noundef nonnull @.str.3, i32 noundef 152, ptr noundef nonnull @.str.6, i32 noundef %conv23) #6
@@ -114,7 +114,7 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false12
   br i1 %tobool25.not, label %err, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false19
-  %2 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 1), align 16
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 32), align 16
   %conv27 = sext i32 %2 to i64
   %call28 = tail call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull @test, i64 noundef %conv27, ptr noundef null, ptr noundef null) #6
   %cmp29 = icmp ne i32 %call28, 0
@@ -124,9 +124,9 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false19
   br i1 %tobool32.not, label %err, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false26
-  %3 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv34 = sext i32 %3 to i64
-  %call35 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv34) #6
+  %call35 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv34) #6
   %cmp36 = icmp ne i32 %call35, 0
   %conv37 = zext i1 %cmp36 to i32
   %call38 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 156, ptr noundef nonnull @.str.6, i32 noundef %conv37) #6
@@ -143,9 +143,9 @@ lor.lhs.false40:                                  ; preds = %lor.lhs.false33
   br i1 %tobool46.not, label %err, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false40
-  %4 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv48 = sext i32 %4 to i64
-  %call49 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv48) #6
+  %call49 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv48) #6
   %cmp50 = icmp ne i32 %call49, 0
   %conv51 = zext i1 %cmp50 to i32
   %call52 = tail call i32 @test_false(ptr noundef nonnull @.str.3, i32 noundef 160, ptr noundef nonnull @.str.6, i32 noundef %conv51) #6
@@ -203,7 +203,7 @@ for.inc:                                          ; preds = %if.end, %if.end.thr
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
-  %1 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 1), align 16
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 32), align 16
   %conv20 = sext i32 %1 to i64
   %call21 = tail call ptr @EVP_aes_128_cbc() #6
   %call22 = tail call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull @test, i64 noundef %conv20, ptr noundef %call21, ptr noundef null) #6
@@ -214,9 +214,9 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %2 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv26 = sext i32 %2 to i64
-  %call27 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv26) #6
+  %call27 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv26) #6
   %cmp28 = icmp ne i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call30 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 199, ptr noundef nonnull @.str.6, i32 noundef %conv29) #6
@@ -251,16 +251,16 @@ for.body.i:                                       ; preds = %if.end40, %for.body
   br i1 %exitcond.not.i, label %pt.exit, label %for.body.i, !llvm.loop !8
 
 pt.exit:                                          ; preds = %for.body.i, %if.end40
-  %6 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 4), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 4136), align 8
   %call44 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 204, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @pt.buf, ptr noundef %6) #6
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %pt.exit
-  %7 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 1, i32 1), align 16
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4176), align 16
   %conv48 = sext i32 %7 to i64
   %call49 = call ptr @EVP_aes_256_cbc() #6
-  %call50 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 1), i64 noundef %conv48, ptr noundef %call49, ptr noundef null) #6
+  %call50 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 4144), i64 noundef %conv48, ptr noundef %call49, ptr noundef null) #6
   %cmp51 = icmp ne i32 %call50, 0
   %conv52 = zext i1 %cmp51 to i32
   %call53 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 208, ptr noundef nonnull @.str.23, i32 noundef %conv52) #6
@@ -268,9 +268,9 @@ if.end47:                                         ; preds = %pt.exit
   br i1 %tobool54.not, label %err, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %if.end47
-  %8 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 1, i32 3), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 8276), align 4
   %conv56 = sext i32 %8 to i64
-  %call57 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 1, i32 2), i64 noundef %conv56) #6
+  %call57 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 4180), i64 noundef %conv56) #6
   %cmp58 = icmp ne i32 %call57, 0
   %conv59 = zext i1 %cmp58 to i32
   %call60 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 209, ptr noundef nonnull @.str.24, i32 noundef %conv59) #6
@@ -305,15 +305,15 @@ for.body.i61:                                     ; preds = %if.end70, %for.body
   br i1 %exitcond.not.i70, label %pt.exit71, label %for.body.i61, !llvm.loop !8
 
 pt.exit71:                                        ; preds = %for.body.i61, %if.end70
-  %12 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 1, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 8280), align 8
   %call74 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 214, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.25, ptr noundef nonnull @pt.buf, ptr noundef %12) #6
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %err, label %if.end77
 
 if.end77:                                         ; preds = %pt.exit71
-  %13 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 1), align 16
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 8320), align 16
   %conv78 = sext i32 %13 to i64
-  %call79 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2), i64 noundef %conv78, ptr noundef null, ptr noundef null) #6
+  %call79 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 8288), i64 noundef %conv78, ptr noundef null, ptr noundef null) #6
   %cmp80 = icmp ne i32 %call79, 0
   %conv81 = zext i1 %cmp80 to i32
   %call82 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 217, ptr noundef nonnull @.str.26, i32 noundef %conv81) #6
@@ -321,9 +321,9 @@ if.end77:                                         ; preds = %pt.exit71
   br i1 %tobool83.not, label %err, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %if.end77
-  %14 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 3), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 12420), align 4
   %conv85 = sext i32 %14 to i64
-  %call86 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 2), i64 noundef %conv85) #6
+  %call86 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 8324), i64 noundef %conv85) #6
   %cmp87 = icmp ne i32 %call86, 0
   %conv88 = zext i1 %cmp87 to i32
   %call89 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 218, ptr noundef nonnull @.str.27, i32 noundef %conv88) #6
@@ -342,7 +342,7 @@ if.end99:                                         ; preds = %lor.lhs.false91
   %15 = load i64, ptr %len, align 8
   %conv101 = trunc i64 %15 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv101)
-  %16 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 4), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call103 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 222, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %16) #6
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %err, label %if.end106
@@ -356,9 +356,9 @@ if.end106:                                        ; preds = %if.end99
   br i1 %tobool111.not, label %err, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %if.end106
-  %17 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 3), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 12420), align 4
   %conv113 = sext i32 %17 to i64
-  %call114 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 2), i64 noundef %conv113) #6
+  %call114 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 8324), i64 noundef %conv113) #6
   %cmp115 = icmp ne i32 %call114, 0
   %conv116 = zext i1 %cmp115 to i32
   %call117 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 226, ptr noundef nonnull @.str.27, i32 noundef %conv116) #6
@@ -377,7 +377,7 @@ if.end127:                                        ; preds = %lor.lhs.false119
   %18 = load i64, ptr %len, align 8
   %conv129 = trunc i64 %18 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv129)
-  %19 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 4), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call131 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 230, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %19) #6
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %err, label %if.end134
@@ -392,9 +392,9 @@ if.end134:                                        ; preds = %if.end127
   br i1 %tobool140.not, label %err, label %lor.lhs.false141
 
 lor.lhs.false141:                                 ; preds = %if.end134
-  %20 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 1), align 16
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 8320), align 16
   %conv142 = sext i32 %20 to i64
-  %call143 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2), i64 noundef %conv142, ptr noundef null, ptr noundef null) #6
+  %call143 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 8288), i64 noundef %conv142, ptr noundef null, ptr noundef null) #6
   %cmp144 = icmp ne i32 %call143, 0
   %conv145 = zext i1 %cmp144 to i32
   %call146 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 235, ptr noundef nonnull @.str.26, i32 noundef %conv145) #6
@@ -402,9 +402,9 @@ lor.lhs.false141:                                 ; preds = %if.end134
   br i1 %tobool147.not, label %err, label %lor.lhs.false148
 
 lor.lhs.false148:                                 ; preds = %lor.lhs.false141
-  %21 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 3), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 12420), align 4
   %conv149 = sext i32 %21 to i64
-  %call150 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 2), i64 noundef %conv149) #6
+  %call150 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 8324), i64 noundef %conv149) #6
   %cmp151 = icmp ne i32 %call150, 0
   %conv152 = zext i1 %cmp151 to i32
   %call153 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 236, ptr noundef nonnull @.str.27, i32 noundef %conv152) #6
@@ -423,16 +423,16 @@ if.end163:                                        ; preds = %lor.lhs.false155
   %22 = load i64, ptr %len, align 8
   %conv165 = trunc i64 %22 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv165)
-  %23 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 2, i32 4), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call167 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 240, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %23) #6
   %tobool168.not = icmp eq i32 %call167, 0
   br i1 %tobool168.not, label %err, label %if.end170
 
 if.end170:                                        ; preds = %if.end163
-  %24 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 3, i32 1), align 16
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 12464), align 16
   %conv171 = sext i32 %24 to i64
   %call172 = call ptr @EVP_aes_128_cbc() #6
-  %call173 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 3, i32 0, i32 0, i64 0), i64 noundef %conv171, ptr noundef %call172, ptr noundef null) #6
+  %call173 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 12432), i64 noundef %conv171, ptr noundef %call172, ptr noundef null) #6
   %cmp174 = icmp ne i32 %call173, 0
   %conv175 = zext i1 %cmp174 to i32
   %call176 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 245, ptr noundef nonnull @.str.30, i32 noundef %conv175) #6
@@ -440,9 +440,9 @@ if.end170:                                        ; preds = %if.end163
   br i1 %tobool177.not, label %err, label %lor.lhs.false178
 
 lor.lhs.false178:                                 ; preds = %if.end170
-  %25 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 3, i32 3), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 16564), align 4
   %conv179 = sext i32 %25 to i64
-  %call180 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 3, i32 2), i64 noundef %conv179) #6
+  %call180 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 12468), i64 noundef %conv179) #6
   %cmp181 = icmp ne i32 %call180, 0
   %conv182 = zext i1 %cmp181 to i32
   %call183 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 246, ptr noundef nonnull @.str.31, i32 noundef %conv182) #6
@@ -461,16 +461,16 @@ if.end193:                                        ; preds = %lor.lhs.false185
   %26 = load i64, ptr %len, align 8
   %conv195 = trunc i64 %26 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv195)
-  %27 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 3, i32 4), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 16568), align 8
   %call197 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 250, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32, ptr noundef nonnull @pt.buf, ptr noundef %27) #6
   %tobool198.not = icmp eq i32 %call197, 0
   br i1 %tobool198.not, label %err, label %if.end200
 
 if.end200:                                        ; preds = %if.end193
-  %28 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 4, i32 1), align 16
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 16608), align 16
   %conv201 = sext i32 %28 to i64
   %call202 = call ptr @EVP_aes_192_cbc() #6
-  %call203 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 4, i32 0, i32 0, i64 0), i64 noundef %conv201, ptr noundef %call202, ptr noundef null) #6
+  %call203 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 16576), i64 noundef %conv201, ptr noundef %call202, ptr noundef null) #6
   %cmp204 = icmp ne i32 %call203, 0
   %conv205 = zext i1 %cmp204 to i32
   %call206 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 254, ptr noundef nonnull @.str.33, i32 noundef %conv205) #6
@@ -478,9 +478,9 @@ if.end200:                                        ; preds = %if.end193
   br i1 %tobool207.not, label %err, label %lor.lhs.false208
 
 lor.lhs.false208:                                 ; preds = %if.end200
-  %29 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 4, i32 3), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 20708), align 4
   %conv209 = sext i32 %29 to i64
-  %call210 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 4, i32 2), i64 noundef %conv209) #6
+  %call210 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 16612), i64 noundef %conv209) #6
   %cmp211 = icmp ne i32 %call210, 0
   %conv212 = zext i1 %cmp211 to i32
   %call213 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 255, ptr noundef nonnull @.str.34, i32 noundef %conv212) #6
@@ -499,16 +499,16 @@ if.end223:                                        ; preds = %lor.lhs.false215
   %30 = load i64, ptr %len, align 8
   %conv225 = trunc i64 %30 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv225)
-  %31 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 4, i32 4), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 20712), align 8
   %call227 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 259, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.35, ptr noundef nonnull @pt.buf, ptr noundef %31) #6
   %tobool228.not = icmp eq i32 %call227, 0
   br i1 %tobool228.not, label %err, label %if.end230
 
 if.end230:                                        ; preds = %if.end223
-  %32 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 5, i32 1), align 16
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 20752), align 16
   %conv231 = sext i32 %32 to i64
   %call232 = call ptr @EVP_aes_256_cbc() #6
-  %call233 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 5), i64 noundef %conv231, ptr noundef %call232, ptr noundef null) #6
+  %call233 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 20720), i64 noundef %conv231, ptr noundef %call232, ptr noundef null) #6
   %cmp234 = icmp ne i32 %call233, 0
   %conv235 = zext i1 %cmp234 to i32
   %call236 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 263, ptr noundef nonnull @.str.36, i32 noundef %conv235) #6
@@ -516,9 +516,9 @@ if.end230:                                        ; preds = %if.end223
   br i1 %tobool237.not, label %err, label %lor.lhs.false238
 
 lor.lhs.false238:                                 ; preds = %if.end230
-  %33 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 5, i32 3), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 24852), align 4
   %conv239 = sext i32 %33 to i64
-  %call240 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 5, i32 2), i64 noundef %conv239) #6
+  %call240 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 20756), i64 noundef %conv239) #6
   %cmp241 = icmp ne i32 %call240, 0
   %conv242 = zext i1 %cmp241 to i32
   %call243 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 264, ptr noundef nonnull @.str.37, i32 noundef %conv242) #6
@@ -537,16 +537,16 @@ if.end253:                                        ; preds = %lor.lhs.false245
   %34 = load i64, ptr %len, align 8
   %conv255 = trunc i64 %34 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv255)
-  %35 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 5, i32 4), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 24856), align 8
   %call257 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 268, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.38, ptr noundef nonnull @pt.buf, ptr noundef %35) #6
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %err, label %if.end260
 
 if.end260:                                        ; preds = %if.end253
-  %36 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 6, i32 1), align 16
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 24896), align 16
   %conv261 = sext i32 %36 to i64
   %call262 = call ptr @EVP_des_ede3_cbc() #6
-  %call263 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 6), i64 noundef %conv261, ptr noundef %call262, ptr noundef null) #6
+  %call263 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 24864), i64 noundef %conv261, ptr noundef %call262, ptr noundef null) #6
   %cmp264 = icmp ne i32 %call263, 0
   %conv265 = zext i1 %cmp264 to i32
   %call266 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 273, ptr noundef nonnull @.str.39, i32 noundef %conv265) #6
@@ -554,9 +554,9 @@ if.end260:                                        ; preds = %if.end253
   br i1 %tobool267.not, label %err, label %lor.lhs.false268
 
 lor.lhs.false268:                                 ; preds = %if.end260
-  %37 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 6, i32 3), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 28996), align 4
   %conv269 = sext i32 %37 to i64
-  %call270 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 6, i32 2), i64 noundef %conv269) #6
+  %call270 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 24900), i64 noundef %conv269) #6
   %cmp271 = icmp ne i32 %call270, 0
   %conv272 = zext i1 %cmp271 to i32
   %call273 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 274, ptr noundef nonnull @.str.40, i32 noundef %conv272) #6
@@ -575,16 +575,16 @@ if.end283:                                        ; preds = %lor.lhs.false275
   %38 = load i64, ptr %len, align 8
   %conv285 = trunc i64 %38 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv285)
-  %39 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 6, i32 4), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 29000), align 8
   %call287 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 278, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.41, ptr noundef nonnull @pt.buf, ptr noundef %39) #6
   %tobool288.not = icmp eq i32 %call287, 0
   br i1 %tobool288.not, label %err, label %if.end290
 
 if.end290:                                        ; preds = %if.end283
-  %40 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 7, i32 1), align 16
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 29040), align 16
   %conv291 = sext i32 %40 to i64
   %call292 = call ptr @EVP_sm4_cbc() #6
-  %call293 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 7, i32 0, i32 0, i64 0), i64 noundef %conv291, ptr noundef %call292, ptr noundef null) #6
+  %call293 = call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 29008), i64 noundef %conv291, ptr noundef %call292, ptr noundef null) #6
   %cmp294 = icmp ne i32 %call293, 0
   %conv295 = zext i1 %cmp294 to i32
   %call296 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 284, ptr noundef nonnull @.str.42, i32 noundef %conv295) #6
@@ -592,9 +592,9 @@ if.end290:                                        ; preds = %if.end283
   br i1 %tobool297.not, label %err, label %lor.lhs.false298
 
 lor.lhs.false298:                                 ; preds = %if.end290
-  %41 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 7, i32 3), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 33140), align 4
   %conv299 = sext i32 %41 to i64
-  %call300 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 7, i32 2), i64 noundef %conv299) #6
+  %call300 = call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 29044), i64 noundef %conv299) #6
   %cmp301 = icmp ne i32 %call300, 0
   %conv302 = zext i1 %cmp301 to i32
   %call303 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 285, ptr noundef nonnull @.str.43, i32 noundef %conv302) #6
@@ -613,7 +613,7 @@ if.end313:                                        ; preds = %lor.lhs.false305
   %42 = load i64, ptr %len, align 8
   %conv315 = trunc i64 %42 to i32
   call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv315)
-  %43 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 7, i32 4), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 33144), align 8
   %call317 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 289, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.44, ptr noundef nonnull @pt.buf, ptr noundef %43) #6
   %tobool318.not = icmp ne i32 %call317, 0
   %spec.select = zext i1 %tobool318.not to i32
@@ -642,7 +642,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %0 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 1), align 16
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 32), align 16
   %conv = sext i32 %0 to i64
   %call5 = tail call ptr @EVP_aes_128_cbc() #6
   %call6 = tail call i32 @CMAC_Init(ptr noundef %call, ptr noundef nonnull @test, i64 noundef %conv, ptr noundef %call5, ptr noundef null) #6
@@ -653,9 +653,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 3), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @test, i64 4132), align 4
   %conv11 = sext i32 %1 to i64
-  %call12 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 2), i64 noundef %conv11) #6
+  %call12 = tail call i32 @CMAC_Update(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @test, i64 36), i64 noundef %conv11) #6
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
   %call15 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 314, ptr noundef nonnull @.str.6, i32 noundef %conv14) #6
@@ -698,7 +698,7 @@ for.body.i:                                       ; preds = %if.end30, %for.body
   br i1 %exitcond.not.i, label %pt.exit, label %for.body.i, !llvm.loop !8
 
 pt.exit:                                          ; preds = %for.body.i, %if.end30
-  %5 = load ptr, ptr getelementptr inbounds (<{ { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr }, { <{ [24 x i8], [8 x i8] }>, i32, [4096 x i8], i32, ptr }, %struct.test_st, %struct.test_st, { <{ [16 x i8], [16 x i8] }>, i32, [4096 x i8], i32, ptr } }>, ptr @test, i64 0, i32 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 4136), align 8
   %call34 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 320, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @pt.buf, ptr noundef %5) #6
   %tobool35.not = icmp ne i32 %call34, 0
   %spec.select = zext i1 %tobool35.not to i32

@@ -172,7 +172,7 @@ define noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 16), align 8
   tail call void %3(ptr noundef nonnull %0) #10
   br label %4
 

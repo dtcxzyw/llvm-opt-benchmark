@@ -240,7 +240,7 @@ invoke.cont.i:                                    ; preds = %entry
   %m_find.i.i = getelementptr inbounds i8, ptr %gi, i64 88
   %m_mk_var_trail.i.i = getelementptr inbounds i8, ptr %gi, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_find.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E12mk_var_trailE, i64 0, i32 0, i64 2), ptr %m_mk_var_trail.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E12mk_var_trailE, i64 16), ptr %m_mk_var_trail.i.i, align 8
   %m_owner.i.i.i = getelementptr inbounds i8, ptr %gi, i64 120
   store ptr %m_uf.i, ptr %m_owner.i.i.i, align 8
   %m_array_util.i = getelementptr inbounds i8, ptr %gi, i64 128
@@ -290,14 +290,14 @@ invoke.cont6.i:                                   ; preds = %invoke.cont2.i
   %m_num_deleted.i.i.i = getelementptr inbounds i8, ptr %termids.i, i64 16
   store i32 0, ptr %m_num_deleted.i.i.i, align 8
   %call.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
-  %4 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %tobool.i23.i = trunc i8 %4 to i1
   br i1 %tobool.i23.i, label %_ZN9stopwatch5startEv.exit26.i, label %if.then.i24.i
 
 if.then.i24.i:                                    ; preds = %invoke.cont6.i
   %call.i.i25.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i25.i, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   br label %_ZN9stopwatch5startEv.exit26.i
 
 _ZN9stopwatch5startEv.exit26.i:                   ; preds = %if.then.i24.i, %invoke.cont6.i
@@ -1083,7 +1083,7 @@ if.then17.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i
           to label %invoke.cont.i.i.i.i unwind label %cleanup.action.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then17.i.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i.i.i.i, align 8
   %m_msg.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #15
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -1435,7 +1435,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i61.i, 
 invoke.cont59.i:                                  ; preds = %if.end.i
   %call.i.i66.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %sub.i.i.i.i = sub i64 %call.i.i66.i, %call.i.i.i
-  %119 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  %119 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %tobool.i67.i = trunc i8 %119 to i1
   br i1 %tobool.i67.i, label %if.then.i69.i, label %invoke.cont60.i
 
@@ -1443,10 +1443,10 @@ if.then.i69.i:                                    ; preds = %invoke.cont59.i
   %call.i.i70.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i71.i = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
   %sub.i.i.i72.i = sub i64 %call.i.i70.i, %retval.sroa.0.0.copyload.i1.i.i71.i
-  %120 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
+  %120 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
   %add.i.i73.i = add nsw i64 %sub.i.i.i72.i, %120
-  store i64 %add.i.i73.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i73.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   br label %invoke.cont60.i
 
 invoke.cont60.i:                                  ; preds = %if.then.i69.i, %invoke.cont59.i
@@ -1473,7 +1473,7 @@ invoke.cont68.i:                                  ; preds = %if.then67.i
           to label %invoke.cont69.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont69.i:                                  ; preds = %invoke.cont68.i
-  %121 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  %121 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %tobool.i75.i = trunc i8 %121 to i1
   br i1 %tobool.i75.i, label %_ZN9stopwatch4stopEv.exit.i.i, label %invoke.cont71.i
 
@@ -1481,17 +1481,17 @@ _ZN9stopwatch4stopEv.exit.i.i:                    ; preds = %invoke.cont69.i
   %call.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i.i.i = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
   %sub.i.i.i.i.i = sub i64 %call.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i
-  %122 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
+  %122 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
   %add.i.i.i.i = add nsw i64 %sub.i.i.i.i.i, %122
-  store i64 %add.i.i.i.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %call.i.i4.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i4.i.i, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   br label %invoke.cont71.i
 
 invoke.cont71.i:                                  ; preds = %_ZN9stopwatch4stopEv.exit.i.i, %invoke.cont69.i
-  %123 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
+  %123 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
   %div.i.i.i.i = sdiv i64 %123, 1000000
   %conv.i.i = sitofp i64 %div.i.i.i.i to double
   %div.i.i = fdiv double %conv.i.i, 1.000000e+03
@@ -1597,7 +1597,7 @@ invoke.cont99.i:                                  ; preds = %invoke.cont97.i
           to label %invoke.cont101.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont101.i:                                 ; preds = %invoke.cont99.i
-  %131 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  %131 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %tobool.i121.i = trunc i8 %131 to i1
   br i1 %tobool.i121.i, label %_ZN9stopwatch4stopEv.exit.i126.i, label %invoke.cont103.i
 
@@ -1605,17 +1605,17 @@ _ZN9stopwatch4stopEv.exit.i126.i:                 ; preds = %invoke.cont101.i
   %call.i.i.i127.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i.i128.i = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
   %sub.i.i.i.i129.i = sub i64 %call.i.i.i127.i, %retval.sroa.0.0.copyload.i1.i.i.i128.i
-  %132 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
+  %132 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
   %add.i.i.i130.i = add nsw i64 %sub.i.i.i.i129.i, %132
-  store i64 %add.i.i.i130.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i.i130.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %call.i.i4.i131.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i4.i131.i, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   br label %invoke.cont103.i
 
 invoke.cont103.i:                                 ; preds = %_ZN9stopwatch4stopEv.exit.i126.i, %invoke.cont101.i
-  %133 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
+  %133 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
   %div.i.i.i123.i = sdiv i64 %133, 1000000
   %conv.i124.i = sitofp i64 %div.i.i.i123.i to double
   %div.i125.i = fdiv double %conv.i124.i, 1.000000e+03
@@ -1635,7 +1635,7 @@ if.else.i:                                        ; preds = %invoke.cont65.i
           to label %invoke.cont110.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont110.i:                                 ; preds = %if.else.i
-  %134 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  %134 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %tobool.i133.i = trunc i8 %134 to i1
   br i1 %tobool.i133.i, label %_ZN9stopwatch4stopEv.exit.i138.i, label %invoke.cont112.i
 
@@ -1643,17 +1643,17 @@ _ZN9stopwatch4stopEv.exit.i138.i:                 ; preds = %invoke.cont110.i
   %call.i.i.i139.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i.i140.i = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
   %sub.i.i.i.i141.i = sub i64 %call.i.i.i139.i, %retval.sroa.0.0.copyload.i1.i.i.i140.i
-  %135 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
+  %135 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
   %add.i.i.i142.i = add nsw i64 %sub.i.i.i.i141.i, %135
-  store i64 %add.i.i.i142.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i.i142.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   %call.i.i4.i143.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i4.i143.i, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 16), align 8
   br label %invoke.cont112.i
 
 invoke.cont112.i:                                 ; preds = %_ZN9stopwatch4stopEv.exit.i138.i, %invoke.cont110.i
-  %136 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 0, i32 1, i32 0), align 8
+  %136 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl7s_timerE, i64 8), align 8
   %div.i.i.i135.i = sdiv i64 %136, 1000000
   %conv.i136.i = sitofp i64 %div.i.i.i135.i to double
   %div.i137.i = fdiv double %conv.i136.i, 1.000000e+03
@@ -1759,7 +1759,7 @@ invoke.cont143.i:                                 ; preds = %invoke.cont141.i
           to label %invoke.cont145.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont145.i:                                 ; preds = %invoke.cont143.i
-  %144 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  %144 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %tobool.i190.i = trunc i8 %144 to i1
   br i1 %tobool.i190.i, label %_ZN9stopwatch4stopEv.exit.i195.i, label %invoke.cont147.i
 
@@ -1767,17 +1767,17 @@ _ZN9stopwatch4stopEv.exit.i195.i:                 ; preds = %invoke.cont145.i
   %call.i.i.i196.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i.i197.i = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
   %sub.i.i.i.i198.i = sub i64 %call.i.i.i196.i, %retval.sroa.0.0.copyload.i1.i.i.i197.i
-  %145 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
+  %145 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
   %add.i.i.i199.i = add nsw i64 %sub.i.i.i.i198.i, %145
-  store i64 %add.i.i.i199.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i.i199.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %call.i.i4.i200.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i4.i200.i, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   br label %invoke.cont147.i
 
 invoke.cont147.i:                                 ; preds = %_ZN9stopwatch4stopEv.exit.i195.i, %invoke.cont145.i
-  %146 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
+  %146 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
   %div.i.i.i192.i = sdiv i64 %146, 1000000
   %conv.i193.i = sitofp i64 %div.i.i.i192.i to double
   %div.i194.i = fdiv double %conv.i193.i, 1.000000e+03
@@ -2379,7 +2379,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -2457,7 +2457,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #15
   ret void
@@ -2622,7 +2622,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -3079,7 +3079,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then.i.i.i.i:                                  ; preds = %for.body
   %exception.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i, i64 8
   store ptr @.str.14, ptr %_M_reason.i.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
@@ -3605,7 +3605,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i344,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i339) #15
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -3724,14 +3724,14 @@ if.then.i133:                                     ; preds = %invoke.cont90
   br label %invoke.cont92
 
 invoke.cont92:                                    ; preds = %if.then.i133, %invoke.cont90
-  %98 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %tobool.i135 = trunc i8 %98 to i1
   br i1 %tobool.i135, label %invoke.cont93, label %if.then.i136
 
 if.then.i136:                                     ; preds = %invoke.cont92
   %call.i.i137 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   store i64 %call.i.i137, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %if.then.i136, %invoke.cont92
@@ -4303,7 +4303,7 @@ if.then17.i360:                                   ; preds = %lor.lhs.false.i369,
           to label %invoke.cont.i365 unwind label %cleanup.action.i362
 
 invoke.cont.i365:                                 ; preds = %if.then17.i360
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception.i361, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i361, align 8
   %m_msg.i.i366 = getelementptr inbounds i8, ptr %exception.i361, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i366, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i349) #15
   invoke void @__cxa_throw(ptr nonnull %exception.i361, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -4617,7 +4617,7 @@ if.then.i275:                                     ; preds = %for.end189
   br label %invoke.cont191
 
 invoke.cont191:                                   ; preds = %if.then.i275, %for.end189
-  %228 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  %228 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   %tobool.i277 = trunc i8 %228 to i1
   br i1 %tobool.i277, label %if.then.i279, label %invoke.cont192
 
@@ -4625,10 +4625,10 @@ if.then.i279:                                     ; preds = %invoke.cont191
   %call.i.i280 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %retval.sroa.0.0.copyload.i1.i.i281 = load i64, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, align 8
   %sub.i.i.i282 = sub i64 %call.i.i280, %retval.sroa.0.0.copyload.i1.i.i281
-  %229 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
+  %229 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
   %add.i.i283 = add nsw i64 %sub.i.i.i282, %229
-  store i64 %add.i.i283, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 0, i32 2), align 8
+  store i64 %add.i.i283, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127get_implied_equalities_impl20s_stats_val_eq_timerE, i64 16), align 8
   br label %invoke.cont192
 
 invoke.cont192:                                   ; preds = %if.then.i279, %invoke.cont191
@@ -5084,7 +5084,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i, %i
           to label %invoke.cont.i154 unwind label %cleanup.action.i
 
 invoke.cont.i154:                                 ; preds = %if.then17.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -5479,7 +5479,7 @@ if.end.i121:                                      ; preds = %_ZNK10union_findI22
           to label %call.i.i21.i.noexc unwind label %lpad.loopexit
 
 call.i.i21.i.noexc:                               ; preds = %if.end.i121
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E11merge_trailE, i64 0, i32 0, i64 2), ptr %call.i.i21.i124, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E11merge_trailE, i64 16), ptr %call.i.i21.i124, align 8
   %m_owner.i.i.i = getelementptr inbounds i8, ptr %call.i.i21.i124, i64 8
   store ptr %m_uf71, ptr %m_owner.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i21.i124, i64 16
@@ -5928,7 +5928,7 @@ if.end:                                           ; preds = %_ZNK10union_findI22
   %12 = load ptr, ptr %m_trail_stack, align 8
   %m_region.i = getelementptr inbounds i8, ptr %12, i64 16
   %call.i.i21 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 24)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E11merge_trailE, i64 0, i32 0, i64 2), ptr %call.i.i21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E11merge_trailE, i64 16), ptr %call.i.i21, align 8
   %m_owner.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store ptr %this, ptr %m_owner.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i21, i64 16
@@ -6089,7 +6089,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17

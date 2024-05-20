@@ -39,7 +39,7 @@ $_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE7reserveEi = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bulletVersion = getelementptr inbounds i8, ptr %this, i64 64
   store i32 300, ptr %m_bulletVersion, align 16
   %m_useQuantization = getelementptr inbounds i8, ptr %this, i64 72
@@ -552,7 +552,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(252) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3090,7 +3090,7 @@ invoke.cont:
   %1 = load i32, ptr %m_size.i, align 4
   %m_subtreeHeaderCount = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %1, ptr %m_subtreeHeaderCount, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i64 0, i32 0, i64 2), ptr %o_alignedDataBuffer, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %o_alignedDataBuffer, align 16
   %m_bulletVersion.i = getelementptr inbounds i8, ptr %o_alignedDataBuffer, i64 64
   store i32 300, ptr %m_bulletVersion.i, align 16
   %m_useQuantization.i = getelementptr inbounds i8, ptr %o_alignedDataBuffer, i64 72
@@ -3921,7 +3921,7 @@ if.end7:                                          ; preds = %if.end.if.end7_crit
 
 invoke.cont:                                      ; preds = %if.end7
   %add.ptr = getelementptr inbounds i8, ptr %i_alignedDataBuffer, i64 256
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i64 0, i32 0, i64 2), ptr %i_alignedDataBuffer, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %i_alignedDataBuffer, align 16
   %m_bulletVersion.i = getelementptr inbounds i8, ptr %i_alignedDataBuffer, i64 64
   store i32 300, ptr %m_bulletVersion.i, align 16
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %i_alignedDataBuffer, i64 104
@@ -4177,7 +4177,7 @@ return:                                           ; preds = %for.body124, %for.c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bvhAabbMin = getelementptr inbounds i8, ptr %this, i64 16
   %m_bvhAabbMin2 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_bvhAabbMin, ptr noundef nonnull align 16 dereferenceable(16) %m_bvhAabbMin2, i64 16, i1 false)

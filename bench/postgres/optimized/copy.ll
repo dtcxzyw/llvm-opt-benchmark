@@ -77,7 +77,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @pg_malloc0(i64 noundef 32) #10
   %9 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.11) #10
   store ptr %9, ptr %8, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %11 = tail call ptr @strtokx(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %10) #10
   %.not112.i = icmp eq ptr %11, null
   br i1 %.not112.i, label %.loopexit.i, label %12
@@ -93,7 +93,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %18) #10
   store ptr %17, ptr %8, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %20 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %19) #10
   %.not113.i = icmp eq ptr %20, null
   br i1 %.not113.i, label %.loopexit.i, label %21
@@ -116,7 +116,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %28) #10
   store ptr %27, ptr %8, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %30 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i8 noundef signext %5, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %29) #10
   %.not123.i = icmp eq ptr %30, null
   br i1 %.not123.i, label %.loopexit.i, label %31
@@ -152,7 +152,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %43 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %43) #10
   store ptr %42, ptr %8, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %45 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %44) #10
   %.not114.i = icmp eq ptr %45, null
   br i1 %.not114.i, label %.loopexit.i, label %46
@@ -168,7 +168,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %52 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %52) #10
   store ptr %51, ptr %8, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %54 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %53) #10
   %.not115.i = icmp eq ptr %54, null
   br i1 %.not115.i, label %.loopexit.i, label %55
@@ -179,7 +179,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %58 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %58) #10
   store ptr %57, ptr %8, align 8
-  %59 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %60 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %59) #10
   %.not116.i = icmp eq ptr %60, null
   br i1 %.not116.i, label %.loopexit.i, label %thread-pre-split.i
@@ -205,7 +205,7 @@ thread-pre-split.i:                               ; preds = %55
   %68 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %68) #10
   store ptr %67, ptr %8, align 8
-  %69 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %70 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %69) #10
   %.not117.i = icmp eq ptr %70, null
   br i1 %.not117.i, label %.loopexit.i, label %71
@@ -225,7 +225,7 @@ thread-pre-split.i:                               ; preds = %55
   %79 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %79) #10
   store ptr %78, ptr %8, align 8
-  %80 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %81 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %80) #10
   %.not118.i = icmp eq ptr %81, null
   br i1 %.not118.i, label %.loopexit.i, label %82
@@ -245,7 +245,7 @@ thread-pre-split.i:                               ; preds = %55
   %.sink.i = phi i8 [ 1, %82 ], [ 0, %85 ]
   %89 = getelementptr inbounds i8, ptr %8, i64 26
   store i8 %.sink.i, ptr %89, align 2
-  %90 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %91 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %90) #10
   %.not119.i = icmp eq ptr %91, null
   br i1 %.not119.i, label %.loopexit.i, label %92
@@ -256,7 +256,7 @@ thread-pre-split.i:                               ; preds = %55
   br i1 %94, label %95, label %114
 
 95:                                               ; preds = %92
-  %96 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %97 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %96) #10
   %.not120.i = icmp eq ptr %97, null
   br i1 %.not120.i, label %.loopexit.i, label %98
@@ -279,7 +279,7 @@ thread-pre-split.i:                               ; preds = %55
   br i1 %.not121.i, label %109, label %141
 
 109:                                              ; preds = %104
-  %110 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   tail call void @strip_quotes(ptr noundef nonnull %97, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %110) #10
   %111 = getelementptr inbounds i8, ptr %8, i64 24
   store i8 1, ptr %111, align 8
@@ -321,7 +321,7 @@ thread-pre-split.i:                               ; preds = %55
   br label %135
 
 131:                                              ; preds = %125
-  %132 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   tail call void @strip_quotes(ptr noundef nonnull %91, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %132) #10
   %133 = tail call ptr @pg_strdup(ptr noundef nonnull %91) #10
   %134 = getelementptr inbounds i8, ptr %8, i64 16
@@ -330,7 +330,7 @@ thread-pre-split.i:                               ; preds = %55
   br label %135
 
 135:                                              ; preds = %131, %128, %120, %109
-  %136 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %136 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %137 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %136) #10
   %.not122.i = icmp eq ptr %137, null
   br i1 %.not122.i, label %parse_slash_copy.exit, label %138
@@ -413,7 +413,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br i1 %173, label %176, label %174
 
 174:                                              ; preds = %170
-  %175 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 19), align 8
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   br label %198
 
 176:                                              ; preds = %170
@@ -449,7 +449,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br i1 %193, label %196, label %194
 
 194:                                              ; preds = %190
-  %195 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
+  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   br label %198
 
 196:                                              ; preds = %190
@@ -538,10 +538,10 @@ free_copy_options.exit68:                         ; preds = %free_copy_options.e
   br label %232
 
 232:                                              ; preds = %231, %.thread82
-  store ptr %.049, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 4), align 8
+  store ptr %.049, ptr getelementptr inbounds (i8, ptr @pset, i64 32), align 8
   %233 = load ptr, ptr %2, align 8
   %234 = call zeroext i1 @SendQuery(ptr noundef %233) #10
-  store ptr null, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 32), align 8
   call void @termPQExpBuffer(ptr noundef nonnull %2) #10
   %235 = load ptr, ptr %147, align 8
   %.not62 = icmp eq ptr %235, null
@@ -793,7 +793,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not58.not, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %17 = trunc i8 %16 to i1
   br i1 %17, label %20, label %18
 
@@ -894,14 +894,14 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 
 60:                                               ; preds = %55, %54, %57, %59, %53
   %.149 = phi i8 [ 1, %59 ], [ %.04872, %57 ], [ %.04872, %53 ], [ %.04872, %54 ], [ %.04872, %55 ]
-  %61 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 19), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   %62 = icmp eq ptr %61, %1
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = load <2 x i64>, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 24), align 8
+  %64 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
   %65 = add <2 x i64> %64, <i64 1, i64 1>
-  store <2 x i64> %65, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 24), align 8
+  store <2 x i64> %65, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
   br label %66
 
 66:                                               ; preds = %44, %60, %63, %39

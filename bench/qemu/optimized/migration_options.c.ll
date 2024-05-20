@@ -545,7 +545,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %migrate_query_write_tracking.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %migrate_query_write_tracking.exit ]
-  %arrayidx40 = getelementptr [0 x i32], ptr getelementptr inbounds ({ i32, [15 x i32] }, ptr @check_caps_background_snapshot, i64 0, i32 1, i64 0), i64 0, i64 %indvars.iv
+  %arrayidx40 = getelementptr [0 x i32], ptr getelementptr inbounds (i8, ptr @check_caps_background_snapshot, i64 4), i64 0, i64 %indvars.iv
   %7 = load i32, ptr %arrayidx40, align 4
   %idxprom41 = sext i32 %7 to i64
   %arrayidx42 = getelementptr i8, ptr %new_caps, i64 %idxprom41
@@ -1235,13 +1235,13 @@ entry:
   store i64 %0, ptr @migrate_announce_params.ap, align 8
   %announce_max = getelementptr inbounds i8, ptr %call, i64 544
   %1 = load i64, ptr %announce_max, align 8
-  store i64 %1, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i64 0, i32 1), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @migrate_announce_params.ap, i64 8), align 8
   %announce_rounds = getelementptr inbounds i8, ptr %call, i64 560
   %2 = load i64, ptr %announce_rounds, align 8
-  store i64 %2, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i64 0, i32 2), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @migrate_announce_params.ap, i64 16), align 8
   %announce_step = getelementptr inbounds i8, ptr %call, i64 576
   %3 = load i64, ptr %announce_step, align 8
-  store i64 %3, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i64 0, i32 3), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @migrate_announce_params.ap, i64 24), align 8
   ret ptr @migrate_announce_params.ap
 }
 

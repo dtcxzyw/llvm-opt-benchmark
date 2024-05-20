@@ -267,7 +267,7 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) local_unnamed_addr #2 {
 
 .preheader:                                       ; preds = %3, %19
   %.01420 = phi ptr [ %.1, %19 ], [ @tag_behavior, %3 ]
-  %.01519 = phi ptr [ %.116, %19 ], [ getelementptr inbounds ([193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 192), %3 ]
+  %.01519 = phi ptr [ %.116, %19 ], [ getelementptr inbounds (i8, ptr @tag_behavior, i64 3072), %3 ]
   %6 = ptrtoint ptr %.01519 to i64
   %7 = ptrtoint ptr %.01420 to i64
   %8 = sub i64 %6, %7

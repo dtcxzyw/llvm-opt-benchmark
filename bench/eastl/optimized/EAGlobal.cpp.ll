@@ -492,7 +492,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define internal void @_GLOBAL__sub_I_EAGlobal.cpp() #9 section ".text.startup" {
 entry:
   store i64 2147483647, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
-  store i64 2147483647, ptr getelementptr inbounds (%"struct.EA::Thread::ThreadTime", ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 0, i32 0, i32 1), align 8
+  store i64 2147483647, ptr getelementptr inbounds (i8, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 8), align 8
   %call.i.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118InitOSGlobalSystemEv()
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev, ptr nonnull @_ZN12_GLOBAL__N_124gAutoinitOSGlobalManagerE, ptr nonnull @__dso_handle) #11
   ret void

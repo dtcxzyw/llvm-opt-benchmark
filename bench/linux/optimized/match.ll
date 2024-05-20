@@ -34,7 +34,7 @@ define dso_local noundef ptr @x86_match_cpu(ptr noundef readonly %0) #0 align 16
   br i1 %15, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
-  %.pre2 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %.pre2 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %55
@@ -61,7 +61,7 @@ define dso_local noundef ptr @x86_match_cpu(ptr noundef readonly %0) #0 align 16
 
 33:                                               ; preds = %27
   %34 = icmp eq i16 %19, 0
-  %35 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
   %36 = zext i8 %35 to i16
   %37 = icmp eq i16 %19, %36
   %38 = select i1 %34, i1 true, i1 %37
@@ -72,7 +72,7 @@ define dso_local noundef ptr @x86_match_cpu(ptr noundef readonly %0) #0 align 16
   br i1 %40, label %48, label %41
 
 41:                                               ; preds = %39
-  %42 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
   %43 = zext nneg i8 %42 to i64
   %44 = shl nuw i64 1, %43
   %45 = zext i16 %18 to i64
@@ -86,11 +86,11 @@ define dso_local noundef ptr @x86_match_cpu(ptr noundef readonly %0) #0 align 16
 
 50:                                               ; preds = %48
   %51 = zext i16 %17 to i64
-  %52 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 %51) #3, !srcloc !5
+  %52 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), i64 %51) #3, !srcloc !5
   %53 = icmp ult i8 %52, 2
   tail call void @llvm.assume(i1 %53)
   %54 = icmp eq i8 %52, 0
-  %.pre = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   br i1 %54, label %55, label %.loopexit
 
 55:                                               ; preds = %50, %41, %33, %27, %.preheader
@@ -127,10 +127,10 @@ define dso_local zeroext i1 @x86_cpu_has_min_microcode_rev(ptr noundef readonly 
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %9 = load i8, ptr @boot_cpu_data, align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %11 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
   br label %12
 
 12:                                               ; preds = %27, %7
@@ -168,7 +168,7 @@ define dso_local zeroext i1 @x86_cpu_has_min_microcode_rev(ptr noundef readonly 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %15, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 28), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 308), align 4
   %40 = icmp ule i32 %38, %39
   br label %.thread
 

@@ -169,7 +169,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %25 = and i64 %24, 512
   %26 = icmp eq i64 %25, 0
   %27 = select i1 %26, i32 2336, i32 3520
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %29 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %28, i32 noundef %27, i64 noundef 72) #7
   %30 = icmp eq ptr %29, null
   br i1 %30, label %145, label %31

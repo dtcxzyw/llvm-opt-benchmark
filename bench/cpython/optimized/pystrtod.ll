@@ -49,7 +49,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr i8, ptr %s.addr.06.i, i64 1
   %incdec.ptr6.i = getelementptr i8, ptr %t.addr.07.i, i64 1
   %5 = load i8, ptr %incdec.ptr6.i, align 1
-  %exitcond = icmp eq ptr %incdec.ptr6.i, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %exitcond = icmp eq ptr %incdec.ptr6.i, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %exitcond, label %if.then9, label %land.rhs.i, !llvm.loop !5
 
 if.then9:                                         ; preds = %while.body.i
@@ -73,7 +73,7 @@ while.body.i22:                                   ; preds = %land.rhs.i14
   %incdec.ptr.i23 = getelementptr i8, ptr %s.addr.06.i16, i64 1
   %incdec.ptr6.i24 = getelementptr i8, ptr %t.addr.07.i15, i64 1
   %9 = load i8, ptr %incdec.ptr6.i24, align 1
-  %exitcond43 = icmp eq ptr %incdec.ptr6.i24, getelementptr inbounds ([6 x i8], ptr @.str.1, i64 0, i64 5)
+  %exitcond43 = icmp eq ptr %incdec.ptr6.i24, getelementptr inbounds (i8, ptr @.str.1, i64 5)
   br i1 %exitcond43, label %case_insensitive_match.exit26, label %land.rhs.i14, !llvm.loop !5
 
 case_insensitive_match.exit26:                    ; preds = %land.rhs.i14, %while.body.i22
@@ -99,7 +99,7 @@ while.body.i35:                                   ; preds = %land.rhs.i27
   %incdec.ptr.i36 = getelementptr i8, ptr %s.addr.06.i29, i64 1
   %incdec.ptr6.i37 = getelementptr i8, ptr %t.addr.07.i28, i64 1
   %13 = load i8, ptr %incdec.ptr6.i37, align 1
-  %exitcond42 = icmp eq ptr %incdec.ptr6.i37, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %exitcond42 = icmp eq ptr %incdec.ptr6.i37, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %exitcond42, label %if.then19, label %land.rhs.i27, !llvm.loop !5
 
 if.then19:                                        ; preds = %while.body.i35
@@ -171,7 +171,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr i8, ptr %s.addr.06.i.i.i, i64 1
   %incdec.ptr6.i.i.i = getelementptr i8, ptr %t.addr.07.i.i.i, i64 1
   %6 = load i8, ptr %incdec.ptr6.i.i.i, align 1
-  %exitcond.i.i = icmp eq ptr %incdec.ptr6.i.i.i, getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)
+  %exitcond.i.i = icmp eq ptr %incdec.ptr6.i.i.i, getelementptr inbounds (i8, ptr @.str, i64 3)
   br i1 %exitcond.i.i, label %if.then9.i.i, label %land.rhs.i.i.i, !llvm.loop !5
 
 if.then9.i.i:                                     ; preds = %while.body.i.i.i
@@ -195,7 +195,7 @@ while.body.i22.i.i:                               ; preds = %land.rhs.i14.i.i
   %incdec.ptr.i23.i.i = getelementptr i8, ptr %s.addr.06.i16.i.i, i64 1
   %incdec.ptr6.i24.i.i = getelementptr i8, ptr %t.addr.07.i15.i.i, i64 1
   %10 = load i8, ptr %incdec.ptr6.i24.i.i, align 1
-  %exitcond43.i.i = icmp eq ptr %incdec.ptr6.i24.i.i, getelementptr inbounds ([6 x i8], ptr @.str.1, i64 0, i64 5)
+  %exitcond43.i.i = icmp eq ptr %incdec.ptr6.i24.i.i, getelementptr inbounds (i8, ptr @.str.1, i64 5)
   br i1 %exitcond43.i.i, label %case_insensitive_match.exit26.i.i, label %land.rhs.i14.i.i, !llvm.loop !5
 
 case_insensitive_match.exit26.i.i:                ; preds = %while.body.i22.i.i, %land.rhs.i14.i.i
@@ -221,7 +221,7 @@ while.body.i35.i.i:                               ; preds = %land.rhs.i27.i.i
   %incdec.ptr.i36.i.i = getelementptr i8, ptr %s.addr.06.i29.i.i, i64 1
   %incdec.ptr6.i37.i.i = getelementptr i8, ptr %t.addr.07.i28.i.i, i64 1
   %14 = load i8, ptr %incdec.ptr6.i37.i.i, align 1
-  %exitcond42.i.i = icmp eq ptr %incdec.ptr6.i37.i.i, getelementptr inbounds ([4 x i8], ptr @.str.2, i64 0, i64 3)
+  %exitcond42.i.i = icmp eq ptr %incdec.ptr6.i37.i.i, getelementptr inbounds (i8, ptr @.str.2, i64 3)
   br i1 %exitcond42.i.i, label %if.then19.i.i, label %land.rhs.i27.i.i, !llvm.loop !5
 
 if.then19.i.i:                                    ; preds = %while.body.i35.i.i

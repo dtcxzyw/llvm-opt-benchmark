@@ -24,7 +24,7 @@ $_ZN7nanogui11ProgressBarD0Ev = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui11ProgressBarC2EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui11ProgressBarE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11ProgressBarE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   store float 0.000000e+00, ptr %3, align 4
   ret void

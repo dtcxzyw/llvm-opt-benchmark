@@ -1002,7 +1002,7 @@ define void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr
   %.068263.i.i = phi i32 [ %268, %_ZL8ilistcatiP15InteractionListRKS_iii.exit113.i.i ], [ 0, %.preheader246.i.i ]
   %64 = mul nsw i32 %.068263.i.i, %36
   %65 = add nsw i32 %64, %.070267.i.i
-  %66 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 62, i32 2), align 16
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2000), align 16
   %.fr44.i.i.i = freeze i32 %66
   %67 = load ptr, ptr %24, align 8
   %68 = load ptr, ptr %23, align 8
@@ -1211,7 +1211,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i:         ; preds = %117, %115, %113, %_
   br i1 %166, label %.loopexit.i.i.i, label %_ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i, !llvm.loop !18
 
 _ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i:  ; preds = %.loopexit.i.i.i, %..loopexit_crit_edge.us.us.i.i.i, %.preheader.us.preheader.i.i.i, %.preheader.preheader.i.i.i
-  %167 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 62, i32 2), align 16
+  %167 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2000), align 16
   %.fr44.i73.i.i = freeze i32 %167
   %168 = load ptr, ptr %24, align 8
   %169 = load ptr, ptr %23, align 8

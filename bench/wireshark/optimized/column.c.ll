@@ -1882,7 +1882,7 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
 
 24:                                               ; preds = %column_deregister_fields.exit
   %25 = tail call i32 @g_list_length(ptr noundef nonnull %23) #13
-  store i32 %25, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %26 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 80) #13
   %27 = tail call noalias dereferenceable_or_null(184) ptr @g_malloc0_n(i64 noundef 46, i64 noundef 4) #16
   %28 = getelementptr i8, ptr %27, i64 24

@@ -26,8 +26,8 @@ define internal void @vprotocol_pessimist_request_construct(ptr noundef %0) #0 {
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   %5 = ptrtoint ptr %0 to i64
-  %6 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 2), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 8), align 8
   %.v = select i1 %4, i64 %6, i64 %7
   %8 = add i64 %.v, %5
   %9 = inttoptr i64 %8 to ptr
@@ -43,7 +43,7 @@ define internal void @vprotocol_pessimist_request_construct(ptr noundef %0) #0 {
   store i64 0, ptr %15, align 8
   store ptr @mca_vprotocol_pessimist_request_free, ptr %12, align 8
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_item_t_class, i64 0, i32 4), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 32), align 8
   %.not = icmp eq i32 %16, %17
   br i1 %.not, label %19, label %18
 
@@ -55,7 +55,7 @@ define internal void @vprotocol_pessimist_request_construct(ptr noundef %0) #0 {
   store ptr @opal_list_item_t_class, ptr %9, align 8
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_item_t_class, i64 0, i32 6), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i = icmp eq ptr %22, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -80,8 +80,8 @@ define i32 @mca_vprotocol_pessimist_request_free(ptr noundef %0) #0 {
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
   %6 = ptrtoint ptr %2 to i64
-  %7 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 2), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 1), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 16), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 8), align 8
   %.v.i = select i1 %5, i64 %7, i64 %8
   %9 = add i64 %.v.i, %6
   %10 = inttoptr i64 %9 to ptr

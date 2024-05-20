@@ -124,7 +124,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN17DecorationManagerC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef, i32 noundef 3)
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17DecorationManager, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -781,7 +781,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %m_objects.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_objects.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17DecorationManager, i64 16), ptr %call, align 8, !tbaa !4
   tail call void @_ZNK13ObjDefManager7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %call)
   ret ptr %call
 }
@@ -1970,7 +1970,7 @@ define dso_local noundef nonnull ptr @_ZNK10DecoSimple5cloneEv(ptr noundef nonnu
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %call, i8 0, i64 344, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !99
@@ -1982,7 +1982,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !100
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i7.i.i
@@ -2036,8 +2036,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !107
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10DecoSimple, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10DecoSimple, i64 72), ptr %1, align 8, !tbaa !4
   %c_decos.i = getelementptr inbounds i8, ptr %call, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_decos.i, i8 0, i64 24, i1 false)
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %call)
@@ -2492,9 +2492,9 @@ return:                                           ; preds = %for.body123.us.epil
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13DecoSchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(329) %this) unnamed_addr #11 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13DecoSchematic, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %was_cloned = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load i8, ptr %was_cloned, align 8, !tbaa !122, !range !125, !noundef !126
   %tobool.not = icmp eq i8 %0, 0
@@ -2522,8 +2522,8 @@ if.end:                                           ; preds = %delete.notnull, %if
 define dso_local void @_ZThn56_N13DecoSchematicD1Ev(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13DecoSchematic, i64 72), ptr %this, align 8, !tbaa !4
   %was_cloned.i = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load i8, ptr %was_cloned.i, align 8, !tbaa !122, !range !125, !noundef !126
   %tobool.not.i = icmp eq i8 %1, 0
@@ -2550,9 +2550,9 @@ _ZN13DecoSchematicD2Ev.exit:                      ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13DecoSchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(329) %this) unnamed_addr #11 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13DecoSchematic, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %was_cloned.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load i8, ptr %was_cloned.i, align 8, !tbaa !122, !range !125, !noundef !126
   %tobool.not.i = icmp eq i8 %0, 0
@@ -2581,8 +2581,8 @@ _ZN13DecoSchematicD2Ev.exit:                      ; preds = %delete.notnull.i, %
 define dso_local void @_ZThn56_N13DecoSchematicD0Ev(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13DecoSchematic, i64 72), ptr %this, align 8, !tbaa !4
   %was_cloned.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load i8, ptr %was_cloned.i.i, align 8, !tbaa !122, !range !125, !noundef !126
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -2612,7 +2612,7 @@ define dso_local noundef ptr @_ZNK13DecoSchematic5cloneEv(ptr noundef nonnull al
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %call, i8 0, i64 336, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !99
@@ -2624,7 +2624,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !100
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i7.i.i
@@ -2678,8 +2678,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !107
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13DecoSchematic, i64 72), ptr %1, align 8, !tbaa !4
   %schematic.i = getelementptr inbounds i8, ptr %call, i64 320
   store ptr null, ptr %schematic.i, align 8, !tbaa !127
   %was_cloned.i = getelementptr inbounds i8, ptr %call, i64 328
@@ -2928,7 +2928,7 @@ define dso_local noundef ptr @_ZNK11DecoLSystem5cloneEv(ptr noundef nonnull alig
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(328) %call, i8 0, i64 328, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !99
@@ -2940,7 +2940,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !100
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i7.i.i
@@ -2994,8 +2994,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !107
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11DecoLSystem, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11DecoLSystem, i64 72), ptr %1, align 8, !tbaa !4
   %tree_def.i = getelementptr inbounds i8, ptr %call, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tree_def.i, i8 0, i64 16, i1 false)
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %call)
@@ -3149,9 +3149,9 @@ declare noundef i32 @_ZN7treegen10make_ltreeER8MMVManipN3irr4core8vector3dIsEERK
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecoSimpleD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10DecoSimple, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10DecoSimple, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %c_decos = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %c_decos, align 8, !tbaa !97
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3169,9 +3169,9 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %if.then.i.i.i, %ent
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecoSimpleD0Ev(ptr noundef nonnull align 8 dereferenceable(342) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10DecoSimple, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10DecoSimple, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %c_decos.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %c_decos.i, align 8, !tbaa !97
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3191,8 +3191,8 @@ _ZN10DecoSimpleD2Ev.exit:                         ; preds = %if.then.i.i.i.i, %e
 define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD1Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10DecoSimple, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10DecoSimple, i64 72), ptr %this, align 8, !tbaa !4
   %c_decos.i = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %c_decos.i, align 8, !tbaa !97
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -3211,8 +3211,8 @@ _ZN10DecoSimpleD2Ev.exit:                         ; preds = %if.then.i.i.i.i, %e
 define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD0Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10DecoSimple, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10DecoSimple, i64 72), ptr %this, align 8, !tbaa !4
   %c_decos.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %c_decos.i.i, align 8, !tbaa !97
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -3231,9 +3231,9 @@ _ZN10DecoSimpleD0Ev.exit:                         ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecorationD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10Decoration, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10Decoration, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %biomes = getelementptr inbounds i8, ptr %this, i64 256
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !140
@@ -3285,7 +3285,7 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorItSaItE
 
 _ZNSt6vectorItSaItEED2Ev.exit4:                   ; preds = %if.then.i.i.i3, %_ZNSt6vectorItSaItEED2Ev.exit
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr) #21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
   %name.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %name.i, align 8, !tbaa !100
   %8 = getelementptr inbounds i8, ptr %this, i64 40
@@ -3334,9 +3334,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DecoLSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11DecoLSystem, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11DecoLSystem, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !136
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3394,9 +3394,9 @@ _ZNSt12__shared_ptrIN7treegen7TreeDefELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DecoLSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11DecoLSystem, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11DecoLSystem, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !136
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3456,8 +3456,8 @@ _ZN11DecoLSystemD2Ev.exit:                        ; preds = %if.then7.i.i.i.i, %
 define linkonce_odr dso_local void @_ZThn56_N11DecoLSystemD1Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11DecoLSystem, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11DecoLSystem, i64 72), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !136
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -3516,8 +3516,8 @@ _ZN11DecoLSystemD2Ev.exit:                        ; preds = %if.then7.i.i.i.i, %
 define linkonce_odr dso_local void @_ZThn56_N11DecoLSystemD0Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV11DecoLSystem, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11DecoLSystem, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11DecoLSystem, i64 72), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !136
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -4011,7 +4011,7 @@ declare void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
   %name = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %name, align 8, !tbaa !100
   %1 = getelementptr inbounds i8, ptr %this, i64 40

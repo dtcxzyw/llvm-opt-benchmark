@@ -609,9 +609,9 @@ entry:
   br i1 %cmp.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %2(ptr noundef %1) #10
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 24), align 8
   %call.i = tail call ptr %3(ptr noundef %addr) #10
   store ptr %call.i, ptr %tcp, align 8
   %cmp11 = icmp eq ptr %call.i, null
@@ -645,7 +645,7 @@ if.end9.i:                                        ; preds = %if.then3.i, %if.end
   br label %if.end20
 
 if.end20.thread:                                  ; preds = %if.end13
-  %7 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %7(ptr noundef %4) #10
   store ptr null, ptr %connect_timeout, align 8
   br label %if.end24
@@ -686,7 +686,7 @@ if.end24:                                         ; preds = %if.end20.thread, %i
   br i1 %cmp25, label %if.then26, label %if.else31
 
 if.then26:                                        ; preds = %if.end24
-  %12 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %12(ptr noundef %11) #10
   br label %if.end42.sink.split
 
@@ -695,9 +695,9 @@ if.else31:                                        ; preds = %if.end24
   br i1 %cmp34.not, label %if.end42, label %if.then35
 
 if.then35:                                        ; preds = %if.else31
-  %13 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %13(ptr noundef %11) #10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 24), align 8
   %call.i83 = tail call ptr %14(ptr noundef nonnull %source_addr) #10
   br label %if.end42.sink.split
 
@@ -859,7 +859,7 @@ if.then123:                                       ; preds = %if.end114, %if.then
 
 if.end131:                                        ; preds = %for.end, %if.end93
   %30 = load ptr, ptr %saddr, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %31(ptr noundef %30) #10
   %32 = load i32, ptr %ai_addrlen132, align 8
   %conv = zext i32 %32 to i64
@@ -1036,9 +1036,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end18, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %3(ptr noundef %2) #10
-  %4 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 3), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 24), align 8
   %call.i29 = tail call ptr %4(ptr noundef %path) #10
   store ptr %call.i29, ptr %unix_sock, align 8
   %cmp15 = icmp eq ptr %call.i29, null
@@ -1072,7 +1072,7 @@ if.end9.i:                                        ; preds = %if.then3.i, %if.end
   br label %if.end25
 
 if.end25.thread:                                  ; preds = %if.end18
-  %8 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %8(ptr noundef %5) #10
   store ptr null, ptr %connect_timeout, align 8
   br label %if.end29
@@ -1113,7 +1113,7 @@ if.end29:                                         ; preds = %if.end25.thread, %i
   br i1 %tobool30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %13 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %13(ptr noundef nonnull %12) #10
   br label %if.end33
 

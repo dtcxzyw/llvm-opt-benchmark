@@ -267,7 +267,7 @@ default.unreachable22:                            ; preds = %245, %44, %2
   br i1 %59, label %60, label %.thread250.i
 
 60:                                               ; preds = %49
-  %61 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$12stop_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70c306a40d33c0bE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !12
+  %61 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$12stop_address28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf70c306a40d33c0bE", i64 16) monotonic, align 8, !noalias !12
   switch i8 %61, label %62 [
     i8 0, label %.thread250.i
     i8 1, label %.thread.i
@@ -9171,7 +9171,7 @@ common.ret:                                       ; preds = %1024, %1027
   br i1 %293, label %294, label %.thread326.i.i.i.i
 
 294:                                              ; preds = %269
-  %295 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node17processor_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8f144e091bd3cf31E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1470
+  %295 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node17processor_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8f144e091bd3cf31E", i64 16) monotonic, align 8, !noalias !1470
   switch i8 %295, label %296 [
     i8 0, label %.thread326.i.i.i.i
     i8 1, label %.thread.i.i.i.i
@@ -11915,7 +11915,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %279, label %280, label %.thread729.i
 
 280:                                              ; preds = %277
-  %281 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc2ef9ecf817118c4E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1688
+  %281 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc2ef9ecf817118c4E", i64 16) monotonic, align 8, !noalias !1688
   switch i8 %281, label %282 [
     i8 0, label %.thread729.i
     i8 1, label %.thread726.i
@@ -12204,7 +12204,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %375, label %376, label %.thread737.i
 
 376:                                              ; preds = %373
-  %377 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd6adb722c3d9ee66E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1688
+  %377 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd6adb722c3d9ee66E", i64 16) monotonic, align 8, !noalias !1688
   switch i8 %377, label %378 [
     i8 0, label %.thread737.i
     i8 1, label %.thread734.i
@@ -12643,7 +12643,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %523, label %524, label %.thread745.i
 
 524:                                              ; preds = %521
-  %525 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hba14f46508828a7aE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1688
+  %525 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hba14f46508828a7aE", i64 16) monotonic, align 8, !noalias !1688
   switch i8 %525, label %526 [
     i8 0, label %.thread745.i
     i8 1, label %.thread742.i
@@ -12958,7 +12958,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %631, label %632, label %.thread753.i
 
 632:                                              ; preds = %629
-  %633 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67745afb95b159e9E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1688
+  %633 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67745afb95b159e9E", i64 16) monotonic, align 8, !noalias !1688
   switch i8 %633, label %634 [
     i8 0, label %.thread753.i
     i8 1, label %.thread750.i
@@ -18468,7 +18468,7 @@ switch.hole_check:                                ; preds = %1072
   br i1 %1376, label %1377, label %.thread326.i.i.i.i
 
 1377:                                             ; preds = %1352
-  %1378 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node17processor_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8f144e091bd3cf31E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2496
+  %1378 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node17processor_builder5start28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8f144e091bd3cf31E", i64 16) monotonic, align 8, !noalias !2496
   switch i8 %1378, label %1379 [
     i8 0, label %.thread326.i.i.i.i
     i8 1, label %.thread.i.i.i.i68
@@ -21201,7 +21201,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %279, label %280, label %.thread729.i
 
 280:                                              ; preds = %277
-  %281 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc2ef9ecf817118c4E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2713
+  %281 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc2ef9ecf817118c4E", i64 16) monotonic, align 8, !noalias !2713
   switch i8 %281, label %282 [
     i8 0, label %.thread729.i
     i8 1, label %.thread726.i
@@ -21490,7 +21490,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %375, label %376, label %.thread737.i
 
 376:                                              ; preds = %373
-  %377 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd6adb722c3d9ee66E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2713
+  %377 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd6adb722c3d9ee66E", i64 16) monotonic, align 8, !noalias !2713
   switch i8 %377, label %378 [
     i8 0, label %.thread737.i
     i8 1, label %.thread734.i
@@ -21929,7 +21929,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %523, label %524, label %.thread745.i
 
 524:                                              ; preds = %521
-  %525 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hba14f46508828a7aE", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2713
+  %525 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hba14f46508828a7aE", i64 16) monotonic, align 8, !noalias !2713
   switch i8 %525, label %526 [
     i8 0, label %.thread745.i
     i8 1, label %.thread742.i
@@ -22244,7 +22244,7 @@ common.ret:                                       ; preds = %824, %827
   br i1 %631, label %632, label %.thread753.i
 
 632:                                              ; preds = %629
-  %633 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67745afb95b159e9E", i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2713
+  %633 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN25ockam_transport_websocket7workers6sender28WebSocketSendWorker$LT$S$GT$10handle_msg28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h67745afb95b159e9E", i64 16) monotonic, align 8, !noalias !2713
   switch i8 %633, label %634 [
     i8 0, label %.thread753.i
     i8 1, label %.thread750.i

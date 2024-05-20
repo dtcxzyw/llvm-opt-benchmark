@@ -780,7 +780,7 @@ cond.end:                                         ; preds = %if.then, %cond.true
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %face.i)
   %dna_type.i.i.i = getelementptr inbounds i8, ptr %face.i, i64 8
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %face.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %face.i, align 8
   %v12.i = getelementptr inbounds i8, ptr %face.i, i64 16
   store i32 %4, ptr %v12.i, align 8
   %v23.i = getelementptr inbounds i8, ptr %face.i, i64 20
@@ -805,7 +805,7 @@ cond.end:                                         ; preds = %if.then, %cond.true
 if.then.i.i:                                      ; preds = %cond.end
   %dna_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %9, align 8
   %v1.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i, i64 21, i1 false)
   %11 = load ptr, ptr %_M_finish.i.i, align 8
@@ -879,7 +879,7 @@ if.end:                                           ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %mtface.i)
   %dna_type.i.i.i23 = getelementptr inbounds i8, ptr %mtface.i, i64 8
   store ptr null, ptr %dna_type.i.i.i23, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %mtface.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %mtface.i, align 8
   %flag.i.i = getelementptr inbounds i8, ptr %mtface.i, i64 48
   store i8 0, ptr %flag.i.i, align 8
   %mode.i.i = getelementptr inbounds i8, ptr %mtface.i, i64 50
@@ -918,7 +918,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
 if.then.i.i28:                                    ; preds = %if.end.i
   %dna_type.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i29, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %26, align 8
   %uv.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv.i, i64 40, i1 false)
   %28 = load ptr, ptr %_M_finish.i.i25, align 8
@@ -958,19 +958,19 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender4MeshC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(2528) %this, ptr noundef nonnull align 8 dereferenceable(2528) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %this, align 8
   %dna_type.i = getelementptr inbounds i8, ptr %this, i64 8
   %dna_type2.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dna_type2.i, align 8
   store ptr %1, ptr %dna_type.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %this, align 8
   %id = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %id, align 8
   %dna_type.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %dna_type2.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %dna_type2.i.i, align 8
   store ptr %2, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender2IDE, i64 0, i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 32
   %name2.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1026) %name.i, ptr noundef nonnull align 8 dereferenceable(1026) %name2.i, i64 1026, i1 false)
@@ -1018,12 +1018,12 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i.i.i.i.i, %invoke.cont.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %5, %invoke.cont.i.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i, align 8
   %dna_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %dna_type.i.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.07.i.i.i.i.i.i, align 8
   %v1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %v12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i.i, i64 21, i1 false)
@@ -1079,12 +1079,12 @@ invoke.cont.i.i47:                                ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i53:                           ; preds = %invoke.cont.i.i47, %for.body.i.i.i.i.i.i53
   %__cur.07.i.i.i.i.i.i54 = phi ptr [ %incdec.ptr.i.i.i.i.i.i59, %for.body.i.i.i.i.i.i53 ], [ %cond.i.i.i.i.i48, %invoke.cont.i.i47 ]
   %__first.sroa.0.06.i.i.i.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i58, %for.body.i.i.i.i.i.i53 ], [ %10, %invoke.cont.i.i47 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i54, align 8
   %dna_type.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i54, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i55, i64 8
   %12 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i57, align 8
   store ptr %12, ptr %dna_type.i.i.i.i.i.i.i.i.i56, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.07.i.i.i.i.i.i54, align 8
   %uv.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i54, i64 16
   %uv2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i55, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i.i, i64 40, i1 false)
@@ -1140,12 +1140,12 @@ invoke.cont.i.i74:                                ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i80:                           ; preds = %invoke.cont.i.i74, %for.body.i.i.i.i.i.i80
   %__cur.07.i.i.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i.i.i88, %for.body.i.i.i.i.i.i80 ], [ %cond.i.i.i.i.i75, %invoke.cont.i.i74 ]
   %__first.sroa.0.06.i.i.i.i.i.i82 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i87, %for.body.i.i.i.i.i.i80 ], [ %15, %invoke.cont.i.i74 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i81, align 8
   %dna_type.i.i.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i81, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i82, i64 8
   %17 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i84, align 8
   store ptr %17, ptr %dna_type.i.i.i.i.i.i.i.i.i83, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.07.i.i.i.i.i.i81, align 8
   %uv.i.i.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i81, i64 16
   %uv2.i.i.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i82, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %uv.i.i.i.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(56) %uv2.i.i.i.i.i.i.i.i86, i64 56, i1 false)
@@ -1201,12 +1201,12 @@ invoke.cont.i.i103:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i109:                          ; preds = %invoke.cont.i.i103, %for.body.i.i.i.i.i.i109
   %__cur.07.i.i.i.i.i.i110 = phi ptr [ %incdec.ptr.i.i.i.i.i.i115, %for.body.i.i.i.i.i.i109 ], [ %cond.i.i.i.i.i104, %invoke.cont.i.i103 ]
   %__first.sroa.0.06.i.i.i.i.i.i111 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i114, %for.body.i.i.i.i.i.i109 ], [ %20, %invoke.cont.i.i103 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i110, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i110, align 8
   %dna_type.i.i.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i110, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i111, i64 8
   %22 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i113, align 8
   store ptr %22, ptr %dna_type.i.i.i.i.i.i.i.i.i112, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i110, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.07.i.i.i.i.i.i110, align 8
   %co.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i110, i64 16
   %co2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i111, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %co.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %co2.i.i.i.i.i.i.i.i, i64 36, i1 false)
@@ -1262,12 +1262,12 @@ invoke.cont.i.i130:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i136:                          ; preds = %invoke.cont.i.i130, %for.body.i.i.i.i.i.i136
   %__cur.07.i.i.i.i.i.i137 = phi ptr [ %incdec.ptr.i.i.i.i.i.i144, %for.body.i.i.i.i.i.i136 ], [ %cond.i.i.i.i.i131, %invoke.cont.i.i130 ]
   %__first.sroa.0.06.i.i.i.i.i.i138 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i143, %for.body.i.i.i.i.i.i136 ], [ %25, %invoke.cont.i.i130 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i137, align 8
   %dna_type.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i137, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i138, i64 8
   %27 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i140, align 8
   store ptr %27, ptr %dna_type.i.i.i.i.i.i.i.i.i139, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i137, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.07.i.i.i.i.i.i137, align 8
   %v1.i.i.i.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i137, i64 16
   %v12.i.i.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i138, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %v1.i.i.i.i.i.i.i.i141, ptr noundef nonnull align 8 dereferenceable(12) %v12.i.i.i.i.i.i.i.i142, i64 12, i1 false)
@@ -1323,12 +1323,12 @@ invoke.cont.i.i159:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i165:                          ; preds = %invoke.cont.i.i159, %for.body.i.i.i.i.i.i165
   %__cur.07.i.i.i.i.i.i166 = phi ptr [ %incdec.ptr.i.i.i.i.i.i171, %for.body.i.i.i.i.i.i165 ], [ %cond.i.i.i.i.i160, %invoke.cont.i.i159 ]
   %__first.sroa.0.06.i.i.i.i.i.i167 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i170, %for.body.i.i.i.i.i.i165 ], [ %30, %invoke.cont.i.i159 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i166, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i166, align 8
   %dna_type.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i166, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i169 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i167, i64 8
   %32 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i169, align 8
   store ptr %32, ptr %dna_type.i.i.i.i.i.i.i.i.i168, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i166, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.07.i.i.i.i.i.i166, align 8
   %v.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i166, i64 16
   %v2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i167, i64 16
   %33 = load i64, ptr %v2.i.i.i.i.i.i.i.i, align 8
@@ -1385,12 +1385,12 @@ invoke.cont.i.i186:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i192:                          ; preds = %invoke.cont.i.i186, %for.body.i.i.i.i.i.i192
   %__cur.07.i.i.i.i.i.i193 = phi ptr [ %incdec.ptr.i.i.i.i.i.i200, %for.body.i.i.i.i.i.i192 ], [ %cond.i.i.i.i.i187, %invoke.cont.i.i186 ]
   %__first.sroa.0.06.i.i.i.i.i.i194 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i199, %for.body.i.i.i.i.i.i192 ], [ %36, %invoke.cont.i.i186 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i193, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i193, align 8
   %dna_type.i.i.i.i.i.i.i.i.i195 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i193, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i196 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i194, i64 8
   %38 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i196, align 8
   store ptr %38, ptr %dna_type.i.i.i.i.i.i.i.i.i195, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i193, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.07.i.i.i.i.i.i193, align 8
   %uv.i.i.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i193, i64 16
   %uv2.i.i.i.i.i.i.i.i198 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i194, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %uv.i.i.i.i.i.i.i.i197, ptr noundef nonnull align 8 dereferenceable(12) %uv2.i.i.i.i.i.i.i.i198, i64 12, i1 false)
@@ -1446,12 +1446,12 @@ invoke.cont.i.i215:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i221:                          ; preds = %invoke.cont.i.i215, %for.body.i.i.i.i.i.i221
   %__cur.07.i.i.i.i.i.i222 = phi ptr [ %incdec.ptr.i.i.i.i.i.i227, %for.body.i.i.i.i.i.i221 ], [ %cond.i.i.i.i.i216, %invoke.cont.i.i215 ]
   %__first.sroa.0.06.i.i.i.i.i.i223 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i226, %for.body.i.i.i.i.i.i221 ], [ %41, %invoke.cont.i.i215 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i222, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i222, align 8
   %dna_type.i.i.i.i.i.i.i.i.i224 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i222, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i225 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i223, i64 8
   %43 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i225, align 8
   store ptr %43, ptr %dna_type.i.i.i.i.i.i.i.i.i224, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i222, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.07.i.i.i.i.i.i222, align 8
   %r.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i222, i64 16
   %r2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i223, i64 16
   %44 = load i32, ptr %r2.i.i.i.i.i.i.i.i, align 8
@@ -1508,12 +1508,12 @@ invoke.cont.i.i242:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i248:                          ; preds = %invoke.cont.i.i242, %for.body.i.i.i.i.i.i248
   %__cur.07.i.i.i.i.i.i249 = phi ptr [ %incdec.ptr.i.i.i.i.i.i254, %for.body.i.i.i.i.i.i248 ], [ %cond.i.i.i.i.i243, %invoke.cont.i.i242 ]
   %__first.sroa.0.06.i.i.i.i.i.i250 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i253, %for.body.i.i.i.i.i.i248 ], [ %47, %invoke.cont.i.i242 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i249, align 8
   %dna_type.i.i.i.i.i.i.i.i.i251 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i249, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i250, i64 8
   %49 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i252, align 8
   store ptr %49, ptr %dna_type.i.i.i.i.i.i.i.i.i251, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.07.i.i.i.i.i.i249, align 8
   %loopstart.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i249, i64 16
   %loopstart2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i250, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %loopstart.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(11) %loopstart2.i.i.i.i.i.i.i.i, i64 11, i1 false)
@@ -1569,12 +1569,12 @@ invoke.cont.i.i269:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i275:                          ; preds = %invoke.cont.i.i269, %for.body.i.i.i.i.i.i275
   %__cur.07.i.i.i.i.i.i276 = phi ptr [ %incdec.ptr.i.i.i.i.i.i281, %for.body.i.i.i.i.i.i275 ], [ %cond.i.i.i.i.i270, %invoke.cont.i.i269 ]
   %__first.sroa.0.06.i.i.i.i.i.i277 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i280, %for.body.i.i.i.i.i.i275 ], [ %52, %invoke.cont.i.i269 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i276, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i276, align 8
   %dna_type.i.i.i.i.i.i.i.i.i278 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i276, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i279 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i277, i64 8
   %54 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i279, align 8
   store ptr %54, ptr %dna_type.i.i.i.i.i.i.i.i.i278, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i276, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.07.i.i.i.i.i.i276, align 8
   %tpage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i276, i64 16
   %tpage2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i277, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tpage.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tpage2.i.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -1684,12 +1684,12 @@ invoke.cont.i.i313:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i319:                          ; preds = %invoke.cont.i.i313, %for.body.i.i.i.i.i.i319
   %__cur.07.i.i.i.i.i.i320 = phi ptr [ %incdec.ptr.i.i.i.i.i.i327, %for.body.i.i.i.i.i.i319 ], [ %cond.i.i.i.i.i314, %invoke.cont.i.i313 ]
   %__first.sroa.0.06.i.i.i.i.i.i321 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i326, %for.body.i.i.i.i.i.i319 ], [ %63, %invoke.cont.i.i313 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i320, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i320, align 8
   %dna_type.i.i.i.i.i.i.i.i.i322 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i320, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i323 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i321, i64 8
   %65 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i323, align 8
   store ptr %65, ptr %dna_type.i.i.i.i.i.i.i.i.i322, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i320, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.07.i.i.i.i.i.i320, align 8
   %r.i.i.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i320, i64 16
   %r2.i.i.i.i.i.i.i.i325 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i321, i64 16
   %66 = load i32, ptr %r2.i.i.i.i.i.i.i.i325, align 8
@@ -1781,12 +1781,12 @@ invoke.cont40:                                    ; preds = %_ZSt10_ConstructISt
   %__cur.0.lcssa.i.i.i.i.i.i354 = phi ptr [ %cond.i.i.i.i.i343, %invoke.cont.i.i342 ], [ %incdec.ptr.i.i.i.i.i.i352, %_ZSt10_ConstructISt10shared_ptrIN6Assimp7Blender8MaterialEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i354, ptr %_M_finish.i.i.i.i344, align 8
   %vdata = getelementptr inbounds i8, ptr %this, i64 1408
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %vdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %vdata, align 8
   %dna_type.i.i359 = getelementptr inbounds i8, ptr %this, i64 1416
   %dna_type2.i.i360 = getelementptr inbounds i8, ptr %0, i64 1416
   %76 = load ptr, ptr %dna_type2.i.i360, align 8
   store ptr %76, ptr %dna_type.i.i359, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %vdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata, align 8
   %layers.i = getelementptr inbounds i8, ptr %this, i64 1424
   %layers2.i = getelementptr inbounds i8, ptr %0, i64 1424
   %_M_finish.i.i.i.i361 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -1869,12 +1869,12 @@ invoke.cont43:                                    ; preds = %_ZSt10_ConstructISt
   %typemap3.i = getelementptr inbounds i8, ptr %0, i64 1448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(180) %typemap.i, ptr noundef nonnull align 8 dereferenceable(180) %typemap3.i, i64 180, i1 false)
   %edata = getelementptr inbounds i8, ptr %this, i64 1632
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %edata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %edata, align 8
   %dna_type.i.i365 = getelementptr inbounds i8, ptr %this, i64 1640
   %dna_type2.i.i366 = getelementptr inbounds i8, ptr %0, i64 1640
   %86 = load ptr, ptr %dna_type2.i.i366, align 8
   store ptr %86, ptr %dna_type.i.i365, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %edata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata, align 8
   %layers.i367 = getelementptr inbounds i8, ptr %this, i64 1648
   %layers2.i368 = getelementptr inbounds i8, ptr %0, i64 1648
   %_M_finish.i.i.i.i369 = getelementptr inbounds i8, ptr %0, i64 1656
@@ -1957,12 +1957,12 @@ invoke.cont46:                                    ; preds = %_ZSt10_ConstructISt
   %typemap3.i401 = getelementptr inbounds i8, ptr %0, i64 1672
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(180) %typemap.i400, ptr noundef nonnull align 8 dereferenceable(180) %typemap3.i401, i64 180, i1 false)
   %fdata = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %fdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %fdata, align 8
   %dna_type.i.i408 = getelementptr inbounds i8, ptr %this, i64 1864
   %dna_type2.i.i409 = getelementptr inbounds i8, ptr %0, i64 1864
   %96 = load ptr, ptr %dna_type2.i.i409, align 8
   store ptr %96, ptr %dna_type.i.i408, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %fdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata, align 8
   %layers.i410 = getelementptr inbounds i8, ptr %this, i64 1872
   %layers2.i411 = getelementptr inbounds i8, ptr %0, i64 1872
   %_M_finish.i.i.i.i412 = getelementptr inbounds i8, ptr %0, i64 1880
@@ -2045,12 +2045,12 @@ invoke.cont49:                                    ; preds = %_ZSt10_ConstructISt
   %typemap3.i444 = getelementptr inbounds i8, ptr %0, i64 1896
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(180) %typemap.i443, ptr noundef nonnull align 8 dereferenceable(180) %typemap3.i444, i64 180, i1 false)
   %pdata = getelementptr inbounds i8, ptr %this, i64 2080
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %pdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %pdata, align 8
   %dna_type.i.i451 = getelementptr inbounds i8, ptr %this, i64 2088
   %dna_type2.i.i452 = getelementptr inbounds i8, ptr %0, i64 2088
   %106 = load ptr, ptr %dna_type2.i.i452, align 8
   store ptr %106, ptr %dna_type.i.i451, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %pdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata, align 8
   %layers.i453 = getelementptr inbounds i8, ptr %this, i64 2096
   %layers2.i454 = getelementptr inbounds i8, ptr %0, i64 2096
   %_M_finish.i.i.i.i455 = getelementptr inbounds i8, ptr %0, i64 2104
@@ -2133,12 +2133,12 @@ invoke.cont52:                                    ; preds = %_ZSt10_ConstructISt
   %typemap3.i487 = getelementptr inbounds i8, ptr %0, i64 2120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(180) %typemap.i486, ptr noundef nonnull align 8 dereferenceable(180) %typemap3.i487, i64 180, i1 false)
   %ldata = getelementptr inbounds i8, ptr %this, i64 2304
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %ldata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %ldata, align 8
   %dna_type.i.i494 = getelementptr inbounds i8, ptr %this, i64 2312
   %dna_type2.i.i495 = getelementptr inbounds i8, ptr %0, i64 2312
   %116 = load ptr, ptr %dna_type2.i.i495, align 8
   store ptr %116, ptr %dna_type.i.i494, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %ldata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata, align 8
   %layers.i496 = getelementptr inbounds i8, ptr %this, i64 2320
   %layers2.i497 = getelementptr inbounds i8, ptr %0, i64 2320
   %_M_finish.i.i.i.i498 = getelementptr inbounds i8, ptr %0, i64 2328
@@ -2398,7 +2398,7 @@ entry:
   %face = alloca %"struct.Assimp::Blender::MFace", align 8
   %dna_type.i.i = getelementptr inbounds i8, ptr %face, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %face, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %face, align 8
   %v12 = getelementptr inbounds i8, ptr %face, i64 16
   store i32 %v1, ptr %v12, align 8
   %v23 = getelementptr inbounds i8, ptr %face, i64 20
@@ -2423,7 +2423,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %dna_type.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %1, align 8
   %v1.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12, i64 21, i1 false)
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -2458,7 +2458,7 @@ entry:
   %mtface = alloca %"struct.Assimp::Blender::MTFace", align 8
   %dna_type.i.i = getelementptr inbounds i8, ptr %mtface, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %mtface, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %mtface, align 8
   %flag.i = getelementptr inbounds i8, ptr %mtface, i64 48
   store i8 0, ptr %flag.i, align 8
   %mode.i = getelementptr inbounds i8, ptr %mtface, i64 50
@@ -2498,7 +2498,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i:                                        ; preds = %if.end
   %dna_type.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %5, align 8
   %uv.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv, i64 40, i1 false)
   %7 = load ptr, ptr %_M_finish.i, align 8
@@ -2537,7 +2537,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
   %layers = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %layers, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3177,9 +3177,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender4MeshD2Ev(ptr noundef nonnull align 8 dereferenceable(2528) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %this, align 8
   %ldata = getelementptr inbounds i8, ptr %this, i64 2304
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %ldata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata, align 8
   %layers.i = getelementptr inbounds i8, ptr %this, i64 2320
   %0 = load ptr, ptr %layers.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 2328
@@ -3282,7 +3282,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit:          ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
   %pdata = getelementptr inbounds i8, ptr %this, i64 2080
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %pdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata, align 8
   %layers.i1 = getelementptr inbounds i8, ptr %this, i64 2096
   %14 = load ptr, ptr %layers.i1, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 2104
@@ -3385,7 +3385,7 @@ if.then.i.i.i.i.i25:                              ; preds = %invoke.cont.i.i.i23
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit45:        ; preds = %invoke.cont.i.i.i23, %if.then.i.i.i.i.i25
   %fdata = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %fdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata, align 8
   %layers.i46 = getelementptr inbounds i8, ptr %this, i64 1872
   %28 = load ptr, ptr %layers.i46, align 8
   %_M_finish.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 1880
@@ -3488,7 +3488,7 @@ if.then.i.i.i.i.i70:                              ; preds = %invoke.cont.i.i.i68
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit90:        ; preds = %invoke.cont.i.i.i68, %if.then.i.i.i.i.i70
   %edata = getelementptr inbounds i8, ptr %this, i64 1632
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %edata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata, align 8
   %layers.i91 = getelementptr inbounds i8, ptr %this, i64 1648
   %42 = load ptr, ptr %layers.i91, align 8
   %_M_finish.i.i.i92 = getelementptr inbounds i8, ptr %this, i64 1656
@@ -3591,7 +3591,7 @@ if.then.i.i.i.i.i115:                             ; preds = %invoke.cont.i.i.i11
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit135:       ; preds = %invoke.cont.i.i.i113, %if.then.i.i.i.i.i115
   %vdata = getelementptr inbounds i8, ptr %this, i64 1408
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %vdata, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata, align 8
   %layers.i136 = getelementptr inbounds i8, ptr %this, i64 1424
   %56 = load ptr, ptr %layers.i136, align 8
   %_M_finish.i.i.i137 = getelementptr inbounds i8, ptr %this, i64 1432
@@ -4319,12 +4319,12 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %__result, %entry ]
   %__first.sroa.0.014 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__first.coerce, %entry ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.015, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.015, align 8
   %dna_type.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 8
   %dna_type2.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 8
   %0 = load ptr, ptr %dna_type2.i.i.i, align 8
   store ptr %0, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 0, i32 0, i64 2), ptr %__cur.015, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.015, align 8
   %dw.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 16
   %dw2.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 16
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 24
@@ -4369,12 +4369,12 @@ invoke.cont.i.i.i.i:                              ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %3, %invoke.cont.i.i.i.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i64 16), ptr %__cur.07.i.i.i.i.i.i.i.i, align 8
   %dna_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 8
   %dna_type2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %dna_type.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.07.i.i.i.i.i.i.i.i, align 8
   %def_nr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 16
   %def_nr2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i.i, i64 16
   %6 = load i64, ptr %def_nr2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -4453,7 +4453,7 @@ unreachable:                                      ; preds = %invoke.cont5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender11MDeformVertD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
   %dw = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %dw, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4490,7 +4490,7 @@ _ZN6Assimp7Blender6vectorINS0_13MDeformWeightEED2Ev.exit: ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender11MDeformVertD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
   %dw.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %dw.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4554,7 +4554,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10CustomDataD0Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
   %layers.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %layers.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4672,7 +4672,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -4828,7 +4828,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -4943,7 +4943,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -5089,7 +5089,7 @@ _ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit: ; preds
   %dna_type2.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load ptr, ptr %dna_type2.i.i.i.i, align 8
   store ptr %3, ptr %dna_type.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %add.ptr, align 8
   %v1.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %v12.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i, i64 21, i1 false)
@@ -5105,7 +5105,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
   %v1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %v12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i, i64 21, i1 false), !alias.scope !41
@@ -5132,7 +5132,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   %dna_type2.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !46, !noalias !43
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !43, !noalias !46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i13, align 8, !alias.scope !43, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.07.i.i.i13, align 8, !alias.scope !43, !noalias !46
   %v1.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %v12.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i18, i64 21, i1 false), !alias.scope !48
@@ -5206,7 +5206,7 @@ _ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit: ; pred
   %dna_type2.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load ptr, ptr %dna_type2.i.i.i.i, align 8
   store ptr %3, ptr %dna_type.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %add.ptr, align 8
   %uv.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %uv2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i, i64 40, i1 false)
@@ -5222,7 +5222,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
   store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
   %uv.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %uv2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !54
@@ -5249,7 +5249,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   %dna_type2.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !59, !noalias !56
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !56, !noalias !59
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %__cur.07.i.i.i13, align 8, !alias.scope !56, !noalias !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.07.i.i.i13, align 8, !alias.scope !56, !noalias !59
   %uv.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %uv2.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i18, i64 40, i1 false), !alias.scope !61

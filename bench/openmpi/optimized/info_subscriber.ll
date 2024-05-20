@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @infosubscriber_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -38,7 +38,7 @@ define internal void @infosubscriber_construct(ptr noundef %0) #0 {
   store ptr @opal_hash_table_t_class, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -577,10 +577,10 @@ define i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %12, label %28
 
 12:                                               ; preds = %4
-  %13 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 8), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %14 = call noalias ptr @malloc(i64 noundef %13) #12
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %15, %16
   br i1 %.not.i, label %18, label %17
 
@@ -596,7 +596,7 @@ define i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr @opal_list_t_class, ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 8
   store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -618,10 +618,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %18, %1
 
 28:                                               ; preds = %opal_obj_new.exit, %4
   %29 = call noalias ptr @opal_cstring_create(ptr noundef %2) #9
-  %30 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_callback_list_item_t_class, i64 0, i32 8), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @opal_callback_list_item_t_class, i64 56), align 8
   %31 = call noalias ptr @malloc(i64 noundef %30) #12
   %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_callback_list_item_t_class, i64 0, i32 4), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @opal_callback_list_item_t_class, i64 32), align 8
   %.not.i39 = icmp eq i32 %32, %33
   br i1 %.not.i39, label %35, label %34
 
@@ -637,7 +637,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %18, %1
   store ptr @opal_callback_list_item_t_class, ptr %31, align 8
   %37 = getelementptr inbounds i8, ptr %31, i64 8
   store volatile i32 1, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_callback_list_item_t_class, i64 0, i32 6), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_callback_list_item_t_class, i64 40), align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i.i41 = icmp eq ptr %39, null
   br i1 %.not6.i.i41, label %opal_obj_new.exit45, label %.lr.ph.i.i42
@@ -678,10 +678,10 @@ opal_obj_new.exit45:                              ; preds = %.lr.ph.i.i42, %35, 
   br i1 %58, label %59, label %73
 
 59:                                               ; preds = %opal_obj_new.exit45
-  %60 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 8), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 56), align 8
   %61 = call noalias ptr @malloc(i64 noundef %60) #12
   %62 = load i32, ptr @opal_class_init_epoch, align 4
-  %63 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 32), align 8
   %.not.i46 = icmp eq i32 %62, %63
   br i1 %.not.i46, label %65, label %64
 
@@ -697,7 +697,7 @@ opal_obj_new.exit45:                              ; preds = %.lr.ph.i.i42, %35, 
   store ptr @opal_info_t_class, ptr %61, align 8
   %67 = getelementptr inbounds i8, ptr %61, i64 8
   store volatile i32 1, ptr %67, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 6), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i48 = icmp eq ptr %69, null
   br i1 %.not6.i.i48, label %opal_obj_new.exit52, label %.lr.ph.i.i49
@@ -832,10 +832,10 @@ define i32 @opal_infosubscribe_change_info(ptr noundef %0, ptr noundef %1) local
   br i1 %.not, label %6, label %20
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #12
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 
@@ -851,7 +851,7 @@ define i32 @opal_infosubscribe_change_info(ptr noundef %0, ptr noundef %1) local
   store ptr @opal_info_t_class, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i

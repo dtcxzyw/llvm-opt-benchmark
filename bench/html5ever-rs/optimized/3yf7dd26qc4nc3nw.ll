@@ -487,7 +487,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %6
@@ -579,7 +579,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %6
@@ -671,7 +671,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %7 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %6
@@ -1581,7 +1581,7 @@ define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$14unwrap_or_else
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h2ee55d11cb9412e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
   %.not.i = icmp eq ptr %2, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit", label %3
 
@@ -1601,7 +1601,7 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h32410d0a6a15f366E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
   %.not.i = icmp eq ptr %2, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit", label %3
 
@@ -1621,7 +1621,7 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17hdbd2400090067ae0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds ({ { { { ptr, i64 }, { ptr } } }, ptr }, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 0, i32 0, i32 0, i32 1, i32 0), i8 noundef 2)
+  %2 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hdf26ce1a8c999be2E.llvm.1765047134376871466(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16), i8 noundef 2)
   %.not.i = icmp eq ptr %2, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit", label %3
 

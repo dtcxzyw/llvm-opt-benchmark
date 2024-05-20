@@ -30,27 +30,27 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1
   %prte_install_dirs.promoted = load ptr, ptr @prte_install_dirs, align 8
-  %.073108 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_prteinstalldirs_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not92109 = icmp eq ptr %.073108, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_prteinstalldirs_base_framework, i64 0, i32 12, i32 1)
+  %.073108 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 320), align 8
+  %.not92109 = icmp eq ptr %.073108, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
   br i1 %.not92109, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.promoted107 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 16), align 8
-  %.promoted106 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
-  %.promoted105 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 14), align 8
-  %.promoted104 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 13), align 8
-  %.promoted103 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 12), align 8
-  %.promoted102 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 11), align 8
-  %.promoted101 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 10), align 8
-  %.promoted100 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 9), align 8
-  %.promoted99 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 8), align 8
-  %.promoted98 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
-  %.promoted97 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 6), align 8
-  %.promoted96 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 5), align 8
-  %.promoted95 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 4), align 8
-  %.promoted94 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 3), align 8
-  %.promoted93 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 2), align 8
-  %.promoted = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 1), align 8
+  %.promoted107 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
+  %.promoted106 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
+  %.promoted105 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
+  %.promoted104 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
+  %.promoted103 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
+  %.promoted102 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
+  %.promoted101 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
+  %.promoted100 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
+  %.promoted99 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
+  %.promoted98 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
+  %.promoted97 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
+  %.promoted96 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
+  %.promoted95 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
+  %.promoted94 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
+  %.promoted93 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
+  %.promoted = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %139
@@ -95,7 +95,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond3, label %33, label %34
 
 33:                                               ; preds = %27
-  store ptr %30, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 1), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %33, %27
@@ -108,7 +108,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond5, label %40, label %41
 
 40:                                               ; preds = %34
-  store ptr %37, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 2), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
   br label %41
 
 41:                                               ; preds = %40, %34
@@ -121,7 +121,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond7, label %47, label %48
 
 47:                                               ; preds = %41
-  store ptr %44, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 3), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
   br label %48
 
 48:                                               ; preds = %47, %41
@@ -134,7 +134,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond9, label %54, label %55
 
 54:                                               ; preds = %48
-  store ptr %51, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 4), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
   br label %55
 
 55:                                               ; preds = %54, %48
@@ -147,7 +147,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond11, label %61, label %62
 
 61:                                               ; preds = %55
-  store ptr %58, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 5), align 8
+  store ptr %58, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
   br label %62
 
 62:                                               ; preds = %61, %55
@@ -160,7 +160,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond13, label %68, label %69
 
 68:                                               ; preds = %62
-  store ptr %65, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 6), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
   br label %69
 
 69:                                               ; preds = %68, %62
@@ -173,7 +173,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond15, label %75, label %76
 
 75:                                               ; preds = %69
-  store ptr %72, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
+  store ptr %72, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   br label %76
 
 76:                                               ; preds = %75, %69
@@ -186,7 +186,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond17, label %82, label %83
 
 82:                                               ; preds = %76
-  store ptr %79, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 8), align 8
+  store ptr %79, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
   br label %83
 
 83:                                               ; preds = %82, %76
@@ -199,7 +199,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond19, label %89, label %90
 
 89:                                               ; preds = %83
-  store ptr %86, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 9), align 8
+  store ptr %86, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
   br label %90
 
 90:                                               ; preds = %89, %83
@@ -212,7 +212,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond21, label %96, label %97
 
 96:                                               ; preds = %90
-  store ptr %93, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 10), align 8
+  store ptr %93, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
   br label %97
 
 97:                                               ; preds = %96, %90
@@ -225,7 +225,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond23, label %103, label %104
 
 103:                                              ; preds = %97
-  store ptr %100, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 11), align 8
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
   br label %104
 
 104:                                              ; preds = %103, %97
@@ -238,7 +238,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond25, label %110, label %111
 
 110:                                              ; preds = %104
-  store ptr %107, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 12), align 8
+  store ptr %107, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
   br label %111
 
 111:                                              ; preds = %110, %104
@@ -251,7 +251,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond27, label %117, label %118
 
 117:                                              ; preds = %111
-  store ptr %114, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 13), align 8
+  store ptr %114, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
   br label %118
 
 118:                                              ; preds = %117, %111
@@ -264,7 +264,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond29, label %124, label %125
 
 124:                                              ; preds = %118
-  store ptr %121, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 14), align 8
+  store ptr %121, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
   br label %125
 
 125:                                              ; preds = %124, %118
@@ -277,7 +277,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond31, label %131, label %132
 
 131:                                              ; preds = %125
-  store ptr %128, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
+  store ptr %128, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
   br label %132
 
 132:                                              ; preds = %131, %125
@@ -290,68 +290,68 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond33, label %138, label %139
 
 138:                                              ; preds = %132
-  store ptr %135, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 16), align 8
+  store ptr %135, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
   br label %139
 
 139:                                              ; preds = %138, %132
   %140 = phi ptr [ %135, %138 ], [ %19, %132 ]
   %141 = getelementptr inbounds i8, ptr %.073110, i64 120
   %.073 = load ptr, ptr %141, align 8
-  %.not92 = icmp eq ptr %.073, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_prteinstalldirs_base_framework, i64 0, i32 12, i32 1)
+  %.not92 = icmp eq ptr %.073, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %139, %.preheader
   %142 = phi ptr [ %prte_install_dirs.promoted, %.preheader ], [ %28, %139 ]
   %143 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %142) #4
   store ptr %143, ptr @prte_install_dirs, align 8
-  %144 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 1), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
   %145 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %144) #4
-  store ptr %145, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 1), align 8
-  %146 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 2), align 8
+  store ptr %145, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
+  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
   %147 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %146) #4
-  store ptr %147, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 2), align 8
-  %148 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 3), align 8
+  store ptr %147, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
   %149 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %148) #4
-  store ptr %149, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 3), align 8
-  %150 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 4), align 8
+  store ptr %149, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
   %151 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %150) #4
-  store ptr %151, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 4), align 8
-  %152 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 5), align 8
+  store ptr %151, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
   %153 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %152) #4
-  store ptr %153, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 5), align 8
-  %154 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 6), align 8
+  store ptr %153, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
   %155 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %154) #4
-  store ptr %155, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 6), align 8
-  %156 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
+  store ptr %155, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
+  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   %157 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %156) #4
-  store ptr %157, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
-  %158 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 8), align 8
+  store ptr %157, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
+  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
   %159 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %158) #4
-  store ptr %159, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 8), align 8
-  %160 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 9), align 8
+  store ptr %159, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
   %161 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %160) #4
-  store ptr %161, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 9), align 8
-  %162 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 10), align 8
+  store ptr %161, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
   %163 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %162) #4
-  store ptr %163, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 10), align 8
-  %164 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 11), align 8
+  store ptr %163, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
   %165 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %164) #4
-  store ptr %165, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 11), align 8
-  %166 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 12), align 8
+  store ptr %165, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
   %167 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %166) #4
-  store ptr %167, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 12), align 8
-  %168 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 13), align 8
+  store ptr %167, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
   %169 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %168) #4
-  store ptr %169, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 13), align 8
-  %170 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 14), align 8
+  store ptr %169, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
   %171 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %170) #4
-  store ptr %171, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 14), align 8
-  %172 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
+  store ptr %171, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
   %173 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %172) #4
-  store ptr %173, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
-  %174 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 16), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
+  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
   %175 = tail call ptr @prte_install_dirs_expand_setup(ptr noundef %174) #4
-  store ptr %175, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 16), align 8
+  store ptr %175, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
   br label %176
 
 176:                                              ; preds = %1, %._crit_edge
@@ -363,37 +363,37 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 define internal i32 @prte_prteinstalldirs_base_close() #0 {
   %1 = load ptr, ptr @prte_install_dirs, align 8
   tail call void @free(ptr noundef %1) #4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
   tail call void @free(ptr noundef %2) #4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
   tail call void @free(ptr noundef %3) #4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 3), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
   tail call void @free(ptr noundef %4) #4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
   tail call void @free(ptr noundef %5) #4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 5), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
   tail call void @free(ptr noundef %6) #4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 6), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
   tail call void @free(ptr noundef %7) #4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   tail call void @free(ptr noundef %8) #4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
   tail call void @free(ptr noundef %9) #4
-  %10 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 9), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
   tail call void @free(ptr noundef %10) #4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 10), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
   tail call void @free(ptr noundef %11) #4
-  %12 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 11), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
   tail call void @free(ptr noundef %12) #4
-  %13 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 12), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
   tail call void @free(ptr noundef %13) #4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 13), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
   tail call void @free(ptr noundef %14) #4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 14), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
   tail call void @free(ptr noundef %15) #4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
   tail call void @free(ptr noundef %16) #4
-  %17 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
   tail call void @free(ptr noundef %17) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) @prte_install_dirs, i8 0, i64 136, i1 false)
   %18 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @prte_prteinstalldirs_base_framework, ptr noundef null) #4

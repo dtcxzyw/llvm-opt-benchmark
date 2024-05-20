@@ -316,7 +316,7 @@ define void @_ZNK3gmx16KeyValueTreePath8toStringB5cxx11Ev(ptr dead_on_unwind noa
           to label %.noexc6 unwind label %24
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.1, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc6
@@ -1949,7 +1949,7 @@ _ZNK3gmx17KeyValueTreeValue7isArrayEv.exit.thread: ; preds = %152, %_ZNK3gmx17Ke
   %160 = call noundef nonnull align 8 dereferenceable(16) ptr %159(ptr noundef nonnull align 8 dereferenceable(8) %.pr115)
   %161 = getelementptr inbounds i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
-  %163 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIb, i64 1), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIb, i64 8), align 8
   %164 = icmp eq ptr %162, %163
   br i1 %164, label %_ZNK3gmx17KeyValueTreeValue6isTypeIbEEbv.exit.thread71.i, label %165
 
@@ -2057,7 +2057,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIbEEbv.exit.thread.i: ; preds = %_ZNK3gmx17Key
   %219 = call noundef nonnull align 8 dereferenceable(16) ptr %218(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i)
   %220 = getelementptr inbounds i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
-  %222 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIi, i64 1), align 8
+  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIi, i64 8), align 8
   %223 = icmp eq ptr %221, %222
   br i1 %223, label %_ZNK3gmx17KeyValueTreeValue6isTypeIiEEbv.exit.thread72.i, label %224
 
@@ -2163,7 +2163,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIiEEbv.exit.thread.i: ; preds = %_ZNK3gmx17Key
   %276 = call noundef nonnull align 8 dereferenceable(16) ptr %275(ptr noundef nonnull align 8 dereferenceable(8) %.pr78.i)
   %277 = getelementptr inbounds i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIl, i64 1), align 8
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIl, i64 8), align 8
   %280 = icmp eq ptr %278, %279
   br i1 %280, label %_ZNK3gmx17KeyValueTreeValue6isTypeIlEEbv.exit.thread73.i, label %281
 
@@ -2269,7 +2269,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIlEEbv.exit.thread.i: ; preds = %_ZNK3gmx17Key
   %333 = call noundef nonnull align 8 dereferenceable(16) ptr %332(ptr noundef nonnull align 8 dereferenceable(8) %.pr80.pr.i)
   %334 = getelementptr inbounds i8, ptr %333, i64 8
   %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTId, i64 1), align 8
+  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTId, i64 8), align 8
   %337 = icmp eq ptr %335, %336
   br i1 %337, label %_ZNK3gmx17KeyValueTreeValue6isTypeIdEEbv.exit.thread74.i, label %338
 
@@ -2377,7 +2377,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIdEEbv.exit.thread.i: ; preds = %_ZNK3gmx17Key
   %392 = call noundef nonnull align 8 dereferenceable(16) ptr %391(ptr noundef nonnull align 8 dereferenceable(8) %.pr82.i)
   %393 = getelementptr inbounds i8, ptr %392, i64 8
   %394 = load ptr, ptr %393, align 8
-  %395 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIf, i64 1), align 8
+  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIf, i64 8), align 8
   %396 = icmp eq ptr %394, %395
   br i1 %396, label %_ZNK3gmx17KeyValueTreeValue6isTypeIfEEbv.exit.thread75.i, label %397
 
@@ -2649,7 +2649,7 @@ _ZNKSt10type_indexeqERKS_.exit.thread101:         ; preds = %92, %_ZNKSt10type_i
   %521 = call noundef nonnull align 8 dereferenceable(16) ptr %520(ptr noundef nonnull align 8 dereferenceable(8) %516)
   %522 = getelementptr inbounds i8, ptr %521, i64 8
   %523 = load ptr, ptr %522, align 8
-  %524 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTId, i64 1), align 8
+  %524 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTId, i64 8), align 8
   %525 = icmp eq ptr %523, %524
   br i1 %525, label %_ZNK3gmx17KeyValueTreeValue6isTypeIdEEbv.exit66.thread108, label %526
 
@@ -2679,7 +2679,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIdEEbv.exit66.thread108: ; preds = %517, %_ZNK
   %538 = call noundef nonnull align 8 dereferenceable(16) ptr %537(ptr noundef nonnull align 8 dereferenceable(8) %533)
   %539 = getelementptr inbounds i8, ptr %538, i64 8
   %540 = load ptr, ptr %539, align 8
-  %541 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIf, i64 1), align 8
+  %541 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIf, i64 8), align 8
   %542 = icmp eq ptr %540, %541
   br i1 %542, label %_ZNK3gmx17KeyValueTreeValue6isTypeIfEEbv.exit62.thread109, label %543
 
@@ -2709,7 +2709,7 @@ _ZNK3gmx17KeyValueTreeValue6isTypeIdEEbv.exit66.thread: ; preds = %543, %_ZNK3gm
   %554 = call noundef nonnull align 8 dereferenceable(16) ptr %553(ptr noundef nonnull align 8 dereferenceable(8) %.pr117)
   %555 = getelementptr inbounds i8, ptr %554, i64 8
   %556 = load ptr, ptr %555, align 8
-  %557 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIf, i64 1), align 8
+  %557 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIf, i64 8), align 8
   %558 = icmp eq ptr %556, %557
   br i1 %558, label %_ZNK3gmx17KeyValueTreeValue6isTypeIfEEbv.exit.thread110, label %559
 
@@ -3451,7 +3451,7 @@ _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread7: ; preds = %17, %5, %_ZNK3gm
           to label %.noexc6 unwind label %32
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.26, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %30
 
 30:                                               ; preds = %.noexc6

@@ -4204,7 +4204,7 @@ define internal fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_
 
 7:                                                ; preds = %4
   call void @_ZNSt10filesystem7__cxx114pathC2IA121_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(121) @.str.8, i8 noundef zeroext 2)
-  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3)) #16
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96)) #16
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1438, ptr noundef nonnull @.str.50, ptr noundef %8) #25
           to label %9 unwind label %10
 
@@ -4445,7 +4445,7 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %48
-  %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3)) #16
+  %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96)) #16
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1438, ptr noundef nonnull @.str.50, ptr noundef %49) #25
           to label %50 unwind label %51
 
@@ -5592,7 +5592,7 @@ define internal void @_GLOBAL__sub_I_pbc.cpp() #20 section ".text.startup" perso
           to label %18 unwind label %.body10
 
 18:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str, i64 0, i64 3)) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3)) #16
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_Z14c_pbcTypeNamesB5cxx11, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body10
@@ -5607,16 +5607,16 @@ define internal void @_GLOBAL__sub_I_pbc.cpp() #20 section ".text.startup" perso
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  %20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1))
+  %20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32))
           to label %.noexc17.i unwind label %58
 
 .noexc17.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1), ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc18.i unwind label %58
 
 .noexc18.i:                                       ; preds = %.noexc17.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1))
+  %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32))
           to label %25 unwind label %22
 
 22:                                               ; preds = %.noexc18.i
@@ -5627,36 +5627,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 25:                                               ; preds = %.noexc18.i
-  store ptr getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1), ptr %2, align 8
-  %26 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1))
+  store ptr getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), ptr %2, align 8
+  %26 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32))
           to label %27 unwind label %.body7
 
 27:                                               ; preds = %25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.1, i64 0, i64 2)) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 2)) #16
   store ptr null, ptr %2, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1), i64 noundef 2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21.i unwind label %.body7
 
 .body7:                                           ; preds = %27, %25
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1)) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32)) #16
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21.i: ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %29 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2))
+  %29 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64))
           to label %.noexc22.i unwind label %60
 
 .noexc22.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2), ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc23.i unwind label %60
 
 .noexc23.i:                                       ; preds = %.noexc22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2))
+  %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64))
           to label %34 unwind label %31
 
 31:                                               ; preds = %.noexc23.i
@@ -5667,36 +5667,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21.i: 
   unreachable
 
 34:                                               ; preds = %.noexc23.i
-  store ptr getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2), ptr %3, align 8
-  %35 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2))
+  store ptr getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), ptr %3, align 8
+  %35 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64))
           to label %36 unwind label %.body4
 
 36:                                               ; preds = %34
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %35, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.2, i64 0, i64 2)) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %35, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 2)) #16
   store ptr null, ptr %3, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2), i64 noundef 2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26.i unwind label %.body4
 
 .body4:                                           ; preds = %36, %34
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2)) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64)) #16
   br label %.body24.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26.i: ; preds = %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
-  %38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3))
+  %38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96))
           to label %.noexc27.i unwind label %62
 
 .noexc27.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3), ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc28.i unwind label %62
 
 .noexc28.i:                                       ; preds = %.noexc27.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %39 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3))
+  %39 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96))
           to label %43 unwind label %40
 
 40:                                               ; preds = %.noexc28.i
@@ -5707,36 +5707,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26.i: 
   unreachable
 
 43:                                               ; preds = %.noexc28.i
-  store ptr getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3), ptr %4, align 8
-  %44 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3))
+  store ptr getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), ptr %4, align 8
+  %44 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96))
           to label %45 unwind label %.body1
 
 45:                                               ; preds = %43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.3, i64 0, i64 5)) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 5)) #16
   store ptr null, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3), i64 noundef 5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i unwind label %.body1
 
 .body1:                                           ; preds = %45, %43
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3)) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96)) #16
   br label %.body29.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #16
-  %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4))
+  %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128))
           to label %.noexc32.i unwind label %64
 
 .noexc32.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4), ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc33.i unwind label %64
 
 .noexc33.i:                                       ; preds = %.noexc32.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %48 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4))
+  %48 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128))
           to label %52 unwind label %49
 
 49:                                               ; preds = %.noexc33.i
@@ -5747,21 +5747,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
   unreachable
 
 52:                                               ; preds = %.noexc33.i
-  store ptr getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4), ptr %5, align 8
-  %53 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4))
+  store ptr getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), ptr %5, align 8
+  %53 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128))
           to label %54 unwind label %.body
 
 54:                                               ; preds = %52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %53, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.4, i64 0, i64 5)) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %53, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 5)) #16
   store ptr null, ptr %5, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4), i64 noundef 5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), i64 noundef 5)
           to label %__cxx_global_var_init.exit unwind label %.body
 
 .body:                                            ; preds = %54, %52
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4)) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128)) #16
   br label %.body34.i
 
 56:                                               ; preds = %.noexc.i, %0
@@ -5795,13 +5795,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
   br label %.body29.i
 
 .body29.i:                                        ; preds = %.body34.i, %62, %.body1
-  %.08.i = phi ptr [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 4), %.body34.i ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3), %.body1 ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 3), %62 ]
+  %.08.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), %.body34.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %.body1 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %62 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body35.i, %.body34.i ], [ %46, %.body1 ], [ %63, %62 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   br label %.body24.i
 
 .body24.i:                                        ; preds = %.body29.i, %60, %.body4
-  %.19.i = phi ptr [ %.08.i, %.body29.i ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2), %.body4 ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 2), %60 ]
+  %.19.i = phi ptr [ %.08.i, %.body29.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %.body4 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %60 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body29.i ], [ %37, %.body4 ], [ %61, %60 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   br label %.body.i
@@ -5812,7 +5812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body24.i, %58, %.body7
-  %.210.i = phi ptr [ %.19.i, %.body24.i ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1), %.body7 ], [ getelementptr inbounds (%"struct.gmx::EnumerationArray", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i32 0, i64 1), %58 ]
+  %.210.i = phi ptr [ %.19.i, %.body24.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %.body7 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %58 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body24.i ], [ %28, %.body7 ], [ %59, %58 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16

@@ -253,13 +253,13 @@ if.end13.i:                                       ; preds = %if.end.i
   br i1 %tobool18.not.i, label %test_provider_ex.exit, label %lor.lhs.false19.i
 
 lor.lhs.false19.i:                                ; preds = %if.end13.i
-  %0 = load ptr, ptr getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @greeting_request, i64 0, i64 0, i32 2), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 16), align 16
   %call20.i = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 183, ptr noundef nonnull @.str.35, ptr noundef %0) #5
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %test_provider_ex.exit, label %lor.lhs.false22.i
 
 lor.lhs.false22.i:                                ; preds = %lor.lhs.false19.i
-  %1 = load i64, ptr getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @greeting_request, i64 0, i64 0, i32 3), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 24), align 8
   %call23.i = call i32 @test_size_t_gt(ptr noundef nonnull @.str.20, i32 noundef 184, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %1, i64 noundef 0) #5
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %test_provider_ex.exit, label %lor.lhs.false25.i
@@ -416,13 +416,13 @@ if.end49:                                         ; preds = %if.end47, %if.end8
   br i1 %tobool54.not, label %err142, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %if.end49
-  %9 = load ptr, ptr getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @greeting_request, i64 0, i64 0, i32 2), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 16), align 16
   %call56 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 92, ptr noundef nonnull @.str.35, ptr noundef %9) #5
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err142, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %10 = load i64, ptr getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @greeting_request, i64 0, i64 0, i32 3), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 24), align 8
   %call59 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.20, i32 noundef 93, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %10, i64 noundef 0) #5
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %err142, label %lor.lhs.false61

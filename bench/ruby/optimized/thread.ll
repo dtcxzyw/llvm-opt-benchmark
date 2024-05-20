@@ -1965,7 +1965,7 @@ ractor_sched_barrier_join_signal_locked.exit48:   ; preds = %55, %48
   br i1 %85, label %86, label %timer_thread_wakeup_locked.exit
 
 86:                                               ; preds = %82
-  %87 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 1, ptr %6, align 8
   %88 = icmp sgt i32 %87, -1
@@ -2359,7 +2359,7 @@ declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_thread_wakeup_timer_thread(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 1, ptr %2, align 8
   %4 = icmp sgt i32 %3, -1
@@ -2531,12 +2531,12 @@ define dso_local range(i32 0, 2) i32 @rb_reserved_fd_p(i32 noundef %0) local_unn
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %5 = icmp eq i32 %4, %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   %7 = icmp eq i32 %6, %0
   %or.cond = select i1 %5, i1 true, i1 %7
-  %8 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %9 = icmp eq i32 %8, %0
   %or.cond8 = select i1 %or.cond, i1 true, i1 %9
   br i1 %or.cond8, label %10, label %14
@@ -10462,7 +10462,7 @@ define hidden void @rb_thread_stop_timer_thread() local_unnamed_addr #0 {
   br i1 %8, label %9, label %native_stop_timer_thread.exit.thread
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 1, ptr %1, align 8
   %11 = icmp sgt i32 %10, -1
@@ -10487,7 +10487,7 @@ define hidden void @rb_thread_stop_timer_thread() local_unnamed_addr #0 {
 
 native_stop_timer_thread.exit:                    ; preds = %.preheader.i.i.i, %14, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %18 = load i64, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 1), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @timer_th, i64 8), align 8
   %19 = tail call i32 @pthread_join(i64 noundef %18, ptr noundef null) #19
   br label %native_stop_timer_thread.exit.thread
 
@@ -10520,14 +10520,14 @@ define internal fastcc void @rb_thread_create_timer_thread() unnamed_addr #0 {
   br i1 %.not2, label %rb_native_mutex_destroy.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   %7 = icmp eq i32 %5, %6
-  store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
-  store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %9 = tail call i32 @close(i32 noundef %5) #19
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %close_invalidate_pair.exit
@@ -10550,8 +10550,8 @@ define internal fastcc void @rb_thread_create_timer_thread() unnamed_addr #0 {
   unreachable
 
 close_invalidate.exit9.i:                         ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %21 = tail call i32 @close(i32 noundef %20) #19
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %close_invalidate_pair.exit
@@ -10563,8 +10563,8 @@ close_invalidate.exit9.i:                         ; preds = %14
   unreachable
 
 close_invalidate_pair.exit:                       ; preds = %8, %close_invalidate.exit9.i
-  %26 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %27 = tail call i32 @close(i32 noundef %26) #19
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %close_invalidate.exit
@@ -10576,7 +10576,7 @@ close_invalidate_pair.exit:                       ; preds = %8, %close_invalidat
   unreachable
 
 close_invalidate.exit:                            ; preds = %close_invalidate_pair.exit
-  %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %rb_native_mutex_destroy.exit, label %33
 
@@ -10585,9 +10585,9 @@ close_invalidate.exit:                            ; preds = %close_invalidate_pa
   unreachable
 
 rb_native_mutex_destroy.exit:                     ; preds = %close_invalidate.exit, %3
-  store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
-  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6), ptr noundef null) #19
+  store ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), ptr getelementptr inbounds (i8, ptr @timer_th, i64 232), align 8
+  store ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
+  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240), ptr noundef null) #19
   %.not.i3 = icmp eq i32 %34, 0
   br i1 %.not.i3, label %rb_native_mutex_initialize.exit, label %35
 
@@ -10596,17 +10596,17 @@ rb_native_mutex_destroy.exit:                     ; preds = %close_invalidate.ex
   unreachable
 
 rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_destroy.exit
-  %36 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %37 = icmp sgt i32 %36, 0
-  %38 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   %39 = icmp sgt i32 %38, 0
   %or.cond.i = select i1 %37, i1 true, i1 %39
   br i1 %or.cond.i, label %setup_communication_pipe_internal.exit, label %40
 
 40:                                               ; preds = %rb_native_mutex_initialize.exit
   %41 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #19
-  store i32 %41, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
-  store i32 %41, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %44
 
@@ -10615,7 +10615,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
   br label %setup_communication_pipe_internal.exit
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @rb_cloexec_pipe(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2)) #19
+  %45 = tail call i32 @rb_cloexec_pipe(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 16)) #19
   %.not.i4 = icmp eq i32 %45, 0
   br i1 %.not.i4, label %47, label %46
 
@@ -10624,11 +10624,11 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
   unreachable
 
 47:                                               ; preds = %44
-  %48 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   tail call void @rb_update_max_fd(i32 noundef %48) #19
-  %49 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   tail call void @rb_update_max_fd(i32 noundef %49) #19
-  %50 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %51 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %50, i32 noundef 3) #19
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %56
@@ -10652,7 +10652,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
   unreachable
 
 set_nonblock.exit.i:                              ; preds = %56
-  %63 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   %64 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 3) #19
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %66, label %69
@@ -10677,7 +10677,7 @@ set_nonblock.exit.i:                              ; preds = %56
 
 setup_communication_pipe_internal.exit:           ; preds = %rb_native_mutex_initialize.exit, %43, %69
   %76 = tail call i32 @epoll_create1(i32 noundef 524288) #19
-  store i32 %76, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  store i32 %76, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %timer_thread_setup_mn.exit
 
@@ -10688,13 +10688,13 @@ setup_communication_pipe_internal.exit:           ; preds = %rb_native_mutex_ini
   unreachable
 
 timer_thread_setup_mn.exit:                       ; preds = %setup_communication_pipe_internal.exit
-  %81 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %82 = tail call fastcc zeroext i1 @timer_thread_register_waiting(ptr noundef null, i32 noundef %81, i32 noundef 66, ptr noundef null)
   br label %83
 
 83:                                               ; preds = %timer_thread_setup_mn.exit, %0
   %84 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %85 = tail call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 1), ptr noundef null, ptr noundef nonnull @timer_thread_func, ptr noundef %84) #19
+  %85 = tail call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 8), ptr noundef null, ptr noundef nonnull @timer_thread_func, ptr noundef %84) #19
   ret void
 }
 
@@ -11009,7 +11009,7 @@ rb_native_cond_initialize.exit26.i:               ; preds = %rb_native_cond_init
   br label %thread_sched_atfork.exit
 
 thread_sched_atfork.exit:                         ; preds = %53, %55
-  store ptr @ubf_list_head, ptr getelementptr inbounds (%struct.ccan_list_head, ptr @ubf_list_head, i64 0, i32 0, i32 1), align 8
+  store ptr @ubf_list_head, ptr getelementptr inbounds (i8, ptr @ubf_list_head, i64 8), align 8
   store ptr @ubf_list_head, ptr @ubf_list_head, align 8
   %60 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @ubf_list_lock, ptr noundef null) #19
   %.not.i.i30 = icmp eq i32 %60, 0
@@ -17079,7 +17079,7 @@ rb_hrtime_now.exit:                               ; preds = %14, %17
 
 41:                                               ; preds = %39, %31
   %.1 = phi i32 [ %40, %39 ], [ %.042, %31 ]
-  %42 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %42 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %43
 
@@ -17095,7 +17095,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   store i32 %.1, ptr %8, align 4
   %45 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %0, ptr %45, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %47 = call i32 @epoll_ctl(i32 noundef %46, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %8) #19
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %49, label %58
@@ -17110,7 +17110,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   ]
 
 52:                                               ; preds = %49, %49, %49
-  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i62 = icmp eq i32 %53, 0
   br i1 %.not.i62, label %rb_native_mutex_unlock.exit, label %54
 
@@ -17143,17 +17143,17 @@ rb_native_mutex_lock.exit:                        ; preds = %41
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr %66, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5, i32 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), ptr %66, align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @timer_th, i64 232), align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %67, ptr %68, align 8
   store ptr %66, ptr %67, align 8
-  store ptr %66, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5, i32 0, i32 1), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @timer_th, i64 232), align 8
   br label %94
 
 69:                                               ; preds = %59
-  %70 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
-  %.not5969 = icmp eq ptr %70, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5)
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
+  %.not5969 = icmp eq ptr %70, getelementptr inbounds (i8, ptr @timer_th, i64 224)
   br i1 %.not5969, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %69
@@ -17181,7 +17181,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
 80:                                               ; preds = %.lr.ph84
   %.0417283 = getelementptr i8, ptr %.pn7082, i64 -160
   %81 = load ptr, ptr %.pn7082, align 8
-  %.not59 = icmp eq ptr %81, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5)
+  %.not59 = icmp eq ptr %81, getelementptr inbounds (i8, ptr @timer_th, i64 224)
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph84, %80, %.lr.ph.preheader
@@ -17206,11 +17206,11 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   %89 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %70, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr %90, align 8
-  %91 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
+  store ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), ptr %90, align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %89, ptr %92, align 8
-  store ptr %89, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
   br label %93
 
 93:                                               ; preds = %._crit_edge.thread, %82
@@ -17218,7 +17218,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   br label %94
 
 94:                                               ; preds = %58, %65, %93
-  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i63 = icmp eq i32 %95, 0
   br i1 %.not.i63, label %rb_native_mutex_unlock.exit, label %96
 
@@ -17279,7 +17279,7 @@ define internal fastcc noundef zeroext i1 @timer_thread_cancel_waiting(ptr nound
   br i1 %.not, label %rb_native_mutex_unlock.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %6
 
@@ -17311,7 +17311,7 @@ rb_native_mutex_lock.exit:                        ; preds = %4
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %0, i64 152
   %19 = load i32, ptr %18, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %21 = tail call i32 @epoll_ctl(i32 noundef %20, i32 noundef 2, i32 noundef %19, ptr noundef null) #19
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %timer_thread_unregister_waiting.exit
@@ -17334,7 +17334,7 @@ timer_thread_unregister_waiting.exit:             ; preds = %23, %17, %8
   br label %29
 
 29:                                               ; preds = %timer_thread_unregister_waiting.exit, %rb_native_mutex_lock.exit
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i10 = icmp eq i32 %30, 0
   br i1 %.not.i10, label %rb_native_mutex_unlock.exit, label %31
 
@@ -17379,7 +17379,7 @@ ractor_sched_lock_.exit:                          ; preds = %0
   br i1 %12, label %13, label %timer_thread_wakeup_locked.exit
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 1, ptr %1, align 8
   %15 = icmp sgt i32 %14, -1
@@ -19930,7 +19930,7 @@ rb_hrtime_now.exit.i:                             ; preds = %39, %timer_thread_c
   %.0.i.i.i.i = select i1 %41, i64 -1, i64 %42
   %.0.i2.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i, i64 %.val1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %44
 
@@ -19939,8 +19939,8 @@ rb_hrtime_now.exit.i:                             ; preds = %39, %timer_thread_c
   unreachable
 
 rb_native_mutex_lock.exit.i:                      ; preds = %rb_hrtime_now.exit.i, %thread_sched_to_ready_common.exit
-  %45 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
-  %.not.i.i.i = icmp eq ptr %45, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5)
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
+  %.not.i.i.i = icmp eq ptr %45, getelementptr inbounds (i8, ptr @timer_th, i64 224)
   %46 = getelementptr i8, ptr %45, i64 -160
   %.not1.i.i = icmp eq ptr %46, null
   %.not.i2.i = or i1 %.not.i.i.i, %.not1.i.i
@@ -20180,7 +20180,7 @@ thread_sched_to_ready_common.exit:                ; preds = %104, %thread_sched_
   unreachable
 
 148:                                              ; preds = %51, %47, %rb_native_mutex_lock.exit.i
-  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i4.i = icmp eq i32 %149, 0
   br i1 %.not.i4.i, label %timer_thread_check_timeout.exit, label %150
 
@@ -20231,7 +20231,7 @@ rb_native_mutex_lock.exit.i6:                     ; preds = %153, %156
   unreachable
 
 ubf_wakeup_all_threads.exit:                      ; preds = %timer_thread_check_timeout.exit, %161
-  %164 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %164 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %165 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i.i.i.i = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i, label %ractor_sched_lock_.exit.i.i.i, label %166
@@ -20273,7 +20273,7 @@ ractor_sched_unlock_.exit.i.i.i:                  ; preds = %173
   br i1 %177, label %178, label %event_wait.exit.i
 
 178:                                              ; preds = %ractor_sched_unlock_.exit.i.i.i
-  %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i.i.i.i16 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i16, label %rb_native_mutex_lock.exit.i.i.i17, label %180
 
@@ -20282,8 +20282,8 @@ ractor_sched_unlock_.exit.i.i.i:                  ; preds = %173
   unreachable
 
 rb_native_mutex_lock.exit.i.i.i17:                ; preds = %178
-  %181 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
-  %.not.i17.i.i.i = icmp eq ptr %181, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5)
+  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @timer_th, i64 224), align 8
+  %.not.i17.i.i.i = icmp eq ptr %181, getelementptr inbounds (i8, ptr @timer_th, i64 224)
   %182 = getelementptr i8, ptr %181, i64 -160
   %.not1421.i.i.i = icmp eq ptr %182, null
   %.not14.i.i.i = or i1 %.not.i17.i.i.i, %.not1421.i.i.i
@@ -20325,7 +20325,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
 
 199:                                              ; preds = %rb_hrtime_now.exit.i.i.i, %183, %rb_native_mutex_lock.exit.i.i.i17
   %.1.i.i.i = phi i32 [ %198, %rb_hrtime_now.exit.i.i.i ], [ %.0.i.i.i, %183 ], [ %.0.i.i.i, %rb_native_mutex_lock.exit.i.i.i17 ]
-  %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i19.i.i.i = icmp eq i32 %200, 0
   br i1 %.not.i19.i.i.i, label %event_wait.exit.i, label %201
 
@@ -20335,7 +20335,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
 
 event_wait.exit.i:                                ; preds = %199, %ractor_sched_unlock_.exit.i.i.i
   %.2.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.exit.i.i.i ], [ %.1.i.i.i, %199 ]
-  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 4), i32 noundef 16, i32 noundef %.2.i.i.i) #19
+  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 28), i32 noundef 16, i32 noundef %.2.i.i.i) #19
   switch i32 %202, label %.preheader.i [
     i32 0, label %204
     i32 -1, label %217
@@ -20417,14 +20417,14 @@ ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_sign
 
 .lr.ph.i:                                         ; preds = %rb_native_mutex_unlock.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %rb_native_mutex_unlock.exit.i ]
-  %223 = getelementptr %struct.anon.18, ptr @timer_th, i64 0, i32 4, i64 %indvars.iv.i
+  %223 = getelementptr [16 x %struct.epoll_event], ptr getelementptr inbounds (i8, ptr @timer_th, i64 28), i64 0, i64 %indvars.iv.i
   %224 = getelementptr inbounds i8, ptr %223, i64 4
   %225 = load ptr, ptr %224, align 4
   %226 = icmp eq ptr %225, null
   br i1 %226, label %227, label %235
 
 227:                                              ; preds = %.lr.ph.i
-  %228 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
+  %228 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   br label %229
 
@@ -20451,7 +20451,7 @@ consume_communication_pipe.exit.i:                ; preds = %231, %229
 
 235:                                              ; preds = %.lr.ph.i
   %236 = load i32, ptr %223, align 4
-  %237 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %237 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i26.i = icmp eq i32 %237, 0
   br i1 %.not.i26.i, label %rb_native_mutex_lock.exit.i13, label %238
 
@@ -20478,7 +20478,7 @@ rb_native_mutex_lock.exit.i13:                    ; preds = %235
   store ptr %242, ptr %242, align 8
   %248 = getelementptr inbounds i8, ptr %225, i64 152
   %249 = load i32, ptr %248, align 8
-  %250 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
+  %250 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %251 = call i32 @epoll_ctl(i32 noundef %250, i32 noundef 2, i32 noundef %249, ptr noundef null) #19
   %252 = icmp eq i32 %251, -1
   br i1 %252, label %253, label %timer_thread_unregister_waiting.exit.i
@@ -20532,7 +20532,7 @@ thread_sched_lock_.exit.i.i14:                    ; preds = %timer_thread_unregi
   unreachable
 
 timer_thread_wakeup_thread.exit.i:                ; preds = %268, %rb_native_mutex_lock.exit.i13
-  %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
+  %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i29.i = icmp eq i32 %271, 0
   br i1 %.not.i29.i, label %rb_native_mutex_unlock.exit.i, label %272
 

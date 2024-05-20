@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define nonnull align 8 ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h10945ab1a11022ceE"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17hc85a4972f6305601E(ptr nonnull align 4 getelementptr inbounds (<{ [8 x i8], [8 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", i64 0, i32 2, i64 0), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.8eb304151b516347a779a925c8cb1cad.1)
+  call void @_ZN3std4sync4once4Once9call_once17hc85a4972f6305601E(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", i64 16), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.8eb304151b516347a779a925c8cb1cad.1)
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !5, !noundef !3
   %5 = icmp ne i64 %4, 0
@@ -26,7 +26,7 @@ define void @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$lazy_static
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17hc85a4972f6305601E(ptr nonnull align 4 getelementptr inbounds (<{ [8 x i8], [8 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", i64 0, i32 2, i64 0), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.8eb304151b516347a779a925c8cb1cad.1)
+  call void @_ZN3std4sync4once4Once9call_once17hc85a4972f6305601E(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h814b626e99b5ac1aE", i64 16), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.8eb304151b516347a779a925c8cb1cad.1)
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !5, !noundef !3
   %5 = icmp ne i64 %4, 0

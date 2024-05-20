@@ -4145,7 +4145,7 @@ define dso_local void @pci_pme_active(ptr noundef %0, i1 noundef zeroext %1) #5 
   br i1 %1, label %27, label %47
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %29 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3264, i64 noundef 24) #31
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
@@ -4168,7 +4168,7 @@ define dso_local void @pci_pme_active(ptr noundef %0, i1 noundef zeroext %1) #5 
   store volatile ptr %29, ptr @pci_pme_list, align 8
   %38 = load volatile ptr, ptr @pci_pme_list, align 8
   %39 = icmp eq ptr %38, @pci_pme_list
-  %40 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pci_pme_list, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @pci_pme_list, i64 8), align 8
   %41 = icmp ne ptr %38, %40
   %42 = select i1 %39, i1 true, i1 %41
   br i1 %42, label %46, label %43
@@ -5965,7 +5965,7 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
   br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(38) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 38) #31
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -6005,7 +6005,7 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
   br i1 %23, label %41, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(26) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 26) #31
   %27 = icmp eq ptr %26, null
   br i1 %27, label %39, label %28

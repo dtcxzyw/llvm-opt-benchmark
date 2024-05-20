@@ -834,8 +834,8 @@ define void @_ZN15EditPaintPluginC2Ev(ptr noundef nonnull align 8 dereferenceabl
           to label %3 unwind label %19
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV15EditPaintPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV15EditPaintPlugin, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 384
@@ -1087,9 +1087,9 @@ define linkonce_odr void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE11delet
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15EditPaintPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV15EditPaintPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV15EditPaintPlugin, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1310,7 +1310,7 @@ define void @_ZN15EditPaintPlugin22suggestedRenderingDataER9MeshModelR15MLRender
   store i8 1, ptr %25, align 1
   %26 = getelementptr inbounds i8, ptr %5, i64 48
   store float 1.000000e+00, ptr %26, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18MLPerViewGLOptions, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 66
   %28 = getelementptr inbounds i8, ptr %5, i64 70
   %29 = getelementptr inbounds i8, ptr %5, i64 74
@@ -6444,14 +6444,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   unreachable
 
 _ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEaSEOS7_.exit: ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  %9 = load atomic i32, ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16) monotonic, align 8
   switch i32 %9, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEED2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEaSEOS7_.exit
-  %10 = atomicrmw sub ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16), i32 1 seq_cst, align 4
   %.not.i = icmp eq i32 %10, 1
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, label %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEED2Ev.exit
 
@@ -6804,7 +6804,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %150
           to label %191 unwind label %217
 
 191:                                              ; preds = %177
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15SingleColorUndo, i64 0, i32 0, i64 2), ptr %188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %188, align 8
   %192 = getelementptr inbounds i8, ptr %188, i64 24
   %193 = getelementptr inbounds i8, ptr %188, i64 16
   store ptr %189, ptr %193, align 8
@@ -6979,7 +6979,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
           to label %303 unwind label %329
 
 303:                                              ; preds = %295
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15SingleColorUndo, i64 0, i32 0, i64 2), ptr %300, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %300, align 8
   %304 = getelementptr inbounds i8, ptr %300, i64 24
   %305 = getelementptr inbounds i8, ptr %300, i64 16
   store ptr %301, ptr %305, align 8
@@ -7085,14 +7085,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   unreachable
 
 _ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEEaSEOS7_.exit: ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  %9 = load atomic i32, ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16) monotonic, align 8
   switch i32 %9, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEED2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEEaSEOS7_.exit
-  %10 = atomicrmw sub ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16), i32 1 seq_cst, align 4
   %.not.i = icmp eq i32 %10, 1
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, label %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEED2Ev.exit
 
@@ -7339,7 +7339,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread: ; p
           to label %153 unwind label %169
 
 153:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18SinglePositionUndo, i64 0, i32 0, i64 2), ptr %149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %149, align 8
   %154 = getelementptr inbounds i8, ptr %149, i64 24
   %155 = getelementptr inbounds i8, ptr %149, i64 36
   %156 = getelementptr inbounds i8, ptr %149, i64 16
@@ -7482,14 +7482,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   unreachable
 
 _ZN5QHashIP8CVertexOS1_EaSEOS2_.exit:             ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  %9 = load atomic i32, ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16) monotonic, align 8
   switch i32 %9, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN5QHashIP8CVertexOS1_ED2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN5QHashIP8CVertexOS1_EaSEOS2_.exit
-  %10 = atomicrmw sub ptr getelementptr inbounds (%struct.QHashData, ptr @_ZN9QHashData11shared_nullE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN9QHashData11shared_nullE, i64 16), i32 1 seq_cst, align 4
   %.not.i = icmp eq i32 %10, 1
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, label %_ZN5QHashIP8CVertexOS1_ED2Ev.exit
 
@@ -7879,7 +7879,7 @@ _ZN8Paintbox12getUndoStackEv.exit:                ; preds = %105
           to label %111 unwind label %114
 
 111:                                              ; preds = %108
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15SingleColorUndo, i64 0, i32 0, i64 2), ptr %107, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %107, align 8
   %112 = getelementptr inbounds i8, ptr %107, i64 24
   %113 = getelementptr inbounds i8, ptr %107, i64 16
   store ptr %109, ptr %113, align 8
@@ -7914,7 +7914,7 @@ _ZN8Paintbox12getUndoStackEv.exit129:             ; preds = %116
           to label %123 unwind label %129
 
 123:                                              ; preds = %119
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18SinglePositionUndo, i64 0, i32 0, i64 2), ptr %118, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %118, align 8
   %124 = getelementptr inbounds i8, ptr %118, i64 24
   %125 = getelementptr inbounds i8, ptr %118, i64 36
   %126 = getelementptr inbounds i8, ptr %118, i64 16
@@ -9184,7 +9184,7 @@ _ZN8Paintbox12getUndoStackEv.exit62:              ; preds = %_ZN5QHashIP8CVertex
           to label %182 unwind label %209
 
 182:                                              ; preds = %179
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15SingleColorUndo, i64 0, i32 0, i64 2), ptr %178, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %178, align 8
   %183 = getelementptr inbounds i8, ptr %178, i64 24
   %184 = getelementptr inbounds i8, ptr %178, i64 16
   store ptr %180, ptr %184, align 8
@@ -10484,7 +10484,7 @@ _ZN8Paintbox12getUndoStackEv.exit82:              ; preds = %269
           to label %277 unwind label %327
 
 277:                                              ; preds = %275
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15SingleColorUndo, i64 0, i32 0, i64 2), ptr %274, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %274, align 8
   %278 = getelementptr inbounds i8, ptr %274, i64 24
   %279 = getelementptr inbounds i8, ptr %274, i64 16
   store ptr %.pre192, ptr %279, align 8
@@ -13040,7 +13040,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %25
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %32, align 8
   %33 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
           to label %34 unwind label %48
 
@@ -13172,7 +13172,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
           to label %18 unwind label %13
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %17, align 8
   %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
           to label %20 unwind label %37
 
@@ -13378,7 +13378,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13394,7 +13394,7 @@ define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14377,7 +14377,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %59, %57
   br i1 %or.cond.not, label %.noexc, label %63
 
 63:                                               ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48
-  %64 = load ptr, ptr getelementptr inbounds (%"class.std::vector.71", ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, i64 8), align 8
   %65 = load ptr, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, align 8
   %66 = ptrtoint ptr %64 to i64
   %67 = ptrtoint ptr %65 to i64
@@ -14484,13 +14484,13 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %59, %57
   store <4 x float> %130, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, align 16
   %131 = getelementptr inbounds i8, ptr %10, i64 16
   %132 = load <4 x float>, ptr %131, align 16
-  store <4 x float> %132, ptr getelementptr inbounds (%"class.Eigen::Matrix", ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 0, i32 0, i32 0, i32 0, i32 0, i64 4), align 16
+  store <4 x float> %132, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 16), align 16
   %133 = getelementptr inbounds i8, ptr %10, i64 32
   %134 = load <4 x float>, ptr %133, align 16
-  store <4 x float> %134, ptr getelementptr inbounds (%"class.Eigen::Matrix", ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 0, i32 0, i32 0, i32 0, i32 0, i64 8), align 16
+  store <4 x float> %134, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 32), align 16
   %135 = getelementptr inbounds i8, ptr %10, i64 48
   %136 = load <4 x float>, ptr %135, align 16
-  store <4 x float> %136, ptr getelementptr inbounds (%"class.Eigen::Matrix", ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 0, i32 0, i32 0, i32 0, i32 0, i64 12), align 16
+  store <4 x float> %136, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, i64 48), align 16
   store ptr %2, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastm, align 8
   br label %137
 
@@ -16926,9 +16926,9 @@ define internal void @_GLOBAL__sub_I_edit_paint.cpp() #12 section ".text.startup
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #25
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

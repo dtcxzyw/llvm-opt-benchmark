@@ -23,7 +23,7 @@ entry:
   br i1 %cmp.i, label %cond.true19.i, label %cond.false21.i
 
 cond.true19.i:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1), align 4, !tbaa !7
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 4), align 4, !tbaa !7
   br label %_ZN5folly12_GLOBAL__N_18PidCache3getEv.exit
 
 cond.false21.i:                                   ; preds = %entry
@@ -103,7 +103,7 @@ if.end.i.i24:                                     ; preds = %_ZN5folly8FunctionI
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit
 
 _ZN5folly8FunctionIFbvEED2Ev.exit:                ; preds = %if.end.i.i24, %_ZN5folly8FunctionIFvvEED2Ev.exit21
-  store i32 %call, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1), align 4, !tbaa !7
+  store i32 %call, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 4), align 4, !tbaa !7
   store atomic i8 2, ptr @_ZN5folly12_GLOBAL__N_16cache_E release, align 4
   br label %if.end
 

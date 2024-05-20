@@ -331,7 +331,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco23KdTreeAttributesDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5draco17AttributesDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret void
@@ -1473,7 +1473,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %114
   br i1 %121, label %122, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
 
 122:                                              ; preds = %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %4, align 8
   store i32 -1, ptr %21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %22, i8 0, i64 28, i1 false)
   %123 = zext nneg i8 %120 to i32
@@ -1495,7 +1495,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %114
 
 126:                                              ; preds = %.loopexit.split-lp209, %.loopexit208
   %lpad.phi212 = phi { ptr, i32 } [ %lpad.loopexit210, %.loopexit208 ], [ %lpad.loopexit.split-lp211, %.loopexit.split-lp209 ]
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %4, align 8
   %127 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i, label %_ZN5draco30AttributeQuantizationTransformD2Ev.exit, label %128
@@ -1529,7 +1529,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %114
   br i1 %.not.i, label %173, label %145
 
 145:                                              ; preds = %142
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %143, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %143, align 8
   %146 = getelementptr inbounds i8, ptr %143, i64 8
   %147 = load i32, ptr %21, align 8
   store i32 %147, ptr %146, align 8
@@ -1600,7 +1600,7 @@ _ZNSt16allocator_traitsISaIN5draco30AttributeQuantizationTransformEEE9constructI
 
 _ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE9push_backERKS1_.exit: ; preds = %._ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE9push_backERKS1_.exit_crit_edge, %_ZNSt16allocator_traitsISaIN5draco30AttributeQuantizationTransformEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
   %174 = phi ptr [ %.pre, %._ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE9push_backERKS1_.exit_crit_edge ], [ %162, %_ZNSt16allocator_traitsISaIN5draco30AttributeQuantizationTransformEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i ]
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %4, align 8
   %.not.i.i.i.i112 = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i112, label %_ZN5draco30AttributeQuantizationTransformD2Ev.exit113, label %175
 
@@ -1646,7 +1646,7 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit113: ; preds = %175, %_ZNSt6ve
   br i1 %191, label %.lr.ph242, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit, !llvm.loop !16
 
 .critedge:                                        ; preds = %141, %125
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %4, align 8
   %192 = load ptr, ptr %22, align 8
   %.not.i.i.i.i114 = icmp eq ptr %192, null
   br i1 %.not.i.i.i.i114, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit, label %193
@@ -4367,7 +4367,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %65, %63
           to label %.noexc91 unwind label %102
 
 .noexc91:                                         ; preds = %.noexc90
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([25 x i8], ptr @.str.1, i64 0, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 24))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %97
 
 97:                                               ; preds = %.noexc91
@@ -5009,7 +5009,7 @@ declare noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco23KdTreeAttributesDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5087,7 +5087,7 @@ _ZSt8_DestroyIPN5draco30AttributeQuantizationTransformES1_EvT_S3_RSaIT0_E.exit.i
   br label %_ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5draco30AttributeQuantizationTransformES1_EvT_S3_RSaIT0_E.exit.i, %22
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco17AttributesDecoderE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i8 = icmp eq ptr %24, null
@@ -14454,7 +14454,7 @@ _ZNKSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE12_M_check_lenEmPK
 _ZNSt12_Vector_baseIN5draco30AttributeQuantizationTransformESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %23, i64 %19
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8
@@ -14521,7 +14521,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %39
   %.0911.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i ], [ %6, %46 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %.012.i.i.i, align 8, !alias.scope !108, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %.012.i.i.i, align 8, !alias.scope !108, !noalias !111
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %55 = load i32, ptr %54, align 8, !alias.scope !111, !noalias !108
@@ -14558,7 +14558,7 @@ _ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE11_S_relocateEPS1_S
   %.0911.i.i.i30 = phi ptr [ %84, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 0, i32 0, i64 2), ptr %.012.i.i.i29, align 8, !alias.scope !115, !noalias !118
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %.012.i.i.i29, align 8, !alias.scope !115, !noalias !118
   %70 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 8
   %71 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 8
   %72 = load i32, ptr %71, align 8, !alias.scope !118, !noalias !115

@@ -2550,7 +2550,7 @@ declare ptr @uloc_getDefault_75() local_unnamed_addr #5
 define void @ures_getAllChildrenWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %allChildrenSink = alloca %"struct.(anonymous namespace)::GetAllChildrenSink", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 0, i32 0, i64 2), ptr %allChildrenSink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 16), ptr %allChildrenSink, align 8
   %dest2.i = getelementptr inbounds i8, ptr %allChildrenSink, i64 8
   store ptr %sink, ptr %dest2.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef nonnull align 8 dereferenceable(8) %allChildrenSink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -2606,7 +2606,7 @@ lpad:                                             ; preds = %if.else
 
 invoke.cont14:                                    ; preds = %invoke.cont6, %if.end2
   %rb.0 = phi ptr [ %call7, %invoke.cont6 ], [ %bundle, %if.end2 ]
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, i32 0, i64 2), ptr %value, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %value, align 8
   %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   %res.i = getelementptr inbounds i8, ptr %value, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i, i8 0, i64 16, i1 false)
@@ -3410,12 +3410,12 @@ call.i.i.i.noexc:                                 ; preds = %if.then4.i.i.i
 
 .noexc:                                           ; preds = %call.i.i.i.noexc
   %7 = load i32, ptr %status, align 4
-  store i32 %7, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL14gCacheInitOnce, i64 0, i32 1), align 4
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL14gCacheInitOnce, i64 4), align 4
   invoke void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL14gCacheInitOnce)
           to label %_ZL9initCacheP10UErrorCode.exit.i unwind label %lpad
 
 if.else.i.i.i:                                    ; preds = %call2.i.i.i.noexc, %if.end.i.i.i
-  %8 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL14gCacheInitOnce, i64 0, i32 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14gCacheInitOnce, i64 4), align 4
   %cmp.i9.i.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i9.i.i.i, label %_ZL9initCacheP10UErrorCode.exit.i, label %if.then8.i.i.i
 
@@ -3730,12 +3730,12 @@ if.then4.i.i.i49:                                 ; preds = %land.lhs.true.i.i.i
   store ptr %call.i.i.i, ptr @_ZL5cache, align 8
   tail call void @ucln_common_registerCleanup_75(i32 noundef 27, ptr noundef nonnull @_ZL12ures_cleanupv)
   %37 = load i32, ptr %status, align 4
-  store i32 %37, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL14gCacheInitOnce, i64 0, i32 1), align 4
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @_ZL14gCacheInitOnce, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL14gCacheInitOnce)
   br label %_ZL9initCacheP10UErrorCode.exit.i50
 
 if.else.i.i.i69:                                  ; preds = %land.lhs.true.i.i.i47, %if.else
-  %38 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL14gCacheInitOnce, i64 0, i32 1), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14gCacheInitOnce, i64 4), align 4
   %cmp.i9.i.i.i70 = icmp slt i32 %38, 1
   br i1 %cmp.i9.i.i.i70, label %_ZL9initCacheP10UErrorCode.exit.i50, label %if.then8.i.i.i71
 
@@ -6553,7 +6553,7 @@ invoke.cont15:                                    ; preds = %if.then7
   br i1 %cmp.i57, label %cleanup113.thread, label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, i32 0, i64 2), ptr %aliasedValue, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %aliasedValue, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i59, i8 0, i64 16, i1 false)
   store i32 -1, ptr %res.i60, align 8
   %fData.i = getelementptr inbounds i8, ptr %call16, i64 8
@@ -7041,7 +7041,7 @@ if.end26.i:                                       ; preds = %invoke.cont18.i
 
 while.body.i:                                     ; preds = %if.end26.i, %if.else.i27
   %bottom.011.i = phi ptr [ %bottom.1.i, %if.else.i27 ], [ @_ZL17parentLocaleTable, %if.end26.i ]
-  %top.010.i = phi ptr [ %top.1.i, %if.else.i27 ], [ getelementptr inbounds ([360 x i32], ptr @_ZL17parentLocaleTable, i64 1, i64 0), %if.end26.i ]
+  %top.010.i = phi ptr [ %top.1.i, %if.else.i27 ], [ getelementptr inbounds (i8, ptr @_ZL17parentLocaleTable, i64 1440), %if.end26.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %top.010.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.011.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -8190,7 +8190,7 @@ if.end:                                           ; preds = %invoke.cont9
 
 while.body.i:                                     ; preds = %if.else.i, %if.end
   %bottom.011.i = phi ptr [ %bottom.1.i, %if.else.i ], [ @_ZL18defaultScriptTable, %if.end ]
-  %top.010.i = phi ptr [ %top.1.i, %if.else.i ], [ getelementptr inbounds ([2042 x i32], ptr @_ZL18defaultScriptTable, i64 1, i64 0), %if.end ]
+  %top.010.i = phi ptr [ %top.1.i, %if.else.i ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.end ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %top.010.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.011.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -8229,7 +8229,7 @@ if.then17:                                        ; preds = %cleanup.thread56, %
 
 while.body.i17:                                   ; preds = %if.else.i31, %if.then17
   %bottom.011.i18 = phi ptr [ %bottom.1.i35, %if.else.i31 ], [ @_ZL18defaultScriptTable, %if.then17 ]
-  %top.010.i19 = phi ptr [ %top.1.i34, %if.else.i31 ], [ getelementptr inbounds ([2042 x i32], ptr @_ZL18defaultScriptTable, i64 1, i64 0), %if.then17 ]
+  %top.010.i19 = phi ptr [ %top.1.i34, %if.else.i31 ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.then17 ]
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %top.010.i19 to i64
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %bottom.011.i18 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21

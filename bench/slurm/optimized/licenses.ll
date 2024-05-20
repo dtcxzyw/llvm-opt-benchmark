@@ -359,7 +359,7 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %7 = and i64 %6, 1048576
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %33, label %8
@@ -1364,7 +1364,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 27:                                               ; preds = %26
   store i1 true, ptr @license_validate.first_run, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @license_validate.tres_req, i8 0, i64 40, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i64 0, i32 5), align 8
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @license_validate.tres_req, i64 40), align 8
   br label %28
 
 28:                                               ; preds = %26, %27
@@ -1458,7 +1458,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %55, align 8
-  store ptr %67, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i64 0, i32 4), align 8
+  store ptr %67, ptr getelementptr inbounds (i8, ptr @license_validate.tres_req, i64 32), align 8
   %68 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @license_validate.tres_req, i1 noundef zeroext false) #11
   %.not58.us = icmp eq i32 %68, -1
   br i1 %.not58.us, label %.backedge.us79, label %69
@@ -1529,7 +1529,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %82, align 8
-  store ptr %96, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i64 0, i32 4), align 8
+  store ptr %96, ptr getelementptr inbounds (i8, ptr @license_validate.tres_req, i64 32), align 8
   %97 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @license_validate.tres_req, i1 noundef zeroext false) #11
   %.not58 = icmp eq i32 %97, -1
   br i1 %.not58, label %.backedge, label %106
@@ -1969,7 +1969,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 5:                                                ; preds = %2
   %6 = tail call i64 @time(ptr noundef null) #11
   store i64 %6, ptr @last_license_update, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 268435456
   %.not29 = icmp eq i64 %8, 0
   br i1 %.not29, label %13, label %9
@@ -2299,7 +2299,7 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 
 5:                                                ; preds = %4
   store i1 true, ptr @licenses_2_tres_str.first_run, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @licenses_2_tres_str.tres_req, i8 0, i64 40, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i64 0, i32 5), align 8
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @licenses_2_tres_str.tres_req, i64 40), align 8
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -2312,7 +2312,7 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %6, %.backedge
   %9 = phi ptr [ %24, %.backedge ], [ %8, %6 ]
   %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i64 0, i32 4), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @licenses_2_tres_str.tres_req, i64 32), align 8
   %11 = call ptr @assoc_mgr_find_tres_rec(ptr noundef nonnull @licenses_2_tres_str.tres_req) #11
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %.backedge, label %12
@@ -2366,7 +2366,7 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
 5:                                                ; preds = %3
   store i1 true, ptr @license_set_job_tres_cnt.first_run, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @license_set_job_tres_cnt.tres_rec, i8 0, i64 40, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i64 0, i32 5), align 8
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @license_set_job_tres_cnt.tres_rec, i64 40), align 8
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -2391,7 +2391,7 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
 .lr.ph:                                           ; preds = %11, %23
   %14 = phi ptr [ %24, %23 ], [ %13, %11 ]
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i64 0, i32 4), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @license_set_job_tres_cnt.tres_rec, i64 32), align 8
   %16 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @license_set_job_tres_cnt.tres_rec, i1 noundef zeroext %2) #11
   %.not15 = icmp eq i32 %16, -1
   br i1 %.not15, label %23, label %17

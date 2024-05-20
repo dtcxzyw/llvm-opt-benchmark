@@ -183,14 +183,14 @@ define dso_local i32 @update_persistent_clock64(i64 %0, i64 %1) local_unnamed_ad
   store i64 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 24), align 8
   %6 = call i32 %5(ptr noundef nonnull %3) #6
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @read_persistent_clock64(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 16), align 8
   tail call void %2(ptr noundef %0) #6
   ret void
 }
@@ -226,13 +226,13 @@ define internal noundef range(i32 -19, 1) i32 @add_rtc_cmos() #5 section ".init.
   br i1 %17, label %8, label %.loopexit
 
 .loopexit3:                                       ; preds = %3, %0
-  %18 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 92), align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %.loopexit3
   %21 = tail call i32 @platform_device_register(ptr noundef nonnull @rtc_device) #6
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull getelementptr inbounds (%struct.platform_device, ptr @rtc_device, i64 0, i32 3), ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull getelementptr inbounds (i8, ptr @rtc_device, i64 16), ptr noundef nonnull @.str.6) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %20, %.loopexit3

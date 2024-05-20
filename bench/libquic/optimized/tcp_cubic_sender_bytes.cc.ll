@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, i64 noundef %initial_tcp_congestion_window, i64 noundef %max_congestion_window, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr noundef %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19TcpCubicSenderBytesE, i64 16), ptr %this, align 8
   %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   invoke void @_ZN3net10CubicBytesC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, ptr noundef %clock)
           to label %invoke.cont unwind label %lpad

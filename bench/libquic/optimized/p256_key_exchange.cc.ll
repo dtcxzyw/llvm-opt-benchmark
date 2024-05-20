@@ -45,7 +45,7 @@ $_ZTIN3net11KeyExchangeE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %this, ptr noundef %private_key, ptr nocapture noundef readonly %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %private_key, ptr %private_key_, align 8
   %public_key_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -59,7 +59,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %private_key_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -107,7 +107,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net15P256KeyExchangeD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %private_key_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -189,7 +189,7 @@ if.end19:                                         ; preds = %invoke.cont16
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end19
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i64 0, i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %call21, align 8
   %private_key_.i = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call3, ptr %private_key_.i, align 8
   %public_key_.i = getelementptr inbounds i8, ptr %call21, i64 16

@@ -551,7 +551,7 @@ entry:
   store i32 1178881536, ptr %0, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 24
   %fData = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %fImpl, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %fImpl, align 8
   %fData.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %fData, ptr %fData.i, align 8
   %fErrorCode.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -560,7 +560,7 @@ entry:
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %fData, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %fData, align 8
   %quantity.i = getelementptr inbounds i8, ptr %this, i64 352
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1378,7 +1378,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
   %2 = load <2 x i32>, ptr %ufpos, align 4

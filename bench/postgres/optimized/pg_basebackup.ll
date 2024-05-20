@@ -2744,7 +2744,7 @@ progress_update_filename.exit.i:                  ; preds = %954, %952
   br label %995
 
 995:                                              ; preds = %994, %992
-  %996 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @bgpipe, i64 0, i64 1), align 4
+  %996 = load i32, ptr getelementptr inbounds (i8, ptr @bgpipe, i64 4), align 4
   %997 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18
   %998 = call i64 @write(i32 noundef %996, ptr noundef nonnull %16, i64 noundef %997) #17
   %999 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18

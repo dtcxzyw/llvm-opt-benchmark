@@ -37,7 +37,7 @@ define internal i32 @container_device_attach(ptr noundef %0, ptr nocapture readn
   br i1 %6, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(736) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 736) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %32, label %11

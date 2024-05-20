@@ -951,9 +951,9 @@ if.end.i:                                         ; preds = %if.end
   %spec.select.i = select i1 %tobool54.not.i, i32 0, i32 %spec.select.v.i
   %frame_form_w.sroa.0.3.i = or i32 %frame_form_w.sroa.0.2.i, %spec.select.i
   store i32 %frame_form_w.sroa.0.3.i, ptr @ctucan_receive.rcv, align 16
-  store i32 %identifier_w.sroa.0.0.i, ptr getelementptr inbounds ([80 x i8], ptr @ctucan_receive.rcv, i64 0, i64 4), align 4
+  store i32 %identifier_w.sroa.0.0.i, ptr getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 4), align 4
   %data.i = getelementptr inbounds i8, ptr %frames, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds ([80 x i8], ptr @ctucan_receive.rcv, i64 0, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(64) %data.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(64) %data.i, i64 64, i1 false)
   br label %ctucan_frame2buff.exit
 
 ctucan_frame2buff.exit:                           ; preds = %if.end, %if.end.i

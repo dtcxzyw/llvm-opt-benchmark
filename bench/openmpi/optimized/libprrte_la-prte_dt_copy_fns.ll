@@ -40,10 +40,10 @@ define noundef i32 @prte_job_copy(ptr nocapture noundef writeonly %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_node_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -65,7 +65,7 @@ define noundef i32 @prte_node_copy(ptr nocapture noundef writeonly %0, ptr nocap
   %14 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -137,10 +137,10 @@ define noundef i32 @prte_proc_copy(ptr nocapture noundef writeonly %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_app_copy(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_app_context_t_class, i64 0, i32 8), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @prte_app_context_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_app_context_t_class, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_app_context_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -168,7 +168,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %8
   %15 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_app_context_t_class, i64 0, i32 6), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_app_context_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread62, label %.lr.ph.i.i
@@ -237,10 +237,10 @@ pmix_obj_new_tma.exit.thread62:                   ; preds = %.lr.ph.i.i, %10
 
 .lr.ph:                                           ; preds = %49, %100
   %.04269 = phi ptr [ %.042, %100 ], [ %.04267, %49 ]
-  %52 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_value_t_class, i64 0, i32 8), align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @prte_value_t_class, i64 56), align 8
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #14
   %54 = load i32, ptr @pmix_class_init_epoch, align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_value_t_class, i64 0, i32 4), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @prte_value_t_class, i64 32), align 8
   %.not.i53 = icmp eq i32 %54, %55
   br i1 %.not.i53, label %57, label %56
 
@@ -262,7 +262,7 @@ pmix_obj_new_tma.exit.thread62:                   ; preds = %.lr.ph.i.i, %10
   %63 = getelementptr inbounds i8, ptr %53, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  %64 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_value_t_class, i64 0, i32 6), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_value_t_class, i64 40), align 8
   %65 = load ptr, ptr %64, align 8
   %.not6.i.i55 = icmp eq ptr %65, null
   br i1 %.not6.i.i55, label %pmix_obj_new_tma.exit59, label %.lr.ph.i.i56
@@ -399,10 +399,10 @@ define range(i32 -2, 1) i32 @prte_map_copy(ptr nocapture noundef %0, ptr noundef
   br label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_job_map_t_class, i64 0, i32 8), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @prte_job_map_t_class, i64 56), align 8
   %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #14
   %8 = load i32, ptr @pmix_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_job_map_t_class, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_job_map_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 
@@ -430,7 +430,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %11
   %18 = getelementptr inbounds i8, ptr %7, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_job_map_t_class, i64 0, i32 6), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_job_map_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i.i = icmp eq ptr %20, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread38, label %.lr.ph.i.i

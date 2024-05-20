@@ -47,7 +47,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([354 x %"struct.hermes::UnicodeRange"], ptr @_ZN6hermesL15UNICODE_LETTERSE, i64 1, i64 0, i32 0)
+  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL15UNICODE_LETTERSE, i64 2832)
   br i1 %cmp.not.i.i, label %return, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
@@ -118,7 +118,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([245 x %"struct.hermes::UnicodeRange"], ptr @_ZN6hermesL22UNICODE_COMBINING_MARKE, i64 1, i64 0, i32 0)
+  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL22UNICODE_COMBINING_MARKE, i64 1960)
   br i1 %cmp.not.i.i, label %_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
@@ -157,7 +157,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([61 x %"struct.hermes::UnicodeRange"], ptr @_ZN6hermesL13UNICODE_DIGITE, i64 1, i64 0, i32 0)
+  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL13UNICODE_DIGITE, i64 488)
   br i1 %cmp.not.i.i, label %lor.end, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
@@ -195,7 +195,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([6 x %"struct.hermes::UnicodeRange"], ptr @_ZN6hermesL29UNICODE_CONNECTOR_PUNCTUATIONE, i64 1, i64 0, i32 0)
+  %cmp.not.i.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN6hermesL29UNICODE_CONNECTOR_PUNCTUATIONE, i64 48)
   br i1 %cmp.not.i.i, label %lor.end, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
@@ -269,7 +269,7 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit:            ; preds = %entry, %return.sink
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes12CodePointSetC2ERKS0_.exit
   %cond.i = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
-  %cond5.i = select i1 %unicode, ptr getelementptr inbounds ([198 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1, i64 0, i32 0), ptr getelementptr inbounds ([175 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1, i64 0, i32 0)
+  %cond5.i = select i1 %unicode, ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1584), ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1400)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %cond5.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cond.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -708,7 +708,7 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit33:          ; preds = %for.end, %return.si
 
 for.body12.lr.ph:                                 ; preds = %_ZN6hermes12CodePointSetC2ERKS0_.exit33
   %cond.i46 = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
-  %cond5.i47 = select i1 %unicode, ptr getelementptr inbounds ([198 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1, i64 0, i32 0), ptr getelementptr inbounds ([175 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1, i64 0, i32 0)
+  %cond5.i47 = select i1 %unicode, ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1584), ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1400)
   %cmp6.not49.i = icmp eq ptr %cond.i46, %cond5.i47
   br label %for.body12
 
@@ -1092,7 +1092,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %cp, i1 noundef zeroext %unicode) local_unnamed_addr #3 {
 entry:
   %cond = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
-  %cond5 = select i1 %unicode, ptr getelementptr inbounds ([198 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1, i64 0, i32 0), ptr getelementptr inbounds ([175 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1, i64 0, i32 0)
+  %cond5 = select i1 %unicode, ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1584), ptr getelementptr inbounds (i8, ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1400)
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cond to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i

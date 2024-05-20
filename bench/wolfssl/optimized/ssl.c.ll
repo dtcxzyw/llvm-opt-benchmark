@@ -8760,7 +8760,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp uge ptr %session, @ClientCache
-  %cmp2 = icmp ult ptr %session, getelementptr inbounds ([88 x %struct.ClientRow], ptr @ClientCache, i64 1, i64 0, i32 0)
+  %cmp2 = icmp ult ptr %session, getelementptr inbounds (i8, ptr @ClientCache, i64 17600)
   %or.cond = select i1 %cmp1, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then3, label %return
 

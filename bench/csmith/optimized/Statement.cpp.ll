@@ -178,16 +178,16 @@ define dso_local void @_Z25InitializeLabelAttributesv() local_unnamed_addr #4 pe
           to label %11 unwind label %74
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 16), align 8
   %.not.i.i = icmp eq ptr %12, %13
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %11
   store ptr %7, ptr %12, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %16, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 17:                                               ; preds = %11
@@ -243,9 +243,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pre
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %32, ptr @_ZN9Statement20label_attr_generatorE, align 8
-  store ptr %37, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   %39 = getelementptr inbounds ptr, ptr %32, i64 %28
-  store ptr %39, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %39, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %14
@@ -265,16 +265,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9
           to label %44 unwind label %77
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %46 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 16), align 8
   %.not.i.i15 = icmp eq ptr %45, %46
   br i1 %.not.i.i15, label %50, label %47
 
 47:                                               ; preds = %44
   store ptr %40, ptr %45, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %49, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit25
 
 50:                                               ; preds = %44
@@ -330,9 +330,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %71, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
   store ptr %65, ptr @_ZN9Statement20label_attr_generatorE, align 8
-  store ptr %70, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %70, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 8), align 8
   %72 = getelementptr inbounds ptr, ptr %65, i64 %61
-  store ptr %72, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @_ZN9Statement20label_attr_generatorE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %72, ptr getelementptr inbounds (i8, ptr @_ZN9Statement20label_attr_generatorE, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit25
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit25: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22, %47
@@ -415,7 +415,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15StatementFilterC2ERK9CGContext(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementFilter, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
@@ -759,7 +759,7 @@ select.unfold:                                    ; preds = %16, %_ZN9Statement2
 
 20:                                               ; preds = %select.unfold
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementFilter, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %21, align 8
   %22 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
@@ -1568,7 +1568,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit3:       ; preds = %9, %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9Statement, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %.not = icmp eq ptr %2, null

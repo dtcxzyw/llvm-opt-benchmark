@@ -260,7 +260,7 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.prte_iof_base_module_2_0_0_t, ptr @prte_iof, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 16), align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 %7(ptr noundef %0, i16 noundef zeroext 1, i32 noundef %9) #5
@@ -275,7 +275,7 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
   br label %28
 
 13:                                               ; preds = %6, %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct.prte_iof_base_module_2_0_0_t, ptr @prte_iof, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 %14(ptr noundef %0, i16 noundef zeroext 2, i32 noundef %16) #5
@@ -290,7 +290,7 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
   br label %28
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr getelementptr inbounds (%struct.prte_iof_base_module_2_0_0_t, ptr @prte_iof, i64 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 %21(ptr noundef %0, i16 noundef zeroext 4, i32 noundef %23) #5

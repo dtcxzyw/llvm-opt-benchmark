@@ -188,7 +188,7 @@ if.end:                                           ; preds = %entry
   tail call void @ossl_ctx_thread_stop(ptr noundef nonnull @default_context_int) #3
   tail call fastcc void @context_deinit_objs(ptr noundef nonnull @default_context_int)
   tail call void @ossl_crypto_cleanup_all_ex_data_int(ptr noundef nonnull @default_context_int) #3
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_context_int, i64 8), align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #3
   %1 = load ptr, ptr @default_context_int, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %1) #3
@@ -645,13 +645,13 @@ return:                                           ; preds = %if.then, %if.then2
 ; Function Attrs: nounwind uwtable
 define void @ossl_release_default_drbg_ctx() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i64 0, i32 9), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_context_int, i64 216), align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @ossl_rand_ctx_free(ptr noundef nonnull %0) #3
-  store ptr null, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i64 0, i32 9), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @default_context_int, i64 216), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

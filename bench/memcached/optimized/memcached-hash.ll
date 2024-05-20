@@ -29,7 +29,7 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table.hash_init.18, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store ptr %switch.load, ptr @hash, align 8
-  store ptr %switch.load2, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 40), align 8
+  store ptr %switch.load2, ptr getelementptr inbounds (i8, ptr @settings, i64 184), align 8
   br label %return
 
 return:                                           ; preds = %entry, %switch.lookup
@@ -451,7 +451,7 @@ for.body.i25.i.i.i.i:                             ; preds = %for.body.i25.i.i.i.
   %arrayidx.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %acc.i.i.i, i64 %i.012.i.i.i.i.i
   %32 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 16, !alias.scope !55, !noalias !56
   %33 = lshr <2 x i64> %32, <i64 47, i64 47>
-  %add.ptr.i26.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @XXH3_kSecret, i64 0, i64 128), i64 %i.012.i.i.i.i.i
+  %add.ptr.i26.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 128), i64 %i.012.i.i.i.i.i
   %34 = load <2 x i64>, ptr %add.ptr.i26.i.i.i.i, align 16, !alias.scope !53, !noalias !57
   %35 = xor <2 x i64> %33, %34
   %xor.i.i.i.i.i3.i = xor <2 x i64> %35, %32
@@ -535,7 +535,7 @@ for.body.i52.i.i.i.i:                             ; preds = %for.body.i52.i.i.i.
   %i.09.i.i.i.i.i = phi i64 [ 0, %XXH3_accumulate.exit51.i.i.i.i ], [ %inc.i59.i.i.i.i, %for.body.i52.i.i.i.i ]
   %add.ptr.i53.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %add.ptr13.i.i.i.i, i64 %i.09.i.i.i.i.i
   %50 = load <2 x i64>, ptr %add.ptr.i53.i.i.i.i, align 1, !alias.scope !85, !noalias !86
-  %add.ptr1.i54.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @XXH3_kSecret, i64 0, i64 121), i64 %i.09.i.i.i.i.i
+  %add.ptr1.i54.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 121), i64 %i.09.i.i.i.i.i
   %51 = load <2 x i64>, ptr %add.ptr1.i54.i.i.i.i, align 1, !alias.scope !83, !noalias !87
   %xor.i.i55.i.i.i.i = xor <2 x i64> %51, %50
   %52 = bitcast <2 x i64> %xor.i.i55.i.i.i.i to <4 x i32>
@@ -565,7 +565,7 @@ for.body.i3.i.i.i:                                ; preds = %for.body.i3.i.i.i, 
   %mul.i.i.i6.i = shl nuw nsw i64 %i.02.i.i.i.i, 1
   %add.ptr.i4.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i.i.i6.i
   %mul1.i.i.i.i = shl nuw nsw i64 %i.02.i.i.i.i, 4
-  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([192 x i8], ptr @XXH3_kSecret, i64 0, i64 11), i64 %mul1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 11), i64 %mul1.i.i.i.i
   %add.ptr.val.i.i.i.i = load i64, ptr %add.ptr.i4.i.i.i, align 16, !alias.scope !90, !noalias !24
   %59 = getelementptr i8, ptr %add.ptr.i4.i.i.i, i64 8
   %add.ptr.val5.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !90, !noalias !24

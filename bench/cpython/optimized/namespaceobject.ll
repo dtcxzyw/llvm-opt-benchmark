@@ -487,7 +487,7 @@ declare void @PyObject_GC_Del(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyNamespace_New(ptr noundef %kwds) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @_PyNamespace_Type, i64 0, i32 36), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyNamespace_Type, i64 304), align 8
   %call.i = tail call ptr %0(ptr noundef nonnull @_PyNamespace_Type, i64 noundef 0) #2
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %return, label %if.then.i

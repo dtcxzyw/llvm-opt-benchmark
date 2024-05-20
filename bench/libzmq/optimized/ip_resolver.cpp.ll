@@ -263,7 +263,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq13ip_resolver_tC2ENS_21ip_resolver_options_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14) %this, i48 %opts_.coerce) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13ip_resolver_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13ip_resolver_tE, i64 16), ptr %this, align 8
   %_options = getelementptr inbounds i8, ptr %this, i64 8
   store i48 %opts_.coerce, ptr %_options, align 8
   ret void

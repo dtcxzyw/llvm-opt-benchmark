@@ -65,10 +65,10 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   tail call void @STATS_LOCK() #18
   %3 = load i32, ptr @hashpower, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 6), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @stats_state, i64 40), align 8
   %sh_prom5 = zext nneg i32 %3 to i64
   %mul = shl i64 8, %sh_prom5
-  store i64 %mul, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 3), align 8
+  store i64 %mul, ptr getelementptr inbounds (i8, ptr @stats_state, i64 24), align 8
   tail call void @STATS_UNLOCK() #18
   ret void
 }
@@ -445,12 +445,12 @@ if.then23:                                        ; preds = %for.end
   %sub24 = add i32 %19, -1
   %sh_prom25 = zext nneg i32 %sub24 to i64
   %mul.neg = shl i64 -8, %sh_prom25
-  %20 = load i64, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 3), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @stats_state, i64 24), align 8
   %sub27 = add i64 %mul.neg, %20
-  store i64 %sub27, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 8), align 8
+  store i64 %sub27, ptr getelementptr inbounds (i8, ptr @stats_state, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @stats_state, i64 48), align 8
   tail call void @STATS_UNLOCK() #18
-  %21 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp28 = icmp sgt i32 %21, 1
   br i1 %cmp28, label %if.then30, label %if.end34
 
@@ -499,7 +499,7 @@ if.then45:                                        ; preds = %if.then42
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then45
-  %29 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp.i = icmp sgt i32 %29, 1
   br i1 %cmp.i, label %if.then1.i, label %if.end.i
 
@@ -517,13 +517,13 @@ if.end.i:                                         ; preds = %if.then1.i, %if.the
   store i64 0, ptr @expand_bucket, align 8
   tail call void @STATS_LOCK() #18
   %32 = load i32, ptr @hashpower, align 4
-  store i32 %32, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 6), align 8
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @stats_state, i64 40), align 8
   %sh_prom3.i = zext nneg i32 %32 to i64
   %mul.i = shl i64 8, %sh_prom3.i
-  %33 = load i64, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 3), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @stats_state, i64 24), align 8
   %add5.i = add i64 %33, %mul.i
-  store i64 %add5.i, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 3), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 8), align 8
+  store i64 %add5.i, ptr getelementptr inbounds (i8, ptr @stats_state, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @stats_state, i64 48), align 8
   tail call void @STATS_UNLOCK() #18
   br label %assoc_expand.exit
 

@@ -415,14 +415,14 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  %0 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %invoke.cont14, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont12
   %call.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i, ptr @_ZL14g_overall_time, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.then.i, %invoke.cont12
@@ -477,15 +477,15 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont35 unwind label %lpad23
 
 invoke.cont35:                                    ; preds = %invoke.cont34
-  store i64 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
-  %3 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %tobool.i17 = trunc i8 %3 to i1
   br i1 %tobool.i17, label %invoke.cont37, label %if.then.i18
 
 if.then.i18:                                      ; preds = %invoke.cont35
   %call.i.i19 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i19, ptr @_ZL13g_piece_timer, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %if.then.i18, %invoke.cont35
@@ -701,7 +701,7 @@ terminate.lpad.i39:                               ; preds = %if.end.i.i37
   unreachable
 
 if.end81:                                         ; preds = %if.end.i.i37, %if.end.i.i31
-  %45 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %tobool.i42 = trunc i8 %45 to i1
   br i1 %tobool.i42, label %invoke.cont82.thread, label %invoke.cont82
 
@@ -709,9 +709,9 @@ invoke.cont82.thread:                             ; preds = %if.end81
   %call.i.i45 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr @_ZL13g_piece_timer, align 8
   %sub.i.i.i = sub i64 %call.i.i45, %retval.sroa.0.0.copyload.i1.i.i
-  %46 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %add.i.i = add nsw i64 %sub.i.i.i, %46
-  store i64 %add.i.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  store i64 %add.i.i, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   br label %invoke.cont83.sink.split
 
 invoke.cont82:                                    ; preds = %if.end81
@@ -722,21 +722,21 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont82
   %call.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr @_ZL13g_piece_timer, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
-  %47 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %add.i.i.i = add nsw i64 %sub.i.i.i.i, %47
-  store i64 %add.i.i.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %call.i.i4.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i4.i, ptr @_ZL13g_piece_timer, align 8
   br label %invoke.cont83.sink.split
 
 invoke.cont83.sink.split:                         ; preds = %_ZN9stopwatch4stopEv.exit.i, %invoke.cont82.thread
   %.sink = phi i8 [ 0, %invoke.cont82.thread ], [ 1, %_ZN9stopwatch4stopEv.exit.i ]
-  store i8 %.sink, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i8 %.sink, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   br label %invoke.cont83
 
 invoke.cont83:                                    ; preds = %invoke.cont83.sink.split, %invoke.cont82
-  %48 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %48 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %div.i.i.i = sdiv i64 %48, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
   %div.i = fdiv double %conv.i, 1.000000e+03
@@ -821,15 +821,15 @@ invoke.cont119:                                   ; preds = %if.else118
           to label %if.end124 unwind label %lpad23
 
 if.end124:                                        ; preds = %invoke.cont115, %invoke.cont119, %invoke.cont105
-  store i64 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
-  %49 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
+  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %tobool.i48 = trunc i8 %49 to i1
   br i1 %tobool.i48, label %invoke.cont126, label %if.then.i49
 
 if.then.i49:                                      ; preds = %if.end124
   %call.i.i50 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i50, ptr @_ZL13g_piece_timer, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   br label %invoke.cont126
 
 invoke.cont126:                                   ; preds = %if.then.i49, %if.end124
@@ -909,15 +909,15 @@ if.end155:                                        ; preds = %invoke.cont148, %in
   store ptr %original_rules, ptr @_ZL12g_orig_rules, align 8
   store ptr %rules_code, ptr @_ZL6g_code, align 8
   store ptr %ex_ctx, ptr @_ZL6g_ectx, align 8
-  store i64 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
-  %56 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
+  %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %tobool.i54 = trunc i8 %56 to i1
   br i1 %tobool.i54, label %invoke.cont158, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end155
   %call.i.i56 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i56, ptr @_ZL13g_piece_timer, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   br label %invoke.cont158
 
 invoke.cont158:                                   ; preds = %if.then.i55, %if.end155
@@ -1901,7 +1901,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %1 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %invoke.cont.thread, label %invoke.cont
 
@@ -1909,9 +1909,9 @@ invoke.cont.thread:                               ; preds = %_ZNSt10lock_guardIS
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr @_ZL13g_piece_timer, align 8
   %sub.i.i.i = sub i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i
-  %2 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %add.i.i = add nsw i64 %sub.i.i.i, %2
-  store i64 %add.i.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  store i64 %add.i.i, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   br label %invoke.cont1.sink.split
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -1922,27 +1922,27 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr @_ZL13g_piece_timer, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
-  %3 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %add.i.i.i = add nsw i64 %sub.i.i.i.i, %3
-  store i64 %add.i.i.i, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   %call.i.i4.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i4.i, ptr @_ZL13g_piece_timer, align 8
   br label %invoke.cont1.sink.split
 
 invoke.cont1.sink.split:                          ; preds = %_ZN9stopwatch4stopEv.exit.i, %invoke.cont.thread
   %.sink = phi i8 [ 0, %invoke.cont.thread ], [ 1, %_ZN9stopwatch4stopEv.exit.i ]
-  store i8 %.sink, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 2), align 8
+  store i8 %.sink, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 16), align 8
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %invoke.cont1.sink.split, %invoke.cont
-  %4 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL13g_piece_timer, i64 0, i32 1, i32 0), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL13g_piece_timer, i64 8), align 8
   %div.i.i.i = sdiv i64 %4, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
   %div.i = fdiv double %conv.i, 1.000000e+03
   %mul = fmul double %div.i, 1.000000e+03
   %conv = fptosi double %mul to i32
-  %5 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   %tobool.i48 = trunc i8 %5 to i1
   br i1 %tobool.i48, label %if.then.i49, label %invoke.cont2
 
@@ -1950,10 +1950,10 @@ if.then.i49:                                      ; preds = %invoke.cont1
   %call.i.i50 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i51 = load i64, ptr @_ZL14g_overall_time, align 8
   %sub.i.i.i52 = sub i64 %call.i.i50, %retval.sroa.0.0.copyload.i1.i.i51
-  %6 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 1, i32 0), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 8), align 8
   %add.i.i53 = add nsw i64 %sub.i.i.i52, %6
-  store i64 %add.i.i53, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  store i64 %add.i.i53, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then.i49, %invoke.cont1
@@ -2200,7 +2200,7 @@ if.end95:                                         ; preds = %invoke.cont92, %if.
           to label %invoke.cont96 unwind label %lpad
 
 invoke.cont96:                                    ; preds = %if.end95
-  %13 = load i8, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   %tobool.i61 = trunc i8 %13 to i1
   br i1 %tobool.i61, label %_ZN9stopwatch4stopEv.exit.i65, label %invoke.cont98
 
@@ -2208,17 +2208,17 @@ _ZN9stopwatch4stopEv.exit.i65:                    ; preds = %invoke.cont96
   %call.i.i.i66 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i.i67 = load i64, ptr @_ZL14g_overall_time, align 8
   %sub.i.i.i.i68 = sub i64 %call.i.i.i66, %retval.sroa.0.0.copyload.i1.i.i.i67
-  %14 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 1, i32 0), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 8), align 8
   %add.i.i.i69 = add nsw i64 %sub.i.i.i.i68, %14
-  store i64 %add.i.i.i69, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 1, i32 0), align 8
-  store i8 0, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  store i64 %add.i.i.i69, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   %call.i.i4.i70 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i.i4.i70, ptr @_ZL14g_overall_time, align 8
-  store i8 1, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 16), align 8
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %_ZN9stopwatch4stopEv.exit.i65, %invoke.cont96
-  %15 = load i64, ptr getelementptr inbounds (%class.stopwatch, ptr @_ZL14g_overall_time, i64 0, i32 1, i32 0), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL14g_overall_time, i64 8), align 8
   %div.i.i.i62 = sdiv i64 %15, 1000000
   %conv.i63 = sitofp i64 %div.i.i.i62 to double
   %div.i64 = fdiv double %conv.i63, 1.000000e+03
@@ -2307,7 +2307,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.15, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 21))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2328,7 +2328,7 @@ call.i.noexc7:                                    ; preds = %invoke.cont
           to label %.noexc9 unwind label %lpad3
 
 .noexc9:                                          ; preds = %call.i.noexc7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.16, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 4))
           to label %invoke.cont4 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc9
@@ -2526,7 +2526,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %m_num_deleted.i.i17 = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %m_num_deleted.i.i17, align 8
   %m_instruction_observer = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 0, i32 0, i64 2), ptr %m_instruction_observer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 16), ptr %m_instruction_observer, align 8
   %m_parent.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %this, ptr %m_parent.i, align 8
   %m_current.i = getelementptr inbounds i8, ptr %this, i64 144

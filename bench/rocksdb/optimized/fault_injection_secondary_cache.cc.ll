@@ -667,7 +667,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
           to label %_ZNSt10unique_ptrIN7rocksdb28FaultInjectionSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit unwind label %lpad
 
 _ZNSt10unique_ptrIN7rocksdb28FaultInjectionSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 0, i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 16), ptr %call21, align 8
   %cache_.i = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %this, ptr %cache_.i, align 8
   %base_.i = getelementptr inbounds i8, ptr %call21, i64 16
@@ -1016,7 +1016,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i57, %l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28FaultInjectionSecondaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCacheE, i64 16), ptr %this, align 8
   %thread_local_error_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %thread_local_error_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1103,7 +1103,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev.exit
 
 _ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %options_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1384,7 +1384,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28FaultInjectionSecondaryCache12ResultHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 16), ptr %this, align 8
   %base_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %base_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1405,7 +1405,7 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28FaultInjectionSecondaryCache12ResultHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i64 16), ptr %this, align 8
   %base_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %base_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

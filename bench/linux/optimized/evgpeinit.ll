@@ -29,12 +29,12 @@ define dso_local i32 @acpi_ev_gpe_initialize() local_unnamed_addr #0 align 16 {
   br i1 %2, label %3, label %57
 
 3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 51), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 220), align 1
   %5 = icmp eq i8 %4, 0
   %6 = load i64, ptr @acpi_gbl_xgpe0_block_logical_address, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 51, i32 4), align 1
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 224), align 1
   %8 = select i1 %5, i64 %6, i64 %7
-  %9 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 23), align 1
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 92), align 1
   %10 = icmp ne i8 %9, 0
   %11 = icmp ne i64 %8, 0
   %12 = select i1 %10, i1 %11, i1 false
@@ -46,7 +46,7 @@ define dso_local i32 @acpi_ev_gpe_initialize() local_unnamed_addr #0 align 16 {
   %16 = shl nuw nsw i32 %15, 3
   %17 = add nsw i32 %16, -1
   %18 = load ptr, ptr @acpi_gbl_fadt_gpe_device, align 8
-  %19 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %19 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %20 = zext i16 %19 to i32
   %21 = tail call i32 @acpi_ev_create_gpe_block(ptr noundef %18, i64 noundef %8, i8 noundef zeroext %4, i32 noundef %15, i16 noundef zeroext 0, i32 noundef %20, ptr noundef nonnull @acpi_gbl_gpe_fadt_blocks) #4
   %22 = icmp eq i32 %21, 0
@@ -59,12 +59,12 @@ define dso_local i32 @acpi_ev_gpe_initialize() local_unnamed_addr #0 align 16 {
 24:                                               ; preds = %23, %13, %3
   %25 = phi i32 [ %15, %23 ], [ %15, %13 ], [ 0, %3 ]
   %26 = phi i32 [ %17, %23 ], [ %17, %13 ], [ 0, %3 ]
-  %27 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 52), align 1
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 232), align 1
   %28 = icmp eq i8 %27, 0
   %29 = load i64, ptr @acpi_gbl_xgpe1_block_logical_address, align 8
-  %30 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 52, i32 4), align 1
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 236), align 1
   %31 = select i1 %28, i64 %29, i64 %30
-  %32 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 24), align 1
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 93), align 1
   %33 = icmp ne i8 %32, 0
   %34 = icmp ne i64 %31, 0
   %35 = select i1 %33, i1 %34, i1 false
@@ -74,7 +74,7 @@ define dso_local i32 @acpi_ev_gpe_initialize() local_unnamed_addr #0 align 16 {
   %37 = lshr i8 %32, 1
   %38 = zext nneg i8 %37 to i32
   %39 = icmp eq i32 %25, 0
-  %.pre = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 25), align 1
+  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 94), align 1
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %36
@@ -92,9 +92,9 @@ define dso_local i32 @acpi_ev_gpe_initialize() local_unnamed_addr #0 align 16 {
 47:                                               ; preds = %40, %36
   %48 = load ptr, ptr @acpi_gbl_fadt_gpe_device, align 8
   %49 = zext i8 %.pre to i16
-  %50 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
+  %50 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %51 = zext i16 %50 to i32
-  %52 = tail call i32 @acpi_ev_create_gpe_block(ptr noundef %48, i64 noundef %31, i8 noundef zeroext %27, i32 noundef %38, i16 noundef zeroext %49, i32 noundef %51, ptr noundef nonnull getelementptr inbounds ([2 x ptr], ptr @acpi_gbl_gpe_fadt_blocks, i64 0, i64 1)) #4
+  %52 = tail call i32 @acpi_ev_create_gpe_block(ptr noundef %48, i64 noundef %31, i8 noundef zeroext %27, i32 noundef %38, i16 noundef zeroext %49, i32 noundef %51, ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_gpe_fadt_blocks, i64 8)) #4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %54
 

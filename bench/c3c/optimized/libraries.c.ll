@@ -58,7 +58,7 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
   %7 = alloca [2048 x ptr], align 16
   %8 = alloca i64, align 8
   store ptr null, ptr %6, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 7), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 56), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
 
@@ -74,7 +74,7 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 7), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 56), align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   call void @file_add_wildcard_files(ptr noundef nonnull %6, ptr noundef %15, i1 noundef zeroext false, ptr noundef nonnull @resolve_libraries.c3lib_suffix, i32 noundef 1) #8
@@ -186,7 +186,7 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
 54:                                               ; preds = %48
   %55 = call ptr @filename(ptr noundef %29) #8
   call void @scratch_buffer_clear() #8
-  %56 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 13), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 104), align 8
   %.not54.i = icmp eq ptr %56, null
   %57 = select i1 %.not54.i, ptr @.str.9, ptr %56
   call void @scratch_buffer_append(ptr noundef nonnull %57) #8
@@ -870,7 +870,7 @@ add_library.exit:                                 ; preds = %get_optional_string
 
 ._crit_edge:                                      ; preds = %add_library.exit, %.loopexit227, %17
   %.0112.lcssa = phi i64 [ 0, %17 ], [ 0, %.loopexit227 ], [ %wide.trip.count488, %add_library.exit ]
-  %398 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 8), align 8
+  %398 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 64), align 8
   %.not131 = icmp eq ptr %398, null
   br i1 %.not131, label %.preheader, label %399
 
@@ -898,7 +898,7 @@ add_library.exit:                                 ; preds = %get_optional_string
 
 .lr.ph.i142.preheader:                            ; preds = %.lr.ph.i142.preheader.preheader, %find_library.exit
   %indvars.iv490 = phi i64 [ 0, %.lr.ph.i142.preheader.preheader ], [ %indvars.iv.next491, %find_library.exit ]
-  %403 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 8), align 8
+  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 64), align 8
   %404 = getelementptr inbounds ptr, ptr %403, i64 %indvars.iv490
   %405 = load ptr, ptr %404, align 8
   br label %.lr.ph.i142
@@ -941,8 +941,8 @@ find_library.exit:                                ; preds = %.lr.ph.i142
 
 420:                                              ; preds = %.lr.ph370
   %421 = load ptr, ptr %417, align 8
-  call void @file_add_wildcard_files(ptr noundef nonnull getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 6), ptr noundef %421, i1 noundef zeroext false, ptr noundef nonnull @c3_suffix_list, i32 noundef 3) #8
-  %422 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 1), align 8
+  call void @file_add_wildcard_files(ptr noundef nonnull getelementptr inbounds (i8, ptr @active_target, i64 48), ptr noundef %421, i1 noundef zeroext false, ptr noundef nonnull @c3_suffix_list, i32 noundef 3) #8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
   %.not.i143 = icmp eq ptr %422, null
   br i1 %.not.i143, label %423, label %426
 
@@ -991,14 +991,14 @@ find_library.exit:                                ; preds = %.lr.ph.i142
   %448 = add i32 %447, 1
   store i32 %448, ptr %.1.i, align 4
   %449 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  store ptr %449, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 1), align 8
+  store ptr %449, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
   %450 = load i32, ptr %.1.i, align 4
   %451 = add i32 %450, -1
   %452 = zext i32 %451 to i64
   %453 = getelementptr inbounds ptr, ptr %449, i64 %452
   store ptr %417, ptr %453, align 8
   %454 = load ptr, ptr %417, align 8
-  %455 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %455 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
   %456 = zext i32 %455 to i64
   %457 = getelementptr inbounds [25 x ptr], ptr @arch_os_target, i64 0, i64 %456
   %458 = load ptr, ptr %457, align 8
@@ -1007,7 +1007,7 @@ find_library.exit:                                ; preds = %.lr.ph.i142
   br i1 %460, label %461, label %494
 
 461:                                              ; preds = %446
-  %462 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 9), align 8
+  %462 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 72), align 8
   %.not.i144 = icmp eq ptr %462, null
   br i1 %.not.i144, label %463, label %466
 
@@ -1056,7 +1056,7 @@ find_library.exit:                                ; preds = %.lr.ph.i142
   %488 = add i32 %487, 1
   store i32 %488, ptr %.1.i148, align 4
   %489 = getelementptr inbounds i8, ptr %.1.i148, i64 8
-  store ptr %489, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 9), align 8
+  store ptr %489, ptr getelementptr inbounds (i8, ptr @active_target, i64 72), align 8
   %490 = load i32, ptr %.1.i148, align 4
   %491 = add i32 %490, -1
   %492 = zext i32 %491 to i64
@@ -1086,13 +1086,13 @@ find_library.exit:                                ; preds = %.lr.ph.i142
   %503 = getelementptr inbounds i8, ptr %501, i64 -8
   %504 = load i32, ptr %503, align 4
   %505 = icmp ne i32 %504, 0
-  %506 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 40), align 8
+  %506 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 176), align 8
   %507 = icmp ult i32 %506, 2
   %or.cond = select i1 %505, i1 %507, i1 false
   br i1 %or.cond, label %509, label %.thread222
 
 508:                                              ; preds = %497
-  %.old = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 40), align 8
+  %.old = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 176), align 8
   %.old1 = icmp ult i32 %.old, 2
   br i1 %.old1, label %509, label %.lr.ph364
 
@@ -1196,14 +1196,14 @@ define internal fastcc void @add_library_dependency(ptr nocapture noundef %0, pt
   br i1 %.not53, label %.thread, label %9
 
 .thread:                                          ; preds = %6
-  %.pre106 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %.pre106 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
   br label %._crit_edge
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %8, i64 -8
   %11 = load i32, ptr %10, align 4
   %.not83 = icmp eq i32 %11, 0
-  %.pre = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9

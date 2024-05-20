@@ -7848,7 +7848,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -13365,7 +13365,7 @@ default.unreachable:                              ; preds = %.critedge.i
   unreachable
 
 506:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h57e515d6ccd7c1ebE.exit.thread.i"
-  %507 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists5utils17gen_trait_fn_body13gen_hash_impl10__CALLSITE17h14d22e5424cb1166E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !4283
+  %507 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists5utils17gen_trait_fn_body13gen_hash_impl10__CALLSITE17h14d22e5424cb1166E, i64 16) monotonic, align 8, !noalias !4283
   switch i8 %507, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -15186,7 +15186,7 @@ default.unreachable1103:                          ; preds = %.critedge
   unreachable
 
 132:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hd020a675ff20a6ecE.exit.thread"
-  %133 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists5utils17gen_trait_fn_body14gen_clone_impl10__CALLSITE17h7f34d73f47a86f75E, i64 0, i32 1, i64 8) monotonic, align 8
+  %133 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists5utils17gen_trait_fn_body14gen_clone_impl10__CALLSITE17h7f34d73f47a86f75E, i64 16) monotonic, align 8
   switch i8 %133, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -24128,7 +24128,7 @@ default.unreachable1647:                          ; preds = %192
   unreachable
 
 165:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h4e6e265399db7657E.exit.thread"
-  %166 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists5utils17gen_trait_fn_body14gen_partial_eq10__CALLSITE17h5d9b536a4c391828E, i64 0, i32 1, i64 8) monotonic, align 8
+  %166 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists5utils17gen_trait_fn_body14gen_partial_eq10__CALLSITE17h5d9b536a4c391828E, i64 16) monotonic, align 8
   switch i8 %166, label %167 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -29200,7 +29200,7 @@ define internal fastcc noundef zeroext i1 @_ZN11ide_assists5utils17gen_trait_fn_
   unreachable
 
 99:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9654c53ad24240a8E.exit.thread"
-  %100 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists5utils17gen_trait_fn_body15gen_partial_ord10__CALLSITE17hca5d48383af4953eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %100 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists5utils17gen_trait_fn_body15gen_partial_ord10__CALLSITE17hca5d48383af4953eE, i64 16) monotonic, align 8
   switch i8 %100, label %101 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -62777,7 +62777,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hbe31d985114a5f9bE.exit.threa
   br i1 %600, label %_ZN11ide_assists8handlers17generate_function7Visitor14mark_reachable17h9e89898e4931f709E.exit.i.i, label %.lr.ph76.i.i.i
 
 601:                                              ; preds = %589
-  %602 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers17generate_function7Visitor14mark_reachable10__CALLSITE17h811d17e06868f04aE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !18594
+  %602 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers17generate_function7Visitor14mark_reachable10__CALLSITE17h811d17e06868f04aE, i64 16) monotonic, align 8, !noalias !18594
   switch i8 %602, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.i.i [
     i8 0, label %.critedge.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i.i.i
@@ -63076,7 +63076,7 @@ _ZN11ide_assists8handlers17generate_function7Visitor14mark_reachable17h9e89898e4
   br i1 %694, label %695, label %.critedge.i
 
 695:                                              ; preds = %692
-  %696 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN11ide_assists8handlers17generate_function25filter_unnecessary_bounds10__CALLSITE17h315195304538dc39E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !18353
+  %696 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11ide_assists8handlers17generate_function25filter_unnecessary_bounds10__CALLSITE17h315195304538dc39E, i64 16) monotonic, align 8, !noalias !18353
   switch i8 %696, label %697 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

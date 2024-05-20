@@ -63,10 +63,10 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_monitoring_coll_data_t_class, i64 0, i32 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_monitoring_coll_data_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #15
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_monitoring_coll_data_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @mca_monitoring_coll_data_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -82,7 +82,7 @@ define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed
   store ptr @mca_monitoring_coll_data_t_class, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_monitoring_coll_data_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_monitoring_coll_data_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i
@@ -104,10 +104,10 @@ opal_obj_new.exit.thread18:                       ; preds = %.lr.ph.i.i, %8
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %opal_obj_new.exit.thread18
-  %19 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 56), align 8
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #15
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 4), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not.i11 = icmp eq i32 %21, %22
   br i1 %.not.i11, label %24, label %23
 
@@ -127,7 +127,7 @@ opal_obj_new.exit17.thread:                       ; preds = %24
   store ptr @opal_hash_table_t_class, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 8
   store volatile i32 1, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i64 0, i32 6), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i13 = icmp eq ptr %28, null
   br i1 %.not6.i.i13, label %opal_obj_new.exit17.thread19, label %.lr.ph.i.i14
@@ -279,7 +279,7 @@ thread-pre-split:                                 ; preds = %47
   %.val28 = load ptr, ptr %63, align 8
   %64 = getelementptr i8, ptr %.val28, i64 16
   %.val28.val = load i32, ptr %64, align 8
-  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 13), align 8
+  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 248), align 8
   %65 = getelementptr i8, ptr %ompi_mpi_comm_world.val, i64 16
   %ompi_mpi_comm_world.val.val = load i32, ptr %65, align 8
   %66 = add nsw i32 %ompi_mpi_comm_world.val.val, -2

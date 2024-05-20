@@ -13,8 +13,8 @@ define void @srand48(i64 noundef %0) local_unnamed_addr #0 {
   %4 = trunc i64 %3 to i16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) @seed48.p, ptr noundef nonnull align 2 dereferenceable(6) @g_seed48, i64 6, i1 false)
   store i16 13070, ptr @g_seed48, align 2
-  store i16 %2, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 1), align 2
-  store i16 %4, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 2
+  store i16 %2, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 2), align 2
+  store i16 %4, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 2
   ret void
 }
 
@@ -44,14 +44,14 @@ define range(i64 0, 4294967296) i64 @jrand48(ptr nocapture noundef %0) local_unn
   %7 = zext i16 %6 to i64
   %8 = shl nuw nsw i64 %7, 32
   %9 = or disjoint i64 %8, %3
-  %10 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %11 = zext i32 %10 to i64
-  %12 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %13 = zext i16 %12 to i64
   %14 = shl nuw nsw i64 %13, 32
   %15 = or disjoint i64 %14, %11
   %16 = mul i64 %15, %9
-  %17 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 2
+  %17 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 2
   %18 = zext i16 %17 to i64
   %19 = add i64 %16, %18
   %20 = trunc i64 %19 to i16
@@ -70,28 +70,28 @@ define range(i64 0, 4294967296) i64 @jrand48(ptr nocapture noundef %0) local_unn
 define range(i64 0, 4294967296) i64 @mrand48() local_unnamed_addr #0 {
   %1 = load i32, ptr @g_seed48, align 4
   %2 = zext i32 %1 to i64
-  %3 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 32
   %6 = or disjoint i64 %5, %2
-  %7 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %8 = zext i32 %7 to i64
-  %9 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %9 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %10 = zext i16 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
   %12 = or disjoint i64 %11, %8
   %13 = mul i64 %12, %6
-  %14 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 4
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 4
   %15 = zext i16 %14 to i64
   %16 = add i64 %13, %15
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr @g_seed48, align 4
   %18 = lshr i64 %16, 16
   %19 = trunc i64 %18 to i16
-  store i16 %19, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 1), align 2
+  store i16 %19, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 2), align 2
   %20 = lshr i64 %16, 32
   %21 = trunc i64 %20 to i16
-  store i16 %21, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  store i16 %21, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %22 = and i64 %18, 4294967295
   ret i64 %22
 }
@@ -106,14 +106,14 @@ define range(i64 0, 2147483648) i64 @nrand48(ptr nocapture noundef %0) local_unn
   %7 = zext i16 %6 to i64
   %8 = shl nuw nsw i64 %7, 32
   %9 = or disjoint i64 %8, %3
-  %10 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %11 = zext i32 %10 to i64
-  %12 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %13 = zext i16 %12 to i64
   %14 = shl nuw nsw i64 %13, 32
   %15 = or disjoint i64 %14, %11
   %16 = mul i64 %15, %9
-  %17 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 4
+  %17 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 4
   %18 = zext i16 %17 to i64
   %19 = add i64 %16, %18
   %20 = trunc i64 %19 to i16
@@ -133,28 +133,28 @@ define range(i64 0, 2147483648) i64 @nrand48(ptr nocapture noundef %0) local_unn
 define range(i64 0, 2147483648) i64 @lrand48() local_unnamed_addr #0 {
   %1 = load i32, ptr @g_seed48, align 4
   %2 = zext i32 %1 to i64
-  %3 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 32
   %6 = or disjoint i64 %5, %2
-  %7 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %8 = zext i32 %7 to i64
-  %9 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %9 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %10 = zext i16 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
   %12 = or disjoint i64 %11, %8
   %13 = mul i64 %12, %6
-  %14 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 4
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 4
   %15 = zext i16 %14 to i64
   %16 = add i64 %13, %15
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr @g_seed48, align 4
   %18 = lshr i64 %16, 16
   %19 = trunc i64 %18 to i16
-  store i16 %19, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 1), align 2
+  store i16 %19, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 2), align 2
   %20 = lshr i64 %16, 32
   %21 = trunc i64 %20 to i16
-  store i16 %21, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  store i16 %21, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %22 = lshr i64 %16, 17
   %23 = and i64 %22, 2147483647
   ret i64 %23
@@ -170,14 +170,14 @@ define double @erand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %7 = zext i16 %6 to i64
   %8 = shl nuw nsw i64 %7, 32
   %9 = or disjoint i64 %8, %3
-  %10 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %11 = zext i32 %10 to i64
-  %12 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %12 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %13 = zext i16 %12 to i64
   %14 = shl nuw nsw i64 %13, 32
   %15 = or disjoint i64 %14, %11
   %16 = mul i64 %15, %9
-  %17 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 4
+  %17 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 4
   %18 = zext i16 %17 to i64
   %19 = add i64 %16, %18
   %20 = trunc i64 %19 to i16
@@ -200,28 +200,28 @@ define double @erand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
 define double @drand48() local_unnamed_addr #0 {
   %1 = load i32, ptr @g_seed48, align 4
   %2 = zext i32 %1 to i64
-  %3 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 32
   %6 = or disjoint i64 %5, %2
-  %7 = load i32, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 3), align 2
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 6), align 2
   %8 = zext i32 %7 to i64
-  %9 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 5), align 2
+  %9 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 10), align 2
   %10 = zext i16 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
   %12 = or disjoint i64 %11, %8
   %13 = mul i64 %12, %6
-  %14 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 6), align 4
+  %14 = load i16, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 12), align 4
   %15 = zext i16 %14 to i64
   %16 = add i64 %13, %15
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr @g_seed48, align 4
   %18 = lshr i64 %16, 16
   %19 = trunc i64 %18 to i16
-  store i16 %19, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 1), align 2
+  store i16 %19, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 2), align 2
   %20 = lshr i64 %16, 32
   %21 = trunc i64 %20 to i16
-  store i16 %21, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
+  store i16 %21, ptr getelementptr inbounds (i8, ptr @g_seed48, i64 4), align 4
   %22 = shl i64 %16, 4
   %23 = and i64 %22, 4503599627370480
   %24 = or disjoint i64 %23, 4607182418800017408

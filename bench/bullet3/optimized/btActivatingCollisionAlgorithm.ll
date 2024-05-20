@@ -22,7 +22,7 @@ $_ZTI20btCollisionAlgorithm = comdat any
 define dso_local void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30btActivatingCollisionAlgorithm, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -32,7 +32,7 @@ declare void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionIn
 define dso_local void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30btActivatingCollisionAlgorithm, i64 16), ptr %this, align 8
   ret void
 }
 

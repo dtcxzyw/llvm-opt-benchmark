@@ -284,9 +284,9 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
   %23 = load ptr, ptr %1, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 20
   store i32 %22, ptr %24, align 4
-  %25 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %26 = icmp ugt i8 %25, 2
-  %27 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 108), align 1
   %28 = icmp ne i8 %27, 0
   %29 = select i1 %26, i1 %28, i1 false
   br i1 %29, label %30, label %32
@@ -326,9 +326,9 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture 
   br i1 %14, label %64, label %15
 
 15:                                               ; preds = %1
-  %16 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %17 = icmp ugt i8 %16, 2
-  %18 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 108), align 1
   %19 = icmp ne i8 %18, 0
   %20 = select i1 %17, i1 %19, i1 false
   br i1 %20, label %.thread, label %24
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture 
   %48 = or i8 %47, -128
   tail call void @rtc_cmos_write(i8 noundef zeroext %48, i8 noundef zeroext 11) #6
   %49 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 10) #6
-  %50 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %50 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %50, label %53 [
     i8 9, label %51
     i8 2, label %51
@@ -396,9 +396,9 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture 
   tail call void @rtc_cmos_write(i8 noundef zeroext %39, i8 noundef zeroext 4) #6
   tail call void @rtc_cmos_write(i8 noundef zeroext %37, i8 noundef zeroext 2) #6
   tail call void @rtc_cmos_write(i8 noundef zeroext %35, i8 noundef zeroext 0) #6
-  %57 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
+  %57 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %58 = icmp ugt i8 %57, 2
-  %59 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
+  %59 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 108), align 1
   %60 = icmp ne i8 %59, 0
   %61 = select i1 %58, i1 %60, i1 false
   br i1 %61, label %62, label %63

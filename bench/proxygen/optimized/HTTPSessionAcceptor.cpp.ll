@@ -534,11 +534,11 @@ lpad:                                             ; preds = %entry
 define void @_ZN8proxygen19HTTPSessionAcceptorC2ERKNS_21AcceptorConfigurationESt10shared_ptrINS_16HTTPCodecFactoryEE(ptr noundef nonnull align 8 dereferenceable(1928) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig, ptr nocapture noundef readonly %codecFactory) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6wangle8AcceptorC2ERKNS_18ServerSocketConfigE(ptr noundef nonnull align 8 dereferenceable(1072) %this, ptr noundef nonnull align 8 dereferenceable(608) %accConfig)
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 416), ptr %add.ptr.i, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 472), ptr %add.ptr2.i, align 8
   %accConfig_.i = getelementptr inbounds i8, ptr %this, i64 1072
   invoke void @_ZN8proxygen21AcceptorConfigurationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(761) %accConfig_.i, ptr noundef nonnull align 8 dereferenceable(761) %accConfig)
           to label %_ZN8proxygen12HTTPAcceptorC2ERKNS_21AcceptorConfigurationE.exit unwind label %lpad.i
@@ -557,10 +557,10 @@ _ZN8proxygen12HTTPAcceptorC2ERKNS_21AcceptorConfigurationE.exit: ; preds = %entr
   %timer_.i = getelementptr inbounds i8, ptr %this, i64 1840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timer_.i, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 3, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 472), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 528), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 616), ptr %1, align 8
   %downstreamSessionStats_ = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr null, ptr %downstreamSessionStats_, align 8
   %setEnableConnectProtocol_ = getelementptr inbounds i8, ptr %this, i64 1872
@@ -605,7 +605,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 16
   invoke void @_ZN8proxygen16SimpleControllerC1EPNS_19HTTPSessionAcceptorE(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
@@ -635,7 +635,7 @@ call5.i.i.i3.i.i.i.i.noexc7:                      ; preds = %if.then
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i4, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i8, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i8, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i8, i64 16
   invoke void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC1ERKNS_21AcceptorConfigurationE(ptr noundef nonnull align 8 dereferenceable(50) %_M_impl.i.i.i.i.i.i5, ptr noundef nonnull align 8 dereferenceable(761) %accConfig_.i)
           to label %invoke.cont7 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !7
@@ -924,13 +924,13 @@ _ZNSt12__shared_ptrIN8proxygen16SimpleControllerELN9__gnu_cxx12_Lock_policyE2EED
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen19HTTPSessionAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1928) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 472), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 528), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 616), ptr %add.ptr3, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 1912
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1444,9 +1444,9 @@ ehcleanup:                                        ; preds = %lpad70, %lpad54
           to label %ehcleanup241 unwind label %terminate.lpad
 
 if.else:                                          ; preds = %invoke.cont91
-  %35 = load i8, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), align 2
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), align 2
   %tobool.i10.i36 = trunc i8 %35 to i1
-  %36 = load i16, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 0, i32 1, i64 4), align 4
+  %36 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 20), align 4
   %cmp1117.i37 = icmp eq i16 %36, 1
   %cmp11.i38 = select i1 %tobool.i10.i36, i1 true, i1 %cmp1117.i37
   br i1 %tobool.i, label %if.else8.i45, label %if.then.i39
@@ -1461,7 +1461,7 @@ if.else.i42:                                      ; preds = %if.then.i39
 
 call.i.i.noexc53:                                 ; preds = %if.else.i42
   store ptr %call.i.i54, ptr %localAddress, align 8
-  %37 = load i32, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 0, i32 0, i32 1), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 8), align 8
   %len2.i.i43 = getelementptr inbounds i8, ptr %localAddress, i64 8
   store i32 %37, ptr %len2.i.i43, align 8
   %38 = load ptr, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, align 8
@@ -1473,7 +1473,7 @@ if.else8.i45:                                     ; preds = %if.else
   br i1 %cmp11.i38, label %if.then12.i50, label %if.else15.i46
 
 if.then12.i50:                                    ; preds = %if.else8.i45
-  %39 = load i32, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 0, i32 0, i32 1), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 8), align 8
   %len2.i14.i51 = getelementptr inbounds i8, ptr %localAddress, i64 8
   store i32 %39, ptr %len2.i14.i51, align 8
   %40 = load ptr, ptr %localAddress, align 8
@@ -1496,8 +1496,8 @@ _ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49: ; preds = %delete.no
   br label %if.end100
 
 if.end100:                                        ; preds = %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49, %if.then12.i50, %call.i.i.noexc53, %if.then.i39, %_ZN5folly13SocketAddressaSERKS0_.exit
-  %storemerge86.in = phi ptr [ %port_.i32, %_ZN5folly13SocketAddressaSERKS0_.exit ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 1), %if.then.i39 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 1), %call.i.i.noexc53 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 1), %if.then12.i50 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 1), %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49 ]
-  %storemerge.in.in = phi ptr [ %external_.i9.i, %_ZN5folly13SocketAddressaSERKS0_.exit ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), %if.then.i39 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), %call.i.i.noexc53 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), %if.then12.i50 ], [ getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49 ]
+  %storemerge86.in = phi ptr [ %port_.i32, %_ZN5folly13SocketAddressaSERKS0_.exit ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 24), %if.then.i39 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 24), %call.i.i.noexc53 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 24), %if.then12.i50 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 24), %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49 ]
+  %storemerge.in.in = phi ptr [ %external_.i9.i, %_ZN5folly13SocketAddressaSERKS0_.exit ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), %if.then.i39 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), %call.i.i.noexc53 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), %if.then12.i50 ], [ getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i49 ]
   %storemerge86 = load i16, ptr %storemerge86.in, align 8
   store i16 %storemerge86, ptr %port_.i, align 8
   %storemerge.in = load i8, ptr %storemerge.in.in, align 2
@@ -2061,29 +2061,29 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 invoke.cont16:                                    ; preds = %if.then.i, %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
   store ptr null, ptr %agg.tmp, align 8
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1120), ptr %add.ptr, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %this, i64 1584
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 2, i64 2), ptr %add.ptr5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1168), ptr %add.ptr5, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 1592
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 3, i64 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1632), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 1600
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 4, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1688), ptr %add.ptr7, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 1608
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 5, i64 2), ptr %add.ptr8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1736), ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this, i64 1616
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 6, i64 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1776), ptr %add.ptr9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %this, i64 1624
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 7, i64 2), ptr %add.ptr10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 1824), ptr %add.ptr10, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %this, i64 1632
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 8, i64 2), ptr %add.ptr11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 2080), ptr %add.ptr11, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %this, i64 1672
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 9, i64 2), ptr %add.ptr12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 2120), ptr %add.ptr12, align 8
   %add.ptr13 = getelementptr inbounds i8, ptr %this, i64 1688
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 10, i64 2), ptr %add.ptr13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 2240), ptr %add.ptr13, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %this, i64 1696
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 11, i64 2), ptr %add.ptr14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 2280), ptr %add.ptr14, align 8
   %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %9 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %9, align 8
@@ -3669,11 +3669,11 @@ declare void @_ZN6wangle8AcceptorD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen12HTTPAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1856) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 416), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 472), ptr %add.ptr2, align 8
   %tcpEventsTimeouts_ = getelementptr inbounds i8, ptr %this, i64 1848
   %0 = load ptr, ptr %tcpEventsTimeouts_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -5349,7 +5349,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 define linkonce_odr void @_ZN6wangle16SSLContextConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(433) %this, ptr noundef nonnull align 8 dereferenceable(433) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
   %certificates = getelementptr inbounds i8, ptr %this, i64 8
   %certificates2 = getelementptr inbounds i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -5809,7 +5809,7 @@ _ZNSt12_Vector_baseIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6wangle16SSLContextConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %0 = load i8, ptr %hasValue.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -7992,8 +7992,8 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E)
-  store i16 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 0, i32 2), align 2
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, i64 26), align 2
   tail call void @_ZN5folly13SocketAddress13setFromIpPortEPKct(ptr noundef nonnull align 8 dereferenceable(27) @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, ptr noundef nonnull @.str, i16 noundef zeroext 0)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13SocketAddressD2Ev, ptr nonnull @_ZN8proxygen19HTTPSessionAcceptor21unknownSocketAddress_E, ptr nonnull @__dso_handle) #24
   ret void

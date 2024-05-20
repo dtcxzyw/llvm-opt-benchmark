@@ -58,7 +58,7 @@ define dso_local i32 @acpi_ut_mutex_initialize() local_unnamed_addr #0 align 16 
   %18 = and i64 %17, 512
   %19 = icmp eq i64 %18, 0
   %20 = select i1 %19, i32 2080, i32 3264
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %22 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %21, i32 noundef %20, i64 noundef 4) #5
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread6, label %24
@@ -74,7 +74,7 @@ define dso_local i32 @acpi_ut_mutex_initialize() local_unnamed_addr #0 align 16 
   %26 = and i64 %25, 512
   %27 = icmp eq i64 %26, 0
   %28 = select i1 %27, i32 2080, i32 3264
-  %29 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %30 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %29, i32 noundef %28, i64 noundef 4) #5
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread6, label %32
@@ -90,7 +90,7 @@ define dso_local i32 @acpi_ut_mutex_initialize() local_unnamed_addr #0 align 16 
   %34 = and i64 %33, 512
   %35 = icmp eq i64 %34, 0
   %36 = select i1 %35, i32 2080, i32 3264
-  %37 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %38 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %37, i32 noundef %36, i64 noundef 4) #5
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread6, label %40

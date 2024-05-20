@@ -159,7 +159,7 @@ define dso_local void @gen6_ppgtt_unpin(ptr noundef %0) local_unnamed_addr #0 al
 define dso_local ptr @gen6_ppgtt_create(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(752) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 752) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %128, label %7

@@ -390,37 +390,37 @@ declare void @zend_update_property_ex(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define void @zend_exception_save() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   tail call void @zend_exception_set_previous(ptr noundef %3, ptr noundef nonnull %1)
   br label %4
 
 4:                                                ; preds = %2, %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %.not2, label %7, label %6
 
 6:                                                ; preds = %4
-  store ptr %5, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   br label %7
 
 7:                                                ; preds = %6, %4
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @zend_exception_restore() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not2 = icmp eq ptr %3, null
   br i1 %.not2, label %5, label %4
 
@@ -429,11 +429,11 @@ define void @zend_exception_restore() local_unnamed_addr #0 {
   br label %6
 
 5:                                                ; preds = %2
-  store ptr %1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br label %6
 
 6:                                                ; preds = %5, %4
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   br label %7
 
 7:                                                ; preds = %6, %0
@@ -446,7 +446,7 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %21, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %.thread, label %4
 
@@ -482,18 +482,18 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
 
 20:                                               ; preds = %4
   tail call void @zend_exception_set_previous(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br label %.critedge
 
 21:                                               ; preds = %1
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not30 = icmp eq ptr %22, null
   br i1 %.not30, label %31, label %46
 
 .thread:                                          ; preds = %2
   tail call void @zend_exception_set_previous(ptr noundef nonnull %0, ptr noundef null)
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not3041 = icmp eq ptr %23, null
   br i1 %.not3041, label %24, label %46
 
@@ -508,13 +508,13 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %.critedge, label %.thread45
 
 31:                                               ; preds = %21
-  %.pre44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.pre44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not31 = icmp eq ptr %.pre44, null
   br i1 %.not31, label %45, label %.thread45
 
 .thread45:                                        ; preds = %24, %31
   %32 = phi ptr [ %.pre44, %31 ], [ %0, %24 ]
-  %33 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 38, i32 1), align 8
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 712), align 8
   %.not32 = icmp eq i8 %33, 0
   br i1 %.not32, label %43, label %34
 
@@ -528,7 +528,7 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
 
 39:                                               ; preds = %34
   tail call void @zend_user_exception_handler() #15
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not33 = icmp eq ptr %40, null
   br i1 %.not33, label %.critedge, label %41
 
@@ -553,7 +553,7 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
 
 49:                                               ; preds = %46
   tail call void %48(ptr noundef %0) #15
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not35 = icmp eq ptr %.pre, null
   br i1 %.not35, label %.critedge, label %.thread47
 
@@ -577,8 +577,8 @@ define void @zend_throw_exception_internal(ptr noundef %0) local_unnamed_addr #0
   br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %55
-  store ptr %56, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 53), ptr %50, align 8
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+  store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 888), ptr %50, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %53, %.thread47, %49, %55, %39, %41, %24, %13, %19, %14, %60
@@ -593,7 +593,7 @@ define noundef i32 @zend_exception_error(ptr noundef %0, i32 noundef %1) local_u
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = load ptr, ptr @zend_ce_parse_error, align 8
   %8 = icmp eq ptr %6, %7
   %9 = load ptr, ptr @zend_ce_compile_error, align 8
@@ -788,7 +788,7 @@ zend_observer_error_notify.exit:                  ; preds = %75, %83
   %110 = getelementptr inbounds i8, ptr %109, i64 328
   %111 = load ptr, ptr %110, align 8
   call void @zend_call_known_function(ptr noundef %111, ptr noundef nonnull %0, ptr noundef %109, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef null) #15
-  %112 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %112, null
   br i1 %.not, label %113, label %129
 
@@ -828,7 +828,7 @@ i_get_exception_base.exit240:                     ; preds = %120, %123
 
 129:                                              ; preds = %116, %i_get_exception_base.exit240, %.critedge
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
-  %130 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not202 = icmp eq ptr %130, null
   br i1 %.not202, label %211, label %131
 
@@ -1199,7 +1199,7 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @zend_clear_exception() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %2
 
@@ -1228,16 +1228,16 @@ define void @zend_clear_exception() local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %8, %13, %7
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 51), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 872), align 8
   br label %15
 
 15:                                               ; preds = %14, %0
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %33, label %17
 
 17:                                               ; preds = %15
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = load i32, ptr %16, align 4
   %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
@@ -1262,12 +1262,12 @@ define void @zend_clear_exception() local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %23, %28, %22
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not16 = icmp eq ptr %30, null
   br i1 %.not16, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
   store ptr %32, ptr %30, align 8
   br label %33
 
@@ -1431,7 +1431,7 @@ i_get_exception_base.exit:                        ; preds = %2, %12
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %i_get_exception_base.exit
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %50
@@ -1657,7 +1657,7 @@ define hidden void @zim_ErrorException___construct(ptr nocapture noundef readonl
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %92
@@ -3063,7 +3063,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br i1 %408, label %409, label %425
 
 409:                                              ; preds = %406
-  %410 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 66), align 8
+  %410 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1616), align 8
   call void @smart_str_append_scalar(ptr noundef nonnull %7, ptr noundef nonnull %.0238.i.i, i64 noundef %410) #15
   %411 = load ptr, ptr %7, align 8
   %.not292.i.i = icmp eq ptr %411, null
@@ -3614,7 +3614,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %18 = getelementptr inbounds i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @zend_read_property_ex(ptr noundef %16, ptr noundef %15, ptr noundef %19, i1 noundef zeroext true, ptr noundef nonnull %3) #15
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %21, null
   br i1 %.not10, label %22, label %26
 
@@ -4347,7 +4347,7 @@ define hidden void @zend_register_default_exception() local_unnamed_addr #0 {
   %51 = getelementptr inbounds i8, ptr %50, i64 384
   store ptr @zend_implement_throwable, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @default_exception_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @default_exception_handlers, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @default_exception_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
@@ -5355,15 +5355,15 @@ register_class_Error.exit:                        ; preds = %378, %396, %403, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) @zend_ce_unwind_exit, i8 0, i64 512, i1 false)
   %484 = load ptr, ptr @zend_string_init_interned, align 8
   %485 = call ptr %484(ptr noundef nonnull @.str.15, i64 noundef 10, i1 noundef zeroext true) #15
-  store ptr %485, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_unwind_exit, i64 0, i32 1), align 8
-  store ptr @std_object_handlers, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_unwind_exit, i64 0, i32 29), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_unwind_exit, i64 0, i32 47), align 8
+  store ptr %485, ptr getelementptr inbounds (i8, ptr @zend_ce_unwind_exit, i64 8), align 8
+  store ptr @std_object_handlers, ptr getelementptr inbounds (i8, ptr @zend_ce_unwind_exit, i64 360), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @zend_ce_unwind_exit, i64 496), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) @zend_ce_graceful_exit, i8 0, i64 512, i1 false)
   %486 = load ptr, ptr @zend_string_init_interned, align 8
   %487 = call ptr %486(ptr noundef nonnull @.str.16, i64 noundef 12, i1 noundef zeroext true) #15
-  store ptr %487, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_graceful_exit, i64 0, i32 1), align 8
-  store ptr @std_object_handlers, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_graceful_exit, i64 0, i32 29), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_ce_graceful_exit, i64 0, i32 47), align 8
+  store ptr %487, ptr getelementptr inbounds (i8, ptr @zend_ce_graceful_exit, i64 8), align 8
+  store ptr @std_object_handlers, ptr getelementptr inbounds (i8, ptr @zend_ce_graceful_exit, i64 360), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @zend_ce_graceful_exit, i64 496), align 8
   ret void
 }
 
@@ -5597,7 +5597,7 @@ define hidden void @zend_exception_uncaught_error(ptr noundef %0, ...) local_unn
   call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %0, ptr noundef nonnull %2) #15
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8, !nonnull !4, !noundef !4
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8, !nonnull !4, !noundef !4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -5681,29 +5681,29 @@ define ptr @zend_create_graceful_exit() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @zend_throw_unwind_exit() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %1, null
   tail call void @llvm.assume(i1 %.not)
   %2 = tail call ptr @zend_objects_new(ptr noundef nonnull @zend_ce_unwind_exit) #15
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 53), ptr %3, align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+  store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 888), ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @zend_throw_graceful_exit() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %1, null
   tail call void @llvm.assume(i1 %.not)
   %2 = tail call ptr @zend_objects_new(ptr noundef nonnull @zend_ce_graceful_exit) #15
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 53), ptr %3, align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+  store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 888), ptr %3, align 8
   ret void
 }
 
@@ -5756,12 +5756,12 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call ptr @zend_objects_new(ptr noundef %0) #15
   tail call void @object_properties_init(ptr noundef %4, ptr noundef %0) #15
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 36), align 4
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 684), align 4
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 2, i32 0
   call void @zend_fetch_debug_backtrace(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %9, i32 noundef 0) #15

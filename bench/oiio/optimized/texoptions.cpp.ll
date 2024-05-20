@@ -528,44 +528,44 @@ entry:
   %m_len.i.i4.i = getelementptr inbounds i8, ptr %agg.tmp.i2.i, i64 8
   store i64 5, ptr %m_len.i.i4.i, align 8
   %call.i5.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i2.i)
-  store ptr %call.i5.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 1), align 8
+  store ptr %call.i5.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 8), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i2.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
   store ptr @.str.3, ptr %agg.tmp.i7.i, align 8
   %m_len.i.i9.i = getelementptr inbounds i8, ptr %agg.tmp.i7.i, i64 8
   store i64 5, ptr %m_len.i.i9.i, align 8
   %call.i10.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i7.i)
-  store ptr %call.i10.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 2), align 16
+  store ptr %call.i10.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 16), align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
   store ptr @.str.4, ptr %agg.tmp.i12.i, align 8
   %m_len.i.i14.i = getelementptr inbounds i8, ptr %agg.tmp.i12.i, i64 8
   store i64 8, ptr %m_len.i.i14.i, align 8
   %call.i15.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i12.i)
-  store ptr %call.i15.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 3), align 8
+  store ptr %call.i15.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
   store ptr @.str.5, ptr %agg.tmp.i17.i, align 8
   %m_len.i.i19.i = getelementptr inbounds i8, ptr %agg.tmp.i17.i, i64 8
   store i64 6, ptr %m_len.i.i19.i, align 8
   %call.i20.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i17.i)
-  store ptr %call.i20.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 4), align 16
+  store ptr %call.i20.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 32), align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
   store ptr @.str.6, ptr %agg.tmp.i22.i, align 8
   %m_len.i.i24.i = getelementptr inbounds i8, ptr %agg.tmp.i22.i, i64 8
   store i64 13, ptr %m_len.i.i24.i, align 8
   %call.i25.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i22.i)
-  store ptr %call.i25.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 5), align 8
+  store ptr %call.i25.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 40), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i27.i)
   store ptr @.str.7, ptr %agg.tmp.i27.i, align 8
   %m_len.i.i29.i = getelementptr inbounds i8, ptr %agg.tmp.i27.i, i64 8
   store i64 21, ptr %m_len.i.i29.i, align 8
   %call.i30.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i27.i)
-  store ptr %call.i30.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 6), align 16
+  store ptr %call.i30.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 48), align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i27.i)
-  store ptr null, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 56), align 8
   ret void
 }
 

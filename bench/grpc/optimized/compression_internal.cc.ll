@@ -133,7 +133,7 @@ entry:
   %algos = alloca %"class.absl::lts_20230802::InlinedVector", align 8
   %ref.tmp16 = alloca [2 x i32], align 4
   %algo = alloca i32, align 4
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -1220,7 +1220,7 @@ entry:
 
 for.cond5.preheader.i.i:                          ; preds = %for.end18.i.i, %entry
   %list.020.i.i = phi i64 [ 0, %entry ], [ %inc21.i.i, %for.end18.i.i ]
-  %text_buffer.019.i.i = phi ptr [ getelementptr inbounds (%"class.grpc_core::(anonymous namespace)::CommaSeparatedLists", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i32 1, i64 0), %entry ], [ %text_buffer.4.i.i, %for.end18.i.i ]
+  %text_buffer.019.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128), %entry ], [ %text_buffer.4.i.i, %for.end18.i.i ]
   br label %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %for.inc17.i.i, %for.cond5.preheader.i.i
@@ -1239,7 +1239,7 @@ if.end.i.i:                                       ; preds = %for.body7.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %text_buffer.117.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr getelementptr inbounds (%"class.grpc_core::(anonymous namespace)::CommaSeparatedLists", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i32 1, i64 0) to i64)
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 86
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
 
@@ -1251,7 +1251,7 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i: ; pr
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %text_buffer.117.i.i, i64 1
   store i8 44, ptr %text_buffer.117.i.i, align 1
   %sub.ptr.lhs.cast.i17.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
-  %sub.ptr.sub.i19.i.i = sub i64 %sub.ptr.lhs.cast.i17.i.i, ptrtoint (ptr getelementptr inbounds (%"class.grpc_core::(anonymous namespace)::CommaSeparatedLists", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i32 1, i64 0) to i64)
+  %sub.ptr.sub.i19.i.i = sub i64 %sub.ptr.lhs.cast.i17.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i20.i.i = icmp eq i64 %sub.ptr.sub.i19.i.i, 86
   br i1 %cmp.i20.i.i, label %if.then.i22.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i
 
@@ -1285,7 +1285,7 @@ for.body16.i.i:                                   ; preds = %_ZN9grpc_core28Comp
   %p.016.i.i = phi ptr [ %incdec.ptr.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %retval.0.i.i.i, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
   %text_buffer.315.i.i = phi ptr [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %text_buffer.2.i.i, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
   %sub.ptr.lhs.cast.i25.i.i = ptrtoint ptr %text_buffer.315.i.i to i64
-  %sub.ptr.sub.i27.i.i = sub i64 %sub.ptr.lhs.cast.i25.i.i, ptrtoint (ptr getelementptr inbounds (%"class.grpc_core::(anonymous namespace)::CommaSeparatedLists", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i32 1, i64 0) to i64)
+  %sub.ptr.sub.i27.i.i = sub i64 %sub.ptr.lhs.cast.i25.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp.i28.i.i = icmp eq i64 %sub.ptr.sub.i27.i.i, 86
   br i1 %cmp.i28.i.i, label %if.then.i30.i.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i
 
@@ -1320,7 +1320,7 @@ for.end18.i.i:                                    ; preds = %for.inc17.i.i
   br i1 %exitcond21.not.i.i, label %for.end22.i.i, label %for.cond5.preheader.i.i, !llvm.loop !43
 
 for.end22.i.i:                                    ; preds = %for.end18.i.i
-  %sub.ptr.sub27.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr getelementptr inbounds (%"class.grpc_core::(anonymous namespace)::CommaSeparatedLists", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i32 1, i64 0) to i64)
+  %sub.ptr.sub27.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp28.not.i.i = icmp eq i64 %sub.ptr.sub27.i.i, 86
   br i1 %cmp28.not.i.i, label %__cxx_global_var_init.3.exit, label %if.then29.i.i
 

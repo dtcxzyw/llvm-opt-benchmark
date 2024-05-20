@@ -2028,7 +2028,7 @@ compression_end.exit.i28:                         ; preds = %93
   %121 = load ptr, ptr @__archive_ppmd7_functions, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 8
   tail call void %121(ptr noundef nonnull %122) #18
-  %123 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 1), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 8), align 8
   %124 = tail call i32 %123(ptr noundef nonnull %122, i32 noundef 16777216) #18
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %128
@@ -2042,7 +2042,7 @@ compression_end.exit.i28:                         ; preds = %93
   br label %compression_init_encoder_deflate.exit.thread
 
 128:                                              ; preds = %119
-  %129 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 3), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 24), align 8
   tail call void %129(ptr noundef nonnull %122, i32 noundef 6) #18
   %130 = getelementptr inbounds i8, ptr %104, i64 19224
   store ptr %0, ptr %130, align 8
@@ -2051,7 +2051,7 @@ compression_end.exit.i28:                         ; preds = %93
   %132 = getelementptr inbounds i8, ptr %104, i64 19192
   %133 = getelementptr inbounds i8, ptr %104, i64 19216
   store ptr %130, ptr %133, align 8
-  %134 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 9), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 72), align 8
   tail call void %134(ptr noundef nonnull %132) #18
   store i32 0, ptr %104, align 8
   %135 = getelementptr inbounds i8, ptr %5, i64 208
@@ -2877,7 +2877,7 @@ define internal range(i32 0, 2) i32 @compression_code_ppmd(ptr nocapture readnon
 
 .lr.ph42:                                         ; preds = %34
   %37 = getelementptr inbounds i8, ptr %1, i64 32
-  %38 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 11), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 88), align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 8
   %40 = getelementptr inbounds i8, ptr %5, i64 19192
   br label %41
@@ -2906,7 +2906,7 @@ define internal range(i32 0, 2) i32 @compression_code_ppmd(ptr nocapture readnon
   br i1 %51, label %52, label %.critedge2.thread
 
 52:                                               ; preds = %.critedge2
-  %53 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 10), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 80), align 8
   %54 = getelementptr inbounds i8, ptr %5, i64 19192
   tail call void %53(ptr noundef nonnull %54) #18
   store i32 1, ptr %5, align 8
@@ -2926,7 +2926,7 @@ define internal range(i32 0, 2) i32 @compression_code_ppmd(ptr nocapture readnon
 define internal noundef i32 @compression_end_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void %5(ptr noundef nonnull %6) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 19240

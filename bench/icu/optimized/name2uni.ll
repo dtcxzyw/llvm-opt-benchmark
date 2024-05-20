@@ -530,7 +530,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #11, !srcloc !4
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 16), ptr %this, align 8
   %legal = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %legal)
           to label %invoke.cont5 unwind label %lpad4
@@ -612,7 +612,7 @@ declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7525NameUnicodeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 16), ptr %this, align 8
   %legal = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %legal) #11
   tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #11
@@ -634,7 +634,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 define void @_ZN6icu_7525NameUnicodeTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(288) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525NameUnicodeTransliteratorE, i64 16), ptr %this, align 8
   %legal = getelementptr inbounds i8, ptr %this, i64 88
   %legal2 = getelementptr inbounds i8, ptr %o, i64 88
   invoke void @_ZN6icu_7510UnicodeSetC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %legal, ptr noundef nonnull align 8 dereferenceable(200) %legal2)
@@ -720,10 +720,10 @@ if.end7:                                          ; preds = %if.end
 invoke.cont11:                                    ; preds = %if.end7
   %2 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #11, !srcloc !4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %name, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %name, align 8
   %fUnion2.i58 = getelementptr inbounds i8, ptr %name, i64 8
   store i16 2, ptr %fUnion2.i58, align 8
   %start12 = getelementptr inbounds i8, ptr %offsets, i64 8

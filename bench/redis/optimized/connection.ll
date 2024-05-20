@@ -57,7 +57,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool4.not, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp6 = icmp sgt i32 %3, 3
   br i1 %cmp6, label %return, label %if.end8
 
@@ -72,7 +72,7 @@ for.inc:                                          ; preds = %if.end
 
 do.body10:                                        ; preds = %for.inc, %for.body
   %type.0.lcssa = phi i64 [ 8, %for.inc ], [ %indvars.iv, %for.body ]
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp11 = icmp sgt i32 %4, 1
   br i1 %cmp11, label %do.end14, label %if.end13
 
@@ -166,7 +166,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool2.not, label %return, label %for.cond
 
 do.body:                                          ; preds = %for.cond, %for.body
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5 = icmp sgt i32 %2, 3
   br i1 %cmp5, label %return, label %if.end7
 
@@ -206,7 +206,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool2.not.i, label %connectionByType.exit, label %for.cond.i
 
 do.body.i:                                        ; preds = %for.body.i, %for.cond.i
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5.i = icmp sgt i32 %3, 3
   br i1 %cmp5.i, label %cond.false, label %if.end7.i
 
@@ -263,7 +263,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool2.not.i, label %connectionByType.exit, label %for.cond.i
 
 do.body.i:                                        ; preds = %for.body.i, %for.cond.i
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5.i = icmp sgt i32 %2, 3
   br i1 %cmp5.i, label %connectionByType.exit, label %if.end7.i
 
@@ -308,7 +308,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool2.not.i, label %connectionByType.exit, label %for.cond.i
 
 do.body.i:                                        ; preds = %for.body.i, %for.cond.i
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5.i = icmp sgt i32 %3, 3
   br i1 %cmp5.i, label %connectionByType.exit, label %if.end7.i
 
@@ -465,7 +465,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc15
   %indvars.iv22 = phi i64 [ 0, %entry ], [ %indvars.iv.next23, %for.inc15 ]
   %info.addr.020 = phi ptr [ %info, %entry ], [ %info.addr.3, %for.inc15 ]
-  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22
+  %arrayidx = getelementptr inbounds [8 x %struct.connListener], ptr getelementptr inbounds (i8, ptr @server, i64 488), i64 0, i64 %indvars.iv22
   %ct = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %0 = load ptr, ptr %ct, align 8
   %cmp1 = icmp eq ptr %0, null

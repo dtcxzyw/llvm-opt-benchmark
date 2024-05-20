@@ -4703,7 +4703,7 @@ for.cond301.preheader:                            ; preds = %for.body297, %if.en
   br i1 %cmp303.not449, label %for.end308, label %for.body304
 
 for.body297:                                      ; preds = %if.end293, %for.body297
-  %pow.0446 = phi ptr [ %incdec.ptr299, %for.body297 ], [ getelementptr inbounds ([10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 1), %if.end293 ]
+  %pow.0446 = phi ptr [ %incdec.ptr299, %for.body297 ], [ getelementptr inbounds (i8, ptr @_ZL9DECPOWERS, i64 4), %if.end293 ]
   %exponent.0445 = phi i32 [ %dec, %for.body297 ], [ %sub145, %if.end293 ]
   %dec = add nsw i32 %exponent.0445, -1
   %incdec.ptr299 = getelementptr inbounds i8, ptr %pow.0446, i64 4
@@ -4712,7 +4712,7 @@ for.body297:                                      ; preds = %if.end293, %for.bod
   br i1 %cmp296.not, label %for.cond301.preheader, label %for.body297, !llvm.loop !35
 
 for.body304:                                      ; preds = %for.cond301.preheader, %for.body304
-  %pow.1451 = phi ptr [ %incdec.ptr307, %for.body304 ], [ getelementptr inbounds ([10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 1), %for.cond301.preheader ]
+  %pow.1451 = phi ptr [ %incdec.ptr307, %for.body304 ], [ getelementptr inbounds (i8, ptr @_ZL9DECPOWERS, i64 4), %for.cond301.preheader ]
   %exponent.1450 = phi i32 [ %inc305, %for.body304 ], [ %exponent.0.lcssa, %for.cond301.preheader ]
   %inc305 = add nsw i32 %exponent.1450, 1
   %incdec.ptr307 = getelementptr inbounds i8, ptr %pow.1451, i64 4
@@ -5009,7 +5009,7 @@ if.then436:                                       ; preds = %for.end431
   br i1 %cmp437, label %for.cond440, label %if.else448
 
 for.cond440:                                      ; preds = %if.then436, %for.cond440
-  %pow.2 = phi ptr [ %incdec.ptr446, %for.cond440 ], [ getelementptr inbounds ([10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 1), %if.then436 ]
+  %pow.2 = phi ptr [ %incdec.ptr446, %for.cond440 ], [ getelementptr inbounds (i8, ptr @_ZL9DECPOWERS, i64 4), %if.then436 ]
   %accdigits.1.in = phi i32 [ %accdigits.1, %for.cond440 ], [ %accdigits.0, %if.then436 ]
   %accdigits.1 = add nsw i32 %accdigits.1.in, 1
   %90 = load i32, ptr %pow.2, align 4

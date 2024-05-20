@@ -425,8 +425,8 @@ key_gc_unused_keys.exit:                          ; preds = %200, %151, %148
 232:                                              ; preds = %.preheader
   tail call void @rb_erase(ptr noundef nonnull %26, ptr noundef nonnull @key_serial_tree) #4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
-  %233 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1), align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1), align 8
+  %233 = load ptr, ptr getelementptr inbounds (i8, ptr @key_garbage_collector.graveyard, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @key_garbage_collector.graveyard, i64 8), align 8
   store ptr @key_garbage_collector.graveyard, ptr %26, align 8
   %234 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %233, ptr %234, align 8

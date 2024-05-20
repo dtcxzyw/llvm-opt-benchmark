@@ -216,7 +216,7 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   br i1 %7, label %64, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 4096) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %.preheader

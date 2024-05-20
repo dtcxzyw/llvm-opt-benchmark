@@ -29810,7 +29810,7 @@ define void @_ZN14ockam_identity10identities7storage25credential_repository_sql2
   br i1 %20, label %21, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread105
 
 21:                                               ; preds = %4
-  %22 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ockam_identity10identities7storage25credential_repository_sql22CredentialSqlxDatabase3new10__CALLSITE17hb035c0ec1aef8a39E, i64 0, i32 1, i64 8) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ockam_identity10identities7storage25credential_repository_sql22CredentialSqlxDatabase3new10__CALLSITE17hb035c0ec1aef8a39E, i64 16) monotonic, align 8
   switch i8 %22, label %23 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread105
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -38167,7 +38167,7 @@ _ZN14ockam_identity14secure_channel10local_info30IdentitySecureChannelLocalInfo9
   br i1 %91, label %92, label %.thread184.i
 
 92:                                               ; preds = %78
-  %93 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14ockam_identity10identities21identities_attributes20IdentitiesAttributes14get_attributes28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3ec1428dea5b104E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !5870
+  %93 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14ockam_identity10identities21identities_attributes20IdentitiesAttributes14get_attributes28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3ec1428dea5b104E", i64 16) monotonic, align 8, !noalias !5870
   switch i8 %93, label %94 [
     i8 0, label %.thread184.i
     i8 1, label %.thread.i
@@ -39653,7 +39653,7 @@ _ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit: ; preds = %.noexc92, %6
   br i1 %32, label %33, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread144
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ockam_identity14secure_channel13nonce_tracker12NonceTracker4mark10__CALLSITE17hd9224bf3e544dc08E, i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ockam_identity14secure_channel13nonce_tracker12NonceTracker4mark10__CALLSITE17hd9224bf3e544dc08E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread144
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
@@ -40126,7 +40126,7 @@ default.unreachable132:                           ; preds = %3
   br i1 %43, label %44, label %.thread126
 
 44:                                               ; preds = %41
-  %45 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN201_$LT$ockam_identity..secure_channel..trust_policy..trust_multi_identifier_policy..TrustMultiIdentifiersPolicy$u20$as$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9368c80d00c75fdcE", i64 0, i32 1, i64 8) monotonic, align 8
+  %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN201_$LT$ockam_identity..secure_channel..trust_policy..trust_multi_identifier_policy..TrustMultiIdentifiersPolicy$u20$as$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9368c80d00c75fdcE", i64 16) monotonic, align 8
   switch i8 %45, label %46 [
     i8 0, label %.thread126
     i8 1, label %.thread

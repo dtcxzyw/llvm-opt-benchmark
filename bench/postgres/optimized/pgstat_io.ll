@@ -423,7 +423,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %17, %21, %26
-  %.sink = phi ptr [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 12), %26 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 13), %21 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 11), %17 ], [ getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 10), %22 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), %26 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), %21 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), %17 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), %22 ]
   %27 = load i64, ptr %.sink, align 8
   %28 = add i64 %27, %16
   store i64 %28, ptr %.sink, align 8
@@ -433,7 +433,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %30 = zext i32 %0 to i64
   %31 = zext i32 %1 to i64
   %32 = zext i32 %2 to i64
-  %33 = getelementptr %struct.PgStat_PendingIO, ptr @PendingIOStats, i64 0, i32 1, i64 %30, i64 %31, i64 %32
+  %33 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (i8, ptr @PendingIOStats, i64 512), i64 0, i64 %30, i64 %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %16
   store i64 %35, ptr %33, align 8
@@ -455,7 +455,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_io() local_unnamed_addr #3 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 9) #11
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 6)
+  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 296)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #5
@@ -505,7 +505,7 @@ define dso_local noundef zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) loca
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr %struct.PgStat_PendingIO, ptr @PendingIOStats, i64 0, i32 1, i64 %indvars.iv36, i64 %indvars.iv32, i64 %indvars.iv
+  %25 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (i8, ptr @PendingIOStats, i64 512), i64 0, i64 %indvars.iv36, i64 %indvars.iv32, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %25, align 8
   %26 = sdiv i64 %.sroa.0.0.copyload, 1000
   %27 = getelementptr [2 x [4 x [8 x i64]]], ptr %17, i64 0, i64 %indvars.iv36, i64 %indvars.iv32, i64 %indvars.iv
@@ -635,7 +635,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #3 {
   %4 = getelementptr [16 x %struct.LWLock], ptr %3, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds i8, ptr %2, i64 848
   %6 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %5, i64 0, i64 %indvars.iv
-  %7 = getelementptr %struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 6, i32 1, i64 %indvars.iv
+  %7 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 304), i64 0, i64 %indvars.iv
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #11
   %9 = icmp eq i64 %indvars.iv, 0
   br i1 %9, label %10, label %14
@@ -644,7 +644,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #3 {
   %11 = load ptr, ptr @pgStatLocal, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 840
   %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 6), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 296), align 8
   br label %14
 
 14:                                               ; preds = %10, %1

@@ -651,7 +651,7 @@ define dso_local i32 @fifo_set_limit(ptr noundef %0, i32 noundef %1) #3 align 16
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %14 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 8) #12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
@@ -713,7 +713,7 @@ define dso_local ptr @fifo_create_dflt(ptr nocapture noundef readonly %0, ptr no
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %25 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 8) #12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread3, label %27

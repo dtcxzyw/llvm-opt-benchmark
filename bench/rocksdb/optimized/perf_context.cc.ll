@@ -4159,8 +4159,8 @@ entry:
 
 init:                                             ; preds = %entry
   store i1 true, ptr @__tls_guard, align 1
-  store ptr null, ptr getelementptr inbounds (%"struct.rocksdb::PerfContext", ptr @_ZN7rocksdb12perf_contextE, i64 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.rocksdb::PerfContext", ptr @_ZN7rocksdb12perf_contextE, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12perf_contextE, i64 808), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12perf_contextE, i64 816), align 8
   %0 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN7rocksdb11PerfContextD1Ev, ptr nonnull @_ZN7rocksdb12perf_contextE, ptr nonnull @__dso_handle) #0
   br label %exit
 

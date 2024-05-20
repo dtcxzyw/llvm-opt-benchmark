@@ -4238,7 +4238,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not63.not.i, label %1236, label %1237
 
 1236:                                             ; preds = %1234
-  store ptr @hf_radiotap_usig_eht_mu_b25_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 1), align 8
+  store ptr @hf_radiotap_usig_eht_mu_b25_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 8), align 8
   br label %1237
 
 1237:                                             ; preds = %1236, %1234
@@ -4247,7 +4247,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not64.not.i, label %1239, label %1240
 
 1239:                                             ; preds = %1237
-  store ptr @hf_radiotap_usig_validate1_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 3), align 8
+  store ptr @hf_radiotap_usig_validate1_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 24), align 8
   br label %1240
 
 1240:                                             ; preds = %1239, %1237
@@ -4256,7 +4256,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not65.i, label %1243, label %1242
 
 1242:                                             ; preds = %1240
-  store ptr @hf_radiotap_usig_punctured_channel_info_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 4), align 16
+  store ptr @hf_radiotap_usig_punctured_channel_info_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 32), align 16
   br label %1243
 
 1243:                                             ; preds = %1242, %1240
@@ -4265,7 +4265,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not66.not.i, label %1245, label %1246
 
 1245:                                             ; preds = %1243
-  store ptr @hf_radiotap_usig_validate2_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 5), align 8
+  store ptr @hf_radiotap_usig_validate2_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 40), align 8
   br label %1246
 
 1246:                                             ; preds = %1245, %1243
@@ -4274,7 +4274,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not67.i, label %1249, label %1248
 
 1248:                                             ; preds = %1246
-  store ptr @hf_radiotap_usig_eht_sig_mcs_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 6), align 16
+  store ptr @hf_radiotap_usig_eht_sig_mcs_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 48), align 16
   br label %1249
 
 1249:                                             ; preds = %1248, %1246
@@ -4283,7 +4283,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not68.i, label %1252, label %1251
 
 1251:                                             ; preds = %1249
-  store ptr @hf_radiotap_usig_number_eht_sig_symbols_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 7), align 8
+  store ptr @hf_radiotap_usig_number_eht_sig_symbols_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 56), align 8
   br label %1252
 
 1252:                                             ; preds = %1251, %1249
@@ -4292,7 +4292,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not69.i, label %1255, label %1254
 
 1254:                                             ; preds = %1252
-  store ptr @hf_radiotap_usig_crc_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 8), align 16
+  store ptr @hf_radiotap_usig_crc_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 64), align 16
   br label %1255
 
 1255:                                             ; preds = %1254, %1252
@@ -4300,7 +4300,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not70.i, label %dissect_radiotap_u_sig.exit, label %1256
 
 1256:                                             ; preds = %1255
-  store ptr @hf_radiotap_usig_tail_not_known, ptr getelementptr inbounds ([11 x ptr], ptr @usig_eht_mu_ppdu_headers, i64 0, i64 9), align 8
+  store ptr @hf_radiotap_usig_tail_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_mu_ppdu_headers, i64 72), align 8
   br label %dissect_radiotap_u_sig.exit
 
 .thread.i:                                        ; preds = %1229, %1225
@@ -4318,7 +4318,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not56.not.i, label %1261, label %1262
 
 1261:                                             ; preds = %1259
-  store ptr @hf_radiotap_usig_eht_tb_validate1_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 2), align 16
+  store ptr @hf_radiotap_usig_eht_tb_validate1_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 16), align 16
   br label %1262
 
 1262:                                             ; preds = %1261, %1259
@@ -4327,7 +4327,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not57.i, label %1265, label %1264
 
 1264:                                             ; preds = %1262
-  store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_1_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 3), align 8
+  store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_1_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 24), align 8
   br label %1265
 
 1265:                                             ; preds = %1264, %1262
@@ -4336,7 +4336,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not58.i, label %1268, label %1267
 
 1267:                                             ; preds = %1265
-  store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_2_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 4), align 16
+  store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_2_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 32), align 16
   br label %1268
 
 1268:                                             ; preds = %1267, %1265
@@ -4345,7 +4345,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not59.i, label %1271, label %1270
 
 1270:                                             ; preds = %1268
-  store ptr @hf_radiotap_usig_eht_tb_disregard_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 5), align 8
+  store ptr @hf_radiotap_usig_eht_tb_disregard_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 40), align 8
   br label %1271
 
 1271:                                             ; preds = %1270, %1268
@@ -4354,7 +4354,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not60.i, label %1274, label %1273
 
 1273:                                             ; preds = %1271
-  store ptr @hf_radiotap_usig_eht_tb_crc_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 6), align 16
+  store ptr @hf_radiotap_usig_eht_tb_crc_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 48), align 16
   br label %1274
 
 1274:                                             ; preds = %1273, %1271
@@ -4362,7 +4362,7 @@ dissect_radiotap_0_length_psdu.exit:              ; preds = %1163, %.sink.split.
   br i1 %.not61.i, label %dissect_radiotap_u_sig.exit, label %1275
 
 1275:                                             ; preds = %1274
-  store ptr @hf_radiotap_usig_eht_tb_tail_not_known, ptr getelementptr inbounds ([9 x ptr], ptr @usig_eht_tb_ppdu_headers, i64 0, i64 7), align 8
+  store ptr @hf_radiotap_usig_eht_tb_tail_not_known, ptr getelementptr inbounds (i8, ptr @usig_eht_tb_ppdu_headers, i64 56), align 8
   br label %dissect_radiotap_u_sig.exit
 
 dissect_radiotap_u_sig.exit:                      ; preds = %1255, %1256, %1274, %1275

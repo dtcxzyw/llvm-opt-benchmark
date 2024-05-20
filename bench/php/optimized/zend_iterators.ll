@@ -26,9 +26,9 @@ define void @zend_register_iterator_wrapper() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) @zend_iterator_class_entry, i8 0, i64 512, i1 false)
   %1 = load ptr, ptr @zend_string_init_interned, align 8
   %2 = tail call ptr %1(ptr noundef nonnull @.str, i64 noundef 18, i1 noundef zeroext true) #6
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i64 0, i32 47), align 8
-  store ptr @iterator_object_handlers, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i64 0, i32 29), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @zend_iterator_class_entry, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @zend_iterator_class_entry, i64 496), align 8
+  store ptr @iterator_object_handlers, ptr getelementptr inbounds (i8, ptr @zend_iterator_class_entry, i64 360), align 8
   ret void
 }
 

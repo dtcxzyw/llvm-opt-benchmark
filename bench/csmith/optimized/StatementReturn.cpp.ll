@@ -97,7 +97,7 @@ define dso_local noundef ptr @_ZN15StatementReturn11make_randomER9CGContext(ptr 
           to label %_ZN15StatementReturnC2EP5BlockRK18ExpressionVariable.exit unwind label %19
 
 _ZN15StatementReturnC2EP5BlockRK18ExpressionVariable.exit: ; preds = %17
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementReturn, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %11, ptr %18, align 8
   br label %21
@@ -312,7 +312,7 @@ declare noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr n
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15StatementReturnC2EP5BlockRK18ExpressionVariable(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementReturn, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
   ret void
@@ -327,7 +327,7 @@ define dso_local void @_ZN15StatementReturnC2ERKS_(ptr noundef nonnull align 8 d
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementReturn, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -337,7 +337,7 @@ define dso_local void @_ZN15StatementReturnC2ERKS_(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15StatementReturnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementReturn, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -360,7 +360,7 @@ declare void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15StatementReturnD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementReturn, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

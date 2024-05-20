@@ -60,7 +60,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr noundef nonnull align 8 dereferenceable(16) %str, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i)
   %4 = load ptr, ptr %TheBucket.i, align 8
   %5 = load ptr, ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, align 8
-  %6 = load i32, ptr getelementptr inbounds (%"class.llvh::DenseMap", ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, i64 0, i32 3), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, i64 16), align 8
   %idx.ext.i.i.i = zext i32 %6 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i)

@@ -1024,9 +1024,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @PySignal_SetWakeupFd(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %fd, i32 -1)
-  %0 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
-  store volatile i32 %spec.store.select, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1, i32 1), align 4
+  %0 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
+  store volatile i32 %spec.store.select, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1804), align 4
   ret i32 %0
 }
 
@@ -1046,10 +1046,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %Py_XDECREF.exit
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %Py_XDECREF.exit ]
-  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv, i32 1
+  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv, i32 1
   %0 = load atomic i64, ptr %func.i seq_cst, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv
   store atomic i32 0, ptr %arrayidx monotonic, align 8
   store atomic i64 0, ptr %func.i seq_cst, align 8
   %cmp1 = icmp ne i64 %0, 0
@@ -1058,7 +1058,7 @@ for.body:                                         ; preds = %entry, %Py_XDECREF.
   br i1 %or.cond, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %for.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp1.i = icmp eq ptr %2, null
   br i1 %cmp1.i, label %land.lhs.true5, label %if.end.i25
 
@@ -1074,7 +1074,7 @@ compare_handler.exit:                             ; preds = %if.end.i25
   br i1 %cmp5.i.not, label %if.then.i, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end.i25, %land.lhs.true3, %compare_handler.exit
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %cmp1.i28 = icmp eq ptr %4, null
   br i1 %cmp1.i28, label %if.then, label %if.end.i30
 
@@ -1120,12 +1120,12 @@ Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i,
   br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !5
 
 do.body:                                          ; preds = %Py_XDECREF.exit
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp10.not = icmp eq ptr %9, null
   br i1 %cmp10.not, label %do.body13, label %if.then11
 
 if.then11:                                        ; preds = %do.body
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i31.not = icmp eq i64 %11, 0
@@ -1142,12 +1142,12 @@ if.then1.i27:                                     ; preds = %if.end.i24
   br label %do.body13
 
 do.body13:                                        ; preds = %if.end.i24, %if.then1.i27, %if.then11, %do.body
-  %12 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %cmp17.not = icmp eq ptr %12, null
   br i1 %cmp17.not, label %do.end20, label %if.then18
 
 if.then18:                                        ; preds = %do.body13
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i34.not = icmp eq i64 %14, 0
@@ -1209,9 +1209,9 @@ _Py_set_eval_breaker_bit.exit:                    ; preds = %_Py_atomic_compare_
 if.end:                                           ; preds = %_Py_set_eval_breaker_bit.exit, %entry
   %11 = phi ptr [ %.pre, %_Py_set_eval_breaker_bit.exit ], [ %2, %entry ]
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %12
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i = icmp ne ptr %13, %11
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %return, label %if.end6
@@ -1230,12 +1230,12 @@ declare void @_Py_RunGC(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyErr_CheckSignalsTstate(ptr noundef %tstate) local_unnamed_addr #1 {
 entry:
-  %0 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
+  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store atomic i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
   %1 = getelementptr i8, ptr %tstate, i64 64
   %tstate.val = load ptr, ptr %1, align 8
   %tobool.not7.i.i = icmp eq ptr %tstate.val, null
@@ -1276,14 +1276,14 @@ _PyThreadState_GetFrame.exit:                     ; preds = %land.rhs.i.i, %_PyF
 
 for.body:                                         ; preds = %_PyThreadState_GetFrame.exit, %for.inc
   %indvars.iv = phi i64 [ 1, %_PyThreadState_GetFrame.exit ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv
   %6 = load atomic i32, ptr %arrayidx monotonic, align 8
   %tobool3.not = icmp eq i32 %6, 0
   br i1 %tobool3.not, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %for.body
   store atomic i32 0, ptr %arrayidx monotonic, align 8
-  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv, i32 1
+  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv, i32 1
   %7 = load atomic i64, ptr %func.i seq_cst, align 8
   %8 = inttoptr i64 %7 to ptr
   %cmp10 = icmp eq i64 %7, 0
@@ -1292,7 +1292,7 @@ if.end5:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then18, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %cmp1.i = icmp eq ptr %9, null
   br i1 %cmp1.i, label %lor.lhs.false15, label %if.end.i24
 
@@ -1308,7 +1308,7 @@ compare_handler.exit:                             ; preds = %if.end.i24
   br i1 %cmp5.i.not, label %if.then18, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end.i24, %lor.lhs.false12, %compare_handler.exit
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp1.i26 = icmp eq ptr %11, null
   br i1 %cmp1.i26, label %if.end20, label %if.end.i28
 
@@ -1372,7 +1372,7 @@ if.end34:                                         ; preds = %if.end.i41, %if.the
   br i1 %tobool35.not, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %_PyFrame_GetFrameObject.exit, %if.end29, %if.end34
-  store atomic i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
+  store atomic i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
   br label %return
 
 if.end37:                                         ; preds = %if.end34
@@ -1428,10 +1428,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom.i = zext nneg i32 %signum to i64
-  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %idxprom.i, i32 1
+  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %idxprom.i, i32 1
   %1 = load atomic i64, ptr %func.i seq_cst, align 8
   %2 = inttoptr i64 %1 to ptr
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %cmp.i = icmp eq i64 %1, 0
   %cmp1.i = icmp eq ptr %3, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
@@ -1449,7 +1449,7 @@ compare_handler.exit:                             ; preds = %if.end.i
   br i1 %cmp5.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end.i, %if.end, %compare_handler.exit
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp1.i7 = icmp eq ptr %5, null
   %or.cond.i8 = or i1 %cmp.i, %cmp1.i7
   br i1 %or.cond.i8, label %if.then5, label %if.end.i9
@@ -1467,12 +1467,12 @@ compare_handler.exit17:                           ; preds = %if.end.i9
 
 if.then5:                                         ; preds = %if.end.i9, %land.lhs.true, %compare_handler.exit17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i)
-  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %idxprom.i
   store atomic i32 1, ptr %arrayidx.i seq_cst, align 8
-  store atomic i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  store atomic i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   tail call void @_PyEval_SignalReceived(ptr noundef %7) #15
-  %8 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
+  %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
   %cmp.not.i = icmp eq i32 %8, -1
   br i1 %cmp.not.i, label %trip_signal.exit, label %if.then.i
 
@@ -1484,7 +1484,7 @@ if.then.i:                                        ; preds = %if.then5
   br i1 %cmp2.i, label %if.then4.i, label %trip_signal.exit
 
 if.then4.i:                                       ; preds = %if.then.i
-  %9 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1, i32 1), align 4
+  %9 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1804), align 4
   %tobool.not.i = icmp eq i32 %9, 0
   %call5.i = tail call ptr @__errno_location() #16
   %.pre = load i32, ptr %call5.i, align 4
@@ -1526,19 +1526,19 @@ entry:
 define hidden range(i32 -1, 1) i32 @_PySignal_Init(i32 noundef %install_signal_handlers) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef null) #15
-  store ptr %call, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
-  store ptr %call2, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  store ptr %call2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %if.end ]
-  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv
   store atomic i32 0, ptr %arrayidx monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
@@ -1592,20 +1592,20 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %1 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i = icmp ne ptr %2, %0
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_Py_EnsureFuncTstateNotNULL.exit
-  %3 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2) monotonic, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 792) monotonic, align 8
   %tobool2.not = icmp eq i32 %3, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  store atomic i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 792) monotonic, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %_Py_EnsureFuncTstateNotNULL.exit, %if.end4
@@ -1629,20 +1629,20 @@ _Py_EnsureFuncTstateNotNULL.exit.i:               ; preds = %entry
   %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i = icmp ne ptr %4, %2
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %_PyOS_InterruptOccurred.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i
-  %5 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2) monotonic, align 8
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 792) monotonic, align 8
   %tobool2.not.i = icmp eq i32 %5, 0
   br i1 %tobool2.not.i, label %_PyOS_InterruptOccurred.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  store atomic i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 792) monotonic, align 8
   br label %_PyOS_InterruptOccurred.exit
 
 _PyOS_InterruptOccurred.exit:                     ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i, %if.end.i, %if.end4.i
@@ -1653,17 +1653,17 @@ _PyOS_InterruptOccurred.exit:                     ; preds = %_Py_EnsureFuncTstat
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_PySignal_AfterFork() local_unnamed_addr #3 {
 entry:
-  %0 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
+  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %_clear_pending_signals.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  store atomic i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
   %indvars.iv.i = phi i64 [ 1, %if.end.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv.i
   store atomic i32 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
@@ -1681,9 +1681,9 @@ entry:
   %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp eq i64 %call.i.i, %3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i = icmp eq ptr %4, %2
   %narrow.i = select i1 %cmp.i.not.i, i1 %cmp.i1.i, i1 false
   %land.ext.i = zext i1 %narrow.i to i32
@@ -2110,9 +2110,9 @@ land.lhs.true4.split:                             ; preds = %land.lhs.true4
   %interp.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i, align 8
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %6 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i = icmp ne ptr %7, %5
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   %8 = load ptr, ptr @PyExc_ValueError, align 8
@@ -2223,7 +2223,7 @@ if.then.i:                                        ; preds = %entry.split
 
 if.end.i:                                         ; preds = %entry.split
   %idxprom.i.i = zext nneg i32 %call to i64
-  %func.i.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %idxprom.i.i, i32 1
+  %func.i.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %idxprom.i.i, i32 1
   %2 = load atomic i64, ptr %func.i.i seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %cmp2.not.i = icmp eq i64 %2, 0
@@ -2271,9 +2271,9 @@ if.end:                                           ; preds = %entry
   %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   %call.i.i = call i64 @PyThread_get_thread_ident() #15
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i = icmp ne ptr %4, %2
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %if.then4, label %if.end5
@@ -2311,10 +2311,10 @@ if.then16:                                        ; preds = %if.end14
 
 if.end19:                                         ; preds = %if.end14, %if.end5
   %9 = phi i32 [ %.pre, %if.end14 ], [ -1, %if.end5 ]
-  %10 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
-  store volatile i32 %9, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
+  %10 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
+  store volatile i32 %9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
   %11 = load i32, ptr %warn_on_full_buffer, align 4
-  store volatile i32 %11, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1, i32 1), align 4
+  store volatile i32 %11, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1804), align 4
   %conv = sext i32 %10 to i64
   %call20 = call ptr @PyLong_FromLong(i64 noundef %conv) #15
   br label %return
@@ -2473,9 +2473,9 @@ _Py_set_eval_breaker_bit.exit.i.i:                ; preds = %_Py_atomic_compare_
 if.end.i.i:                                       ; preds = %_Py_set_eval_breaker_bit.exit.i.i, %entry
   %11 = phi ptr [ %.pre.i.i, %_Py_set_eval_breaker_bit.exit.i.i ], [ %2, %entry ]
   %call.i.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %12
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i.i = icmp ne ptr %13, %11
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.thread.i, label %PyErr_CheckSignals.exit.i
@@ -2713,9 +2713,9 @@ _Py_set_eval_breaker_bit.exit.i.i:                ; preds = %_Py_atomic_compare_
 if.end.i.i:                                       ; preds = %_Py_set_eval_breaker_bit.exit.i.i, %if.end.i
   %14 = phi ptr [ %.pre.i.i, %_Py_set_eval_breaker_bit.exit.i.i ], [ %5, %if.end.i ]
   %call.i.i.i.i = call i64 @PyThread_get_thread_ident() #15
-  %15 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %15
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i.i = icmp ne ptr %16, %14
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %if.end5.i, label %PyErr_CheckSignals.exit.i
@@ -2875,9 +2875,9 @@ _Py_set_eval_breaker_bit.exit.i.i:                ; preds = %_Py_atomic_compare_
 if.end.i.i:                                       ; preds = %_Py_set_eval_breaker_bit.exit.i.i, %land.rhs.i
   %12 = phi ptr [ %.pre.i.i, %_Py_set_eval_breaker_bit.exit.i.i ], [ %3, %land.rhs.i ]
   %call.i.i.i.i = call i64 @PyThread_get_thread_ident() #15
-  %13 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %13
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i.i = icmp ne ptr %14, %12
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.i, label %if.end6.i.i
@@ -3028,9 +3028,9 @@ _Py_set_eval_breaker_bit.exit.i.i:                ; preds = %_Py_atomic_compare_
 if.end.i.i:                                       ; preds = %_Py_set_eval_breaker_bit.exit.i.i, %if.end21.i
   %18 = phi ptr [ %.pre.i.i, %_Py_set_eval_breaker_bit.exit.i.i ], [ %9, %if.end21.i ]
   %call.i.i.i.i = call i64 @PyThread_get_thread_ident() #15
-  %19 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %19
-  %20 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i.i = icmp ne ptr %20, %18
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %if.end24.i, label %PyErr_CheckSignals.exit.i
@@ -3209,9 +3209,9 @@ entry:
   %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i = icmp ne ptr %4, %2
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %if.then, label %if.end
@@ -3295,7 +3295,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.end23
   %idxprom.i = zext nneg i32 %signalnum to i64
-  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %idxprom.i, i32 1
+  %func.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %idxprom.i, i32 1
   %14 = load atomic i64, ptr %func.i seq_cst, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %handler, align 8
@@ -3331,12 +3331,12 @@ entry:
   %0 = load i32, ptr %call, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i)
   %idxprom.i = sext i32 %sig_num to i64
-  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %idxprom.i
   store atomic i32 1, ptr %arrayidx.i seq_cst, align 8
-  store atomic i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  store atomic i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1808) seq_cst, align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   tail call void @_PyEval_SignalReceived(ptr noundef %1) #15
-  %2 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1), align 8
+  %2 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1800), align 8
   %cmp.not.i = icmp eq i32 %2, -1
   br i1 %cmp.not.i, label %trip_signal.exit, label %if.then.i
 
@@ -3348,7 +3348,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then4.i, label %trip_signal.exit
 
 if.then4.i:                                       ; preds = %if.then.i
-  %3 = load volatile i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 1, i32 1), align 4
+  %3 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1804), align 4
   %tobool.not.i = icmp eq i32 %3, 0
   %.pre = load i32, ptr %call, align 4
   %cmp6.not.i = icmp eq i32 %.pre, 11
@@ -3422,9 +3422,9 @@ _Py_set_eval_breaker_bit.exit.i:                  ; preds = %_Py_atomic_compare_
 if.end.i:                                         ; preds = %_Py_set_eval_breaker_bit.exit.i, %if.end
   %12 = phi ptr [ %.pre.i, %_Py_set_eval_breaker_bit.exit.i ], [ %3, %if.end ]
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %13 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %13
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i = icmp ne ptr %14, %12
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
@@ -3537,9 +3537,9 @@ _Py_set_eval_breaker_bit.exit.i:                  ; preds = %_Py_atomic_compare_
 if.end.i:                                         ; preds = %_Py_set_eval_breaker_bit.exit.i, %if.end6
   %12 = phi ptr [ %.pre.i, %_Py_set_eval_breaker_bit.exit.i ], [ %3, %if.end6 ]
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
-  %13 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %13
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i = icmp ne ptr %14, %12
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
@@ -3762,9 +3762,9 @@ define internal range(i32 -1, 1) i32 @signal_module_exec(ptr noundef %m) #1 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   store ptr %1, ptr %m.val, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %ignore_handler2 = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %2, ptr %ignore_handler2, align 8
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -3995,13 +3995,13 @@ signal_add_constants.exit:                        ; preds = %if.end167.i
 
 if.end8:                                          ; preds = %signal_add_constants.exit
   %call9 = tail call ptr @PyModule_GetDict(ptr noundef nonnull %m) #15
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %call11 = tail call i32 @PyDict_SetItemString(ptr noundef %call9, ptr noundef nonnull @.str.38, ptr noundef %4) #15
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   %call16 = tail call i32 @PyDict_SetItemString(ptr noundef %call9, ptr noundef nonnull @.str.39, ptr noundef %5) #15
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end19
@@ -4029,7 +4029,7 @@ if.end34:                                         ; preds = %if.end29
   %8 = load ptr, ptr %7, align 8
   %interp = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i18.not = icmp eq ptr %10, %9
   br i1 %cmp.i18.not, label %for.body.i, label %return
 
@@ -4044,16 +4044,16 @@ for.body.i:                                       ; preds = %if.end34, %Py_XDECR
   ]
 
 if.then.i:                                        ; preds = %for.body.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   br label %if.end5.i
 
 if.then3.i:                                       ; preds = %for.body.i
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1824), align 8
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.then.i, %for.body.i
   %func.0.i = phi ptr [ %12, %if.then.i ], [ %13, %if.then3.i ], [ @_Py_NoneStruct, %for.body.i ]
-  %func.i.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15), i64 0, i64 %indvars.iv.i, i32 1
+  %func.i.i = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 760), i64 0, i64 %indvars.iv.i, i32 1
   %14 = load atomic i64, ptr %func.i.i seq_cst, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %func.0.i, align 8
@@ -4093,9 +4093,9 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %Py_XDECREF.exit.i
-  %20 = load atomic i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2, i32 1) seq_cst, align 8
+  %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 800) seq_cst, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1816), align 8
   %cmp10.i21 = icmp eq ptr %22, %21
   br i1 %cmp10.i21, label %if.then11.i, label %return
 
@@ -4106,7 +4106,7 @@ if.then11.i:                                      ; preds = %for.end.i
 
 if.end14.i:                                       ; preds = %if.then11.i
   %23 = ptrtoint ptr %call12.i to i64
-  store atomic i64 %23, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2, i32 1) seq_cst, align 8
+  store atomic i64 %23, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 800) seq_cst, align 8
   %24 = load i64, ptr %21, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i18.not.i = icmp eq i64 %25, 0

@@ -1243,9 +1243,9 @@ WALInsertLockRelease.exit70:                      ; preds = %388, %389
   %439 = phi i64 [ %436, %.thread ], [ %398, %437 ]
   %440 = load i32, ptr %10, align 8
   %441 = zext i32 %440 to i64
-  %442 = load i64, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 8
+  %442 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
   %443 = add i64 %442, %441
-  store i64 %443, ptr getelementptr inbounds (%struct.WalUsage, ptr @pgWalUsage, i64 0, i32 2), align 8
+  store i64 %443, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
   %444 = sext i32 %3 to i64
   %445 = load <2 x i64>, ptr @pgWalUsage, align 8
   %446 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %444, i64 1
@@ -1462,7 +1462,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   br label %89
 
 14:                                               ; preds = %XLogInsertAllowed.exit.thread, %XLogInsertAllowed.exit
-  %15 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not = icmp ult i64 %15, %0
   br i1 %.not, label %16, label %89
 
@@ -1496,7 +1496,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   %32 = load ptr, ptr @XLogCtl, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 440
   store i8 0, ptr %33, align 8
-  %34 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not18 = icmp ult i64 %34, %0
   br i1 %.not18, label %35, label %.loopexit
 
@@ -1512,7 +1512,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   %41 = load ptr, ptr @XLogCtl, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @LogwrtResult, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
-  %43 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not19 = icmp ult i64 %43, %0
   br i1 %.not19, label %44, label %.loopexit.sink.split
 
@@ -1584,7 +1584,7 @@ RecoveryInProgress.exit:                          ; preds = %.loopexit, %64
   br label %WalSndWakeupProcessRequests.exit
 
 WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.exit, %73, %76
-  %77 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %77 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %78 = icmp ult i64 %77, %0
   br i1 %78, label %79, label %89
 
@@ -1594,7 +1594,7 @@ WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.
   %81 = lshr i64 %0, 32
   %82 = trunc nuw i64 %81 to i32
   %83 = trunc i64 %0 to i32
-  %84 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %84 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %85 = lshr i64 %84, 32
   %86 = trunc nuw i64 %85 to i32
   %87 = trunc i64 %84 to i32
@@ -1870,7 +1870,7 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
 
 27:                                               ; preds = %24
   %28 = lshr i64 %0, 13
-  %29 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %30 = lshr i64 %29, 13
   %31 = sub nsw i64 %28, %30
   %32 = trunc i64 %31 to i32
@@ -2347,19 +2347,19 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %103 = mul i64 %102, 1000000000
   %104 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %105 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 3), align 8
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
   %106 = add i64 %104, %.sroa.06.0.neg87
   %107 = add i64 %106, %103
   %108 = add i64 %107, %105
-  store i64 %108, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 3), align 8
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
   %.pre100 = load i8, ptr @track_wal_io_timing, align 1
   br label %109
 
 109:                                              ; preds = %100, %92
   %110 = phi i8 [ %.pre100, %100 ], [ %98, %92 ]
-  %111 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 1), align 8
+  %111 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
   %112 = add i64 %111, 1
-  store i64 %112, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 1), align 8
+  store i64 %112, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
   %113 = icmp slt i64 %96, 1
   br i1 %113, label %114, label %123
 
@@ -2403,7 +2403,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   call void @issue_xlog_fsync(i32 noundef %131, i64 noundef %132, i32 noundef %2)
   store i8 1, ptr @wake_wal_senders, align 1
   %133 = load i64, ptr @LogwrtResult, align 8
-  store i64 %133, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  store i64 %133, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %134 = load i32, ptr @XLogArchiveMode, align 4
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %136, label %138
@@ -2418,7 +2418,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %140 = load ptr, ptr @XLogCtl, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 248
   store i64 %139, ptr %141, align 8
-  %142 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %142 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %143 = getelementptr inbounds i8, ptr %140, i64 256
   store i64 %142, ptr %143, align 8
   %144 = load i8, ptr @IsUnderPostmaster, align 1
@@ -2504,7 +2504,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
   br i1 %or.cond, label %.loopexit, label %20, !llvm.loop !28
 
 .loopexit:                                        ; preds = %184, %20, %183
-  %192 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %192 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %193 = icmp ult i64 %192, %1
   br i1 %193, label %194, label %220
 
@@ -2569,7 +2569,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
 218:                                              ; preds = %197, %197, %.thread119
   %219 = phi i64 [ %195, %197 ], [ %195, %197 ], [ %.pre107, %.thread119 ]
   store i8 1, ptr @wake_wal_senders, align 1
-  store i64 %219, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  store i64 %219, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   br label %220
 
 220:                                              ; preds = %218, %194, %.loopexit
@@ -2602,7 +2602,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
 236:                                              ; preds = %235, %228
   %237 = getelementptr inbounds i8, ptr %229, i64 192
   %238 = load i64, ptr %237, align 8
-  %239 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %239 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %240 = icmp ult i64 %238, %239
   br i1 %240, label %241, label %242
 
@@ -2658,7 +2658,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   %20 = getelementptr inbounds i8, ptr %19, i64 440
   store i8 0, ptr %20, align 8
   %21 = and i64 %.sroa.0.0.copyload, -8192
-  %22 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not23 = icmp ugt i64 %21, %22
   br i1 %.not23, label %35, label %23
 
@@ -2681,7 +2681,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   %33 = load ptr, ptr @XLogCtl, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 440
   store i8 0, ptr %34, align 8
-  %.pre32 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %.pre32 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   br label %35
 
 35:                                               ; preds = %29, %15
@@ -2720,7 +2720,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
 
 55:                                               ; preds = %49
   %56 = lshr i64 %.sroa.0.0, 13
-  %57 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %58 = lshr i64 %57, 13
   %59 = sub nsw i64 %56, %58
   %60 = trunc i64 %59 to i32
@@ -2749,7 +2749,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @LogwrtResult, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %73 = load i64, ptr @LogwrtResult, align 8
   %74 = icmp ugt i64 %.sroa.0.0, %73
-  %75 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %75 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %76 = icmp ugt i64 %.sroa.14.0, %75
   %or.cond28 = select i1 %74, i1 true, i1 %76
   br i1 %or.cond28, label %77, label %78
@@ -3135,7 +3135,7 @@ RecoveryInProgress.exit:                          ; preds = %1
   br label %48
 
 RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgress.exit
-  %33 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not = icmp ult i64 %33, %0
   br i1 %.not, label %34, label %48
 
@@ -3160,7 +3160,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgr
   %45 = load ptr, ptr @XLogCtl, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 440
   store i8 0, ptr %46, align 8
-  %47 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   %.not7 = icmp ult i64 %47, %0
   br label %48
 
@@ -3802,9 +3802,9 @@ define internal fastcc void @RemoveXlogFile(ptr noundef %0, i64 noundef %1, ptr 
   br label %26
 
 26:                                               ; preds = %22, %24
-  %27 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
   %28 = add i32 %27, 1
-  store i32 %28, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
   %29 = load i64, ptr %2, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %2, align 8
@@ -3825,9 +3825,9 @@ define internal fastcc void @RemoveXlogFile(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %.not12, label %37, label %41
 
 37:                                               ; preds = %35
-  %38 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 7), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
   %39 = add i32 %38, 1
-  store i32 %39, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 7), align 8
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
   br label %40
 
 40:                                               ; preds = %37, %26
@@ -6200,7 +6200,7 @@ XLogRecPtrToBytePos.exit89:                       ; preds = %541, %544, %548, %5
   %.sink = phi i64 [ %591, %563 ], [ %spec.select, %XLogRecPtrToBytePos.exit89 ]
   %593 = getelementptr inbounds i8, ptr %495, i64 280
   store i64 %.sink, ptr %593, align 8
-  store i64 %spec.select, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  store i64 %spec.select, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   store i64 %spec.select, ptr @LogwrtResult, align 8
   %594 = getelementptr inbounds i8, ptr %495, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %594, ptr noundef nonnull align 8 dereferenceable(16) @LogwrtResult, i64 16, i1 false)
@@ -6246,9 +6246,9 @@ XLogRecPtrToBytePos.exit89:                       ; preds = %541, %544, %548, %5
   br i1 %620, label %621, label %PreallocXlogFiles.exit
 
 621:                                              ; preds = %618
-  %622 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  %622 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   %623 = add i32 %622, 1
-  store i32 %623, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  store i32 %623, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   br label %PreallocXlogFiles.exit
 
 PreallocXlogFiles.exit:                           ; preds = %592, %600, %618, %621
@@ -7352,7 +7352,7 @@ define dso_local i64 @GetFlushRecPtr(ptr noundef writeonly %0) local_unnamed_add
   br label %17
 
 17:                                               ; preds = %14, %9
-  %18 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
   ret i64 %18
 }
 
@@ -7832,9 +7832,9 @@ RecoveryInProgress.exit69.thread:                 ; preds = %167, %RecoveryInPro
   br i1 %206, label %207, label %PreallocXlogFiles.exit
 
 207:                                              ; preds = %204
-  %208 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  %208 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   %209 = add i32 %208, 1
-  store i32 %209, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  store i32 %209, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   br label %PreallocXlogFiles.exit
 
 PreallocXlogFiles.exit:                           ; preds = %178, %186, %204, %207
@@ -8540,9 +8540,9 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   br i1 %346, label %347, label %PreallocXlogFiles.exit
 
 347:                                              ; preds = %344
-  %348 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  %348 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   %349 = add i32 %348, 1
-  store i32 %349, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
+  store i32 %349, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
   br label %PreallocXlogFiles.exit
 
 PreallocXlogFiles.exit:                           ; preds = %320, %326, %344, %347
@@ -8607,7 +8607,7 @@ define internal fastcc void @CheckPointGuts(i64 noundef %0, i32 noundef %1) unna
   tail call void @CheckPointLogicalRewriteHeap() #26
   tail call void @CheckPointReplicationOrigin() #26
   %5 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %5, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 1), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 8), align 8
   tail call void @CheckPointCLOG() #26
   tail call void @CheckPointCommitTs() #26
   tail call void @CheckPointSUBTRANS() #26
@@ -8615,10 +8615,10 @@ define internal fastcc void @CheckPointGuts(i64 noundef %0, i32 noundef %1) unna
   tail call void @CheckPointPredicate() #26
   tail call void @CheckPointBuffers(i32 noundef %1) #26
   %6 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %6, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 2), align 8
+  store i64 %6, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 16), align 8
   tail call void @ProcessSyncRequests() #26
   %7 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %7, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 3), align 8
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 24), align 8
   tail call void @CheckPointTwoPhase(i64 noundef %0) #26
   ret void
 }
@@ -8886,36 +8886,36 @@ declare i32 @GetOldestTransactionIdConsideredRunning() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %2, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 4), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 1), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 2), align 8
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 32), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 16), align 8
   %5 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %3, i64 noundef %4) #26
-  %6 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 2), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 3), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 24), align 8
   %8 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %6, i64 noundef %7) #26
-  %9 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 5), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 40), align 8
   %10 = add i64 %9, %5
-  store i64 %10, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 5), align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 6), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 40), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 48), align 8
   %12 = add i64 %11, %8
-  store i64 %12, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i64 0, i32 6), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 48), align 8
   %13 = load i8, ptr @log_checkpoints, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %122
 
 15:                                               ; preds = %1
   %16 = load i64, ptr @CheckpointStats, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 4), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 32), align 8
   %18 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %16, i64 noundef %17) #26
-  %19 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 10), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 64), align 8
   %20 = add i64 %19, 999
   %21 = udiv i64 %20, 1000
-  %22 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %15
-  %25 = load i64, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 11), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 72), align 8
   %26 = zext nneg i32 %22 to i64
   %27 = udiv i64 %25, %26
   %28 = add i64 %27, 999
@@ -8931,15 +8931,15 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   br i1 %31, label %33, label %122
 
 33:                                               ; preds = %32
-  %34 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   %35 = sitofp i32 %34 to double
   %36 = fmul double %35, 1.000000e+02
   %37 = load i32, ptr @NBuffers, align 4
   %38 = sitofp i32 %37 to double
   %39 = fdiv double %36, %38
-  %40 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
-  %41 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 7), align 8
-  %42 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
   %43 = sdiv i64 %5, 1000
   %44 = srem i64 %5, 1000
   %45 = trunc nsw i64 %44 to i32
@@ -8949,7 +8949,7 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %49 = sdiv i64 %18, 1000
   %50 = srem i64 %18, 1000
   %51 = trunc nsw i64 %50 to i32
-  %52 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
   %53 = udiv i64 %20, 1000000
   %54 = urem i64 %21, 1000
   %55 = trunc nuw nsw i64 %54 to i32
@@ -8980,15 +8980,15 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   br i1 %31, label %78, label %122
 
 78:                                               ; preds = %77
-  %79 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 5), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
   %80 = sitofp i32 %79 to double
   %81 = fmul double %80, 1.000000e+02
   %82 = load i32, ptr @NBuffers, align 4
   %83 = sitofp i32 %82 to double
   %84 = fdiv double %81, %83
-  %85 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 6), align 4
-  %86 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 7), align 8
-  %87 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
+  %86 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
   %88 = sdiv i64 %5, 1000
   %89 = srem i64 %5, 1000
   %90 = trunc nsw i64 %89 to i32
@@ -8998,7 +8998,7 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %94 = sdiv i64 %18, 1000
   %95 = srem i64 %18, 1000
   %96 = trunc nsw i64 %95 to i32
-  %97 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
   %98 = udiv i64 %20, 1000000
   %99 = urem i64 %21, 1000
   %100 = trunc nuw nsw i64 %99 to i32
@@ -10013,17 +10013,17 @@ switch.early.test:                                ; preds = %3
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %45 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 8
   %46 = add i64 %44, %.sroa.06.0.neg24
   %47 = add i64 %46, %42
   %48 = add i64 %47, %45
-  store i64 %48, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
+  store i64 %48, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 8
   br label %49
 
 49:                                               ; preds = %39, %.thread
-  %50 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
   %51 = add i64 %50, 1
-  store i64 %51, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
+  store i64 %51, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
   br label %52
 
 52:                                               ; preds = %switch.early.test, %switch.early.test, %3, %49

@@ -99,12 +99,12 @@ ompi_group_peer_lookup.exit:                      ; preds = %12, %18, %32, %34
   br i1 %or.cond.not, label %11, label %41
 
 41:                                               ; preds = %ompi_group_peer_lookup.exit
-  %42 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %43 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %42) #6
   br i1 %43, label %44, label %72
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %46 = tail call ptr @ompi_comm_print_cid(ptr noundef %5) #6
   %47 = getelementptr inbounds i8, ptr %5, i64 160
   %48 = load ptr, ptr %47, align 8
@@ -117,7 +117,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %12, %18, %32, %34
   %51 = tail call noalias ptr @opal_basename(ptr noundef %50) #6
   %52 = getelementptr i8, ptr %5, i64 220
   %.val25 = load i32, ptr %52, align 4
-  %53 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   %54 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %53, ptr noundef %51, i32 noundef -1, i32 noundef %.val25) #6
   call void @free(ptr noundef %51) #6
   %55 = load ptr, ptr %3, align 8
@@ -126,12 +126,12 @@ ompi_group_peer_lookup.exit:                      ; preds = %12, %18, %32, %34
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %._crit_edge
-  %59 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %60 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %59) #6
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %63 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %62, ptr noundef nonnull @.str.2, ptr noundef %63) #6
   br label %64

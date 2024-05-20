@@ -21,7 +21,7 @@ define dso_local zeroext i1 @copy_from_kernel_nofault_allowed(ptr noundef %0, i6
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 6), align 4
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 28), align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %20, label %13
 

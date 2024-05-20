@@ -58,7 +58,7 @@ define dso_local noundef range(i32 -105, 1) i32 @gen_new_estimator(ptr noundef %
   br i1 %21, label %76, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 136) #7
   %25 = icmp eq ptr %24, null
   br i1 %25, label %76, label %26
@@ -100,7 +100,7 @@ define dso_local noundef range(i32 -105, 1) i32 @gen_new_estimator(ptr noundef %
 
 44:                                               ; preds = %26
   %45 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !8
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   call void @gnet_stats_basic_sync_init(ptr noundef nonnull %7) #6
   call void @_raw_spin_lock(ptr noundef nonnull %3) #6

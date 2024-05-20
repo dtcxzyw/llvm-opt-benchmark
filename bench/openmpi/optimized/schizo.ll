@@ -164,7 +164,7 @@ define internal range(i32 -5, 1) i32 @parse_env(ptr nocapture readnone %0, ptr n
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
 
@@ -419,7 +419,7 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %51, %pmix_cmd_line_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 101) i32 @detect_proxy(ptr noundef %0) #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %13
 
@@ -548,7 +548,7 @@ define dso_local void @psched_schizo_init() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 4), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -563,7 +563,7 @@ define dso_local void @psched_schizo_init() local_unnamed_addr #0 {
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -581,7 +581,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %18 = getelementptr inbounds i8, ptr %1, i64 154
   store i8 1, ptr %18, align 2
   %19 = call i32 @pmix_output_open(ptr noundef nonnull %1) #8
-  store i32 %19, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -599,7 +599,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %.not.i5, label %pmix_obj_run_destructors.exit.loopexit, label %.lr.ph.i3, !llvm.loop !13
 
 pmix_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i3
-  %.pre = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destructors.exit.loopexit, %pmix_obj_run_constructors.exit
@@ -609,7 +609,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %29
 
 29:                                               ; preds = %pmix_obj_run_destructors.exit, %0
-  %30 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %30, 64
   br i1 %or.cond, label %31, label %38
 

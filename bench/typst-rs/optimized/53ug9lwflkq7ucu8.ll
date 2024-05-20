@@ -218,7 +218,7 @@ _ZN5image6codecs4jpeg7encoder18encode_coefficient17h2004f5a8d8adbee7E.exit: ; pr
 
 61:                                               ; preds = %.loopexit, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit77.thread"
   %.050103 = phi i8 [ 0, %.loopexit ], [ %.2, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit77.thread" ]
-  %.sroa.0.0102 = phi ptr [ getelementptr inbounds ([64 x i8], ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 0, i64 1), %.loopexit ], [ %62, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit77.thread" ]
+  %.sroa.0.0102 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 1), %.loopexit ], [ %62, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit77.thread" ]
   %62 = getelementptr inbounds i8, ptr %.sroa.0.0102, i64 1
   %63 = load i8, ptr %.sroa.0.0102, align 1, !noundef !4
   %64 = zext i8 %63 to i64
@@ -265,7 +265,7 @@ _ZN5image6codecs4jpeg7encoder18encode_coefficient17h2004f5a8d8adbee7E.exit: ; pr
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit77.thread": ; preds = %122, %100, %98, %80
   %.2 = phi i8 [ %81, %80 ], [ 0, %98 ], [ 0, %100 ], [ 0, %122 ]
-  %82 = icmp eq ptr %62, getelementptr inbounds ([64 x i8], ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 1, i64 0)
+  %82 = icmp eq ptr %62, getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 64)
   br i1 %82, label %57, label %61
 
 .lr.ph:                                           ; preds = %.preheader, %129

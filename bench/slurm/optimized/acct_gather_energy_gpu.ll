@@ -273,7 +273,7 @@ define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr n
   br i1 %or.cond.i, label %14, label %_thread_init.exit
 
 14:                                               ; preds = %9
-  %15 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 262144
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %22, label %17
@@ -311,7 +311,7 @@ _thread_init.exit:                                ; preds = %9
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %22
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 262144
   %.not.i71 = icmp eq i64 %31, 0
   br i1 %.not.i71, label %_get_node_energy.exit, label %32
@@ -340,13 +340,13 @@ _thread_init.exit:                                ; preds = %9
 
 45:                                               ; preds = %43
   %46 = tail call i32 @slurm_cgroup_conf_init() #10
-  %47 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
+  %47 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   %48 = trunc i8 %47 to i1
-  %49 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %50 = tail call ptr @slurm_xstrstr(ptr noundef %49, ptr noundef nonnull @.str.25) #10
   %.not17.not.i = icmp ne ptr %50, null
   %brmerge.not.i = select i1 %48, i1 %.not17.not.i, i1 false
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 262144
   %.not19.i = icmp eq i64 %52, 0
   br i1 %brmerge.not.i, label %53, label %57
@@ -396,7 +396,7 @@ _thread_init.exit:                                ; preds = %9
   br label %75
 
 68:                                               ; preds = %.lr.ph.split.us.i
-  %69 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %70 = and i64 %69, 262144
   %.not22.us.i = icmp eq i64 %70, 0
   br i1 %.not22.us.i, label %75, label %71
@@ -430,7 +430,7 @@ _thread_init.exit:                                ; preds = %9
   br i1 %83, label %.lr.ph.split.i, label %._crit_edge.i76, !llvm.loop !8
 
 ._crit_edge.i76:                                  ; preds = %.lr.ph.split.i, %75, %61
-  %84 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %84 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %85 = and i64 %84, 262144
   %.not20.i = icmp eq i64 %85, 0
   br i1 %.not20.i, label %_get_node_energy.exit, label %86
@@ -492,7 +492,7 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
   br i1 %111, label %.lr.ph.i78, label %._crit_edge.i81, !llvm.loop !6
 
 ._crit_edge.i81:                                  ; preds = %.lr.ph.i78, %104
-  %112 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %112 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %113 = and i64 %112, 262144
   %.not.i82 = icmp eq i64 %113, 0
   br i1 %.not.i82, label %_get_node_energy.exit83, label %114
@@ -650,7 +650,7 @@ _get_node_energy.exit83:                          ; preds = %._crit_edge.i81, %1
   br i1 %or.cond.i84, label %176, label %_thread_init.exit87
 
 176:                                              ; preds = %171
-  %177 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %177 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %178 = and i64 %177, 262144
   %.not.i86 = icmp eq i64 %178, 0
   br i1 %.not.i86, label %184, label %179
@@ -810,7 +810,7 @@ _update_energy.exit:                              ; preds = %32, %38
   %49 = load i32, ptr @_thread_update_node_energy.readings, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr @_thread_update_node_energy.readings, align 4
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 262144
   %.not = icmp ne i64 %52, 0
   %or.cond = and i1 %.not, %48
@@ -967,7 +967,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %71 = getelementptr inbounds i8, ptr %30, i64 16
   store i64 %70, ptr %71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false)
-  %72 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %72 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %73 = and i64 %72, 262144
   %.not40 = icmp eq i64 %73, 0
   br i1 %.not40, label %81, label %74
@@ -1049,7 +1049,7 @@ define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1
   ]
 
 17:                                               ; preds = %13
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 262144
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %37, label %20
@@ -1170,7 +1170,7 @@ _running_profile.exit:                            ; preds = %0, %10
   br i1 %37, label %.lr.ph34, label %._crit_edge35, !llvm.loop !15
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
-  %38 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 262144
   %.not28 = icmp eq i64 %39, 0
   br i1 %.not28, label %45, label %40
@@ -1227,7 +1227,7 @@ _running_profile.exit:                            ; preds = %0, %10
 59:                                               ; preds = %54
   %60 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv53, i32 3, i32 5
   %61 = load i64, ptr %60, align 8
-  %62 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 2097152
   %.not30.not = icmp eq i64 %63, 0
   br i1 %.not30.not, label %.loopexit, label %.lr.ph44
@@ -1365,7 +1365,7 @@ define void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr nocapture noundef
   br label %35
 
 35:                                               ; preds = %8, %32, %30
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %37 = and i64 %36, 262144
   %.not22 = icmp eq i64 %37, 0
   br i1 %.not22, label %43, label %38
@@ -1603,7 +1603,7 @@ define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture
   br label %33
 
 33:                                               ; preds = %7, %._crit_edge
-  %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 262144
   %.not20 = icmp eq i64 %35, 0
   br i1 %.not20, label %44, label %36
@@ -1656,7 +1656,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
   store i1 false, ptr @flag_energy_accounting_shutdown, align 1
-  %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 262144
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %10, label %6
@@ -1692,7 +1692,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
   br i1 %or.cond.i, label %21, label %28
 
 21:                                               ; preds = %16
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 262144
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %53, label %24
@@ -1708,7 +1708,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
 
 28:                                               ; preds = %16
   %29 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef nonnull @plugin_name) #10
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 262144
   %.not47 = icmp eq i64 %31, 0
   br i1 %.not47, label %36, label %32
@@ -1867,7 +1867,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
   unreachable
 
 94:                                               ; preds = %78
-  %95 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %95 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %96 = and i64 %95, 262144
   %.not44 = icmp eq i64 %96, 0
   br i1 %.not44, label %101, label %97

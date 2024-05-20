@@ -740,7 +740,7 @@ read_data_stored.exit:                            ; preds = %57, %58, %64, %65
 
 80:                                               ; preds = %34, %34, %34, %34, %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %81 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 8), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 64), align 8
   br label %82
 
 82:                                               ; preds = %tailrecurse.i, %80
@@ -1585,7 +1585,7 @@ read_data_compressed.exit:                        ; preds = %177, %334, %440, %4
 
 486:                                              ; preds = %read_data_compressed.exit.thread, %read_data_compressed.exit
   %.0188.i46 = phi i32 [ %.0188.i.ph, %read_data_compressed.exit.thread ], [ %.0188.i, %read_data_compressed.exit ]
-  %487 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 2), align 8
+  %487 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %488 = getelementptr inbounds i8, ptr %10, i64 984
   tail call void %487(ptr noundef nonnull %488) #19
   %489 = getelementptr inbounds i8, ptr %10, i64 904
@@ -2048,7 +2048,7 @@ clear_filters.exit:                               ; preds = %.lr.ph.i3.i, %delet
   %44 = getelementptr inbounds i8, ptr %4, i64 848
   %45 = load ptr, ptr %44, align 8
   tail call void @free(ptr noundef %45) #19
-  %46 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 984
   tail call void %46(ptr noundef nonnull %47) #19
   tail call void @free(ptr noundef %4) #19
@@ -2872,7 +2872,7 @@ default.unreachable473:                           ; preds = %166
   store i32 131072, ptr %381, align 8
   %382 = getelementptr inbounds i8, ptr %7, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(404) %382, i8 0, i64 404, i1 false)
-  %383 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 2), align 8
+  %383 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %384 = getelementptr inbounds i8, ptr %7, i64 984
   tail call void %383(ptr noundef nonnull %384) #19
   %385 = getelementptr inbounds i8, ptr %7, i64 977
@@ -3583,14 +3583,14 @@ thread-pre-split248:                              ; preds = %42, %40
   br label %346
 
 98:                                               ; preds = %90
-  %99 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 2), align 8
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %100 = getelementptr inbounds i8, ptr %6, i64 984
   tail call void %99(ptr noundef nonnull %100) #19
   %101 = getelementptr inbounds i8, ptr %6, i64 20216
   store ptr %0, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %6, i64 20224
   store ptr @ppmd_read, ptr %102, align 8
-  %103 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 5), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 40), align 8
   %104 = getelementptr inbounds i8, ptr %6, i64 20168
   tail call void %103(ptr noundef nonnull %104) #19
   %105 = getelementptr inbounds i8, ptr %6, i64 20208
@@ -3607,7 +3607,7 @@ thread-pre-split248:                              ; preds = %42, %40
   br label %346
 
 111:                                              ; preds = %98
-  %112 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 1), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 8), align 8
   %113 = tail call i32 %112(ptr noundef nonnull %100, i32 noundef %108) #19
   %.not244 = icmp eq i32 %113, 0
   br i1 %.not244, label %114, label %115
@@ -3617,7 +3617,7 @@ thread-pre-split248:                              ; preds = %42, %40
   br label %346
 
 115:                                              ; preds = %111
-  %116 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 7), align 8
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 56), align 8
   %117 = tail call i32 %116(ptr noundef nonnull %104) #19
   %.not245 = icmp eq i32 %117, 0
   br i1 %.not245, label %118, label %119
@@ -3627,7 +3627,7 @@ thread-pre-split248:                              ; preds = %42, %40
   br label %346
 
 119:                                              ; preds = %115
-  %120 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 3), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 24), align 8
   tail call void %120(ptr noundef nonnull %100, i32 noundef %.0206) #19
   %121 = getelementptr inbounds i8, ptr %6, i64 976
   store i8 1, ptr %121, align 8
@@ -3644,7 +3644,7 @@ thread-pre-split248:                              ; preds = %42, %40
   br label %346
 
 126:                                              ; preds = %122
-  %127 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i64 0, i32 7), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 56), align 8
   %128 = getelementptr inbounds i8, ptr %6, i64 20168
   %129 = tail call i32 %127(ptr noundef nonnull %128) #19
   %.not243 = icmp eq i32 %129, 0

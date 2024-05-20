@@ -6519,9 +6519,9 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h310f3900b4
   br label %13
 
 13:                                               ; preds = %12, %3
-  %14 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 0), align 4, !range !54, !noundef !5
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 76), align 4, !range !54, !noundef !5
   %15 = trunc nuw i8 %14 to i1
-  %16 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 1), align 1
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 77), align 1
   br i1 %15, label %17, label %.thread6.i.i.i
 
 .thread6.i.i.i:                                   ; preds = %13
@@ -6557,7 +6557,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h310f3900b4
   store i8 %14, ptr %9, align 1
   %28 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 %16, ptr %28, align 1
-  store i8 %26, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 1), align 1
+  store i8 %26, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 77), align 1
   br i1 %27, label %30, label %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i
 
 _ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i: ; preds = %30, %25, %.thread6.i.i.i
@@ -16737,9 +16737,9 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %10
 
 10:                                               ; preds = %.noexc, %3
-  %11 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 0), align 4, !range !54, !noundef !5
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 76), align 4, !range !54, !noundef !5
   %12 = trunc nuw i8 %11 to i1
-  %13 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 1), align 1
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 77), align 1
   br i1 %12, label %14, label %.thread6.i.i.i
 
 .thread6.i.i.i:                                   ; preds = %10
@@ -16768,7 +16768,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i8 %11, ptr %5, align 1
   %25 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %13, ptr %25, align 1
-  store i8 %23, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 0, i32 5, i32 1), align 1
+  store i8 %23, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 77), align 1
   br i1 %24, label %26, label %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i
 
 _ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i: ; preds = %26, %22, %.thread6.i.i.i

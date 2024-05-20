@@ -326,15 +326,15 @@ define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noun
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %9
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #7
-  %13 = load ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 98), align 8
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #7
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1848), align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   tail call void @_raw_spin_lock(ptr noundef %14) #7
   %15 = getelementptr inbounds i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %15, i64 16, i1 false)
   call void @path_get(ptr noundef nonnull %7) #7
   call void @_raw_spin_unlock(ptr noundef %14) #7
-  call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #7
+  call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #7
   %16 = call ptr @file_open_root(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 0, i16 noundef zeroext 0) #7
   call void @path_put(ptr noundef nonnull %7) #7
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)

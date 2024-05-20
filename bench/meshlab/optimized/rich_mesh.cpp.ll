@@ -46,7 +46,7 @@ define noundef nonnull ptr @_ZNK8RichMesh5cloneEv(ptr noundef nonnull align 8 de
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8RichMesh, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -111,7 +111,7 @@ define void @_ZN8RichMeshC2ERK7QStringjPK12MeshDocumentS2_S2_bS2_(ptr noundef no
   %9 = alloca %class.IntValue, align 8
   call void @_ZN8IntValueC1Ei(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %2)
   call void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8RichMesh, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %10, align 8
   ret void

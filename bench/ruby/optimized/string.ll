@@ -19005,7 +19005,7 @@ define internal i64 @rb_str_s_new(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %16
   %.lcssa.i = phi i64 [ %.pr.i, %16 ], [ %18, %.lr.ph.i ]
-  store i64 %.lcssa.i, ptr getelementptr inbounds ([2 x i64], ptr @rb_str_s_new.keyword_ids, i64 0, i64 1), align 8
+  store i64 %.lcssa.i, ptr getelementptr inbounds (i8, ptr @rb_str_s_new.keyword_ids, i64 8), align 8
   %19 = load i64, ptr %5, align 8
   %20 = call i32 @rb_get_kwargs(i64 noundef %19, ptr noundef nonnull @rb_str_s_new.keyword_ids, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %6) #28
   %21 = load i64, ptr %6, align 16
@@ -19263,7 +19263,7 @@ define internal noundef i64 @rb_str_init(i32 noundef %0, ptr noundef %1, i64 nou
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
   %.lcssa.i = phi i64 [ %.pr.i, %8 ], [ %10, %.lr.ph.i ]
-  store i64 %.lcssa.i, ptr getelementptr inbounds ([2 x i64], ptr @rb_str_init.keyword_ids, i64 0, i64 1), align 8
+  store i64 %.lcssa.i, ptr getelementptr inbounds (i8, ptr @rb_str_init.keyword_ids, i64 8), align 8
   br label %11
 
 11:                                               ; preds = %rbimpl_intern_const.exit, %3

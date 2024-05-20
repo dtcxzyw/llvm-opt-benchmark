@@ -3433,7 +3433,7 @@ define internal fastcc i32 @initialize(ptr noundef %0) unnamed_addr #0 {
   %201 = getelementptr inbounds i8, ptr %2, i64 104
   store ptr %200, ptr %201, align 8
   %202 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @g_freshclamTempDirectory, ptr noundef nonnull dereferenceable(1) %200, i64 noundef 4096) #17
-  store i8 0, ptr getelementptr inbounds ([4096 x i8], ptr @g_freshclamTempDirectory, i64 0, i64 4095), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @g_freshclamTempDirectory, i64 4095), align 1
   %203 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.209) #17
   %204 = getelementptr inbounds i8, ptr %203, i64 32
   %205 = load i32, ptr %204, align 8

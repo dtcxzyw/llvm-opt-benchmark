@@ -1931,7 +1931,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %5, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%"class.std::function.7", ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 0, i32 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 16), align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %33, label %_ZNKSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEEclES6_SA_SC_.exit
 
@@ -1940,7 +1940,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsE
   unreachable
 
 _ZNKSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEEclES6_SA_SC_.exit: ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds (%"class.std::function.7", ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 24), align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -5186,7 +5186,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit: ; preds = %17, %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %5, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%"class.std::function.83", ptr @_ZZN27cmCMakePresetsGraphInternal17TestPresetsHelperERSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateE6helper, i64 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN27cmCMakePresetsGraphInternal17TestPresetsHelperERSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateE6helper, i64 16), align 8
   %.not.i.i6 = icmp eq ptr %26, null
   br i1 %.not.i.i6, label %27, label %_ZNKSt8functionIFbRSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateEEclES5_S9_SB_.exit
 
@@ -5195,7 +5195,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit: ; preds = %17, %19
   unreachable
 
 _ZNKSt8functionIFbRSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateEEclES5_S9_SB_.exit: ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (%"class.std::function.83", ptr @_ZZN27cmCMakePresetsGraphInternal17TestPresetsHelperERSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateE6helper, i64 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN27cmCMakePresetsGraphInternal17TestPresetsHelperERSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateE6helper, i64 24), align 8
   %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN27cmCMakePresetsGraphInternal17TestPresetsHelperERSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json5ValueEP11cmJSONStateE6helper, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -20356,7 +20356,7 @@ _Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT
 
 78:                                               ; preds = %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %49, i8 0, i64 25, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #17
@@ -20368,7 +20368,7 @@ _Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT
   store ptr %54, ptr %56, align 8
   store ptr %54, ptr %57, align 8
   store i64 0, ptr %58, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #17
   store i8 0, ptr %60, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #17
@@ -21086,7 +21086,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56: ; preds = %236, %23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -21174,7 +21174,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -21443,7 +21443,7 @@ _ZNSt12_Vector_baseIN19cmCMakePresetsGraph10TestPresetESaIS1_EE13_M_deallocateEP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetC2EOS0_(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull align 8 dereferenceable(904) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2EOS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = getelementptr inbounds i8, ptr %1, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
@@ -21532,7 +21532,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEC2EOS3_.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2EOS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
@@ -21949,10 +21949,10 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   %150 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %151 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #17
-  store i64 0, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !alias.scope !281
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 8), align 8, !alias.scope !281
   store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_131TestPresetOutputVerbosityHelperERN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEPKN4Json5ValueEP11cmJSONState to i64), ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, align 8, !alias.scope !281
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 0, i32 1), align 8, !alias.scope !281
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !281
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 24), align 8, !alias.scope !281
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 16), align 8, !alias.scope !281
   %152 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev, ptr nonnull @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, ptr nonnull @__dso_handle) #17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %133)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %134)
@@ -22040,7 +22040,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   store ptr @.str.4, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %138, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, i8 0, i64 32, i1 false)
-  %181 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 0, i32 0, i32 1), align 8
+  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 16), align 8
   %.not.i.i.not.i.i = icmp eq ptr %181, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %182
 
@@ -22049,7 +22049,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
           to label %184 unwind label %186
 
 184:                                              ; preds = %182
-  %185 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 0, i32 0, i32 1), align 8
+  %185 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i64 16), align 8
   store <2 x ptr> %185, ptr %180, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i
 
@@ -22683,8 +22683,8 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   %441 = and i8 %440, 1
   store i8 %441, ptr %438, align 8, !noalias !284
   store ptr %417, ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, align 8, !alias.scope !284
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 0, i32 1), align 8, !alias.scope !284
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !284
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 24), align 8, !alias.scope !284
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 16), align 8, !alias.scope !284
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %120)
   %442 = getelementptr inbounds i8, ptr %133, i64 48
   %443 = load ptr, ptr %442, align 8
@@ -23190,8 +23190,8 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   %624 = and i8 %623, 1
   store i8 %624, ptr %621, align 8, !noalias !287
   store ptr %600, ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, align 8, !alias.scope !287
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function.7", ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 0, i32 1), align 8, !alias.scope !287
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.7", ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !287
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 24), align 8, !alias.scope !287
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_148TestPresetOptionalFilterIncludeIndexObjectHelperE, i64 16), align 8, !alias.scope !287
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %108)
   %625 = getelementptr inbounds i8, ptr %113, i64 48
   %626 = load ptr, ptr %625, align 8
@@ -23650,8 +23650,8 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %795 = and i8 %794, 1
   store i8 %795, ptr %792, align 8, !noalias !290
   store ptr %771, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, align 8, !alias.scope !290
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (%"class.std::function.16", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 0, i32 1), align 8, !alias.scope !290
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.16", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !290
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 24), align 8, !alias.scope !290
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 16), align 8, !alias.scope !290
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %96)
   %796 = getelementptr inbounds i8, ptr %101, i64 48
   %797 = load ptr, ptr %796, align 8
@@ -24059,8 +24059,8 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %946 = and i8 %945, 1
   store i8 %946, ptr %943, align 8, !noalias !293
   store ptr %922, ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, align 8, !alias.scope !293
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function.25", ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 0, i32 1), align 8, !alias.scope !293
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.25", ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !293
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 24), align 8, !alias.scope !293
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 16), align 8, !alias.scope !293
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %86)
   %947 = getelementptr inbounds i8, ptr %90, i64 48
   %948 = load ptr, ptr %947, align 8
@@ -24366,7 +24366,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @.str.31, ptr %1052, align 8
   %1053 = getelementptr inbounds i8, ptr %85, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 32, i1 false)
-  %1054 = load ptr, ptr getelementptr inbounds (%"class.std::function.25", ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 0, i32 0, i32 1), align 8
+  %1054 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 16), align 8
   %.not.i.i.not.i.i74 = icmp eq ptr %1054, null
   br i1 %.not.i.i.not.i.i74, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1055
 
@@ -24375,7 +24375,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
           to label %1057 unwind label %1059
 
 1057:                                             ; preds = %1055
-  %1058 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.25", ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 0, i32 0, i32 1), align 8
+  %1058 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i64 16), align 8
   store <2 x ptr> %1058, ptr %1053, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i
 
@@ -24459,8 +24459,8 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   %1094 = and i8 %1093, 1
   store i8 %1094, ptr %1091, align 8, !noalias !296
   store ptr %1070, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, align 8, !alias.scope !296
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (%"class.std::function.34", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 0, i32 1), align 8, !alias.scope !296
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.34", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !296
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 24), align 8, !alias.scope !296
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 16), align 8, !alias.scope !296
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %76)
   %1095 = getelementptr inbounds i8, ptr %79, i64 48
   %1096 = load ptr, ptr %1095, align 8
@@ -24674,10 +24674,10 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85)
-  store i64 0, ptr getelementptr inbounds (%"class.std::function.43", ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !alias.scope !299
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 8), align 8, !alias.scope !299
   store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_133TestPresetExecutionShowOnlyHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEPKN4Json5ValueEP11cmJSONState to i64), ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, align 8, !alias.scope !299
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function.43", ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 0, i32 1), align 8, !alias.scope !299
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.43", ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !299
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 24), align 8, !alias.scope !299
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 16), align 8, !alias.scope !299
   %1167 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev, ptr nonnull @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, ptr nonnull @__dso_handle) #17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %72)
@@ -24855,8 +24855,8 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %1239 = and i8 %1238, 1
   store i8 %1239, ptr %1236, align 8, !noalias !302
   store ptr %1215, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, align 8, !alias.scope !302
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function.45", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 0, i32 1), align 8, !alias.scope !302
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.45", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !302
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 24), align 8, !alias.scope !302
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_NSE_6ObjectIS4_EEEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 16), align 8, !alias.scope !302
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %68)
   %1240 = getelementptr inbounds i8, ptr %71, i64 48
   %1241 = load ptr, ptr %1240, align 8
@@ -25035,10 +25035,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75)
-  store i64 0, ptr getelementptr inbounds (%"class.std::function.54", ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8, !alias.scope !305
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 8), align 8, !alias.scope !305
   store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_138TestPresetExecutionNoTestsActionHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEPKN4Json5ValueEP11cmJSONState to i64), ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, align 8, !alias.scope !305
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (%"class.std::function.54", ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 0, i32 1), align 8, !alias.scope !305
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.54", ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !305
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E9_M_invokeERKSt9_Any_dataS6_OSA_OSC_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 24), align 8, !alias.scope !305
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS4_PFbRS4_SA_SC_EEESt8functionIFbRS0_IT_ESA_SC_EET0_EUlS6_SA_SC_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 16), align 8, !alias.scope !305
   %1299 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev, ptr nonnull @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, ptr nonnull @__dso_handle) #17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %52)
@@ -25326,7 +25326,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @.str.43, ptr %1406, align 8
   %1407 = getelementptr inbounds i8, ptr %60, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
-  %1408 = load ptr, ptr getelementptr inbounds (%"class.std::function.43", ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 0, i32 0, i32 1), align 8
+  %1408 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 16), align 8
   %.not.i.i.not.i.i122 = icmp eq ptr %1408, null
   br i1 %.not.i.i.not.i.i122, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1409
 
@@ -25335,7 +25335,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
           to label %1411 unwind label %1413
 
 1411:                                             ; preds = %1409
-  %1412 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.43", ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 0, i32 0, i32 1), align 8
+  %1412 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i64 16), align 8
   store <2 x ptr> %1412, ptr %1407, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i
 
@@ -25367,7 +25367,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   store ptr @.str.44, ptr %1423, align 8
   %1424 = getelementptr inbounds i8, ptr %62, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
-  %1425 = load ptr, ptr getelementptr inbounds (%"class.std::function.45", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 0, i32 0, i32 1), align 8
+  %1425 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 16), align 8
   %.not.i.i.not.i37.i = icmp eq ptr %1425, null
   br i1 %.not.i.i.not.i37.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1426
 
@@ -25376,7 +25376,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
           to label %1428 unwind label %1430
 
 1428:                                             ; preds = %1426
-  %1429 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.45", ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 0, i32 0, i32 1), align 8
+  %1429 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i64 16), align 8
   store <2 x ptr> %1429, ptr %1424, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i
 
@@ -25558,7 +25558,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   store ptr @.str.48, ptr %1500, align 8
   %1501 = getelementptr inbounds i8, ptr %67, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
-  %1502 = load ptr, ptr getelementptr inbounds (%"class.std::function.54", ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 0, i32 0, i32 1), align 8
+  %1502 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 16), align 8
   %.not.i.i.not.i63.i = icmp eq ptr %1502, null
   br i1 %.not.i.i.not.i63.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1503
 
@@ -25567,7 +25567,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
           to label %1505 unwind label %1507
 
 1505:                                             ; preds = %1503
-  %1506 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.54", ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 0, i32 0, i32 1), align 8
+  %1506 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i64 16), align 8
   store <2 x ptr> %1506, ptr %1501, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i
 
@@ -25651,8 +25651,8 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   %1542 = and i8 %1541, 1
   store i8 %1542, ptr %1539, align 8, !noalias !308
   store ptr %1518, ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, align 8, !alias.scope !308
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (%"class.std::function.56", ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 0, i32 1), align 8, !alias.scope !308
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.56", ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !308
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 24), align 8, !alias.scope !308
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 16), align 8, !alias.scope !308
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %42)
   %1543 = getelementptr inbounds i8, ptr %51, i64 48
   %1544 = load ptr, ptr %1543, align 8
@@ -25978,7 +25978,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @.str.50, ptr %1649, align 8
   %1650 = getelementptr inbounds i8, ptr %39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
-  %1651 = load ptr, ptr getelementptr inbounds (%"class.std::function.16", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 0, i32 0, i32 1), align 8
+  %1651 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 16), align 8
   %.not.i.i.not.i.i139 = icmp eq ptr %1651, null
   br i1 %.not.i.i.not.i.i139, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %1652
 
@@ -25987,7 +25987,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZN19cmJSONHelperBu
           to label %1654 unwind label %1656
 
 1654:                                             ; preds = %1652
-  %1655 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.16", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 0, i32 0, i32 1), align 8
+  %1655 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i64 16), align 8
   store <2 x ptr> %1655, ptr %1650, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i
 
@@ -26019,7 +26019,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
   store ptr @.str.51, ptr %1666, align 8
   %1667 = getelementptr inbounds i8, ptr %41, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
-  %1668 = load ptr, ptr getelementptr inbounds (%"class.std::function.34", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 0, i32 0, i32 1), align 8
+  %1668 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 16), align 8
   %.not.i.i.not.i7.i = icmp eq ptr %1668, null
   br i1 %.not.i.i.not.i7.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %1669
 
@@ -26028,7 +26028,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
           to label %1671 unwind label %1673
 
 1671:                                             ; preds = %1669
-  %1672 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.34", ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 0, i32 0, i32 1), align 8
+  %1672 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i64 16), align 8
   store <2 x ptr> %1672, ptr %1667, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i
 
@@ -26112,8 +26112,8 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   %1708 = and i8 %1707, 1
   store i8 %1708, ptr %1705, align 8, !noalias !311
   store ptr %1684, ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, align 8, !alias.scope !311
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (%"class.std::function.65", ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 0, i32 1), align 8, !alias.scope !311
-  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function.65", ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 0, i32 0, i32 1), align 8, !alias.scope !311
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E9_M_invokeERKSt9_Any_dataS5_OS9_OSB_, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 24), align 8, !alias.scope !311
+  store ptr @_ZNSt17_Function_handlerIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder8OptionalIS3_NSD_6ObjectIS3_EEEESt8functionIFbRS0_IT_ES9_SB_EET0_EUlS5_S9_SB_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 16), align 8, !alias.scope !311
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %34)
   %1709 = getelementptr inbounds i8, ptr %35, i64 48
   %1710 = load ptr, ptr %1709, align 8
@@ -26924,7 +26924,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @.str.63, ptr %2008, align 8
   %2009 = getelementptr inbounds i8, ptr %28, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  %2010 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 0, i32 0, i32 1), align 8
+  %2010 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 16), align 8
   %.not.i.i.not.i.i175 = icmp eq ptr %2010, null
   br i1 %.not.i.i.not.i.i175, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2011
 
@@ -26933,7 +26933,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
           to label %2013 unwind label %2015
 
 2013:                                             ; preds = %2011
-  %2014 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 0, i32 0, i32 1), align 8
+  %2014 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i64 16), align 8
   store <2 x ptr> %2014, ptr %2009, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i
 
@@ -26965,7 +26965,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
   store ptr @.str.64, ptr %2025, align 8
   %2026 = getelementptr inbounds i8, ptr %30, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
-  %2027 = load ptr, ptr getelementptr inbounds (%"class.std::function.65", ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 0, i32 0, i32 1), align 8
+  %2027 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 16), align 8
   %.not.i.i.not.i70.i = icmp eq ptr %2027, null
   br i1 %.not.i.i.not.i70.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2028
 
@@ -26974,7 +26974,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
           to label %2030 unwind label %2032
 
 2030:                                             ; preds = %2028
-  %2031 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.65", ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 0, i32 0, i32 1), align 8
+  %2031 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i64 16), align 8
   store <2 x ptr> %2031, ptr %2026, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i
 
@@ -27006,7 +27006,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
   store ptr @.str.65, ptr %2042, align 8
   %2043 = getelementptr inbounds i8, ptr %32, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
-  %2044 = load ptr, ptr getelementptr inbounds (%"class.std::function.56", ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 0, i32 0, i32 1), align 8
+  %2044 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 16), align 8
   %.not.i.i.not.i75.i = icmp eq ptr %2044, null
   br i1 %.not.i.i.not.i75.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2045
 
@@ -27015,7 +27015,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
           to label %2047 unwind label %2049
 
 2047:                                             ; preds = %2045
-  %2048 = load <2 x ptr>, ptr getelementptr inbounds (%"class.std::function.56", ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 0, i32 0, i32 1), align 8
+  %2048 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i64 16), align 8
   store <2 x ptr> %2048, ptr %2043, align 8
   br label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i
 

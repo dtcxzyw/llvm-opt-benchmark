@@ -274,7 +274,7 @@ entry:
   %long_name107 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 800
   store ptr @.str.17, ptr %long_name107, align 16
   %value108 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 808
-  store ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 1), ptr %value108, align 8
+  store ptr getelementptr inbounds (i8, ptr @state, i64 8), ptr %value108, align 8
   %argh109 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 816
   store ptr @.str.18, ptr %argh109, align 16
   %help110 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 824
@@ -366,7 +366,7 @@ if.end149:                                        ; preds = %cond.end
   store ptr @the_index, ptr @state, align 8
   %14 = load i32, ptr %force, align 4
   %15 = trunc i32 %14 to i8
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 6), align 8
+  %bf.load = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 120), align 8
   %bf.value = and i8 %15, 1
   %bf.clear = and i8 %bf.load, -8
   %bf.set = or disjoint i8 %bf.clear, %bf.value
@@ -380,20 +380,20 @@ if.end149:                                        ; preds = %cond.end
   %bf.value158 = shl i8 %19, 2
   %bf.shl159 = and i8 %bf.value158, 4
   %bf.set161 = or disjoint i8 %bf.set155, %bf.shl159
-  store i8 %bf.set161, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 6), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 1), align 8
+  store i8 %bf.set161, ptr getelementptr inbounds (i8, ptr @state, i64 120), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 8), align 8
   %tobool163.not = icmp eq ptr %20, null
   br i1 %tobool163.not, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %if.end149
-  store ptr @.str.25, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 1), align 8
+  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @state, i64 8), align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then164, %if.end149
   %21 = phi ptr [ @.str.25, %if.then164 ], [ %20, %if.end149 ]
   %call166 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #14
   %conv167 = trunc i64 %call166 to i32
-  store i32 %conv167, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 2), align 8
+  store i32 %conv167, ptr getelementptr inbounds (i8, ptr @state, i64 16), align 8
   %22 = load i32, ptr @to_tempfile, align 4
   %cmp168 = icmp slt i32 %22, 0
   %.pre = load i32, ptr @checkout_stage, align 4
@@ -427,7 +427,7 @@ if.end180:                                        ; preds = %if.end173
 
 if.then186:                                       ; preds = %if.end180
   %bf.set189 = or i8 %bf.set161, 16
-  store i8 %bf.set189, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 6), align 8
+  store i8 %bf.set189, ptr getelementptr inbounds (i8, ptr @state, i64 120), align 8
   store ptr @the_index, ptr @state, align 8
   %27 = load ptr, ptr @the_repository, align 8
   %call190 = call i32 @repo_hold_locked_index(ptr noundef %27, ptr noundef nonnull %lock_file, i32 noundef 1) #13
@@ -580,7 +580,7 @@ if.end236:                                        ; preds = %while.end, %for.end
   br i1 %tobool237.not, label %if.end241, label %if.then238
 
 if.then238:                                       ; preds = %if.end236
-  %43 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp39.not.i = icmp eq i32 %43, 0
   br i1 %cmp39.not.i, label %checkout_all.exit, label %for.body.lr.ph.i
 
@@ -730,7 +730,7 @@ for.inc.i:                                        ; preds = %cond.end.i, %lor.lh
   %errs.2.i = phi i32 [ %errs.041.i, %land.lhs.true18.i ], [ %errs.041.i, %land.lhs.true29.i ], [ %errs.041.i, %lor.lhs.false32.i ], [ %spec.select.i, %cond.end.i ], [ %errs.041.i, %if.end.i ], [ %errs.041.i, %if.end8.i ]
   %last_ce.1.i = phi ptr [ %last_ce.042.i, %land.lhs.true18.i ], [ %last_ce.042.i, %land.lhs.true29.i ], [ %last_ce.042.i, %lor.lhs.false32.i ], [ %ce.0.ph.i, %cond.end.i ], [ %last_ce.042.i, %if.end.i ], [ %last_ce.042.i, %if.end8.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %61 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %62 = zext i32 %61 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %62
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !9
@@ -891,7 +891,7 @@ entry:
   %call1 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %name, i32 noundef %conv) #13
   %call1.lobit = ashr i32 %call1, 31
   %spec.select = xor i32 %call1.lobit, %call1
-  %0 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp424185 = icmp ult i32 %spec.select, %0
   br i1 %cmp424185, label %while.body.lr.ph.lr.ph, label %if.end62
 
@@ -1112,7 +1112,7 @@ if.end34:                                         ; preds = %if.end16.us102, %if
   %call.i = tail call i32 @checkout_entry_ca(ptr noundef nonnull %.us-phi83, ptr noundef null, ptr noundef nonnull @state, ptr noundef %cond, ptr noundef null) #13
   %30 = lshr i32 %call.i, 31
   %spec.select22 = add i32 %30, %errs.0.ph190
-  %31 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp424 = icmp ugt i32 %31, %.us-phi82
   br i1 %cmp424, label %while.body.lr.ph, label %if.then49, !llvm.loop !10
 
@@ -1148,7 +1148,7 @@ if.end62:                                         ; preds = %entry, %if.end56
   %tobool57261 = phi i1 [ %tobool57, %if.end56 ], [ false, %entry ]
   %tobool73.not.lcssa242260 = phi i1 [ %tobool73.not.lcssa, %if.end56 ], [ false, %entry ]
   %is_file.1244259 = phi i32 [ %is_file.1, %if.end56 ], [ 0, %entry ]
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.checkout, ptr @state, i64 0, i32 6), align 8
+  %bf.load = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 120), align 8
   %34 = and i8 %bf.load, 2
   %tobool63.not = icmp eq i8 %34, 0
   br i1 %tobool63.not, label %if.then64, label %return

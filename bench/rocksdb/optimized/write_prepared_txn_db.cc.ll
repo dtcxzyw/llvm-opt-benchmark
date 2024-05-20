@@ -1130,7 +1130,7 @@ _ZN7rocksdb18WritePreparedTxnDB12PreparedHeap4pushEm.exit.i: ; preds = %.noexc15
   br i1 %cmp.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN7rocksdb18WritePreparedTxnDB12PreparedHeap4pushEm.exit.i
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %add, i64 noundef %26)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %add, i64 noundef %26)
           to label %.noexc16 unwind label %lpad.loopexit
 
 .noexc16:                                         ; preds = %if.then6.i
@@ -1210,7 +1210,7 @@ invoke.cont74:                                    ; preds = %invoke.cont73
           to label %invoke.cont76 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %invoke.cont74
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN7rocksdb18WritePreparedTxnDB10InitializeERKSt6vectorImSaImEERKS1_IPNS_18ColumnFamilyHandleESaIS7_EEE32CommitSubBatchPreReleaseCallback, i64 0, i32 0, i64 2), ptr %call77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb18WritePreparedTxnDB10InitializeERKSt6vectorImSaImEERKS1_IPNS_18ColumnFamilyHandleESaIS7_EEE32CommitSubBatchPreReleaseCallback, i64 16), ptr %call77, align 8
   %db_.i = getelementptr inbounds i8, ptr %call77, i64 8
   store ptr %this, ptr %db_.i, align 8
   invoke void @_ZN7rocksdb6DBImpl37SetRecoverableStatePreReleaseCallbackEPNS_18PreReleaseCallbackE(ptr noundef nonnull align 64 dereferenceable(6660) %37, ptr noundef nonnull %call77)
@@ -1425,7 +1425,7 @@ _ZN7rocksdb18WritePreparedTxnDB12PreparedHeap4pushEm.exit: ; preds = %if.then.i.
 
 if.then6:                                         ; preds = %_ZN7rocksdb18WritePreparedTxnDB12PreparedHeap4pushEm.exit
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
-  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %seq, i64 noundef %4)
+  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %seq, i64 noundef %4)
   call void @_ZN7rocksdb18WritePreparedTxnDB23CheckPreparedAgainstMaxEmb(ptr noundef nonnull align 8 dereferenceable(1352) %this, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end8
 
@@ -2004,7 +2004,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN7rocksdb18WritePreparedTxnDB18GetCFComparatorMapEv.exit
 
 _ZN7rocksdb18WritePreparedTxnDB18GetCFComparatorMapEv.exit: ; preds = %if.then10, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 0, i32 0, i64 2), ptr %counter, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 16), ptr %counter, align 8
   %comparators_.i = getelementptr inbounds i8, ptr %counter, i64 8
   store ptr %3, ptr %comparators_.i, align 8
   %8 = getelementptr inbounds i8, ptr %counter, i64 24
@@ -2151,7 +2151,7 @@ _ZN7rocksdb6StatusD2Ev.exit35:                    ; preds = %nrvo.unused27, %_ZN
 
 nrvo.skipdtor28:                                  ; preds = %invoke.cont18, %_ZN7rocksdb6StatusD2Ev.exit35
   %batch_cnt.addr.088 = phi i64 [ %23, %_ZN7rocksdb6StatusD2Ev.exit35 ], [ 0, %invoke.cont18 ]
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 0, i32 0, i64 2), ptr %counter, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 16), ptr %counter, align 8
   %keys_.i = getelementptr inbounds i8, ptr %counter, i64 16
   %28 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIN7rocksdb5SliceENS3_13SetComparatorESaIS4_EEESt10_Select1stIS8_ESt4lessIjESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %keys_.i, ptr noundef %28)
@@ -2187,7 +2187,7 @@ if.end32:                                         ; preds = %_ZN7rocksdb15SubBat
   %two_write_queues40 = getelementptr inbounds i8, ptr %33, i64 1252
   %34 = load i8, ptr %two_write_queues40, align 4
   %frombool.i = and i8 %34, 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 0, i32 0, i64 2), ptr %add_prepared_callback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 16), ptr %add_prepared_callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 8
   store ptr %this, ptr %db_.i, align 8
   %db_impl_.i37 = getelementptr inbounds i8, ptr %add_prepared_callback, i64 16
@@ -2198,7 +2198,7 @@ if.end32:                                         ; preds = %_ZN7rocksdb15SubBat
   store i8 %frombool.i, ptr %two_write_queues_.i, align 8
   %first_prepare_batch_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 33
   store i8 0, ptr %first_prepare_batch_.i, align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, i32 0, i64 2), ptr %update_commit_map, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 16), ptr %update_commit_map, align 8
   %db_.i38 = getelementptr inbounds i8, ptr %update_commit_map, i64 8
   store ptr %this, ptr %db_.i38, align 8
   %db_impl_.i39 = getelementptr inbounds i8, ptr %update_commit_map, i64 16
@@ -2304,7 +2304,7 @@ invoke.cont58:                                    ; preds = %_ZN7rocksdb6StatusD
 
 if.end64:                                         ; preds = %invoke.cont58
   %48 = load ptr, ptr %db_impl_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, i32 0, i64 2), ptr %update_commit_map_with_prepare, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 16), ptr %update_commit_map_with_prepare, align 8
   %db_.i49 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 8
   store ptr %this, ptr %db_.i49, align 8
   %db_impl_.i50 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 16
@@ -2633,7 +2633,7 @@ declare void @_ZNK7rocksdb10WriteBatch7IterateEPNS0_7HandlerE(ptr sret(%"class.r
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15SubBatchCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 16), ptr %this, align 8
   %keys_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -2870,7 +2870,7 @@ _ZN7rocksdb18WritePreparedTxnDB16AssignMinMaxSeqsEPKNS_8SnapshotEPmS4_.exit: ; p
   store i64 %storemerge.i, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store i64 %min_uncommitted.0, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 16), ptr %callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %callback, i64 24
   store ptr %this, ptr %db_.i, align 8
   %backed_by_snapshot_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -3010,7 +3010,7 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28WritePreparedTxnReadCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(35) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -3307,7 +3307,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPSt3mapIjPKN7rocksdb10Com
   store i32 1, ptr %_M_use_count.i.i.i3, align 8
   %_M_weak_count.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i4, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt3mapIjPKN7rocksdb10ComparatorESt4lessIjESaISt4pairIKjS4_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt3mapIjPKN7rocksdb10ComparatorESt4lessIjESaISt4pairIKjS4_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i, align 8
   store ptr %__p, ptr %this, align 8
@@ -3436,7 +3436,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPSt3mapIjPN7rocksdb18Colu
   store i32 1, ptr %_M_use_count.i.i.i3, align 8
   %_M_weak_count.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i4, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt3mapIjPN7rocksdb18ColumnFamilyHandleESt4lessIjESaISt4pairIKjS3_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt3mapIjPN7rocksdb18ColumnFamilyHandleESt4lessIjESaISt4pairIKjS3_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i, align 8
   store ptr %__p, ptr %this, align 8
@@ -4321,7 +4321,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont27
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !35
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !35
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i16, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i16, align 8, !noalias !35
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16, i64 16
   %19 = load ptr, ptr %db_impl_, align 8, !noalias !35
   invoke void @_ZN7rocksdb15ManagedSnapshotC1EPNS_2DBEPKNS_8SnapshotE(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef %19, ptr noundef nonnull %call24)
@@ -4380,7 +4380,7 @@ _ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit: ; preds = %invoke.c
   store i64 %snapshot_seq.0, ptr %max_visible_seq_.i.i.i, align 8
   %min_uncommitted_.i.i.i = getelementptr inbounds i8, ptr %call43, i64 16
   store i64 %min_uncommitted.0, ptr %min_uncommitted_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %call43, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 16), ptr %call43, align 8
   %db_.i.i = getelementptr inbounds i8, ptr %call43, i64 24
   store ptr %this, ptr %db_.i.i, align 8
   %backed_by_snapshot_.i.i = getelementptr inbounds i8, ptr %call43, i64 32
@@ -4911,7 +4911,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont23
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !38
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i14, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !38
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i14, align 8, !noalias !38
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i14, align 8, !noalias !38
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i14, i64 16
   %13 = load ptr, ptr %db_impl_, align 8, !noalias !38
   invoke void @_ZN7rocksdb15ManagedSnapshotC1EPNS_2DBEPKNS_8SnapshotE(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef %13, ptr noundef nonnull %call20)
@@ -5044,7 +5044,7 @@ _ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit: ; preds = %invoke.c
   store i64 %snapshot_seq.0, ptr %max_visible_seq_.i.i.i, align 8
   %min_uncommitted_.i.i.i = getelementptr inbounds i8, ptr %call46, i64 16
   store i64 %min_uncommitted.0, ptr %min_uncommitted_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %call46, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 16), ptr %call46, align 8
   %db_.i.i = getelementptr inbounds i8, ptr %call46, i64 24
   store ptr %this, ptr %db_.i.i, align 8
   %backed_by_snapshot_.i.i = getelementptr inbounds i8, ptr %call46, i64 32
@@ -5580,7 +5580,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeImmSt
 
 invoke.cont17:                                    ; preds = %if.end12.i.i.i.invoke.cont17_crit_edge, %call5.i.i.i.i.i.i.i.i.noexc
   %10 = phi i64 [ %.pre, %if.end12.i.i.i.invoke.cont17_crit_edge ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %10, i64 noundef %3, i64 noundef %new_max)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %10, i64 noundef %3, i64 noundef %new_max)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %invoke.cont17
@@ -6159,7 +6159,7 @@ invoke.cont28:                                    ; preds = %for.cond.i.i.i.i, %
   %retval.0.i.i = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i, i64 16
   store i64 %15, ptr %retval.0.i.i, align 8
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %12, i64 noundef %15)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %12, i64 noundef %15)
           to label %if.end35 unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i14, %invoke.cont28
@@ -6208,7 +6208,7 @@ if.end37:                                         ; preds = %entry, %if.end36
 
 if.then43:                                        ; preds = %if.end37
   %info_log_44 = getelementptr inbounds i8, ptr %this, i64 40
-  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_44, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %rem, i64 noundef %prepare_seq, i64 noundef %commit_seq)
+  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %info_log_44, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %rem, i64 noundef %prepare_seq, i64 noundef %commit_seq)
   %cmp46 = icmp ugt i8 %loop_cnt, 100
   br i1 %cmp46, label %if.then47, label %if.end50
 
@@ -6335,7 +6335,7 @@ _ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit: ; preds = %if.then14, %if
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load i64, ptr %evicted, align 8
   %12 = load i64, ptr %commit_seq, align 8
-  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %11, i64 noundef %12, i64 noundef %0)
+  call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %11, i64 noundef %12, i64 noundef %0)
   %snapshots_mutex_ = getelementptr inbounds i8, ptr %this, i64 1192
   call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %snapshots_mutex_)
   %13 = load i64, ptr %SNAPSHOT_CACHE_SIZE, align 8
@@ -7252,7 +7252,7 @@ while.body:                                       ; preds = %land.lhs.true
   %vtable17 = load ptr, ptr %snap_impl.038, align 8
   %15 = load ptr, ptr %vtable17, align 8
   %call19 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.038)
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %call19, i64 noundef %13, i64 noundef %retry.039)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %call19, i64 noundef %13, i64 noundef %retry.039)
   %vtable20 = load ptr, ptr %this, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 480
   %16 = load ptr, ptr %vfn21, align 8
@@ -7958,7 +7958,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit: ; preds = %if.then, %if.then.i.i
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %snap_seq)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %snap_seq)
   %old_commit_map_mutex_ = getelementptr inbounds i8, ptr %this, i64 1080
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %old_commit_map_mutex_)
   %old_commit_map_ = getelementptr inbounds i8, ptr %this, i64 864
@@ -8023,7 +8023,7 @@ if.then.i.i6:                                     ; preds = %if.then8
   br label %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit9
 
 _ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit9: ; preds = %if.then8, %if.then.i.i6
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %snap_seq)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %snap_seq)
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %old_commit_map_mutex_)
   %__x.038.i.i.i = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not39.i.i.i = icmp eq ptr %__x.038.i.i.i, null
@@ -8260,7 +8260,7 @@ _ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit: ; preds = %if.then3, %if.
   %7 = phi i64 [ %2, %if.then3 ], [ %.pre16, %if.then.i.i ]
   %8 = phi i64 [ %1, %if.then3 ], [ %.pre, %if.then.i.i ]
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds ([141 x i8], ptr @.str.5, i64 0, i64 93), i64 noundef %8, i64 noundef %7, i64 noundef %6)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %8, i64 noundef %7, i64 noundef %6)
   %old_commit_map_mutex_ = getelementptr inbounds i8, ptr %this, i64 1080
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %old_commit_map_mutex_)
   %old_commit_map_empty_ = getelementptr inbounds i8, ptr %this, i64 1017
@@ -8505,7 +8505,7 @@ if.end38:                                         ; preds = %if.then9, %invoke.c
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb18WritePreparedTxnDBD2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 16), ptr %this, align 8
   %db_impl_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %db_impl_, align 8
   %shutting_down_ = getelementptr inbounds i8, ptr %0, i64 2576
@@ -13285,7 +13285,7 @@ declare void @_ZN7rocksdb22PessimisticTransaction11CommitBatchEPNS_10WriteBatchE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15SubBatchCounterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 16), ptr %this, align 8
   %keys_.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -13902,7 +13902,7 @@ if.then.i.i:                                      ; preds = %if.then28
 _ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit: ; preds = %if.then28, %if.then.i.i
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %prepared_mutex_)
   %14 = load i64, ptr %_M_node_count.i.i, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([140 x i8], ptr @.str.26, i64 0, i64 93), i64 noundef %14, i64 noundef %10)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 93), i64 noundef %14, i64 noundef %10)
           to label %invoke.cont33 unwind label %lpad29
 
 invoke.cont33:                                    ; preds = %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit

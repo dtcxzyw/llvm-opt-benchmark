@@ -215,7 +215,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 68:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   %69 = zext i8 %66 to i64
-  %70 = getelementptr inbounds i8, ptr getelementptr inbounds (%"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 1), i64 %69
+  %70 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 32), i64 %69
   store ptr %70, ptr %9, align 8, !tbaa !32
   %71 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
@@ -243,7 +243,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %85 = getelementptr inbounds i8, ptr %79, i64 2
   %86 = load i8, ptr %85, align 1, !tbaa !39
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds i8, ptr getelementptr inbounds (%"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 3), i64 %87
+  %88 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 256), i64 %87
   %89 = shl nuw nsw i32 %5, 2
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %88, i64 %90
@@ -260,7 +260,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %98 = getelementptr inbounds i8, ptr %79, i64 1
   %99 = load i8, ptr %98, align 1, !tbaa !41
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds i8, ptr getelementptr inbounds (%"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 3), i64 %100
+  %101 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 256), i64 %100
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   store i32 %5, ptr %10, align 4, !tbaa !7
   %102 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %101, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
@@ -276,7 +276,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 107:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
   %108 = zext i8 %105 to i64
-  %109 = getelementptr inbounds i8, ptr getelementptr inbounds (%"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 1), i64 %108
+  %109 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 32), i64 %108
   store ptr %109, ptr %11, align 8, !tbaa !32
   %110 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcRjEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
@@ -405,7 +405,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %39 = shl nuw nsw i32 %35, 2
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr getelementptr inbounds (%"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 3, i64 224), i64 %40
+  %41 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 480), i64 %40
   store ptr %41, ptr %6, align 8, !tbaa !32
   %42 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8

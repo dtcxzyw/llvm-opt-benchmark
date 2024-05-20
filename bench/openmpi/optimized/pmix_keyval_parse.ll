@@ -40,7 +40,7 @@ define void @pmix_util_keyval_parse_finalize() local_unnamed_addr #0 {
   tail call void @free(ptr noundef %1) #14
   store ptr null, ptr @key_buffer, align 8
   store i64 0, ptr @key_buffer_len, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @keyval_mutex, i64 40), align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -66,7 +66,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_util_keyval_parse_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @pmix_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -75,10 +75,10 @@ define noundef i32 @pmix_util_keyval_parse_init() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 0, i32 3), i8 0, i64 64, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
+  store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (i8, ptr @keyval_mutex, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @keyval_mutex, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @keyval_mutex, i64 56), i8 0, i64 64, i1 false)
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
   br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -100,7 +100,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -46, 1) i32 @pmix_util_keyval_parse(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 1)) #14
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @keyval_mutex, i64 120)) #14
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   store ptr %4, ptr @pmix_util_keyval_yyin, align 8
   %5 = icmp eq ptr %4, null
@@ -597,7 +597,7 @@ parse_line.exit:                                  ; preds = %224, %221, %178, %1
 
 235:                                              ; preds = %2, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -46, %2 ]
-  %236 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.pmix_mutex_t, ptr @keyval_mutex, i64 0, i32 1)) #14
+  %236 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @keyval_mutex, i64 120)) #14
   ret i32 %.0
 }
 

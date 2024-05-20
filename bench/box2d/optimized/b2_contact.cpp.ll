@@ -30,41 +30,41 @@ $_ZTI9b2Contact = comdat any
 define void @_ZN9b2Contact19InitializeRegistersEv() local_unnamed_addr #0 align 2 {
 entry:
   store ptr @_ZN15b2CircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr @_ZN9b2Contact11s_registersE, align 16
-  store ptr @_ZN15b2CircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 0, i32 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0, i32 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2, i32 2), align 16
-  store ptr @_ZN16b2PolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2), align 16
-  store ptr @_ZN16b2PolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2, i32 2), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0, i32 2), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1), align 8
-  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1, i32 2), align 8
-  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2), align 16
-  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2, i32 2), align 16
-  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1), align 8
-  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1, i32 2), align 8
-  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0), align 16
-  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0, i32 2), align 16
-  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3), align 8
-  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3, i32 2), align 8
-  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2), align 16
-  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2, i32 2), align 16
-  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3), align 8
-  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3, i32 2), align 8
+  store ptr @_ZN15b2CircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 16), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 192), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 200), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 208), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 48), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 64), align 16
+  store ptr @_ZN16b2PolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 240), align 16
+  store ptr @_ZN16b2PolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 248), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 256), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 96), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 104), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 112), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 24), align 8
+  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 32), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 40), align 8
+  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 144), align 16
+  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 160), align 16
+  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 216), align 8
+  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 224), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 232), align 8
+  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 288), align 16
+  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 296), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 304), align 16
+  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 72), align 8
+  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 80), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 88), align 8
+  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 336), align 16
+  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 344), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 352), align 16
+  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 264), align 8
+  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 272), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 280), align 8
   ret void
 }
 
@@ -133,41 +133,41 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr @_ZN15b2CircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr @_ZN9b2Contact11s_registersE, align 16
-  store ptr @_ZN15b2CircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 0, i32 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 0, i32 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2), align 16
-  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 2, i32 2), align 16
-  store ptr @_ZN16b2PolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2), align 16
-  store ptr @_ZN16b2PolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 2, i32 2), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 0, i32 2), align 16
-  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1), align 8
-  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 1, i32 2), align 8
-  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2), align 16
-  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 1, i64 2, i32 2), align 16
-  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1), align 8
-  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 1, i32 2), align 8
-  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0), align 16
-  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 0, i32 2), align 16
-  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3), align 8
-  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 0, i64 3, i32 2), align 8
-  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2), align 16
-  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 3, i64 2, i32 2), align 16
-  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3), align 8
-  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds ([4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 2, i64 3, i32 2), align 8
+  store ptr @_ZN15b2CircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 16), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 192), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 200), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 208), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 48), align 16
+  store ptr @_ZN25b2PolygonAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 56), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 64), align 16
+  store ptr @_ZN16b2PolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 240), align 16
+  store ptr @_ZN16b2PolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 248), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 256), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 96), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 104), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 112), align 16
+  store ptr @_ZN22b2EdgeAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 24), align 8
+  store ptr @_ZN22b2EdgeAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 32), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 40), align 8
+  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 144), align 16
+  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 160), align 16
+  store ptr @_ZN23b2EdgeAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 216), align 8
+  store ptr @_ZN23b2EdgeAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 224), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 232), align 8
+  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 288), align 16
+  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 296), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 304), align 16
+  store ptr @_ZN23b2ChainAndCircleContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 72), align 8
+  store ptr @_ZN23b2ChainAndCircleContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 80), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 88), align 8
+  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 336), align 16
+  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 344), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 352), align 16
+  store ptr @_ZN24b2ChainAndPolygonContact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 264), align 8
+  store ptr @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 272), align 16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN9b2Contact11s_registersE, i64 280), align 8
   store i8 1, ptr @_ZN9b2Contact13s_initializedE, align 1
   br label %if.end
 
@@ -282,7 +282,7 @@ if.end:                                           ; preds = %if.end.i12, %_ZN6b2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fA, i32 noundef %indexA, ptr noundef %fB, i32 noundef %indexB) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9b2Contact, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9b2Contact, i64 16), ptr %this, align 8
   %m_flags = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %m_flags, align 8
   %m_fixtureA = getelementptr inbounds i8, ptr %this, i64 96

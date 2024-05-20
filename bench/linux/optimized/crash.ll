@@ -50,7 +50,7 @@ define dso_local void @crash_smp_send_stop() local_unnamed_addr #0 align 16 {
   br i1 %1, label %9, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 32), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -59,7 +59,7 @@ define dso_local void @crash_smp_send_stop() local_unnamed_addr #0 align 16 {
   br label %8
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
   tail call void %7(i32 noundef 0) #7
   br label %8
 
@@ -78,7 +78,7 @@ define dso_local void @native_machine_crash_shutdown(ptr noundef %0) local_unnam
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 32), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
 
@@ -87,7 +87,7 @@ define dso_local void @native_machine_crash_shutdown(ptr noundef %0) local_unnam
   br label %9
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
   tail call void %8(i32 noundef 0) #7
   br label %9
 
@@ -102,7 +102,7 @@ define dso_local void @native_machine_crash_shutdown(ptr noundef %0) local_unnam
   tail call void @lapic_shutdown() #7
   tail call void @restore_boot_irq_mode() #7
   tail call void @hpet_disable() #7
-  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #8, !srcloc !6
+  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !6
   tail call void @crash_save_cpu(ptr noundef %0, i32 noundef %11) #7
   ret void
 }
@@ -215,13 +215,13 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
 
 37:                                               ; preds = %34
   %38 = load i64, ptr @crashk_res, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @crashk_res, i64 8), align 8
   %40 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %27, i64 noundef %38, i64 noundef %39) #7
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %52
 
 42:                                               ; preds = %37
-  %43 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_low_res, i64 0, i32 1), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @crashk_low_res, i64 8), align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %49, label %45
 

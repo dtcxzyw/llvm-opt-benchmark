@@ -5265,7 +5265,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 227:                                              ; preds = %214, %.noexc31
-  %.0.i.i2.i = phi ptr [ %221, %.noexc31 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %214 ]
+  %.0.i.i2.i = phi ptr [ %221, %.noexc31 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %214 ]
   %228 = getelementptr inbounds i8, ptr %101, i64 48
   %229 = getelementptr inbounds i8, ptr %101, i64 56
   %230 = getelementptr inbounds i8, ptr %101, i64 120
@@ -7978,7 +7978,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   unreachable
 
 110:                                              ; preds = %93, %.noexc68
-  %.0.i.i2.i = phi ptr [ %99, %.noexc68 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %93 ]
+  %.0.i.i2.i = phi ptr [ %99, %.noexc68 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %93 ]
   %111 = getelementptr inbounds i8, ptr %12, i64 48
   %112 = getelementptr inbounds i8, ptr %12, i64 56
   %113 = getelementptr inbounds i8, ptr %12, i64 120
@@ -13644,7 +13644,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   br label %.loopexit.split-lp
 
 1731:                                             ; preds = %1726, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i
-  %.0.i.i2.i = phi ptr [ %1728, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1726 ]
+  %.0.i.i2.i = phi ptr [ %1728, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1726 ]
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %86, i64 32
   %1732 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !2099
   %1733 = extractelement <2 x i64> %1732, i64 0

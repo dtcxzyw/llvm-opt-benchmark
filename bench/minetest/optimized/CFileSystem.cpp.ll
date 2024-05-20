@@ -202,8 +202,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !31
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-24, 240) ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 240) (i8, ptr @_ZTVN3irr2io11CFileSystemE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io11CFileSystemE, i64 288), ptr %0, align 8, !tbaa !3
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %1, ptr %arrayctor.cur.ptr, align 8, !tbaa !6

@@ -180,7 +180,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   br label %.thread
 
 41:                                               ; preds = %31
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %43 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3136, i64 noundef 48) #9
   %44 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr %43, ptr %44, align 8

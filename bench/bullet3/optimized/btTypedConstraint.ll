@@ -64,7 +64,7 @@ define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigi
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   %m_userConstraintType = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %m_userConstraintType, align 4
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -130,7 +130,7 @@ define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigi
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   %m_userConstraintType = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %m_userConstraintType, align 4
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -368,7 +368,7 @@ declare void @_ZN11btRigidBodyC1EfP13btMotionStateP16btCollisionShapeRK9btVector
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -671,7 +671,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
 }
 

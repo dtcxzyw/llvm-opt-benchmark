@@ -1016,7 +1016,7 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %entry
-  %__begin0.sroa.0.0.in.i = phi ptr [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN7rocksdbL21value_type_string_mapB5cxx11E, i64 0, i32 0, i32 2, i32 0), %entry ], [ %__begin0.sroa.0.0.i, %for.body.i ]
+  %__begin0.sroa.0.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdbL21value_type_string_mapB5cxx11E, i64 16), %entry ], [ %__begin0.sroa.0.0.i, %for.body.i ]
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0.in.i, align 8
   %cmp.i.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
   br i1 %cmp.i.not.i.not, label %if.else, label %for.body.i
@@ -1051,7 +1051,7 @@ call.i.noexc:                                     ; preds = %if.else
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.25, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 7))
           to label %invoke.cont4 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc

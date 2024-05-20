@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.12 = type { ptr, ptr }
 %struct.ScratchBuf = type { [65536 x i8], i32 }
 %struct.StringSlice_ = type { ptr, i64 }
-%struct.anon.7 = type { i32, i32 }
 
 @x86_feature_zero = dso_local local_unnamed_addr constant %struct.X86Features zeroinitializer, align 8
 @platform_target = dso_local global { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } zeroinitializer, align 8
@@ -375,7 +374,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @target_alloca_addr_space() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 9), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 52), align 4
   ret i32 %1
 }
 
@@ -501,7 +500,7 @@ define dso_local noundef ptr @llvm_target_machine_create() local_unnamed_addr #2
   unreachable
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 14), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   %12 = icmp ult i32 %11, 5
   br i1 %12, label %switch.lookup, label %13
 
@@ -519,7 +518,7 @@ switch.lookup:                                    ; preds = %10
 
 17:                                               ; preds = %switch.lookup
   %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %19 = load ptr, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef %19)
   %putchar = call i32 @putchar(i32 10)
   %.pre = load i8, ptr @debug_log, align 1
@@ -532,7 +531,7 @@ switch.lookup:                                    ; preds = %10
 
 24:                                               ; preds = %21
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %26 = load ptr, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 3), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_target, i64 24), align 8
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %26)
   %putchar6 = call i32 @putchar(i32 10)
   br label %28
@@ -540,13 +539,13 @@ switch.lookup:                                    ; preds = %10
 28:                                               ; preds = %21, %24
   %29 = load ptr, ptr %2, align 8
   %30 = load ptr, ptr @platform_target, align 8
-  %31 = load ptr, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 2), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
   %.not7 = icmp eq ptr %31, null
   %32 = select i1 %.not7, ptr @.str.24, ptr %31
-  %33 = load ptr, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 3), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @platform_target, i64 24), align 8
   %.not8 = icmp eq ptr %33, null
   %34 = select i1 %.not8, ptr @.str.24, ptr %33
-  %35 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 1), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 8), align 8
   %36 = call ptr @LLVMCreateTargetMachine(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %32, ptr noundef nonnull %34, i32 noundef %35, i32 noundef %switch.load, i32 noundef 0) #17
   call void @LLVMSetTargetMachineUseInitArray(ptr noundef %36, i1 noundef zeroext true) #17
   %.not9 = icmp eq ptr %36, null
@@ -675,7 +674,7 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   %23 = getelementptr inbounds [25 x ptr], ptr @arch_to_target_triple, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr @platform_target, align 8
-  store i32 0, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 9), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 52), align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 184
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %28 [
@@ -695,7 +694,7 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   unreachable
 
 29:                                               ; preds = %.thread, %.thread, %.thread, %.thread
-  store i32 %26, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 1), align 8
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @platform_target, i64 8), align 8
   %30 = load i8, ptr @debug_log, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %36
@@ -1089,12 +1088,12 @@ slice_strcmp.exit.thread:                         ; preds = %slice_strcmp.exit12
 
 arch_is_supported.exit.thread:                    ; preds = %212, %210, %180, %178, %176, %slice_strcmp.exit127, %slice_strcmp.exit130
   %.0.i = phi i32 [ 3, %slice_strcmp.exit130 ], [ 3, %slice_strcmp.exit127 ], [ 32, %176 ], [ 32, %178 ], [ 32, %180 ], [ 47, %210 ], [ 48, %212 ]
-  store i32 %.0.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store i32 %.0.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   br label %218
 
 select.unfold:                                    ; preds = %216, %slice_strcmp.exit.i, %slice_strcmp.exit171.i, %slice_strcmp.exit174.i, %slice_strcmp.exit177.i, %slice_strcmp.exit180.i, %slice_strcmp.exit183.i, %slice_strcmp.exit133, %slice_strcmp.exit124, %slice_strcmp.exit, %slice_strcmp.exit.thread, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %214
   %.0.i.ph = phi i32 [ 49, %214 ], [ 45, %208 ], [ 46, %206 ], [ 44, %204 ], [ 43, %202 ], [ 42, %200 ], [ 41, %198 ], [ 40, %196 ], [ 39, %194 ], [ 38, %192 ], [ 37, %190 ], [ 36, %188 ], [ 35, %186 ], [ 34, %184 ], [ 33, %182 ], [ 30, %174 ], [ 29, %172 ], [ 28, %170 ], [ 27, %168 ], [ 26, %166 ], [ 26, %164 ], [ 24, %162 ], [ 24, %160 ], [ 25, %158 ], [ 23, %156 ], [ 22, %154 ], [ 21, %152 ], [ 20, %150 ], [ 19, %148 ], [ 16, %146 ], [ 16, %144 ], [ 16, %142 ], [ 18, %140 ], [ 18, %138 ], [ 17, %136 ], [ 17, %134 ], [ 17, %132 ], [ 15, %130 ], [ 14, %128 ], [ 14, %126 ], [ 14, %124 ], [ 14, %122 ], [ 14, %120 ], [ 13, %118 ], [ 13, %116 ], [ 13, %114 ], [ 13, %112 ], [ 13, %110 ], [ 13, %108 ], [ 12, %106 ], [ 12, %104 ], [ 12, %102 ], [ 12, %100 ], [ 11, %98 ], [ 11, %96 ], [ 11, %94 ], [ 11, %92 ], [ 11, %90 ], [ 10, %88 ], [ 8, %86 ], [ 9, %84 ], [ 7, %82 ], [ 6, %80 ], [ 2, %78 ], [ 2, %76 ], [ 1, %74 ], [ 1, %72 ], [ 5, %slice_strcmp.exit.thread ], [ 5, %slice_strcmp.exit ], [ 4, %slice_strcmp.exit124 ], [ 31, %slice_strcmp.exit133 ], [ 31, %slice_strcmp.exit183.i ], [ 31, %slice_strcmp.exit180.i ], [ 31, %slice_strcmp.exit177.i ], [ 31, %slice_strcmp.exit174.i ], [ 31, %slice_strcmp.exit171.i ], [ 31, %slice_strcmp.exit.i ], [ %spec.select, %216 ]
-  store i32 %.0.i.ph, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store i32 %.0.i.ph, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %218
 
@@ -1230,7 +1229,7 @@ slice_strcmp.exit136.thread:                      ; preds = %slice_strcmp.exit.i
 
 vendor_from_llvm_string.exit:                     ; preds = %slice_strcmp.exit.i67, %slice_strcmp.exit33.i, %slice_strcmp.exit36.i, %slice_strcmp.exit39.i, %slice_strcmp.exit42.i.tail, %slice_strcmp.exit45.i.tail, %slice_strcmp.exit148, %slice_strcmp.exit145, %slice_strcmp.exit142, %slice_strcmp.exit139, %slice_strcmp.exit136, %slice_strcmp.exit136.thread, %265, %267, %269, %271
   %.0.i66 = phi i32 [ 1, %slice_strcmp.exit.i67 ], [ 2, %slice_strcmp.exit33.i ], [ 3, %slice_strcmp.exit36.i ], [ 4, %slice_strcmp.exit39.i ], [ 5, %slice_strcmp.exit42.i.tail ], [ 6, %slice_strcmp.exit45.i.tail ], [ 7, %slice_strcmp.exit148 ], [ 8, %slice_strcmp.exit145 ], [ 9, %slice_strcmp.exit142 ], [ 10, %slice_strcmp.exit139 ], [ 11, %slice_strcmp.exit136 ], [ 12, %slice_strcmp.exit136.thread ], [ 13, %265 ], [ 14, %267 ], [ 15, %269 ], [ %..i65, %271 ]
-  store i32 %.0.i66, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 6), align 8
+  store i32 %.0.i66, ptr getelementptr inbounds (i8, ptr @platform_target, i64 40), align 8
   %273 = call { ptr, i64 } @slice_next_token(ptr noundef nonnull %6, i8 noundef signext 45) #17
   %274 = extractvalue { ptr, i64 } %273, 0
   %275 = extractvalue { ptr, i64 } %273, 1
@@ -1420,7 +1419,7 @@ slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %ven
 
 os_from_llvm_string.exit:                         ; preds = %slice_strcmp.exit.i69, %slice_strcmp.exit81.i, %slice_strcmp.exit84.i, %slice_strcmp.exit87.i, %slice_strcmp.exit90.i, %slice_strcmp.exit93.i, %slice_strcmp.exit166, %slice_strcmp.exit163, %slice_strcmp.exit160, %slice_strcmp.exit157, %slice_strcmp.exit154, %slice_strcmp.exit151, %slice_strcmp.exit151.thread, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350
   %.077.i = phi i32 [ 2, %slice_strcmp.exit.i69 ], [ 3, %slice_strcmp.exit81.i ], [ 11, %slice_strcmp.exit84.i ], [ 4, %slice_strcmp.exit87.i ], [ 5, %slice_strcmp.exit90.i ], [ 6, %slice_strcmp.exit93.i ], [ 7, %slice_strcmp.exit166 ], [ 8, %slice_strcmp.exit163 ], [ 9, %slice_strcmp.exit160 ], [ 10, %slice_strcmp.exit157 ], [ 11, %slice_strcmp.exit154 ], [ 12, %slice_strcmp.exit151 ], [ 13, %slice_strcmp.exit151.thread ], [ 14, %306 ], [ 15, %308 ], [ 16, %310 ], [ 17, %312 ], [ 18, %314 ], [ 19, %316 ], [ 20, %318 ], [ 21, %320 ], [ 22, %322 ], [ 23, %324 ], [ 24, %326 ], [ 25, %328 ], [ 26, %330 ], [ 27, %332 ], [ 28, %334 ], [ 29, %336 ], [ 30, %338 ], [ 31, %340 ], [ 32, %342 ], [ 33, %344 ], [ 34, %346 ], [ 35, %348 ], [ %..i68, %350 ]
-  store i32 %.077.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 5), align 4
+  store i32 %.077.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %352 = load ptr, ptr %6, align 8
   %353 = load i64, ptr %45, align 8
   %.not.i70 = icmp eq i64 %353, 0
@@ -1572,7 +1571,7 @@ slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %o
 
 environment_type_from_llvm_string.exit:           ; preds = %slice_strcmp.exit.i75.tail, %slice_strcmp.exit51.i, %slice_strcmp.exit54.i, %slice_strcmp.exit57.i, %slice_strcmp.exit60.i, %slice_strcmp.exit63.i, %slice_strcmp.exit184, %slice_strcmp.exit181, %slice_strcmp.exit178, %slice_strcmp.exit175, %slice_strcmp.exit172, %slice_strcmp.exit169, %slice_strcmp.exit169.thread, %395, %397, %399, %401, %403, %405, %407, %409
   %.047.i = phi i32 [ 1, %slice_strcmp.exit.i75.tail ], [ 2, %slice_strcmp.exit51.i ], [ 3, %slice_strcmp.exit54.i ], [ 5, %slice_strcmp.exit57.i ], [ 4, %slice_strcmp.exit60.i ], [ 6, %slice_strcmp.exit63.i ], [ 7, %slice_strcmp.exit184 ], [ 8, %slice_strcmp.exit181 ], [ 9, %slice_strcmp.exit178 ], [ 10, %slice_strcmp.exit175 ], [ 11, %slice_strcmp.exit172 ], [ 12, %slice_strcmp.exit169 ], [ 13, %slice_strcmp.exit169.thread ], [ 14, %395 ], [ 15, %397 ], [ 16, %399 ], [ 17, %401 ], [ 18, %403 ], [ 19, %405 ], [ 20, %407 ], [ %..i74, %409 ]
-  store i32 %.047.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 7), align 4
+  store i32 %.047.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
   %411 = getelementptr inbounds i8, ptr %0, i64 216
   %412 = load i32, ptr %411, align 8
   %413 = icmp eq i32 %412, -1
@@ -1583,14 +1582,14 @@ environment_type_from_llvm_string.exit:           ; preds = %slice_strcmp.exit.i
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %414, %environment_type_from_llvm_string.exit
-  %415 = load i16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  %415 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %416 = and i16 %415, -29
-  store i16 %416, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  store i16 %416, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %417 = zext nneg i32 %.077.i to i64
   %switch.gep = getelementptr inbounds [36 x i8], ptr @switch.table.target_setup, i64 0, i64 %417
   %switch.load = load i8, ptr %switch.gep, align 1
-  store i8 %switch.load, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 19), align 1
-  %418 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store i8 %switch.load, ptr getelementptr inbounds (i8, ptr @platform_target, i64 273), align 1
+  %418 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %418, label %421 [
     i32 0, label %arch_big_endian.exit
     i32 31, label %arch_big_endian.exit
@@ -1658,12 +1657,12 @@ switch.lookup:                                    ; preds = %414, %environment_t
 
 arch_big_endian.exit:                             ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %419
   %.0.i77 = phi i8 [ 1, %419 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
-  store i8 %.0.i77, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 18), align 8
+  store i8 %.0.i77, ptr getelementptr inbounds (i8, ptr @platform_target, i64 272), align 8
   %422 = call fastcc i32 @arch_pointer_bit_width(i32 noundef %.077.i, i32 noundef %418)
-  store i32 %422, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 32), align 8
-  store i32 0, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 9), align 4
-  %423 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 5), align 4
-  %424 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store i32 %422, ptr getelementptr inbounds (i8, ptr @platform_target, i64 304), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 52), align 4
+  %423 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %424 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %423, label %431 [
     i32 21, label %object_format_from_os.exit.thread212
     i32 16, label %object_format_from_os.exit.thread212
@@ -1723,15 +1722,15 @@ arch_big_endian.exit:                             ; preds = %switch.lookup, %swi
 
 object_format_from_os.exit.thread212:             ; preds = %429, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit
   %.0.i78.ph211 = phi i32 [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 4, %429 ]
-  store i32 %.0.i78.ph211, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 8), align 8
+  store i32 %.0.i78.ph211, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   br label %435
 
 432:                                              ; preds = %arch_big_endian.exit, %430, %428, %425
   %.0.i78.ph = phi i32 [ 5, %425 ], [ 3, %428 ], [ 5, %430 ], [ 1, %arch_big_endian.exit ]
-  store i32 %.0.i78.ph, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 8), align 8
-  %433 = load i16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  store i32 %.0.i78.ph, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %433 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %434 = or i16 %433, 8192
-  store i16 %434, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  store i16 %434, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   br label %435
 
 435:                                              ; preds = %object_format_from_os.exit.thread212, %432
@@ -1747,7 +1746,7 @@ object_format_from_os.exit.thread212:             ; preds = %429, %arch_big_endi
 
 os_target_supports_int128.exit:                   ; preds = %435, %435, %435, %435, %436
   %.0.i79 = phi i8 [ 0, %436 ], [ 1, %435 ], [ 1, %435 ], [ 1, %435 ], [ 1, %435 ]
-  store i8 %.0.i79, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 27), align 1
+  store i8 %.0.i79, ptr getelementptr inbounds (i8, ptr @platform_target, i64 281), align 1
   switch i32 %424, label %439 [
     i32 3, label %os_target_supports_vec.exit
     i32 17, label %os_target_supports_vec.exit
@@ -1758,7 +1757,7 @@ os_target_supports_int128.exit:                   ; preds = %435, %435, %435, %4
 os_target_supports_vec.exit.thread:               ; preds = %os_target_supports_int128.exit
   %437 = icmp eq i32 %423, 11
   %438 = zext i1 %437 to i8
-  store i8 %438, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 25), align 1
+  store i8 %438, ptr getelementptr inbounds (i8, ptr @platform_target, i64 279), align 1
   br label %os_target_supports_vec.exit82.thread
 
 439:                                              ; preds = %os_target_supports_int128.exit
@@ -1766,7 +1765,7 @@ os_target_supports_vec.exit.thread:               ; preds = %os_target_supports_
 
 os_target_supports_vec.exit:                      ; preds = %os_target_supports_int128.exit, %os_target_supports_int128.exit, %os_target_supports_int128.exit, %439
   %.0.i80 = phi i8 [ 0, %439 ], [ 1, %os_target_supports_int128.exit ], [ 1, %os_target_supports_int128.exit ], [ 1, %os_target_supports_int128.exit ]
-  store i8 %.0.i80, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 25), align 1
+  store i8 %.0.i80, ptr getelementptr inbounds (i8, ptr @platform_target, i64 279), align 1
   switch i32 %424, label %442 [
     i32 3, label %os_target_supports_vec.exit82
     i32 17, label %os_target_supports_vec.exit82
@@ -1777,7 +1776,7 @@ os_target_supports_vec.exit:                      ; preds = %os_target_supports_
 os_target_supports_vec.exit82.thread:             ; preds = %os_target_supports_vec.exit, %os_target_supports_vec.exit.thread
   %440 = icmp eq i32 %423, 11
   %441 = zext i1 %440 to i8
-  store i8 %441, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 23), align 1
+  store i8 %441, ptr getelementptr inbounds (i8, ptr @platform_target, i64 277), align 1
   br label %os_target_supports_vec.exit84.thread
 
 442:                                              ; preds = %os_target_supports_vec.exit
@@ -1785,7 +1784,7 @@ os_target_supports_vec.exit82.thread:             ; preds = %os_target_supports_
 
 os_target_supports_vec.exit82:                    ; preds = %os_target_supports_vec.exit, %os_target_supports_vec.exit, %os_target_supports_vec.exit, %442
   %.0.i81 = phi i8 [ 0, %442 ], [ 1, %os_target_supports_vec.exit ], [ 1, %os_target_supports_vec.exit ], [ 1, %os_target_supports_vec.exit ]
-  store i8 %.0.i81, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 23), align 1
+  store i8 %.0.i81, ptr getelementptr inbounds (i8, ptr @platform_target, i64 277), align 1
   switch i32 %424, label %443 [
     i32 3, label %os_target_supports_vec.exit84
     i32 17, label %os_target_supports_vec.exit84
@@ -1797,12 +1796,12 @@ os_target_supports_vec.exit82:                    ; preds = %os_target_supports_
   br label %os_target_supports_vec.exit84
 
 os_target_supports_vec.exit84.thread:             ; preds = %os_target_supports_vec.exit82, %os_target_supports_vec.exit82.thread
-  store i8 0, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 26), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 280), align 8
   br label %os_target_supports_vec.exit86.thread
 
 os_target_supports_vec.exit84:                    ; preds = %os_target_supports_vec.exit82, %os_target_supports_vec.exit82, %os_target_supports_vec.exit82, %443
   %.0.i83 = phi i8 [ 0, %443 ], [ 1, %os_target_supports_vec.exit82 ], [ 1, %os_target_supports_vec.exit82 ], [ 1, %os_target_supports_vec.exit82 ]
-  store i8 %.0.i83, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 26), align 8
+  store i8 %.0.i83, ptr getelementptr inbounds (i8, ptr @platform_target, i64 280), align 8
   switch i32 %424, label %446 [
     i32 3, label %os_target_supports_vec.exit86
     i32 17, label %os_target_supports_vec.exit86
@@ -1813,7 +1812,7 @@ os_target_supports_vec.exit84:                    ; preds = %os_target_supports_
 os_target_supports_vec.exit86.thread:             ; preds = %os_target_supports_vec.exit84.thread, %os_target_supports_vec.exit84
   %444 = icmp eq i32 %423, 11
   %445 = zext i1 %444 to i8
-  store i8 %445, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 24), align 2
+  store i8 %445, ptr getelementptr inbounds (i8, ptr @platform_target, i64 278), align 2
   br label %449
 
 446:                                              ; preds = %os_target_supports_vec.exit84
@@ -1821,7 +1820,7 @@ os_target_supports_vec.exit86.thread:             ; preds = %os_target_supports_
 
 os_target_supports_vec.exit86:                    ; preds = %os_target_supports_vec.exit84, %os_target_supports_vec.exit84, %os_target_supports_vec.exit84, %446
   %.0.i85 = phi i8 [ 0, %446 ], [ 1, %os_target_supports_vec.exit84 ], [ 1, %os_target_supports_vec.exit84 ], [ 1, %os_target_supports_vec.exit84 ]
-  store i8 %.0.i85, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 24), align 2
+  store i8 %.0.i85, ptr getelementptr inbounds (i8, ptr @platform_target, i64 278), align 2
   switch i32 %424, label %451 [
     i32 22, label %os_target_supports_float128.exit
     i32 21, label %os_target_supports_float128.exit
@@ -1845,18 +1844,18 @@ os_target_supports_vec.exit86:                    ; preds = %os_target_supports_
 os_target_supports_float128.exit.thread:          ; preds = %447, %449, %os_target_supports_vec.exit86, %os_target_supports_vec.exit86
   %.0.shrunk.i.ph = phi i1 [ %450, %449 ], [ %448, %447 ], [ false, %os_target_supports_vec.exit86 ], [ false, %os_target_supports_vec.exit86 ]
   %452 = zext i1 %.0.shrunk.i.ph to i8
-  store i8 %452, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 21), align 1
+  store i8 %452, ptr getelementptr inbounds (i8, ptr @platform_target, i64 275), align 1
   %cond.i88291 = icmp eq i32 %424, 3
   %453 = zext i1 %cond.i88291 to i8
-  store i8 %453, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 22), align 4
+  store i8 %453, ptr getelementptr inbounds (i8, ptr @platform_target, i64 276), align 4
   br label %os_target_supports_float128.exit.split
 
 os_target_supports_float128.exit:                 ; preds = %os_target_supports_vec.exit86, %os_target_supports_vec.exit86, %451
   %.0.shrunk.i = phi i8 [ 0, %451 ], [ 1, %os_target_supports_vec.exit86 ], [ 1, %os_target_supports_vec.exit86 ]
-  store i8 %.0.shrunk.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 21), align 1
+  store i8 %.0.shrunk.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 275), align 1
   %cond.i88 = icmp eq i32 %424, 3
   %454 = zext i1 %cond.i88 to i8
-  store i8 %454, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 22), align 4
+  store i8 %454, ptr getelementptr inbounds (i8, ptr @platform_target, i64 276), align 4
   switch i32 %424, label %478 [
     i32 0, label %466
     i32 5, label %466
@@ -1932,7 +1931,7 @@ os_target_supports_float128.exit.split:           ; preds = %os_target_supports_
   %indvars.iv = phi i64 [ 1, %os_target_supports_float128.exit.split ], [ %indvars.iv.next, %os_target_alignment_of_float.exit ]
   %462 = trunc nuw nsw i64 %indvars.iv to i32
   %463 = shl nuw nsw i32 4, %462
-  %464 = getelementptr inbounds { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 11, i64 %indvars.iv
+  %464 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 60), i64 0, i64 %indvars.iv
   switch i32 %424, label %469 [
     i32 30, label %os_is_apple.exit.i
     i32 2, label %os_is_apple.exit.i
@@ -1949,7 +1948,7 @@ os_target_alignment_of_int.exit.thread224:        ; preds = %461
   %.sroa.11.0.insert.shift.i228 = shl nuw nsw i64 %.sroa.11.0.insert.ext.i227, 32
   %.sroa.0.0.insert.insert.i230 = or disjoint i64 %.sroa.11.0.insert.shift.i228, %.sroa.11.0.insert.ext.i227
   store i64 %.sroa.0.0.insert.insert.i230, ptr %464, align 4
-  %465 = getelementptr inbounds { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 12, i64 %indvars.iv
+  %465 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   br label %os_target_alignment_of_float.exit
 
 466:                                              ; preds = %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit
@@ -2012,7 +2011,7 @@ os_target_alignment_of_int.exit.thread:           ; preds = %474, %476, %477, %.
   %.sroa.0.0.insert.ext.i222 = zext nneg i32 %.sroa.0.0.i.ph to i64
   %.sroa.0.0.insert.insert.i223 = or disjoint i64 %.sroa.11.0.insert.shift.i221, %.sroa.0.0.insert.ext.i222
   store i64 %.sroa.0.0.insert.insert.i223, ptr %464, align 4
-  %479 = getelementptr inbounds { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 12, i64 %indvars.iv
+  %479 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   br label %482
 
 os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i, %469, %473, %os_is_apple.exit57.thread.i
@@ -2023,7 +2022,7 @@ os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i,
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.0.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %464, align 4
-  %480 = getelementptr inbounds { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 12, i64 %indvars.iv
+  %480 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   switch i32 %424, label %491 [
     i32 32, label %489
     i32 5, label %481
@@ -2125,11 +2124,11 @@ os_target_alignment_of_float.exit:                ; preds = %os_target_alignment
   br i1 %exitcond.not, label %493, label %461, !llvm.loop !10
 
 493:                                              ; preds = %os_target_alignment_of_float.exit
-  %494 = load i64, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 11, i64 1), align 4
-  store i64 %494, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 11), align 4
-  %495 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 32), align 8
-  store i32 %495, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 28), align 4
-  store i32 %495, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 28, i32 1), align 8
+  %494 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 68), align 4
+  store i64 %494, ptr getelementptr inbounds (i8, ptr @platform_target, i64 60), align 4
+  %495 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 304), align 8
+  store i32 %495, ptr getelementptr inbounds (i8, ptr @platform_target, i64 284), align 4
+  store i32 %495, ptr getelementptr inbounds (i8, ptr @platform_target, i64 288), align 8
   switch i32 %423, label %os_target_c_type_bits.exit [
     i32 21, label %496
     i32 16, label %496
@@ -2163,12 +2162,12 @@ os_target_alignment_of_float.exit:                ; preds = %os_target_alignment
   unreachable
 
 os_target_c_type_bits.exit.thread:                ; preds = %493
-  store i32 16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 33), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 308), align 4
   %497 = icmp eq i32 %424, 15
   br i1 %497, label %os_target_c_type_bits.exit99, label %498
 
 os_target_c_type_bits.exit:                       ; preds = %493
-  store i32 16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 33), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 308), align 4
   switch i32 %423, label %498 [
     i32 27, label %os_target_c_type_bits.exit99
     i32 28, label %os_target_c_type_bits.exit99
@@ -2181,11 +2180,11 @@ os_target_c_type_bits.exit:                       ; preds = %493
 
 os_target_c_type_bits.exit99:                     ; preds = %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit.thread, %498
   %.0.i98 = phi i32 [ 32, %498 ], [ 16, %os_target_c_type_bits.exit.thread ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ]
-  store i32 %.0.i98, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 34), align 8
+  store i32 %.0.i98, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %499 = call fastcc i32 @os_target_c_type_bits(i32 noundef %423, i32 noundef %424, i32 noundef 2)
-  store i32 %499, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 35), align 4
-  %500 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 5), align 4
-  %501 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store i32 %499, ptr getelementptr inbounds (i8, ptr @platform_target, i64 316), align 4
+  %500 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %501 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %500, label %os_target_c_type_bits.exit101 [
     i32 21, label %502
     i32 16, label %502
@@ -2218,7 +2217,7 @@ os_target_c_type_bits.exit99:                     ; preds = %os_target_c_type_bi
   unreachable
 
 os_target_c_type_bits.exit101:                    ; preds = %os_target_c_type_bits.exit99
-  store i32 64, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 36), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 320), align 8
   switch i32 %501, label %os_target_signed_c_char_type.exit.thread [
     i32 3, label %503
     i32 5, label %503
@@ -2263,10 +2262,10 @@ os_target_signed_c_char_type.exit:                ; preds = %503
 
 os_target_signed_c_char_type.exit.thread:         ; preds = %503, %503, %503, %503, %os_target_c_type_bits.exit101, %504, %504, %504, %504, %os_target_signed_c_char_type.exit, %os_target_signed_c_char_type.exit.thread233
   %506 = phi i16 [ 0, %os_target_signed_c_char_type.exit.thread233 ], [ %spec.select248, %os_target_signed_c_char_type.exit ], [ 2, %504 ], [ 2, %504 ], [ 2, %504 ], [ 2, %504 ], [ 2, %os_target_c_type_bits.exit101 ], [ 2, %503 ], [ 2, %503 ], [ 2, %503 ], [ 2, %503 ]
-  %507 = load i16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  %507 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %508 = and i16 %507, -3
   %509 = or disjoint i16 %508, %506
-  store i16 %509, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  store i16 %509, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   switch i32 %501, label %target_setup_x86_abi.exit [
     i32 5, label %510
     i32 8, label %510
@@ -2338,43 +2337,43 @@ os_target_signed_c_char_type.exit.thread:         ; preds = %503, %503, %503, %5
 
 os_is_apple.exit:                                 ; preds = %511, %511, %511, %511, %512
   %513 = phi i8 [ 1, %511 ], [ 0, %512 ], [ 1, %511 ], [ 1, %511 ], [ 1, %511 ]
-  %514 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %514 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %515 = and i8 %514, -4
   %516 = icmp eq i32 %500, 15
   %517 = select i1 %516, i8 2, i8 0
   %518 = or disjoint i8 %513, %517
   %519 = or disjoint i8 %518, %515
-  store i8 %519, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
-  store i32 4, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i8 %519, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
 520:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
-  store i32 5, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
 521:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
-  store i32 6, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   %.not.i105 = icmp eq i32 %500, 0
   br i1 %.not.i105, label %526, label %522
 
 522:                                              ; preds = %521
-  %523 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %523 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %524 = and i8 %523, -128
   %525 = or disjoint i8 %524, 33
   br label %target_setup_arm_abi.exit
 
 526:                                              ; preds = %521
-  %527 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 8), align 8
+  %527 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   %528 = icmp eq i32 %527, 4
   br i1 %528, label %529, label %532
 
 529:                                              ; preds = %526
-  %530 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %530 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %531 = and i8 %530, -15
   br label %target_setup_arm_abi.exit
 
 532:                                              ; preds = %526
-  %533 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 7), align 4
+  %533 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
   switch i32 %533, label %545 [
     i32 12, label %534
     i32 4, label %534
@@ -2387,30 +2386,30 @@ os_is_apple.exit:                                 ; preds = %511, %511, %511, %5
   ]
 
 534:                                              ; preds = %532, %532, %532, %532, %532
-  %535 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %535 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %536 = and i8 %535, -15
   %537 = or disjoint i8 %536, 6
   br label %548
 
 538:                                              ; preds = %532, %532
-  %539 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %539 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %540 = and i8 %539, -15
   br label %548
 
 541:                                              ; preds = %532
-  %542 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %542 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %543 = and i8 %542, -15
   %544 = or disjoint i8 %543, 4
   br label %548
 
 545:                                              ; preds = %532
-  %546 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %546 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %547 = and i8 %546, -15
   br label %548
 
 548:                                              ; preds = %545, %541, %538, %534
   %.sink.i = phi i8 [ %547, %545 ], [ %544, %541 ], [ %540, %538 ], [ %537, %534 ]
-  store i8 %.sink.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %.sink.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %549 = lshr i8 %.sink.i, 1
   %550 = and i8 %549, 7
   switch i8 %550, label %566 [
@@ -2452,7 +2451,7 @@ os_is_apple.exit:                                 ; preds = %511, %511, %511, %5
 
 564:                                              ; preds = %560, %557
   %565 = and i8 %.sink.i, -113
-  store i8 %565, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %565, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %566
 
 566:                                              ; preds = %564, %548
@@ -2461,7 +2460,7 @@ os_is_apple.exit:                                 ; preds = %511, %511, %511, %5
 
 target_setup_arm_abi.exit:                        ; preds = %522, %529, %551, %554, %561
   %.sink8.i = phi i8 [ %563, %561 ], [ %556, %554 ], [ %553, %551 ], [ %531, %529 ], [ %525, %522 ]
-  store i8 %.sink8.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %.sink8.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %target_setup_x86_abi.exit
 
 567:                                              ; preds = %os_target_signed_c_char_type.exit.thread
@@ -2469,7 +2468,7 @@ target_setup_arm_abi.exit:                        ; preds = %522, %529, %551, %5
   unreachable
 
 568:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
-  %569 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 8), align 8
+  %569 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   %.not55 = icmp eq i32 %569, 3
   br i1 %.not55, label %574, label %570
 
@@ -2486,23 +2485,23 @@ target_setup_arm_abi.exit:                        ; preds = %522, %529, %551, %5
   unreachable
 
 574:                                              ; preds = %568
-  store i32 8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   %575 = and i16 %507, 28
   %576 = icmp eq i16 %575, 4
   %577 = zext i1 %576 to i8
-  %578 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %578 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %579 = and i8 %578, -8
   %580 = icmp eq i32 %501, 18
   %581 = select i1 %580, i8 2, i8 0
   %582 = or disjoint i8 %581, %577
   %583 = or disjoint i8 %582, %579
-  store i8 %583, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %583, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %target_setup_x86_abi.exit
 
 584:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
   %585 = call fastcc i32 @arch_pointer_bit_width(i32 noundef %500, i32 noundef %501)
   %586 = lshr i32 %585, 3
-  store i32 %586, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i32 %586, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %587 = getelementptr inbounds i8, ptr %0, i64 328
   %588 = load i16, ptr %587, align 8
   %589 = shl i16 %588, 2
@@ -2515,21 +2514,21 @@ switch.lookup298:                                 ; preds = %584
   %592 = zext nneg i16 %switch.tableidx to i64
   %switch.gep299 = getelementptr inbounds [4 x i32], ptr @switch.table.target_setup.4, i64 0, i64 %592
   %switch.load300 = load i32, ptr %switch.gep299, align 4
-  store i32 %switch.load300, ptr getelementptr inbounds (%struct.anon.7, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), i64 0, i32 1), align 4
+  store i32 %switch.load300, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
   br label %593
 
 593:                                              ; preds = %584, %switch.lookup298
-  store i32 9, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
-  %.pre268 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 5), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %.pre268 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   br label %target_setup_x86_abi.exit
 
 594:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   %595 = getelementptr i8, ptr %0, i64 328
   %.val = load i16, ptr %595, align 8
-  store i32 3, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   %596 = and i16 %507, 28
   %597 = icmp eq i16 %596, 4
-  %598 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %598 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %599 = select i1 %597, i8 2, i8 0
   %600 = and i8 %598, -7
   %601 = shl i16 %.val, 13
@@ -2541,7 +2540,7 @@ switch.lookup298:                                 ; preds = %584
   %605 = select i1 %604, i8 4, i8 0
   %storemerge.i = or disjoint i8 %600, %605
   %606 = or disjoint i8 %storemerge.i, %.pn.i
-  store i8 %606, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %606, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   switch i32 %500, label %609 [
     i32 11, label %607
     i32 7, label %607
@@ -2555,7 +2554,7 @@ switch.lookup298:                                 ; preds = %584
 
 607:                                              ; preds = %594, %594, %594, %594, %594, %594, %594, %594
   %608 = or i8 %606, 1
-  store i8 %608, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %608, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %609
 
 609:                                              ; preds = %607, %594
@@ -2570,18 +2569,18 @@ switch.lookup298:                                 ; preds = %584
   %615 = zext i1 %614 to i8
   %616 = and i8 %610, -2
   %617 = or disjoint i8 %616, %615
-  store i8 %617, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  store i8 %617, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %target_setup_x86_abi.exit
 
 618:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store i32 1, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   %619 = icmp eq i32 %500, 15
-  %620 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  %620 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %621 = select i1 %619, i32 131072, i32 0
   %622 = and i32 %620, -131073
   %623 = or disjoint i32 %622, %621
-  store i32 %623, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  store i32 %623, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %624 = getelementptr inbounds i8, ptr %0, i64 328
   %625 = getelementptr inbounds i8, ptr %0, i64 340
   %626 = load i32, ptr %625, align 4
@@ -2704,7 +2703,7 @@ x64_cpu_default.exit.i:                           ; preds = %647, %641, %635, %6
 
 x86_cpu_from_set.exit.i:                          ; preds = %665, %664, %663, %662, %661, %661
   %.0.i17.i = phi ptr [ %666, %665 ], [ @.str.324, %664 ], [ @.str.323, %663 ], [ @.str.322, %662 ], [ @.str.321, %661 ], [ @.str.321, %661 ]
-  store ptr %.0.i17.i, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 2), align 8
+  store ptr %.0.i17.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
   call fastcc void @x86features_from_cpu(ptr noundef nonnull %5, i32 noundef %.0.i108)
   %668 = load i16, ptr %624, align 8
   %669 = shl i16 %668, 6
@@ -2766,9 +2765,9 @@ x64features_limit_from_capability.exit.i:         ; preds = %686, %x86_cpu_from_
   br i1 %690, label %691, label %694
 
 691:                                              ; preds = %x64features_limit_from_capability.exit.i
-  %692 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  %692 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %693 = or i32 %692, 65536
-  store i32 %693, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  store i32 %693, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   br label %694
 
 694:                                              ; preds = %691, %x64features_limit_from_capability.exit.i
@@ -2890,7 +2889,7 @@ x64features_contains.exit15.i.i:                  ; preds = %711, %708
 
 x86features_as_diff_to_scratch.exit.i:            ; preds = %724
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %725 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  %725 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %726 = and i32 %725, 65536
   %.not15.i = icmp eq i32 %726, 0
   br i1 %.not15.i, label %728, label %727
@@ -2900,32 +2899,32 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %724
   br label %728
 
 728:                                              ; preds = %727, %x86features_as_diff_to_scratch.exit.i
-  %729 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  %729 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not16.i = icmp eq i32 %729, 0
   br i1 %.not16.i, label %732, label %730
 
 730:                                              ; preds = %728
   %731 = add i32 %729, -1
-  store i32 %731, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i64 0, i32 1), align 4
+  store i32 %731, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   br label %732
 
 732:                                              ; preds = %730, %728
   %733 = call ptr @scratch_buffer_copy() #17
-  store ptr %733, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 3), align 8
-  %734 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 5), align 4
+  store ptr %733, ptr getelementptr inbounds (i8, ptr @platform_target, i64 24), align 8
+  %734 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   switch i32 %734, label %738 [
     i32 12, label %735
     i32 9, label %735
   ]
 
 735:                                              ; preds = %732, %732
-  %736 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  %736 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %737 = or i32 %736, 524288
-  store i32 %737, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  store i32 %737, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   br label %738
 
 738:                                              ; preds = %735, %732
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @platform_target, i64 240), ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sink.i18.i = load i64, ptr %5, align 8
   %739 = and i64 %.sink.i18.i, 131072
   %.0.i19.not.i = icmp eq i64 %739, 0
@@ -2945,11 +2944,11 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %724
 .sink.split.i:                                    ; preds = %742, %740, %738
   %.sink.i109 = phi i32 [ 64, %738 ], [ 32, %740 ], [ 16, %742 ]
   %.sink25.i = phi i32 [ 512, %738 ], [ 256, %740 ], [ 128, %742 ]
-  store i32 %.sink.i109, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 2), align 4
-  %744 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  store i32 %.sink.i109, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %744 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %745 = and i32 %744, -65536
   %746 = or disjoint i32 %745, %.sink25.i
-  store i32 %746, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17, i32 0, i32 1), align 8
+  store i32 %746, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   br label %target_setup_x64_abi.exit
 
 target_setup_x64_abi.exit:                        ; preds = %742, %.sink.split.i
@@ -2958,22 +2957,22 @@ target_setup_x64_abi.exit:                        ; preds = %742, %.sink.split.i
   br i1 %747, label %748, label %749
 
 748:                                              ; preds = %target_setup_x64_abi.exit
-  store i32 2, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
 749:                                              ; preds = %target_setup_x64_abi.exit
-  store i32 1, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
 750:                                              ; preds = %os_target_signed_c_char_type.exit.thread
-  store i32 0, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 10), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
 target_setup_x86_abi.exit:                        ; preds = %613, %609, %750, %749, %748, %593, %574, %target_setup_arm_abi.exit, %520, %os_is_apple.exit, %os_target_signed_c_char_type.exit.thread
   %751 = phi i32 [ %500, %613 ], [ %500, %609 ], [ %500, %750 ], [ %734, %749 ], [ 15, %748 ], [ %.pre268, %593 ], [ %500, %574 ], [ %500, %target_setup_arm_abi.exit ], [ %500, %520 ], [ %500, %os_is_apple.exit ], [ %500, %os_target_signed_c_char_type.exit.thread ]
-  %752 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
-  %753 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 7), align 4
-  %754 = load i8, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %752 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %753 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
+  %754 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %755 = lshr i8 %754, 1
   %756 = and i8 %755, 7
   switch i32 %752, label %os_is_apple.exit.i113 [
@@ -3004,7 +3003,7 @@ target_setup_x86_abi.exit:                        ; preds = %613, %609, %750, %7
   ]
 
 762:                                              ; preds = %761, %761, %761, %761
-  %.sink.i.i110 = load i64, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 17), align 8
+  %.sink.i.i110 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %763 = and i64 %.sink.i.i110, 131072
   %.0.i.not.i = icmp eq i64 %763, 0
   br i1 %.0.i.not.i, label %764, label %os_arch_max_alignment_of_vector.exit
@@ -3020,12 +3019,12 @@ os_is_apple.exit.i113:                            ; preds = %761, %target_setup_
 
 os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_abi.exit, %757, %759, %761, %762, %764, %os_is_apple.exit.i113
   %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.exit ], [ 0, %757 ], [ %760, %759 ], [ 1024, %761 ], [ 64, %762 ], [ %..i112, %764 ]
-  store i32 %.0.i111, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 29), align 4
+  store i32 %.0.i111, ptr getelementptr inbounds (i8, ptr @platform_target, i64 292), align 4
   %cond.i114 = icmp eq i32 %752, 31
   %766 = icmp eq i32 %751, 15
   %or.cond.i115 = and i1 %766, %cond.i114
   %..i116 = select i1 %or.cond.i115, i32 8192, i32 0
-  store i32 %..i116, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 30), align 8
+  store i32 %..i116, ptr getelementptr inbounds (i8, ptr @platform_target, i64 296), align 8
   %767 = load i32, ptr @active_target, align 8
   %.not249 = icmp eq i32 %767, 0
   br i1 %.not249, label %774, label %768
@@ -3077,7 +3076,7 @@ os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_ab
 arch_os_reloc_default.exit.thread239:             ; preds = %768
   %770 = icmp eq i32 %752, 32
   %771 = zext i1 %770 to i32
-  store i32 %771, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 14), align 4
+  store i32 %771, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %781
 
 772:                                              ; preds = %768, %768, %768, %768, %768
@@ -3154,12 +3153,12 @@ switch.lookup301:                                 ; preds = %776
 
 arch_os_reloc_default.exit.thread:                ; preds = %776, %switch.lookup301, %768
   %.0.i117.ph = phi i32 [ 0, %768 ], [ %switch.load304, %switch.lookup301 ], [ 0, %776 ]
-  store i32 %.0.i117.ph, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 14), align 4
+  store i32 %.0.i117.ph, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %arch_os_pic_default_forced.exit
 
 arch_os_reloc_default.exit:                       ; preds = %768, %768, %768, %768, %768, %772, %774, %774, %775
   %.0.i117 = phi i32 [ 3, %775 ], [ 1, %768 ], [ 1, %768 ], [ 1, %768 ], [ 1, %768 ], [ 1, %768 ], [ %..i118, %772 ], [ 0, %774 ], [ 0, %774 ]
-  store i32 %.0.i117, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 14), align 4
+  store i32 %.0.i117, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   switch i32 %751, label %788 [
     i32 15, label %781
     i32 28, label %783
@@ -3219,10 +3218,10 @@ arch_os_reloc_default.exit:                       ; preds = %768, %768, %768, %7
 arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %781, %783
   %.0.i119 = phi i1 [ %786, %783 ], [ %782, %781 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
   %789 = zext i1 %.0.i119 to i16
-  %790 = load i16, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  %790 = load i16, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %791 = and i16 %790, -2
   %792 = or disjoint i16 %791, %789
-  store i16 %792, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 15), align 8
+  store i16 %792, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %793 = getelementptr inbounds i8, ptr %0, i64 220
   %794 = load i32, ptr %793, align 4
   switch i32 %794, label %796 [
@@ -3234,7 +3233,7 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   br i1 %.0.i119, label %797, label %796
 
 796:                                              ; preds = %arch_os_pic_default_forced.exit, %795
-  store i32 %794, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 14), align 4
+  store i32 %794, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %797
 
 797:                                              ; preds = %arch_os_pic_default_forced.exit, %796, %795
@@ -3242,24 +3241,24 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   br i1 %798, label %799, label %842
 
 799:                                              ; preds = %797
-  %800 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68), align 8
+  %800 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 344), align 8
   %.not58 = icmp eq ptr %800, null
   br i1 %.not58, label %801, label %.thread243
 
 801:                                              ; preds = %799
   %802 = call ptr @macos_sysroot() #17
-  store ptr %802, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68), align 8
+  store ptr %802, ptr getelementptr inbounds (i8, ptr @active_target, i64 344), align 8
   %.not59 = icmp eq ptr %802, null
   br i1 %.not59, label %803, label %.thread243
 
 .thread243:                                       ; preds = %801, %799
   %.ph = phi ptr [ %802, %801 ], [ %800, %799 ]
-  store ptr null, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   br label %805
 
 803:                                              ; preds = %801
   %804 = call ptr @macos_sysroot() #17
-  store ptr null, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   %.not60 = icmp eq ptr %804, null
   br i1 %.not60, label %826, label %805
 
@@ -3277,8 +3276,8 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
 
 812:                                              ; preds = %805, %809
   %813 = call ptr @macos_sysroot_sdk_information(ptr noundef nonnull %806) #17
-  store ptr %813, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 3), align 8
-  %814 = load i32, ptr getelementptr inbounds ({ ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i8, i8, %union.anon, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }, ptr @platform_target, i64 0, i32 4), align 8
+  store ptr %813, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
+  %814 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %815 = icmp eq i32 %814, 3
   br i1 %815, label %816, label %826
 
@@ -3292,7 +3291,7 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   store i32 11, ptr %817, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %813, i64 12
   store i32 0, ptr %.sroa.22.0..sroa_idx, align 4
-  %.pre269 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 3), align 8
+  %.pre269 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   br label %821
 
 821:                                              ; preds = %820, %816
@@ -3309,19 +3308,19 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
 
 826:                                              ; preds = %812, %825, %821, %803
   %827 = load ptr, ptr @platform_target, align 8
-  %828 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 1), align 8
+  %828 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
   %.not62 = icmp eq ptr %828, null
   br i1 %.not62, label %831, label %829
 
 829:                                              ; preds = %826
   call void @scratch_buffer_clear() #17
   call void @scratch_buffer_append(ptr noundef %827) #17
-  %830 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 1), align 8
+  %830 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
   call void @scratch_buffer_append(ptr noundef %830) #17
   br label %839
 
 831:                                              ; preds = %826
-  %832 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 68, i32 3), align 8
+  %832 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   %.not63 = icmp eq ptr %832, null
   call void @scratch_buffer_clear() #17
   call void @scratch_buffer_append(ptr noundef %827) #17

@@ -108,7 +108,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 152), align 8
   %2 = tail call i32 %1() #6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %9, label %4
@@ -137,7 +137,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".in
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %9
-  %17 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 160), align 8
   tail call void %17() #6
   %18 = tail call i32 @pcibios_init() #5
   br label %19

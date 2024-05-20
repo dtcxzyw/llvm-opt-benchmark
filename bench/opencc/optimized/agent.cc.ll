@@ -96,7 +96,7 @@ define void @_ZN6marisa5Agent9set_queryEPKc(ptr nocapture noundef nonnull align 
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -158,7 +158,7 @@ define void @_ZN6marisa5Agent9set_queryEPKcm(ptr nocapture noundef nonnull align
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -215,7 +215,7 @@ define void @_ZN6marisa5Agent10init_stateEv(ptr nocapture noundef nonnull align 
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -244,7 +244,7 @@ define void @_ZN6marisa5Agent10init_stateEv(ptr nocapture noundef nonnull align 
 16:                                               ; preds = %10
   store ptr null, ptr %2, align 8
   %17 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16

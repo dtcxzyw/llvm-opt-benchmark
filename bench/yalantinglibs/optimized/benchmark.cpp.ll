@@ -2459,9 +2459,9 @@ init:                                             ; preds = %init.check
 invoke.cont:                                      ; preds = %init
   store ptr %call5.i.i.i.i2.i, ptr @g_sample_type_vec, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
-  store ptr %add.ptr.i1.i, ptr getelementptr inbounds (%"class.std::vector", ptr @g_sample_type_vec, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i, ptr getelementptr inbounds (i8, ptr @g_sample_type_vec, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %add.ptr.i1.i, ptr getelementptr inbounds (%"class.std::vector", ptr @g_sample_type_vec, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i1.i, ptr getelementptr inbounds (i8, ptr @g_sample_type_vec, i64 8), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorI10SampleTypeSaIS0_EED2Ev, ptr nonnull @g_sample_type_vec, ptr nonnull @__dso_handle) #22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGV17g_sample_type_vec) #22
   br label %init.end
@@ -2562,7 +2562,7 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i.i, align 8
   %_M_next_resize.i.i.i10.i.i = getelementptr inbounds i8, ptr %call4, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i64 0, i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %call4, align 8
   %rect2s_.i = getelementptr inbounds i8, ptr %call4, i64 176
   %buffer_.i = getelementptr inbounds i8, ptr %call4, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rect2s_.i, i8 0, i64 96, i1 false)
@@ -2656,7 +2656,7 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i.i27, align 8
   %_M_next_resize.i.i.i10.i.i28 = getelementptr inbounds i8, ptr %call10, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i.i28, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 0, i32 0, i64 2), ptr %call10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %call10, align 8
   %rects_.i = getelementptr inbounds i8, ptr %call10, i64 176
   %buffer_.i29 = getelementptr inbounds i8, ptr %call10, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rects_.i, i8 0, i64 72, i1 false)
@@ -3177,7 +3177,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i, align 8
   %_M_next_resize.i.i.i10.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %rects_ = getelementptr inbounds i8, ptr %this, i64 176
   invoke void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %rects_, ptr noundef null)
           to label %invoke.cont unwind label %lpad
@@ -4276,7 +4276,7 @@ _ZNSt6vectorI5rect2IiESaIS1_EED2Ev.exit:          ; preds = %_ZNSt6vectorI7Monst
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18struct_pack_sampleD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 288
@@ -4413,7 +4413,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11base_sampleD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11base_sample, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11base_sample, i64 16), ptr %this, align 8
   %deser_time_elapsed_map_ = getelementptr inbounds i8, ptr %this, i64 120
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -4520,12 +4520,12 @@ declare void @llvm.trap() #14
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z12get_lib_nameB5cxx117LibType(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %lib_type) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.8", ptr @_Z14g_lib_name_mapB5cxx11, i64 0, i32 0, i32 3), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_Z14g_lib_name_mapB5cxx11, i64 24), align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map.8", ptr @_Z14g_lib_name_mapB5cxx11, i64 0, i32 0, i32 2, i32 0), %entry ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_Z14g_lib_name_mapB5cxx11, i64 16), %entry ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.i.i, label %if.then, label %for.body.i.i
@@ -4538,7 +4538,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i.i = sext i32 %lib_type to i64
-  %2 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map.8", ptr @_Z14g_lib_name_mapB5cxx11, i64 0, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_Z14g_lib_name_mapB5cxx11, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i, %2
   %3 = load ptr, ptr @_Z14g_lib_name_mapB5cxx11, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -9288,12 +9288,12 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z15get_sample_nameB5cxx1110SampleType(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %sample_type) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z17g_sample_name_mapB5cxx11, i64 0, i32 0, i32 3), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_Z17g_sample_name_mapB5cxx11, i64 24), align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_Z17g_sample_name_mapB5cxx11, i64 0, i32 0, i32 2, i32 0), %entry ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_Z17g_sample_name_mapB5cxx11, i64 16), %entry ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.i.i, label %if.then, label %for.body.i.i
@@ -9306,7 +9306,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i.i = sext i32 %sample_type to i64
-  %2 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_Z17g_sample_name_mapB5cxx11, i64 0, i32 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_Z17g_sample_name_mapB5cxx11, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i, %2
   %3 = load ptr, ptr @_Z17g_sample_name_mapB5cxx11, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -32941,7 +32941,7 @@ _ZN16struct_pb_sample8MonstersD2Ev.exit:          ; preds = %invoke.cont.i.i29, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16struct_pb_sample18struct_pb_sample_tD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 264
@@ -41889,7 +41889,7 @@ _ZN6mygame8MonstersaSEOS0_.exit:                  ; preds = %if.then.i38, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17protobuf_sample_tD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 336
@@ -41922,7 +41922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17protobuf_sample_tD0Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %buffer_.i, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 336
@@ -50147,7 +50147,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
@@ -50416,7 +50416,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
@@ -50679,7 +50679,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8

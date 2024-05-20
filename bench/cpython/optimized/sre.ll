@@ -23553,13 +23553,13 @@ for.end:                                          ; preds = %for.inc, %_Py_NewRe
   br i1 %tobool47.not, label %cleanup.thread, label %if.then48
 
 if.then48:                                        ; preds = %for.end
-  %call49 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), ptr noundef nonnull %out.0, i64 noundef %count.0.lcssa) #14
+  %call49 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %out.0, i64 noundef %count.0.lcssa) #14
   br label %cleanup
 
 cleanup.thread:                                   ; preds = %for.end
   %ob_size.i = getelementptr inbounds i8, ptr %list.0, i64 16
   store i64 %count.0.lcssa, ptr %ob_size.i, align 8
-  %call50 = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 1), ptr noundef %list.0) #14
+  %call50 = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr noundef %list.0) #14
   br label %if.then53
 
 cleanup:                                          ; preds = %if.end22, %if.then48, %if.then21
@@ -24132,7 +24132,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5))
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816))
   %cmp.i16 = icmp slt i64 %call.i, 0
   br i1 %cmp.i16, label %return, label %if.end.i17
 

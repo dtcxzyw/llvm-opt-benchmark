@@ -18,7 +18,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool1.not = icmp eq i32 %and, 0
   %aes_gcm.aesni_gcm = select i1 %tobool1.not, ptr @aes_gcm, ptr @aesni_gcm
@@ -486,7 +486,7 @@ declare i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef, ptr noundef, ptr noundef, 
 define internal noundef i32 @aes_gcm_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
   %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %keylen.tr = trunc i64 %keylen to i32

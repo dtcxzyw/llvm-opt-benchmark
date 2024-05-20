@@ -588,10 +588,10 @@ __cxx_global_var_init.47.exit:                    ; preds = %__cxx_global_var_in
   %spec.select.i = select i1 %.not.i17, ptr @.str.55, ptr %66
   %67 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL16s_alsologtoemailE, ptr noundef nonnull %spec.select.i)
   store ptr %67, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %67)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.7, ptr noundef nonnull %67, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %67)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.7, ptr noundef nonnull %67, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32))
   store ptr @_ZN3fLSL16s_alsologtoemailE, ptr @_ZN3fLSL16d_alsologtoemailE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL16d_alsologtoemailE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL16d_alsologtoemailE, i64 8), align 8
   %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL16d_alsologtoemailE, ptr nonnull @__dso_handle) #11
   %69 = load ptr, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8
   store ptr %69, ptr @_ZN3fLS20FLAGS_alsologtoemailB5cxx11E, align 8
@@ -721,10 +721,10 @@ __cxx_global_var_init.103.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i27 = select i1 %.not.i26, ptr @.str.55, ptr %119
   %120 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL11s_logmailerE, ptr noundef nonnull %spec.select.i27)
   store ptr %120, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %120)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.7, ptr noundef nonnull %120, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %120)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.7, ptr noundef nonnull %120, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32))
   store ptr @_ZN3fLSL11s_logmailerE, ptr @_ZN3fLSL11d_logmailerE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL11d_logmailerE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL11d_logmailerE, i64 8), align 8
   %121 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL11d_logmailerE, ptr nonnull @__dso_handle) #11
   %122 = load ptr, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8
   store ptr %122, ptr @_ZN3fLS15FLAGS_logmailerB5cxx11E, align 8
@@ -768,10 +768,10 @@ __cxx_global_var_init.122.exit:                   ; preds = %131, %133, %__cxx_g
   %134 = phi ptr [ %128, %__cxx_global_var_init.116.exit ], [ %130, %131 ], [ @.str.55, %133 ]
   %135 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL9s_log_dirE, ptr noundef nonnull %134)
   store ptr %135, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %135)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, ptr noundef nonnull %135, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %135)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, ptr noundef nonnull %135, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32))
   store ptr @_ZN3fLSL9s_log_dirE, ptr @_ZN3fLSL9d_log_dirE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL9d_log_dirE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9d_log_dirE, i64 8), align 8
   %136 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_log_dirE, ptr nonnull @__dso_handle) #11
   %137 = load ptr, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8
   store ptr %137, ptr @_ZN3fLS13FLAGS_log_dirB5cxx11E, align 8
@@ -780,10 +780,10 @@ __cxx_global_var_init.122.exit:                   ; preds = %131, %133, %__cxx_g
   %spec.select.i32 = select i1 %.not.i31, ptr @.str.55, ptr %138
   %139 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL10s_log_linkE, ptr noundef nonnull %spec.select.i32)
   store ptr %139, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %139)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.7, ptr noundef nonnull %139, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %139)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.7, ptr noundef nonnull %139, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32))
   store ptr @_ZN3fLSL10s_log_linkE, ptr @_ZN3fLSL10d_log_linkE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL10d_log_linkE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL10d_log_linkE, i64 8), align 8
   %140 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL10d_log_linkE, ptr nonnull @__dso_handle) #11
   %141 = load ptr, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8
   store ptr %141, ptr @_ZN3fLS14FLAGS_log_linkB5cxx11E, align 8
@@ -823,10 +823,10 @@ __cxx_global_var_init.142.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i36 = select i1 %.not.i35, ptr @.str.55, ptr %155
   %156 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL18s_log_backtrace_atE, ptr noundef nonnull %spec.select.i36)
   store ptr %156, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %156)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.7, ptr noundef nonnull %156, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %156)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.7, ptr noundef nonnull %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32))
   store ptr @_ZN3fLSL18s_log_backtrace_atE, ptr @_ZN3fLSL18d_log_backtrace_atE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL18d_log_backtrace_atE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL18d_log_backtrace_atE, i64 8), align 8
   %157 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL18d_log_backtrace_atE, ptr nonnull @__dso_handle) #11
   %158 = load ptr, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8
   store ptr %158, ptr @_ZN3fLS22FLAGS_log_backtrace_atB5cxx11E, align 8
@@ -866,10 +866,10 @@ __cxx_global_var_init.161.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i40 = select i1 %.not.i39, ptr @.str.55, ptr %172
   %173 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL9s_vmoduleE, ptr noundef nonnull %spec.select.i40)
   store ptr %173, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %173)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.7, ptr noundef nonnull %173, ptr noundef nonnull getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %173)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.7, ptr noundef nonnull %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32))
   store ptr @_ZN3fLSL9s_vmoduleE, ptr @_ZN3fLSL9d_vmoduleE, align 8
-  store ptr getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1), ptr getelementptr inbounds (%"class.fLS::StringFlagDestructor", ptr @_ZN3fLSL9d_vmoduleE, i64 0, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9d_vmoduleE, i64 8), align 8
   %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_vmoduleE, ptr nonnull @__dso_handle) #11
   %175 = load ptr, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8
   store ptr %175, ptr @_ZN3fLS13FLAGS_vmoduleB5cxx11E, align 8

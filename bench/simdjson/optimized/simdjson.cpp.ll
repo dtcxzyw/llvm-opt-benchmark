@@ -1721,7 +1721,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 16), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %init.end
@@ -1742,7 +1742,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal26unsupported_implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1797,17 +1797,17 @@ invoke.cont:                                      ; preds = %init
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  store ptr @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, ptr getelementptr inbounds ([4 x ptr], ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 0, i64 1), align 8
+  store ptr @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 8), align 8
   invoke fastcc void @_ZN8simdjson8internalL22get_westmere_singletonEv()
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont1
-  store ptr @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, ptr getelementptr inbounds ([4 x ptr], ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 0, i64 2), align 8
+  store ptr @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 16), align 8
   invoke fastcc void @_ZN8simdjson8internalL22get_fallback_singletonEv()
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  store ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds ([4 x ptr], ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 0, i64 3), align 8
+  store ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
@@ -1968,7 +1968,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 16), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
   %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %return
@@ -2081,7 +2081,7 @@ init.i11:                                         ; preds = %init.check.i9
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 16), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
   %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %invoke.cont12
@@ -2328,7 +2328,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal49detect_best_supported_implementation_on_first_useE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal49detect_best_supported_implementation_on_first_useE, i64 16), ptr %this, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -2342,7 +2342,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2480,7 +2480,7 @@ new.notnull:                                      ; preds = %entry
   store i32 0, ptr %next_structural_index.i.i, align 8
   %_capacity.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_capacity.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8fallback25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8fallback25dom_parser_implementationE, i64 16), ptr %call, align 8
   %open_containers.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %open_containers.i, i8 0, i64 40, i1 false)
   br label %new.cont
@@ -4551,7 +4551,7 @@ new.notnull:                                      ; preds = %entry
   store i32 0, ptr %next_structural_index.i.i, align 8
   %_capacity.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_capacity.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7haswell25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson7haswell25dom_parser_implementationE, i64 16), ptr %call, align 8
   %open_containers.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %open_containers.i, i8 0, i64 40, i1 false)
   br label %new.cont
@@ -6672,7 +6672,7 @@ new.notnull:                                      ; preds = %entry
   store i32 0, ptr %next_structural_index.i.i, align 8
   %_capacity.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_capacity.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7icelake25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson7icelake25dom_parser_implementationE, i64 16), ptr %call, align 8
   %open_containers.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %open_containers.i, i8 0, i64 40, i1 false)
   br label %new.cont
@@ -8898,7 +8898,7 @@ new.notnull:                                      ; preds = %entry
   store i32 0, ptr %next_structural_index.i.i, align 8
   %_capacity.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_capacity.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8westmere25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8westmere25dom_parser_implementationE, i64 16), ptr %call, align 8
   %open_containers.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %open_containers.i, i8 0, i64 40, i1 false)
   br label %new.cont
@@ -11513,7 +11513,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8fallback14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11524,7 +11524,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8fallback14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11536,7 +11536,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson7haswell14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11547,7 +11547,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson7haswell14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11559,7 +11559,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson7icelake14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11570,7 +11570,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson7icelake14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11582,7 +11582,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8westmere14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11593,7 +11593,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8westmere14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11716,7 +11716,7 @@ _ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable
 
 _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
   store ptr null, ptr %open_containers, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -11756,7 +11756,7 @@ _ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable
 
 _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
   store ptr null, ptr %open_containers.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -11885,7 +11885,7 @@ _ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_
 
 _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
   store ptr null, ptr %open_containers, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -11925,7 +11925,7 @@ _ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_
 
 _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
   store ptr null, ptr %open_containers.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -12054,7 +12054,7 @@ _ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_
 
 _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
   store ptr null, ptr %open_containers, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -12094,7 +12094,7 @@ _ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_
 
 _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
   store ptr null, ptr %open_containers.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -12223,7 +12223,7 @@ _ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable
 
 _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
   store ptr null, ptr %open_containers, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -12263,7 +12263,7 @@ _ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable
 
 _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
   store ptr null, ptr %open_containers.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %structural_indexes.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -12291,7 +12291,7 @@ entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_name = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -12367,7 +12367,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal26unsupported_implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12390,7 +12390,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #51
   %_name = getelementptr inbounds i8, ptr %this, i64 8
@@ -12436,7 +12436,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7icelake14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson7icelake14implementationE, i64 16), ptr @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7icelake14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   br label %init.end
@@ -12468,7 +12468,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7haswell14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson7haswell14implementationE, i64 16), ptr @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7haswell14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   br label %init.end
@@ -12500,7 +12500,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8westmere14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8westmere14implementationE, i64 16), ptr @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8westmere14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   br label %init.end
@@ -12532,7 +12532,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8fallback14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8fallback14implementationE, i64 16), ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8fallback14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #51
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   br label %init.end
@@ -12651,7 +12651,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12663,7 +12663,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal25dom_parser_implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i64 16), ptr %this, align 8
   %structural_indexes = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %structural_indexes, align 8
   %cmp.not.i = icmp eq ptr %0, null

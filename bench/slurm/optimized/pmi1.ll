@@ -457,7 +457,7 @@ define internal noundef i32 @_handle_get_universe_size(i32 noundef %0, i32 %1, p
 
 7:                                                ; preds = %6, %3
   %8 = tail call ptr @client_resp_new() #8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %8, ptr noundef nonnull @.str.32, i32 noundef 0, i32 noundef %9) #8
   %10 = tail call i32 @client_resp_send(ptr noundef %8, i32 noundef %0) #8
   tail call void @client_resp_free(ptr noundef %8) #8
@@ -507,7 +507,7 @@ define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr nocapture re
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i32, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -523,8 +523,8 @@ define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr nocapture re
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 3), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @tree_info, i64 20), align 4
   store i32 %18, ptr @children_to_wait, align 4
   br label %19
 
@@ -544,13 +544,13 @@ define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr nocapture re
   br i1 %.not, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
   %.not8 = icmp eq ptr %28, null
   %..str.39 = select i1 %.not8, ptr @.str.39, ptr %28
   %29 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.38, ptr noundef nonnull %..str.39) #8
   %30 = tail call i32 @send_kvs_fence_resp_to_clients(i32 noundef %26, ptr noundef nonnull @.str.40) #8
   %31 = load i32, ptr @job_info, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %33 = tail call i32 @slurm_kill_job_step(i32 noundef %31, i32 noundef %32, i16 noundef zeroext 9, i16 noundef zeroext 0) #8
   br label %35
 
@@ -616,7 +616,7 @@ define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr nocapture readnon
 
 7:                                                ; preds = %6, %3
   %8 = load i32, ptr @job_info, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %10 = tail call i32 @slurm_kill_job_step(i32 noundef %8, i32 noundef %9, i16 noundef zeroext 9, i16 noundef zeroext 0) #8
   %11 = tail call i32 @slurm_get_log_level() #8
   %12 = icmp sgt i32 %11, 6
@@ -643,7 +643,7 @@ define internal i32 @_handle_get_my_kvsname(i32 noundef %0, i32 %1, ptr nocaptur
 7:                                                ; preds = %6, %3
   %8 = tail call ptr @client_resp_new() #8
   %9 = load i32, ptr @job_info, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %8, ptr noundef nonnull @.str.48, i32 noundef 0, i32 noundef %9, i32 noundef %10) #8
   %11 = tail call i32 @client_resp_send(ptr noundef %8, i32 noundef %0) #8
   tail call void @client_resp_free(ptr noundef %8) #8

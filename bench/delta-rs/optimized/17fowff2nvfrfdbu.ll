@@ -3402,7 +3402,7 @@ define hidden void @"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$clos
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !765
   store ptr @anon.bcd6ddeec7c7f37f22c88c8e2832a3b7.56, ptr %11, align 8, !noalias !765
   %16 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.bcd6ddeec7c7f37f22c88c8e2832a3b7.56, i64 1, i32 0), ptr %16, align 8, !noalias !765
+  store ptr getelementptr inbounds (i8, ptr @anon.bcd6ddeec7c7f37f22c88c8e2832a3b7.56, i64 272), ptr %16, align 8, !noalias !765
   br label %17
 
 17:                                               ; preds = %19, %3

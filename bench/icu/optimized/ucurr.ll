@@ -3938,12 +3938,12 @@ if.end6.i:                                        ; preds = %_ZL24ucurr_createCu
 
 _ZL12initIsoCodesR10UErrorCode.exit:              ; preds = %if.then4.i, %if.then5.i, %if.end6.i
   %12 = phi i32 [ %2, %if.then4.i ], [ %.pre, %if.then5.i ], [ %.pre.i, %if.end6.i ]
-  store i32 %12, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL17gIsoCodesInitOnce, i64 0, i32 1), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL17gIsoCodesInitOnce, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL17gIsoCodesInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %13 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL17gIsoCodesInitOnce, i64 0, i32 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17gIsoCodesInitOnce, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %13, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

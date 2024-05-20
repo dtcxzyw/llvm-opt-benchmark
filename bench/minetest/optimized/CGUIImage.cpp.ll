@@ -239,7 +239,7 @@ define void @_ZN3irr3gui9CGUIImageC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEi
 entry:
   %agg.tmp2 = alloca %"class.irr::core::rect", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 368
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 376
   store ptr null, ptr %DebugName.i, align 8, !tbaa !42
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -248,10 +248,10 @@ entry:
   store i64 %rectangle.coerce0, ptr %agg.tmp2, align 8
   %agg.tmp.sroa.2.0.agg.tmp2.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 %rectangle.coerce1, ptr %agg.tmp.sroa.2.0.agg.tmp2.sroa_idx, align 8
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2), i32 noundef 9, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp2)
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui9CGUIImageE, i64 16), i32 noundef 9, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2)
-  store ptr getelementptr inbounds inrange(-24, 400) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 400) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 448), ptr %0, align 8, !tbaa !3
   %Texture = getelementptr inbounds i8, ptr %this, i64 312
   store ptr null, ptr %Texture, align 8, !tbaa !6
   %Color = getelementptr inbounds i8, ptr %this, i64 320
@@ -313,9 +313,9 @@ if.end:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui9CGUIImageD1Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 400) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 400) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 368
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 448), ptr %add.ptr.i, align 8, !tbaa !3
   %Texture.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %Texture.i, align 8, !tbaa !6
   %tobool.not.i = icmp eq ptr %0, null
@@ -341,7 +341,7 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br label %_ZN3irr3gui9CGUIImageD2Ev.exit
 
 _ZN3irr3gui9CGUIImageD2Ev.exit:                   ; preds = %delete.notnull.i.i, %if.then.i, %entry
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui9CGUIImageE, i64 16)) #18
   ret void
 }
 
@@ -352,9 +352,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 400) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 400) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 368
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 448), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Texture.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %Texture.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -380,16 +380,16 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   br label %_ZN3irr3gui9CGUIImageD1Ev.exit
 
 _ZN3irr3gui9CGUIImageD1Ev.exit:                   ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui9CGUIImageE, i64 16)) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui9CGUIImageD0Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 400) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 400) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 368
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 448), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Texture.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %Texture.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -415,7 +415,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   br label %_ZN3irr3gui9CGUIImageD1Ev.exit
 
 _ZN3irr3gui9CGUIImageD1Ev.exit:                   ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui9CGUIImageE, i64 16)) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -430,9 +430,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 400) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 400) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 368
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 448), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Texture.i.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %Texture.i.i.i, align 8, !tbaa !6
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -458,7 +458,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   br label %_ZN3irr3gui9CGUIImageD0Ev.exit
 
 _ZN3irr3gui9CGUIImageD0Ev.exit:                   ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %entry
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui9CGUIImageE, i64 16)) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #19
   ret void
 }
@@ -2180,7 +2180,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8

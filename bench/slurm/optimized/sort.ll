@@ -12,13 +12,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 15), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #7
-  store ptr %5, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 15), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -35,7 +35,7 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %12 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 15), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.off = add i8 %14, -43

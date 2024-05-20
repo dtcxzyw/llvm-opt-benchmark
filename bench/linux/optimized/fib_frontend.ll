@@ -1761,7 +1761,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %150, label %.thread21, label %151
 
 151:                                              ; preds = %148
-  %152 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %153 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %152, i32 noundef 3520, i64 noundef 24) #15
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread19, label %155
@@ -3661,7 +3661,7 @@ define internal i32 @fib_net_init(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1360
   store i32 7, ptr %6, align 16
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 2048) #15
   %9 = getelementptr inbounds i8, ptr %0, i64 1032
   store ptr %8, ptr %9, align 8
@@ -3951,7 +3951,7 @@ define internal void @nl_fib_input(ptr noundef %0) #0 align 16 {
   %65 = getelementptr i8, ptr %32, i64 32
   store i32 -2, ptr %65, align 4
   %66 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !43
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !44
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !44
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !45
   %67 = load i32, ptr %64, align 8
   %68 = trunc i32 %67 to i8

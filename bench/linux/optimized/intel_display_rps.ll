@@ -28,7 +28,7 @@ define dso_local void @intel_display_rps_boost_after_vblank(ptr noundef %0, ptr 
   br i1 %13, label %14, label %36
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 56) #4
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19

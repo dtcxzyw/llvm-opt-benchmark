@@ -98,7 +98,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   %38 = getelementptr inbounds i8, ptr %34, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %17, i64 %32, i1 false)
   call void @free(ptr noundef nonnull %17) #8
-  %39 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i64 0, i32 11), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %39, 64
   br i1 %or.cond3, label %40, label %46
 
@@ -122,7 +122,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 define internal noundef zeroext i1 @zlib_decompress(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3) #0 {
   store i64 0, ptr %1, align 8
   %.0.copyload = load i32, ptr %2, align 1
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i64 0, i32 11), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %12
 

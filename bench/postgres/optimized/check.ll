@@ -219,7 +219,7 @@ define dso_local void @check_and_dump_old_cluster(i1 noundef zeroext %0) local_u
   tail call fastcc void @check_is_install_user(ptr noundef nonnull @old_cluster)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15)
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.48) #12
-  %19 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %19, ptr noundef nonnull @.str.50) #12
   %21 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.40) #12
   %22 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %21, ptr noundef nonnull @.str.51) #12
@@ -322,7 +322,7 @@ check_proper_datallowconn.exit:                   ; preds = %._crit_edge.i
   call fastcc void @check_for_prepared_transactions(ptr noundef nonnull @old_cluster)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.98) #12
-  %61 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %62 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %61, ptr noundef nonnull @.str.99) #12
   %63 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.100, i32 noundef 16384) #12
   %64 = call zeroext i1 @check_for_data_types_usage(ptr noundef nonnull @old_cluster, ptr noundef %63, ptr noundef nonnull %14) #12
@@ -339,7 +339,7 @@ check_for_composite_data_type_usage.exit:         ; preds = %check_proper_datall
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.102) #12
-  %66 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %66, ptr noundef nonnull @.str.103) #12
   %68 = call zeroext i1 @check_for_data_types_usage(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.104, ptr noundef nonnull %13) #12
   br i1 %68, label %69, label %check_for_reg_data_type_usage.exit
@@ -354,24 +354,24 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.65) #12
-  %70 = load i8, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 20), align 1
-  %71 = load i8, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 0, i32 20), align 1
+  %70 = load i8, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 101), align 1
+  %71 = load i8, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 101), align 1
   %72 = xor i8 %71, %70
   %73 = and i8 %72, 1
   %74 = icmp eq i8 %73, 0
   br i1 %74, label %check_for_isn_and_int8_passing_mismatch.exit, label %75
 
 75:                                               ; preds = %check_for_reg_data_type_usage.exit
-  %76 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %77 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %76, ptr noundef nonnull @.str.66) #12
-  %78 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph9.i, label %check_for_isn_and_int8_passing_mismatch.exit
 
 .lr.ph9.i:                                        ; preds = %75, %._crit_edge.i5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i5 ], [ 0, %75 ]
   %.0286.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i5 ], [ null, %75 ]
-  %80 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %81 = getelementptr %struct.DbInfo, ptr %80, i64 %indvars.iv.i, i32 1
   %82 = load ptr, ptr %81, align 8
   %83 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %82) #12
@@ -423,7 +423,7 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
   call void @PQclear(ptr noundef %84) #12
   call void @PQfinish(ptr noundef %83) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %106 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %106 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next.i, %107
   br i1 %108, label %.lr.ph9.i, label %._crit_edge10.i, !llvm.loop !8
@@ -441,16 +441,16 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
 check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.i, %check_for_reg_data_type_usage.exit
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
-  %111 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %112 = icmp ugt i32 %111, 169999
   br i1 %112, label %113, label %245
 
 113:                                              ; preds = %check_for_isn_and_int8_passing_mismatch.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.145) #12
-  %114 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %114, ptr noundef nonnull @.str.146) #12
-  %116 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %.lr.ph31.i, label %check_old_cluster_for_valid_slots.exit
 
@@ -461,14 +461,14 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
   %118 = phi i32 [ %123, %._crit_edge.split.us.us.i ], [ %116, %.lr.ph31.i ]
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %._crit_edge.split.us.us.i ], [ 0, %.lr.ph31.i ]
   %.029.us.i = phi ptr [ %.1.lcssa.us.i, %._crit_edge.split.us.us.i ], [ null, %.lr.ph31.i ]
-  %119 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %120 = getelementptr %struct.DbInfo, ptr %119, i64 %indvars.iv44.i, i32 4
   %121 = load i32, ptr %120, align 8
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i
 
 ._crit_edge.split.us.us.loopexit.i:               ; preds = %142
-  %.pre48.i = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %.pre48.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   br label %._crit_edge.split.us.us.i
 
 ._crit_edge.split.us.us.i:                        ; preds = %._crit_edge.split.us.us.loopexit.i, %.lr.ph31.split.us.i
@@ -522,7 +522,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
   %146 = phi i32 [ %189, %._crit_edge.split.i ], [ %116, %.lr.ph31.i ]
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %._crit_edge.split.i ], [ 0, %.lr.ph31.i ]
   %.029.i = phi ptr [ %.1.lcssa.i10, %._crit_edge.split.i ], [ null, %.lr.ph31.i ]
-  %147 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %148 = getelementptr %struct.DbInfo, ptr %147, i64 %indvars.iv38.i, i32 4
   %149 = load i32, ptr %148, align 8
   %150 = icmp sgt i32 %149, 0
@@ -601,7 +601,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
   br i1 %188, label %152, label %._crit_edge.split.loopexit.i, !llvm.loop !10
 
 ._crit_edge.split.loopexit.i:                     ; preds = %185
-  %.pre.i = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   br label %._crit_edge.split.i
 
 ._crit_edge.split.i:                              ; preds = %._crit_edge.split.loopexit.i, %.lr.ph31.split.i
@@ -628,16 +628,16 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.150) #12
-  %194 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %195 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %194, ptr noundef nonnull @.str.151) #12
-  %196 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.lr.ph56.i, label %check_old_cluster_subscription_state.exit
 
 .lr.ph56.i:                                       ; preds = %check_old_cluster_for_valid_slots.exit, %._crit_edge51.i
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i18, %._crit_edge51.i ], [ 0, %check_old_cluster_for_valid_slots.exit ]
   %.03754.i = phi ptr [ %.4.lcssa.i, %._crit_edge51.i ], [ null, %check_old_cluster_for_valid_slots.exit ]
-  %198 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %199 = getelementptr %struct.DbInfo, ptr %198, i64 %indvars.iv.i16, i32 1
   %200 = load ptr, ptr %199, align 8
   %201 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %200) #12
@@ -724,7 +724,7 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
   call void @PQclear(ptr noundef %221) #12
   call void @PQfinish(ptr noundef %201) #12
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
-  %240 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %241 = sext i32 %240 to i64
   %242 = icmp slt i64 %indvars.iv.next.i18, %241
   br i1 %242, label %.lr.ph56.i, label %._crit_edge57.i, !llvm.loop !13
@@ -742,7 +742,7 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
 check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_for_valid_slots.exit, %._crit_edge57.i
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %245
 
 245:                                              ; preds = %check_old_cluster_subscription_state.exit, %check_for_isn_and_int8_passing_mismatch.exit
@@ -765,7 +765,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 252:                                              ; preds = %248
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
-  %.pre = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %253 = icmp ult i32 %.pre, 110100
   br i1 %253, label %254, label %255
 
@@ -773,7 +773,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.3)
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.4)
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.5)
-  %.pr77 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr77 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %255
 
 255:                                              ; preds = %254, %252
@@ -784,16 +784,16 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 258:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.126) #12
-  %259 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %260 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %259, ptr noundef nonnull @.str.127) #12
-  %261 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %261 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %262 = icmp sgt i32 %261, 0
   br i1 %262, label %.lr.ph9.i26, label %296
 
 .lr.ph9.i26:                                      ; preds = %258, %._crit_edge.i28
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i30, %._crit_edge.i28 ], [ 0, %258 ]
   %.0326.i = phi ptr [ %.1.lcssa.i29, %._crit_edge.i28 ], [ null, %258 ]
-  %263 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %264 = getelementptr %struct.DbInfo, ptr %263, i64 %indvars.iv.i27, i32 1
   %265 = load ptr, ptr %264, align 8
   %266 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %265) #12
@@ -847,7 +847,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @PQclear(ptr noundef %267) #12
   call void @PQfinish(ptr noundef %266) #12
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i27, 1
-  %291 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %291 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %indvars.iv.next.i30, %292
   br i1 %293, label %.lr.ph9.i26, label %._crit_edge10.i31, !llvm.loop !15
@@ -865,23 +865,23 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 296:                                              ; preds = %._crit_edge10.i31, %258
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  %.pre99 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pre99 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %297 = icmp ult i32 %.pre99, 130100
   br i1 %297, label %298, label %.thread88
 
 298:                                              ; preds = %296
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.73) #12
-  %299 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %300 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %299, ptr noundef nonnull @.str.74) #12
-  %301 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %301 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %302 = icmp sgt i32 %301, 0
   br i1 %302, label %.lr.ph9.i38, label %340
 
 .lr.ph9.i38:                                      ; preds = %298, %._crit_edge.i40
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i42, %._crit_edge.i40 ], [ 0, %298 ]
   %.0406.i = phi ptr [ %.1.lcssa.i41, %._crit_edge.i40 ], [ null, %298 ]
-  %303 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %304 = getelementptr %struct.DbInfo, ptr %303, i64 %indvars.iv.i39, i32 1
   %305 = load ptr, ptr %304, align 8
   %306 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %305) #12
@@ -939,7 +939,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @PQclear(ptr noundef %307) #12
   call void @PQfinish(ptr noundef %306) #12
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i39, 1
-  %335 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %335 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next.i42, %336
   br i1 %337, label %.lr.ph9.i38, label %._crit_edge10.i43, !llvm.loop !17
@@ -957,7 +957,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 340:                                              ; preds = %._crit_edge10.i43, %298
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  %.pr78 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr78 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %341 = icmp ult i32 %.pr78, 130100
   br i1 %341, label %342, label %.thread88
 
@@ -965,17 +965,17 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.83) #12
-  %343 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %344 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %343, ptr noundef nonnull @.str.84) #12
   call void @initPQExpBuffer(ptr noundef nonnull %6) #12
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.85) #12
-  %345 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %345 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %346 = icmp ugt i32 %345, 90299
   br i1 %346, label %347, label %.thread.i
 
 347:                                              ; preds = %342
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.86) #12
-  %.pr.i = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %348 = icmp ugt i32 %.pr.i, 90499
   br i1 %348, label %349, label %.thread.i
 
@@ -984,14 +984,14 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   br label %.thread.i
 
 .thread.i:                                        ; preds = %349, %347, %342
-  %350 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %350 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %351 = icmp sgt i32 %350, 0
   br i1 %351, label %.lr.ph8.i, label %384
 
 .lr.ph8.i:                                        ; preds = %.thread.i, %._crit_edge.i50
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %._crit_edge.i50 ], [ 0, %.thread.i ]
   %.0307.i = phi ptr [ %.1.lcssa.i51, %._crit_edge.i50 ], [ null, %.thread.i ]
-  %352 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %352 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %353 = getelementptr %struct.DbInfo, ptr %352, i64 %indvars.iv.i49, i32 1
   %354 = load ptr, ptr %353, align 8
   %355 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %354) #12
@@ -1044,7 +1044,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @PQclear(ptr noundef %357) #12
   call void @PQfinish(ptr noundef %355) #12
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
-  %379 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %379 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %380 = sext i32 %379 to i64
   %381 = icmp slt i64 %indvars.iv.next.i52, %380
   br i1 %381, label %.lr.ph8.i, label %._crit_edge9.i, !llvm.loop !19
@@ -1064,23 +1064,23 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.pr79 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr79 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %385 = icmp ult i32 %.pr79, 110100
   br i1 %385, label %386, label %.thread88
 
 386:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.93) #12
-  %387 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %388 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %387, ptr noundef nonnull @.str.94) #12
-  %389 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %389 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %390 = icmp sgt i32 %389, 0
   br i1 %390, label %.lr.ph9.i58, label %.thread80
 
 .lr.ph9.i58:                                      ; preds = %386, %._crit_edge.i61
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i63, %._crit_edge.i61 ], [ 0, %386 ]
   %.0286.i60 = phi ptr [ %.1.lcssa.i62, %._crit_edge.i61 ], [ null, %386 ]
-  %391 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %391 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %392 = getelementptr %struct.DbInfo, ptr %391, i64 %indvars.iv.i59, i32 1
   %393 = load ptr, ptr %392, align 8
   %394 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %393) #12
@@ -1132,7 +1132,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @PQclear(ptr noundef %395) #12
   call void @PQfinish(ptr noundef %394) #12
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i59, 1
-  %417 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %417 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %418 = sext i32 %417 to i64
   %419 = icmp slt i64 %indvars.iv.next.i63, %418
   br i1 %419, label %.lr.ph9.i58, label %._crit_edge10.i64, !llvm.loop !21
@@ -1150,13 +1150,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 .thread80:                                        ; preds = %._crit_edge10.i64, %386
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  %.pr81.pr = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr81.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %422 = icmp ult i32 %.pr81.pr, 110100
   br i1 %422, label %423, label %.thread88
 
 423:                                              ; preds = %.thread80
   call void @old_11_check_for_sql_identifier_data_type_usage(ptr noundef nonnull @old_cluster) #12
-  %.pr83 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr83 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %424 = icmp ult i32 %.pr83, 90700
   br i1 %424, label %425, label %.thread88
 
@@ -1171,7 +1171,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   br label %.thread85
 
 .thread85:                                        ; preds = %425, %428
-  %.pr87.pr.pr = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr87.pr.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %429 = icmp ult i32 %.pr87.pr.pr, 90600
   br i1 %429, label %430, label %.thread88
 
@@ -1179,7 +1179,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %431 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.40) #12
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.119) #12
-  %432 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %432 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %433 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %432, ptr noundef nonnull @.str.120) #12
   %434 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %431, ptr noundef nonnull @.str.121) #12
   %435 = call i32 @PQntuples(ptr noundef %434) #12
@@ -1231,14 +1231,14 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  %.pre100 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pre100 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %.thread88
 
 .thread88:                                        ; preds = %245, %255, %296, %340, %.thread80, %384, %423, %check_for_pg_role_prefix.exit, %.thread85
   %454 = phi i32 [ %.pre99, %296 ], [ %.pr78, %340 ], [ %.pr81.pr, %.thread80 ], [ %.pr79, %384 ], [ %.pr83, %423 ], [ %.pre100, %check_for_pg_role_prefix.exit ], [ %.pr87.pr.pr, %.thread85 ], [ %256, %255 ], [ %246, %245 ]
   %.off = add i32 %454, -90400
   %455 = icmp ult i32 %.off, 100
-  %456 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 1), align 4
+  %456 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
   %457 = icmp ult i32 %456, 201409291
   %or.cond = select i1 %455, i1 %457, i1 false
   br i1 %or.cond, label %458, label %463
@@ -1246,7 +1246,7 @@ check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
 458:                                              ; preds = %.thread88
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.115) #12
-  %459 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 4), align 8
+  %459 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %460 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %459, ptr noundef nonnull @.str.116) #12
   %461 = call zeroext i1 @check_for_data_type_usage(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.117, ptr noundef nonnull %2) #12
   br i1 %461, label %462, label %check_for_jsonb_9_4_usage.exit
@@ -1259,7 +1259,7 @@ check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
 check_for_jsonb_9_4_usage.exit:                   ; preds = %458
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
-  %.pre101 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pre101 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %463
 
 463:                                              ; preds = %check_for_jsonb_9_4_usage.exit, %.thread88
@@ -1316,7 +1316,7 @@ define internal fastcc void @check_is_install_user(ptr noundef %0) unnamed_addr 
   br i1 %.not11, label %11, label %9
 
 9:                                                ; preds = %5, %1
-  %10 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
   tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.43, ptr noundef %10) #14
   unreachable
 
@@ -1423,12 +1423,12 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca %struct.stat, align 8
   tail call void @get_db_rel_and_slot_infos(ptr noundef nonnull @new_cluster, i1 noundef zeroext false) #12
-  %3 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 2, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 128), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph19.i, label %check_new_cluster_is_empty.exit
 
 .lr.ph19.i:                                       ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 120), align 8
   %wide.trip.count30.i = zext nneg i32 %3 to i64
   br label %6
 
@@ -1473,7 +1473,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 
 check_new_cluster_is_empty.exit:                  ; preds = %._crit_edge.i, %0
   tail call void @check_loadable_libraries() #12
-  %22 = load i32, ptr getelementptr inbounds (%struct.UserOpts, ptr @user_opts, i64 0, i32 2), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
   switch i32 %22, label %25 [
     i32 0, label %23
     i32 2, label %24
@@ -1493,23 +1493,23 @@ check_new_cluster_is_empty.exit:                  ; preds = %._crit_edge.i, %0
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.37) #12
-  %26 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph.i2, label %check_for_new_tablespace_dir.exit
 
 28:                                               ; preds = %39
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i3, 1
-  %29 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i5, %30
   br i1 %31, label %.lr.ph.i2, label %check_for_new_tablespace_dir.exit, !llvm.loop !25
 
 .lr.ph.i2:                                        ; preds = %25, %28
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i5, %28 ], [ 0, %25 ]
-  %32 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %33 = getelementptr ptr, ptr %32, i64 %indvars.iv.i3
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 12), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
   %36 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.38, ptr noundef %34, ptr noundef %35) #12
   %37 = call i32 @stat(ptr noundef nonnull %1, ptr noundef nonnull %2) #12
   %38 = icmp eq i32 %37, 0
@@ -1529,7 +1529,7 @@ check_for_new_tablespace_dir.exit:                ; preds = %28, %25
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  %43 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %44 = icmp ult i32 %43, 160100
   br i1 %44, label %check_new_cluster_subscription_configuration.exit, label %45
 
@@ -1598,7 +1598,7 @@ check_for_new_tablespace_dir.exit:                ; preds = %28, %25
   br label %check_new_cluster_logical_replication_slots.exit
 
 check_new_cluster_logical_replication_slots.exit: ; preds = %45, %70
-  %.pr = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %71 = icmp ult i32 %.pr, 170000
   br i1 %71, label %check_new_cluster_subscription_configuration.exit, label %72
 
@@ -1671,7 +1671,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @issue_warnings_and_set_wal_level() local_unnamed_addr #0 {
   %1 = tail call zeroext i1 @start_postmaster(ptr noundef nonnull @new_cluster, i1 noundef zeroext true) #12
-  %2 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %3 = icmp ult i32 %2, 90700
   br i1 %3, label %4, label %5
 
@@ -1691,19 +1691,19 @@ declare void @report_extension_updates(ptr noundef) local_unnamed_addr #1
 define dso_local void @output_completion_banner(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %2) #12
-  %3 = load i8, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 2), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @os_info, i64 16), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.8) #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
   call void @appendShellString(ptr noundef nonnull %2, ptr noundef %6) #12
   call void @appendPQExpBufferChar(ptr noundef nonnull %2, i8 noundef signext 32) #12
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
   %9 = load ptr, ptr %2, align 8
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef %9) #12
   %.not = icmp eq ptr %0, null
@@ -1735,7 +1735,7 @@ declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_cluster_versions() local_unnamed_addr #0 {
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.12) #12
-  %1 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 9), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %2 = udiv i32 %1, 100
   %3 = icmp ult i32 %1, 90200
   br i1 %3, label %4, label %5
@@ -1745,7 +1745,7 @@ define dso_local void @check_cluster_versions() local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 9), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 180), align 4
   %.off = add i32 %6, -170000
   %.not = icmp ult i32 %.off, 100
   br i1 %.not, label %8, label %7
@@ -1763,7 +1763,7 @@ define dso_local void @check_cluster_versions() local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 11), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 248), align 8
   %13 = udiv i32 %12, 100
   %.not2 = icmp eq i32 %2, %13
   br i1 %.not2, label %15, label %14
@@ -1773,7 +1773,7 @@ define dso_local void @check_cluster_versions() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 11), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 248), align 8
   %.off4 = add i32 %16, -170000
   %.not3 = icmp ult i32 %.off4, 100
   br i1 %.not3, label %18, label %17
@@ -1802,8 +1802,8 @@ define dso_local void @check_cluster_compatibility(i1 noundef zeroext %0) local_
   br i1 %0, label %2, label %7
 
 2:                                                ; preds = %1
-  %3 = load i16, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 8), align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 8), align 8
+  %3 = load i16, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 176), align 8
+  %4 = load i16, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 176), align 8
   %5 = icmp eq i16 %3, %4
   br i1 %5, label %6, label %7
 
@@ -1826,17 +1826,17 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noun
   %4 = alloca [1024 x i8], align 16
   %5 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #12
   store ptr %5, ptr %0, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %7 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024) #12
   call void @canonicalize_path(ptr noundef nonnull %2) #12
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 3), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
   %9 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1024) #12
   call void @canonicalize_path(ptr noundef nonnull %3) #12
   %10 = call zeroext i1 @path_is_prefix_of_path(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br i1 %10, label %13, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %11 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -1851,14 +1851,14 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noun
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
-  %21 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %22 = getelementptr ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %23, i64 noundef 1024) #12
@@ -1892,43 +1892,43 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noun
 
 38:                                               ; preds = %._crit_edge
   %39 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.29) #12
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
   %41 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.30, i32 noundef 39, ptr noundef %40, i32 noundef 39) #12
-  %42 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph37, label %._crit_edge38
 
 .lr.ph37:                                         ; preds = %38, %.loopexit
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.loopexit ], [ 0, %38 ]
-  %44 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 12), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
   %char0 = load i8, ptr %44, align 1
   %45 = icmp eq i8 %char0, 0
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %.lr.ph37
   %47 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.31) #12
-  %48 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph33, label %.loopexit
 
 .lr.ph33:                                         ; preds = %46, %.lr.ph33
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.lr.ph33 ], [ 0, %46 ]
-  %50 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %51 = getelementptr ptr, ptr %50, i64 %indvars.iv43
   %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %54 = getelementptr %struct.DbInfo, ptr %53, i64 %indvars.iv40
   %55 = load i32, ptr %54, align 8
   %56 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.32, i32 noundef 39, ptr noundef %52, i32 noundef 47, i32 noundef %55, i32 noundef 39) #12
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %57 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next41, %58
   br i1 %59, label %.lr.ph33, label %.loopexit, !llvm.loop !27
 
 60:                                               ; preds = %.lr.ph37
   %61 = call ptr @pg_strdup(ptr noundef nonnull %44) #12
-  %62 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
   %63 = getelementptr ptr, ptr %62, i64 %indvars.iv43
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.33, i32 noundef 39, ptr noundef %64, ptr noundef %61, i32 noundef 39) #12
@@ -1937,7 +1937,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noun
 
 .loopexit:                                        ; preds = %.lr.ph33, %46, %60
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %66 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 4), align 8
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next44, %67
   br i1 %68, label %.lr.ph37, label %._crit_edge38, !llvm.loop !28

@@ -116,7 +116,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %58 = mul i64 %57, %55
   tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %58) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #17
-  %59 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   %60 = getelementptr inbounds i8, ptr %11, i64 1544
   %61 = load i32, ptr %60, align 8, !tbaa !68
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %59, ptr noundef nonnull %7, i32 noundef %61, i32 noundef 10, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 134) #17
@@ -129,7 +129,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %66 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #17
   %67 = getelementptr inbounds i8, ptr %11, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %66, ptr noundef nonnull %67) #17
-  %68 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %68, ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef 138) #17
   br label %.loopexit
 
@@ -164,7 +164,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .loopexit13:                                      ; preds = %.loopexit11, %69
   call void @free(ptr noundef %79) #17
-  %91 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %91, ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef 228) #17
   %92 = load ptr, ptr %19, align 8, !tbaa !45
   %93 = getelementptr inbounds i8, ptr %92, i64 604
@@ -510,7 +510,7 @@ define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture no
   %7 = getelementptr inbounds i8, ptr %0, i64 664
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   %10 = getelementptr inbounds i8, ptr %8, i64 1544
   %11 = load i32, ptr %10, align 8, !tbaa !68
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %9, ptr noundef nonnull %6, i32 noundef %11, i32 noundef 10, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 393) #17
@@ -521,7 +521,7 @@ define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture no
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 15), align 8, !tbaa !61
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 112), align 8, !tbaa !61
   call void @dt_mipmap_cache_release_with_caller(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 401) #17
   store float 2.500000e+00, ptr %4, align 4, !tbaa !92
   %20 = getelementptr inbounds i8, ptr %4, i64 8

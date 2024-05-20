@@ -317,7 +317,7 @@ if.then4:                                         ; preds = %do.body2
   br label %if.end
 
 if.else:                                          ; preds = %do.body2
-  store ptr %3, ptr getelementptr inbounds (%union.anon, ptr @net_compares, i64 0, i32 0, i32 1), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @net_compares, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
@@ -1294,11 +1294,11 @@ if.then92:                                        ; preds = %if.end89
 do.body94:                                        ; preds = %if.end89, %if.then92
   %next = getelementptr inbounds i8, ptr %call.i, i64 209496
   store ptr null, ptr %next, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%union.anon, ptr @net_compares, i64 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @net_compares, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 209504
   store ptr %20, ptr %tql_prev, align 8
   store ptr %call.i, ptr %20, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon, ptr @net_compares, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @net_compares, i64 8), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @colo_compare_mutex, ptr noundef nonnull @.str, i32 noundef 1332) #16
   br label %return
 

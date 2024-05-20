@@ -828,9 +828,9 @@ define void @_ZN11LayerDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %25 = alloca %"class.QMetaObject::Connection", align 8
   %26 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11LayerDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11LayerDialog, i64 0, i32 1, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 448), ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_ZN12QMapDataBase11shared_nullE, ptr %28, align 8
   br label %29
@@ -2023,7 +2023,7 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %183, %_ZN9QtPrivate
 
 194:                                              ; preds = %192
   %195 = getelementptr inbounds i8, ptr %193, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %193, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %193, align 8
   store <4 x i32> <i32 0, i32 1, i32 20, i32 1507328>, ptr %195, align 8
   %196 = getelementptr inbounds i8, ptr %193, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %196, align 4
@@ -2323,7 +2323,7 @@ _ZN7QStringD2Ev.exit148:                          ; preds = %273, %_ZN9QtPrivate
 
 284:                                              ; preds = %282
   %285 = getelementptr inbounds i8, ptr %283, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %283, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %283, align 8
   store <4 x i32> <i32 0, i32 1, i32 20, i32 1507328>, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %283, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %286, align 4
@@ -7170,7 +7170,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN4QMapIibEaSEOS0_
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i, label %_ZN4QMapIibED2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN4QMapIibEaSEOS0_.exit
-  %13 = load ptr, ptr getelementptr inbounds (%struct.QMapDataBase, ptr @_ZN12QMapDataBase11shared_nullE, i64 0, i32 2, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12QMapDataBase11shared_nullE, i64 16), align 8
   %.not.i.i1 = icmp eq ptr %13, null
   br i1 %.not.i.i1, label %.noexc.i, label %14
 
@@ -14870,7 +14870,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -14943,7 +14943,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -15244,7 +15244,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -16868,9 +16868,9 @@ declare void @_ZN6QTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(29))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11LayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11LayerDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11LayerDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -20041,7 +20041,7 @@ define void @_ZN18MeshTreeWidgetItemC2EP9MeshModelP11QTreeWidgetP18MLRenderingTo
   %13 = alloca %class.QString, align 8
   %14 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %2, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18MeshTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %15, align 8
   %.not = icmp eq ptr %1, null
@@ -20411,7 +20411,7 @@ define void @_ZN20RasterTreeWidgetItemC2EP11RasterModel(ptr noundef nonnull alig
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20RasterTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20RasterTreeWidgetItem, i64 16), ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %57, label %9
 
@@ -20694,9 +20694,9 @@ define void @_ZN25DecoratorParamsTreeWidgetC2EP7QActionP10MainWindowP7QWidget(pt
   %12 = alloca %"class.QMetaObject::Connection", align 8
   %13 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3, i32 0)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV25DecoratorParamsTreeWidget, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV25DecoratorParamsTreeWidget, i64 0, i32 1, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 448), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 56
@@ -21286,9 +21286,9 @@ declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN25DecoratorParamsTreeWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV25DecoratorParamsTreeWidget, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV25DecoratorParamsTreeWidget, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -21922,7 +21922,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN9QtPrivate8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18DecoratorParamItemC2EP7QAction(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18DecoratorParamItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18DecoratorParamItem, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
@@ -21964,9 +21964,9 @@ define internal void @_GLOBAL__sub_I_layerDialog.cpp() #17 section ".text.startu
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #22
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

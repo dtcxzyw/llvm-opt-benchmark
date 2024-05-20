@@ -163,7 +163,7 @@ entry:
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
   call void @jw_release(ptr noundef nonnull %jw) #7
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.tr2_dst, ptr @tr2dst_event, i64 0, i32 2), align 4
+  %bf.load = load i8, ptr getelementptr inbounds (i8, ptr @tr2dst_event, i64 8), align 4
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then

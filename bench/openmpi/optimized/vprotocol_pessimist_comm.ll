@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_pessimist_add_comm(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 336), align 8
   %3 = tail call i32 %2(ptr noundef %0) #1
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_pessimist_del_comm(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 344), align 8
   %3 = tail call i32 %2(ptr noundef %0) #1
   ret i32 %3
 }

@@ -71,7 +71,7 @@ $_ZTI10ColorUtils = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10ColorUtilsC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10ColorUtils, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ColorUtils, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -298,7 +298,7 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca %class.QList, align 8
-  %17 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 2), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %_ZN5QListIjED2Ev.exit
 
@@ -430,8 +430,8 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
 _ZN17QArrayDataPointerIjEC2ERKS0_.exit.i.i:       ; preds = %52, %47
   %54 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   store ptr %48, ptr @_ZN10ColorUtils13graph_colors_E, align 8
-  store ptr %50, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 1), align 8
-  store i64 %51, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 2), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
+  store i64 %51, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %.not.i.i2.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIjEaSERKS0_.exit, label %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i.i
 
@@ -483,10 +483,10 @@ _ZN5QListIjED2Ev.exit:                            ; preds = %59, %_ZN17QArrayDat
   %67 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   store ptr %67, ptr %0, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 1), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
   store ptr %69, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
-  %71 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 2), align 8
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   store i64 %71, ptr %70, align 8
   %.not.i.i.i19 = icmp eq ptr %67, null
   br i1 %.not.i.i.i19, label %_ZN5QListIjEC2ERKS0_.exit, label %72
@@ -507,7 +507,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN10ColorUtils10graphColorEi(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList, align 8
-  %3 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 2), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %_ZN5QListIjED2Ev.exit
 
@@ -528,7 +528,7 @@ _ZN17QArrayDataPointerIjE5derefEv.exit.i.i:       ; preds = %5
   br label %_ZN5QListIjED2Ev.exit
 
 _ZN5QListIjED2Ev.exit:                            ; preds = %8, %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i, %5, %1
-  %10 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 2), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %11 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZN5QListIjE6detachEv.exit.i, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i
@@ -557,7 +557,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
 _ZN5QListIjEixEx.exit:                            ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i
   %17 = sext i32 %0 to i64
   %18 = srem i64 %17, %10
-  %19 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils13graph_colors_E, i64 0, i32 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
   %20 = getelementptr i32, ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4
   ret i32 %21
@@ -576,7 +576,7 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca %class.QList, align 8
-  %13 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils16sequence_colors_E, i64 0, i32 0, i32 2), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %_ZN5QListIjED2Ev.exit
 
@@ -676,8 +676,8 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
 _ZN17QArrayDataPointerIjEC2ERKS0_.exit.i.i:       ; preds = %40, %35
   %42 = load ptr, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
   store ptr %36, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
-  store ptr %38, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils16sequence_colors_E, i64 0, i32 0, i32 1), align 8
-  store i64 %39, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils16sequence_colors_E, i64 0, i32 0, i32 2), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
+  store i64 %39, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %.not.i.i2.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIjEaSERKS0_.exit, label %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i.i
 
@@ -726,7 +726,7 @@ _ZN5QListIjED2Ev.exit15:                          ; preds = %49, %_ZN17QArrayDat
   resume { ptr, i32 } %50
 
 _ZN5QListIjED2Ev.exit:                            ; preds = %47, %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i, %_ZN5QListIjEaSERKS0_.exit, %1
-  %55 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils16sequence_colors_E, i64 0, i32 0, i32 2), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %56 = load ptr, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
   %.not.i.i.i.i16 = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i16, label %_ZN5QListIjE6detachEv.exit.i, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i
@@ -755,7 +755,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
 _ZN5QListIjEixEx.exit:                            ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i
   %62 = sext i32 %0 to i64
   %63 = srem i64 %62, %55
-  %64 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZN10ColorUtils16sequence_colors_E, i64 0, i32 0, i32 1), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
   %65 = getelementptr i32, ptr %64, i64 %63
   %66 = load i32, ptr %65, align 4
   ret i32 %66

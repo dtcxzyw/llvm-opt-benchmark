@@ -612,8 +612,8 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
 
 .loopexit6:                                       ; preds = %26, %1
   %29 = getelementptr inbounds i8, ptr %0, i64 56
-  %30 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @trigger_list, i64 0, i32 1), align 8
-  store ptr %29, ptr getelementptr inbounds (%struct.list_head, ptr @trigger_list, i64 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @trigger_list, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @trigger_list, i64 8), align 8
   store ptr @trigger_list, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %30, ptr %31, align 8
@@ -877,7 +877,7 @@ define dso_local void @led_trigger_blink_oneshot(ptr noundef %0, i64 noundef %1,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 80) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

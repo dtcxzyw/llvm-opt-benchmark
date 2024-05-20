@@ -70,10 +70,10 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
 25:                                               ; preds = %._crit_edge
   %26 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %26, ptr %2, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %27, ptr %28, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %30 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %29, ptr %30, align 4
   br label %57

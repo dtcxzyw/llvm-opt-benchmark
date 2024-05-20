@@ -475,7 +475,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 define dso_local void @_ZN4node3url11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %realm, ptr %object.coerce) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %realm, ptr %object.coerce, i8 noundef zeroext 7) #22
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4node3url11BindingDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node3url11BindingDataE, i64 16), ptr %this, align 8
   %url_components_buffer_ = getelementptr inbounds i8, ptr %this, i64 40
   %isolate_.i = getelementptr inbounds i8, ptr %realm, i64 184
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -531,7 +531,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32Arr
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.5", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1358,7 +1358,7 @@ cleanup:                                          ; preds = %_ZN2v811ReturnValue
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cleanup
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %out, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %out, align 8
   %buffer.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i) #22
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
@@ -2261,7 +2261,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit143: ; preds = %if.end.i135, %
   store i8 1, ptr %30, align 8
   %type.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 11
   store i8 1, ptr %type.i.i.i.i.i.i.i.i.i, align 1
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %base, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %base, align 8
   %buffer.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i) #22
   %components.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 48
@@ -2378,7 +2378,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %is_valid2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   %56 = load i32, ptr %is_valid2.i.i.i.i.i.i, align 8
   store i32 %56, ptr %30, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %base, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %base, align 8
   %buffer2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %buffer2.i.i.i.i.i) #22
   %components3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48, i64 48
@@ -2419,7 +2419,7 @@ _ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit: ; preds = %if.t
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %ref.tmp48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %ref.tmp48, align 8
   %buffer.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp48, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i38) #22
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
@@ -2594,7 +2594,7 @@ cleanup:                                          ; preds = %if.then.i.i.i.i60, 
   br i1 %tobool.i.i.i.i.i.i.i67, label %if.then.i.i.i.i.i.i.i68, label %cleanup102
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %cleanup
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %out, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %out, align 8
   %buffer.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %out, i64 16
   br label %cleanup102.sink.split
 
@@ -2609,7 +2609,7 @@ cleanup102:                                       ; preds = %cleanup102.sink.spl
   br i1 %tobool.i.i.i.i.i.i.i72, label %if.then.i.i.i.i.i.i.i73, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit75
 
 if.then.i.i.i.i.i.i.i73:                          ; preds = %cleanup102
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %base, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %base, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i) #22
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit75
 
@@ -3229,7 +3229,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cleanup
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada14url_aggregatorE, i64 0, i32 0, i64 2), ptr %out, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %out, align 8
   %buffer.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i) #22
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
@@ -3968,7 +3968,7 @@ for.body.preheader:                               ; preds = %if.then.i.i.i.i260,
 for.body:                                         ; preds = %for.body.preheader, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit
   %45 = phi ptr [ %52, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit ], [ %.ph, %for.body.preheader ]
   %__begin2.0.idx324 = phi i64 [ %__begin2.0.add, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit ], [ 0, %for.body.preheader ]
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds ([2 x %"class.v8::CFunction"], ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 0, i64 0, i32 1), i64 %__begin2.0.idx324
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 8), i64 %__begin2.0.idx324
   %46 = load ptr, ptr %gep, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
@@ -4230,7 +4230,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 if.then5:                                         ; preds = %if.end
   %isolate_.i11 = getelementptr inbounds i8, ptr %env, i64 88
   %6 = load ptr, ptr %isolate_.i11, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 3)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 864)) #22
   %call.i12 = call ptr @_ZN4node25ERR_INVALID_FILE_URL_HOSTIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN2v85LocalINS7_5ValueEEEPNS7_7IsolateEPKcDpOT_(ptr noundef %6, ptr noundef nonnull @.str.49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %call6.i13 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call.i12) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
@@ -4345,9 +4345,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node3url11BindingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4node3url11BindingDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node3url11BindingDataE, i64 16), ptr %this, align 8
   %url_components_buffer_ = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %url_components_buffer_, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %url_components_buffer_, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4366,9 +4366,9 @@ _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node3url11BindingDataD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4node3url11BindingDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node3url11BindingDataE, i64 16), ptr %this, align 8
   %url_components_buffer_.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %url_components_buffer_.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %url_components_buffer_.i, align 8
   %js_array_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %js_array_.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -4880,7 +4880,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.43", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -5484,7 +5484,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ada3urlD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3ada3urlE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada3urlE, i64 16), ptr %this, align 8
   %non_special_scheme = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %non_special_scheme) #22
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -5820,7 +5820,7 @@ declare void @_ZN2v812api_internal12ToLocalEmptyEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %js_array_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -5838,7 +5838,7 @@ _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -6422,9 +6422,9 @@ init.check.i.i.i.i:                               ; preds = %entry
 init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %ref.tmp.i.i.i.i.i)
   store i24 1, ptr %ref.tmp.i.i.i.i.i, align 4
-  call void @_ZN2v813CFunctionInfoC2ERKNS_9CTypeInfoEjPS2_NS0_19Int64RepresentationE(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.i.i.i.i.i, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%"class.v8::internal::CFunctionInfoImpl", ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 0, i32 1, i64 0, i32 0), i8 noundef zeroext 0) #22
-  store i24 10, ptr getelementptr inbounds (%"class.v8::internal::CFunctionInfoImpl", ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 0, i32 1, i64 0, i32 0), align 8
-  store i24 11, ptr getelementptr inbounds (%"class.v8::internal::CFunctionInfoImpl", ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 0, i32 1, i64 1, i32 0), align 1
+  call void @_ZN2v813CFunctionInfoC2ERKNS_9CTypeInfoEjPS2_NS0_19Int64RepresentationE(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.i.i.i.i.i, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 16), i8 noundef zeroext 0) #22
+  store i24 10, ptr getelementptr inbounds (i8, ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 16), align 8
+  store i24 11, ptr getelementptr inbounds (i8, ptr @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance, i64 19), align 1
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
   br label %_ZN2v89CFunction4MakeIFbNS_5LocalINS_5ValueEEERKNS_17FastOneByteStringEEEES0_PT_.exit.i
@@ -6453,7 +6453,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN2v89CFunction4Ma
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i1.i, ptr noundef nonnull @_ZN4node3url11BindingData20FastCanParseWithBaseEN2v85LocalINS2_5ValueEEERKNS2_17FastOneByteStringES8_, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
   %6 = load <2 x ptr>, ptr %retval.i.i.i1.i, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i1.i)
-  store <2 x ptr> %6, ptr getelementptr inbounds ([2 x %"class.v8::CFunction"], ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 0, i64 1), align 16
+  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 16), align 16
   ret void
 }
 

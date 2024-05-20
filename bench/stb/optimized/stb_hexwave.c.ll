@@ -63,7 +63,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @hex_add_oversampled_bleplike(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr @hexblep, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv = sitofp i32 %1 to float
   %mul = fmul float %conv, %time_since_transition
   %conv1 = fptosi float %mul to i32
@@ -113,9 +113,9 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @hex_blep(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
   %1 = load i32, ptr @hexblep, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i = sitofp i32 %2 to float
   %mul.i = fmul float %conv.i, %time_since_transition
   %conv1.i = fptosi float %mul.i to i32
@@ -162,9 +162,9 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @hex_blamp(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   %1 = load i32, ptr @hexblep, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i = sitofp i32 %2 to float
   %mul.i = fmul float %conv.i, %time_since_transition
   %conv1.i = fptosi float %mul.i to i32
@@ -409,8 +409,8 @@ for.end:                                          ; preds = %for.body, %for.inc
 if.then23:                                        ; preds = %for.end
   %sub = fsub float %2, %3
   %mul25 = fmul float %sub, %5
-  %6 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i.i = sitofp i32 %7 to float
   %cmp.not.i.i = icmp sgt i32 %7, 0
   %sub.i.i = add nsw i32 %7, -1
@@ -583,7 +583,7 @@ while.end:                                        ; preds = %for.cond79.while.en
   %arrayidx107 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   %cmp113 = fcmp oeq float %29, %19
   %.pre259 = load i32, ptr @hexblep, align 8
-  %.pre261 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %.pre261 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %idx.ext = sext i32 %i.1.lcssa to i64
   br i1 %cmp113, label %if.then115, label %while.end.if.end130_crit_edge
 
@@ -601,7 +601,7 @@ if.then115:                                       ; preds = %while.end
   %v128 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
   %31 = load float, ptr %v128, align 4
   %sub129 = fsub float %30, %31
-  %32 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
   %conv.i.i112 = sitofp i32 %.pre261 to float
   %mul.i.i113 = fmul float %mul121, %conv.i.i112
   %conv1.i.i114 = fptosi float %mul.i.i113 to i32
@@ -643,7 +643,7 @@ for.body.i.i130:                                  ; preds = %for.body.i.i130, %f
 
 if.end130.loopexit:                               ; preds = %for.body.i.i130
   %.pre258 = load i32, ptr @hexblep, align 8
-  %.pre260 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %.pre260 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   br label %if.end130
 
 if.end130:                                        ; preds = %while.end.if.end130_crit_edge, %if.end130.loopexit, %if.then115
@@ -657,7 +657,7 @@ if.end130:                                        ; preds = %while.end.if.end130
   %42 = load float, ptr %s145, align 4
   %sub146 = fsub float %41, %42
   %mul147 = fmul float %2, %sub146
-  %43 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   %conv.i.i138 = sitofp i32 %39 to float
   %mul.i.i139 = fmul float %mul138.pre-phi, %conv.i.i138
   %conv1.i.i140 = fptosi float %mul.i.i139 to i32
@@ -720,9 +720,9 @@ if.then155:                                       ; preds = %if.then151
 if.then169:                                       ; preds = %if.then155
   %mul172 = fmul float %cond, %conv154
   %sub176 = fsub float %53, %52
-  %54 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
   %55 = load i32, ptr @hexblep, align 8
-  %56 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i.i165 = sitofp i32 %56 to float
   %mul.i.i166 = fmul float %mul172, %conv.i.i165
   %conv1.i.i167 = fptosi float %mul.i.i166 to i32
@@ -771,9 +771,9 @@ if.then183:                                       ; preds = %if.end177
   %mul186 = fmul float %cond, %conv154
   %sub190 = fsub float %63, %51
   %mul191 = fmul float %2, %sub190
-  %64 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   %65 = load i32, ptr @hexblep, align 8
-  %66 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %66 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i.i192 = sitofp i32 %66 to float
   %mul.i.i193 = fmul float %mul186, %conv.i.i192
   %conv1.i.i194 = fptosi float %mul.i.i193 to i32
@@ -881,9 +881,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
   tail call void @free(ptr noundef %0) #14
-  %1 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   tail call void @free(ptr noundef %1) #14
   br label %if.end
 
@@ -1153,10 +1153,10 @@ for.cond149.for.inc167_crit_edge.us:              ; preds = %for.body152.us
   br i1 %exitcond190.not, label %for.end169, label %for.body140.lr.ph.us, !llvm.loop !23
 
 for.end169:                                       ; preds = %for.cond149.for.inc167_crit_edge.us, %for.cond103.preheader, %for.cond137.preheader.lr.ph, %for.cond133.preheader
-  store ptr %blep_buffer.0, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
-  store ptr %blamp_buffer.0, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
+  store ptr %blep_buffer.0, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
+  store ptr %blamp_buffer.0, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   store i32 %spec.store.select106, ptr @hexblep, align 8
-  store i32 %oversample, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  store i32 %oversample, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   br i1 %tobool.not, label %if.then172, label %if.end173
 
 if.then172:                                       ; preds = %for.end169

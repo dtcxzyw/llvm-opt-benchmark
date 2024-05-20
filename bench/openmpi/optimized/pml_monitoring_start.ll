@@ -132,7 +132,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %54
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %67, %2
-  %69 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i64 0, i32 15), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 120), align 8
   %70 = call i32 %69(i64 noundef %0, ptr noundef %1) #3
   ret i32 %70
 }

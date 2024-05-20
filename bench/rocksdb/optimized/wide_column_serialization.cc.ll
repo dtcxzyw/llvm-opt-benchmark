@@ -1027,7 +1027,7 @@ if.end:                                           ; preds = %invoke.cont2
 land.rhs.i:                                       ; preds = %if.end
   %size_.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %size_.i.i.i, align 8
-  %13 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   %cmp.i.i = icmp eq i64 %12, %13
   br i1 %cmp.i.i, label %_ZN7rocksdb17WideColumnsHelper16HasDefaultColumnERKSt6vectorINS_10WideColumnESaIS2_EE.exit, label %if.then6
 

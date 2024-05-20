@@ -35,19 +35,19 @@ define void @nx_start() #0 {
 .critedge:
   %0 = alloca ptr, align 8
   %1 = alloca i64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(992) getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 2), i8 0, i64 992, i1 false)
-  store i8 3, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 8), align 16
-  store ptr @nx_start, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 6), align 16
-  store ptr @nx_start, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 7), align 8
-  store i16 2, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 12), align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 27), ptr noundef nonnull align 1 dereferenceable(10) @g_idlename, i64 noundef 10, i1 false) #5
-  store ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 27), ptr @g_idleargv, align 16
-  store ptr null, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 1), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(992) getelementptr inbounds (i8, ptr @g_idletcb, i64 16), i8 0, i64 992, i1 false)
+  store i8 3, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 48), align 16
+  store ptr @nx_start, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 32), align 16
+  store ptr @nx_start, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 40), align 8
+  store i16 2, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds (i8, ptr @g_idletcb, i64 976), ptr noundef nonnull align 1 dereferenceable(10) @g_idlename, i64 noundef 10, i1 false) #5
+  store ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 8), align 8
   %2 = load ptr, ptr @g_readytorun, align 8
   store ptr %2, ptr @g_idletcb, align 16
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink = select i1 %.not, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_readytorun, i64 0, i32 1), ptr %3
+  %.sink = select i1 %.not, ptr getelementptr inbounds (i8, ptr @g_readytorun, i64 8), ptr %3
   store ptr @g_idletcb, ptr %.sink, align 8
   store ptr @g_idletcb, ptr @g_readytorun, align 8
   store ptr @g_idletcb, ptr @g_running_tasks, align 8
@@ -78,10 +78,10 @@ define void @nx_start() #0 {
   store ptr %15, ptr @g_pidhash, align 8
   %16 = load volatile i32, ptr @g_npidhash, align 4
   store ptr @g_idletcb, ptr %15, align 8
-  %17 = load i16, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 12), align 16
+  %17 = load i16, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
   %18 = trunc i16 %17 to i8
   %19 = call i32 @group_allocate(ptr noundef nonnull @g_idletcb, i8 noundef zeroext %18) #5
-  %20 = load ptr, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 2), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
   %21 = getelementptr inbounds i8, ptr %20, i64 856
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 40
@@ -89,7 +89,7 @@ define void @nx_start() #0 {
   call void @up_initial_state(ptr noundef nonnull @g_idletcb) #5
   %24 = call i32 @tls_init_info(ptr noundef nonnull @g_idletcb) #5
   call void @group_initialize(ptr noundef nonnull @g_idletcb) #5
-  %25 = load ptr, ptr getelementptr inbounds ([1 x %struct.task_tcb_s], ptr @g_idletcb, i64 0, i64 0, i32 0, i32 2), align 16
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   store i8 3, ptr %26, align 8
   store volatile i32 0, ptr @g_lastpid, align 4

@@ -887,7 +887,7 @@ define dso_local ptr @create_local_trace_uprobe(ptr noundef %0, i64 noundef %1, 
   br label %80
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %20 = call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 152) #18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %22
@@ -2172,8 +2172,8 @@ define internal fastcc i32 @register_trace_uprobe(ptr noundef %0) unnamed_addr #
   %216 = load i32, ptr %215, align 8
   %217 = or i32 %216, 32
   store i32 %217, ptr %215, align 8
-  %218 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
+  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %0, align 8
   %219 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %218, ptr %219, align 8
@@ -2220,8 +2220,8 @@ define internal fastcc i32 @register_trace_uprobe(ptr noundef %0) unnamed_addr #
   %237 = load i32, ptr %236, align 8
   %238 = or i32 %237, 32
   store i32 %238, ptr %236, align 8
-  %239 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_list, i64 0, i32 1), align 8
+  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %0, align 8
   %240 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %239, ptr %240, align 8
@@ -2348,7 +2348,7 @@ define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, p
   %46 = getelementptr i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  %49 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !34
+  %49 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !34
   %50 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = sext i32 %49 to i64
@@ -2579,7 +2579,7 @@ define internal noundef i32 @uretprobe_dispatcher(ptr noundef %0, i64 noundef %1
   %42 = getelementptr i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  %45 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !34
+  %45 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !34
   %46 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = sext i32 %45 to i64
@@ -2897,7 +2897,7 @@ define internal fastcc void @__uprobe_perf_func(ptr nocapture noundef readonly %
 
 26:                                               ; preds = %25
   store i32 0, ptr %6, align 4, !annotation !7
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !54
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !54
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !55
   %27 = getelementptr inbounds i8, ptr %8, i64 184
   %28 = load ptr, ptr %27, align 8
@@ -2968,7 +2968,7 @@ define internal fastcc void @__uprobe_perf_func(ptr nocapture noundef readonly %
 
 72:                                               ; preds = %67, %33, %26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !57
-  %73 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #16, !srcloc !58
+  %73 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !58
   %74 = icmp ult i8 %73, 2
   call void @llvm.assume(i1 %74)
   %75 = icmp eq i8 %73, 0

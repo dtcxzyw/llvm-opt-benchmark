@@ -981,7 +981,7 @@ define dso_local void @_ZN4base6Pickle10AttachmentC2Ev(ptr noundef nonnull align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base6Pickle10AttachmentE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6Pickle10AttachmentE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1008,7 +1008,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base6PickleC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1067,7 +1067,7 @@ cleanup.done:                                     ; preds = %if.end, %cond.false
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base6PickleC2Ei(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %header_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end14:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1086,7 +1086,7 @@ if.end14:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base6PickleC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %data, i32 noundef %data_len) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %data, ptr %header_, align 8
   %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1134,7 +1134,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base6PickleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1165,7 +1165,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN4base6PickleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp.not = icmp eq i64 %0, -1
@@ -1187,7 +1187,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base6PickleD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %capacity_after_header_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_.i, align 8
   %cmp.not.i = icmp eq i64 %0, -1

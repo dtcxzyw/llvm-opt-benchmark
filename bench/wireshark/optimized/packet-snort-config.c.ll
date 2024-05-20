@@ -193,7 +193,7 @@ read_token.exit36:                                ; preds = %54, %54
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @g_hash_table_lookup_extended(ptr noundef %69, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 1), ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  %70 = call i32 @g_hash_table_lookup_extended(ptr noundef %69, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not.i37 = icmp eq i32 %70, 0
   br i1 %.not.i37, label %rule_check_ip_vars.exit, label %71
 
@@ -271,7 +271,7 @@ read_token.exit45:                                ; preds = %90, %90
 103:                                              ; preds = %99
   %104 = getelementptr inbounds i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = call i32 @g_hash_table_lookup_extended(ptr noundef %105, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 1), ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %106 = call i32 @g_hash_table_lookup_extended(ptr noundef %105, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not.i46 = icmp eq i32 %106, 0
   br i1 %.not.i46, label %rule_check_port_vars.exit, label %107
 
@@ -389,7 +389,7 @@ read_token.exit62:                                ; preds = %143, %143
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %0, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = call i32 @g_hash_table_lookup_extended(ptr noundef %158, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 1), ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %159 = call i32 @g_hash_table_lookup_extended(ptr noundef %158, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %.not.i63 = icmp eq i32 %159, 0
   br i1 %.not.i63, label %rule_check_ip_vars.exit64, label %160
 
@@ -465,7 +465,7 @@ read_token.exit72:                                ; preds = %skipWhiteSpace.exit
 189:                                              ; preds = %185
   %190 = getelementptr inbounds i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = call i32 @g_hash_table_lookup_extended(ptr noundef %191, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 1), ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %192 = call i32 @g_hash_table_lookup_extended(ptr noundef %191, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %3, ptr noundef nonnull %4) #16
   %.not.i73 = icmp eq i32 %192, 0
   br i1 %.not.i73, label %rule_check_port_vars.exit74, label %193
 
@@ -1126,11 +1126,11 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br i1 %.not34.i, label %169, label %167
 
 167:                                              ; preds = %164
-  %168 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.11, ptr noundef %166, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 11), ptr noundef null) #16
+  %168 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.11, ptr noundef %166, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 11), ptr noundef null) #16
   br label %177
 
 169:                                              ; preds = %164
-  %170 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef %166, ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @read_token.static_buffer, i64 0, i64 11), ptr noundef null) #16
+  %170 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef %166, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 11), ptr noundef null) #16
   br label %177
 
 171:                                              ; preds = %163
@@ -1396,7 +1396,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 287:                                              ; preds = %279
   %288 = zext i1 %276 to i32
-  %gep73.i = getelementptr i8, ptr getelementptr inbounds ([1024 x i8], ptr @process_rule_option.value, i64 0, i64 1), i64 %.056.i.i
+  %gep73.i = getelementptr i8, ptr getelementptr inbounds (i8, ptr @process_rule_option.value, i64 1), i64 %.056.i.i
   %289 = add nuw nsw i32 %285, 1
   store i32 %289, ptr %229, align 8
   %290 = zext nneg i32 %285 to i64
@@ -1441,7 +1441,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 312:                                              ; preds = %304
   %313 = zext i1 %301 to i32
-  %gep.i = getelementptr i8, ptr getelementptr inbounds ([1024 x i8], ptr @process_rule_option.value, i64 0, i64 1), i64 %.055.i.i
+  %gep.i = getelementptr i8, ptr getelementptr inbounds (i8, ptr @process_rule_option.value, i64 1), i64 %.055.i.i
   %314 = add nuw nsw i32 %310, 1
   store i32 %314, ptr %229, align 8
   %315 = zext nneg i32 %310 to i64
@@ -2225,7 +2225,7 @@ define internal fastcc void @rule_add_pcre(ptr noundef %0) unnamed_addr #0 {
   store i32 %7, ptr %2, align 8
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr [30 x %struct.content_t], ptr %6, i64 0, i64 %8
-  %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull getelementptr inbounds ([1024 x i8], ptr @process_rule_option.value, i64 0, i64 1)) #16
+  %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull getelementptr inbounds (i8, ptr @process_rule_option.value, i64 1)) #16
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16

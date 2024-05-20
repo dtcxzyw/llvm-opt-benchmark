@@ -94,7 +94,7 @@ entry:
   store i32 0, ptr %m_fid.i.i, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %ctx, ptr %m_ctx.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2qe11bool_pluginE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %call, align 8
   %m_replace.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call1, ptr %m_replace.i, align 8
   %m_src.i.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -131,7 +131,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2qe11bool_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2qe11bool_pluginE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
   %m_replace = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_replace) #9
   ret void
@@ -140,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2qe11bool_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2qe11bool_pluginE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
   %m_replace.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_replace.i) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
@@ -362,8 +362,8 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %cmp.i = icmp eq ptr %5, %4
   %spec.select = select i1 %cmp.i, ptr @_ZN8rational5m_oneE, ptr @_ZN8rational6m_zeroE
   %6 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %.val = load i8, ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational5m_oneE, i64 0, i32 0, i32 0, i32 1), align 4
-  %.val8 = load i8, ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational6m_zeroE, i64 0, i32 0, i32 0, i32 1), align 4
+  %.val = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8rational5m_oneE, i64 4), align 4
+  %.val8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8rational6m_zeroE, i64 4), align 4
   %bf.load.i.i.i.i.i = select i1 %cmp.i, i8 %.val, i8 %.val8
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i, 0
@@ -380,9 +380,9 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont9
           to label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i unwind label %lpad6
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %m_den3.i.i = select i1 %cmp.i, ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational5m_oneE, i64 0, i32 0, i32 1, i32 0), ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational6m_zeroE, i64 0, i32 0, i32 1, i32 0)
-  %.val9 = load i8, ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational5m_oneE, i64 0, i32 0, i32 1, i32 1), align 4
-  %.val10 = load i8, ptr getelementptr inbounds (%class.rational, ptr @_ZN8rational6m_zeroE, i64 0, i32 0, i32 1, i32 1), align 4
+  %m_den3.i.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_ZN8rational5m_oneE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN8rational6m_zeroE, i64 16)
+  %.val9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8rational5m_oneE, i64 20), align 4
+  %.val10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8rational6m_zeroE, i64 20), align 4
   %bf.load.i.i.i4.i.i = select i1 %cmp.i, i8 %.val9, i8 %.val10
   %bf.clear.i.i.i5.i.i = and i8 %bf.load.i.i.i4.i.i, 1
   %cmp.i.i.i6.i.i = icmp eq i8 %bf.clear.i.i.i5.i.i, 0

@@ -1507,7 +1507,7 @@ define linkonce_odr dso_local ptr @_ZN4utf88utf16to8INSt3__111__wrap_iterIPKwEEN
 19:                                               ; preds = %9
   %20 = trunc i32 %10 to i16
   %21 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store i16 %20, ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #29
@@ -1515,7 +1515,7 @@ define linkonce_odr dso_local ptr @_ZN4utf88utf16to8INSt3__111__wrap_iterIPKwEEN
 
 23:                                               ; preds = %8
   %24 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store i16 %7, ptr %25, align 8
   tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #29
@@ -1523,7 +1523,7 @@ define linkonce_odr dso_local ptr @_ZN4utf88utf16to8INSt3__111__wrap_iterIPKwEEN
 
 26:                                               ; preds = %.lr.ph
   %27 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i16 %7, ptr %28, align 8
   tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #29
@@ -2868,7 +2868,7 @@ define dso_local void @_ZN3tev11errorStringEi(ptr dead_on_unwind noalias writabl
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %13, align 8, !noalias !38
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !38
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !38
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %14, ptr %11, align 8, !noalias !38
   store i64 500, ptr %12, align 8, !noalias !38
@@ -3316,7 +3316,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -3702,7 +3702,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %0, ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #29
@@ -4176,7 +4176,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %0, ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #29
@@ -4539,7 +4539,7 @@ declare noundef ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE7__parseINS_11__wrap_iterIPKcEEEET_S9_S9_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__end_stateIcEE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__end_stateIcEE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
           to label %7 unwind label %29
@@ -4547,14 +4547,14 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %6, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
           to label %_ZNSt3__110shared_ptrINS_13__empty_stateIcEEEC2B8ne190000IS2_TnNS_9enable_ifIXsr4_AndINS_29__raw_pointer_compatible_withIT_S2_vEENS_14__is_deletableIPS7_vEEEE5valueEiE4typeELi0EEESA_.exit.i unwind label %_ZNSt3__113__empty_stateIcED0Ev.exit
 
 _ZNSt3__113__empty_stateIcED0Ev.exit:             ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %6, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
   %.pre = load ptr, ptr %4, align 8
@@ -4563,7 +4563,7 @@ _ZNSt3__113__empty_stateIcED0Ev.exit:             ; preds = %7
 _ZNSt3__110shared_ptrINS_13__empty_stateIcEEEC2B8ne190000IS2_TnNS_9enable_ifIXsr4_AndINS_29__raw_pointer_compatible_withIT_S2_vEENS_14__is_deletableIPS7_vEEEE5valueEiE4typeELi0EEESA_.exit.i: ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPNS_13__empty_stateIcEENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__shared_ptr_pointerIPNS_13__empty_stateIcEENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = ptrtoint ptr %6 to i64
   store i64 %13, ptr %12, align 8
@@ -4610,7 +4610,7 @@ _ZNSt3__110unique_ptrINS_6__nodeIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exi
   br label %_ZNSt3__110unique_ptrINS_6__nodeIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit26
 
 _ZNSt3__110unique_ptrINS_6__nodeIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit26: ; preds = %29, %_ZNSt3__113__empty_stateIcED0Ev.exit
-  %31 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__end_stateIcEE, i64 0, i32 0, i64 2), %29 ], [ %.pre, %_ZNSt3__113__empty_stateIcED0Ev.exit ]
+  %31 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVNSt3__111__end_stateIcEE, i64 16), %29 ], [ %.pre, %_ZNSt3__113__empty_stateIcED0Ev.exit ]
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %10, %_ZNSt3__113__empty_stateIcED0Ev.exit ]
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -4706,7 +4706,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_alternativeINS_11__wrap_
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %25, ptr %26, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %22, align 8
   store ptr %22, ptr %24, align 8
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
@@ -4769,7 +4769,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_alternativeINS_11__wrap_
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %56, ptr %57, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %53, align 8
   store ptr %53, ptr %55, align 8
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
@@ -4786,7 +4786,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_alternativeINS_11__wrap_
   store ptr %63, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %65, ptr %67, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__alternateIcEE, i64 16), ptr %62, align 8
   store ptr %62, ptr %31, align 8
   store ptr null, ptr %64, align 8
   %68 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
@@ -4795,7 +4795,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_alternativeINS_11__wrap_
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %71, ptr %72, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %68, align 8
   store ptr %68, ptr %64, align 8
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
@@ -4804,7 +4804,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_alternativeINS_11__wrap_
   %76 = load ptr, ptr %64, align 8
   %77 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %76, ptr %77, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 0, i32 0, i64 2), ptr %75, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 16), ptr %75, align 8
   %78 = load ptr, ptr %4, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %75, ptr %79, align 8
@@ -4841,7 +4841,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %17 = zext i1 %12 to i8
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 16), ptr %8, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 16
   store i8 %17, ptr %19, align 8
   store ptr %8, ptr %15, align 8
@@ -4904,7 +4904,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_simple_REINS_11__wrap_it
   %53 = zext i1 %49 to i8
   %54 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %52, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 16), ptr %45, align 8
   %55 = getelementptr inbounds i8, ptr %45, i64 16
   store i8 %53, ptr %55, align 8
   store ptr %45, ptr %51, align 8
@@ -5002,7 +5002,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE18__parse_ERE_branchINS_11__wrap_i
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %29, ptr %31, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__alternateIcEE, i64 16), ptr %26, align 8
   store ptr %26, ptr %11, align 8
   store ptr null, ptr %28, align 8
   %32 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
@@ -5011,7 +5011,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE18__parse_ERE_branchINS_11__wrap_i
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %35, ptr %36, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %32, align 8
   store ptr %32, ptr %28, align 8
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
@@ -5020,7 +5020,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE18__parse_ERE_branchINS_11__wrap_i
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %40, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 0, i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 16), ptr %39, align 8
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %39, ptr %43, align 8
@@ -5060,7 +5060,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %16, align 8
   store ptr %16, ptr %17, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -5104,7 +5104,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %36, align 8
   store ptr %36, ptr %37, align 8
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -5121,7 +5121,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   store ptr %45, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %44, i64 16
   store ptr %47, ptr %49, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__alternateIcEE, i64 16), ptr %44, align 8
   store ptr %44, ptr %24, align 8
   store ptr null, ptr %46, align 8
   %50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
@@ -5130,7 +5130,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %53, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %50, align 8
   store ptr %50, ptr %46, align 8
   %55 = load ptr, ptr %4, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
@@ -5139,7 +5139,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %58 = load ptr, ptr %46, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %58, ptr %59, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 0, i32 0, i64 2), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 16), ptr %57, align 8
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %57, ptr %61, align 8
@@ -5182,7 +5182,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %16, align 8
   store ptr %16, ptr %17, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -5226,7 +5226,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %36, align 8
   store ptr %36, ptr %37, align 8
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -5243,7 +5243,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   store ptr %45, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %44, i64 16
   store ptr %47, ptr %49, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__alternateIcEE, i64 16), ptr %44, align 8
   store ptr %44, ptr %24, align 8
   store ptr null, ptr %46, align 8
   %50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
@@ -5252,7 +5252,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %53, ptr %54, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %50, align 8
   store ptr %50, ptr %46, align 8
   %55 = load ptr, ptr %4, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
@@ -5261,7 +5261,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %58 = load ptr, ptr %46, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %58, ptr %59, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 0, i32 0, i64 2), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i64 16), ptr %57, align 8
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %57, ptr %61, align 8
@@ -5374,7 +5374,7 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPNS_13__empty_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__113__empty_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5393,7 +5393,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__113__empty_stateIcED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5423,7 +5423,7 @@ define linkonce_odr hidden void @_ZNKSt3__113__empty_stateIcE6__execERNS_7__stat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5442,7 +5442,7 @@ define linkonce_odr dso_local void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__116__owns_one_stateIcED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5489,7 +5489,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %18 = zext i1 %13 to i8
   %19 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %17, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 16), ptr %9, align 8
   %20 = getelementptr inbounds i8, ptr %9, i64 16
   store i8 %18, ptr %20, align 8
   store ptr %9, ptr %16, align 8
@@ -5513,7 +5513,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %35 = zext i1 %30 to i8
   %36 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %34, ptr %36, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 16), ptr %26, align 8
   %37 = getelementptr inbounds i8, ptr %26, i64 16
   store i8 %35, ptr %37, align 8
   store ptr %26, ptr %33, align 8
@@ -5544,7 +5544,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %51, ptr %52, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 16), ptr %47, align 8
   %53 = getelementptr inbounds i8, ptr %47, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %54 = getelementptr inbounds i8, ptr %47, i64 24
@@ -5570,7 +5570,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr %68, ptr %69, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 16), ptr %64, align 8
   %70 = getelementptr inbounds i8, ptr %64, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %71 = getelementptr inbounds i8, ptr %64, i64 24
@@ -5741,7 +5741,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__123__match_any_but_newlineIcEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__123__match_any_but_newlineIcEE, i64 16), ptr %7, align 8
   store ptr %7, ptr %10, align 8
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
@@ -5827,7 +5827,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %59, ptr %60, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 16), ptr %52, align 8
   %61 = getelementptr inbounds i8, ptr %52, i64 16
   store i32 %55, ptr %61, align 8
   store ptr %52, ptr %58, align 8
@@ -5871,7 +5871,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE33__push_begin_marked_subexpressio
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %83, ptr %84, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 16), ptr %79, align 8
   %85 = getelementptr inbounds i8, ptr %79, i64 16
   store i32 %66, ptr %85, align 8
   store ptr %79, ptr %82, align 8
@@ -6287,7 +6287,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %12 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6351,7 +6351,7 @@ define linkonce_odr hidden void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__l_anchor_multilineIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6370,7 +6370,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__l_anchor_multilineIcED0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6451,7 +6451,7 @@ define linkonce_odr hidden void @_ZNKSt3__120__l_anchor_multilineIcE6__execERNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__r_anchor_multilineIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6470,7 +6470,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__r_anchor_multilineIcED0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6542,10 +6542,10 @@ define linkonce_odr hidden void @_ZNKSt3__120__r_anchor_multilineIcE6__execERNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__115__word_boundaryIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -6564,10 +6564,10 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__115__word_boundaryIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -6759,7 +6759,7 @@ declare void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(85) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -6782,7 +6782,7 @@ define linkonce_odr dso_local void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcE
 
 _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit: ; preds = %1, %5, %9
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -6801,7 +6801,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %_ZNSt3__111basic_re
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(85) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -6824,7 +6824,7 @@ define linkonce_odr dso_local void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcE
 
 _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit.i: ; preds = %9, %5, %1
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -8713,7 +8713,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__123__match_any_but_newlineIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -8732,7 +8732,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__123__match_any_but_newlineIcED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9361,7 +9361,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %14 = getelementptr inbounds i8, ptr %7, i64 24
@@ -9378,7 +9378,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %7, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.body, label %25
@@ -9415,7 +9415,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %40, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %43 = getelementptr inbounds i8, ptr %37, i64 24
@@ -9435,7 +9435,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %52, ptr %53, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__112__match_charIcEE, i64 0, i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__112__match_charIcEE, i64 16), ptr %49, align 8
   %54 = getelementptr inbounds i8, ptr %49, i64 16
   store i8 %1, ptr %54, align 8
   store ptr %49, ptr %51, align 8
@@ -9483,7 +9483,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %14 = getelementptr inbounds i8, ptr %7, i64 24
@@ -9509,7 +9509,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %26, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %23, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %29 = getelementptr inbounds i8, ptr %23, i64 24
@@ -9529,7 +9529,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %38, ptr %39, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__110__back_refIcEE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__back_refIcEE, i64 16), ptr %35, align 8
   %40 = getelementptr inbounds i8, ptr %35, i64 16
   store i32 %1, ptr %40, align 8
   store ptr %35, ptr %37, align 8
@@ -9546,10 +9546,10 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9568,10 +9568,10 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9633,10 +9633,10 @@ define linkonce_odr hidden void @_ZNKSt3__118__match_char_icaseIcNS_12regex_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__match_char_collateIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9655,10 +9655,10 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__match_char_collateIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9713,7 +9713,7 @@ define linkonce_odr hidden void @_ZNKSt3__120__match_char_collateIcNS_12regex_tr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__112__match_charIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9732,7 +9732,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__112__match_charIcED0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9787,10 +9787,10 @@ define linkonce_odr hidden void @_ZNKSt3__112__match_charIcE6__execERNS_7__state
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9809,10 +9809,10 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9925,10 +9925,10 @@ define linkonce_odr hidden void @_ZNKSt3__116__back_ref_icaseIcNS_12regex_traits
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9947,10 +9947,10 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -10042,7 +10042,7 @@ define linkonce_odr hidden void @_ZNKSt3__118__back_ref_collateIcNS_12regex_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__110__back_refIcED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -10061,7 +10061,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__110__back_refIcED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -10368,7 +10368,7 @@ define linkonce_odr hidden void @_ZNSt3__120__bracket_expressionIcNS_12regex_tra
   %11 = zext i1 %5 to i8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10460,7 +10460,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16ve
 
 _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit10: ; preds = %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit, %48
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %50 = load ptr, ptr %12, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_ZNSt3__116__owns_one_stateIcED2Ev.exit, label %52
@@ -10515,7 +10515,7 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -10614,7 +10614,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16ve
 _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit10: ; preds = %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit, %27
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -14480,7 +14480,7 @@ define linkonce_odr hidden void @_ZNKSt3__16vectorINS_4pairIccEENS_9allocatorIS2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__128__begin_marked_subexpressionIcED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14499,7 +14499,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__128__begin_marked_subexpressionIcED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14539,7 +14539,7 @@ define linkonce_odr hidden void @_ZNKSt3__128__begin_marked_subexpressionIcE6__e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__126__end_marked_subexpressionIcED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14558,7 +14558,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__126__end_marked_subexpressionIcED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14611,7 +14611,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %8, align 8
   store ptr null, ptr %11, align 8
   %14 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
           to label %15 unwind label %_ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19
@@ -14628,7 +14628,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %8, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__16__loopIcEE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__16__loopIcEE, i64 16), ptr %14, align 8
   %25 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %14, i64 32
@@ -14648,7 +14648,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
 _ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds = %15
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %14, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__repeat_one_loopIcEE, i64 0, i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__repeat_one_loopIcEE, i64 16), ptr %31, align 8
   %33 = load ptr, ptr %9, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
@@ -14669,7 +14669,7 @@ _ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne1900
 _ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19: ; preds = %7
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %8, align 8
   %40 = icmp eq ptr %12, null
   br i1 %40, label %_ZNSt3__113__empty_stateIcED0Ev.exit, label %41
 
@@ -14725,7 +14725,7 @@ define linkonce_odr hidden void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__16__loopIcED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14739,7 +14739,7 @@ define linkonce_odr dso_local void @_ZNSt3__16__loopIcED2Ev(ptr noundef nonnull 
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -14758,7 +14758,7 @@ _ZNSt3__117__owns_two_statesIcED2Ev.exit:         ; preds = %9, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__16__loopIcED0Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14772,7 +14772,7 @@ define linkonce_odr dso_local void @_ZNSt3__16__loopIcED0Ev(ptr noundef nonnull 
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -15036,7 +15036,7 @@ _ZNKSt3__16__loopIcE13__init_repeatB8ne190000ERNS_7__stateIcEE.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15050,7 +15050,7 @@ define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcED2Ev(ptr noundef
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -15069,7 +15069,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %9, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15083,7 +15083,7 @@ define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcED0Ev(ptr noundef
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -15124,7 +15124,7 @@ define linkonce_odr hidden void @_ZNKSt3__117__repeat_one_loopIcE6__execERNS_7__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__alternateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15138,7 +15138,7 @@ define linkonce_odr dso_local void @_ZNSt3__111__alternateIcED2Ev(ptr noundef no
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -15157,7 +15157,7 @@ _ZNSt3__117__owns_two_statesIcED2Ev.exit:         ; preds = %9, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__alternateIcED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15171,7 +15171,7 @@ define linkonce_odr dso_local void @_ZNSt3__111__alternateIcED0Ev(ptr noundef no
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -15288,7 +15288,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_parenINS_11__w
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %24, ptr %25, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 %20, ptr %26, align 8
   store ptr %17, ptr %23, align 8
@@ -15358,7 +15358,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_parenINS_11__
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %56, ptr %57, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 16), ptr %53, align 8
   %58 = getelementptr inbounds i8, ptr %53, i64 16
   store i32 %31, ptr %58, align 8
   store ptr %53, ptr %55, align 8
@@ -15703,7 +15703,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_QUOTED_CHARINS_11__wrap_
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %20, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__match_anyIcEE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__match_anyIcEE, i64 16), ptr %16, align 8
   store ptr %16, ptr %19, align 8
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -15723,7 +15723,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE19__parse_QUOTED_CHARINS_11__wrap_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__match_anyIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15742,7 +15742,7 @@ _ZNSt3__116__owns_one_stateIcED2Ev.exit:          ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__111__match_anyIcED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -15859,7 +15859,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %21, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__match_anyIcEE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__111__match_anyIcEE, i64 16), ptr %18, align 8
   store ptr %18, ptr %20, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -15899,7 +15899,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE33__parse_one_char_or_coll_elem_ER
   %42 = zext i1 %38 to i8
   %43 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %41, ptr %43, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i64 16), ptr %34, align 8
   %44 = getelementptr inbounds i8, ptr %34, i64 16
   store i8 %42, ptr %44, align 8
   store ptr %34, ptr %40, align 8
@@ -15922,7 +15922,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE33__parse_one_char_or_coll_elem_ER
   %58 = zext i1 %54 to i8
   %59 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %57, ptr %59, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i64 16), ptr %50, align 8
   %60 = getelementptr inbounds i8, ptr %50, i64 16
   store i8 %58, ptr %60, align 8
   store ptr %50, ptr %56, align 8
@@ -15950,7 +15950,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE33__parse_one_char_or_coll_elem_ER
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %75, ptr %76, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %70, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i64 16), ptr %70, align 8
   %77 = getelementptr inbounds i8, ptr %70, i64 16
   store i32 %72, ptr %77, align 8
   store ptr %70, ptr %74, align 8
@@ -15993,7 +15993,7 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE33__push_begin_marked_subexpressio
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %95, i64 8
   store ptr %98, ptr %99, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 0, i32 0, i64 2), ptr %95, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i64 16), ptr %95, align 8
   %100 = getelementptr inbounds i8, ptr %95, i64 16
   store i32 %81, ptr %100, align 8
   store ptr %95, ptr %97, align 8
@@ -19966,7 +19966,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -23210,7 +23210,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %10, ptr %7, align 8
   store i64 500, ptr %8, align 8
@@ -29269,7 +29269,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %78 = getelementptr inbounds i8, ptr %8, i64 24
   %79 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %79, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
   %80 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %80, ptr %77, align 8
   store i64 500, ptr %78, align 8
@@ -29846,7 +29846,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -32550,7 +32550,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %76 = getelementptr inbounds i8, ptr %8, i64 24
   %77 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %77, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %78, ptr %75, align 8
   store i64 500, ptr %76, align 8
@@ -33125,7 +33125,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -33902,7 +33902,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds i8, ptr %11, i64 24
   %73 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8
@@ -34818,7 +34818,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %6, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %13, ptr %10, align 8
   store i64 32, ptr %11, align 8
@@ -34828,7 +34828,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %18, ptr %15, align 8
   store i64 32, ptr %16, align 8
@@ -34838,7 +34838,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   %22 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %23, ptr %20, align 8
   store i64 32, ptr %21, align 8
@@ -34848,7 +34848,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %26 = getelementptr inbounds i8, ptr %9, i64 24
   %27 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 0, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %9, align 8
   %28 = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %28, ptr %25, align 8
   store i64 32, ptr %26, align 8
@@ -36063,7 +36063,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
           to label %516 unwind label %517
 
 516:                                              ; preds = %514
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i64 0, i32 0, i64 2), ptr %515, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %515, align 8
   invoke void @__cxa_throw(ptr nonnull %515, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #29
           to label %.noexc305 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -37614,7 +37614,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6squareEv(ptr nounde
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -39423,7 +39423,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %56 = getelementptr inbounds i8, ptr %6, i64 24
   %57 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %57, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %6, align 8
   %58 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %58, ptr %55, align 8
   store i64 500, ptr %56, align 8
@@ -39962,7 +39962,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -50491,7 +50491,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds i8, ptr %11, i64 24
   %73 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8
@@ -51719,7 +51719,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds i8, ptr %11, i64 24
   %73 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8

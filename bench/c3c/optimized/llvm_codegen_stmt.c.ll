@@ -939,7 +939,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   br i1 %.not149, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds (%struct.LLVMIntrinsics, ptr @intrinsic_id, i64 0, i32 68), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 272), align 4
   %23 = tail call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %22, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
@@ -1961,7 +1961,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %274 = load ptr, ptr @expr_arena, align 8
   %275 = zext i32 %273 to i64
   %276 = getelementptr inbounds %struct.Expr_, ptr %274, i64 %275
-  %277 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 2), align 8
+  %277 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
   %.not.i56 = icmp eq i32 %277, 0
   br i1 %.not.i56, label %330, label %278
 
@@ -3194,7 +3194,7 @@ define internal fastcc void @llvm_emit_asm_block_stmt(ptr noundef %0, ptr nounde
   %10 = alloca %struct.BEValue, align 8
   %11 = alloca [10 x i8], align 1
   tail call void @scratch_buffer_clear() #9
-  %12 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %12, label %add_target_clobbers_to_buffer.exit [
     i32 32, label %.sink.split.i
     i32 31, label %.sink.split.i
@@ -3458,7 +3458,7 @@ codegen_append_constraints.exit170:               ; preds = %80, %85
   %107 = phi i32 [ %98, %101 ], [ %98, %._crit_edge ], [ %.0.lcssa.i.sink, %codegen_append_constraints.exit203 ]
   %.2132.lcssa = phi i32 [ %.0130.lcssa, %101 ], [ %.0130.lcssa, %._crit_edge ], [ %174, %codegen_append_constraints.exit203 ]
   %108 = getelementptr inbounds i8, ptr %3, i64 1024
-  %109 = load ptr, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 1), align 8
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @asm_target, i64 8), align 8
   br label %176
 
 110:                                              ; preds = %.lr.ph334, %codegen_append_constraints.exit203
@@ -3777,7 +3777,7 @@ codegen_append_constraints.exit270:               ; preds = %codegen_append_cons
   br i1 %exitcond370.not, label %213, label %176, !llvm.loop !33
 
 213:                                              ; preds = %.loopexit307
-  %214 = load ptr, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 2), align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @asm_target, i64 16), align 8
   %.not145 = icmp eq ptr %214, null
   br i1 %.not145, label %229, label %215
 
@@ -3899,7 +3899,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
   br label %256
 
 252:                                              ; preds = %.lr.ph341
-  %253 = load i32, ptr getelementptr inbounds (%struct.LLVMAttributes, ptr @attribute_id, i64 0, i32 6), align 4
+  %253 = load i32, ptr getelementptr inbounds (i8, ptr @attribute_id, i64 24), align 4
   %254 = add nuw nsw i64 %indvars.iv371, 1
   %255 = trunc nuw i64 %254 to i32
   call void @llvm_attribute_add_call_type(ptr noundef %0, ptr noundef %249, i32 noundef %253, i32 noundef %255, ptr noundef nonnull %251) #9

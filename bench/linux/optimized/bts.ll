@@ -96,7 +96,7 @@ define internal fastcc void @__bts_event_start(ptr nocapture noundef readonly %0
   %6 = load i8, ptr %5, align 4, !range !11, !noundef !12
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #7, !srcloc !13
+  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !13
   %10 = sext i32 %9 to i64
   %11 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
@@ -273,7 +273,7 @@ define dso_local range(i32 0, 2) i32 @intel_bts_interrupt() local_unnamed_addr #
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %22, i64 32
   %30 = load volatile i64, ptr %29, align 8
-  %31 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #7, !srcloc !19
+  %31 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !19
   %32 = sext i32 %31 to i64
   %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
@@ -543,34 +543,34 @@ define internal fastcc i32 @bts_buffer_reset(ptr noundef %0, ptr noundef %1) unn
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @bts_init() #2 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %2 = and i64 %1, 4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %0
-  %5 = load i16, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 55), align 8
+  %5 = load i16, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 376), align 8
   %6 = and i16 %5, 1
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
   %10 = and i64 %9, 8796093022208
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  store i32 52, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 8), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 12), align 4
-  store ptr @bts_event_init, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 17), align 8
-  store ptr @bts_event_add, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 20), align 8
-  store ptr @bts_event_del, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 21), align 8
-  store ptr @bts_event_start, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 22), align 8
-  store ptr @bts_event_stop, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 23), align 8
-  store ptr @bts_event_read, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 24), align 8
-  store ptr @bts_buffer_setup_aux, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 32), align 8
-  store ptr @bts_buffer_free_aux, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 33), align 8
+  store i32 52, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 68), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 92), align 4
+  store ptr @bts_event_init, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 120), align 8
+  store ptr @bts_event_add, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 144), align 8
+  store ptr @bts_event_del, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 152), align 8
+  store ptr @bts_event_start, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 160), align 8
+  store ptr @bts_event_stop, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 168), align 8
+  store ptr @bts_event_read, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 176), align 8
+  store ptr @bts_buffer_setup_aux, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 240), align 8
+  store ptr @bts_buffer_free_aux, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 248), align 8
   %13 = tail call i32 @perf_pmu_register(ptr noundef nonnull @bts_pmu, ptr noundef nonnull @.str.1, i32 noundef -1) #7
   br label %14
 
@@ -598,7 +598,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define internal i32 @bts_event_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmu, ptr @bts_pmu, i64 0, i32 7), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @bts_pmu, i64 64), align 8
   %5 = icmp eq i32 %3, %4
   br i1 %5, label %6, label %.thread
 
@@ -782,7 +782,7 @@ define internal void @bts_event_stop(ptr nocapture noundef %0, i32 noundef %1) #
   br i1 %21, label %99, label %22
 
 22:                                               ; preds = %15
-  %23 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #7, !srcloc !19
+  %23 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !19
   %24 = sext i32 %23 to i64
   %25 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8

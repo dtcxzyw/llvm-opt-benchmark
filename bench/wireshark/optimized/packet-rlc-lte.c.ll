@@ -1817,7 +1817,7 @@ thread-pre-split.i:                               ; preds = %354
   %390 = load i32, ptr %389, align 4
   store i32 %390, ptr @get_report_hash_key.key, align 4
   %391 = and i32 %388, 1023
-  store i32 %391, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %391, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %392 = load i16, ptr %110, align 2
   %393 = shl i16 %392, 10
   %394 = and i16 %393, 3072
@@ -1828,13 +1828,13 @@ thread-pre-split.i:                               ; preds = %354
   %399 = shl nuw nsw i32 %398, 12
   %400 = or disjoint i32 %399, %395
   %401 = or disjoint i32 %400, %391
-  store i32 %401, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %401, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %402 = load i8, ptr %60, align 1
   %403 = and i8 %402, 1
   %404 = zext nneg i8 %403 to i32
   %405 = shl nuw nsw i32 %404, 17
   %406 = or disjoint i32 %405, %401
-  store i32 %406, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %406, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %407 = call ptr @wmem_map_lookup(ptr noundef %386, ptr noundef nonnull @get_report_hash_key.key) #13
   %408 = load i8, ptr @s_number_of_extensions, align 1
   %.not210.i = icmp eq i8 %408, 0
@@ -2238,7 +2238,7 @@ thread-pre-split.i.i:                             ; preds = %589
   %612 = getelementptr inbounds i8, ptr %1, i64 20
   %613 = load i32, ptr %612, align 4
   store i32 %613, ptr @get_report_hash_key.key, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %614 = load i16, ptr %110, align 2
   %615 = shl i16 %614, 10
   %616 = and i16 %615, 3072
@@ -2248,13 +2248,13 @@ thread-pre-split.i.i:                             ; preds = %589
   %620 = zext nneg i16 %619 to i32
   %621 = shl nuw nsw i32 %620, 12
   %622 = or disjoint i32 %621, %617
-  store i32 %622, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %622, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %623 = load i8, ptr %60, align 1
   %624 = and i8 %623, 1
   %625 = zext nneg i8 %624 to i32
   %626 = shl nuw nsw i32 %625, 17
   %627 = or disjoint i32 %626, %622
-  store i32 %627, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %627, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %628 = call ptr @wmem_map_lookup(ptr noundef %611, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not79.i.i.i = icmp eq ptr %628, null
   br i1 %.not79.i.i.i, label %checkChannelRepeatedNACKInfo.exit.i.i, label %629
@@ -2476,7 +2476,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   %735 = getelementptr inbounds i8, ptr %1, i64 20
   %736 = load i32, ptr %735, align 4
   store i32 %736, ptr @get_report_hash_key.key, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %737 = load i16, ptr %110, align 2
   %738 = shl i16 %737, 10
   %739 = and i16 %738, 3072
@@ -2486,13 +2486,13 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   %743 = zext nneg i16 %742 to i32
   %744 = shl nuw nsw i32 %743, 12
   %745 = or disjoint i32 %744, %740
-  store i32 %745, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %745, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %746 = load i8, ptr %60, align 1
   %747 = and i8 %746, 1
   %748 = zext nneg i8 %747 to i32
   %749 = shl nuw nsw i32 %748, 17
   %750 = or disjoint i32 %749, %745
-  store i32 %750, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %750, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %751 = call ptr @wmem_map_lookup(ptr noundef %734, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not37.i.i.i = icmp eq ptr %751, null
   br i1 %.not37.i.i.i, label %checkChannelACKWindow.exit.i.i, label %752
@@ -2974,7 +2974,7 @@ thread-pre-split.i181:                            ; preds = %969
   %1005 = load i32, ptr %1004, align 4
   store i32 %1005, ptr @get_report_hash_key.key, align 4
   %1006 = and i32 %1003, 1023
-  store i32 %1006, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %1006, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %1007 = load i16, ptr %110, align 2
   %1008 = shl i16 %1007, 10
   %1009 = and i16 %1008, 3072
@@ -2985,13 +2985,13 @@ thread-pre-split.i181:                            ; preds = %969
   %1014 = shl nuw nsw i32 %1013, 12
   %1015 = or disjoint i32 %1014, %1010
   %1016 = or disjoint i32 %1015, %1006
-  store i32 %1016, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %1016, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %1017 = load i8, ptr %60, align 1
   %1018 = and i8 %1017, 1
   %1019 = zext nneg i8 %1018 to i32
   %1020 = shl nuw nsw i32 %1019, 17
   %1021 = or disjoint i32 %1020, %1016
-  store i32 %1021, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %1021, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %1022 = call ptr @wmem_map_lookup(ptr noundef %1002, ptr noundef nonnull @get_report_hash_key.key) #13
   br label %1023
 
@@ -3542,7 +3542,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   store i32 %22, ptr @get_report_hash_key.key, align 4
   %23 = and i16 %7, 1023
   %24 = zext nneg i16 %23 to i32
-  store i32 %24, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %25 = getelementptr inbounds i8, ptr %2, i64 6
   %26 = load i16, ptr %25, align 2
   %27 = shl i16 %26, 10
@@ -3555,14 +3555,14 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %34 = zext nneg i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 12
   %36 = or disjoint i32 %35, %30
-  store i32 %36, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %37 = getelementptr inbounds i8, ptr %2, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 1
   %40 = zext nneg i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 17
   %42 = or disjoint i32 %41, %36
-  store i32 %42, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %42, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %43 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not283 = icmp eq ptr %43, null
   br i1 %.not283, label %45, label %44
@@ -3880,7 +3880,7 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
   store i32 %146, ptr @get_report_hash_key.key, align 4
   %233 = and i32 %232, 1023
   %234 = and i32 %233, %231
-  store i32 %234, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %234, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %235 = load i16, ptr %49, align 2
   %236 = shl i16 %235, 10
   %237 = and i16 %236, 3072
@@ -3891,13 +3891,13 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
   %242 = shl nuw nsw i32 %241, 12
   %243 = or disjoint i32 %242, %238
   %244 = or disjoint i32 %243, %234
-  store i32 %244, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %244, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %245 = load i8, ptr %61, align 1
   %246 = and i8 %245, 1
   %247 = zext nneg i8 %246 to i32
   %248 = shl nuw nsw i32 %247, 17
   %249 = or disjoint i32 %248, %244
-  store i32 %249, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %249, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %250 = call ptr @wmem_map_lookup(ptr noundef %229, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not302 = icmp eq ptr %250, null
   br i1 %.not302, label %409, label %251
@@ -4074,7 +4074,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   store i32 %286, ptr @get_report_hash_key.key, align 4
   %347 = and i16 %346, 1023
   %348 = zext nneg i16 %347 to i32
-  store i32 %348, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %348, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %349 = load i16, ptr %49, align 2
   %350 = shl i16 %349, 10
   %351 = and i16 %350, 3072
@@ -4085,13 +4085,13 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   %356 = zext nneg i16 %355 to i32
   %357 = shl nuw nsw i32 %356, 12
   %358 = or disjoint i32 %357, %353
-  store i32 %358, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %358, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %359 = load i8, ptr %61, align 1
   %360 = and i8 %359, 1
   %361 = zext nneg i8 %360 to i32
   %362 = shl nuw nsw i32 %361, 17
   %363 = or disjoint i32 %362, %358
-  store i32 %363, ptr getelementptr inbounds (%struct.rlc_result_hash_key, ptr @get_report_hash_key.key, i64 0, i32 1), align 4
+  store i32 %363, ptr getelementptr inbounds (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %364 = call ptr @wmem_map_lookup(ptr noundef %345, ptr noundef nonnull @get_report_hash_key.key) #13
   %.not294 = icmp eq ptr %364, null
   br i1 %.not294, label %409, label %365

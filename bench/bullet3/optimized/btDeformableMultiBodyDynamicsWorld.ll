@@ -3003,7 +3003,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP37btDeformableMultiBodyConstraintSolverP24btCollisionConfigurationP22btDeformableBodySolver(ptr noundef nonnull align 8 dereferenceable(1056) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration, ptr noundef %deformableBodySolver) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN24btMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP27btMultiBodyConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(848) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration)
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i64 16), ptr %this, align 8
   %m_deformableBodySolver = getelementptr inbounds i8, ptr %this, i64 848
   store ptr %deformableBodySolver, ptr %m_deformableBodySolver, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 880
@@ -3177,7 +3177,7 @@ invoke.cont30:                                    ; preds = %invoke.cont14
   store i32 0, ptr %m_size.i.i24.i.i, align 4
   %m_capacity.i.i25.i.i = getelementptr inbounds i8, ptr %call, i64 240
   store i32 0, ptr %m_capacity.i.i25.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i64 16), ptr %call, align 8
   %m_deformableSolver.i = getelementptr inbounds i8, ptr %call, i64 264
   store ptr %constraintSolver, ptr %m_deformableSolver.i, align 8
   %m_solverDeformableBodyIslandCallback = getelementptr inbounds i8, ptr %this, i64 1040
@@ -3467,7 +3467,7 @@ declare void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i64 16), ptr %this, align 8
   %m_solverDeformableBodyIslandCallback = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %m_solverDeformableBodyIslandCallback, align 8
   %isnull = icmp eq ptr %0, null
@@ -7832,7 +7832,7 @@ invoke.cont:
   %ref.tmp = alloca %class.btVector3, align 4
   %ref.tmp7 = alloca %class.btVector3, align 4
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i64 0, i32 0, i64 2), ptr %rayCB, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i64 16), ptr %rayCB, align 8
   %m_rayFromWorld.i = getelementptr inbounds i8, ptr %rayCB, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayFromWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %rayFromWorld, i64 16, i1 false)
   %m_rayToWorld.i = getelementptr inbounds i8, ptr %rayCB, i64 56
@@ -10086,7 +10086,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6resizeEiRKS1_.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

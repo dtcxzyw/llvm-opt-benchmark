@@ -266,7 +266,7 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %tql_prev14 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %4 = load ptr, ptr %tql_prev14, align 8
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), ptr %tql_prev12
+  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12
   store ptr %4, ptr %.sink, align 8
   %5 = load ptr, ptr %.us-phi, align 8
   store ptr %5, ptr %4, align 8
@@ -340,7 +340,7 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %tql_prev14.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   %4 = load ptr, ptr %tql_prev14.i, align 8
   %tql_prev12.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), ptr %tql_prev12.i
+  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i
   store ptr %4, ptr %.sink.i, align 8
   %5 = load ptr, ptr %.us-phi.i, align 8
   store ptr %5, ptr %4, align 8
@@ -412,7 +412,7 @@ do.body.i45:                                      ; preds = %land.lhs.true.i42, 
   %tql_prev14.i48 = getelementptr inbounds i8, ptr %.us-phi.i46, i64 8
   %11 = load ptr, ptr %tql_prev14.i48, align 8
   %tql_prev12.i49 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink.i50 = select i1 %cmp7.not.i47, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), ptr %tql_prev12.i49
+  %.sink.i50 = select i1 %cmp7.not.i47, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i49
   store ptr %11, ptr %.sink.i50, align 8
   %12 = load ptr, ptr %.us-phi.i46, align 8
   store ptr %12, ptr %11, align 8
@@ -473,11 +473,11 @@ do.body:                                          ; preds = %if.else12
 
 do.body27:                                        ; preds = %for.cond
   store ptr null, ptr %call, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
   %tql_prev30 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %17, ptr %tql_prev30, align 8
   store ptr %call, ptr %17, align 8
-  store ptr %call, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
   br label %do.end33
 
 do.end33:                                         ; preds = %for.inc.i, %for.inc.us.i, %do.body.i, %for.cond.preheader.i, %if.then, %do.body27, %do.body
@@ -799,7 +799,7 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %tql_prev14.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   %6 = load ptr, ptr %tql_prev14.i, align 8
   %tql_prev12.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (%union.anon, ptr @fw_boot_order, i64 0, i32 0, i32 1), ptr %tql_prev12.i
+  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i
   store ptr %6, ptr %.sink.i, align 8
   %7 = load ptr, ptr %.us-phi.i, align 8
   store ptr %7, ptr %6, align 8
@@ -854,11 +854,11 @@ if.end6:                                          ; preds = %if.end
   %lsecs12 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %lsecs, ptr %lsecs12, align 8
   store ptr null, ptr %call, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%union.anon.2, ptr @fw_lchs, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %tql_prev, align 8
   store ptr %call, ptr %2, align 8
-  store ptr %call, ptr getelementptr inbounds (%union.anon.2, ptr @fw_lchs, i64 0, i32 0, i32 1), align 8
+  store ptr %call, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end6
@@ -913,7 +913,7 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %tql_prev14 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %4 = load ptr, ptr %tql_prev14, align 8
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (%union.anon.2, ptr @fw_lchs, i64 0, i32 0, i32 1), ptr %tql_prev12
+  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), ptr %tql_prev12
   store ptr %4, ptr %.sink, align 8
   %5 = load ptr, ptr %.us-phi, align 8
   store ptr %5, ptr %4, align 8

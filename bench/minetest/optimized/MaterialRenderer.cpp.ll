@@ -103,7 +103,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -112,7 +112,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -165,7 +165,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 define void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, i1 noundef zeroext %addMaterial) local_unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %outMaterialTypeNr, align 4, !tbaa !26
-  %0 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 112), align 8, !tbaa !27
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 944), align 8, !tbaa !27
   %call = tail call noundef i32 %0() #19
   %Program = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %call, ptr %Program, align 4, !tbaa !35
@@ -189,25 +189,25 @@ if.then10:                                        ; preds = %if.end8
   br i1 %call11, label %if.end14, label %if.end22
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %1 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %2 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %1(i32 noundef %2, i32 noundef 0, ptr noundef nonnull @.str.5) #19
-  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %4 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %3(i32 noundef %4, i32 noundef 1, ptr noundef nonnull @.str.6) #19
-  %5 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %6 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %5(i32 noundef %6, i32 noundef 2, ptr noundef nonnull @.str.7) #19
-  %7 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %8 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %7(i32 noundef %8, i32 noundef 3, ptr noundef nonnull @.str.8) #19
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %10 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %9(i32 noundef %10, i32 noundef 4, ptr noundef nonnull @.str.9) #19
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %12 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %11(i32 noundef %12, i32 noundef 5, ptr noundef nonnull @.str.10) #19
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 110), align 8, !tbaa !36
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 928), align 8, !tbaa !36
   %14 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %13(i32 noundef %14, i32 noundef 6, ptr noundef nonnull @.str.11) #19
   %call16 = tail call noundef zeroext i1 @_ZN3irr5video24COpenGL3MaterialRenderer11linkProgramEv(ptr noundef nonnull align 8 dereferenceable(76) %this)
@@ -237,9 +237,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !24
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -301,7 +301,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -310,7 +310,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -367,9 +367,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !24
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -431,7 +431,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %CallBack, align 8, !tbaa !19
   %tobool.not = icmp eq ptr %3, null
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %shaders) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count) #19
-  %7 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 121), align 8, !tbaa !38
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1016), align 8, !tbaa !38
   call void %7(i32 noundef %6, i32 noundef 8, ptr noundef nonnull %count, ptr noundef nonnull %shaders) #19
   %8 = load i32, ptr %count, align 4, !tbaa !26
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %8, i32 8)
@@ -474,7 +474,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %cmp34, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body, %if.then10
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 114), align 8, !tbaa !39
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 960), align 8, !tbaa !39
   %10 = load i32, ptr %Program, align 4, !tbaa !35
   call void %9(i32 noundef %10) #19
   store i32 0, ptr %Program, align 4, !tbaa !35
@@ -484,7 +484,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.then1
 
 for.body:                                         ; preds = %if.then10, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then10 ]
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 115), align 8, !tbaa !40
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 968), align 8, !tbaa !40
   %arrayidx = getelementptr inbounds [8 x i32], ptr %shaders, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx, align 4, !tbaa !26
   call void %11(i32 noundef %12) #19
@@ -668,15 +668,15 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 113), align 8, !tbaa !51
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 952), align 8, !tbaa !51
   %call = tail call noundef i32 %1(i32 noundef %shaderType) #19
-  %2 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 138), align 8, !tbaa !52
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1152), align 8, !tbaa !52
   call void %2(i32 noundef %call, i32 noundef 1, ptr noundef nonnull %shader.addr, ptr noundef null) #19
-  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 111), align 8, !tbaa !53
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 936), align 8, !tbaa !53
   call void %3(i32 noundef %call) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status) #19
   store i32 0, ptr %status, align 4, !tbaa !26
-  %4 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 125), align 8, !tbaa !54
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1048), align 8, !tbaa !54
   call void %4(i32 noundef %call, i32 noundef 35713, ptr noundef nonnull %status) #19
   %5 = load i32, ptr %status, align 4, !tbaa !26
   %cmp.not.not = icmp eq i32 %5, 1
@@ -687,7 +687,7 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength) #19
   store i32 0, ptr %maxLength, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length) #19
-  %6 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 125), align 8, !tbaa !54
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1048), align 8, !tbaa !54
   call void %6(i32 noundef %call, i32 noundef 35716, ptr noundef nonnull %maxLength) #19
   %7 = load i32, ptr %maxLength, align 4, !tbaa !26
   %tobool3.not = icmp eq i32 %7, 0
@@ -696,14 +696,14 @@ if.then2:                                         ; preds = %if.then
 if.then4:                                         ; preds = %if.then2
   %conv = sext i32 %7 to i64
   %call5 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #21
-  %8 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 126), align 8, !tbaa !55
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1056), align 8, !tbaa !55
   call void %8(i32 noundef %call, i32 noundef %7, ptr noundef nonnull %length, ptr noundef nonnull %call5) #19
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull %call5, i32 noundef 3) #19
   call void @_ZdaPv(ptr noundef nonnull %call5) #20
   br label %cleanup
 
 cleanup.thread:                                   ; preds = %if.then
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 109), align 8, !tbaa !56
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 920), align 8, !tbaa !56
   %10 = load i32, ptr %Program, align 4, !tbaa !35
   call void %9(i32 noundef %10, i32 noundef %call) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
@@ -737,11 +737,11 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 137), align 8, !tbaa !57
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1144), align 8, !tbaa !57
   tail call void %1(i32 noundef %0) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status) #19
   store i32 0, ptr %status, align 4, !tbaa !26
-  %2 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 123), align 8, !tbaa !58
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1032), align 8, !tbaa !58
   %3 = load i32, ptr %Program, align 4, !tbaa !35
   call void %2(i32 noundef %3, i32 noundef 35714, ptr noundef nonnull %status) #19
   %4 = load i32, ptr %status, align 4, !tbaa !26
@@ -753,7 +753,7 @@ if.then5:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength) #19
   store i32 0, ptr %maxLength, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length) #19
-  %5 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 123), align 8, !tbaa !58
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1032), align 8, !tbaa !58
   %6 = load i32, ptr %Program, align 4, !tbaa !35
   call void %5(i32 noundef %6, i32 noundef 35716, ptr noundef nonnull %maxLength) #19
   %7 = load i32, ptr %maxLength, align 4, !tbaa !26
@@ -763,7 +763,7 @@ if.then5:                                         ; preds = %if.then
 if.then8:                                         ; preds = %if.then5
   %conv = sext i32 %7 to i64
   %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #21
-  %8 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 124), align 8, !tbaa !59
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1040), align 8, !tbaa !59
   %9 = load i32, ptr %Program, align 4, !tbaa !35
   call void %8(i32 noundef %9, i32 noundef %7, ptr noundef nonnull %length, ptr noundef nonnull %call) #19
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull %call, i32 noundef 3) #19
@@ -779,7 +779,7 @@ cleanup55.thread:                                 ; preds = %if.then8, %if.then5
 if.end10:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num) #19
   store i32 0, ptr %num, align 4, !tbaa !26
-  %10 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 123), align 8, !tbaa !58
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1032), align 8, !tbaa !58
   %11 = load i32, ptr %Program, align 4, !tbaa !35
   call void %10(i32 noundef %11, i32 noundef 35718, ptr noundef nonnull %num) #19
   %12 = load i32, ptr %num, align 4, !tbaa !26
@@ -794,7 +794,7 @@ cleanup55.thread84:                               ; preds = %if.end10
 if.end13:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxlen) #19
   store i32 0, ptr %maxlen, align 4, !tbaa !26
-  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 123), align 8, !tbaa !58
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1032), align 8, !tbaa !58
   %14 = load i32, ptr %Program, align 4, !tbaa !35
   call void %13(i32 noundef %14, i32 noundef 35719, ptr noundef nonnull %maxlen) #19
   %15 = load i32, ptr %maxlen, align 4, !tbaa !26
@@ -937,7 +937,7 @@ for.body:                                         ; preds = %_ZN3irr5video24COpe
   %conv22 = sext i32 %31 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call19, i8 0, i64 %conv22, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size) #19
-  %32 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 120), align 8, !tbaa !63
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1008), align 8, !tbaa !63
   %33 = load i32, ptr %Program, align 4, !tbaa !35
   call void %32(i32 noundef %33, i32 noundef %i.094, i32 noundef %31, ptr noundef null, ptr noundef nonnull %size, ptr noundef nonnull %type, ptr noundef nonnull %call19) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name) #19
@@ -969,7 +969,7 @@ if.end36:                                         ; preds = %for.body28
 
 cleanup:                                          ; preds = %if.end36, %for.body28, %for.body28, %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ui, ptr noundef nonnull align 8 dereferenceable(32) %name) #19
-  %39 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 128), align 8, !tbaa !65
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1072), align 8, !tbaa !65
   %40 = load i32, ptr %Program, align 4, !tbaa !35
   %call44 = call noundef i32 %39(i32 noundef %40, ptr noundef nonnull %call19) #19
   store i32 %call44, ptr %location, align 4, !tbaa !66
@@ -1103,7 +1103,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !74
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !74
   tail call void %3(i32 noundef %1) #19
   store i32 %1, ptr %ProgramID.i, align 8, !tbaa !70
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
@@ -1131,7 +1131,7 @@ if.then:                                          ; preds = %_ZN3irr5video23COpe
   br i1 %or.cond.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.then
-  %.val.i = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i(i32 noundef 3042) #19
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %call, i64 72
   %10 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !79
@@ -1181,7 +1181,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i34, label %if.end14, label %if.then.i30
 
 if.then.i30:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit
-  %22 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !85
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !85
   tail call void %22(i32 noundef 770, i32 noundef 771) #19
   %FrameBufferCount.i31 = getelementptr inbounds i8, ptr %call, i64 72
   %23 = load i32, ptr %FrameBufferCount.i31, align 8, !tbaa !79
@@ -1255,7 +1255,7 @@ if.then5:                                         ; preds = %if.else
   br i1 %or.cond.i39, label %if.end14, label %if.then.i40
 
 if.then.i40:                                      ; preds = %if.then5
-  %.val.i41 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 23), align 8
+  %.val.i41 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 232), align 8
   tail call void %.val.i41(i32 noundef 3042) #19
   %FrameBufferCount.i43 = getelementptr inbounds i8, ptr %call, i64 72
   %39 = load i32, ptr %FrameBufferCount.i43, align 8, !tbaa !79
@@ -1331,7 +1331,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false7
   br i1 %or.cond48, label %if.end28, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false4, %if.then
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 76), align 8, !tbaa !94
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 656), align 8, !tbaa !94
   tail call void %9(i32 noundef %sourceRGB, i32 noundef %destinationRGB, i32 noundef %sourceAlpha, i32 noundef %destinationAlpha) #19
   %FrameBufferCount = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load i32, ptr %FrameBufferCount, align 8, !tbaa !79
@@ -1393,7 +1393,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false4.i
   br i1 %or.cond.i, label %if.end28, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false7.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.else
-  %24 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 26), align 8, !tbaa !85
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 256), align 8, !tbaa !85
   tail call void %24(i32 noundef %sourceRGB, i32 noundef %destinationRGB) #19
   %FrameBufferCount.i = getelementptr inbounds i8, ptr %this, i64 72
   %25 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !79
@@ -1692,42 +1692,42 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 148), align 8, !tbaa !98
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1232), align 8, !tbaa !98
   tail call void %3(i32 noundef %1, i32 noundef %count, ptr noundef %floats) #19
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 149), align 8, !tbaa !99
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1240), align 8, !tbaa !99
   %div = sdiv i32 %count, 2
   tail call void %4(i32 noundef %1, i32 noundef %div, ptr noundef %floats) #19
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
-  %5 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 150), align 8, !tbaa !100
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1248), align 8, !tbaa !100
   %div16 = sdiv i32 %count, 3
   tail call void %5(i32 noundef %1, i32 noundef %div16, ptr noundef %floats) #19
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %6 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 151), align 8, !tbaa !101
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1256), align 8, !tbaa !101
   %div21 = sdiv i32 %count, 4
   tail call void %6(i32 noundef %1, i32 noundef %div21, ptr noundef %floats) #19
   br label %return
 
 sw.bb22:                                          ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 156), align 8, !tbaa !102
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1296), align 8, !tbaa !102
   %div26 = sdiv i32 %count, 4
   tail call void %7(i32 noundef %1, i32 noundef %div26, i8 noundef zeroext 0, ptr noundef %floats) #19
   br label %return
 
 sw.bb27:                                          ; preds = %if.end
-  %8 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 157), align 8, !tbaa !103
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1304), align 8, !tbaa !103
   %div31 = sdiv i32 %count, 9
   tail call void %8(i32 noundef %1, i32 noundef %div31, i8 noundef zeroext 0, ptr noundef %floats) #19
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %9 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 158), align 8, !tbaa !104
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1312), align 8, !tbaa !104
   %div36 = sdiv i32 %count, 16
   tail call void %9(i32 noundef %1, i32 noundef %div36, i8 noundef zeroext 0, ptr noundef %floats) #19
   br label %return
@@ -1741,7 +1741,7 @@ if.then38:                                        ; preds = %sw.bb37
   %10 = load float, ptr %floats, align 4, !tbaa !105
   %conv = fptosi float %10 to i32
   store i32 %conv, ptr %id, align 4, !tbaa !26
-  %11 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 152), align 8, !tbaa !106
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1264), align 8, !tbaa !106
   call void %11(i32 noundef %1, i32 noundef 1, ptr noundef nonnull %id) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id) #19
   br label %return
@@ -1792,30 +1792,30 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 152), align 8, !tbaa !106
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1264), align 8, !tbaa !106
   tail call void %3(i32 noundef %1, i32 noundef %count, ptr noundef %ints) #19
   br label %return
 
 sw.bb8:                                           ; preds = %if.end, %if.end
-  %4 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 153), align 8, !tbaa !107
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1272), align 8, !tbaa !107
   %div = sdiv i32 %count, 2
   tail call void %4(i32 noundef %1, i32 noundef %div, ptr noundef %ints) #19
   br label %return
 
 sw.bb12:                                          ; preds = %if.end, %if.end
-  %5 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 154), align 8, !tbaa !108
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1280), align 8, !tbaa !108
   %div16 = sdiv i32 %count, 3
   tail call void %5(i32 noundef %1, i32 noundef %div16, ptr noundef %ints) #19
   br label %return
 
 sw.bb17:                                          ; preds = %if.end, %if.end
-  %6 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 155), align 8, !tbaa !109
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1288), align 8, !tbaa !109
   %div21 = sdiv i32 %count, 4
   tail call void %6(i32 noundef %1, i32 noundef %div21, ptr noundef %ints) #19
   br label %return
 
 sw.bb22:                                          ; preds = %if.end, %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 152), align 8, !tbaa !106
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1264), align 8, !tbaa !106
   tail call void %7(i32 noundef %1, i32 noundef 1, ptr noundef %ints) #19
   br label %return
 

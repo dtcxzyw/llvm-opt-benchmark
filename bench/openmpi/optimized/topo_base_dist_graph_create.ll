@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ompi_status_public_t, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.ompi_predefined_datatype_t, ptr @ompi_mpi_int, i64 0, i32 0, i32 0, i32 4), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int, i64 24), align 8
   %11 = getelementptr i8, ptr %1, i64 248
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %.val, i64 16
@@ -282,10 +282,10 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   %139 = getelementptr inbounds i8, ptr %136, i64 216
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 %138(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_sum, ptr noundef %1, ptr noundef %140) #9
-  %142 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 8), align 8
+  %142 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
   %143 = tail call noalias ptr @malloc(i64 noundef %142) #10
   %144 = load i32, ptr @opal_class_init_epoch, align 4
-  %145 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 4), align 8
+  %145 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %144, %145
   br i1 %.not.i, label %147, label %146
 
@@ -301,7 +301,7 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   store ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, ptr %143, align 8
   %149 = getelementptr inbounds i8, ptr %143, i64 8
   store volatile i32 1, ptr %149, align 8
-  %150 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 0, i32 6), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 40), align 8
   %151 = load ptr, ptr %150, align 8
   %.not6.i.i = icmp eq ptr %151, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread310, label %.lr.ph.i.i
@@ -396,7 +396,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %198 = load i32, ptr %197, align 4
   %.0262 = shl nsw i32 %195, %192
   %.0 = shl nsw i32 %198, %192
-  %199 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %200 = sext i32 %.0 to i64
   %201 = getelementptr inbounds i32, ptr %62, i64 %200
   %202 = sext i32 %.0262 to i64
@@ -419,7 +419,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %213 = load i32, ptr %212, align 4
   %.1263 = shl nsw i32 %210, %192
   %.1 = shl nsw i32 %213, %192
-  %214 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %215 = sext i32 %.1 to i64
   %216 = getelementptr inbounds i32, ptr %67, i64 %215
   %217 = sext i32 %.1263 to i64
@@ -474,7 +474,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
 240:                                              ; preds = %.lr.ph376, %.loopexit341
   %.0267374 = phi i32 [ %.2264, %.lr.ph376 ], [ %269, %.loopexit341 ]
   %.0273373 = phi i32 [ 0, %.lr.ph376 ], [ %.2275, %.loopexit341 ]
-  %241 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %242 = sub nsw i32 %.2264, %.0267374
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds i32, ptr %.0260, i64 %243
@@ -569,7 +569,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
 291:                                              ; preds = %.lr.ph385, %.loopexit
   %.1268383 = phi i32 [ %.3265, %.lr.ph385 ], [ %320, %.loopexit ]
   %.3276382 = phi i32 [ 0, %.lr.ph385 ], [ %.5278, %.loopexit ]
-  %292 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %293 = sub nsw i32 %.3265, %.1268383
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds i32, ptr %.1261, i64 %294
@@ -632,7 +632,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   br label %323
 
 323:                                              ; preds = %322, %._crit_edge386
-  %324 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %324 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %325 = call i32 %324(i64 noundef %.0279.lcssa, ptr noundef %190, ptr noundef null) #9
   store ptr %143, ptr %7, align 8
   br label %326

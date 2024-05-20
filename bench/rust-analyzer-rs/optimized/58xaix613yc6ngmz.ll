@@ -4617,7 +4617,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !1484
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 24) acquire, align 8, !noalias !1484
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17he176411b3997e295E.exit, label %6
 
@@ -4628,7 +4628,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !1484
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !1484
   store ptr %3, ptr %2, align 8, !noalias !1484
-  call void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 1, i64 0), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1484
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1484
   br label %_ZN3std4sync4once4Once15call_once_force17he176411b3997e295E.exit
@@ -4642,7 +4642,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 0, i32 1, i64 0) acquire, align 8, !noalias !1487
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 24) acquire, align 8, !noalias !1487
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17hf60c4c4ba384bcaeE.exit, label %6
 
@@ -4653,7 +4653,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !1487
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !1487
   store ptr %3, ptr %2, align 8, !noalias !1487
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 0, i32 1, i64 0), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1487
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1487
   br label %_ZN3std4sync4once4Once15call_once_force17hf60c4c4ba384bcaeE.exit
@@ -4667,7 +4667,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !1490
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 24) acquire, align 8, !noalias !1490
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h63996aea3af7a914E.exit, label %6
 
@@ -4678,7 +4678,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !1490
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !1490
   store ptr %3, ptr %2, align 8, !noalias !1490
-  call void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 0, i32 1, i64 0), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1490
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1490
   br label %_ZN3std4sync4once4Once15call_once_force17h63996aea3af7a914E.exit
@@ -4770,7 +4770,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !1502
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 24) acquire, align 8, !noalias !1502
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h9178375bc5d00102E.exit, label %6
 
@@ -4781,7 +4781,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !1502
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !1502
   store ptr %3, ptr %2, align 8, !noalias !1502
-  call void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE(ptr noundef nonnull align 4 getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 0, i32 1, i64 0), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1502
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1502
   br label %_ZN3std4sync4once4Once15call_once_force17h9178375bc5d00102E.exit
@@ -4795,7 +4795,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !1505
+  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 24) acquire, align 8, !noalias !1505
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h8d0e00f9de11e0cdE.exit, label %6
 
@@ -4806,7 +4806,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !1505
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !1505
   store ptr %3, ptr %2, align 8, !noalias !1505
-  call void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 1, i64 0), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.429fe5f01d29dee238e7a404dd0129a6.4.llvm.15602210471604820194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1505
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1505
   br label %_ZN3std4sync4once4Once15call_once_force17h8d0e00f9de11e0cdE.exit
@@ -20844,7 +20844,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca { { i64 }, { { i64, [4 x i64] } } }, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !5726
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 24) acquire, align 8, !noalias !5726
   %.not.i.i = icmp eq i32 %5, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5e6ceda406660c27E.exit.i", label %6
 
@@ -20859,10 +20859,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   %7 = load i64, ptr %3, align 8, !noalias !5726, !noundef !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5726
   %8 = shl i64 %7, 7
-  %9 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 0, i64 16), align 8, !noalias !5726, !noundef !13
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 16), align 8, !noalias !5726, !noundef !13
   %10 = and i64 %9, 63
   %11 = lshr i64 %8, %10
-  %12 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 0, i64 8), align 8, !noalias !5726, !noundef !13
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 8), align 8, !noalias !5726, !noundef !13
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %20, !prof !978
 
@@ -22007,7 +22007,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hf1d76cb8
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca { { i64 }, [1 x i64], { i8, [47 x i8] } }, align 16
-  %5 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !5906
+  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 24) acquire, align 8, !noalias !5906
   %.not.i.i = icmp eq i32 %5, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hdf97b66a6a9c88cbE.exit.i", label %6
 
@@ -22022,10 +22022,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17hf1d76cb8
   %7 = load i64, ptr %3, align 8, !noalias !5906, !noundef !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5906
   %8 = shl i64 %7, 7
-  %9 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 0, i64 16), align 8, !noalias !5906, !noundef !13
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 16), align 8, !noalias !5906, !noundef !13
   %10 = and i64 %9, 63
   %11 = lshr i64 %8, %10
-  %12 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 0, i64 8), align 8, !noalias !5906, !noundef !13
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 8), align 8, !noalias !5906, !noundef !13
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %20, !prof !978
 
@@ -22573,7 +22573,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8873333117009505138.exit.i.i.i
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h14306aa801eb2f64E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h48b94f40f2370051E.exit", label %4
 
@@ -22806,10 +22806,10 @@ _ZN4core4hash4Hash10hash_slice17hfdfe7a5c920b6fceE.exit: ; preds = %"_ZN73_$LT$h
   %107 = phi i64 [ %.pre, %"_ZN69_$LT$hir_def..generics..GenericParams$u20$as$u20$core..hash..Hash$GT$4hash17h4cacaee54f72be13E.exit.loopexit" ], [ %102, %_ZN4core4hash4Hash10hash_slice17hfdfe7a5c920b6fceE.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %108 = shl i64 %107, 7
-  %109 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 0, i32 0, i64 16), align 8, !noundef !13
+  %109 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 16), align 8, !noundef !13
   %110 = and i64 %109, 63
   %111 = lshr i64 %108, %110
-  %112 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 0, i32 0, i64 8), align 8, !noundef !13
+  %112 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..generics..GenericParams$GT$7storage7STORAGE17h3b9a3fb83062a924E", i64 8), align 8, !noundef !13
   %113 = icmp ult i64 %111, %112
   br i1 %113, label %114, label %122, !prof !978
 
@@ -22837,7 +22837,7 @@ _ZN4core4hash4Hash10hash_slice17hfdfe7a5c920b6fceE.exit: ; preds = %"_ZN73_$LT$h
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h1bc88d84443c5423E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hb52d2e8b787670ffE.exit", label %4
 
@@ -22909,10 +22909,10 @@ _ZN4core4hash4Hash10hash_slice17hd6822a0dc5fa5250E.exit.loopexit.i: ; preds = %.
   %36 = xor i64 %35, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %37 = mul i64 %36, -4728538181899302272
-  %38 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 0, i32 0, i64 16), align 8, !noundef !13
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 16), align 8, !noundef !13
   %39 = and i64 %38, 63
   %40 = lshr i64 %37, %39
-  %41 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 0, i32 0, i64 8), align 8, !noundef !13
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def75_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..path..GenericArgs$GT$7storage7STORAGE17h193774c7bb9cea69E", i64 8), align 8, !noundef !13
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %43, label %52, !prof !978
 
@@ -22941,7 +22941,7 @@ _ZN4core4hash4Hash10hash_slice17hd6822a0dc5fa5250E.exit.loopexit.i: ; preds = %.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17hcf213fc1fc049430E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 0, i32 1, i64 0) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 24) acquire, align 8
   %.not.i = icmp eq i32 %3, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17ha668ce2eb93294eeE.exit", label %4
 
@@ -23202,10 +23202,10 @@ _ZN4core4hash6Hasher9write_str17h31a2eec31094484cE.llvm.15602210471604820194.exi
   %122 = phi i64 [ %9, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17ha668ce2eb93294eeE.exit" ], [ %18, %10 ], [ %.pre, %_ZN4core4hash4Hash10hash_slice17h9ad5103ab183dd01E.exit.i ], [ %storemerge.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hb0cb7f0c01ed6c62E.llvm.15602210471604820194.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %123 = shl i64 %122, 7
-  %124 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 0, i32 0, i64 16), align 8, !noundef !13
+  %124 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 16), align 8, !noundef !13
   %125 = and i64 %124, 63
   %126 = lshr i64 %123, %125
-  %127 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 0, i32 0, i64 8), align 8, !noundef !13
+  %127 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def82_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeBound$GT$7storage7STORAGE17h12649836d35bdb4cE", i64 8), align 8, !noundef !13
   %128 = icmp ult i64 %126, %127
   br i1 %128, label %129, label %137, !prof !978
 
@@ -24382,7 +24382,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17had2ffb857f097f54E
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !6475
+  %7 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 24) acquire, align 8, !noalias !6475
   %.not.i.i = icmp eq i32 %7, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hdf97b66a6a9c88cbE.exit.i", label %8
 
@@ -24397,10 +24397,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17had2ffb857f097f54E
   %9 = load i64, ptr %3, align 8, !noalias !6475, !noundef !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6475
   %10 = shl i64 %9, 7
-  %11 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 0, i64 16), align 8, !noalias !6475, !noundef !13
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 16), align 8, !noalias !6475, !noundef !13
   %12 = and i64 %11, 63
   %13 = lshr i64 %10, %12
-  %14 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 0, i32 0, i64 8), align 8, !noalias !6475, !noundef !13
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def80_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TypeRef$GT$7storage7STORAGE17h04dbb339c81aff51E", i64 8), align 8, !noalias !6475, !noundef !13
   %15 = icmp ult i64 %13, %14
   br i1 %15, label %16, label %22, !prof !978
 
@@ -25197,7 +25197,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hcd570acca69b5308E
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load atomic i32, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 1, i64 0) acquire, align 8, !noalias !6663
+  %7 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 24) acquire, align 8, !noalias !6663
   %.not.i.i = icmp eq i32 %7, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5e6ceda406660c27E.exit.i", label %8
 
@@ -25212,10 +25212,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hcd570acca69b5308E
   %9 = load i64, ptr %3, align 8, !noalias !6663, !noundef !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6663
   %10 = shl i64 %9, 7
-  %11 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 0, i64 16), align 8, !noalias !6663, !noundef !13
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 16), align 8, !noalias !6663, !noundef !13
   %12 = and i64 %11, 63
   %13 = lshr i64 %10, %12
-  %14 = load i64, ptr getelementptr inbounds (<{ [24 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 0, i32 0, i64 8), align 8, !noalias !6663, !noundef !13
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN7hir_def81_$LT$impl$u20$intern..Internable$u20$for$u20$hir_def..hir..type_ref..TraitRef$GT$7storage7STORAGE17hbeb056d5c44e0b16E", i64 8), align 8, !noalias !6663, !noundef !13
   %15 = icmp ult i64 %13, %14
   br i1 %15, label %16, label %22, !prof !978
 
@@ -49683,7 +49683,7 @@ define hidden noundef nonnull ptr @_ZN7hir_def8generics13GenericParams20generic_
   unreachable
 
 47:                                               ; preds = %3
-  %48 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7hir_def8generics13GenericParams20generic_params_query10__CALLSITE17h548b80267fa019faE, i64 0, i32 1, i64 8) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7hir_def8generics13GenericParams20generic_params_query10__CALLSITE17h548b80267fa019faE, i64 16) monotonic, align 8
   switch i8 %48, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread227
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

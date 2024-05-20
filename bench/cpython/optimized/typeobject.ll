@@ -1754,7 +1754,7 @@ if.end.i38:                                       ; preds = %do.body46
 lookup_tp_dict.exit40:                            ; preds = %if.then.i30, %if.end.i38
   %retval.0.in.i36 = phi ptr [ %tp_dict.i35, %if.then.i30 ], [ %tp_dict2.i39, %if.end.i38 ]
   %retval.0.i37 = load ptr, ptr %retval.0.in.i36, align 8
-  %call48 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i37, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111)) #20
+  %call48 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i37, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864)) #20
   %cmp49 = icmp eq i32 %call48, 0
   br i1 %cmp49, label %return, label %if.then50
 
@@ -2263,7 +2263,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 35), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), align 8
   %cmp = icmp ugt i32 %3, 131071
   br i1 %cmp, label %return, label %if.end16
 
@@ -2275,7 +2275,7 @@ if.else:                                          ; preds = %if.end4
 
 if.end16:                                         ; preds = %if.else, %if.then6
   %.sink20 = phi i32 [ %3, %if.then6 ], [ %4, %if.else ]
-  %types.sink = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 35), %if.then6 ], [ %types, %if.else ]
+  %types.sink = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), %if.then6 ], [ %types, %if.else ]
   %inc14 = add i32 %.sink20, 1
   store i32 %inc14, ptr %types.sink, align 8
   %tp_version_tag15 = getelementptr inbounds i8, ptr %type, i64 384
@@ -3527,7 +3527,7 @@ if.end144:                                        ; preds = %if.end139
   %tp_new = getelementptr inbounds i8, ptr %call135, i64 312
   %50 = load ptr, ptr %tp_new, align 8
   %tobool145.not = icmp eq ptr %50, null
-  %51 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 37), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 312), align 8
   %cmp147.not = icmp eq ptr %50, %51
   %or.cond172 = select i1 %tobool145.not, i1 true, i1 %cmp147.not
   br i1 %or.cond172, label %if.end160, label %if.then149
@@ -3907,7 +3907,7 @@ if.then290:                                       ; preds = %lookup_tp_dict.exit
   br i1 %tobool295.not, label %finally, label %if.end297
 
 if.end297:                                        ; preds = %if.then290
-  %call298 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %call294) #20
+  %call298 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %call294) #20
   %103 = load i64, ptr %call294, align 8
   %104 = and i64 %103, 2147483648
   %cmp.i380.not = icmp eq i64 %104, 0
@@ -3932,7 +3932,7 @@ if.end303:                                        ; preds = %Py_DECREF.exit378, 
   br i1 %tobool304.not, label %if.end311, label %if.then305
 
 if.then305:                                       ; preds = %if.end303
-  %call306 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 168)) #20
+  %call306 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35088)) #20
   %cmp307 = icmp slt i32 %call306, 0
   br i1 %cmp307, label %finally, label %if.end311
 
@@ -3941,12 +3941,12 @@ if.end311:                                        ; preds = %if.then305, %if.end
   br i1 %tobool312.not, label %if.end319, label %if.then313
 
 if.then313:                                       ; preds = %if.end311
-  %call314 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 48)) #20
+  %call314 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28416)) #20
   %cmp315 = icmp slt i32 %call314, 0
   br i1 %cmp315, label %finally, label %if.end319
 
 if.end319:                                        ; preds = %if.then313, %if.end311
-  %call320 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105)) #20
+  %call320 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552)) #20
   %cmp325 = icmp eq i32 %call320, 0
   br i1 %cmp325, label %if.then327, label %finally
 
@@ -3965,7 +3965,7 @@ if.then332:                                       ; preds = %if.then327
   br i1 %cmp336, label %finally, label %if.end339
 
 if.end339:                                        ; preds = %if.then332
-  %call340 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %call335) #20
+  %call340 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i218, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %call335) #20
   %106 = load i64, ptr %call335, align 8
   %107 = and i64 %106, 2147483648
   %cmp.i383.not = icmp eq i64 %107, 0
@@ -4270,7 +4270,7 @@ if.end.i:                                         ; preds = %if.then
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %mod) #20
+  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %mod) #20
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then2, label %if.end15
 
@@ -4300,7 +4300,7 @@ if.then11:                                        ; preds = %if.then6
   br label %if.end15
 
 if.else13:                                        ; preds = %if.else
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 244), ptr %mod, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39248), ptr %mod, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else13, %if.then11, %if.then6, %lookup_tp_dict.exit, %if.then2
@@ -4991,7 +4991,7 @@ if.then.i:                                        ; preds = %entry
   br label %type_dealloc_common.exit
 
 type_dealloc_common.exit:                         ; preds = %entry, %if.then.i
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i9.not.i = icmp eq ptr %1, %interp
   br i1 %cmp.i9.not.i, label %do.body.i, label %if.end2.i
 
@@ -5088,7 +5088,7 @@ if.then.i13.i:                                    ; preds = %clear_tp_dict.exit.
   %19 = load ptr, ptr %18, align 8
   %interp.i.i14.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %interp.i.i14.i, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i17.not.i.i = icmp eq ptr %21, %20
   br i1 %cmp.i17.not.i.i, label %if.then3.i.i, label %clear_tp_bases.exit.i
 
@@ -5159,7 +5159,7 @@ if.then.i22.i:                                    ; preds = %clear_tp_bases.exit
   %31 = load ptr, ptr %30, align 8
   %interp.i.i23.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %interp.i.i23.i, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i17.not.i24.i = icmp eq ptr %33, %32
   br i1 %cmp.i17.not.i24.i, label %if.then3.i25.i, label %clear_tp_mro.exit.i
 
@@ -5280,7 +5280,7 @@ do.end11.sink.split.i.i.i:                        ; preds = %if.end.i.i.i.i, %if
   br label %clear_static_type_objects.exit
 
 clear_static_type_objects.exit:                   ; preds = %lookup_tp_subclasses.exit.i.i, %lookup_tp_subclasses.exit.thread.i.i, %if.then2.i.i.i, %if.end.i15.i.i.i, %if.then9.i.i.i, %if.end.i.i.i.i, %do.end11.sink.split.i.i.i
-  %51 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %51, %interp
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -5301,7 +5301,7 @@ if.end:                                           ; preds = %if.then, %clear_sta
   %sub.i.i.i = add i64 %54, -1
   %arrayidx.i.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i, i64 0, i64 %sub.i.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
-  %55 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i = icmp eq ptr %55, %interp
   br i1 %cmp.i.not.i, label %if.then.i11, label %static_builtin_state_clear.exit
 
@@ -5739,7 +5739,7 @@ if.else18.thread:                                 ; preds = %if.end12
   br label %if.end21
 
 land.lhs.true:                                    ; preds = %if.end12
-  %call14 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %mod.0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 244)) #20
+  %call14 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %mod.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39248)) #20
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then.i25, label %if.then.i34
 
@@ -6458,7 +6458,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.i.i.not.i, label %if.end12.i, label %for.inc.i
 
 if.end12.i:                                       ; preds = %for.body.i
-  %call13.i = call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 106)) #20
+  %call13.i = call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31608)) #20
   %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %type_new_get_bases.exit.thread, label %if.end16.i
 
@@ -6622,7 +6622,7 @@ if.end12:                                         ; preds = %if.then.i, %if.end.
   br i1 %cmp.i12.i, label %type_new_impl.exit, label %if.end.i13.i
 
 if.end.i13.i:                                     ; preds = %if.end12
-  %call.i.i.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 154)) #20
+  %call.i.i.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34232)) #20
   %cmp.i18.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i18.i.i, label %if.then.i.i.i29, label %if.end4.i.i.i
 
@@ -6720,7 +6720,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
   br i1 %tobool5.not.i.i.i.i.i.i, label %do.body.i.i.sink.split, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i.i.i
-  %call3.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %29, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47)) #20
+  %call3.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %29, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360)) #20
   %tobool4.not.i.i.i.i.i = icmp eq i32 %call3.i.i.i.i.i, 0
   br i1 %tobool4.not.i.i.i.i.i, label %if.end11.i.i.i.i.i, label %if.then5.i.i.i.i.i
 
@@ -6731,7 +6731,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i
   %ctx.sroa.51.2 = phi i32 [ %ctx.sroa.51.1, %if.end.i.i.i.i.i ], [ 1, %if.then5.i.i.i.i.i ]
-  %call12.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %29, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 169)) #20
+  %call12.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %29, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35152)) #20
   %tobool13.not.i.i.i.i.i = icmp eq i32 %call12.i.i.i.i.i, 0
   br i1 %tobool13.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.then14.i.i.i.i.i
 
@@ -6775,7 +6775,7 @@ for.body.i19.i.i.i.i:                             ; preds = %for.inc.i21.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %lor.lhs.false.i23.i.i.i.i, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %for.body.i19.i.i.i.i
-  %call9.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef %35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47)) #20
+  %call9.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360)) #20
   %tobool10.not.i.i.i.i.i = icmp eq i32 %call9.i.i.i.i.i, 0
   br i1 %tobool10.not.i.i.i.i.i, label %lor.lhs.false.i23.i.i.i.i, label %for.inc.i21.i.i.i.i
 
@@ -6783,7 +6783,7 @@ lor.lhs.false.i23.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i
   br i1 %tobool12.not.i.i.i.i.i, label %if.end17.i.i.i.i.i, label %land.lhs.true13.i.i.i.i.i
 
 land.lhs.true13.i.i.i.i.i:                        ; preds = %lor.lhs.false.i23.i.i.i.i
-  %call14.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef %35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 169)) #20
+  %call14.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35152)) #20
   %tobool15.not.i24.i.i.i.i = icmp eq i32 %call14.i.i.i.i.i, 0
   br i1 %tobool15.not.i24.i.i.i.i, label %if.end17.i.i.i.i.i, label %for.inc.i21.i.i.i.i
 
@@ -6805,17 +6805,17 @@ if.end26.i.i.i.i.i:                               ; preds = %if.end21.i.i.i.i.i
   br i1 %cmp27.not.i.i.i.i.i, label %if.end41.i.i.i.i.i, label %if.then29.i.i.i.i.i
 
 if.then29.i.i.i.i.i:                              ; preds = %if.end26.i.i.i.i.i
-  %call30.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125)) #20
+  %call30.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616)) #20
   %tobool31.not.i.i.i.i.i = icmp eq i32 %call30.i.i.i.i.i, 0
   br i1 %tobool31.not.i.i.i.i.i, label %land.lhs.true32.i.i.i.i.i, label %if.end41.i.i.i.i.i
 
 land.lhs.true32.i.i.i.i.i:                        ; preds = %if.then29.i.i.i.i.i
-  %call33.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36)) #20
+  %call33.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27728)) #20
   %tobool34.not.i.i.i.i.i = icmp eq i32 %call33.i.i.i.i.i, 0
   br i1 %tobool34.not.i.i.i.i.i, label %land.lhs.true35.i.i.i.i.i, label %if.end41.i.i.i.i.i
 
 land.lhs.true35.i.i.i.i.i:                        ; preds = %land.lhs.true32.i.i.i.i.i
-  %call36.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38)) #20
+  %call36.i.i.i.i.i = call i32 @_PyUnicode_Equal(ptr noundef nonnull %call18.i.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27840)) #20
   %tobool37.not.i.i.i.i.i = icmp eq i32 %call36.i.i.i.i.i, 0
   br i1 %tobool37.not.i.i.i.i.i, label %if.then38.i.i.i.i.i, label %if.end41.i.i.i.i.i
 
@@ -7223,7 +7223,7 @@ if.end.i7.i.i.i:                                  ; preds = %if.end.i18.i
 lookup_tp_dict.exit.i.i.i:                        ; preds = %if.end.i7.i.i.i, %if.then.i.i.i19.i
   %retval.0.in.i.i.i.i = phi ptr [ %tp_dict.i.i.i.i, %if.then.i.i.i19.i ], [ %tp_dict2.i.i.i.i, %if.end.i7.i.i.i ]
   %retval.0.i.i.i.i = load ptr, ptr %retval.0.in.i.i.i.i, align 8
-  %call1.i.i20.i = call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105)) #20
+  %call1.i.i20.i = call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552)) #20
   %cmp.i.i21.i = icmp slt i32 %call1.i.i20.i, 0
   br i1 %cmp.i.i21.i, label %type_new_set_module.exit.thread131.i.i, label %if.end.i13.i.i
 
@@ -7241,13 +7241,13 @@ if.end4.i.i47.i:                                  ; preds = %if.end.i13.i.i
   br i1 %cmp6.i.i.i, label %type_new_set_module.exit.thread.i.i, label %if.end8.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i47.i
-  %call9.i.i48.i = call i32 @PyDict_GetItemRef(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), ptr noundef nonnull %module.i.i.i) #20
+  %call9.i.i48.i = call i32 @PyDict_GetItemRef(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %module.i.i.i) #20
   %78 = load ptr, ptr %module.i.i.i, align 8
   %tobool.not.i15.i.i = icmp eq ptr %78, null
   br i1 %tobool.not.i15.i.i, label %type_new_set_module.exit.i.i, label %if.then10.i.i49.i
 
 if.then10.i.i49.i:                                ; preds = %if.end8.i.i.i
-  %call11.i.i.i = call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %78) #20
+  %call11.i.i.i = call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %78) #20
   %79 = load ptr, ptr %module.i.i.i, align 8
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, 2147483648
@@ -7301,7 +7301,7 @@ if.end.i8.i.i.i:                                  ; preds = %if.end4.i22.i
 lookup_tp_dict.exit.i25.i.i:                      ; preds = %if.end.i8.i.i.i, %if.then.i.i19.i.i
   %retval.0.in.i.i26.i.i = phi ptr [ %tp_dict.i.i24.i.i, %if.then.i.i19.i.i ], [ %tp_dict2.i.i39.i.i, %if.end.i8.i.i.i ]
   %retval.0.i.i27.i.i = load ptr, ptr %retval.0.in.i.i26.i.i, align 8
-  %call1.i28.i.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i27.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), ptr noundef nonnull %qualname.i.i.i) #20
+  %call1.i28.i.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i27.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %qualname.i.i.i) #20
   %cmp.i29.i.i = icmp slt i32 %call1.i28.i.i, 0
   br i1 %cmp.i29.i.i, label %type_new_set_ht_name.exit.thread.i.i, label %if.end.i30.i.i
 
@@ -7343,7 +7343,7 @@ if.then1.i.i38.i.i:                               ; preds = %if.end.i.i35.i.i
 if.end9.i.i.i:                                    ; preds = %if.then3.i.i.i
   %ht_qualname.i.i.i = getelementptr inbounds i8, ptr %call.i25.i.i, i64 872
   store ptr %88, ptr %ht_qualname.i.i.i, align 8
-  %call10.i.i23.i = call i32 @PyDict_DelItem(ptr noundef %retval.0.i.i27.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125)) #20
+  %call10.i.i23.i = call i32 @PyDict_DelItem(ptr noundef %retval.0.i.i27.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616)) #20
   %cmp11.i.i.i = icmp slt i32 %call10.i.i23.i, 0
   br i1 %cmp11.i.i.i, label %type_new_set_ht_name.exit.thread.i.i, label %if.end8.i24.i
 
@@ -7394,7 +7394,7 @@ if.end.i.i60.i.i:                                 ; preds = %if.end8.i24.i
 lookup_tp_dict.exit.i49.i.i:                      ; preds = %if.end.i.i60.i.i, %if.then.i.i43.i.i
   %retval.0.in.i.i50.i.i = phi ptr [ %tp_dict.i.i48.i.i, %if.then.i.i43.i.i ], [ %tp_dict2.i.i61.i.i, %if.end.i.i60.i.i ]
   %retval.0.i.i51.i.i = load ptr, ptr %retval.0.in.i.i50.i.i, align 8
-  %call1.i52.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i51.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51)) #20
+  %call1.i52.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i51.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576)) #20
   %cmp.i53.i.i = icmp eq ptr %call1.i52.i.i, null
   br i1 %cmp.i53.i.i, label %type_new_set_doc.exit.i.i, label %if.end4.i54.i.i
 
@@ -7460,7 +7460,7 @@ if.end.i12.i.i.i:                                 ; preds = %if.end12.i27.i
 lookup_tp_dict.exit.i71.i.i:                      ; preds = %if.end.i12.i.i.i, %if.then.i.i65.i.i
   %retval.0.in.i.i72.i.i = phi ptr [ %tp_dict.i.i70.i.i, %if.then.i.i65.i.i ], [ %tp_dict2.i.i90.i.i, %if.end.i12.i.i.i ]
   %retval.0.i.i73.i.i = load ptr, ptr %retval.0.in.i.i72.i.i, align 8
-  %call1.i74.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i73.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111)) #20
+  %call1.i74.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i73.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864)) #20
   %cmp.i75.i.i = icmp eq ptr %call1.i74.i.i, null
   br i1 %cmp.i75.i.i, label %type_new_staticmethod.exit.i.i, label %if.end4.i76.i.i
 
@@ -7476,7 +7476,7 @@ if.end8.i79.i.i:                                  ; preds = %if.end4.i76.i.i
   br i1 %cmp10.i.i.i, label %error.i, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end8.i79.i.i
-  %call13.i.i.i = call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i73.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111), ptr noundef nonnull %call9.i80.i.i) #20
+  %call13.i.i.i = call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i73.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864), ptr noundef nonnull %call9.i80.i.i) #20
   %cmp14.i.i.i = icmp slt i32 %call13.i.i.i, 0
   %115 = load i64, ptr %call9.i80.i.i, align 8
   %116 = and i64 %115, 2147483648
@@ -7515,12 +7515,12 @@ type_new_staticmethod.exit.i.i:                   ; preds = %lookup_tp_dict.exit
   br i1 %tobool.not.i88.not.i.i, label %if.end16.i.i, label %error.i
 
 if.end16.i.i:                                     ; preds = %type_new_staticmethod.exit.i.i, %if.then1.i.i85.i.i, %if.end.i.i82.i.i, %if.end16.i81.i.i, %if.end4.i76.i.i
-  %call17.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 81))
+  %call17.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30232))
   %cmp18.i.i = icmp slt i32 %call17.i.i, 0
   br i1 %cmp18.i.i, label %error.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end16.i.i
-  %call21.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 35))
+  %call21.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27664))
   %cmp22.i.i = icmp slt i32 %call21.i.i, 0
   br i1 %cmp22.i.i, label %error.i, label %if.end24.i.i
 
@@ -7723,7 +7723,7 @@ if.end.i.i125.i.i:                                ; preds = %type_new_set_slots.
 lookup_tp_dict.exit.i111.i.i:                     ; preds = %if.end.i.i125.i.i, %if.then.i.i105.i.i
   %retval.0.in.i.i112.i.i = phi ptr [ %tp_dict.i.i110.i.i, %if.then.i.i105.i.i ], [ %tp_dict2.i.i126.i.i, %if.end.i.i125.i.i ]
   %retval.0.i.i113.i.i = load ptr, ptr %retval.0.in.i.i112.i.i, align 8
-  %call1.i114.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i113.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36)) #20
+  %call1.i114.i.i = call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i113.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27728)) #20
   %cmp.i115.i.i = icmp eq ptr %call1.i114.i.i, null
   br i1 %cmp.i115.i.i, label %if.then.i121.i.i, label %if.end4.i116.i.i
 
@@ -7745,7 +7745,7 @@ type_new_set_classcell.exit.thread.i.i:           ; preds = %if.end4.i116.i.i
 
 type_new_set_classcell.exit.i.i:                  ; preds = %if.end4.i116.i.i
   %call11.i120.i.i = call i32 @PyCell_Set(ptr noundef nonnull %call1.i114.i.i, ptr noundef nonnull %call.i25.i.i) #20
-  %call12.i.i.i = call i32 @PyDict_DelItem(ptr noundef %retval.0.i.i113.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36)) #20
+  %call12.i.i.i = call i32 @PyDict_DelItem(ptr noundef %retval.0.i.i113.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27728)) #20
   %152 = icmp slt i32 %call12.i.i.i, 0
   br i1 %152, label %error.i, label %type_new_set_attrs.exit.i
 
@@ -7830,7 +7830,7 @@ while.body.i.i:                                   ; preds = %if.end.i69.i, %whil
   %162 = load ptr, ptr %value.i.i, align 8
   %163 = getelementptr i8, ptr %162, i64 8
   %self.val.i.i.i = load ptr, ptr %163, align 8
-  %call1.i.i70.i = call ptr @_PyType_Lookup(ptr noundef %self.val.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 148))
+  %call1.i.i70.i = call ptr @_PyType_Lookup(ptr noundef %self.val.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33896))
   %cmp.not.i.i71.i = icmp eq ptr %call1.i.i70.i, null
   br i1 %cmp.not.i.i71.i, label %if.then5.i.i, label %if.then.i18.i.i
 
@@ -7978,7 +7978,7 @@ if.end12.i18:                                     ; preds = %type_new_set_names.
   br i1 %cmp.i83.i, label %type_new_init_subclass.exit.thread.i, label %if.end.i84.i
 
 if.end.i84.i:                                     ; preds = %if.end12.i18
-  %call1.i85.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call.i82.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 81)) #20
+  %call1.i85.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call.i82.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30232)) #20
   %181 = load i64, ptr %call.i82.i, align 8
   %182 = and i64 %181, 2147483648
   %cmp.i28.not.i.i = icmp eq i64 %182, 0
@@ -8257,7 +8257,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @object_getstate(ptr noundef %obj, i32 noundef %required) unnamed_addr #3 {
 entry:
-  %call = tail call ptr @PyObject_GetAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 68)) #20
+  %call = tail call ptr @PyObject_GetAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29512)) #20
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -8488,7 +8488,7 @@ if.else15.thread:                                 ; preds = %if.end9
   br label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end9
-  %call11 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %mod.0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 244)) #20
+  %call11 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %mod.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39248)) #20
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then.i25, label %if.then.i34
 
@@ -8696,7 +8696,7 @@ if.then8:                                         ; preds = %if.end6
 
 type_abstractmethods.exit.thread:                 ; preds = %if.then8
   %11 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  tail call void @PyErr_SetObject(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mod.i)
   br label %return
 
@@ -8725,13 +8725,13 @@ if.end.i.i:                                       ; preds = %if.else.i
 lookup_tp_dict.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.in.i.i = phi ptr [ %tp_dict.i.i, %if.then.i.i ], [ %tp_dict2.i.i, %if.end.i.i ]
   %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %call1.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14), ptr noundef nonnull %mod.i) #20
+  %call1.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488), ptr noundef nonnull %mod.i) #20
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %type_abstractmethods.exit
 
 if.then3.i:                                       ; preds = %lookup_tp_dict.exit.i
   %17 = load ptr, ptr @PyExc_AttributeError, align 8
-  call void @PyErr_SetObject(ptr noundef %17, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  call void @PyErr_SetObject(ptr noundef %17, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   br label %type_abstractmethods.exit
 
 type_abstractmethods.exit:                        ; preds = %lookup_tp_dict.exit.i, %if.then3.i
@@ -9142,7 +9142,7 @@ if.then.i39:                                      ; preds = %type_ready_set_type
   %35 = load ptr, ptr %34, align 8
   %interp.i.i40 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %interp.i.i40, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i = icmp eq ptr %37, %36
   br i1 %cmp.i.not.i, label %if.end4.i42, label %if.then.i54
 
@@ -9194,7 +9194,7 @@ if.end16:                                         ; preds = %set_tp_bases.exit.i
   br i1 %tobool.not.i53, label %if.end4.i57, label %if.end16.if.then.i54_crit_edge
 
 if.end16.if.then.i54_crit_edge:                   ; preds = %if.end16
-  %.pre267 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %.pre267 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %.pre268 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   br label %if.then.i54
 
@@ -9318,7 +9318,7 @@ if.end.i9.i.i:                                    ; preds = %if.then17.i
 lookup_tp_dict.exit.i.i:                          ; preds = %if.end.i9.i.i, %if.then.i.i.i73
   %retval.0.in.i.i.i = phi ptr [ %tp_dict.i.i.i, %if.then.i.i.i73 ], [ %tp_dict2.i.i.i, %if.end.i9.i.i ]
   %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
-  %call1.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111)) #20
+  %call1.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864)) #20
   %cmp.i.i74 = icmp sgt i32 %call1.i.i, 0
   br i1 %cmp.i.i74, label %if.end24, label %if.end.i.i75
 
@@ -9332,7 +9332,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i75
   br i1 %cmp6.i.i, label %error, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
-  %call9.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111), ptr noundef nonnull %call5.i.i) #20
+  %call9.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864), ptr noundef nonnull %call5.i.i) #20
   %63 = load i64, ptr %call5.i.i, align 8
   %64 = and i64 %63, 2147483648
   %cmp.i11.not.i.i = icmp eq i64 %64, 0
@@ -9899,7 +9899,7 @@ if.end.i14.i107.i:                                ; preds = %if.end12.i
 lookup_tp_dict.exit.i93.i:                        ; preds = %if.end.i14.i107.i, %if.then.i.i87.i
   %retval.0.in.i.i94.i = phi ptr [ %tp_dict.i.i92.i, %if.then.i.i87.i ], [ %tp_dict2.i.i108.i, %if.end.i14.i107.i ]
   %retval.0.i.i95.i = load ptr, ptr %retval.0.in.i.i94.i, align 8
-  %call1.i.i96 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51)) #20
+  %call1.i.i96 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576)) #20
   %cmp.i96.i = icmp slt i32 %call1.i.i96, 0
   br i1 %cmp.i96.i, label %error, label %if.end.i97.i
 
@@ -9970,7 +9970,7 @@ _PyType_DocWithoutSignature.exit.i.i:             ; preds = %if.end4.i.i.i, %ski
   br i1 %cmp10.i100.i, label %error, label %if.end12.i101.i
 
 if.end12.i101.i:                                  ; preds = %_PyType_DocWithoutSignature.exit.i.i
-  %call13.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %call9.i.i98) #20
+  %call13.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %call9.i.i98) #20
   %cmp14.i.i = icmp slt i32 %call13.i.i, 0
   %140 = load i64, ptr %call9.i.i98, align 8
   %141 = and i64 %140, 2147483648
@@ -10004,7 +10004,7 @@ if.then1.i.i105.i:                                ; preds = %if.end.i.i102.i
   br label %if.end28
 
 if.else.i106.i:                                   ; preds = %if.end4.i.i97
-  %call17.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull @_Py_NoneStruct) #20
+  %call17.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i95.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull @_Py_NoneStruct) #20
   %cmp18.i.i = icmp slt i32 %call17.i.i, 0
   br i1 %cmp18.i.i, label %error, label %if.end28
 
@@ -10054,7 +10054,7 @@ if.end.i.i125:                                    ; preds = %if.end.i106
 lookup_tp_dict.exit.i116:                         ; preds = %if.end.i.i125, %if.then.i.i110
   %retval.0.in.i.i117 = phi ptr [ %tp_dict.i.i115, %if.then.i.i110 ], [ %tp_dict2.i.i126, %if.end.i.i125 ]
   %retval.0.i.i118 = load ptr, ptr %retval.0.in.i.i117, align 8
-  %call1.i119 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i118, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 70)) #20
+  %call1.i119 = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i118, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29616)) #20
   %cmp2.i120 = icmp slt i32 %call1.i119, 0
   br i1 %cmp2.i120, label %error, label %if.end4.i121
 
@@ -10063,7 +10063,7 @@ if.end4.i121:                                     ; preds = %lookup_tp_dict.exit
   br i1 %cmp5.not.i, label %if.end7.i122, label %if.end42
 
 if.end7.i122:                                     ; preds = %if.end4.i121
-  %call8.i123 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i118, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 70), ptr noundef nonnull @_Py_NoneStruct) #20
+  %call8.i123 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i118, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29616), ptr noundef nonnull @_Py_NoneStruct) #20
   %cmp9.i = icmp slt i32 %call8.i123, 0
   br i1 %cmp9.i, label %error, label %if.end11.i124
 
@@ -10178,7 +10178,7 @@ return:                                           ; preds = %if.end.i146, %if.th
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyStaticType_InitBuiltin(ptr noundef %interp, ptr noundef %self) local_unnamed_addr #3 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i = icmp ne ptr %0, %interp
   %tp_flags = getelementptr inbounds i8, ptr %self, i64 168
   %1 = load i64, ptr %tp_flags, align 8
@@ -10189,9 +10189,9 @@ entry:
 if.then:                                          ; preds = %entry
   %or3 = or i64 %1, 258
   store i64 %or3, ptr %tp_flags, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 35), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), align 8
   %inc = add i32 %2, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 35), align 8
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), align 8
   %tp_version_tag = getelementptr inbounds i8, ptr %self, i64 384
   store i32 %2, ptr %tp_version_tag, align 8
   %3 = load i64, ptr %tp_flags, align 8
@@ -10235,7 +10235,7 @@ if.then8:                                         ; preds = %static_builtin_stat
   %sub.i.i.i13 = add i64 %9, -1
   %arrayidx.i.i14 = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i, i64 0, i64 %sub.i.i.i13
   store ptr null, ptr %arrayidx.i.i14, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i15 = icmp eq ptr %10, %interp
   br i1 %cmp.i.not.i15, label %if.then.i17, label %static_builtin_state_clear.exit
 
@@ -10260,7 +10260,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %name, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 63), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -10392,7 +10392,7 @@ entry:
   %stack.i = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %call1 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 62))
+  %call1 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29160))
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -10403,7 +10403,7 @@ if.then:                                          ; preds = %entry
   store ptr %self, ptr %stack.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
   store ptr %name, ptr %arrayinit.element.i, align 8
-  %call.i = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 63), ptr noundef nonnull %stack.i, i64 noundef 2)
+  %call.i = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216), ptr noundef nonnull %stack.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack.i)
   br label %return
 
@@ -10418,7 +10418,7 @@ if.end.i43:                                       ; preds = %if.end
   br label %Py_INCREF.exit45
 
 Py_INCREF.exit45:                                 ; preds = %if.end, %if.end.i43
-  %call3 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 63))
+  %call3 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216))
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %if.then7, label %lor.lhs.false
 
@@ -10821,7 +10821,7 @@ if.end.i.i42:                                     ; preds = %if.then7
   br label %return
 
 if.else:                                          ; preds = %for.cond.i27, %if.then.i18, %PyType_IsSubtype.exit39
-  %call10 = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), ptr noundef nonnull %class_attr) #20
+  %call10 = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), ptr noundef nonnull %class_attr) #20
   %cmp = icmp slt i32 %call10, 0
   br i1 %cmp, label %return, label %if.end12
 
@@ -11280,7 +11280,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %name, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34)) #20
+  %call4 = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %name, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608)) #20
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end, label %if.then
 
@@ -11388,7 +11388,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.else
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PySuper_Type, i64 0, i32 37), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PySuper_Type, i64 312), align 8
   %call15 = tail call ptr %4(ptr noundef nonnull @PySuper_Type, ptr noundef null, ptr noundef null) #20
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %if.then17, label %if.end18
@@ -12961,7 +12961,7 @@ define internal ptr @slot_tp_repr(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 132))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33016))
   %cmp.i8 = icmp eq ptr %call1.i, null
   br i1 %cmp.i8, label %if.end, label %if.end.i9
 
@@ -13112,7 +13112,7 @@ define internal i64 @slot_tp_hash(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 70))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29616))
   %cmp.i20 = icmp eq ptr %call1.i, null
   br i1 %cmp.i20, label %if.then2, label %if.end.i21
 
@@ -13267,7 +13267,7 @@ land.lhs.true:                                    ; preds = %if.end12
 
 if.then17:                                        ; preds = %land.lhs.true
   tail call void @PyErr_Clear() #20
-  %21 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 13), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 120), align 8
   %call18 = tail call i64 %21(ptr noundef nonnull %retval.0.i23) #20
   br label %if.end19
 
@@ -13344,7 +13344,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val16.i.i = load ptr, ptr %2, align 8
-  %call1.i.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 32))
+  %call1.i.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27496))
   %cmp.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i.i, label %land.lhs.true.i, label %if.end.i.i
 
@@ -13396,7 +13396,7 @@ land.lhs.true.i:                                  ; preds = %lookup_maybe_method
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %9 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 32)) #20
+  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27496)) #20
   br label %return
 
 if.then2:                                         ; preds = %if.end.i18.i.i, %if.then4.i.i
@@ -13443,7 +13443,7 @@ define internal ptr @slot_tp_str(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 156), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34344), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -13493,13 +13493,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 44), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28192), ptr noundef nonnull %stack, i64 noundef 2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %value, ptr %arrayidx2, align 16
-  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 149), ptr noundef nonnull %stack, i64 noundef 3)
+  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33952), ptr noundef nonnull %stack, i64 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -14063,7 +14063,7 @@ define internal ptr @slot_tp_iter(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 90))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30744))
   %cmp.i19 = icmp eq ptr %call1.i, null
   br i1 %cmp.i19, label %if.end6, label %if.end.i20
 
@@ -14195,7 +14195,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
 if.end6:                                          ; preds = %entry, %if.end
   tail call void @PyErr_Clear() #20
   %self.val16.i24 = load ptr, ptr %0, align 8
-  %call1.i25 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i24, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 65))
+  %call1.i25 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29336))
   %cmp.i26 = icmp eq ptr %call1.i25, null
   br i1 %cmp.i26, label %if.then9, label %if.end.i28
 
@@ -14276,7 +14276,7 @@ define internal ptr @slot_tp_iternext(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 114), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32024), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -14330,7 +14330,7 @@ entry:
   %stack = alloca [3 x ptr], align 16
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %call1 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 61))
+  %call1 = tail call ptr @_PyType_Lookup(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29112))
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -14433,13 +14433,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 45), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28248), ptr noundef nonnull %stack, i64 noundef 2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %value, ptr %arrayidx2, align 16
-  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 147), ptr noundef nonnull %stack, i64 noundef 3)
+  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33848), ptr noundef nonnull %stack, i64 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -14534,7 +14534,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val16.i.i = load ptr, ptr %2, align 8
-  %call1.i.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 80))
+  %call1.i.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30176))
   %cmp.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i.i, label %land.lhs.true.i, label %if.end.i.i
 
@@ -14586,7 +14586,7 @@ land.lhs.true.i:                                  ; preds = %lookup_maybe_method
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %9 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 80)) #20
+  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30176)) #20
   br label %return
 
 if.then2:                                         ; preds = %if.end.i18.i.i, %if.then4.i.i
@@ -14681,7 +14681,7 @@ define internal ptr @slot_tp_new(ptr noundef %type, ptr noundef %args, ptr nound
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %call1 = tail call ptr @PyObject_GetAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 111)) #20
+  %call1 = tail call ptr @PyObject_GetAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864)) #20
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -14713,7 +14713,7 @@ entry:
   %call = tail call ptr @PyErr_GetRaisedException() #20
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 43))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28144))
   %cmp.i10 = icmp eq ptr %call1.i, null
   br i1 %cmp.i10, label %if.end5, label %if.end.i11
 
@@ -14888,7 +14888,7 @@ if.end:                                           ; preds = %entry
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %call, ptr %arrayinit.element, align 8
-  %call2 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 28), ptr noundef nonnull %stack, i64 noundef 2)
+  %call2 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27272), ptr noundef nonnull %stack, i64 noundef 2)
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %Py_XDECREF.exit, label %if.end6
 
@@ -15196,7 +15196,7 @@ if.then13:                                        ; preds = %if.end11
 if.end14:                                         ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 579), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #20
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56672), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp16 = icmp eq ptr %call.i, null
   br i1 %cmp16, label %return, label %if.end18
@@ -15227,7 +15227,7 @@ define internal ptr @slot_am_await(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 25))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27104))
   %cmp.i7 = icmp eq ptr %call1.i, null
   br i1 %cmp.i7, label %if.end, label %if.end.i8
 
@@ -15345,7 +15345,7 @@ define internal ptr @slot_am_aiter(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 18))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26712))
   %cmp.i7 = icmp eq ptr %call1.i, null
   br i1 %cmp.i7, label %if.end, label %if.end.i8
 
@@ -15463,7 +15463,7 @@ define internal ptr @slot_am_anext(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 21))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26864))
   %cmp.i7 = icmp eq ptr %call1.i, null
   br i1 %cmp.i7, label %if.end, label %if.end.i8
 
@@ -15657,7 +15657,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 126))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32672))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -15669,7 +15669,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 126), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32672), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -15694,7 +15694,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 15), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26552), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -15729,7 +15729,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 126), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32672), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -15890,7 +15890,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 144))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33680))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -15902,7 +15902,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 144), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33680), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -15927,7 +15927,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 157), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34392), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -15962,7 +15962,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 144), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33680), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -16053,7 +16053,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 138))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33352))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -16065,7 +16065,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 138), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33352), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -16090,7 +16090,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 107), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31664), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -16125,7 +16125,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 138), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33352), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -16216,7 +16216,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 137))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33296))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -16228,7 +16228,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 137), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33296), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -16253,7 +16253,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 104), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31504), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -16288,7 +16288,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 137), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33296), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -16379,7 +16379,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 128))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32784))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -16391,7 +16391,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 128), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32784), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -16416,7 +16416,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 50), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28520), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -16451,7 +16451,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 128), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32784), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -16548,7 +16548,7 @@ PyType_IsSubtype.exit.i:                          ; preds = %if.end.i.i.i
   br i1 %cmp2.i.i.not.i, label %if.then21.i, label %if.end33.i
 
 if.then21.i:                                      ; preds = %for.body.i.i, %do.body.i.i.i, %PyType_IsSubtype.exit.i
-  %call22.i = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 141))
+  %call22.i = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33512))
   %cmp23.i = icmp slt i32 %call22.i, 0
   br i1 %cmp23.i, label %slot_nb_power_binary.exit, label %if.end.i
 
@@ -16560,7 +16560,7 @@ if.then26.i:                                      ; preds = %if.end.i
   store ptr %other, ptr %stack.i, align 16
   %arrayidx27.i = getelementptr inbounds i8, ptr %stack.i, i64 8
   store ptr %self, ptr %arrayidx27.i, align 8
-  %call28.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 141), ptr noundef nonnull %stack.i)
+  %call28.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33512), ptr noundef nonnull %stack.i)
   %cmp29.not.i = icmp eq ptr %call28.i, @_Py_NotImplementedStruct
   br i1 %cmp29.not.i, label %if.end31.i, label %slot_nb_power_binary.exit
 
@@ -16585,7 +16585,7 @@ if.end33.i:                                       ; preds = %for.cond.i.i, %if.t
   store ptr %self, ptr %stack.i, align 16
   %arrayidx35.i = getelementptr inbounds i8, ptr %stack.i, i64 8
   store ptr %other, ptr %arrayidx35.i, align 8
-  %call37.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 123), ptr noundef nonnull %stack.i)
+  %call37.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32512), ptr noundef nonnull %stack.i)
   %cmp38.not.i = icmp eq ptr %call37.i, @_Py_NotImplementedStruct
   br i1 %cmp38.not.i, label %lor.lhs.false.i, label %slot_nb_power_binary.exit
 
@@ -16620,7 +16620,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   store ptr %other, ptr %stack.i, align 16
   %arrayidx48.i = getelementptr inbounds i8, ptr %stack.i, i64 8
   store ptr %self, ptr %arrayidx48.i, align 8
-  %call50.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 141), ptr noundef nonnull %stack.i)
+  %call50.i = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33512), ptr noundef nonnull %stack.i)
   br label %slot_nb_power_binary.exit
 
 slot_nb_power_binary.exit:                        ; preds = %if.then21.i, %if.then26.i, %if.end33.i, %lor.lhs.false.i, %if.end44.i, %if.then46.i
@@ -16648,7 +16648,7 @@ if.then6:                                         ; preds = %land.lhs.true
   store ptr %other, ptr %arrayinit.element, align 8
   %arrayinit.element7 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %modulus, ptr %arrayinit.element7, align 16
-  %call8 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 123), ptr noundef nonnull %stack, i64 noundef 3)
+  %call8 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32512), ptr noundef nonnull %stack, i64 noundef 3)
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %if.then6, %slot_nb_power_binary.exit
@@ -16703,7 +16703,7 @@ define internal ptr @slot_nb_negative(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 110), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31816), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -16712,7 +16712,7 @@ define internal ptr @slot_nb_positive(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 122), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32464), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -16721,7 +16721,7 @@ define internal ptr @slot_nb_absolute(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 13), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26440), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -16730,7 +16730,7 @@ define internal i32 @slot_nb_bool(ptr noundef %self) #3 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %0, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 27))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27216))
   %cmp.i19 = icmp eq ptr %call1.i, null
   br i1 %cmp.i19, label %if.then, label %if.end.i20
 
@@ -16782,7 +16782,7 @@ if.then:                                          ; preds = %entry, %lookup_mayb
 
 if.end:                                           ; preds = %if.then
   %self.val16.i21 = load ptr, ptr %0, align 8
-  %call1.i22 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i21, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 94))
+  %call1.i22 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30960))
   %cmp.i23 = icmp eq ptr %call1.i22, null
   br i1 %cmp.i23, label %if.then5, label %if.end.i24
 
@@ -17003,7 +17003,7 @@ define internal ptr @slot_nb_invert(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 84), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30408), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -17090,7 +17090,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 135))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33184))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -17102,7 +17102,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 135), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33184), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -17127,7 +17127,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 98), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31176), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -17162,7 +17162,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 135), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33184), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -17253,7 +17253,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 142))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33568))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -17265,7 +17265,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 142), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33568), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -17290,7 +17290,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 143), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33624), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -17325,7 +17325,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 142), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33568), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -17416,7 +17416,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 127))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32728))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -17428,7 +17428,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 127), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32728), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -17453,7 +17453,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 20), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26816), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -17488,7 +17488,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 127), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32728), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -17579,7 +17579,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 146))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33792))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -17591,7 +17591,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 146), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33792), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -17616,7 +17616,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 170), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35208), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -17651,7 +17651,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 146), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33792), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -17742,7 +17742,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 139))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33408))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -17754,7 +17754,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 139), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33408), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -17779,7 +17779,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 116), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32136), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -17814,7 +17814,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 139), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33408), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -17827,7 +17827,7 @@ define internal ptr @slot_nb_int(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 83), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30360), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -17836,7 +17836,7 @@ define internal ptr @slot_nb_float(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 56), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28840), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -17847,7 +17847,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 71), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29672), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17858,7 +17858,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 89), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30688), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17869,7 +17869,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 78), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30064), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17880,7 +17880,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 76), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29952), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17891,7 +17891,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 86), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30512), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17902,7 +17902,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 74), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29840), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17913,7 +17913,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 87), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30568), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17924,7 +17924,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 72), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29728), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17935,7 +17935,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 92), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30856), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -17946,7 +17946,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 85), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30464), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -18033,7 +18033,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 134))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33128))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -18045,7 +18045,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 134), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33128), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -18070,7 +18070,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 57), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28896), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -18105,7 +18105,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 134), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33128), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -18196,7 +18196,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 145))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33736))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -18208,7 +18208,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 145), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33736), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -18233,7 +18233,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 160), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34568), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -18268,7 +18268,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 145), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33736), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -18283,7 +18283,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 73), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29784), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -18294,7 +18294,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 91), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30800), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -18303,7 +18303,7 @@ define internal ptr @slot_nb_index(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 79), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30120), ptr noundef nonnull %stack, i64 noundef 1)
   ret ptr %call
 }
 
@@ -18390,7 +18390,7 @@ PyType_IsSubtype.exit:                            ; preds = %if.end.i.i
   br i1 %cmp2.i.i.not, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %for.body.i, %do.body.i.i, %PyType_IsSubtype.exit
-  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 136))
+  %call22 = tail call fastcc i32 @method_is_overloaded(ptr noundef %self, ptr %other.val35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33240))
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end
 
@@ -18402,7 +18402,7 @@ if.then26:                                        ; preds = %if.end
   store ptr %other, ptr %stack, align 16
   %arrayidx27 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx27, align 8
-  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 136), ptr noundef nonnull %stack)
+  %call28 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33240), ptr noundef nonnull %stack)
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -18427,7 +18427,7 @@ if.end33:                                         ; preds = %for.cond.i, %if.the
   store ptr %self, ptr %stack, align 16
   %arrayidx35 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayidx35, align 8
-  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 102), ptr noundef nonnull %stack)
+  %call37 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31392), ptr noundef nonnull %stack)
   %cmp38.not = icmp eq ptr %call37, @_Py_NotImplementedStruct
   br i1 %cmp38.not, label %lor.lhs.false, label %return
 
@@ -18462,7 +18462,7 @@ if.then46:                                        ; preds = %if.end44
   store ptr %other, ptr %stack, align 16
   %arrayidx48 = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %self, ptr %arrayidx48, align 8
-  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 136), ptr noundef nonnull %stack)
+  %call50 = call fastcc ptr @vectorcall_maybe(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33240), ptr noundef nonnull %stack)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.end33, %lor.lhs.false, %if.then26, %if.then21, %if.then46
@@ -18477,7 +18477,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 75), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29896), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -18486,7 +18486,7 @@ define internal i64 @slot_sq_length(ptr noundef %self) #3 {
 entry:
   %stack = alloca [1 x ptr], align 8
   store ptr %self, ptr %stack, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 94), ptr noundef nonnull %stack, i64 noundef 1)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30960), ptr noundef nonnull %stack, i64 noundef 1)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %do.body
 
@@ -18612,7 +18612,7 @@ entry:
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %arg1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 65), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29336), ptr noundef nonnull %stack, i64 noundef 2)
   ret ptr %call
 }
 
@@ -18627,13 +18627,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 46), ptr noundef nonnull %stack, i64 noundef 2)
+  %call = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28304), ptr noundef nonnull %stack, i64 noundef 2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %value, ptr %arrayidx2, align 16
-  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 150), ptr noundef nonnull %stack, i64 noundef 3)
+  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34008), ptr noundef nonnull %stack, i64 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -18776,7 +18776,7 @@ if.end:                                           ; preds = %entry
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %call, ptr %arrayinit.element, align 8
-  %call2 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 65), ptr noundef nonnull %stack, i64 noundef 2)
+  %call2 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29336), ptr noundef nonnull %stack, i64 noundef 2)
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i4.not = icmp eq i64 %1, 0
@@ -18893,13 +18893,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 46), ptr noundef nonnull %stack, i64 noundef 2)
+  %call4 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28304), ptr noundef nonnull %stack, i64 noundef 2)
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
   %arrayidx5 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %value, ptr %arrayidx5, align 16
-  %call7 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 150), ptr noundef nonnull %stack, i64 noundef 3)
+  %call7 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34008), ptr noundef nonnull %stack, i64 noundef 3)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then3
@@ -19115,7 +19115,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val16.i = load ptr, ptr %2, align 8
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 40))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27960))
   %cmp.i17 = icmp eq ptr %call1.i, null
   br i1 %cmp.i17, label %if.else, label %if.end.i18
 
@@ -19415,7 +19415,7 @@ if.end13:                                         ; preds = %if.end.i.i, %if.end
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %mv.0, ptr %arrayinit.element, align 8
-  %call14 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 131), ptr noundef nonnull %stack, i64 noundef 2)
+  %call14 = call fastcc ptr @vectorcall_method(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32952), ptr noundef nonnull %stack, i64 noundef 2)
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %if.then16, label %if.else19
 
@@ -19449,7 +19449,7 @@ if.end20:                                         ; preds = %if.end.i43, %if.the
 if.then22:                                        ; preds = %if.end20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %mv.0, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 579), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #20
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56672), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp24 = icmp eq ptr %call.i, null
   br i1 %cmp24, label %if.then25, label %if.else28
@@ -19838,7 +19838,7 @@ if.then19:                                        ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %if.then19
   store ptr %10, ptr %type_slots_pname.i, align 8
   %type_slots_ptrs.i = getelementptr inbounds i8, ptr %12, i64 416168
-  %14 = load ptr, ptr getelementptr inbounds ([95 x %struct.wrapperbase], ptr @slotdefs, i64 0, i64 0, i32 6), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slotdefs, i64 48), align 16
   %tobool.not18.i = icmp eq ptr %14, null
   br i1 %tobool.not18.i, label %for.end.i, label %for.body.i
 
@@ -20587,7 +20587,7 @@ for.body3.i:                                      ; preds = %for.body.i, %for.co
 
 if.then.i:                                        ; preds = %for.body3.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i.i)
-  %call.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %18, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), ptr noundef nonnull %name.i.i) #20
+  %call.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %name.i.i) #20
   %cmp.i16.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i16.i, label %if.then.i.i, label %entry.if.end_crit_edge.i.i
 
@@ -20892,7 +20892,7 @@ while.body.i.i:                                   ; preds = %if.end47.i.i, %whil
   %off.052.i.i = phi i64 [ %off.1.i.i, %if.end47.i.i ], [ %conv16.i.i, %while.body.preheader.i.i ]
   %51 = load ptr, ptr %k.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i.i.i)
-  %call.i.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %51, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), ptr noundef nonnull %name.i.i.i) #20
+  %call.i.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %51, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %name.i.i.i) #20
   %cmp.i26.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i26.i.i, label %if.then.i.i.i70, label %entry.if.end_crit_edge.i.i.i
 
@@ -21083,7 +21083,7 @@ define internal fastcc range(i32 -1, 1) i32 @merge_class_dict(ptr noundef %dict,
 entry:
   %classdict = alloca ptr, align 8
   %bases = alloca ptr, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %aclass, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47), ptr noundef nonnull %classdict) #20
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %aclass, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360), ptr noundef nonnull %classdict) #20
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -21115,7 +21115,7 @@ Py_DECREF.exit73:                                 ; preds = %if.then2, %if.then1
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %Py_DECREF.exit73, %if.end
-  %call8 = call i32 @PyObject_GetOptionalAttr(ptr noundef %aclass, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 26), ptr noundef nonnull %bases) #20
+  %call8 = call i32 @PyObject_GetOptionalAttr(ptr noundef %aclass, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27160), ptr noundef nonnull %bases) #20
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end11
 
@@ -21995,7 +21995,7 @@ if.end.i7:                                        ; preds = %if.end
 lookup_tp_dict.exit:                              ; preds = %if.then.i5, %if.end.i7
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i5 ], [ %tp_dict2.i, %if.end.i7 ]
   %retval.0.i6 = load ptr, ptr %retval.0.in.i, align 8
-  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i6, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %value) #20
+  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %value) #20
   br label %return
 
 return:                                           ; preds = %if.then3.i, %if.then.i, %check_set_special_type_attr.exit, %lookup_tp_dict.exit
@@ -22013,7 +22013,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  tail call void @PyErr_SetObject(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   br label %if.end4
 
 if.else:                                          ; preds = %entry
@@ -22043,13 +22043,13 @@ if.end.i:                                         ; preds = %if.else
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14), ptr noundef nonnull %mod) #20
+  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488), ptr noundef nonnull %mod) #20
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %lookup_tp_dict.exit
   %7 = load ptr, ptr @PyExc_AttributeError, align 8
-  call void @PyErr_SetObject(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  call void @PyErr_SetObject(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   br label %if.end4
 
 if.end4:                                          ; preds = %lookup_tp_dict.exit, %if.then3, %if.then
@@ -22095,7 +22095,7 @@ if.then:                                          ; preds = %lookup_tp_dict.exit
   br i1 %cmp2, label %return, label %if.end10
 
 if.else:                                          ; preds = %lookup_tp_dict.exit
-  %call5 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  %call5 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.then12.thread, label %land.lhs.true
 
@@ -22111,11 +22111,11 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then8:                                         ; preds = %land.lhs.true
   %7 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14)) #20
+  tail call void @PyErr_SetObject(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488)) #20
   br label %return
 
 if.end10:                                         ; preds = %if.then
-  %call4 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 14), ptr noundef nonnull %value) #20
+  %call4 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488), ptr noundef nonnull %value) #20
   %cmp11 = icmp eq i32 %call4, 0
   br i1 %cmp11, label %if.then12, label %return
 
@@ -22229,7 +22229,7 @@ if.end.i12:                                       ; preds = %if.end
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i12
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i12 ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call3 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %result) #20
+  %call3 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %result) #20
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
@@ -22346,7 +22346,7 @@ if.end.i7:                                        ; preds = %if.end
 lookup_tp_dict.exit:                              ; preds = %if.then.i5, %if.end.i7
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i5 ], [ %tp_dict2.i, %if.end.i7 ]
   %retval.0.i6 = load ptr, ptr %retval.0.in.i, align 8
-  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i6, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %value) #20
+  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %value) #20
   br label %return
 
 return:                                           ; preds = %if.then3.i, %if.then.i, %check_set_special_type_attr.exit, %lookup_tp_dict.exit
@@ -22407,7 +22407,7 @@ if.end.i16:                                       ; preds = %if.end
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i16
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i16 ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call2 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22), ptr noundef nonnull %annotations) #20
+  %call2 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %annotations) #20
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %return, label %if.end4
 
@@ -22449,7 +22449,7 @@ if.else:                                          ; preds = %if.end4
   br i1 %tobool13.not, label %if.end26, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  %call15 = call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22), ptr noundef nonnull %call12) #20
+  %call15 = call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %call12) #20
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.else23, label %do.body18
 
@@ -22533,11 +22533,11 @@ lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.
   br i1 %cmp.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %lookup_tp_dict.exit
-  %call4 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22), ptr noundef nonnull %value) #20
+  %call4 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %value) #20
   br label %if.end11
 
 if.else:                                          ; preds = %lookup_tp_dict.exit
-  %call5 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22)) #20
+  %call5 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920)) #20
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end11
 
@@ -22596,7 +22596,7 @@ if.end.i:                                         ; preds = %entry
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 162), ptr noundef nonnull %params) #20
+  %call1 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), ptr noundef nonnull %params) #20
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22671,7 +22671,7 @@ if.end.i8:                                        ; preds = %if.end
 lookup_tp_dict.exit:                              ; preds = %if.then.i6, %if.end.i8
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i6 ], [ %tp_dict2.i, %if.end.i8 ]
   %retval.0.i7 = load ptr, ptr %retval.0.in.i, align 8
-  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i7, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 162), ptr noundef nonnull %value) #20
+  %call2 = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), ptr noundef nonnull %value) #20
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then3, label %return
 
@@ -23286,7 +23286,7 @@ _Py_XNewRef.exit:                                 ; preds = %entry, %if.then.i.i
   br i1 %cmp.i61.not, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_Py_XNewRef.exit
-  %call1.i62 = tail call ptr @_PyType_Lookup(ptr noundef %type.val.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 489))
+  %call1.i62 = tail call ptr @_PyType_Lookup(ptr noundef %type.val.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51992))
   %cmp.i63 = icmp eq ptr %call1.i62, null
   br i1 %cmp.i63, label %land.lhs.true.i58, label %if.end.i64
 
@@ -23343,7 +23343,7 @@ land.lhs.true.i58:                                ; preds = %if.then.i, %lookup_
 
 if.then.i60:                                      ; preds = %land.lhs.true.i58
   %9 = load ptr, ptr @PyExc_AttributeError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 489)) #20
+  tail call void @PyErr_SetObject(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51992)) #20
   br label %mro_invoke.exit
 
 if.then.i49:                                      ; preds = %if.then4.i, %if.end.i18.i
@@ -23657,7 +23657,7 @@ entry:
   br i1 %cmp.i22.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %type.val21, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 489))
+  %call1.i = tail call ptr @_PyType_Lookup(ptr noundef %type.val21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51992))
   %cmp.i40 = icmp eq ptr %call1.i, null
   br i1 %cmp.i40, label %clear, label %if.end.i41
 
@@ -23701,8 +23701,8 @@ if.end.sink.split:                                ; preds = %if.then7.i, %if.the
 
 if.end:                                           ; preds = %if.end.sink.split, %if.then7.i, %if.then4.i, %lookup_maybe_method.exit
   %retval.0.i68 = phi ptr [ %call10.i, %lookup_maybe_method.exit ], [ %call1.i, %if.then4.i ], [ %call1.i, %if.then7.i ], [ %call1.i, %if.end.sink.split ]
-  %self.val16.i42 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 0, i32 0, i32 1), align 8
-  %call1.i43 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i42, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 489))
+  %self.val16.i42 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 8), align 8
+  %call1.i43 = tail call ptr @_PyType_Lookup(ptr noundef %self.val16.i42, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51992))
   %cmp.i44 = icmp eq ptr %call1.i43, null
   br i1 %cmp.i44, label %if.then6, label %if.end.i45
 
@@ -23734,7 +23734,7 @@ if.then7.i61:                                     ; preds = %if.else.i54
   br i1 %cmp.i.i63, label %if.end7, label %if.end7.sink.split
 
 lookup_maybe_method.exit65:                       ; preds = %if.else.i54
-  %self.val.i59 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 0, i32 0, i32 1), align 8
+  %self.val.i59 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 8), align 8
   %call10.i60 = tail call ptr %11(ptr noundef nonnull %call1.i43, ptr noundef nonnull @PyType_Type, ptr noundef %self.val.i59) #20
   %cmp5 = icmp eq ptr %call10.i60, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -24504,7 +24504,7 @@ if.end.i:                                         ; preds = %entry
 lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38)) #20
+  %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27840)) #20
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end4
 
@@ -24527,7 +24527,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end10:                                         ; preds = %if.end4
   %call11 = tail call i32 @PyCell_Set(ptr noundef nonnull %call1, ptr noundef %retval.0.i) #20
-  %call12 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38)) #20
+  %call12 = tail call i32 @PyDict_DelItem(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27840)) #20
   %call12.lobit = ashr i32 %call12, 31
   br label %return
 
@@ -24574,7 +24574,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
   br i1 %cmp.not.i, label %if.end11, label %while.body.i, !llvm.loop !85
 
 if.then:                                          ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type.addr.07.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47))
+  %call.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type.addr.07.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360))
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then4, label %lor.lhs.false.i
 
@@ -24652,7 +24652,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
   br i1 %cmp.not.i, label %if.end10, label %while.body.i, !llvm.loop !85
 
 if.then:                                          ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type.addr.07.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47))
+  %call.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type.addr.07.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360))
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then4, label %lor.lhs.false.i
 
@@ -24891,7 +24891,7 @@ if.end.i14.i:                                     ; preds = %if.end11
 lookup_tp_dict.exit.i:                            ; preds = %if.end.i14.i, %if.then.i.i
   %retval.0.in.i.i = phi ptr [ %tp_dict.i.i, %if.then.i.i ], [ %tp_dict2.i.i, %if.end.i14.i ]
   %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %call1.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 153), ptr noundef nonnull %slotnames.i) #20
+  %call1.i = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34176), ptr noundef nonnull %slotnames.i) #20
   %cmp.i93 = icmp slt i32 %call1.i, 0
   br i1 %cmp.i93, label %_PyType_GetSlotNames.exit.thread, label %if.end.i94
 
@@ -24933,7 +24933,7 @@ if.end.i40.i:                                     ; preds = %if.then7.i
   br i1 %cmp.i42.i, label %return.sink.split.i, label %_PyType_GetSlotNames.exit.thread
 
 if.end12.i:                                       ; preds = %if.end.i94
-  %call.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %if.end.i18.i, label %if.end16.i
 
@@ -24943,7 +24943,7 @@ if.end.i18.i:                                     ; preds = %if.end12.i
   br i1 %tobool.not.i19.i, label %import_copyreg.exit.i, label %_PyType_GetSlotNames.exit.thread
 
 import_copyreg.exit.i:                            ; preds = %if.end.i18.i
-  %call4.i.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call4.i.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp14.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp14.i, label %_PyType_GetSlotNames.exit.thread, label %if.end16.i
 
@@ -24953,7 +24953,7 @@ if.end16.i:                                       ; preds = %import_copyreg.exit
   store ptr %retval.0.i1729.i, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %obj.val87, ptr %arrayinit.element.i.i, align 8
-  %call.i20.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 203), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #20
+  %call.i20.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37056), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %call.i20.i, ptr %slotnames.i, align 8
   %22 = load i64, ptr %retval.0.i1729.i, align 8
@@ -25044,7 +25044,7 @@ if.end16:                                         ; preds = %_PyType_GetSlotName
   br i1 %tobool.not, label %if.end43, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %34 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 2), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 32), align 8
   %obj.val86 = load ptr, ptr %5, align 8
   %tp_dictoffset = getelementptr inbounds i8, ptr %obj.val86, i64 288
   %35 = load i64, ptr %tp_dictoffset, align 8
@@ -25467,17 +25467,17 @@ exit.sink.split:                                  ; preds = %land.lhs.true, %ent
   br i1 %cmp.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %exit.sink.split
-  %4 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 19), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 168), align 8
   %and.i.i = and i64 %4, 2
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  %self.val.i.i.i = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 43), align 8
+  %self.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 360), align 8
   %builtins.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 406888
   %5 = ptrtoint ptr %self.val.i.i.i to i64
   %sub.i.i.i.i.i = add i64 %5, -1
   %tp_dict.i.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i.i.i, i64 0, i64 %sub.i.i.i.i.i, i32 3
-  %retval.0.in.i.i = select i1 %tobool.not.i.i, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 31), ptr %tp_dict.i.i
+  %retval.0.in.i.i = select i1 %tobool.not.i.i, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 264), ptr %tp_dict.i.i
   %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %call2.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 129)) #20
+  %call2.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %retval.0.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32840)) #20
   %6 = load ptr, ptr %0, align 8
   %interp.i14.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i14.i, align 8
@@ -25495,7 +25495,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %tobool.not.i, label %if.end12.i, label %object___reduce_ex___impl.exit
 
 if.end12.i:                                       ; preds = %land.lhs.true.i, %if.then.i, %exit.sink.split
-  %call13.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 129), ptr noundef nonnull %reduce.i) #20
+  %call13.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32840), ptr noundef nonnull %reduce.i) #20
   %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %object___reduce_ex___impl.exit, label %if.end16.i
 
@@ -25507,7 +25507,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 if.then18.i:                                      ; preds = %if.end16.i
   %11 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %11, align 8
-  %call20.i = call ptr @PyObject_GetAttr(ptr noundef %self.val.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 129)) #20
+  %call20.i = call ptr @PyObject_GetAttr(ptr noundef %self.val.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32840)) #20
   %cmp21.i = icmp eq ptr %call20.i, null
   br i1 %cmp21.i, label %if.then22.i, label %if.end23.i
 
@@ -25635,7 +25635,7 @@ if.then.i.i26.i:                                  ; preds = %if.then.i.i
   br label %object___reduce_ex___impl.exit
 
 if.end.i8.i.i:                                    ; preds = %if.then.i.i
-  %call1.i.i.i.i.i = call ptr @_PyType_Lookup(ptr noundef nonnull %obj.val77.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 67))
+  %call1.i.i.i.i.i = call ptr @_PyType_Lookup(ptr noundef nonnull %obj.val77.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29448))
   %cmp.not.i.i.i.i.i = icmp eq ptr %call1.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i.i
 
@@ -25906,7 +25906,7 @@ if.else.i.i.i.i:                                  ; preds = %_PyObject_LookupSpe
 
 if.end68.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %self.val.i92.i.i.i.i = load ptr, ptr %31, align 8
-  %call1.i93.i.i.i.i = call ptr @_PyType_Lookup(ptr noundef %self.val.i92.i.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 66))
+  %call1.i93.i.i.i.i = call ptr @_PyType_Lookup(ptr noundef %self.val.i92.i.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29392))
   %cmp.not.i94.i.i.i.i = icmp eq ptr %call1.i93.i.i.i.i, null
   br i1 %cmp.not.i94.i.i.i.i, label %if.else91.i.i.i.i, label %if.then.i95.i.i.i.i
 
@@ -26024,7 +26024,7 @@ if.else91.i.i.i.i:                                ; preds = %_PyObject_LookupSpe
 if.end6.i.i.i:                                    ; preds = %if.else91.i.i.i.i, %if.end75.i.i.i.i, %if.end41.i.i.i.i
   %args.2.i.i.i = phi ptr [ %55, %if.end41.i.i.i.i ], [ %retval.0.i.i119.i.i.i.i, %if.end75.i.i.i.i ], [ null, %if.else91.i.i.i.i ]
   %kwargs.0.i.i.i = phi ptr [ %57, %if.end41.i.i.i.i ], [ null, %if.end75.i.i.i.i ], [ null, %if.else91.i.i.i.i ]
-  %call.i.i.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call.i.i.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %if.end.i82.i.i.i, label %if.end10.i.i.i
 
@@ -26034,7 +26034,7 @@ if.end.i82.i.i.i:                                 ; preds = %if.end6.i.i.i
   br i1 %tobool.not.i83.i.i.i, label %import_copyreg.exit.i.i.i, label %if.then9.i.i.i
 
 import_copyreg.exit.i.i.i:                        ; preds = %if.end.i82.i.i.i
-  %call4.i.i.i.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call4.i.i.i.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp8.i.i.i = icmp eq ptr %call4.i.i.i.i, null
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %if.end10.i.i.i
 
@@ -26107,7 +26107,7 @@ if.then1.i.i106.i.i.i:                            ; preds = %if.end.i.i103.i.i.i
   br label %Py_XDECREF.exit107.i.i.i
 
 Py_XDECREF.exit107.i.i.i:                         ; preds = %if.then1.i.i106.i.i.i, %if.end.i.i103.i.i.i, %if.then.i100.i.i.i, %if.end10.i.i.i
-  %call18.i.i.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %retval.0.i81201.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 112)) #20
+  %call18.i.i.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %retval.0.i81201.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31912)) #20
   %102 = load i64, ptr %retval.0.i81201.i.i.i, align 8
   %103 = and i64 %102, 2147483648
   %cmp.i234.not.i.i.i = icmp eq i64 %103, 0
@@ -26260,7 +26260,7 @@ if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp11.not.i.i.i, label %if.else49.i.i.i, label %if.then37.i.i.i
 
 if.then37.i.i.i:                                  ; preds = %if.else.i.i.i
-  %call38.i.i.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %retval.0.i81201.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 113)) #20
+  %call38.i.i.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %retval.0.i81201.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31968)) #20
   %116 = load i64, ptr %retval.0.i81201.i.i.i, align 8
   %117 = and i64 %116, 2147483648
   %cmp.i241.not.i.i.i = icmp eq i64 %117, 0
@@ -26486,7 +26486,7 @@ if.end.i.i32.i.i.i.i:                             ; preds = %if.then13.i.i.i.i
 if.else15.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i.i.i.i)
   store ptr %self, ptr %self.addr.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 433), ptr noundef nonnull %self.addr.i.i.i.i.i, i64 noundef -9223372036854775807, ptr noundef null) #20
+  %call.i.i.i.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128), ptr noundef nonnull %self.addr.i.i.i.i.i, i64 noundef -9223372036854775807, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i.i.i.i)
   %cmp17.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp17.i.i.i.i, label %if.then20.i.i.i.i, label %if.end22.i.i.i.i
@@ -26671,7 +26671,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %object___reduce_ex___impl.exit
 
 if.end.i18.i:                                     ; preds = %if.end32.i
-  %call.i.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call.i.i.i = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i.i.i, label %if.end.i10.i.i, label %if.end3.i.i
 
@@ -26681,7 +26681,7 @@ if.end.i10.i.i:                                   ; preds = %if.end.i18.i
   br i1 %tobool.not.i.i.i, label %import_copyreg.exit.i.i, label %object___reduce_ex___impl.exit
 
 import_copyreg.exit.i.i:                          ; preds = %if.end.i10.i.i
-  %call4.i.i22.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call4.i.i22.i = call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %tobool.not.i23.i = icmp eq ptr %call4.i.i22.i, null
   br i1 %tobool.not.i23.i, label %object___reduce_ex___impl.exit, label %if.end3.i.i
 
@@ -26716,7 +26716,7 @@ exit:                                             ; preds = %object___reduce_ex_
 ; Function Attrs: nounwind uwtable
 define internal ptr @object___reduce__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %call.i.i.i = tail call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call.i.i.i = tail call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %cmp.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i.i.i, label %if.end.i10.i.i, label %if.end3.i.i
 
@@ -26726,7 +26726,7 @@ if.end.i10.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i.i, label %import_copyreg.exit.i.i, label %object___reduce___impl.exit
 
 import_copyreg.exit.i.i:                          ; preds = %if.end.i10.i.i
-  %call4.i.i.i = tail call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 297)) #20
+  %call4.i.i.i = tail call ptr @PyImport_Import(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088)) #20
   %tobool.not.i.i = icmp eq ptr %call4.i.i.i, null
   br i1 %tobool.not.i.i, label %object___reduce___impl.exit, label %if.end3.i.i
 
@@ -26838,7 +26838,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %itsclass.i)
   store ptr null, ptr %dict.i, align 8
   store ptr null, ptr %itsclass.i, align 8
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 47), ptr noundef nonnull %dict.i) #20
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360), ptr noundef nonnull %dict.i) #20
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %object___dir___impl.exit, label %if.end.i
 
@@ -26911,7 +26911,7 @@ if.end11.i:                                       ; preds = %if.end11thread-pre-
   br i1 %cmp12.i, label %error.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end11.i
-  %call15.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), ptr noundef nonnull %itsclass.i) #20
+  %call15.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), ptr noundef nonnull %itsclass.i) #20
   %cmp16.i = icmp slt i32 %call15.i, 0
   br i1 %cmp16.i, label %error.i, label %if.end18.i
 
@@ -29443,12 +29443,12 @@ if.then.i.i.i:                                    ; preds = %if.then1167.i
 lookup_tp_dict.exit.i.i:                          ; preds = %if.then1167.i, %if.then.i.i.i
   %retval.0.in.i.i.i = phi ptr [ %tp_dict.i.i.i, %if.then.i.i.i ], [ %tp_dict2.i.i.i, %if.then1167.i ]
   %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
-  %call1.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 53)) #20
+  %call1.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28680)) #20
   %cmp.i598.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i598.i, label %if.then.i.i28, label %overrides_hash.exit.i
 
 if.then.i.i28:                                    ; preds = %lookup_tp_dict.exit.i.i
-  %call2.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 70)) #20
+  %call2.i.i = tail call i32 @PyDict_Contains(ptr noundef %retval.0.i.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29616)) #20
   br label %overrides_hash.exit.i
 
 overrides_hash.exit.i:                            ; preds = %if.then.i.i28, %lookup_tp_dict.exit.i.i
@@ -30265,7 +30265,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %ob_item.i = getelementptr inbounds i8, ptr %23, i64 24
   %arrayidx19.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv.i
   %24 = load ptr, ptr %arrayidx19.i, align 8
-  %call20.i = tail call i32 @_PyUnicode_Equal(ptr noundef %24, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34)) #20
+  %call20.i = tail call i32 @_PyUnicode_Equal(ptr noundef %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608)) #20
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %for.cond.i, label %if.then22.i
 

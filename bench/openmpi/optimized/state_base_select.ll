@@ -23,8 +23,8 @@ define range(i32 -1, 1) i32 @prte_state_base_select() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 11), align 4
-  %4 = call i32 @pmix_mca_base_select(ptr noundef nonnull @.str, i32 noundef %3, ptr noundef nonnull getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 12), ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #3
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %4 = call i32 @pmix_mca_base_select(ptr noundef nonnull @.str, i32 noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 80), ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #3
   %5 = icmp ne i32 %4, 0
   %6 = load ptr, ptr %2, align 8
   %7 = icmp eq ptr %6, null

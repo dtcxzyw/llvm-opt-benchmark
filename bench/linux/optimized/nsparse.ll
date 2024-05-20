@@ -48,7 +48,7 @@ define dso_local i32 @acpi_ns_execute_table(i32 noundef %0, ptr noundef %1) loca
   %23 = and i64 %22, 512
   %24 = icmp eq i64 %23, 0
   %25 = select i1 %24, i32 2336, i32 3520
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %27 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %26, i32 noundef %25, i64 noundef 88) #5
   %28 = icmp eq ptr %27, null
   br i1 %28, label %50, label %29

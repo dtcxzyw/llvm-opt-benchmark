@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @u16550_earlyserialinit() local_unnamed_addr #0 {
-  store i8 1, ptr getelementptr inbounds (%struct.uart_dev_s, ptr @g_uart0port, i64 0, i32 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @g_uart0port, i64 2), align 2
   %1 = tail call i32 @u16550_setup(ptr noundef nonnull @g_uart0port)
   ret void
 }
@@ -105,7 +105,7 @@ declare i32 @uart_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @up_putc(i32 noundef returned %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.uart_dev_s, ptr @g_uart0port, i64 0, i32 13), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @g_uart0port, i64 280), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #3, !srcloc !6
   %4 = load i64, ptr %2, align 8

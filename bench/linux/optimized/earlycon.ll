@@ -51,7 +51,7 @@ define dso_local i32 @setup_earlycon(ptr noundef %0) local_unnamed_addr #0 secti
 
 6:                                                ; preds = %3
   tail call void @console_list_lock() #6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.console, ptr @early_con, i64 0, i32 16, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @early_con, i64 120), align 8
   %8 = icmp eq ptr %7, null
   tail call void @console_list_unlock() #6
   br i1 %8, label %.preheader3, label %.loopexit4
@@ -129,17 +129,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noun
 
 8:                                                ; preds = %4, %2
   %9 = phi ptr [ null, %2 ], [ %7, %4 ]
-  store i32 0, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 8), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 192), align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  store i32 1843200, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24), align 8
+  store i32 1843200, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 192), align 8
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = load i64, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %22, label %16
 
@@ -150,7 +150,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noun
   tail call void @native_set_fixmap(i32 noundef 513, i64 noundef %17, i64 %19) #6
   %20 = and i64 %14, 4095
   %21 = getelementptr i8, ptr inttoptr (i64 -10493952 to ptr), i64 %20
-  store ptr %21, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 2), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 24), align 8
   br label %22
 
 22:                                               ; preds = %16, %13
@@ -223,12 +223,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
   store ptr %0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8, !annotation !9
-  %4 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
+  %4 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 202), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %37
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), align 2
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 202), align 2
   switch i8 %7, label %37 [
     i8 2, label %8
     i8 7, label %10
@@ -239,24 +239,24 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
 
 8:                                                ; preds = %6
   %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
   br label %16
 
 10:                                               ; preds = %6
-  store i8 1, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
   %11 = load i64, ptr %3, align 8
-  store i64 %11, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
   br label %16
 
 12:                                               ; preds = %6, %6
-  store i8 2, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27), align 1
+  store i8 2, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
   %13 = load i64, ptr %3, align 8
-  store i64 %13, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
   br label %16
 
 14:                                               ; preds = %6
   %15 = load i64, ptr %3, align 8
-  store i64 %15, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 16), align 8
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
@@ -267,7 +267,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
 19:                                               ; preds = %16
   %20 = call i64 @simple_strtoul(ptr noundef nonnull %17, ptr noundef null, i32 noundef 0) #6
   %21 = trunc i64 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 3), align 8
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 568), align 8
   %22 = load ptr, ptr %2, align 8
   %23 = call ptr @strchr(ptr noundef %22, i32 noundef 44) #6
   %24 = icmp eq ptr %23, null
@@ -275,7 +275,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
 
 25:                                               ; preds = %19
   %26 = getelementptr i8, ptr %23, i64 1
-  %27 = call i32 @kstrtouint(ptr noundef %26, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24)) #6
+  %27 = call i32 @kstrtouint(ptr noundef %26, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 192)) #6
   %28 = icmp slt i32 %27, 0
   %.pre2 = load ptr, ptr %2, align 8
   br i1 %28, label %29, label %31
@@ -290,7 +290,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
   %33 = call i64 @strcspn(ptr noundef %32, ptr noundef nonnull @.str.1)
   %34 = add i64 %33, 1
   %35 = call i64 @llvm.umin.i64(i64 %34, i64 32)
-  %36 = call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2), ptr noundef %32, i64 noundef %35) #6
+  %36 = call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 536), ptr noundef %32, i64 noundef %35) #6
   br label %37
 
 37:                                               ; preds = %31, %16, %6, %1
@@ -345,7 +345,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @early_console_dev, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), align 2
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 202), align 2
   switch i8 %2, label %14 [
     i8 2, label %3
     i8 7, label %3
@@ -372,15 +372,15 @@ define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".ini
 
 11:                                               ; preds = %10, %7, %3
   %12 = phi ptr [ @.str.4, %3 ], [ %9, %7 ], [ @.str.5, %10 ]
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2)) #8
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 536)) #8
   br label %20
 
 14:                                               ; preds = %0
   %15 = getelementptr inbounds i8, ptr %1, i64 74
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i32
-  %18 = load i64, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1), align 8
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %17, i64 noundef %18, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2)) #8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 16), align 8
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %17, i64 noundef %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 536)) #8
   br label %20
 
 20:                                               ; preds = %14, %11

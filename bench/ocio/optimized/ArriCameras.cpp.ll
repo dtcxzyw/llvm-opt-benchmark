@@ -783,20 +783,20 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
   store <2 x double> <double 6.840000e-01, double 3.130000e-01>, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, align 16
-  store <2 x double> <double 2.210000e-01, double 8.480000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 0, i32 1, i32 0, i64 0), align 16
-  store <2 x double> <double 0x3FB60AA64C2F837B, double -1.020000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 0, i32 2, i32 0, i64 0), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 0, i32 3, i32 0, i64 0), align 16
+  store <2 x double> <double 2.210000e-01, double 8.480000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 16), align 16
+  store <2 x double> <double 0x3FB60AA64C2F837B, double -1.020000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 32), align 16
+  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 48), align 16
   store <2 x double> <double 7.347000e-01, double 2.653000e-01>, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, align 16
-  store <2 x double> <double 1.424000e-01, double 8.576000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 0, i32 1, i32 0, i64 0), align 16
-  store <2 x double> <double 0x3FB95E9E1B089A02, double -3.080000e-02>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 0, i32 2, i32 0, i64 0), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 0, i32 3, i32 0, i64 0), align 16
+  store <2 x double> <double 1.424000e-01, double 8.576000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 16), align 16
+  store <2 x double> <double 0x3FB95E9E1B089A02, double -3.080000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 32), align 16
+  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 48), align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 40
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(40) @constinit, i64 40, i1 false)
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i64 8), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIdSaIdEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, ptr nonnull @__dso_handle) #15
   tail call void @_ZN19OpenColorIO_v2_4dev9LogOpDataC1EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL3logE, double noundef 1.000000e+01, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i32 noundef 1)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_4dev9LogOpDataD1Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL3logE, ptr nonnull @__dso_handle) #15
@@ -804,9 +804,9 @@ entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr %call5.i.i.i.i2.i.i1, ptr @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, align 8
   %add.ptr.i1.i.i2 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 40
-  store ptr %add.ptr.i1.i.i2, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i.i2, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call5.i.i.i.i2.i.i1, ptr noundef nonnull align 8 dereferenceable(40) @constinit.14, i64 40, i1 false)
-  store ptr %add.ptr.i1.i.i2, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %add.ptr.i1.i.i2, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, i64 8), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIdSaIdEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, ptr nonnull @__dso_handle) #15
   tail call void @_ZN19OpenColorIO_v2_4dev9LogOpDataC1EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL3logE, double noundef 2.000000e+00, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL6paramsE, i32 noundef 1)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_4dev9LogOpDataD1Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev20ARRI_LOGC4_to_LINEARL3logE, ptr nonnull @__dso_handle) #15

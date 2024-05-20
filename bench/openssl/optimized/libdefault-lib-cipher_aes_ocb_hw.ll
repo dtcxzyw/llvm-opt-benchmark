@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %aes_generic_ocb.aesni_ocb = select i1 %tobool.not, ptr @aes_generic_ocb, ptr @aesni_ocb
@@ -70,7 +70,7 @@ declare void @aesni_ocb_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cipher_hw_aes_ocb_generic_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %ocb13 = getelementptr inbounds i8, ptr %vctx, i64 688

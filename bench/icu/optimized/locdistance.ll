@@ -178,12 +178,12 @@ if.end13.i:                                       ; preds = %new.notnull.i
 
 _ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit: ; preds = %if.then4.i, %if.then8.i5, %if.then12.i, %if.end13.i
   %12 = phi i32 [ %2, %if.then4.i ], [ 2, %if.then8.i5 ], [ 7, %if.then12.i ], [ %.pre, %if.end13.i ]
-  store i32 %12, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7512_GLOBAL__N_19gInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %13 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %13, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

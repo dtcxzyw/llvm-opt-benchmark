@@ -48,7 +48,7 @@ define noundef ptr @mca_allocator_bucket_init(ptr noundef %0, i32 noundef %1, pt
   %15 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %14, i64 %indvars.iv, i32 2
   store ptr null, ptr %15, align 8
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i64 0, i32 4), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %16, %17
   br i1 %.not, label %19, label %18
 

@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @serializer_p_init() local_unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %2 = and i64 %1, 256
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %3
@@ -129,7 +129,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @serializer_p_fini() local_unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %2 = and i64 %1, 256
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %3
@@ -793,7 +793,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
   br label %.loopexit
 
 20:                                               ; preds = %14
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 256
   %.not24 = icmp eq i64 %22, 0
   br i1 %.not24, label %40, label %23
@@ -837,7 +837,7 @@ _yaml_event_type_string.exit:                     ; preds = %33
   br i1 %42, label %43, label %12, !llvm.loop !8
 
 43:                                               ; preds = %40
-  %44 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %45 = and i64 %44, 256
   %.not25 = icmp eq i64 %45, 0
   br i1 %.not25, label %.loopexit, label %46
@@ -886,7 +886,7 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
 
 10:                                               ; preds = %9, %9, %9
   %11 = tail call ptr @data_list_append(ptr noundef %3) #6
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 256
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %18, label %14
@@ -949,7 +949,7 @@ thread-pre-split:                                 ; preds = %5
 
 33:                                               ; preds = %28
   %34 = tail call ptr @data_key_set(ptr noundef %3, ptr noundef %30) #6
-  %35 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %36 = and i64 %35, 256
   %.not21.i = icmp eq i64 %36, 0
   br i1 %.not21.i, label %41, label %37
@@ -980,7 +980,7 @@ thread-pre-split:                                 ; preds = %5
   br i1 %.not14.i, label %_yaml_tag_to_type.exit.thread, label %48
 
 48:                                               ; preds = %46
-  %49 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %50 = and i64 %49, 256
   %.not15.i = icmp eq i64 %50, 0
   br i1 %.not15.i, label %.preheader, label %51

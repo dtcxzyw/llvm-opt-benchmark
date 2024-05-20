@@ -758,7 +758,7 @@ define dso_local noundef range(i32 -19, 1) i32 @i2c_acpi_install_space_handler(p
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 24) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
@@ -815,7 +815,7 @@ define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 
   br i1 %16, label %17, label %115
 
 17:                                               ; preds = %6
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %19 = call noalias align 8 dereferenceable_or_null(792) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 792) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21

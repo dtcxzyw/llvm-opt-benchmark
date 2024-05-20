@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 25), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 376), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -66,11 +66,11 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %0
-  %4 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %5 = trunc i8 %4 to i1
-  %6 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %7 = trunc i8 %6 to i1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 5), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 48), align 8
   %.not118 = icmp eq ptr %8, null
   br i1 %.not118, label %._crit_edge, label %9
 
@@ -117,7 +117,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %22, %3, %9
-  %23 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %.not119 = icmp eq ptr %23, null
   br i1 %.not119, label %._crit_edge172, label %24
 
@@ -962,7 +962,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   %78 = load ptr, ptr @expr_arena, align 8
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds %struct.Expr_, ptr %78, i64 %79
-  %81 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 2), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
   %.not115 = icmp eq i32 %81, 0
   br i1 %.not115, label %82, label %84
 

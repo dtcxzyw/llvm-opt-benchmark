@@ -399,7 +399,7 @@ define void @_ZN8facebook5velox4core11QueryConfigC2ERKSt13unordered_mapINSt7__cx
 entry:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 16), ptr %call.i, align 8, !noalias !5
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !5
   store ptr null, ptr %values_.i.i, align 8, !noalias !5
@@ -438,7 +438,7 @@ _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.e
 define void @_ZN8facebook5velox4core11QueryConfigC2EOSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %values) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 16), ptr %call.i, align 8, !noalias !8
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %values, align 8, !noalias !8
   store ptr %0, ptr %values_.i.i, align 8, !noalias !8
@@ -497,7 +497,7 @@ _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.e
 define void @_ZN8facebook5velox4core11QueryConfig27testingOverrideConfigUnsafeEOSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 16), ptr %call.i, align 8, !noalias !11
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %values, align 8, !noalias !11
   store ptr %0, ptr %values_.i.i, align 8, !noalias !11

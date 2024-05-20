@@ -5005,7 +5005,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %189 = getelementptr inbounds i8, ptr %6, i64 24
   %.not361 = icmp eq ptr %0, null
   %.sroa.0101.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %200
 
 190:                                              ; preds = %180

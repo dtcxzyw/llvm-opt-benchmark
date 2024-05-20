@@ -690,9 +690,9 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
   %8 = alloca %"class.QMetaObject::Connection", align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV19QualityMapperDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV19QualityMapperDialog, i64 0, i32 1, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 608
   invoke void @_ZN14QGraphicsSceneC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef null)
           to label %12 unwind label %68
@@ -855,8 +855,8 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
   br label %.body
 
 87:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [17 x ptr], [39 x ptr] }, ptr @_ZTV20TFDoubleClickCatcher, i64 0, i32 0, i64 2), ptr %81, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [39 x ptr] }, ptr @_ZTV20TFDoubleClickCatcher, i64 0, i32 1, i64 2), ptr %84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 152), ptr %84, align 8
   %88 = getelementptr inbounds i8, ptr %81, i64 32
   store ptr %83, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %81, i64 48
@@ -3410,7 +3410,7 @@ _ZN7QStringD2Ev.exit335:                          ; preds = %727, %_ZN9QtPrivate
 
 746:                                              ; preds = %744
   %747 = getelementptr inbounds i8, ptr %745, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %745, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %745, align 8
   store <4 x i32> <i32 0, i32 16, i32 27, i32 1507328>, ptr %747, align 8
   %748 = getelementptr inbounds i8, ptr %745, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %748, align 4
@@ -3707,7 +3707,7 @@ _ZN7QStringD2Ev.exit371:                          ; preds = %821, %_ZN9QtPrivate
 
 836:                                              ; preds = %834
   %837 = getelementptr inbounds i8, ptr %835, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %835, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %835, align 8
   store <4 x i32> <i32 0, i32 16, i32 27, i32 1507328>, ptr %837, align 8
   %838 = getelementptr inbounds i8, ptr %835, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %838, align 4
@@ -4004,7 +4004,7 @@ _ZN7QWidget14setMaximumSizeERK5QSize.exit408:     ; preds = %_ZN7QWidget14setMin
 
 925:                                              ; preds = %923
   %926 = getelementptr inbounds i8, ptr %924, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %924, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %924, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %926, align 8
   %927 = getelementptr inbounds i8, ptr %924, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %927, align 4
@@ -4846,7 +4846,7 @@ _ZN7QStringD2Ev.exit515:                          ; preds = %1165, %_ZN9QtPrivat
 
 1174:                                             ; preds = %1172
   %1175 = getelementptr inbounds i8, ptr %1173, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %1173, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %1173, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %1175, align 8
   %1176 = getelementptr inbounds i8, ptr %1173, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %1176, align 4
@@ -8316,9 +8316,9 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19QualityMapperDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(824) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV19QualityMapperDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV19QualityMapperDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN19QualityMapperDialog10clearItemsEi(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef 1118481)
           to label %4 unwind label %81
 
@@ -18323,9 +18323,9 @@ define internal void @_GLOBAL__sub_I_qualitymapperdialog.cpp() #12 section ".tex
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #23
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

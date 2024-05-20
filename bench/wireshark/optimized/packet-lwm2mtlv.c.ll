@@ -1208,8 +1208,8 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 34:                                               ; preds = %parseTLVHeader.exit
   %35 = load ptr, ptr @lwm2m_uat_resources, align 8
   %36 = load i32, ptr @num_lwm2m_uat_resources, align 4
-  %uat_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (%struct._lwm2m_allocated_fields_t, ptr @uat_allocated_fields, i64 0, i32 3), align 8
-  %uat_allocated_fields.val27.i = load i32, ptr getelementptr inbounds (%struct._lwm2m_allocated_fields_t, ptr @uat_allocated_fields, i64 0, i32 4), align 8
+  %uat_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @uat_allocated_fields, i64 24), align 8
+  %uat_allocated_fields.val27.i = load i32, ptr getelementptr inbounds (i8, ptr @uat_allocated_fields, i64 32), align 8
   %.not.i35 = icmp eq i32 %36, 0
   br i1 %.not.i35, label %lwm2m_search_fields.exit47.thread, label %.lr.ph.preheader.i
 
@@ -1272,8 +1272,8 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   br i1 %exitcond.not.i39, label %lwm2m_search_fields.exit47.thread, label %.lr.ph.i36, !llvm.loop !14
 
 lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
-  %oma_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (%struct._lwm2m_allocated_fields_t, ptr @oma_allocated_fields, i64 0, i32 3), align 8
-  %oma_allocated_fields.val28.i = load i32, ptr getelementptr inbounds (%struct._lwm2m_allocated_fields_t, ptr @oma_allocated_fields, i64 0, i32 4), align 8
+  %oma_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @oma_allocated_fields, i64 24), align 8
+  %oma_allocated_fields.val28.i = load i32, ptr getelementptr inbounds (i8, ptr @oma_allocated_fields, i64 32), align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84, %lwm2m_search_fields.exit47.thread

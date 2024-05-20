@@ -160,7 +160,7 @@ define internal fastcc range(i32 0, 2) i32 @eri_enb_log_get_packet(ptr noundef %
 
 .thread3:                                         ; preds = %8, %23, %.thread, %19
   %.1 = phi i32 [ %.pre-phi, %23 ], [ %.02, %.thread ], [ 0, %19 ], [ %11, %8 ]
-  %24 = call ptr @iso8601_to_nstime(ptr noundef nonnull %5, ptr noundef nonnull getelementptr inbounds ([131072 x i8], ptr @eri_enb_log_get_packet.line, i64 0, i64 1), i32 noundef 0) #3
+  %24 = call ptr @iso8601_to_nstime(ptr noundef nonnull %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @eri_enb_log_get_packet.line, i64 1), i32 noundef 0) #3
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %34, label %25
 

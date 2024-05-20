@@ -316,11 +316,11 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit.i:            ; preds = %invoke.cont.i.i, %e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   store ptr %7, ptr %_M_manager.i.i.i, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8
   store ptr %8, ptr %_M_invoker.i.i, align 8
-  store <2 x ptr> %6, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
+  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   %tobool.not.i.i4.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvPKcEEaSERKS3_.exit, label %if.then.i.i5.i
 
@@ -356,12 +356,12 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   store ptr %1, ptr %_M_manager.i.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8
   store ptr %2, ptr %_M_invoker.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPKcEEaSIRS2_EENSt9enable_ifIXsrNS3_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES3_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JS1_EEEE5valueERS3_E4typeEOS8_.exit, label %if.then.i.i.i
 
@@ -831,7 +831,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %call16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %msg) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   store ptr %call16, ptr %__args.addr.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
 
@@ -843,7 +843,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont14
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %invoke.cont17 unwind label %lpad11.loopexit
 
@@ -1574,10 +1574,10 @@ define internal void @_GLOBAL__sub_I_Logging.cpp() #12 section ".text.startup" p
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
-  store i64 0, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 8), align 8
   store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 1), align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 0, i32 0, i32 1), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8functionIFvPKcEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr nonnull @__dso_handle) #16
   ret void
 }

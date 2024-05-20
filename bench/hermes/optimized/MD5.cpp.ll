@@ -1023,7 +1023,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %Res, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %Res, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res, align 8
   %OS.i = getelementptr inbounds i8, ptr %Res, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
@@ -1036,7 +1036,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx.i.i = getelementptr inbounds [16 x i8], ptr %this, i64 0, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !6
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !6
   %0 = load i8, ptr %arrayidx.i.i, align 1, !noalias !6
   store i8 %0, ptr %Vals.i.i, align 8, !alias.scope !6
   %call2 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Res, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #16
@@ -1070,7 +1070,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8, !noalias !10
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %Res.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false), !noalias !10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, i32 0, i64 2), ptr %Res.i, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res.i, align 8, !noalias !10
   %OS.i.i = getelementptr inbounds i8, ptr %Res.i, i64 40
   store ptr %ref.tmp, ptr %OS.i.i, align 8, !noalias !10
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
@@ -1083,7 +1083,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %arrayidx.i.i.i = getelementptr inbounds [16 x i8], ptr %Result, i64 0, i64 %indvars.iv.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   store ptr @.str, ptr %Fmt.i.i.i.i, align 8, !alias.scope !13, !noalias !10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !13, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !13, !noalias !10
   %0 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !16
   store i8 %0, ptr %Vals.i.i.i, align 8, !alias.scope !13, !noalias !10
   %call2.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Res.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #16

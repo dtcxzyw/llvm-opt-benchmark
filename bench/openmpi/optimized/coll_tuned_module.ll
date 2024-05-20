@@ -48,10 +48,10 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
   br label %opal_obj_new.exit.thread
 
 12:                                               ; preds = %7
-  %13 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_tuned_module_t_class, i64 0, i32 8), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 56), align 8
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #5
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_tuned_module_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %15, %16
   br i1 %.not.i, label %18, label %17
 
@@ -67,7 +67,7 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
   store ptr @mca_coll_tuned_module_t_class, ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 8
   store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_tuned_module_t_class, i64 0, i32 6), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread28, label %.lr.ph.i.i
@@ -139,10 +139,10 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
   %.pn = load ptr, ptr %.pn.in, align 8
   %.0184.in = getelementptr i8, ptr %.pn, i64 16
   %.0184 = load i32, ptr %.0184.in, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_comm_t_class, i64 0, i32 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #5
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_comm_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 32), align 8
   %.not.i287 = icmp eq i32 %9, %10
   br i1 %.not.i287, label %12, label %11
 
@@ -158,7 +158,7 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
   store ptr @mca_coll_base_comm_t_class, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_comm_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread289, label %.lr.ph.i.i
@@ -184,7 +184,7 @@ opal_obj_new.exit.thread289:                      ; preds = %.lr.ph.i.i, %13
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %23, align 8
   %.not203 = icmp ne i32 %25, 0
-  %26 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not204 = icmp eq ptr %26, null
   br i1 %.not204, label %select.unfold, label %27
 
@@ -210,7 +210,7 @@ select.unfold:                                    ; preds = %22
   store ptr null, ptr %32, align 8
   %33 = load i32, ptr %31, align 4
   %.not206 = icmp ne i32 %33, 0
-  %34 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not207 = icmp eq ptr %34, null
   br i1 %.not207, label %select.unfold291, label %35
 
@@ -236,7 +236,7 @@ select.unfold291:                                 ; preds = %30
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr %39, align 8
   %.not209 = icmp ne i32 %41, 0
-  %42 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not210 = icmp eq ptr %42, null
   br i1 %.not210, label %select.unfold294, label %43
 
@@ -262,7 +262,7 @@ select.unfold294:                                 ; preds = %38
   store ptr null, ptr %48, align 8
   %49 = load i32, ptr %47, align 4
   %.not212 = icmp ne i32 %49, 0
-  %50 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not213 = icmp eq ptr %50, null
   br i1 %.not213, label %select.unfold297, label %51
 
@@ -288,7 +288,7 @@ select.unfold297:                                 ; preds = %46
   store ptr null, ptr %56, align 8
   %57 = load i32, ptr %55, align 8
   %.not215 = icmp ne i32 %57, 0
-  %58 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not216 = icmp eq ptr %58, null
   br i1 %.not216, label %select.unfold300, label %59
 
@@ -314,7 +314,7 @@ select.unfold300:                                 ; preds = %54
   store ptr null, ptr %64, align 8
   %65 = load i32, ptr %63, align 4
   %.not218 = icmp ne i32 %65, 0
-  %66 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not219 = icmp eq ptr %66, null
   br i1 %.not219, label %select.unfold303, label %67
 
@@ -337,7 +337,7 @@ select.unfold303:                                 ; preds = %62
   %71 = getelementptr inbounds i8, ptr %0, i64 712
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %72 = load i32, ptr getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 6), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_params, i64 120), align 8
   %73 = call i32 @mca_base_var_get_value(i32 noundef %72, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %74 = load ptr, ptr %3, align 8
   %.not.i288 = icmp eq ptr %74, null
@@ -351,7 +351,7 @@ select.unfold303:                                 ; preds = %62
   %77 = getelementptr inbounds i8, ptr %0, i64 1080
   store ptr null, ptr %77, align 8
   %.not221 = icmp ne i32 %.fr, 0
-  %78 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not222 = icmp eq ptr %78, null
   br i1 %.not222, label %select.unfold308, label %81
 
@@ -360,7 +360,7 @@ select.unfold303:                                 ; preds = %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %79 = getelementptr inbounds i8, ptr %0, i64 1080
   store ptr null, ptr %79, align 8
-  %80 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not222375 = icmp eq ptr %80, null
   br i1 %.not222375, label %select.unfold308.thread, label %81
 
@@ -389,7 +389,7 @@ select.unfold308.thread:                          ; preds = %.thread374, %81, %.
   store ptr null, ptr %88, align 8
   %89 = load i32, ptr %87, align 4
   %.not224 = icmp ne i32 %89, 0
-  %90 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not225 = icmp eq ptr %90, null
   br i1 %.not225, label %select.unfold311, label %91
 
@@ -415,7 +415,7 @@ select.unfold311:                                 ; preds = %select.unfold308.th
   store ptr null, ptr %96, align 8
   %97 = load i32, ptr %95, align 8
   %.not227 = icmp ne i32 %97, 0
-  %98 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not228 = icmp eq ptr %98, null
   br i1 %.not228, label %select.unfold314, label %99
 
@@ -441,7 +441,7 @@ select.unfold314:                                 ; preds = %94
   store ptr null, ptr %104, align 8
   %105 = load i32, ptr %103, align 4
   %.not230 = icmp ne i32 %105, 0
-  %106 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not231 = icmp eq ptr %106, null
   br i1 %.not231, label %select.unfold317, label %107
 
@@ -467,7 +467,7 @@ select.unfold317:                                 ; preds = %102
   store ptr null, ptr %112, align 8
   %113 = load i32, ptr %111, align 8
   %.not233 = icmp ne i32 %113, 0
-  %114 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not234 = icmp eq ptr %114, null
   br i1 %.not234, label %select.unfold320, label %115
 
@@ -493,7 +493,7 @@ select.unfold320:                                 ; preds = %110
   store ptr null, ptr %120, align 8
   %121 = load i32, ptr %119, align 4
   %.not236 = icmp ne i32 %121, 0
-  %122 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not237 = icmp eq ptr %122, null
   br i1 %.not237, label %select.unfold323, label %123
 
@@ -519,7 +519,7 @@ select.unfold323:                                 ; preds = %118
   store ptr null, ptr %128, align 8
   %129 = load i32, ptr %127, align 8
   %.not239 = icmp ne i32 %129, 0
-  %130 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not240 = icmp eq ptr %130, null
   br i1 %.not240, label %select.unfold326, label %131
 
@@ -545,7 +545,7 @@ select.unfold326:                                 ; preds = %126
   store ptr null, ptr %136, align 8
   %137 = load i32, ptr %135, align 4
   %.not242 = icmp ne i32 %137, 0
-  %138 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not243 = icmp eq ptr %138, null
   br i1 %.not243, label %select.unfold329, label %139
 
@@ -571,7 +571,7 @@ select.unfold329:                                 ; preds = %134
   store ptr null, ptr %144, align 8
   %145 = load i32, ptr %143, align 8
   %.not245 = icmp ne i32 %145, 0
-  %146 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not246 = icmp eq ptr %146, null
   br i1 %.not246, label %select.unfold332, label %147
 
@@ -597,7 +597,7 @@ select.unfold332:                                 ; preds = %142
   store ptr null, ptr %152, align 8
   %153 = load i32, ptr %151, align 4
   %.not248 = icmp ne i32 %153, 0
-  %154 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not249 = icmp eq ptr %154, null
   br i1 %.not249, label %select.unfold335, label %155
 
@@ -623,7 +623,7 @@ select.unfold335:                                 ; preds = %150
   store ptr null, ptr %160, align 8
   %161 = load i32, ptr %159, align 8
   %.not251 = icmp ne i32 %161, 0
-  %162 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
+  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not252 = icmp eq ptr %162, null
   br i1 %.not252, label %select.unfold338, label %163
 

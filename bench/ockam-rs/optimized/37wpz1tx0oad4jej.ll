@@ -1685,7 +1685,7 @@ common.ret:                                       ; preds = %.thread434, %321, %
   br i1 %83, label %84, label %.thread430
 
 84:                                               ; preds = %79
-  %85 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he95322c667179429E", i64 0, i32 2, i32 0) monotonic, align 8
+  %85 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he95322c667179429E", i64 16) monotonic, align 8
   switch i8 %85, label %86 [
     i8 0, label %.thread430
     i8 1, label %.thread
@@ -2073,7 +2073,7 @@ common.ret:                                       ; preds = %.thread434, %321, %
   br i1 %203, label %204, label %.thread444
 
 204:                                              ; preds = %201
-  %205 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb851475ed35046d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %205 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb851475ed35046d8E", i64 16) monotonic, align 8
   switch i8 %205, label %206 [
     i8 0, label %.thread444
     i8 1, label %.thread441
@@ -2561,7 +2561,7 @@ common.ret:                                       ; preds = %.thread434, %321, %
   br i1 %348, label %349, label %.thread455
 
 349:                                              ; preds = %346
-  %350 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a063e030e82aac1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %350 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node10async_drop9AsyncDrop3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a063e030e82aac1E", i64 16) monotonic, align 8
   switch i8 %350, label %351 [
     i8 0, label %.thread455
     i8 1, label %.thread452
@@ -3283,7 +3283,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -3664,7 +3664,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -4064,7 +4064,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -4571,7 +4571,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -4952,7 +4952,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -5352,7 +5352,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -5859,7 +5859,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -6240,7 +6240,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -6640,7 +6640,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -7123,7 +7123,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %85, label %86, label %.thread365
 
 86:                                               ; preds = %83
-  %87 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %87 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %87, label %88 [
     i8 0, label %.thread365
     i8 1, label %.thread
@@ -7504,7 +7504,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %206, label %207, label %.thread373
 
 207:                                              ; preds = %204
-  %208 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %208 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %208, label %209 [
     i8 0, label %.thread373
     i8 1, label %.thread370
@@ -7904,7 +7904,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %333, label %334, label %.thread381
 
 334:                                              ; preds = %331
-  %335 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %335 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %335, label %336 [
     i8 0, label %.thread381
     i8 1, label %.thread378
@@ -8387,7 +8387,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %85, label %86, label %.thread365
 
 86:                                               ; preds = %83
-  %87 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %87 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %87, label %88 [
     i8 0, label %.thread365
     i8 1, label %.thread
@@ -8768,7 +8768,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %206, label %207, label %.thread373
 
 207:                                              ; preds = %204
-  %208 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %208 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %208, label %209 [
     i8 0, label %.thread373
     i8 1, label %.thread370
@@ -9168,7 +9168,7 @@ common.ret:                                       ; preds = %323, %"_ZN72_$LT$co
   br i1 %333, label %334, label %.thread381
 
 334:                                              ; preds = %331
-  %335 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %335 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %335, label %336 [
     i8 0, label %.thread381
     i8 1, label %.thread378
@@ -9675,7 +9675,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -10056,7 +10056,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -10456,7 +10456,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -10963,7 +10963,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -11344,7 +11344,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -11744,7 +11744,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -12251,7 +12251,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -12632,7 +12632,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -13032,7 +13032,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -13539,7 +13539,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -13920,7 +13920,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -14320,7 +14320,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -14803,7 +14803,7 @@ common.ret:                                       ; preds = %326, %"_ZN72_$LT$co
   br i1 %85, label %86, label %.thread365
 
 86:                                               ; preds = %83
-  %87 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %87 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %87, label %88 [
     i8 0, label %.thread365
     i8 1, label %.thread
@@ -15186,7 +15186,7 @@ common.ret:                                       ; preds = %326, %"_ZN72_$LT$co
   br i1 %208, label %209, label %.thread373
 
 209:                                              ; preds = %206
-  %210 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %210 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %210, label %211 [
     i8 0, label %.thread373
     i8 1, label %.thread370
@@ -15587,7 +15587,7 @@ common.ret:                                       ; preds = %326, %"_ZN72_$LT$co
   br i1 %336, label %337, label %.thread381
 
 337:                                              ; preds = %334
-  %338 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %338 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %338, label %339 [
     i8 0, label %.thread381
     i8 1, label %.thread378
@@ -16094,7 +16094,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -16475,7 +16475,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -16875,7 +16875,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -17382,7 +17382,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %89, label %90, label %.thread367
 
 90:                                               ; preds = %87
-  %91 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 0, i32 2, i32 0) monotonic, align 8
+  %91 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68040bb49f3396aeE", i64 16) monotonic, align 8
   switch i8 %91, label %92 [
     i8 0, label %.thread367
     i8 1, label %.thread
@@ -17763,7 +17763,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %210, label %211, label %.thread375
 
 211:                                              ; preds = %208
-  %212 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 0, i32 2, i32 0) monotonic, align 8
+  %212 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h57f7c030a5d83e70E", i64 16) monotonic, align 8
   switch i8 %212, label %213 [
     i8 0, label %.thread375
     i8 1, label %.thread372
@@ -18163,7 +18163,7 @@ common.ret:                                       ; preds = %327, %"_ZN72_$LT$co
   br i1 %337, label %338, label %.thread383
 
 338:                                              ; preds = %335
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h419b9f89b81134ceE", i64 16) monotonic, align 8
   switch i8 %339, label %340 [
     i8 0, label %.thread383
     i8 1, label %.thread380
@@ -20181,7 +20181,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %121, label %122, label %.thread630
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread630
     i8 1, label %.thread
@@ -20764,7 +20764,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %310, label %311, label %.thread642
 
 311:                                              ; preds = %308
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %312, label %313 [
     i8 0, label %.thread642
     i8 1, label %.thread639
@@ -21160,7 +21160,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %434, label %435, label %.thread650
 
 435:                                              ; preds = %432
-  %436 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %436 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %436, label %437 [
     i8 0, label %.thread650
     i8 1, label %.thread647
@@ -21589,7 +21589,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %574, label %575, label %.thread673
 
 575:                                              ; preds = %572
-  %576 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %576, label %577 [
     i8 0, label %.thread673
     i8 1, label %.thread670
@@ -22302,7 +22302,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %117, label %118, label %.thread628
 
 118:                                              ; preds = %115
-  %119 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %119, label %120 [
     i8 0, label %.thread628
     i8 1, label %.thread
@@ -22885,7 +22885,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %306, label %307, label %.thread640
 
 307:                                              ; preds = %304
-  %308 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %308 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %308, label %309 [
     i8 0, label %.thread640
     i8 1, label %.thread637
@@ -23281,7 +23281,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %430, label %431, label %.thread648
 
 431:                                              ; preds = %428
-  %432 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %432 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %432, label %433 [
     i8 0, label %.thread648
     i8 1, label %.thread645
@@ -23710,7 +23710,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %570, label %571, label %.thread671
 
 571:                                              ; preds = %568
-  %572 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %572 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %572, label %573 [
     i8 0, label %.thread671
     i8 1, label %.thread668
@@ -24446,7 +24446,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %120, label %121, label %.thread626
 
 121:                                              ; preds = %118
-  %122 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %122 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %122, label %123 [
     i8 0, label %.thread626
     i8 1, label %.thread
@@ -25006,7 +25006,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %303, label %304, label %.thread638
 
 304:                                              ; preds = %301
-  %305 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %305 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %305, label %306 [
     i8 0, label %.thread638
     i8 1, label %.thread635
@@ -25402,7 +25402,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %427, label %428, label %.thread646
 
 428:                                              ; preds = %425
-  %429 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %429 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %429, label %430 [
     i8 0, label %.thread646
     i8 1, label %.thread643
@@ -25831,7 +25831,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %567, label %568, label %.thread669
 
 568:                                              ; preds = %565
-  %569 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %569 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %569, label %570 [
     i8 0, label %.thread669
     i8 1, label %.thread666
@@ -26551,7 +26551,7 @@ common.ret:                                       ; preds = %671, %294, %"_ZN4co
   br i1 %121, label %122, label %.thread623
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread623
     i8 1, label %.thread
@@ -27111,7 +27111,7 @@ common.ret:                                       ; preds = %671, %294, %"_ZN4co
   br i1 %304, label %305, label %.thread635
 
 305:                                              ; preds = %302
-  %306 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %306 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %306, label %307 [
     i8 0, label %.thread635
     i8 1, label %.thread632
@@ -27507,7 +27507,7 @@ common.ret:                                       ; preds = %671, %294, %"_ZN4co
   br i1 %428, label %429, label %.thread643
 
 429:                                              ; preds = %426
-  %430 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %430 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %430, label %431 [
     i8 0, label %.thread643
     i8 1, label %.thread640
@@ -27936,7 +27936,7 @@ common.ret:                                       ; preds = %671, %294, %"_ZN4co
   br i1 %568, label %569, label %.thread666
 
 569:                                              ; preds = %566
-  %570 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %570 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %570, label %571 [
     i8 0, label %.thread666
     i8 1, label %.thread663
@@ -28632,7 +28632,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %117, label %118, label %.thread628
 
 118:                                              ; preds = %115
-  %119 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %119, label %120 [
     i8 0, label %.thread628
     i8 1, label %.thread
@@ -29215,7 +29215,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %306, label %307, label %.thread640
 
 307:                                              ; preds = %304
-  %308 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %308 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %308, label %309 [
     i8 0, label %.thread640
     i8 1, label %.thread637
@@ -29611,7 +29611,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %430, label %431, label %.thread648
 
 431:                                              ; preds = %428
-  %432 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %432 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %432, label %433 [
     i8 0, label %.thread648
     i8 1, label %.thread645
@@ -30040,7 +30040,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %570, label %571, label %.thread671
 
 571:                                              ; preds = %568
-  %572 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %572 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %572, label %573 [
     i8 0, label %.thread671
     i8 1, label %.thread668
@@ -30753,7 +30753,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %117, label %118, label %.thread628
 
 118:                                              ; preds = %115
-  %119 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %119, label %120 [
     i8 0, label %.thread628
     i8 1, label %.thread
@@ -31336,7 +31336,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %306, label %307, label %.thread640
 
 307:                                              ; preds = %304
-  %308 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %308 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %308, label %309 [
     i8 0, label %.thread640
     i8 1, label %.thread637
@@ -31732,7 +31732,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %430, label %431, label %.thread648
 
 431:                                              ; preds = %428
-  %432 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %432 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %432, label %433 [
     i8 0, label %.thread648
     i8 1, label %.thread645
@@ -32161,7 +32161,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %570, label %571, label %.thread671
 
 571:                                              ; preds = %568
-  %572 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %572 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %572, label %573 [
     i8 0, label %.thread671
     i8 1, label %.thread668
@@ -32897,7 +32897,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %120, label %121, label %.thread626
 
 121:                                              ; preds = %118
-  %122 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %122 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %122, label %123 [
     i8 0, label %.thread626
     i8 1, label %.thread
@@ -33457,7 +33457,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %303, label %304, label %.thread638
 
 304:                                              ; preds = %301
-  %305 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %305 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %305, label %306 [
     i8 0, label %.thread638
     i8 1, label %.thread635
@@ -33853,7 +33853,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %427, label %428, label %.thread646
 
 428:                                              ; preds = %425
-  %429 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %429 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %429, label %430 [
     i8 0, label %.thread646
     i8 1, label %.thread643
@@ -34282,7 +34282,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %567, label %568, label %.thread669
 
 568:                                              ; preds = %565
-  %569 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %569 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %569, label %570 [
     i8 0, label %.thread669
     i8 1, label %.thread666
@@ -35002,7 +35002,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %121, label %122, label %.thread630
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread630
     i8 1, label %.thread
@@ -35585,7 +35585,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %310, label %311, label %.thread642
 
 311:                                              ; preds = %308
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %312, label %313 [
     i8 0, label %.thread642
     i8 1, label %.thread639
@@ -35981,7 +35981,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %434, label %435, label %.thread650
 
 435:                                              ; preds = %432
-  %436 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %436 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %436, label %437 [
     i8 0, label %.thread650
     i8 1, label %.thread647
@@ -36410,7 +36410,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %574, label %575, label %.thread673
 
 575:                                              ; preds = %572
-  %576 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %576, label %577 [
     i8 0, label %.thread673
     i8 1, label %.thread670
@@ -37123,7 +37123,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %117, label %118, label %.thread628
 
 118:                                              ; preds = %115
-  %119 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %119, label %120 [
     i8 0, label %.thread628
     i8 1, label %.thread
@@ -37706,7 +37706,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %306, label %307, label %.thread640
 
 307:                                              ; preds = %304
-  %308 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %308 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %308, label %309 [
     i8 0, label %.thread640
     i8 1, label %.thread637
@@ -38102,7 +38102,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %430, label %431, label %.thread648
 
 431:                                              ; preds = %428
-  %432 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %432 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %432, label %433 [
     i8 0, label %.thread648
     i8 1, label %.thread645
@@ -38531,7 +38531,7 @@ common.ret:                                       ; preds = %673, %296, %.invoke
   br i1 %570, label %571, label %.thread671
 
 571:                                              ; preds = %568
-  %572 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %572 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %572, label %573 [
     i8 0, label %.thread671
     i8 1, label %.thread668
@@ -39268,7 +39268,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %121, label %122, label %.thread630
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread630
     i8 1, label %.thread
@@ -39851,7 +39851,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %310, label %311, label %.thread642
 
 311:                                              ; preds = %308
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %312, label %313 [
     i8 0, label %.thread642
     i8 1, label %.thread639
@@ -40247,7 +40247,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %434, label %435, label %.thread650
 
 435:                                              ; preds = %432
-  %436 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %436 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %436, label %437 [
     i8 0, label %.thread650
     i8 1, label %.thread647
@@ -40676,7 +40676,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %574, label %575, label %.thread673
 
 575:                                              ; preds = %572
-  %576 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %576, label %577 [
     i8 0, label %.thread673
     i8 1, label %.thread670
@@ -41412,7 +41412,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %120, label %121, label %.thread626
 
 121:                                              ; preds = %118
-  %122 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %122 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %122, label %123 [
     i8 0, label %.thread626
     i8 1, label %.thread
@@ -41972,7 +41972,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %303, label %304, label %.thread638
 
 304:                                              ; preds = %301
-  %305 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %305 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %305, label %306 [
     i8 0, label %.thread638
     i8 1, label %.thread635
@@ -42368,7 +42368,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %427, label %428, label %.thread646
 
 428:                                              ; preds = %425
-  %429 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %429 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %429, label %430 [
     i8 0, label %.thread646
     i8 1, label %.thread643
@@ -42797,7 +42797,7 @@ common.ret:                                       ; preds = %670, %293, %"_ZN4co
   br i1 %567, label %568, label %.thread669
 
 568:                                              ; preds = %565
-  %569 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %569 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %569, label %570 [
     i8 0, label %.thread669
     i8 1, label %.thread666
@@ -43517,7 +43517,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %121, label %122, label %.thread630
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5836ebb672d8b593E", i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread630
     i8 1, label %.thread
@@ -44100,7 +44100,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %310, label %311, label %.thread642
 
 311:                                              ; preds = %308
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb0d779fd46c74cbbE", i64 16) monotonic, align 8
   switch i8 %312, label %313 [
     i8 0, label %.thread642
     i8 1, label %.thread639
@@ -44496,7 +44496,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %434, label %435, label %.thread650
 
 435:                                              ; preds = %432
-  %436 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %436 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h53996c5df1665e4cE", i64 16) monotonic, align 8
   switch i8 %436, label %437 [
     i8 0, label %.thread650
     i8 1, label %.thread647
@@ -44925,7 +44925,7 @@ common.ret:                                       ; preds = %677, %300, %.invoke
   br i1 %574, label %575, label %.thread673
 
 575:                                              ; preds = %572
-  %576 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 0, i32 2, i32 0) monotonic, align 8
+  %576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0d89eb8172544d2fE", i64 16) monotonic, align 8
   switch i8 %576, label %577 [
     i8 0, label %.thread673
     i8 1, label %.thread670
@@ -47730,7 +47730,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %87, label %88, label %.thread363
 
 88:                                               ; preds = %85
-  %89 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %89 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.thread363
     i8 1, label %.thread
@@ -48049,7 +48049,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %190, label %191, label %.thread371
 
 191:                                              ; preds = %188
-  %192 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 0, i32 2, i32 0) monotonic, align 8
+  %192 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 16) monotonic, align 8
   switch i8 %192, label %193 [
     i8 0, label %.thread371
     i8 1, label %.thread368
@@ -48455,7 +48455,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %319, label %320, label %.thread379
 
 320:                                              ; preds = %317
-  %321 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 0, i32 2, i32 0) monotonic, align 8
+  %321 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 16) monotonic, align 8
   switch i8 %321, label %322 [
     i8 0, label %.thread379
     i8 1, label %.thread376
@@ -48941,7 +48941,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %87, label %88, label %.thread363
 
 88:                                               ; preds = %85
-  %89 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %89 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.thread363
     i8 1, label %.thread
@@ -49260,7 +49260,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %190, label %191, label %.thread371
 
 191:                                              ; preds = %188
-  %192 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 0, i32 2, i32 0) monotonic, align 8
+  %192 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 16) monotonic, align 8
   switch i8 %192, label %193 [
     i8 0, label %.thread371
     i8 1, label %.thread368
@@ -49666,7 +49666,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %319, label %320, label %.thread379
 
 320:                                              ; preds = %317
-  %321 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 0, i32 2, i32 0) monotonic, align 8
+  %321 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 16) monotonic, align 8
   switch i8 %321, label %322 [
     i8 0, label %.thread379
     i8 1, label %.thread376
@@ -50152,7 +50152,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %87, label %88, label %.thread363
 
 88:                                               ; preds = %85
-  %89 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 0, i32 2, i32 0) monotonic, align 8
+  %89 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2726903c2eee82d8E", i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.thread363
     i8 1, label %.thread
@@ -50471,7 +50471,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %190, label %191, label %.thread371
 
 191:                                              ; preds = %188
-  %192 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 0, i32 2, i32 0) monotonic, align 8
+  %192 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfab5cdb0aa74cda4E", i64 16) monotonic, align 8
   switch i8 %192, label %193 [
     i8 0, label %.thread371
     i8 1, label %.thread368
@@ -50877,7 +50877,7 @@ common.ret:                                       ; preds = %309, %"_ZN72_$LT$co
   br i1 %319, label %320, label %.thread379
 
 320:                                              ; preds = %317
-  %321 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 0, i32 2, i32 0) monotonic, align 8
+  %321 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90aeb6bfc80751e9E", i64 16) monotonic, align 8
   switch i8 %321, label %322 [
     i8 0, label %.thread379
     i8 1, label %.thread376
@@ -51799,7 +51799,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %113, label %114, label %.thread533
 
 114:                                              ; preds = %111
-  %115 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %115 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 16) monotonic, align 8
   switch i8 %115, label %116 [
     i8 0, label %.thread533
     i8 1, label %.thread
@@ -52431,7 +52431,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %320, label %321, label %.thread545
 
 321:                                              ; preds = %318
-  %322 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 0, i32 2, i32 0) monotonic, align 8
+  %322 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 16) monotonic, align 8
   switch i8 %322, label %323 [
     i8 0, label %.thread545
     i8 1, label %.thread542
@@ -52892,7 +52892,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %470, label %471, label %.thread556
 
 471:                                              ; preds = %468
-  %472 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %472 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 16) monotonic, align 8
   switch i8 %472, label %473 [
     i8 0, label %.thread556
     i8 1, label %.thread553
@@ -53646,7 +53646,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %113, label %114, label %.thread533
 
 114:                                              ; preds = %111
-  %115 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %115 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 16) monotonic, align 8
   switch i8 %115, label %116 [
     i8 0, label %.thread533
     i8 1, label %.thread
@@ -54278,7 +54278,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %320, label %321, label %.thread545
 
 321:                                              ; preds = %318
-  %322 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 0, i32 2, i32 0) monotonic, align 8
+  %322 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 16) monotonic, align 8
   switch i8 %322, label %323 [
     i8 0, label %.thread545
     i8 1, label %.thread542
@@ -54739,7 +54739,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %470, label %471, label %.thread556
 
 471:                                              ; preds = %468
-  %472 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %472 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 16) monotonic, align 8
   switch i8 %472, label %473 [
     i8 0, label %.thread556
     i8 1, label %.thread553
@@ -55493,7 +55493,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %113, label %114, label %.thread533
 
 114:                                              ; preds = %111
-  %115 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %115 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf43136c6296e72f1E", i64 16) monotonic, align 8
   switch i8 %115, label %116 [
     i8 0, label %.thread533
     i8 1, label %.thread
@@ -56125,7 +56125,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %320, label %321, label %.thread545
 
 321:                                              ; preds = %318
-  %322 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 0, i32 2, i32 0) monotonic, align 8
+  %322 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc19dfc1830ab8707E", i64 16) monotonic, align 8
   switch i8 %322, label %323 [
     i8 0, label %.thread545
     i8 1, label %.thread542
@@ -56586,7 +56586,7 @@ common.ret:                                       ; preds = %584, %310, %"_ZN4co
   br i1 %470, label %471, label %.thread556
 
 471:                                              ; preds = %468
-  %472 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %472 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc4332a63cf2e434eE", i64 16) monotonic, align 8
   switch i8 %472, label %473 [
     i8 0, label %.thread556
     i8 1, label %.thread553
@@ -65958,18 +65958,18 @@ define hidden void @_ZN13opentelemetry6global11propagation23set_text_map_propaga
 
 2:                                                ; preds = %0
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h21d67efea1e37c62E"(ptr noundef nonnull align 8 @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, ptr noundef nonnull align 8 @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E)
-  %3 = load i64, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !range !71, !noundef !5
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 8), align 8, !range !71, !noundef !5
   %trunc.i.i = trunc nuw i64 %3 to i1
   tail call void @llvm.assume(i1 %trunc.i.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h13e92a4cd89f9d7bE.exit"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h13e92a4cd89f9d7bE.exit": ; preds = %0, %2
-  %4 = cmpxchg weak ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 0, i32 1073741823 acquire monotonic, align 4, !noalias !8588
+  %4 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 16), i32 0, i32 1073741823 acquire monotonic, align 4, !noalias !8588
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %4, 1
   br i1 %.sroa.18.0.in.i.i, label %6, label %5
 
 5:                                                ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h13e92a4cd89f9d7bE.exit"
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0)), !noalias !8588
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 16)), !noalias !8588
   br label %6
 
 6:                                                ; preds = %5, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h13e92a4cd89f9d7bE.exit"
@@ -65981,18 +65981,18 @@ define hidden void @_ZN13opentelemetry6global11propagation23set_text_map_propaga
 "_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit": ; preds = %6
   %10 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h4671fa193704fdaeE(), !noalias !8591
   %11 = xor i1 %10, true
-  %12 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 1), i8 noundef 0), !noalias !8591
+  %12 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 24), i8 noundef 0), !noalias !8591
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h08660133235bf5b3E.llvm.6545128362769768385.exit.thread", label %14
 
 "_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit.thread": ; preds = %6
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 1), i8 noundef 0), !noalias !8591
+  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 24), i8 noundef 0), !noalias !8591
   %.not9 = icmp eq i8 %13, 0
   br i1 %.not9, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h08660133235bf5b3E.llvm.6545128362769768385.exit.thread", label %.thread
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h08660133235bf5b3E.llvm.6545128362769768385.exit.thread": ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit.thread", %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit"
   %.0.i.i.i.i10 = phi i1 [ false, %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit.thread" ], [ %11, %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit" ]
-  tail call void @"_ZN13opentelemetry6global11propagation23set_text_map_propagator28_$u7b$$u7b$closure$u7d$$u7d$17hedd3351f1a09b0d6E.llvm.6545128362769768385"(ptr noundef nonnull align 8 getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i1 noundef zeroext %.0.i.i.i.i10), !noalias !8594
+  tail call void @"_ZN13opentelemetry6global11propagation23set_text_map_propagator28_$u7b$$u7b$closure$u7d$$u7d$17hedd3351f1a09b0d6E.llvm.6545128362769768385"(ptr noundef nonnull align 8 getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 16), i1 noundef zeroext %.0.i.i.i.i10), !noalias !8594
   br label %"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..propagation..text_map_propagator..TextMapPropagator$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hefd3e4caa59d9210E.llvm.6545128362769768385.exit"
 
 14:                                               ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hae27cdbb5c7e1fcaE.llvm.6545128362769768385.exit"
@@ -66009,17 +66009,17 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.
   br i1 %18, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i, label %21
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i: ; preds = %21, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.i.i.i, %.thread, %14
-  %19 = atomicrmw sub ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 1073741823 release, align 4, !noalias !8597
+  %19 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 16), i32 1073741823 release, align 4, !noalias !8597
   %20 = add i32 %19, -1073741823
   %or.cond.i.i.i.i = icmp ult i32 %20, 1073741824
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..propagation..text_map_propagator..TextMapPropagator$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hefd3e4caa59d9210E.llvm.6545128362769768385.exit", label %22
 
 21:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.i.i.i
-  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 1), i8 noundef 1, i8 noundef 0), !noalias !8597
+  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 24), i8 noundef 1, i8 noundef 0), !noalias !8597
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i
 
 22:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 noundef %20), !noalias !8597
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global11propagation26GLOBAL_TEXT_MAP_PROPAGATOR17h85cc73cd204df397E, i64 16), i32 noundef %20), !noalias !8597
   br label %"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..propagation..text_map_propagator..TextMapPropagator$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hefd3e4caa59d9210E.llvm.6545128362769768385.exit"
 
 "_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..propagation..text_map_propagator..TextMapPropagator$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hefd3e4caa59d9210E.llvm.6545128362769768385.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h08660133235bf5b3E.llvm.6545128362769768385.exit.thread", %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i, %22
@@ -66140,7 +66140,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
           to label %.noexc5 unwind label %.thread25
 
 .noexc5:                                          ; preds = %7
-  %8 = load i64, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !range !71, !noundef !5
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 8), align 8, !range !71, !noundef !5
   %trunc.i.i = trunc nuw i64 %8 to i1
   tail call void @llvm.assume(i1 %trunc.i.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hffe64233c9c5b8d5E.exit"
@@ -66151,12 +66151,12 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
   br label %.thread21
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hffe64233c9c5b8d5E.exit": ; preds = %.noexc5, %.noexc
-  %9 = cmpxchg weak ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 0, i32 1073741823 acquire monotonic, align 4, !noalias !8613
+  %9 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16), i32 0, i32 1073741823 acquire monotonic, align 4, !noalias !8613
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %9, 1
   br i1 %.sroa.18.0.in.i.i, label %.noexc6, label %10
 
 10:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hffe64233c9c5b8d5E.exit"
-  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0))
+  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16))
           to label %.noexc6 unwind label %.thread25
 
 .noexc6:                                          ; preds = %10, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hffe64233c9c5b8d5E.exit"
@@ -66179,7 +66179,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
 
 "_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h3ae129930ecec59aE.exit.i": ; preds = %.noexc8, %.noexc7
   %18 = phi i8 [ %17, %.noexc8 ], [ 0, %.noexc7 ]
-  %19 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 1), i8 noundef 0)
+  %19 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h066c0ac19cc2b2f2E.llvm.18141648412879468590(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 24), i8 noundef 0)
           to label %20 unwind label %.thread25
 
 20:                                               ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h3ae129930ecec59aE.exit.i"
@@ -66188,7 +66188,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
 
 21:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !8616
-  store ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), ptr %3, align 8, !noalias !8616
+  store ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16), ptr %3, align 8, !noalias !8616
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 %18, ptr %22, align 8, !noalias !8616
   invoke void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.6f5aa1baf96411d151817ad1d392605a.118.llvm.6545128362769768385, i64 noundef 38, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.171.llvm.6545128362769768385, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.120.llvm.6545128362769768385) #32
@@ -66210,7 +66210,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
   unreachable
 
 28:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16), ptr %4, align 8
   %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i8 %18, ptr %.fca.1.gep, align 8
   %29 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
@@ -66251,10 +66251,10 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace19set_tracer_provider
 40:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %41 = load ptr, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 2), align 8, !nonnull !5, !noundef !5
-  %42 = load ptr, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 3), align 8, !nonnull !5, !align !36, !noundef !5
-  store ptr %33, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 2), align 8
-  store ptr @anon.6f5aa1baf96411d151817ad1d392605a.121.llvm.6545128362769768385, ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 3), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 32), align 8, !nonnull !5, !noundef !5
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 40), align 8, !nonnull !5, !align !36, !noundef !5
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 32), align 8
+  store ptr @anon.6f5aa1baf96411d151817ad1d392605a.121.llvm.6545128362769768385, ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 40), align 8
   %43 = trunc nuw i8 %18 to i1
   br i1 %43, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i, label %.noexc12
 
@@ -66269,17 +66269,17 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.
   br i1 %47, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i, label %50
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i: ; preds = %50, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.i, %.noexc12, %40
-  %48 = atomicrmw sub ptr getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 1073741823 release, align 4, !noalias !8625
+  %48 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16), i32 1073741823 release, align 4, !noalias !8625
   %49 = add i32 %48, -1073741823
   %or.cond.i.i = icmp ult i32 %49, 1073741824
   br i1 %or.cond.i.i, label %"_ZN4core3ptr114drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$opentelemetry..global..trace..GlobalTracerProvider$GT$$GT$17h4128dc0e3f945831E.exit", label %51
 
 50:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.i.i
-  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 1), i8 noundef 1, i8 noundef 0)
+  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 24), i8 noundef 1, i8 noundef 0)
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i
 
 51:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 getelementptr inbounds ({ { { { ptr }, { { i64, [4 x i64] } } } }, ptr }, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1, i64 0), i32 noundef %49)
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13opentelemetry6global5trace22GLOBAL_TRACER_PROVIDER17h7a748c1d32ae652cE, i64 16), i32 noundef %49)
   br label %"_ZN4core3ptr114drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$opentelemetry..global..trace..GlobalTracerProvider$GT$$GT$17h4128dc0e3f945831E.exit"
 
 "_ZN4core3ptr114drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$opentelemetry..global..trace..GlobalTracerProvider$GT$$GT$17h4128dc0e3f945831E.exit": ; preds = %51, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i
@@ -113131,7 +113131,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h799c9c8a3
   br label %16
 
 16:                                               ; preds = %.noexc, %5
-  %17 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15380, !noundef !5
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15380, !noundef !5
   %18 = invoke noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %17)
           to label %.noexc10 unwind label %.thread
 
@@ -113143,7 +113143,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h799c9c8a3
   br label %47
 
 19:                                               ; preds = %.noexc10
-  store i8 %13, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15380
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15380
   %20 = invoke noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc11 unwind label %.thread
 
@@ -113155,7 +113155,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h799c9c8a3
   %22 = extractvalue { i32, i32 } %21, 0
   %23 = extractvalue { i32, i32 } %21, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !15380
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15380
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15380
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %24, label %26
 
@@ -113169,8 +113169,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h799c9c8a3
   br label %27
 
 26:                                               ; preds = %.noexc12
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15380
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15380
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15380
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15380
   br label %27
 
 27:                                               ; preds = %26, %.noexc13
@@ -113185,9 +113185,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h799c9c8a3
 .noexc14:                                         ; preds = %27
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15380
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15380
   %32 = load <2 x i32>, ptr %10, align 8, !noalias !15380
-  store <2 x i32> %32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15380
+  store <2 x i32> %32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15380
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15380
   invoke void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E()
           to label %.noexc15 unwind label %.thread
@@ -113367,7 +113367,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h7eeddddbb
   br label %16
 
 16:                                               ; preds = %.noexc, %5
-  %17 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15411, !noundef !5
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15411, !noundef !5
   %18 = invoke noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %17)
           to label %.noexc10 unwind label %.thread
 
@@ -113379,7 +113379,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h7eeddddbb
   br label %47
 
 19:                                               ; preds = %.noexc10
-  store i8 %13, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15411
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15411
   %20 = invoke noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc11 unwind label %.thread
 
@@ -113391,7 +113391,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h7eeddddbb
   %22 = extractvalue { i32, i32 } %21, 0
   %23 = extractvalue { i32, i32 } %21, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !15411
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15411
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15411
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %24, label %26
 
@@ -113405,8 +113405,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h7eeddddbb
   br label %27
 
 26:                                               ; preds = %.noexc12
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15411
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15411
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15411
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15411
   br label %27
 
 27:                                               ; preds = %26, %.noexc13
@@ -113421,9 +113421,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h7eeddddbb
 .noexc14:                                         ; preds = %27
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15411
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15411
   %32 = load <2 x i32>, ptr %10, align 8, !noalias !15411
-  store <2 x i32> %32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15411
+  store <2 x i32> %32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15411
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15411
   invoke void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E()
           to label %.noexc15 unwind label %.thread
@@ -113607,7 +113607,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   br label %23
 
 23:                                               ; preds = %22, %5
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15442, !noundef !5
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15442, !noundef !5
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %24), !noalias !15442
   br i1 %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85b7e05d4d86e467E.exit.thread", label %26
 
@@ -113616,13 +113616,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   br label %133
 
 26:                                               ; preds = %23
-  store i8 %20, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15442
+  store i8 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15442
   %27 = tail call noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15446
   %28 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h35bcad5661fc38b1E(ptr noundef nonnull align 4 %27), !noalias !15446
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = extractvalue { i32, i32 } %28, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !15442
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15442
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15442
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %31, label %33
 
@@ -113633,8 +113633,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hedf43bed85d12447E.exit"
 
 33:                                               ; preds = %26
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15442
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15442
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15442
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15442
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hedf43bed85d12447E.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hedf43bed85d12447E.exit": ; preds = %31, %33
@@ -113644,9 +113644,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   %34 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.sroa.5.0.copyload.sink.i.i, ptr %34, align 4, !noalias !15442
   %35 = call { i32, i32 } @"_ZN5tokio4util4rand2rt45_$LT$impl$u20$tokio..util..rand..FastRand$GT$12replace_seed17h429fc73ecf037124E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %29, i32 noundef %30), !noalias !15446
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15442
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15442
   %36 = load <2 x i32>, ptr %16, align 8, !noalias !15442
-  store <2 x i32> %36, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15442
+  store <2 x i32> %36, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15442
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15442
   call void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E(), !noalias !15446
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h9f2a0bbdb4c4c80bE"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15446
@@ -114119,7 +114119,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   br label %23
 
 23:                                               ; preds = %22, %5
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15539, !noundef !5
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15539, !noundef !5
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %24), !noalias !15539
   br i1 %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85b7e05d4d86e467E.exit.thread", label %26
 
@@ -114128,13 +114128,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   br label %132
 
 26:                                               ; preds = %23
-  store i8 %20, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15539
+  store i8 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15539
   %27 = tail call noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15543
   %28 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h35bcad5661fc38b1E(ptr noundef nonnull align 4 %27), !noalias !15543
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = extractvalue { i32, i32 } %28, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !15539
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15539
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15539
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %31, label %33
 
@@ -114145,8 +114145,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h43f7b27d4e5a9137E.exit"
 
 33:                                               ; preds = %26
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15539
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15539
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15539
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15539
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h43f7b27d4e5a9137E.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h43f7b27d4e5a9137E.exit": ; preds = %31, %33
@@ -114156,9 +114156,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   %34 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.sroa.5.0.copyload.sink.i.i, ptr %34, align 4, !noalias !15539
   %35 = call { i32, i32 } @"_ZN5tokio4util4rand2rt45_$LT$impl$u20$tokio..util..rand..FastRand$GT$12replace_seed17h429fc73ecf037124E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %29, i32 noundef %30), !noalias !15543
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15539
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15539
   %36 = load <2 x i32>, ptr %16, align 8, !noalias !15539
-  store <2 x i32> %36, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15539
+  store <2 x i32> %36, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15539
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15539
   call void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E(), !noalias !15543
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h9f2a0bbdb4c4c80bE"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15543
@@ -114625,7 +114625,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha269f44da
   br label %16
 
 16:                                               ; preds = %.noexc, %5
-  %17 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15636, !noundef !5
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15636, !noundef !5
   %18 = invoke noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %17)
           to label %.noexc10 unwind label %.thread
 
@@ -114637,7 +114637,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha269f44da
   br label %48
 
 19:                                               ; preds = %.noexc10
-  store i8 %13, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15636
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15636
   %20 = invoke noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc11 unwind label %.thread
 
@@ -114649,7 +114649,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha269f44da
   %22 = extractvalue { i32, i32 } %21, 0
   %23 = extractvalue { i32, i32 } %21, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !15636
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15636
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15636
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %24, label %26
 
@@ -114663,8 +114663,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha269f44da
   br label %27
 
 26:                                               ; preds = %.noexc12
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15636
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15636
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15636
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15636
   br label %27
 
 27:                                               ; preds = %26, %.noexc13
@@ -114679,9 +114679,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha269f44da
 .noexc14:                                         ; preds = %27
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15636
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15636
   %32 = load <2 x i32>, ptr %10, align 8, !noalias !15636
-  store <2 x i32> %32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15636
+  store <2 x i32> %32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15636
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15636
   invoke void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E()
           to label %.noexc15 unwind label %.thread
@@ -114866,7 +114866,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   br label %23
 
 23:                                               ; preds = %22, %5
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15667, !noundef !5
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15667, !noundef !5
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %24), !noalias !15667
   br i1 %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85b7e05d4d86e467E.exit.thread", label %26
 
@@ -114875,13 +114875,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   br label %118
 
 26:                                               ; preds = %23
-  store i8 %20, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15667
+  store i8 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15667
   %27 = tail call noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15671
   %28 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h35bcad5661fc38b1E(ptr noundef nonnull align 4 %27), !noalias !15671
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = extractvalue { i32, i32 } %28, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !15667
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15667
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15667
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %31, label %33
 
@@ -114892,8 +114892,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3465514e4621fa8cE.exit"
 
 33:                                               ; preds = %26
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15667
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15667
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15667
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15667
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3465514e4621fa8cE.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3465514e4621fa8cE.exit": ; preds = %31, %33
@@ -114903,9 +114903,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   %34 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.sroa.5.0.copyload.sink.i.i, ptr %34, align 4, !noalias !15667
   %35 = call { i32, i32 } @"_ZN5tokio4util4rand2rt45_$LT$impl$u20$tokio..util..rand..FastRand$GT$12replace_seed17h429fc73ecf037124E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %29, i32 noundef %30), !noalias !15671
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15667
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15667
   %36 = load <2 x i32>, ptr %16, align 8, !noalias !15667
-  store <2 x i32> %36, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15667
+  store <2 x i32> %36, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15667
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15667
   call void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E(), !noalias !15671
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h9f2a0bbdb4c4c80bE"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15671
@@ -115333,7 +115333,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hab57dc228
   br label %16
 
 16:                                               ; preds = %.noexc, %5
-  %17 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15746, !noundef !5
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15746, !noundef !5
   %18 = invoke noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %17)
           to label %.noexc10 unwind label %.thread
 
@@ -115345,7 +115345,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hab57dc228
   br label %47
 
 19:                                               ; preds = %.noexc10
-  store i8 %13, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15746
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15746
   %20 = invoke noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc11 unwind label %.thread
 
@@ -115357,7 +115357,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hab57dc228
   %22 = extractvalue { i32, i32 } %21, 0
   %23 = extractvalue { i32, i32 } %21, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !15746
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15746
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15746
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %24, label %26
 
@@ -115371,8 +115371,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hab57dc228
   br label %27
 
 26:                                               ; preds = %.noexc12
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15746
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15746
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15746
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15746
   br label %27
 
 27:                                               ; preds = %26, %.noexc13
@@ -115387,9 +115387,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hab57dc228
 .noexc14:                                         ; preds = %27
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15746
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15746
   %32 = load <2 x i32>, ptr %10, align 8, !noalias !15746
-  store <2 x i32> %32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15746
+  store <2 x i32> %32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15746
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15746
   invoke void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E()
           to label %.noexc15 unwind label %.thread
@@ -115573,7 +115573,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   br label %23
 
 23:                                               ; preds = %22, %5
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15777, !noundef !5
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15777, !noundef !5
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %24), !noalias !15777
   br i1 %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85b7e05d4d86e467E.exit.thread", label %26
 
@@ -115582,13 +115582,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   br label %132
 
 26:                                               ; preds = %23
-  store i8 %20, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15777
+  store i8 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15777
   %27 = tail call noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15781
   %28 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h35bcad5661fc38b1E(ptr noundef nonnull align 4 %27), !noalias !15781
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = extractvalue { i32, i32 } %28, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !15777
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15777
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15777
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %31, label %33
 
@@ -115599,8 +115599,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4f2ab5b3d00412adE.exit"
 
 33:                                               ; preds = %26
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15777
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15777
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15777
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15777
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4f2ab5b3d00412adE.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4f2ab5b3d00412adE.exit": ; preds = %31, %33
@@ -115610,9 +115610,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   %34 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.sroa.5.0.copyload.sink.i.i, ptr %34, align 4, !noalias !15777
   %35 = call { i32, i32 } @"_ZN5tokio4util4rand2rt45_$LT$impl$u20$tokio..util..rand..FastRand$GT$12replace_seed17h429fc73ecf037124E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %29, i32 noundef %30), !noalias !15781
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15777
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15777
   %36 = load <2 x i32>, ptr %16, align 8, !noalias !15777
-  store <2 x i32> %36, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15777
+  store <2 x i32> %36, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15777
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15777
   call void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E(), !noalias !15781
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h9f2a0bbdb4c4c80bE"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15781
@@ -116089,7 +116089,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   br label %23
 
 23:                                               ; preds = %22, %5
-  %24 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15875, !noundef !5
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15875, !noundef !5
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %24), !noalias !15875
   br i1 %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85b7e05d4d86e467E.exit.thread", label %26
 
@@ -116098,13 +116098,13 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   br label %118
 
 26:                                               ; preds = %23
-  store i8 %20, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15875
+  store i8 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15875
   %27 = tail call noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15879
   %28 = tail call { i32, i32 } @_ZN5tokio4util4rand2rt16RngSeedGenerator9next_seed17h35bcad5661fc38b1E(ptr noundef nonnull align 4 %27), !noalias !15879
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = extractvalue { i32, i32 } %28, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !15875
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15875
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15875
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %31, label %33
 
@@ -116115,8 +116115,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h483182344f7fcc10E.exit"
 
 33:                                               ; preds = %26
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15875
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15875
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15875
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15875
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h483182344f7fcc10E.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h483182344f7fcc10E.exit": ; preds = %31, %33
@@ -116126,9 +116126,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   %34 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.sroa.5.0.copyload.sink.i.i, ptr %34, align 4, !noalias !15875
   %35 = call { i32, i32 } @"_ZN5tokio4util4rand2rt45_$LT$impl$u20$tokio..util..rand..FastRand$GT$12replace_seed17h429fc73ecf037124E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %29, i32 noundef %30), !noalias !15879
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15875
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15875
   %36 = load <2 x i32>, ptr %16, align 8, !noalias !15875
-  store <2 x i32> %36, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15875
+  store <2 x i32> %36, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15875
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15875
   call void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E(), !noalias !15879
   call void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17h9f2a0bbdb4c4c80bE"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64, {} }) align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !15879
@@ -116556,7 +116556,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hef7d30cd8
   br label %16
 
 16:                                               ; preds = %.noexc, %5
-  %17 = load i8, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !range !9, !noalias !15954, !noundef !5
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !range !9, !noalias !15954, !noundef !5
   %18 = invoke noundef zeroext i1 @_ZN5tokio7runtime7context7runtime12EnterRuntime10is_entered17h0aa7123107cfb1c4E(i8 noundef %17)
           to label %.noexc10 unwind label %.thread
 
@@ -116568,7 +116568,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hef7d30cd8
   br label %47
 
 19:                                               ; preds = %.noexc10
-  store i8 %13, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 6), align 2, !noalias !15954
+  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 78), align 2, !noalias !15954
   %20 = invoke noundef nonnull align 4 ptr @_ZN5tokio7runtime9scheduler6Handle14seed_generator17h83b0600ff19ad96eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc11 unwind label %.thread
 
@@ -116580,7 +116580,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hef7d30cd8
   %22 = extractvalue { i32, i32 } %21, 0
   %23 = extractvalue { i32, i32 } %21, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !15954
-  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15954
+  %.sroa.02.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15954
   %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
   br i1 %switch.i.i, label %24, label %26
 
@@ -116594,8 +116594,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hef7d30cd8
   br label %27
 
 26:                                               ; preds = %.noexc12
-  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 1), align 8, !noalias !15954
-  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15954
+  %.sroa.5.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 72), align 8, !noalias !15954
+  %.sroa.4.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15954
   br label %27
 
 27:                                               ; preds = %26, %.noexc13
@@ -116610,9 +116610,9 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hef7d30cd8
 .noexc14:                                         ; preds = %27
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
-  store i32 1, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 0), align 8, !noalias !15954
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 64), align 8, !noalias !15954
   %32 = load <2 x i32>, ptr %10, align 8, !noalias !15954
-  store <2 x i32> %32, ptr getelementptr inbounds ({ { { i64, { i64, ptr } }, i64 }, { i64, i64 }, i64, ptr, { { { i32, [2 x i32] } } }, { i8, i8 }, i8, [1 x i8] }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 0, i32 4, i32 0, i32 0, i32 1, i64 0), align 4, !noalias !15954
+  store <2 x i32> %32, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 68), align 4, !noalias !15954
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i), !noalias !15954
   invoke void @_ZN5tokio7runtime7context8blocking19BlockingRegionGuard3new17h44362ed25e33a5f3E()
           to label %.noexc15 unwind label %.thread
@@ -120757,7 +120757,7 @@ _ZN9sqlx_core4pool5inner22is_beyond_max_lifetime17h15a6c78b93ee378fE.exit.i: ; p
   br i1 %199, label %200, label %.thread496.i
 
 200:                                              ; preds = %196
-  %201 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f0af99c15ffb609E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16158
+  %201 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5f0af99c15ffb609E", i64 16) monotonic, align 8, !noalias !16158
   switch i8 %201, label %202 [
     i8 0, label %.thread496.i
     i8 1, label %.thread.i
@@ -121326,7 +121326,7 @@ _ZN9sqlx_core4pool5inner22is_beyond_max_lifetime17h15a6c78b93ee378fE.exit.i: ; p
   br i1 %380, label %381, label %.thread508.i
 
 381:                                              ; preds = %377
-  %382 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h86fc91125ef54576E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16158
+  %382 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h86fc91125ef54576E", i64 16) monotonic, align 8, !noalias !16158
   switch i8 %382, label %383 [
     i8 0, label %.thread508.i
     i8 1, label %.thread505.i
@@ -123789,7 +123789,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   br i1 %521, label %522, label %.thread540.i.i
 
 522:                                              ; preds = %518
-  %523 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h26ce58c6084fedf3E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16404
+  %523 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h26ce58c6084fedf3E", i64 16) monotonic, align 8, !noalias !16404
   switch i8 %523, label %524 [
     i8 0, label %.thread540.i.i
     i8 1, label %.thread537.i.i
@@ -125122,7 +125122,7 @@ common.ret:                                       ; preds = %1160, %959
   br i1 %966, label %967, label %.thread326
 
 967:                                              ; preds = %964
-  %968 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$27min_connections_maintenance28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h810804d5f605d76bE", i64 0, i32 2, i32 0) monotonic, align 8
+  %968 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$27min_connections_maintenance28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h810804d5f605d76bE", i64 16) monotonic, align 8
   switch i8 %968, label %969 [
     i8 0, label %.thread326
     i8 1, label %.thread323
@@ -125399,7 +125399,7 @@ common.ret:                                       ; preds = %1160, %959
   br i1 %1056, label %1057, label %.thread340
 
 1057:                                             ; preds = %1054
-  %1058 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$27min_connections_maintenance28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haccf8c1516d0e34dE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1058 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$27min_connections_maintenance28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haccf8c1516d0e34dE", i64 16) monotonic, align 8
   switch i8 %1058, label %1059 [
     i8 0, label %.thread340
     i8 1, label %.thread337
@@ -127033,7 +127033,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br i1 %139, label %140, label %.thread722.i
 
 140:                                              ; preds = %137
-  %141 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9eb659845ac471efE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16787
+  %141 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9eb659845ac471efE", i64 16) monotonic, align 8, !noalias !16787
   switch i8 %141, label %142 [
     i8 0, label %.thread722.i
     i8 1, label %.thread.i
@@ -127672,7 +127672,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br i1 %360, label %361, label %.thread730.i
 
 361:                                              ; preds = %358
-  %362 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha5dfb9dfc1ecb4d9E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16787
+  %362 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha5dfb9dfc1ecb4d9E", i64 16) monotonic, align 8, !noalias !16787
   switch i8 %362, label %363 [
     i8 0, label %.thread730.i
     i8 1, label %.thread727.i
@@ -128044,7 +128044,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br i1 %483, label %484, label %.thread746.i
 
 484:                                              ; preds = %480
-  %485 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8db6a1658279a4feE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16787
+  %485 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8db6a1658279a4feE", i64 16) monotonic, align 8, !noalias !16787
   switch i8 %485, label %486 [
     i8 0, label %.thread746.i
     i8 1, label %.thread743.i
@@ -128372,7 +128372,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br i1 %586, label %587, label %.thread754.i
 
 587:                                              ; preds = %584
-  %588 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h31ae70b83cbd3febE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16787
+  %588 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h31ae70b83cbd3febE", i64 16) monotonic, align 8, !noalias !16787
   switch i8 %588, label %589 [
     i8 0, label %.thread754.i
     i8 1, label %.thread751.i
@@ -128656,7 +128656,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br i1 %677, label %678, label %.thread762.i
 
 678:                                              ; preds = %674
-  %679 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1d65ace6b3419136E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !16787
+  %679 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils25relay_stream_drop_packets28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1d65ace6b3419136E", i64 16) monotonic, align 8, !noalias !16787
   switch i8 %679, label %680 [
     i8 0, label %.thread762.i
     i8 1, label %.thread759.i
@@ -129363,7 +129363,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %173, label %174, label %.thread1096.i
 
 174:                                              ; preds = %171
-  %175 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9434e6231d2bfa5dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %175 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9434e6231d2bfa5dE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %175, label %176 [
     i8 0, label %.thread1096.i
     i8 1, label %.thread.i
@@ -130051,7 +130051,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %410, label %411, label %.thread1104.i
 
 411:                                              ; preds = %408
-  %412 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha812caa8f551920aE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %412 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha812caa8f551920aE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %412, label %413 [
     i8 0, label %.thread1104.i
     i8 1, label %.thread1101.i
@@ -130429,7 +130429,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %529, label %530, label %.thread1112.i
 
 530:                                              ; preds = %527
-  %531 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcecdd7f8e2f930c2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %531 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcecdd7f8e2f930c2E", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %531, label %532 [
     i8 0, label %.thread1112.i
     i8 1, label %.thread1109.i
@@ -130879,7 +130879,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %683, label %684, label %.thread1120.i
 
 684:                                              ; preds = %681
-  %685 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3deed20a765a368dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %685 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3deed20a765a368dE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %685, label %686 [
     i8 0, label %.thread1120.i
     i8 1, label %.thread1117.i
@@ -131323,7 +131323,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %833, label %834, label %.thread1136.i
 
 834:                                              ; preds = %830
-  %835 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68de89090933c38bE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %835 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h68de89090933c38bE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %835, label %836 [
     i8 0, label %.thread1136.i
     i8 1, label %.thread1133.i
@@ -131651,7 +131651,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %936, label %937, label %.thread1144.i
 
 937:                                              ; preds = %934
-  %938 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he199ff265139b0aaE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %938 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he199ff265139b0aaE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %938, label %939 [
     i8 0, label %.thread1144.i
     i8 1, label %.thread1141.i
@@ -131935,7 +131935,7 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br i1 %1027, label %1028, label %.thread1152.i
 
 1028:                                             ; preds = %1024
-  %1029 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb6891604250759edE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !17097
+  %1029 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils33relay_stream_packets_out_of_order28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb6891604250759edE", i64 16) monotonic, align 8, !noalias !17097
   switch i8 %1029, label %1030 [
     i8 0, label %.thread1152.i
     i8 1, label %.thread1149.i
@@ -132662,7 +132662,7 @@ common.ret:                                       ; preds = %359, %"_ZN4core3ptr
   br i1 %106, label %107, label %.thread304
 
 107:                                              ; preds = %104
-  %108 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils28relay_stream_limit_bandwidth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6976b495b75934ceE", i64 0, i32 2, i32 0) monotonic, align 8
+  %108 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils28relay_stream_limit_bandwidth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6976b495b75934ceE", i64 16) monotonic, align 8
   switch i8 %108, label %109 [
     i8 0, label %.thread304
     i8 1, label %.thread
@@ -133060,7 +133060,7 @@ common.ret:                                       ; preds = %359, %"_ZN4core3ptr
   br i1 %242, label %243, label %.thread312
 
 243:                                              ; preds = %239
-  %244 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN9ockam_api10test_utils28relay_stream_limit_bandwidth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1edcf38386bdbf2eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %244 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN9ockam_api10test_utils28relay_stream_limit_bandwidth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1edcf38386bdbf2eE", i64 16) monotonic, align 8
   switch i8 %244, label %245 [
     i8 0, label %.thread312
     i8 1, label %.thread309

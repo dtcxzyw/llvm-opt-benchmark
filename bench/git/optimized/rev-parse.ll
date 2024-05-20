@@ -1493,7 +1493,7 @@ if.then3.i201:                                    ; preds = %if.then.i200
 
 if.then294:                                       ; preds = %if.then.i200, %if.then3.i201
   %arg.4 = phi ptr [ %incdec.ptr.i202, %if.then3.i201 ], [ null, %if.then.i200 ]
-  %177 = load i8, ptr getelementptr inbounds (%struct.ref_exclusions, ptr @ref_excludes, i64 0, i32 2), align 8
+  %177 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
   %tobool295.not = icmp eq i8 %177, 0
   br i1 %tobool295.not, label %if.end300, label %if.then296
 
@@ -1550,7 +1550,7 @@ if.then3.i219:                                    ; preds = %if.then.i218
 
 if.then304:                                       ; preds = %if.then.i218, %if.then3.i219
   %arg.5 = phi ptr [ %incdec.ptr.i220, %if.then3.i219 ], [ null, %if.then.i218 ]
-  %182 = load i8, ptr getelementptr inbounds (%struct.ref_exclusions, ptr @ref_excludes, i64 0, i32 2), align 8
+  %182 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
   %tobool305.not = icmp eq i8 %182, 0
   br i1 %tobool305.not, label %if.end310, label %if.then306
 
@@ -1626,7 +1626,7 @@ if.then3.i250:                                    ; preds = %if.then.i249
 
 if.then317:                                       ; preds = %if.then.i249, %if.then3.i250
   %arg.7 = phi ptr [ %incdec.ptr.i251, %if.then3.i250 ], [ null, %if.then.i249 ]
-  %189 = load i8, ptr getelementptr inbounds (%struct.ref_exclusions, ptr @ref_excludes, i64 0, i32 2), align 8
+  %189 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
   %tobool318.not = icmp eq i8 %189, 0
   br i1 %tobool318.not, label %if.end323, label %if.then319
 
@@ -1952,7 +1952,7 @@ if.then468:                                       ; preds = %if.then464
   unreachable
 
 if.end470:                                        ; preds = %if.then464
-  %205 = load ptr, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 7), align 8
+  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @the_index, i64 40), align 8
   %tobool471.not = icmp eq ptr %205, null
   br i1 %tobool471.not, label %for.inc566, label %if.then472
 
@@ -3000,7 +3000,7 @@ if.end7.i.preheader:                              ; preds = %land.lhs.true.i, %i
 
 if.end7.i:                                        ; preds = %if.end7.i.preheader, %if.end21.i
   %5 = phi ptr [ %7, %if.end21.i ], [ @.str.39, %if.end7.i.preheader ]
-  %incdec.ptr10.i = phi ptr [ %incdec.ptr.i, %if.end21.i ], [ getelementptr inbounds ([29 x ptr], ptr @is_rev_argument.rev_args, i64 0, i64 1), %if.end7.i.preheader ]
+  %incdec.ptr10.i = phi ptr [ %incdec.ptr.i, %if.end21.i ], [ getelementptr inbounds (i8, ptr @is_rev_argument.rev_args, i64 8), %if.end7.i.preheader ]
   %call9.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(1) %5) #16
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %is_rev_argument.exit, label %lor.lhs.false.i

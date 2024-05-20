@@ -703,7 +703,7 @@ define hidden void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 16), ptr %this, align 8
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %suspendCount_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %runtimeDataLock_, i8 0, i64 64, i1 false)
@@ -1924,7 +1924,7 @@ return:                                           ; preds = %entry, %sw.bb9, %sw
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm16SamplingProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i64 16), ptr %this, align 8
   %nativeFunctions_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %nativeFunctions_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

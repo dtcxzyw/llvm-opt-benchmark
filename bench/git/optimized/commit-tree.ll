@@ -167,7 +167,7 @@ if.then61:                                        ; preds = %if.end57
   unreachable
 
 if.end64:                                         ; preds = %if.end57
-  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @cmd_commit_tree.buffer, i64 8), align 8
   %tobool65.not = icmp eq i64 %10, 0
   br i1 %tobool65.not, label %if.then66, label %if.end72
 
@@ -177,7 +177,7 @@ if.then66:                                        ; preds = %if.end64
   br i1 %cmp68, label %if.then69, label %if.then66.if.end72_crit_edge
 
 if.then66.if.end72_crit_edge:                     ; preds = %if.then66
-  %.pre = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 1), align 8
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @cmd_commit_tree.buffer, i64 8), align 8
   br label %if.end72
 
 if.then69:                                        ; preds = %if.then66
@@ -187,7 +187,7 @@ if.then69:                                        ; preds = %if.then66
 
 if.end72:                                         ; preds = %if.then66.if.end72_crit_edge, %if.end64
   %11 = phi i64 [ %.pre, %if.then66.if.end72_crit_edge ], [ %10, %if.end64 ]
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @cmd_commit_tree.buffer, i64 16), align 8
   %13 = load ptr, ptr %parents, align 8
   %14 = load ptr, ptr @sign_commit, align 8
   %call73 = call i32 @commit_tree(ptr noundef %12, i64 noundef %11, ptr noundef nonnull %tree_oid, ptr noundef %13, ptr noundef nonnull %commit_oid, ptr noundef null, ptr noundef %14) #7

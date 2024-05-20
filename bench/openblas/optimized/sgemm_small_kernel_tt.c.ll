@@ -22,7 +22,7 @@ define noundef i32 @sgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %23, label %24, label %.loopexit85
 
 24:                                               ; preds = %11
-  %25 = load <16 x i32>, ptr getelementptr inbounds ([32 x i32], ptr @__const.sgemm_small_kernel_tt.permute_table, i64 0, i64 16), align 64
+  %25 = load <16 x i32>, ptr getelementptr inbounds (i8, ptr @__const.sgemm_small_kernel_tt.permute_table, i64 64), align 64
   %26 = load <16 x i32>, ptr @__const.sgemm_small_kernel_tt.permute_table, align 64
   %27 = icmp sgt i64 %17, 0
   %28 = icmp sgt i64 %2, 0

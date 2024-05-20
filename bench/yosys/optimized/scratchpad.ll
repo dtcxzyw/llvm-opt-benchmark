@@ -335,7 +335,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 91:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %92 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %94 = icmp eq ptr %92, %93
   br i1 %94, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i81, label %95
 
@@ -358,7 +358,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 
 _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i.i79: ; preds = %.lr.ph.i.i.i75, %95
   %.0.lcssa.i.i.i80 = phi i32 [ 0, %95 ], [ %101, %.lr.ph.i.i.i75 ]
-  %103 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %104 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
   %105 = ptrtoint ptr %103 to i64
   %106 = ptrtoint ptr %104 to i64
@@ -418,7 +418,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %133)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %134 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
-  %135 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %136 = icmp eq ptr %134, %135
   br i1 %136, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i91, label %137
 
@@ -441,7 +441,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 
 _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i.i89: ; preds = %.lr.ph.i.i.i85, %137
   %.0.lcssa.i.i.i90 = phi i32 [ 0, %137 ], [ %143, %.lr.ph.i.i.i85 ]
-  %145 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %146 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
   %147 = ptrtoint ptr %145 to i64
   %148 = ptrtoint ptr %146 to i64
@@ -676,7 +676,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 246:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %247 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
-  %248 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %249 = icmp eq ptr %247, %248
   br i1 %249, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i111, label %250
 
@@ -699,7 +699,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 
 _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i.i109: ; preds = %.lr.ph.i.i.i105, %250
   %.0.lcssa.i.i.i110 = phi i32 [ 0, %250 ], [ %256, %.lr.ph.i.i.i105 ]
-  %258 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %259 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
   %260 = ptrtoint ptr %258 to i64
   %261 = ptrtoint ptr %259 to i64
@@ -741,7 +741,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 275:                                              ; preds = %271, %240
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %276 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
-  %277 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %277 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %278 = icmp eq ptr %276, %277
   br i1 %278, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i121, label %279
 
@@ -764,7 +764,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
 
 _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i.i119: ; preds = %.lr.ph.i.i.i115, %279
   %.0.lcssa.i.i.i120 = phi i32 [ 0, %279 ], [ %285, %.lr.ph.i.i.i115 ]
-  %287 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, i64 8), align 8
   %288 = load ptr, ptr @_ZN5Yosys5RTLIL8constpadB5cxx11E, align 8
   %289 = ptrtoint ptr %287 to i64
   %290 = ptrtoint ptr %288 to i64
@@ -1777,7 +1777,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 
 11:                                               ; preds = %9, %6, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 8), align 8
   %.not1112 = icmp eq ptr %12, %13
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -2188,7 +2188,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ScratchpadPassE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_114ScratchpadPassE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114ScratchpadPassE, i64 16), ptr @_ZN12_GLOBAL__N_114ScratchpadPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

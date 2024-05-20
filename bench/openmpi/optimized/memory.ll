@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @opal_mem_hooks_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -34,8 +34,8 @@ define noundef i32 @opal_mem_hooks_init() local_unnamed_addr #0 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_list_t_class, ptr @release_cb_list, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -85,20 +85,20 @@ define internal void @opal_mem_hooks_finalize() #0 {
   br i1 %7, label %opal_atomic_lock.exit, label %.preheader.i.backedge
 
 opal_atomic_lock.exit:                            ; preds = %5, %0
-  %8 = load volatile i32, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 0, i32 1), align 8
+  %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 8), align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %.preheader, label %opal_list_remove_first.exit.thread
 
 .preheader:                                       ; preds = %opal_atomic_lock.exit
-  %10 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %opal_list_remove_first.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %40
-  %12 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  %12 = load volatile i64, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %13 = add i64 %12, -1
-  store volatile i64 %13, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
-  %14 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 1), align 8
+  store volatile i64 %13, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 32), align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load volatile ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
@@ -106,7 +106,7 @@ opal_atomic_lock.exit:                            ; preds = %5, %0
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   store volatile ptr %16, ptr %19, align 8
   %20 = load volatile ptr, ptr %17, align 8
-  store volatile ptr %20, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 1), align 8
+  store volatile ptr %20, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 32), align 8
   %21 = getelementptr inbounds i8, ptr %14, i64 8
   %22 = load i8, ptr @opal_uses_threads, align 1
   %23 = trunc i8 %22 to i1
@@ -151,7 +151,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
   br label %40
 
 40:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %41 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  %41 = load volatile i64, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !8
 
@@ -208,10 +208,10 @@ define void @opal_mem_hooks_release_hook(ptr noundef %0, i64 noundef %1, i1 noun
   br i1 %11, label %opal_atomic_lock.exit, label %.preheader.i.backedge
 
 opal_atomic_lock.exit:                            ; preds = %9, %4
-  %12 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 1), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 32), align 8
   %.0.in11 = getelementptr inbounds i8, ptr %12, i64 16
   %.012 = load volatile ptr, ptr %.0.in11, align 8
-  %.not13 = icmp eq ptr %12, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.not13 = icmp eq ptr %12, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_atomic_lock.exit, %opal_atomic_lock.exit10
@@ -244,7 +244,7 @@ opal_atomic_lock.exit:                            ; preds = %9, %4
 opal_atomic_lock.exit10:                          ; preds = %21, %.lr.ph
   %.0.in = getelementptr inbounds i8, ptr %.015, i64 16
   %.0 = load volatile ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %opal_atomic_lock.exit10, %opal_atomic_lock.exit
@@ -270,10 +270,10 @@ define range(i32 -14, 1) i32 @opal_mem_hooks_register_release(ptr noundef %0, pt
   br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @callback_list_item_t_class, i64 0, i32 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @callback_list_item_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @callback_list_item_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @callback_list_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 
@@ -289,7 +289,7 @@ define range(i32 -14, 1) i32 @opal_mem_hooks_register_release(ptr noundef %0, pt
   store ptr @callback_list_item_t_class, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @callback_list_item_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @callback_list_item_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i
@@ -324,14 +324,14 @@ opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %13
 opal_atomic_lock.exit:                            ; preds = %24, %opal_obj_new.exit.thread23
   store i1 true, ptr @release_run_callbacks, align 4
   fence seq_cst
-  %.01926 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 1), align 8
-  %.not27 = icmp eq ptr %.01926, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.01926 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 32), align 8
+  %.not27 = icmp eq ptr %.01926, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds i8, ptr %.01928, i64 16
   %.019 = load volatile ptr, ptr %28, align 8
-  %.not = icmp eq ptr %.019, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %opal_atomic_lock.exit, %27
@@ -346,18 +346,18 @@ opal_atomic_lock.exit:                            ; preds = %24, %opal_obj_new.e
   store ptr %0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %1, ptr %33, align 8
-  %34 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 2), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 40), align 8
   %35 = getelementptr inbounds i8, ptr %8, i64 24
   store volatile ptr %34, ptr %35, align 8
-  %36 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 2), align 8
+  %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 40), align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   store volatile ptr %8, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %8, i64 16
-  store volatile ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1), ptr %38, align 8
-  store volatile ptr %8, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 2), align 8
-  %39 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  store volatile ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 16), ptr %38, align 8
+  store volatile ptr %8, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 40), align 8
+  %39 = load volatile i64, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %40 = add i64 %39, 1
-  store volatile i64 %40, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  store volatile i64 %40, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %12
@@ -443,8 +443,8 @@ define range(i32 -13, 1) i32 @opal_mem_hooks_unregister_release(ptr noundef read
   br i1 %9, label %opal_atomic_lock.exit, label %.preheader.i.backedge
 
 opal_atomic_lock.exit:                            ; preds = %7, %2
-  %.01523 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1, i32 1), align 8
-  %.not24 = icmp eq ptr %.01523, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.01523 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 32), align 8
+  %.not24 = icmp eq ptr %.01523, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not24, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %14, %opal_atomic_lock.exit
@@ -466,7 +466,7 @@ opal_atomic_lock.exit:                            ; preds = %7, %2
 14:                                               ; preds = %.lr.ph, %10
   %15 = getelementptr inbounds i8, ptr %.01525, i64 16
   %.015 = load volatile ptr, ptr %15, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 1)
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @release_cb_list, i64 16)
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
 16:                                               ; preds = %10
@@ -480,9 +480,9 @@ opal_atomic_lock.exit:                            ; preds = %7, %2
   %23 = load volatile ptr, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   store volatile ptr %22, ptr %24, align 8
-  %25 = load volatile i64, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  %25 = load volatile i64, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %26 = add i64 %25, -1
-  store volatile i64 %26, ptr getelementptr inbounds (%struct.opal_list_t, ptr @release_cb_list, i64 0, i32 2), align 8
+  store volatile i64 %26, ptr getelementptr inbounds (i8, ptr @release_cb_list, i64 56), align 8
   %27 = load volatile ptr, ptr %19, align 8
   fence release
   store volatile i32 0, ptr @release_lock, align 4

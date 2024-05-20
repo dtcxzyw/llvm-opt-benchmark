@@ -2009,7 +2009,7 @@ land.lhs.true1028:                                ; preds = %lor.lhs.false1024
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true1028
   %add.ptr.pn.i = phi ptr [ %add.ptr.i709, %land.lhs.true1028 ], [ %a.0.i, %lor.lhs.false.i ]
-  %add.ptr3.pn.i = phi ptr [ getelementptr inbounds ([5 x i8], ptr @.str.120, i64 0, i64 4), %land.lhs.true1028 ], [ %b.0.i, %lor.lhs.false.i ]
+  %add.ptr3.pn.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.120, i64 4), %land.lhs.true1028 ], [ %b.0.i, %lor.lhs.false.i ]
   %b.0.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i, i64 -1
   %a.0.i = getelementptr inbounds i8, ptr %add.ptr.pn.i, i64 -1
   %cmp.not.i = icmp ult ptr %b.0.i, @.str.120
@@ -3169,7 +3169,7 @@ if.then1.i:                                       ; preds = %if.then.i897
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.then1.i
   %add.ptr.pn.i.i = phi ptr [ %add.ptr.i.i905, %if.then1.i ], [ %a.0.i.i, %lor.lhs.false.i.i ]
-  %add.ptr3.pn.i.i = phi ptr [ getelementptr inbounds ([5 x i8], ptr @.str.153, i64 0, i64 4), %if.then1.i ], [ %b.0.i.i, %lor.lhs.false.i.i ]
+  %add.ptr3.pn.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.153, i64 4), %if.then1.i ], [ %b.0.i.i, %lor.lhs.false.i.i ]
   %b.0.i.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i, i64 -1
   %a.0.i.i = getelementptr inbounds i8, ptr %add.ptr.pn.i.i, i64 -1
   %cmp.not.i.i = icmp ult ptr %b.0.i.i, @.str.153
@@ -3199,7 +3199,7 @@ for.cond.i62.i.preheader:                         ; preds = %lor.lhs.false.i.i, 
 
 for.cond.i62.i:                                   ; preds = %for.cond.i62.i.preheader, %lor.lhs.false.i70.i
   %add.ptr.pn.i63.i = phi ptr [ %a.0.i66.i, %lor.lhs.false.i70.i ], [ %add.ptr.i.i905, %for.cond.i62.i.preheader ]
-  %add.ptr3.pn.i64.i = phi ptr [ %b.0.i65.i, %lor.lhs.false.i70.i ], [ getelementptr inbounds ([5 x i8], ptr @.str.120, i64 0, i64 4), %for.cond.i62.i.preheader ]
+  %add.ptr3.pn.i64.i = phi ptr [ %b.0.i65.i, %lor.lhs.false.i70.i ], [ getelementptr inbounds (i8, ptr @.str.120, i64 4), %for.cond.i62.i.preheader ]
   %b.0.i65.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i, i64 -1
   %a.0.i66.i = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i, i64 -1
   %cmp.not.i67.i = icmp ult ptr %b.0.i65.i, @.str.120
@@ -3229,7 +3229,7 @@ for.cond.i84.i.preheader:                         ; preds = %lor.lhs.false.i70.i
 
 for.cond.i84.i:                                   ; preds = %for.cond.i84.i.preheader, %lor.lhs.false.i92.i
   %add.ptr.pn.i85.i = phi ptr [ %a.0.i88.i, %lor.lhs.false.i92.i ], [ %add.ptr.i.i905, %for.cond.i84.i.preheader ]
-  %add.ptr3.pn.i86.i = phi ptr [ %b.0.i87.i, %lor.lhs.false.i92.i ], [ getelementptr inbounds ([5 x i8], ptr @.str.154, i64 0, i64 4), %for.cond.i84.i.preheader ]
+  %add.ptr3.pn.i86.i = phi ptr [ %b.0.i87.i, %lor.lhs.false.i92.i ], [ getelementptr inbounds (i8, ptr @.str.154, i64 4), %for.cond.i84.i.preheader ]
   %b.0.i87.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i, i64 -1
   %a.0.i88.i = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i, i64 -1
   %cmp.not.i89.i = icmp ult ptr %b.0.i87.i, @.str.154
@@ -3259,7 +3259,7 @@ for.cond.i106.i.preheader:                        ; preds = %lor.lhs.false.i92.i
 
 for.cond.i106.i:                                  ; preds = %for.cond.i106.i.preheader, %lor.lhs.false.i114.i
   %add.ptr.pn.i107.i = phi ptr [ %a.0.i110.i, %lor.lhs.false.i114.i ], [ %add.ptr.i.i905, %for.cond.i106.i.preheader ]
-  %add.ptr3.pn.i108.i = phi ptr [ %b.0.i109.i, %lor.lhs.false.i114.i ], [ getelementptr inbounds ([6 x i8], ptr @.str.155, i64 0, i64 5), %for.cond.i106.i.preheader ]
+  %add.ptr3.pn.i108.i = phi ptr [ %b.0.i109.i, %lor.lhs.false.i114.i ], [ getelementptr inbounds (i8, ptr @.str.155, i64 5), %for.cond.i106.i.preheader ]
   %b.0.i109.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i, i64 -1
   %a.0.i110.i = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i, i64 -1
   %cmp.not.i111.i = icmp ult ptr %b.0.i109.i, @.str.155
@@ -3786,7 +3786,7 @@ if.then1.i1093:                                   ; preds = %if.then.i967
 
 for.cond.i.i1096:                                 ; preds = %lor.lhs.false.i.i1104, %if.then1.i1093
   %add.ptr.pn.i.i1097 = phi ptr [ %add.ptr.i.i1095, %if.then1.i1093 ], [ %a.0.i.i1100, %lor.lhs.false.i.i1104 ]
-  %add.ptr3.pn.i.i1098 = phi ptr [ getelementptr inbounds ([5 x i8], ptr @.str.153, i64 0, i64 4), %if.then1.i1093 ], [ %b.0.i.i1099, %lor.lhs.false.i.i1104 ]
+  %add.ptr3.pn.i.i1098 = phi ptr [ getelementptr inbounds (i8, ptr @.str.153, i64 4), %if.then1.i1093 ], [ %b.0.i.i1099, %lor.lhs.false.i.i1104 ]
   %b.0.i.i1099 = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i1098, i64 -1
   %a.0.i.i1100 = getelementptr inbounds i8, ptr %add.ptr.pn.i.i1097, i64 -1
   %cmp.not.i.i1101 = icmp ult ptr %b.0.i.i1099, @.str.153
@@ -3816,7 +3816,7 @@ for.cond.i62.i1113.preheader:                     ; preds = %lor.lhs.false.i.i11
 
 for.cond.i62.i1113:                               ; preds = %for.cond.i62.i1113.preheader, %lor.lhs.false.i70.i1121
   %add.ptr.pn.i63.i1114 = phi ptr [ %a.0.i66.i1117, %lor.lhs.false.i70.i1121 ], [ %add.ptr.i.i1095, %for.cond.i62.i1113.preheader ]
-  %add.ptr3.pn.i64.i1115 = phi ptr [ %b.0.i65.i1116, %lor.lhs.false.i70.i1121 ], [ getelementptr inbounds ([5 x i8], ptr @.str.120, i64 0, i64 4), %for.cond.i62.i1113.preheader ]
+  %add.ptr3.pn.i64.i1115 = phi ptr [ %b.0.i65.i1116, %lor.lhs.false.i70.i1121 ], [ getelementptr inbounds (i8, ptr @.str.120, i64 4), %for.cond.i62.i1113.preheader ]
   %b.0.i65.i1116 = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i1115, i64 -1
   %a.0.i66.i1117 = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i1114, i64 -1
   %cmp.not.i67.i1118 = icmp ult ptr %b.0.i65.i1116, @.str.120
@@ -3846,7 +3846,7 @@ for.cond.i84.i1130.preheader:                     ; preds = %lor.lhs.false.i70.i
 
 for.cond.i84.i1130:                               ; preds = %for.cond.i84.i1130.preheader, %lor.lhs.false.i92.i1138
   %add.ptr.pn.i85.i1131 = phi ptr [ %a.0.i88.i1134, %lor.lhs.false.i92.i1138 ], [ %add.ptr.i.i1095, %for.cond.i84.i1130.preheader ]
-  %add.ptr3.pn.i86.i1132 = phi ptr [ %b.0.i87.i1133, %lor.lhs.false.i92.i1138 ], [ getelementptr inbounds ([5 x i8], ptr @.str.154, i64 0, i64 4), %for.cond.i84.i1130.preheader ]
+  %add.ptr3.pn.i86.i1132 = phi ptr [ %b.0.i87.i1133, %lor.lhs.false.i92.i1138 ], [ getelementptr inbounds (i8, ptr @.str.154, i64 4), %for.cond.i84.i1130.preheader ]
   %b.0.i87.i1133 = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i1132, i64 -1
   %a.0.i88.i1134 = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i1131, i64 -1
   %cmp.not.i89.i1135 = icmp ult ptr %b.0.i87.i1133, @.str.154
@@ -3876,7 +3876,7 @@ for.cond.i106.i1147.preheader:                    ; preds = %lor.lhs.false.i92.i
 
 for.cond.i106.i1147:                              ; preds = %for.cond.i106.i1147.preheader, %lor.lhs.false.i114.i1155
   %add.ptr.pn.i107.i1148 = phi ptr [ %a.0.i110.i1151, %lor.lhs.false.i114.i1155 ], [ %add.ptr.i.i1095, %for.cond.i106.i1147.preheader ]
-  %add.ptr3.pn.i108.i1149 = phi ptr [ %b.0.i109.i1150, %lor.lhs.false.i114.i1155 ], [ getelementptr inbounds ([6 x i8], ptr @.str.155, i64 0, i64 5), %for.cond.i106.i1147.preheader ]
+  %add.ptr3.pn.i108.i1149 = phi ptr [ %b.0.i109.i1150, %lor.lhs.false.i114.i1155 ], [ getelementptr inbounds (i8, ptr @.str.155, i64 5), %for.cond.i106.i1147.preheader ]
   %b.0.i109.i1150 = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i1149, i64 -1
   %a.0.i110.i1151 = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i1148, i64 -1
   %cmp.not.i111.i1152 = icmp ult ptr %b.0.i109.i1150, @.str.155
@@ -4410,7 +4410,7 @@ if.then1.i1427:                                   ; preds = %if.then.i1297
 
 for.cond.i.i1430:                                 ; preds = %lor.lhs.false.i.i1438, %if.then1.i1427
   %add.ptr.pn.i.i1431 = phi ptr [ %add.ptr.i.i1429, %if.then1.i1427 ], [ %a.0.i.i1434, %lor.lhs.false.i.i1438 ]
-  %add.ptr3.pn.i.i1432 = phi ptr [ getelementptr inbounds ([5 x i8], ptr @.str.153, i64 0, i64 4), %if.then1.i1427 ], [ %b.0.i.i1433, %lor.lhs.false.i.i1438 ]
+  %add.ptr3.pn.i.i1432 = phi ptr [ getelementptr inbounds (i8, ptr @.str.153, i64 4), %if.then1.i1427 ], [ %b.0.i.i1433, %lor.lhs.false.i.i1438 ]
   %b.0.i.i1433 = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i1432, i64 -1
   %a.0.i.i1434 = getelementptr inbounds i8, ptr %add.ptr.pn.i.i1431, i64 -1
   %cmp.not.i.i1435 = icmp ult ptr %b.0.i.i1433, @.str.153
@@ -4440,7 +4440,7 @@ for.cond.i62.i1447.preheader:                     ; preds = %lor.lhs.false.i.i14
 
 for.cond.i62.i1447:                               ; preds = %for.cond.i62.i1447.preheader, %lor.lhs.false.i70.i1455
   %add.ptr.pn.i63.i1448 = phi ptr [ %a.0.i66.i1451, %lor.lhs.false.i70.i1455 ], [ %add.ptr.i.i1429, %for.cond.i62.i1447.preheader ]
-  %add.ptr3.pn.i64.i1449 = phi ptr [ %b.0.i65.i1450, %lor.lhs.false.i70.i1455 ], [ getelementptr inbounds ([5 x i8], ptr @.str.120, i64 0, i64 4), %for.cond.i62.i1447.preheader ]
+  %add.ptr3.pn.i64.i1449 = phi ptr [ %b.0.i65.i1450, %lor.lhs.false.i70.i1455 ], [ getelementptr inbounds (i8, ptr @.str.120, i64 4), %for.cond.i62.i1447.preheader ]
   %b.0.i65.i1450 = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i1449, i64 -1
   %a.0.i66.i1451 = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i1448, i64 -1
   %cmp.not.i67.i1452 = icmp ult ptr %b.0.i65.i1450, @.str.120
@@ -4470,7 +4470,7 @@ for.cond.i84.i1464.preheader:                     ; preds = %lor.lhs.false.i70.i
 
 for.cond.i84.i1464:                               ; preds = %for.cond.i84.i1464.preheader, %lor.lhs.false.i92.i1472
   %add.ptr.pn.i85.i1465 = phi ptr [ %a.0.i88.i1468, %lor.lhs.false.i92.i1472 ], [ %add.ptr.i.i1429, %for.cond.i84.i1464.preheader ]
-  %add.ptr3.pn.i86.i1466 = phi ptr [ %b.0.i87.i1467, %lor.lhs.false.i92.i1472 ], [ getelementptr inbounds ([5 x i8], ptr @.str.154, i64 0, i64 4), %for.cond.i84.i1464.preheader ]
+  %add.ptr3.pn.i86.i1466 = phi ptr [ %b.0.i87.i1467, %lor.lhs.false.i92.i1472 ], [ getelementptr inbounds (i8, ptr @.str.154, i64 4), %for.cond.i84.i1464.preheader ]
   %b.0.i87.i1467 = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i1466, i64 -1
   %a.0.i88.i1468 = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i1465, i64 -1
   %cmp.not.i89.i1469 = icmp ult ptr %b.0.i87.i1467, @.str.154
@@ -4500,7 +4500,7 @@ for.cond.i106.i1481.preheader:                    ; preds = %lor.lhs.false.i92.i
 
 for.cond.i106.i1481:                              ; preds = %for.cond.i106.i1481.preheader, %lor.lhs.false.i114.i1489
   %add.ptr.pn.i107.i1482 = phi ptr [ %a.0.i110.i1485, %lor.lhs.false.i114.i1489 ], [ %add.ptr.i.i1429, %for.cond.i106.i1481.preheader ]
-  %add.ptr3.pn.i108.i1483 = phi ptr [ %b.0.i109.i1484, %lor.lhs.false.i114.i1489 ], [ getelementptr inbounds ([6 x i8], ptr @.str.155, i64 0, i64 5), %for.cond.i106.i1481.preheader ]
+  %add.ptr3.pn.i108.i1483 = phi ptr [ %b.0.i109.i1484, %lor.lhs.false.i114.i1489 ], [ getelementptr inbounds (i8, ptr @.str.155, i64 5), %for.cond.i106.i1481.preheader ]
   %b.0.i109.i1484 = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i1483, i64 -1
   %a.0.i110.i1485 = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i1482, i64 -1
   %cmp.not.i111.i1486 = icmp ult ptr %b.0.i109.i1484, @.str.155

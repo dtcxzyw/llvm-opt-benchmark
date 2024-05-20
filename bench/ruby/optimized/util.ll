@@ -1673,7 +1673,7 @@ Balloc.exit:                                      ; preds = %465, %495
 
 ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %505
   %506 = call fastcc ptr @d2b(double noundef %.sroa.0103.10, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %507 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), align 8
+  %507 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %508
 
 508:                                              ; preds = %509, %ruby_nonempty_memcpy.exit
@@ -1683,7 +1683,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %505
 
 509:                                              ; preds = %508
   %510 = ptrtoint ptr %.0.i.i765 to i64
-  %511 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 %510, i64 -1 seq_cst seq_cst, align 8
+  %511 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 %510, i64 -1 seq_cst seq_cst, align 8
   %512 = extractvalue { i64, i1 } %511, 0
   %513 = inttoptr i64 %512 to ptr
   %514 = icmp ne ptr %513, inttoptr (i64 -1 to ptr)
@@ -1694,7 +1694,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %505
 517:                                              ; preds = %509
   %518 = load ptr, ptr %513, align 8
   %519 = ptrtoint ptr %518 to i64
-  %520 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 -1, i64 %519 seq_cst seq_cst, align 8
+  %520 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 -1, i64 %519 seq_cst seq_cst, align 8
   br label %i2b.exit
 
 .thread.i.i769:                                   ; preds = %508
@@ -2841,7 +2841,7 @@ declare i32 @llvm.get.rounding() #11
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #12 {
-  %4 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %5
 
 5:                                                ; preds = %6, %3
@@ -2851,7 +2851,7 @@ define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef writeon
 
 6:                                                ; preds = %5
   %7 = ptrtoint ptr %.0.i to i64
-  %8 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 %7, i64 -1 seq_cst seq_cst, align 8
+  %8 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 %7, i64 -1 seq_cst seq_cst, align 8
   %9 = extractvalue { i64, i1 } %8, 0
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp ne ptr %10, inttoptr (i64 -1 to ptr)
@@ -2862,7 +2862,7 @@ define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef writeon
 14:                                               ; preds = %6
   %15 = load ptr, ptr %10, align 8
   %16 = ptrtoint ptr %15 to i64
-  %17 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 -1, i64 %16 seq_cst seq_cst, align 8
+  %17 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 -1, i64 %16 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
 .thread.i:                                        ; preds = %5
@@ -3159,7 +3159,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef %1) unnamed_add
   br i1 %.not43, label %14, label %Bfree.exit.preheader
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %16
 
 16:                                               ; preds = %17, %14
@@ -3169,7 +3169,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef %1) unnamed_add
 
 17:                                               ; preds = %16
   %18 = ptrtoint ptr %.0.i.i to i64
-  %19 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 %18, i64 -1 seq_cst seq_cst, align 8
+  %19 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 %18, i64 -1 seq_cst seq_cst, align 8
   %20 = extractvalue { i64, i1 } %19, 0
   %21 = inttoptr i64 %20 to ptr
   %22 = icmp ne ptr %21, inttoptr (i64 -1 to ptr)
@@ -3180,7 +3180,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef %1) unnamed_add
 25:                                               ; preds = %17
   %26 = load ptr, ptr %21, align 8
   %27 = ptrtoint ptr %26 to i64
-  %28 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 -1, i64 %27 seq_cst seq_cst, align 8
+  %28 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 -1, i64 %27 seq_cst seq_cst, align 8
   br label %i2b.exit
 
 .thread.i.i:                                      ; preds = %16
@@ -4156,7 +4156,7 @@ define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noun
   %18 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #22
   store i8 78, ptr %18, align 1
   %scevgep1029 = getelementptr i8, ptr %18, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep1029, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds ([4 x i8], ptr @NANSTR, i64 0, i64 1), i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep1029, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @NANSTR, i64 1), i64 3, i1 false)
   br i1 %.not9.i, label %nrv_alloc.exit, label %19
 
 19:                                               ; preds = %._crit_edge.i638
@@ -4698,7 +4698,7 @@ select.unfold:                                    ; preds = %62
   %278 = select i1 %.not580.not, i32 %276, i32 %277
   %279 = add i32 %278, %.1487
   %280 = add i32 %278, %.1499
-  %281 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), align 8
+  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %282
 
 282:                                              ; preds = %283, %275
@@ -4708,7 +4708,7 @@ select.unfold:                                    ; preds = %62
 
 283:                                              ; preds = %282
   %284 = ptrtoint ptr %.0.i.i to i64
-  %285 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 %284, i64 -1 seq_cst seq_cst, align 8
+  %285 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 %284, i64 -1 seq_cst seq_cst, align 8
   %286 = extractvalue { i64, i1 } %285, 0
   %287 = inttoptr i64 %286 to ptr
   %288 = icmp ne ptr %287, inttoptr (i64 -1 to ptr)
@@ -4719,7 +4719,7 @@ select.unfold:                                    ; preds = %62
 291:                                              ; preds = %283
   %292 = load ptr, ptr %287, align 8
   %293 = ptrtoint ptr %292 to i64
-  %294 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 -1, i64 %293 seq_cst seq_cst, align 8
+  %294 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 -1, i64 %293 seq_cst seq_cst, align 8
   br label %i2b.exit
 
 .thread.i.i:                                      ; preds = %282
@@ -4848,7 +4848,7 @@ i2b.exit:                                         ; preds = %291, %312
 Bfree.exit:                                       ; preds = %346, %337, %329, %353, %326
   %.1472 = phi ptr [ %354, %353 ], [ %25, %326 ], [ %331, %329 ], [ %331, %337 ], [ %331, %346 ]
   %.4450 = phi ptr [ %.2448, %353 ], [ %.2448, %326 ], [ %330, %329 ], [ %330, %337 ], [ %330, %346 ]
-  %355 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), align 8
+  %355 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %356
 
 356:                                              ; preds = %357, %Bfree.exit
@@ -4858,7 +4858,7 @@ Bfree.exit:                                       ; preds = %346, %337, %329, %3
 
 357:                                              ; preds = %356
   %358 = ptrtoint ptr %.0.i.i649 to i64
-  %359 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 %358, i64 -1 seq_cst seq_cst, align 8
+  %359 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 %358, i64 -1 seq_cst seq_cst, align 8
   %360 = extractvalue { i64, i1 } %359, 0
   %361 = inttoptr i64 %360 to ptr
   %362 = icmp ne ptr %361, inttoptr (i64 -1 to ptr)
@@ -4869,7 +4869,7 @@ Bfree.exit:                                       ; preds = %346, %337, %329, %3
 365:                                              ; preds = %357
   %366 = load ptr, ptr %361, align 8
   %367 = ptrtoint ptr %366 to i64
-  %368 = cmpxchg volatile ptr getelementptr inbounds ([16 x ptr], ptr @freelist, i64 0, i64 1), i64 -1, i64 %367 seq_cst seq_cst, align 8
+  %368 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @freelist, i64 8), i64 -1, i64 %367 seq_cst seq_cst, align 8
   br label %i2b.exit656
 
 .thread.i.i652:                                   ; preds = %356

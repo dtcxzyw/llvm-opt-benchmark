@@ -747,7 +747,7 @@ invoke.cont42:
   %ref.tmp = alloca %"struct.btSoftBody::Node", align 8
   %ref.tmp107 = alloca %struct.btDbvtAabbMm, align 8
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -1409,7 +1409,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV24btSoftBodyCollisionShape, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24btSoftBodyCollisionShape, i64 16), ptr %call.i, align 8
   %m_shapeType.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 32, ptr %m_shapeType.i, align 8
   %m_body.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -3171,7 +3171,7 @@ declare void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereference
 define dso_local void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfo(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef %worldInfo) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont42:
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -4300,7 +4300,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_collisionShape = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_collisionShape, align 8
   %isnull = icmp eq ptr %0, null
@@ -11294,7 +11294,7 @@ entry:
   %scevgep.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6LJointE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6LJointE, i64 16), ptr %call, align 8
   store ptr %body0, ptr %scevgep.i.i, align 8
   %ref.tmp.sroa.2.0.m_bodies.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.2.0.m_bodies.sroa_idx, i8 0, i64 16, i1 false)
@@ -11316,11 +11316,11 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
@@ -11424,11 +11424,11 @@ init.i27:                                         ; preds = %init.check.i25
 invoke.cont2.i30:                                 ; preds = %init.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i28, i64 16, i1 false)
   %arrayidx6.i.i.i31 = getelementptr inbounds i8, ptr %call.i28, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i31, i64 16, i1 false)
   %arrayidx10.i.i.i32 = getelementptr inbounds i8, ptr %call.i28, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
   %m_origin3.i.i33 = getelementptr inbounds i8, ptr %call.i28, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit34
 
@@ -11637,7 +11637,7 @@ entry:
   %scevgep.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6AJointE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6AJointE, i64 16), ptr %call, align 8
   store ptr %body0, ptr %scevgep.i.i, align 8
   %ref.tmp.sroa.2.0.m_bodies.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.2.0.m_bodies.sroa_idx, i8 0, i64 16, i1 false)
@@ -11659,11 +11659,11 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
@@ -11737,11 +11737,11 @@ init.i27:                                         ; preds = %init.check.i25
 invoke.cont2.i30:                                 ; preds = %init.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i28, i64 16, i1 false)
   %arrayidx6.i.i.i31 = getelementptr inbounds i8, ptr %call.i28, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i31, i64 16, i1 false)
   %arrayidx10.i.i.i32 = getelementptr inbounds i8, ptr %call.i28, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
   %m_origin3.i.i33 = getelementptr inbounds i8, ptr %call.i28, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit34
 
@@ -25454,7 +25454,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
 
 if.else:                                          ; preds = %lor.lhs.false
   %22 = load float, ptr %mint, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 0, i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
   %m_rayFrom.i = getelementptr inbounds i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds i8, ptr %collider, i64 40
@@ -25715,7 +25715,7 @@ if.end4:                                          ; preds = %if.else, %if.then3
   %index = getelementptr inbounds i8, ptr %results, i64 12
   store i32 -1, ptr %index, align 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %collider.i)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 0, i32 0, i64 2), ptr %collider.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider.i, align 8
   %m_rayFrom.i.i = getelementptr inbounds i8, ptr %collider.i, i64 8
   %m_rayTo.i.i = getelementptr inbounds i8, ptr %collider.i, i64 24
   %m_rayNormalizedDirection.i.i = getelementptr inbounds i8, ptr %collider.i, i64 40
@@ -25772,7 +25772,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZNK10btSoftBody11rayFaceTestERK9b
 entry:
   %collider = alloca %"struct.btSoftBody::RayFromToCaster", align 8
   %0 = load float, ptr %mint, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 0, i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
   %m_rayFrom.i = getelementptr inbounds i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds i8, ptr %collider, i64 40
@@ -28758,7 +28758,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %this, align 8
   %m_rayFrom = getelementptr inbounds i8, ptr %this, i64 8
   %m_rayTo = getelementptr inbounds i8, ptr %this, i64 24
   %m_rayNormalizedDirection = getelementptr inbounds i8, ptr %this, i64 40
@@ -32091,7 +32091,7 @@ cond.end9:                                        ; preds = %cond.true3, %cond.f
   %sub14.i79 = fsub float %82, %75
   %retval.sroa.3.12.vec.insert.i82 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i79, i64 0
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i64 0, i32 0, i64 2), ptr %triangle, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle, align 8
   %m_vertices1.ptr.i = getelementptr inbounds i8, ptr %triangle, i64 80
   %m_shapeType.i = getelementptr inbounds i8, ptr %triangle, i64 8
   store i32 1, ptr %m_shapeType.i, align 8
@@ -32244,7 +32244,7 @@ invoke.cont104:                                   ; preds = %invoke.cont101
   %sub14.i102 = fsub float %122, %123
   %retval.sroa.3.12.vec.insert.i105 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i102, i64 0
   %128 = fsub <2 x float> %120, %121
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i64 0, i32 0, i64 2), ptr %triangle2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2, align 8
   %m_vertices1.ptr.i120 = getelementptr inbounds i8, ptr %triangle2, i64 80
   %m_shapeType.i121 = getelementptr inbounds i8, ptr %triangle2, i64 8
   store i32 1, ptr %m_shapeType.i121, align 8
@@ -32314,7 +32314,7 @@ invoke.cont151:                                   ; preds = %invoke.cont148
   %sub14.i141 = fsub float %137, %138
   %retval.sroa.3.12.vec.insert.i144 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i141, i64 0
   %143 = fsub <2 x float> %135, %136
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i64 0, i32 0, i64 2), ptr %triangle2125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2125, align 8
   %m_vertices1.ptr.i159 = getelementptr inbounds i8, ptr %triangle2125, i64 80
   %m_shapeType.i160 = getelementptr inbounds i8, ptr %triangle2125, i64 8
   store i32 1, ptr %m_shapeType.i160, align 8
@@ -33692,11 +33692,11 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
@@ -33788,11 +33788,11 @@ init.i12:                                         ; preds = %init.check.i10
 invoke.cont2.i15:                                 ; preds = %init.i12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i13, i64 16, i1 false)
   %arrayidx6.i.i.i16 = getelementptr inbounds i8, ptr %call.i13, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i16, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i16, i64 16, i1 false)
   %arrayidx10.i.i.i17 = getelementptr inbounds i8, ptr %call.i13, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i17, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i17, i64 16, i1 false)
   %m_origin3.i.i18 = getelementptr inbounds i8, ptr %call.i13, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i18, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit19
 
@@ -33925,11 +33925,11 @@ init.i66:                                         ; preds = %init.check.i64
 invoke.cont2.i69:                                 ; preds = %init.i66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i67, i64 16, i1 false)
   %arrayidx6.i.i.i70 = getelementptr inbounds i8, ptr %call.i67, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i70, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i70, i64 16, i1 false)
   %arrayidx10.i.i.i71 = getelementptr inbounds i8, ptr %call.i67, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i71, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i71, i64 16, i1 false)
   %m_origin3.i.i72 = getelementptr inbounds i8, ptr %call.i67, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i72, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i72, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit73
 
@@ -33978,11 +33978,11 @@ init.i88:                                         ; preds = %init.check.i86
 invoke.cont2.i91:                                 ; preds = %init.i88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i89, i64 16, i1 false)
   %arrayidx6.i.i.i92 = getelementptr inbounds i8, ptr %call.i89, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i92, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i92, i64 16, i1 false)
   %arrayidx10.i.i.i93 = getelementptr inbounds i8, ptr %call.i89, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i93, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i93, i64 16, i1 false)
   %m_origin3.i.i94 = getelementptr inbounds i8, ptr %call.i89, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i94, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i94, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit95
 
@@ -34795,11 +34795,11 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
@@ -34885,11 +34885,11 @@ init.i13:                                         ; preds = %init.check.i11
 invoke.cont2.i16:                                 ; preds = %init.i13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i14, i64 16, i1 false)
   %arrayidx6.i.i.i17 = getelementptr inbounds i8, ptr %call.i14, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i17, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i17, i64 16, i1 false)
   %arrayidx10.i.i.i18 = getelementptr inbounds i8, ptr %call.i14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i18, i64 16, i1 false)
   %m_origin3.i.i19 = getelementptr inbounds i8, ptr %call.i14, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i19, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i19, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit20
 
@@ -37781,7 +37781,7 @@ entry:
   ]
 
 invoke.cont16:                                    ; preds = %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i64 0, i32 0, i64 2), ptr %docollide, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i64 16), ptr %docollide, align 8
   %m_collisionObject.i = getelementptr inbounds i8, ptr %pcoWrap, i64 16
   %1 = load ptr, ptr %m_collisionObject.i, align 8
   %m_internalType.i.i = getelementptr inbounds i8, ptr %1, i64 272
@@ -37860,7 +37860,7 @@ sw.bb39:                                          ; preds = %entry
   %idt.i.i = getelementptr inbounds i8, ptr %collider, i64 12
   %20 = getelementptr inbounds i8, ptr %collider, i64 24
   store i32 0, ptr %20, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i64 0, i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i64 16), ptr %collider, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mins.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %maxs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %volume.i)
@@ -38002,7 +38002,7 @@ if.then:                                          ; preds = %sw.bb42
   br i1 %tobool.not, label %if.end, label %if.then66
 
 if.then66:                                        ; preds = %if.then
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i64 0, i32 0, i64 2), ptr %docollideNode, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i64 16), ptr %docollideNode, align 8
   %psb67 = getelementptr inbounds i8, ptr %docollideNode, i64 8
   store ptr %this, ptr %psb67, align 8
   %m_colObj1Wrap68 = getelementptr inbounds i8, ptr %docollideNode, i64 16
@@ -38041,7 +38041,7 @@ land.lhs.true87:                                  ; preds = %if.end
   br i1 %tobool91.not, label %sw.epilog, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true87, %land.lhs.true
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i64 0, i32 0, i64 2), ptr %docollideFace, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i64 16), ptr %docollideFace, align 8
   %psb93 = getelementptr inbounds i8, ptr %docollideFace, i64 8
   store ptr %this, ptr %psb93, align 8
   %m_colObj1Wrap94 = getelementptr inbounds i8, ptr %docollideFace, i64 16
@@ -38383,7 +38383,7 @@ if.then:                                          ; preds = %sw.bb
   %idt.i.i = getelementptr inbounds i8, ptr %docollide, i64 12
   %3 = getelementptr inbounds i8, ptr %docollide, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 12, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i64 0, i32 0, i64 2), ptr %docollide, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i64 16), ptr %docollide, align 8
   %isdt.i = getelementptr inbounds i8, ptr %this, i64 628
   %4 = load float, ptr %isdt.i, align 4
   store float %4, ptr %idt.i.i, align 4
@@ -38437,7 +38437,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp11.not, label %cleanup, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i64 0, i32 0, i64 2), ptr %docollide13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i64 16), ptr %docollide13, align 8
   %m_collisionShape.i = getelementptr inbounds i8, ptr %this, i64 200
   %15 = load ptr, ptr %m_collisionShape.i, align 8
   %vtable = load ptr, ptr %15, align 8
@@ -38514,7 +38514,7 @@ if.then62:                                        ; preds = %lor.lhs.false59, %i
   br i1 %cmp63.not, label %if.else128, label %if.then64
 
 if.then64:                                        ; preds = %if.then62
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i64 0, i32 0, i64 2), ptr %docollide65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i64 16), ptr %docollide65, align 8
   %m_collisionShape.i24 = getelementptr inbounds i8, ptr %this, i64 200
   %27 = load ptr, ptr %m_collisionShape.i24, align 8
   %vtable69 = load ptr, ptr %27, align 8
@@ -38580,7 +38580,7 @@ if.else128:                                       ; preds = %if.then62
   br i1 %tobool.i, label %if.then130, label %cleanup
 
 if.then130:                                       ; preds = %if.else128
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i64 0, i32 0, i64 2), ptr %docollide131, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i64 16), ptr %docollide131, align 8
   %m_collisionShape.i27 = getelementptr inbounds i8, ptr %this, i64 200
   %40 = load ptr, ptr %m_collisionShape.i27, align 8
   %vtable135 = load ptr, ptr %40, align 8
@@ -39426,7 +39426,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp.not, label %if.else45, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 0, i32 0, i64 2), ptr %docollide, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide, align 8
   %mrg = getelementptr inbounds i8, ptr %docollide, i64 28
   store float 0x3EE9000000000000, ptr %mrg, align 4
   %m_sst = getelementptr inbounds i8, ptr %psb, i64 624
@@ -39469,7 +39469,7 @@ if.else45:                                        ; preds = %if.then
   br i1 %tobool.i, label %if.then47, label %if.end73
 
 if.then47:                                        ; preds = %if.else45
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 0, i32 0, i64 2), ptr %docollide48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide48, align 8
   %mrg49 = getelementptr inbounds i8, ptr %docollide48, i64 28
   store float 0x3EE9000000000000, ptr %mrg49, align 4
   %psb50 = getelementptr inbounds i8, ptr %docollide48, i64 8
@@ -43194,10 +43194,10 @@ init:                                             ; preds = %init.check
 invoke.cont5:                                     ; preds = %init
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 48), i8 0, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %init.end
 
@@ -43225,10 +43225,10 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   store float 1.000000e+00, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 0, i32 0, i64 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 1, i32 0, i64 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 1, i32 0, i64 2), i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 2, i32 0, i64 2), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 4), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 24), i8 0, i64 16, i1 false)
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 40), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix) #39
   br label %init.end
 
@@ -46930,7 +46930,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %leaf, i64 40
   %1 = load ptr, ptr %0, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cshape)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27btSoftClusterCollisionShape, i64 0, i32 0, i64 2), ptr %cshape, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %cshape, align 8
   %m_cluster.i = getelementptr inbounds i8, ptr %cshape, i64 72
   store ptr %1, ptr %m_cluster.i, align 8
   %m_collisionMargin.i.i.i = getelementptr inbounds i8, ptr %cshape, i64 64
@@ -46970,10 +46970,10 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont5.i:                                   ; preds = %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 48), i8 0, i64 16, i1 false)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont5
 
@@ -46999,7 +46999,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
   %m_delete.i.i = getelementptr inbounds i8, ptr %joint, i64 180
   store i8 0, ptr %m_delete.i.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i64 0, i32 0, i64 2), ptr %joint, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %m_rigid.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigid.i, i8 0, i64 16, i1 false)
@@ -47031,7 +47031,7 @@ invoke.cont29:                                    ; preds = %if.then25
   %m_delete.i.i13 = getelementptr inbounds i8, ptr %call27, i64 180
   %15 = getelementptr inbounds i8, ptr %call27, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %15, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i64 0, i32 0, i64 2), ptr %call27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i12, ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i, i64 124, i1 false)
   %m_massmatrix.i.i = getelementptr inbounds i8, ptr %call27, i64 132
   %m_massmatrix3.i.i = getelementptr inbounds i8, ptr %joint, i64 132
@@ -47226,11 +47226,11 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
@@ -47291,11 +47291,11 @@ init.i32:                                         ; preds = %init.check.i30
 invoke.cont2.i35:                                 ; preds = %init.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i33, i64 16, i1 false)
   %arrayidx6.i.i.i36 = getelementptr inbounds i8, ptr %call.i33, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i36, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i36, i64 16, i1 false)
   %arrayidx10.i.i.i37 = getelementptr inbounds i8, ptr %call.i33, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i37, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i37, i64 16, i1 false)
   %m_origin3.i.i38 = getelementptr inbounds i8, ptr %call.i33, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i38, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i38, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit39
 
@@ -47500,11 +47500,11 @@ init.i149:                                        ; preds = %init.check.i147
 invoke.cont2.i152:                                ; preds = %init.i149
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i150, i64 16, i1 false)
   %arrayidx6.i.i.i153 = getelementptr inbounds i8, ptr %call.i150, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i153, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i153, i64 16, i1 false)
   %arrayidx10.i.i.i154 = getelementptr inbounds i8, ptr %call.i150, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i154, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i154, i64 16, i1 false)
   %m_origin3.i.i155 = getelementptr inbounds i8, ptr %call.i150, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i155, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i155, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit156
 
@@ -47566,11 +47566,11 @@ init.i172:                                        ; preds = %init.check.i170
 invoke.cont2.i175:                                ; preds = %init.i172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZNK10btSoftBody4Body5xformEvE8identity, ptr noundef nonnull align 4 dereferenceable(16) %call.i173, i64 16, i1 false)
   %arrayidx6.i.i.i176 = getelementptr inbounds i8, ptr %call.i173, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i176, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i176, i64 16, i1 false)
   %arrayidx10.i.i.i177 = getelementptr inbounds i8, ptr %call.i173, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i177, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i177, i64 16, i1 false)
   %m_origin3.i.i178 = getelementptr inbounds i8, ptr %call.i173, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i178, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 48), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i178, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit179
 
@@ -50371,7 +50371,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then16:                                        ; preds = %land.lhs.true, %entry, %if.then
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %csa)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27btSoftClusterCollisionShape, i64 0, i32 0, i64 2), ptr %csa, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csa, align 8
   %m_cluster.i = getelementptr inbounds i8, ptr %csa, i64 72
   store ptr %1, ptr %m_cluster.i, align 8
   %m_collisionMargin.i.i.i = getelementptr inbounds i8, ptr %csa, i64 64
@@ -50380,7 +50380,7 @@ if.then16:                                        ; preds = %land.lhs.true, %ent
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.then16
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27btSoftClusterCollisionShape, i64 0, i32 0, i64 2), ptr %csb, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csb, align 8
   %m_cluster.i13 = getelementptr inbounds i8, ptr %csb, i64 72
   store ptr %3, ptr %m_cluster.i13, align 8
   %m_collisionMargin.i.i.i14 = getelementptr inbounds i8, ptr %csb, i64 64
@@ -50401,10 +50401,10 @@ init.i:                                           ; preds = %init.check.i
 invoke.cont5.i:                                   ; preds = %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 48), i8 0, i64 16, i1 false)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont19
 
@@ -50431,10 +50431,10 @@ init.i18:                                         ; preds = %init.check.i16
 invoke.cont5.i21:                                 ; preds = %init.i18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i19, i64 16, i1 false)
   %arrayidx6.i.i.i22 = getelementptr inbounds i8, ptr %call.i19, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i22, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i22, i64 16, i1 false)
   %arrayidx10.i.i.i23 = getelementptr inbounds i8, ptr %call.i19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i23, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 32), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i23, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 48), i8 0, i64 16, i1 false)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont24
 
@@ -50470,7 +50470,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
   %m_delete.i.i = getelementptr inbounds i8, ptr %joint, i64 180
   store i8 0, ptr %m_delete.i.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i64 0, i32 0, i64 2), ptr %joint, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %m_rigid.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigid.i, i8 0, i64 16, i1 false)
@@ -50492,7 +50492,7 @@ invoke.cont40:                                    ; preds = %if.then36
   %m_delete.i.i29 = getelementptr inbounds i8, ptr %call38, i64 180
   %25 = getelementptr inbounds i8, ptr %call38, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %25, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i64 0, i32 0, i64 2), ptr %call38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i28, ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i, i64 124, i1 false)
   %m_massmatrix.i.i = getelementptr inbounds i8, ptr %call38, i64 132
   %m_massmatrix3.i.i = getelementptr inbounds i8, ptr %joint, i64 132
@@ -54007,20 +54007,20 @@ if.end:                                           ; preds = %for.body20, %for.co
 define internal void @_GLOBAL__sub_I_btSoftBody.cpp() #33 section ".text.startup" {
 entry:
   store float 1.000000e+00, ptr @_ZL3dop, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 0, i32 0, i64 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 1, i32 0, i64 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 1, i32 0, i64 2), i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 2, i32 0, i64 2), align 8
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 3, i32 0, i64 2), align 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 4, i32 0, i64 2), align 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 5, i32 0, i64 2), align 8
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 6, i32 0, i64 2), align 8
-  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 7, i32 0, i64 2), align 8
-  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 8, i32 0, i64 2), align 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 9, i32 0, i64 2), align 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 10, i32 0, i64 2), align 8
-  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 11, i32 0, i64 2), align 8
-  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 12, i32 0, i64 2), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL3dop, i64 4), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL3dop, i64 24), i8 0, i64 16, i1 false)
+  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 40), align 8
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 56), align 8
+  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 72), align 8
+  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 88), align 8
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 104), align 8
+  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 120), align 8
+  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 136), align 8
+  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 152), align 8
+  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 168), align 8
+  store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 184), align 8
+  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 200), align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #39
   ret void

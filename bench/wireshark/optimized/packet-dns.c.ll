@@ -5975,7 +5975,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %227, %235
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %270, ptr noundef nonnull @.str.1248, ptr noundef %268) #10
   %271 = load i32, ptr @hf_dns_a, align 4
   %272 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %271, ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #10
-  %273 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 3), align 4
+  %273 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2194 = icmp eq i32 %273, 0
   br i1 %.not2194, label %.loopexit, label %274
 
@@ -6342,7 +6342,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %227, %235
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %495, ptr noundef nonnull @.str.1258, ptr noundef %493) #10
   %496 = load i32, ptr @hf_dns_ptr_domain_name, align 4
   %497 = call ptr @proto_tree_add_string(ptr noundef %.02075, i32 noundef %496, ptr noundef %0, i32 noundef %122, i32 noundef %488, ptr noundef %493) #10
-  %498 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 3), align 4
+  %498 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2158 = icmp ne i32 %498, 0
   %499 = and i16 %.02187, 127
   %500 = icmp eq i16 %499, 1
@@ -6849,7 +6849,7 @@ proto_item_set_generated.exit:                    ; preds = %805, %802, %797, %7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %863, ptr noundef nonnull @.str.1248, ptr noundef %861) #10
   %864 = load i32, ptr @hf_dns_aaaa, align 4
   %865 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %864, ptr noundef %0, i32 noundef %122, i32 noundef 16, i32 noundef 0) #10
-  %866 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 3), align 4
+  %866 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2152 = icmp ne i32 %866, 0
   %867 = and i16 %.02187, 127
   %868 = icmp eq i16 %867, 1

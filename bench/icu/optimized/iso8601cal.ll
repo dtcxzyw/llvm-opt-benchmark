@@ -33,7 +33,7 @@ define void @_ZN6icu_7515ISO8601CalendarC2ERKNS_6LocaleER10UErrorCode(ptr nounde
 entry:
   %tempStatus = alloca i32, align 4
   tail call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515ISO8601CalendarE, i64 16), ptr %this, align 8
   store i32 0, ptr %tempStatus, align 4
   %call = invoke noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempStatus)
           to label %invoke.cont unwind label %lpad
@@ -111,7 +111,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7515ISO8601CalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7515ISO8601CalendarC2ERKS0_.exit:         ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515ISO8601CalendarE, i64 16), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7515ISO8601CalendarC2ERKS0_.exit, %entry

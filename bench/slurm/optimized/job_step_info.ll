@@ -390,7 +390,7 @@ define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %13, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %21 = call zeroext i1 @cluster_in_federation(ptr noundef %19, ptr noundef %20) #11
   br i1 %21, label %24, label %22
 
@@ -468,7 +468,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   br label %148
 
 47:                                               ; preds = %24
-  %48 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)

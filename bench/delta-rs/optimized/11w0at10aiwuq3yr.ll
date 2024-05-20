@@ -7888,7 +7888,7 @@ define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__g
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -102660,7 +102660,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %4, %.noexc
-  %.0.i.i12 = phi ptr [ %10, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
+  %.0.i.i12 = phi ptr [ %10, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %4 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = getelementptr inbounds i8, ptr %0, i64 88
   %17 = zext i1 %3 to i8
@@ -102728,7 +102728,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %8, %.noexc
-  %.0.i.i12 = phi ptr [ %11, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %8 ]
+  %.0.i.i12 = phi ptr [ %11, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %8 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = getelementptr inbounds i8, ptr %0, i64 88
   %18 = zext i1 %3 to i8
@@ -102854,7 +102854,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %23, %.noexc
-  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %23 ]
+  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %23 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %34 = zext i1 %4 to i8
@@ -102981,7 +102981,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %23, %.noexc
-  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %23 ]
+  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %23 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %34 = zext i1 %4 to i8
@@ -103098,7 +103098,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %17, %.noexc
-  %.0.i.i12 = phi ptr [ %21, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %17 ]
+  %.0.i.i12 = phi ptr [ %21, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %17 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = getelementptr inbounds i8, ptr %0, i64 88
   %28 = zext i1 %3 to i8
@@ -103225,7 +103225,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %23, %.noexc
-  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %23 ]
+  %.0.i.i12 = phi ptr [ %27, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %23 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %34 = zext i1 %4 to i8
@@ -103311,7 +103311,7 @@ define hidden void @_ZN14deltalake_core6kernel6models6schema11StructField3new17h
   unreachable
 
 .noexc.thread:                                    ; preds = %10, %.noexc
-  %.0.i.i12 = phi ptr [ %16, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %10 ]
+  %.0.i.i12 = phi ptr [ %16, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %10 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = zext i1 %4 to i8
@@ -105293,7 +105293,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot5files17hc71209b7655449
   store ptr %3, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @"_ZN104_$LT$deltalake_core..kernel..snapshot..log_segment..COMMIT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hda53f37b6a63a71fE.llvm.3801596959246744488", ptr %10, align 8
-  %23 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN104_$LT$deltalake_core..kernel..snapshot..log_segment..COMMIT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hda53f37b6a63a71fE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i8 noundef 2)
+  %23 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..kernel..snapshot..log_segment..COMMIT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hda53f37b6a63a71fE.llvm.3801596959246744488", i64 48), i8 noundef 2)
           to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %21
@@ -105305,7 +105305,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot5files17hc71209b7655449
   store ptr %10, ptr %9, align 8, !noalias !26391
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !26391
   store ptr %9, ptr %8, align 8, !noalias !26391
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h156c4da0462daea7E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN104_$LT$deltalake_core..kernel..snapshot..log_segment..COMMIT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hda53f37b6a63a71fE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h156c4da0462daea7E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..kernel..snapshot..log_segment..COMMIT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hda53f37b6a63a71fE.llvm.3801596959246744488", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
           to label %.noexc28 unwind label %68
 
 .noexc28:                                         ; preds = %25
@@ -105352,7 +105352,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot5files17hc71209b7655449
   store ptr %42, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN108_$LT$deltalake_core..kernel..snapshot..log_segment..CHECKPOINT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h03668eeb43b9c372E.llvm.3801596959246744488", ptr %7, align 8
-  %44 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN108_$LT$deltalake_core..kernel..snapshot..log_segment..CHECKPOINT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h03668eeb43b9c372E.llvm.3801596959246744488", i64 0, i32 2, i64 0), i8 noundef 2)
+  %44 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN108_$LT$deltalake_core..kernel..snapshot..log_segment..CHECKPOINT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h03668eeb43b9c372E.llvm.3801596959246744488", i64 48), i8 noundef 2)
           to label %.noexc30 unwind label %61
 
 .noexc30:                                         ; preds = %39
@@ -105364,7 +105364,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot5files17hc71209b7655449
   store ptr %7, ptr %6, align 8, !noalias !26395
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !26395
   store ptr %6, ptr %5, align 8, !noalias !26395
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h1dbe216ceadf5f31E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN108_$LT$deltalake_core..kernel..snapshot..log_segment..CHECKPOINT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h03668eeb43b9c372E.llvm.3801596959246744488", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h1dbe216ceadf5f31E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN108_$LT$deltalake_core..kernel..snapshot..log_segment..CHECKPOINT_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h03668eeb43b9c372E.llvm.3801596959246744488", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
           to label %.noexc31 unwind label %61
 
 .noexc31:                                         ; preds = %46
@@ -105528,7 +105528,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot10tombstones17h9bb5f90c
   store ptr %3, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", ptr %10, align 8
-  %24 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i8 noundef 2)
+  %24 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 48), i8 noundef 2)
           to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %22
@@ -105540,7 +105540,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot10tombstones17h9bb5f90c
   store ptr %10, ptr %9, align 8, !noalias !26426
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !26426
   store ptr %9, ptr %8, align 8, !noalias !26426
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h0b3e5bacff6239d0E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h0b3e5bacff6239d0E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
           to label %.noexc34 unwind label %80
 
 .noexc34:                                         ; preds = %26
@@ -105587,7 +105587,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot10tombstones17h9bb5f90c
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", ptr %7, align 8
-  %45 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i8 noundef 2)
+  %45 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 48), i8 noundef 2)
           to label %.noexc36 unwind label %73
 
 .noexc36:                                         ; preds = %40
@@ -105599,7 +105599,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8Snapshot10tombstones17h9bb5f90c
   store ptr %7, ptr %6, align 8, !noalias !26430
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !26430
   store ptr %6, ptr %5, align 8, !noalias !26430
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h0b3e5bacff6239d0E(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [40 x i8], [4 x i8], [4 x i8] }>, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 0, i32 2, i64 0), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h0b3e5bacff6239d0E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN107_$LT$deltalake_core..kernel..snapshot..log_segment..TOMBSTONE_SCHEMA$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5fb70bd1a24b0f5dE.llvm.3801596959246744488", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.1940.llvm.3801596959246744488)
           to label %.noexc37 unwind label %73
 
 .noexc37:                                         ; preds = %47
@@ -107068,7 +107068,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  %98 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), i8 noundef 2)
+  %98 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), i8 noundef 2)
           to label %.noexc151 unwind label %95
 
 .noexc151:                                        ; preds = %97
@@ -107077,7 +107077,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit: ; preds 
 
 99:                                               ; preds = %.noexc151
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
-  invoke void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
+  invoke void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
           to label %.noexc152 unwind label %95
 
 .noexc152:                                        ; preds = %99
@@ -107151,7 +107151,7 @@ _ZN14deltalake_core7storage9factories17h058b76954b9f05c7E.exit: ; preds = %"_ZN3
   br i1 %120, label %121, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread273
 
 121:                                              ; preds = %118
-  %122 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore12logstore_for10__CALLSITE17h13146aa623376e0eE, i64 0, i32 2, i32 0) monotonic, align 8
+  %122 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore12logstore_for10__CALLSITE17h13146aa623376e0eE, i64 16) monotonic, align 8
   switch i8 %122, label %123 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread273
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -108051,7 +108051,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
-  %112 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 0, i32 1, i64 0), i8 noundef 2)
+  %112 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 8), i8 noundef 2)
           to label %.noexc191 unwind label %109
 
 .noexc191:                                        ; preds = %111
@@ -108060,7 +108060,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit: ; preds 
 
 113:                                              ; preds = %.noexc191
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
-  invoke void @_ZN3std4sync4once4Once15call_once_force17hc890d5a061dd9693E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, ptr noalias noundef nonnull align 1 %6)
+  invoke void @_ZN3std4sync4once4Once15call_once_force17hc890d5a061dd9693E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 8), ptr noundef nonnull align 8 @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, ptr noalias noundef nonnull align 1 %6)
           to label %.noexc192 unwind label %109
 
 .noexc192:                                        ; preds = %113
@@ -108134,7 +108134,7 @@ _ZN14deltalake_core8logstore9logstores17h694d9cd99ba6e8d3E.exit: ; preds = %"_ZN
   br i1 %135, label %136, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread377
 
 136:                                              ; preds = %133
-  %137 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17h65afe2fb6df88020E, i64 0, i32 2, i32 0) monotonic, align 8
+  %137 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17h65afe2fb6df88020E, i64 16) monotonic, align 8
   switch i8 %137, label %138 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread377
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -108521,7 +108521,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %272, label %273, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread398
 
 273:                                              ; preds = %270
-  %274 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17hd12d6d36290d6489E, i64 0, i32 2, i32 0) monotonic, align 8
+  %274 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17hd12d6d36290d6489E, i64 16) monotonic, align 8
   switch i8 %274, label %275 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread398
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread
@@ -109647,7 +109647,7 @@ define void @_ZN14deltalake_core10operations16convert_to_delta21ConvertToDeltaBu
   unreachable
 
 .noexc8.thread:                                   ; preds = %14, %.noexc8
-  %.0.i.i16 = phi ptr [ %19, %.noexc8 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %14 ]
+  %.0.i.i16 = phi ptr [ %19, %.noexc8 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %14 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 32
@@ -110280,7 +110280,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   unreachable
 
 "_ZN96_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..default..Default$GT$7default17hc8aa61fe0598ac14E.exit.i": ; preds = %.noexc320, %270
-  %.0.i.i2.i.i.i = phi ptr [ %272, %.noexc320 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %270 ]
+  %.0.i.i2.i.i.i = phi ptr [ %272, %.noexc320 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %270 ]
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %234, i64 32
   %275 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !27376
   %276 = extractelement <2 x i64> %275, i64 0
@@ -110495,7 +110495,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %160), !noalias !27390
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %156), !noalias !27390
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155), !noalias !27390
-  %333 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), i8 noundef 2)
+  %333 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), i8 noundef 2)
           to label %.noexc151.i unwind label %330, !noalias !27387
 
 .noexc151.i:                                      ; preds = %332
@@ -110504,7 +110504,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i: ; pred
 
 334:                                              ; preds = %.noexc151.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !27390
-  invoke void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
+  invoke void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
           to label %.noexc152.i unwind label %330, !noalias !27387
 
 .noexc152.i:                                      ; preds = %334
@@ -110578,7 +110578,7 @@ _ZN14deltalake_core7storage9factories17h058b76954b9f05c7E.exit.i: ; preds = %"_Z
   br i1 %355, label %356, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread278.i
 
 356:                                              ; preds = %353
-  %357 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore12logstore_for10__CALLSITE17h13146aa623376e0eE, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !27390
+  %357 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore12logstore_for10__CALLSITE17h13146aa623376e0eE, i64 16) monotonic, align 8, !noalias !27390
   switch i8 %357, label %358 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread278.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i
@@ -111185,7 +111185,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %125), !noalias !27544
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %121), !noalias !27544
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120), !noalias !27544
-  %547 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 0, i32 1, i64 0), i8 noundef 2)
+  %547 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.3801596959246744488(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 8), i8 noundef 2)
           to label %.noexc191.i.i unwind label %544, !noalias !27560
 
 .noexc191.i.i:                                    ; preds = %546
@@ -111194,7 +111194,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i: ; pr
 
 548:                                              ; preds = %.noexc191.i.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !27544
-  invoke void @_ZN3std4sync4once4Once15call_once_force17hc890d5a061dd9693E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, ptr noalias noundef nonnull align 1 %4)
+  invoke void @_ZN3std4sync4once4Once15call_once_force17hc890d5a061dd9693E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, i64 8), ptr noundef nonnull align 8 @_ZN14deltalake_core8logstore9logstores8REGISTRY17hcc7d1c78020803afE.llvm.3801596959246744488, ptr noalias noundef nonnull align 1 %4)
           to label %.noexc192.i.i unwind label %544, !noalias !27560
 
 .noexc192.i.i:                                    ; preds = %548
@@ -111268,7 +111268,7 @@ _ZN14deltalake_core8logstore9logstores17h694d9cd99ba6e8d3E.exit.i.i: ; preds = %
   br i1 %570, label %571, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread376.i.i
 
 571:                                              ; preds = %568
-  %572 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17h65afe2fb6df88020E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !27544
+  %572 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17h65afe2fb6df88020E, i64 16) monotonic, align 8, !noalias !27544
   switch i8 %572, label %573 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread376.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread.i.i
@@ -111655,7 +111655,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %707, label %708, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread397.i.i
 
 708:                                              ; preds = %705
-  %709 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17hd12d6d36290d6489E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !27544
+  %709 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8logstore13logstore_with10__CALLSITE17hd12d6d36290d6489E, i64 16) monotonic, align 8, !noalias !27544
   switch i8 %709, label %710 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread397.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit223.thread.i.i
@@ -112606,7 +112606,7 @@ common.ret:                                       ; preds = %2333, %2018, %1203,
   br i1 %1018, label %1019, label %.thread1121
 
 1019:                                             ; preds = %1016
-  %1020 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN14deltalake_core10operations16convert_to_delta21ConvertToDeltaBuilder19into_create_builder28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd54df320e85d57a5E", i64 0, i32 1, i64 8) monotonic, align 8
+  %1020 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core10operations16convert_to_delta21ConvertToDeltaBuilder19into_create_builder28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd54df320e85d57a5E", i64 16) monotonic, align 8
   switch i8 %1020, label %1021 [
     i8 0, label %.thread1121
     i8 1, label %.thread1118
@@ -113367,7 +113367,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br label %1279
 
 1285:                                             ; preds = %1270, %.noexc365
-  %.0.i.i3.i = phi ptr [ %1276, %.noexc365 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1270 ]
+  %.0.i.i3.i = phi ptr [ %1276, %.noexc365 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1270 ]
   %.sroa.4.0..sroa_idx.i363 = getelementptr inbounds i8, ptr %1, i64 816
   %1286 = load <2 x i64>, ptr %.0.i.i3.i, align 8, !noalias !28064
   %1287 = extractelement <2 x i64> %1286, i64 0
@@ -115645,7 +115645,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br label %2845
 
 2060:                                             ; preds = %.noexc403, %2053
-  %.0.i.i3.i400 = phi ptr [ %2055, %.noexc403 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2053 ]
+  %.0.i.i3.i400 = phi ptr [ %2055, %.noexc403 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2053 ]
   %2061 = load i64, ptr %.0.i.i3.i400, align 8, !noalias !28446, !noundef !12
   %2062 = getelementptr inbounds i8, ptr %.0.i.i3.i400, i64 8
   %2063 = load i64, ptr %2062, align 8, !noalias !28446, !noundef !12
@@ -116636,7 +116636,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br label %2360
 
 2367:                                             ; preds = %.noexc419, %2110
-  %.0.i.i3.i416 = phi ptr [ %2115, %.noexc419 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2110 ]
+  %.0.i.i3.i416 = phi ptr [ %2115, %.noexc419 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2110 ]
   %.sroa.4.0..sroa_idx.i417 = getelementptr inbounds i8, ptr %1, i64 864
   %2368 = load <2 x i64>, ptr %.0.i.i3.i416, align 8, !noalias !28553
   %2369 = extractelement <2 x i64> %2368, i64 0
@@ -117207,7 +117207,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hf4ae788c97bde2b4E.exit: ; preds
           to label %2639 unwind label %978
 
 2561:                                             ; preds = %2529, %.noexc.i478
-  %.0.i.i20.i = phi ptr [ %2554, %.noexc.i478 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2529 ]
+  %.0.i.i20.i = phi ptr [ %2554, %.noexc.i478 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2529 ]
   %2562 = getelementptr inbounds i8, ptr %191, i64 32
   %2563 = getelementptr inbounds i8, ptr %191, i64 176
   %.sroa.0.sroa.4.0..sroa_idx.i479 = getelementptr inbounds i8, ptr %191, i64 208
@@ -120417,7 +120417,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6ce1d305d268c909E.llvm.5991570310944373761.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.5991570310944373761.exit
-  %.0.i.i3 = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.5991570310944373761.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i3 = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.5991570310944373761.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load <2 x i64>, ptr %.0.i.i3, align 8, !noalias !29238
   %8 = extractelement <2 x i64> %7, i64 0
@@ -120497,7 +120497,7 @@ define void @"_ZN159_$LT$deltalake_core..operations..transaction..CommitBuilder$
           to label %29 unwind label %27
 
 "_ZN4core3ptr113drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc1df8ea0f061a37bE.exit": ; preds = %2, %.noexc.i
-  %.0.i.i7.i = phi ptr [ %15, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i7.i = phi ptr [ %15, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %22 = load i64, ptr %.0.i.i7.i, align 8, !noalias !29250, !noundef !12
   %23 = add i64 %22, 1
   store i64 %23, ptr %.0.i.i7.i, align 8, !noalias !29250
@@ -120561,7 +120561,7 @@ define void @"_ZN97_$LT$deltalake_core..operations..transaction..CommitBuilder$u
   unreachable
 
 .noexc.thread:                                    ; preds = %1, %.noexc
-  %.0.i.i7 = phi ptr [ %8, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i.i7 = phi ptr [ %8, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !29259
@@ -123016,7 +123016,7 @@ common.ret:                                       ; preds = %994, %921, %764, %7
   br i1 %269, label %270, label %.thread79.i.i
 
 270:                                              ; preds = %262
-  %271 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8logstore11get_actions28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a7116e80f7dd65fE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !29631
+  %271 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8logstore11get_actions28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a7116e80f7dd65fE", i64 16) monotonic, align 8, !noalias !29631
   switch i8 %271, label %272 [
     i8 0, label %.thread79.i.i
     i8 1, label %.thread.i.i
@@ -126172,7 +126172,7 @@ _ZN14deltalake_core5table6config11TableConfig19checkpoint_interval17h1523ebb4860
   br i1 %264, label %265, label %266
 
 265:                                              ; preds = %259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i10.sroa.5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (<{ ptr, [24 x i8] }>, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 0, i32 1, i64 0), i64 24, i1 false), !noalias !30090
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i10.sroa.5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 8), i64 24, i1 false), !noalias !30090
   br label %276
 
 266:                                              ; preds = %259
@@ -126747,7 +126747,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br label %447
 
 .thread187.i.i:                                   ; preds = %.noexc24.i.i, %425
-  %.0.i.i3.i.i.i = phi ptr [ %427, %.noexc24.i.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %425 ]
+  %.0.i.i3.i.i.i = phi ptr [ %427, %.noexc24.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %425 ]
   %432 = getelementptr inbounds i8, ptr %1, i64 1120
   %433 = getelementptr inbounds i8, ptr %1, i64 1664
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 1696
@@ -126954,7 +126954,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br i1 %496, label %497, label %.thread777.i.i.i
 
 497:                                              ; preds = %494
-  %498 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h02fe6bc0388fb231E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !30224
+  %498 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h02fe6bc0388fb231E", i64 16) monotonic, align 8, !noalias !30224
   switch i8 %498, label %499 [
     i8 0, label %.thread777.i.i.i
     i8 1, label %.thread.i30.i.i
@@ -127310,7 +127310,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.59915
   br i1 %619, label %620, label %.thread785.i.i.i
 
 620:                                              ; preds = %617
-  %621 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9086db85966fcbafE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !30224
+  %621 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9086db85966fcbafE", i64 16) monotonic, align 8, !noalias !30224
   switch i8 %621, label %622 [
     i8 0, label %.thread785.i.i.i
     i8 1, label %.thread782.i.i.i
@@ -128584,7 +128584,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i.i: ; 
   br i1 %1021, label %1022, label %.thread866.i.i.i
 
 1022:                                             ; preds = %1016
-  %1023 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1f8594beeaa3d0e4E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !30224
+  %1023 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1f8594beeaa3d0e4E", i64 16) monotonic, align 8, !noalias !30224
   switch i8 %1023, label %1024 [
     i8 0, label %.thread866.i.i.i
     i8 1, label %.thread863.i.i.i
@@ -129274,7 +129274,7 @@ _ZN10serde_json3ser6to_vec17hb6089719ae4543acE.exit.i.i.i: ; preds = %1232
   br i1 %1253, label %1254, label %.thread889.i.i.i
 
 1254:                                             ; preds = %1250
-  %1255 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h990c464782739c8dE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !30224
+  %1255 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN14deltalake_core8protocol11checkpoints21create_checkpoint_for28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h990c464782739c8dE", i64 16) monotonic, align 8, !noalias !30224
   switch i8 %1255, label %1256 [
     i8 0, label %.thread889.i.i.i
     i8 1, label %.thread886.i.i.i
@@ -132134,7 +132134,7 @@ _ZN14deltalake_core8protocol12parquet_read37primitive_parquet_field_to_json_valu
   br i1 %278, label %279, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread124
 
 279:                                              ; preds = %_ZN14deltalake_core8protocol12parquet_read37primitive_parquet_field_to_json_value17h3892dfdcc57bbd3dE.exit.thread115
-  %280 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14deltalake_core8protocol12parquet_read19field_to_value_stat10__CALLSITE17h2de4d023e7af704aE, i64 0, i32 1, i64 8) monotonic, align 8
+  %280 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8protocol12parquet_read19field_to_value_stat10__CALLSITE17h2de4d023e7af704aE, i64 16) monotonic, align 8
   switch i8 %280, label %281 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread124
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -132474,7 +132474,7 @@ define hidden void @_ZN14deltalake_core8protocol12parquet_read19field_to_count_s
   ret void
 
 38:                                               ; preds = %25
-  %39 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14deltalake_core8protocol12parquet_read19field_to_count_stat10__CALLSITE17h206c5af0d166301fE, i64 0, i32 1, i64 8) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core8protocol12parquet_read19field_to_count_stat10__CALLSITE17h206c5af0d166301fE, i64 16) monotonic, align 8
   switch i8 %39, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit [
     i8 0, label %.critedge65
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -133535,7 +133535,7 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
   br i1 %147, label %148, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread279
 
 148:                                              ; preds = %145
-  %149 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_valid_uri10__CALLSITE17hdcd72b89110c2032E, i64 0, i32 2, i32 0) monotonic, align 8
+  %149 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_valid_uri10__CALLSITE17hdcd72b89110c2032E, i64 16) monotonic, align 8
   switch i8 %149, label %150 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread279
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -134960,7 +134960,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17he89a7f1033992ea7E.llvm
   br i1 %310, label %311, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread324
 
 311:                                              ; preds = %308
-  %312 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_valid_uri10__CALLSITE17hdcd72b89110c2032E, i64 0, i32 2, i32 0) monotonic, align 8
+  %312 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_valid_uri10__CALLSITE17hdcd72b89110c2032E, i64 16) monotonic, align 8
   switch i8 %312, label %313 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread324
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
@@ -135390,13 +135390,13 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
   store i64 %2, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  %31 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), i8 noundef 2)
+  %31 = tail call noundef i32 @_ZN4core4sync6atomic11atomic_load17heca70269b09c4440E.llvm.10148583022391705530(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), i8 noundef 2)
   %.not.i.i = icmp eq i32 %31, 4
   br i1 %.not.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0af12895b86c56f1E.llvm.10148583022391705530.exit.i", label %32
 
 32:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
-  call void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (<{ [8 x i8], [4 x i8], [4 x i8] }>, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 0, i32 1, i64 0), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
+  call void @_ZN3std4sync4once4Once15call_once_force17h8435c692dafe8e41E.llvm.240573438051967091(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, i64 8), ptr noundef nonnull align 8 @_ZN14deltalake_core7storage9factories8REGISTRY17he185386569f4ad07E.llvm.10148583022391705530, ptr noalias noundef nonnull align 1 %4)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   br label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0af12895b86c56f1E.llvm.10148583022391705530.exit.i"
 

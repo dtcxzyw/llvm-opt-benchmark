@@ -137,7 +137,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEv
   br i1 %48, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, !llvm.loop !12
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i:    ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i
-  %.not4.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (%"struct.std::array.0", ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 1, i32 0, i64 0)
+  %.not4.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4.i.i, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread, label %49
 
 49:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i
@@ -222,7 +222,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   resume { ptr, i32 } %80
 
 .loopexit.i:                                      ; preds = %73, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
-  %81 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8
   %82 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8
   %.not43.i = icmp eq ptr %81, %82
   br i1 %.not43.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.preheader.i
@@ -314,7 +314,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEv
   br i1 %13, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, !llvm.loop !12
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i
-  %.not4 = icmp eq ptr %.1.i.i, getelementptr inbounds (%"struct.std::array.0", ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 1, i32 0, i64 0)
+  %.not4 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4, label %27, label %14
 
 14:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit
@@ -349,7 +349,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %0 = tail call noalias noundef nonnull dereferenceable(89184) ptr @_Znwm(i64 noundef 89184) #13
   store ptr %0, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 89184
-  store ptr %1, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
@@ -362,7 +362,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %2, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !17
 
 2:                                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  store ptr %1, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8
   br label %3
 
 3:                                                ; preds = %2, %21

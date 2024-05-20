@@ -246,7 +246,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.203 = private unnamed_addr constant [4 x i8] c"@%s\00", align 1
 @.str.204 = private unnamed_addr constant [121 x i8] c"AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?\00", align 1
 @.str.205 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@switch.table.ACLUpdateInfoMetrics = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 1), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 2), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 3)], align 8
+@switch.table.ACLUpdateInfoMetrics = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (i8, ptr @server, i64 5408), ptr getelementptr inbounds (i8, ptr @server, i64 5416), ptr getelementptr inbounds (i8, ptr @server, i64 5400), ptr getelementptr inbounds (i8, ptr @server, i64 5424)], align 8
 @switch.table.aclCommand = private unnamed_addr constant [4 x ptr] [ptr @.str.155, ptr @.str.156, ptr @.str.158, ptr @.str.157], align 8
 @switch.table.aclCommand.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.161, ptr @.str.163, ptr @.str.162, ptr @.str.164], align 8
 
@@ -284,7 +284,7 @@ define dso_local void @ACLInitCommandCategories() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #24
   store ptr %call, ptr @ACLCommandCategories, align 8
-  %0 = load i64, ptr getelementptr inbounds ([22 x %struct.ACLCategoryItem], ptr @ACLDefaultCommandCategories, i64 0, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @ACLDefaultCommandCategories, i64 8), align 8
   %tobool.not6 = icmp eq i64 %0, 0
   br i1 %tobool.not6, label %for.end, label %for.body.preheader
 
@@ -694,7 +694,7 @@ declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noalias noundef ptr @ACLCreateSelector(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 398), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5392), align 8
   %or = or i32 %0, %flags
   store i32 %or, ptr %call, align 8
   %call2 = tail call ptr @listCreate() #23
@@ -1129,7 +1129,7 @@ if.end:                                           ; preds = %entry
   %dup13 = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr @ACLListDuplicateSelector, ptr %dup13, align 8
   %call.i = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #24
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 398), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5392), align 8
   %or.i = or i32 %1, 1
   store i32 %or.i, ptr %call.i, align 8
   %call2.i = tail call ptr @listCreate() #23
@@ -1244,7 +1244,7 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 define dso_local void @ACLFreeUserAndKillClients(ptr noundef %u) #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #23
   %call7 = call ptr @listNext(ptr noundef nonnull %li) #23
   %cmp.not8 = icmp eq ptr %call7, null
@@ -1264,7 +1264,7 @@ if.then:                                          ; preds = %while.body
   store ptr %3, ptr %user, align 8
   %authenticated = getelementptr inbounds i8, ptr %1, i64 256
   store i32 0, ptr %authenticated, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %cmp3 = icmp eq ptr %1, %4
   br i1 %cmp3, label %if.then4, label %if.else
 
@@ -2522,7 +2522,7 @@ if.end209:                                        ; preds = %if.then202
   br label %if.end217
 
 do.body:                                          ; preds = %if.end200
-  %38 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp211 = icmp sgt i32 %38, 3
   br i1 %cmp211, label %do.end, label %if.end214
 
@@ -2626,7 +2626,7 @@ for.body.i:                                       ; preds = %for.cond.i
 if.end:                                           ; preds = %for.body.i, %for.body.i.preheader
   %.lcssa = phi i64 [ %1, %for.body.i.preheader ], [ %3, %for.body.i ]
   tail call void @ACLUpdateCommandRules(ptr noundef %selector, ptr noundef %category, i32 noundef %allow)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 13), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 88), align 8
   tail call void @ACLSetSelectorCommandBitsForCategory(ptr noundef %5, ptr noundef %selector, i64 noundef %.lcssa, i32 noundef %allow)
   br label %return
 
@@ -2737,7 +2737,7 @@ if.end:                                           ; preds = %for.body.i, %for.bo
   %.lcssa = phi i64 [ %1, %for.body.i.preheader ], [ %3, %for.body.i ]
   store i64 0, ptr %off, align 8
   store i64 0, ptr %on, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 13), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 88), align 8
   tail call void @ACLCountCategoryBitsForCommands(ptr noundef %5, ptr noundef %selector, ptr noundef nonnull %on, ptr noundef nonnull %off, i64 noundef %.lcssa)
   br label %return
 
@@ -2752,7 +2752,7 @@ entry:
   %argc = alloca i32, align 4
   %call = tail call ptr @sdsempty() #23
   %call.i = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #24
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 398), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5392), align 8
   store i32 %0, ptr %call.i, align 8
   %call2.i = tail call ptr @listCreate() #23
   %patterns.i = getelementptr inbounds i8, ptr %call.i, i64 144
@@ -2887,7 +2887,7 @@ if.end30:                                         ; preds = %for.end, %if.then27
   br i1 %cmp34.not, label %if.end41, label %do.body
 
 do.body:                                          ; preds = %if.end30
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp37 = icmp sgt i32 %15, 3
   br i1 %cmp37, label %do.end, label %if.end40
 
@@ -2997,7 +2997,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @sdsempty() #23
-  %1 = load i64, ptr getelementptr inbounds ([6 x %struct.ACLUserFlag], ptr @ACLUserFlags, i64 0, i64 0, i32 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @ACLUserFlags, i64 8), align 8
   %tobool3.not24 = icmp eq i64 %1, 0
   br i1 %tobool3.not24, label %for.end, label %for.body.lr.ph
 
@@ -3095,7 +3095,7 @@ declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #1
 define dso_local ptr @ACLLookupCommand(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef %name) #23
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 13), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 88), align 8
   %call1 = tail call ptr @lookupCommandBySdsLogic(ptr noundef %0, ptr noundef %call) #23
   tail call void @sdsfree(ptr noundef %call) #23
   ret ptr %call1
@@ -3128,7 +3128,7 @@ cond.false:                                       ; preds = %entry, %land.rhs
 
 cond.end:                                         ; preds = %land.rhs
   %call.i = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #24
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 398), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5392), align 8
   store i32 %3, ptr %call.i, align 8
   %call2.i = tail call ptr @listCreate() #23
   %patterns.i = getelementptr inbounds i8, ptr %call.i, i64 144
@@ -3574,7 +3574,7 @@ cond.false197:                                    ; preds = %cond.end186
   unreachable
 
 cond.end198:                                      ; preds = %cond.end186
-  %28 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 398), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5392), align 8
   %and199 = and i32 %28, 8
   %tobool200.not = icmp eq i32 %and199, 0
   br i1 %tobool200.not, label %if.end214, label %if.then201
@@ -3711,7 +3711,7 @@ entry:
   store ptr %call1, ptr @UsersToLoad, align 8
   %call.i = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #24
   store ptr %call.i, ptr @ACLCommandCategories, align 8
-  %0 = load i64, ptr getelementptr inbounds ([22 x %struct.ACLCategoryItem], ptr @ACLDefaultCommandCategories, i64 0, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @ACLDefaultCommandCategories, i64 8), align 8
   %tobool.not6.i = icmp eq i64 %0, 0
   br i1 %tobool.not6.i, label %ACLInitCommandCategories.exit, label %for.body.preheader.i
 
@@ -4207,7 +4207,7 @@ if.end:                                           ; preds = %cond.end, %sw.bb, %
   %call8.sink = phi ptr [ %call8, %sw.bb ], [ %call11, %sw.bb10 ], [ %call18, %sw.bb13 ], [ %call24, %sw.bb20 ], [ %call26, %sw.default ], [ %object, %cond.end ]
   %object9 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call8.sink, ptr %object9, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %tobool28.not = icmp eq ptr %17, null
   %cond32 = select i1 %tobool28.not, ptr %c, ptr %17
   %call33 = tail call ptr @sdsempty() #23
@@ -4314,7 +4314,7 @@ if.else52:                                        ; preds = %land.rhs, %while.co
   %41 = load ptr, ptr @ACLLog, align 8
   %len46 = getelementptr inbounds i8, ptr %41, i64 40
   %42 = load i64, ptr %len46, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
   %cmp5647 = icmp ugt i64 %42, %43
   br i1 %cmp5647, label %while.body57, label %if.end62
 
@@ -4339,7 +4339,7 @@ while.body57:                                     ; preds = %if.else52, %while.b
   %51 = load ptr, ptr @ACLLog, align 8
   %len = getelementptr inbounds i8, ptr %51, i64 40
   %52 = load i64, ptr %len, align 8
-  %53 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
   %cmp56 = icmp ugt i64 %52, %53
   br i1 %cmp56, label %while.body57, label %if.end62, !llvm.loop !38
 
@@ -5322,7 +5322,7 @@ entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
   %lpi = alloca %struct.listIter, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 358), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5144), align 8
   %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5332,7 +5332,7 @@ entry:
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 357), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5136), align 8
   %ht_used3 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i64, ptr %ht_used3, align 8
   %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 32
@@ -5342,7 +5342,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool8.not, label %land.lhs.true9, label %if.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 360), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5160), align 8
   %ht_used10 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i64, ptr %ht_used10, align 8
   %arrayidx13 = getelementptr inbounds i8, ptr %6, i64 32
@@ -5449,7 +5449,7 @@ while.end62:                                      ; preds = %while.cond50
   br i1 %21, label %while.body41, label %return.sink.split, !llvm.loop !52
 
 if.end66:                                         ; preds = %while.body41, %while.end63.thread143
-  %22 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   call void @listRewind(ptr noundef %22, ptr noundef nonnull %li) #23
   %call68137 = call ptr @listNext(ptr noundef nonnull %li) #23
   %cmp.not138 = icmp eq ptr %call68137, null
@@ -6629,7 +6629,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %or.cond.i, label %do.body, label %for.cond.i
 
 do.body:                                          ; preds = %for.body.i
-  %12 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5 = icmp sgt i32 %12, 3
   br i1 %cmp5, label %return, label %if.end
 
@@ -6804,7 +6804,7 @@ if.end34.fold.split.i:                            ; preds = %if.then30
 
 ACLSetUserStringError.exit:                       ; preds = %if.then30, %if.then3.i, %if.then7.i, %if.then11.i, %if.then15.i, %if.then19.i, %if.then23.i, %if.then27.i, %if.end34.fold.split.i
   %errmsg.0.i = phi ptr [ @.str.81, %if.then3.i ], [ @.str.82, %if.then7.i ], [ @.str.83, %if.then11.i ], [ @.str.84, %if.then15.i ], [ @.str.85, %if.then19.i ], [ @.str.86, %if.then23.i ], [ @.str.87, %if.then27.i ], [ @.str.80, %if.then30 ], [ @.str.79, %if.end34.fold.split.i ]
-  %28 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp33 = icmp sgt i32 %28, 3
   br i1 %cmp33, label %return, label %if.end36
 
@@ -6819,7 +6819,7 @@ for.end:                                          ; preds = %for.cond, %if.end19
   %31 = load i32, ptr %flags, align 8
   %and = and i32 %31, 2
   %tobool42 = icmp eq i32 %and, 0
-  %32 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp45 = icmp sgt i32 %32, 2
   %or.cond = select i1 %tobool42, i1 true, i1 %cmp45
   br i1 %or.cond, label %if.end51, label %if.end48
@@ -6948,7 +6948,7 @@ sdslen.exit:                                      ; preds = %if.end26, %sw.bb.i,
   br i1 %cmp33, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %sdslen.exit
-  %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %11 = trunc nuw nsw i64 %indvars.iv.next219 to i32
   %call36 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.104, ptr noundef %10, i32 noundef %11) #23
   br label %for.inc120
@@ -6971,7 +6971,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %or.cond, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end41
-  %14 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %15 = trunc nuw nsw i64 %indvars.iv.next219 to i32
   %call47 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.105, ptr noundef %14, i32 noundef %15) #23
   %16 = load i32, ptr %argc, align 4
@@ -7050,7 +7050,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %or.cond.i, label %if.then54, label %for.cond.i
 
 if.then54:                                        ; preds = %for.body.i
-  %27 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %28 = trunc nuw nsw i64 %indvars.iv.next219 to i32
   %call56 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.106, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %17) #23
   %29 = load i32, ptr %argc, align 4
@@ -7117,7 +7117,7 @@ if.end66:                                         ; preds = %sdslen.exit110
   br i1 %tobool68.not, label %if.then69, label %if.end71
 
 if.then69:                                        ; preds = %if.end66
-  %38 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %39 = trunc nuw nsw i64 %indvars.iv.next219 to i32
   %call70 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.108, ptr noundef %38, i32 noundef %39) #23
   br label %if.end71
@@ -7231,7 +7231,7 @@ ACLSetUserStringError.exit:                       ; preds = %if.then89
   br label %if.else
 
 if.then94:                                        ; preds = %if.then89
-  %50 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %51 = load ptr, ptr %arrayidx77, align 8
   %call97 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.2200, ptr noundef nonnull @.str.110, ptr noundef %50, i32 noundef %41, ptr noundef %51, ptr noundef nonnull @.str.80) #23
   br label %for.inc
@@ -7242,7 +7242,7 @@ if.else:                                          ; preds = %ACLSetUserStringErr
   br i1 %cmp98, label %if.then100, label %for.inc
 
 if.then100:                                       ; preds = %if.else
-  %52 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %call101 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.2200, ptr noundef nonnull @.str.111, ptr noundef %52, i32 noundef %42, ptr noundef nonnull %errmsg.0.i186) #23
   br label %for.inc
 
@@ -7549,7 +7549,7 @@ while.cond21.preheader:                           ; preds = %while.end
   br label %while.cond21.outer
 
 do.body:                                          ; preds = %while.end
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp16 = icmp sgt i32 %4, 3
   br i1 %cmp16, label %if.end79, label %if.end
 
@@ -7648,7 +7648,7 @@ if.then28:                                        ; preds = %sdslen.exit46
   br i1 %cmp30, label %while.cond21, label %do.body33, !llvm.loop !69
 
 do.body33:                                        ; preds = %if.then28
-  %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp34 = icmp sgt i32 %16, 3
   br i1 %cmp34, label %if.then77, label %if.then77.sink.split
 
@@ -7667,7 +7667,7 @@ while.end41:                                      ; preds = %sdslen.exit
   br i1 %cmp43, label %do.body45, label %if.end52
 
 do.body45:                                        ; preds = %while.end41
-  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp46 = icmp sgt i32 %17, 3
   br i1 %cmp46, label %if.then77, label %if.end48
 
@@ -7683,7 +7683,7 @@ if.end52:                                         ; preds = %while.end41
   br i1 %cmp55, label %do.body57, label %if.end64
 
 do.body57:                                        ; preds = %if.end52
-  %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp58 = icmp sgt i32 %19, 3
   br i1 %cmp58, label %if.end79, label %if.end60
 
@@ -7700,7 +7700,7 @@ if.end64:                                         ; preds = %if.end52
   br i1 %cmp66, label %do.body68, label %if.end79.thread
 
 do.body68:                                        ; preds = %if.end64
-  %21 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp69 = icmp sgt i32 %21, 3
   br i1 %cmp69, label %if.end79, label %if.end71
 
@@ -7768,7 +7768,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLLoadUsersAtStartup() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.end7, label %land.lhs.true
@@ -7781,7 +7781,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end7, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %4, 3
   br i1 %cmp4, label %do.end, label %if.end
 
@@ -7799,7 +7799,7 @@ if.end7:                                          ; preds = %land.lhs.true, %ent
   br i1 %cmp8, label %do.body11, label %if.end17
 
 do.body11:                                        ; preds = %if.end7
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp12 = icmp sgt i32 %5, 3
   br i1 %cmp12, label %do.end16, label %if.end15
 
@@ -7812,7 +7812,7 @@ do.end16:                                         ; preds = %do.body11, %if.end1
   unreachable
 
 if.end17:                                         ; preds = %if.end7
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %7 = load i8, ptr %6, align 1
   %cmp20.not = icmp eq i8 %7, 0
   br i1 %cmp20.not, label %if.end32, label %if.then22
@@ -7823,7 +7823,7 @@ if.then22:                                        ; preds = %if.end17
   br i1 %tobool.not, label %if.end32, label %do.body25
 
 do.body25:                                        ; preds = %if.then22
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp26 = icmp sgt i32 %8, 3
   br i1 %cmp26, label %do.end30, label %if.end29
 
@@ -8600,7 +8600,7 @@ if.end112:                                        ; preds = %sdslen.exit277
   %call113 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #23
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.139) #23
   %call114 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #23
-  %56 = load i64, ptr getelementptr inbounds ([6 x %struct.ACLUserFlag], ptr @ACLUserFlags, i64 0, i64 0, i32 1), align 8
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @ACLUserFlags, i64 8), align 8
   %tobool119.not423 = icmp eq i64 %56, 0
   br i1 %tobool119.not423, label %for.end133, label %for.body120.lr.ph
 
@@ -8942,7 +8942,7 @@ if.else211:                                       ; preds = %if.then202
   br label %if.end496
 
 if.else213:                                       ; preds = %land.lhs.true198, %if.else195
-  %101 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 395), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %102 = load i8, ptr %101, align 1
   %cmp216 = icmp eq i8 %102, 0
   br i1 %cmp216, label %land.lhs.true218, label %if.else225
@@ -9091,7 +9091,7 @@ if.end295:                                        ; preds = %for.body.i339, %for
   %.lcssa409 = phi i64 [ %116, %for.body.i339.preheader ], [ %118, %for.body.i339 ]
   store i32 0, ptr %arraylen, align 4
   %call297 = tail call ptr @addReplyDeferredLen(ptr noundef %c) #23
-  %120 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 13), align 8
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 88), align 8
   call void @aclCatWithFlags(ptr noundef %c, ptr noundef %120, i64 noundef %.lcssa409, ptr noundef nonnull %arraylen)
   %121 = load i32, ptr %arraylen, align 4
   %conv298 = sext i32 %121 to i64
@@ -9639,7 +9639,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %1) #23
   br label %if.end20
 
@@ -9662,7 +9662,7 @@ if.then4:                                         ; preds = %if.then3
   br label %if.end20
 
 if.end5:                                          ; preds = %if.then3
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 80), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 736), align 8
   %argv = getelementptr inbounds i8, ptr %c, i64 96
   %6 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 8

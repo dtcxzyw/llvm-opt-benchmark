@@ -406,7 +406,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_print_cpu_bind_help() local_unnamed_addr #2 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %2 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef nonnull @.str.75) #14
   %.not.i.not = icmp eq i32 %2, 0
   %str.str.1 = select i1 %.not.i.not, ptr @str, ptr @str.1
@@ -420,7 +420,7 @@ define range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %9 = tail call i32 @xstrcmp(ptr noundef %8, ptr noundef nonnull @.str.75) #14
   store i32 0, ptr %7, align 4
   %10 = tail call ptr @xstrdup(ptr noundef %0) #14
@@ -494,7 +494,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %39 = call i32 @xstrcmp(ptr noundef %38, ptr noundef nonnull @.str.75) #14
   %.not.i.not.i = icmp eq i32 %39, 0
   %str.str.1.i = select i1 %.not.i.not.i, ptr @str, ptr @str.1

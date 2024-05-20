@@ -90,7 +90,7 @@ define internal noundef i32 @setup_storage_paranoia(ptr nocapture readnone %0) #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @efi_delete_dummy_variable() local_unnamed_addr #1 align 16 {
   %1 = alloca %struct.guid_t, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 20), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 152), align 8
   store i8 87, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 -84, ptr %3, align 1
@@ -162,7 +162,7 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   store i64 0, ptr %5, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store i64 0, ptr %6, align 8, !annotation !5
-  %15 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 22), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 168), align 8
   %16 = call i64 %15(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %17 = icmp eq i64 %16, 0
   %18 = load i64, ptr %5, align 8
@@ -176,7 +176,7 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   br label %.thread
 
 23:                                               ; preds = %13
-  %24 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 21), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 160), align 8
   %25 = call i64 %24(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %.thread
@@ -198,7 +198,7 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 19), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 144), align 8
   store i8 87, ptr %10, align 4
   %39 = getelementptr inbounds i8, ptr %10, i64 1
   store i8 -84, ptr %39, align 1
@@ -240,7 +240,7 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
 
 57:                                               ; preds = %56, %37
   call void @kfree(ptr noundef nonnull %35) #16
-  %58 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 21), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 160), align 8
   %59 = call i64 %58(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %.thread
@@ -327,7 +327,7 @@ define dso_local void @efi_arch_mem_reserve(i64 noundef %0, i64 noundef %1) loca
   %37 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %36, ptr %37, align 8
   %38 = call i32 @efi_memmap_split_count(ptr noundef nonnull %6, ptr noundef nonnull %5) #18
-  %39 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
   %40 = add i32 %39, %38
   %41 = call i32 @efi_memmap_alloc(i32 noundef %40, ptr noundef nonnull %4) #18
   %42 = icmp eq i32 %41, 0
@@ -352,7 +352,7 @@ define dso_local void @efi_arch_mem_reserve(i64 noundef %0, i64 noundef %1) loca
   br label %62
 
 55:                                               ; preds = %45
-  call void @efi_memmap_insert(ptr noundef nonnull getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27), ptr noundef nonnull %51, ptr noundef nonnull %5) #18
+  call void @efi_memmap_insert(ptr noundef nonnull getelementptr inbounds (i8, ptr @efi, i64 208), ptr noundef nonnull %51, ptr noundef nonnull %5) #18
   %56 = load i64, ptr %47, align 8
   call void @early_memunmap(ptr noundef nonnull %51, i64 noundef %56) #16
   %57 = call i32 @efi_memmap_install(ptr noundef nonnull %4) #18
@@ -404,17 +404,17 @@ declare dso_local i32 @e820__update_table(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_reserve_boot_services() local_unnamed_addr #5 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %2 = and i64 %1, 16
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   %6 = icmp ne ptr %5, null
-  %7 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %8 = getelementptr i8, ptr %5, i64 %7
-  %9 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %10 = icmp ule ptr %8, %9
   %11 = select i1 %6, i1 %10, i1 false
   br i1 %11, label %.preheader, label %.loopexit
@@ -448,11 +448,11 @@ define dso_local void @efi_reserve_boot_services() local_unnamed_addr #5 section
   br label %30
 
 30:                                               ; preds = %26, %23, %.preheader
-  %31 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %32 = getelementptr i8, ptr %12, i64 %31
   %33 = icmp ne ptr %32, null
   %34 = getelementptr i8, ptr %32, i64 %31
-  %35 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %36 = icmp ule ptr %34, %35
   %37 = select i1 %33, i1 %36, i1 false
   br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !6
@@ -492,17 +492,17 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
   %1 = alloca %struct.efi_memory_map_data, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %3 = and i64 %2, 256
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   %7 = icmp ne ptr %6, null
-  %8 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %11 = icmp ule ptr %9, %10
   %12 = select i1 %7, i1 %11, i1 false
   br i1 %12, label %13, label %.thread
@@ -579,11 +579,11 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 
 60:                                               ; preds = %54, %49, %33, %27
   %61 = phi i32 [ %28, %27 ], [ %34, %33 ], [ %18, %54 ], [ %18, %49 ]
-  %62 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %63 = getelementptr i8, ptr %17, i64 %62
   %64 = icmp ne ptr %63, null
   %65 = getelementptr i8, ptr %63, i64 %62
-  %66 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %67 = icmp ule ptr %65, %66
   %68 = select i1 %64, i1 %67, i1 false
   br i1 %68, label %16, label %69, !llvm.loop !9
@@ -606,11 +606,11 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
   br i1 %79, label %113, label %80
 
 80:                                               ; preds = %74
-  %81 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   %82 = icmp ne ptr %81, null
-  %83 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %83 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %84 = getelementptr i8, ptr %81, i64 %83
-  %85 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %86 = icmp ule ptr %84, %85
   %87 = select i1 %82, i1 %86, i1 false
   br i1 %87, label %.preheader, label %.loopexit
@@ -633,9 +633,9 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 
 99:                                               ; preds = %95, %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr nonnull align 8 %90, i64 %89, i1 false)
-  %100 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %101 = getelementptr i8, ptr %91, i64 %100
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   br label %102
 
 102:                                              ; preds = %99, %95
@@ -667,12 +667,12 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @efi_unmap_pages(ptr nocapture noundef readonly %0) unnamed_addr #5 section ".init.text" align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mm_struct, ptr @efi_mm, i64 0, i32 0, i32 8), align 64
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi_mm, i64 128), align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %8 = and i64 %7, 32
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %23, label %10
@@ -725,7 +725,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0,
   br i1 %8, label %49, label %9
 
 9:                                                ; preds = %2
-  %10 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %11 = and i64 %10, 32
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %49, label %13
@@ -810,7 +810,7 @@ declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none)
 define dso_local void @efi_apply_memmap_quirks() local_unnamed_addr #9 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   ret void
 }
 
@@ -840,19 +840,19 @@ define dso_local zeroext i1 @efi_poweroff_required() local_unnamed_addr #11 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @efi_crash_gracefully_on_page_fault(i64 noundef %0) local_unnamed_addr #1 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !13
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !13
   %3 = and i32 %2, 16776960
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %25
 
 5:                                                ; preds = %1
-  %6 = load volatile i32, ptr getelementptr inbounds (%struct.efi_runtime_work, ptr @efi_rts_work, i64 0, i32 3), align 8
+  %6 = load volatile i32, ptr getelementptr inbounds (i8, ptr @efi_rts_work, i64 48), align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %25, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @current_work() #16
-  %10 = icmp ne ptr %9, getelementptr inbounds (%struct.efi_runtime_work, ptr @efi_rts_work, i64 0, i32 2)
+  %10 = icmp ne ptr %9, getelementptr inbounds (i8, ptr @efi_rts_work, i64 16)
   %11 = icmp ult i64 %0, 4096
   %12 = or i1 %11, %10
   br i1 %12, label %25, label %13
@@ -864,7 +864,7 @@ define dso_local void @efi_crash_gracefully_on_page_fault(i64 noundef %0) local_
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 744, i32 2313, i64 12) #16, !srcloc !16
   tail call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #16, !srcloc !17
   tail call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #16, !srcloc !18
-  %14 = load i32, ptr getelementptr inbounds (%struct.efi_runtime_work, ptr @efi_rts_work, i64 0, i32 3), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @efi_rts_work, i64 48), align 8
   %15 = icmp eq i32 %14, 10
   br i1 %15, label %16, label %18
 
@@ -875,9 +875,9 @@ define dso_local void @efi_crash_gracefully_on_page_fault(i64 noundef %0) local_
 
 18:                                               ; preds = %13
   tail call void @arch_efi_call_virt_teardown() #16
-  store i64 -9223372036854775787, ptr getelementptr inbounds (%struct.efi_runtime_work, ptr @efi_rts_work, i64 0, i32 1), align 8
-  tail call void @complete(ptr noundef nonnull getelementptr inbounds (%struct.efi_runtime_work, ptr @efi_rts_work, i64 0, i32 4)) #16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28)) #16, !srcloc !19
+  store i64 -9223372036854775787, ptr getelementptr inbounds (i8, ptr @efi_rts_work, i64 8), align 8
+  tail call void @complete(ptr noundef nonnull getelementptr inbounds (i8, ptr @efi_rts_work, i64 56)) #16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @efi, i64 264)) #16, !srcloc !19
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #18
   %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !20
   %21 = inttoptr i64 %20 to ptr

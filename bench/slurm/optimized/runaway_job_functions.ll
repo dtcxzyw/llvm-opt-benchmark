@@ -203,7 +203,7 @@ _set_cond.exit:                                   ; preds = %69, %28
 
 82:                                               ; preds = %.thread.i51, %80
   %83 = phi ptr [ %81, %.thread.i51 ], [ %.pr.i, %80 ]
-  %84 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %85 = tail call i32 @slurm_addto_char_list(ptr noundef %83, ptr noundef %84) #8
   br label %86
 

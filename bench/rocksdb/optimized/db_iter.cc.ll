@@ -216,7 +216,7 @@ entry:
   %frombool1 = zext i1 %expose_blob_index to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb6DBIterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb6DBIterE, i64 16), ptr %this, align 8
   %prefix_extractor_ = getelementptr inbounds i8, ptr %this, i64 40
   %prefix_extractor = getelementptr inbounds i8, ptr %mutable_cf_options, i64 64
   %1 = load ptr, ptr %prefix_extractor, align 8
@@ -972,7 +972,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   %12 = load ptr, ptr %logger_, align 8
   %state_.i6 = getelementptr inbounds i8, ptr %this, i64 568
   %13 = load ptr, ptr %state_.i6, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([107 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %13)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 93), ptr noundef %13)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %_ZN7rocksdb5SliceC2EPKc.exit, %_ZN7rocksdb6StatusD2Ev.exit
@@ -2594,7 +2594,7 @@ if.end:                                           ; preds = %invoke.cont
 land.rhs.i:                                       ; preds = %if.end
   %size_.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %size_.i.i.i, align 8
-  %15 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8
   %cmp.i.i = icmp eq i64 %14, %15
   br i1 %cmp.i.i, label %invoke.cont5, label %cleanup
 
@@ -4332,7 +4332,7 @@ entry:
 if.then:                                          ; preds = %entry
   %logger_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %logger_, align 8
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([107 x i8], ptr @.str.13, i64 0, i64 93))
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 93))
   store ptr @.str.17, ptr %ref.tmp2, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 28, ptr %size_.i, align 8

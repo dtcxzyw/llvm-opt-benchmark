@@ -87,7 +87,7 @@ define internal void @file_set_destruct(ptr nocapture noundef %0) #2 {
 ; Function Attrs: nounwind uwtable
 define internal void @req_construct(ptr noundef %0) #3 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -103,7 +103,7 @@ define internal void @req_construct(ptr noundef %0) #3 {
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -119,7 +119,7 @@ define internal void @req_construct(ptr noundef %0) #3 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %15 = load i32, ptr @pmix_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not13 = icmp eq i32 %15, %16
   br i1 %.not13, label %18, label %17
 
@@ -135,7 +135,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i14 = icmp eq ptr %24, null
   br i1 %.not6.i14, label %pmix_obj_run_constructors.exit18, label %.lr.ph.i15

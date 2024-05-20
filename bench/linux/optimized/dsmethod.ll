@@ -509,7 +509,7 @@ acpi_ds_terminate_control_method.exit:            ; preds = %25, %37, %41
   %51 = and i64 %50, 512
   %52 = icmp eq i64 %51, 0
   %53 = select i1 %52, i32 2336, i32 3520
-  %54 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %55 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %54, i32 noundef %53, i64 noundef 88) #7
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.split2, label %57

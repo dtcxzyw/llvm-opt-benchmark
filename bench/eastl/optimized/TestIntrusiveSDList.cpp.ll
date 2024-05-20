@@ -1141,7 +1141,7 @@ for.cond.i:                                       ; preds = %_ZN5eastl12basic_st
   br i1 %cmp.i.not.i, label %while.cond.i.i.i8.preheader.i, label %for.body.i
 
 while.cond.i.i.i8.preheader.i:                    ; preds = %for.cond.i
-  %call2.i.i16.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.37, i64 0, i64 2))
+  %call2.i.i16.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.37, i64 2))
           to label %_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_.exit unwind label %lpad.loopexit.split-lp.i
 
 for.body.i:                                       ; preds = %for.cond.i
@@ -1307,7 +1307,7 @@ for.cond.i19:                                     ; preds = %_ZN5eastl12basic_st
   br i1 %cmp.i.not.i22, label %while.cond.i.i.i8.preheader.i44, label %for.body.i23
 
 while.cond.i.i.i8.preheader.i44:                  ; preds = %for.cond.i19
-  %call2.i.i16.i45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.37, i64 0, i64 2))
+  %call2.i.i16.i45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.37, i64 2))
           to label %_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_.exit48 unwind label %lpad.loopexit.split-lp.i46
 
 for.body.i23:                                     ; preds = %for.cond.i19

@@ -53,7 +53,7 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i32 @prte_backtrace_print(ptr noundef %8, ptr noundef null, i32 noundef 1) #6
-  %10 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %10, 64
   br i1 %or.cond, label %11, label %21
 
@@ -73,17 +73,17 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %21
 
 21:                                               ; preds = %7, %11, %16, %1
-  %22 = load i32, ptr getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 7), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 856), align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %21
-  %25 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 7), i32 noundef 4) #6
+  %25 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 856), i32 noundef 4) #6
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %28, 64
   br i1 %or.cond3, label %29, label %39
 
@@ -103,17 +103,17 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %39
 
 39:                                               ; preds = %27, %29, %34, %24, %21
-  %40 = load i32, ptr getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 8), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 860), align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %39
-  %43 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 8, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 8), i32 noundef 4) #6
+  %43 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 860), i32 noundef 4) #6
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %42
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %46, 64
   br i1 %or.cond5, label %47, label %57
 
@@ -133,7 +133,7 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %57
 
 57:                                               ; preds = %45, %47, %52, %42, %39
-  %58 = load i32, ptr getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 29), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1692), align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %60, label %124
 
@@ -153,7 +153,7 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br i1 %66, label %67, label %79
 
 67:                                               ; preds = %63
-  %68 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %68, 64
   br i1 %or.cond.i, label %69, label %set_keepalive.exit
 
@@ -173,12 +173,12 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %set_keepalive.exit
 
 79:                                               ; preds = %63
-  %80 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 29), i32 noundef 4) #6
+  %80 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1692), i32 noundef 4) #6
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %94
 
 82:                                               ; preds = %79
-  %83 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond3.i = icmp ult i32 %83, 64
   br i1 %or.cond3.i, label %84, label %set_keepalive.exit
 
@@ -198,12 +198,12 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %set_keepalive.exit
 
 94:                                               ; preds = %79
-  %95 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 30), i32 noundef 4) #6
+  %95 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1696), i32 noundef 4) #6
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %109
 
 97:                                               ; preds = %94
-  %98 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond5.i = icmp ult i32 %98, 64
   br i1 %or.cond5.i, label %99, label %set_keepalive.exit
 
@@ -223,12 +223,12 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
   br label %set_keepalive.exit
 
 109:                                              ; preds = %94
-  %110 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 28), i32 noundef 4) #6
+  %110 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1688), i32 noundef 4) #6
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %112, label %set_keepalive.exit
 
 112:                                              ; preds = %109
-  %113 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_oob_base_framework, i64 0, i32 11), align 4
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond7.i = icmp ult i32 %113, 64
   br i1 %or.cond7.i, label %114, label %set_keepalive.exit
 
@@ -271,8 +271,8 @@ declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @prte_oob_tcp_peer_lookup(ptr noundef %0) local_unnamed_addr #0 {
-  %.07 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 6, i32 1, i32 1), align 8
-  %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 6, i32 1)
+  %.07 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 824), align 8
+  %.not8 = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 704)
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %4
@@ -284,7 +284,7 @@ define ptr @prte_oob_tcp_peer_lookup(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_mca_oob_tcp_component_t, ptr @prte_mca_oob_tcp_component, i64 0, i32 6, i32 1)
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 704)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %1

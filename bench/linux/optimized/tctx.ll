@@ -84,7 +84,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @io_uring_alloc_task_context(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = alloca %struct.io_wq_data, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(320) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 320) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %49, label %7, !prof !15
@@ -109,7 +109,7 @@ define dso_local i32 @io_uring_alloc_task_context(ptr noundef %0, ptr noundef %1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %19 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 40) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %22
@@ -236,7 +236,7 @@ define dso_local i32 @__io_uring_add_tctx_node(ptr noundef %0) local_unnamed_add
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %34 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3264, i64 noundef 32) #8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %55, label %36

@@ -4748,7 +4748,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.
   br i1 %82, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1438cc00c04230adE.exit.i", label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.exit.thread.i.i
 
 _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.exit.thread.i.i: ; preds = %.noexc.i, %79
-  %.0.i.i2.i.i = phi ptr [ %81, %.noexc.i ], [ getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17heab1386b7c074780E, i64 0, i32 0, i32 1), %79 ]
+  %.0.i.i2.i.i = phi ptr [ %81, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17heab1386b7c074780E, i64 8), %79 ]
   %83 = load ptr, ptr %.0.i.i2.i.i, align 8, !noalias !932, !noundef !4
   store ptr null, ptr %.0.i.i2.i.i, align 8, !noalias !932
   %84 = icmp eq ptr %83, null

@@ -95,40 +95,40 @@ define noundef i32 @_Z5CRC32jPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %26, 255
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 7, i64 %30
+  %31 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 7168), i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = lshr i32 %26, 8
   %34 = and i32 %33, 255
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 6, i64 %35
+  %36 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 6144), i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = xor i32 %37, %32
   %39 = lshr i32 %26, 16
   %40 = and i32 %39, 255
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 5, i64 %41
+  %42 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 5120), i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = xor i32 %38, %43
   %45 = lshr i32 %26, 24
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 4, i64 %46
+  %47 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 4096), i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %44, %48
   %50 = and i32 %28, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 3, i64 %51
+  %52 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 3072), i64 0, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = xor i32 %49, %53
   %55 = lshr i32 %28, 8
   %56 = and i32 %55, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 2, i64 %57
+  %58 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 2048), i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = xor i32 %54, %59
   %61 = lshr i32 %28, 16
   %62 = and i32 %61, 255
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 1, i64 %63
+  %64 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 1024), i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = xor i32 %60, %65
   %67 = lshr i32 %28, 24
@@ -187,7 +187,7 @@ define noundef zeroext i16 @_Z10Checksum14tPKvm(i16 noundef zeroext %0, ptr noca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_crc.cpp() #3 section ".text.startup" {
-  %1 = load i32, ptr getelementptr inbounds ([8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 0, i64 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10crc_tables, i64 4), align 4
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %_Z9InitCRC32Pj.exit.i.i.i.preheader
 

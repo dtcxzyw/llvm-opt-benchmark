@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_io_base_register_datarep(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %.01617 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_io_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not18 = icmp eq ptr %.01617, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_io_base_framework, i64 0, i32 12, i32 1)
+  %.01617 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 112), align 8
+  %.not18 = icmp eq ptr %.01617, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %25
@@ -50,7 +50,7 @@ define i32 @mca_io_base_register_datarep(ptr noundef %0, ptr noundef %1, ptr nou
   %.1 = phi i32 [ %24, %19 ], [ %.019, %15 ], [ %.019, %11 ], [ %.019, %.lr.ph ]
   %26 = getelementptr inbounds i8, ptr %.01620, i64 16
   %.016 = load volatile ptr, ptr %26, align 8
-  %.not = icmp eq ptr %.016, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_io_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.016, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %25, %5

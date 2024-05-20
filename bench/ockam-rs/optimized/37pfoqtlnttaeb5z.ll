@@ -7512,7 +7512,7 @@ default.unreachable1101:                          ; preds = %2
   br i1 %151, label %152, label %.thread998
 
 152:                                              ; preds = %149
-  %153 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h32d1a4b7d5701a18E", i64 0, i32 1, i64 8) monotonic, align 8
+  %153 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h32d1a4b7d5701a18E", i64 16) monotonic, align 8
   switch i8 %153, label %154 [
     i8 0, label %.thread998
     i8 1, label %.thread
@@ -7982,7 +7982,7 @@ default.unreachable1101:                          ; preds = %2
   br i1 %299, label %300, label %.thread1027
 
 300:                                              ; preds = %297
-  %301 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9cf74c3a2f7e3502E", i64 0, i32 1, i64 8) monotonic, align 8
+  %301 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9cf74c3a2f7e3502E", i64 16) monotonic, align 8
   switch i8 %301, label %302 [
     i8 0, label %.thread1027
     i8 1, label %.thread1024
@@ -8320,7 +8320,7 @@ default.unreachable1101:                          ; preds = %2
   br i1 %406, label %407, label %.thread1035
 
 407:                                              ; preds = %404
-  %408 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd43ed51ac3d44473E", i64 0, i32 1, i64 8) monotonic, align 8
+  %408 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd43ed51ac3d44473E", i64 16) monotonic, align 8
   switch i8 %408, label %409 [
     i8 0, label %.thread1035
     i8 1, label %.thread1032
@@ -8791,7 +8791,7 @@ default.unreachable1101:                          ; preds = %2
   br i1 %539, label %540, label %.thread1047
 
 540:                                              ; preds = %537
-  %541 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfeb85d8916cc8d1bE", i64 0, i32 1, i64 8) monotonic, align 8
+  %541 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfeb85d8916cc8d1bE", i64 16) monotonic, align 8
   switch i8 %541, label %542 [
     i8 0, label %.thread1047
     i8 1, label %.thread1044
@@ -9282,7 +9282,7 @@ common.ret:                                       ; preds = %894, %"_ZN96_$LT$fu
   br i1 %680, label %681, label %.thread1067
 
 681:                                              ; preds = %678
-  %682 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a1776452560538dE", i64 0, i32 1, i64 8) monotonic, align 8
+  %682 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a1776452560538dE", i64 16) monotonic, align 8
   switch i8 %682, label %683 [
     i8 0, label %.thread1067
     i8 1, label %.thread1064
@@ -9590,7 +9590,7 @@ common.ret:                                       ; preds = %894, %"_ZN96_$LT$fu
   br i1 %782, label %783, label %.thread1075
 
 783:                                              ; preds = %780
-  %784 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a7e2ea4acbcc8f3E", i64 0, i32 1, i64 8) monotonic, align 8
+  %784 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0a7e2ea4acbcc8f3E", i64 16) monotonic, align 8
   switch i8 %784, label %785 [
     i8 0, label %.thread1075
     i8 1, label %.thread1072

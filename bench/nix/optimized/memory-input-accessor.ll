@@ -763,7 +763,7 @@ define void @_ZN3nix22makeEmptyInputAccessorEv(ptr dead_on_unwind noalias nocapt
   %12 = load ptr, ptr @_ZZN3nix22makeEmptyInputAccessorEvE5empty, align 8
   store ptr %12, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load ptr, ptr getelementptr inbounds (%"class.nix::ref.4", ptr @_ZZN3nix22makeEmptyInputAccessorEvE5empty, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3nix22makeEmptyInputAccessorEvE5empty, i64 8), align 8
   store ptr %14, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit, label %15
@@ -1405,7 +1405,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3nix23MemoryInputAccessorImplELN9
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 208, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 144
@@ -1438,9 +1438,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessor
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 136
   store i8 1, ptr %20, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 0, i32 0, i64 3), ptr %6, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 0, i32 2, i64 12), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 0, i32 1, i64 3), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 232), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i64 80), ptr %14, align 8
   store ptr %3, ptr %10, align 8
   store ptr %6, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1653,7 +1653,7 @@ declare void @_ZN3nix20MemorySourceAccessor8readLinkB5cxx11ERKNS_9CanonPathE(ptr
 define linkonce_odr void @_ZN3nix20MemorySourceAccessorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #19
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1699,7 +1699,7 @@ _ZN3nix14SourceAccessorD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 define linkonce_odr void @_ZN3nix20MemorySourceAccessorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #19
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1750,7 +1750,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix20MemorySourceAccessorD1Ev(ptr noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 128
@@ -1800,7 +1800,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix20MemorySourceAccessorD0Ev(ptr noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @_ZTTN3nix20MemorySourceAccessorE) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 128
@@ -1856,10 +1856,10 @@ declare void @_ZTv0_n72_N3nix20MemorySourceAccessor8readLinkB5cxx11ERKNS_9CanonP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix23MemoryInputAccessorImplD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds ([9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 5)) #19
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix23MemoryInputAccessorImplE0_NS_13InputAccessorE, i64 0, i32 0, i64 3), ptr %0, align 8
+  tail call void @_ZN3nix20MemorySourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 40)) #19
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23MemoryInputAccessorImplE0_NS_13InputAccessorE, i64 24), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix23MemoryInputAccessorImplE0_NS_13InputAccessorE, i64 0, i32 1, i64 12), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix23MemoryInputAccessorImplE0_NS_13InputAccessorE, i64 144), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
@@ -1923,7 +1923,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.
   br label %_ZN3nix23MemoryInputAccessorImplD2Ev.exit
 
 _ZN3nix23MemoryInputAccessorImplD2Ev.exit:        ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i, %25, %27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 176
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 192
@@ -2006,7 +2006,7 @@ define linkonce_odr void @_ZN3nix23MemoryInputAccessorImpl7addFileENS_9CanonPath
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %17, %4
   %23 = tail call ptr @__cxa_allocate_exception(i64 8) #19, !noalias !11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %23, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %23, align 8, !noalias !11
   tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #20, !noalias !11
   unreachable
 

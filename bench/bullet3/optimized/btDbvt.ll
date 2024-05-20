@@ -799,10 +799,10 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store float 1.000000e+00, ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds ([3 x %class.btVector3], ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 0, i64 0, i32 0, i64 1), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds ([3 x %class.btVector3], ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 0, i64 1, i32 0, i64 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds ([3 x %class.btVector3], ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 0, i64 1, i32 0, i64 2), i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([3 x %class.btVector3], ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 0, i64 2, i32 0, i64 2), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 4), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 24), i8 0, i64 16, i1 false)
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 40), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis) #17
   br label %init.end
 
@@ -2151,7 +2151,7 @@ entry:
 define dso_local void @_ZNK6btDbvt5writeEPNS_7IWriterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %iwriter) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nodes = alloca %struct.btDbvtNodeEnumerator, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20btDbvtNodeEnumerator, i64 0, i32 0, i64 2), ptr %nodes, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20btDbvtNodeEnumerator, i64 16), ptr %nodes, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %nodes, i64 32
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %nodes, i64 24
@@ -2360,7 +2360,7 @@ for.inc:                                          ; preds = %_ZNK20btAlignedObje
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20btDbvtNodeEnumerator, i64 0, i32 0, i64 2), ptr %nodes, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20btDbvtNodeEnumerator, i64 16), ptr %nodes, align 8
   %30 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btDbvtNodeEnumeratorD2Ev.exit, label %if.then.i.i.i.i
@@ -2420,7 +2420,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btDbvtNodeEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20btDbvtNodeEnumerator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20btDbvtNodeEnumerator, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3031,7 +3031,7 @@ declare float @llvm.fabs.f32(float) #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btDbvtNodeEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20btDbvtNodeEnumerator, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20btDbvtNodeEnumerator, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -134,7 +134,7 @@ for.inc39:                                        ; preds = %for.body29
 for.end41:                                        ; preds = %for.inc39
   store i32 1, ptr %j, align 4
   %call.i43 = call ptr @OPENSSL_LH_retrieve(ptr noundef %call.i, ptr noundef nonnull %j) #5
-  %call43 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 124, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %call.i43, ptr noundef nonnull getelementptr inbounds ([21 x i32], ptr @int_tests, i64 0, i64 2)) #5
+  %call43 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 124, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %call.i43, ptr noundef nonnull getelementptr inbounds (i8, ptr @int_tests, i64 8)) #5
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %end, label %if.end46
 
@@ -146,12 +146,12 @@ if.end46:                                         ; preds = %for.end41
   br i1 %tobool49.not, label %end, label %if.end51
 
 if.end51:                                         ; preds = %if.end46
-  %call52 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef %call.i44, ptr noundef nonnull getelementptr inbounds ([21 x i32], ptr @int_tests, i64 0, i64 1)) #5
+  %call52 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef %call.i44, ptr noundef nonnull getelementptr inbounds (i8, ptr @int_tests, i64 4)) #5
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %end, label %if.end55
 
 if.end55:                                         ; preds = %if.end51
-  %call.i45 = call ptr @OPENSSL_LH_retrieve(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds ([21 x i32], ptr @int_tests, i64 0, i64 1)) #5
+  %call.i45 = call ptr @OPENSSL_LH_retrieve(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @int_tests, i64 4)) #5
   %call57 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 133, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %call.i45, ptr noundef nonnull %j) #5
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %end, label %if.end60

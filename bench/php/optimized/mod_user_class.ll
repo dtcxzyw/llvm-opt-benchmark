@@ -57,51 +57,51 @@ define hidden void @zim_SessionHandler_open(ptr nocapture noundef readonly %0, p
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %41
 
 15:                                               ; preds = %2
-  %16 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %16, 2
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %41
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %41
 
 26:                                               ; preds = %20
-  store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %28 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #6
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %3, align 8
   %35 = load ptr, ptr %4, align 8
-  %36 = call i32 %33(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %34, ptr noundef %35) #5
-  store ptr %27, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %36 = call i32 %33(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %34, ptr noundef %35) #5
+  store ptr %27, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %37 = icmp eq i32 %36, 0
   %38 = select i1 %37, i32 3, i32 2
   %39 = getelementptr inbounds i8, ptr %1, i64 8
@@ -109,8 +109,8 @@ define hidden void @zim_SessionHandler_open(ptr nocapture noundef readonly %0, p
   br label %41
 
 40:                                               ; preds = %26
-  store ptr %27, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store ptr %27, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   call void @_zend_bailout(ptr noundef nonnull @.str.3, i32 noundef 56) #7
   unreachable
 
@@ -144,31 +144,31 @@ define hidden void @zim_SessionHandler_close(ptr nocapture noundef readonly %0, 
   br label %8
 
 8:                                                ; preds = %2, %7
-  %9 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %37
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %37
 
 19:                                               ; preds = %13
-  %20 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %24, label %22
 
@@ -179,19 +179,19 @@ define hidden void @zim_SessionHandler_close(ptr nocapture noundef readonly %0, 
   br label %37
 
 24:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %26 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 %31(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #5
-  store ptr %25, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %32 = call i32 %31(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #5
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %33 = icmp eq i32 %32, 0
   %34 = select i1 %33, i32 3, i32 2
   %35 = getelementptr inbounds i8, ptr %1, i64 8
@@ -199,8 +199,8 @@ define hidden void @zim_SessionHandler_close(ptr nocapture noundef readonly %0, 
   br label %37
 
 36:                                               ; preds = %24
-  store ptr %25, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   call void @_zend_bailout(ptr noundef nonnull @.str.3, i32 noundef 80) #7
   unreachable
 
@@ -223,37 +223,37 @@ define hidden void @zim_SessionHandler_read(ptr nocapture noundef readonly %0, p
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %44
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %12
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %44
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %44
 
 23:                                               ; preds = %17
-  %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %28, label %26
 
@@ -267,8 +267,8 @@ define hidden void @zim_SessionHandler_read(ptr nocapture noundef readonly %0, p
   %29 = getelementptr inbounds i8, ptr %18, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %33 = call i32 %30(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %31, ptr noundef nonnull %3, i64 noundef %32) #5
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %33 = call i32 %30(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %31, ptr noundef nonnull %3, i64 noundef %32) #5
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %37
 
@@ -304,37 +304,37 @@ define hidden void @zim_SessionHandler_write(ptr nocapture noundef readonly %0, 
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %38
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %12
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %38
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %38
 
 23:                                               ; preds = %17
-  %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %28, label %26
 
@@ -349,8 +349,8 @@ define hidden void @zim_SessionHandler_write(ptr nocapture noundef readonly %0, 
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 22), align 16
-  %34 = call i32 %30(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %31, ptr noundef %32, i64 noundef %33) #5
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 176), align 16
+  %34 = call i32 %30(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %31, ptr noundef %32, i64 noundef %33) #5
   %35 = icmp eq i32 %34, 0
   %36 = select i1 %35, i32 3, i32 2
   %37 = getelementptr inbounds i8, ptr %1, i64 8
@@ -371,37 +371,37 @@ define hidden void @zim_SessionHandler_destroy(ptr nocapture noundef readonly %0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %35
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %12, 2
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %35
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %35
 
 22:                                               ; preds = %16
-  %23 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %27, label %25
 
@@ -415,7 +415,7 @@ define hidden void @zim_SessionHandler_destroy(ptr nocapture noundef readonly %0
   %28 = getelementptr inbounds i8, ptr %17, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %3, align 8
-  %31 = call i32 %29(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), ptr noundef %30) #5
+  %31 = call i32 %29(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), ptr noundef %30) #5
   %32 = icmp eq i32 %31, 0
   %33 = select i1 %32, i32 3, i32 2
   %34 = getelementptr inbounds i8, ptr %1, i64 8
@@ -438,37 +438,37 @@ define hidden void @zim_SessionHandler_gc(ptr nocapture noundef readonly %0, ptr
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %39
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %12
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %39
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %39
 
 23:                                               ; preds = %17
-  %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
+  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 345), align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %28, label %26
 
@@ -482,7 +482,7 @@ define hidden void @zim_SessionHandler_gc(ptr nocapture noundef readonly %0, ptr
   %29 = getelementptr inbounds i8, ptr %18, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %3, align 8
-  %32 = call i64 %30(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13), i64 noundef %31, ptr noundef nonnull %4) #5
+  %32 = call i64 %30(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96), i64 noundef %31, ptr noundef nonnull %4) #5
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %34, label %36
 
@@ -511,31 +511,31 @@ define hidden void @zim_SessionHandler_create_sid(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #5
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %27
 
 .critedge:                                        ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not7 = icmp eq i32 %8, 2
   br i1 %.not7, label %12, label %9
 
 9:                                                ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #5
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %27
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 12), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 88), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #5
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %27
@@ -543,7 +543,7 @@ define hidden void @zim_SessionHandler_create_sid(ptr nocapture noundef readonly
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %13, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 13)) #5
+  %21 = tail call ptr %20(ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 96)) #5
   store ptr %21, ptr %1, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4

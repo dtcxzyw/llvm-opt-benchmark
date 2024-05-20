@@ -200,13 +200,13 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp9.i, label %for.body.preheader.i, label %match_order.exit
 
 for.body.preheader.i:                             ; preds = %for.body
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i64 0, i32 2), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 16), align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %10 = phi ptr [ %.pre.i, %for.body.preheader.i ], [ %19, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i64 0, i32 1), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 8), align 8
   %cmp3.not.i.i = icmp eq ptr %10, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -217,7 +217,7 @@ if.then4.i.i:                                     ; preds = %for.body.i
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.body.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #13
   call void @strbuf_add(ptr noundef nonnull @match_order.p, ptr noundef %call, i64 noundef %call.i.i) #11
-  %11 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 16), align 8
   %12 = load i8, ptr %11, align 1
   %tobool.not8.i = icmp eq i8 %12, 0
   br i1 %tobool.not8.i, label %for.inc.i, label %while.body.i
@@ -232,14 +232,14 @@ while.body.i:                                     ; preds = %strbuf_setlen.exit.
   br i1 %tobool2.not.i, label %return.loopexit.i, label %if.end.i12
 
 if.end.i12:                                       ; preds = %while.body.i
-  %16 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i64 0, i32 2), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 16), align 8
   %call3.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 47) #13
   %tobool4.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool4.not.i, label %for.inc.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i12
   store i8 0, ptr %call3.i, align 1
-  %17 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i64 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 16), align 8
   %18 = load i8, ptr %17, align 1
   %tobool.not.i13 = icmp eq i8 %18, 0
   br i1 %tobool.not.i13, label %for.inc.i, label %while.body.i, !llvm.loop !9
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @diffcore_order(ptr noundef %orderfile) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -323,7 +323,7 @@ if.then.i:                                        ; preds = %if.end
 st_mult.exit:                                     ; preds = %if.end
   %mul.i = shl nuw nsw i64 %conv, 4
   %call2 = tail call ptr @xmalloc(i64 noundef %mul.i) #11
-  %1 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp18 = icmp sgt i32 %1, 0
   br i1 %cmp18, label %for.body, label %for.end
 
@@ -335,7 +335,7 @@ for.body:                                         ; preds = %st_mult.exit, %for.
   %arrayidx6 = getelementptr inbounds %struct.obj_order, ptr %call2, i64 %indvars.iv
   store ptr %3, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
@@ -343,7 +343,7 @@ for.body:                                         ; preds = %st_mult.exit, %for.
 for.end:                                          ; preds = %for.body, %st_mult.exit
   %.lcssa = phi i32 [ %1, %st_mult.exit ], [ %4, %for.body ]
   tail call void @order_objects(ptr noundef %orderfile, ptr noundef nonnull @pair_pathtwo, ptr noundef %call2, i32 noundef %.lcssa)
-  %6 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp1020 = icmp sgt i32 %6, 0
   br i1 %cmp1020, label %for.body12, label %for.end21
 
@@ -355,7 +355,7 @@ for.body12:                                       ; preds = %for.end, %for.body1
   %arrayidx18 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv24
   store ptr %7, ptr %arrayidx18, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %10 = sext i32 %9 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next25, %10
   br i1 %cmp10, label %for.body12, label %for.end21, !llvm.loop !13

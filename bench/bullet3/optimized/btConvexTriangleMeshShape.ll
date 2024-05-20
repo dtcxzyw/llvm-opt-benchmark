@@ -71,7 +71,7 @@ $_ZTI26LocalSupportVertexCallback = comdat any
 define dso_local void @_ZN25btConvexTriangleMeshShapeC2EP23btStridingMeshInterfaceb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %meshInterface, i1 noundef zeroext %calcAabb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV25btConvexTriangleMeshShape, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25btConvexTriangleMeshShape, i64 16), ptr %this, align 8
   %m_stridingMesh = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %meshInterface, ptr %m_stridingMesh, align 8
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
@@ -130,7 +130,7 @@ invoke.cont13:                                    ; preds = %if.else, %entry
   %vec.sroa.10.0 = phi float [ %mul7.i, %if.else ], [ 0.000000e+00, %entry ]
   %vec.sroa.14.0 = phi float [ %vec.sroa.14.0.copyload, %if.else ], [ 0.000000e+00, %entry ]
   %8 = phi <2 x float> [ %7, %if.else ], [ <float 1.000000e+00, float 0.000000e+00>, %entry ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26LocalSupportVertexCallback, i64 0, i32 0, i64 2), ptr %supportCallback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV26LocalSupportVertexCallback, i64 16), ptr %supportCallback, align 8
   %m_supportVertexLocal.i = getelementptr inbounds i8, ptr %supportCallback, i64 8
   %m_maxDot.i = getelementptr inbounds i8, ptr %supportCallback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_supportVertexLocal.i, i8 0, i64 16, i1 false)
@@ -216,7 +216,7 @@ for.body:                                         ; preds = %for.body.preheader,
 invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph, %invoke.cont13
   %indvars.iv18 = phi i64 [ 0, %invoke.cont11.lr.ph ], [ %indvars.iv.next19, %invoke.cont13 ]
   %arrayidx7 = getelementptr inbounds %class.btVector3, ptr %vectors, i64 %indvars.iv18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26LocalSupportVertexCallback, i64 0, i32 0, i64 2), ptr %supportCallback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV26LocalSupportVertexCallback, i64 16), ptr %supportCallback, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_supportVertexLocal.i, i8 0, i64 16, i1 false)
   store float 0xC3ABC16D60000000, ptr %m_maxDot.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_supportVecLocal.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7, i64 16, i1 false)
@@ -385,7 +385,7 @@ invoke.cont5:
   %ref.tmp4 = alloca %class.btVector3, align 8
   %inertiaCallback = alloca %class.InertiaCallback, align 8
   %ref.tmp15 = alloca %class.btVector3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback, i64 0, i32 0, i64 2), ptr %centerCallback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback, i64 16), ptr %centerCallback, align 8
   %first.i = getelementptr inbounds i8, ptr %centerCallback, i64 8
   store i8 1, ptr %first.i, align 8
   %ref.i = getelementptr inbounds i8, ptr %centerCallback, i64 12
@@ -437,7 +437,7 @@ invoke.cont17:                                    ; preds = %cond.false.i, %cond
   store <2 x float> %retval.sroa.3.0.i, ptr %center.sroa.3.0.m_origin.i.sroa_idx, align 4
   %mul.i = fmul float %3, 0x3FC5555560000000
   store float %mul.i, ptr %volume, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i64 0, i32 0, i64 2), ptr %inertiaCallback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i64 16), ptr %inertiaCallback, align 8
   %sum.i13 = getelementptr inbounds i8, ptr %inertiaCallback, i64 8
   %center10.i = getelementptr inbounds i8, ptr %inertiaCallback, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)

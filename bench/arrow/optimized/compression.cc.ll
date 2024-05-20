@@ -712,7 +712,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.20, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -993,7 +993,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i21:         ; preds = %if.end8.sink.split.
   br label %return
 
 do.end7:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 0, i32 0, i64 2), ptr %ref.tmp9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 16), ptr %ref.tmp9, align 8
   %compression_level2.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i32 -2147483648, ptr %compression_level2.i, align 8
   call void @_ZN5arrow4util5Codec6CreateENS_11Compression4typeERKNS0_12CodecOptionsE(ptr nonnull sret(%"class.arrow::Result.7") align 8 %ref.tmp8, i32 noundef %codec_type, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
@@ -1118,7 +1118,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.20, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1816,7 +1816,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i21:         ; preds = %if.end8.sink.split.
   br label %return
 
 do.end7:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 0, i32 0, i64 2), ptr %ref.tmp9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 16), ptr %ref.tmp9, align 8
   %compression_level2.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i32 -2147483648, ptr %compression_level2.i, align 8
   call void @_ZN5arrow4util5Codec6CreateENS_11Compression4typeERKNS0_12CodecOptionsE(ptr nonnull sret(%"class.arrow::Result.7") align 8 %ref.tmp8, i32 noundef %codec_type, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
@@ -1983,7 +1983,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i21:         ; preds = %if.end8.sink.split.
   br label %return
 
 do.end7:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 0, i32 0, i64 2), ptr %ref.tmp9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 16), ptr %ref.tmp9, align 8
   %compression_level2.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i32 -2147483648, ptr %compression_level2.i, align 8
   call void @_ZN5arrow4util5Codec6CreateENS_11Compression4typeERKNS0_12CodecOptionsE(ptr nonnull sret(%"class.arrow::Result.7") align 8 %ref.tmp8, i32 noundef %codec_type, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
@@ -2119,7 +2119,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds ([38 x i8], ptr @.str.20, i64 0, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2187,7 +2187,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define void @_ZN5arrow4util5Codec6CreateENS_11Compression4typeEi(ptr noalias sret(%"class.arrow::Result.7") align 8 %agg.result, i32 noundef %codec_type, i32 noundef %compression_level) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::util::CodecOptions", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util12CodecOptionsE, i64 16), ptr %ref.tmp, align 8
   %compression_level2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %compression_level, ptr %compression_level2.i, align 8
   call void @_ZN5arrow4util5Codec6CreateENS_11Compression4typeERKNS0_12CodecOptionsE(ptr sret(%"class.arrow::Result.7") align 8 %agg.result, i32 noundef %codec_type, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)

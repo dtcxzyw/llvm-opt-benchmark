@@ -55,10 +55,10 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .critedge:                                        ; preds = %16, %4
-  %18 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_file_value_t_class, i64 0, i32 8), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 56), align 8
   %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #10
   %20 = load i32, ptr @pmix_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_file_value_t_class, i64 0, i32 4), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 
@@ -80,7 +80,7 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
   %29 = getelementptr inbounds i8, ptr %19, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_file_value_t_class, i64 0, i32 6), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread20, label %.lr.ph.i.i

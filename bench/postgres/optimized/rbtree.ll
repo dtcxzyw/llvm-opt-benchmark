@@ -353,7 +353,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not27.i.i, label %.rbt_rotate_left.exit_crit_edge.i, label %81
 
 .rbt_rotate_left.exit_crit_edge.i:                ; preds = %80
-  %.pre74.i = load ptr, ptr getelementptr inbounds (%struct.RBTNode, ptr @sentinel, i64 0, i32 3), align 8
+  %.pre74.i = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 24), align 8
   br label %rbt_rotate_left.exit.i
 
 81:                                               ; preds = %80
@@ -485,7 +485,7 @@ rbt_rotate_left.exit.i:                           ; preds = %81, %.rbt_rotate_le
   br i1 %.not27.i56.i, label %.rbt_rotate_right.exit57_crit_edge.i, label %134
 
 .rbt_rotate_right.exit57_crit_edge.i:             ; preds = %133
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct.RBTNode, ptr @sentinel, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 24), align 8
   br label %rbt_rotate_right.exit57.i
 
 134:                                              ; preds = %133

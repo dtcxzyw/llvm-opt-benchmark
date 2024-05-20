@@ -121,8 +121,8 @@ define internal i32 @nf_conntrack_irc_init() #0 section ".init.text" align 16 {
 9:                                                ; preds = %5
   store i32 %1, ptr @irc_exp_policy, align 4
   %10 = load i32, ptr @dcc_timeout, align 4
-  store i32 %10, ptr getelementptr inbounds (%struct.nf_conntrack_expect_policy, ptr @irc_exp_policy, i64 0, i32 1), align 4
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  store i32 %10, ptr getelementptr inbounds (i8, ptr @irc_exp_policy, i64 4), align 4
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 4096) #13
   store ptr %12, ptr @irc_buffer, align 8
   %13 = icmp eq ptr %12, null

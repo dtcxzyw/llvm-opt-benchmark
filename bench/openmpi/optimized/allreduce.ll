@@ -136,7 +136,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %61, label %63, label %80
 
 63:                                               ; preds = %59
-  %64 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %65 = zext nneg i32 %.0105166 to i64
   %66 = getelementptr inbounds [2 x [8192 x i8]], ptr %11, i64 0, i64 %65
   %67 = sext i32 %62 to i64
@@ -162,7 +162,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %92
 
 80:                                               ; preds = %59
-  %81 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %82 = sext i32 %62 to i64
   %83 = getelementptr inbounds i32, ptr %7, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -252,7 +252,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %130, label %135, label %149
 
 135:                                              ; preds = %128
-  %136 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %137 = zext nneg i32 %.2.lcssa to i64
   %138 = getelementptr inbounds [2 x [8192 x i8]], ptr %11, i64 0, i64 %137
   %139 = call i32 %136(ptr noundef nonnull %138, i64 noundef %45, ptr noundef %3, i32 noundef %134, i32 noundef -99, ptr noundef %8, ptr noundef null) #7
@@ -272,7 +272,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %160
 
 149:                                              ; preds = %128
-  %150 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %151 = zext nneg i32 %.2108.lcssa to i64
   %152 = getelementptr inbounds [2 x [8192 x i8]], ptr %11, i64 0, i64 %151
   %153 = call i32 %150(ptr noundef nonnull %152, i64 noundef %45, ptr noundef %3, i32 noundef %134, i32 noundef -99, i32 noundef 4, ptr noundef %8) #7

@@ -75,7 +75,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @show_swap_cache_info() local_unnamed_addr #0 align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds ([44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 40), align 16
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 320), align 16
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef %2) #9
   %4 = load volatile i64, ptr @nr_swap_pages, align 8
@@ -1044,11 +1044,11 @@ define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %
   %46 = or disjoint i64 %44, %45
   %47 = or i64 %46, %34
   store volatile i64 %47, ptr %30, align 8
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 71), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 71)) #10, !srcloc !27
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 568), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 568)) #10, !srcloc !27
   br label %49
 
 48:                                               ; preds = %39
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 71), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 71)) #10, !srcloc !27
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 568), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 568)) #10, !srcloc !27
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @swapin_readahead_hits, ptr nonnull elementtype(i32) @swapin_readahead_hits) #10, !srcloc !28
   br label %49
 
@@ -1502,7 +1502,7 @@ define dso_local ptr @swap_cluster_readahead(i64 %0, i32 noundef %1, ptr noundef
 66:                                               ; preds = %64
   %67 = getelementptr i8, ptr %59, i64 2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %67, i32 4, ptr elementtype(i8) %67) #10, !srcloc !7
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 70), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 70)) #10, !srcloc !27
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 560), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 560)) #10, !srcloc !27
   br label %68
 
 68:                                               ; preds = %66, %64, %61
@@ -1821,7 +1821,7 @@ define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr nocapture nou
 143:                                              ; preds = %141
   %144 = getelementptr i8, ptr %136, i64 2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %144, i32 4, ptr elementtype(i8) %144) #10, !srcloc !7
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 70), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 70)) #10, !srcloc !27
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 560), ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @vm_event_states, i64 560)) #10, !srcloc !27
   br label %145
 
 145:                                              ; preds = %143, %141, %138

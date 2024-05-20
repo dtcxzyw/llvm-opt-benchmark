@@ -197,11 +197,11 @@ _ZN8proxygen15TransitionTableINS_28HTTPTransactionIngressSMData5StateENS1_5Event
   store <2 x ptr> %2, ptr @_ZZN8proxygen28HTTPTransactionIngressSMData4findENS0_5StateENS0_5EventEE11transitions, align 16
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
-  store ptr %3, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN8proxygen28HTTPTransactionIngressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 0, i32 0, i32 0, i32 0, i64 16), align 16
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen28HTTPTransactionIngressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 16), align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %nStates_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %4 = load <2 x i64>, ptr %nStates_3.i.i.i, align 8
-  store <2 x i64> %4, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN8proxygen28HTTPTransactionIngressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 0, i32 0, i32 0, i32 0, i64 24), align 8
+  store <2 x i64> %4, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen28HTTPTransactionIngressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 24), align 8
   %.pre = load ptr, ptr %agg.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EED2Ev.exit, label %if.then.i.i.i

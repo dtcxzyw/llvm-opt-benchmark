@@ -129,10 +129,10 @@ NBC_Copy.exit.thread:                             ; preds = %30, %26
   br label %nbc_get_noop_request.exit
 
 42:                                               ; preds = %NBC_Copy.exit.thread
-  %43 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 8), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #10
   %45 = load i32, ptr @opal_class_init_epoch, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 4), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i146 = icmp eq i32 %45, %46
   br i1 %.not.i146, label %48, label %47
 
@@ -148,7 +148,7 @@ NBC_Copy.exit.thread:                             ; preds = %30, %26
   store ptr @NBC_Schedule_class, ptr %44, align 8
   %50 = getelementptr inbounds i8, ptr %44, i64 8
   store volatile i32 1, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 6), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %52 = load ptr, ptr %51, align 8
   %.not6.i.i = icmp eq ptr %52, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread175, label %.lr.ph.i.i
@@ -499,10 +499,10 @@ define internal fastcc i32 @nbc_allgather_inter_init(ptr noundef %0, i32 noundef
 
 ompi_comm_remote_size.exit:                       ; preds = %10, %17
   %22 = phi i32 [ %21, %17 ], [ 0, %10 ]
-  %23 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 8), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #10
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 4), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i68 = icmp eq i32 %25, %26
   br i1 %.not.i68, label %28, label %27
 
@@ -518,7 +518,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %17
   store ptr @NBC_Schedule_class, ptr %24, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @NBC_Schedule_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %.preheader, label %.lr.ph.i.i

@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PyCField_FromDesc(ptr noundef %desc, i64 noundef %index, ptr nocapture noundef %pfield_size, i32 noundef %bitsize, ptr nocapture noundef %pbitofs, ptr nocapture noundef %psize, ptr nocapture noundef %poffset, ptr nocapture noundef writeonly %palign, i32 noundef %pack, i32 noundef %big_endian) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ctypes_state, ptr @global_state, i64 0, i32 2), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 16), align 8
   %tp_alloc = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #9
@@ -227,7 +227,7 @@ _ctypes_get_fielddesc.exit:                       ; preds = %for.inc.i
   br i1 %cmp56, label %if.end.i113, label %if.end.i126
 
 _ctypes_get_fielddesc.exit.thread:                ; preds = %if.end.i109
-  %20 = load ptr, ptr getelementptr inbounds ([24 x %struct.fielddesc], ptr @formattable, i64 0, i64 0, i32 2), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @formattable, i64 16), align 16
   %cmp56174 = icmp eq ptr %16, %20
   br i1 %cmp56174, label %for.inc.i119.preheader, label %if.end.i126.thread
 
@@ -284,7 +284,7 @@ _ctypes_get_fielddesc.exit136:                    ; preds = %for.inc.i132
   br i1 %cmp66, label %if.end.i139, label %if.end75
 
 _ctypes_get_fielddesc.exit136.thread:             ; preds = %if.end.i126
-  %30 = load ptr, ptr getelementptr inbounds ([24 x %struct.fielddesc], ptr @formattable, i64 0, i64 0, i32 2), align 16
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @formattable, i64 16), align 16
   %cmp66187 = icmp eq ptr %25, %30
   br i1 %cmp66187, label %for.inc.i145.preheader, label %if.end75
 

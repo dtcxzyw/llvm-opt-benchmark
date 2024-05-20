@@ -145,7 +145,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl16raw_log_internal30RegisterLogFilterAndPrefixHookEPFbNS_11LogSeverityEPKciPPcPiE(ptr noundef %func) local_unnamed_addr #4 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook.0", ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_126log_filter_and_prefix_hookE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_126log_filter_and_prefix_hookE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %func to i64
   %3 = cmpxchg ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_126log_filter_and_prefix_hookE, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -155,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl16raw_log_internal17RegisterAbortHookEPFvPKciS2_S2_S2_E(ptr noundef %func) local_unnamed_addr #4 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook.3", ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_110abort_hookE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_110abort_hookE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %func to i64
   %3 = cmpxchg ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_110abort_hookE, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -165,7 +165,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl16raw_log_internal27RegisterInternalLogFunctionEPFvNS_11LogSeverityEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef %func) local_unnamed_addr #4 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook", ptr @_ZN4absl16raw_log_internal21internal_log_functionB5cxx11E, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl16raw_log_internal21internal_log_functionB5cxx11E, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %func to i64
   %3 = cmpxchg ptr @_ZN4absl16raw_log_internal21internal_log_functionB5cxx11E, i64 %1, i64 %2 acq_rel acquire, align 8

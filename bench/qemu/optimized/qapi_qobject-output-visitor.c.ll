@@ -344,9 +344,9 @@ cond.end:                                         ; preds = %entry.split, %qobje
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @qobject_output_type_null(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef nonnull @qnull_)
   ret i1 true
 }

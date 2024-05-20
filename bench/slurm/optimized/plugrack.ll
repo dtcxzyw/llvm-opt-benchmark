@@ -682,7 +682,7 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr %17, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 111), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %.not101 = icmp eq ptr %22, null
   br i1 %.not101, label %plugrack_read_dir.exit.thread, label %23
@@ -737,7 +737,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not78, label %44, label %40
 
 40:                                               ; preds = %plugrack_read_dir.exit.thread, %plugrack_read_dir.exit
-  %41 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 111), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   %42 = call ptr @slurm_strerror(i32 noundef -1) #10
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.load_plugins, ptr noundef %41, ptr noundef %42) #10
   br label %.thread95

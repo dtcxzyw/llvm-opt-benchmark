@@ -20,7 +20,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 define dso_local double @bench_mark() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   %2 = load i64, ptr @begin, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @begin, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @begin, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #3
   %5 = load i64, ptr %1, align 8

@@ -256,7 +256,7 @@ _ZN9CGContext16reset_effect_stmERK6Effect.exit:   ; preds = %_ZN9CGContext18rese
           to label %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit unwind label %80
 
 _ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %78
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV17ExpressionFuncall, i64 0, i32 0, i64 2), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %77, i64 24
   store ptr %52, ptr %79, align 8
   br label %82
@@ -336,7 +336,7 @@ define dso_local noundef ptr @_ZNK17ExpressionFuncall5cloneEv(ptr nocapture noun
           to label %9 unwind label %11
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV17ExpressionFuncall, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %7, ptr %10, align 8
   ret ptr %8
@@ -351,7 +351,7 @@ define dso_local noundef ptr @_ZNK17ExpressionFuncall5cloneEv(ptr nocapture noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17ExpressionFuncallC2ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV17ExpressionFuncall, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -361,7 +361,7 @@ declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ExpressionFuncallD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV17ExpressionFuncall, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -384,7 +384,7 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ExpressionFuncallD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV17ExpressionFuncall, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

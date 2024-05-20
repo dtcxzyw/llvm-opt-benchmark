@@ -55,7 +55,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  store ptr @mktag_fsck_error_func, ptr getelementptr inbounds (%struct.fsck_options, ptr @fsck_options, i64 0, i32 1), align 8
+  store ptr @mktag_fsck_error_func, ptr getelementptr inbounds (i8, ptr @fsck_options, i64 8), align 8
   call void @fsck_set_msg_type_from_ids(ptr noundef nonnull @fsck_options, i32 noundef 57, i32 noundef 4) #8
   call void @git_config(ptr noundef nonnull @git_fsck_config, ptr noundef nonnull @fsck_options) #8
   %buf3 = getelementptr inbounds i8, ptr %buf, i64 16

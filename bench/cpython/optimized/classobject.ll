@@ -1257,7 +1257,7 @@ entry:
   %0 = load ptr, ptr %im_self, align 8
   %im_func = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %im_func, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), ptr noundef nonnull %funcname) #5
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %funcname) #5
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -1267,7 +1267,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %land.lhs.true, label %land.lhs.true5
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %call2 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), ptr noundef nonnull %funcname) #5
+  %call2 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %funcname) #5
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %return, label %if.end
 
@@ -1507,7 +1507,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethod_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethod_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2
@@ -1753,7 +1753,7 @@ if.then:                                          ; preds = %PyInstanceMethod_Fu
   br label %return
 
 if.end:                                           ; preds = %PyInstanceMethod_Function.exit
-  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %im.val2.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), ptr noundef nonnull %funcname) #5
+  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %im.val2.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %funcname) #5
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -2035,7 +2035,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyInstanceMethod_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyInstanceMethod_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2
@@ -2165,12 +2165,12 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %self, i64 24
   %self.val1 = load ptr, ptr %1, align 8
-  %call2.i = tail call ptr @PyObject_GetAttr(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108)) #5
+  %call2.i = tail call ptr @PyObject_GetAttr(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712)) #5
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %method___reduce___impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 389)) #5
+  %call3.i = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848)) #5
   %call4.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.6, ptr noundef %call3.i, ptr noundef %self.val1, ptr noundef nonnull %call2.i) #5
   br label %method___reduce___impl.exit
 
@@ -2188,7 +2188,7 @@ define internal ptr @method_get_doc(ptr nocapture noundef readonly %im, ptr noca
 entry:
   %im_func = getelementptr inbounds i8, ptr %im, i64 16
   %0 = load ptr, ptr %im_func, align 8
-  %call = tail call ptr @PyObject_GetAttr(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51)) #5
+  %call = tail call ptr @PyObject_GetAttr(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576)) #5
   ret ptr %call
 }
 
@@ -2207,7 +2207,7 @@ define internal ptr @instancemethod_get_doc(ptr nocapture noundef readonly %self
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
-  %call1 = tail call ptr @PyObject_GetAttr(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51)) #5
+  %call1 = tail call ptr @PyObject_GetAttr(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576)) #5
   ret ptr %call1
 }
 

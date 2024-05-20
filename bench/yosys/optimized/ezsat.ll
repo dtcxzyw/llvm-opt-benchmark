@@ -206,7 +206,7 @@ define void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) 
   %3 = alloca %"class.std::allocator.26", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5ezSAT, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -638,7 +638,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5ezSAT, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 256

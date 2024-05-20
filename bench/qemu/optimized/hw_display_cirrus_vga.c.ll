@@ -227,20 +227,20 @@ if.then:                                          ; preds = %entry
   store i1 true, ptr @cirrus_init_common.inited, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @rop_to_index, i8 2, i64 256, i1 false)
   store i8 0, ptr @rop_to_index, align 16
-  store i8 1, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 5), align 1
-  store i8 3, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 9), align 1
-  store i8 4, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 11), align 1
-  store i8 5, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 13), align 1
-  store i8 6, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 14), align 2
-  store i8 7, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 80), align 16
-  store i8 8, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 89), align 1
-  store i8 9, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 109), align 1
-  store i8 10, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 144), align 16
-  store i8 11, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 149), align 1
-  store i8 12, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 173), align 1
-  store i8 13, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 208), align 16
-  store i8 14, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 214), align 2
-  store i8 15, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 218), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 5), align 1
+  store i8 3, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 9), align 1
+  store i8 4, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 11), align 1
+  store i8 5, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 13), align 1
+  store i8 6, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 14), align 2
+  store i8 7, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 80), align 16
+  store i8 8, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 89), align 1
+  store i8 9, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 109), align 1
+  store i8 10, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 144), align 16
+  store i8 11, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 149), align 1
+  store i8 12, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 173), align 1
+  store i8 13, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 208), align 16
+  store i8 14, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 214), align 2
+  store i8 15, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 218), align 2
   %device_id1 = getelementptr inbounds i8, ptr %s, i64 78940
   store i32 %device_id, ptr %device_id1, align 4
   %tobool2.not = icmp eq i32 %is_pci, 0
@@ -2222,7 +2222,7 @@ sw.bb:                                            ; preds = %trace_vga_cirrus_wr
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %trace_vga_cirrus_write_gr.exit
-  %7 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @gr_mask, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @gr_mask, i64 1), align 1
   %conv12 = and i8 %7, %conv1
   %arrayidx16 = getelementptr i8, ptr %s, i64 1107
   store i8 %conv12, ptr %arrayidx16, align 1
@@ -47674,7 +47674,7 @@ if.else.i.i.i129:                                 ; preds = %if.then.i.i.i127
 
 cirrus_vga_write_gr.exit136:                      ; preds = %sw.bb8, %land.lhs.true5.i.i.i124, %if.then8.i.i.i131, %if.else.i.i.i129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i120)
-  %37 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @gr_mask, i64 0, i64 1), align 1
+  %37 = load i8, ptr getelementptr inbounds (i8, ptr @gr_mask, i64 1), align 1
   %conv12.i = and i8 %37, %value
   %arrayidx16.i = getelementptr i8, ptr %s, i64 1107
   store i8 %conv12.i, ptr %arrayidx16.i, align 1

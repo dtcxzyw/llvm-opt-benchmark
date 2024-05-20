@@ -317,7 +317,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @PMIx_Argv_copy(ptr noundef %0) #17
-  %7 = load i8, ptr getelementptr inbounds (%struct.prte_schizo_ompi_component_t, ptr @prte_mca_schizo_ompi_component, i64 0, i32 2), align 4
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_ompi_component, i64 228), align 4
   %8 = trunc i8 %7 to i1
   %not. = xor i1 %2, true
   %9 = select i1 %not., i1 %8, i1 false
@@ -804,7 +804,7 @@ define internal i32 @parse_env(ptr nocapture readnone %0, ptr noundef %1, ptr no
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %16, 64
   br i1 %or.cond, label %17, label %24
 
@@ -1761,7 +1761,7 @@ pmix_cmd_line_is_taken.exit274:                   ; preds = %390, %pmix_cmd_line
   br i1 %.not.i280, label %pmix_cmd_line_get_param.exit283.thread, label %.lr.ph.i277, !llvm.loop !18
 
 pmix_cmd_line_get_param.exit283:                  ; preds = %.lr.ph.i277
-  %399 = load i8, ptr getelementptr inbounds (%struct.prte_schizo_ompi_component_t, ptr @prte_mca_schizo_ompi_component, i64 0, i32 2), align 4
+  %399 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_ompi_component, i64 228), align 4
   %400 = trunc i8 %399 to i1
   br i1 %400, label %401, label %403
 
@@ -2439,7 +2439,7 @@ pmix_cmd_line_get_param.exit344.thread:           ; preds = %609, %pmix_cmd_line
   br label %678
 
 678:                                              ; preds = %._crit_edge527, %.loopexit
-  %679 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 16), align 8
+  %679 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 856), align 8
   %680 = trunc i8 %679 to i1
   %.str.197..str.198 = select i1 %680, ptr @.str.197, ptr @.str.198
   store ptr %.str.197..str.198, ptr %10, align 8
@@ -2453,7 +2453,7 @@ pmix_cmd_line_get_param.exit344.thread:           ; preds = %609, %pmix_cmd_line
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 101) i32 @detect_proxy(ptr noundef %0) #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %13
 
@@ -2965,7 +2965,7 @@ define internal fastcc i32 @convert_deprecated_cli(ptr noundef %0, i1 noundef ze
   br i1 %.not1134, label %.loopexit, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %2
-  %9 = load i8, ptr getelementptr inbounds (%struct.prte_schizo_ompi_component_t, ptr @prte_mca_schizo_ompi_component, i64 0, i32 2), align 4
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_ompi_component, i64 228), align 4
   %10 = trunc i8 %9 to i1
   %not. = xor i1 %1, true
   %11 = select i1 %not., i1 %10, i1 false
@@ -5865,7 +5865,7 @@ sub_11090:                                        ; preds = %sub_01089
   %1541 = call i32 @prte_schizo_base_add_directive(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.180, i1 noundef zeroext %11) #17
   %1542 = call noalias dereferenceable_or_null(16) ptr @strdup(ptr noundef nonnull @.str.181) #17
   store ptr %1542, ptr %4, align 8
-  %1543 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_schizo_base_framework, i64 0, i32 11), align 4
+  %1543 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1543, 64
   br i1 %or.cond, label %1544, label %1551
 
@@ -6205,7 +6205,7 @@ define internal fastcc void @translate_params() unnamed_addr #0 {
 37:                                               ; preds = %._crit_edge
   %38 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %36, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.257, ptr noundef null) #17
   %39 = load i32, ptr @pmix_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not97 = icmp eq i32 %39, %40
   br i1 %.not97, label %42, label %41
 
@@ -6220,7 +6220,7 @@ define internal fastcc void @translate_params() unnamed_addr #0 {
   store i32 1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %2, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %45, i8 0, i64 64, i1 false)
-  %46 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %47 = load ptr, ptr %46, align 8
   %.not6.i = icmp eq ptr %47, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -6397,7 +6397,7 @@ pmix_obj_run_destructors.exit115:                 ; preds = %.lr.ph.i112, %._cri
 133:                                              ; preds = %pmix_obj_run_destructors.exit115
   %134 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %132, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.260, ptr noundef null) #17
   %135 = load i32, ptr @pmix_class_init_epoch, align 4
-  %136 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %136 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not101 = icmp eq i32 %135, %136
   br i1 %.not101, label %138, label %137
 
@@ -6412,7 +6412,7 @@ pmix_obj_run_destructors.exit115:                 ; preds = %.lr.ph.i112, %._cri
   store i32 1, ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %2, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %141, i8 0, i64 64, i1 false)
-  %142 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %143 = load ptr, ptr %142, align 8
   %.not6.i116 = icmp eq ptr %143, null
   br i1 %.not6.i116, label %pmix_obj_run_constructors.exit120, label %.lr.ph.i117

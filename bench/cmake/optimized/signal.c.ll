@@ -28,13 +28,13 @@ define dso_local void @uv__signal_cleanup() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %2, %0
-  %5 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %.not2 = icmp eq i32 %5, -1
   br i1 %.not2, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @uv__close(i32 noundef %5) #10
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -830,7 +830,7 @@ uv__signal_register_handler.exit:                 ; preds = %296
   br label %303
 
 303:                                              ; preds = %307, %302
-  %304 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %304 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %305 = call i64 @write(i32 noundef %304, ptr noundef nonnull %2, i64 noundef 1) #10
   %306 = and i64 %305, 2147483648
   %.not.not.i.not.i = icmp eq i64 %306, 0
@@ -1141,7 +1141,7 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br label %64
 
 64:                                               ; preds = %68, %63
-  %65 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %66 = call i64 @write(i32 noundef %65, ptr noundef nonnull %6, i64 noundef 1) #10
   %67 = and i64 %66, 2147483648
   %.not.not.i.not.i = icmp eq i64 %67, 0
@@ -1522,7 +1522,7 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %uv__signal_compare.
   br label %229
 
 229:                                              ; preds = %233, %uv__signal_tree_s_RB_INSERT.exit
-  %230 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %230 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %231 = call i64 @write(i32 noundef %230, ptr noundef nonnull %5, i64 noundef 1) #10
   %232 = and i64 %231, 2147483648
   %.not.not.i.not.i48 = icmp eq i64 %232, 0
@@ -1607,13 +1607,13 @@ define internal void @uv__signal_global_reinit() #0 {
   br label %5
 
 5:                                                ; preds = %3, %0
-  %6 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %.not2.i = icmp eq i32 %6, -1
   br i1 %.not2.i, label %uv__signal_cleanup.exit, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @uv__close(i32 noundef %6) #10
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %uv__signal_cleanup.exit
 
 uv__signal_cleanup.exit:                          ; preds = %5, %7
@@ -1631,7 +1631,7 @@ uv__signal_cleanup.exit:                          ; preds = %5, %7
   br label %12
 
 12:                                               ; preds = %16, %11
-  %13 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %1, i64 noundef 1) #10
   %15 = and i64 %14, 2147483648
   %.not.not.i.not = icmp eq i64 %15, 0
@@ -2045,7 +2045,7 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %69, 
   br label %76
 
 76:                                               ; preds = %80, %.critedge
-  %77 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %78 = call i64 @write(i32 noundef %77, ptr noundef nonnull %2, i64 noundef 1) #10
   %79 = and i64 %78, 2147483648
   %.not.not.i19.not = icmp eq i64 %79, 0

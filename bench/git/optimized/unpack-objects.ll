@@ -230,7 +230,7 @@ if.then23:                                        ; preds = %if.end20
   %call25 = call i64 @strtoul(ptr noundef nonnull %add.ptr, ptr noundef nonnull %c, i32 noundef 10) #13
   %conv26 = trunc i64 %call25 to i32
   %28 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv26) #15, !srcloc !7
-  store i32 %28, ptr getelementptr inbounds ([4096 x i8], ptr @buffer, i64 0, i64 4), align 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @buffer, i64 4), align 4
   %29 = load ptr, ptr %c, align 8
   %30 = load i8, ptr %29, align 1
   %cmp29.not = icmp eq i8 %30, 44
@@ -245,7 +245,7 @@ if.end32:                                         ; preds = %if.then23
   %call34 = call i64 @strtoul(ptr noundef nonnull %add.ptr33, ptr noundef nonnull %c, i32 noundef 10) #13
   %conv35 = trunc i64 %call34 to i32
   %31 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv35) #15, !srcloc !7
-  store i32 %31, ptr getelementptr inbounds ([4096 x i8], ptr @buffer, i64 0, i64 8), align 8
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @buffer, i64 8), align 8
   %32 = load ptr, ptr %c, align 8
   %33 = load i8, ptr %32, align 1
   %tobool37.not = icmp eq i8 %33, 0

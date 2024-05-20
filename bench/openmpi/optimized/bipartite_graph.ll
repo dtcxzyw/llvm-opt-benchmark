@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @edge_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i64 0, i32 4), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_item_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -43,7 +43,7 @@ define internal void @edge_constructor(ptr noundef %0) #0 {
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_item_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -59,7 +59,7 @@ define internal void @edge_constructor(ptr noundef %0) #0 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %15 = load i32, ptr @pmix_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_item_t_class, i64 32), align 8
   %.not8 = icmp eq i32 %15, %16
   br i1 %.not8, label %18, label %17
 
@@ -75,7 +75,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i64 0, i32 6), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_item_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i9 = icmp eq ptr %24, null
   br i1 %.not6.i9, label %pmix_obj_run_constructors.exit13, label %.lr.ph.i10
@@ -162,7 +162,7 @@ define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %14 = getelementptr inbounds i8, ptr %6, i64 184
   store ptr %1, ptr %14, align 8
   %15 = load i32, ptr @pmix_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 4), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %18, label %17
 
@@ -176,7 +176,7 @@ define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef wri
   store ptr @pmix_pointer_array_t_class, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 56
   store i32 1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i = icmp eq ptr %23, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -692,7 +692,7 @@ define range(i32 -2, 1) i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr nounde
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %17, align 8
   %18 = load i32, ptr @pmix_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %21, label %20
 
@@ -708,7 +708,7 @@ define range(i32 -2, 1) i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr nounde
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
-  %26 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i = icmp eq ptr %27, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -724,7 +724,7 @@ define range(i32 -2, 1) i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr nounde
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %21
   %31 = load i32, ptr @pmix_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 4), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not22 = icmp eq i32 %31, %32
   br i1 %.not22, label %34, label %33
 
@@ -740,7 +740,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %21
   store i32 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
-  %39 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %40 = load ptr, ptr %39, align 8
   %.not6.i24 = icmp eq ptr %40, null
   br i1 %.not6.i24, label %pmix_obj_run_constructors.exit28, label %.lr.ph.i25
@@ -824,10 +824,10 @@ pmix_pointer_array_get_item.exit:                 ; preds = %14
   br i1 %30, label %pmix_pointer_array_get_item.exit.thread, label %26
 
 ._crit_edge:                                      ; preds = %26, %23
-  %31 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_bp_graph_edge_t_class, i64 0, i32 8), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @prte_bp_graph_edge_t_class, i64 56), align 8
   %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #18
   %33 = load i32, ptr @pmix_class_init_epoch, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_bp_graph_edge_t_class, i64 0, i32 4), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_bp_graph_edge_t_class, i64 32), align 8
   %.not.i59 = icmp eq i32 %33, %34
   br i1 %.not.i59, label %36, label %35
 
@@ -849,7 +849,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %14
   %42 = getelementptr inbounds i8, ptr %32, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
-  %43 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_bp_graph_edge_t_class, i64 0, i32 6), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_bp_graph_edge_t_class, i64 40), align 8
   %44 = load ptr, ptr %43, align 8
   %.not6.i.i = icmp eq ptr %44, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread67, label %.lr.ph.i.i

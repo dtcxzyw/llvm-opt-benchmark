@@ -453,8 +453,8 @@ define internal void @_ZN3nix4flagL19hashFormatCompleterERNS_14AddCompletionsEmS
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::set", ptr @_ZN3nix11hashFormatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %9 = icmp eq ptr %8, getelementptr inbounds (%"class.std::set", ptr @_ZN3nix11hashFormatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix11hashFormatsB5cxx11E, i64 24), align 8
+  %9 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @_ZN3nix11hashFormatsB5cxx11E, i64 8)
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -541,7 +541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 
 39:                                               ; preds = %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
   %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.016) #22
-  %41 = icmp eq ptr %40, getelementptr inbounds (%"class.std::set", ptr @_ZN3nix11hashFormatsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %41 = icmp eq ptr %40, getelementptr inbounds (i8, ptr @_ZN3nix11hashFormatsB5cxx11E, i64 8)
   br i1 %41, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %39, %4
@@ -1027,8 +1027,8 @@ define internal void @_ZN3nix4flagL17hashAlgoCompleterERNS_14AddCompletionsEmSt1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::set", ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %9 = icmp eq ptr %8, getelementptr inbounds (%"class.std::set", ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 24), align 8
+  %9 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 8)
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -1115,7 +1115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 
 39:                                               ; preds = %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
   %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.016) #22
-  %41 = icmp eq ptr %40, getelementptr inbounds (%"class.std::set", ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %41 = icmp eq ptr %40, getelementptr inbounds (i8, ptr @_ZN3nix14hashAlgorithmsB5cxx11E, i64 8)
   br i1 %41, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %39, %4

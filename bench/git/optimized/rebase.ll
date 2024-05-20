@@ -1729,7 +1729,7 @@ if.then.i101:                                     ; preds = %sw.bb747
   %state_dir.i = getelementptr inbounds i8, ptr %options, i64 16
   %69 = load ptr, ptr %state_dir.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %69) #19
-  %70 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %70 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %70, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i
 
@@ -1745,8 +1745,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  store i64 %71, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %73 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %71, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %73, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %state_dir_path.exit, label %if.then4.i.i
 
@@ -1757,7 +1757,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 state_dir_path.exit:                              ; preds = %if.end.i.i, %if.then4.i.i
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.64, i64 noundef 9) #19
-  %74 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call749 = call i32 @save_autostash(ptr noundef %74) #19
   %75 = load i32, ptr %options, align 8
   %cmp751 = icmp eq i32 %75, 1
@@ -2993,7 +2993,7 @@ if.then.i226:                                     ; preds = %if.then1365
   %state_dir.i227 = getelementptr inbounds i8, ptr %options, i64 16
   %223 = load ptr, ptr %state_dir.i227, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %223) #19
-  %224 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %224 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %224, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i217
 
@@ -3009,8 +3009,8 @@ if.then.i.i225:                                   ; preds = %if.end.i217
   unreachable
 
 if.end.i.i220:                                    ; preds = %if.end.i217
-  store i64 %225, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %227 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %225, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i221 = icmp eq ptr %227, @strbuf_slopbuf
   br i1 %cmp3.not.i.i221, label %state_dir_path.exit228, label %if.then4.i.i222
 
@@ -3021,7 +3021,7 @@ if.then4.i.i222:                                  ; preds = %if.end.i.i220
 
 state_dir_path.exit228:                           ; preds = %if.end.i.i220, %if.then4.i.i222
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.64, i64 noundef 9) #19
-  %228 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   call void @create_autostash(ptr noundef %221, ptr noundef %228) #19
   br label %if.end1367
 
@@ -4313,7 +4313,7 @@ if.then.i35.i:                                    ; preds = %if.then27.i
   %state_dir.i36.i = getelementptr inbounds i8, ptr %options, i64 16
   %379 = load ptr, ptr %state_dir.i36.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %379) #19
-  %380 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %380 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %380, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i30.i
 
@@ -4329,8 +4329,8 @@ if.then.i.i34.i:                                  ; preds = %if.end.i30.i
   unreachable
 
 if.end.i.i32.i:                                   ; preds = %if.end.i30.i
-  store i64 %381, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %383 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %381, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %383 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %383, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %state_dir_path.exit.i, label %if.then4.i.i.i
 
@@ -4341,7 +4341,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i32.i
 
 state_dir_path.exit.i:                            ; preds = %if.then4.i.i.i, %if.end.i.i32.i
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.242, i64 noundef 11) #19
-  %384 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call29.i314 = call i32 @file_exists(ptr noundef %384) #19
   %tobool30.not.i = icmp eq i32 %call29.i314, 0
   br i1 %tobool30.not.i, label %if.then31.i, label %run_specific_rebase.exit
@@ -4935,7 +4935,7 @@ if.then.i:                                        ; preds = %entry
   %state_dir.i = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load ptr, ptr %state_dir.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %1) #19
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %2, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i
 
@@ -4951,8 +4951,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  store i64 %3, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %state_dir_path.exit, label %if.then4.i.i
 
@@ -4963,7 +4963,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 state_dir_path.exit:                              ; preds = %if.end.i.i, %if.then4.i.i
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.211, i64 noundef 9) #19
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call1 = call i32 @read_oneliner(ptr noundef nonnull %head_name, ptr noundef %6, i32 noundef 2) #19
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -4977,7 +4977,7 @@ if.then.i34:                                      ; preds = %lor.lhs.false
   %state_dir.i35 = getelementptr inbounds i8, ptr %opts, i64 16
   %8 = load ptr, ptr %state_dir.i35, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %8) #19
-  %9 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %9, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i25
 
@@ -4993,8 +4993,8 @@ if.then.i.i33:                                    ; preds = %if.end.i25
   unreachable
 
 if.end.i.i28:                                     ; preds = %if.end.i25
-  store i64 %10, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %10, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i29 = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i.i29, label %state_dir_path.exit36, label %if.then4.i.i30
 
@@ -5005,7 +5005,7 @@ if.then4.i.i30:                                   ; preds = %if.end.i.i28
 
 state_dir_path.exit36:                            ; preds = %if.end.i.i28, %if.then4.i.i30
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.1, i64 noundef 4) #19
-  %13 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call3 = call i32 @read_oneliner(ptr noundef nonnull %buf, ptr noundef %13, i32 noundef 2) #19
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.end
@@ -5076,7 +5076,7 @@ if.then.i50:                                      ; preds = %strbuf_setlen.exit
   %state_dir.i51 = getelementptr inbounds i8, ptr %opts, i64 16
   %22 = load ptr, ptr %state_dir.i51, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %22) #19
-  %23 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %23, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i41
 
@@ -5092,8 +5092,8 @@ if.then.i.i49:                                    ; preds = %if.end.i41
   unreachable
 
 if.end.i.i44:                                     ; preds = %if.end.i41
-  store i64 %24, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %24, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i45 = icmp eq ptr %26, @strbuf_slopbuf
   br i1 %cmp3.not.i.i45, label %state_dir_path.exit52, label %if.then4.i.i46
 
@@ -5104,7 +5104,7 @@ if.then4.i.i46:                                   ; preds = %if.end.i.i44
 
 state_dir_path.exit52:                            ; preds = %if.end.i.i44, %if.then4.i.i46
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.214, i64 noundef 9) #19
-  %27 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call24 = call i32 @file_exists(ptr noundef %27) #19
   %tobool25.not = icmp eq i32 %call24, 0
   %28 = load i64, ptr @state_dir_path.prefix_len, align 8
@@ -5118,7 +5118,7 @@ if.then.i63:                                      ; preds = %if.then26
   %state_dir.i64 = getelementptr inbounds i8, ptr %opts, i64 16
   %29 = load ptr, ptr %state_dir.i64, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %29) #19
-  %30 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %30, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i54
 
@@ -5134,8 +5134,8 @@ if.then.i.i62:                                    ; preds = %if.end.i54
   unreachable
 
 if.end.i.i57:                                     ; preds = %if.end.i54
-  store i64 %31, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %31, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i58 = icmp eq ptr %33, @strbuf_slopbuf
   br i1 %cmp3.not.i.i58, label %state_dir_path.exit65, label %if.then4.i.i59
 
@@ -5146,7 +5146,7 @@ if.then4.i.i59:                                   ; preds = %if.end.i.i57
 
 state_dir_path.exit65:                            ; preds = %if.end.i.i57, %if.then4.i.i59
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.214, i64 noundef 9) #19
-  %34 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call28 = call i32 @read_oneliner(ptr noundef nonnull %buf, ptr noundef %34, i32 noundef 2) #19
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %return, label %if.end37
@@ -5158,7 +5158,7 @@ if.then.i76:                                      ; preds = %if.else
   %state_dir.i77 = getelementptr inbounds i8, ptr %opts, i64 16
   %35 = load ptr, ptr %state_dir.i77, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %35) #19
-  %36 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %36, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i67
 
@@ -5174,8 +5174,8 @@ if.then.i.i75:                                    ; preds = %if.end.i67
   unreachable
 
 if.end.i.i70:                                     ; preds = %if.end.i67
-  store i64 %37, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %37, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i71 = icmp eq ptr %39, @strbuf_slopbuf
   br i1 %cmp3.not.i.i71, label %state_dir_path.exit78, label %if.then4.i.i72
 
@@ -5186,7 +5186,7 @@ if.then4.i.i72:                                   ; preds = %if.end.i.i70
 
 state_dir_path.exit78:                            ; preds = %if.end.i.i70, %if.then4.i.i72
   call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.215, i64 noundef 4) #19
-  %40 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call33 = call i32 @read_oneliner(ptr noundef nonnull %buf, ptr noundef %40, i32 noundef 2) #19
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %if.end37
@@ -5386,7 +5386,7 @@ if.then.i:                                        ; preds = %entry
   %state_dir.i = getelementptr inbounds i8, ptr %opts, i64 16
   %2 = load ptr, ptr %state_dir.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %2) #19
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %3, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i
 
@@ -5402,8 +5402,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  store i64 %4, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %state_dir_path.exit, label %if.then4.i.i
 
@@ -5414,7 +5414,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 state_dir_path.exit:                              ; preds = %if.end.i.i, %if.then4.i.i
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.64, i64 noundef 9) #19
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %call4 = tail call i32 @apply_autostash(ptr noundef %7) #19
   %flags = getelementptr inbounds i8, ptr %opts, i64 124
   %8 = load i32, ptr %flags, align 4
@@ -5480,7 +5480,7 @@ if.then:                                          ; preds = %entry
   %state_dir = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load ptr, ptr %state_dir, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %1) #19
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %2, ptr @state_dir_path.prefix_len, align 8
   br label %if.end
 
@@ -5496,8 +5496,8 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  store i64 %3, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -5509,7 +5509,7 @@ if.then4.i:                                       ; preds = %if.end.i
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #20
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef %filename, i64 noundef %call.i) #19
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   ret ptr %6
 }
 
@@ -6173,7 +6173,7 @@ if.then.i:                                        ; preds = %entry
   %state_dir.i = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load ptr, ptr %state_dir.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %1) #19
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %2, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i
 
@@ -6189,8 +6189,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  store i64 %3, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %state_dir_path.exit, label %if.then4.i.i
 
@@ -6201,7 +6201,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 state_dir_path.exit:                              ; preds = %if.end.i.i, %if.then4.i.i
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.211, i64 noundef 9) #19
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %head_name = getelementptr inbounds i8, ptr %opts, i64 48
   %7 = load ptr, ptr %head_name, align 8
   %tobool.not = icmp eq ptr %7, null
@@ -6215,7 +6215,7 @@ if.then.i31:                                      ; preds = %state_dir_path.exit
   %state_dir.i32 = getelementptr inbounds i8, ptr %opts, i64 16
   %9 = load ptr, ptr %state_dir.i32, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %9) #19
-  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %10, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i22
 
@@ -6231,8 +6231,8 @@ if.then.i.i30:                                    ; preds = %if.end.i22
   unreachable
 
 if.end.i.i25:                                     ; preds = %if.end.i22
-  store i64 %11, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i26 = icmp eq ptr %13, @strbuf_slopbuf
   br i1 %cmp3.not.i.i26, label %state_dir_path.exit33, label %if.then4.i.i27
 
@@ -6243,7 +6243,7 @@ if.then4.i.i27:                                   ; preds = %if.end.i.i25
 
 state_dir_path.exit33:                            ; preds = %if.end.i.i25, %if.then4.i.i27
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.1, i64 noundef 4) #19
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %onto = getelementptr inbounds i8, ptr %opts, i64 64
   %15 = load ptr, ptr %onto, align 8
   %tobool3.not = icmp eq ptr %15, null
@@ -6265,7 +6265,7 @@ if.then.i44:                                      ; preds = %cond.end8
   %state_dir.i45 = getelementptr inbounds i8, ptr %opts, i64 16
   %17 = load ptr, ptr %state_dir.i45, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %17) #19
-  %18 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %18, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i35
 
@@ -6281,8 +6281,8 @@ if.then.i.i43:                                    ; preds = %if.end.i35
   unreachable
 
 if.end.i.i38:                                     ; preds = %if.end.i35
-  store i64 %19, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i39 = icmp eq ptr %21, @strbuf_slopbuf
   br i1 %cmp3.not.i.i39, label %state_dir_path.exit46, label %if.then4.i.i40
 
@@ -6293,7 +6293,7 @@ if.then4.i.i40:                                   ; preds = %if.end.i.i38
 
 state_dir_path.exit46:                            ; preds = %if.end.i.i38, %if.then4.i.i40
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.214, i64 noundef 9) #19
-  %22 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %orig_head = getelementptr inbounds i8, ptr %opts, i64 56
   %23 = load ptr, ptr %orig_head, align 8
   %oid12 = getelementptr inbounds i8, ptr %23, i64 4
@@ -6314,7 +6314,7 @@ if.then.i57:                                      ; preds = %if.then
   %state_dir.i58 = getelementptr inbounds i8, ptr %opts, i64 16
   %26 = load ptr, ptr %state_dir.i58, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %26) #19
-  %27 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %27, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i48
 
@@ -6330,8 +6330,8 @@ if.then.i.i56:                                    ; preds = %if.end.i48
   unreachable
 
 if.end.i.i51:                                     ; preds = %if.end.i48
-  store i64 %28, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %28, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i52 = icmp eq ptr %30, @strbuf_slopbuf
   br i1 %cmp3.not.i.i52, label %state_dir_path.exit59, label %if.then4.i.i53
 
@@ -6342,7 +6342,7 @@ if.then4.i.i53:                                   ; preds = %if.end.i.i51
 
 state_dir_path.exit59:                            ; preds = %if.end.i.i51, %if.then4.i.i53
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.8, i64 noundef 5) #19
-  %31 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   tail call void (ptr, ptr, ...) @write_file(ptr noundef %31, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.63) #19
   %.pre = load i32, ptr %flags, align 4
   br label %if.end
@@ -6362,7 +6362,7 @@ if.then.i70:                                      ; preds = %if.then19
   %state_dir.i71 = getelementptr inbounds i8, ptr %opts, i64 16
   %34 = load ptr, ptr %state_dir.i71, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %34) #19
-  %35 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %35, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i61
 
@@ -6378,8 +6378,8 @@ if.then.i.i69:                                    ; preds = %if.end.i61
   unreachable
 
 if.end.i.i64:                                     ; preds = %if.end.i61
-  store i64 %36, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i65 = icmp eq ptr %38, @strbuf_slopbuf
   br i1 %cmp3.not.i.i65, label %state_dir_path.exit72, label %if.then4.i.i66
 
@@ -6390,7 +6390,7 @@ if.then4.i.i66:                                   ; preds = %if.end.i.i64
 
 state_dir_path.exit72:                            ; preds = %if.end.i.i64, %if.then4.i.i66
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.10, i64 noundef 7) #19
-  %39 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   tail call void (ptr, ptr, ...) @write_file(ptr noundef %39, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.63) #19
   br label %if.end21
 
@@ -6409,7 +6409,7 @@ if.then.i83:                                      ; preds = %if.then22
   %state_dir.i84 = getelementptr inbounds i8, ptr %opts, i64 16
   %42 = load ptr, ptr %state_dir.i84, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %42) #19
-  %43 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %43, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i74
 
@@ -6425,8 +6425,8 @@ if.then.i.i82:                                    ; preds = %if.end.i74
   unreachable
 
 if.end.i.i77:                                     ; preds = %if.end.i74
-  store i64 %44, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %44, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i78 = icmp eq ptr %46, @strbuf_slopbuf
   br i1 %cmp3.not.i.i78, label %state_dir_path.exit85, label %if.then4.i.i79
 
@@ -6437,7 +6437,7 @@ if.then4.i.i79:                                   ; preds = %if.end.i.i77
 
 state_dir_path.exit85:                            ; preds = %if.end.i.i77, %if.then4.i.i79
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.217, i64 noundef 23) #19
-  %47 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %48 = load i32, ptr %allow_rerere_autoupdate, align 4
   %cmp25 = icmp eq i32 %48, 1
   %cond26 = select i1 %cmp25, ptr @.str.63, ptr @.str.289
@@ -6459,7 +6459,7 @@ if.then.i96:                                      ; preds = %if.then29
   %state_dir.i97 = getelementptr inbounds i8, ptr %opts, i64 16
   %51 = load ptr, ptr %state_dir.i97, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %51) #19
-  %52 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %52, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i87
 
@@ -6475,8 +6475,8 @@ if.then.i.i95:                                    ; preds = %if.end.i87
   unreachable
 
 if.end.i.i90:                                     ; preds = %if.end.i87
-  store i64 %53, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %55 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %53, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i91 = icmp eq ptr %55, @strbuf_slopbuf
   br i1 %cmp3.not.i.i91, label %state_dir_path.exit98, label %if.then4.i.i92
 
@@ -6487,7 +6487,7 @@ if.then4.i.i92:                                   ; preds = %if.end.i.i90
 
 state_dir_path.exit98:                            ; preds = %if.end.i.i90, %if.then4.i.i92
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.221, i64 noundef 12) #19
-  %56 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %57 = load ptr, ptr %gpg_sign_opt, align 8
   tail call void (ptr, ptr, ...) @write_file(ptr noundef %56, ptr noundef nonnull @.str.287, ptr noundef %57) #19
   br label %if.end32
@@ -6507,7 +6507,7 @@ if.then.i109:                                     ; preds = %if.then34
   %state_dir.i110 = getelementptr inbounds i8, ptr %opts, i64 16
   %60 = load ptr, ptr %state_dir.i110, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.223, ptr noundef %60) #19
-  %61 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
+  %61 = load i64, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
   store i64 %61, ptr @state_dir_path.prefix_len, align 8
   br label %if.end.i100
 
@@ -6523,8 +6523,8 @@ if.then.i.i108:                                   ; preds = %if.end.i100
   unreachable
 
 if.end.i.i103:                                    ; preds = %if.end.i100
-  store i64 %62, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 1), align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  store i64 %62, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 8), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   %cmp3.not.i.i104 = icmp eq ptr %64, @strbuf_slopbuf
   br i1 %cmp3.not.i.i104, label %state_dir_path.exit111, label %if.then4.i.i105
 
@@ -6535,7 +6535,7 @@ if.then4.i.i105:                                  ; preds = %if.end.i.i103
 
 state_dir_path.exit111:                           ; preds = %if.end.i.i103, %if.then4.i.i105
   tail call void @strbuf_add(ptr noundef nonnull @state_dir_path.path, ptr noundef nonnull @.str.14, i64 noundef 7) #19
-  %65 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @state_dir_path.path, i64 0, i32 2), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @state_dir_path.path, i64 16), align 8
   tail call void (ptr, ptr, ...) @write_file(ptr noundef %65, ptr noundef nonnull @.str.150) #19
   br label %if.end36
 

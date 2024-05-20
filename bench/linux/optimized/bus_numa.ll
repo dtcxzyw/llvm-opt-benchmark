@@ -122,7 +122,7 @@ declare dso_local void @pci_add_resource(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef ptr @alloc_pci_root_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 section ".init.text" align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 120) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
@@ -148,8 +148,8 @@ define dso_local noundef ptr @alloc_pci_root_info(i32 noundef %0, i32 noundef %1
   store i32 %2, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 116
   store i32 %3, ptr %20, align 4
-  %21 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pci_root_infos, i64 0, i32 1), align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @pci_root_infos, i64 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pci_root_infos, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @pci_root_infos, i64 8), align 8
   store ptr @pci_root_infos, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %21, ptr %22, align 8
@@ -213,7 +213,7 @@ define dso_local void @update_res(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %33, %11, %9
-  %36 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %37 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3520, i64 noundef 80) #10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %49, label %39

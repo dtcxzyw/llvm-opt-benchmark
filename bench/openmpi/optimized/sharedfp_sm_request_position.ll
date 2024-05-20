@@ -29,7 +29,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef nonnull @.str, i32 noundef %12) #3
@@ -50,7 +50,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br label %.thread30
 
 21:                                               ; preds = %13
-  %22 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef nonnull @.str.1, i32 noundef %24) #3
@@ -68,7 +68,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br label %35
 
 29:                                               ; preds = %21
-  %30 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef nonnull @.str.2, i64 noundef %26) #3
   %.pr27 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
   %31 = sext i32 %1 to i64
@@ -77,7 +77,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br i1 %.not23, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.3, i64 noundef %26, i32 noundef %1, i64 noundef %32) #3
   br label %35
 
@@ -91,7 +91,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br i1 %.not24, label %44, label %40
 
 40:                                               ; preds = %35
-  %41 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 20
   %43 = load i32, ptr %42, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %41, ptr noundef nonnull @.str.4, i32 noundef %43) #3
@@ -105,7 +105,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br i1 %.not25, label %52, label %48
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %49, ptr noundef nonnull @.str.5, i32 noundef %51) #3

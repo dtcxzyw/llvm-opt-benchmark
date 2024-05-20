@@ -302,7 +302,7 @@ invoke.cont:
   store ptr null, ptr %gen_.i.i, align 8
   %takeOwnershipOfGenerator_.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store i8 0, ptr %takeOwnershipOfGenerator_.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 16), ptr %callback, align 8
   %status.i = getelementptr inbounds i8, ptr %callback, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %status.i, i8 0, i64 36, i1 false)
   %vtable = load ptr, ptr %this, align 8
@@ -424,7 +424,7 @@ declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18ServerListCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 16), ptr %this, align 8
   %errorPtr = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %errorPtr, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -463,7 +463,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 16), ptr %this, align 8
   %gen_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %gen_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -497,7 +497,7 @@ declare void @_ZN5folly9EventBaseD1Ev(ptr noundef nonnull align 16 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen19ServerListGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 16), ptr %this, align 8
   invoke void @_ZN8proxygen19ServerListGenerator15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -614,7 +614,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen19ServerListGenerator8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 16), ptr %this, align 8
   %gen_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %gen_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null

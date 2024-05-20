@@ -362,7 +362,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 .preheader.i:                                     ; preds = %49, %58
   %.035.i = phi ptr [ %59, %58 ], [ %50, %49 ]
-  %.0.i = phi ptr [ %56, %58 ], [ getelementptr inbounds ([14 x i8], ptr @.str, i64 0, i64 1), %49 ]
+  %.0.i = phi ptr [ %56, %58 ], [ getelementptr inbounds (i8, ptr @.str, i64 1), %49 ]
   %52 = load i8, ptr %.035.i, align 1
   %53 = load i8, ptr %.0.i, align 1
   %54 = icmp eq i8 %52, %53
@@ -370,7 +370,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 55:                                               ; preds = %.preheader.i
   %56 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %57 = icmp eq ptr %56, getelementptr inbounds ([14 x i8], ptr @.str, i64 0, i64 13)
+  %57 = icmp eq ptr %56, getelementptr inbounds (i8, ptr @.str, i64 13)
   br i1 %57, label %_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_.exit, label %58
 
 58:                                               ; preds = %55
@@ -493,7 +493,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 .preheader.i26:                                   ; preds = %102, %111
   %.035.i27 = phi ptr [ %112, %111 ], [ %103, %102 ]
-  %.0.i28 = phi ptr [ %109, %111 ], [ getelementptr inbounds ([5 x i8], ptr @.str.1, i64 0, i64 1), %102 ]
+  %.0.i28 = phi ptr [ %109, %111 ], [ getelementptr inbounds (i8, ptr @.str.1, i64 1), %102 ]
   %105 = load i8, ptr %.035.i27, align 1
   %106 = load i8, ptr %.0.i28, align 1
   %107 = icmp eq i8 %105, %106
@@ -501,7 +501,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 108:                                              ; preds = %.preheader.i26
   %109 = getelementptr inbounds i8, ptr %.0.i28, i64 1
-  %110 = icmp eq ptr %109, getelementptr inbounds ([5 x i8], ptr @.str.1, i64 0, i64 4)
+  %110 = icmp eq ptr %109, getelementptr inbounds (i8, ptr @.str.1, i64 4)
   br i1 %110, label %_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_.exit40, label %111
 
 111:                                              ; preds = %108

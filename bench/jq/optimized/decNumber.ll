@@ -1806,7 +1806,7 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
   ]
 
 56:                                               ; preds = %._crit_edge
-  %57 = load i32, ptr getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 3), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @DECPOWERS, i64 12), align 4
   %58 = lshr i32 %57, 1
   %59 = load i16, ptr %.2.lcssa, align 2
   %60 = zext i16 %59 to i32
@@ -4553,7 +4553,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %.0470 = phi i32 [ %248, %241 ], [ %spec.select575, %249 ]
   %257 = load i16, ptr %203, align 2
   %258 = zext i16 %257 to i32
-  %259 = load i32, ptr getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 1), align 4
+  %259 = load i32, ptr getelementptr inbounds (i8, ptr @DECPOWERS, i64 4), align 4
   %.not536619 = icmp ugt i32 %259, %258
   br i1 %.not536619, label %.preheader603, label %.lr.ph623
 
@@ -4563,7 +4563,7 @@ thread-pre-split:                                 ; preds = %93, %98
   br i1 %.not537626, label %._crit_edge630, label %.lr.ph629
 
 .lr.ph623:                                        ; preds = %256, %.lr.ph623
-  %.0455621 = phi ptr [ %261, %.lr.ph623 ], [ getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 1), %256 ]
+  %.0455621 = phi ptr [ %261, %.lr.ph623 ], [ getelementptr inbounds (i8, ptr @DECPOWERS, i64 4), %256 ]
   %.0463620 = phi i32 [ %260, %.lr.ph623 ], [ %132, %256 ]
   %260 = add nsw i32 %.0463620, -1
   %261 = getelementptr inbounds i8, ptr %.0455621, i64 4
@@ -4572,7 +4572,7 @@ thread-pre-split:                                 ; preds = %93, %98
   br i1 %.not536, label %.preheader603, label %.lr.ph623, !llvm.loop !24
 
 .lr.ph629:                                        ; preds = %.preheader603, %.lr.ph629
-  %.1456628 = phi ptr [ %264, %.lr.ph629 ], [ getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 1), %.preheader603 ]
+  %.1456628 = phi ptr [ %264, %.lr.ph629 ], [ getelementptr inbounds (i8, ptr @DECPOWERS, i64 4), %.preheader603 ]
   %.1464627 = phi i32 [ %263, %.lr.ph629 ], [ %.0463.lcssa, %.preheader603 ]
   %263 = add nsw i32 %.1464627, 1
   %264 = getelementptr inbounds i8, ptr %.1456628, i64 4
@@ -4778,7 +4778,7 @@ thread-pre-split:                                 ; preds = %93, %98
   br i1 %362, label %.preheader600, label %365
 
 .preheader600:                                    ; preds = %361, %.preheader600
-  %.2457 = phi ptr [ %364, %.preheader600 ], [ getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 1), %361 ]
+  %.2457 = phi ptr [ %364, %.preheader600 ], [ getelementptr inbounds (i8, ptr @DECPOWERS, i64 4), %361 ]
   %.1433.in = phi i32 [ %.1433, %.preheader600 ], [ %.0432, %361 ]
   %.1433 = add nsw i32 %.1433.in, 1
   %363 = load i32, ptr %.2457, align 4
@@ -15161,7 +15161,7 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef
   br i1 %.not93154, label %._crit_edge158, label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %94
-  %100 = load i32, ptr getelementptr inbounds ([10 x i32], ptr @DECPOWERS, i64 0, i64 3), align 4
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @DECPOWERS, i64 12), align 4
   %101 = trunc i32 %100 to i16
   %102 = add i16 %101, -1
   br label %103

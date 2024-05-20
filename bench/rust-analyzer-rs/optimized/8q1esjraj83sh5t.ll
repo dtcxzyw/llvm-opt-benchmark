@@ -17453,7 +17453,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit161: ; preds = %306
   br i1 %318, label %319, label %.critedge
 
 319:                                              ; preds = %316
-  %320 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty5infer7closure12CapturedItem13display_place10__CALLSITE17h9ab9493d65daf265E, i64 0, i32 1, i64 8) monotonic, align 8
+  %320 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty5infer7closure12CapturedItem13display_place10__CALLSITE17h9ab9493d65daf265E, i64 16) monotonic, align 8
   switch i8 %320, label %321 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -22554,7 +22554,7 @@ define void @_ZN6hir_ty3mir8borrowck14borrowck_query17h5e428644e7b52c2aE(ptr noa
   br i1 %16, label %17, label %.thread47
 
 17:                                               ; preds = %5
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty3mir8borrowck14borrowck_query10__CALLSITE17h62e89452d1b732e4E, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty3mir8borrowck14borrowck_query10__CALLSITE17h62e89452d1b732e4E, i64 16) monotonic, align 8
   switch i8 %18, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread47
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -23742,7 +23742,7 @@ _ZN6hir_ty3mir8borrowck24record_usage_for_operand17hab06cb6b88cbca7eE.exit143.i:
   br i1 %306, label %307, label %.critedge.i
 
 307:                                              ; preds = %304
-  %308 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty3mir8borrowck20mutability_of_locals10__CALLSITE17hc3d870b7ebf7f8f2E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3619
+  %308 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty3mir8borrowck20mutability_of_locals10__CALLSITE17hc3d870b7ebf7f8f2E, i64 16) monotonic, align 8, !noalias !3619
   switch i8 %308, label %309 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -26479,7 +26479,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786
   br i1 %153, label %154, label %.critedge
 
 154:                                              ; preds = %151
-  %155 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs10__CALLSITE17h541f2a7b390918cbE, i64 0, i32 1, i64 8) monotonic, align 8
+  %155 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs10__CALLSITE17h541f2a7b390918cbE, i64 16) monotonic, align 8
   switch i8 %155, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -26564,7 +26564,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 176:                                              ; preds = %174
   %177 = icmp ult i64 %175, 5
   call void @llvm.assume(i1 %177)
-  %178 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs10__CALLSITE17he04cf1ebfceac32eE, i64 0, i32 1, i64 8) monotonic, align 8
+  %178 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs10__CALLSITE17he04cf1ebfceac32eE, i64 16) monotonic, align 8
   switch i8 %178, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit97 [
     i8 0, label %.critedge84
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit97.thread
@@ -28361,7 +28361,7 @@ define internal fastcc void @"_ZN6hir_ty3mir4eval4shim46_$LT$impl$u20$hir_ty..mi
   %594 = extractvalue { ptr, i64 } %590, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236), !noalias !4505
   store ptr @anon.8ee6e441894c40610342b4e80829890a.451, ptr %236, align 8, !noalias !4505
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8ee6e441894c40610342b4e80829890a.451, i64 1, i32 0), ptr %580, align 8, !noalias !4505
+  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.451, i64 64), ptr %580, align 8, !noalias !4505
   %595 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %236)
           to label %.noexc236 unwind label %.loopexit.split-lp.loopexit
 
@@ -34954,7 +34954,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit694.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5659)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96), !noalias !5662
   store ptr @anon.8ee6e441894c40610342b4e80829890a.428, ptr %96, align 8, !noalias !5662
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8ee6e441894c40610342b4e80829890a.428, i64 1, i32 0), ptr %2510, align 8, !noalias !5662
+  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.428, i64 48), ptr %2510, align 8, !noalias !5662
   call void @llvm.experimental.noalias.scope.decl(metadata !5664)
   %2540 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %96)
           to label %.noexc709.i.i unwind label %.loopexit.split-lp275.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5566
@@ -35001,7 +35001,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit694.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5691)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95), !noalias !5694
   store ptr @anon.8ee6e441894c40610342b4e80829890a.429, ptr %95, align 8, !noalias !5694
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8ee6e441894c40610342b4e80829890a.429, i64 1, i32 0), ptr %2509, align 8, !noalias !5694
+  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.429, i64 48), ptr %2509, align 8, !noalias !5694
   call void @llvm.experimental.noalias.scope.decl(metadata !5696)
   %2552 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %95)
           to label %.noexc718.i.i unwind label %.loopexit.split-lp275.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5566
@@ -35048,7 +35048,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit694.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5723)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94), !noalias !5726
   store ptr @anon.8ee6e441894c40610342b4e80829890a.430, ptr %94, align 8, !noalias !5726
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8ee6e441894c40610342b4e80829890a.430, i64 1, i32 0), ptr %2508, align 8, !noalias !5726
+  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.430, i64 48), ptr %2508, align 8, !noalias !5726
   call void @llvm.experimental.noalias.scope.decl(metadata !5728)
   %2563 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %94)
           to label %.noexc728.i.i unwind label %.loopexit.split-lp275.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5566
@@ -68296,7 +68296,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i2410: ; preds = %577
   br i1 %666, label %667, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread2884
 
 667:                                              ; preds = %664
-  %668 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6hir_ty3mir4eval9Evaluator11eval_rvalue10__CALLSITE17hc6397c4b4ec316c9E, i64 0, i32 1, i64 8) monotonic, align 8
+  %668 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6hir_ty3mir4eval9Evaluator11eval_rvalue10__CALLSITE17hc6397c4b4ec316c9E, i64 16) monotonic, align 8
   switch i8 %668, label %669 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread2884
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

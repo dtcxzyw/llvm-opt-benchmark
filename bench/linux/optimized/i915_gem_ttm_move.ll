@@ -815,7 +815,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %199, label %.thread66, label %200
 
 200:                                              ; preds = %196
-  %201 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %201 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %202 = call noalias noundef align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %201, i32 noundef 3520, i64 noundef 360) #10
   %203 = icmp eq ptr %202, null
   br i1 %203, label %233, label %204

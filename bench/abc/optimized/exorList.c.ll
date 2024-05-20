@@ -76,9 +76,9 @@ define noundef i32 @CheckAndInsert(ptr noundef %0) local_unnamed_addr #0 {
 
 CubeInsert.exit:                                  ; preds = %1, %4
   store ptr %0, ptr @s_List, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   ret i32 0
 }
 
@@ -97,9 +97,9 @@ define void @CubeInsert(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1, %4
   store ptr %0, ptr @s_List, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   ret void
 }
 
@@ -113,8 +113,8 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
   store i32 %4, ptr @s_fDistEnable3, align 4
   %5 = and i32 %2, 4
   store i32 %5, ptr @s_fDistEnable4, align 4
-  %6 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 4), align 16
-  %7 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 32), align 16
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
   %8 = sub i32 %7, %6
   %9 = load i32, ptr @s_nPosAlloc, align 4
   %10 = add nsw i32 %8, %9
@@ -122,7 +122,7 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
   store i32 %11, ptr @s_cEnquequed, align 4
   store i32 0, ptr @s_cAttempts, align 4
   store i32 0, ptr @s_cReshapes, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
   store i32 0, ptr @s_Iter.1, align 8
   store ptr @s_pC1, ptr @s_Iter.2, align 8
@@ -133,9 +133,9 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
 
 .lr.ph.i:                                         ; preds = %1
   %13 = load ptr, ptr @s_Que, align 16
-  %.pre.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 1), align 8
-  %.pre24.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 2), align 16
-  %14 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 3), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 8), align 8
+  %.pre24.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 16), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 24), align 8
   br label %15
 
 15:                                               ; preds = %33, %.lr.ph.i
@@ -163,7 +163,7 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
 33:                                               ; preds = %27, %15
   %34 = add nsw i32 %16, 1
   %35 = srem i32 %34, %9
-  store i32 %35, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 4), align 16
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @s_Que, i64 32), align 16
   %.not.i = icmp eq i32 %35, %7
   br i1 %.not.i, label %._crit_edge.sink.split, label %15, !llvm.loop !4
 
@@ -179,7 +179,7 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %IteratorCubePairNext.exit, %.lr.ph.preheader
   %.sink = phi i32 [ %225, %IteratorCubePairNext.exit ], [ %16, %.lr.ph.preheader ]
   %.sink59 = phi i32 [ %195, %IteratorCubePairNext.exit ], [ %9, %.lr.ph.preheader ]
-  %.sink57 = phi ptr [ %189, %IteratorCubePairNext.exit ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 4), %.lr.ph.preheader ]
+  %.sink57 = phi ptr [ %189, %IteratorCubePairNext.exit ], [ getelementptr inbounds (i8, ptr @s_Que, i64 32), %.lr.ph.preheader ]
   %38 = add nsw i32 %.sink, 1
   %39 = srem i32 %38, %.sink59
   store i32 %39, ptr %.sink57, align 8
@@ -223,9 +223,9 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
 CubeExtract.exit:                                 ; preds = %56, %57
   %61 = getelementptr inbounds i8, ptr %47, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %62 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %63 = add nsw i32 %62, -1
-  store i32 %63, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %63, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %64 = load ptr, ptr @s_pC2, align 8
   %65 = load ptr, ptr @s_List, align 8
   %66 = icmp eq ptr %65, %64
@@ -255,19 +255,19 @@ CubeExtract.exit:                                 ; preds = %56, %57
 CubeExtract.exit16:                               ; preds = %73, %74
   %78 = getelementptr inbounds i8, ptr %64, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  %79 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %80 = add nsw i32 %79, -1
-  store i32 %80, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %81 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %81, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  %82 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %82, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  %83 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %83, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
+  store i32 %80, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %82, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
   %84 = load ptr, ptr @s_CubeGroup, align 16
   %85 = tail call i32 @CheckForCloseCubes(ptr noundef %84, i32 noundef 0)
   %.not5 = icmp eq i32 %85, 0
-  %86 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
   br i1 %.not5, label %89, label %87
 
 87:                                               ; preds = %CubeExtract.exit16
@@ -285,17 +285,17 @@ CubeExtract.exit16:                               ; preds = %73, %74
   br label %180
 
 94:                                               ; preds = %89
-  %95 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  store i32 %95, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  %96 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  store i32 %96, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  %97 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
-  store i32 %97, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  store i32 %95, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  store i32 %96, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
+  store i32 %97, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   %98 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
   %99 = load ptr, ptr @s_CubeGroup, align 16
   %100 = tail call i32 @CheckForCloseCubes(ptr noundef %99, i32 noundef 0)
   %.not7 = icmp eq i32 %100, 0
-  %101 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
   br i1 %.not7, label %104, label %102
 
 102:                                              ; preds = %94
@@ -322,10 +322,10 @@ CubeExtract.exit16:                               ; preds = %73, %74
   br label %160
 
 111:                                              ; preds = %109
-  %112 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 16), align 8
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 64), align 8
   %.not10 = icmp eq i32 %112, 0
   %113 = load ptr, ptr @s_CubeGroup, align 16
-  %114 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
   %115 = load ptr, ptr @s_pC1, align 8
   %116 = load ptr, ptr @s_pC2, align 8
   br i1 %.not10, label %132, label %117
@@ -367,12 +367,12 @@ CubeExtract.exit16:                               ; preds = %73, %74
   br i1 %.not11, label %160, label %147
 
 147:                                              ; preds = %132, %117
-  %148 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  store i32 %148, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  %149 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  store i32 %149, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  %150 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
-  store i32 %150, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %148 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  store i32 %148, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %149 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  store i32 %149, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
+  store i32 %150, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   %151 = load ptr, ptr @s_List, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %CubeInsert.exit17, label %CubeInsert.exit.thread
@@ -385,17 +385,17 @@ CubeInsert.exit.thread:                           ; preds = %147
   br label %CubeInsert.exit17
 
 CubeInsert.exit17:                                ; preds = %147, %CubeInsert.exit.thread
-  %155 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %156 = add nsw i32 %155, 1
-  store i32 %156, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %156, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %157 = getelementptr inbounds i8, ptr %116, i64 32
   store ptr %115, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %115, i64 24
   store ptr %116, ptr %158, align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store ptr %116, ptr @s_List, align 8
   %159 = add nsw i32 %.pre, 1
-  store i32 %159, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %159, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
   br label %185
 
@@ -410,17 +410,17 @@ CubeInsert.exit18.thread:                         ; preds = %160
   store ptr %162, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %162, i64 24
   store ptr %161, ptr %165, align 8
-  %166 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %166 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %167 = add nsw i32 %166, 1
-  store i32 %167, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %168 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
+  store i32 %167, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
   br label %173
 
 CubeInsert.exit18:                                ; preds = %160
-  %169 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %169 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %170 = add nsw i32 %169, 1
-  store i32 %170, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %171 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
+  store i32 %170, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
   %172 = icmp eq ptr %161, null
   br i1 %172, label %CubeInsert.exit19, label %173
 
@@ -430,7 +430,7 @@ CubeInsert.exit18:                                ; preds = %160
   store ptr %161, ptr %175, align 8
   %176 = getelementptr inbounds i8, ptr %161, i64 24
   store ptr %174, ptr %176, align 8
-  %.pre42 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %.pre42 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   br label %CubeInsert.exit19
 
 CubeInsert.exit19:                                ; preds = %CubeInsert.exit18, %173
@@ -438,7 +438,7 @@ CubeInsert.exit19:                                ; preds = %CubeInsert.exit18, 
   %178 = phi ptr [ %171, %CubeInsert.exit18 ], [ %174, %173 ]
   store ptr %178, ptr @s_List, align 8
   %179 = add nsw i32 %177, 1
-  store i32 %179, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %179, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   br label %180
 
 180:                                              ; preds = %CubeInsert.exit19, %106, %102, %91, %87
@@ -526,7 +526,7 @@ IteratorCubePairNext.exit:                        ; preds = %208
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %185, %._crit_edge.sink.split, %1
-  %226 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
+  %226 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
   %227 = icmp eq i32 %226, 2
   br i1 %227, label %228, label %250
 
@@ -542,10 +542,10 @@ IteratorCubePairNext.exit:                        ; preds = %208
   %237 = load i32, ptr @s_cReshapes, align 4
   %238 = sub nsw i32 %236, %237
   %239 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %238)
-  %240 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %241 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %240)
   %242 = load i32, ptr @s_nCubesBefore, align 4
-  %243 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %243 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %244 = sub nsw i32 %242, %243
   %245 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %244)
   %246 = tail call i32 (...) @CountLiterals() #16
@@ -557,7 +557,7 @@ IteratorCubePairNext.exit:                        ; preds = %208
 
 250:                                              ; preds = %228, %._crit_edge
   %251 = load i32, ptr @s_nCubesBefore, align 4
-  %252 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %252 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %253 = sub nsw i32 %251, %252
   ret i32 %253
 }
@@ -691,20 +691,20 @@ define noundef ptr @CubeExtract(ptr noundef returned %0) local_unnamed_addr #5 {
 15:                                               ; preds = %11, %10
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %18 = add nsw i32 %17, -1
-  store i32 %18, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %3, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), align 8
-  %4 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %4, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), align 16
-  %5 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %5, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
   %storemerge5463 = load ptr, ptr @s_List, align 8
   store ptr %storemerge5463, ptr @s_q, align 8
   %.not5564 = icmp eq ptr %storemerge5463, null
@@ -745,16 +745,16 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not36, label %NewRangeInsertCubePair.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), align 8
-  %19 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 8), align 16
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 160), align 16
   %.not.i = icmp eq i32 %19, 0
-  %20 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 4), align 16
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 144), align 16
   %.not18.i = icmp eq i32 %18, %20
   %or.cond47 = select i1 %.not.i, i1 %.not18.i, i1 false
   br i1 %or.cond47, label %NewRangeInsertCubePair.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2), align 16
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 112), align 16
   %23 = sext i32 %18 to i64
   %24 = getelementptr inbounds ptr, ptr %22, i64 %23
   br label %NewRangeInsertCubePair.exit.sink.split
@@ -765,16 +765,16 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not35, label %NewRangeInsertCubePair.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), align 16
-  %29 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 8), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 104), align 8
   %.not.i37 = icmp eq i32 %29, 0
-  %30 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 4), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 88), align 8
   %.not18.i38 = icmp eq i32 %28, %30
   %or.cond48 = select i1 %.not.i37, i1 %.not18.i38, i1 false
   br i1 %or.cond48, label %NewRangeInsertCubePair.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 56), align 8
   %33 = sext i32 %28 to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   br label %NewRangeInsertCubePair.exit.sink.split
@@ -785,10 +785,10 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not34, label %NewRangeInsertCubePair.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), align 8
-  %39 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 8), align 16
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 48), align 16
   %.not.i40 = icmp eq i32 %39, 0
-  %40 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 4), align 16
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 32), align 16
   %.not18.i41 = icmp eq i32 %38, %40
   %or.cond49 = select i1 %.not.i40, i1 %.not18.i41, i1 false
   br i1 %or.cond49, label %NewRangeInsertCubePair.exit, label %41
@@ -858,15 +858,15 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
 CubeExtract.exit:                                 ; preds = %74, %75
   %79 = getelementptr inbounds i8, ptr %49, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  %80 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %81 = add nsw i32 %80, -1
-  store i32 %81, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %82 = icmp eq i32 %46, -1
   br i1 %82, label %83, label %114
 
 83:                                               ; preds = %CubeExtract.exit
   store i16 0, ptr %9, align 4
-  %84 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph62.preheader, label %tailrecurse
 
@@ -904,7 +904,7 @@ CubeExtract.exit:                                 ; preds = %74, %75
   %110 = add i16 %108, %109
   store i16 %110, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %111 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %111 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
   br i1 %113, label %.lr.ph62, label %tailrecurse, !llvm.loop !8
@@ -943,12 +943,12 @@ tailrecurse:                                      ; preds = %.lr.ph62, %83, %126
   %129 = load ptr, ptr @s_q, align 8
   tail call void @AddToFreeCubes(ptr noundef %129) #16
   %130 = add nuw nsw i32 %accumulator.tr65, 1
-  %131 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %131, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), align 8
-  %132 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %132, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), align 16
-  %133 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %133, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), align 8
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %131, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %132, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %133 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %133, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
   %storemerge54 = load ptr, ptr @s_List, align 8
   store ptr %storemerge54, ptr @s_q, align 8
   %.not55 = icmp eq ptr %storemerge54, null
@@ -985,25 +985,25 @@ tailrecurse:                                      ; preds = %.lr.ph62, %83, %126
 CubeExtract.exit46:                               ; preds = %144, %145
   %149 = getelementptr inbounds i8, ptr %135, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
-  %150 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %151 = add nsw i32 %150, -1
-  store i32 %151, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %151, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   tail call void @AddToFreeCubes(ptr noundef nonnull %135) #16
-  %152 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %152, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), align 8
-  %153 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %153, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), align 16
-  %154 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %154, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), align 8
+  %152 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %152, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %153, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %154 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %154, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
   br label %181
 
 NewRangeInsertCubePair.exit.sink.split:           ; preds = %21, %31, %41
   %.sink106 = phi ptr [ %44, %41 ], [ %34, %31 ], [ %24, %21 ]
-  %.sink105 = phi ptr [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 1), %41 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 1), %31 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 1), %21 ]
+  %.sink105 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 8), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 64), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 120), %21 ]
   %.sink104 = phi i64 [ %43, %41 ], [ %33, %31 ], [ %23, %21 ]
-  %.sink100 = phi ptr [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 2), %41 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 2), %31 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 2), %21 ]
-  %.sink94 = phi ptr [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 3), %41 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 3), %31 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 3), %21 ]
-  %.sink90 = phi ptr [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), %41 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), %31 ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), %21 ]
+  %.sink100 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 16), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 72), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 128), %21 ]
+  %.sink94 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 24), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 80), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 136), %21 ]
+  %.sink90 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 40), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 96), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 152), %21 ]
   %.sink101 = load ptr, ptr @s_q, align 8
   store ptr %0, ptr %.sink106, align 8
   %155 = load ptr, ptr %.sink105, align 8
@@ -1054,19 +1054,19 @@ tailrecurse._crit_edge:                           ; preds = %NewRangeInsertCubeP
 CubeInsert.exit:                                  ; preds = %tailrecurse, %170, %172
   %accumulator.tr.lcssa7982 = phi i32 [ %accumulator.tr.lcssa, %170 ], [ %accumulator.tr.lcssa, %172 ], [ %130, %tailrecurse ]
   store ptr %0, ptr @s_List, align 8
-  %175 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %176 = add nsw i32 %175, 1
-  store i32 %176, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %176, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   br label %177
 
 177:                                              ; preds = %CubeInsert.exit, %tailrecurse._crit_edge
   %accumulator.tr.lcssa80 = phi i32 [ %accumulator.tr.lcssa7982, %CubeInsert.exit ], [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ]
-  %178 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 6), align 8
-  store i32 %178, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  %179 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 6), align 16
-  store i32 %179, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  %180 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 6), align 8
-  store i32 %180, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %178 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  store i32 %178, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %179 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  store i32 %179, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %180 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
+  store i32 %180, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   br label %181
 
 181:                                              ; preds = %177, %CubeExtract.exit46
@@ -1099,8 +1099,8 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
   store i32 %4, ptr @s_fDistEnable3, align 4
   %5 = and i32 %2, 4
   store i32 %5, ptr @s_fDistEnable4, align 4
-  %6 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 4), align 8
-  %7 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 88), align 8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
   %8 = sub i32 %7, %6
   %9 = load i32, ptr @s_nPosAlloc, align 4
   %10 = add nsw i32 %8, %9
@@ -1108,7 +1108,7 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
   store i32 %11, ptr @s_cEnquequed, align 4
   store i32 0, ptr @s_cAttempts, align 4
   store i32 0, ptr @s_cReshapes, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
   store i32 1, ptr @s_Iter.1, align 8
   store ptr @s_pC1, ptr @s_Iter.2, align 8
@@ -1118,10 +1118,10 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
   br i1 %.not15.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1), align 8
-  %.pre.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 1), align 16
-  %.pre24.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 2), align 8
-  %14 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 3), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 56), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 64), align 16
+  %.pre24.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 72), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 80), align 16
   br label %15
 
 15:                                               ; preds = %33, %.lr.ph.i
@@ -1149,7 +1149,7 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
 33:                                               ; preds = %27, %15
   %34 = add nsw i32 %16, 1
   %35 = srem i32 %34, %9
-  store i32 %35, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 4), align 8
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @s_Que, i64 88), align 8
   %.not.i = icmp eq i32 %35, %7
   br i1 %.not.i, label %._crit_edge.sink.split, label %15, !llvm.loop !4
 
@@ -1165,7 +1165,7 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %IteratorCubePairNext.exit, %.lr.ph.preheader
   %.sink = phi i32 [ %283, %IteratorCubePairNext.exit ], [ %16, %.lr.ph.preheader ]
   %.sink80 = phi i32 [ %253, %IteratorCubePairNext.exit ], [ %9, %.lr.ph.preheader ]
-  %.sink78 = phi ptr [ %247, %IteratorCubePairNext.exit ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 4), %.lr.ph.preheader ]
+  %.sink78 = phi ptr [ %247, %IteratorCubePairNext.exit ], [ getelementptr inbounds (i8, ptr @s_Que, i64 88), %.lr.ph.preheader ]
   %38 = add nsw i32 %.sink, 1
   %39 = srem i32 %38, %.sink80
   store i32 %39, ptr %.sink78, align 8
@@ -1209,9 +1209,9 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
 CubeExtract.exit:                                 ; preds = %56, %57
   %61 = getelementptr inbounds i8, ptr %47, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %62 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %63 = add nsw i32 %62, -1
-  store i32 %63, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %63, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %64 = load ptr, ptr @s_pC2, align 8
   %65 = load ptr, ptr @s_List, align 8
   %66 = icmp eq ptr %65, %64
@@ -1241,15 +1241,15 @@ CubeExtract.exit:                                 ; preds = %56, %57
 CubeExtract.exit27:                               ; preds = %73, %74
   %78 = getelementptr inbounds i8, ptr %64, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  %79 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %80 = add nsw i32 %79, -1
-  store i32 %80, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %81 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %81, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  %82 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %82, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  %83 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %83, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
+  store i32 %80, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %82, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
   store i32 0, ptr @s_GroupCounter, align 4
   br label %84
 
@@ -1274,11 +1274,11 @@ CubeExtract.exit27:                               ; preds = %73, %74
   br i1 %or.cond, label %94, label %201
 
 94:                                               ; preds = %90
-  %95 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 16), align 8
+  %95 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 64), align 8
   %.not21 = icmp eq i32 %95, 0
   %96 = load ptr, ptr @s_CubeGroup, align 16
-  %97 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 1), align 8
-  %98 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @s_CubeGroup, i64 0, i64 2), align 16
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 8), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @s_CubeGroup, i64 16), align 16
   %99 = load ptr, ptr @s_pC1, align 8
   %100 = load ptr, ptr @s_pC2, align 8
   br i1 %.not21, label %123, label %101
@@ -1350,9 +1350,9 @@ CubeExtract.exit27:                               ; preds = %73, %74
 
 CubeInsert.exit.i:                                ; preds = %152, %145
   store ptr %146, ptr @s_List, align 8
-  %155 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %155 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %156 = add nsw i32 %155, 1
-  store i32 %156, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %156, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %157 = load ptr, ptr @s_ChangeStore.1, align 8
   %158 = icmp eq ptr %146, %157
   %159 = getelementptr inbounds i8, ptr %157, i64 32
@@ -1381,15 +1381,15 @@ CubeInsert.exit.i:                                ; preds = %152, %145
 CubeExtract.exit.i:                               ; preds = %166, %165
   %170 = getelementptr inbounds i8, ptr %157, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, i8 0, i64 16, i1 false)
-  %171 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %171 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %172 = add nsw i32 %171, -1
-  store i32 %172, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %172, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %173 = load i32, ptr @s_ChangeStore.0, align 8
   %.not.i28 = icmp eq i32 %173, 0
   br i1 %.not.i28, label %.preheader.i, label %178
 
 .preheader.i:                                     ; preds = %CubeExtract.exit.i
-  %174 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %174 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %175 = icmp sgt i32 %174, 0
   br i1 %175, label %.lr.ph.i29, label %._crit_edge.i
 
@@ -1423,7 +1423,7 @@ CubeExtract.exit.i:                               ; preds = %166, %165
   %194 = xor i32 %193, %190
   store i32 %194, ptr %192, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %195 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %195 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next.i, %196
   br i1 %197, label %187, label %._crit_edge.i, !llvm.loop !10
@@ -1484,12 +1484,12 @@ UndoRecentChanges.exit:                           ; preds = %216, %._crit_edge.i
   %217 = load i32, ptr @s_GroupCounter, align 4
   %218 = add nsw i32 %217, 1
   store i32 %218, ptr @s_GroupCounter, align 4
-  %219 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  store i32 %219, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  %220 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  store i32 %220, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  %221 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
-  store i32 %221, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %219 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  store i32 %219, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %220 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  store i32 %220, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %221 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
+  store i32 %221, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   %222 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
   %.not23 = icmp eq i32 %222, 0
   br i1 %.not23, label %223, label %.backedge
@@ -1505,16 +1505,16 @@ CubeInsert.exit.thread:                           ; preds = %223
   store ptr %225, ptr %227, align 8
   %228 = getelementptr inbounds i8, ptr %225, i64 24
   store ptr %224, ptr %228, align 8
-  %229 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %229 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %230 = add nsw i32 %229, 1
-  store i32 %230, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %230, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %231 = load ptr, ptr @s_pC2, align 8
   br label %236
 
 CubeInsert.exit:                                  ; preds = %223
-  %232 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %233 = add nsw i32 %232, 1
-  store i32 %233, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %233, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %234 = load ptr, ptr @s_pC2, align 8
   %235 = icmp eq ptr %224, null
   br i1 %235, label %CubeInsert.exit30, label %236
@@ -1525,7 +1525,7 @@ CubeInsert.exit:                                  ; preds = %223
   store ptr %224, ptr %238, align 8
   %239 = getelementptr inbounds i8, ptr %224, i64 24
   store ptr %237, ptr %239, align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   br label %CubeInsert.exit30
 
 CubeInsert.exit30:                                ; preds = %CubeInsert.exit, %236
@@ -1533,7 +1533,7 @@ CubeInsert.exit30:                                ; preds = %CubeInsert.exit, %2
   %241 = phi ptr [ %234, %CubeInsert.exit ], [ %237, %236 ]
   store ptr %241, ptr @s_List, align 8
   %242 = add nsw i32 %240, 1
-  store i32 %242, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %242, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
   br label %243
 
@@ -1611,7 +1611,7 @@ IteratorCubePairNext.exit:                        ; preds = %266
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %243, %._crit_edge.sink.split, %1
-  %284 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
+  %284 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
   %285 = icmp eq i32 %284, 2
   br i1 %285, label %286, label %308
 
@@ -1627,10 +1627,10 @@ IteratorCubePairNext.exit:                        ; preds = %266
   %295 = load i32, ptr @s_cReshapes, align 4
   %296 = sub nsw i32 %294, %295
   %297 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %296)
-  %298 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %298 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %299 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %298)
   %300 = load i32, ptr @s_nCubesBefore, align 4
-  %301 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %301 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %302 = sub nsw i32 %300, %301
   %303 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %302)
   %304 = tail call i32 (...) @CountLiterals() #16
@@ -1642,7 +1642,7 @@ IteratorCubePairNext.exit:                        ; preds = %266
 
 308:                                              ; preds = %286, %._crit_edge
   %309 = load i32, ptr @s_nCubesBefore, align 4
-  %310 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %310 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %311 = sub nsw i32 %309, %310
   ret i32 %311
 }
@@ -1657,8 +1657,8 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
   store i32 %4, ptr @s_fDistEnable3, align 4
   %5 = and i32 %2, 4
   store i32 %5, ptr @s_fDistEnable4, align 4
-  %6 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 4), align 16
-  %7 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 144), align 16
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   %8 = sub i32 %7, %6
   %9 = load i32, ptr @s_nPosAlloc, align 4
   %10 = add nsw i32 %8, %9
@@ -1666,7 +1666,7 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
   store i32 %11, ptr @s_cEnquequed, align 4
   store i32 0, ptr @s_cAttempts, align 4
   store i32 0, ptr @s_cReshapes, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
   store i32 2, ptr @s_Iter.1, align 8
   store ptr @s_pC1, ptr @s_Iter.2, align 8
@@ -1676,10 +1676,10 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
   br i1 %.not15.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2), align 16
-  %.pre.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 1), align 8
-  %.pre24.i = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 2), align 16
-  %14 = load ptr, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 112), align 16
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 120), align 8
+  %.pre24.i = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 128), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 136), align 8
   br label %15
 
 15:                                               ; preds = %33, %.lr.ph.i
@@ -1707,7 +1707,7 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
 33:                                               ; preds = %27, %15
   %34 = add nsw i32 %16, 1
   %35 = srem i32 %34, %9
-  store i32 %35, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 4), align 16
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @s_Que, i64 144), align 16
   %.not.i = icmp eq i32 %35, %7
   br i1 %.not.i, label %._crit_edge.sink.split, label %15, !llvm.loop !4
 
@@ -1723,7 +1723,7 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %IteratorCubePairNext.exit, %.lr.ph.preheader
   %.sink95 = phi i32 [ %239, %IteratorCubePairNext.exit ], [ %16, %.lr.ph.preheader ]
   %.sink94 = phi i32 [ %209, %IteratorCubePairNext.exit ], [ %9, %.lr.ph.preheader ]
-  %.sink92 = phi ptr [ %203, %IteratorCubePairNext.exit ], [ getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 4), %.lr.ph.preheader ]
+  %.sink92 = phi ptr [ %203, %IteratorCubePairNext.exit ], [ getelementptr inbounds (i8, ptr @s_Que, i64 144), %.lr.ph.preheader ]
   %38 = add nsw i32 %.sink95, 1
   %39 = srem i32 %38, %.sink94
   store i32 %39, ptr %.sink92, align 8
@@ -1767,9 +1767,9 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
 CubeExtract.exit:                                 ; preds = %56, %57
   %61 = getelementptr inbounds i8, ptr %47, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %62 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %63 = add nsw i32 %62, -1
-  store i32 %63, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %63, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %64 = load ptr, ptr @s_pC2, align 8
   %65 = load ptr, ptr @s_List, align 8
   %66 = icmp eq ptr %65, %64
@@ -1799,15 +1799,15 @@ CubeExtract.exit:                                 ; preds = %56, %57
 CubeExtract.exit31:                               ; preds = %73, %74
   %78 = getelementptr inbounds i8, ptr %64, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  %79 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %80 = add nsw i32 %79, -1
-  store i32 %80, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
-  %81 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  store i32 %81, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  %82 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  store i32 %82, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  %83 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
-  store i32 %83, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
+  store i32 %80, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %82, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
   br label %84
 
 84:                                               ; preds = %.loopexit, %CubeExtract.exit31
@@ -1875,9 +1875,9 @@ CubeExtract.exit31:                               ; preds = %73, %74
 
 CubeInsert.exit.i:                                ; preds = %109, %102
   store ptr %103, ptr @s_List, align 8
-  %112 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %113 = add nsw i32 %112, 1
-  store i32 %113, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %113, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %114 = load ptr, ptr @s_ChangeStore.1, align 8
   %115 = icmp eq ptr %103, %114
   %116 = getelementptr inbounds i8, ptr %114, i64 32
@@ -1906,15 +1906,15 @@ CubeInsert.exit.i:                                ; preds = %109, %102
 CubeExtract.exit.i:                               ; preds = %123, %122
   %127 = getelementptr inbounds i8, ptr %114, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
-  %128 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %128 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %129 = add nsw i32 %128, -1
-  store i32 %129, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %129, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %130 = load i32, ptr @s_ChangeStore.0, align 8
   %.not.i32 = icmp eq i32 %130, 0
   br i1 %.not.i32, label %.preheader.i, label %135
 
 .preheader.i:                                     ; preds = %CubeExtract.exit.i
-  %131 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %.lr.ph.i33, label %._crit_edge.i
 
@@ -1948,7 +1948,7 @@ CubeExtract.exit.i:                               ; preds = %123, %122
   %151 = xor i32 %150, %147
   store i32 %151, ptr %149, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %152 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %152 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next.i, %153
   br i1 %154, label %144, label %._crit_edge.i, !llvm.loop !10
@@ -2006,12 +2006,12 @@ UndoRecentChanges.exit:                           ; preds = %UndoRecentChanges.e
   br label %199
 
 .loopexit:                                        ; preds = %UndoRecentChanges.exit, %.preheader
-  %175 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 7), align 4
-  store i32 %175, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 0, i32 5), align 4
-  %176 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 7), align 4
-  store i32 %176, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 1, i32 5), align 4
-  %177 = load i32, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 7), align 4
-  store i32 %177, ptr getelementptr inbounds ([3 x %struct.que], ptr @s_Que, i64 0, i64 2, i32 5), align 4
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 44), align 4
+  store i32 %175, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %176 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 100), align 4
+  store i32 %176, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %177 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 156), align 4
+  store i32 %177, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
   %178 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
   %.not26 = icmp eq i32 %178, 0
   br i1 %.not26, label %179, label %84, !llvm.loop !18
@@ -2027,16 +2027,16 @@ CubeInsert.exit.thread:                           ; preds = %179
   store ptr %181, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %181, i64 24
   store ptr %180, ptr %184, align 8
-  %185 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %185 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %186 = add nsw i32 %185, 1
-  store i32 %186, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %186, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %187 = load ptr, ptr @s_pC2, align 8
   br label %192
 
 CubeInsert.exit:                                  ; preds = %179
-  %188 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %188 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %189 = add nsw i32 %188, 1
-  store i32 %189, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %189, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %190 = load ptr, ptr @s_pC2, align 8
   %191 = icmp eq ptr %180, null
   br i1 %191, label %CubeInsert.exit34, label %192
@@ -2047,7 +2047,7 @@ CubeInsert.exit:                                  ; preds = %179
   store ptr %180, ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %180, i64 24
   store ptr %193, ptr %195, align 8
-  %.pre = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   br label %CubeInsert.exit34
 
 CubeInsert.exit34:                                ; preds = %CubeInsert.exit, %192
@@ -2055,7 +2055,7 @@ CubeInsert.exit34:                                ; preds = %CubeInsert.exit, %1
   %197 = phi ptr [ %190, %CubeInsert.exit ], [ %193, %192 ]
   store ptr %197, ptr @s_List, align 8
   %198 = add nsw i32 %196, 1
-  store i32 %198, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %198, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
   br label %199
 
@@ -2133,7 +2133,7 @@ IteratorCubePairNext.exit:                        ; preds = %222
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %199, %._crit_edge.sink.split, %1
-  %240 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
   %241 = icmp eq i32 %240, 2
   br i1 %241, label %242, label %264
 
@@ -2149,10 +2149,10 @@ IteratorCubePairNext.exit:                        ; preds = %222
   %251 = load i32, ptr @s_cReshapes, align 4
   %252 = sub nsw i32 %250, %251
   %253 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %252)
-  %254 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %254 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %255 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %254)
   %256 = load i32, ptr @s_nCubesBefore, align 4
-  %257 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %257 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %258 = sub nsw i32 %256, %257
   %259 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %258)
   %260 = tail call i32 (...) @CountLiterals() #16
@@ -2164,7 +2164,7 @@ IteratorCubePairNext.exit:                        ; preds = %222
 
 264:                                              ; preds = %242, %._crit_edge
   %265 = load i32, ptr @s_nCubesBefore, align 4
-  %266 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %266 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %267 = sub nsw i32 %265, %266
   ret i32 %267
 }
@@ -2193,9 +2193,9 @@ define void @UndoRecentChanges() local_unnamed_addr #1 {
 
 CubeInsert.exit:                                  ; preds = %0, %7
   store ptr %1, ptr @s_List, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %12 = load ptr, ptr @s_ChangeStore.1, align 8
   %13 = icmp eq ptr %1, %12
   %14 = getelementptr inbounds i8, ptr %12, i64 32
@@ -2224,15 +2224,15 @@ CubeInsert.exit:                                  ; preds = %0, %7
 CubeExtract.exit:                                 ; preds = %20, %21
   %25 = getelementptr inbounds i8, ptr %12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %26 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %27 = add nsw i32 %26, -1
-  store i32 %27, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   %28 = load i32, ptr @s_ChangeStore.0, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.preheader, label %33
 
 .preheader:                                       ; preds = %CubeExtract.exit
-  %29 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -2266,7 +2266,7 @@ CubeExtract.exit:                                 ; preds = %20, %21
   %49 = xor i32 %48, %45
   store i32 %49, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %42, label %._crit_edge, !llvm.loop !10

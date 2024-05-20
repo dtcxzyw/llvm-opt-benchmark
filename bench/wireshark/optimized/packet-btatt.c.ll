@@ -6660,7 +6660,7 @@ define hidden void @proto_reg_handoff_btatt() local_unnamed_addr #1 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.2139, i32 noundef 4, ptr noundef %14) #13
   %15 = tail call i32 @register_tap(ptr noundef nonnull @.str.2140) #13
   store i32 %15, ptr @btatt_tap_handles, align 4
-  %16 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @bluetooth_uuid_vals, i64 0, i64 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bluetooth_uuid_vals, i64 8), align 8
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 

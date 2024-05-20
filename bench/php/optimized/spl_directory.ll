@@ -400,7 +400,7 @@ define internal fastcc void @spl_filesystem_object_construct(ptr nocapture nound
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %66
@@ -414,7 +414,7 @@ define internal fastcc void @spl_filesystem_object_construct(ptr nocapture nound
 
 26:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.34) #18
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %66
@@ -430,7 +430,7 @@ define internal fastcc void @spl_filesystem_object_construct(ptr nocapture nound
 
 35:                                               ; preds = %29
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.35) #18
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %66
@@ -515,7 +515,7 @@ define hidden void @zim_DirectoryIterator_rewind(ptr nocapture noundef readonly 
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %spl_filesystem_dir_read.exit
@@ -528,7 +528,7 @@ define hidden void @zim_DirectoryIterator_rewind(ptr nocapture noundef readonly 
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %spl_filesystem_dir_read.exit
@@ -615,7 +615,7 @@ define hidden void @zim_DirectoryIterator_key(ptr nocapture noundef readonly %0,
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %20
@@ -628,7 +628,7 @@ define hidden void @zim_DirectoryIterator_key(ptr nocapture noundef readonly %0,
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %20
@@ -655,7 +655,7 @@ define hidden void @zim_DirectoryIterator_current(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %19
@@ -670,7 +670,7 @@ define hidden void @zim_DirectoryIterator_current(ptr nocapture noundef readonly
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %19
@@ -704,7 +704,7 @@ define hidden void @zim_DirectoryIterator_next(ptr nocapture noundef readonly %0
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %80
@@ -717,7 +717,7 @@ define hidden void @zim_DirectoryIterator_next(ptr nocapture noundef readonly %0
 
 15:                                               ; preds = %.critedge25
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %80
@@ -973,7 +973,7 @@ define hidden void @zim_DirectoryIterator_seek(ptr nocapture noundef readonly %0
   br i1 %50, label %32, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %2, %14, %38
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %.loopexit
@@ -1001,7 +1001,7 @@ define hidden void @zim_DirectoryIterator_valid(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %20
@@ -1014,7 +1014,7 @@ define hidden void @zim_DirectoryIterator_valid(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %20
@@ -1044,7 +1044,7 @@ define hidden void @zim_SplFileInfo_getPath(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %51
@@ -1143,7 +1143,7 @@ define hidden void @zim_SplFileInfo_getFilename(ptr nocapture noundef readonly %
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %94
@@ -1156,7 +1156,7 @@ define hidden void @zim_SplFileInfo_getFilename(ptr nocapture noundef readonly %
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %94
@@ -1334,7 +1334,7 @@ define hidden void @zim_DirectoryIterator_getFilename(ptr nocapture noundef read
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %27
@@ -1347,7 +1347,7 @@ define hidden void @zim_DirectoryIterator_getFilename(ptr nocapture noundef read
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %27
@@ -1393,7 +1393,7 @@ define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %115
@@ -1406,7 +1406,7 @@ define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly 
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %115
@@ -1617,7 +1617,7 @@ define hidden void @zim_DirectoryIterator_getExtension(ptr nocapture noundef rea
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %62
@@ -1630,7 +1630,7 @@ define hidden void @zim_DirectoryIterator_getExtension(ptr nocapture noundef rea
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %62
@@ -1737,7 +1737,7 @@ define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %84
@@ -1750,7 +1750,7 @@ define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %
 
 18:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %84
@@ -1897,7 +1897,7 @@ define hidden void @zim_DirectoryIterator_getBasename(ptr nocapture noundef read
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %31
@@ -1910,7 +1910,7 @@ define hidden void @zim_DirectoryIterator_getBasename(ptr nocapture noundef read
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %31
@@ -1947,7 +1947,7 @@ define hidden void @zim_SplFileInfo_getPathname(ptr nocapture noundef readonly %
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %32
@@ -2021,7 +2021,7 @@ define hidden void @zim_FilesystemIterator_key(ptr nocapture noundef readonly %0
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %45
@@ -2061,7 +2061,7 @@ define hidden void @zim_FilesystemIterator_key(ptr nocapture noundef readonly %0
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
   br label %45
@@ -2236,7 +2236,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %43
@@ -2257,7 +2257,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %43
@@ -2291,7 +2291,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %37)
   br label %43
@@ -2510,7 +2510,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
 
 111:                                              ; preds = %107, %108
   %112 = phi ptr [ %110, %108 ], [ %3, %107 ]
-  %113 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 114), align 16
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 912), align 16
   store ptr %113, ptr %12, align 8
   store ptr null, ptr %13, align 8
   %114 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %13) #18
@@ -2719,7 +2719,7 @@ define hidden void @zim_DirectoryIterator_isDot(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %25
@@ -2732,7 +2732,7 @@ define hidden void @zim_DirectoryIterator_isDot(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %25
@@ -2781,7 +2781,7 @@ define hidden void @zim_SplFileInfo___construct(ptr nocapture noundef readonly %
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %16
@@ -2981,7 +2981,7 @@ define hidden void @zim_SplFileInfo_getPerms(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -2993,7 +2993,7 @@ define hidden void @zim_SplFileInfo_getPerms(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3029,7 +3029,7 @@ define hidden void @zim_SplFileInfo_getInode(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3041,7 +3041,7 @@ define hidden void @zim_SplFileInfo_getInode(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3071,7 +3071,7 @@ define hidden void @zim_SplFileInfo_getSize(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3083,7 +3083,7 @@ define hidden void @zim_SplFileInfo_getSize(ptr nocapture noundef readonly %0, p
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3113,7 +3113,7 @@ define hidden void @zim_SplFileInfo_getOwner(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3125,7 +3125,7 @@ define hidden void @zim_SplFileInfo_getOwner(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3155,7 +3155,7 @@ define hidden void @zim_SplFileInfo_getGroup(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3167,7 +3167,7 @@ define hidden void @zim_SplFileInfo_getGroup(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3197,7 +3197,7 @@ define hidden void @zim_SplFileInfo_getATime(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3209,7 +3209,7 @@ define hidden void @zim_SplFileInfo_getATime(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3239,7 +3239,7 @@ define hidden void @zim_SplFileInfo_getMTime(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3251,7 +3251,7 @@ define hidden void @zim_SplFileInfo_getMTime(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3281,7 +3281,7 @@ define hidden void @zim_SplFileInfo_getCTime(ptr nocapture noundef readonly %0, 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3293,7 +3293,7 @@ define hidden void @zim_SplFileInfo_getCTime(ptr nocapture noundef readonly %0, 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3323,7 +3323,7 @@ define hidden void @zim_SplFileInfo_getType(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3335,7 +3335,7 @@ define hidden void @zim_SplFileInfo_getType(ptr nocapture noundef readonly %0, p
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3365,7 +3365,7 @@ define hidden void @zim_SplFileInfo_isWritable(ptr nocapture noundef readonly %0
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3377,7 +3377,7 @@ define hidden void @zim_SplFileInfo_isWritable(ptr nocapture noundef readonly %0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3407,7 +3407,7 @@ define hidden void @zim_SplFileInfo_isReadable(ptr nocapture noundef readonly %0
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3419,7 +3419,7 @@ define hidden void @zim_SplFileInfo_isReadable(ptr nocapture noundef readonly %0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3449,7 +3449,7 @@ define hidden void @zim_SplFileInfo_isExecutable(ptr nocapture noundef readonly 
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3461,7 +3461,7 @@ define hidden void @zim_SplFileInfo_isExecutable(ptr nocapture noundef readonly 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3491,7 +3491,7 @@ define hidden void @zim_SplFileInfo_isFile(ptr nocapture noundef readonly %0, pt
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3503,7 +3503,7 @@ define hidden void @zim_SplFileInfo_isFile(ptr nocapture noundef readonly %0, pt
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3533,7 +3533,7 @@ define hidden void @zim_SplFileInfo_isDir(ptr nocapture noundef readonly %0, ptr
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3545,7 +3545,7 @@ define hidden void @zim_SplFileInfo_isDir(ptr nocapture noundef readonly %0, ptr
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3575,7 +3575,7 @@ define hidden void @zim_SplFileInfo_isLink(ptr nocapture noundef readonly %0, pt
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %21
@@ -3587,7 +3587,7 @@ define hidden void @zim_SplFileInfo_isLink(ptr nocapture noundef readonly %0, pt
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %21
@@ -3619,7 +3619,7 @@ define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %58
@@ -3636,7 +3636,7 @@ define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   br label %58
@@ -3648,7 +3648,7 @@ define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly
 
 24:                                               ; preds = %22
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.8) #18
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
   br label %58
@@ -3743,7 +3743,7 @@ define hidden void @zim_SplFileInfo_getRealPath(ptr nocapture noundef readonly %
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %48
@@ -3772,7 +3772,7 @@ define hidden void @zim_SplFileInfo_getRealPath(ptr nocapture noundef readonly %
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
   br label %48
@@ -3853,7 +3853,7 @@ define hidden void @zim_SplFileInfo_setFileClass(ptr nocapture noundef readonly 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %17
@@ -3882,7 +3882,7 @@ define hidden void @zim_SplFileInfo_setInfoClass(ptr nocapture noundef readonly 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %17
@@ -3912,7 +3912,7 @@ define hidden void @zim_SplFileInfo_getFileInfo(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %19
@@ -3945,7 +3945,7 @@ define hidden void @zim_SplFileInfo_getPathInfo(ptr nocapture noundef readonly %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %spl_filesystem_object_get_pathname.exit.thread
@@ -4126,7 +4126,7 @@ define hidden void @zim_SplFileInfo___debugInfo(ptr nocapture noundef readonly %
 
 14:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %392
@@ -4907,7 +4907,7 @@ define hidden void @zim_SplFileInfo__bad_state_ex(ptr nocapture noundef readonly
   br label %6
 
 6:                                                ; preds = %.critedge, %5
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   ret void
@@ -4935,7 +4935,7 @@ define hidden void @zim_FilesystemIterator_rewind(ptr nocapture noundef readonly
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %.critedge
@@ -5096,7 +5096,7 @@ define hidden void @zim_FilesystemIterator_getFlags(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -5128,7 +5128,7 @@ define hidden void @zim_FilesystemIterator_setFlags(ptr nocapture noundef readon
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %20
@@ -5248,7 +5248,7 @@ spl_filesystem_is_invalid_or_dot.exit.thread120:  ; preds = %.tail.i.i, %.thread
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %63
@@ -5318,7 +5318,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
   br label %84
@@ -5329,7 +5329,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.critedge
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %84
@@ -5459,7 +5459,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getSubPath(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %25
@@ -5515,7 +5515,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getSubPathname(ptr nocapture 
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %29
@@ -5584,7 +5584,7 @@ define hidden void @zim_GlobIterator_count(ptr nocapture noundef readonly %0, pt
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %20
@@ -5628,7 +5628,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -384
-  %9 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @zend_one_char_string, i64 0, i64 114), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 912), align 16
   store ptr %9, ptr %3, align 8
   store i8 0, ptr %4, align 1
   %10 = getelementptr inbounds i8, ptr %7, i64 -312
@@ -5645,7 +5645,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
 18:                                               ; preds = %2
   store ptr null, ptr %11, align 8
   store ptr null, ptr %14, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %64
@@ -5676,7 +5676,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %64
@@ -5801,13 +5801,13 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapt
   br label %39
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not187 = icmp eq ptr %36, null
   br i1 %.not187, label %37, label %39
 
 37:                                               ; preds = %35
   %38 = call ptr @php_stream_context_alloc() #18
-  store ptr %38, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %39
 
 39:                                               ; preds = %35, %37, %32
@@ -5832,7 +5832,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapt
   br i1 %or.cond, label %53, label %74
 
 53:                                               ; preds = %39
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not190 = icmp eq ptr %54, null
   br i1 %.not190, label %55, label %59
 
@@ -5999,7 +5999,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr nocapture noundef read
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %65
@@ -6124,7 +6124,7 @@ define hidden void @zim_SplFileObject_rewind(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %11
@@ -6213,7 +6213,7 @@ define hidden void @zim_SplFileObject_eof(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %19
@@ -6228,7 +6228,7 @@ define hidden void @zim_SplFileObject_eof(ptr nocapture noundef readonly %0, ptr
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %19
@@ -6257,7 +6257,7 @@ define hidden void @zim_SplFileObject_valid(ptr nocapture noundef readonly %0, p
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %32
@@ -6322,7 +6322,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %36
@@ -6335,7 +6335,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %36
@@ -6346,7 +6346,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   br label %36
@@ -6535,7 +6535,7 @@ define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0,
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %58
@@ -6548,7 +6548,7 @@ define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0,
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %58
@@ -6732,7 +6732,7 @@ define hidden void @zim_SplFileObject_key(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -6763,7 +6763,7 @@ define hidden void @zim_SplFileObject_next(ptr nocapture noundef readonly %0, pt
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %29
@@ -6825,7 +6825,7 @@ define hidden void @zim_SplFileObject_setFlags(ptr nocapture noundef readonly %0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %13
@@ -6843,7 +6843,7 @@ define hidden void @zim_SplFileObject_getFlags(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -6875,7 +6875,7 @@ define hidden void @zim_SplFileObject_setMaxLineLen(ptr nocapture noundef readon
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %21
@@ -6887,7 +6887,7 @@ define hidden void @zim_SplFileObject_setMaxLineLen(ptr nocapture noundef readon
 
 16:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.22) #18
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %21
@@ -6912,7 +6912,7 @@ define hidden void @zim_SplFileObject_getMaxLineLen(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -6940,7 +6940,7 @@ define hidden void @zim_SplFileObject_hasChildren(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %9
@@ -6963,7 +6963,7 @@ define hidden void @zim_SplFileObject_getChildren(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.critedge
@@ -7002,7 +7002,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %67
@@ -7015,7 +7015,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
 
 28:                                               ; preds = %25
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %67
@@ -7032,7 +7032,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
 
 35:                                               ; preds = %33
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.24) #18
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %67
@@ -7054,7 +7054,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
 
 44:                                               ; preds = %42
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.24) #18
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %67
@@ -7076,7 +7076,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
 
 54:                                               ; preds = %51
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.25) #18
-  %55 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %67
@@ -7244,7 +7244,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %2
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %68
@@ -7261,7 +7261,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
 
 31:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.24) #18
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %68
@@ -7283,7 +7283,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
 
 40:                                               ; preds = %38
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.24) #18
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %68
@@ -7305,7 +7305,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
 
 50:                                               ; preds = %47
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.25) #18
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %68
@@ -7368,7 +7368,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readon
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %53
@@ -7385,7 +7385,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readon
 
 22:                                               ; preds = %20
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.24) #18
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %53
@@ -7407,7 +7407,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readon
 
 31:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.24) #18
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %53
@@ -7429,7 +7429,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readon
 
 41:                                               ; preds = %38
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.25) #18
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %53
@@ -7469,7 +7469,7 @@ define hidden void @zim_SplFileObject_getCsvControl(ptr nocapture noundef readon
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %31
@@ -7533,7 +7533,7 @@ define hidden void @zim_SplFileObject_flock(ptr nocapture noundef readonly %0, p
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %23
@@ -7546,7 +7546,7 @@ define hidden void @zim_SplFileObject_flock(ptr nocapture noundef readonly %0, p
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %23
@@ -7572,7 +7572,7 @@ define hidden void @zim_SplFileObject_fflush(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %19
@@ -7587,7 +7587,7 @@ define hidden void @zim_SplFileObject_fflush(ptr nocapture noundef readonly %0, 
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %19
@@ -7615,7 +7615,7 @@ define hidden void @zim_SplFileObject_ftell(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %22
@@ -7630,7 +7630,7 @@ define hidden void @zim_SplFileObject_ftell(ptr nocapture noundef readonly %0, p
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %22
@@ -7671,7 +7671,7 @@ define hidden void @zim_SplFileObject_fseek(ptr nocapture noundef readonly %0, p
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %37
@@ -7684,7 +7684,7 @@ define hidden void @zim_SplFileObject_fseek(ptr nocapture noundef readonly %0, p
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %37
@@ -7739,7 +7739,7 @@ define hidden void @zim_SplFileObject_fgetc(ptr nocapture noundef readonly %0, p
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %42
@@ -7752,7 +7752,7 @@ define hidden void @zim_SplFileObject_fgetc(ptr nocapture noundef readonly %0, p
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %42
@@ -7834,7 +7834,7 @@ define hidden void @zim_SplFileObject_fpassthru(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %18
@@ -7849,7 +7849,7 @@ define hidden void @zim_SplFileObject_fpassthru(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %18
@@ -7884,7 +7884,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %40
@@ -7897,7 +7897,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, 
 
 19:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %40
@@ -7912,7 +7912,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, 
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %40
@@ -7954,7 +7954,7 @@ define hidden void @zim_SplFileObject_fwrite(ptr nocapture noundef readonly %0, 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %41
@@ -7967,7 +7967,7 @@ define hidden void @zim_SplFileObject_fwrite(ptr nocapture noundef readonly %0, 
 
 18:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %41
@@ -8039,7 +8039,7 @@ define hidden void @zim_SplFileObject_fread(ptr nocapture noundef readonly %0, p
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %35
@@ -8052,7 +8052,7 @@ define hidden void @zim_SplFileObject_fread(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %13
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %35
@@ -8064,7 +8064,7 @@ define hidden void @zim_SplFileObject_fread(ptr nocapture noundef readonly %0, p
 
 22:                                               ; preds = %19
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.31) #18
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %35
@@ -8105,7 +8105,7 @@ define hidden void @zim_SplFileObject_fstat(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -8120,7 +8120,7 @@ define hidden void @zim_SplFileObject_fstat(ptr nocapture noundef readonly %0, p
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %16
@@ -8147,7 +8147,7 @@ define hidden void @zim_SplFileObject_ftruncate(ptr nocapture noundef readonly %
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %37
@@ -8160,7 +8160,7 @@ define hidden void @zim_SplFileObject_ftruncate(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %13
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %37
@@ -8176,7 +8176,7 @@ define hidden void @zim_SplFileObject_ftruncate(ptr nocapture noundef readonly %
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %23, i64 noundef 0, ptr noundef nonnull @.str.32, ptr noundef nonnull %26) #18
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %37
@@ -8212,7 +8212,7 @@ define hidden void @zim_SplFileObject_seek(ptr nocapture noundef readonly %0, pt
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %spl_filesystem_file_free_line.exit
@@ -8225,7 +8225,7 @@ define hidden void @zim_SplFileObject_seek(ptr nocapture noundef readonly %0, pt
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %spl_filesystem_file_free_line.exit
@@ -8237,7 +8237,7 @@ define hidden void @zim_SplFileObject_seek(ptr nocapture noundef readonly %0, pt
 
 23:                                               ; preds = %20
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.22) #18
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %spl_filesystem_file_free_line.exit
@@ -8312,7 +8312,7 @@ define hidden void @zim_SplFileObject___toString(ptr nocapture noundef readonly 
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %38
@@ -8327,7 +8327,7 @@ define hidden void @zim_SplFileObject___toString(ptr nocapture noundef readonly 
 
 13:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %38
@@ -8442,9 +8442,9 @@ define hidden noundef i32 @zm_startup_spl_directory(i32 noundef %0, i32 noundef 
   store ptr @spl_filesystem_object_handlers, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_filesystem_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 384, ptr @spl_filesystem_object_handlers, align 8
-  store ptr @spl_filesystem_object_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_filesystem_object_handlers, i64 0, i32 3), align 8
-  store ptr @spl_filesystem_object_destroy_object, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_filesystem_object_handlers, i64 0, i32 2), align 8
-  store ptr @spl_filesystem_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_filesystem_object_handlers, i64 0, i32 1), align 8
+  store ptr @spl_filesystem_object_clone, ptr getelementptr inbounds (i8, ptr @spl_filesystem_object_handlers, i64 24), align 8
+  store ptr @spl_filesystem_object_destroy_object, ptr getelementptr inbounds (i8, ptr @spl_filesystem_object_handlers, i64 16), align 8
+  store ptr @spl_filesystem_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_filesystem_object_handlers, i64 8), align 8
   %54 = load ptr, ptr @spl_ce_SeekableIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %40, i8 0, i64 512, i1 false)
@@ -9003,8 +9003,8 @@ register_class_FilesystemIterator.exit:           ; preds = %266, %275, %282, %2
   %293 = getelementptr inbounds i8, ptr %292, i64 384
   store ptr @spl_filesystem_object_new, ptr %293, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_filesystem_object_check_handlers, ptr noundef nonnull align 8 dereferenceable(200) @spl_filesystem_object_handlers, i64 200, i1 false)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_filesystem_object_check_handlers, i64 0, i32 3), align 8
-  store ptr @spl_filesystem_object_get_method_check, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_filesystem_object_check_handlers, i64 0, i32 14), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @spl_filesystem_object_check_handlers, i64 24), align 8
+  store ptr @spl_filesystem_object_get_method_check, ptr getelementptr inbounds (i8, ptr @spl_filesystem_object_check_handlers, i64 112), align 8
   %294 = load ptr, ptr @spl_ce_FilesystemIterator, align 8
   %295 = load ptr, ptr @zend_ce_countable, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13)
@@ -9915,7 +9915,7 @@ define internal fastcc void @spl_filesystem_dir_open(ptr noundef %0, ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %9 = tail call ptr @_php_stream_opendir(ptr noundef nonnull %7, i32 noundef 8, ptr noundef %8) #18
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %9, ptr %10, align 8
@@ -9967,7 +9967,7 @@ define internal fastcc void @spl_filesystem_dir_open(ptr noundef %0, ptr noundef
   store ptr %.sink, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 0, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not79 = icmp eq ptr %38, null
   br i1 %.not79, label %39, label %64
 
@@ -10036,7 +10036,7 @@ spl_filesystem_is_dot.exit.us:                    ; preds = %spl_filesystem_is_d
 64:                                               ; preds = %39, %35
   %65 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %65, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not80 = icmp eq ptr %66, null
   br i1 %.not80, label %67, label %.critedge
 

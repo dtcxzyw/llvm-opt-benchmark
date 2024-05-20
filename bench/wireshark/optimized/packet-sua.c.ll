@@ -730,12 +730,12 @@ define internal i32 @dissect_sua(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 0, ptr @drn, align 4
   store i32 0, ptr @srn, align 4
   store ptr null, ptr @assoc, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 4), align 4
-  store i8 -1, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 5), align 4
-  store i8 -1, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 6), align 1
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 7), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i64 0, i32 8), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 16), align 4
+  store i8 -1, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 20), align 4
+  store i8 -1, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 21), align 1
+  store i32 0, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 24), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @no_sua_assoc, i64 28), align 4
   %29 = getelementptr inbounds i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @wmem_alloc0(ptr noundef %30, i64 noundef 12) #6

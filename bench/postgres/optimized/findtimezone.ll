@@ -429,11 +429,11 @@ define internal fastcc noundef ptr @pg_load_tz(ptr noundef %0) unnamed_addr #4 {
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @tzparse(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i64 0, i32 1), i1 noundef zeroext true) #13
+  %8 = tail call zeroext i1 @tzparse(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
   br i1 %8, label %16, label %18
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @tzload(ptr noundef %0, ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i64 0, i32 1), i1 noundef zeroext true) #13
+  %10 = tail call i32 @tzload(ptr noundef %0, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
@@ -443,7 +443,7 @@ define internal fastcc noundef ptr @pg_load_tz(ptr noundef %0) unnamed_addr #4 {
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call zeroext i1 @tzparse(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i64 0, i32 1), i1 noundef zeroext false) #13
+  %15 = tail call zeroext i1 @tzparse(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext false) #13
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9, %14, %7

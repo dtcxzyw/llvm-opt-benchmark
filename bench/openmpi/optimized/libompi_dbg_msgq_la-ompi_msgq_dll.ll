@@ -83,7 +83,7 @@ define noundef i32 @mqs_version_compatibility() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @mqs_version_string() local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) @mqs_version_str, ptr noundef nonnull align 1 dereferenceable(55) @.str, i64 55, i1 false)
-  %1 = tail call i32 @ompi_get_lib_version(ptr noundef nonnull getelementptr inbounds ([256 x i8], ptr @mqs_version_str, i64 0, i64 54), i32 noundef 202) #12
+  %1 = tail call i32 @ompi_get_lib_version(ptr noundef nonnull getelementptr inbounds (i8, ptr @mqs_version_str, i64 54), i32 noundef 202) #12
   ret ptr @mqs_version_str
 }
 

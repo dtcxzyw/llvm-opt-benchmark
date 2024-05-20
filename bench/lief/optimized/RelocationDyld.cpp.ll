@@ -37,7 +37,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14RelocationDyldC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF5MachO10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -54,7 +54,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF5MachO10Relocat
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14RelocationDyldC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF5MachO10RelocationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i64 16), ptr %0, align 8
   ret void
 }
 

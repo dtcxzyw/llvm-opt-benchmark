@@ -28,14 +28,14 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
-  %3 = load i8, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i64 0, i32 1), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_psquash_globals, i64 1), align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %._crit_edge, label %5
 
 5:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i64 0, i32 1), align 1
-  %.02739 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not40 = icmp eq ptr %.02739, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_psquash_globals, i64 1), align 1
+  %.02739 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 320), align 8
+  %.not40 = icmp eq ptr %.02739, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %64
@@ -44,7 +44,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %.02441 = phi i32 [ %.125, %64 ], [ -1, %5 ]
   %6 = getelementptr inbounds i8, ptr %.02743, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %16
 
@@ -64,7 +64,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %17 = getelementptr inbounds i8, ptr %7, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %20, 64
   br i1 %19, label %21, label %29
 
@@ -109,7 +109,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br i1 %or.cond7, label %43, label %52
 
 43:                                               ; preds = %37
-  %44 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 11), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
   %or.cond9 = icmp ult i32 %44, 64
   br i1 %or.cond9, label %45, label %64
 
@@ -142,7 +142,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 3), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash, i64 24), align 8
   %.not38 = icmp eq ptr %61, null
   br i1 %.not38, label %63, label %62
 
@@ -159,7 +159,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %.1 = phi i1 [ %.042, %27 ], [ %.042, %22 ], [ %.042, %21 ], [ %.042, %50 ], [ %.042, %45 ], [ %.042, %43 ], [ %.042, %55 ], [ true, %63 ], [ %.042, %57 ]
   %65 = getelementptr inbounds i8, ptr %.02743, i64 120
   %.027 = load ptr, ptr %65, align 8
-  %.not = icmp eq ptr %.027, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.027, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %64

@@ -150,7 +150,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21, !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lasts.i.i), !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %firsts.i.i), !noalias !5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 16), ptr %call.i, align 8, !noalias !5
   %startState.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %vtable.i.i = load ptr, ptr %b, align 8, !noalias !5
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
@@ -958,7 +958,7 @@ invoke.cont:                                      ; preds = %if.then5
           to label %invoke.cont7 unwind label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue210ParseErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #24
           to label %unreachable unwind label %ehcleanup
 
@@ -1205,7 +1205,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue28flat_setINS2_12PositionInfoESt4lessIS4_ESaIS4_EE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 16), ptr %this, align 8
   %successors = getelementptr inbounds i8, ptr %this, i64 48
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -1226,7 +1226,7 @@ _ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 16), ptr %this, align 8
   %successors.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -2332,7 +2332,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
           to label %invoke.cont4.i unwind label %ehcleanup.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue210ParseErrorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #24
           to label %unreachable.i unwind label %ehcleanup.i
 

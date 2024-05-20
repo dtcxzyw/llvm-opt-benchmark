@@ -1881,8 +1881,8 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %_ZL14gmx_sfree_impl
   %767 = load float, ptr @_ZZ12gmx_editconfiPPcE3rho, align 4
   %768 = fdiv float %751, %767
   %769 = call noundef float @cbrtf(float noundef %768) #22
-  store float %769, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE5scale, i64 0, i64 2), align 4
-  store float %769, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE5scale, i64 0, i64 1), align 4
+  store float %769, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 8), align 4
+  store float %769, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 4), align 4
   store float %769, ptr @_ZZ12gmx_editconfiPPcE5scale, align 4
   %770 = load ptr, ptr @stderr, align 8
   %771 = fpext float %769 to double
@@ -1993,15 +1993,15 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %797
   %809 = phi i32 [ %.pre607, %..loopexit449_crit_edge ], [ %801, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ], [ %806, %.lr.ph485 ]
   %810 = load float, ptr @_ZZ12gmx_editconfiPPcE9targetvec, align 8
   %811 = fpext float %810 to double
-  %812 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 1), align 4
+  %812 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 4), align 4
   %813 = fpext float %812 to double
-  %814 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 2), align 8
+  %814 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 8
   %815 = fpext float %814 to double
   %816 = load float, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, align 8
   %817 = fpext float %816 to double
-  %818 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 0, i64 1), align 4
+  %818 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 4), align 4
   %819 = fpext float %818 to double
-  %820 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 0, i64 2), align 8
+  %820 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 8
   %821 = fpext float %820 to double
   %822 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %809, i32 noundef %190, double noundef %811, double noundef %813, double noundef %815, double noundef %817, double noundef %819, double noundef %821)
   %823 = load i32, ptr %25, align 4
@@ -2018,7 +2018,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %797
   %830 = getelementptr inbounds [3 x float], ptr %825, i64 %829
   %831 = getelementptr inbounds i8, ptr %830, i64 8
   %832 = load float, ptr %831, align 4
-  %833 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 0, i64 2), align 8
+  %833 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 8
   %834 = fsub float %832, %833
   %835 = load <2 x float>, ptr %830, align 4
   %836 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, align 8
@@ -2041,7 +2041,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %797
           to label %845 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 845:                                              ; preds = %._crit_edge489
-  %846 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 2), align 8
+  %846 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 8
   %847 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE9targetvec, align 8
   %848 = fmul <2 x float> %847, %847
   %849 = extractelement <2 x float> %848, i64 1
@@ -2055,7 +2055,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %797
   %856 = fmul <2 x float> %847, %855
   store <2 x float> %856, ptr @_ZZ12gmx_editconfiPPcE9targetvec, align 8
   %857 = fmul float %846, %853
-  store float %857, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 2), align 8
+  store float %857, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 8
   %858 = getelementptr inbounds i8, ptr %37, i64 8
   %859 = load float, ptr %858, align 8
   %860 = fpext float %859 to double
@@ -2117,8 +2117,8 @@ _ZL14calc_rotmatrixPfS_PA3_f.exit:                ; preds = %883, %886
   %895 = fsub double 1.000000e+00, %894
   %896 = call double @sqrt(double noundef %895) #21
   %897 = fptrunc double %896 to float
-  %898 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 2), align 8
-  %899 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 0, i64 1), align 4
+  %898 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 8
+  %899 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 4), align 4
   %900 = fneg float %871
   %901 = fmul float %899, %900
   %902 = call float @llvm.fmuladd.f32(float %869, float %898, float %901)
@@ -2247,7 +2247,7 @@ _ZL14calc_rotmatrixPfS_PA3_f.exit:                ; preds = %883, %886
   %1000 = getelementptr inbounds [3 x float], ptr %995, i64 %999
   %1001 = getelementptr inbounds i8, ptr %1000, i64 8
   %1002 = load float, ptr %1001, align 4
-  %1003 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 0, i64 2), align 8
+  %1003 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 8
   %1004 = fadd float %1002, %1003
   %1005 = load <2 x float>, ptr %1000, align 4
   %1006 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, align 8
@@ -2304,9 +2304,9 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   %1020 = phi i32 [ %.pre609, %._crit_edge608 ], [ %1018, %.thread412 ]
   %1021 = load float, ptr @_ZZ12gmx_editconfiPPcE11translation, align 8
   %1022 = fpext float %1021 to double
-  %1023 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11translation, i64 0, i64 1), align 4
+  %1023 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 4), align 4
   %1024 = fpext float %1023 to double
-  %1025 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11translation, i64 0, i64 2), align 8
+  %1025 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 8), align 8
   %1026 = fpext float %1025 to double
   %1027 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, i32 noundef %1020, i32 noundef %190, double noundef %1022, double noundef %1024, double noundef %1026)
   %1028 = load ptr, ptr %27, align 8
@@ -2336,7 +2336,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   %1037 = getelementptr inbounds [3 x float], ptr %1032, i64 %1036
   %1038 = getelementptr inbounds i8, ptr %1037, i64 8
   %1039 = load float, ptr %1038, align 4
-  %1040 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11translation, i64 0, i64 2), align 8
+  %1040 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 8), align 8
   %1041 = fadd float %1039, %1040
   %1042 = load <2 x float>, ptr %1037, align 4
   %1043 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE11translation, align 8
@@ -2355,7 +2355,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   %1049 = getelementptr inbounds [3 x float], ptr %1048, i64 %indvars.iv567
   %1050 = getelementptr inbounds i8, ptr %1049, i64 8
   %1051 = load float, ptr %1050, align 4
-  %1052 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE11translation, i64 0, i64 2), align 8
+  %1052 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 8), align 8
   %1053 = fadd float %1051, %1052
   %1054 = load <2 x float>, ptr %1049, align 4
   %1055 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE11translation, align 8
@@ -2372,9 +2372,9 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
 1057:                                             ; preds = %.loopexit445
   %1058 = load float, ptr @_ZZ12gmx_editconfiPPcE9rotangles, align 4
   %1059 = fpext float %1058 to double
-  %1060 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 0, i64 1), align 4
+  %1060 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
   %1061 = fpext float %1060 to double
-  %1062 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 0, i64 2), align 4
+  %1062 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
   %1063 = fpext float %1062 to double
   %1064 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, double noundef %1059, double noundef %1061, double noundef %1063)
   br label %1065
@@ -2395,8 +2395,8 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   %1072 = load ptr, ptr %29, align 8
   %1073 = load ptr, ptr %30, align 8
   %1074 = load float, ptr @_ZZ12gmx_editconfiPPcE9rotangles, align 4
-  %1075 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 0, i64 1), align 4
-  %1076 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 0, i64 2), align 4
+  %1075 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
+  %1076 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
   invoke void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %190, ptr noundef %1072, ptr noundef %1073, float noundef %1074, float noundef %1075, float noundef %1076)
           to label %1077 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2508,10 +2508,10 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
 1127:                                             ; preds = %.loopexit440
   %1128 = load float, ptr @_ZZ12gmx_editconfiPPcE6newbox, align 4
   store float %1128, ptr %36, align 16
-  %1129 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 0, i64 1), align 4
+  %1129 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 4), align 4
   %1130 = getelementptr inbounds i8, ptr %36, i64 16
   store float %1129, ptr %1130, align 16
-  %1131 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 0, i64 2), align 4
+  %1131 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 8), align 4
   br label %.loopexit442.sink.split
 
 1132:                                             ; preds = %.loopexit440
@@ -2598,7 +2598,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   %1171 = load <2 x float>, ptr @_ZZ12gmx_editconfiPPcE6center, align 8
   %1172 = load <2 x float>, ptr %31, align 8
   %1173 = fsub <2 x float> %1171, %1172
-  %1174 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE6center, i64 0, i64 2), align 8
+  %1174 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6center, i64 8), align 8
   %1175 = getelementptr inbounds i8, ptr %31, i64 8
   %1176 = load float, ptr %1175, align 8
   %1177 = fsub float %1174, %1176
@@ -3612,10 +3612,10 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
   %1721 = add nsw i32 %1719, 1
   %1722 = call float @llvm.rint.f32(float %1706)
   %1723 = fptosi float %1722 to i32
-  %1724 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 0, i64 1), align 4
+  %1724 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 4), align 4
   %1725 = call float @llvm.rint.f32(float %1724)
   %1726 = fptosi float %1725 to i32
-  %1727 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 0, i64 2), align 4
+  %1727 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 8), align 4
   %1728 = call float @llvm.rint.f32(float %1727)
   %1729 = fptosi float %1728 to i32
   %1730 = mul i32 %1726, %1723

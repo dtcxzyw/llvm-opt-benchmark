@@ -226,7 +226,7 @@ define internal i32 @pl_probe(ptr noundef %0, ptr nocapture noundef readonly %1)
   %112 = phi i32 [ 127, %51 ], [ %108, %94 ]
   %113 = phi ptr [ %61, %51 ], [ %102, %94 ]
   %114 = phi ptr [ %62, %51 ], [ %105, %94 ]
-  %115 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %116 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %115, i32 noundef 3520, i64 noundef 32) #7
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.loopexit, label %118

@@ -711,11 +711,11 @@ if.then116:                                       ; preds = %st_mult.exit
   br i1 %cmp118, label %if.then120, label %if.else
 
 if.then120:                                       ; preds = %if.then116
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 5), ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6, i32 5), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi_deref, i64 96), ptr getelementptr inbounds (i8, ptr @oi_deref, i64 144), align 8
   br label %if.end122
 
 if.else:                                          ; preds = %if.then116
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 5), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6, i32 5), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 96), ptr getelementptr inbounds (i8, ptr @oi, i64 144), align 8
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then120, %if.else, %st_mult.exit
@@ -1165,15 +1165,15 @@ do.body13:                                        ; preds = %if.end, %do.body
   tail call void @free(ptr noundef %.pre27) #22
   store ptr null, ptr @used_atom, align 8
   store i32 0, ptr @used_atom_cnt, align 4
-  %21 = load ptr, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   %tobool.not = icmp eq ptr %21, null
   br i1 %tobool.not, label %do.body17, label %if.then15
 
 if.then15:                                        ; preds = %do.body13
   tail call void @hashmap_clear_(ptr noundef nonnull @ref_to_worktree_map, i64 noundef 0) #22
-  %22 = load ptr, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   tail call void @free_worktrees(ptr noundef %22) #22
-  store ptr null, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   br label %do.body17
 
 do.body17:                                        ; preds = %do.body13, %if.then15
@@ -2787,15 +2787,15 @@ if.then34.i:                                      ; preds = %for.body.i
 
 if.then37.i:                                      ; preds = %if.then34.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i)
-  %15 = load ptr, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %lazy_init_worktree_map.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then37.i
   %call.i.i.i = call ptr @get_worktrees() #22
-  store ptr %call.i.i.i, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  store ptr %call.i.i.i, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   call void @hashmap_init(ptr noundef nonnull @ref_to_worktree_map, ptr noundef nonnull @ref_to_worktree_map_cmpfnc, ptr noundef null, i64 noundef 0) #22
-  %16 = load ptr, ptr getelementptr inbounds (%struct.ref_to_worktree_map, ptr @ref_to_worktree_map, i64 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_to_worktree_map, i64 48), align 8
   %17 = load ptr, ptr %16, align 8
   %tobool.not1.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not1.i.i.i.i, label %lazy_init_worktree_map.exit.i.i, label %for.body.i.i.i.i
@@ -3215,16 +3215,16 @@ for.end271.i:                                     ; preds = %for.inc269.i, %for.
   br i1 %.b118.i, label %if.then273.i, label %if.end274.i
 
 if.then273.i:                                     ; preds = %for.end271.i
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 5), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6, i32 5), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 96), ptr getelementptr inbounds (i8, ptr @oi, i64 144), align 8
   br label %if.end274.i
 
 if.end274.i:                                      ; preds = %if.then273.i, %for.end271.i
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6), ptr noundef nonnull dereferenceable(80) %empty.i, i64 80)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) getelementptr inbounds (i8, ptr @oi, i64 104), ptr noundef nonnull dereferenceable(80) %empty.i, i64 80)
   %tobool276.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool276.not.i, label %land.lhs.true277.i, label %if.end281.i
 
 land.lhs.true277.i:                               ; preds = %if.end274.i
-  %bcmp120.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6), ptr noundef nonnull dereferenceable(80) %empty.i, i64 80)
+  %bcmp120.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) getelementptr inbounds (i8, ptr @oi_deref, i64 104), ptr noundef nonnull dereferenceable(80) %empty.i, i64 80)
   %tobool279.not.i = icmp eq i32 %bcmp120.i, 0
   br i1 %tobool279.not.i, label %populate_value.exit.thread, label %if.end281.i
 
@@ -3819,11 +3819,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 1), ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi_deref, i64 36), ptr getelementptr inbounds (i8, ptr @oi_deref, i64 104), align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 1), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 36), ptr getelementptr inbounds (i8, ptr @oi, i64 104), align 8
   br label %return
 
 return:                                           ; preds = %if.then2, %if.else, %err_no_arg.exit
@@ -3847,11 +3847,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 2), ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi_deref, i64 40), ptr getelementptr inbounds (i8, ptr @oi_deref, i64 112), align 8
   br label %return
 
 if.else:                                          ; preds = %if.then
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 2), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 40), ptr getelementptr inbounds (i8, ptr @oi, i64 112), align 8
   br label %return
 
 if.else3:                                         ; preds = %entry
@@ -3869,11 +3869,11 @@ if.then5:                                         ; preds = %if.else3
   br i1 %cmp10, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %if.then5
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 3), ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi_deref, i64 48), ptr getelementptr inbounds (i8, ptr @oi_deref, i64 120), align 8
   br label %return
 
 if.else13:                                        ; preds = %if.then5
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 3), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6, i32 2), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 48), ptr getelementptr inbounds (i8, ptr @oi, i64 120), align 8
   br label %return
 
 if.else15:                                        ; preds = %if.else3
@@ -4061,11 +4061,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 4), ptr getelementptr inbounds (%struct.expand_data, ptr @oi_deref, i64 0, i32 6, i32 3), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi_deref, i64 56), ptr getelementptr inbounds (i8, ptr @oi_deref, i64 128), align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  store ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 4), ptr getelementptr inbounds (%struct.expand_data, ptr @oi, i64 0, i32 6, i32 3), align 8
+  store ptr getelementptr inbounds (i8, ptr @oi, i64 56), ptr getelementptr inbounds (i8, ptr @oi, i64 128), align 8
   br label %return
 
 return:                                           ; preds = %if.then2, %if.else, %err_no_arg.exit
@@ -4757,7 +4757,7 @@ if.then:                                          ; preds = %entry
   %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.106, ptr noundef nonnull %arg) #22
   store ptr %call, ptr %argbuf, align 8
   store ptr null, ptr %invalid_arg, align 8
-  %call3 = call i32 @format_set_trailers_options(ptr noundef nonnull %trailer_opts, ptr noundef nonnull @ref_trailer_buf, ptr noundef nonnull getelementptr inbounds (%struct.ref_trailer_buf, ptr @ref_trailer_buf, i64 0, i32 1), ptr noundef nonnull getelementptr inbounds (%struct.ref_trailer_buf, ptr @ref_trailer_buf, i64 0, i32 2), ptr noundef nonnull %argbuf, ptr noundef nonnull %invalid_arg) #22
+  %call3 = call i32 @format_set_trailers_options(ptr noundef nonnull %trailer_opts, ptr noundef nonnull @ref_trailer_buf, ptr noundef nonnull getelementptr inbounds (i8, ptr @ref_trailer_buf, i64 40), ptr noundef nonnull getelementptr inbounds (i8, ptr @ref_trailer_buf, i64 64), ptr noundef nonnull %argbuf, ptr noundef nonnull %invalid_arg) #22
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end11, label %if.then5
 

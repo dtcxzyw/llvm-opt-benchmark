@@ -382,7 +382,7 @@ define dso_local range(i32 -22, 1) i32 @intel_engine_init_cmd_parser(ptr noundef
 .preheader27:                                     ; preds = %169, %199
   %175 = phi i64 [ %201, %199 ], [ 0, %169 ]
   %176 = load ptr, ptr %171, align 8
-  %177 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %178 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %177, i32 noundef 3264, i64 noundef 24) #11
   %179 = icmp eq ptr %178, null
   br i1 %179, label %207, label %180
@@ -751,7 +751,7 @@ define dso_local i32 @intel_engine_cmd_parser(ptr noundef %0, ptr nocapture noun
 
 47:                                               ; preds = %43
   %48 = add i64 %3, -1
-  %49 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
+  %49 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
   %50 = zext i16 %49 to i64
   %51 = add nsw i64 %50, -1
   %52 = or i64 %51, %48

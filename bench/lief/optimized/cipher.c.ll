@@ -44,7 +44,7 @@ define hidden noundef nonnull ptr @mbedtls_cipher_list() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds ([0 x %struct.mbedtls_cipher_definition_t], ptr @mbedtls_cipher_definitions, i64 0, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 
@@ -77,7 +77,7 @@ define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly %0) loca
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds ([0 x %struct.mbedtls_cipher_definition_t], ptr @mbedtls_cipher_definitions, i64 0, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
@@ -107,7 +107,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds ([0 x %struct.mbedtls_cipher_definition_t], ptr @mbedtls_cipher_definitions, i64 0, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

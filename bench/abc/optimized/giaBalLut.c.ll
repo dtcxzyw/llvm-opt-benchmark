@@ -291,9 +291,9 @@ define i32 @Bal_ManDeriveCuts(ptr nocapture noundef readonly %0, i32 noundef %1,
   %28 = load i32, ptr %27, align 4
   %29 = ashr i32 %28, 4
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 0, i32 1), align 8
-  store i32 134217730, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 0, i32 2), align 4
-  store i32 %1, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 0, i32 3, i64 0), align 16
+  store i32 %30, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 8), align 8
+  store i32 134217730, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 12), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 16), align 16
   %31 = and i32 %1, 63
   %32 = zext nneg i32 %31 to i64
   %33 = shl nuw i64 1, %32
@@ -348,13 +348,13 @@ Bal_ManPrepareSet.exit:                           ; preds = %41, %24, %34, %.loo
   %52 = load i32, ptr %51, align 4
   %53 = ashr i32 %52, 4
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 1, i32 1), align 16
-  store i32 134217730, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 1, i32 2), align 4
-  store i32 %2, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 1, i32 3, i64 0), align 8
+  store i32 %54, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 48), align 16
+  store i32 134217730, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 52), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 56), align 8
   %55 = and i32 %2, 63
   %56 = zext nneg i32 %55 to i64
   %57 = shl nuw i64 1, %56
-  store i64 %57, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 1), align 8
+  store i64 %57, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 40), align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %Bal_ManPrepareSet.exit102
@@ -387,7 +387,7 @@ Bal_ManPrepareSet.exit:                           ; preds = %41, %24, %34, %.loo
 
 Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loopexit.loopexit.split.loop.exit26.i99
   %67 = phi i32 [ %.pre, %48 ], [ %60, %.loopexit.loopexit.split.loop.exit26.i99 ], [ %60, %58 ], [ %60, %65 ]
-  %.0227 = phi ptr [ getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 1), %48 ], [ %45, %.loopexit.loopexit.split.loop.exit26.i99 ], [ %45, %58 ], [ %45, %65 ]
+  %.0227 = phi ptr [ getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 40), %48 ], [ %45, %.loopexit.loopexit.split.loop.exit26.i99 ], [ %45, %58 ], [ %45, %65 ]
   %.019.i92 = phi i32 [ 1, %48 ], [ %66, %.loopexit.loopexit.split.loop.exit26.i99 ], [ 0, %58 ], [ %60, %65 ]
   %68 = sext i32 %.019.i to i64
   %69 = getelementptr inbounds %struct.Bal_Cut_t_, ptr %.0228, i64 %68
@@ -983,13 +983,13 @@ Bal_SetAddCut.exit213.us:                         ; preds = %150, %.lr.ph139.i.u
   %333 = load i32, ptr %332, align 4
   %334 = ashr i32 %333, 4
   %335 = add nsw i32 %334, 1
-  store i32 %335, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 2, i32 1), align 8
-  store i32 134217730, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 2, i32 2), align 4
-  store i32 %3, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 2, i32 3, i64 0), align 16
+  store i32 %335, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 88), align 8
+  store i32 134217730, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 92), align 4
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 96), align 16
   %336 = and i32 %3, 63
   %337 = zext nneg i32 %336 to i64
   %338 = shl nuw i64 1, %337
-  store i64 %338, ptr getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 2), align 16
+  store i64 %338, ptr getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 80), align 16
   br label %Bal_ManPrepareSet.exit115
 
 339:                                              ; preds = %321
@@ -1016,7 +1016,7 @@ Bal_SetAddCut.exit213.us:                         ; preds = %150, %.lr.ph139.i.u
   br label %Bal_ManPrepareSet.exit115
 
 Bal_ManPrepareSet.exit115:                        ; preds = %343, %329, %339, %.loopexit.loopexit.split.loop.exit26.i112
-  %.0226 = phi ptr [ getelementptr inbounds ([3 x %struct.Bal_Cut_t_], ptr @Bal_ManPrepareSet.CutTemp, i64 0, i64 2), %329 ], [ %326, %.loopexit.loopexit.split.loop.exit26.i112 ], [ %326, %339 ], [ %326, %343 ]
+  %.0226 = phi ptr [ getelementptr inbounds (i8, ptr @Bal_ManPrepareSet.CutTemp, i64 80), %329 ], [ %326, %.loopexit.loopexit.split.loop.exit26.i112 ], [ %326, %339 ], [ %326, %343 ]
   %.019.i105 = phi i32 [ 1, %329 ], [ %344, %.loopexit.loopexit.split.loop.exit26.i112 ], [ 0, %339 ], [ %67, %343 ]
   %345 = sext i32 %.019.i105 to i64
   %346 = getelementptr inbounds %struct.Bal_Cut_t_, ptr %.0226, i64 %345

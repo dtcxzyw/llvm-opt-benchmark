@@ -2029,7 +2029,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 296), align 8
   %cmp1 = icmp ne ptr %0, %1
   %cmp2 = icmp eq ptr %kwds, null
   %or.cond = or i1 %cmp2, %cmp1
@@ -2103,7 +2103,7 @@ return:                                           ; preds = %lor.lhs.false4, %lo
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PySet_New(ptr noundef %iterable) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PySet_Type, i64 0, i32 36), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PySet_Type, i64 304), align 8
   %call.i = tail call ptr %0(ptr noundef nonnull @PySet_Type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
@@ -2154,7 +2154,7 @@ make_new_set.exit:                                ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyFrozenSet_New(ptr noundef %iterable) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %0(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
@@ -3273,7 +3273,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XINCREF.exit, %i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %Py_XDECREF.exit
-  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 434)) #10
+  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #10
   %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.7, ptr noundef %call2, ptr noundef nonnull %call) #10
   br label %return
 
@@ -6621,7 +6621,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %4(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i13 = icmp eq ptr %call.i, null
   br i1 %cmp.i13, label %return, label %if.then2.i
@@ -7136,7 +7136,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %7(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i13 = icmp eq ptr %call.i, null
   br i1 %cmp.i13, label %return, label %if.then2.i
@@ -8008,7 +8008,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %7(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i15 = icmp eq ptr %call.i, null
   br i1 %cmp.i15, label %return, label %if.then2.i
@@ -8442,7 +8442,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end.split, label %land.lhs.true
 
 if.end.split:                                     ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i9 = tail call ptr %3(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i10 = icmp eq ptr %call.i9, null
   br i1 %cmp.i10, label %return, label %if.end.i11
@@ -8470,7 +8470,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i21.not, label %if.then3, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i22 = tail call ptr %5(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i23 = icmp eq ptr %call.i22, null
   br i1 %cmp.i23, label %return, label %if.then2.i33

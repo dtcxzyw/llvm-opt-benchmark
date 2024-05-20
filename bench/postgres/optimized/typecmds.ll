@@ -3158,7 +3158,7 @@ define dso_local { i64, i32 } @AlterDomainNotNull(ptr noundef %0, i1 noundef zer
   %3 = zext i1 %1 to i8
   %.sroa.052.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.052.sroa.3.0.extract.shift = lshr i64 %.sroa.052.0.copyload, 32
-  %.sroa.453.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.453.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %4 = tail call ptr @makeTypeNameFromNameList(ptr noundef %0) #8
   %5 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %4) #8
   %6 = tail call ptr @table_open(i32 noundef 1247, i32 noundef 3) #8

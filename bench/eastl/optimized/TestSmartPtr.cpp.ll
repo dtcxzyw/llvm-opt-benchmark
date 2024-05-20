@@ -848,7 +848,7 @@ entry:
   %call5.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @.str.11)
   %call12.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @.str.12)
   %call14.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call14.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call14.i, align 8
   %mc.i.i = getelementptr inbounds i8, ptr %call14.i, i64 8
   store i8 1, ptr %mc.i.i, align 8
   %1 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -873,7 +873,7 @@ invoke.cont25.i:                                  ; preds = %invoke.cont23.i
   %3 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %inc.i.i.i = add nsw i32 %3, 1
   store i32 %inc.i.i.i, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1BE, i64 0, i32 0, i64 2), ptr %call26.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1BE, i64 16), ptr %call26.i, align 8
   %call33.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @.str.15)
           to label %invoke.cont32.i unwind label %invoke.cont3.i.i267.i
 
@@ -913,7 +913,7 @@ invoke.cont54.i:                                  ; preds = %invoke.cont46.i
           to label %invoke.cont56.i unwind label %ehcleanup252.thread668.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont54.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call57.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call57.i, align 8
   %mc.i38.i = getelementptr inbounds i8, ptr %call57.i, i64 8
   store i8 2, ptr %mc.i38.i, align 8
   %8 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -962,7 +962,7 @@ invoke.cont74.i:                                  ; preds = %invoke.cont71.i
           to label %invoke.cont76.i unwind label %ehcleanup252.thread668.i
 
 invoke.cont76.i:                                  ; preds = %invoke.cont74.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call77.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call77.i, align 8
   %mc.i47.i = getelementptr inbounds i8, ptr %call77.i, i64 8
   store i8 3, ptr %mc.i47.i, align 8
   %14 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -982,7 +982,7 @@ invoke.cont87.i:                                  ; preds = %invoke.cont84.i
           to label %invoke.cont89.i unwind label %ehcleanup252.thread668.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont87.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call90.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call90.i, align 8
   %mc.i56.i = getelementptr inbounds i8, ptr %call90.i, i64 8
   store i8 4, ptr %mc.i56.i, align 8
   %16 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1042,7 +1042,7 @@ invoke.cont141.i:                                 ; preds = %invoke.cont138.i
           to label %invoke.cont143.i unwind label %lpad97.i
 
 invoke.cont143.i:                                 ; preds = %invoke.cont141.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call144.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call144.i, align 8
   %mc.i58.i = getelementptr inbounds i8, ptr %call144.i, i64 8
   store i8 0, ptr %mc.i58.i, align 8
   %24 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1088,7 +1088,7 @@ if.end175.i:                                      ; preds = %invoke.cont158.i
           to label %if.end186.i unwind label %ehcleanup249.thread647.i
 
 if.end186.i:                                      ; preds = %if.end175.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call177.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call177.i, align 8
   %mc.i62.i = getelementptr inbounds i8, ptr %call177.i, i64 8
   store i8 0, ptr %mc.i62.i, align 8
   %30 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1107,7 +1107,7 @@ invoke.cont193.i:                                 ; preds = %invoke.cont188.i
           to label %invoke.cont196.i unwind label %lpad192.i
 
 invoke.cont196.i:                                 ; preds = %invoke.cont193.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call197.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call197.i, align 8
   %mc.i72.i = getelementptr inbounds i8, ptr %call197.i, i64 8
   store i8 17, ptr %mc.i72.i, align 8
   %31 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1121,7 +1121,7 @@ invoke.cont205.i:                                 ; preds = %invoke.cont196.i
           to label %invoke.cont207.i unwind label %lpad204.i
 
 invoke.cont207.i:                                 ; preds = %invoke.cont205.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call208.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call208.i, align 8
   %mc.i74.i = getelementptr inbounds i8, ptr %call208.i, i64 8
   store i8 18, ptr %mc.i74.i, align 8
   %32 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1186,7 +1186,7 @@ invoke.cont279.i:                                 ; preds = %arraydestroy.body.i
   store i64 1, ptr %call293.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %arrayctor.cur296.ptr.ptr.i = getelementptr inbounds i8, ptr %call293.i, i64 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur296.ptr.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur296.ptr.ptr.i, align 8
   %mc.i152.i = getelementptr inbounds i8, ptr %call293.i, i64 16
   %39 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i, 1
   store i32 %39, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -1218,7 +1218,7 @@ invoke.cont329.i:                                 ; preds = %invoke.cont327.i
 arrayctor.loop332.i:                              ; preds = %arrayctor.loop332.i, %invoke.cont329.i
   %arrayctor.cur333.idx.i = phi i64 [ 8, %invoke.cont329.i ], [ %arrayctor.cur333.add.i, %arrayctor.loop332.i ]
   %arrayctor.cur333.ptr.i = getelementptr inbounds i8, ptr %call330.i, i64 %arrayctor.cur333.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur333.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur333.ptr.i, align 8
   %mc.i158.i = getelementptr inbounds i8, ptr %arrayctor.cur333.ptr.i, i64 8
   store i8 0, ptr %mc.i158.i, align 8
   %arrayctor.cur333.add.i = add nuw nsw i64 %arrayctor.cur333.idx.i, 16
@@ -1248,7 +1248,7 @@ arraydestroy.body.i.i166.i:                       ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i167.idx.i = phi i64 [ %arraydestroy.elementPast.i.i167.add.i, %arraydestroy.body.i.i166.i ], [ %arrayctor.cur296.ptr.add.i, %arraydestroy.body.preheader.i.i164.i ]
   %arraydestroy.elementPast.i.i167.add.i = add nsw i64 %arraydestroy.elementPast.i.i167.idx.i, -16
   %arraydestroy.element.i.i168.ptr.i = getelementptr inbounds i8, ptr %call293.i, i64 %arraydestroy.elementPast.i.i167.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i168.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i168.ptr.i, align 8
   %dec.i.i.i.i = add nsw i32 %dec.i1.i.i.i, -1
   %arraydestroy.done.i.i169.i = icmp eq i64 %arraydestroy.elementPast.i.i167.add.i, 8
   br i1 %arraydestroy.done.i.i169.i, label %arraydestroy.done2.loopexit.i.i.i, label %arraydestroy.body.i.i166.i
@@ -1284,7 +1284,7 @@ arraydestroy.body.i.i180.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i181.i = phi i32 [ %dec.i.i.i184.i, %arraydestroy.body.i.i180.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i179.i, %arraydestroy.body.preheader.i.i177.i ]
   %arraydestroy.elementPast.i.i182.i = phi ptr [ %arraydestroy.element.i.i183.i, %arraydestroy.body.i.i180.i ], [ %delete.end.i.i178.i, %arraydestroy.body.preheader.i.i177.i ]
   %arraydestroy.element.i.i183.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i182.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i183.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i183.i, align 8
   %dec.i.i.i184.i = add nsw i32 %dec.i1.i.i181.i, -1
   %arraydestroy.done.i.i185.i = icmp eq ptr %arraydestroy.element.i.i183.i, %43
   br i1 %arraydestroy.done.i.i185.i, label %arraydestroy.done2.loopexit.i.i186.i, label %arraydestroy.body.i.i180.i
@@ -1312,7 +1312,7 @@ invoke.cont361.i:                                 ; preds = %invoke.cont359.i
 arrayctor.loop364.i:                              ; preds = %arrayctor.loop364.i, %invoke.cont361.i
   %arrayctor.cur365.idx.i = phi i64 [ 8, %invoke.cont361.i ], [ %arrayctor.cur365.add.i, %arrayctor.loop364.i ]
   %arrayctor.cur365.ptr.i = getelementptr inbounds i8, ptr %call362.i, i64 %arrayctor.cur365.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur365.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur365.ptr.i, align 8
   %mc.i189.i = getelementptr inbounds i8, ptr %arrayctor.cur365.ptr.i, i64 8
   store i8 0, ptr %mc.i189.i, align 8
   %arrayctor.cur365.add.i = add nuw nsw i64 %arrayctor.cur365.idx.i, 16
@@ -1344,7 +1344,7 @@ arraydestroy.body.i.i199.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i200.i = phi i32 [ %dec.i.i.i203.i, %arraydestroy.body.i.i199.i ], [ %46, %arraydestroy.body.preheader.i.i196.i ]
   %arraydestroy.elementPast.i.i201.i = phi ptr [ %arraydestroy.element.i.i202.i, %arraydestroy.body.i.i199.i ], [ %delete.end.i.i197.i, %arraydestroy.body.preheader.i.i196.i ]
   %arraydestroy.element.i.i202.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i201.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i202.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i202.i, align 8
   %dec.i.i.i203.i = add nsw i32 %dec.i1.i.i200.i, -1
   %arraydestroy.done.i.i204.i = icmp eq ptr %arraydestroy.element.i.i202.i, %.pre.i
   br i1 %arraydestroy.done.i.i204.i, label %arraydestroy.done2.loopexit.i.i205.i, label %arraydestroy.body.i.i199.i
@@ -1376,7 +1376,7 @@ invoke.cont390.i:                                 ; preds = %invoke.cont387.i
 arrayctor.loop393.i:                              ; preds = %arrayctor.loop393.i, %invoke.cont390.i
   %arrayctor.cur394.idx.i = phi i64 [ 8, %invoke.cont390.i ], [ %arrayctor.cur394.add.i, %arrayctor.loop393.i ]
   %arrayctor.cur394.ptr.i = getelementptr inbounds i8, ptr %call391.i, i64 %arrayctor.cur394.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur394.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur394.ptr.i, align 8
   %mc.i210.i = getelementptr inbounds i8, ptr %arrayctor.cur394.ptr.i, i64 8
   store i8 0, ptr %mc.i210.i, align 8
   %arrayctor.cur394.add.i = add nuw nsw i64 %arrayctor.cur394.idx.i, 16
@@ -1597,7 +1597,7 @@ if.end532.i:                                      ; preds = %if.end506.i
   store i64 1, ptr %call508.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted711.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %arrayctor.cur511.ptr.i = getelementptr inbounds i8, ptr %call508.i, i64 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur511.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur511.ptr.i, align 8
   %mc.i280.i = getelementptr inbounds i8, ptr %call508.i, i64 16
   store i8 0, ptr %mc.i280.i, align 8
   %76 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted711.i, 1
@@ -1624,7 +1624,7 @@ invoke.cont545.i:                                 ; preds = %invoke.cont540.i
 arrayctor.loop548.i:                              ; preds = %arrayctor.loop548.i, %invoke.cont545.i
   %arrayctor.cur549.idx.i = phi i64 [ 8, %invoke.cont545.i ], [ %arrayctor.cur549.add.i, %arrayctor.loop548.i ]
   %arrayctor.cur549.ptr.i = getelementptr inbounds i8, ptr %call546.i, i64 %arrayctor.cur549.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur549.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur549.ptr.i, align 8
   %mc.i300.i = getelementptr inbounds i8, ptr %arrayctor.cur549.ptr.i, i64 8
   store i8 0, ptr %mc.i300.i, align 8
   %arrayctor.cur549.add.i = add nuw nsw i64 %arrayctor.cur549.idx.i, 16
@@ -1653,7 +1653,7 @@ invoke.cont575.i:                                 ; preds = %invoke.cont572.i
 arrayctor.loop578.i:                              ; preds = %arrayctor.loop578.i, %invoke.cont575.i
   %arrayctor.cur579.idx.i = phi i64 [ 8, %invoke.cont575.i ], [ %arrayctor.cur579.add.i, %arrayctor.loop578.i ]
   %arrayctor.cur579.ptr.i = getelementptr inbounds i8, ptr %call576.i, i64 %arrayctor.cur579.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur579.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur579.ptr.i, align 8
   %mc.i304.i = getelementptr inbounds i8, ptr %arrayctor.cur579.ptr.i, i64 8
   store i8 0, ptr %mc.i304.i, align 8
   %arrayctor.cur579.add.i = add nuw nsw i64 %arrayctor.cur579.idx.i, 16
@@ -1703,7 +1703,7 @@ arraydestroy.body.i.i.i315.i:                     ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i.i316.idx.i = phi i64 [ %arraydestroy.elementPast.i.i.i316.add.i, %arraydestroy.body.i.i.i315.i ], [ %.ptr20.add.i, %arraydestroy.body.preheader.i.i.i313.i ]
   %arraydestroy.elementPast.i.i.i316.add.i = add nsw i64 %arraydestroy.elementPast.i.i.i316.idx.i, -16
   %arraydestroy.element.i.i.i317.ptr.i = getelementptr inbounds i8, ptr %call546.i, i64 %arraydestroy.elementPast.i.i.i316.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i317.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i317.ptr.i, align 8
   %dec.i.i.i.i.i = add nsw i32 %dec.i1.i.i.i.i, -1
   %arraydestroy.done.i.i.i318.i = icmp eq i64 %arraydestroy.elementPast.i.i.i316.add.i, 8
   br i1 %arraydestroy.done.i.i.i318.i, label %arraydestroy.done2.loopexit.i.i.i.i, label %arraydestroy.body.i.i.i315.i
@@ -1808,7 +1808,7 @@ arraydestroy.body.i.i.i336.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i337.i = phi i32 [ %dec.i.i.i.i340.i, %arraydestroy.body.i.i.i336.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i335.i, %arraydestroy.body.preheader.i.i.i333.i ]
   %arraydestroy.elementPast.i.i.i338.i = phi ptr [ %arraydestroy.element.i.i.i339.i, %arraydestroy.body.i.i.i336.i ], [ %delete.end.i.i.i334.i, %arraydestroy.body.preheader.i.i.i333.i ]
   %arraydestroy.element.i.i.i339.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i338.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i339.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i339.i, align 8
   %dec.i.i.i.i340.i = add nsw i32 %dec.i1.i.i.i337.i, -1
   %arraydestroy.done.i.i.i341.i = icmp eq ptr %arraydestroy.element.i.i.i339.i, %49
   br i1 %arraydestroy.done.i.i.i341.i, label %arraydestroy.done2.loopexit.i.i.i342.i, label %arraydestroy.body.i.i.i336.i
@@ -1840,7 +1840,7 @@ arraydestroy.body.i.i.i349.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i350.i = phi i32 [ %dec.i.i.i.i353.i, %arraydestroy.body.i.i.i349.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i348.i, %arraydestroy.body.preheader.i.i.i346.i ]
   %arraydestroy.elementPast.i.i.i351.i = phi ptr [ %arraydestroy.element.i.i.i352.i, %arraydestroy.body.i.i.i349.i ], [ %delete.end.i.i.i347.i, %arraydestroy.body.preheader.i.i.i346.i ]
   %arraydestroy.element.i.i.i352.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i351.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i352.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i352.i, align 8
   %dec.i.i.i.i353.i = add nsw i32 %dec.i1.i.i.i350.i, -1
   %arraydestroy.done.i.i.i354.i = icmp eq ptr %arraydestroy.element.i.i.i352.i, %95
   br i1 %arraydestroy.done.i.i.i354.i, label %arraydestroy.done2.loopexit.i.i.i355.i, label %arraydestroy.body.i.i.i349.i
@@ -1874,7 +1874,7 @@ arraydestroy.body.i.i.i363.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i364.i = phi i32 [ %dec.i.i.i.i367.i, %arraydestroy.body.i.i.i363.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i362.i, %arraydestroy.body.preheader.i.i.i360.i ]
   %arraydestroy.elementPast.i.i.i365.i = phi ptr [ %arraydestroy.element.i.i.i366.i, %arraydestroy.body.i.i.i363.i ], [ %delete.end.i.i.i361.i, %arraydestroy.body.preheader.i.i.i360.i ]
   %arraydestroy.element.i.i.i366.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i365.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i366.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i366.i, align 8
   %dec.i.i.i.i367.i = add nsw i32 %dec.i1.i.i.i364.i, -1
   %arraydestroy.done.i.i.i368.i = icmp eq ptr %arraydestroy.element.i.i.i366.i, %98
   br i1 %arraydestroy.done.i.i.i368.i, label %arraydestroy.done2.loopexit.i.i.i369.i, label %arraydestroy.body.i.i.i363.i
@@ -1908,7 +1908,7 @@ arraydestroy.body.i.i.i378.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i379.i = phi i32 [ %dec.i.i.i.i382.i, %arraydestroy.body.i.i.i378.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i377.i, %arraydestroy.body.preheader.i.i.i375.i ]
   %arraydestroy.elementPast.i.i.i380.i = phi ptr [ %arraydestroy.element.i.i.i381.i, %arraydestroy.body.i.i.i378.i ], [ %delete.end.i.i.i376.i, %arraydestroy.body.preheader.i.i.i375.i ]
   %arraydestroy.element.i.i.i381.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i380.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i381.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i381.i, align 8
   %dec.i.i.i.i382.i = add nsw i32 %dec.i1.i.i.i379.i, -1
   %arraydestroy.done.i.i.i383.i = icmp eq ptr %arraydestroy.element.i.i.i381.i, %101
   br i1 %arraydestroy.done.i.i.i383.i, label %arraydestroy.done2.loopexit.i.i.i384.i, label %arraydestroy.body.i.i.i378.i
@@ -1942,7 +1942,7 @@ arraydestroy.body.i.i.i393.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i394.i = phi i32 [ %dec.i.i.i.i397.i, %arraydestroy.body.i.i.i393.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i392.i, %arraydestroy.body.preheader.i.i.i390.i ]
   %arraydestroy.elementPast.i.i.i395.i = phi ptr [ %arraydestroy.element.i.i.i396.i, %arraydestroy.body.i.i.i393.i ], [ %delete.end.i.i.i391.i, %arraydestroy.body.preheader.i.i.i390.i ]
   %arraydestroy.element.i.i.i396.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i395.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i396.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i396.i, align 8
   %dec.i.i.i.i397.i = add nsw i32 %dec.i1.i.i.i394.i, -1
   %arraydestroy.done.i.i.i398.i = icmp eq ptr %arraydestroy.element.i.i.i396.i, %104
   br i1 %arraydestroy.done.i.i.i398.i, label %arraydestroy.done2.loopexit.i.i.i399.i, label %arraydestroy.body.i.i.i393.i
@@ -1976,7 +1976,7 @@ arraydestroy.body.i.i.i408.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i409.i = phi i32 [ %dec.i.i.i.i412.i, %arraydestroy.body.i.i.i408.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i407.i, %arraydestroy.body.preheader.i.i.i405.i ]
   %arraydestroy.elementPast.i.i.i410.i = phi ptr [ %arraydestroy.element.i.i.i411.i, %arraydestroy.body.i.i.i408.i ], [ %delete.end.i.i.i406.i, %arraydestroy.body.preheader.i.i.i405.i ]
   %arraydestroy.element.i.i.i411.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i410.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i411.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i411.i, align 8
   %dec.i.i.i.i412.i = add nsw i32 %dec.i1.i.i.i409.i, -1
   %arraydestroy.done.i.i.i413.i = icmp eq ptr %arraydestroy.element.i.i.i411.i, %107
   br i1 %arraydestroy.done.i.i.i413.i, label %arraydestroy.done2.loopexit.i.i.i414.i, label %arraydestroy.body.i.i.i408.i
@@ -2010,7 +2010,7 @@ arraydestroy.body.i.i.i423.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i424.i = phi i32 [ %dec.i.i.i.i427.i, %arraydestroy.body.i.i.i423.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i422.i, %arraydestroy.body.preheader.i.i.i420.i ]
   %arraydestroy.elementPast.i.i.i425.i = phi ptr [ %arraydestroy.element.i.i.i426.i, %arraydestroy.body.i.i.i423.i ], [ %delete.end.i.i.i421.i, %arraydestroy.body.preheader.i.i.i420.i ]
   %arraydestroy.element.i.i.i426.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i425.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i426.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i426.i, align 8
   %dec.i.i.i.i427.i = add nsw i32 %dec.i1.i.i.i424.i, -1
   %arraydestroy.done.i.i.i428.i = icmp eq ptr %arraydestroy.element.i.i.i426.i, %110
   br i1 %arraydestroy.done.i.i.i428.i, label %arraydestroy.done2.loopexit.i.i.i429.i, label %arraydestroy.body.i.i.i423.i
@@ -2044,7 +2044,7 @@ arraydestroy.body.i.i.i438.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i439.i = phi i32 [ %dec.i.i.i.i442.i, %arraydestroy.body.i.i.i438.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i437.i, %arraydestroy.body.preheader.i.i.i435.i ]
   %arraydestroy.elementPast.i.i.i440.i = phi ptr [ %arraydestroy.element.i.i.i441.i, %arraydestroy.body.i.i.i438.i ], [ %delete.end.i.i.i436.i, %arraydestroy.body.preheader.i.i.i435.i ]
   %arraydestroy.element.i.i.i441.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i440.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i441.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i441.i, align 8
   %dec.i.i.i.i442.i = add nsw i32 %dec.i1.i.i.i439.i, -1
   %arraydestroy.done.i.i.i443.i = icmp eq ptr %arraydestroy.element.i.i.i441.i, %113
   br i1 %arraydestroy.done.i.i.i443.i, label %arraydestroy.done2.loopexit.i.i.i444.i, label %arraydestroy.body.i.i.i438.i
@@ -2078,7 +2078,7 @@ arraydestroy.body.i.i.i453.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i454.i = phi i32 [ %dec.i.i.i.i457.i, %arraydestroy.body.i.i.i453.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i452.i, %arraydestroy.body.preheader.i.i.i450.i ]
   %arraydestroy.elementPast.i.i.i455.i = phi ptr [ %arraydestroy.element.i.i.i456.i, %arraydestroy.body.i.i.i453.i ], [ %delete.end.i.i.i451.i, %arraydestroy.body.preheader.i.i.i450.i ]
   %arraydestroy.element.i.i.i456.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i455.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i456.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i456.i, align 8
   %dec.i.i.i.i457.i = add nsw i32 %dec.i1.i.i.i454.i, -1
   %arraydestroy.done.i.i.i458.i = icmp eq ptr %arraydestroy.element.i.i.i456.i, %116
   br i1 %arraydestroy.done.i.i.i458.i, label %arraydestroy.done2.loopexit.i.i.i459.i, label %arraydestroy.body.i.i.i453.i
@@ -2359,7 +2359,7 @@ _ZL15Test_unique_ptrv.exit:                       ; preds = %invoke.cont775.i
   %call12.i5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i1, ptr noundef nonnull @.str, i32 noundef 879, ptr noundef nonnull @.str.12)
   %call19.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i1, ptr noundef nonnull @.str, i32 noundef 880, ptr noundef nonnull @.str.63)
   %call21.i6 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call21.i6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call21.i6, align 8
   %mc.i.i7 = getelementptr inbounds i8, ptr %call21.i6, i64 8
   store i8 1, ptr %mc.i.i7, align 8
   %141 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -2379,7 +2379,7 @@ invoke.cont32.i11:                                ; preds = %invoke.cont29.i
           to label %invoke.cont34.i unwind label %ehcleanup166.thread140.i
 
 invoke.cont34.i:                                  ; preds = %invoke.cont32.i11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call35.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call35.i, align 8
   %mc.i4.i = getelementptr inbounds i8, ptr %call35.i, i64 8
   store i8 2, ptr %mc.i4.i, align 8
   %143 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -2411,7 +2411,7 @@ invoke.cont46.i16:                                ; preds = %invoke.cont38.i
   %call51.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i1, ptr noundef nonnull @.str, i32 noundef 890, ptr noundef nonnull @.str.20)
   %call58.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i1, ptr noundef nonnull @.str, i32 noundef 891, ptr noundef nonnull @.str.64)
   %call60.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call60.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call60.i, align 8
   %mc.i14.i = getelementptr inbounds i8, ptr %call60.i, i64 8
   store i8 3, ptr %mc.i14.i, align 8
   %147 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -2425,7 +2425,7 @@ invoke.cont69.i:                                  ; preds = %invoke.cont46.i16
           to label %invoke.cont71.i18 unwind label %ehcleanup166.thread140.i
 
 invoke.cont71.i18:                                ; preds = %invoke.cont69.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call72.i17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call72.i17, align 8
   %mc.i24.i = getelementptr inbounds i8, ptr %call72.i17, i64 8
   store i8 4, ptr %mc.i24.i, align 8
   %148 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -2567,7 +2567,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont9.i
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %invoke.cont11.i
   %arrayctor.cur.idx.i = phi i64 [ 8, %invoke.cont11.i ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %call12.i32, i64 %arrayctor.cur.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur.ptr.i, align 8
   %mc.i.i34 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 8
   store i8 0, ptr %mc.i.i34, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 16
@@ -2614,7 +2614,7 @@ invoke.cont42.i:                                  ; preds = %invoke.cont40.i40
 arrayctor.loop45.i:                               ; preds = %arrayctor.loop45.i, %invoke.cont42.i
   %arrayctor.cur46.idx.i = phi i64 [ 8, %invoke.cont42.i ], [ %arrayctor.cur46.add.i, %arrayctor.loop45.i ]
   %arrayctor.cur46.ptr.i = getelementptr inbounds i8, ptr %call43.i, i64 %arrayctor.cur46.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur46.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur46.ptr.i, align 8
   %mc.i6.i = getelementptr inbounds i8, ptr %arrayctor.cur46.ptr.i, i64 8
   store i8 0, ptr %mc.i6.i, align 8
   %arrayctor.cur46.add.i = add nuw nsw i64 %arrayctor.cur46.idx.i, 16
@@ -2643,7 +2643,7 @@ arraydestroy.body.i.i.i43:                        ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i.idx.i = phi i64 [ %arraydestroy.elementPast.i.i.add.i, %arraydestroy.body.i.i.i43 ], [ %.ptr.add.i, %arraydestroy.body.preheader.i.i.i ]
   %arraydestroy.elementPast.i.i.add.i = add nsw i64 %arraydestroy.elementPast.i.i.idx.i, -16
   %arraydestroy.element.i.i.ptr.i = getelementptr inbounds i8, ptr %call12.i32, i64 %arraydestroy.elementPast.i.i.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.ptr.i, align 8
   %dec.i.i.i.i45 = add nsw i32 %dec.i1.i.i.i44, -1
   %arraydestroy.done.i.i.i = icmp eq i64 %arraydestroy.elementPast.i.i.add.i, 8
   br i1 %arraydestroy.done.i.i.i, label %arraydestroy.done2.loopexit.i.i.i46, label %arraydestroy.body.i.i.i43
@@ -2690,7 +2690,7 @@ arraydestroy.body.i.i16.i:                        ; preds = %arraydestroy.body.i
   %dec.i1.i.i17.i = phi i32 [ %dec.i.i.i20.i, %arraydestroy.body.i.i16.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i15.i, %arraydestroy.body.preheader.i.i13.i ]
   %arraydestroy.elementPast.i.i18.i = phi ptr [ %arraydestroy.element.i.i19.i, %arraydestroy.body.i.i16.i ], [ %delete.end.i.i14.i, %arraydestroy.body.preheader.i.i13.i ]
   %arraydestroy.element.i.i19.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i18.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i19.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i19.i, align 8
   %dec.i.i.i20.i = add nsw i32 %dec.i1.i.i17.i, -1
   %arraydestroy.done.i.i21.i = icmp eq ptr %arraydestroy.element.i.i19.i, %170
   br i1 %arraydestroy.done.i.i21.i, label %arraydestroy.done2.loopexit.i.i22.i, label %arraydestroy.body.i.i16.i
@@ -2719,7 +2719,7 @@ invoke.cont90.i48:                                ; preds = %if.end89.i
 arrayctor.loop93.i:                               ; preds = %arrayctor.loop93.i, %invoke.cont90.i48
   %arrayctor.cur94.idx.i = phi i64 [ 8, %invoke.cont90.i48 ], [ %arrayctor.cur94.add.i, %arrayctor.loop93.i ]
   %arrayctor.cur94.ptr.i = getelementptr inbounds i8, ptr %call91.i47, i64 %arrayctor.cur94.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur94.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur94.ptr.i, align 8
   %mc.i27.i = getelementptr inbounds i8, ptr %arrayctor.cur94.ptr.i, i64 8
   store i8 0, ptr %mc.i27.i, align 8
   %arrayctor.cur94.add.i = add nuw nsw i64 %arrayctor.cur94.idx.i, 16
@@ -2777,7 +2777,7 @@ arraydestroy.body.i.i36.i:                        ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i38.idx.i = phi i64 [ %arraydestroy.elementPast.i.i38.add.i, %arraydestroy.body.i.i36.i ], [ %.ptr2.add.i, %arraydestroy.body.preheader.i.i33.i ]
   %arraydestroy.elementPast.i.i38.add.i = add nsw i64 %arraydestroy.elementPast.i.i38.idx.i, -16
   %arraydestroy.element.i.i39.ptr.i = getelementptr inbounds i8, ptr %call91.i47, i64 %arraydestroy.elementPast.i.i38.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i39.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i39.ptr.i, align 8
   %dec.i.i.i40.i = add nsw i32 %dec.i1.i.i37.i, -1
   %arraydestroy.done.i.i41.i = icmp eq i64 %arraydestroy.elementPast.i.i38.add.i, 8
   br i1 %arraydestroy.done.i.i41.i, label %arraydestroy.done2.loopexit.i.i42.i, label %arraydestroy.body.i.i36.i
@@ -2797,7 +2797,7 @@ _ZN5eastl12scoped_arrayIiNS_19smart_array_deleterIiEEED2Ev.exit.i: ; preds = %ar
 arrayctor.loop137.i:                              ; preds = %arrayctor.loop137.i, %_ZN5eastl12scoped_arrayIiNS_19smart_array_deleterIiEEED2Ev.exit.i
   %arrayctor.cur138.idx.i = phi i64 [ 8, %_ZN5eastl12scoped_arrayIiNS_19smart_array_deleterIiEEED2Ev.exit.i ], [ %arrayctor.cur138.add.i, %arrayctor.loop137.i ]
   %arrayctor.cur138.ptr.i = getelementptr inbounds i8, ptr %call135.i, i64 %arrayctor.cur138.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur138.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur138.ptr.i, align 8
   %mc.i63.i = getelementptr inbounds i8, ptr %arrayctor.cur138.ptr.i, i64 8
   store i8 0, ptr %mc.i63.i, align 8
   %arrayctor.cur138.add.i = add nuw nsw i64 %arrayctor.cur138.idx.i, 16
@@ -2821,7 +2821,7 @@ arraydestroy.body156.i:                           ; preds = %arraydestroy.body15
   %arraydestroy.elementPast157.idx.i = phi i64 [ %arraydestroy.elementPast157.add.i, %arraydestroy.body156.i ], [ %.ptr5.add.i, %arraydestroy.body156.preheader.i ]
   %arraydestroy.elementPast157.add.i = add nsw i64 %arraydestroy.elementPast157.idx.i, -16
   %arraydestroy.element158.ptr.i = getelementptr inbounds i8, ptr %call135.i, i64 %arraydestroy.elementPast157.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element158.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element158.ptr.i, align 8
   %dec.i.i = add nsw i32 %dec.i105.i, -1
   %arraydestroy.done159.i = icmp eq i64 %arraydestroy.elementPast157.add.i, 8
   br i1 %arraydestroy.done159.i, label %_ZN5eastl12scoped_arrayIvNS_19smart_array_deleterIvEEED2Ev.exit.loopexit.i, label %arraydestroy.body156.i
@@ -2908,7 +2908,7 @@ if.then.i.i.i:                                    ; preds = %_ZL17Test_scoped_ar
   store i32 1, ptr %mRefCount.i.i.i.i.i, align 4
   %mWeakRefCount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i13.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i13.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 16), ptr %call.i.i.i13.i, align 8
   %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i13.i, i64 16
   store ptr %call.i56, ptr %mValue.i.i.i.i, align 8
   store ptr %call.i.i.i13.i, ptr %mpRefCount.i.i, align 8
@@ -2944,7 +2944,7 @@ cond.true.i.i:                                    ; preds = %call.i.i.i.noexc21.
   store i32 1, ptr %mRefCount.i.i.i.i17.i, align 4
   %mWeakRefCount.i.i.i.i18.i = getelementptr inbounds i8, ptr %call.i.i.i22.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i18.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i22.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 16), ptr %call.i.i.i22.i, align 8
   %mValue.i.i.i19.i = getelementptr inbounds i8, ptr %call.i.i.i22.i, i64 16
   store ptr %call4.i, ptr %mValue.i.i.i19.i, align 8
   store ptr %call.i.i.i22.i, ptr %mpRefCount.i16.i, align 8
@@ -3227,7 +3227,7 @@ if.then.i.i.i153.i:                               ; preds = %call.i.i.i.i.noexc.
   store i32 1, ptr %mRefCount.i.i.i.i.i.i, align 4
   %mWeakRefCount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i166.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i166.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 16), ptr %call.i.i.i.i166.i, align 8
   %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i166.i, i64 16
   store ptr %call81.i, ptr %mValue.i.i.i.i.i, align 8
   br label %_ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i.i
@@ -3790,7 +3790,7 @@ cond.true.i456.i:                                 ; preds = %call.i.i.i.noexc437
   store i32 1, ptr %mRefCount.i.i.i.i433.i, align 4
   %mWeakRefCount.i.i.i.i434.i = getelementptr inbounds i8, ptr %call.i.i.i438.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i434.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i438.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i438.i, align 8
   %mValue.i.i.i435.i = getelementptr inbounds i8, ptr %call.i.i.i438.i, i64 16
   store ptr %call151.i, ptr %mValue.i.i.i435.i, align 8
   store ptr %call.i.i.i438.i, ptr %mpRefCount.i432.i, align 8
@@ -3906,7 +3906,7 @@ if.then.i.i505.i:                                 ; preds = %_ZN5eastl8weak_ptrI
   store i32 1, ptr %mRefCount.i.i.i.i507.i, align 4
   %mWeakRefCount.i.i.i.i508.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i508.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i.i, align 8
   %mValue.i.i.i509.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call178.i, ptr %mValue.i.i.i509.i, align 8
   store ptr %call.i.i.i.i, ptr %mpRefCount.i506.i, align 8
@@ -4094,7 +4094,7 @@ if.then.i.i555.i:                                 ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i557.i, align 4
   %mWeakRefCount.i.i.i.i558.i = getelementptr inbounds i8, ptr %call.i.i.i553.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i558.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i553.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i553.i, align 8
   %mValue.i.i.i559.i = getelementptr inbounds i8, ptr %call.i.i.i553.i, i64 16
   store ptr %call196.i, ptr %mValue.i.i.i559.i, align 8
   store ptr %call.i.i.i553.i, ptr %mpRefCount.i556.i, align 8
@@ -4460,7 +4460,7 @@ if.then.i.i714.i:                                 ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i716.i, align 4
   %mWeakRefCount.i.i.i.i717.i = getelementptr inbounds i8, ptr %call.i.i.i712.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i717.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i712.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i712.i, align 8
   %mValue.i.i.i718.i = getelementptr inbounds i8, ptr %call.i.i.i712.i, i64 16
   store ptr %call227.i, ptr %mValue.i.i.i718.i, align 8
   store ptr %call.i.i.i712.i, ptr %mpRefCount.i715.i, align 8
@@ -5273,7 +5273,7 @@ _ZN5eastl12shared_arrayIiNS_9allocatorENS_19smart_array_deleterIiEEED2Ev.exit57.
 arrayctor.loop.i137:                              ; preds = %arrayctor.loop.i137, %_ZN5eastl12shared_arrayIiNS_9allocatorENS_19smart_array_deleterIiEEED2Ev.exit57.i
   %arrayctor.cur.idx.i138 = phi i64 [ 8, %_ZN5eastl12shared_arrayIiNS_9allocatorENS_19smart_array_deleterIiEEED2Ev.exit57.i ], [ %arrayctor.cur.add.i141, %arrayctor.loop.i137 ]
   %arrayctor.cur.ptr.i139 = getelementptr inbounds i8, ptr %call106.i135, i64 %arrayctor.cur.idx.i138
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i139, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur.ptr.i139, align 8
   %mc.i.i140 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i139, i64 8
   store i8 0, ptr %mc.i.i140, align 8
   %arrayctor.cur.add.i141 = add nuw nsw i64 %arrayctor.cur.idx.i138, 16
@@ -5329,7 +5329,7 @@ invoke.cont130.i150:                              ; preds = %invoke.cont128.i149
   store i64 1, ptr %call131.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted274.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %arrayctor.cur134.ptr.i = getelementptr inbounds i8, ptr %call131.i, i64 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur134.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur134.ptr.i, align 8
   %mc.i65.i = getelementptr inbounds i8, ptr %call131.i, i64 16
   store i8 0, ptr %mc.i65.i, align 8
   %483 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted274.i, 1
@@ -5375,7 +5375,7 @@ arraydestroy.body.i.i.i.i171:                     ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i.i.idx.i = phi i64 [ %arraydestroy.elementPast.i.i.i.add.i, %arraydestroy.body.i.i.i.i171 ], [ %.ptr.add.i169, %arraydestroy.body.preheader.i.i.i.i168 ]
   %arraydestroy.elementPast.i.i.i.add.i = add nsw i64 %arraydestroy.elementPast.i.i.i.idx.i, -16
   %arraydestroy.element.i.i.i.ptr.i = getelementptr inbounds i8, ptr %call106.i135, i64 %arraydestroy.elementPast.i.i.i.add.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i.ptr.i, align 8
   %dec.i.i.i.i.i173 = add nsw i32 %dec.i1.i.i.i.i172, -1
   %arraydestroy.done.i.i.i.i174 = icmp eq i64 %arraydestroy.elementPast.i.i.i.add.i, 8
   br i1 %arraydestroy.done.i.i.i.i174, label %arraydestroy.done2.loopexit.i.i.i.i175, label %arraydestroy.body.i.i.i.i171
@@ -5426,7 +5426,7 @@ invoke.cont170.i154:                              ; preds = %invoke.cont168.i
 arrayctor.loop173.i:                              ; preds = %arrayctor.loop173.i, %invoke.cont170.i154
   %arrayctor.cur174.idx.i = phi i64 [ 8, %invoke.cont170.i154 ], [ %arrayctor.cur174.add.i, %arrayctor.loop173.i ]
   %arrayctor.cur174.ptr.i = getelementptr inbounds i8, ptr %call171.i153, i64 %arrayctor.cur174.idx.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur174.ptr.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur174.ptr.i, align 8
   %mc.i82.i = getelementptr inbounds i8, ptr %arrayctor.cur174.ptr.i, i64 8
   store i8 0, ptr %mc.i82.i, align 8
   %arrayctor.cur174.add.i = add nuw nsw i64 %arrayctor.cur174.idx.i, 16
@@ -5699,7 +5699,7 @@ arraydestroy.body.i.i.i162.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i163.i = phi i32 [ %dec.i.i.i.i166.i, %arraydestroy.body.i.i.i162.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i161.i, %arraydestroy.body.preheader.i.i.i159.i ]
   %arraydestroy.elementPast.i.i.i164.i = phi ptr [ %arraydestroy.element.i.i.i165.i, %arraydestroy.body.i.i.i162.i ], [ %delete.end.i.i.i160.i, %arraydestroy.body.preheader.i.i.i159.i ]
   %arraydestroy.element.i.i.i165.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i164.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i165.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i165.i, align 8
   %dec.i.i.i.i166.i = add nsw i32 %dec.i1.i.i.i163.i, -1
   %arraydestroy.done.i.i.i167.i = icmp eq ptr %arraydestroy.element.i.i.i165.i, %487
   br i1 %arraydestroy.done.i.i.i167.i, label %arraydestroy.done2.loopexit.i.i.i168.i, label %arraydestroy.body.i.i.i162.i
@@ -5771,7 +5771,7 @@ arraydestroy.body.i.i197.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i198.i = phi i32 [ %dec.i.i.i201.i, %arraydestroy.body.i.i197.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i196.i, %arraydestroy.body.preheader.i.i194.i ]
   %arraydestroy.elementPast.i.i199.i = phi ptr [ %arraydestroy.element.i.i200.i, %arraydestroy.body.i.i197.i ], [ %delete.end.i.i195.i, %arraydestroy.body.preheader.i.i194.i ]
   %arraydestroy.element.i.i200.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i199.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i200.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i200.i, align 8
   %dec.i.i.i201.i = add nsw i32 %dec.i1.i.i198.i, -1
   %arraydestroy.done.i.i202.i = icmp eq ptr %arraydestroy.element.i.i200.i, %487
   br i1 %arraydestroy.done.i.i202.i, label %arraydestroy.done2.loopexit.i.i203.i, label %arraydestroy.body.i.i197.i
@@ -5820,7 +5820,7 @@ arraydestroy.body.i.i219.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i220.i = phi i32 [ %dec.i.i.i223.i, %arraydestroy.body.i.i219.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i218.i, %arraydestroy.body.preheader.i.i216.i ]
   %arraydestroy.elementPast.i.i221.i = phi ptr [ %arraydestroy.element.i.i222.i, %arraydestroy.body.i.i219.i ], [ %delete.end.i.i217.i, %arraydestroy.body.preheader.i.i216.i ]
   %arraydestroy.element.i.i222.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i221.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i222.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i222.i, align 8
   %dec.i.i.i223.i = add nsw i32 %dec.i1.i.i220.i, -1
   %arraydestroy.done.i.i224.i = icmp eq ptr %arraydestroy.element.i.i222.i, %532
   br i1 %arraydestroy.done.i.i224.i, label %arraydestroy.done2.loopexit.i.i225.i, label %arraydestroy.body.i.i219.i
@@ -5862,7 +5862,7 @@ arraydestroy.body.i.i241.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i242.i = phi i32 [ %dec.i.i.i245.i, %arraydestroy.body.i.i241.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i240.i, %arraydestroy.body.preheader.i.i238.i ]
   %arraydestroy.elementPast.i.i243.i = phi ptr [ %arraydestroy.element.i.i244.i, %arraydestroy.body.i.i241.i ], [ %delete.end.i.i239.i, %arraydestroy.body.preheader.i.i238.i ]
   %arraydestroy.element.i.i244.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i243.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i244.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i244.i, align 8
   %dec.i.i.i245.i = add nsw i32 %dec.i1.i.i242.i, -1
   %arraydestroy.done.i.i246.i = icmp eq ptr %arraydestroy.element.i.i244.i, %537
   br i1 %arraydestroy.done.i.i246.i, label %arraydestroy.done2.loopexit.i.i247.i, label %arraydestroy.body.i.i241.i
@@ -5904,7 +5904,7 @@ arraydestroy.body.i.i263.i:                       ; preds = %arraydestroy.body.i
   %dec.i1.i.i264.i = phi i32 [ %dec.i.i.i267.i, %arraydestroy.body.i.i263.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i262.i, %arraydestroy.body.preheader.i.i260.i ]
   %arraydestroy.elementPast.i.i265.i = phi ptr [ %arraydestroy.element.i.i266.i, %arraydestroy.body.i.i263.i ], [ %delete.end.i.i261.i, %arraydestroy.body.preheader.i.i260.i ]
   %arraydestroy.element.i.i266.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i265.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i266.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i266.i, align 8
   %dec.i.i.i267.i = add nsw i32 %dec.i1.i.i264.i, -1
   %arraydestroy.done.i.i268.i = icmp eq ptr %arraydestroy.element.i.i266.i, %542
   br i1 %arraydestroy.done.i.i268.i, label %arraydestroy.done2.loopexit.i.i269.i, label %arraydestroy.body.i.i263.i
@@ -6293,7 +6293,7 @@ _ZN5eastl10linked_ptrIiNS_17smart_ptr_deleterIiEEED2Ev.exit93.i: ; preds = %if.e
   %cmp100.i228 = icmp eq i32 %592, 0
   %call101.i229 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp100.i228, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i176, ptr noundef nonnull @.str, i32 noundef 1787, ptr noundef nonnull @.str.3)
   %call103.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call103.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call103.i, align 8
   %mc.i.i230 = getelementptr inbounds i8, ptr %call103.i, i64 8
   store i8 0, ptr %mc.i.i230, align 8
   %593 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -6341,7 +6341,7 @@ invoke.cont123.i:                                 ; preds = %invoke.cont119.i239
           to label %invoke.cont125.i unwind label %lpad108.i233
 
 invoke.cont125.i:                                 ; preds = %invoke.cont123.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call126.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call126.i, align 8
   %mc.i106.i = getelementptr inbounds i8, ptr %call126.i, i64 8
   store i8 1, ptr %mc.i106.i, align 8
   %598 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -6420,7 +6420,7 @@ invoke.cont148.i242:                              ; preds = %invoke.cont144.i
           to label %invoke.cont150.i244 unwind label %lpad108.i233
 
 invoke.cont150.i244:                              ; preds = %invoke.cont148.i242
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call151.i243, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call151.i243, align 8
   %mc.i129.i = getelementptr inbounds i8, ptr %call151.i243, i64 8
   store i8 2, ptr %mc.i129.i, align 8
   %609 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -6985,7 +6985,7 @@ if.end.i.i.i333.i:                                ; preds = %if.else.i.i.i331.i,
 
 _ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEEC2ERKS5_.exit352.i: ; preds = %if.end.i.i.i333.i, %_ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEED2Ev.exit325.i
   %call280.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call280.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call280.i, align 8
   %mc.i338.i = getelementptr inbounds i8, ptr %call280.i, i64 8
   store i8 0, ptr %mc.i338.i, align 8
   %687 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -7142,7 +7142,7 @@ _ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEEC2ERKS5_.ex
           to label %invoke.cont323.i unwind label %lpad312.i
 
 invoke.cont323.i:                                 ; preds = %_ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEEC2ERKS5_.exit463.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call314.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call314.i, align 8
   %mc.i464.i = getelementptr inbounds i8, ptr %call314.i, i64 8
   store i8 0, ptr %mc.i464.i, align 8
   %704 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -7163,7 +7163,7 @@ invoke.cont323.i:                                 ; preds = %_ZN5eastl10linked_p
           to label %invoke.cont333.i unwind label %ehcleanup345.thread.i
 
 invoke.cont333.i:                                 ; preds = %invoke.cont323.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call326.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call326.i, align 8
   %mc.i492.i = getelementptr inbounds i8, ptr %call326.i, i64 8
   store i8 0, ptr %mc.i492.i, align 8
   %inc.i493.i = add i32 %704, 2
@@ -7212,7 +7212,7 @@ arraydestroy.body.i.i.i552.i:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i553.i = phi i32 [ %dec.i.i.i.i556.i, %arraydestroy.body.i.i.i552.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i551.i, %arraydestroy.body.preheader.i.i.i549.i ]
   %arraydestroy.elementPast.i.i.i554.i = phi ptr [ %arraydestroy.element.i.i.i555.i, %arraydestroy.body.i.i.i552.i ], [ %delete.end.i.i.i550.i, %arraydestroy.body.preheader.i.i.i549.i ]
   %arraydestroy.element.i.i.i555.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i554.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i555.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i555.i, align 8
   %dec.i.i.i.i556.i = add nsw i32 %dec.i1.i.i.i553.i, -1
   %arraydestroy.done.i.i.i557.i = icmp eq ptr %arraydestroy.element.i.i.i555.i, %.pre785.i
   br i1 %arraydestroy.done.i.i.i557.i, label %arraydestroy.done2.loopexit.i.i.i558.i, label %arraydestroy.body.i.i.i552.i
@@ -7652,7 +7652,7 @@ _ZL15Test_linked_ptrv.exit:                       ; preds = %_ZN5eastl10linked_p
 arrayctor.loop.i280:                              ; preds = %arrayctor.loop.i280, %_ZL15Test_linked_ptrv.exit
   %arrayctor.cur.idx.i281 = phi i64 [ 8, %_ZL15Test_linked_ptrv.exit ], [ %arrayctor.cur.add.i284, %arrayctor.loop.i280 ]
   %arrayctor.cur.ptr.i282 = getelementptr inbounds i8, ptr %call.i278, i64 %arrayctor.cur.idx.i281
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i282, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur.ptr.i282, align 8
   %mc.i.i283 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i282, i64 8
   store i8 0, ptr %mc.i.i283, align 8
   %arrayctor.cur.add.i284 = add nuw nsw i64 %arrayctor.cur.idx.i281, 16
@@ -7701,7 +7701,7 @@ arraydestroy.body.i.i.i297:                       ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.i.i.idx.i299 = phi i64 [ %arraydestroy.elementPast.i.i.add.i300, %arraydestroy.body.i.i.i297 ], [ %.ptr.add.i296, %arraydestroy.body.preheader.i.i.i294 ]
   %arraydestroy.elementPast.i.i.add.i300 = add nsw i64 %arraydestroy.elementPast.i.i.idx.i299, -16
   %arraydestroy.element.i.i.ptr.i301 = getelementptr inbounds i8, ptr %call.i278, i64 %arraydestroy.elementPast.i.i.add.i300
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.ptr.i301, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.ptr.i301, align 8
   %dec.i.i.i.i302 = add nsw i32 %dec.i1.i.i.i298, -1
   %arraydestroy.done.i.i.i303 = icmp eq i64 %arraydestroy.elementPast.i.i.add.i300, 8
   br i1 %arraydestroy.done.i.i.i303, label %arraydestroy.done2.loopexit.i.i.i304, label %arraydestroy.body.i.i.i297
@@ -7745,7 +7745,7 @@ arraydestroy.body.i.i17.i:                        ; preds = %arraydestroy.body.i
   %dec.i1.i.i18.i = phi i32 [ %dec.i.i.i21.i, %arraydestroy.body.i.i17.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i16.i, %arraydestroy.body.preheader.i.i14.i ]
   %arraydestroy.elementPast.i.i19.i = phi ptr [ %arraydestroy.element.i.i20.i, %arraydestroy.body.i.i17.i ], [ %delete.end.i.i15.i, %arraydestroy.body.preheader.i.i14.i ]
   %arraydestroy.element.i.i20.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i19.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i20.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i20.i, align 8
   %dec.i.i.i21.i = add nsw i32 %dec.i1.i.i18.i, -1
   %arraydestroy.done.i.i22.i = icmp eq ptr %arraydestroy.element.i.i20.i, %778
   br i1 %arraydestroy.done.i.i22.i, label %arraydestroy.done2.loopexit.i.i23.i, label %arraydestroy.body.i.i17.i
@@ -7783,7 +7783,7 @@ arraydestroy.body.i.i.i.i317:                     ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i.i318 = phi i32 [ %dec.i.i.i.i.i321, %arraydestroy.body.i.i.i.i317 ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i.i316, %arraydestroy.body.preheader.i.i.i.i314 ]
   %arraydestroy.elementPast.i.i.i.i319 = phi ptr [ %arraydestroy.element.i.i.i.i320, %arraydestroy.body.i.i.i.i317 ], [ %delete.end.i.i.i.i315, %arraydestroy.body.preheader.i.i.i.i314 ]
   %arraydestroy.element.i.i.i.i320 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i319, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i.i320, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i.i320, align 8
   %dec.i.i.i.i.i321 = add nsw i32 %dec.i1.i.i.i.i318, -1
   %arraydestroy.done.i.i.i.i322 = icmp eq ptr %arraydestroy.element.i.i.i.i320, %782
   br i1 %arraydestroy.done.i.i.i.i322, label %arraydestroy.done2.loopexit.i.i.i.i323, label %arraydestroy.body.i.i.i.i317
@@ -7836,7 +7836,7 @@ arraydestroy.body.i.i.i41.i:                      ; preds = %arraydestroy.body.i
   %dec.i1.i.i.i42.i = phi i32 [ %dec.i.i.i.i45.i, %arraydestroy.body.i.i.i41.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i.i40.i, %arraydestroy.body.preheader.i.i.i38.i ]
   %arraydestroy.elementPast.i.i.i43.i = phi ptr [ %arraydestroy.element.i.i.i44.i, %arraydestroy.body.i.i.i41.i ], [ %delete.end.i.i.i39.i, %arraydestroy.body.preheader.i.i.i38.i ]
   %arraydestroy.element.i.i.i44.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i43.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i.i44.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i.i44.i, align 8
   %dec.i.i.i.i45.i = add nsw i32 %dec.i1.i.i.i42.i, -1
   %arraydestroy.done.i.i.i46.i = icmp eq ptr %arraydestroy.element.i.i.i44.i, %788
   br i1 %arraydestroy.done.i.i.i46.i, label %arraydestroy.done2.loopexit.i.i.i47.i, label %arraydestroy.body.i.i.i41.i
@@ -7879,7 +7879,7 @@ _ZL17Test_linked_arrayv.exit:                     ; preds = %_ZN5eastl12linked_a
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %boolArray.i)
   store i32 0, ptr %nErrorCount.i326, align 4
   %call.i327 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call.i327, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call.i327, align 8
   %mRefCount.i.i = getelementptr inbounds i8, ptr %call.i327, i64 8
   %796 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i.i328 = add nsw i32 %796, 1
@@ -7889,7 +7889,7 @@ _ZL17Test_linked_arrayv.exit:                     ; preds = %_ZN5eastl12linked_a
           to label %if.then.i38.i unwind label %lpad8.i
 
 if.then.i38.i:                                    ; preds = %_ZL17Test_linked_arrayv.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call10.i329, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call10.i329, align 8
   %mRefCount.i30.i = getelementptr inbounds i8, ptr %call10.i329, i64 8
   store i32 0, ptr %mRefCount.i30.i, align 8
   %inc.i31.i = add nsw i32 %796, 2
@@ -8028,7 +8028,7 @@ _ZN5eastl13intrusive_ptrIN12SmartPtrTest12RefCountTestEED2Ev.exit101.i: ; preds 
   %cmp117.i365 = icmp eq i32 %811, 0
   %call118.i366 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp117.i365, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i326, ptr noundef nonnull @.str, i32 noundef 1949, ptr noundef nonnull @.str.4)
   %call120.i367 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call120.i367, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call120.i367, align 8
   %mRefCount.i102.i = getelementptr inbounds i8, ptr %call120.i367, i64 8
   %812 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i103.i368 = add nsw i32 %812, 1
@@ -8083,7 +8083,7 @@ _ZN5eastl13intrusive_ptrIN12SmartPtrTest12RefCountTestEED2Ev.exit114.i: ; preds 
   %cmp164.i377 = icmp eq i32 %820, 0
   %call165.i378 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp164.i377, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i326, ptr noundef nonnull @.str, i32 noundef 1965, ptr noundef nonnull @.str.4)
   %call167.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call167.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call167.i, align 8
   %mRefCount.i122.i = getelementptr inbounds i8, ptr %call167.i, i64 8
   %821 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i123.i = add nsw i32 %821, 1
@@ -8135,14 +8135,14 @@ _ZN5eastl13intrusive_ptrIN12SmartPtrTest12RefCountTestEED2Ev.exit135.i: ; preds 
   %cmp209.i = icmp eq i32 %828, 0
   %call211.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp209.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i326, ptr noundef nonnull @.str, i32 noundef 1977, ptr noundef nonnull @.str.4)
   %call213.i382 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call213.i382, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call213.i382, align 8
   %mRefCount.i143.i = getelementptr inbounds i8, ptr %call213.i382, i64 8
   store i32 0, ptr %mRefCount.i143.i, align 8
   %829 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i144.i = add nsw i32 %829, 1
   store i32 %inc.i144.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %call217.i383 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call217.i383, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call217.i383, align 8
   %mRefCount.i145.i = getelementptr inbounds i8, ptr %call217.i383, i64 8
   %inc.i146.i = add nsw i32 %829, 2
   store i32 %inc.i146.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
@@ -8231,7 +8231,7 @@ if.then.i184.i:                                   ; preds = %invoke.cont288.i393
   %call.i.i187188.i = call noundef i32 %836(ptr noundef nonnull align 8 dereferenceable(12) %call217.i383)
   %call300.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i326, ptr noundef nonnull @.str, i32 noundef 2007, ptr noundef nonnull @.str.158)
   %call307.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %call307.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call307.i, align 8
   %mRefCount.i204.i = getelementptr inbounds i8, ptr %call307.i, i64 8
   %837 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i205.i = add nsw i32 %837, 1
@@ -8414,7 +8414,7 @@ _ZN5eastl13intrusive_ptrIN12SmartPtrTest12RefCountTestEED2Ev.exit280.i: ; preds 
   %844 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i.i.i410 = add nsw i32 %844, 1
   store i32 %inc.i.i.i410, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i64 0, i32 0, i64 2), ptr %call543.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest4TestE, i64 16), ptr %call543.i, align 8
   %mpBool.i.i = getelementptr inbounds i8, ptr %call543.i, i64 16
   store ptr %boolValue.i, ptr %mpBool.i.i, align 8
   store i8 1, ptr %boolValue.i, align 1
@@ -8442,7 +8442,7 @@ if.then.i293.i:                                   ; preds = %_ZN5eastl13intrusiv
   %849 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i.i320.i = add nsw i32 %849, 1
   store i32 %inc.i.i320.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i64 0, i32 0, i64 2), ptr %call569.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest4TestE, i64 16), ptr %call569.i, align 8
   %mpBool.i321.i = getelementptr inbounds i8, ptr %call569.i, i64 16
   store ptr %boolArray.i, ptr %mpBool.i321.i, align 8
   store i8 1, ptr %boolArray.i, align 1
@@ -8479,7 +8479,7 @@ invoke.cont595.i:                                 ; preds = %invoke.cont592.i
   %854 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i.i328.i = add nsw i32 %854, 1
   store i32 %inc.i.i328.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i64 0, i32 0, i64 2), ptr %call596.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest4TestE, i64 16), ptr %call596.i, align 8
   %mpBool.i329.i = getelementptr inbounds i8, ptr %call596.i, i64 16
   store ptr %848, ptr %mpBool.i329.i, align 8
   store i8 1, ptr %848, align 1
@@ -8542,7 +8542,7 @@ invoke.cont628.i:                                 ; preds = %invoke.cont626.i
   %864 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %inc.i.i344.i = add nsw i32 %864, 1
   store i32 %inc.i.i344.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i64 0, i32 0, i64 2), ptr %call629.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest4TestE, i64 16), ptr %call629.i, align 8
   %mpBool.i345.i = getelementptr inbounds i8, ptr %call629.i, i64 16
   store ptr %arrayidx577.i, ptr %mpBool.i345.i, align 8
   store i8 1, ptr %arrayidx577.i, align 1
@@ -8654,7 +8654,7 @@ terminate.lpad.i444.i:                            ; preds = %if.then.i440.i
   unreachable
 
 if.then.i447.i:                                   ; preds = %if.then.i440.if.then.i447_crit_edge.i, %lpad8.i
-  %vtable.i.i448.i = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), %lpad8.i ], [ %vtable.i.i448.pre.i, %if.then.i440.if.then.i447_crit_edge.i ]
+  %vtable.i.i448.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), %lpad8.i ], [ %vtable.i.i448.pre.i, %if.then.i440.if.then.i447_crit_edge.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %878, %lpad8.i ], [ %879, %if.then.i440.if.then.i447_crit_edge.i ]
   %vfn.i.i449.i = getelementptr inbounds i8, ptr %vtable.i.i448.i, i64 24
   %886 = load ptr, ptr %vfn.i.i449.i, align 8
@@ -9642,7 +9642,7 @@ if.then.i.i25:                                    ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i, align 4
   %mWeakRefCount.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 16), ptr %call.i.i.i, align 8
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr %call3, ptr %mValue.i.i.i, align 8
   store ptr %call.i.i.i, ptr %mpRefCount.i26, align 8
@@ -9822,7 +9822,7 @@ if.then.i.i.i75:                                  ; preds = %call.i.i.i.i.noexc
   store i32 1, ptr %mRefCount.i.i.i.i.i, align 4
   %mWeakRefCount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i88, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i88, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i64 16), ptr %call.i.i.i.i88, align 8
   %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i88, i64 16
   store ptr null, ptr %mValue.i.i.i.i, align 8
   br label %_ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i
@@ -10000,7 +10000,7 @@ _ZN5eastl10shared_ptrIiED2Ev.exit143:             ; preds = %_ZN5eastl10shared_p
   %cmp82 = icmp eq i32 %39, 0
   %call83 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp82, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1055, ptr noundef nonnull @.str.3)
   %call85 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call85, align 8
   %mc.i = getelementptr inbounds i8, ptr %call85, i64 8
   store i8 0, ptr %mc.i, align 8
   %40 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -10017,7 +10017,7 @@ if.then.i.i146:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i148, align 4
   %mWeakRefCount.i.i.i.i149 = getelementptr inbounds i8, ptr %call.i.i.i144, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i149, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i144, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i144, align 8
   %mValue.i.i.i150 = getelementptr inbounds i8, ptr %call.i.i.i144, i64 16
   store ptr %call85, ptr %mValue.i.i.i150, align 8
   store ptr %call.i.i.i144, ptr %mpRefCount.i147, align 8
@@ -10080,7 +10080,7 @@ invoke.cont102:                                   ; preds = %_ZNK5eastl10shared_
           to label %invoke.cont104 unwind label %lpad90
 
 invoke.cont104:                                   ; preds = %invoke.cont102
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call105, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call105, align 8
   %mc.i164 = getelementptr inbounds i8, ptr %call105, i64 8
   store i8 1, ptr %mc.i164, align 8
   %48 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -10098,7 +10098,7 @@ if.then.i.i.i167:                                 ; preds = %call.i.i.i.i.noexc1
   store i32 1, ptr %mRefCount.i.i.i.i.i168, align 4
   %mWeakRefCount.i.i.i.i.i169 = getelementptr inbounds i8, ptr %call.i.i.i.i186, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i169, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i186, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i.i186, align 8
   %mValue.i.i.i.i170 = getelementptr inbounds i8, ptr %call.i.i.i.i186, i64 16
   store ptr %call105, ptr %mValue.i.i.i.i170, align 8
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEC2IS2_EEPT_PNS_9enable_ifIXsr14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.i
@@ -10193,7 +10193,7 @@ invoke.cont124:                                   ; preds = %_ZNK5eastl10shared_
           to label %invoke.cont126 unwind label %lpad90
 
 invoke.cont126:                                   ; preds = %invoke.cont124
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call127, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call127, align 8
   %mc.i199 = getelementptr inbounds i8, ptr %call127, i64 8
   store i8 2, ptr %mc.i199, align 8
   %61 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -10213,7 +10213,7 @@ if.then.i.i203:                                   ; preds = %call.i.i.i201.noexc
   store i32 1, ptr %mRefCount.i.i.i.i205, align 4
   %mWeakRefCount.i.i.i.i206 = getelementptr inbounds i8, ptr %call.i.i.i201211, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i206, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i201211, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i201211, align 8
   %mValue.i.i.i207 = getelementptr inbounds i8, ptr %call.i.i.i201211, i64 16
   store ptr %call127, ptr %mValue.i.i.i207, align 8
   store ptr %call.i.i.i201211, ptr %mpRefCount.i204, align 8
@@ -10530,7 +10530,7 @@ if.then.i.i307:                                   ; preds = %call.i.i.i305.noexc
   store i32 1, ptr %mRefCount.i.i.i.i309, align 4
   %mWeakRefCount.i.i.i.i310 = getelementptr inbounds i8, ptr %call.i.i.i305313, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i310, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i305313, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i305313, align 8
   %mValue.i.i.i311 = getelementptr inbounds i8, ptr %call.i.i.i305313, i64 16
   store ptr null, ptr %mValue.i.i.i311, align 8
   br label %invoke.cont246
@@ -10758,7 +10758,7 @@ if.then.i.i.i416:                                 ; preds = %if.end.i.i413
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit422: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit407, %if.end.i.i413, %if.then.i.i.i416
   %call266 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call266, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call266, align 8
   %mc.i423 = getelementptr inbounds i8, ptr %call266, i64 8
   store i8 42, ptr %mc.i423, align 8
   %128 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -10775,7 +10775,7 @@ if.then.i.i427:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i429, align 4
   %mWeakRefCount.i.i.i.i430 = getelementptr inbounds i8, ptr %call.i.i.i425, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i430, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i425, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i425, align 8
   %mValue.i.i.i431 = getelementptr inbounds i8, ptr %call.i.i.i425, i64 16
   store ptr %call266, ptr %mValue.i.i.i431, align 8
   store ptr %call.i.i.i425, ptr %mpRefCount.i428, align 8
@@ -10799,7 +10799,7 @@ invoke.cont271:                                   ; preds = %_ZN5eastl10shared_p
   %131 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %inc.i.i = add nsw i32 %131, 1
   store i32 %inc.i.i, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1BE, i64 0, i32 0, i64 2), ptr %call272, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1BE, i64 16), ptr %call272, align 8
   store i8 115, ptr %mc.i.i, align 8
   %mc279 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load i8, ptr %mc279, align 8
@@ -10826,7 +10826,7 @@ if.then.i.i.i437:                                 ; preds = %call.i.i.i.i.noexc4
   store i32 1, ptr %mRefCount.i.i.i.i.i438, align 4
   %mWeakRefCount.i.i.i.i.i439 = getelementptr inbounds i8, ptr %call.i.i.i.i460, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i439, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i460, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i.i460, align 8
   %mValue.i.i.i.i440 = getelementptr inbounds i8, ptr %call.i.i.i.i460, i64 16
   store ptr %call272, ptr %mValue.i.i.i.i440, align 8
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEC2INS1_1BENS_14default_deleteIS5_EEEEONS_10unique_ptrIT_T0_EEPNS_9enable_ifIXaaaantsr5eastl8is_arrayIS9_EE5valuentsr19is_lvalue_referenceISA_EE5valuesr5eastl14is_convertibleIPS9_PS2_EE5valueEvE4typeE.exit.i
@@ -10917,7 +10917,7 @@ if.then.i.i.i471:                                 ; preds = %if.end.i.i468
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit477: ; preds = %_ZN5eastl10unique_ptrIN12SmartPtrTest1BENS_14default_deleteIS2_EEED2Ev.exit, %if.end.i.i468, %if.then.i.i.i471
   %call303 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %call303, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %call303, align 8
   %mc.i478 = getelementptr inbounds i8, ptr %call303, i64 8
   store i8 42, ptr %mc.i478, align 8
   %146 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -10934,7 +10934,7 @@ if.then.i.i482:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i484, align 4
   %mWeakRefCount.i.i.i.i485 = getelementptr inbounds i8, ptr %call.i.i.i480, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i485, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i480, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i480, align 8
   %mValue.i.i.i486 = getelementptr inbounds i8, ptr %call.i.i.i480, i64 16
   store ptr %call303, ptr %mValue.i.i.i486, align 8
   store ptr %call.i.i.i480, ptr %mpRefCount.i483, align 8
@@ -10957,7 +10957,7 @@ invoke.cont309:                                   ; preds = %_ZN5eastl10shared_p
   %148 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %inc.i.i492 = add nsw i32 %148, 1
   store i32 %inc.i.i492, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1BE, i64 0, i32 0, i64 2), ptr %call310, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1BE, i64 16), ptr %call310, align 8
   store i8 115, ptr %mc.i.i491, align 8
   %call.i.i.i.i520 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.noexc519 unwind label %lpad317
@@ -10971,7 +10971,7 @@ if.then.i.i.i494:                                 ; preds = %call.i.i.i.i.noexc5
   store i32 1, ptr %mRefCount.i.i.i.i.i495, align 4
   %mWeakRefCount.i.i.i.i.i496 = getelementptr inbounds i8, ptr %call.i.i.i.i520, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i496, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i520, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i.i520, align 8
   %mValue.i.i.i.i497 = getelementptr inbounds i8, ptr %call.i.i.i.i520, i64 16
   store ptr %call310, ptr %mValue.i.i.i.i497, align 8
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEC2INS1_1BENS_14default_deleteIS5_EEEEONS_10unique_ptrIT_T0_EEPNS_9enable_ifIXaaaantsr5eastl8is_arrayIS9_EE5valuentsr19is_lvalue_referenceISA_EE5valuesr5eastl14is_convertibleIPS9_PS2_EE5valueEvE4typeE.exit.i498
@@ -11117,7 +11117,7 @@ if.then.i.i.i558:                                 ; preds = %if.end.i.i555
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit564: ; preds = %_ZN5eastl10unique_ptrIN12SmartPtrTest1BENS_14default_deleteIS2_EEED2Ev.exit549, %if.end.i.i555, %if.then.i.i.i558
   %call333 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 0, i32 0, i64 2), ptr %call333, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 16), ptr %call333, align 8
   %call.i.i.i565 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i566 = icmp eq ptr %call.i.i.i565, null
   br i1 %tobool.not.i.i566, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit, label %if.then.i588
@@ -11127,7 +11127,7 @@ if.then.i588:                                     ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i569, align 4
   %mWeakRefCount.i.i.i.i570 = getelementptr inbounds i8, ptr %call.i.i.i565, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i570, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i565, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i565, align 8
   %mValue.i.i.i571 = getelementptr inbounds i8, ptr %call.i.i.i565, i64 16
   store ptr %call333, ptr %mValue.i.i.i571, align 8
   %168 = atomicrmw volatile add ptr %mRefCount.i.i.i.i569, i32 1 monotonic, align 4
@@ -11402,7 +11402,7 @@ if.then.i.i.i674:                                 ; preds = %if.end.i.i671
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1YEED2Ev.exit680: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest1YEED2Ev.exit, %if.end.i.i671, %if.then.i.i.i674
   %call359 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 0, i32 0, i64 2), ptr %call359, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 16), ptr %call359, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pGCC358, i8 0, i64 16, i1 false)
   %call.i.i.i681 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i682 = icmp eq ptr %call.i.i.i681, null
@@ -11424,7 +11424,7 @@ if.then.i.i694:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i685, align 4
   %mWeakRefCount.i.i.i.i686 = getelementptr inbounds i8, ptr %call.i.i.i681, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i686, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i681, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i681, align 8
   %mValue.i.i.i687 = getelementptr inbounds i8, ptr %call.i.i.i681, i64 16
   store ptr %call359, ptr %mValue.i.i.i687, align 8
   store ptr %call.i.i.i681, ptr %mpRefCount.i684, align 8
@@ -11485,7 +11485,7 @@ invoke.cont368:                                   ; preds = %_ZN5eastl20dynamic_
           to label %invoke.cont371 unwind label %lpad367
 
 invoke.cont371:                                   ; preds = %invoke.cont368
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 0, i32 0, i64 2), ptr %call372, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 16), ptr %call372, align 8
   %call.i.i.i707717 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i707.noexc unwind label %lpad367
 
@@ -11498,7 +11498,7 @@ if.then.i750:                                     ; preds = %call.i.i.i707.noexc
   store i32 1, ptr %mRefCount.i.i.i.i711, align 4
   %mWeakRefCount.i.i.i.i712 = getelementptr inbounds i8, ptr %call.i.i.i707717, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i712, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i707717, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i707717, align 8
   %mValue.i.i.i713 = getelementptr inbounds i8, ptr %call.i.i.i707717, i64 16
   store ptr %call372, ptr %mValue.i.i.i713, align 8
   %222 = atomicrmw volatile add ptr %mRefCount.i.i.i.i711, i32 1 monotonic, align 4, !noalias !67
@@ -11691,7 +11691,7 @@ if.then.i.i.i835:                                 ; preds = %if.end.i.i831
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEED2Ev.exit841: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit825, %if.end.i.i831, %if.then.i.i.i835
   %call379 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 0, i32 0, i64 2), ptr %call379, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i64 16), ptr %call379, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pGCC378, i8 0, i64 16, i1 false)
   %call.i.i.i842 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i843 = icmp eq ptr %call.i.i.i842, null
@@ -11713,7 +11713,7 @@ if.then.i.i.i855:                                 ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i846, align 4
   %mWeakRefCount.i.i.i.i847 = getelementptr inbounds i8, ptr %call.i.i.i842, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i847, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i842, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i842, align 8
   %mValue.i.i.i848 = getelementptr inbounds i8, ptr %call.i.i.i842, i64 16
   store ptr %call379, ptr %mValue.i.i.i848, align 8
   store ptr %call.i.i.i842, ptr %mpRefCount.i845, align 8
@@ -11872,7 +11872,7 @@ if.then.i.i.i910:                                 ; preds = %if.end.i.i906
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEED2Ev.exit916: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit900, %if.end.i.i906, %if.then.i.i.i910
   %call393 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 0, i32 0, i64 2), ptr %call393, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 16), ptr %call393, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pVoid, i8 0, i64 16, i1 false)
   %call.i.i.i917 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i918 = icmp ne ptr %call.i.i.i917, null
@@ -11884,7 +11884,7 @@ if.then.i.i919:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i921, align 4
   %mWeakRefCount.i.i.i.i922 = getelementptr inbounds i8, ptr %call.i.i.i917, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i922, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i917, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 16), ptr %call.i.i.i917, align 8
   %mValue.i.i.i923 = getelementptr inbounds i8, ptr %call.i.i.i917, i64 16
   store ptr %call393, ptr %mValue.i.i.i923, align 8
   store ptr %call.i.i.i917, ptr %mpRefCount.i920, align 8
@@ -11907,7 +11907,7 @@ invoke.cont397:                                   ; preds = %_ZN5eastl10shared_p
           to label %invoke.cont400 unwind label %lpad396
 
 invoke.cont400:                                   ; preds = %invoke.cont397
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 0, i32 0, i64 2), ptr %call401, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest11ParentClassE, i64 16), ptr %call401, align 8
   %call.i.i.i927937 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i927.noexc unwind label %lpad396
 
@@ -11929,7 +11929,7 @@ invoke.cont403.thread:                            ; preds = %call.i.i.i927.noexc
   store i32 1, ptr %mRefCount.i.i.i.i931, align 4
   %mWeakRefCount.i.i.i.i932 = getelementptr inbounds i8, ptr %call.i.i.i927937, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i932, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i927937, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 16), ptr %call.i.i.i927937, align 8
   %mValue.i.i.i933 = getelementptr inbounds i8, ptr %call.i.i.i927937, i64 16
   store ptr %call401, ptr %mValue.i.i.i933, align 8
   %mpRefCount.i.i9381455 = getelementptr inbounds i8, ptr %pVoid, i64 8
@@ -12046,7 +12046,7 @@ if.then.i.i989:                                   ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i991, align 4
   %mWeakRefCount.i.i.i.i992 = getelementptr inbounds i8, ptr %call.i.i.i987, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i992, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0EE", i64 0, i32 0, i64 2), ptr %call.i.i.i987, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0EE", i64 16), ptr %call.i.i.i987, align 8
   %mValue.i.i.i993 = getelementptr inbounds i8, ptr %call.i.i.i987, i64 16
   store ptr null, ptr %mValue.i.i.i993, align 8
   store ptr %call.i.i.i987, ptr %mpRefCount.i990, align 8
@@ -12108,7 +12108,7 @@ if.then.i1051:                                    ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i1016, align 4
   %mWeakRefCount.i.i.i.i1017 = getelementptr inbounds i8, ptr %call.i.i.i1012, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i1017, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2A1ENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i1012, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2A1ENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i1012, align 8
   %mValue.i.i.i1018 = getelementptr inbounds i8, ptr %call.i.i.i1012, i64 16
   store ptr %call422, ptr %mValue.i.i.i1018, align 8
   %298 = atomicrmw volatile add ptr %mRefCount.i.i.i.i1016, i32 1 monotonic, align 4, !noalias !87
@@ -12219,7 +12219,7 @@ if.then.i1116:                                    ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i1103, align 4
   %mWeakRefCount.i.i.i.i1104 = getelementptr inbounds i8, ptr %call.i.i.i1099, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i1104, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2B1ENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i1099, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2B1ENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i1099, align 8
   %mValue.i.i.i1105 = getelementptr inbounds i8, ptr %call.i.i.i1099, i64 16
   store ptr %call427, ptr %mValue.i.i.i1105, align 8
   %317 = atomicrmw volatile add ptr %mRefCount.i.i.i.i1103, i32 1 monotonic, align 4, !noalias !93
@@ -12305,7 +12305,7 @@ if.then.i.i1148:                                  ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i1150, align 4
   %mWeakRefCount.i.i.i.i1151 = getelementptr inbounds i8, ptr %call.i.i.i1146, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i1151, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i1146, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i1146, align 8
   %mValue.i.i.i1152 = getelementptr inbounds i8, ptr %call.i.i.i1146, i64 16
   store ptr %call431, ptr %mValue.i.i.i1152, align 8
   store ptr %call.i.i.i1146, ptr %mpRefCount.i1149, align 8
@@ -12383,7 +12383,7 @@ if.then.i.i1175:                                  ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i1177, align 4
   %mWeakRefCount.i.i.i.i1178 = getelementptr inbounds i8, ptr %call.i.i.i1173, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i1178, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i1173, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 16), ptr %call.i.i.i1173, align 8
   %mValue.i.i.i1179 = getelementptr inbounds i8, ptr %call.i.i.i1173, i64 16
   store ptr %call451, ptr %mValue.i.i.i1179, align 8
   store ptr %call.i.i.i1173, ptr %mpRefCount.i1176, align 8
@@ -12460,7 +12460,7 @@ if.then.i.i1202:                                  ; preds = %_ZN5eastl10shared_p
   store i32 1, ptr %mRefCount.i.i.i.i1204, align 4
   %mWeakRefCount.i.i.i.i1205 = getelementptr inbounds i8, ptr %call.i.i.i1200, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i1205, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i1200, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i1200, align 8
   %mValue.i.i.i1206 = getelementptr inbounds i8, ptr %call.i.i.i1200, i64 16
   store ptr %call472, ptr %mValue.i.i.i1206, align 8
   store ptr %call.i.i.i1200, ptr %mpRefCount.i1203, align 8
@@ -12545,7 +12545,7 @@ if.then.i.i.i1230:                                ; preds = %call.i.i.i.i.noexc1
   store i32 1, ptr %mRefCount.i.i.i.i.i1231, align 4
   %mWeakRefCount.i.i.i.i.i1232 = getelementptr inbounds i8, ptr %call.i.i.i.i1254, i64 12
   store i32 1, ptr %mWeakRefCount.i.i.i.i.i1232, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i1254, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i.i.i.i1254, align 8
   %mValue.i.i.i.i1233 = getelementptr inbounds i8, ptr %call.i.i.i.i1254, i64 16
   store ptr %call497, ptr %mValue.i.i.i.i1233, align 8
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest10NamedClassEEC2IS2_EEPT_PNS_9enable_ifIXsr14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.i
@@ -12985,7 +12985,7 @@ _ZN5eastl10unique_ptrIA_N12SmartPtrTest31CheckUPtrArrayEmptyInDestructorENS_14de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12SmartPtrTest1AD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %this, align 8
   %0 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -13020,7 +13020,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %dec.i1.i.i = phi i32 [ %dec.i.i.i, %arraydestroy.body.i.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %arraydestroy.body.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i, align 8
   %dec.i.i.i = add nsw i32 %dec.i1.i.i, -1
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %0
   br i1 %arraydestroy.done.i.i, label %arraydestroy.done2.loopexit.i.i, label %arraydestroy.body.i.i
@@ -13060,7 +13060,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %dec.i1.i.i = phi i32 [ %dec.i.i.i, %arraydestroy.body.i.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %arraydestroy.body.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i, align 8
   %dec.i.i.i = add nsw i32 %dec.i1.i.i, -1
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %0
   br i1 %arraydestroy.done.i.i, label %arraydestroy.done2.loopexit.i.i, label %arraydestroy.body.i.i
@@ -13101,7 +13101,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12SmartPtrTest1BD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %this, align 8
   %0 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %dec.i = add nsw i32 %0, -1
   store i32 %dec.i, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -13140,7 +13140,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   %dec.i1.i = phi i32 [ %dec.i.i, %arraydestroy.body.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i, %arraydestroy.body.preheader.i ]
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i, align 8
   %dec.i.i = add nsw i32 %dec.i1.i, -1
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %0
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.loopexit.i, label %arraydestroy.body.i
@@ -13867,7 +13867,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %mRefCount.i.i, align 4
   %mWeakRefCount.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1YENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1YENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i, align 8
   %mValue.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %pValue, ptr %mValue.i, align 8
   %mpRefCount = getelementptr inbounds i8, ptr %this, i64 8
@@ -14046,7 +14046,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %mRefCount.i.i, align 4
   %mWeakRefCount.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %mWeakRefCount.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest4BCLSENS_9allocatorENS_14default_deleteIS2_EEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest4BCLSENS_9allocatorENS_14default_deleteIS2_EEEE, i64 16), ptr %call.i, align 8
   %mValue.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %pValue, ptr %mValue.i, align 8
   %mpRefCount = getelementptr inbounds i8, ptr %this, i64 8
@@ -14967,7 +14967,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   %dec.i1.i = phi i32 [ %dec.i.i, %arraydestroy.body.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i, %arraydestroy.body.preheader.i ]
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i, align 8
   %dec.i.i = add nsw i32 %dec.i1.i, -1
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %3
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.loopexit.i, label %arraydestroy.body.i
@@ -15012,7 +15012,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %dec.i1.i.i = phi i32 [ %dec.i.i.i, %arraydestroy.body.i.i ], [ %_ZN12SmartPtrTest1A6mCountE.promoted.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %arraydestroy.body.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arraydestroy.element.i.i, align 8
   %dec.i.i.i = add nsw i32 %dec.i1.i.i, -1
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %0
   br i1 %arraydestroy.done.i.i, label %arraydestroy.done2.loopexit.i.i, label %arraydestroy.body.i.i
@@ -15052,7 +15052,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12SmartPtrTest12RefCountTestD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %this, align 8
   %0 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
@@ -15107,7 +15107,7 @@ entry:
   %mpBool = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mpBool, align 8
   store i8 0, ptr %0, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %this, align 8
   %1 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   %dec.i = add nsw i32 %1, -1
   store i32 %dec.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4

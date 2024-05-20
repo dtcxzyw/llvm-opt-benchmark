@@ -76,7 +76,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %42 = sext i32 %40 to i64
   %43 = mul i64 %15, %42
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
-  %45 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %46 = getelementptr inbounds i32, ptr %6, i64 %42
   %47 = load i32, ptr %46, align 4
   %48 = call i32 %45(ptr noundef %44, i64 noundef %14, ptr noundef %3, i32 noundef %47, i32 noundef -99, ptr noundef %7, ptr noundef null) #4
@@ -84,7 +84,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %49, label %ompi_datatype_copy_content_same_ddt.exit, label %57
 
 50:                                               ; preds = %35
-  %51 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %52 = sext i32 %40 to i64
   %53 = getelementptr inbounds i32, ptr %6, i64 %52
   %54 = load i32, ptr %53, align 4
@@ -144,7 +144,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 82:                                               ; preds = %72, %63
   %.sroa.6.1 = phi ptr [ %79, %72 ], [ %.sroa.6.0204, %63 ]
   %.sroa.8.1 = phi i64 [ %81, %72 ], [ %.sroa.8.0205, %63 ]
-  %83 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %84 = sext i32 %66 to i64
   %85 = getelementptr inbounds i32, ptr %6, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -156,7 +156,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %71, label %90, label %95
 
 90:                                               ; preds = %89
-  %91 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %92 = load i32, ptr %85, align 4
   %93 = call i32 %91(ptr noundef %.sroa.6.1, i64 noundef %.sroa.8.1, ptr noundef %3, i32 noundef %92, i32 noundef -99, ptr noundef %7, ptr noundef nonnull %62) #4
   %94 = icmp slt i32 %93, 0
@@ -182,7 +182,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 106:                                              ; preds = %97, %95
   %.sroa.42.1 = phi ptr [ %103, %97 ], [ %.sroa.42.0202, %95 ]
   %.sroa.63.1 = phi i64 [ %105, %97 ], [ %.sroa.63.0203, %95 ]
-  %107 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %108 = load i32, ptr %85, align 4
   %109 = zext nneg i32 %.0167 to i64
   %110 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %109
@@ -195,7 +195,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %96, label %115, label %124
 
 115:                                              ; preds = %113
-  %116 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %117 = load i32, ptr %85, align 4
   %118 = zext nneg i32 %114 to i64
   %119 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %118
@@ -216,7 +216,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %126 = shl nsw i32 %.0166197, 1
   %127 = shl i64 %.0156199, 1
   %128 = shl i64 %.0155200, 1
-  %129 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %130 = zext nneg i32 %.1168 to i64
   %131 = call i32 %129(i64 noundef %130, ptr noundef nonnull %10, ptr noundef null) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -244,13 +244,13 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %140, label %148, label %152
 
 148:                                              ; preds = %137
-  %149 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %150 = call i32 %149(ptr noundef %1, i64 noundef %144, ptr noundef %3, i32 noundef %147, i32 noundef -99, ptr noundef %7, ptr noundef null) #4
   %151 = icmp slt i32 %150, 0
   br i1 %151, label %ompi_datatype_copy_content_same_ddt.exit, label %156
 
 152:                                              ; preds = %137
-  %153 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %154 = call i32 %153(ptr noundef %1, i64 noundef %144, ptr noundef %3, i32 noundef %147, i32 noundef -99, i32 noundef 4, ptr noundef %7) #4
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %ompi_datatype_copy_content_same_ddt.exit, label %156

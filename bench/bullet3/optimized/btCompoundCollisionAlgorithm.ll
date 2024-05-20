@@ -74,7 +74,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithmC2ERK36btCollisionAlgori
 invoke.cont5:
   %frombool = zext i1 %isSwapped to i8
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -450,7 +450,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN28btCompoundCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28btCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp11.i = icmp sgt i32 %0, 0
@@ -699,7 +699,7 @@ if.end14:                                         ; preds = %if.end
   %16 = load ptr, ptr %m_data.i, align 8
   %m_sharedManifold = getelementptr inbounds i8, ptr %this, i64 120
   %17 = load ptr, ptr %m_sharedManifold, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22btCompoundLeafCallback, i64 0, i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22btCompoundLeafCallback, i64 16), ptr %callback, align 8
   %m_compoundColObjWrap.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %cond, ptr %m_compoundColObjWrap.i, align 8
   %m_otherObjWrap.i = getelementptr inbounds i8, ptr %callback, i64 16

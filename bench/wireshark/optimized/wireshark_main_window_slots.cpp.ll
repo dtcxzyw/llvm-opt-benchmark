@@ -1534,9 +1534,9 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17CaptureFileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFileDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFileDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @_ZN19PacketRangeGroupBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #20
   %4 = getelementptr inbounds i8, ptr %0, i64 456
@@ -1923,7 +1923,7 @@ _ZN5QListIP7QActionED2Ev.exit:
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QByteArray, align 8
   %8 = alloca %class.QString, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 10), align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 60), align 4
   %switch.selectcmp = icmp eq i32 %9, 2
   %switch.select = select i1 %switch.selectcmp, i32 3, i32 0
   %switch.selectcmp34 = icmp eq i32 %9, 1
@@ -1945,7 +1945,7 @@ _ZN5QListIP7QActionED2Ev.exit:
   %22 = load ptr, ptr %10, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 2560
   %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   %26 = icmp ne i32 %25, 0
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 104
@@ -1954,7 +1954,7 @@ _ZN5QListIP7QActionED2Ev.exit:
   %30 = load ptr, ptr %10, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 2552
   %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
   %34 = icmp ne i32 %33, 0
   %35 = load ptr, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 104
@@ -2032,7 +2032,7 @@ _ZN17QArrayDataPointerIP8QToolBarE5derefEv.exit.i.i98: ; preds = %50
 
 _ZNK8QVariant5valueIP8QToolBarEET_v.exit:         ; preds = %60
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
-  %62 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %59)
           to label %63 unwind label %56
 
@@ -2248,7 +2248,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i67:    ; preds = %.body
   br i1 %.not, label %.thread, label %126
 
 126:                                              ; preds = %124
-  %127 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   invoke void @_ZN17AdditionalToolBar8menuNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %125)
           to label %128 unwind label %119
 
@@ -2470,13 +2470,13 @@ define void @_ZN19WiresharkMainWindow23updatePreferenceActionsEv(ptr nocapture n
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 1480
   %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %32 = icmp ne i32 %31, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %30, i1 noundef zeroext %32)
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 1488
   %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %37 = icmp ne i32 %36, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %35, i1 noundef zeroext %37)
   ret void
@@ -2511,25 +2511,25 @@ define void @_ZN19WiresharkMainWindow19updateRecentActionsEv(ptr noundef nonnull
   %19 = load ptr, ptr %13, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1224
   %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   %23 = icmp ne i32 %22, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %21, i1 noundef zeroext %23)
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 1496
   %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 2), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 8), align 8
   %28 = icmp ne i32 %27, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %26, i1 noundef zeroext %28)
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1504
   %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
   %33 = icmp ne i32 %32, 0
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext %33)
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1512
   %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %41, label %38
 
@@ -2544,7 +2544,7 @@ define void @_ZN19WiresharkMainWindow19updateRecentActionsEv(ptr noundef nonnull
   %43 = load ptr, ptr %13, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 1520
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
   %.not19 = icmp eq i32 %46, 0
   br i1 %.not19, label %50, label %47
 
@@ -2559,7 +2559,7 @@ define void @_ZN19WiresharkMainWindow19updateRecentActionsEv(ptr noundef nonnull
   %52 = load ptr, ptr %13, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 1528
   %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
   %.not20 = icmp eq i32 %55, 0
   br i1 %.not20, label %59, label %56
 
@@ -2574,7 +2574,7 @@ define void @_ZN19WiresharkMainWindow19updateRecentActionsEv(ptr noundef nonnull
   %61 = load ptr, ptr %13, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 1536
   %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
   %.not21 = icmp eq i32 %64, 0
   br i1 %.not21, label %_ZN5QListIP7QActionED2Ev.exit, label %65
 
@@ -2626,7 +2626,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i: ; preds = %._crit_edge
 83:                                               ; preds = %.lr.ph, %110
   %.sroa.7154.0166 = phi ptr [ %74, %.lr.ph ], [ %111, %110 ]
   %84 = load ptr, ptr %.sroa.7154.0166, align 8
-  %85 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %84)
           to label %86 unwind label %81
 
@@ -2859,7 +2859,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %148
   br i1 %.not22, label %158, label %150
 
 150:                                              ; preds = %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit
-  %151 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %152 = getelementptr inbounds i8, ptr %149, i64 24
   %153 = load ptr, ptr %152, align 8
   %154 = invoke ptr @g_list_find_custom(ptr noundef %151, ptr noundef %153, ptr noundef nonnull @strcmp)
@@ -3015,7 +3015,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i94: ; preds = %187
   %.sroa.7132.0172 = phi ptr [ %200, %199 ], [ %.pre, %_ZN5QListIP7QActionED2Ev.exit73 ]
   %191 = load ptr, ptr %.sroa.7132.0172, align 8
   store ptr %191, ptr %10, align 8
-  %192 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  %192 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   %193 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIP7QAction7ts_typeEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %194 unwind label %187
 
@@ -3079,7 +3079,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i106: ; preds = %204
   %.sroa.7.0176 = phi ptr [ %203, %202 ], [ %.pre184, %_ZN5QListIP7QActionED2Ev.exit100 ]
   %207 = load ptr, ptr %.sroa.7.0176, align 8
   store ptr %207, ptr %12, align 8
-  %208 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %208 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %209 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIP7QAction12ts_precisionEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %210 unwind label %.loopexit164
 
@@ -3110,19 +3110,19 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit112: ; preds = %.loo
   %217 = load ptr, ptr %13, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 1464
   %219 = load ptr, ptr %218, align 8
-  %220 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  %220 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   %221 = icmp eq i32 %220, 1
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %219, i1 noundef zeroext %221)
   %222 = load ptr, ptr %13, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 1248
   %224 = load ptr, ptr %223, align 8
-  %225 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  %225 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   %226 = icmp ne i32 %225, 0
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %224, i1 noundef zeroext %226)
   %227 = load ptr, ptr %13, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 1680
   %229 = load ptr, ptr %228, align 8
-  %230 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
+  %230 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
   %231 = icmp ne i32 %230, 0
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %229, i1 noundef zeroext %231)
   ret void
@@ -8318,7 +8318,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %48, %_ZN17QArrayDat
 
 74:                                               ; preds = %73
   %75 = load i64, ptr %30, align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 28), align 8
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
   %77 = zext i32 %76 to i64
   %78 = icmp eq i64 %75, %77
   %79 = load ptr, ptr %9, align 8
@@ -10846,7 +10846,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i: ; preds = %33
 
 44:                                               ; preds = %42
   %45 = load i32, ptr @global_dissect_options, align 8
-  store i32 %45, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  store i32 %45, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   invoke void @timestamp_set_type(i32 noundef %45)
           to label %.loopexit72 unwind label %.loopexit.split-lp74
 
@@ -10864,7 +10864,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i14: ; preds = %.loopexit72
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit16
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit16: ; preds = %.loopexit72.thread, %47, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i14, %.loopexit72, %1
-  %48 = load i32, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i64 0, i32 1), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
   %.not4 = icmp eq i32 %48, -2
   br i1 %.not4, label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit43, label %49
 
@@ -10985,7 +10985,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i37: ; preds = %73
   %.sroa.7.081 = phi ptr [ %72, %71 ], [ %.pre87, %_ZN5QListIP7QActionED2Ev.exit31 ]
   %76 = load ptr, ptr %.sroa.7.081, align 8
   store ptr %76, ptr %7, align 8
-  %77 = load i32, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i64 0, i32 1), align 4
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
   %78 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIP7QAction12ts_precisionEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %79 unwind label %.loopexit71
 
@@ -11000,8 +11000,8 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i37: ; preds = %73
           to label %84 unwind label %.loopexit.split-lp
 
 84:                                               ; preds = %82
-  %85 = load i32, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i64 0, i32 1), align 4
-  store i32 %85, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
+  store i32 %85, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   invoke void @timestamp_set_precision(i32 noundef %85)
           to label %.loopexit unwind label %.loopexit.split-lp
 
@@ -11019,7 +11019,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i41: ; preds = %.loopexit
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit43
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit43: ; preds = %.loopexit.thread, %87, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i41, %.loopexit, %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit16
-  %88 = load i32, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i64 0, i32 7), align 8
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 48), align 8
   %.not6 = icmp eq i32 %88, 0
   br i1 %.not6, label %90, label %89
 
@@ -17989,7 +17989,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 33:                                               ; preds = %29
   %34 = zext i1 %16 to i32
-  store i32 %34, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   %35 = getelementptr inbounds i8, ptr %19, i64 1224
   %36 = load ptr, ptr %35, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %36, i1 noundef zeroext %16)
@@ -18003,7 +18003,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 41:                                               ; preds = %37
   %42 = zext i1 %16 to i32
-  store i32 %42, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  store i32 %42, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
   %43 = getelementptr inbounds i8, ptr %19, i64 1504
   %44 = load ptr, ptr %43, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %44, i1 noundef zeroext %16)
@@ -18017,7 +18017,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 49:                                               ; preds = %45
   %50 = zext i1 %16 to i32
-  store i32 %50, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
   %51 = getelementptr inbounds i8, ptr %19, i64 1512
   %52 = load ptr, ptr %51, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %52, i1 noundef zeroext %16)
@@ -18031,7 +18031,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 57:                                               ; preds = %53
   %58 = zext i1 %16 to i32
-  store i32 %58, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
+  store i32 %58, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
   %59 = getelementptr inbounds i8, ptr %19, i64 1520
   %60 = load ptr, ptr %59, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %60, i1 noundef zeroext %16)
@@ -18045,7 +18045,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 65:                                               ; preds = %61
   %66 = zext i1 %16 to i32
-  store i32 %66, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
+  store i32 %66, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
   %67 = getelementptr inbounds i8, ptr %19, i64 1528
   %68 = load ptr, ptr %67, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %68, i1 noundef zeroext %16)
@@ -18059,7 +18059,7 @@ _ZNK8QVariant5valueIP7QWidgetEET_v.exit:          ; preds = %15
 
 73:                                               ; preds = %69
   %74 = zext i1 %16 to i32
-  store i32 %74, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
+  store i32 %74, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
   %75 = getelementptr inbounds i8, ptr %19, i64 1536
   %76 = load ptr, ptr %75, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %76, i1 noundef zeroext %16)
@@ -18124,7 +18124,7 @@ _ZNK8QVariant5valueIP8QToolBarEET_v.exit:         ; preds = %93
   br i1 %95, label %96, label %148
 
 96:                                               ; preds = %_ZNK8QVariant5valueIP8QToolBarEET_v.exit
-  %97 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %92)
           to label %98 unwind label %89
 
@@ -18175,7 +18175,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond, label %142, label %111
 
 111:                                              ; preds = %_ZN7QStringD2Ev.exit
-  %112 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %92)
           to label %113 unwind label %89
 
@@ -18188,7 +18188,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN10QByteArrayD2Ev
           to label %117 unwind label %136
 
 117:                                              ; preds = %115
-  store ptr %116, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  store ptr %116, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   %118 = load ptr, ptr %9, align 8
   %.not.i.i.i108 = icmp eq ptr %118, null
   br i1 %.not.i.i.i108, label %_ZN7QStringD2Ev.exit111, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109
@@ -18269,13 +18269,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i121:   ; preds = %136
   br i1 %or.cond4, label %143, label %_ZN7QStringD2Ev.exit111
 
 143:                                              ; preds = %142
-  %144 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   %145 = load ptr, ptr %100, align 8
   %146 = invoke ptr @g_list_remove(ptr noundef %144, ptr noundef %145)
           to label %147 unwind label %89
 
 147:                                              ; preds = %143
-  store ptr %146, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  store ptr %146, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   br label %_ZN7QStringD2Ev.exit111
 
 _ZN7QStringD2Ev.exit111:                          ; preds = %120, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109, %117, %142, %147
@@ -18307,7 +18307,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %_ZN9QtPri
   br i1 %.not88, label %_ZN5QListIP8QToolBarED2Ev.exit, label %152
 
 152:                                              ; preds = %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit
-  %153 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %154 = getelementptr inbounds i8, ptr %88, i64 24
   %155 = load ptr, ptr %154, align 8
   %156 = call ptr @g_list_find_custom(ptr noundef %153, ptr noundef %155, ptr noundef nonnull @strcmp)
@@ -18317,7 +18317,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %_ZN9QtPri
   br i1 %or.cond7, label %165, label %158
 
 158:                                              ; preds = %152
-  %159 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %160 = load ptr, ptr %154, align 8
   %161 = call noalias ptr @g_strdup(ptr noundef %160)
   %162 = call ptr @g_list_append(ptr noundef %159, ptr noundef %161)
@@ -18334,14 +18334,14 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %_ZN9QtPri
   br i1 %or.cond10, label %166, label %170
 
 166:                                              ; preds = %165
-  %167 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %168 = load ptr, ptr %156, align 8
   %169 = call ptr @g_list_remove(ptr noundef %167, ptr noundef %168)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %158, %166
   %.sink = phi ptr [ %169, %166 ], [ %162, %158 ]
-  store ptr %.sink, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   br label %170
 
 170:                                              ; preds = %.sink.split, %165
@@ -18610,13 +18610,13 @@ define void @_ZN19WiresharkMainWindow18setTimestampFormatEP7QAction(ptr nocaptur
 
 _ZNK8QVariant5valueI7ts_typeEET_v.exit:           ; preds = %4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
-  %6 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   %.not9 = icmp eq i32 %6, %5
   br i1 %.not9, label %14, label %7
 
 7:                                                ; preds = %_ZNK8QVariant5valueI7ts_typeEET_v.exit
   call void @timestamp_set_type(i32 noundef %5)
-  store i32 %5, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
@@ -18655,13 +18655,13 @@ define void @_ZN19WiresharkMainWindow21setTimestampPrecisionEP7QAction(ptr nocap
 
 _ZNK8QVariant5valueI12ts_precisionEET_v.exit:     ; preds = %4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
-  %6 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %.not9 = icmp eq i32 %6, %5
   br i1 %.not9, label %14, label %7
 
 7:                                                ; preds = %_ZNK8QVariant5valueI12ts_precisionEET_v.exit
   call void @timestamp_set_precision(i32 noundef %5)
-  store i32 %5, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
@@ -18686,7 +18686,7 @@ _ZNK8QVariant5valueI12ts_precisionEET_v.exit:     ; preds = %4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19WiresharkMainWindow40setTimeDisplaySecondsWithHoursAndMinutesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %. = zext i1 %1 to i32
-  store i32 %., ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  store i32 %., ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   tail call void @timestamp_set_seconds_type(i32 noundef %.)
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -18776,13 +18776,13 @@ define void @_ZN19WiresharkMainWindow17setNameResolutionEv(ptr nocapture noundef
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = zext i1 %11 to i32
-  store i32 %12, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 1488
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
   %17 = zext i1 %16 to i32
-  store i32 %17, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 224
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
@@ -18803,7 +18803,7 @@ declare void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19WiresharkMainWindow8zoomTextEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @mainApp, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   tail call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef %3)
   ret void
 }
@@ -19608,7 +19608,7 @@ _ZN5QListIiED2Ev.exit27:                          ; preds = %48, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
   %75 = load ptr, ptr @mainApp, align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %75, i32 noundef %76)
   call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %62)
   br label %_ZN5QListIiED2Ev.exit35
@@ -28815,7 +28815,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QToolBarE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QToolBarE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -29016,7 +29016,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendE
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIP8QToolBarEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QToolBarE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QToolBarE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QToolBarE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -34312,7 +34312,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val4.val = load i8, ptr %.val4, align 1
   %12 = and i8 %.val4.val, 1
   %..i.i.i.i = zext nneg i8 %12 to i32
-  store i32 %..i.i.i.i, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  store i32 %..i.i.i.i, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   tail call void @timestamp_set_seconds_type(i32 noundef %..i.i.i.i)
   %13 = getelementptr inbounds i8, ptr %.val, i64 224
   %14 = load ptr, ptr %13, align 8
@@ -34384,13 +34384,13 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = zext i1 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1488
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
   %26 = zext i1 %25 to i32
-  store i32 %26, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %27 = getelementptr inbounds i8, ptr %.val, i64 224
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -34439,13 +34439,13 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = zext i1 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1488
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
   %26 = zext i1 %25 to i32
-  store i32 %26, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %27 = getelementptr inbounds i8, ptr %.val, i64 224
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -34494,13 +34494,13 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = zext i1 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1488
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
   %26 = zext i1 %25 to i32
-  store i32 %26, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 2), align 4
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %27 = getelementptr inbounds i8, ptr %.val, i64 224
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -34535,9 +34535,9 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   br label %13
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %11 = add i32 %10, 1
-  store i32 %11, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %12 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %12, i32 noundef %11)
   br label %13
@@ -34562,9 +34562,9 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   br label %13
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %11 = add i32 %10, -1
-  store i32 %11, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %12 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %12, i32 noundef %11)
   br label %13
@@ -34589,7 +34589,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   br label %11
 
 9:                                                ; preds = %5
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %10 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %10, i32 noundef 0)
   br label %11
@@ -34686,7 +34686,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val4.val = load i8, ptr %.val4, align 1
   %13 = and i8 %.val4.val, 1
   %14 = zext nneg i8 %13 to i32
-  store i32 %14, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   tail call void @_ZN10PacketList14recolorPacketsEv(ptr noundef nonnull align 8 dereferenceable(464) %.val.val)
   br label %15
 
@@ -34808,13 +34808,13 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   tail call void @g_free(ptr noundef %11)
-  %12 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   tail call void @g_free(ptr noundef %12)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 152), i8 0, i64 16, i1 false)
   tail call void @_ZN10MainWindow23applyRecentPaneGeometryEv(ptr noundef nonnull align 8 dereferenceable(272) %.val)
   br label %13
 
@@ -35155,7 +35155,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -35348,7 +35348,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDat
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIP7QWidgetEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP7QWidgetE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -35465,7 +35465,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7ts_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7ts_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -35731,7 +35731,7 @@ _Z17qRegisterMetaTypeI7ts_typeEiPKc.exit:         ; preds = %25, %_ZN17QArrayDat
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI7ts_typeEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7ts_typeE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7ts_typeE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7ts_typeE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -35852,7 +35852,7 @@ _Zeq9QMetaTypeS_.exit.thread10:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI12ts_precisionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI12ts_precisionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -36110,7 +36110,7 @@ _Z17qRegisterMetaTypeI12ts_precisionEiPKc.exit:   ; preds = %25, %_ZN17QArrayDat
 define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI12ts_precisionEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QMetaType, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI12ts_precisionE8metaTypeE, ptr %2, align 8
-  %3 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI12ts_precisionE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI12ts_precisionE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i = icmp eq i32 %3, 0
   br i1 %.not5.i, label %_ZNK9QMetaType2idEi.exit, label %_ZNK9QMetaType4nameEv.exit
 
@@ -36789,7 +36789,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val.val = load i8, ptr %.val, align 1
   %11 = and i8 %.val.val, 1
   %12 = zext nneg i8 %11 to i32
-  store i32 %12, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
   br label %13
 
 13:                                               ; preds = %6, %8, %9, %5
@@ -40639,7 +40639,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 

@@ -74,7 +74,7 @@ $_ZTIN3net28CryptoFramerVisitorInterfaceE = comdat any
 define dso_local void @_ZN3net12CryptoFramerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12CryptoFramerE, i64 16), ptr %this, align 8
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %visitor_, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -223,7 +223,7 @@ declare void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12CryptoFramerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12CryptoFramerE, i64 16), ptr %this, align 8
   %tags_and_lengths_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %tags_and_lengths_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -246,7 +246,7 @@ _ZNSt6vectorISt4pairIjmESaIS1_EED2Ev.exit:        ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12CryptoFramerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12CryptoFramerE, i64 16), ptr %this, align 8
   %tags_and_lengths_.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %tags_and_lengths_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -275,7 +275,7 @@ define dso_local noundef ptr @_ZN3net12CryptoFramer12ParseMessageEN4base16BasicS
 entry:
   %visitor = alloca %"class.net::(anonymous namespace)::OneShotVisitor", align 8
   %framer = alloca %"class.net::CryptoFramer", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, i32 0, i64 2), ptr %visitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %visitor, align 8
   %out_.i = getelementptr inbounds i8, ptr %visitor, i64 8
   store ptr null, ptr %out_.i, align 8
   %error_.i = getelementptr inbounds i8, ptr %visitor, i64 16
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %lor.lhs.false6
 
 cleanup:                                          ; preds = %if.then10.i, %invoke.cont, %lor.lhs.false, %lor.lhs.false6, %if.end
   %retval.0 = phi ptr [ %5, %if.end ], [ null, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %invoke.cont ], [ null, %if.then10.i ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, i32 0, i64 2), ptr %framer, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12CryptoFramerE, i64 16), ptr %framer, align 8
   %tags_and_lengths_.i = getelementptr inbounds i8, ptr %framer, i64 176
   %6 = load ptr, ptr %tags_and_lengths_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -354,7 +354,7 @@ _ZN3net12CryptoFramerD2Ev.exit:                   ; preds = %cleanup, %if.then.i
   call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %message_.i) #13
   %buffer_.i6 = getelementptr inbounds i8, ptr %framer, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_.i6) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, i32 0, i64 2), ptr %visitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %visitor, align 8
   %7 = load ptr, ptr %out_.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev.exit, label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i.i
@@ -407,7 +407,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %this, align 8
   %out_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %out_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1138,7 +1138,7 @@ declare void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %this, align 8
   %out_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %out_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

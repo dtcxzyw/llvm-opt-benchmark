@@ -292,7 +292,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %13, ptr %second3.i, align 16
   %ref.tmp159.sroa.5.16.second3.i.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 24
   store ptr %14, ptr %ref.tmp159.sroa.5.16.second3.i.sroa_idx, align 8
-  %call.i74 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 1)) #19
+  %call.i74 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 32)) #19
   %15 = extractvalue { i64, ptr } %call.i74, 0
   %16 = extractvalue { i64, ptr } %call.i74, 1
   %incdec.ptr165 = getelementptr inbounds i8, ptr %versions_array, i64 64
@@ -303,7 +303,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %15, ptr %second3.i76, align 16
   %ref.tmp164.sroa.5.16.second3.i76.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 56
   store ptr %16, ptr %ref.tmp164.sroa.5.16.second3.i76.sroa_idx, align 8
-  %call.i80 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 2)) #19
+  %call.i80 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 64)) #19
   %17 = extractvalue { i64, ptr } %call.i80, 0
   %18 = extractvalue { i64, ptr } %call.i80, 1
   %incdec.ptr171 = getelementptr inbounds i8, ptr %versions_array, i64 96
@@ -314,7 +314,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %17, ptr %second3.i82, align 16
   %ref.tmp170.sroa.5.16.second3.i82.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 88
   store ptr %18, ptr %ref.tmp170.sroa.5.16.second3.i82.sroa_idx, align 8
-  %call.i86 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 3)) #19
+  %call.i86 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 96)) #19
   %19 = extractvalue { i64, ptr } %call.i86, 0
   %20 = extractvalue { i64, ptr } %call.i86, 1
   %incdec.ptr177 = getelementptr inbounds i8, ptr %versions_array, i64 128
@@ -325,7 +325,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %19, ptr %second3.i88, align 16
   %ref.tmp176.sroa.5.16.second3.i88.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 120
   store ptr %20, ptr %ref.tmp176.sroa.5.16.second3.i88.sroa_idx, align 8
-  %call.i92 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 4)) #19
+  %call.i92 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 128)) #19
   %21 = extractvalue { i64, ptr } %call.i92, 0
   %22 = extractvalue { i64, ptr } %call.i92, 1
   %incdec.ptr183 = getelementptr inbounds i8, ptr %versions_array, i64 160
@@ -336,7 +336,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %21, ptr %second3.i94, align 16
   %ref.tmp182.sroa.5.16.second3.i94.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 152
   store ptr %22, ptr %ref.tmp182.sroa.5.16.second3.i94.sroa_idx, align 8
-  %call.i98 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 5)) #19
+  %call.i98 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 160)) #19
   %23 = extractvalue { i64, ptr } %call.i98, 0
   %24 = extractvalue { i64, ptr } %call.i98, 1
   %incdec.ptr189 = getelementptr inbounds i8, ptr %versions_array, i64 192
@@ -347,7 +347,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %23, ptr %second3.i100, align 16
   %ref.tmp188.sroa.5.16.second3.i100.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 184
   store ptr %24, ptr %ref.tmp188.sroa.5.16.second3.i100.sroa_idx, align 8
-  %call.i104 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 6)) #19
+  %call.i104 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 192)) #19
   %25 = extractvalue { i64, ptr } %call.i104, 0
   %26 = extractvalue { i64, ptr } %call.i104, 1
   %incdec.ptr195 = getelementptr inbounds i8, ptr %versions_array, i64 224
@@ -358,7 +358,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %25, ptr %second3.i106, align 16
   %ref.tmp194.sroa.5.16.second3.i106.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 216
   store ptr %26, ptr %ref.tmp194.sroa.5.16.second3.i106.sroa_idx, align 8
-  %call.i110 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 7)) #19
+  %call.i110 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 224)) #19
   %27 = extractvalue { i64, ptr } %call.i110, 0
   %28 = extractvalue { i64, ptr } %call.i110, 1
   %incdec.ptr201 = getelementptr inbounds i8, ptr %versions_array, i64 256
@@ -369,7 +369,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %27, ptr %second3.i112, align 16
   %ref.tmp200.sroa.5.16.second3.i112.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 248
   store ptr %28, ptr %ref.tmp200.sroa.5.16.second3.i112.sroa_idx, align 8
-  %call.i116 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 8)) #19
+  %call.i116 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 256)) #19
   %29 = extractvalue { i64, ptr } %call.i116, 0
   %30 = extractvalue { i64, ptr } %call.i116, 1
   %incdec.ptr207 = getelementptr inbounds i8, ptr %versions_array, i64 288
@@ -380,7 +380,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %29, ptr %second3.i118, align 16
   %ref.tmp206.sroa.5.16.second3.i118.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 280
   store ptr %30, ptr %ref.tmp206.sroa.5.16.second3.i118.sroa_idx, align 8
-  %call.i122 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 9)) #19
+  %call.i122 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 288)) #19
   %31 = extractvalue { i64, ptr } %call.i122, 0
   %32 = extractvalue { i64, ptr } %call.i122, 1
   %incdec.ptr213 = getelementptr inbounds i8, ptr %versions_array, i64 320
@@ -391,7 +391,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %31, ptr %second3.i124, align 16
   %ref.tmp212.sroa.5.16.second3.i124.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 312
   store ptr %32, ptr %ref.tmp212.sroa.5.16.second3.i124.sroa_idx, align 8
-  %call.i128 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 10)) #19
+  %call.i128 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 320)) #19
   %33 = extractvalue { i64, ptr } %call.i128, 0
   %34 = extractvalue { i64, ptr } %call.i128, 1
   %incdec.ptr219 = getelementptr inbounds i8, ptr %versions_array, i64 352
@@ -402,7 +402,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %33, ptr %second3.i130, align 16
   %ref.tmp218.sroa.5.16.second3.i130.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 344
   store ptr %34, ptr %ref.tmp218.sroa.5.16.second3.i130.sroa_idx, align 8
-  %call.i134 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 11)) #19
+  %call.i134 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 352)) #19
   %35 = extractvalue { i64, ptr } %call.i134, 0
   %36 = extractvalue { i64, ptr } %call.i134, 1
   %incdec.ptr225 = getelementptr inbounds i8, ptr %versions_array, i64 384
@@ -413,7 +413,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %35, ptr %second3.i136, align 16
   %ref.tmp224.sroa.5.16.second3.i136.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 376
   store ptr %36, ptr %ref.tmp224.sroa.5.16.second3.i136.sroa_idx, align 8
-  %call.i140 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 12)) #19
+  %call.i140 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 384)) #19
   %37 = extractvalue { i64, ptr } %call.i140, 0
   %38 = extractvalue { i64, ptr } %call.i140, 1
   %incdec.ptr231 = getelementptr inbounds i8, ptr %versions_array, i64 416
@@ -424,7 +424,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %37, ptr %second3.i142, align 16
   %ref.tmp230.sroa.5.16.second3.i142.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 408
   store ptr %38, ptr %ref.tmp230.sroa.5.16.second3.i142.sroa_idx, align 8
-  %call.i146 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 13)) #19
+  %call.i146 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 416)) #19
   %39 = extractvalue { i64, ptr } %call.i146, 0
   %40 = extractvalue { i64, ptr } %call.i146, 1
   %incdec.ptr237 = getelementptr inbounds i8, ptr %versions_array, i64 448
@@ -435,7 +435,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %39, ptr %second3.i148, align 16
   %ref.tmp236.sroa.5.16.second3.i148.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 440
   store ptr %40, ptr %ref.tmp236.sroa.5.16.second3.i148.sroa_idx, align 8
-  %call.i152 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 14)) #19
+  %call.i152 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 448)) #19
   %41 = extractvalue { i64, ptr } %call.i152, 0
   %42 = extractvalue { i64, ptr } %call.i152, 1
   %incdec.ptr243 = getelementptr inbounds i8, ptr %versions_array, i64 480
@@ -446,7 +446,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %41, ptr %second3.i154, align 16
   %ref.tmp242.sroa.5.16.second3.i154.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 472
   store ptr %42, ptr %ref.tmp242.sroa.5.16.second3.i154.sroa_idx, align 8
-  %call.i158 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 15)) #19
+  %call.i158 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 480)) #19
   %43 = extractvalue { i64, ptr } %call.i158, 0
   %44 = extractvalue { i64, ptr } %call.i158, 1
   %incdec.ptr249.ptr = getelementptr inbounds i8, ptr %versions_array, i64 512
@@ -457,7 +457,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %43, ptr %second3.i160, align 16
   %ref.tmp248.sroa.5.16.second3.i160.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 504
   store ptr %44, ptr %ref.tmp248.sroa.5.16.second3.i160.sroa_idx, align 8
-  %call.i164 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 16)) #19
+  %call.i164 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 512)) #19
   %45 = extractvalue { i64, ptr } %call.i164, 0
   %46 = extractvalue { i64, ptr } %call.i164, 1
   %incdec.ptr255 = getelementptr inbounds i8, ptr %versions_array, i64 544
@@ -468,7 +468,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %45, ptr %second3.i166, align 16
   %ref.tmp254.sroa.5.16.second3.i166.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 536
   store ptr %46, ptr %ref.tmp254.sroa.5.16.second3.i166.sroa_idx, align 8
-  %call.i170 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 17)) #19
+  %call.i170 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 544)) #19
   %47 = extractvalue { i64, ptr } %call.i170, 0
   %48 = extractvalue { i64, ptr } %call.i170, 1
   %incdec.ptr261 = getelementptr inbounds i8, ptr %versions_array, i64 576
@@ -479,7 +479,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %47, ptr %second3.i172, align 16
   %ref.tmp260.sroa.5.16.second3.i172.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 568
   store ptr %48, ptr %ref.tmp260.sroa.5.16.second3.i172.sroa_idx, align 8
-  %call.i176 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 18)) #19
+  %call.i176 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 576)) #19
   %49 = extractvalue { i64, ptr } %call.i176, 0
   %50 = extractvalue { i64, ptr } %call.i176, 1
   %incdec.ptr267 = getelementptr inbounds i8, ptr %versions_array, i64 608
@@ -490,7 +490,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %49, ptr %second3.i178, align 16
   %ref.tmp266.sroa.5.16.second3.i178.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 600
   store ptr %50, ptr %ref.tmp266.sroa.5.16.second3.i178.sroa_idx, align 8
-  %call.i182 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 19)) #19
+  %call.i182 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 608)) #19
   %51 = extractvalue { i64, ptr } %call.i182, 0
   %52 = extractvalue { i64, ptr } %call.i182, 1
   %incdec.ptr273 = getelementptr inbounds i8, ptr %versions_array, i64 640
@@ -501,7 +501,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %51, ptr %second3.i184, align 16
   %ref.tmp272.sroa.5.16.second3.i184.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 632
   store ptr %52, ptr %ref.tmp272.sroa.5.16.second3.i184.sroa_idx, align 8
-  %call.i188 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 20)) #19
+  %call.i188 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 640)) #19
   %53 = extractvalue { i64, ptr } %call.i188, 0
   %54 = extractvalue { i64, ptr } %call.i188, 1
   %incdec.ptr279 = getelementptr inbounds i8, ptr %versions_array, i64 672
@@ -512,7 +512,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %53, ptr %second3.i190, align 16
   %ref.tmp278.sroa.5.16.second3.i190.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 664
   store ptr %54, ptr %ref.tmp278.sroa.5.16.second3.i190.sroa_idx, align 8
-  %call.i194 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 21)) #19
+  %call.i194 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 672)) #19
   %55 = extractvalue { i64, ptr } %call.i194, 0
   %56 = extractvalue { i64, ptr } %call.i194, 1
   %incdec.ptr285 = getelementptr inbounds i8, ptr %versions_array, i64 704
@@ -523,7 +523,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %55, ptr %second3.i196, align 16
   %ref.tmp284.sroa.5.16.second3.i196.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 696
   store ptr %56, ptr %ref.tmp284.sroa.5.16.second3.i196.sroa_idx, align 8
-  %call.i200 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 22)) #19
+  %call.i200 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 704)) #19
   %57 = extractvalue { i64, ptr } %call.i200, 0
   %58 = extractvalue { i64, ptr } %call.i200, 1
   %incdec.ptr291 = getelementptr inbounds i8, ptr %versions_array, i64 736
@@ -534,7 +534,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %57, ptr %second3.i202, align 16
   %ref.tmp290.sroa.5.16.second3.i202.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 728
   store ptr %58, ptr %ref.tmp290.sroa.5.16.second3.i202.sroa_idx, align 8
-  %call.i206 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 23)) #19
+  %call.i206 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 736)) #19
   %59 = extractvalue { i64, ptr } %call.i206, 0
   %60 = extractvalue { i64, ptr } %call.i206, 1
   %incdec.ptr297 = getelementptr inbounds i8, ptr %versions_array, i64 768
@@ -545,7 +545,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   store i64 %59, ptr %second3.i208, align 16
   %ref.tmp296.sroa.5.16.second3.i208.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 760
   store ptr %60, ptr %ref.tmp296.sroa.5.16.second3.i208.sroa_idx, align 8
-  %call.i212 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 0, i32 24)) #19
+  %call.i212 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 768)) #19
   %61 = extractvalue { i64, ptr } %call.i212, 0
   %62 = extractvalue { i64, ptr } %call.i212, 1
   store i64 7, ptr %incdec.ptr297, align 16
@@ -801,7 +801,7 @@ if.then.i.i.i229:                                 ; preds = %do.body381
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit230
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit230: ; preds = %do.body381, %if.then.i.i.i229
-  %call398 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 2)) #19
+  %call398 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 832)) #19
   %70 = extractvalue { i64, ptr } %call398, 0
   %call3.i232 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
   %cmp5.i233 = icmp ugt i64 %70, 536870887
@@ -842,7 +842,7 @@ if.then.i.i.i242:                                 ; preds = %do.body423
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit243
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit243: ; preds = %do.body423, %if.then.i.i.i242
-  %call440 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 3)) #19
+  %call440 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 864)) #19
   %72 = extractvalue { i64, ptr } %call440, 0
   %call3.i245 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
   %cmp5.i246 = icmp ugt i64 %72, 536870887
@@ -902,7 +902,7 @@ if.then.i.i.i259:                                 ; preds = %do.body499
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit260
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit260: ; preds = %do.body499, %if.then.i.i.i259
-  %call516 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i64 0, i32 1)) #19
+  %call516 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 800)) #19
   %74 = extractvalue { i64, ptr } %call516, 0
   %call3.i262 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
   %cmp5.i263 = icmp ugt i64 %74, 536870887

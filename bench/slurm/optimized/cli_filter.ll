@@ -56,7 +56,7 @@ define range(i32 -1, 1) i32 @cli_filter_init() local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   store i32 0, ptr @g_context_cnt, align 4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 27), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 216), align 8
   %.not12 = icmp eq ptr %11, null
   br i1 %.not12, label %52, label %12
 

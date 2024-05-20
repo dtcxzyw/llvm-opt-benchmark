@@ -42,7 +42,7 @@ define void @_ZN9grpc_core8internal23ServerRetryThrottleDataC2EmmPS1_(ptr nounde
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i64 16), ptr %this, align 8
   %max_milli_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %max_milli_tokens, ptr %max_milli_tokens_, align 8
   %milli_token_ratio_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -85,7 +85,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core8internal23ServerRetryThrottleDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i64 16), ptr %this, align 8
   %replacement_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %replacement_ acquire, align 8
   %cmp.not = icmp eq i64 %0, 0

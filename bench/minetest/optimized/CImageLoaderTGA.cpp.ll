@@ -860,8 +860,8 @@ entry:
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !44
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderTGAE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderTGAE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN3irr5video15CImageLoaderTGAE, i64 24), ptr %call, align 8, !tbaa !18
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video15CImageLoaderTGAE, i64 88), ptr %0, align 8, !tbaa !18
   ret ptr %call
 }
 

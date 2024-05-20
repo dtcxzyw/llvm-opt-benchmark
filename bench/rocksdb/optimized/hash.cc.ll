@@ -496,7 +496,7 @@ for.body.i.i.i:                                   ; preds = %if.end8.i, %for.bod
 
 _ZL22XXPH3_initCustomSecretPhm.exit.i.i:          ; preds = %for.body.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.i.sroa.0.i, ptr noundef nonnull align 32 dereferenceable(32) @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.i.sroa.11.i, ptr noundef nonnull align 32 dereferenceable(32) getelementptr inbounds ([8 x i64], ptr @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 0, i64 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.i.sroa.11.i, ptr noundef nonnull align 32 dereferenceable(32) getelementptr inbounds (i8, ptr @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 32), i64 32, i1 false)
   %div1.i101.i.i = lshr i64 %n, 10
   %cmp.i14111.not.i.i = icmp ult i64 %n, 1024
   br i1 %cmp.i14111.not.i.i, label %for.end.i.i.i, label %for.body.i18.lr.ph.i.i
@@ -1460,7 +1460,7 @@ entry:
   %acc.i.sroa.0 = alloca [4 x i64], align 32
   %acc.i.sroa.9 = alloca [4 x i64], align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.sroa.0, ptr noundef nonnull align 32 dereferenceable(32) @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.sroa.9, ptr noundef nonnull align 32 dereferenceable(32) getelementptr inbounds ([8 x i64], ptr @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 0, i64 4), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %acc.i.sroa.9, ptr noundef nonnull align 32 dereferenceable(32) getelementptr inbounds (i8, ptr @__const._ZL23XXPH3_hashLong_internalPKhmS0_m.acc, i64 32), i64 32, i1 false)
   %div1.i91 = lshr i64 %len, 10
   %cmp.i97.not = icmp ult i64 %len, 1024
   br i1 %cmp.i97.not, label %for.end.i, label %for.body.i
@@ -1513,7 +1513,7 @@ for.body.i45:                                     ; preds = %_ZL20XXPH3_accumula
   %i.i.096 = phi i64 [ 1, %for.body.i45 ], [ 0, %_ZL20XXPH3_accumulate_512PvPKvS1_16XXPH3_accWidth_e.exit115 ]
   %8 = load <4 x i64>, ptr %i.i.096.sroa.phi, align 32
   %9 = lshr <4 x i64> %8, <i64 47, i64 47, i64 47, i64 47>
-  %add.ptr.i46 = getelementptr inbounds <4 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL7kSecret, i64 0, i64 128), i64 %i.i.096
+  %add.ptr.i46 = getelementptr inbounds <4 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %i.i.096
   %10 = load <4 x i64>, ptr %add.ptr.i46, align 32
   %11 = xor <4 x i64> %10, %9
   %xor.i167 = xor <4 x i64> %11, %8
@@ -1592,7 +1592,7 @@ if.else.i143:                                     ; preds = %if.then.i, %if.else
   %i.i123.0102 = phi i64 [ 0, %if.then.i ], [ 1, %if.else.i143 ]
   %add.ptr.i135 = getelementptr inbounds <4 x i64>, ptr %add.ptr11.i, i64 %i.i123.0102
   %25 = load <4 x i64>, ptr %add.ptr.i135, align 1
-  %add.ptr1.i137 = getelementptr inbounds <4 x i64>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL7kSecret, i64 0, i64 121), i64 %i.i123.0102
+  %add.ptr1.i137 = getelementptr inbounds <4 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 121), i64 %i.i123.0102
   %26 = load <4 x i64>, ptr %add.ptr1.i137, align 1
   %xor.i = xor <4 x i64> %26, %25
   %27 = and <4 x i64> %xor.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>

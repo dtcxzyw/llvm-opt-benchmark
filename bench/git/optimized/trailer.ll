@@ -210,9 +210,9 @@ entry:
   br i1 %.b.i, label %ensure_configured.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 5), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 6), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 36), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 40), align 8
   call void @git_config(ptr noundef nonnull @git_trailer_default_config, ptr noundef null) #16
   call void @git_config(ptr noundef nonnull @git_trailer_config, ptr noundef null) #16
   store i1 true, ptr @configured, align 4
@@ -1412,9 +1412,9 @@ entry:
   br i1 %.b.i, label %ensure_configured.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 5), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 6), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 36), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 40), align 8
   tail call void @git_config(ptr noundef nonnull @git_trailer_default_config, ptr noundef null) #16
   tail call void @git_config(ptr noundef nonnull @git_trailer_config, ptr noundef null) #16
   store i1 true, ptr @configured, align 4
@@ -2832,7 +2832,7 @@ if.else11.i:                                      ; preds = %if.else7.i
 
 trailer_set_where.exit:                           ; preds = %if.then5, %if.else.i, %if.else3.i, %if.else7.i, %if.else11.i
   %.sink.i = phi i32 [ 0, %if.then5 ], [ 2, %if.else.i ], [ 3, %if.else3.i ], [ 1, %if.else7.i ], [ 4, %if.else11.i ]
-  store i32 %.sink.i, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 4), align 8
+  store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 32), align 8
   br label %return
 
 if.then7:                                         ; preds = %if.else11.i
@@ -2885,7 +2885,7 @@ if.else15.i:                                      ; preds = %if.else11.i26
 
 trailer_set_if_exists.exit:                       ; preds = %if.then12, %if.else.i17, %if.else3.i20, %if.else7.i23, %if.else11.i26, %if.else15.i
   %.sink.i31 = phi i32 [ 0, %if.then12 ], [ 2, %if.else.i17 ], [ 1, %if.else3.i20 ], [ 3, %if.else7.i23 ], [ 4, %if.else11.i26 ], [ 5, %if.else15.i ]
-  store i32 %.sink.i31, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 5), align 4
+  store i32 %.sink.i31, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 36), align 4
   br label %return
 
 if.then15:                                        ; preds = %if.else15.i
@@ -2923,7 +2923,7 @@ if.else3.i41:                                     ; preds = %if.else.i38
 
 trailer_set_if_missing.exit:                      ; preds = %if.then21, %if.else.i38, %if.else3.i41
   %.sink.i46 = phi i32 [ 0, %if.then21 ], [ 2, %if.else.i38 ], [ 1, %if.else3.i41 ]
-  store i32 %.sink.i46, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 6), align 8
+  store i32 %.sink.i46, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 40), align 8
   br label %return
 
 if.then24:                                        ; preds = %if.else3.i41
@@ -3045,7 +3045,7 @@ cond.true.i.i.i:                                  ; preds = %for.end.i
 xstrdup_or_null.exit.i.i:                         ; preds = %cond.true.i.i.i, %for.end.i
   %cond.i.i.i = phi ptr [ %call.i.i.i, %cond.true.i.i.i ], [ null, %for.end.i ]
   store ptr %cond.i.i.i, ptr %conf3.i, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 8), align 8
   %tobool.not.i9.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i9.i.i, label %xstrdup_or_null.exit13.i.i, label %cond.true.i10.i.i
 
@@ -3057,7 +3057,7 @@ xstrdup_or_null.exit13.i.i:                       ; preds = %cond.true.i10.i.i, 
   %cond.i12.i.i = phi ptr [ %call.i11.i.i, %cond.true.i10.i.i ], [ null, %xstrdup_or_null.exit.i.i ]
   %key3.i.i = getelementptr inbounds i8, ptr %call2.i, i64 40
   store ptr %cond.i12.i.i, ptr %key3.i.i, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 16), align 8
   %tobool.not.i14.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i14.i.i, label %xstrdup_or_null.exit18.i.i, label %cond.true.i15.i.i
 
@@ -3069,7 +3069,7 @@ xstrdup_or_null.exit18.i.i:                       ; preds = %cond.true.i15.i.i, 
   %cond.i17.i.i = phi ptr [ %call.i16.i.i, %cond.true.i15.i.i ], [ null, %xstrdup_or_null.exit13.i.i ]
   %command5.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store ptr %cond.i17.i.i, ptr %command5.i.i, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i64 0, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @default_conf_info, i64 24), align 8
   %tobool.not.i19.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i19.i.i, label %duplicate_conf.exit.i, label %cond.true.i20.i.i
 
@@ -3083,13 +3083,13 @@ duplicate_conf.exit.i:                            ; preds = %cond.true.i20.i.i, 
   store ptr %cond.i22.i.i, ptr %cmd7.i.i, align 8
   %call4.i = tail call ptr @xstrdup(ptr noundef nonnull %call10) #16
   store ptr %call4.i, ptr %conf3.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @conf_head, i64 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @conf_head, i64 8), align 8
   store ptr %call2.i, ptr %10, align 8
   store ptr @conf_head, ptr %call2.i, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @conf_head, i64 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @conf_head, i64 8), align 8
   %prev3.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %11, ptr %prev3.i.i, align 8
-  store ptr %call2.i, ptr getelementptr inbounds (%struct.list_head, ptr @conf_head, i64 0, i32 1), align 8
+  store ptr %call2.i, ptr getelementptr inbounds (i8, ptr @conf_head, i64 8), align 8
   br label %get_conf_item.exit
 
 get_conf_item.exit:                               ; preds = %for.body.i, %duplicate_conf.exit.i

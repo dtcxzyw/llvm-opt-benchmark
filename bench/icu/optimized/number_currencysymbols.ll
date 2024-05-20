@@ -530,11 +530,11 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont7:                                     ; preds = %.noexc
   %fCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fCurrencySymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCurrencySymbol, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 112
   store i16 2, ptr %fUnion2.i, align 8
   %fIntlCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 168
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fIntlCurrencySymbol, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fIntlCurrencySymbol, align 8
   %fUnion2.i4 = getelementptr inbounds i8, ptr %this, i64 176
   store i16 2, ptr %fUnion2.i4, align 8
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol)

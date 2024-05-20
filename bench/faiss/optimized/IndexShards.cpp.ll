@@ -3184,7 +3184,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Ebb(ptr nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %5, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %4, ptr %15, align 1
   ret void
@@ -3194,7 +3194,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3425,7 +3425,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Elbb(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %7, ptr %16, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %17, align 1
   ret void
@@ -3453,7 +3453,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Eibb(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %6, ptr %15, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %16, align 1
   ret void
@@ -3698,7 +3698,7 @@ declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
@@ -6097,7 +6097,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Ebb(ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %5, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %4, ptr %9, align 1
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
@@ -6175,7 +6175,7 @@ declare void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6348,7 +6348,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Elbb(pt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %6, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %11, align 1
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
@@ -6376,7 +6376,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Eibb(pt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %6, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %11, align 1
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)

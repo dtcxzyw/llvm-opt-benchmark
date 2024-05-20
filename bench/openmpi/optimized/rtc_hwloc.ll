@@ -70,7 +70,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rtc_base_framework, i64 0, i32 11), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %11, 64
   br i1 %or.cond, label %12, label %25
 
@@ -103,7 +103,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %or.cond3, label %28, label %47
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rtc_base_framework, i64 0, i32 11), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %29, 64
   br i1 %or.cond5, label %30, label %197
 
@@ -162,7 +162,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %55
-  %62 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %63 = getelementptr inbounds i8, ptr %10, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %62, ptr noundef %64, ptr noundef nonnull @.str.5, i32 noundef 118) #6
@@ -217,7 +217,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %89 = phi i16 [ %75, %81 ], [ %.pre98, %82 ], [ %75, %80 ]
   %90 = and i16 %89, 4096
   %.not92 = icmp eq i16 %90, 0
-  %91 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %92 = getelementptr inbounds i8, ptr %10, i64 136
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %3, align 8
@@ -288,7 +288,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %129 = load i16, ptr %128, align 4
   %130 = and i16 %129, 20480
   %or.cond93.not = icmp eq i16 %130, 16384
-  %131 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %132 = getelementptr inbounds i8, ptr %10, i64 136
   %133 = load ptr, ptr %132, align 8
   br i1 %or.cond93.not, label %134, label %135
@@ -347,7 +347,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %157 = phi i16 [ %145, %151 ], [ %.pre94, %152 ], [ %145, %150 ]
   %158 = and i16 %157, 4096
   %.not87 = icmp eq i16 %158, 0
-  %159 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %160 = getelementptr inbounds i8, ptr %10, i64 136
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %3, align 8
@@ -414,7 +414,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %188 = phi ptr [ @.str.15, %185 ], [ @.str.16, %186 ], [ @.str.14, %184 ]
   %189 = load i32, ptr @prte_hwloc_base_mbfa, align 4
   %190 = icmp eq i32 %189, 2
-  %191 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %192 = getelementptr inbounds i8, ptr %10, i64 136
   %193 = load ptr, ptr %192, align 8
   br i1 %190, label %194, label %195

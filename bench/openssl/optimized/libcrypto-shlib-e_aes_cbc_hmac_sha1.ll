@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @EVP_aes_128_cbc_hmac_sha1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr null, ptr @aesni_128_cbc_hmac_sha1_cipher
@@ -29,7 +29,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @EVP_aes_256_cbc_hmac_sha1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr null, ptr @aesni_256_cbc_hmac_sha1_cipher
@@ -1266,7 +1266,7 @@ if.end124:                                        ; preds = %if.then120
   br i1 %cmp125, label %land.lhs.true, label %if.end141
 
 land.lhs.true:                                    ; preds = %if.end124
-  %28 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and127 = and i32 %28, 32
   %tobool128.not = icmp eq i32 %and127, 0
   %spec.select = select i1 %tobool128.not, i32 1, i32 2

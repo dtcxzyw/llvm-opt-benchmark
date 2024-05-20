@@ -604,9 +604,9 @@ list_objects_filter_spec.exit.i:                  ; preds = %if.end.i
   %len.i12.i = getelementptr inbounds i8, ptr %filter_options, i64 8
   %5 = load i64, ptr %len.i12.i, align 8
   tail call void @strbuf_addstr_urlencode(ptr noundef nonnull %filter_options, ptr noundef %4, ptr noundef nonnull @allow_unencoded) #14
-  %6 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i.i = icmp eq i32 %6, 0
-  %bf.load.i.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 1
   %tobool.not3.i.i = icmp ne i8 %bf.clear.i.i.i, 0
   %tobool.not.i13.i = select i1 %tobool.not.i.i.i, i1 %tobool.not3.i.i, i1 false
@@ -656,9 +656,9 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %15 = load i64, ptr %len.i, align 8
   tail call void @strbuf_addstr_urlencode(ptr noundef nonnull %filter_options, ptr noundef %arg, ptr noundef nonnull @allow_unencoded) #14
-  %16 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 1), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i37 = icmp eq i32 %16, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_default_key, i64 0, i32 2), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not3.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i38 = select i1 %tobool.not.i.i37, i1 %tobool.not3.i, i1 false

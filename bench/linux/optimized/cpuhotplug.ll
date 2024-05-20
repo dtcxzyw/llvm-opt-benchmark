@@ -58,7 +58,7 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %11, i64 32
-  %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #5, !srcloc !5
+  %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #5, !srcloc !5
   %26 = load i64, ptr %24, align 8
   %27 = icmp eq i64 %26, 0
   %28 = getelementptr inbounds i8, ptr %11, i64 24

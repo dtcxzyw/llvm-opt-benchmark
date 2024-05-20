@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @cli_XzInit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr getelementptr inbounds ([0 x i64], ptr @g_Crc64Table, i64 0, i64 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @g_Crc64Table, i64 8), align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %7
 

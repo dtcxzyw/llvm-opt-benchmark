@@ -1634,7 +1634,7 @@ mbedtls_des_setkey_dec.exit.thread140:            ; preds = %22
 37:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5)
   call void @mbedtls_des_setkey(ptr noundef nonnull %5, ptr noundef nonnull readonly @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @des3_test_keys, i64 8))
   br label %38
 
 38:                                               ; preds = %38, %37
@@ -1678,7 +1678,7 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
 61:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4)
   call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @des3_test_keys, i64 8))
   br label %62
 
 62:                                               ; preds = %62, %61
@@ -1862,7 +1862,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 133:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3)
   call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef nonnull readonly @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @des3_test_keys, i64 8))
   br label %134
 
 134:                                              ; preds = %134, %133
@@ -1906,7 +1906,7 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %134
 157:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2)
   call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %106, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %106, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @des3_test_keys, i64 8))
   br label %158
 
 158:                                              ; preds = %158, %157

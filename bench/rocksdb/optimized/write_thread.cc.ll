@@ -85,7 +85,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %max_yield_usec_ = getelementptr inbounds i8, ptr %this, i64 8
   %enable_write_thread_adaptive_yield = getelementptr inbounds i8, ptr %db_options, i64 348
   %0 = load i8, ptr %enable_write_thread_adaptive_yield, align 4
@@ -3072,7 +3072,7 @@ if.end:                                           ; preds = %entry, %_ZNSt10lock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11WriteThreadD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_ = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #17
   %stall_mu_ = getelementptr inbounds i8, ptr %this, i64 320
@@ -3116,7 +3116,7 @@ _ZN7rocksdb11WriteThread6WriterD2Ev.exit:         ; preds = %_ZN7rocksdb6StatusD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11WriteThreadD0Ev(ptr noundef nonnull align 16 dereferenceable(432) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i64 0, i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_.i = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_.i) #17
   %stall_mu_.i = getelementptr inbounds i8, ptr %this, i64 320
@@ -3219,15 +3219,15 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL18empty_operand_listE, i8 0, i64 24, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #17
   store ptr @.str.2, ptr @_ZN7rocksdbL7jbg_ctxE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.rocksdb::WriteThread::AdaptationContext", ptr @_ZN7rocksdbL7jbg_ctxE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL7jbg_ctxE, i64 8), align 8
   store ptr @.str.4, ptr @_ZN7rocksdbL9cpmtw_ctxE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.rocksdb::WriteThread::AdaptationContext", ptr @_ZN7rocksdbL9cpmtw_ctxE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL9cpmtw_ctxE, i64 8), align 8
   store ptr @.str.6, ptr @_ZN7rocksdbL9eabgl_ctxE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.rocksdb::WriteThread::AdaptationContext", ptr @_ZN7rocksdbL9eabgl_ctxE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL9eabgl_ctxE, i64 8), align 8
   store ptr @.str.8, ptr @_ZN7rocksdbL6eu_ctxE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.rocksdb::WriteThread::AdaptationContext", ptr @_ZN7rocksdbL6eu_ctxE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL6eu_ctxE, i64 8), align 8
   store ptr @.str.10, ptr @_ZN7rocksdbL8wfmw_ctxE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.rocksdb::WriteThread::AdaptationContext", ptr @_ZN7rocksdbL8wfmw_ctxE, i64 0, i32 1, i32 0, i32 0), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL8wfmw_ctxE, i64 8), align 8
   ret void
 }
 

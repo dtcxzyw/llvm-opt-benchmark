@@ -43,10 +43,10 @@ define weak dso_local ptr @clocksource_default_clock() local_unnamed_addr #0 sec
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @register_refined_jiffies(i64 noundef %0) local_unnamed_addr #1 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) @refined_jiffies, ptr noundef nonnull align 8 dereferenceable(184) @clocksource_jiffies, i64 184, i1 false)
-  store ptr @.str, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 8), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 10), align 8
+  store ptr @.str, ptr getelementptr inbounds (i8, ptr @refined_jiffies, i64 48), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @refined_jiffies, i64 72), align 8
   %3 = add i32 %2, 1
-  store i32 %3, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 10), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @refined_jiffies, i64 72), align 8
   %4 = add i64 %0, 500
   %5 = sdiv i64 %4, 1000
   %6 = shl i64 %0, 8
@@ -61,7 +61,7 @@ define dso_local noundef i32 @register_refined_jiffies(i64 noundef %0) local_unn
   %15 = udiv i64 %13, %14
   %16 = trunc i64 %15 to i32
   %17 = shl i32 %16, 8
-  store i32 %17, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 2), align 8
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @refined_jiffies, i64 16), align 8
   %18 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @refined_jiffies, i32 noundef 1, i32 noundef 0) #5
   ret i32 0
 }

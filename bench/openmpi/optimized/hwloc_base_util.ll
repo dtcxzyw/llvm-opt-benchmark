@@ -82,12 +82,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %26 = alloca %struct.pmix_info, align 8
   %27 = alloca i64, align 8
   store ptr null, ptr %1, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %28) #9
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %0
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str) #9
   br label %32
 
@@ -100,12 +100,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %35 = tail call ptr @opal_proc_local_get() #9
   %36 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %39 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %38) #9
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %34
-  %41 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %41, ptr noundef nonnull @.str.1) #9
   br label %42
 
@@ -243,7 +243,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %96 = load i64, ptr %4, align 8
   %97 = call i32 @hwloc_shmem_topology_adopt(ptr noundef nonnull @opal_hwloc_topology, i32 noundef %88, i64 noundef 0, ptr noundef %95, i64 noundef %96, i64 noundef 0) #9
   %.not68 = icmp eq i32 %97, 0
-  %98 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   br i1 %.not68, label %111, label %99
 
 99:                                               ; preds = %93
@@ -286,7 +286,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %111
-  %114 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %114, ptr noundef nonnull @.str.12) #9
   br label %115
 
@@ -295,12 +295,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br label %200
 
 .thread113:                                       ; preds = %.thread95, %82, %99, %._crit_edge, %102
-  %116 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %117 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %116) #9
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.thread113
-  %119 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %119, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef 260) #9
   br label %120
 
@@ -386,12 +386,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %or.cond5, label %152, label %.thread139
 
 152:                                              ; preds = %148
-  %153 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %153 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %154 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %153) #9
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %156 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %156, ptr noundef nonnull @.str.17) #9
   br label %157
 
@@ -453,12 +453,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br label %200
 
 .thread139:                                       ; preds = %.thread127, %168, %175, %179, %148
-  %184 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %184 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %185 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %184) #9
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %.thread139
-  %187 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i64 0, i32 11), align 4
+  %187 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %187, ptr noundef nonnull @.str.18) #9
   br label %188
 
@@ -687,10 +687,10 @@ define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #11
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 4), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 
@@ -706,7 +706,7 @@ define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed
   store ptr @opal_hwloc_topo_data_t_class, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 6), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -783,10 +783,10 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %9, %hwloc_get_nbobj
   br i1 %21, label %.thread, label %40
 
 .thread:                                          ; preds = %13, %18
-  %22 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 8), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #11
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 4), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %24, %25
   br i1 %.not.i, label %27, label %26
 
@@ -802,7 +802,7 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %9, %hwloc_get_nbobj
   store ptr @opal_hwloc_topo_data_t_class, ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %23, i64 8
   store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_topo_data_t_class, i64 0, i32 6), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -867,10 +867,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
 .loopexit:                                        ; preds = %57, %40, %opal_obj_new.exit, %38
   %.1 = phi ptr [ %23, %38 ], [ %23, %opal_obj_new.exit ], [ %20, %40 ], [ %20, %57 ]
   %59 = call fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
-  %60 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_summary_t_class, i64 0, i32 8), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 56), align 8
   %61 = call noalias ptr @malloc(i64 noundef %60) #11
   %62 = load i32, ptr @opal_class_init_epoch, align 4
-  %63 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_summary_t_class, i64 0, i32 4), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 32), align 8
   %.not.i40 = icmp eq i32 %62, %63
   br i1 %.not.i40, label %65, label %64
 
@@ -886,7 +886,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
   store ptr @opal_hwloc_summary_t_class, ptr %61, align 8
   %67 = getelementptr inbounds i8, ptr %61, i64 8
   store volatile i32 1, ptr %67, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hwloc_summary_t_class, i64 0, i32 6), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i42 = icmp eq ptr %69, null
   br i1 %.not6.i.i42, label %opal_obj_new.exit46, label %.lr.ph.i.i43

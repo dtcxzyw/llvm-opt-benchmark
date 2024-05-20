@@ -222,7 +222,7 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EED2Ev.exit:     ; preds = %1, %3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef readnone %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   %5 = load ptr, ptr @_ZL12return_facts, align 8
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -259,7 +259,7 @@ define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvo
 
 ._crit_edge15:                                    ; preds = %18
   %.pre = load ptr, ptr @_ZL11invocations, align 8
-  %.pre16 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   %.pre17 = load ptr, ptr @_ZL12return_facts, align 8
   br label %24
 
@@ -282,7 +282,7 @@ define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvo
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z30add_return_fact_for_invocationPK22FunctionInvocationUserPK4Fact(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   %4 = load ptr, ptr @_ZL11invocations, align 8
   %.not = icmp eq ptr %3, %4
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -307,7 +307,7 @@ define dso_local void @_Z30add_return_fact_for_invocationPK22FunctionInvocationU
   br i1 %17, label %18, label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %10
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   %.pre33 = load ptr, ptr @_ZL11invocations, align 8
   br label %21
 
@@ -329,7 +329,7 @@ define dso_local void @_Z30add_return_fact_for_invocationPK22FunctionInvocationU
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %21
-  %30 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 16), align 8
   %.not.i = icmp eq ptr %23, %30
   br i1 %.not.i, label %39, label %36
 
@@ -338,16 +338,16 @@ define dso_local void @_Z30add_return_fact_for_invocationPK22FunctionInvocationU
   %32 = ptrtoint ptr %4 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
-  %35 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 16), align 8
   %.not.i38 = icmp eq ptr %3, %35
   br i1 %.not.i38, label %_ZNKSt6vectorIPK22FunctionInvocationUserSaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %36
 
 36:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.lcssa2039 = phi ptr [ %3, %._crit_edge.thread ], [ %23, %._crit_edge ]
   store ptr %0, ptr %.lcssa2039, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %38, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE9push_backERKS2_.exit
 
 39:                                               ; preds = %._crit_edge
@@ -398,22 +398,22 @@ _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %49, ptr @_ZL11invocations, align 8
-  store ptr %54, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %54, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   %56 = getelementptr inbounds ptr, ptr %49, i64 %45
-  store ptr %56, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 16), align 8
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE9push_backERKS2_.exit: ; preds = %36, %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %57 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %58 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 16), align 8
   %.not.i5 = icmp eq ptr %57, %58
   br i1 %.not.i5, label %62, label %59
 
 59:                                               ; preds = %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE9push_backERKS2_.exit
   store ptr %1, ptr %57, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %61, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %61, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
 62:                                               ; preds = %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE9push_backERKS2_.exit
@@ -466,9 +466,9 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %
 
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %83, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %77, ptr @_ZL12return_facts, align 8
-  store ptr %82, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   %84 = getelementptr inbounds ptr, ptr %77, i64 %73
-  store ptr %84, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %84, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 16), align 8
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %59, %18
@@ -734,7 +734,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN22FunctionInvocationUserC2EP8FunctionbPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %2 to i8
   tail call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -747,7 +747,7 @@ declare void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr nou
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22FunctionInvocationUserC2ERKS_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #4 align 2 {
   tail call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -788,7 +788,7 @@ define dso_local noundef nonnull ptr @_ZNK22FunctionInvocationUser5cloneEv(ptr n
           to label %3 unwind label %11
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -1009,7 +1009,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
           to label %85 unwind label %223
 
 85:                                               ; preds = %84
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %83, align 8
   %86 = getelementptr inbounds i8, ptr %83, i64 56
   store ptr %17, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %83, i64 64
@@ -2790,22 +2790,22 @@ declare noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN22FunctionInvocationUser14doFinalizationEv() local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZL11invocations, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   %.not.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i, label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE5clearEv.exit, label %3
 
 3:                                                ; preds = %0
-  store ptr %1, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZL11invocations, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZL11invocations, i64 8), align 8
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE5clearEv.exit: ; preds = %0, %3
   %4 = load ptr, ptr @_ZL12return_facts, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   %.not.i.i1 = icmp eq ptr %5, %4
   br i1 %.not.i.i1, label %_ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit, label %6
 
 6:                                                ; preds = %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE5clearEv.exit
-  store ptr %4, ptr getelementptr inbounds (%"class.std::vector.4", ptr @_ZL12return_facts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZL12return_facts, i64 8), align 8
   br label %_ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit:        ; preds = %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EE5clearEv.exit, %6
@@ -2847,22 +2847,22 @@ define dso_local void @_ZNK22FunctionInvocationUser6OutputERSo(ptr nocapture nou
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sink5)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.7)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 32), align 8
   %.not.i.i = icmp eq ptr %18, %19
-  %.sroa.2.0.copyload.i5.i.i = load i32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.sroa.2.0.copyload.i5.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   br i1 %.not.i.i, label %30, label %20
 
 20:                                               ; preds = %14
   %21 = add i32 %.sroa.2.0.copyload.i5.i.i, 1
-  store i32 %21, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %22 = icmp eq i32 %.sroa.2.0.copyload.i5.i.i, 63
   br i1 %22, label %23, label %_ZNSt13_Bit_iteratorppEi.exit.i.i
 
 23:                                               ; preds = %20
-  store i32 0, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %24 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %24, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
+  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i.i
 
 _ZNSt13_Bit_iteratorppEi.exit.i.i:                ; preds = %23, %20
@@ -2888,8 +2888,8 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit.i:          ; preds = %30, %_ZNSt13_Bit_it
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i, %_ZL27OutputActualParamExpressionPK10ExpressionPSo.exit.i
   %.sroa.02.06.i.i = phi ptr [ %54, %_ZL27OutputActualParamExpressionPK10ExpressionPSo.exit.i ], [ %31, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i ]
   %34 = load ptr, ptr %.sroa.02.06.i.i, align 8
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
+  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %35 = zext i32 %.sroa.2.0.copyload.i.i.i.i to i64
   %36 = add nsw i64 %35, -1
   %37 = sdiv i64 %36, 64
@@ -2907,8 +2907,8 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit.i:          ; preds = %30, %_ZNSt13_Bit_it
 
 45:                                               ; preds = %.lr.ph.i.i
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11)
-  %.sroa.0.0.copyload.i.i4.pre.i.i = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  %.sroa.2.0.copyload.i.i5.pre.i.i = load i32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.sroa.0.0.copyload.i.i4.pre.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
+  %.sroa.2.0.copyload.i.i5.pre.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %.pre.i.i = zext i32 %.sroa.2.0.copyload.i.i5.pre.i.i to i64
   %.pre14.i.i = add nsw i64 %.pre.i.i, -1
   %.pre16.i.i = sdiv i64 %.pre14.i.i, 64
@@ -2938,17 +2938,17 @@ _ZL27OutputActualParamExpressionPK10ExpressionPSo.exit.i: ; preds = %45, %.lr.ph
   br i1 %.not.i6.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS4_SaIS4_EEEESt9binder2ndISt26pointer_to_binary_functionIS4_PSoiEEET0_T_SH_SG_.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS4_SaIS4_EEEESt9binder2ndISt26pointer_to_binary_functionIS4_PSoiEEET0_T_SH_SG_.exit.i: ; preds = %_ZL27OutputActualParamExpressionPK10ExpressionPSo.exit.i, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i
-  %55 = load i32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %56 = add i32 %55, -1
-  store i32 %56, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  store i32 %56, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
   %57 = icmp eq i32 %55, 0
   br i1 %57, label %58, label %_ZL22OutputExpressionVectorRKSt6vectorIPK10ExpressionSaIS2_EERSo.exit
 
 58:                                               ; preds = %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS4_SaIS4_EEEESt9binder2ndISt26pointer_to_binary_functionIS4_PSoiEEET0_T_SH_SG_.exit.i
-  store i32 63, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  %59 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
+  store i32 63, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  store ptr %60, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
   br label %_ZL22OutputExpressionVectorRKSt6vectorIPK10ExpressionSaIS2_EERSo.exit
 
 _ZL22OutputExpressionVectorRKSt6vectorIPK10ExpressionSaIS2_EERSo.exit: ; preds = %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS4_SaIS4_EEEESt9binder2ndISt26pointer_to_binary_functionIS4_PSoiEEET0_T_SH_SG_.exit.i, %58
@@ -5320,10 +5320,10 @@ define internal void @_GLOBAL__sub_I_FunctionInvocationUser.cpp() #14 section ".
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   store ptr null, ptr @_ZL9needcomma, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL9needcomma, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL9needcomma, i64 32), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIbSaIbEED2Ev, ptr nonnull @_ZL9needcomma, ptr nonnull @__dso_handle) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZL11invocations, i8 0, i64 24, i1 false)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev, ptr nonnull @_ZL11invocations, ptr nonnull @__dso_handle) #20

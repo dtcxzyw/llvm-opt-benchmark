@@ -457,7 +457,7 @@ call.i.noexc:                                     ; preds = %for.body
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7))
           to label %invoke.cont10 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -487,7 +487,7 @@ call.i.noexc53:                                   ; preds = %lor.lhs.false
           to label %.noexc55 unwind label %lpad21
 
 .noexc55:                                         ; preds = %call.i.noexc53
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.2, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 10))
           to label %invoke.cont22 unwind label %lpad.i52
 
 lpad.i52:                                         ; preds = %.noexc55
@@ -517,7 +517,7 @@ call.i.noexc64:                                   ; preds = %lor.lhs.false30
           to label %.noexc66 unwind label %lpad37
 
 .noexc66:                                         ; preds = %call.i.noexc64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.3, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 7))
           to label %invoke.cont38 unwind label %lpad.i63
 
 lpad.i63:                                         ; preds = %.noexc66
@@ -547,7 +547,7 @@ call.i.noexc75:                                   ; preds = %lor.rhs
           to label %.noexc77 unwind label %lpad52
 
 .noexc77:                                         ; preds = %call.i.noexc75
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.4, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 5))
           to label %invoke.cont53 unwind label %lpad.i74
 
 lpad.i74:                                         ; preds = %.noexc77
@@ -884,7 +884,7 @@ call.i.noexc143:                                  ; preds = %if.then149
           to label %.noexc145 unwind label %lpad152
 
 .noexc145:                                        ; preds = %call.i.noexc143
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds ([31 x i8], ptr @.str.6, i64 0, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 30))
           to label %invoke.cont153 unwind label %lpad.i142
 
 lpad.i142:                                        ; preds = %.noexc145
@@ -988,7 +988,7 @@ call.i.noexc157:                                  ; preds = %invoke.cont167
           to label %.noexc159 unwind label %lpad172
 
 .noexc159:                                        ; preds = %call.i.noexc157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.7, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 5))
           to label %invoke.cont173 unwind label %lpad.i156
 
 lpad.i156:                                        ; preds = %.noexc159
@@ -1084,7 +1084,7 @@ call.i.noexc173:                                  ; preds = %for.body.i.i.i.i.pr
           to label %.noexc175 unwind label %lpad204
 
 .noexc175:                                        ; preds = %call.i.noexc173
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp202, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.8, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp202, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 9))
           to label %invoke.cont205 unwind label %lpad.i172
 
 lpad.i172:                                        ; preds = %.noexc175
@@ -1119,7 +1119,7 @@ invoke.cont208:                                   ; preds = %invoke.cont205
   %sub614.i.i = fsub float 1.000000e+00, %conv5.i373.i
   %cmp15.i.i = fcmp olt float %sub614.i.i, 1.000000e+00
   %permutations.i.i.i = getelementptr inbounds i8, ptr %perm2.i, i64 8
-  %87 = load i32, ptr getelementptr inbounds ([1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 1), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
   %conv.i384.i = zext i32 %87 to i64
   %conv2.i387.i = uitofp i32 %87 to float
   %div3.i388.i = fdiv float 1.000000e+00, %conv2.i387.i
@@ -1541,7 +1541,7 @@ invoke.cont53.i:                                  ; preds = %invoke.cont51.i
 
 init.end.i:                                       ; preds = %invoke.cont53.i, %init.check.i, %if.then48.i
   %108 = load ptr, ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, align 8, !noalias !7
-  %109 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !7
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, i64 8), align 8, !noalias !7
   %cmp.i.i.i = icmp eq ptr %108, %109
   br i1 %cmp.i.i.i, label %if.then272.invoke.i, label %retry.preheader.i
 
@@ -1652,7 +1652,7 @@ invoke.cont89.i:                                  ; preds = %_ZN4pbrt12StringPri
   %call92.i = call i32 @fclose(ptr noundef nonnull %call68.i), !noalias !7
   %121 = load i32, ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE6offset, align 4, !noalias !7
   %conv59.i = sext i32 %121 to i64
-  %122 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !7
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, i64 8), align 8, !noalias !7
   %123 = load ptr, ptr @_ZZL15GenerateSamplesNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE5filesB5cxx11, align 8, !noalias !7
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %122 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %123 to i64

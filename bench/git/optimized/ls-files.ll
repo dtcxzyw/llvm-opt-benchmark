@@ -2549,9 +2549,9 @@ if.then23.i36:                                    ; preds = %if.else.i35
 if.else24.i:                                      ; preds = %if.else.i35
   store i8 118, ptr @get_tag.alttag, align 1
   %77 = load i8, ptr %tag, align 1
-  store i8 %77, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 1), align 1
-  store i8 32, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 2), align 1
-  store i8 0, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 3), align 1
+  store i8 %77, ptr getelementptr inbounds (i8, ptr @get_tag.alttag, i64 1), align 1
+  store i8 32, ptr getelementptr inbounds (i8, ptr @get_tag.alttag, i64 2), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @get_tag.alttag, i64 3), align 1
   br label %get_tag.exit
 
 get_tag.exit:                                     ; preds = %if.end25, %land.lhs.true.i29, %lor.lhs.false.i, %land.lhs.true7.i, %if.then15.i, %if.then23.i36, %if.else24.i

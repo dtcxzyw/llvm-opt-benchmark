@@ -1239,9 +1239,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr @PyTuple_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_IsoCalendarDateType, i64 0, i32 30), align 8
-  store ptr @PyDateTime_TZInfoType, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 30), align 8
-  store ptr @PyDateTime_DateType, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DateTimeType, i64 0, i32 30), align 8
+  store ptr @PyTuple_Type, ptr getelementptr inbounds (i8, ptr @PyDateTime_IsoCalendarDateType, i64 256), align 8
+  store ptr @PyDateTime_TZInfoType, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 256), align 8
+  store ptr @PyDateTime_DateType, ptr getelementptr inbounds (i8, ptr @PyDateTime_DateTimeType, i64 256), align 8
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1263,8 +1263,8 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp3.i, label %error.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %for.end.i
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 31), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 264), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i = tail call ptr %2(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp4.not.i.i, label %error.i, label %if.end9.i
@@ -1312,7 +1312,7 @@ if.then1.i422.i:                                  ; preds = %if.end.i419.i
   br label %do.body14.i
 
 do.body14.i:                                      ; preds = %if.then1.i422.i, %if.end.i419.i, %if.end13.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i129.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i130.i = icmp eq ptr %call3.i129.i, null
   br i1 %cmp4.not.i130.i, label %error.i, label %if.end19.i
@@ -1360,7 +1360,7 @@ if.then1.i404.i:                                  ; preds = %if.end.i401.i
   br label %do.body25.i
 
 do.body25.i:                                      ; preds = %if.then1.i404.i, %if.end.i401.i, %if.end23.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i139.i = tail call ptr %8(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i140.i = icmp eq ptr %call3.i139.i, null
   br i1 %cmp4.not.i140.i, label %error.i, label %if.end30.i
@@ -1408,7 +1408,7 @@ if.then1.i386.i:                                  ; preds = %if.end.i383.i
   br label %do.end35.i
 
 do.end35.i:                                       ; preds = %if.then1.i386.i, %if.end.i383.i, %if.end34.i
-  %11 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DateType, i64 0, i32 31), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DateType, i64 264), align 8
   %call38.i = tail call ptr @new_date_ex(i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @PyDateTime_DateType)
   %cmp39.i = icmp eq ptr %call38.i, null
   br i1 %cmp39.i, label %error.i, label %if.end41.i
@@ -1487,7 +1487,7 @@ if.then1.i350.i:                                  ; preds = %if.end.i347.i
   br label %do.body58.i
 
 do.body58.i:                                      ; preds = %if.then1.i350.i, %if.end.i347.i, %if.end56.i
-  %16 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i149.i = tail call ptr %16(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i150.i = icmp eq ptr %call3.i149.i, null
   br i1 %cmp4.not.i150.i, label %error.i, label %if.end63.i
@@ -1535,8 +1535,8 @@ if.then1.i332.i:                                  ; preds = %if.end.i329.i
   br label %do.end68.i
 
 do.end68.i:                                       ; preds = %if.then1.i332.i, %if.end.i329.i, %if.end67.i
-  %19 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeType, i64 0, i32 31), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeType, i64 0, i32 36), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeType, i64 264), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeType, i64 304), align 8
   %call10.i.i = tail call ptr %20(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #15
   %cmp11.not.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp11.not.i.i, label %error.i, label %if.end74.i
@@ -1582,7 +1582,7 @@ if.then1.i314.i:                                  ; preds = %if.end.i311.i
   br label %do.body80.i
 
 do.body80.i:                                      ; preds = %if.then1.i314.i, %if.end.i311.i, %if.end78.i
-  %23 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeType, i64 0, i32 36), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeType, i64 304), align 8
   %call10.i161.i = tail call ptr %23(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #15
   %cmp11.not.i162.i = icmp eq ptr %call10.i161.i, null
   br i1 %cmp11.not.i162.i, label %error.i, label %if.end85.i
@@ -1634,7 +1634,7 @@ if.then1.i296.i:                                  ; preds = %if.end.i293.i
   br label %do.body91.i
 
 do.body91.i:                                      ; preds = %if.then1.i296.i, %if.end.i293.i, %if.end89.i
-  %26 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i177.i = tail call ptr %26(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i178.i = icmp eq ptr %call3.i177.i, null
   br i1 %cmp4.not.i178.i, label %error.i, label %if.end96.i
@@ -1682,7 +1682,7 @@ if.then1.i278.i:                                  ; preds = %if.end.i275.i
   br label %do.end101.i
 
 do.end101.i:                                      ; preds = %if.then1.i278.i, %if.end.i275.i, %if.end100.i
-  %29 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DateTimeType, i64 0, i32 31), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DateTimeType, i64 264), align 8
   %call104.i = tail call ptr @new_datetime_ex2(i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   %cmp105.i = icmp eq ptr %call104.i, null
   br i1 %cmp105.i, label %error.i, label %if.end107.i
@@ -1761,7 +1761,7 @@ if.then1.i242.i:                                  ; preds = %if.end.i239.i
   br label %do.body124.i
 
 do.body124.i:                                     ; preds = %if.then1.i242.i, %if.end.i239.i, %if.end122.i
-  %34 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i187.i = tail call ptr %34(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i188.i = icmp eq ptr %call3.i187.i, null
   br i1 %cmp4.not.i188.i, label %error.i, label %if.end129.i
@@ -1814,7 +1814,7 @@ do.end134.i:                                      ; preds = %if.then1.i224.i, %i
   br i1 %cmp136.i, label %error.i, label %if.end138.i
 
 if.end138.i:                                      ; preds = %do.end134.i
-  %37 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 31), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 264), align 8
   %38 = load ptr, ptr @_datetime_global_state.7, align 8
   %call139.i = tail call i32 @PyDict_SetItemString(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %38) #15
   %cmp140.i = icmp slt i32 %call139.i, 0
@@ -2673,7 +2673,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end26
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i = tail call ptr %0(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp4.not.i.i, label %create_timezone_from_delta.exit.thread, label %if.end.i
@@ -2691,7 +2691,7 @@ if.end.i:                                         ; preds = %if.end31
   store i32 0, ptr %seconds7.i.i, align 4
   %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 0, ptr %microseconds8.i.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i.i = tail call ptr %1(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i6.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i6.i, label %create_timezone.exit.i, label %if.end.i7.i
@@ -2778,7 +2778,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i5
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i5
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %2(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.end
@@ -2792,7 +2792,7 @@ if.end:                                           ; preds = %if.end2.i
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
   %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i = tail call ptr %3(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i6 = icmp eq ptr %call.i, null
   br i1 %cmp.i6, label %create_timezone.exit, label %if.end.i7
@@ -3452,7 +3452,7 @@ return:                                           ; preds = %if.then1.i.i77, %if
 define internal ptr @tzinfo_reduce(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %getinitargs = alloca ptr, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 64), ptr noundef nonnull %getinitargs) #15
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29280), ptr noundef nonnull %getinitargs) #15
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -3648,7 +3648,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i17
   br label %if.end13
 
 if.end2.i:                                        ; preds = %if.end.i17
-  %10 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %10(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.end13, label %if.end
@@ -4491,7 +4491,7 @@ check_delta_day_range.exit.thread.i.i:            ; preds = %if.end.i.i21
   br label %return
 
 if.end2.i.i:                                      ; preds = %if.end.i.i21
-  %11 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i = tail call ptr %11(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp4.not.i.i, label %return, label %delta_negative.exit
@@ -4725,7 +4725,7 @@ if.then13.i:                                      ; preds = %lor.lhs.false.i, %l
   br label %return
 
 if.end15.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true6.i, %land.lhs.true4.i, %delta_bool.exit.i, %lor.lhs.false.i.i
-  %10 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i.i = call ptr %10(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -4869,7 +4869,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i
   br label %new_delta_ex.exit
 
 if.end2.i:                                        ; preds = %if.end.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %new_delta_ex.exit, label %if.then5.i
@@ -5217,7 +5217,7 @@ if.then13:                                        ; preds = %lor.lhs.false, %lan
   br label %return
 
 if.end15:                                         ; preds = %delta_bool.exit, %lor.lhs.false.i, %land.lhs.true4, %land.lhs.true6, %lor.lhs.false
-  %8 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i = tail call ptr %8(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -5307,7 +5307,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 429), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48920), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   ret ptr %call.i
 }
@@ -5819,7 +5819,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %ymd_to_ord.exit63
   br label %return
 
 if.end2.i:                                        ; preds = %ymd_to_ord.exit63
-  %15 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %15(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.then5.i
@@ -6239,7 +6239,7 @@ if.end:                                           ; preds = %time_time.exit
   store ptr %cls, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i, align 8
-  %call.i6 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 376), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i6 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46176), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   %2 = load i64, ptr %call1.i, align 8
   %3 = and i64 %2, 2147483648
@@ -6343,7 +6343,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 656), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60664), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end3
@@ -6396,7 +6396,7 @@ if.end4:                                          ; preds = %if.end
   store ptr %self, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %1, ptr %arrayinit.element.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 633), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59464), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   br label %return
 
@@ -6562,7 +6562,7 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
   %day.0 = phi i32 [ %storemerge.i42, %if.then ], [ %storemerge.i, %land.lhs.true ], [ %storemerge.i, %if.else ]
   %year.0 = phi i32 [ %sub.i.i.i, %if.then ], [ %spec.select, %land.lhs.true ], [ %or, %if.else ]
   %week.0 = phi i32 [ %quo.0.i44, %if.then ], [ %spec.select16, %land.lhs.true ], [ %quo.0.i, %if.else ]
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_IsoCalendarDateType, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_IsoCalendarDateType, i64 304), align 8
   %call.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_IsoCalendarDateType, i64 noundef 3) #15
   %cmp.i60 = icmp eq ptr %call.i, null
   br i1 %cmp.i60, label %iso_calendar_date_new_impl.exit, label %if.end.i
@@ -7667,7 +7667,7 @@ if.end.i23:                                       ; preds = %if.end
   store ptr %tzinfo.0.i, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %tzinfoarg, ptr %arrayinit.element.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61288), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %cmp1.i = icmp eq ptr %call.i.i, null
   %cmp2.i = icmp eq ptr %call.i.i, @_Py_NoneStruct
@@ -7942,7 +7942,7 @@ check_delta_day_range.exit.thread.i.i:            ; preds = %if.end.i.i
   br label %delta_negative.exit
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i = tail call ptr %7(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp4.not.i.i, label %delta_negative.exit, label %if.then5.i.i
@@ -8682,7 +8682,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i56
   br label %if.then95
 
 if.end2.i:                                        ; preds = %if.end.i56
-  %33 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %33(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.then95, label %if.end96
@@ -8804,7 +8804,7 @@ if.end:                                           ; preds = %entry
   store ptr %self, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call, ptr %arrayinit.element.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 429), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48920), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
@@ -10032,7 +10032,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i126
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i126
-  %57 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %57(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.end127
@@ -10408,7 +10408,7 @@ if.then5.i:                                       ; preds = %datetime_best_possi
   store ptr %tz.026, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i14.i, ptr %arrayinit.element.i.i, align 8
-  %call.i16.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i16.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46232), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %9 = load i64, ptr %call2.i14.i, align 8
   %10 = and i64 %9, 2147483648
@@ -10574,7 +10574,7 @@ if.then8:                                         ; preds = %datetime_from_times
   store ptr %8, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i, align 8
-  %call.i11 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i11 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46232), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   %9 = load i64, ptr %call1.i, align 8
   %10 = and i64 %9, 2147483648
@@ -10696,7 +10696,7 @@ if.end6:                                          ; preds = %if.then1, %if.end
   %1 = phi ptr [ %call2, %if.then1 ], [ %0, %if.end ]
   %2 = load ptr, ptr %string, align 8
   %3 = load ptr, ptr %format, align 8
-  %call7 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 204), ptr noundef %cls, ptr noundef %2, ptr noundef %3, ptr noundef null) #15
+  %call7 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37112), ptr noundef %cls, ptr noundef %2, ptr noundef %3, ptr noundef null) #15
   br label %return
 
 return:                                           ; preds = %if.then1, %entry, %if.end6
@@ -11236,7 +11236,7 @@ check_time_args.exit.thread.i:                    ; preds = %if.end16.i.i, %if.e
   br label %new_time_ex2.exit
 
 if.end.i:                                         ; preds = %if.end16.i.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeType, i64 0, i32 36), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeType, i64 304), align 8
   %call10.i = tail call ptr %9(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #15
   %cmp11.not.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.not.i, label %new_time_ex2.exit, label %if.then13.i
@@ -11887,7 +11887,7 @@ if.end.i:                                         ; preds = %cond.end
   store ptr %1, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %self, ptr %arrayinit.element.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61288), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %cmp1.i = icmp eq ptr %call.i.i, null
   %cmp2.i = icmp eq ptr %call.i.i, @_Py_NoneStruct
@@ -12477,7 +12477,7 @@ do.end98:                                         ; preds = %if.end.i103, %if.th
   store ptr %67, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %result.0, ptr %arrayinit.element.i, align 8
-  %call.i83 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i83 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46232), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   %68 = load i64, ptr %result.0, align 8
   %69 = and i64 %68, 2147483648
@@ -13022,7 +13022,7 @@ if.end.i7:                                        ; preds = %if.end.i.i6
 if.end2.i:                                        ; preds = %if.end.i7, %if.end.i.i6
   %3 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i7 ], [ %seconds.addr.0.i, %if.end.i.i6 ]
   %days.addr.1.i23 = phi i32 [ %add.i20.i.i, %if.end.i7 ], [ 0, %if.end.i.i6 ]
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %4(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.end6
@@ -13070,7 +13070,7 @@ if.then13.i:                                      ; preds = %land.lhs.true4.i, %
   br label %new_timezone.exit
 
 if.end15.i:                                       ; preds = %land.lhs.true4.i, %lor.lhs.false.i.i
-  %8 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i.i9 = tail call ptr %8(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i.i10 = icmp eq ptr %call.i.i9, null
   br i1 %cmp.i.i10, label %new_timezone.exit, label %if.end.i.i11
@@ -13631,7 +13631,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %1(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.then3, label %if.end4
@@ -13767,7 +13767,7 @@ if.end.i8:                                        ; preds = %if.end
 if.end2.i:                                        ; preds = %if.end.i8, %if.end
   %2 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i8 ], [ %conv, %if.end ]
   %3 = phi i32 [ %add.i20.i.i, %if.end.i8 ], [ 0, %if.end ]
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = call ptr %4(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.end5
@@ -13840,7 +13840,7 @@ if.then13.i:                                      ; preds = %lor.lhs.false.i, %l
 
 if.end15.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true6.i, %land.lhs.true4.i, %lor.lhs.false.i.i
   %nameo.029 = phi ptr [ %nameo.030, %lor.lhs.false.i ], [ %nameo.030, %land.lhs.true6.i ], [ %nameo.030, %land.lhs.true4.i ], [ null, %lor.lhs.false.i.i ]
-  %12 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
   %call.i.i11 = call ptr %12(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i.i = icmp eq ptr %call.i.i11, null
   br i1 %cmp.i.i, label %new_timezone.exit, label %if.end.i.i
@@ -14542,7 +14542,7 @@ if.end.i46:                                       ; preds = %if.end.i.i45
 if.end2.i:                                        ; preds = %if.end.i46, %if.end.i.i45
   %seconds.addr.2.i52 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i46 ], [ %seconds.addr.0.i, %if.end.i.i45 ]
   %days.addr.1.i51 = phi i32 [ %add.i20.i.i, %if.end.i46 ], [ 0, %if.end.i.i45 ]
-  %22 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %22(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.then66, label %if.end67
@@ -14657,7 +14657,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 429), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48920), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   ret ptr %call.i
 }
@@ -15529,7 +15529,7 @@ if.end.i:                                         ; preds = %cond.end
   store ptr %1, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr @_Py_NoneStruct, ptr %arrayinit.element.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61288), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %cmp1.i = icmp eq ptr %call.i.i, null
   %cmp2.i = icmp eq ptr %call.i.i, @_Py_NoneStruct
@@ -16350,7 +16350,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
-  %call7 = call fastcc ptr @accum(ptr noundef nonnull @.str.205, ptr noundef nonnull %call1, ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), ptr noundef nonnull %leftover_us)
+  %call7 = call fastcc ptr @accum(ptr noundef nonnull @.str.205, ptr noundef nonnull %call1, ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr noundef nonnull %leftover_us)
   %1 = load i64, ptr %call1, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i201.not = icmp eq i64 %2, 0
@@ -16552,7 +16552,7 @@ if.then55:                                        ; preds = %if.end53
   br i1 %cmp56, label %if.then57, label %if.end69
 
 if.then57:                                        ; preds = %if.then55
-  %call59 = call ptr @PyNumber_And(ptr noundef nonnull %x.6, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)) #15
+  %call59 = call ptr @PyNumber_And(ptr noundef nonnull %x.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #15
   %cmp60 = icmp eq ptr %call59, null
   br i1 %cmp60, label %if.then61, label %if.end62
 
@@ -16778,7 +16778,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end.i17
   br label %if.end13
 
 if.end2.i:                                        ; preds = %if.end.i17
-  %10 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %10(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.end13, label %if.end
@@ -17241,7 +17241,7 @@ check_delta_day_range.exit.thread.i:              ; preds = %entry
   br label %new_delta_ex.exit
 
 if.end2.i:                                        ; preds = %entry
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %new_delta_ex.exit, label %if.then5.i
@@ -17322,7 +17322,7 @@ check_delta_day_range.exit.thread.i.i:            ; preds = %if.end.i.i
   br label %if.end
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp4.not.i.i, label %if.end, label %if.then5.i.i
@@ -17350,7 +17350,7 @@ check_delta_day_range.exit.thread.i.i7:           ; preds = %if.else
   br label %if.end
 
 if.end2.i.i10:                                    ; preds = %if.else
-  %8 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i.i11 = tail call ptr %8(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i.i12 = icmp eq ptr %call3.i.i11, null
   br i1 %cmp4.not.i.i12, label %if.end, label %if.then5.i.i13
@@ -17679,7 +17679,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %floatobj, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 223), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #15
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 38152), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp.i19 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i19, label %if.then.i, label %if.end.i21

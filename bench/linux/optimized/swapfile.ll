@@ -78,7 +78,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   ]
 
 43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %45 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 4096) #8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %49, label %47
@@ -96,7 +96,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   br label %176
 
 54:                                               ; preds = %34
-  %55 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %56 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 3264, i64 noundef 4096) #8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %60, label %58
@@ -121,7 +121,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   br i1 %69, label %81, label %70
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %72 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %71, i32 noundef 3264, i64 noundef 4096) #8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %76, label %74
@@ -144,7 +144,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   br i1 %83, label %95, label %84
 
 84:                                               ; preds = %81
-  %85 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %86 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %85, i32 noundef 3264, i64 noundef 4096) #8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %90, label %88
@@ -168,7 +168,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   br i1 %98, label %110, label %99
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %101 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %100, i32 noundef 3264, i64 noundef 4096) #8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %105, label %103

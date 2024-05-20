@@ -123,7 +123,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %5 = select i1 %.not.not, i32 3, i32 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2642
   %7 = load ptr, ptr @Curl_httpchunk_unencoder, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.Curl_cwtype, ptr @Curl_httpchunk_unencoder, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
   %.not44.i = icmp eq ptr %8, null
   br label %9
 

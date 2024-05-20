@@ -152,7 +152,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4YAML10NodeEventsD2Ev.exit
 
 _ZN4YAML10NodeEventsD2Ev.exit:                    ; preds = %_ZNSt3mapIPKN4YAML6detail8node_refEiSt4lessIS4_ESaISt4pairIKS4_iEEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, i32 0, i64 2), ptr %emitFromEvents, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %emitFromEvents, align 8
   %m_stateStack.i = getelementptr inbounds i8, ptr %emitFromEvents, i64 16
   %14 = load ptr, ptr %m_stateStack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
@@ -309,7 +309,7 @@ _ZNSt10shared_ptrIN4YAML6detail13memory_holderEED2Ev.exit: ; preds = %_ZNSt3mapI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML14EmitFromEventsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %this, align 8
   %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_stateStack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

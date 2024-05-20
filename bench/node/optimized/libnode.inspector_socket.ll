@@ -90,7 +90,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9inspector15ProtocolHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS5_XadL_ZNS5_20DisconnectAndDisposeEPS5_EEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %inspector, ptr nocapture noundef %tcp) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %inspector_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %inspector, ptr %inspector_, align 8
   %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -636,7 +636,7 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
   store i64 %4, ptr %tcp_.i.i, align 8
   %handler_.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   store ptr %call2, ptr %handler_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 0, i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 16), ptr %call2, align 8
   %parsing_value_.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i8 0, ptr %parsing_value_.i, align 8
   %events_.i = getelementptr inbounds i8, ptr %call2, i64 312
@@ -795,7 +795,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector15ProtocolHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -950,12 +950,12 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.4, i64 0, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 17))
   call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
   %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 4))
   call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
   %upgrade.val = load i8, ptr %upgrade, align 1
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 320
@@ -1187,7 +1187,7 @@ _ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_p
   %7 = inttoptr i64 %6 to ptr
   %handler_.i.i.i = getelementptr inbounds i8, ptr %7, i64 256
   store ptr %call24, ptr %handler_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i64 0, i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i64 16), ptr %call24, align 8
   %OnCloseSent.i = getelementptr inbounds i8, ptr %call24, i64 24
   store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv to i64), ptr %OnCloseSent.i, align 8
   %OnCloseSent.repack1.i = getelementptr inbounds i8, ptr %call24, i64 32
@@ -1588,7 +1588,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 16), ptr %this, align 8
   %path_ = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #19
   %headers_ = getelementptr inbounds i8, ptr %this, i64 368
@@ -1629,7 +1629,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4no
   br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %tcp_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -2775,7 +2775,7 @@ if.end:                                           ; preds = %delete.notnull, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandlerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2793,7 +2793,7 @@ _ZN4node9inspector15ProtocolHandlerD2Ev.exit:     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %tcp_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

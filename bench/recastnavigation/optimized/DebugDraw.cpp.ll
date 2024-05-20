@@ -1167,7 +1167,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %indvars.iv144 = phi i64 [ 2, %.loopexit137 ], [ %indvars.iv.next145, %46 ]
   %47 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %43, float %39)
-  %49 = load float, ptr getelementptr inbounds ([32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1), align 4
+  %49 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %45, float %41)
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 48
@@ -1205,7 +1205,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader136 ], [ 2, %46 ]
   %76 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
   %77 = tail call float @llvm.fmuladd.f32(float %76, float %43, float %39)
-  %78 = load float, ptr getelementptr inbounds ([32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1), align 4
+  %78 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
   %79 = tail call float @llvm.fmuladd.f32(float %78, float %45, float %41)
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 48
@@ -1561,7 +1561,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1655,7 +1655,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13duDisplayListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

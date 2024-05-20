@@ -47,7 +47,7 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: nounwind ssp uwtable
 define i32 @crypto_scalarmult_curve25519_base(ptr noundef nonnull %q, ptr noundef nonnull %n) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.crypto_scalarmult_curve25519_implementation, ptr @crypto_scalarmult_curve25519_ref10_implementation, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @crypto_scalarmult_curve25519_ref10_implementation, i64 8), align 8
   %call = tail call i32 %0(ptr noundef nonnull %q, ptr noundef nonnull %n) #3
   ret i32 %call
 }

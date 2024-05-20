@@ -586,33 +586,33 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   call void @dfilter_recent_combo_write_all(ptr noundef %13) #13
   %39 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %13)
   %40 = call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr %13)
-  %41 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 28), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef %41) #13
-  %43 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 29), align 4
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 116), align 4
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %43) #13
-  %45 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 30), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 120), align 8
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.11, i32 noundef %45) #13
-  %47 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 31), align 4
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 124), align 4
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, i32 noundef %47) #13
-  %49 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 32), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 128), align 8
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.13) #13
   %51 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %52 = icmp eq i32 %49, 1
   %53 = select i1 %52, ptr @.str.133, ptr @.str.134
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.14, ptr noundef nonnull %53) #13
-  %55 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %61, label %56
 
 56:                                               ; preds = %cfilter_recent_write_all.exit
   %57 = call i64 @fwrite(ptr nonnull @.str.15, i64 31, i64 1, ptr %13)
   %58 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %13)
-  %59 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.17, ptr noundef %59) #13
   br label %61
 
 61:                                               ; preds = %56, %cfilter_recent_write_all.exit
-  %62 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 33), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 132), align 4
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.18) #13
   %64 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %65 = icmp eq i32 %62, 1
@@ -621,41 +621,41 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   %68 = call i64 @fwrite(ptr nonnull @.str.20, i64 36, i64 1, ptr %13)
   %69 = call ptr @get_profile_name() #13
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.21, ptr noundef %69) #13
-  %71 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 39), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 168), align 8
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.22) #13
   %73 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %74 = icmp eq i32 %71, 1
   %75 = select i1 %74, ptr @.str.133, ptr @.str.134
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.23, ptr noundef nonnull %75) #13
-  %77 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 40), align 4
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 172), align 4
   %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.24) #13
   %79 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %80 = icmp eq i32 %77, 1
   %81 = select i1 %80, ptr @.str.133, ptr @.str.134
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.25, ptr noundef nonnull %81) #13
-  %83 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 18), align 8
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 72), align 8
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @search_in_values, i32 noundef %83)
-  %84 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 19), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 76), align 4
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @search_char_set_values, i32 noundef %84)
-  %85 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 20), align 8
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 80), align 8
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.30) #13
   %87 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %88 = icmp eq i32 %85, 1
   %89 = select i1 %88, ptr @.str.133, ptr @.str.134
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.31, ptr noundef nonnull %89) #13
-  %91 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 21), align 4
+  %91 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 84), align 4
   %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.32) #13
   %93 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %94 = icmp eq i32 %91, 1
   %95 = select i1 %94, ptr @.str.133, ptr @.str.134
   %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.33, ptr noundef nonnull %95) #13
-  %97 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 22), align 8
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 88), align 8
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.34) #13
   %99 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
   %100 = icmp eq i32 %97, 1
   %101 = select i1 %100, ptr @.str.133, ptr @.str.134
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.35, ptr noundef nonnull %101) #13
-  %103 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 23), align 4
+  %103 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 92), align 4
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @search_type_values, i32 noundef %103)
   %104 = load ptr, ptr @window_geom_hash, align 8
   %.not.i39 = icmp eq ptr %104, null
@@ -671,7 +671,7 @@ window_geom_recent_write_all.exit:                ; preds = %61, %105
   call void @g_hash_table_foreach(ptr noundef %107, ptr noundef nonnull @write_recent_geom, ptr noundef %13) #13
   %108 = call i64 @fwrite(ptr nonnull @.str.38, i64 18, i64 1, ptr %13)
   %109 = call i64 @fwrite(ptr nonnull @.str.39, i64 53, i64 1, ptr %13)
-  %110 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %111 = call ptr @join_string_list(ptr noundef %110) #13
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.40, ptr noundef %111) #13
   call void @g_free(ptr noundef %111) #13
@@ -802,61 +802,61 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   %30 = icmp eq i32 %27, 1
   %31 = select i1 %30, ptr @.str.133, ptr @.str.134
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.44, ptr noundef nonnull %31) #13
-  %33 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.45) #13
   %35 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %36 = icmp eq i32 %33, 1
   %37 = select i1 %36, ptr @.str.133, ptr @.str.134
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.46, ptr noundef nonnull %37) #13
-  %39 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 2), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 8), align 8
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.47) #13
   %41 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %42 = icmp eq i32 %39, 1
   %43 = select i1 %42, ptr @.str.133, ptr @.str.134
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.48, ptr noundef nonnull %43) #13
-  %45 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.49) #13
   %47 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %48 = icmp eq i32 %45, 1
   %49 = select i1 %48, ptr @.str.133, ptr @.str.134
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.50, ptr noundef nonnull %49) #13
-  %51 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.51) #13
   %53 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %54 = icmp eq i32 %51, 1
   %55 = select i1 %54, ptr @.str.133, ptr @.str.134
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.52, ptr noundef nonnull %55) #13
-  %57 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.53) #13
   %59 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %60 = icmp eq i32 %57, 1
   %61 = select i1 %60, ptr @.str.133, ptr @.str.134
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.54, ptr noundef nonnull %61) #13
-  %63 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
   %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.55) #13
   %65 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %66 = icmp eq i32 %63, 1
   %67 = select i1 %66, ptr @.str.133, ptr @.str.134
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.56, ptr noundef nonnull %67) #13
-  %69 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.57) #13
   %71 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %72 = icmp eq i32 %69, 1
   %73 = select i1 %72, ptr @.str.133, ptr @.str.134
   %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.58, ptr noundef nonnull %73) #13
-  %75 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.59) #13
   %77 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %78 = icmp eq i32 %75, 1
   %79 = select i1 %78, ptr @.str.133, ptr @.str.134
   %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.60, ptr noundef nonnull %79) #13
-  %81 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.61) #13
   %83 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %84 = icmp eq i32 %81, 1
   %85 = select i1 %84, ptr @.str.133, ptr @.str.134
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.62, ptr noundef nonnull %85) #13
-  %87 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   call fastcc void @write_recent_enum(ptr noundef nonnull %16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @ts_type_values, i32 noundef %87)
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #13
   %89 = call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %16)
@@ -876,7 +876,7 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 97:                                               ; preds = %91
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.70, i32 noundef 9) #13
-  %99 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %100 = call ptr @try_val_to_str(i32 noundef %99, ptr noundef nonnull @ts_precision_values) #13
   %.not105 = icmp eq ptr %100, null
   br i1 %.not105, label %103, label %101
@@ -886,7 +886,7 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br label %109
 
 103:                                              ; preds = %97
-  %104 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %or.cond = icmp ult i32 %104, 9
   br i1 %or.cond, label %105, label %107
 
@@ -899,39 +899,39 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br label %109
 
 109:                                              ; preds = %105, %107, %101
-  %110 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef nonnull @ts_seconds_values, i32 noundef %110)
   %111 = call i64 @fwrite(ptr nonnull @.str.77, i64 15, i64 1, ptr %16)
   %112 = call i64 @fwrite(ptr nonnull @.str.78, i64 20, i64 1, ptr %16)
-  %113 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.79, i32 noundef %113) #13
-  %115 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  %115 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @bytes_view_type_values, i32 noundef %115)
-  %116 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef %116)
-  %117 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.84) #13
   %119 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
   %120 = icmp eq i32 %117, 1
   %121 = select i1 %120, ptr @.str.133, ptr @.str.134
   %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.85, ptr noundef nonnull %121) #13
-  %123 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.86) #13
   %125 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
   %126 = icmp eq i32 %123, 1
   %127 = select i1 %126, ptr @.str.133, ptr @.str.134
   %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.87, ptr noundef nonnull %127) #13
-  %129 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 24), align 8
+  %129 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 96), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef nonnull @bytes_show_values, i32 noundef %129)
-  %130 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 25), align 4
+  %130 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 100), align 4
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull @follow_delta_values, i32 noundef %130)
-  %131 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 26), align 8
+  %131 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 104), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @show_bytes_decode_values, i32 noundef %131)
-  %132 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 27), align 4
+  %132 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 108), align 4
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, ptr noundef nonnull @bytes_show_values, i32 noundef %132)
   %133 = call i64 @fwrite(ptr nonnull @.str.96, i64 46, i64 1, ptr %16)
   %134 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
-  %135 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
+  %135 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
   %.not107 = icmp eq i32 %135, 0
   br i1 %.not107, label %138, label %136
 
@@ -942,7 +942,7 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 138:                                              ; preds = %136, %109
   %139 = call i64 @fwrite(ptr nonnull @.str.99, i64 33, i64 1, ptr %16)
   %140 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
-  %141 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
   %.not108 = icmp eq i32 %141, 0
   br i1 %.not108, label %144, label %142
 
@@ -951,26 +951,26 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br label %144
 
 144:                                              ; preds = %142, %138
-  %145 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   %.not109 = icmp eq ptr %145, null
   br i1 %.not109, label %151, label %146
 
 146:                                              ; preds = %144
   %147 = call i64 @fwrite(ptr nonnull @.str.101, i64 38, i64 1, ptr %16)
   %148 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %16)
-  %149 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.102, ptr noundef %149) #13
   br label %151
 
 151:                                              ; preds = %146, %144
-  %152 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   %.not110 = icmp eq ptr %152, null
   br i1 %.not110, label %158, label %153
 
 153:                                              ; preds = %151
   %154 = call i64 @fwrite(ptr nonnull @.str.103, i64 37, i64 1, ptr %16)
   %155 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %16)
-  %156 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.104, ptr noundef %156) #13
   br label %158
 
@@ -1008,29 +1008,29 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   call void @packet_list_recent_write_all(ptr noundef %16) #13
   %171 = call i64 @fwrite(ptr nonnull @.str.107, i64 34, i64 1, ptr %16)
   %172 = call i64 @fwrite(ptr nonnull @.str.108, i64 50, i64 1, ptr %16)
-  %173 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   %174 = call ptr @join_string_list(ptr noundef %173) #13
   %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.109, ptr noundef %174) #13
   call void @g_free(ptr noundef %174) #13
   %176 = call i64 @fwrite(ptr nonnull @.str.110, i64 37, i64 1, ptr %16)
   %177 = call i64 @fwrite(ptr nonnull @.str.111, i64 40, i64 1, ptr %16)
-  %178 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 8
   %179 = call ptr @join_string_list(ptr noundef %178) #13
   %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.112, ptr noundef %179) #13
   call void @g_free(ptr noundef %179) #13
   %181 = call i64 @fwrite(ptr nonnull @.str.113, i64 30, i64 1, ptr %16)
   %182 = call i64 @fwrite(ptr nonnull @.str.114, i64 46, i64 1, ptr %16)
-  %183 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   %184 = call ptr @join_string_list(ptr noundef %183) #13
   %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.115, ptr noundef %184) #13
   call void @g_free(ptr noundef %184) #13
   %186 = call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %16)
   %187 = call i64 @fwrite(ptr nonnull @.str.117, i64 36, i64 1, ptr %16)
-  %188 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 8
   %189 = call ptr @join_string_list(ptr noundef %188) #13
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.118, ptr noundef %189) #13
   call void @g_free(ptr noundef %189) #13
-  %191 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.119) #13
   %193 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
   %194 = icmp eq i32 %191, 1
@@ -1049,13 +1049,13 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
 202:                                              ; preds = %198, %window_splitter_recent_write_all.exit
   %203 = call i64 @fwrite(ptr nonnull @.str.123, i64 29, i64 1, ptr %16)
   %204 = call i64 @fwrite(ptr nonnull @.str.124, i64 39, i64 1, ptr %16)
-  %205 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %206 = call ptr @join_string_list(ptr noundef %205) #13
   %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.125, ptr noundef %206) #13
   call void @g_free(ptr noundef %206) #13
   %208 = call i64 @fwrite(ptr nonnull @.str.126, i64 28, i64 1, ptr %16)
   %209 = call i64 @fwrite(ptr nonnull @.str.127, i64 38, i64 1, ptr %16)
-  %210 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   %211 = call ptr @join_string_list(ptr noundef %210) #13
   %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.128, ptr noundef %211) #13
   call void @g_free(ptr noundef %211) #13
@@ -1140,7 +1140,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %17 = icmp eq i32 %16, 0
   %..i126 = zext i1 %17 to i32
-  store i32 %..i126, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  store i32 %..i126, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   br label %268
 
 18:                                               ; preds = %12
@@ -1157,7 +1157,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %25 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %26 = icmp eq i32 %25, 0
   %..i127 = zext i1 %26 to i32
-  store i32 %..i127, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 2), align 8
+  store i32 %..i127, ptr getelementptr inbounds (i8, ptr @recent, i64 8), align 8
   br label %268
 
 27:                                               ; preds = %21
@@ -1169,7 +1169,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %31 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %32 = icmp eq i32 %31, 0
   %..i128 = zext i1 %32 to i32
-  store i32 %..i128, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
+  store i32 %..i128, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
   br label %268
 
 33:                                               ; preds = %27
@@ -1181,7 +1181,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %37 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %38 = icmp eq i32 %37, 0
   %..i129 = zext i1 %38 to i32
-  store i32 %..i129, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
+  store i32 %..i129, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
   br label %268
 
 39:                                               ; preds = %33
@@ -1193,7 +1193,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %43 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %44 = icmp eq i32 %43, 0
   %..i130 = zext i1 %44 to i32
-  store i32 %..i130, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
+  store i32 %..i130, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
   br label %268
 
 45:                                               ; preds = %39
@@ -1205,7 +1205,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %49 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %50 = icmp eq i32 %49, 0
   %..i131 = zext i1 %50 to i32
-  store i32 %..i131, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
+  store i32 %..i131, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
   br label %268
 
 51:                                               ; preds = %45
@@ -1217,7 +1217,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %55 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %56 = icmp eq i32 %55, 0
   %..i132 = zext i1 %56 to i32
-  store i32 %..i132, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  store i32 %..i132, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
   br label %268
 
 57:                                               ; preds = %51
@@ -1229,7 +1229,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %61 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %62 = icmp eq i32 %61, 0
   %..i133 = zext i1 %62 to i32
-  store i32 %..i133, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  store i32 %..i133, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
   br label %268
 
 63:                                               ; preds = %57
@@ -1241,7 +1241,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %67 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %68 = icmp eq i32 %67, 0
   %..i134 = zext i1 %68 to i32
-  store i32 %..i134, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
+  store i32 %..i134, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
   br label %268
 
 69:                                               ; preds = %63
@@ -1254,7 +1254,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %not. = xor i1 %73, true
   %74 = zext i1 %not. to i32
   %75 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_type_values, i32 noundef %74) #13
-  store i32 %75, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  store i32 %75, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   br label %268
 
 76:                                               ; preds = %69
@@ -1270,12 +1270,12 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %or.cond3, label %83, label %84
 
 83:                                               ; preds = %79
-  store i32 %81, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  store i32 %81, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   br label %268
 
 84:                                               ; preds = %79
   %85 = call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_precision_values, i32 noundef -1) #13
-  store i32 %85, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  store i32 %85, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   br label %268
 
 86:                                               ; preds = %76
@@ -1285,7 +1285,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 89:                                               ; preds = %86
   %90 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_seconds_values, i32 noundef 0) #13
-  store i32 %90, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   br label %268
 
 91:                                               ; preds = %86
@@ -1306,7 +1306,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 100:                                              ; preds = %98
   %101 = trunc i64 %95 to i32
-  store i32 %101, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  store i32 %101, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
   br label %268
 
 102:                                              ; preds = %91
@@ -1316,7 +1316,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 105:                                              ; preds = %102
   %106 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_view_type_values, i32 noundef 0) #13
-  store i32 %106, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  store i32 %106, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   br label %268
 
 107:                                              ; preds = %102
@@ -1326,7 +1326,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 110:                                              ; preds = %107
   %111 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef 0) #13
-  store i32 %111, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  store i32 %111, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   br label %268
 
 112:                                              ; preds = %107
@@ -1338,7 +1338,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %116 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %117 = icmp eq i32 %116, 0
   %..i135 = zext i1 %117 to i32
-  store i32 %..i135, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  store i32 %..i135, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
   br label %268
 
 118:                                              ; preds = %112
@@ -1350,7 +1350,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %122 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %123 = icmp eq i32 %122, 0
   %..i136 = zext i1 %123 to i32
-  store i32 %..i136, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  store i32 %..i136, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   br label %268
 
 124:                                              ; preds = %118
@@ -1360,7 +1360,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 127:                                              ; preds = %124
   %128 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
-  store i32 %128, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 24), align 8
+  store i32 %128, ptr getelementptr inbounds (i8, ptr @recent, i64 96), align 8
   br label %268
 
 129:                                              ; preds = %124
@@ -1370,7 +1370,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 132:                                              ; preds = %129
   %133 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @follow_delta_values, i32 noundef 0) #13
-  store i32 %133, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 25), align 4
+  store i32 %133, ptr getelementptr inbounds (i8, ptr @recent, i64 100), align 4
   br label %268
 
 134:                                              ; preds = %129
@@ -1380,7 +1380,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 137:                                              ; preds = %134
   %138 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @show_bytes_decode_values, i32 noundef 0) #13
-  store i32 %138, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 26), align 8
+  store i32 %138, ptr getelementptr inbounds (i8, ptr @recent, i64 104), align 8
   br label %268
 
 139:                                              ; preds = %134
@@ -1390,7 +1390,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 142:                                              ; preds = %139
   %143 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
-  store i32 %143, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 27), align 4
+  store i32 %143, ptr getelementptr inbounds (i8, ptr @recent, i64 108), align 4
   br label %268
 
 144:                                              ; preds = %139
@@ -1413,7 +1413,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 154:                                              ; preds = %151
   %155 = trunc i64 %148 to i32
-  store i32 %155, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
+  store i32 %155, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
   br label %268
 
 156:                                              ; preds = %144
@@ -1436,7 +1436,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 166:                                              ; preds = %163
   %167 = trunc i64 %160 to i32
-  store i32 %167, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
+  store i32 %167, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
   br label %268
 
 168:                                              ; preds = %156
@@ -1445,10 +1445,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %168
-  %172 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   tail call void @g_free(ptr noundef %172) #13
   %173 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %173, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   br label %268
 
 174:                                              ; preds = %168
@@ -1457,10 +1457,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %174
-  %178 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   tail call void @g_free(ptr noundef %178) #13
   %179 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %179, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  store ptr %179, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   br label %268
 
 180:                                              ; preds = %174
@@ -1486,10 +1486,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %190, label %191, label %194
 
 191:                                              ; preds = %188
-  %192 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   tail call void @g_list_free_full(ptr noundef %192, ptr noundef nonnull @g_free) #13
   %193 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %193, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  store ptr %193, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   br label %268
 
 194:                                              ; preds = %188
@@ -1498,10 +1498,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %196, label %197, label %200
 
 197:                                              ; preds = %194
-  %198 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 8
   tail call void @g_list_free_full(ptr noundef %198, ptr noundef nonnull @g_free) #13
   %199 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %199, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
+  store ptr %199, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 8
   br label %268
 
 200:                                              ; preds = %194
@@ -1510,10 +1510,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %200
-  %204 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   tail call void @g_list_free_full(ptr noundef %204, ptr noundef nonnull @g_free) #13
   %205 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %205, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  store ptr %205, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   br label %268
 
 206:                                              ; preds = %200
@@ -1522,10 +1522,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %206
-  %210 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
+  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 8
   tail call void @g_list_free_full(ptr noundef %210, ptr noundef nonnull @g_free) #13
   %211 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %211, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
+  store ptr %211, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 8
   br label %268
 
 212:                                              ; preds = %206
@@ -1537,7 +1537,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %216 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %217 = icmp eq i32 %216, 0
   %..i137 = zext i1 %217 to i32
-  store i32 %..i137, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  store i32 %..i137, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
   br label %268
 
 218:                                              ; preds = %212
@@ -1561,9 +1561,9 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br label %268
 
 228:                                              ; preds = %224
-  %229 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   tail call void @g_list_free_full(ptr noundef %229, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %230 = tail call ptr @g_list_first(ptr noundef nonnull %222) #13
   %.not118138 = icmp eq ptr %230, null
   br i1 %.not118138, label %._crit_edge, label %.lr.ph
@@ -1605,9 +1605,9 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   store i8 %.sink, ptr %247, align 4
   %248 = getelementptr inbounds i8, ptr %233, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  %250 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %251 = tail call ptr @g_list_append(ptr noundef %250, ptr noundef nonnull %231) #13
-  store ptr %251, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  store ptr %251, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %.not118 = icmp eq ptr %249, null
   br i1 %.not118, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -1621,10 +1621,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %254, label %255, label %258
 
 255:                                              ; preds = %252
-  %256 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   tail call void @g_free(ptr noundef %256) #13
   %257 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %257, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  store ptr %257, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   br label %268
 
 258:                                              ; preds = %252
@@ -1634,7 +1634,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 261:                                              ; preds = %258
   %262 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %262, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  store ptr %262, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   br label %268
 
 263:                                              ; preds = %258
@@ -1644,7 +1644,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 266:                                              ; preds = %263
   %267 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %267, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  store ptr %267, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   br label %268
 
 268:                                              ; preds = %9, %24, %36, %48, %60, %72, %89, %105, %115, %127, %137, %154, %171, %186, %183, %197, %209, %._crit_edge, %261, %266, %255, %215, %203, %191, %177, %166, %142, %132, %121, %110, %100, %83, %84, %66, %54, %42, %30, %15, %263, %221, %159, %163, %147, %151, %94, %98, %242, %227
@@ -1654,14 +1654,14 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  store <4 x i32> <i32 20, i32 20, i32 750, i32 550>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 28), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 32), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 33), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 39), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 40), align 4
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), i8 0, i64 24, i1 false)
+  store <4 x i32> <i32 20, i32 20, i32 750, i32 550>, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 128), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 132), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 168), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 172), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @recent, i64 144), i8 0, i64 24, i1 false)
   %3 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #13
   store ptr null, ptr %0, align 8
   %4 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.129)
@@ -1706,7 +1706,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %9 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %10 = icmp eq i32 %9, 0
   %..i = zext i1 %10 to i32
-  store i32 %..i, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 32), align 8
+  store i32 %..i, ptr getelementptr inbounds (i8, ptr @recent, i64 128), align 8
   br label %135
 
 11:                                               ; preds = %4
@@ -1718,7 +1718,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %15 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %16 = icmp eq i32 %15, 0
   %..i68 = zext i1 %16 to i32
-  store i32 %..i68, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 33), align 4
+  store i32 %..i68, ptr getelementptr inbounds (i8, ptr @recent, i64 132), align 4
   br label %135
 
 17:                                               ; preds = %11
@@ -1739,7 +1739,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 26:                                               ; preds = %24
   %27 = trunc i64 %21 to i32
-  store i32 %27, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 28), align 8
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
   br label %135
 
 28:                                               ; preds = %17
@@ -1760,7 +1760,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 37:                                               ; preds = %35
   %38 = trunc i64 %32 to i32
-  store i32 %38, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 29), align 4
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @recent, i64 116), align 4
   br label %135
 
 39:                                               ; preds = %28
@@ -1783,7 +1783,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 49:                                               ; preds = %46
   %50 = trunc i64 %43 to i32
-  store i32 %50, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 30), align 8
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @recent, i64 120), align 8
   br label %135
 
 51:                                               ; preds = %39
@@ -1806,7 +1806,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 61:                                               ; preds = %58
   %62 = trunc i64 %55 to i32
-  store i32 %62, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 31), align 4
+  store i32 %62, ptr getelementptr inbounds (i8, ptr @recent, i64 124), align 4
   br label %135
 
 63:                                               ; preds = %51
@@ -1815,10 +1815,10 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   tail call void @g_free(ptr noundef %67) #13
   %68 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %68, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   br label %135
 
 69:                                               ; preds = %63
@@ -1865,7 +1865,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %89 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %90 = icmp eq i32 %89, 0
   %..i69 = zext i1 %90 to i32
-  store i32 %..i69, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 39), align 8
+  store i32 %..i69, ptr getelementptr inbounds (i8, ptr @recent, i64 168), align 8
   br label %135
 
 91:                                               ; preds = %85
@@ -1877,7 +1877,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %95 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %96 = icmp eq i32 %95, 0
   %..i70 = zext i1 %96 to i32
-  store i32 %..i70, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 40), align 4
+  store i32 %..i70, ptr getelementptr inbounds (i8, ptr @recent, i64 172), align 4
   br label %135
 
 97:                                               ; preds = %91
@@ -1887,7 +1887,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 100:                                              ; preds = %97
   %101 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @search_in_values, i32 noundef 0) #13
-  store i32 %101, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 18), align 8
+  store i32 %101, ptr getelementptr inbounds (i8, ptr @recent, i64 72), align 8
   br label %135
 
 102:                                              ; preds = %97
@@ -1897,7 +1897,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 105:                                              ; preds = %102
   %106 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @search_char_set_values, i32 noundef 0) #13
-  store i32 %106, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 19), align 4
+  store i32 %106, ptr getelementptr inbounds (i8, ptr @recent, i64 76), align 4
   br label %135
 
 107:                                              ; preds = %102
@@ -1909,7 +1909,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %111 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %112 = icmp eq i32 %111, 0
   %..i71 = zext i1 %112 to i32
-  store i32 %..i71, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 20), align 8
+  store i32 %..i71, ptr getelementptr inbounds (i8, ptr @recent, i64 80), align 8
   br label %135
 
 113:                                              ; preds = %107
@@ -1921,7 +1921,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %117 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %118 = icmp eq i32 %117, 0
   %..i72 = zext i1 %118 to i32
-  store i32 %..i72, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 21), align 4
+  store i32 %..i72, ptr getelementptr inbounds (i8, ptr @recent, i64 84), align 4
   br label %135
 
 119:                                              ; preds = %113
@@ -1933,7 +1933,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   %123 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %124 = icmp eq i32 %123, 0
   %..i73 = zext i1 %124 to i32
-  store i32 %..i73, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 22), align 8
+  store i32 %..i73, ptr getelementptr inbounds (i8, ptr @recent, i64 88), align 8
   br label %135
 
 125:                                              ; preds = %119
@@ -1943,7 +1943,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 128:                                              ; preds = %125
   %129 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @search_type_values, i32 noundef 0) #13
-  store i32 %129, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 23), align 4
+  store i32 %129, ptr getelementptr inbounds (i8, ptr @recent, i64 92), align 4
   br label %135
 
 130:                                              ; preds = %125
@@ -1953,7 +1953,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 133:                                              ; preds = %130
   %134 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %134, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  store ptr %134, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   br label %135
 
 135:                                              ; preds = %8, %26, %49, %66, %83, %80, %94, %105, %116, %128, %133, %130, %122, %110, %100, %88, %72, %74, %76, %61, %37, %14, %54, %58, %42, %46, %31, %35, %20, %24
@@ -1964,80 +1964,80 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store <4 x i32> <i32 1, i32 1, i32 0, i32 1>, ptr @recent, align 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 16
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 -1>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), i8 0, i64 16, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 24), i8 0, i64 16, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 16
+  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 16
+  store <4 x i32> <i32 1, i32 1, i32 0, i32 -1>, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 48), i8 0, i64 16, i1 false)
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 96), i8 0, i64 16, i1 false)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @g_free(ptr noundef nonnull %3) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   %.not23 = icmp eq ptr %6, null
   br i1 %.not23, label %8, label %7
 
 7:                                                ; preds = %5
   tail call void @g_free(ptr noundef nonnull %6) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   br label %8
 
 8:                                                ; preds = %7, %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void @g_free(ptr noundef nonnull %9) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
   br label %11
 
 11:                                               ; preds = %10, %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %.not25 = icmp eq ptr %12, null
   br i1 %.not25, label %14, label %13
 
 13:                                               ; preds = %11
   tail call void @g_list_free_full(ptr noundef nonnull %12, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   %.not26 = icmp eq ptr %15, null
   br i1 %.not26, label %17, label %16
 
 16:                                               ; preds = %14
   tail call void @g_free(ptr noundef nonnull %15) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %20, label %19
 
 19:                                               ; preds = %17
   tail call void @g_list_free_full(ptr noundef nonnull %18, ptr noundef nonnull @g_free) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
   br label %20
 
 20:                                               ; preds = %19, %17
-  %21 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   %.not28 = icmp eq ptr %21, null
   br i1 %.not28, label %23, label %22
 
 22:                                               ; preds = %20
   tail call void @g_list_free_full(ptr noundef nonnull %21, ptr noundef nonnull @g_free) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   br label %23
 
 23:                                               ; preds = %22, %20
@@ -2252,9 +2252,9 @@ define hidden void @recent_insert_column(i32 noundef %0) local_unnamed_addr #0 {
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %3, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %5 = tail call ptr @g_list_insert(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %0) #13
-  store ptr %5, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   ret void
 }
 
@@ -2262,7 +2262,7 @@ declare ptr @g_list_insert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_remove_column(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %3 = tail call ptr @g_list_nth(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -2277,9 +2277,9 @@ define hidden void @recent_remove_column(i32 noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %6, %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %9 = tail call ptr @g_list_delete_link(ptr noundef %8, ptr noundef nonnull %3) #13
-  store ptr %9, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   br label %10
 
 10:                                               ; preds = %1, %7
@@ -2292,7 +2292,7 @@ declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @recent_get_column_width(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %3 = tail call ptr @g_list_nth_data(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -2310,7 +2310,7 @@ declare ptr @g_list_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_set_column_width(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %4 = tail call ptr @g_list_nth_data(ptr noundef %3, i32 noundef %0) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -2325,7 +2325,7 @@ define hidden void @recent_set_column_width(i32 noundef %0, i32 noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %3 = tail call ptr @g_list_nth_data(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -2342,7 +2342,7 @@ define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   %4 = tail call ptr @g_list_nth_data(ptr noundef %3, i32 noundef %0) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -2367,30 +2367,30 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
   tail call void @g_list_free_full(ptr noundef %1, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 16
-  %2 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 36), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
   tail call void @g_free(ptr noundef %2) #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   tail call void @g_free(ptr noundef %3) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
   tail call void @g_free(ptr noundef %4) #13
-  %5 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   tail call void @g_free(ptr noundef %5) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
   tail call void @g_list_free_full(ptr noundef %6, ptr noundef nonnull @g_free) #13
-  %7 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   tail call void @g_list_free_full(ptr noundef %7, ptr noundef nonnull @g_free) #13
-  %8 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   tail call void @prefs_clear_string_list(ptr noundef %8) #13
-  %9 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 16
   tail call void @prefs_clear_string_list(ptr noundef %9) #13
-  %10 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   tail call void @prefs_clear_string_list(ptr noundef %10) #13
-  %11 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 16
   tail call void @prefs_clear_string_list(ptr noundef %11) #13
-  %12 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   tail call void @prefs_clear_string_list(ptr noundef %12) #13
   ret void
 }

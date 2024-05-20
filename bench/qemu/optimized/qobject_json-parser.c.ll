@@ -1423,9 +1423,9 @@ if.else24.i:                                      ; preds = %if.else7.i
   br i1 %tobool28.not.i, label %if.then29.i77, label %if.end43.i
 
 if.then29.i77:                                    ; preds = %if.else24.i
-  %198 = load i64, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  %198 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i.i = add i64 %198, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   br label %return
 
 if.end43.i:                                       ; preds = %if.else24.i

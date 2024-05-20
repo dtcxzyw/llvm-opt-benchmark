@@ -55,14 +55,14 @@ define range(i32 -1, 1) i32 @mcs_g_init() local_unnamed_addr #0 {
   br i1 %.not14, label %6, label %55
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 99), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 672), align 8
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %.sink.split, label %8
 
 8:                                                ; preds = %6
   tail call void @slurm_xfree(ptr noundef nonnull @mcs_params_common) #8
   tail call void @slurm_xfree(ptr noundef nonnull @mcs_params_specific) #8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 100), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 680), align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %10, label %14
 
@@ -178,14 +178,14 @@ _slurm_mcs_check_and_load_enforced.exit:          ; preds = %29, %30, %34
   br label %_slurm_mcs_check_and_load_select.exit
 
 _slurm_mcs_check_and_load_select.exit:            ; preds = %_slurm_mcs_check_and_load_enforced.exit, %39, %42, %45, %46, %49
-  %50 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 99), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 672), align 8
   %51 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %50, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 16) #8
   store ptr %51, ptr @g_mcs_context, align 8
   %.not19 = icmp eq ptr %51, null
   br i1 %.not19, label %52, label %.sink.split
 
 52:                                               ; preds = %_slurm_mcs_check_and_load_select.exit
-  %53 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 99), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 672), align 8
   %54 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef %53) #8
   br label %.sink.split
 
@@ -338,7 +338,7 @@ define i32 @mcs_g_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zer
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_mcs_ops, ptr @ops, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %8 = tail call i32 %7(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) #8
   br label %9
 

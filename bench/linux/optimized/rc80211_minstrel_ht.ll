@@ -214,7 +214,7 @@ declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #4 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2336, i64 noundef 80) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit11, label %5
@@ -4189,7 +4189,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr nocapture noundef read
   %5 = load i8, ptr %4, align 1
   %6 = tail call i8 @llvm.umin.i8(i8 %5, i8 4)
   %7 = zext nneg i8 %6 to i32
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 2336, i64 noundef 40) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %91, label %11

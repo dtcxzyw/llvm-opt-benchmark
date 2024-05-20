@@ -1099,7 +1099,7 @@ sw.bb2:                                           ; preds = %entry
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   %__name.i13 = getelementptr inbounds i8, ptr %switch.load63, i64 8
   %7 = load ptr, ptr %__name.i13, align 8
-  %8 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIl, i64 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIl, i64 8), align 8
   %cmp.i14 = icmp eq ptr %7, %8
   br i1 %cmp.i14, label %return, label %if.end.i15
 
@@ -1127,7 +1127,7 @@ sw.bb6:                                           ; preds = %entry
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   %__name.i30 = getelementptr inbounds i8, ptr %switch.load65, i64 8
   %13 = load ptr, ptr %__name.i30, align 8
-  %14 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIb, i64 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIb, i64 8), align 8
   %cmp.i31 = icmp eq ptr %13, %14
   br i1 %cmp.i31, label %return, label %if.end.i32
 
@@ -1155,7 +1155,7 @@ sw.bb10:                                          ; preds = %entry
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   %__name.i50 = getelementptr inbounds i8, ptr %switch.load67, i64 8
   %19 = load ptr, ptr %__name.i50, align 8
-  %20 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTId, i64 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTId, i64 8), align 8
   %cmp.i51 = icmp eq ptr %19, %20
   br i1 %cmp.i51, label %return, label %if.end.i52
 

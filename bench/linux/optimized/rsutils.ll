@@ -452,7 +452,7 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
   %8 = and i64 %7, 512
   %9 = icmp eq i64 %8, 0
   %10 = select i1 %9, i32 2336, i32 3520
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %12 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %10, i64 noundef 88) #14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %39, label %14

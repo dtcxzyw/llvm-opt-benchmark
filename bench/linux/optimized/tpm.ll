@@ -20,7 +20,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_efi_tpm_fina
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 8), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 56), align 8
   %2 = icmp eq i64 %1, -1
   br i1 %2, label %54, label %3
 
@@ -30,18 +30,18 @@ define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_un
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 56), align 8
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef %7) #7
-  store i64 -1, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 8), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @efi, i64 56), align 8
   br label %54
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %4, align 4
   %11 = add i32 %10, 12
-  %12 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 8), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 56), align 8
   %13 = sext i32 %11 to i64
   %14 = tail call i32 @memblock_reserve(i64 noundef %12, i64 noundef %13) #6
-  %15 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 9), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 64), align 8
   %16 = icmp eq i64 %15, -1
   br i1 %16, label %17, label %19
 
@@ -65,9 +65,9 @@ define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_un
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 9), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 64), align 8
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i64 noundef %29) #7
-  store i64 -1, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 9), align 8
+  store i64 -1, ptr getelementptr inbounds (i8, ptr @efi, i64 64), align 8
   br label %52
 
 31:                                               ; preds = %25
@@ -77,7 +77,7 @@ define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_un
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 9), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 64), align 8
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr i8, ptr %37, i64 16
   %39 = trunc i64 %33 to i32
@@ -92,7 +92,7 @@ define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_un
 
 .thread:                                          ; preds = %31, %35
   %45 = phi i32 [ %41, %35 ], [ 0, %31 ]
-  %46 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 9), align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 64), align 8
   %47 = add nuw i32 %45, 16
   %48 = zext i32 %47 to i64
   %49 = tail call i32 @memblock_reserve(i64 noundef %46, i64 noundef %48) #6

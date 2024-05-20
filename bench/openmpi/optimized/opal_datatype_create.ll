@@ -103,10 +103,10 @@ define internal void @opal_datatype_destruct(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_datatype_t_class, i64 0, i32 8), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #10
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_datatype_t_class, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -122,7 +122,7 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
   store ptr @opal_datatype_t_class, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_datatype_t_class, i64 0, i32 6), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i

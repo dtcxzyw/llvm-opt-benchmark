@@ -66,7 +66,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %mca_sharedfp_individual_insert_headnode.exit
-  %15 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %15, ptr noundef nonnull @.str.1) #9
   br label %16
 
@@ -102,7 +102,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br i1 %.not68, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.5) #9
   tail call void @free(ptr noundef nonnull %calloc) #9
   tail call void @free(ptr noundef nonnull %19) #9
@@ -115,7 +115,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br i1 %.not69, label %37, label %35
 
 35:                                               ; preds = %33
-  %36 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %36, ptr noundef nonnull @.str.6) #9
   br label %37
 
@@ -154,7 +154,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br i1 %.not70, label %54, label %51
 
 51:                                               ; preds = %49
-  %52 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %52, ptr noundef nonnull @.str.9) #9
   tail call void @free(ptr noundef nonnull %calloc) #9
   tail call void @free(ptr noundef nonnull %19) #9

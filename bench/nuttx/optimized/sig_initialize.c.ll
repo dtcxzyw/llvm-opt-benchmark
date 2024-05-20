@@ -38,7 +38,7 @@ define void @nxsig_initialize() local_unnamed_addr #0 {
   %.not21.i = icmp eq ptr %5, null
   %spec.select = select i1 %.not21.i, ptr @g_sigpendingaction, ptr %2
   store ptr %.023.i, ptr %spec.select, align 8
-  store ptr %.023.i, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingaction, i64 0, i32 1), align 8
+  store ptr %.023.i, ptr getelementptr inbounds (i8, ptr @g_sigpendingaction, i64 8), align 8
   %6 = add nuw nsw i32 %.01922.i, 1
   %exitcond.not.i = icmp eq i32 %6, 4
   br i1 %exitcond.not.i, label %nxsig_alloc_block.exit, label %.preheader.i, !llvm.loop !6
@@ -50,7 +50,7 @@ nxsig_alloc_block.exit:                           ; preds = %.preheader.i, %0
   br i1 %.not.i1, label %nxsig_alloc_block.exit8, label %.preheader.i2.preheader
 
 .preheader.i2.preheader:                          ; preds = %nxsig_alloc_block.exit
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqaction, i64 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqaction, i64 8), align 8
   br label %.preheader.i2
 
 .preheader.i2:                                    ; preds = %.preheader.i2.preheader, %.preheader.i2
@@ -65,7 +65,7 @@ nxsig_alloc_block.exit:                           ; preds = %.preheader.i, %0
   %.not21.i5 = icmp eq ptr %11, null
   %spec.select24 = select i1 %.not21.i5, ptr @g_sigpendingirqaction, ptr %8
   store ptr %.023.i3, ptr %spec.select24, align 8
-  store ptr %.023.i3, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqaction, i64 0, i32 1), align 8
+  store ptr %.023.i3, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqaction, i64 8), align 8
   %12 = add nuw nsw i32 %.01922.i4, 1
   %exitcond.not.i7 = icmp eq i32 %12, 8
   br i1 %exitcond.not.i7, label %nxsig_alloc_block.exit8, label %.preheader.i2, !llvm.loop !6
@@ -77,7 +77,7 @@ nxsig_alloc_block.exit8:                          ; preds = %.preheader.i2, %nxs
   br i1 %.not.i9, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10.preheader
 
 .preheader.i10.preheader:                         ; preds = %nxsig_alloc_block.exit8
-  %.pre27 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i64 0, i32 1), align 8
+  %.pre27 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigpendingsignal, i64 8), align 8
   br label %.preheader.i10
 
 .preheader.i10:                                   ; preds = %.preheader.i10.preheader, %.preheader.i10
@@ -92,7 +92,7 @@ nxsig_alloc_block.exit8:                          ; preds = %.preheader.i2, %nxs
   %.not21.i13 = icmp eq ptr %17, null
   %spec.select25 = select i1 %.not21.i13, ptr @g_sigpendingsignal, ptr %14
   store ptr %.023.i11, ptr %spec.select25, align 8
-  store ptr %.023.i11, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i64 0, i32 1), align 8
+  store ptr %.023.i11, ptr getelementptr inbounds (i8, ptr @g_sigpendingsignal, i64 8), align 8
   %18 = add nuw nsw i32 %.01922.i12, 1
   %exitcond.not.i15 = icmp eq i32 %18, 4
   br i1 %exitcond.not.i15, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10, !llvm.loop !8
@@ -104,7 +104,7 @@ nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nx
   br i1 %.not.i16, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17.preheader
 
 .preheader.i17.preheader:                         ; preds = %nxsig_alloc_pendingsignalblock.exit
-  %.pre28 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i64 0, i32 1), align 8
+  %.pre28 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqsignal, i64 8), align 8
   br label %.preheader.i17
 
 .preheader.i17:                                   ; preds = %.preheader.i17.preheader, %.preheader.i17
@@ -119,7 +119,7 @@ nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nx
   %.not21.i20 = icmp eq ptr %23, null
   %spec.select26 = select i1 %.not21.i20, ptr @g_sigpendingirqsignal, ptr %20
   store ptr %.023.i18, ptr %spec.select26, align 8
-  store ptr %.023.i18, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i64 0, i32 1), align 8
+  store ptr %.023.i18, ptr getelementptr inbounds (i8, ptr @g_sigpendingirqsignal, i64 8), align 8
   %24 = add nuw nsw i32 %.01922.i19, 1
   %exitcond.not.i22 = icmp eq i32 %24, 8
   br i1 %exitcond.not.i22, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17, !llvm.loop !8

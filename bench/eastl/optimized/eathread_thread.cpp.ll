@@ -65,7 +65,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 %i.05
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05
   %0 = cmpxchg ptr %arrayidx, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %if.then, label %for.inc
@@ -107,7 +107,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 define dso_local void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef %pEAThreadDynamicData) local_unnamed_addr #2 {
 entry:
   %cmp = icmp uge ptr %pEAThreadDynamicData, @_ZN2EA6Thread19gEAThreadGlobalVarsE
-  %cmp1 = icmp ult ptr %pEAThreadDynamicData, getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 0, i32 0, i32 0, i32 0)
+  %cmp1 = icmp ult ptr %pEAThreadDynamicData, getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720)
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   %0 = load i64, ptr %pEAThreadDynamicData, align 8
   %cmp.not.i = icmp eq i64 %0, 0
@@ -129,7 +129,7 @@ _ZN19EAThreadDynamicDataD2Ev.exit:                ; preds = %if.then, %if.then.i
   %sub.ptr.lhs.cast = ptrtoint ptr %pEAThreadDynamicData to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE to i64)
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 240
-  %arrayidx = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 %sub.ptr.div
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %sub.ptr.div
   %1 = atomicrmw xchg ptr %arrayidx, i32 0 seq_cst, align 4
   br label %if.end4
 
@@ -515,7 +515,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
 
 for.body.i54:                                     ; preds = %for.cond.i, %for.inc.i
   %i.05.i = phi i64 [ %inc.i56, %for.inc.i ], [ 0, %for.cond.i ]
-  %arrayidx.i55 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 %i.05.i
+  %arrayidx.i55 = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05.i
   %1 = cmpxchg ptr %arrayidx.i55, i32 0, i32 1 seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
   br i1 %2, label %if.then.i, label %for.inc.i
@@ -618,7 +618,7 @@ for.body.i63.preheader:                           ; preds = %if.then.i62, %if.th
 
 for.body.i63:                                     ; preds = %for.body.i63.preheader, %for.inc.i66
   %i.05.i64 = phi i64 [ %inc.i67, %for.inc.i66 ], [ 0, %for.body.i63.preheader ]
-  %arrayidx.i65 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 %i.05.i64
+  %arrayidx.i65 = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05.i64
   %11 = cmpxchg ptr %arrayidx.i65, i32 0, i32 1 seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
   br i1 %12, label %if.then.i78, label %for.inc.i66
@@ -1685,13 +1685,13 @@ if.end:                                           ; preds = %_ZN19EAThreadDynami
 define dso_local noundef i64 @_ZN2EA6Thread16EnumerateThreadsEPNS0_14ThreadEnumDataEm(ptr nocapture noundef writeonly %pDataArray, i64 noundef %dataArrayCapacity) local_unnamed_addr #2 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %dataArrayCapacity, i64 128)
-  %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
+  %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 31232), ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi i64 [ 0, %entry ], [ %inc13, %for.inc ]
   %requiredCount.010 = phi i64 [ 0, %entry ], [ %requiredCount.1, %for.inc ]
-  %arrayidx = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 1, i64 %i.011
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.011
   %0 = load atomic i32, ptr %arrayidx seq_cst, align 4
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %for.inc, label %if.then4
@@ -1719,7 +1719,7 @@ for.inc:                                          ; preds = %for.body, %if.end11
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
-  %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 2))
+  %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 31232))
   ret i64 %requiredCount.1
 }
 
@@ -1771,8 +1771,8 @@ declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local
 define internal void @_GLOBAL__sub_I_eathread_thread.cpp() #20 section ".text.startup" {
 entry:
   store i64 2147483647, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
-  store i64 2147483647, ptr getelementptr inbounds (%"struct.EA::Thread::ThreadTime", ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 0, i32 0, i32 1), align 8
-  tail call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), ptr noundef null, i1 noundef zeroext true)
+  store i64 2147483647, ptr getelementptr inbounds (i8, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 8), align 8
+  tail call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 31232), ptr noundef null, i1 noundef zeroext true)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA6Thread18EAThreadGlobalVarsD2Ev, ptr nonnull @_ZN2EA6Thread19gEAThreadGlobalVarsE, ptr nonnull @__dso_handle) #23
   %1 = atomicrmw xchg ptr @_ZN2EA6Thread6Thread17sDefaultProcessorE, i32 -2 seq_cst, align 4
   %2 = atomicrmw xchg ptr @_ZN2EA6Thread6Thread21sDefaultProcessorMaskE, i64 -1 seq_cst, align 8

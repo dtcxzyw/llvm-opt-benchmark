@@ -103,7 +103,7 @@ declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 define internal void @_GLOBAL__sub_I_term.cc() #8 section ".text.startup" {
   %1 = alloca %struct.termios, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %1)
-  store i8 0, ptr getelementptr inbounds (%class.canonical_termios_t, ptr @_ZL4tios, i64 0, i32 1), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL4tios, i64 60), align 4
   %2 = tail call i32 @tcgetattr(i32 noundef 0, ptr noundef nonnull @_ZL4tios) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %__cxx_global_var_init.exit
@@ -119,7 +119,7 @@ define internal void @_GLOBAL__sub_I_term.cc() #8 section ".text.startup" {
   br i1 %9, label %10, label %__cxx_global_var_init.exit
 
 10:                                               ; preds = %4
-  store i8 1, ptr getelementptr inbounds (%class.canonical_termios_t, ptr @_ZL4tios, i64 0, i32 1), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL4tios, i64 60), align 4
   br label %__cxx_global_var_init.exit
 
 __cxx_global_var_init.exit:                       ; preds = %0, %4, %10

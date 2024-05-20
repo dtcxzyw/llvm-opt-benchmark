@@ -80,7 +80,7 @@ $_ZTIN3net30QuicSentPacketManagerInterfaceE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net21QuicSentPacketManagerC2ENS_11PerspectiveEhPKNS_9QuicClockEPNS_19QuicConnectionStatsENS_21CongestionControlTypeENS_17LossDetectionTypeEPNS0_26MultipathDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %perspective, i8 noundef zeroext %path_id, ptr noundef %clock, ptr noundef %stats, i32 noundef %congestion_control_type, i32 noundef %loss_type, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net21QuicSentPacketManagerE, i64 16), ptr %this, align 8
   %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net20QuicUnackedPacketMapC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
   %pending_retransmissions_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -345,7 +345,7 @@ declare void @_ZN3net20QuicUnackedPacketMapD1Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net21QuicSentPacketManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net21QuicSentPacketManagerE, i64 16), ptr %this, align 8
   %pacing_sender_ = getelementptr inbounds i8, ptr %this, i64 680
   tail call void @_ZN3net12PacingSenderD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %pacing_sender_) #16
   %packets_lost_ = getelementptr inbounds i8, ptr %this, i64 640

@@ -129,9 +129,9 @@ define void @_ZN23FilterExpressionToolBarC2EP7QWidget(ptr noundef nonnull align 
   %16 = alloca %"class.QMetaObject::Connection", align 8
   %17 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN15DragDropToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23FilterExpressionToolBar, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i64 0, i32 1, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23FilterExpressionToolBar, i64 472), ptr %18, align 8
   invoke void @_ZN23FilterExpressionToolBar16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
           to label %19 unwind label %44
 
@@ -698,7 +698,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i17:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit19
 
 _ZN10QByteArrayD2Ev.exit19:                       ; preds = %_ZN10QByteArrayD2Ev.exit15, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i17, %32
-  call void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 81))
+  call void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 448))
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2039,7 +2039,7 @@ _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
 
 80:                                               ; preds = %_ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
-  invoke void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 81))
+  invoke void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 448))
           to label %81 unwind label %102
 
 81:                                               ; preds = %80
@@ -2407,7 +2407,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN18QAbstractItemModel9removeRowEiRK11QModelIndex.exit unwind label %109
 
 _ZN18QAbstractItemModel9removeRowEiRK11QModelIndex.exit: ; preds = %73
-  invoke void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 81))
+  invoke void @save_migrated_uat(ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 448))
           to label %80 unwind label %109
 
 80:                                               ; preds = %_ZN18QAbstractItemModel9removeRowEiRK11QModelIndex.exit

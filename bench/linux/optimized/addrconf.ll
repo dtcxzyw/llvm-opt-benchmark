@@ -1718,17 +1718,17 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_stable_addres
   %28 = getelementptr inbounds i8, ptr %26, i64 813
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 getelementptr inbounds (%union.anon.69, ptr @ipv6_generate_stable_address.data, i64 0, i32 0, i64 24), ptr align 4 %27, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 getelementptr inbounds (i8, ptr @ipv6_generate_stable_address.data, i64 24), ptr align 4 %27, i64 %30, i1 false)
   %31 = load i32, ptr %0, align 4
-  store i32 %31, ptr getelementptr inbounds (%union.anon.69, ptr @ipv6_generate_stable_address.data, i64 0, i32 0, i64 16), align 1
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @ipv6_generate_stable_address.data, i64 16), align 1
   %32 = load i32, ptr %23, align 4
-  store i32 %32, ptr getelementptr inbounds (%union.anon.69, ptr @ipv6_generate_stable_address.data, i64 0, i32 0, i64 20), align 1
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @ipv6_generate_stable_address.data, i64 20), align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) @ipv6_generate_stable_address.data, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store i8 %25, ptr getelementptr inbounds (%union.anon.69, ptr @ipv6_generate_stable_address.data, i64 0, i32 0, i64 56), align 1
+  store i8 %25, ptr getelementptr inbounds (i8, ptr @ipv6_generate_stable_address.data, i64 56), align 1
   tail call void @sha1_transform(ptr noundef nonnull @ipv6_generate_stable_address.digest, ptr noundef nonnull @ipv6_generate_stable_address.data, ptr noundef nonnull @ipv6_generate_stable_address.workspace) #20
   %33 = load i64, ptr %0, align 4
   %34 = load i32, ptr @ipv6_generate_stable_address.digest, align 16
-  %35 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @ipv6_generate_stable_address.digest, i64 0, i64 1), align 4
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_generate_stable_address.digest, i64 4), align 4
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @ipv6_generate_stable_address.lock) #20
   %36 = or i32 %35, %34
   %37 = icmp eq i32 %36, 0
@@ -1887,7 +1887,7 @@ define internal fastcc ptr @ipv6_add_addr(ptr noundef %0, ptr nocapture noundef 
 
 66:                                               ; preds = %56, %55
   %67 = or disjoint i32 %6, 4194560
-  %68 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %69 = call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %68, i32 noundef %67, i64 noundef 296) #22
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.thread16, label %71
@@ -4664,7 +4664,7 @@ define dso_local i32 @addrconf_init() local_unnamed_addr #9 section ".init.text"
   tail call void @ip6_route_init_special_entries() #20
   %19 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @ipv6_dev_notf) #20
   %20 = load ptr, ptr @addrconf_wq, align 8
-  %21 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %20, ptr noundef nonnull getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 38, i32 24, i32 0, i32 0, i32 0), i64 noundef 0) #20
+  %21 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %20, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_net, i64 2056), i64 noundef 0) #20
   tail call void @rtnl_af_register(ptr noundef nonnull @inet6_ops) #20
   %22 = tail call i32 @rtnl_register_module(ptr noundef null, i32 noundef 10, i32 noundef 18, ptr noundef null, ptr noundef nonnull @inet6_dump_ifinfo, i32 noundef 0) #20
   %23 = icmp slt i32 %22, 0
@@ -4767,7 +4767,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %13, label %14, label %207
 
 14:                                               ; preds = %7
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(1016) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 4197824, i64 noundef 1016) #22
   %17 = icmp eq ptr %16, null
   br i1 %17, label %207, label %18
@@ -4866,7 +4866,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %68, label %57, label %.thread, !llvm.loop !69
 
 .thread:                                          ; preds = %61, %57, %65
-  %70 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %71 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %70, i32 noundef 3520, i64 noundef 56) #22
   %72 = getelementptr inbounds i8, ptr %16, i64 920
   store ptr %71, ptr %72, align 8
@@ -4874,7 +4874,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %73, label %81, label %74
 
 74:                                               ; preds = %.thread
-  %75 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %76 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %75, i32 noundef 4197824, i64 noundef 4096) #22
   %77 = getelementptr inbounds i8, ptr %16, i64 928
   store ptr %76, ptr %77, align 8
@@ -6822,8 +6822,8 @@ define dso_local void @addrconf_cleanup() local_unnamed_addr #0 align 16 {
   tail call void @ipv6_addr_label_cleanup() #20
   tail call void @rtnl_af_unregister(ptr noundef nonnull @inet6_ops) #20
   tail call void @rtnl_lock() #20
-  %2 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17), align 16
-  %3 = icmp eq ptr %2, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 144), align 16
+  %3 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0, %10
@@ -6840,11 +6840,11 @@ define dso_local void @addrconf_cleanup() local_unnamed_addr #0 align 16 {
 
 10:                                               ; preds = %8, %.preheader
   %11 = load ptr, ptr %4, align 8
-  %12 = icmp eq ptr %11, getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 17)
+  %12 = icmp eq ptr %11, getelementptr inbounds (i8, ptr @init_net, i64 144)
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !98
 
 .loopexit:                                        ; preds = %10, %0
-  %13 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 29), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 344), align 8
   tail call fastcc void @addrconf_ifdown(ptr noundef %13, i1 noundef zeroext true)
   tail call void @rtnl_unlock() #20
   %14 = load ptr, ptr @addrconf_wq, align 8
@@ -9749,7 +9749,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 
 7:                                                ; preds = %6, %1
   %8 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !130
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !131
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !131
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !132
   %9 = load volatile i64, ptr @jiffies, align 64
   %10 = add i64 %9, 120000
@@ -9943,7 +9943,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br label %129
 
 .thread16:                                        ; preds = %120, %122, %123
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !131
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !131
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !132
   br label %.thread19
 
@@ -9978,7 +9978,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 147:                                              ; preds = %145, %141
   tail call void @__local_bh_enable_ip(i64 noundef %8, i32 noundef 512) #20
   tail call fastcc void @ipv6_del_addr(ptr noundef nonnull %34)
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !131
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !131
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !132
   br label %.thread19
 
@@ -11612,7 +11612,7 @@ define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef %0
   store ptr @addrconf_verify_work, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 2088
   tail call void @init_timer_key(ptr noundef %7, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2621440, ptr noundef null, ptr noundef null) #20
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 2048) #22
   %10 = getelementptr inbounds i8, ptr %0, i64 2040
   store ptr %9, ptr %10, align 8
@@ -11641,7 +11641,7 @@ define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef %0
   ]
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 38, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 1848), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %13, ptr noundef align 8 dereferenceable(224) %23, i64 224, i1 false)
   br label %37
 
@@ -11662,13 +11662,13 @@ define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef %0
   br label %37
 
 37:                                               ; preds = %24, %22
-  %38 = phi ptr [ getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 38, i32 3), %22 ], [ %36, %24 ]
+  %38 = phi ptr [ getelementptr inbounds (i8, ptr @init_net, i64 1856), %22 ], [ %36, %24 ]
   %39 = load ptr, ptr %38, align 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %16, ptr noundef align 8 dereferenceable(224) %39, i64 224, i1 false)
   br label %40
 
 40:                                               ; preds = %37, %20, %18
-  %41 = load i32, ptr getelementptr inbounds (%struct.ipv6_params, ptr @ipv6_defaults, i64 0, i32 1), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_defaults, i64 4), align 4
   %42 = getelementptr inbounds i8, ptr %16, i64 20
   store i32 %41, ptr %42, align 4
   %43 = load i32, ptr @ipv6_defaults, align 4

@@ -831,7 +831,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
 
 450:                                              ; preds = %._crit_edge624, %449, %428
   %451 = phi i32 [ %448, %._crit_edge624 ], [ %.pre724, %449 ], [ %405, %428 ]
-  %452 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %452 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %453 = load i32, ptr %49, align 8
   %454 = add nsw i32 %453, 1
   %455 = mul nsw i32 %454, %451
@@ -930,7 +930,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
 
 ._crit_edge631:                                   ; preds = %.lr.ph630, %492
   %.lcssa556 = phi i32 [ %493, %492 ], [ %507, %.lr.ph630 ]
-  %510 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %510 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %511 = load i32, ptr %49, align 8
   %512 = add nsw i32 %511, 1
   %513 = mul nsw i32 %512, %.lcssa556
@@ -943,7 +943,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   br i1 %.not517, label %520, label %517
 
 517:                                              ; preds = %516
-  %518 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %518 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %519 = call i32 %518(ptr noundef nonnull %14, ptr noundef null) #11
   %.not520 = icmp eq i32 %519, 0
   br i1 %.not520, label %520, label %.loopexit545
@@ -1008,7 +1008,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   br i1 %552, label %553, label %.preheader542
 
 553:                                              ; preds = %547
-  %554 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %554 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %555 = call i32 %554(ptr noundef nonnull %14, ptr noundef null) #11
   br label %.preheader542
 
@@ -2895,7 +2895,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   br i1 %.not552, label %727, label %719
 
 719:                                              ; preds = %702
-  %720 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %721 = load ptr, ptr %692, align 8
   %722 = load ptr, ptr %693, align 8
   %723 = getelementptr inbounds i32, ptr %722, i64 %indvars.iv675
@@ -3057,7 +3057,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %802 = call i32 @ompi_datatype_create_hindexed(i32 noundef %801, ptr noundef nonnull %.2493, ptr noundef %.2488, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %6) #11
   %.val555 = load ptr, ptr %6, align 8
   %803 = call i32 @opal_datatype_commit(ptr noundef %.val555) #11
-  %804 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %805 = inttoptr i64 %.1 to ptr
   %806 = load ptr, ptr %6, align 8
   %807 = add nsw i32 %0, 123

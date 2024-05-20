@@ -299,7 +299,7 @@ sub_13:                                           ; preds = %sub_02
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @pci_iommu_init() #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 6), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 136), align 8
   %2 = tail call i32 %1() #6
   %3 = load i8, ptr @x86_swiotlb_enable, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0

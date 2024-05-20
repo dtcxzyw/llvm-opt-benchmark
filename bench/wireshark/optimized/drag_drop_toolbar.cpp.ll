@@ -94,9 +94,9 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15DragDropToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8QToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15DragDropToolBar, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15DragDropToolBar, i64 472), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -238,9 +238,9 @@ declare void @_ZN8QToolBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15DragDropToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15DragDropToolBar, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15DragDropToolBar, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44

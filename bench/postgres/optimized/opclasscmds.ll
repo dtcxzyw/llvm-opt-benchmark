@@ -909,7 +909,7 @@ define internal fastcc { i64, i32 } @CreateOpFamily(ptr noundef %0, ptr noundef 
   %.sroa.03.0.copyload = load i64, ptr %5, align 8
   %.sroa.24.0.copyload = load i32, ptr %35, align 8
   %.sroa.01.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.22.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
+  %.sroa.22.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.03.0.copyload, i32 %.sroa.24.0.copyload, i64 %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload, ptr noundef %0) #6
   %39 = load ptr, ptr @object_access_hook, align 8
   %.not = icmp eq ptr %39, null

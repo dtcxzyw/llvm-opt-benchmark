@@ -9296,7 +9296,7 @@ define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write
   br i1 %182, label %183, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread159.i
 
 183:                                              ; preds = %180
-  %184 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17hb5a21b845ff53f5cE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1833
+  %184 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17hb5a21b845ff53f5cE, i64 16) monotonic, align 8, !noalias !1833
   switch i8 %184, label %185 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread159.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread.i
@@ -9636,7 +9636,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   br i1 %280, label %281, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit360.thread187.i
 
 281:                                              ; preds = %275
-  %282 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17h09dd1b56e58a0fa4E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1833
+  %282 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17h09dd1b56e58a0fa4E, i64 16) monotonic, align 8, !noalias !1833
   switch i8 %282, label %283 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit360.thread187.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit360.thread.i
@@ -9914,7 +9914,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit360
   br i1 %358, label %359, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit399.thread397.i
 
 359:                                              ; preds = %356
-  %360 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17h27cb4b49591471f6E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1833
+  %360 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15influxdb3_write3wal7WalImpl13segment_files10__CALLSITE17h27cb4b49591471f6E, i64 16) monotonic, align 8, !noalias !1833
   switch i8 %360, label %361 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit399.thread397.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit399.thread.i
@@ -12482,7 +12482,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   br label %189
 
 198:                                              ; preds = %.noexc.i, %145
-  %.0.i.i2.i.i.i = phi ptr [ %175, %.noexc.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %145 ]
+  %.0.i.i2.i.i.i = phi ptr [ %175, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), %145 ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %199 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !2410
   %200 = extractelement <2 x i64> %199, i64 0
@@ -13110,7 +13110,7 @@ _ZN7tracing4span4Span8do_enter17hbd37c61107c30d06E.llvm.14332053795908843488.exi
   br i1 %418, label %420, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread372.i.i.i.i.i
 
 420:                                              ; preds = %419
-  %421 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN97_$LT$tokio..util..trace..InstrumentedAsyncOp$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h249926c704a91a35E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2455
+  %421 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN97_$LT$tokio..util..trace..InstrumentedAsyncOp$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h249926c704a91a35E", i64 16) monotonic, align 8, !noalias !2455
   switch i8 %421, label %422 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread372.i.i.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread.i.i.i.i.i
@@ -13533,7 +13533,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   br i1 %418, label %542, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit230.thread382.i.i.i.i.i
 
 542:                                              ; preds = %541
-  %543 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN97_$LT$tokio..util..trace..InstrumentedAsyncOp$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hcdad0bb5b82df400E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2455
+  %543 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN97_$LT$tokio..util..trace..InstrumentedAsyncOp$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hcdad0bb5b82df400E", i64 16) monotonic, align 8, !noalias !2455
   switch i8 %543, label %544 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit230.thread382.i.i.i.i.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit230.thread.i.i.i.i.i
@@ -15025,7 +15025,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   br label %1026
 
 989:                                              ; preds = %.noexc242.i, %980
-  %.0.i.i2.i.i239.i = phi ptr [ %984, %.noexc242.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %980 ]
+  %.0.i.i2.i.i239.i = phi ptr [ %984, %.noexc242.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), %980 ]
   %990 = load i64, ptr %.0.i.i2.i.i239.i, align 8, !noalias !2763, !noundef !4
   %991 = getelementptr inbounds i8, ptr %.0.i.i2.i.i239.i, i64 8
   %992 = load i64, ptr %991, align 8, !noalias !2763, !noundef !4
@@ -15629,7 +15629,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   br i1 %1179, label %1180, label %.thread437.i
 
 1180:                                             ; preds = %1177
-  %1181 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN15influxdb3_write12write_buffer7flusher17run_wal_op_buffer28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6264f47427e17823E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !2393
+  %1181 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15influxdb3_write12write_buffer7flusher17run_wal_op_buffer28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6264f47427e17823E", i64 16) monotonic, align 8, !noalias !2393
   switch i8 %1181, label %1182 [
     i8 0, label %.thread437.i
     i8 1, label %.thread434.i

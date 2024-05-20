@@ -124,7 +124,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN9QMimeDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20ToolbarEntryMimeData, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20ToolbarEntryMimeData, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -342,7 +342,7 @@ define internal void @_GLOBAL__sub_I_wireshark_mime_data.cpp() #9 section ".text
   store <2 x ptr> %5, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 16
-  store i64 %7, ptr getelementptr inbounds (%class.QString, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 0, i32 0, i32 2), align 8
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %8 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -351,7 +351,7 @@ define internal void @_GLOBAL__sub_I_wireshark_mime_data.cpp() #9 section ".text
   store <2 x ptr> %9, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 16
-  store i64 %11, ptr getelementptr inbounds (%class.QString, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 0, i32 0, i32 2), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData18ColumnListMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -360,7 +360,7 @@ define internal void @_GLOBAL__sub_I_wireshark_mime_data.cpp() #9 section ".text
   store <2 x ptr> %13, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 16
-  store i64 %15, ptr getelementptr inbounds (%class.QString, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 0, i32 0, i32 2), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData18FilterListMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
@@ -369,7 +369,7 @@ define internal void @_GLOBAL__sub_I_wireshark_mime_data.cpp() #9 section ".text
   store <2 x ptr> %17, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 16
-  store i64 %19, ptr getelementptr inbounds (%class.QString, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 0, i32 0, i32 2), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   %20 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, ptr nonnull @__dso_handle) #11
   ret void

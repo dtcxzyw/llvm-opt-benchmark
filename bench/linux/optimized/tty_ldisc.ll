@@ -519,7 +519,7 @@ define internal fastcc ptr @tty_ldisc_get(ptr noundef %0, i32 noundef %1) unname
 
 32:                                               ; preds = %30, %14
   %33 = phi ptr [ %24, %30 ], [ %8, %14 ]
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 36032, i64 noundef 16) #11
   store ptr %33, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8

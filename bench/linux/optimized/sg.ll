@@ -341,7 +341,7 @@ define internal i32 @sg_add_device(ptr nocapture noundef %0) #2 align 16 {
   %15 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr @sg_fops, ptr %15, align 8
   %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 160) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %20
@@ -406,7 +406,7 @@ define internal i32 @sg_add_device(ptr nocapture noundef %0) #2 align 16 {
   tail call void @_raw_write_unlock_irqrestore(ptr noundef nonnull @sg_index_lock, i64 noundef %21) #17
   %49 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #20, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  %50 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #17, !srcloc !8
+  %50 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !8
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -1055,7 +1055,7 @@ define internal i64 @sg_read(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br label %.thread
 
 208:                                              ; preds = %.thread31
-  %209 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %210 = call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3520, i64 noundef 36) #19
   %211 = icmp eq ptr %210, null
   br i1 %211, label %.thread, label %212
@@ -2174,7 +2174,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sg_ioctl(ptr nocapture n
   br label %512
 
 386:                                              ; preds = %15
-  %387 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %388 = tail call noalias noundef align 8 dereferenceable_or_null(384) ptr @kmalloc_trace(ptr noundef %387, i32 noundef 3520, i64 noundef 384) #19
   %389 = icmp eq ptr %388, null
   br i1 %389, label %.thread13, label %390
@@ -5413,7 +5413,7 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @sg_add_sfp(ptr noundef %0) unnamed_addr #2 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(4936) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 10528, i64 noundef 4936) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %92, label %5
@@ -5720,7 +5720,7 @@ declare dso_local i32 @kstrtoul_from_user(ptr noundef, i64 noundef, i32 noundef,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @dev_seq_start(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 16) #19
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %5, ptr %6, align 8

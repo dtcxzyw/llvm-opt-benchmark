@@ -82,11 +82,11 @@ define i32 @pmix_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, -2147483648) i32 @pmix_random() local_unnamed_addr #3 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_rng_buff_t, ptr @alfg_buffer, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
   %2 = sext i32 %1 to i64
   %3 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_rng_buff_t, ptr @alfg_buffer, i64 0, i32 2), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -97,10 +97,10 @@ define range(i32 0, -2147483648) i32 @pmix_random() local_unnamed_addr #3 {
   %.narrow.i = add i32 %8, %4
   %11 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %spec.select.i
   store i32 %.narrow.i, ptr %11, align 4
-  %12 = load <2 x i32>, ptr getelementptr inbounds (%struct.pmix_rng_buff_t, ptr @alfg_buffer, i64 0, i32 1), align 4
+  %12 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
   %13 = add nsw <2 x i32> %12, <i32 1, i32 1>
   %14 = srem <2 x i32> %13, <i32 127, i32 127>
-  store <2 x i32> %14, ptr getelementptr inbounds (%struct.pmix_rng_buff_t, ptr @alfg_buffer, i64 0, i32 1), align 4
+  store <2 x i32> %14, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
   %15 = load i32, ptr %11, align 4
   %16 = and i32 %15, 2147483647
   ret i32 %16

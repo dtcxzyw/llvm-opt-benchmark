@@ -68,7 +68,7 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
   br i1 %35, label %54, label %36
 
 36:                                               ; preds = %33, %26
-  %37 = load ptr, ptr getelementptr inbounds (%struct.mountpt_operations, ptr @g_procfs_operations, i64 0, i32 17), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @g_procfs_operations, i64 136), align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %._crit_edge, label %39
 

@@ -13485,7 +13485,7 @@ Rtl_NtkMapWires.exit71:                           ; preds = %.lr.ph.split.i, %.c
 121:                                              ; preds = %Rtl_NtkMapWires.exit71
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
   %122 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %118) #37
-  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds ([1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 17), align 1
+  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
   br label %Rtl_ShortenName.exit
 
 Rtl_ShortenName.exit:                             ; preds = %Rtl_NtkMapWires.exit71, %121
@@ -14646,7 +14646,7 @@ Rtl_NtkMapWires.exit59:                           ; preds = %.lr.ph.split.i, %._
 120:                                              ; preds = %Rtl_NtkMapWires.exit59
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
   %121 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %117) #37
-  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds ([1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 17), align 1
+  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
   br label %Rtl_ShortenName.exit
 
 Rtl_ShortenName.exit:                             ; preds = %Rtl_NtkMapWires.exit59, %120

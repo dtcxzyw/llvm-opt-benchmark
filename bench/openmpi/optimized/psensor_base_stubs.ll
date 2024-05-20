@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
 
@@ -48,13 +48,13 @@ define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %13) #2
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %13) #2
   br label %14
 
 14:                                               ; preds = %12, %7, %5
-  %.01723 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not24 = icmp eq ptr %.01723, getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1)
+  %.01723 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
+  %.not24 = icmp eq ptr %.01723, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %20
@@ -77,7 +77,7 @@ define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.1 = phi i1 [ %.025, %.lr.ph ], [ true, %18 ], [ true, %18 ]
   %21 = getelementptr inbounds i8, ptr %.01726, i64 120
   %.017 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.017, getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.017, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %20
@@ -93,7 +93,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_psensor_base_stop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psensor_base_framework, i64 0, i32 11), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %3, 64
   br i1 %or.cond, label %4, label %11
 
@@ -105,13 +105,13 @@ define i32 @pmix_psensor_base_stop(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1, i32 1), align 4
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 1), i32 noundef %10) #2
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %10) #2
   br label %11
 
 11:                                               ; preds = %9, %4, %2
-  %.01520 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not21 = icmp eq ptr %.01520, getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1)
+  %.01520 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
+  %.not21 = icmp eq ptr %.01520, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %20
@@ -142,7 +142,7 @@ switch.early.test:                                ; preds = %16
   %.1 = phi i32 [ %17, %19 ], [ 0, %switch.early.test ], [ %.022, %.lr.ph ], [ %.022, %16 ], [ 0, %switch.early.test ]
   %21 = getelementptr inbounds i8, ptr %.01523, i64 120
   %.015 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 0, i32 1)
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %20, %11

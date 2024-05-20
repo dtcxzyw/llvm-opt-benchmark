@@ -213,7 +213,7 @@ define void @_ZN9grpc_core22XdsCertificateVerifierC2ENS_13RefCountedPtrINS_22Xds
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 16), ptr %this, align 8
   %xds_certificate_provider_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %xds_certificate_provider_, align 8
   %0 = load ptr, ptr %xds_certificate_provider, align 8
@@ -990,7 +990,7 @@ invoke.cont25:                                    ; preds = %if.then24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %9, i8 0, i64 208, i1 false), !noalias !25
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i2324, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV28grpc_tls_credentials_options, i64 0, i32 0, i64 2), ptr %call.i2324, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call.i2324, align 8, !noalias !25
   %verify_server_cert_.i.i = getelementptr inbounds i8, ptr %call.i2324, i64 20
   store i8 1, ptr %verify_server_cert_.i.i, align 4, !noalias !25
   %max_tls_version_.i.i = getelementptr inbounds i8, ptr %call.i2324, i64 28
@@ -1576,7 +1576,7 @@ _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEC2INS_22XdsCertific
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %3, i8 0, i64 208, i1 false), !noalias !42
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i14, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !42
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV28grpc_tls_credentials_options, i64 0, i32 0, i64 2), ptr %call.i14, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call.i14, align 8, !noalias !42
   %verify_server_cert_.i.i = getelementptr inbounds i8, ptr %call.i14, i64 20
   store i8 1, ptr %verify_server_cert_.i.i, align 4, !noalias !42
   %max_tls_version_.i.i = getelementptr inbounds i8, ptr %call.i14, i64 28
@@ -1938,7 +1938,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %en
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !51
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core14XdsCredentialsE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14XdsCredentialsE, i64 16), ptr %call, align 8
   %fallback_credentials_.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %fallback_credentials, ptr %fallback_credentials_.i, align 8
   ret ptr %call
@@ -1968,7 +1968,7 @@ _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit: ; preds = %ent
   store i64 1, ptr %refs_.i.i.i, align 8
   %processor_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core20XdsServerCredentialsE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core20XdsServerCredentialsE, i64 16), ptr %call, align 8
   %fallback_credentials_.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %fallback_credentials, ptr %fallback_credentials_.i, align 8
   ret ptr %call
@@ -2155,7 +2155,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit: ; preds = %entry, %if.then.i, %if.then.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %destroy.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -2204,7 +2204,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit.i
 
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.then.i.i, %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %destroy.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -2274,7 +2274,7 @@ _ZN9grpc_core20XdsServerCredentials4TypeEv.exit:  ; preds = %entry, %init.check.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22XdsCertificateVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 16), ptr %this, align 8
   %cluster_name_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cluster_name_) #18
   %xds_certificate_provider_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2302,7 +2302,7 @@ _ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22XdsCertificateVerifierD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22XdsCertificateVerifierE, i64 16), ptr %this, align 8
   %cluster_name_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cluster_name_.i) #18
   %xds_certificate_provider_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2337,7 +2337,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2376,7 +2376,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #13 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #19
   unreachable
 }
@@ -2418,7 +2418,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2576,7 +2576,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28grpc_tls_credentials_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV28grpc_tls_credentials_options, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

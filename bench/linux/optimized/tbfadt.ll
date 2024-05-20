@@ -70,14 +70,14 @@ define dso_local void @acpi_tb_parse_fadt() local_unnamed_addr #0 align 16 {
   %13 = load ptr, ptr %1, align 8
   call void @acpi_tb_create_local_fadt(ptr noundef %13, i32 noundef %10)
   call void @acpi_tb_put_table(ptr noundef %5) #6
-  %14 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 44), align 1
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 140), align 1
   %15 = call i32 @acpi_tb_install_standard_table(i64 noundef %14, i8 noundef zeroext 1, ptr noundef null, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef nonnull @acpi_gbl_dsdt_index) #6
   %16 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %8
-  %19 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 1), align 1
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 36), align 1
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %24, label %21
 
@@ -87,7 +87,7 @@ define dso_local void @acpi_tb_parse_fadt() local_unnamed_addr #0 align 16 {
   br label %24
 
 24:                                               ; preds = %21, %18
-  %25 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 43), align 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 132), align 1
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %29, label %27
 
@@ -126,26 +126,26 @@ define dso_local void @acpi_tb_create_local_fadt(ptr nocapture noundef readonly 
   %9 = tail call i32 @llvm.umin.i32(i32 %1, i32 276)
   %10 = zext nneg i32 %9 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 @acpi_gbl_FADT, ptr align 1 %0, i64 %10, i1 false)
-  %11 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %12 = lshr i32 %11, 20
   %13 = trunc i32 %12 to i8
   %14 = and i8 %13, 1
   store i8 %14, ptr @acpi_gbl_reduced_hardware, align 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 1), align 1
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 4), align 1
   %16 = icmp ult i32 %15, 133
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %8
-  store i8 0, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 4), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 26), align 1
-  store i16 0, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 45), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 55), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 95), align 1
+  store i16 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 109), align 1
   br label %18
 
 18:                                               ; preds = %17, %8
-  store i32 276, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 1), align 1
-  %19 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 2), align 1
-  %20 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 44), align 1
+  store i32 276, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 4), align 1
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 40), align 1
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 140), align 1
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -179,7 +179,7 @@ define dso_local void @acpi_tb_create_local_fadt(ptr nocapture noundef readonly 
 
 39:                                               ; preds = %38, %29, %22
   %40 = phi i64 [ %20, %38 ], [ %23, %22 ], [ %27, %29 ]
-  store i64 %40, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 44), align 1
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 140), align 1
   %41 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %.preheader14, label %.loopexit15
@@ -376,7 +376,7 @@ define dso_local void @acpi_tb_create_local_fadt(ptr nocapture noundef readonly 
   br i1 %168, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %166, %.loopexit15
-  %169 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 45, i32 1), align 1
+  %169 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 149), align 1
   %170 = lshr i8 %169, 4
   %171 = zext nneg i8 %170 to i64
   %172 = shl nuw nsw i8 %170, 3

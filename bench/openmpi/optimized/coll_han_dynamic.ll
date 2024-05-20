@@ -146,12 +146,12 @@ mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
   %31 = and i64 %indvars.iv.i, 4294967295
   %32 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %15, i64 0, i64 %31
   store ptr %20, ptr %32, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %34 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 80, i32 noundef %33) #8
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %30
-  %36 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %37 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
   %38 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #8
   %39 = load ptr, ptr %16, align 8
@@ -192,12 +192,12 @@ mca_coll_han_component_name_to_id.exit.thread:    ; preds = %28, %17, %mca_coll_
 
 52:                                               ; preds = %._crit_edge, %49
   %.2 = phi i32 [ %51, %49 ], [ %.035.lcssa, %._crit_edge ]
-  %53 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %54 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %53) #8
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %52
-  %56 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %57 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
   %58 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #8
   %59 = getelementptr inbounds i8, ptr %0, i64 160
@@ -241,7 +241,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %7, i64 876
   %19 = load i32, ptr %18, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %21 = icmp slt i32 %19, %20
   %spec.select = select i1 %21, i32 30, i32 0
   br label %22
@@ -256,12 +256,12 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.046, i32 noundef %28) #8
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %24
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %32 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 0) #8
   %33 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %10) #8
   %34 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %6) #8
@@ -288,12 +288,12 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4
-  %50 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %51 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.046, i32 noundef %50) #8
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %46
-  %53 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %54 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 0) #8
   %55 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %10) #8
   %56 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %6) #8
@@ -322,7 +322,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %67
-  %72 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21), align 1
+  %72 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), align 1
   %73 = trunc i8 %72 to i1
   %mca_coll_han_allgather_intra_simple.mca_coll_han_allgather_intra = select i1 %73, ptr @mca_coll_han_allgather_intra_simple, ptr @mca_coll_han_allgather_intra
   br label %74
@@ -340,7 +340,7 @@ define internal fastcc ptr @get_module(i32 noundef %0, i64 noundef %1, ptr nound
   %6 = load i32, ptr %5, align 8
   %7 = zext nneg i32 %0 to i64
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 28, i64 %7, i64 %8
+  %9 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @mca_coll_han_get_all_coll_modules(ptr noundef %2, ptr noundef %3)
   %12 = getelementptr i8, ptr %2, i64 248
@@ -366,12 +366,12 @@ define internal fastcc ptr @get_module(i32 noundef %0, i64 noundef %1, ptr nound
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %26 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %25) #8
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %29 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   %30 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %6) #8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %28, ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %0, ptr noundef %29, i32 noundef %6, ptr noundef %30) #8
@@ -398,12 +398,12 @@ define internal fastcc i32 @get_algorithm(i32 noundef %0, i64 noundef %1, ptr no
   %7 = getelementptr i8, ptr %2, i64 220
   %.val19 = load i32, ptr %7, align 4
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 22, i64 %8
+  %9 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 472), i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr null, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 23, i64 %8
+  %11 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 560), i64 0, i64 %8
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @mca_base_var_get_value(i32 noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #8
   %14 = load i32, ptr %6, align 4
@@ -438,12 +438,12 @@ define internal fastcc i32 @get_algorithm(i32 noundef %0, i64 noundef %1, ptr no
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %29 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %28) #8
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %32 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   %33 = call ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %.0) #8
   call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str.25, ptr noundef %32, i64 noundef %1, i32 noundef %.0, ptr noundef %33) #8
@@ -499,7 +499,7 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
 23:                                               ; preds = %._crit_edge
   %24 = getelementptr inbounds i8, ptr %8, i64 876
   %25 = load i32, ptr %24, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %27 = icmp slt i32 %25, %26
   %spec.select63 = select i1 %27, i32 30, i32 0
   br label %28
@@ -514,12 +514,12 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %35 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.058, i32 noundef %34) #8
   br i1 %35, label %36, label %.sink.split
 
 36:                                               ; preds = %30
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %38 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 1) #8
   %39 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %40 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -539,12 +539,12 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %52 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.058, i32 noundef %51) #8
   br i1 %52, label %53, label %.sink.split
 
 53:                                               ; preds = %47
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %55 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 1) #8
   %56 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %57 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -560,12 +560,12 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   br i1 %or.cond, label %63, label %76
 
 63:                                               ; preds = %60
-  %64 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %65 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 30, i32 noundef %64) #8
   br i1 %65, label %66, label %.sink.split
 
 66:                                               ; preds = %63
-  %67 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %68 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 1) #8
   %69 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef 2) #8
   %70 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -619,7 +619,7 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %6, i64 876
   %28 = load i32, ptr %27, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %30 = icmp slt i32 %28, %29
   %spec.select = select i1 %30, i32 30, i32 0
   br label %31
@@ -634,12 +634,12 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %38 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.052, i32 noundef %37) #8
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %33
-  %40 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %41 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 2) #8
   %42 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %9) #8
   %43 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %5) #8
@@ -666,12 +666,12 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4
-  %59 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %60 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.052, i32 noundef %59) #8
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %55
-  %62 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %63 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 2) #8
   %64 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %9) #8
   %65 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %5) #8
@@ -694,7 +694,7 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %76, label %86
 
 76:                                               ; preds = %73
-  %77 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 20), align 8
+  %77 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448), align 8
   %78 = trunc i8 %77 to i1
   br i1 %78, label %86, label %79
 
@@ -705,7 +705,7 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %79
-  %84 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 2), align 1
+  %84 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 451), align 1
   %85 = trunc i8 %84 to i1
   %mca_coll_han_allreduce_intra_simple.mca_coll_han_allreduce_intra = select i1 %85, ptr @mca_coll_han_allreduce_intra_simple, ptr @mca_coll_han_allreduce_intra
   br label %86
@@ -754,7 +754,7 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %1, i64 876
   %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %22 = icmp slt i32 %20, %21
   %spec.select = select i1 %22, i32 30, i32 0
   br label %23
@@ -769,12 +769,12 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %30 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.040, i32 noundef %29) #8
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %25
-  %32 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %33 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 6) #8
   %34 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
   %35 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #8
@@ -801,12 +801,12 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %52 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.040, i32 noundef %51) #8
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %47
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %55 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 6) #8
   %56 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
   %57 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #8
@@ -879,7 +879,7 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %5, i64 876
   %27 = load i32, ptr %26, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %29 = icmp slt i32 %27, %28
   %spec.select = select i1 %29, i32 30, i32 0
   br label %30
@@ -894,12 +894,12 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4
-  %36 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %37 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.050, i32 noundef %36) #8
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %32
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %40 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 7) #8
   %41 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %8) #8
   %42 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %4) #8
@@ -926,12 +926,12 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %59 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.050, i32 noundef %58) #8
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %54
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %62 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 7) #8
   %63 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %8) #8
   %64 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %4) #8
@@ -960,7 +960,7 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %75
-  %80 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 7), align 8
+  %80 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 456), align 8
   %81 = trunc i8 %80 to i1
   %mca_coll_han_bcast_intra_simple.mca_coll_han_bcast_intra = select i1 %81, ptr @mca_coll_han_bcast_intra_simple, ptr @mca_coll_han_bcast_intra
   br label %82
@@ -1014,7 +1014,7 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %8, i64 876
   %30 = load i32, ptr %29, align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %32 = icmp slt i32 %30, %31
   %spec.select = select i1 %32, i32 30, i32 0
   br label %33
@@ -1029,12 +1029,12 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %40 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.059, i32 noundef %39) #8
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %35
-  %42 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %43 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 9) #8
   %44 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %45 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -1061,12 +1061,12 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %62 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.059, i32 noundef %61) #8
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %57
-  %64 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %65 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 9) #8
   %66 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %67 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -1095,7 +1095,7 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 9), align 2
+  %83 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 458), align 2
   %84 = trunc i8 %83 to i1
   %mca_coll_han_gather_intra_simple.mca_coll_han_gather_intra = select i1 %84, ptr @mca_coll_han_gather_intra_simple, ptr @mca_coll_han_gather_intra
   br label %85
@@ -1146,7 +1146,7 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %7, i64 876
   %29 = load i32, ptr %28, align 4
-  %30 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %31 = icmp slt i32 %29, %30
   %spec.select = select i1 %31, i32 30, i32 0
   br label %32
@@ -1161,12 +1161,12 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
-  %38 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %39 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.054, i32 noundef %38) #8
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %34
-  %41 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %42 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 11) #8
   %43 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %10) #8
   %44 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %6) #8
@@ -1193,12 +1193,12 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 4
-  %60 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %60 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %61 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.054, i32 noundef %60) #8
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %56
-  %63 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %64 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 11) #8
   %65 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %10) #8
   %66 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %6) #8
@@ -1221,7 +1221,7 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   br i1 %or.cond, label %77, label %87
 
 77:                                               ; preds = %74
-  %78 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 20), align 8
+  %78 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448), align 8
   %79 = trunc i8 %78 to i1
   br i1 %79, label %87, label %80
 
@@ -1232,7 +1232,7 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  %85 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 11), align 4
+  %85 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 460), align 4
   %86 = trunc i8 %85 to i1
   %mca_coll_han_reduce_intra_simple.mca_coll_han_reduce_intra = select i1 %86, ptr @mca_coll_han_reduce_intra_simple, ptr @mca_coll_han_reduce_intra
   br label %87
@@ -1288,7 +1288,7 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %8, i64 876
   %30 = load i32, ptr %29, align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 31), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
   %32 = icmp slt i32 %30, %31
   %spec.select = select i1 %32, i32 30, i32 0
   br label %33
@@ -1303,12 +1303,12 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %40 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.059, i32 noundef %39) #8
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %35
-  %42 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %43 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 15) #8
   %44 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %45 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -1335,12 +1335,12 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %62 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.059, i32 noundef %61) #8
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %57
-  %64 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %65 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef 15) #8
   %66 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %11) #8
   %67 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %7) #8
@@ -1369,7 +1369,7 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 15), align 8
+  %83 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 464), align 8
   %84 = trunc i8 %83 to i1
   %mca_coll_han_scatter_intra_simple.mca_coll_han_scatter_intra = select i1 %84, ptr @mca_coll_han_scatter_intra_simple, ptr @mca_coll_han_scatter_intra
   br label %85
@@ -1391,8 +1391,8 @@ declare i32 @mca_coll_han_scatter_intra(ptr noundef, i32 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32 %.248.val.16.val, i32 %.808.val) unnamed_addr #3 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27, i32 1), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 664), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 672), align 8
   %5 = zext i32 %3 to i64
   br label %6
 
@@ -1410,12 +1410,12 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
   br i1 %13, label %19, label %6, !llvm.loop !8
 
 .thread:                                          ; preds = %6
-  %14 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %15 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %14) #8
   br i1 %15, label %16, label %101
 
 16:                                               ; preds = %.thread
-  %17 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %18 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %17, ptr noundef nonnull @.str.20, i32 noundef %0, ptr noundef %18) #8
   br label %101
@@ -1443,12 +1443,12 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
   br i1 %33, label %40, label %24, !llvm.loop !9
 
 .thread3:                                         ; preds = %24
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %35 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %34) #8
   br i1 %35, label %36, label %101
 
 36:                                               ; preds = %.thread3
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %38 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %.808.val) #8
   %39 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %37, ptr noundef nonnull @.str.21, i32 noundef %.808.val, ptr noundef %38, i32 noundef %0, ptr noundef %39) #8
@@ -1477,12 +1477,12 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
   br i1 %.not, label %45, label %60, !llvm.loop !10
 
 .thread6:                                         ; preds = %45
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %55 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %54) #8
   br i1 %55, label %56, label %101
 
 56:                                               ; preds = %.thread6
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %58 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   %59 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %.808.val) #8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef nonnull @.str.22, i32 noundef %0, ptr noundef %58, i32 noundef %.808.val, ptr noundef %59, i32 noundef %.248.val.16.val) #8
@@ -1511,12 +1511,12 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
   br i1 %.not90, label %65, label %80, !llvm.loop !11
 
 .thread9:                                         ; preds = %65
-  %74 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %75 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %74) #8
   br i1 %75, label %76, label %101
 
 76:                                               ; preds = %.thread9
-  %77 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %78 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   %79 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %.808.val) #8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %77, ptr noundef nonnull @.str.23, i32 noundef %0, ptr noundef %78, i32 noundef %.808.val, ptr noundef %79, i32 noundef %.248.val.16.val, i64 noundef %1) #8
@@ -1525,13 +1525,13 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
 80:                                               ; preds = %68
   %81 = getelementptr inbounds i8, ptr %71, i64 24
   %82 = load i32, ptr %81, align 8
-  %83 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %84 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 80, i32 noundef %83) #8
   br i1 %84, label %85, label %101
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds i8, ptr %71, i64 16
-  %87 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %88 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
   %89 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %.808.val) #8
   %90 = load i32, ptr %71, align 8

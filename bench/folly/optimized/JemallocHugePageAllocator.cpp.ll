@@ -152,7 +152,7 @@ if.then5:                                         ; preds = %if.then4
   %spec.select.i = call i32 @llvm.smax.i32(i32 %max_nr_pages, i32 %initial_nr_pages)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i) #20
   store i64 4, ptr %len.i, align 8, !tbaa !16
-  %call50.i = call i32 @mallctl(ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), ptr noundef nonnull %len.i, ptr noundef null, i64 noundef 0) #20
+  %call50.i = call i32 @mallctl(ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), ptr noundef nonnull %len.i, ptr noundef null, i64 noundef 0) #20
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %cleanup.cont.i, label %if.then52.i
 
@@ -170,7 +170,7 @@ cleanup.cont.i:                                   ; preds = %if.then5
           to label %invoke.cont55.i unwind label %lpad54.i
 
 invoke.cont55.i:                                  ; preds = %cleanup.cont.i
-  %6 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %conv.i.i = zext i32 %6 to i64
   %call.i269.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %rtl_key.i, i64 noundef %conv.i.i)
           to label %invoke.cont58.i unwind label %lpad54.i
@@ -273,7 +273,7 @@ lpad70.i:                                         ; preds = %if.then69.i
 cleanup.cont75.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %grow_retained_limit.i) #20
   store i64 2097152, ptr %grow_retained_limit.i, align 8, !tbaa !16
-  %19 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %conv77.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %mib.i, i64 8
   store i64 %conv77.i, ptr %arrayidx.i, align 8, !tbaa !16
@@ -301,7 +301,7 @@ invoke.cont91.i:                                  ; preds = %cleanup.cont88.i
           to label %invoke.cont93.i unwind label %lpad92.i
 
 invoke.cont93.i:                                  ; preds = %invoke.cont91.i
-  %22 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %conv.i278.i = zext i32 %22 to i64
   %call.i279.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %hooks_key.i, i64 noundef %conv.i278.i)
           to label %invoke.cont96.i unwind label %lpad92.i
@@ -411,11 +411,11 @@ lpad109.i:                                        ; preds = %if.then108.i
 cleanup.cont114.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313.i
   %36 = load ptr, ptr %hooks.i, align 8, !tbaa !46
   %37 = load ptr, ptr %36, align 8, !tbaa !47
-  store ptr %37, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 4), align 8, !tbaa !48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 5), ptr noundef nonnull align 8 dereferenceable(72) %36, i64 72, i1 false), !tbaa.struct !49
-  store ptr @_ZN5folly12_GLOBAL__N_113HugePageArena9allocHookEP14extent_hooks_sPvmmPbS5_j, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 5), align 8, !tbaa !50
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 32), align 8, !tbaa !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 40), ptr noundef nonnull align 8 dereferenceable(72) %36, i64 72, i1 false), !tbaa.struct !49
+  store ptr @_ZN5folly12_GLOBAL__N_113HugePageArena9allocHookEP14extent_hooks_sPvmmPbS5_j, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 40), align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_hooks.i) #20
-  store ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 5), ptr %new_hooks.i, align 8, !tbaa !46
+  store ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 40), ptr %new_hooks.i, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp120.i) #20
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
@@ -511,7 +511,7 @@ invoke.cont136.i:                                 ; preds = %cleanup.cont133.i
           to label %invoke.cont138.i unwind label %lpad137.i
 
 invoke.cont138.i:                                 ; preds = %invoke.cont136.i
-  %49 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %conv.i347.i = zext i32 %49 to i64
   %call.i348.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %dirty_decay_key.i, i64 noundef %conv.i347.i)
           to label %invoke.cont141.i unwind label %lpad137.i
@@ -599,7 +599,7 @@ if.then153.i:                                     ; preds = %_ZNSt7__cxx1112basi
 
 if.then153.cleanup199_crit_edge.i:                ; preds = %if.then153.i
   %.pre.i = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  %.pre1.i = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %.pre1.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   br label %cleanup199.i
 
 lpad135.i:                                        ; preds = %cleanup.cont133.i
@@ -631,7 +631,7 @@ invoke.cont162.i:                                 ; preds = %cleanup.cont159.i
           to label %invoke.cont164.i unwind label %lpad163.i
 
 invoke.cont164.i:                                 ; preds = %invoke.cont162.i
-  %63 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %conv.i386.i = zext i32 %63 to i64
   %call.i387.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %muzzy_decay_key.i, i64 noundef %conv.i386.i)
           to label %invoke.cont167.i unwind label %lpad163.i
@@ -748,7 +748,7 @@ invoke.cont189.i:                                 ; preds = %cleanup.cont185.i
   br i1 %cmp191.i, label %cleanup195.i, label %if.end193.i
 
 if.end193.i:                                      ; preds = %invoke.cont189.i
-  %78 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %78 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   %add.i = shl i32 %78, 20
   %or.i = add i32 %add.i, 1048832
   br label %cleanup195.i
@@ -757,13 +757,13 @@ cleanup195.i:                                     ; preds = %if.end193.i, %invok
   %retval.7.i = phi i32 [ %or.i, %if.end193.i ], [ 0, %invoke.cont189.i ], [ 0, %if.then179.i ]
   %79 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %79, ptr %muzzy_decay_key.i, align 8, !tbaa !73
-  %80 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %79, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 %vbase.offset.i.i.i
   store ptr %80, ptr %add.ptr.i.i.i, align 8, !tbaa !73
   %_M_stringbuf.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_string.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 80
   %81 = load ptr, ptr %_M_string.i.i.i.i, align 8, !tbaa !38
   %82 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 96
@@ -782,7 +782,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup195.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #20
   %84 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 112
@@ -810,7 +810,7 @@ cleanup199.i:                                     ; preds = %_ZNSt7__cxx1119basi
   %add.ptr.i.i424.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 %vbase.offset.i.i423.i
   store ptr %85, ptr %add.ptr.i.i424.i, align 8, !tbaa !73
   %_M_stringbuf.i.i425.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_string.i.i.i426.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 80
   %87 = load ptr, ptr %_M_string.i.i.i426.i, align 8, !tbaa !38
   %88 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 96
@@ -829,7 +829,7 @@ if.then.i.i.i.i.i428.i:                           ; preds = %cleanup199.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i: ; preds = %if.then.i.i.i.i.i428.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i430.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i429.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i429.i) #20
   %90 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 112
@@ -864,13 +864,13 @@ cleanup207.i:                                     ; preds = %cleanup205.i, %if.t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hooks.i) #20
   %91 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %91, ptr %hooks_key.i, align 8, !tbaa !73
-  %92 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i434.i = getelementptr i8, ptr %91, i64 -24
   %vbase.offset.i.i435.i = load i64, ptr %vbase.offset.ptr.i.i434.i, align 8
   %add.ptr.i.i436.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 %vbase.offset.i.i435.i
   store ptr %92, ptr %add.ptr.i.i436.i, align 8, !tbaa !73
   %_M_stringbuf.i.i437.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_string.i.i.i438.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 80
   %93 = load ptr, ptr %_M_string.i.i.i438.i, align 8, !tbaa !38
   %94 = getelementptr inbounds i8, ptr %hooks_key.i, i64 96
@@ -889,7 +889,7 @@ if.then.i.i.i.i.i440.i:                           ; preds = %cleanup207.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i: ; preds = %if.then.i.i.i.i.i440.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i442.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i441.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i441.i) #20
   %96 = getelementptr inbounds i8, ptr %hooks_key.i, i64 112
@@ -926,13 +926,13 @@ cleanup215.i:                                     ; preds = %cleanup213.i, %if.t
   %retval.12.i = phi i32 [ %retval.11.i, %cleanup213.i ], [ 0, %if.then69.i ]
   %97 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %97, ptr %rtl_key.i, align 8, !tbaa !73
-  %98 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 3), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i446.i = getelementptr i8, ptr %97, i64 -24
   %vbase.offset.i.i447.i = load i64, ptr %vbase.offset.ptr.i.i446.i, align 8
   %add.ptr.i.i448.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 %vbase.offset.i.i447.i
   store ptr %98, ptr %add.ptr.i.i448.i, align 8, !tbaa !73
   %_M_stringbuf.i.i449.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_string.i.i.i450.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 80
   %99 = load ptr, ptr %_M_string.i.i.i450.i, align 8, !tbaa !38
   %100 = getelementptr inbounds i8, ptr %rtl_key.i, i64 96
@@ -951,7 +951,7 @@ if.then.i.i.i.i.i452.i:                           ; preds = %cleanup215.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i: ; preds = %if.then.i.i.i.i.i452.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i454.i
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i453.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i453.i) #20
   %102 = getelementptr inbounds i8, ptr %rtl_key.i, i64 112
@@ -1215,18 +1215,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.then2
 
 if.then:                                          ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 2), align 8, !tbaa !80
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !80
   %add.i.i = add i64 %alignment, -1
   %sub14.i.i = add i64 %add.i.i, %0
   %not.i.i = sub i64 0, %alignment
   %and16.i.i = and i64 %sub14.i.i, %not.i.i
   %add.i = add i64 %and16.i.i, %size
-  %1 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 1), align 8, !tbaa !81
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !81
   %cmp.i = icmp ugt i64 %add.i, %1
   br i1 %cmp.i, label %if.then2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %2 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 3), align 8, !tbaa !82
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !82
   %cmp2.i = icmp ugt i64 %add.i, %2
   br i1 %cmp2.i, label %if.then3.i, label %if.end
 
@@ -1235,13 +1235,13 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %call4.i, label %if.end, label %if.then2
 
 if.end:                                           ; preds = %if.then3.i, %if.end.i
-  store i64 %add.i, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 2), align 8, !tbaa !80
+  store i64 %add.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !80
   %3 = inttoptr i64 %and16.i.i to ptr
   %cmp1 = icmp eq i64 %and16.i.i, 0
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end, %if.then3.i, %if.then, %entry
-  %4 = load ptr, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 4), align 8, !tbaa !48
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 32), align 8, !tbaa !48
   %call3 = tail call noundef ptr %4(ptr noundef %extent, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind)
   br label %if.end6
 
@@ -1297,10 +1297,10 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end8
-  store i64 %and16.i, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 3), align 8, !tbaa !82
-  store i64 %and16.i, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 2), align 8, !tbaa !80
+  store i64 %and16.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !82
+  store i64 %and16.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !80
   store i64 %and16.i, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !72
-  store i64 %.pre, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 1), align 8, !tbaa !81
+  store i64 %.pre, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !81
   %2 = inttoptr i64 %and16.i to ptr
   %call20 = tail call i32 @madvise(ptr noundef %2, i64 noundef %mul2, i32 noundef 16) #20
   %3 = load i64, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !72
@@ -1346,7 +1346,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_113HugePageArena16setup_next_pagesEm(i64 noundef %upto) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 3), align 8, !tbaa !82
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !82
   %sub14.i = add i64 %upto, 2097151
   %and16.i = and i64 %sub14.i, -2097152
   %sub = sub i64 %and16.i, %0
@@ -1354,7 +1354,7 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 1), align 8, !tbaa !81
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !81
   %cmp2 = icmp ugt i64 %and16.i, %1
   br i1 %cmp2, label %cleanup, label %if.end4
 
@@ -1383,7 +1383,7 @@ if.end15:                                         ; preds = %if.then14, %if.end1
   br i1 %cmp161, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body, %if.end15
-  store i64 %and16.i, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 3), align 8, !tbaa !82
+  store i64 %and16.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !82
   br label %cleanup
 
 for.body:                                         ; preds = %if.end15, %for.body
@@ -1414,8 +1414,8 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5folly25JemallocHugePageAllocator9freeSpaceEv() local_unnamed_addr #16 align 2 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 1), align 8, !tbaa !81
-  %1 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 2), align 8, !tbaa !80
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !81
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !80
   %sub.i = sub i64 %0, %1
   ret i64 %sub.i
 }
@@ -1426,7 +1426,7 @@ entry:
   %0 = ptrtoint ptr %address to i64
   %1 = load i64, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !72
   %cmp.not.i = icmp ule i64 %1, %0
-  %2 = load i64, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 3), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8
   %cmp2.i = icmp ugt i64 %2, %0
   %3 = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   ret i1 %3
@@ -1435,7 +1435,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN5folly10arenaIndexEv() local_unnamed_addr #16 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::HugePageArena", ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 0, i32 6), align 8, !tbaa !18
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   ret i32 %0
 }
 

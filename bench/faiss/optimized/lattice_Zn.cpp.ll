@@ -184,7 +184,7 @@ define void @_ZNK5faiss13ZnSphereCodec6decodeEmPf(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -237,7 +237,7 @@ _ZN5faiss14ZnSphereSearchD2Ev.exit:               ; preds = %_ZNSt6vectorIN5fais
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss13ZnSphereCodecD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -524,7 +524,7 @@ _ZNSt6vectorImSaImEED2Ev.exit83:                  ; preds = %97, %87, %.preheade
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss16ZnSphereCodecRecD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -586,7 +586,7 @@ _ZNSt6vectorImSaImEED2Ev.exit3:                   ; preds = %_ZNSt6vectorImSaImE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss16ZnSphereCodecRecD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -821,9 +821,9 @@ _ZNK5faiss13ZnSphereCodec6decodeEmPf.exit:        ; preds = %44, %._crit_edge.i,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss16ZnSphereCodecAltD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 208
@@ -880,7 +880,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %14, %_ZNSt6vectorIS
   br label %_ZN5faiss16ZnSphereCodecRecD2Ev.exit
 
 _ZN5faiss16ZnSphereCodecRecD2Ev.exit:             ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i, %17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1321,7 +1321,7 @@ define noundef i64 @_ZNK5faiss7Repeats5countEv(ptr nocapture noundef nonnull rea
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = load i32, ptr %0, align 8
-  %11 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %12 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %13
@@ -1371,7 +1371,7 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr nocapture noundef nonnull 
   br i1 %.not10.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %9 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   br label %10
 
@@ -1466,7 +1466,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
   br i1 %.not84, label %_ZNSt6vectorIbSaIbEED2Ev.exit53, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %48
-  %57 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %58 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader.us
@@ -1611,7 +1611,7 @@ define void @_ZNK5faiss7Repeats6decodeEmPf(ptr nocapture noundef nonnull readonl
   br i1 %15, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i: ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %17 = mul nsw i32 %16, %.03364.i
   %18 = add nsw i32 %17, %14
   %19 = sext i32 %18 to i64
@@ -1696,7 +1696,7 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %32, %33, %12
   br i1 %62, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i: ; preds = %60
-  %63 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %64 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %65 = sext i32 %.027.i.ph to i64
   %66 = sext i32 %63 to i64
@@ -1765,7 +1765,7 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i: ; preds = %72, %73, %60
   br i1 %97, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i:  ; preds = %.lr.ph109
-  %98 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %98 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %99 = mul nsw i32 %98, %.031106
   %100 = add nsw i32 %99, %96
   %101 = sext i32 %100 to i64
@@ -1857,7 +1857,7 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit: ; preds = %114, %.lr.ph109, %1
   br i1 %147, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit59, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49: ; preds = %145
-  %148 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %148 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %149 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %150 = sext i32 %.025101 to i64
   %151 = sext i32 %148 to i64
@@ -3815,7 +3815,7 @@ _ZN5faiss14ZnSphereSearchC2Eii.exit:              ; preds = %16, %25
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %41, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13ZnSphereCodecE, i64 16), ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = icmp sgt i32 %38, 0
@@ -3976,7 +3976,7 @@ _ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit: 
   %114 = sub i64 %112, %113
   %115 = ashr exact i64 %114, 3
   %116 = load i32, ptr %5, align 8
-  %117 = load i32, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %118 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %119
@@ -4654,7 +4654,7 @@ define void @_ZN5faiss16ZnSphereCodecRecC2Eii(ptr noundef nonnull align 8 derefe
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %2, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5643,7 +5643,7 @@ _ZNSt6vectorImSaImEED2Ev.exit54:                  ; preds = %._crit_edge85, %72
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss16ZnSphereCodecAltC2Eii(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %6 = icmp ult i32 %5, 2
@@ -5670,7 +5670,7 @@ define internal void @_GLOBAL__sub_I_lattice_Zn.cpp() #18 section ".text.startup
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5faiss12_GLOBAL__N_14combE, i8 0, i64 24, i1 false)
-  store i32 100, ptr getelementptr inbounds (%"struct.faiss::(anonymous namespace)::Comb", ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 0, i32 1), align 8
+  store i32 100, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   store i64 0, ptr %1, align 8
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5faiss12_GLOBAL__N_14combE, ptr null, i64 noundef 10000, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i unwind label %17

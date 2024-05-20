@@ -25,14 +25,14 @@ define i32 @pmix_compress_base_select() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %3 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 1), align 8
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 8), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 1), align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i64 0, i32 11), align 4
-  %7 = call i32 @pmix_mca_base_select(ptr noundef nonnull @.str, i32 noundef %6, ptr noundef nonnull getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i64 0, i32 12), ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #3
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_compress_base, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
+  %7 = call i32 @pmix_mca_base_select(ptr noundef nonnull @.str, i32 noundef %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 80), ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #3
   %8 = icmp eq i32 %7, 0
   %9 = load ptr, ptr %2, align 8
   %10 = icmp ne ptr %9, null

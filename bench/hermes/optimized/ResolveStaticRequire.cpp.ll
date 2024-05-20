@@ -33,7 +33,7 @@ _ZNSt10unique_ptrIN6hermes20ResolveStaticRequireESt14default_deleteIS1_EED2Ev.ex
   store ptr @.str.13, ptr %name2.i.i.i.i, align 8, !noalias !4
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 20, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes20ResolveStaticRequireE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes20ResolveStaticRequireE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

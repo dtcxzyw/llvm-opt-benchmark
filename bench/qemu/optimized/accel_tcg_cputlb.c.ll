@@ -1561,7 +1561,7 @@ while.end.i.i.i:                                  ; preds = %entry
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %entry
-  %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 1) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 72) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !35
   %blocks1.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -2551,7 +2551,7 @@ while.end.i.preheader:                            ; preds = %while.end.i.i.i, %i
 
 while.end.i:                                      ; preds = %while.end.i.preheader, %while.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.end.i ], [ 0, %while.end.i.preheader ]
-  %arrayidx.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i
   %8 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !45
@@ -12184,7 +12184,7 @@ while.end.i.i.i:                                  ; preds = %entry
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %entry
   %idxprom.i = zext nneg i32 %client to i64
-  %arrayidx.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !182
   %cmp521.i = icmp ult i64 %shr2.i, %shr.i

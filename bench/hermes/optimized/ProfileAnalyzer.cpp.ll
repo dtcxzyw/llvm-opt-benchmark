@@ -546,7 +546,7 @@ if.then.i.i.i.i.i6.thread.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %11 = phi i32 [ %.pre.i, %if.then.i.i.i.i.i.if.then.i.i.i.i.i6.thread.i_crit_edge.i ], [ %add.i.i.i.i.i.i11.i, %if.then.i.i.i.i.thread.i.i ]
   %add.i.i.i.i.i.i.i.i = add nsw i32 %11, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %blockInstFreqVisitor.i.i, align 8
   store ptr %3, ptr %bcProvider_.i10.i4.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i.i11.i5.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i
@@ -554,7 +554,7 @@ if.then.i.i.i.i.i6.thread.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 if.then.i.i.i.i.i6.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre2.i.i = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %blockInstFreqVisitor.i.i, align 8
   store ptr %3, ptr %bcProvider_.i10.i4.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i.i11.i5.i.i, align 8
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %.pre2.i.i, 0
@@ -650,7 +650,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEERS5_IPKhtS6_ISH_ES8_ISH_ESaISA_IKSH_tEEE.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i.i.i
   %call1830.i = phi ptr [ %call1829.i, %if.end8.sink.split.i.i.i.i.i.i.i ], [ %call1829.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ %call1829.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %call18.i, %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 16), ptr %blockInstFreqVisitor.i.i, align 8
   store i16 0, ptr %curProfileIndex_.i.i.i, align 4
   store i32 0, ptr %curBlockStaticInstCount_.i.i.i, align 8
   store ptr %second.i, ptr %funcLogData_.i.i.i, align 8
@@ -1119,7 +1119,7 @@ cond.true:                                        ; preds = %_ZN4llvh11raw_ostre
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #19
   %call.i15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef %call.i15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.1, i64 0, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 5))
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -3224,7 +3224,7 @@ if.then.i.i.i.i.i1.thread.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %15 = phi i32 [ %.pre.i, %if.then.i.i.i.i.i.if.then.i.i.i.i.i1.thread.i_crit_edge.i ], [ %add.i.i.i.i.i.i11.i, %if.then.i.i.i.i.thread.i.i ]
   %add.i.i.i.i.i.i.i.i = add nsw i32 %15, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %instSummaryVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %instSummaryVisitor.i.i, align 8
   store ptr %7, ptr %bcProvider_.i10.i8.i.i, align 8
   store ptr %8, ptr %_M_refcount.i.i.i11.i9.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i
@@ -3232,7 +3232,7 @@ if.then.i.i.i.i.i1.thread.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 if.then.i.i.i.i.i1.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %16 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre6.i.i = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %instSummaryVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %instSummaryVisitor.i.i, align 8
   store ptr %7, ptr %bcProvider_.i10.i8.i.i, align 8
   store ptr %8, ptr %_M_refcount.i.i.i11.i9.i.i, align 8
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %.pre6.i.i, 0
@@ -3322,7 +3322,7 @@ _ZN6hermes25InstructionSummaryVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEE
   store ptr %7, ptr %bcProvider_.i10.i8.i.i, align 8
   store ptr null, ptr %_M_refcount.i.i.i11.i9.i.i, align 8
   store i32 0, ptr %funcId_.i12.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i64 0, i32 0, i64 2), ptr %instSummaryVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i64 16), ptr %instSummaryVisitor.i.i, align 8
   store i16 0, ptr %curProfileIndex_.i2.i.i, align 4
   store ptr %second.i, ptr %funcLogData_.i3.i.i, align 8
   store ptr %call18.i, ptr %profileIndexMap_.i4.i.i, align 8
@@ -3330,7 +3330,7 @@ _ZN6hermes25InstructionSummaryVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEE
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i64 0, i32 0, i64 2), ptr %instSummaryVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i64 16), ptr %instSummaryVisitor.i.i, align 8
   store i16 0, ptr %curProfileIndex_.i2.i.i, align 4
   store ptr %second.i, ptr %funcLogData_.i3.i.i, align 8
   store ptr %call1827.i, ptr %profileIndexMap_.i4.i.i, align 8
@@ -3403,7 +3403,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN6hermes25InstructionSummaryVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEERS5_IPKhtS6_ISH_ES8_ISH_ESaISA_IKSH_tEEERS5_INS_4inst6OpCodeEmS6_ISQ_ES8_ISQ_ESaISA_IKSQ_mEEE.exit.i.i
   call void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr noundef nonnull align 8 dereferenceable(28) %instSummaryVisitor.i.i, i32 noundef %6) #19
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %instSummaryVisitor.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %instSummaryVisitor.i.i, align 8
   %39 = load ptr, ptr %_M_refcount.i.i.i11.i9.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZZN6hermes15ProfileAnalyzer20dumpInstructionStatsEvENK3$_0clESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEERS6_IPKhtS7_ISI_ES9_ISI_ESaISB_IKSI_tEEEj.exit.i", label %if.then.i.i.i.i.i14.i.i
@@ -5371,7 +5371,7 @@ if.then.i.i.i.i.i14.thread:                       ; preds = %if.then.i.i.i.i9, %
   %13 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i13 = add nsw i32 %13, 1
   store i32 %add.i.i.i.i.i.i13, ptr %_M_use_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %jumpVisitor, align 8
   %bcProvider_.i10.i223 = getelementptr inbounds i8, ptr %jumpVisitor, i64 8
   store ptr %6, ptr %bcProvider_.i10.i223, align 8
   %_M_refcount.i.i.i11.i224 = getelementptr inbounds i8, ptr %jumpVisitor, i64 16
@@ -5381,7 +5381,7 @@ if.then.i.i.i.i.i14.thread:                       ; preds = %if.then.i.i.i.i9, %
 if.then.i.i.i.i.i14:                              ; preds = %if.then.i.i.i.i9
   %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre218 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %jumpVisitor, align 8
   %bcProvider_.i10.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 8
   store ptr %6, ptr %bcProvider_.i10.i, align 8
   %_M_refcount.i.i.i11.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 16
@@ -5478,7 +5478,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN6hermes3hbc18JumpTargetsVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit
 
 _ZN6hermes3hbc18JumpTargetsVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 16), ptr %jumpVisitor, align 8
   %funcId_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 28
   %switchInsts_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 48
   %jumpTargets_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 72
@@ -5587,7 +5587,7 @@ if.then.i.i.i.i.i44.thread:                       ; preds = %if.then.i.i.i.i39, 
   %41 = load i32, ptr %_M_use_count.i.i.i.i19, align 4
   %add.i.i.i.i.i.i43 = add nsw i32 %41, 1
   store i32 %add.i.i.i.i.i.i43, ptr %_M_use_count.i.i.i.i19, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %blockInstFreqVisitor, align 8
   %bcProvider_.i10.i45227 = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 8
   store ptr %6, ptr %bcProvider_.i10.i45227, align 8
   %_M_refcount.i.i.i11.i46228 = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 16
@@ -5597,7 +5597,7 @@ if.then.i.i.i.i.i44.thread:                       ; preds = %if.then.i.i.i.i39, 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i39
   %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i19, i32 1 acq_rel, align 4
   %.pre220 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %blockInstFreqVisitor, align 8
   %bcProvider_.i10.i45 = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 8
   store ptr %6, ptr %bcProvider_.i10.i45, align 8
   %_M_refcount.i.i.i11.i46 = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 16
@@ -5696,7 +5696,7 @@ if.end8.sink.split.i.i.i.i.i75:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEERS5_IPKhtS6_ISH_ES8_ISH_ESaISA_IKSH_tEEE.exit
 
 _ZN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEERS5_IPKhtS6_ISH_ES8_ISH_ESaISA_IKSH_tEEE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72, %if.end8.sink.split.i.i.i.i.i75
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 0, i32 0, i64 2), ptr %blockInstFreqVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 16), ptr %blockInstFreqVisitor, align 8
   %curProfileIndex_.i = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 28
   store i16 0, ptr %curProfileIndex_.i, align 4
   %curBlockStaticInstCount_.i = getelementptr inbounds i8, ptr %blockInstFreqVisitor, i64 32
@@ -5893,7 +5893,7 @@ if.end8.sink.split.i.i.i.i156:                    ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit165: ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i143, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153, %if.end8.sink.split.i.i.i.i156
   %83 = load i32, ptr %funcId.addr, align 4
   call void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr noundef nonnull align 8 dereferenceable(28) %funcDetailsVisitor, i32 noundef %83) #19
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %funcDetailsVisitor, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %funcDetailsVisitor, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %funcDetailsVisitor, i64 16
   %84 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %84, null
@@ -6332,7 +6332,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes30FunctionBasicBlockStatsVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes30FunctionBasicBlockStatsVisitorE, i64 16), ptr %this, align 8
   %profileIndexMap_ = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %profileIndexMap, ptr %profileIndexMap_, align 8
   %totalProfileRuntimeInstructionCount_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -6349,7 +6349,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes30FunctionBasicBlockStatsVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -6430,7 +6430,7 @@ _ZN6hermes3hbc24PrettyDisassembleVisitorD2Ev.exit: ; preds = %entry, %_ZN9__gnu_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i64 16), ptr %this, align 8
   %basicBlockRuntimeInstCountMap_ = getelementptr inbounds i8, ptr %this, i64 56
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -6461,7 +6461,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIt
   br label %_ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEED2Ev.exit
 
 _ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEED2Ev.exit: ; preds = %_ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -6542,7 +6542,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt13unordered_ma
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc18JumpTargetsVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 16), ptr %this, align 8
   %jumpTargets_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -6583,7 +6583,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt13unordered_ma
   br label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit: ; preds = %_ZNSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEED2Ev.exit, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
@@ -9621,7 +9621,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit34:               ; preds = %if.then.i.i32, %if.
   %div = fdiv double %conv12, %conv13
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store ptr @.str.54, ptr %Fmt.i.i.i, align 8, !alias.scope !248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp10, align 8, !alias.scope !248
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp10, align 8, !alias.scope !248
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   store double %div, ptr %Vals.i.i, align 8, !alias.scope !248
   %call14 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10) #19
@@ -9770,7 +9770,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit126:              ; preds = %if.then.i.i124, %if
   %div27 = fdiv double %mul, %conv26
   %Fmt.i.i.i127 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
   store ptr @.str.36, ptr %Fmt.i.i.i127, align 8, !alias.scope !251
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp23, align 8, !alias.scope !251
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp23, align 8, !alias.scope !251
   %Vals.i.i128 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   store double %div27, ptr %Vals.i.i128, align 8, !alias.scope !251
   %call28 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i123, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #19
@@ -9917,7 +9917,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit218:              ; preds = %if.then.i.i216, %if
   %div44 = fdiv double %mul41, %conv43
   %Fmt.i.i.i219 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   store ptr @.str.36, ptr %Fmt.i.i.i219, align 8, !alias.scope !254
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp37, align 8, !alias.scope !254
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp37, align 8, !alias.scope !254
   %Vals.i.i220 = getelementptr inbounds i8, ptr %ref.tmp37, i64 16
   store double %div44, ptr %Vals.i.i220, align 8, !alias.scope !254
   %call45 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i215, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37) #19
@@ -10064,7 +10064,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit310:              ; preds = %if.then.i.i308, %if
   %div61 = fdiv double %mul58, %conv60
   %Fmt.i.i.i311 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   store ptr @.str.36, ptr %Fmt.i.i.i311, align 8, !alias.scope !257
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8, !alias.scope !257
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp54, align 8, !alias.scope !257
   %Vals.i.i312 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   store double %div61, ptr %Vals.i.i312, align 8, !alias.scope !257
   %call62 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i307, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54) #19
@@ -11441,7 +11441,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11522,7 +11522,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -12179,7 +12179,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %bcProvider_.i10 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %0, ptr %bcProvider_.i10, align 8
   %_M_refcount.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 16
@@ -12277,7 +12277,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 16), ptr %this, align 8
   %jumpTargets_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %jumpTargets, ptr %jumpTargets_, align 8
   %bytecodeStart_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -12973,7 +12973,7 @@ declare void @_ZN6hermes3hbc24PrettyDisassembleVisitor12visitOperandEPKhNS_4inst
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes30FunctionBasicBlockStatsVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -14260,7 +14260,7 @@ return:                                           ; preds = %for.cond.i.i, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes25InstructionSummaryVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -14429,7 +14429,7 @@ if.end:                                           ; preds = %if.end3.i.i.i.i, %l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes25InstructionSummaryVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null

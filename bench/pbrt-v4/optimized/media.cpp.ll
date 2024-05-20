@@ -807,7 +807,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.3, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -950,7 +950,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.3, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1191,146 +1191,146 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store ptr @.str.8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, align 16
-  store <4 x float> <float 0x400251EB80000000, float 0x40031EB860000000, float 0x3FFF851EC0000000, float 0x3F689374C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 0, i32 1), align 8
-  store <2 x float> <float 0x3F6BDA5120000000, float 0x3FA78D4FE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 0, i32 2, i32 1), align 8
-  store ptr @.str.9, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 1), align 16
-  store <4 x float> <float 0x3FC3333340000000, float 0x3FCAE147A0000000, float 0x3FD851EB80000000, float 0x3F8EB851E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 1, i32 1), align 8
-  store <2 x float> <float 0x3FB3B645A0000000, float 0x3FC851EB80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 1, i32 2, i32 1), align 8
-  store ptr @.str.10, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 2), align 16
-  store <4 x float> <float 0x3FC851EB80000000, float 2.500000e-01, float 0x3FD47AE140000000, float 0x3F926E9780000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 2, i32 1), align 8
-  store <2 x float> <float 0x3FB6872B00000000, float 0x3FC99999A0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 2, i32 2, i32 1), align 8
-  store ptr @.str.11, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 3), align 16
-  store <4 x float> <float 0x401D851EC0000000, float 0x4015E147A0000000, float 0x4009333340000000, float 0x3F2A36E2E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 3, i32 1), align 8
-  store <2 x float> <float 0x3F66F00680000000, float 0x3F90B0F280000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 3, i32 2, i32 1), align 8
-  store ptr @.str.12, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 4), align 16
-  store <4 x float> <float 0x3FC70A3D80000000, float 0x3FB1EB8520000000, float 0x3F9EB851E0000000, float 0x3FAF3B6460000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 4, i32 1), align 8
-  store <2 x float> <float 0x3FEF0A3D80000000, float 0x3FF7333340000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 4, i32 2, i32 1), align 8
-  store ptr @.str.13, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 5), align 16
-  store <4 x float> <float 0x4001851EC0000000, float 0x4004F5C280000000, float 3.000000e+00, float 0x3F613404E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 5, i32 1), align 8
-  store <2 x float> <float 0x3F70CB2960000000, float 0x3F7D14E3C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 5, i32 2, i32 1), align 8
-  store ptr @.str.14, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 6), align 16
-  store <4 x float> <float 0x3FE5C28F60000000, float 0x3FE6666660000000, float 0x3FE19999A0000000, float 0x3F63A92A40000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 6, i32 1), align 8
-  store <2 x float> <float 0x3F826E9780000000, float 0x3FBEB851E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 6, i32 2, i32 1), align 8
-  store ptr @.str.15, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 7), align 16
-  store <4 x float> <float 0x3FE6666660000000, float 0x3FF3851EC0000000, float 0x3FFE666660000000, float 0x3F56F00680000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 7, i32 1), align 8
-  store <2 x float> <float 0x3F647AE140000000, float 0x3F8D14E3C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 7, i32 2, i32 1), align 8
-  store ptr @.str.16, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 8), align 16
-  store <4 x float> <float 0x3FE7AE1480000000, float 0x3FEC28F5C0000000, float 0x3FF028F5C0000000, float 0x3FA0624DE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 8, i32 1), align 8
-  store <2 x float> <float 0x3FC5C28F60000000, float 0x3FDEB851E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 8, i32 2, i32 1), align 8
-  store ptr @.str.17, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 9), align 16
-  store <4 x float> <float 0x3FF170A3E0000000, float 0x3FF970A3E0000000, float 0x3FFCA3D700000000, float 0x3F8A9FBE80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 9, i32 1), align 8
-  store <2 x float> <float 0x3FB1EB8520000000, float 0x3FC28F5C20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 9, i32 2, i32 1), align 8
-  store ptr @.str.18, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 10), align 16
-  store <4 x float> <float 0x4027333340000000, float 0x4034666660000000, float 0x402DCCCCC0000000, float 0.000000e+00>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 10, i32 1), align 8
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 10, i32 2, i32 1), align 8
-  store ptr @.str.19, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 11), align 16
-  store <4 x float> <float 0x4004666660000000, float 0x4009AE1480000000, float 0x400E28F5C0000000, float 0x3F5205BC00000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 11, i32 1), align 8
-  store <2 x float> <float 0x3F63A92A40000000, float 0x3F8CAC0840000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 11, i32 2, i32 1), align 8
-  store ptr @.str.20, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 12), align 16
-  store <4 x float> <float 0x3FEC8A3300000000, float 0x3FF837B4A0000000, float 0x4004418940000000, float 0x3F678D4FE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 12, i32 1), align 8
-  store <2 x float> <float 0x3F778D4FE0000000, float 0x3F878D4FE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 12, i32 2, i32 1), align 8
-  store ptr @.str.21, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 13), align 16
-  store <4 x float> <float 0x4003E2EB20000000, float 0x400955CFA0000000, float 0x401215E9E0000000, float 0x3F64EF7B40000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 13, i32 1), align 8
-  store <2 x float> <float 0x3F74EF6080000000, float 0x3F8A2B5A20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 13, i32 2, i32 1), align 8
-  store ptr @.str.22, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 14), align 16
-  store <4 x float> <float 0x4012348800000000, float 0x4017514E40000000, float 0x401C8B43A0000000, float 0x3F591F2060000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 14, i32 1), align 8
-  store <2 x float> <float 0x3F72D77320000000, float 0x3F94695100000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 14, i32 2, i32 1), align 8
-  store ptr @.str.23, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 15), align 16
-  store <4 x float> <float 0x3FE72934A0000000, float 0x3FEB0EE8E0000000, float 0x3FF0652BE0000000, float 0x4013318FC0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 15, i32 1), align 8
-  store <2 x float> <float 0x401A4CE700000000, float 0x4021B2D780000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 15, i32 2, i32 1), align 8
-  store ptr @.str.24, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 16), align 16
-  store <4 x float> <float 0x3FD439AC00000000, float 0x3FD8AA10E0000000, float 0x3FDECDC880000000, float 0x400E2D0E60000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 16, i32 1), align 8
-  store <2 x float> <float 0x40174A8C20000000, float 0x401F47AE20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 16, i32 2, i32 1), align 8
-  store ptr @.str.25, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 17), align 16
-  store <4 x float> <float 0x3FD3919260000000, float 0x3FD5E8BC20000000, float 0x3FE3BB83C0000000, float 0x3F578D4FE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 17, i32 1), align 8
-  store <2 x float> <float 0x3F7D70A3E0000000, float 0x3FA26655A0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 17, i32 2, i32 1), align 8
-  store ptr @.str.26, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 18), align 16
-  store <4 x float> <float 0x3FE2F38C60000000, float 0x3FE7A31A40000000, float 0x3FF78240C0000000, float 0x3F5F673900000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 18, i32 1), align 8
-  store <2 x float> <float 0x3F83A068C0000000, float 0x3FB0AEC8E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 18, i32 2, i32 1), align 8
-  store ptr @.str.27, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 19), align 16
-  store <4 x float> <float 0x3FE4C6A7E0000000, float 0x3FEADA6620000000, float 0x3FF1B0F280000000, float 0x3F878D4FE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 19, i32 1), align 8
-  store <2 x float> <float 0x3FA2D77320000000, float 0x3FC404EA40000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 19, i32 2, i32 1), align 8
-  store ptr @.str.28, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 20), align 16
-  store <4 x float> <float 0x3FF7560420000000, float 0x400107FCC0000000, float 0x40079F2120000000, float 0x3F849BE900000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 20, i32 1), align 8
-  store <2 x float> <float 0x3FA6147AE0000000, float 0x3FC2666660000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 20, i32 2, i32 1), align 8
-  store ptr @.str.29, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 21), align 16
-  store <4 x float> <float 0x3F17583EE0000000, float 0x3F15F25AA0000000, float 0.000000e+00, float 0x3FB9A2C660000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 21, i32 1), align 8
-  store <2 x float> <float 0x3FC51FB400000000, float 0x3FCF972480000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 21, i32 2, i32 1), align 8
-  store ptr @.str.30, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 22), align 16
-  store <4 x float> <float 0x3F102C6A60000000, float 0x3F0650D7E0000000, float 0.000000e+00, float 0x3FB775C8E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 22, i32 1), align 8
-  store <2 x float> <float 0x3FC21F4B20000000, float 0x3FCA887A80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 22, i32 2, i32 1), align 8
-  store ptr @.str.31, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 23), align 16
-  store <4 x float> <float 0x3ED94B4EC0000000, float 0x3EDAE6DF60000000, float 0x3EDB797040000000, float 0x3F5EE67520000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 23, i32 1), align 8
-  store <2 x float> <float 0x3F5DFEEE80000000, float 0x3F60678C00000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 23, i32 2, i32 1), align 8
-  store ptr @.str.32, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 24), align 16
-  store <4 x float> <float 0x3F64218AA0000000, float 0x3F68A222E0000000, float 0x3F6E939EA0000000, float 0x3F99639920000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 24, i32 1), align 8
-  store <2 x float> <float 0x3F93C07EE0000000, float 0x3F822EA100000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 24, i32 2, i32 1), align 8
-  store ptr @.str.33, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 25), align 16
-  store <4 x float> <float 0x3EF2DB01A0000000, float 0x3EECDA4520000000, float 0x3EE936CC80000000, float 0x3F8614DF80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 25, i32 1), align 8
-  store <2 x float> <float 0x3F88476F20000000, float 0x3F9892AB60000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 25, i32 2, i32 1), align 8
-  store ptr @.str.34, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 26), align 16
-  store <4 x float> <float 0x3EF259E380000000, float 0x3EF3FECBC0000000, float 0x3EEB02E5C0000000, float 0x3F88B93460000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 26, i32 1), align 8
-  store <2 x float> <float 0x3F909289E0000000, float 0x3F9451B940000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 26, i32 2, i32 1), align 8
-  store ptr @.str.35, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 27), align 16
-  store <4 x float> <float 0x3EF627C5E0000000, float 0.000000e+00, float 0.000000e+00, float 0x3FBDC725C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 27, i32 1), align 8
-  store <2 x float> <float 0x3FD01F4B20000000, float 0x3FD2D67780000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 27, i32 2, i32 1), align 8
-  store ptr @.str.36, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 28), align 16
-  store <4 x float> <float 0x3EF98A03A0000000, float 0x3EF93FA840000000, float 0x3EE6278120000000, float 0x3F87891E20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 28, i32 1), align 8
-  store <2 x float> <float 0x3F998244E0000000, float 0x3FAD962060000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 28, i32 2, i32 1), align 8
-  store ptr @.str.37, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 29), align 16
-  store <4 x float> <float 0x3F0AB2A2A0000000, float 0x3F068CB460000000, float 0.000000e+00, float 0x3F793F6C20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 29, i32 1), align 8
-  store <2 x float> <float 0x3F8CA3A4C0000000, float 0x3FA1E94AC0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 29, i32 2, i32 1), align 8
-  store ptr @.str.38, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 30), align 16
-  store <4 x float> <float 0x3F63B08140000000, float 0x3F69B36520000000, float 0x3F7058DDE0000000, float 0x3F6B7A4460000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 30, i32 1), align 8
-  store <2 x float> <float 0x3F8E7FB260000000, float 0x3F9AED99C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 30, i32 2, i32 1), align 8
-  store ptr @.str.39, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 31), align 16
-  store <4 x float> <float 0x3F21D76DE0000000, float 0x3F24C1AE00000000, float 0x3F2DC0DB20000000, float 0x3F8A893320000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 31, i32 1), align 8
-  store <2 x float> <float 0x3F984F8F80000000, float 0x3FAAB7DC80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 31, i32 2, i32 1), align 8
-  store ptr @.str.40, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 32), align 16
-  store <4 x float> <float 0x3F1B44AA00000000, float 0x3F1E877FA0000000, float 0x3F147BD1C0000000, float 0x3FA4311620000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 32, i32 1), align 8
-  store <2 x float> <float 0x3FB81EFFA0000000, float 0x3FBFCF80E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 32, i32 2, i32 1), align 8
-  store ptr @.str.41, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 33), align 16
-  store <4 x float> <float 0x3F0C379920000000, float 0.000000e+00, float 0.000000e+00, float 0x3FBAA25D80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 33, i32 1), align 8
-  store <2 x float> <float 0x3FCEAA8EC0000000, float 0x3FD2C49BA0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 33, i32 2, i32 1), align 8
-  store ptr @.str.42, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 34), align 16
-  store <4 x float> <float 0x3F86883780000000, float 0x3F8660E520000000, float 0x3F869A0AE0000000, float 0x3FB5FB6140000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 34, i32 1), align 8
-  store <2 x float> <float 0x3FC77121A0000000, float 0x3FD02AED20000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 34, i32 2, i32 1), align 8
-  store ptr @.str.43, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 35), align 16
-  store <4 x float> <float 0x3FCD379FA0000000, float 0x3FCEB7AA20000000, float 0x3FD4F56EA0000000, float 0x3F8C432CA0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 35, i32 1), align 8
-  store <2 x float> <float 0x3F93486F00000000, float 0x3FAD126640000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 35, i32 2, i32 1), align 8
-  store ptr @.str.44, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 36), align 16
-  store <4 x float> <float 0x3F4783AA40000000, float 0x3F4B350FA0000000, float 0x3F4D8B2B40000000, float 0x3F8CE42180000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 36, i32 1), align 8
-  store <2 x float> <float 0x3FA76512A0000000, float 0x3FAF995EE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 36, i32 2, i32 1), align 8
-  store ptr @.str.45, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 37), align 16
-  store <4 x float> <float 0x3F248A50A0000000, float 0x3F24E6ECE0000000, float 0x3EEFD5B360000000, float 0x3F8DACEEE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 37, i32 1), align 8
-  store <2 x float> <float 0x3FADACEEE0000000, float 0x3FB36922E0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 37, i32 2, i32 1), align 8
-  store ptr @.str.46, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 38), align 16
-  store <4 x float> <float 0x3F98605680000000, float 0x3F9D7ECBC0000000, float 0x3FA1908E60000000, float 0x3FB5A9B8C0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 38, i32 1), align 8
-  store <2 x float> <float 0x3FC414A4E0000000, float 0x3FCA113400000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 38, i32 2, i32 1), align 8
-  store ptr @.str.47, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 39), align 16
-  store <4 x float> <float 0x3FA4983D80000000, float 0x3FA72CD7C0000000, float 0x3FAA274A00000000, float 0x40036E2EC0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 39, i32 1), align 8
-  store <2 x float> <float 0x40124D8440000000, float 0x401CD9CE00000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 39, i32 2, i32 1), align 8
-  store ptr @.str.48, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 40), align 16
-  store <4 x float> <float 0x3F24783220000000, float 0x3F26E9FC60000000, float 0x3F27184A80000000, float 0x3F57BD8BE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 40, i32 1), align 8
-  store <2 x float> <float 0x3F6C304CC0000000, float 0x3F801A7A00000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 40, i32 2, i32 1), align 8
-  store ptr @.str.49, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 41), align 16
-  store <4 x float> <float 0x3F1FBA2FA0000000, float 0x3F21229220000000, float 0x3F206BB300000000, float 0x3F53165D40000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 41, i32 1), align 8
-  store <2 x float> <float 0x3F6361DCA0000000, float 0x3F6A2C66A0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 41, i32 2, i32 1), align 8
-  store ptr @.str.50, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 42), align 16
-  store <4 x float> <float 0x3FFD7F62C0000000, float 0x4004AE48E0000000, float 0x40015460A0000000, float 0x4041EC0840000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 42, i32 1), align 8
-  store <2 x float> <float 0x4048C60420000000, float 0x404E8AC080000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 42, i32 2, i32 1), align 8
-  store ptr @.str.51, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 43), align 16
-  store <4 x float> <float 0x3F9BFD2EA0000000, float 0x3FA09D6AE0000000, float 0x3FA05F8D20000000, float 0x3FD22F8380000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 43, i32 1), align 8
-  store <2 x float> <float 0x3FD4D844E0000000, float 0x3FD5DACEE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 43, i32 2, i32 1), align 8
-  store ptr @.str.52, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 44), align 16
-  store <4 x float> <float 0x3F2D313E40000000, float 0x3F30B85F00000000, float 0x3F31C2A020000000, float 0x3F89E1F3A0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 44, i32 1), align 8
-  store <2 x float> <float 0x3F9FCBD560000000, float 0x3FA9A9DA60000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 44, i32 2, i32 1), align 8
-  store ptr @.str.53, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 45), align 16
-  store <4 x float> <float 0x4006621960000000, float 0x400C5C91E0000000, float 0x4011589380000000, float 0x4031808320000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 45, i32 1), align 8
-  store <2 x float> <float 0x403B010620000000, float 0x4041B76C80000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 45, i32 2, i32 1), align 8
-  store ptr @.str.54, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 46), align 16
-  store <4 x float> <float 0x3F271F0080000000, float 0x3F3508A5C0000000, float 0x3F29B65F80000000, float 0x3FA04DFCE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 46, i32 1), align 8
-  store <2 x float> <float 0x3FA009B300000000, float 0x3F9EDEDAE0000000>, ptr getelementptr inbounds ([47 x %"struct.pbrt::MeasuredSS"], ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 0, i64 46, i32 2, i32 1), align 8
+  store <4 x float> <float 0x400251EB80000000, float 0x40031EB860000000, float 0x3FFF851EC0000000, float 0x3F689374C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8), align 8
+  store <2 x float> <float 0x3F6BDA5120000000, float 0x3FA78D4FE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24), align 8
+  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32), align 16
+  store <4 x float> <float 0x3FC3333340000000, float 0x3FCAE147A0000000, float 0x3FD851EB80000000, float 0x3F8EB851E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40), align 8
+  store <2 x float> <float 0x3FB3B645A0000000, float 0x3FC851EB80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 56), align 8
+  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 64), align 16
+  store <4 x float> <float 0x3FC851EB80000000, float 2.500000e-01, float 0x3FD47AE140000000, float 0x3F926E9780000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 72), align 8
+  store <2 x float> <float 0x3FB6872B00000000, float 0x3FC99999A0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 88), align 8
+  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 96), align 16
+  store <4 x float> <float 0x401D851EC0000000, float 0x4015E147A0000000, float 0x4009333340000000, float 0x3F2A36E2E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 104), align 8
+  store <2 x float> <float 0x3F66F00680000000, float 0x3F90B0F280000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 120), align 8
+  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 128), align 16
+  store <4 x float> <float 0x3FC70A3D80000000, float 0x3FB1EB8520000000, float 0x3F9EB851E0000000, float 0x3FAF3B6460000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 136), align 8
+  store <2 x float> <float 0x3FEF0A3D80000000, float 0x3FF7333340000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 152), align 8
+  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 160), align 16
+  store <4 x float> <float 0x4001851EC0000000, float 0x4004F5C280000000, float 3.000000e+00, float 0x3F613404E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 168), align 8
+  store <2 x float> <float 0x3F70CB2960000000, float 0x3F7D14E3C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 184), align 8
+  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 192), align 16
+  store <4 x float> <float 0x3FE5C28F60000000, float 0x3FE6666660000000, float 0x3FE19999A0000000, float 0x3F63A92A40000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 200), align 8
+  store <2 x float> <float 0x3F826E9780000000, float 0x3FBEB851E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 216), align 8
+  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 224), align 16
+  store <4 x float> <float 0x3FE6666660000000, float 0x3FF3851EC0000000, float 0x3FFE666660000000, float 0x3F56F00680000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 232), align 8
+  store <2 x float> <float 0x3F647AE140000000, float 0x3F8D14E3C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 248), align 8
+  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 256), align 16
+  store <4 x float> <float 0x3FE7AE1480000000, float 0x3FEC28F5C0000000, float 0x3FF028F5C0000000, float 0x3FA0624DE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 264), align 8
+  store <2 x float> <float 0x3FC5C28F60000000, float 0x3FDEB851E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 280), align 8
+  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 288), align 16
+  store <4 x float> <float 0x3FF170A3E0000000, float 0x3FF970A3E0000000, float 0x3FFCA3D700000000, float 0x3F8A9FBE80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 296), align 8
+  store <2 x float> <float 0x3FB1EB8520000000, float 0x3FC28F5C20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 312), align 8
+  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 320), align 16
+  store <4 x float> <float 0x4027333340000000, float 0x4034666660000000, float 0x402DCCCCC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 328), align 8
+  store <2 x float> zeroinitializer, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 344), align 8
+  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 352), align 16
+  store <4 x float> <float 0x4004666660000000, float 0x4009AE1480000000, float 0x400E28F5C0000000, float 0x3F5205BC00000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 360), align 8
+  store <2 x float> <float 0x3F63A92A40000000, float 0x3F8CAC0840000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 376), align 8
+  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 384), align 16
+  store <4 x float> <float 0x3FEC8A3300000000, float 0x3FF837B4A0000000, float 0x4004418940000000, float 0x3F678D4FE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 392), align 8
+  store <2 x float> <float 0x3F778D4FE0000000, float 0x3F878D4FE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 408), align 8
+  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 416), align 16
+  store <4 x float> <float 0x4003E2EB20000000, float 0x400955CFA0000000, float 0x401215E9E0000000, float 0x3F64EF7B40000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 424), align 8
+  store <2 x float> <float 0x3F74EF6080000000, float 0x3F8A2B5A20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 440), align 8
+  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 448), align 16
+  store <4 x float> <float 0x4012348800000000, float 0x4017514E40000000, float 0x401C8B43A0000000, float 0x3F591F2060000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 456), align 8
+  store <2 x float> <float 0x3F72D77320000000, float 0x3F94695100000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 472), align 8
+  store ptr @.str.23, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 480), align 16
+  store <4 x float> <float 0x3FE72934A0000000, float 0x3FEB0EE8E0000000, float 0x3FF0652BE0000000, float 0x4013318FC0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 488), align 8
+  store <2 x float> <float 0x401A4CE700000000, float 0x4021B2D780000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 504), align 8
+  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 512), align 16
+  store <4 x float> <float 0x3FD439AC00000000, float 0x3FD8AA10E0000000, float 0x3FDECDC880000000, float 0x400E2D0E60000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 520), align 8
+  store <2 x float> <float 0x40174A8C20000000, float 0x401F47AE20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 536), align 8
+  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 544), align 16
+  store <4 x float> <float 0x3FD3919260000000, float 0x3FD5E8BC20000000, float 0x3FE3BB83C0000000, float 0x3F578D4FE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 552), align 8
+  store <2 x float> <float 0x3F7D70A3E0000000, float 0x3FA26655A0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 568), align 8
+  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 576), align 16
+  store <4 x float> <float 0x3FE2F38C60000000, float 0x3FE7A31A40000000, float 0x3FF78240C0000000, float 0x3F5F673900000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 584), align 8
+  store <2 x float> <float 0x3F83A068C0000000, float 0x3FB0AEC8E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 600), align 8
+  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 608), align 16
+  store <4 x float> <float 0x3FE4C6A7E0000000, float 0x3FEADA6620000000, float 0x3FF1B0F280000000, float 0x3F878D4FE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 616), align 8
+  store <2 x float> <float 0x3FA2D77320000000, float 0x3FC404EA40000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 632), align 8
+  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 640), align 16
+  store <4 x float> <float 0x3FF7560420000000, float 0x400107FCC0000000, float 0x40079F2120000000, float 0x3F849BE900000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 648), align 8
+  store <2 x float> <float 0x3FA6147AE0000000, float 0x3FC2666660000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 664), align 8
+  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 672), align 16
+  store <4 x float> <float 0x3F17583EE0000000, float 0x3F15F25AA0000000, float 0.000000e+00, float 0x3FB9A2C660000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 680), align 8
+  store <2 x float> <float 0x3FC51FB400000000, float 0x3FCF972480000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 696), align 8
+  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 704), align 16
+  store <4 x float> <float 0x3F102C6A60000000, float 0x3F0650D7E0000000, float 0.000000e+00, float 0x3FB775C8E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 712), align 8
+  store <2 x float> <float 0x3FC21F4B20000000, float 0x3FCA887A80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 728), align 8
+  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 736), align 16
+  store <4 x float> <float 0x3ED94B4EC0000000, float 0x3EDAE6DF60000000, float 0x3EDB797040000000, float 0x3F5EE67520000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 744), align 8
+  store <2 x float> <float 0x3F5DFEEE80000000, float 0x3F60678C00000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 760), align 8
+  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 768), align 16
+  store <4 x float> <float 0x3F64218AA0000000, float 0x3F68A222E0000000, float 0x3F6E939EA0000000, float 0x3F99639920000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 776), align 8
+  store <2 x float> <float 0x3F93C07EE0000000, float 0x3F822EA100000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 792), align 8
+  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 800), align 16
+  store <4 x float> <float 0x3EF2DB01A0000000, float 0x3EECDA4520000000, float 0x3EE936CC80000000, float 0x3F8614DF80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 808), align 8
+  store <2 x float> <float 0x3F88476F20000000, float 0x3F9892AB60000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 824), align 8
+  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 832), align 16
+  store <4 x float> <float 0x3EF259E380000000, float 0x3EF3FECBC0000000, float 0x3EEB02E5C0000000, float 0x3F88B93460000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 840), align 8
+  store <2 x float> <float 0x3F909289E0000000, float 0x3F9451B940000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 856), align 8
+  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 864), align 16
+  store <4 x float> <float 0x3EF627C5E0000000, float 0.000000e+00, float 0.000000e+00, float 0x3FBDC725C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 872), align 8
+  store <2 x float> <float 0x3FD01F4B20000000, float 0x3FD2D67780000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 888), align 8
+  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 896), align 16
+  store <4 x float> <float 0x3EF98A03A0000000, float 0x3EF93FA840000000, float 0x3EE6278120000000, float 0x3F87891E20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 904), align 8
+  store <2 x float> <float 0x3F998244E0000000, float 0x3FAD962060000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 920), align 8
+  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 928), align 16
+  store <4 x float> <float 0x3F0AB2A2A0000000, float 0x3F068CB460000000, float 0.000000e+00, float 0x3F793F6C20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 936), align 8
+  store <2 x float> <float 0x3F8CA3A4C0000000, float 0x3FA1E94AC0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 952), align 8
+  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 960), align 16
+  store <4 x float> <float 0x3F63B08140000000, float 0x3F69B36520000000, float 0x3F7058DDE0000000, float 0x3F6B7A4460000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 968), align 8
+  store <2 x float> <float 0x3F8E7FB260000000, float 0x3F9AED99C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 984), align 8
+  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 992), align 16
+  store <4 x float> <float 0x3F21D76DE0000000, float 0x3F24C1AE00000000, float 0x3F2DC0DB20000000, float 0x3F8A893320000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1000), align 8
+  store <2 x float> <float 0x3F984F8F80000000, float 0x3FAAB7DC80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1016), align 8
+  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1024), align 16
+  store <4 x float> <float 0x3F1B44AA00000000, float 0x3F1E877FA0000000, float 0x3F147BD1C0000000, float 0x3FA4311620000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1032), align 8
+  store <2 x float> <float 0x3FB81EFFA0000000, float 0x3FBFCF80E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1048), align 8
+  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1056), align 16
+  store <4 x float> <float 0x3F0C379920000000, float 0.000000e+00, float 0.000000e+00, float 0x3FBAA25D80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1064), align 8
+  store <2 x float> <float 0x3FCEAA8EC0000000, float 0x3FD2C49BA0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1080), align 8
+  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1088), align 16
+  store <4 x float> <float 0x3F86883780000000, float 0x3F8660E520000000, float 0x3F869A0AE0000000, float 0x3FB5FB6140000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1096), align 8
+  store <2 x float> <float 0x3FC77121A0000000, float 0x3FD02AED20000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1112), align 8
+  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1120), align 16
+  store <4 x float> <float 0x3FCD379FA0000000, float 0x3FCEB7AA20000000, float 0x3FD4F56EA0000000, float 0x3F8C432CA0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1128), align 8
+  store <2 x float> <float 0x3F93486F00000000, float 0x3FAD126640000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1144), align 8
+  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1152), align 16
+  store <4 x float> <float 0x3F4783AA40000000, float 0x3F4B350FA0000000, float 0x3F4D8B2B40000000, float 0x3F8CE42180000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1160), align 8
+  store <2 x float> <float 0x3FA76512A0000000, float 0x3FAF995EE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1176), align 8
+  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1184), align 16
+  store <4 x float> <float 0x3F248A50A0000000, float 0x3F24E6ECE0000000, float 0x3EEFD5B360000000, float 0x3F8DACEEE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1192), align 8
+  store <2 x float> <float 0x3FADACEEE0000000, float 0x3FB36922E0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1208), align 8
+  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1216), align 16
+  store <4 x float> <float 0x3F98605680000000, float 0x3F9D7ECBC0000000, float 0x3FA1908E60000000, float 0x3FB5A9B8C0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1224), align 8
+  store <2 x float> <float 0x3FC414A4E0000000, float 0x3FCA113400000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1240), align 8
+  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1248), align 16
+  store <4 x float> <float 0x3FA4983D80000000, float 0x3FA72CD7C0000000, float 0x3FAA274A00000000, float 0x40036E2EC0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1256), align 8
+  store <2 x float> <float 0x40124D8440000000, float 0x401CD9CE00000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1272), align 8
+  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1280), align 16
+  store <4 x float> <float 0x3F24783220000000, float 0x3F26E9FC60000000, float 0x3F27184A80000000, float 0x3F57BD8BE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1288), align 8
+  store <2 x float> <float 0x3F6C304CC0000000, float 0x3F801A7A00000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1304), align 8
+  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1312), align 16
+  store <4 x float> <float 0x3F1FBA2FA0000000, float 0x3F21229220000000, float 0x3F206BB300000000, float 0x3F53165D40000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1320), align 8
+  store <2 x float> <float 0x3F6361DCA0000000, float 0x3F6A2C66A0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1336), align 8
+  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1344), align 16
+  store <4 x float> <float 0x3FFD7F62C0000000, float 0x4004AE48E0000000, float 0x40015460A0000000, float 0x4041EC0840000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1352), align 8
+  store <2 x float> <float 0x4048C60420000000, float 0x404E8AC080000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1368), align 8
+  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1376), align 16
+  store <4 x float> <float 0x3F9BFD2EA0000000, float 0x3FA09D6AE0000000, float 0x3FA05F8D20000000, float 0x3FD22F8380000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1384), align 8
+  store <2 x float> <float 0x3FD4D844E0000000, float 0x3FD5DACEE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1400), align 8
+  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1408), align 16
+  store <4 x float> <float 0x3F2D313E40000000, float 0x3F30B85F00000000, float 0x3F31C2A020000000, float 0x3F89E1F3A0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1416), align 8
+  store <2 x float> <float 0x3F9FCBD560000000, float 0x3FA9A9DA60000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1432), align 8
+  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1440), align 16
+  store <4 x float> <float 0x4006621960000000, float 0x400C5C91E0000000, float 0x4011589380000000, float 0x4031808320000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1448), align 8
+  store <2 x float> <float 0x403B010620000000, float 0x4041B76C80000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1464), align 8
+  store ptr @.str.54, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1472), align 16
+  store <4 x float> <float 0x3F271F0080000000, float 0x3F3508A5C0000000, float 0x3F29B65F80000000, float 0x3FA04DFCE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1480), align 8
+  store <2 x float> <float 0x3FA009B300000000, float 0x3F9EDEDAE0000000>, ptr getelementptr inbounds (i8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1496), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable) #27
   br label %for.body.preheader
 
@@ -1514,7 +1514,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.55, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.55, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1640,7 +1640,7 @@ call.i35.noexc:                                   ; preds = %if.then19
           to label %.noexc40 unwind label %lpad23
 
 .noexc40:                                         ; preds = %call.i35.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.58, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 7))
           to label %invoke.cont27 unwind label %lpad.i38
 
 lpad.i38:                                         ; preds = %.noexc40
@@ -1708,7 +1708,7 @@ call.i48.noexc:                                   ; preds = %if.then49
           to label %.noexc53 unwind label %lpad53
 
 .noexc53:                                         ; preds = %call.i48.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.59, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 7))
           to label %invoke.cont57 unwind label %lpad.i51
 
 lpad.i51:                                         ; preds = %.noexc53
@@ -1770,7 +1770,7 @@ call.i63.noexc:                                   ; preds = %if.end76
           to label %.noexc68 unwind label %lpad79
 
 .noexc68:                                         ; preds = %call.i63.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.60, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 2))
           to label %invoke.cont83 unwind label %lpad.i66
 
 lpad.i66:                                         ; preds = %.noexc68
@@ -1796,7 +1796,7 @@ call.i71.noexc:                                   ; preds = %invoke.cont86
           to label %.noexc76 unwind label %lpad91
 
 .noexc76:                                         ; preds = %call.i71.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.61, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 7))
           to label %invoke.cont92 unwind label %lpad.i74
 
 lpad.i74:                                         ; preds = %.noexc76
@@ -1898,7 +1898,7 @@ call.i87.noexc:                                   ; preds = %if.end114
           to label %.noexc92 unwind label %lpad117
 
 .noexc92:                                         ; preds = %call.i87.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.62, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 5))
           to label %invoke.cont118 unwind label %lpad.i90
 
 lpad.i90:                                         ; preds = %.noexc92
@@ -1923,7 +1923,7 @@ call.i95.noexc:                                   ; preds = %invoke.cont120
           to label %.noexc100 unwind label %lpad126
 
 .noexc100:                                        ; preds = %call.i95.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.63, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 1))
           to label %invoke.cont127 unwind label %lpad.i98
 
 lpad.i98:                                         ; preds = %.noexc100
@@ -3026,7 +3026,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.66, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3051,7 +3051,7 @@ call.i.noexc64:                                   ; preds = %invoke.cont3
           to label %.noexc66 unwind label %lpad6
 
 .noexc66:                                         ; preds = %call.i.noexc64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.67, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 11))
           to label %invoke.cont7 unwind label %lpad.i63
 
 lpad.i63:                                         ; preds = %.noexc66
@@ -3155,7 +3155,7 @@ call.i.noexc84:                                   ; preds = %if.end23
           to label %.noexc86 unwind label %lpad26
 
 .noexc86:                                         ; preds = %call.i.noexc84
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.70, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 2))
           to label %invoke.cont27 unwind label %lpad.i83
 
 lpad.i83:                                         ; preds = %.noexc86
@@ -3181,7 +3181,7 @@ call.i.noexc92:                                   ; preds = %invoke.cont29
           to label %.noexc94 unwind label %lpad35
 
 .noexc94:                                         ; preds = %call.i.noexc92
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.71, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 2))
           to label %invoke.cont36 unwind label %lpad.i91
 
 lpad.i91:                                         ; preds = %.noexc94
@@ -3207,7 +3207,7 @@ call.i.noexc100:                                  ; preds = %invoke.cont38
           to label %.noexc102 unwind label %lpad44
 
 .noexc102:                                        ; preds = %call.i.noexc100
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.72, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 2))
           to label %invoke.cont45 unwind label %lpad.i99
 
 lpad.i99:                                         ; preds = %.noexc102
@@ -3380,7 +3380,7 @@ call.i.noexc120:                                  ; preds = %if.end75
           to label %.noexc122 unwind label %lpad78
 
 .noexc122:                                        ; preds = %call.i.noexc120
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.60, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 2))
           to label %invoke.cont82 unwind label %lpad.i119
 
 lpad.i119:                                        ; preds = %.noexc122
@@ -3483,7 +3483,7 @@ call.i.noexc135:                                  ; preds = %invoke.cont114
           to label %.noexc137 unwind label %lpad117
 
 .noexc137:                                        ; preds = %call.i.noexc135
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.61, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 7))
           to label %invoke.cont118 unwind label %lpad.i134
 
 lpad.i134:                                        ; preds = %.noexc137
@@ -3669,7 +3669,7 @@ call.i.noexc190:                                  ; preds = %if.end169
           to label %.noexc192 unwind label %lpad172
 
 .noexc192:                                        ; preds = %call.i.noexc190
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.76, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 2))
           to label %invoke.cont176 unwind label %lpad.i189
 
 lpad.i189:                                        ; preds = %.noexc192
@@ -3696,7 +3696,7 @@ call.i.noexc198:                                  ; preds = %invoke.cont177
           to label %.noexc200 unwind label %lpad184
 
 .noexc200:                                        ; preds = %call.i.noexc198
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.77, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 2))
           to label %invoke.cont188 unwind label %lpad.i197
 
 lpad.i197:                                        ; preds = %.noexc200
@@ -3723,7 +3723,7 @@ call.i.noexc208:                                  ; preds = %invoke.cont189
           to label %.noexc210 unwind label %lpad197
 
 .noexc210:                                        ; preds = %call.i.noexc208
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.63, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 1))
           to label %invoke.cont198 unwind label %lpad.i207
 
 lpad.i207:                                        ; preds = %.noexc210
@@ -3749,7 +3749,7 @@ call.i.noexc216:                                  ; preds = %invoke.cont200
           to label %.noexc218 unwind label %lpad206
 
 .noexc218:                                        ; preds = %call.i.noexc216
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.58, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 7))
           to label %invoke.cont210 unwind label %lpad.i215
 
 lpad.i215:                                        ; preds = %.noexc218
@@ -3859,7 +3859,7 @@ call.i.noexc231:                                  ; preds = %if.end226
           to label %.noexc233 unwind label %lpad229
 
 .noexc233:                                        ; preds = %call.i.noexc231
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp227, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.59, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp227, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 7))
           to label %invoke.cont233 unwind label %lpad.i230
 
 lpad.i230:                                        ; preds = %.noexc233
@@ -3921,7 +3921,7 @@ call.i.noexc246:                                  ; preds = %if.end249
           to label %.noexc248 unwind label %lpad252
 
 .noexc248:                                        ; preds = %call.i.noexc246
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp250, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.62, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp250, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 5))
           to label %invoke.cont253 unwind label %lpad.i245
 
 lpad.i245:                                        ; preds = %.noexc248
@@ -3947,7 +3947,7 @@ call.i.noexc254:                                  ; preds = %invoke.cont255
           to label %.noexc256 unwind label %lpad261
 
 .noexc256:                                        ; preds = %call.i.noexc254
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.78, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 17))
           to label %invoke.cont262 unwind label %lpad.i253
 
 lpad.i253:                                        ; preds = %.noexc256
@@ -3966,7 +3966,7 @@ call.i.noexc262:                                  ; preds = %invoke.cont262
           to label %.noexc264 unwind label %lpad265
 
 .noexc264:                                        ; preds = %call.i.noexc262
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.79, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 17))
           to label %invoke.cont266 unwind label %lpad.i261
 
 lpad.i261:                                        ; preds = %.noexc264
@@ -3998,7 +3998,7 @@ call.i.noexc270:                                  ; preds = %invoke.cont270
           to label %.noexc272 unwind label %lpad278
 
 .noexc272:                                        ; preds = %call.i.noexc270
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.80, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 16))
           to label %invoke.cont279 unwind label %lpad.i269
 
 lpad.i269:                                        ; preds = %.noexc272
@@ -5500,7 +5500,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.58, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -5525,7 +5525,7 @@ call.i.noexc70:                                   ; preds = %invoke.cont3
           to label %.noexc72 unwind label %lpad6
 
 .noexc72:                                         ; preds = %call.i.noexc70
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.59, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 7))
           to label %invoke.cont7 unwind label %lpad.i69
 
 lpad.i69:                                         ; preds = %.noexc72
@@ -5550,7 +5550,7 @@ call.i.noexc78:                                   ; preds = %invoke.cont9
           to label %.noexc80 unwind label %lpad14
 
 .noexc80:                                         ; preds = %call.i.noexc78
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.60, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 2))
           to label %invoke.cont15 unwind label %lpad.i77
 
 lpad.i77:                                         ; preds = %.noexc80
@@ -5714,7 +5714,7 @@ call.i.noexc123:                                  ; preds = %if.end50
           to label %.noexc125 unwind label %lpad53
 
 .noexc125:                                        ; preds = %call.i.noexc123
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.70, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 2))
           to label %invoke.cont54 unwind label %lpad.i122
 
 lpad.i122:                                        ; preds = %.noexc125
@@ -5739,7 +5739,7 @@ call.i.noexc131:                                  ; preds = %invoke.cont56
           to label %.noexc133 unwind label %lpad62
 
 .noexc133:                                        ; preds = %call.i.noexc131
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.71, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 2))
           to label %invoke.cont63 unwind label %lpad.i130
 
 lpad.i130:                                        ; preds = %.noexc133
@@ -5764,7 +5764,7 @@ call.i.noexc139:                                  ; preds = %invoke.cont65
           to label %.noexc141 unwind label %lpad71
 
 .noexc141:                                        ; preds = %call.i.noexc139
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.72, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 2))
           to label %invoke.cont72 unwind label %lpad.i138
 
 lpad.i138:                                        ; preds = %.noexc141
@@ -6412,7 +6412,7 @@ call.i.noexc322:                                  ; preds = %if.end188
           to label %.noexc324 unwind label %lpad191
 
 .noexc324:                                        ; preds = %call.i.noexc322
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp189, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.76, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp189, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 2))
           to label %invoke.cont195 unwind label %lpad.i321
 
 lpad.i321:                                        ; preds = %.noexc324
@@ -6439,7 +6439,7 @@ call.i.noexc330:                                  ; preds = %invoke.cont196
           to label %.noexc332 unwind label %lpad203
 
 .noexc332:                                        ; preds = %call.i.noexc330
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.77, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 2))
           to label %invoke.cont207 unwind label %lpad.i329
 
 lpad.i329:                                        ; preds = %.noexc332
@@ -6466,7 +6466,7 @@ call.i.noexc340:                                  ; preds = %invoke.cont208
           to label %.noexc342 unwind label %lpad216
 
 .noexc342:                                        ; preds = %call.i.noexc340
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.61, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 7))
           to label %invoke.cont217 unwind label %lpad.i339
 
 lpad.i339:                                        ; preds = %.noexc342
@@ -6492,7 +6492,7 @@ call.i.noexc348:                                  ; preds = %invoke.cont219
           to label %.noexc350 unwind label %lpad225
 
 .noexc350:                                        ; preds = %call.i.noexc348
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp223, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.63, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp223, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 1))
           to label %invoke.cont226 unwind label %lpad.i347
 
 lpad.i347:                                        ; preds = %.noexc350
@@ -6518,7 +6518,7 @@ call.i.noexc356:                                  ; preds = %invoke.cont228
           to label %.noexc358 unwind label %lpad234
 
 .noexc358:                                        ; preds = %call.i.noexc356
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.62, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 5))
           to label %invoke.cont235 unwind label %lpad.i355
 
 lpad.i355:                                        ; preds = %.noexc358
@@ -7121,7 +7121,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.66, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -7146,7 +7146,7 @@ call.i.noexc28:                                   ; preds = %invoke.cont3
           to label %.noexc30 unwind label %lpad6
 
 .noexc30:                                         ; preds = %call.i.noexc28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.63, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 1))
           to label %invoke.cont7 unwind label %lpad.i27
 
 lpad.i27:                                         ; preds = %.noexc30
@@ -7171,7 +7171,7 @@ call.i.noexc36:                                   ; preds = %invoke.cont9
           to label %.noexc38 unwind label %lpad15
 
 .noexc38:                                         ; preds = %call.i.noexc36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.91, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 9))
           to label %invoke.cont16 unwind label %lpad.i35
 
 lpad.i35:                                         ; preds = %.noexc38
@@ -7196,7 +7196,7 @@ call.i.noexc44:                                   ; preds = %invoke.cont18
           to label %.noexc46 unwind label %lpad24
 
 .noexc46:                                         ; preds = %call.i.noexc44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.92, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 9))
           to label %invoke.cont25 unwind label %lpad.i43
 
 lpad.i43:                                         ; preds = %.noexc46
@@ -7221,7 +7221,7 @@ call.i.noexc52:                                   ; preds = %invoke.cont27
           to label %.noexc54 unwind label %lpad33
 
 .noexc54:                                         ; preds = %call.i.noexc52
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.58, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 7))
           to label %invoke.cont36 unwind label %lpad.i51
 
 lpad.i51:                                         ; preds = %.noexc54
@@ -7344,7 +7344,7 @@ call.i.noexc60:                                   ; preds = %if.end
           to label %.noexc62 unwind label %lpad49
 
 .noexc62:                                         ; preds = %call.i.noexc60
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.59, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 7))
           to label %invoke.cont53 unwind label %lpad.i59
 
 lpad.i59:                                         ; preds = %.noexc62
@@ -7403,7 +7403,7 @@ call.i.noexc74:                                   ; preds = %if.end65
           to label %.noexc76 unwind label %lpad68
 
 .noexc76:                                         ; preds = %call.i.noexc74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.76, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 2))
           to label %invoke.cont72 unwind label %lpad.i73
 
 lpad.i73:                                         ; preds = %.noexc76
@@ -7428,7 +7428,7 @@ call.i.noexc82:                                   ; preds = %invoke.cont73
           to label %.noexc84 unwind label %lpad80
 
 .noexc84:                                         ; preds = %call.i.noexc82
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.77, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 2))
           to label %invoke.cont84 unwind label %lpad.i81
 
 lpad.i81:                                         ; preds = %.noexc84
@@ -7641,7 +7641,7 @@ invoke.cont17:                                    ; preds = %for.body.i.i.i
   %res.sroa.4.0.res4.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 304
   store i32 64, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8
   %densityGrid = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %densityGrid, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 320
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -7659,7 +7659,7 @@ invoke.cont17:                                    ; preds = %for.body.i.i.i
   store ptr %12, ptr %ptr.i.i.i13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i1.i, i8 0, i64 16, i1 false)
   %temperatureGrid = getelementptr inbounds i8, ptr %this, i64 344
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %temperatureGrid, align 8
   %mBuffer.i14 = getelementptr inbounds i8, ptr %this, i64 352
   %call.i.i.i15 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i15, ptr %mBuffer.i14, align 8
@@ -8059,7 +8059,7 @@ declare void @_ZN4pbrt3LogENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %this, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr.i.i, align 8
   %bytesAllocated.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -8167,7 +8167,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.97, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.97, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8262,7 +8262,7 @@ lpad13:                                           ; preds = %if.then
   br label %ehcleanup165
 
 if.end:                                           ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %densityGrid, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %densityGrid, i64 8
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -8277,7 +8277,7 @@ call.i.noexc58:                                   ; preds = %if.end
           to label %.noexc60 unwind label %lpad17
 
 .noexc60:                                         ; preds = %call.i.noexc58
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull @.str.99, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.99, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull @.str.99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.99, i64 8))
           to label %invoke.cont18 unwind label %lpad.i57
 
 lpad.i57:                                         ; preds = %.noexc60
@@ -8296,7 +8296,7 @@ call.i.noexc66:                                   ; preds = %invoke.cont18
           to label %.noexc68 unwind label %lpad21
 
 .noexc68:                                         ; preds = %call.i.noexc66
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.66, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 7))
           to label %invoke.cont22 unwind label %lpad.i65
 
 lpad.i65:                                         ; preds = %.noexc68
@@ -8349,7 +8349,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit: ; preds = %invoke.cont
   %ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 24
   %17 = load ptr, ptr %ptr.i.i, align 8
   store ptr %17, ptr %ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %ref.tmp29, align 8
   %vtable.i.i.pre = load ptr, ptr %densityGrid, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i72, i8 0, i64 16, i1 false)
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i.pre, i64 16
@@ -8401,7 +8401,7 @@ lpad32:                                           ; preds = %_ZN7nanovdb10GridHa
   br label %ehcleanup163
 
 if.end39:                                         ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %temperatureGrid, align 8
   %mBuffer.i81 = getelementptr inbounds i8, ptr %temperatureGrid, i64 8
   %call.i.i.i82 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i82, ptr %mBuffer.i81, align 8
@@ -8416,7 +8416,7 @@ call.i.noexc87:                                   ; preds = %if.end39
           to label %.noexc89 unwind label %lpad42
 
 .noexc89:                                         ; preds = %call.i.noexc87
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @.str.101, i64 0, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 15))
           to label %invoke.cont43 unwind label %lpad.i86
 
 lpad.i86:                                         ; preds = %.noexc89
@@ -8435,7 +8435,7 @@ call.i.noexc95:                                   ; preds = %invoke.cont43
           to label %.noexc97 unwind label %lpad46
 
 .noexc97:                                         ; preds = %call.i.noexc95
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.67, i64 0, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 11))
           to label %invoke.cont47 unwind label %lpad.i94
 
 lpad.i94:                                         ; preds = %.noexc97
@@ -8488,7 +8488,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit120: ; preds = %if.end.i
   %ptr.i.i110 = getelementptr inbounds i8, ptr %ref.tmp54, i64 24
   %33 = load ptr, ptr %ptr.i.i110, align 8
   store ptr %33, ptr %ptr.i.i.i101, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %ref.tmp54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i109, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61) #27
   %call.i125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60)
@@ -8499,7 +8499,7 @@ call.i.noexc124:                                  ; preds = %_ZN7nanovdb10GridHa
           to label %.noexc126 unwind label %lpad62
 
 .noexc126:                                        ; preds = %call.i.noexc124
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.61, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 7))
           to label %invoke.cont63 unwind label %lpad.i123
 
 lpad.i123:                                        ; preds = %.noexc126
@@ -8525,7 +8525,7 @@ call.i.noexc132:                                  ; preds = %invoke.cont65
           to label %.noexc134 unwind label %lpad71
 
 .noexc134:                                        ; preds = %call.i.noexc132
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.78, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 17))
           to label %invoke.cont72 unwind label %lpad.i131
 
 lpad.i131:                                        ; preds = %.noexc134
@@ -8544,7 +8544,7 @@ call.i.noexc140:                                  ; preds = %invoke.cont72
           to label %.noexc142 unwind label %lpad75
 
 .noexc142:                                        ; preds = %call.i.noexc140
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.79, i64 0, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 17))
           to label %invoke.cont76 unwind label %lpad.i139
 
 lpad.i139:                                        ; preds = %.noexc142
@@ -8576,7 +8576,7 @@ call.i.noexc148:                                  ; preds = %invoke.cont80
           to label %.noexc150 unwind label %lpad88
 
 .noexc150:                                        ; preds = %call.i.noexc148
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds ([17 x i8], ptr @.str.80, i64 0, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 16))
           to label %invoke.cont89 unwind label %lpad.i147
 
 lpad.i147:                                        ; preds = %.noexc150
@@ -8602,7 +8602,7 @@ call.i.noexc156:                                  ; preds = %invoke.cont91
           to label %.noexc158 unwind label %lpad97
 
 .noexc158:                                        ; preds = %call.i.noexc156
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.63, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 1))
           to label %invoke.cont98 unwind label %lpad.i155
 
 lpad.i155:                                        ; preds = %.noexc158
@@ -8628,7 +8628,7 @@ call.i.noexc164:                                  ; preds = %invoke.cont100
           to label %.noexc166 unwind label %lpad106
 
 .noexc166:                                        ; preds = %call.i.noexc164
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.58, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 7))
           to label %invoke.cont110 unwind label %lpad.i163
 
 lpad.i163:                                        ; preds = %.noexc166
@@ -8797,7 +8797,7 @@ call.i.noexc173:                                  ; preds = %if.end126
           to label %.noexc175 unwind label %lpad129
 
 .noexc175:                                        ; preds = %call.i.noexc173
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.59, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 7))
           to label %invoke.cont133 unwind label %lpad.i172
 
 lpad.i172:                                        ; preds = %.noexc175
@@ -8859,7 +8859,7 @@ call.i.noexc188:                                  ; preds = %if.end149
           to label %.noexc190 unwind label %lpad152
 
 .noexc190:                                        ; preds = %call.i.noexc188
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.62, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 5))
           to label %invoke.cont153 unwind label %lpad.i187
 
 lpad.i187:                                        ; preds = %.noexc190
@@ -8888,7 +8888,7 @@ call.i.i.i.i.noexc:                               ; preds = %invoke.cont155
 
 invoke.cont159:                                   ; preds = %call.i.i.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temperaturename) #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %temperatureGrid, align 8
   %66 = load ptr, ptr %ptr.i.i.i101, align 8
   %tobool.not.i.i.i.i.i199 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i.i.i199, label %_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit205, label %if.end.i.i.i.i.i200
@@ -8912,7 +8912,7 @@ terminate.lpad.i204:                              ; preds = %if.end.i.i.i.i.i200
 _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit205: ; preds = %invoke.cont159, %if.end.i.i.i.i.i200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i83, i8 0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gridname) #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %densityGrid, align 8
   %72 = load ptr, ptr %ptr.i.i.i, align 8
   %tobool.not.i.i.i.i.i208 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i.i.i208, label %_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit214, label %if.end.i.i.i.i.i209
@@ -8997,7 +8997,7 @@ entry:
   store ptr %alloc.coerce, ptr %buf, align 8
   %bytesAllocated.i = getelementptr inbounds i8, ptr %buf, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %agg.result, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -9038,7 +9038,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit: ; preds = %invoke.cont
   %ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %8 = load ptr, ptr %ptr.i.i, align 8
   store ptr %8, ptr %ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %ref.tmp, align 8
   %vtable.i.i.pre = load ptr, ptr %agg.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i8, i8 0, i64 16, i1 false)
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i.pre, i64 16
@@ -13524,7 +13524,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %this, align 8
   %ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -26181,7 +26181,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i: ; pr
 
 _ZN4pbrt13NanoVDBBufferD2Ev.exit:                 ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i, %if.then
   %agg.result.val12 = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i15, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %agg.result, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -26355,7 +26355,7 @@ for.end:                                          ; preds = %if.else, %while.bod
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !70
 
 while.end:                                        ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %agg.result, align 8
   %mBuffer.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i27 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i27, ptr %mBuffer.i26, align 8
@@ -27652,7 +27652,7 @@ entry:
   store i64 %1, ptr %agg.tmp22, align 8
   %2 = load float, ptr %args5, align 4
   %3 = load float, ptr %args7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.tmp23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %agg.tmp23, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   %call.i.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 16
@@ -27667,7 +27667,7 @@ entry:
   %6 = load ptr, ptr %ptr.i.i, align 8
   store ptr %6, ptr %ptr.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i1.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.tmp24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 16), ptr %agg.tmp24, align 8
   %mBuffer.i1 = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   %call.i.i.i2 = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i3 = getelementptr inbounds i8, ptr %agg.tmp24, i64 16

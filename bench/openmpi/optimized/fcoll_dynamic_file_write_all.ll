@@ -1043,7 +1043,7 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   br i1 %.not763, label %518, label %511
 
 511:                                              ; preds = %501
-  %512 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %512 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %513 = load ptr, ptr %43, align 8
   %514 = getelementptr inbounds i32, ptr %513, i64 %indvars.iv1147
   %515 = load i32, ptr %514, align 4
@@ -1129,14 +1129,14 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   br i1 %.not758, label %.thread795, label %550
 
 550:                                              ; preds = %.loopexit
-  %551 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %552 = load ptr, ptr %53, align 8
   %553 = call i32 %551(ptr noundef %.1648, i64 noundef %.pre-phi, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %45, i32 noundef 123, i32 noundef 4, ptr noundef %552, ptr noundef nonnull %11) #10
   %.not759 = icmp eq i32 %553, 0
   br i1 %.not759, label %554, label %.loopexit807
 
 554:                                              ; preds = %550
-  %555 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %555 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %556 = call i32 %555(ptr noundef nonnull %11, ptr noundef null) #10
   %.not760 = icmp eq i32 %556, 0
   br i1 %.not760, label %.thread795, label %.loopexit807
@@ -1151,7 +1151,7 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   br i1 %559, label %560, label %565
 
 560:                                              ; preds = %.thread795
-  %561 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %561 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %562 = load i32, ptr %46, align 8
   %563 = sext i32 %562 to i64
   %564 = call i32 %561(i64 noundef %563, ptr noundef %.0598, ptr noundef null) #10

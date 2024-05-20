@@ -4,11 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @_ebss = external global [0 x i8], align 1
-@g_idle_topstack = local_unnamed_addr constant i64 ptrtoint (ptr getelementptr ([0 x i8], ptr @_ebss, i64 0, i64 4194304) to i64), align 8
+@g_idle_topstack = local_unnamed_addr constant i64 ptrtoint (ptr getelementptr (i8, ptr @_ebss, i64 4194304) to i64), align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @up_allocate_heap(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = and i64 sub (i64 add (i64 ptrtoint (ptr getelementptr ([0 x i8], ptr @_ebss, i64 0, i64 4194304) to i64), i64 4096), i64 1), -4096
+  %3 = and i64 sub (i64 add (i64 ptrtoint (ptr getelementptr (i8, ptr @_ebss, i64 4194304) to i64), i64 4096), i64 1), -4096
   %4 = inttoptr i64 %3 to ptr
   store ptr %4, ptr %0, align 8
   %5 = sub i64 4563402753, %3

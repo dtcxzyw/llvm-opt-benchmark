@@ -135,7 +135,7 @@ define hidden void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !42
   %11 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, align 1, !range !44, !noalias !42, !noundef !4
   %12 = trunc nuw i8 %11 to i1
-  %13 = load i8, ptr getelementptr inbounds ({ i8, i8 }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, i64 0, i32 1), align 1, !noalias !42
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, i64 1), align 1, !noalias !42
   %.not.i.i.i.i = icmp eq i8 %13, 0
   %.0.not.i.i.i.i = select i1 %12, i1 %.not.i.i.i.i, i1 false
   br i1 %.0.not.i.i.i.i, label %19, label %14
@@ -143,7 +143,7 @@ define hidden void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
 14:                                               ; preds = %10
   %spec.select.i.i.i.i = tail call i8 @llvm.usub.sat.i8(i8 %13, i8 1)
   %.sroa.5.0.i.i.i.i = select i1 %12, i8 %spec.select.i.i.i.i, i8 %13
-  store i8 %.sroa.5.0.i.i.i.i, ptr getelementptr inbounds ({ i8, i8 }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, i64 0, i32 1), align 1, !noalias !42
+  store i8 %.sroa.5.0.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, i64 1), align 1, !noalias !42
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4), !noalias !42
   store i24 0, ptr %4, align 4, !noalias !42
   %15 = getelementptr inbounds i8, ptr %4, i64 1

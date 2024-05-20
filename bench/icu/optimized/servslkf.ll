@@ -500,7 +500,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7522SimpleLocaleKeyFactoryC2EPNS_7UObjectERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %objToAdopt, ptr noundef nonnull align 8 dereferenceable(64) %locale, i32 noundef %kind, i32 noundef %coverage) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %coverage)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_obj = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %objToAdopt, ptr %_obj, align 8
   %_id = getelementptr inbounds i8, ptr %this, i64 88
@@ -530,11 +530,11 @@ declare void @_ZN6icu_7516LocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 deref
 define void @_ZN6icu_7522SimpleLocaleKeyFactoryC2EPNS_7UObjectERKNS_6LocaleEii(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %objToAdopt, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %kind, i32 noundef %coverage) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %coverage)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_obj = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %objToAdopt, ptr %_obj, align 8
   %_id = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %_id, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_id, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 96
   store i16 2, ptr %fUnion2.i, align 8
   %_kind = getelementptr inbounds i8, ptr %this, i64 152
@@ -561,7 +561,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522SimpleLocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_obj = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_obj, align 8
   %isnull = icmp eq ptr %0, null
@@ -616,7 +616,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %keyID, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %keyID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %keyID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %vtable6 = load ptr, ptr %key, align 8

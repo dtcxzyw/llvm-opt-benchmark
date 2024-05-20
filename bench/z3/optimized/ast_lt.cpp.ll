@@ -361,7 +361,7 @@ if.then110:                                       ; preds = %if.then.i.i16.i.i.i
 
 if.then.i.i.i311.invoke:                          ; preds = %if.then110, %if.then151, %invoke.cont111
   %exception.i.i.i.i.i408 = call ptr @__cxa_allocate_exception(i64 16) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i408, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i408, align 8
   %_M_reason.i.i.i.i.i.i409 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i408, i64 8
   store ptr @.str.3, ptr %_M_reason.i.i.i.i.i.i409, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i408, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #9
@@ -780,7 +780,7 @@ if.then284:                                       ; preds = %if.then.i.i16.i.i.i
 
 if.then.i.i.i629.invoke:                          ; preds = %if.then284, %if.then325, %invoke.cont285
   %exception.i.i.i.i.i755 = call ptr @__cxa_allocate_exception(i64 16) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i755, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i755, align 8
   %_M_reason.i.i.i.i.i.i756 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i755, i64 8
   store ptr @.str.3, ptr %_M_reason.i.i.i.i.i.i756, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i755, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #9

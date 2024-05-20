@@ -1307,7 +1307,7 @@ define dso_local i64 @rb_hash_start(i64 noundef %0) local_unnamed_addr #7 {
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @rb_memhash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
-  %3 = tail call i64 @ruby_sip_hash13(ptr noundef nonnull getelementptr inbounds (%union.anon.1, ptr @hash_salt, i64 0, i32 0, i32 1), ptr noundef %0, i64 noundef %1)
+  %3 = tail call i64 @ruby_sip_hash13(ptr noundef nonnull getelementptr inbounds (i8, ptr @hash_salt, i64 8), ptr noundef %0, i64 noundef %1)
   ret i64 %3
 }
 

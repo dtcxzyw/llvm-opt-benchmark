@@ -195,7 +195,7 @@ define range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
   br i1 %.not11, label %22, label %12
 
 12:                                               ; preds = %10
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 20)) #11
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 160)) #11
   br label %14
 
 13:                                               ; preds = %14
@@ -218,7 +218,7 @@ define range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 auth_get_plugin_name.exit:                        ; preds = %13, %18
   %.05.i = phi ptr [ %20, %18 ], [ @.str.4, %13 ]
   %21 = tail call ptr @xstrdup(ptr noundef %.05.i) #11
-  store ptr %21, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 20), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 160), align 8
   br label %22
 
 22:                                               ; preds = %auth_get_plugin_name.exit, %10
@@ -227,7 +227,7 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
   br i1 %.not12, label %thread-pre-split, label %24
 
 24:                                               ; preds = %22
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 20)) #11
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 160)) #11
   br label %26
 
 25:                                               ; preds = %26
@@ -250,11 +250,11 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
 auth_get_plugin_name.exit24:                      ; preds = %25, %30
   %.05.i23 = phi ptr [ %32, %30 ], [ @.str.4, %25 ]
   %33 = tail call ptr @xstrdup(ptr noundef %.05.i23) #11
-  store ptr %33, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 20), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 160), align 8
   br label %34
 
 thread-pre-split:                                 ; preds = %22
-  %.pr = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 20), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 160), align 8
   br label %34
 
 34:                                               ; preds = %thread-pre-split, %auth_get_plugin_name.exit24
@@ -273,7 +273,7 @@ thread-pre-split:                                 ; preds = %22
   br i1 %40, label %41, label %.lr.ph.preheader
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 17), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 136), align 8
   %43 = tail call ptr @xstrdup(ptr noundef %42) #11
   store ptr %43, ptr %1, align 8
   br label %.lr.ph.preheader

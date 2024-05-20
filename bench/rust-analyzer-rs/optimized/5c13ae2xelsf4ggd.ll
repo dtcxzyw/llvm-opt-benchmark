@@ -358,7 +358,7 @@ define void @_ZN6parser9lexed_str8LexedStr3new17hbb9240a51ed04732E(ptr noalias n
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6parser9lexed_str8LexedStr3new10__CALLSITE17h5087ca5889a841c8E, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6parser9lexed_str8LexedStr3new10__CALLSITE17h5087ca5889a841c8E, i64 16) monotonic, align 8
   switch i8 %18, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -2538,7 +2538,7 @@ define void @"_ZN6parser9shortcuts45_$LT$impl$u20$parser..lexed_str..LexedStr$GT
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN6parser9shortcuts45_$LT$impl$u20$parser..lexed_str..LexedStr$GT$8to_input10__CALLSITE17h69da1b5006cdcea3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6parser9shortcuts45_$LT$impl$u20$parser..lexed_str..LexedStr$GT$8to_input10__CALLSITE17h69da1b5006cdcea3E", i64 16) monotonic, align 8
   switch i8 %13, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

@@ -45,17 +45,17 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 .preheader.preheader.i:                           ; preds = %12, %9
   %13 = phi ptr [ %.pre, %12 ], [ %10, %9 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i8 0, i64 144, i1 false)
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 0, i32 5, i32 0), ptr noundef %13) #7
-  store i16 3, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 0, i32 2), align 2
-  store i32 0, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 0, i32 4), align 4
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #7
+  store i16 3, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 6), align 2
+  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 12), align 4
   %14 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 5, i32 0), ptr noundef %14) #7
-  store i16 3, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 2), align 2
-  store i32 0, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 3), align 16
-  store i32 0, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 4), align 4
-  store i16 9, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 0, i32 1), align 4
-  store i16 8, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 1), align 4
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #7
+  store i16 3, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 78), align 2
+  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 80), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 84), align 4
+  store i16 9, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 4), align 4
+  store i16 8, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 76), align 4
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store i64 8, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 40

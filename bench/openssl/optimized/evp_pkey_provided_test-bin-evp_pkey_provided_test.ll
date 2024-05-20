@@ -2873,7 +2873,7 @@ lor.lhs.false160:                                 ; preds = %lor.lhs.false156
 lor.lhs.false169:                                 ; preds = %lor.lhs.false160
   %15 = load i64, ptr %len, align 8
   %sub = add i64 %15, -1
-  %call171 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 1316, ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.256, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull getelementptr inbounds ([65 x i8], ptr @test_fromdata_ec.ec_pub_keydata, i64 0, i64 1), i64 noundef 64) #6
+  %call171 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 1316, ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.256, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull getelementptr inbounds (i8, ptr @test_fromdata_ec.ec_pub_keydata, i64 1), i64 noundef 64) #6
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %err, label %lor.lhs.false173
 

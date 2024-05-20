@@ -94,16 +94,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssh_component_open() #0 {
   %1 = alloca ptr, align 8
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 3), align 2
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 6), align 1
-  store ptr null, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 11), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 226), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 229), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 256), align 8
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %0
   %5 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef 1, i32 noundef %2) #12
-  store i32 1, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 11), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 256), align 8
   br label %6
 
 6:                                                ; preds = %4, %0
@@ -117,7 +117,7 @@ define internal noundef i32 @ssh_component_open() #0 {
   %11 = load ptr, ptr @prte_plm_ssh_delay_string, align 8
   %12 = icmp eq ptr %10, %11
   %spec.store.select = select i1 %12, i64 0, i64 %9
-  store i64 %spec.store.select, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 8), align 8
+  store i64 %spec.store.select, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 232), align 8
   %13 = load i8, ptr %10, align 1
   %14 = icmp eq i8 %13, 58
   br i1 %14, label %15, label %19
@@ -126,7 +126,7 @@ define internal noundef i32 @ssh_component_open() #0 {
   %16 = getelementptr inbounds i8, ptr %10, i64 1
   %17 = tail call i64 @strtol(ptr nocapture noundef nonnull %16, ptr noundef null, i32 noundef 10) #12
   %18 = mul nsw i64 %17, 1000
-  store i64 %18, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 8, i32 1), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 240), align 8
   br label %19
 
 19:                                               ; preds = %8, %15, %6
@@ -154,7 +154,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not27, label %10, label %57
 
 10:                                               ; preds = %8
-  %11 = load i8, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 2), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 225), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %38, label %13
 
@@ -186,7 +186,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not32, label %36, label %25
 
 25:                                               ; preds = %21
-  %26 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %26, 64
   br i1 %or.cond, label %27, label %34
 
@@ -210,12 +210,12 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 36:                                               ; preds = %21
   %37 = load ptr, ptr %3, align 8
-  store ptr %37, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 3), align 2
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 226), align 2
   br label %98
 
 38:                                               ; preds = %19, %17, %15, %13, %10
-  %39 = load i8, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 5), align 4
+  %39 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 228), align 4
   %40 = trunc i8 %39 to i1
   br i1 %40, label %57, label %41
 
@@ -230,7 +230,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not34, label %55, label %45
 
 45:                                               ; preds = %43
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %46, 64
   br i1 %or.cond3, label %47, label %54
 
@@ -252,8 +252,8 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 55:                                               ; preds = %43
   %56 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.45) #12
-  store ptr %56, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 6), align 1
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 229), align 1
   br label %98
 
 57:                                               ; preds = %38, %41, %8
@@ -262,7 +262,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not35, label %98, label %59
 
 59:                                               ; preds = %57
-  %60 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %.not36 = icmp eq ptr %60, null
   br i1 %.not36, label %87, label %61
 
@@ -273,7 +273,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 63:                                               ; preds = %61
   %64 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.47, i32 noundef 1, ptr noundef nonnull %60) #12
-  %65 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 10), align 8
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %67, label %85
 
@@ -286,7 +286,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   %73 = sitofp i64 %72 to double
   %74 = fdiv double %73, 1.000000e+06
   %75 = fadd double %74, %70
-  %76 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i64 0, i32 11), align 4
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %76, 64
   br i1 %or.cond5, label %77, label %85
 
@@ -304,12 +304,12 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br label %85
 
 85:                                               ; preds = %67, %77, %82, %63
-  %86 = load ptr, ptr getelementptr inbounds (%struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i64 0, i32 2), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
   call void %86(ptr noundef null, i32 noundef 60) #12
   br label %100
 
 87:                                               ; preds = %61, %59
-  %88 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %88, 64
   br i1 %or.cond7, label %89, label %97
 
@@ -322,7 +322,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 94:                                               ; preds = %89
   %95 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #12
-  %96 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   call void (i32, ptr, ...) @pmix_output(i32 noundef %88, ptr noundef nonnull @.str.51, ptr noundef %95, ptr noundef %96) #12
   br label %97
 
@@ -331,7 +331,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br label %100
 
 98:                                               ; preds = %57, %55, %36
-  %99 = load i32, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 9), align 8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 248), align 8
   store i32 %99, ptr %1, align 4
   store ptr @prte_plm_ssh_module, ptr %0, align 8
   br label %100
@@ -343,40 +343,40 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssh_component_register() #0 {
-  store i32 128, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 11), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 11)) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 1), align 8
-  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 1)) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 2), align 1
-  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 2)) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 4), align 1
-  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 4)) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 5), align 4
-  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 5)) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 7), align 2
-  %6 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 7)) #12
-  store i32 10, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 9), align 8
-  %7 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 9)) #12
+  store i32 128, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 256), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 256)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 224), align 8
+  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 224)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 225), align 1
+  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 225)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 227), align 1
+  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 227)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 228), align 4
+  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 228)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 230), align 2
+  %6 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 230)) #12
+  store i32 10, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 248), align 8
+  %7 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 248)) #12
   store ptr null, ptr @prte_plm_ssh_delay_string, align 8
   %8 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 5, ptr noundef nonnull @prte_plm_ssh_delay_string) #12
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 10), align 4
-  %9 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 10)) #12
-  store ptr @.str.19, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
-  %10 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12)) #12
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 252), align 4
+  %9 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 252)) #12
+  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
+  %10 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264)) #12
   %11 = tail call i32 @pmix_mca_base_var_register_synonym(i32 noundef %10, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 1) #12
   %12 = tail call i32 @pmix_mca_base_var_register_synonym(i32 noundef %10, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 1) #12
   store i32 %10, ptr @agent_var_id, align 4
-  store i8 1, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 15), align 8
-  %13 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 15)) #12
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 288), align 8
+  %13 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 288)) #12
   %14 = tail call i32 @pmix_mca_base_var_register_synonym(i32 noundef %13, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 1) #12
-  store i8 1, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 16), align 1
-  %15 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 16)) #12
-  store ptr null, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 17), align 8
-  %16 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 17)) #12
-  store ptr null, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 18), align 8
-  %17 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 18)) #12
-  store ptr null, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 19), align 8
-  %18 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 19)) #12
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 289), align 1
+  %15 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 289)) #12
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 296), align 8
+  %16 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 296)) #12
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 304), align 8
+  %17 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 304)) #12
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 312), align 8
+  %18 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_ssh_component, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 312)) #12
   ret i32 0
 }
 
@@ -384,7 +384,7 @@ define internal noundef i32 @ssh_component_register() #0 {
 define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = icmp eq ptr %0, null
-  %5 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %6 = icmp eq ptr %5, null
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %66, label %7
@@ -405,7 +405,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br i1 %4, label %13, label %16
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %15 = call ptr @PMIx_Argv_split(ptr noundef %14, i32 noundef 58) #12
   br label %18
 
@@ -567,10 +567,10 @@ declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  %4 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %5 = icmp eq ptr %4, null
   %or.cond = select i1 %3, i1 %5, i1 false
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %17
 
@@ -603,7 +603,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 23:                                               ; preds = %18
   %24 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #12
-  %25 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %26 = select i1 %3, ptr %25, ptr %0
   %27 = icmp eq ptr %1, null
   %28 = select i1 %27, ptr @.str.49, ptr %1
@@ -612,24 +612,24 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 29:                                               ; preds = %23, %18, %17
   %30 = tail call ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1)
-  store ptr %30, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %30, align 8
   %34 = tail call noalias ptr @strdup(ptr noundef %33) #12
-  store ptr %34, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 13), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 272), align 8
   %35 = load ptr, ptr %30, align 8
   %36 = tail call noalias ptr @pmix_basename(ptr noundef %35) #12
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
   %40 = load ptr, ptr %39, align 8
   tail call void @free(ptr noundef %40) #12
-  %41 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
   store ptr %36, ptr %41, align 8
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(4) @.str.54) #13
   %43 = icmp eq i32 %42, 0
@@ -641,17 +641,17 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   br i1 %.not, label %48, label %46
 
 46:                                               ; preds = %44
-  %47 = tail call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), ptr noundef nonnull @.str.55) #12
+  %47 = tail call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), ptr noundef nonnull @.str.55) #12
   br label %.loopexit
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %50 = tail call i32 @pmix_output_get_verbosity(i32 noundef %49) #12
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %48
-  %52 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not2728 = icmp eq ptr %54, null
@@ -672,7 +672,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   br i1 %60, label %.loopexit, label %55
 
 ._crit_edge:                                      ; preds = %55, %.preheader
-  %61 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 14), ptr noundef nonnull @.str.56) #12
+  %61 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), ptr noundef nonnull @.str.56) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %38, %48, %._crit_edge, %46, %32, %29, %7, %8, %13

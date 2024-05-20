@@ -31,8 +31,8 @@ init:                                             ; preds = %init.check
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %init
-  store i16 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 1), align 8, !tbaa !8
-  store i8 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 2), align 2, !tbaa !14
+  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 24), align 8, !tbaa !8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 26), align 2, !tbaa !14
   invoke void @_ZN5folly13SocketAddress13setFromIpPortEPKct(ptr noundef nonnull align 8 dereferenceable(27) @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, ptr noundef nonnull @.str, i16 noundef zeroext 0)
           to label %invoke.cont unwind label %lpad
 

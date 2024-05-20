@@ -202,7 +202,7 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %39 = call noalias noundef align 8 dereferenceable_or_null(25) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 25) #12
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41

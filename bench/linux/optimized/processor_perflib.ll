@@ -620,14 +620,14 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %131 = load i64, ptr %130, align 8
   %132 = trunc i64 %131 to i32
   %133 = and i32 %132, 7
-  %134 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %134 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %135 = icmp eq i8 %134, 2
   br i1 %135, label %136, label %166
 
 136:                                              ; preds = %.lr.ph
   %137 = load i8, ptr @boot_cpu_data, align 8
   %138 = icmp eq i8 %137, 16
-  %139 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
+  %139 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
   %140 = icmp ult i8 %139, 10
   %141 = select i1 %138, i1 %140, i1 false
   %142 = icmp eq i8 %137, 17
@@ -641,7 +641,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %148 = extractvalue { i64, i64 } %146, 1
   %149 = shl i64 %148, 32
   %150 = or i64 %149, %147
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #11
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
           to label %152 [label %151], !srcloc !15
 
 151:                                              ; preds = %144
@@ -770,7 +770,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   br i1 %216, label %217, label %223
 
 217:                                              ; preds = %213
-  %218 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %218 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %219 = and i64 %218, 128
   %220 = icmp eq i64 %219, 0
   br i1 %220, label %223, label %221
@@ -789,9 +789,9 @@ declare dso_local zeroext i1 @acpi_has_method(ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 2) i32 @acpi_processor_pstate_control() local_unnamed_addr #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %2 = icmp ne i32 %1, 0
-  %3 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 55), align 1
   %4 = icmp ne i8 %3, 0
   %5 = select i1 %2, i1 %4, i1 false
   br i1 %5, label %6, label %17
@@ -804,9 +804,9 @@ define dso_local noundef range(i32 -5, 2) i32 @acpi_processor_pstate_control() l
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %6
-  %12 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 55), align 1
   %13 = zext i8 %12 to i32
-  %14 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %15 = tail call ptr @acpi_format_exception(i32 noundef %9) #11
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %13, i32 noundef %14, ptr noundef %15) #12
   br label %17
@@ -842,9 +842,9 @@ define dso_local range(i32 -22, 2) i32 @acpi_processor_notify_smm(ptr noundef %0
   br label %31
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %13 = icmp eq i32 %12, 0
-  %14 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 55), align 1
   %15 = icmp eq i8 %14, 0
   %16 = select i1 %13, i1 true, i1 %15
   br i1 %16, label %28, label %17
@@ -857,9 +857,9 @@ define dso_local range(i32 -22, 2) i32 @acpi_processor_notify_smm(ptr noundef %0
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %17
-  %23 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 55), align 1
   %24 = zext i8 %23 to i32
-  %25 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %26 = tail call ptr @acpi_format_exception(i32 noundef %20) #11
   %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %24, i32 noundef %25, ptr noundef %26) #12
   store i32 -5, ptr @acpi_processor_notify_smm.is_done, align 4

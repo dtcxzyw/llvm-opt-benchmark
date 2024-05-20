@@ -47,7 +47,7 @@ define range(i32 -1, 1) i32 @site_factor_g_init() local_unnamed_addr #0 {
   br i1 %.not9, label %6, label %18
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 166), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1128), align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %.sink.split, label %8
 
@@ -58,7 +58,7 @@ define range(i32 -1, 1) i32 @site_factor_g_init() local_unnamed_addr #0 {
   br i1 %.not11, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 166), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1128), align 8
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #7
   br label %.sink.split
 
@@ -68,7 +68,7 @@ define range(i32 -1, 1) i32 @site_factor_g_init() local_unnamed_addr #0 {
   br i1 %15, label %16, label %.sink.split
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 166), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1128), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.site_factor_g_init, ptr noundef %17) #7
   br label %.sink.split
 
@@ -199,7 +199,7 @@ define void @site_factor_g_update() local_unnamed_addr #0 {
 
 7:                                                ; preds = %0
   %8 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #7
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   tail call void %9() #7
   %10 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #7
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.site_factor_g_update, i64 noundef 50000, ptr noundef nonnull %4) #7

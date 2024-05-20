@@ -581,7 +581,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 1, ptr %deallocated, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyList_Type, i64 0, i32 4), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyList_Type, i64 48), align 8
   tail call void %1(ptr noundef nonnull %op) #15
   ret void
 }
@@ -597,7 +597,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr @PyType_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @_HashInheritanceTester_Type, i64 0, i32 0, i32 0, i32 1), align 8
+  store ptr @PyType_Type, ptr getelementptr inbounds (i8, ptr @_HashInheritanceTester_Type, i64 8), align 8
   %call1 = tail call i32 @PyType_Ready(ptr noundef nonnull @matmulType) #15
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
@@ -646,7 +646,7 @@ if.end.i313:                                      ; preds = %if.end14
 
 Py_INCREF.exit315:                                ; preds = %if.end14, %if.end.i313
   %call15 = tail call i32 @PyModule_AddObject(ptr noundef nonnull %call, ptr noundef nonnull @.str.3, ptr noundef nonnull @awaitType) #15
-  store ptr @PyList_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @MyList_Type, i64 0, i32 30), align 8
+  store ptr @PyList_Type, ptr getelementptr inbounds (i8, ptr @MyList_Type, i64 256), align 8
   %call16 = tail call i32 @PyType_Ready(ptr noundef nonnull @MyList_Type) #15
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end19
@@ -1503,7 +1503,7 @@ return:                                           ; preds = %for.inc, %test_dict
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @test_lazy_hash_inheritance(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @_HashInheritanceTester_Type, i64 0, i32 31), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_HashInheritanceTester_Type, i64 264), align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1519,7 +1519,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @_HashInheritanceTester_Type, i64 0, i32 31), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_HashInheritanceTester_Type, i64 264), align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
@@ -1571,7 +1571,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end7
-  %9 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @_HashInheritanceTester_Type, i64 0, i32 31), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_HashInheritanceTester_Type, i64 264), align 8
   %cmp14 = icmp eq ptr %9, null
   br i1 %cmp14, label %if.then15, label %if.end16
 
@@ -1594,8 +1594,8 @@ if.then1.i35:                                     ; preds = %if.end.i32
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %13 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @_HashInheritanceTester_Type, i64 0, i32 13), align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 13), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_HashInheritanceTester_Type, i64 120), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 120), align 8
   %cmp17.not = icmp eq ptr %13, %14
   br i1 %cmp17.not, label %if.end19, label %if.then18
 
@@ -2980,7 +2980,7 @@ return:                                           ; preds = %if.end29, %if.end25
 define internal noundef ptr @test_get_statictype_slots(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyType_GetSlot(ptr noundef nonnull @PyLong_Type, i32 noundef 65) #15
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 37), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 312), align 8
   %cmp.not = icmp eq ptr %0, %call
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2991,7 +2991,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @PyType_GetSlot(ptr noundef nonnull @PyLong_Type, i32 noundef 66) #15
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 9), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 88), align 8
   %cmp2.not = icmp eq ptr %2, %call1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
@@ -3012,7 +3012,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %call9 = tail call ptr @PyType_GetSlot(ptr noundef nonnull @PyLong_Type, i32 noundef 7) #15
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
   %6 = load ptr, ptr %5, align 8
   %cmp11.not = icmp eq ptr %6, %call9
   br i1 %cmp11.not, label %if.end13, label %if.then12
@@ -4276,8 +4276,8 @@ if.end:                                           ; preds = %entry
   %call1 = call ptr @PyThread_allocate_lock() #15
   store ptr %call1, ptr @test_c_thread, align 8
   %call2 = call ptr @PyThread_allocate_lock() #15
-  store ptr %call2, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  store ptr %call2, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %0 = load ptr, ptr @test_c_thread, align 8
   %tobool3 = icmp ne ptr %0, null
   %tobool4 = icmp ne ptr %call2, null
@@ -4303,9 +4303,9 @@ if.end.i.i:                                       ; preds = %if.end6
 
 _Py_NewRef.exit:                                  ; preds = %if.end6, %if.end.i.i
   %4 = phi ptr [ %0, %if.end6 ], [ %.pre, %if.end.i.i ]
-  store ptr %2, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %call8 = call i32 @PyThread_acquire_lock(ptr noundef %4, i32 noundef 1) #15
-  %5 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   %call9 = call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #15
   %call10 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @temporary_c_thread, ptr noundef nonnull @test_c_thread) #15
   %cmp = icmp eq i64 %call10, -1
@@ -4316,7 +4316,7 @@ if.then11:                                        ; preds = %_Py_NewRef.exit
   call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.304) #15
   %7 = load ptr, ptr @test_c_thread, align 8
   call void @PyThread_release_lock(ptr noundef %7) #15
-  %8 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %8) #15
   br label %do.body
 
@@ -4331,9 +4331,9 @@ if.end12:                                         ; preds = %_Py_NewRef.exit
 
 if.end16:                                         ; preds = %if.end12
   %call17 = call ptr @PyEval_SaveThread() #15
-  %12 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   %call18 = call i32 @PyThread_acquire_lock(ptr noundef %12, i32 noundef 1) #15
-  %13 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %13) #15
   call void @PyEval_RestoreThread(ptr noundef %call17) #15
   %14 = load i32, ptr @_Py_NoneStruct, align 8
@@ -4347,12 +4347,12 @@ if.end.i.i9:                                      ; preds = %if.end16
 
 do.body:                                          ; preds = %if.end.i.i9, %if.end16, %if.then5, %if.then11
   %res.0 = phi ptr [ null, %if.then11 ], [ null, %if.then5 ], [ @_Py_NoneStruct, %if.end16 ], [ @_Py_NoneStruct, %if.end.i.i9 ]
-  %15 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %cmp20.not = icmp eq ptr %15, null
   br i1 %cmp20.not, label %do.end, label %if.then21
 
 if.then21:                                        ; preds = %do.body
-  store ptr null, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i30.not = icmp eq i64 %17, 0
@@ -4379,13 +4379,13 @@ if.then24:                                        ; preds = %do.end
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then24, %do.end
-  %19 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   %tobool26.not = icmp eq ptr %19, null
   br i1 %tobool26.not, label %return, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
   call void @PyThread_free_lock(ptr noundef nonnull %19) #15
-  store ptr null, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   br label %return
 
 return:                                           ; preds = %if.end25, %if.then27, %if.end12, %entry
@@ -4397,17 +4397,17 @@ return:                                           ; preds = %if.end25, %if.then2
 define internal noundef nonnull ptr @join_temporary_c_thread(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyEval_SaveThread() #15
-  %0 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   %call1 = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #15
-  %1 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %1) #15
   tail call void @PyEval_RestoreThread(ptr noundef %call) #15
-  %2 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr null, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i3.not = icmp eq i64 %4, 0
@@ -4427,9 +4427,9 @@ do.end:                                           ; preds = %entry, %if.then, %i
   %5 = load ptr, ptr @test_c_thread, align 8
   tail call void @PyThread_free_lock(ptr noundef %5) #15
   store ptr null, ptr @test_c_thread, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   tail call void @PyThread_free_lock(ptr noundef %6) #15
-  store ptr null, ptr getelementptr inbounds (%struct.test_c_thread_t, ptr @test_c_thread, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 8), align 8
   ret ptr @_Py_NoneStruct
 }
 
@@ -6487,7 +6487,7 @@ if.end.i130:                                      ; preds = %if.then16
   br i1 %cmp.i132, label %fail.sink.split, label %fail
 
 if.end17:                                         ; preds = %if.end13
-  %call.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 19), align 8
+  %call.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 168), align 8
   %10 = and i64 %call.val.i, 67108864
   %tobool.not.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i, label %cond.false.i, label %PyTuple_GET_SIZE.exit
@@ -7267,7 +7267,7 @@ cond.false72:                                     ; preds = %cond.end69
   unreachable
 
 cond.end73:                                       ; preds = %cond.end69
-  %_Py_NoneStruct.val51 = load ptr, ptr getelementptr inbounds (%struct._object, ptr @_Py_NoneStruct, i64 0, i32 1), align 8
+  %_Py_NoneStruct.val51 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %cmp.i.not.i77 = icmp eq ptr %_Py_NoneStruct.val51, @_PyWeakref_RefType
   br i1 %cmp.i.not.i77, label %cond.false83, label %PyObject_TypeCheck.exit82
 
@@ -7277,7 +7277,7 @@ PyObject_TypeCheck.exit82:                        ; preds = %cond.end73
   br i1 %tobool3.i80.not, label %lor.lhs.false76, label %cond.false83
 
 lor.lhs.false76:                                  ; preds = %PyObject_TypeCheck.exit82
-  %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds (%struct._object, ptr @_Py_NoneStruct, i64 0, i32 1), align 8
+  %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %cmp.i83.not = icmp eq ptr %_Py_NoneStruct.val, @_PyWeakref_ProxyType
   %cmp.i85.not = icmp eq ptr %_Py_NoneStruct.val, @_PyWeakref_CallableProxyType
   %or.cond96 = or i1 %cmp.i83.not, %cmp.i85.not
@@ -8469,7 +8469,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @MyList_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyList_Type, i64 0, i32 37), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyList_Type, i64 312), align 8
   %call = tail call ptr %0(ptr noundef %type, ptr noundef %args, ptr noundef %kwds) #15
   %deallocated = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %deallocated, align 8

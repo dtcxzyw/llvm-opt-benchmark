@@ -647,7 +647,7 @@ thread-pre-split:                                 ; preds = %5
   br label %170
 
 34:                                               ; preds = %32
-  %35 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 27), align 1
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 27), align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds i8, ptr %.1274511, i64 %36
   br label %set_nottype_bits.exit
@@ -802,7 +802,7 @@ thread-pre-split:                                 ; preds = %5
   br label %.backedge
 
 122:                                              ; preds = %94
-  %123 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %123 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %124 = zext i8 %123 to i64
   %125 = getelementptr inbounds i8, ptr %.1270508, i64 %124
   br label %.backedge
@@ -884,7 +884,7 @@ thread-pre-split:                                 ; preds = %5
   br label %set_nottype_bits.exit
 
 156:                                              ; preds = %32
-  %157 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
+  %157 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds i8, ptr %.1274511, i64 %158
   br label %set_nottype_bits.exit
@@ -2465,7 +2465,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   br label %267
 
 264:                                              ; preds = %253
-  %265 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 110), align 1
+  %265 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 110), align 1
   %266 = zext i8 %265 to i64
   br label %267
 

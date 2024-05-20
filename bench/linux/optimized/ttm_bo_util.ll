@@ -1357,14 +1357,14 @@ declare dso_local void @ttm_resource_free(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ttm_buffer_object_transfer(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(472) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 472) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %52, label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %4, ptr noundef align 8 dereferenceable(464) %0, i64 464, i1 false)
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2)) #6, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24)) #6, !srcloc !33
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(192) %7, i8 0, i64 192, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 376

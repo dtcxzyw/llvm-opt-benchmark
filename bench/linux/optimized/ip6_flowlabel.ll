@@ -247,12 +247,12 @@ define internal fastcc void @fl_release(ptr noundef %0) unnamed_addr #1 align 16
   br label %28
 
 28:                                               ; preds = %27, %23, %18
-  %29 = load volatile ptr, ptr getelementptr inbounds (%struct.timer_list, ptr @ip6_fl_gc_timer, i64 0, i32 0, i32 1), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ip6_fl_gc_timer, i64 8), align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = load i64, ptr getelementptr inbounds (%struct.timer_list, ptr @ip6_fl_gc_timer, i64 0, i32 1), align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @ip6_fl_gc_timer, i64 16), align 8
   %33 = sub i64 %19, %32
   %34 = icmp slt i64 %33, 0
   br i1 %34, label %35, label %37
@@ -845,7 +845,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br i1 %239, label %.thread40, label %240
 
 240:                                              ; preds = %237
-  %241 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %242 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %241, i32 noundef 3520, i64 noundef 104) #15
   %243 = icmp eq ptr %242, null
   br i1 %243, label %.thread40, label %244
@@ -1027,7 +1027,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br label %.thread40
 
 334:                                              ; preds = %323, %327
-  %335 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %336 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %335, i32 noundef 3264, i64 noundef 32) #15
   %337 = load i32, ptr %226, align 4
   %338 = icmp eq i32 %337, 0
@@ -1235,8 +1235,8 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br i1 %451, label %454, label %452
 
 452:                                              ; preds = %448, %443
-  %453 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 1), align 8
-  call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 2), i64 noundef %453) #13
+  %453 = load i64, ptr getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 16), align 8
+  call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 24), i64 noundef %453) #13
   br label %454
 
 454:                                              ; preds = %452, %448
@@ -1265,7 +1265,7 @@ declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip6_flowlabel_cleanup() local_unnamed_addr #1 align 16 {
-  tail call void @__static_key_deferred_flush(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 2)) #13
+  tail call void @__static_key_deferred_flush(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 24)) #13
   %1 = tail call i32 @timer_delete(ptr noundef nonnull @ip6_fl_gc_timer) #13
   tail call void @unregister_pernet_subsys(ptr noundef nonnull @ip6_flowlabel_net_ops) #13
   ret void
@@ -1477,8 +1477,8 @@ define internal fastcc void @fl_free(ptr noundef %0) unnamed_addr #1 align 16 {
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6, %1
-  %11 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 1), align 8
-  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 2), i64 noundef %11) #13
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 16), align 8
+  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 24), i64 noundef %11) #13
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -1765,8 +1765,8 @@ define internal void @ip6_flowlabel_net_exit(ptr noundef readonly %0) #1 align 1
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %24, %18
-  %29 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 1), align 8
-  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 2), i64 noundef %29) #13
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 16), align 8
+  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 24), i64 noundef %29) #13
   br label %30
 
 30:                                               ; preds = %28, %24
@@ -2180,8 +2180,8 @@ define internal void @ip6_fl_gc(ptr nocapture readnone %0) #1 align 16 {
   br i1 %44, label %52, label %45
 
 45:                                               ; preds = %41, %35
-  %46 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 1), align 8
-  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @ipv6_flowlabel_exclusive, i64 0, i32 2), i64 noundef %46) #13
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 16), align 8
+  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @ipv6_flowlabel_exclusive, ptr noundef nonnull getelementptr inbounds (i8, ptr @ipv6_flowlabel_exclusive, i64 24), i64 noundef %46) #13
   br label %52
 
 .thread:                                          ; preds = %31

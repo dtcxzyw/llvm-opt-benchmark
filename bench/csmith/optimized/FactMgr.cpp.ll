@@ -129,7 +129,7 @@ _ZNSt12_Vector_baseIP4FactSaIS1_EED2Ev.exit:      ; preds = %1, %3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7FactMgr38add_new_var_fact_and_update_inout_mapsEPK5BlockPK8Variable(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.0", align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %6 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %.not90 = icmp eq ptr %5, %6
   br i1 %.not90, label %._crit_edge89, label %.lr.ph88
@@ -485,7 +485,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit44: ; preds = %.lr.ph80.split
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit46:          ; preds = %._crit_edge85, %139
   %140 = add nuw i64 %.086, 1
-  %141 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %142 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %143 = ptrtoint ptr %141 to i64
   %144 = ptrtoint ptr %142 to i64
@@ -752,7 +752,7 @@ declare void @_ZN3LhsC1ERK8Variable(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN7FactMgr22update_fact_for_assignEPK3LhsPK10ExpressionRSt6vectorIPK4FactSaIS9_EE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.0", align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %6 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %.not26 = icmp eq ptr %5, %6
   br i1 %.not26, label %._crit_edge, label %.lr.ph25
@@ -873,7 +873,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %35, %37
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit18:          ; preds = %.loopexit, %55
   %56 = add nuw i64 %.01623, 1
-  %57 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %58 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
@@ -893,7 +893,7 @@ declare void @_ZN3LhsD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7FactMgr16add_new_var_factEPK8VariableRSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.0", align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %5 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge22, label %.lr.ph21
@@ -1043,7 +1043,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4Fa
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit14:          ; preds = %._crit_edge, %61
   %62 = add nuw i64 %.019, 1
-  %63 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %64 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %65 = ptrtoint ptr %63 to i64
   %66 = ptrtoint ptr %64 to i64
@@ -3320,7 +3320,7 @@ define dso_local noundef zeroext i1 @_ZN7FactMgr22update_fact_for_assignEPK15Sta
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7FactMgr22update_fact_for_returnEPK15StatementReturnRSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.0", align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %5 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge24, label %.lr.ph23
@@ -3400,7 +3400,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %28, %31
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit18:          ; preds = %._crit_edge, %41
   %42 = add nuw i64 %.021, 1
-  %43 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %44 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
@@ -3677,16 +3677,16 @@ define dso_local void @_ZN7FactMgr20add_interested_factsEi(i32 noundef %0) local
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN11FactPointTo9make_factEPK8Variable(ptr noundef null)
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 16), align 8
   %.not.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i, label %10, label %7
 
 7:                                                ; preds = %3
   store ptr %4, ptr %5, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %9, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 10:                                               ; preds = %3
@@ -3739,9 +3739,9 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %25, ptr @_ZN7FactMgr10meta_factsE, align 8
-  store ptr %30, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %32 = getelementptr inbounds ptr, ptr %25, i64 %21
-  store ptr %32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 16), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %7, %1
@@ -3751,16 +3751,16 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %_ZNSt6vectorIP4Fact
 
 34:                                               ; preds = %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
   %35 = tail call noundef ptr @_ZN9FactUnion9make_factEPK8Variablei(ptr noundef null, i32 noundef 0)
-  %36 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %37 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 16), align 8
   %.not.i.i4 = icmp eq ptr %36, %37
   br i1 %.not.i.i4, label %41, label %38
 
 38:                                               ; preds = %34
   store ptr %35, ptr %36, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %40, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit12
 
 41:                                               ; preds = %34
@@ -3813,9 +3813,9 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9: ; preds =
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %62, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
   store ptr %56, ptr @_ZN7FactMgr10meta_factsE, align 8
-  store ptr %61, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %61, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %63 = getelementptr inbounds ptr, ptr %56, i64 %52
-  store ptr %63, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 16), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit12
 
 _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit12: ; preds = %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11, %38, %_ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit
@@ -6620,12 +6620,12 @@ declare noundef ptr @_Z16GetFirstFunctionv() local_unnamed_addr #0
 define dso_local void @_ZN7FactMgr14doFinalizationEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Fact14doFinalizationEv()
   %1 = load ptr, ptr @_ZN7FactMgr10meta_factsE, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   %.not.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %3
 
 3:                                                ; preds = %0
-  store ptr %1, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7FactMgr10meta_factsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN7FactMgr10meta_factsE, i64 8), align 8
   br label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit:         ; preds = %0, %3

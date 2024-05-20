@@ -486,7 +486,7 @@ invoke.cont123.i:                                 ; preds = %invoke.cont113.i
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %invoke.cont123.i
   store ptr %call5.i.i.i.i2.i146.i, ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, align 8
   %add.ptr.i1.i149.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i146.i, i64 312
-  store ptr %add.ptr.i1.i149.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i149.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i64 16), align 8
   %call.i.i.i.i3.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull %call5.i.i.i.i2.i146.i)
           to label %invoke.cont129.i unwind label %lpad.i147.i
 
@@ -505,7 +505,7 @@ if.then.i.i4.i.i:                                 ; preds = %lpad.i147.i
   br label %arraydestroy.body132.i.preheader
 
 invoke.cont129.i:                                 ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i
-  store ptr %call.i.i.i.i3.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %call.i.i.i.i3.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i64 8), align 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %invoke.cont129.i
@@ -798,7 +798,7 @@ invoke.cont123.i98:                               ; preds = %invoke.cont113.i91
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115: ; preds = %invoke.cont123.i98
   store ptr %call5.i.i.i.i2.i146.i103, ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, align 8
   %add.ptr.i1.i149.i116 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i146.i103, i64 312
-  store ptr %add.ptr.i1.i149.i116, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr.i1.i149.i116, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i64 16), align 8
   %call.i.i.i.i3.i.i117 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef nonnull %ref.tmp.i1, ptr noundef nonnull %add.ptr.i.i.i102, ptr noundef nonnull %call5.i.i.i.i2.i146.i103)
           to label %invoke.cont129.i118 unwind label %lpad.i147.i104
 
@@ -817,7 +817,7 @@ if.then.i.i4.i.i106:                              ; preds = %lpad.i147.i104
   br label %arraydestroy.body132.i108.preheader
 
 invoke.cont129.i118:                              ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115
-  store ptr %call.i.i.i.i3.i.i117, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %call.i.i.i.i3.i.i117, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i64 8), align 8
   br label %arraydestroy.body.i119
 
 arraydestroy.body.i119:                           ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i124, %invoke.cont129.i118

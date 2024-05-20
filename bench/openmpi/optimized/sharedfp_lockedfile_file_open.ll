@@ -47,7 +47,7 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %16, ptr noundef nonnull @.str.1) #11
   br label %17
 
@@ -57,7 +57,7 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %21, ptr noundef nonnull @.str.2) #11
   tail call void @free(ptr noundef nonnull %calloc) #11
   br label %136

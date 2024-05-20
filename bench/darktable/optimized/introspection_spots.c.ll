@@ -1568,7 +1568,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %5, label %84, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %8 = getelementptr inbounds i8, ptr %7, i64 2696
   %9 = load ptr, ptr %8, align 8, !tbaa !123
   %10 = getelementptr inbounds i8, ptr %9, i64 344
@@ -1625,7 +1625,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %39
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %48 = getelementptr inbounds i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8, !tbaa !130
   %50 = icmp eq ptr %49, %0
@@ -1733,7 +1733,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   store i32 2, ptr %3, align 16
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %11 = tail call ptr @dt_masks_get_from_id(ptr noundef %10, i32 noundef %9) #18
   %12 = icmp eq ptr %11, null
   br i1 %12, label %303, label %13
@@ -2308,7 +2308,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %385, label %397, label %386
 
 386:                                              ; preds = %383
-  %387 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %388 = load i32, ptr %384, align 4, !tbaa !74
   %389 = tail call ptr @dt_masks_get_from_id(ptr noundef %387, i32 noundef %388) #18
   %390 = icmp eq ptr %389, null
@@ -2384,7 +2384,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %436, label %448, label %437
 
 437:                                              ; preds = %434
-  %438 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %438 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %439 = load i32, ptr %435, align 4, !tbaa !74
   %440 = tail call ptr @dt_masks_get_from_id(ptr noundef %438, i32 noundef %439) #18
   %441 = icmp eq ptr %440, null
@@ -2460,7 +2460,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %487, label %499, label %488
 
 488:                                              ; preds = %485
-  %489 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %489 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %490 = load i32, ptr %486, align 4, !tbaa !74
   %491 = tail call ptr @dt_masks_get_from_id(ptr noundef %489, i32 noundef %490) #18
   %492 = icmp eq ptr %491, null
@@ -2481,7 +2481,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   tail call void @gtk_toggle_button_set_active(ptr noundef %452, i32 noundef %500) #18
   %501 = getelementptr inbounds i8, ptr %0, i64 776
   %502 = load ptr, ptr %501, align 8, !tbaa !125
-  %503 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %504 = getelementptr inbounds i8, ptr %503, i64 44
   %505 = load i32, ptr %504, align 4, !tbaa !142
   %506 = icmp eq i32 %505, 0
@@ -2517,7 +2517,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %524, label %531, label %525
 
 525:                                              ; preds = %518
-  %526 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %526 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %527 = getelementptr inbounds i8, ptr %526, i64 88
   %528 = load ptr, ptr %527, align 8, !tbaa !130
   %529 = icmp eq ptr %528, %0
@@ -2631,14 +2631,14 @@ declare ptr @dt_iop_togglebutton_new(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !144
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !145
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %101
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !130
   %12 = icmp eq ptr %11, %2
@@ -2668,7 +2668,7 @@ define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone 
 
 28:                                               ; preds = %24
   tail call void @dt_masks_change_form_gui(ptr noundef null) #18
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %30 = getelementptr inbounds i8, ptr %29, i64 2136
   %31 = load ptr, ptr %30, align 8, !tbaa !131
   br label %32
@@ -2700,7 +2700,7 @@ define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone 
   %48 = load ptr, ptr %47, align 8, !tbaa !137
   %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %42) #18
   tail call void @gtk_toggle_button_set_active(ptr noundef %49, i32 noundef 0) #18
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !144
   %51 = getelementptr inbounds i8, ptr %50, i64 120
   %52 = load i32, ptr %51, align 8, !tbaa !145
   %53 = add nsw i32 %52, 1
@@ -2717,7 +2717,7 @@ define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone 
   tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %2, i32 noundef %61) #18
   %62 = getelementptr inbounds i8, ptr %2, i64 760
   %63 = load ptr, ptr %62, align 8, !tbaa !35
-  %64 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %65 = getelementptr inbounds i8, ptr %63, i64 24
   %66 = load i32, ptr %65, align 4, !tbaa !41
   %67 = tail call ptr @dt_masks_get_from_id(ptr noundef %64, i32 noundef %66) #18
@@ -2746,7 +2746,7 @@ define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone 
   br i1 %83, label %90, label %84
 
 84:                                               ; preds = %77
-  %85 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %86 = getelementptr inbounds i8, ptr %85, i64 88
   %87 = load ptr, ptr %86, align 8, !tbaa !130
   %88 = icmp eq ptr %87, %2
@@ -2766,7 +2766,7 @@ define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone 
   br label %96
 
 96:                                               ; preds = %92, %90
-  %97 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !144
   %98 = getelementptr inbounds i8, ptr %97, i64 120
   %99 = load i32, ptr %98, align 8, !tbaa !145
   %100 = add nsw i32 %99, -1
@@ -2783,7 +2783,7 @@ declare void @dtgtk_cairo_paint_masks_eye(ptr noundef, i32 noundef, i32 noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !144
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !145
   %7 = icmp eq i32 %6, 0
@@ -2949,7 +2949,7 @@ define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0,
   %114 = phi i32 [ 10, %99 ], [ 9, %104 ], [ %112, %108 ]
   %115 = tail call ptr @dt_masks_create(i32 noundef %114) #18
   tail call void @dt_masks_change_form_gui(ptr noundef %115) #18
-  %116 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %117 = getelementptr inbounds i8, ptr %116, i64 2136
   %118 = load ptr, ptr %117, align 8, !tbaa !131
   %119 = getelementptr inbounds i8, ptr %118, i64 168
@@ -3021,7 +3021,7 @@ define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0,
   br i1 %162, label %174, label %163
 
 163:                                              ; preds = %160
-  %164 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %165 = load i32, ptr %161, align 4, !tbaa !74
   %166 = tail call ptr @dt_masks_get_from_id(ptr noundef %164, i32 noundef %165) #18
   %167 = icmp eq ptr %166, null
@@ -3097,7 +3097,7 @@ define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0,
   br i1 %213, label %225, label %214
 
 214:                                              ; preds = %211
-  %215 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %216 = load i32, ptr %212, align 4, !tbaa !74
   %217 = tail call ptr @dt_masks_get_from_id(ptr noundef %215, i32 noundef %216) #18
   %218 = icmp eq ptr %217, null
@@ -3173,7 +3173,7 @@ define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0,
   br i1 %264, label %276, label %265
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !116
   %267 = load i32, ptr %263, align 4, !tbaa !74
   %268 = tail call ptr @dt_masks_get_from_id(ptr noundef %266, i32 noundef %267) #18
   %269 = icmp eq ptr %268, null
@@ -3235,13 +3235,13 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 7), align 16, !tbaa !155
-  store ptr @introspection_init.f4, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 2), align 8, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 408), align 8, !tbaa !155
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 496), align 16, !tbaa !155
+  store ptr @introspection_init.f4, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 424), align 8, !tbaa !155
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -3300,11 +3300,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 10:                                               ; preds = %7
   %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #18
   %12 = icmp eq i32 %11, 0
-  %13 = select i1 %12, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), ptr null
+  %13 = select i1 %12, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 264), ptr null
   br label %14
 
 14:                                               ; preds = %10, %7, %4, %1
-  %15 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ %13, %10 ]
+  %15 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 176), %7 ], [ %13, %10 ]
   ret ptr %15
 }
 

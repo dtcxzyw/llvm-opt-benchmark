@@ -120,7 +120,7 @@ define dso_local noundef ptr @_ZN16DefaultOutputMgr14CreateInstanceEv() local_un
           to label %_ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit unwind label %18
 
 _ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit: ; preds = %11
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i64 0, i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16DefaultOutputMgr, i64 16), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %10, i64 32
@@ -153,7 +153,7 @@ _ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit: ; preds =
           to label %_ZN16DefaultOutputMgrC2Ev.exit unwind label %24
 
 _ZN16DefaultOutputMgrC2Ev.exit:                   ; preds = %22
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16DefaultOutputMgr, i64 16), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   br label %26
@@ -682,7 +682,7 @@ declare void @_Z25OutputForwardDeclarationsRSo(ptr noundef nonnull align 8 deref
 define dso_local void @_ZN16DefaultOutputMgr19RandomOutputVarDefsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN16VariableSelector10GlobalListE, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %.not8 = icmp eq ptr %3, %4
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -710,7 +710,7 @@ define dso_local void @_ZN16DefaultOutputMgr19RandomOutputVarDefsEv(ptr nocaptur
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(200) %19, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 0)
   %23 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %.not = icmp eq ptr %23, %24
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !9
 
@@ -779,7 +779,7 @@ declare void @_ZN8Function6OutputERSo(ptr noundef nonnull align 8 dereferenceabl
 define dso_local void @_ZN16DefaultOutputMgr16RandomOutputDefsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN16VariableSelector10GlobalListE, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %.not8.i = icmp eq ptr %3, %4
   br i1 %.not8.i, label %_ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit, label %.lr.ph.i
 
@@ -807,7 +807,7 @@ define dso_local void @_ZN16DefaultOutputMgr16RandomOutputDefsEv(ptr nocapture n
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(200) %19, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 0)
   %23 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 8
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.5", ptr @_ZN16VariableSelector10GlobalListE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %.not.i = icmp eq ptr %23, %24
   br i1 %.not.i, label %_ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit, label %13, !llvm.loop !9
 
@@ -985,7 +985,7 @@ declare void @_ZN9OutputMgr10output_tabERSoi(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16DefaultOutputMgr, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -998,7 +998,7 @@ declare void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16DefaultOutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16DefaultOutputMgr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
@@ -1006,7 +1006,7 @@ define dso_local void @_ZN16DefaultOutputMgrC2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16DefaultOutputMgrD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16DefaultOutputMgr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

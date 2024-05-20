@@ -3251,7 +3251,7 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h2906badfe1326c7dE.
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -6553,7 +6553,7 @@ default.unreachable:                              ; preds = %1192, %46
   br label %.thread748.i
 
 87:                                               ; preds = %81
-  %88 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion7context8analysis6expand10__CALLSITE17h3d14d4d416f1334eE, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !1473
+  %88 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion7context8analysis6expand10__CALLSITE17h3d14d4d416f1334eE, i64 16) monotonic, align 8, !noalias !1473
   switch i8 %88, label %89 [
     i8 0, label %.thread.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -10271,7 +10271,7 @@ default.unreachable1457:                          ; preds = %_ZN14ide_completion
   unreachable
 
 100:                                              ; preds = %5
-  %101 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion7context8analysis7analyze10__CALLSITE17hf3e55182aa23b4d0E, i64 0, i32 1, i64 8) monotonic, align 8
+  %101 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion7context8analysis7analyze10__CALLSITE17hf3e55182aa23b4d0E, i64 16) monotonic, align 8
   switch i8 %101, label %102 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -22023,7 +22023,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h1301172cd85e2204E.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !5585
   store ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, ptr %8, align 8, !noalias !5585
   %1629 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds (<{ [6 x i8] }>, ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, i64 1, i32 0, i64 0), ptr %1629, align 8, !noalias !5585
+  store ptr getelementptr inbounds (i8, ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, i64 6), ptr %1629, align 8, !noalias !5585
   br label %1630
 
 1630:                                             ; preds = %1632, %1628

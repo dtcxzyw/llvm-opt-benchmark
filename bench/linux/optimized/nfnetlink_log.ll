@@ -331,7 +331,7 @@ define internal i32 @nfulnl_recv_config(ptr nocapture noundef readonly %0, ptr n
   br i1 %122, label %.loopexit, label %115, !llvm.loop !5
 
 123:                                              ; preds = %115
-  %124 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %125 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %124, i32 noundef 2336, i64 noundef 144) #14
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.loopexit, label %127

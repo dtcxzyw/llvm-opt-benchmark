@@ -377,7 +377,7 @@ define internal i32 @netlbl_calipso_add(ptr nocapture readnone %0, ptr nocapture
   br i1 %30, label %31, label %.thread6
 
 31:                                               ; preds = %16
-  %32 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %33 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3264, i64 noundef 48) #9
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread6, label %35

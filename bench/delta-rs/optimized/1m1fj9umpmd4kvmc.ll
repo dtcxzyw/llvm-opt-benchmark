@@ -806,7 +806,7 @@ default.unreachable2705:                          ; preds = %1314, %514, %2
   br i1 %420, label %421, label %.thread2337
 
 421:                                              ; preds = %418
-  %422 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he7449170c4e7b588E", i64 0, i32 2, i32 0) monotonic, align 8
+  %422 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he7449170c4e7b588E", i64 16) monotonic, align 8
   switch i8 %422, label %423 [
     i8 0, label %.thread2337
     i8 1, label %.thread
@@ -1160,7 +1160,7 @@ common.ret:                                       ; preds = %504, %1126, %1217, 
   br i1 %528, label %529, label %.thread461.i
 
 529:                                              ; preds = %518
-  %530 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3a64561c9e988ccE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !63
+  %530 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc3a64561c9e988ccE", i64 16) monotonic, align 8, !noalias !63
   switch i8 %530, label %531 [
     i8 0, label %.thread461.i
     i8 1, label %.thread.i
@@ -1584,7 +1584,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc176.i, 
   br i1 %672, label %673, label %.thread472.i
 
 673:                                              ; preds = %670
-  %674 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7718976ab4980a6cE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !63
+  %674 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7718976ab4980a6cE", i64 16) monotonic, align 8, !noalias !63
   switch i8 %674, label %675 [
     i8 0, label %.thread472.i
     i8 1, label %.thread469.i
@@ -2292,7 +2292,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc176.i, 
   br i1 %874, label %875, label %.thread489.i
 
 875:                                              ; preds = %872
-  %876 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h85ea261f2300ee98E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !63
+  %876 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h85ea261f2300ee98E", i64 16) monotonic, align 8, !noalias !63
   switch i8 %876, label %877 [
     i8 0, label %.thread489.i
     i8 1, label %.thread486.i
@@ -2795,7 +2795,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc176.i, 
   br i1 %1042, label %1043, label %.thread2362
 
 1043:                                             ; preds = %1040
-  %1044 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1b92f74573421cdbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1044 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1b92f74573421cdbE", i64 16) monotonic, align 8
   switch i8 %1044, label %1045 [
     i8 0, label %.thread2362
     i8 1, label %.thread2359
@@ -3097,7 +3097,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc176.i, 
   br i1 %1133, label %1134, label %.thread2376
 
 1134:                                             ; preds = %1131
-  %1135 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h54cbdf85f489d368E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1135 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h54cbdf85f489d368E", i64 16) monotonic, align 8
   switch i8 %1135, label %1136 [
     i8 0, label %.thread2376
     i8 1, label %.thread2373
@@ -3409,7 +3409,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc176.i, 
   br i1 %1225, label %1226, label %.thread2390
 
 1226:                                             ; preds = %1222
-  %1227 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h565359dadca68b96E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1227 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h565359dadca68b96E", i64 16) monotonic, align 8
   switch i8 %1227, label %1228 [
     i8 0, label %.thread2390
     i8 1, label %.thread2387
@@ -3914,7 +3914,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %1398, label %1399, label %.thread1059.i
 
 1399:                                             ; preds = %1396
-  %1400 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9a164485eec35bc5E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !457
+  %1400 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9a164485eec35bc5E", i64 16) monotonic, align 8, !noalias !457
   switch i8 %1400, label %1401 [
     i8 0, label %.thread1059.i
     i8 1, label %.thread1056.i
@@ -4669,7 +4669,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %1629, label %1630, label %.thread1076.i
 
 1630:                                             ; preds = %1625
-  %1631 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haf651d17b893eca2E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !457
+  %1631 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haf651d17b893eca2E", i64 16) monotonic, align 8, !noalias !457
   switch i8 %1631, label %1632 [
     i8 0, label %.thread1076.i
     i8 1, label %.thread1073.i
@@ -5246,7 +5246,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %1769, label %1770, label %.thread1140.i
 
 1770:                                             ; preds = %1764
-  %1771 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3e896a1b2b7cd419E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !457
+  %1771 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3e896a1b2b7cd419E", i64 16) monotonic, align 8, !noalias !457
   switch i8 %1771, label %1772 [
     i8 0, label %.thread1140.i
     i8 1, label %.thread1137.i
@@ -6136,7 +6136,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2027, label %2028, label %.thread1153.i
 
 2028:                                             ; preds = %2025
-  %2029 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6214408f437a1c43E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !457
+  %2029 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6214408f437a1c43E", i64 16) monotonic, align 8, !noalias !457
   switch i8 %2029, label %2030 [
     i8 0, label %.thread1153.i
     i8 1, label %.thread1150.i
@@ -6483,7 +6483,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2125, label %2126, label %.thread1165.i
 
 2126:                                             ; preds = %2123
-  %2127 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcf4ecf0ba9529eb5E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !457
+  %2127 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcf4ecf0ba9529eb5E", i64 16) monotonic, align 8, !noalias !457
   switch i8 %2127, label %2128 [
     i8 0, label %.thread1165.i
     i8 1, label %.thread1162.i
@@ -7110,7 +7110,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2356, label %2357, label %.thread2415
 
 2357:                                             ; preds = %2354
-  %2358 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0cda095fb3f747fdE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2358 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0cda095fb3f747fdE", i64 16) monotonic, align 8
   switch i8 %2358, label %2359 [
     i8 0, label %.thread2415
     i8 1, label %.thread2412
@@ -7403,7 +7403,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2447, label %2448, label %.thread2423
 
 2448:                                             ; preds = %2445
-  %2449 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha31a3f0a07ad5a97E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2449 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha31a3f0a07ad5a97E", i64 16) monotonic, align 8
   switch i8 %2449, label %2450 [
     i8 0, label %.thread2423
     i8 1, label %.thread2420
@@ -7892,7 +7892,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2606, label %2607, label %.thread2440
 
 2607:                                             ; preds = %2604
-  %2608 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h30c5df43585642fcE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2608 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h30c5df43585642fcE", i64 16) monotonic, align 8
   switch i8 %2608, label %2609 [
     i8 0, label %.thread2440
     i8 1, label %.thread2437
@@ -8211,7 +8211,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2700, label %2701, label %.thread2454
 
 2701:                                             ; preds = %2698
-  %2702 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7b489d9c4ba3d2e3E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2702 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7b489d9c4ba3d2e3E", i64 16) monotonic, align 8
   switch i8 %2702, label %2703 [
     i8 0, label %.thread2454
     i8 1, label %.thread2451
@@ -8513,7 +8513,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2791, label %2792, label %.thread2468
 
 2792:                                             ; preds = %2789
-  %2793 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5017c6d1df48be55E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2793 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5017c6d1df48be55E", i64 16) monotonic, align 8
   switch i8 %2793, label %2794 [
     i8 0, label %.thread2468
     i8 1, label %.thread2465
@@ -8815,7 +8815,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2882, label %2883, label %.thread2482
 
 2883:                                             ; preds = %2880
-  %2884 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h973d19a9c99dbeabE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2884 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h973d19a9c99dbeabE", i64 16) monotonic, align 8
   switch i8 %2884, label %2885 [
     i8 0, label %.thread2482
     i8 1, label %.thread2479
@@ -9127,7 +9127,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %2974, label %2975, label %.thread2496
 
 2975:                                             ; preds = %2971
-  %2976 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h581669db5189c7d5E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2976 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h581669db5189c7d5E", i64 16) monotonic, align 8
   switch i8 %2976, label %2977 [
     i8 0, label %.thread2496
     i8 1, label %.thread2493
@@ -9566,7 +9566,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3109, label %3110, label %.thread2510
 
 3110:                                             ; preds = %3105
-  %3111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h91f925143e757799E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h91f925143e757799E", i64 16) monotonic, align 8
   switch i8 %3111, label %3112 [
     i8 0, label %.thread2510
     i8 1, label %.thread2507
@@ -10042,7 +10042,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3265, label %3266, label %.thread2522
 
 3266:                                             ; preds = %3261
-  %3267 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he8b54503f40afea5E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3267 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he8b54503f40afea5E", i64 16) monotonic, align 8
   switch i8 %3267, label %3268 [
     i8 0, label %.thread2522
     i8 1, label %.thread2519
@@ -10180,7 +10180,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3308, label %3309, label %.thread2534
 
 3309:                                             ; preds = %3306
-  %3310 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h526a73fca73369f2E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3310 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h526a73fca73369f2E", i64 16) monotonic, align 8
   switch i8 %3310, label %3311 [
     i8 0, label %.thread2534
     i8 1, label %.thread2531
@@ -10487,7 +10487,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3401, label %3402, label %.thread2548
 
 3402:                                             ; preds = %3399
-  %3403 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6268cbc636d85e86E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3403 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h6268cbc636d85e86E", i64 16) monotonic, align 8
   switch i8 %3403, label %3404 [
     i8 0, label %.thread2548
     i8 1, label %.thread2545
@@ -10789,7 +10789,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3492, label %3493, label %.thread2562
 
 3493:                                             ; preds = %3490
-  %3494 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0c714603fb604260E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3494 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0c714603fb604260E", i64 16) monotonic, align 8
   switch i8 %3494, label %3495 [
     i8 0, label %.thread2562
     i8 1, label %.thread2559
@@ -11103,7 +11103,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3585, label %3586, label %.thread2576
 
 3586:                                             ; preds = %3583
-  %3587 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4ecdc52adda59920E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3587 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4ecdc52adda59920E", i64 16) monotonic, align 8
   switch i8 %3587, label %3588 [
     i8 0, label %.thread2576
     i8 1, label %.thread2573
@@ -11450,7 +11450,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3692, label %3693, label %.thread2590
 
 3693:                                             ; preds = %3690
-  %3694 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h01db4b385ac66727E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3694 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h01db4b385ac66727E", i64 16) monotonic, align 8
   switch i8 %3694, label %3695 [
     i8 0, label %.thread2590
     i8 1, label %.thread2587
@@ -11762,7 +11762,7 @@ select.unfold1051.i:                              ; preds = %1389, %.noexc367.i,
   br i1 %3794, label %3795, label %.thread2603
 
 3795:                                             ; preds = %3792
-  %3796 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8ec6508f87217937E", i64 0, i32 2, i32 0) monotonic, align 8
+  %3796 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8ec6508f87217937E", i64 16) monotonic, align 8
   switch i8 %3796, label %3797 [
     i8 0, label %.thread2603
     i8 1, label %.thread2600
@@ -13266,7 +13266,7 @@ default.unreachable74:                            ; preds = %297, %206, %68, %3
   br i1 %85, label %86, label %.thread35.i
 
 86:                                               ; preds = %73
-  %87 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcaf4e44b1cc4f9f8E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1773
+  %87 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcaf4e44b1cc4f9f8E", i64 16) monotonic, align 8, !noalias !1773
   switch i8 %87, label %88 [
     i8 0, label %.thread35.i
     i8 1, label %.thread.i
@@ -13637,7 +13637,7 @@ common.ret:                                       ; preds = %606, %596, %191
   br i1 %221, label %222, label %.thread68.i
 
 222:                                              ; preds = %209
-  %223 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h16f1266c6606451aE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1793
+  %223 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h16f1266c6606451aE", i64 16) monotonic, align 8, !noalias !1793
   switch i8 %223, label %224 [
     i8 0, label %.thread68.i
     i8 1, label %.thread.i30
@@ -13915,7 +13915,7 @@ common.ret:                                       ; preds = %606, %596, %191
   br i1 %317, label %318, label %.thread111.i.i
 
 318:                                              ; preds = %315
-  %319 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h23060eeb5bd2f7aeE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1793
+  %319 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h23060eeb5bd2f7aeE", i64 16) monotonic, align 8, !noalias !1793
   switch i8 %319, label %320 [
     i8 0, label %.thread111.i.i
     i8 1, label %.thread108.i.i
@@ -14398,7 +14398,7 @@ common.ret:                                       ; preds = %606, %596, %191
   br i1 %457, label %458, label %.thread133.i.i
 
 458:                                              ; preds = %455
-  %459 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h073e0ec563622938E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !1793
+  %459 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator10finally_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h073e0ec563622938E", i64 16) monotonic, align 8, !noalias !1793
   switch i8 %459, label %460 [
     i8 0, label %.thread133.i.i
     i8 1, label %.thread130.i.i
@@ -15605,7 +15605,7 @@ default.unreachable3059:                          ; preds = %"_ZN4core3ptr81drop
   br i1 %328, label %329, label %.thread2667
 
 329:                                              ; preds = %326
-  %330 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2d972f972207a218E", i64 0, i32 2, i32 0) monotonic, align 8
+  %330 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2d972f972207a218E", i64 16) monotonic, align 8
   switch i8 %330, label %331 [
     i8 0, label %.thread2667
     i8 1, label %.thread
@@ -16065,7 +16065,7 @@ select.unfold:                                    ; preds = %402, %.noexc1120, %
   br i1 %475, label %476, label %.thread2688
 
 476:                                              ; preds = %473
-  %477 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfc4061d93b26330cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %477 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfc4061d93b26330cE", i64 16) monotonic, align 8
   switch i8 %477, label %478 [
     i8 0, label %.thread2688
     i8 1, label %.thread2685
@@ -16405,7 +16405,7 @@ select.unfold:                                    ; preds = %402, %.noexc1120, %
   br i1 %585, label %586, label %.thread2696
 
 586:                                              ; preds = %582
-  %587 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h97c331667c517318E", i64 0, i32 2, i32 0) monotonic, align 8
+  %587 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h97c331667c517318E", i64 16) monotonic, align 8
   switch i8 %587, label %588 [
     i8 0, label %.thread2696
     i8 1, label %.thread2693
@@ -16734,7 +16734,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %680, label %681, label %.thread2710
 
 681:                                              ; preds = %678
-  %682 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfa095ac983c1c8c5E", i64 0, i32 2, i32 0) monotonic, align 8
+  %682 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfa095ac983c1c8c5E", i64 16) monotonic, align 8
   switch i8 %682, label %683 [
     i8 0, label %.thread2710
     i8 1, label %.thread2707
@@ -17036,7 +17036,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %771, label %772, label %.thread2724
 
 772:                                              ; preds = %769
-  %773 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7c890d3e17ddce63E", i64 0, i32 2, i32 0) monotonic, align 8
+  %773 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7c890d3e17ddce63E", i64 16) monotonic, align 8
   switch i8 %773, label %774 [
     i8 0, label %.thread2724
     i8 1, label %.thread2721
@@ -18035,7 +18035,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1101, label %1102, label %.thread2756
 
 1102:                                             ; preds = %1099
-  %1103 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h20d36ef90f836e0cE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1103 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h20d36ef90f836e0cE", i64 16) monotonic, align 8
   switch i8 %1103, label %1104 [
     i8 0, label %.thread2756
     i8 1, label %.thread2753
@@ -18313,7 +18313,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1189, label %1190, label %.thread2764
 
 1190:                                             ; preds = %._crit_edge
-  %1191 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he0e2999d52ed59acE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1191 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he0e2999d52ed59acE", i64 16) monotonic, align 8
   switch i8 %1191, label %1192 [
     i8 0, label %.thread2764
     i8 1, label %.thread2761
@@ -18627,7 +18627,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1291, label %1292, label %.thread2777
 
 1292:                                             ; preds = %1286
-  %1293 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf82f7f3e33fb14feE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1293 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf82f7f3e33fb14feE", i64 16) monotonic, align 8
   switch i8 %1293, label %1294 [
     i8 0, label %.thread2777
     i8 1, label %.thread2774
@@ -18927,7 +18927,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1388, label %1389, label %.thread2785
 
 1389:                                             ; preds = %1386
-  %1390 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7568c87b58607195E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1390 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7568c87b58607195E", i64 16) monotonic, align 8
   switch i8 %1390, label %1391 [
     i8 0, label %.thread2785
     i8 1, label %.thread2782
@@ -19226,7 +19226,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1482, label %1483, label %.thread2799
 
 1483:                                             ; preds = %1476
-  %1484 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4cce70aef821f81eE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1484 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4cce70aef821f81eE", i64 16) monotonic, align 8
   switch i8 %1484, label %1485 [
     i8 0, label %.thread2799
     i8 1, label %.thread2796
@@ -19525,7 +19525,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1574, label %1575, label %.thread2813
 
 1575:                                             ; preds = %1572
-  %1576 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0f674ab5aea3e1ecE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0f674ab5aea3e1ecE", i64 16) monotonic, align 8
   switch i8 %1576, label %1577 [
     i8 0, label %.thread2813
     i8 1, label %.thread2810
@@ -19827,7 +19827,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1665, label %1666, label %.thread2827
 
 1666:                                             ; preds = %1663
-  %1667 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2bd5e80e4eb0460aE", i64 0, i32 2, i32 0) monotonic, align 8
+  %1667 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2bd5e80e4eb0460aE", i64 16) monotonic, align 8
   switch i8 %1667, label %1668 [
     i8 0, label %.thread2827
     i8 1, label %.thread2824
@@ -20173,7 +20173,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1765, label %1766, label %.thread2846
 
 1766:                                             ; preds = %1763
-  %1767 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hebeea6e97adc7997E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1767 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hebeea6e97adc7997E", i64 16) monotonic, align 8
   switch i8 %1767, label %1768 [
     i8 0, label %.thread2846
     i8 1, label %.thread2843
@@ -20670,7 +20670,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %1917, label %1918, label %.thread2861
 
 1918:                                             ; preds = %1913
-  %1919 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h475749c1aa1f8864E", i64 0, i32 2, i32 0) monotonic, align 8
+  %1919 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h475749c1aa1f8864E", i64 16) monotonic, align 8
   switch i8 %1919, label %1920 [
     i8 0, label %.thread2861
     i8 1, label %.thread2858
@@ -21202,7 +21202,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2079, label %2080, label %.thread2900
 
 2080:                                             ; preds = %2077
-  %2081 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4763f5a0fbb557bbE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2081 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4763f5a0fbb557bbE", i64 16) monotonic, align 8
   switch i8 %2081, label %2082 [
     i8 0, label %.thread2900
     i8 1, label %.thread2897
@@ -21702,7 +21702,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2241, label %2242, label %.thread2913
 
 2242:                                             ; preds = %2235
-  %2243 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90dd54427ffab6f1E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2243 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h90dd54427ffab6f1E", i64 16) monotonic, align 8
   switch i8 %2243, label %2244 [
     i8 0, label %.thread2913
     i8 1, label %.thread2910
@@ -22037,7 +22037,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2354, label %2355, label %.thread2929
 
 2355:                                             ; preds = %2352
-  %2356 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hadaaa45c5cb9ccbcE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2356 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hadaaa45c5cb9ccbcE", i64 16) monotonic, align 8
   switch i8 %2356, label %2357 [
     i8 0, label %.thread2929
     i8 1, label %.thread2926
@@ -22370,7 +22370,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2461, label %2462, label %.thread2937
 
 2462:                                             ; preds = %2453
-  %2463 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha603584fae5d21ccE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2463 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha603584fae5d21ccE", i64 16) monotonic, align 8
   switch i8 %2463, label %2464 [
     i8 0, label %.thread2937
     i8 1, label %.thread2934
@@ -22837,7 +22837,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2620, label %2621, label %.thread2953
 
 2621:                                             ; preds = %2617
-  %2622 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8227c5087c7e29dfE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2622 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8227c5087c7e29dfE", i64 16) monotonic, align 8
   switch i8 %2622, label %2623 [
     i8 0, label %.thread2953
     i8 1, label %.thread2950
@@ -23206,7 +23206,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2735, label %2736, label %.thread2969
 
 2736:                                             ; preds = %2733
-  %2737 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7cba235d5d086191E", i64 0, i32 2, i32 0) monotonic, align 8
+  %2737 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7cba235d5d086191E", i64 16) monotonic, align 8
   switch i8 %2737, label %2738 [
     i8 0, label %.thread2969
     i8 1, label %.thread2966
@@ -23510,7 +23510,7 @@ common.ret:                                       ; preds = %1862, %674, %764, %
   br i1 %2829, label %2830, label %.thread2983
 
 2830:                                             ; preds = %2824
-  %2831 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0f809e1cfeff99afE", i64 0, i32 2, i32 0) monotonic, align 8
+  %2831 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0f809e1cfeff99afE", i64 16) monotonic, align 8
   switch i8 %2831, label %2832 [
     i8 0, label %.thread2983
     i8 1, label %.thread2980
@@ -24033,7 +24033,7 @@ default.unreachable164:                           ; preds = %413, %322, %186, %3
   br i1 %68, label %69, label %.thread141
 
 69:                                               ; preds = %66
-  %70 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h20d0ee92038f7c54E", i64 0, i32 2, i32 0) monotonic, align 8
+  %70 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h20d0ee92038f7c54E", i64 16) monotonic, align 8
   switch i8 %70, label %71 [
     i8 0, label %.thread141
     i8 1, label %.thread
@@ -24433,7 +24433,7 @@ default.unreachable164:                           ; preds = %413, %322, %186, %3
   br i1 %203, label %204, label %.thread35.i
 
 204:                                              ; preds = %191
-  %205 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h87e0e9b23ab11390E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3281
+  %205 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h87e0e9b23ab11390E", i64 16) monotonic, align 8, !noalias !3281
   switch i8 %205, label %206 [
     i8 0, label %.thread35.i
     i8 1, label %.thread.i
@@ -24806,7 +24806,7 @@ common.ret:                                       ; preds = %715, %712, %308
   br i1 %337, label %338, label %.thread68.i
 
 338:                                              ; preds = %325
-  %339 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h36d505d43e599babE", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3301
+  %339 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h36d505d43e599babE", i64 16) monotonic, align 8, !noalias !3301
   switch i8 %339, label %340 [
     i8 0, label %.thread68.i
     i8 1, label %.thread.i81
@@ -25084,7 +25084,7 @@ common.ret:                                       ; preds = %715, %712, %308
   br i1 %433, label %434, label %.thread111.i.i
 
 434:                                              ; preds = %431
-  %435 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdcdff9a12386a937E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3301
+  %435 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hdcdff9a12386a937E", i64 16) monotonic, align 8, !noalias !3301
   switch i8 %435, label %436 [
     i8 0, label %.thread111.i.i
     i8 1, label %.thread108.i.i
@@ -25567,7 +25567,7 @@ common.ret:                                       ; preds = %715, %712, %308
   br i1 %573, label %574, label %.thread133.i.i
 
 574:                                              ; preds = %571
-  %575 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ea5d54f9a555a05E", i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3301
+  %575 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0ea5d54f9a555a05E", i64 16) monotonic, align 8, !noalias !3301
   switch i8 %575, label %576 [
     i8 0, label %.thread133.i.i
     i8 1, label %.thread130.i.i

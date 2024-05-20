@@ -79,7 +79,7 @@ define dso_local void @cea_set_pte(ptr noundef %0, i64 noundef %1, i64 %2) local
   %12 = select i1 %6, i64 -1, i64 %11
   %13 = and i64 %12, %2
   %14 = or i64 %13, %10
-  %15 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %16 = and i64 %15, 8192
   %17 = icmp eq i64 %16, 0
   %18 = select i1 %17, i1 true, i1 %6
@@ -125,7 +125,7 @@ define dso_local void @setup_cpu_entry_areas() local_unnamed_addr #3 section ".i
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14), align 1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 529), align 1
   %2 = and i8 %1, 2
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %.preheader, label %.preheader12
@@ -328,7 +328,7 @@ define internal fastcc void @percpu_setup_exception_stacks(i32 noundef %0) unnam
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @percpu_setup_debug_store(i32 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
-  %2 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %2 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %.loopexit
 
@@ -350,7 +350,7 @@ define internal fastcc void @percpu_setup_debug_store(i32 noundef %0) unnamed_ad
 16:                                               ; preds = %16, %4
   %17 = phi i32 [ 32, %4 ], [ %21, %16 ]
   %18 = phi ptr [ %15, %4 ], [ %22, %16 ]
-  %19 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %20 = ptrtoint ptr %18 to i64
   tail call void @set_pte_vaddr(i64 noundef %20, i64 4503599627366688) #4
   %21 = add nsw i32 %17, -1

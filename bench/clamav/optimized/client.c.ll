@@ -310,12 +310,12 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) getelementptr inbounds (%struct.sockaddr_un, ptr @nixsock, i64 0, i32 1, i64 0), i8 0, i64 108, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) getelementptr inbounds (i8, ptr @nixsock, i64 2), i8 0, i64 108, i1 false)
   store i16 1, ptr @nixsock, align 2
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (%struct.sockaddr_un, ptr @nixsock, i64 0, i32 1), ptr noundef nonnull dereferenceable(1) %10, i64 noundef 108) #14
-  store i8 0, ptr getelementptr inbounds (%struct.sockaddr_un, ptr @nixsock, i64 0, i32 1, i64 107), align 1
+  %11 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @nixsock, i64 2), ptr noundef nonnull dereferenceable(1) %10, i64 noundef 108) #14
+  store i8 0, ptr getelementptr inbounds (i8, ptr @nixsock, i64 109), align 1
   br label %.loopexit
 
 12:                                               ; preds = %0

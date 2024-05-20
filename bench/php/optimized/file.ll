@@ -204,7 +204,7 @@ define hidden noundef i32 @zm_startup_file(i32 noundef %0, i32 noundef %1) local
   %3 = tail call i32 @zend_register_list_destructors_ex(ptr noundef nonnull @file_context_dtor, ptr noundef null, ptr noundef nonnull @.str, i32 noundef %1) #17
   store i32 %3, ptr @le_stream_context, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) @file_globals, i8 0, i64 144, i1 false)
-  store i64 8192, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 1), align 8
+  store i64 8192, ptr getelementptr inbounds (i8, ptr @file_globals, i64 8), align 8
   %4 = tail call i32 @zend_register_ini_entries_ex(ptr noundef nonnull @ini_entries, i32 noundef %1, i32 noundef %0) #17
   tail call void @zend_register_long_constant(ptr noundef nonnull @.str.63, i64 noundef 8, i64 noundef 0, i32 noundef 1, i32 noundef %1) #17
   tail call void @zend_register_long_constant(ptr noundef nonnull @.str.64, i64 noundef 8, i64 noundef 1, i32 noundef 1, i32 noundef %1) #17
@@ -315,7 +315,7 @@ declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden noundef i32 @zm_shutdown_file(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 13), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 128), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %file_globals_dtor.exit, label %4
 
@@ -336,7 +336,7 @@ define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
 
 9:                                                ; preds = %5
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %2, ptr noundef nonnull @.str.1) #17
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %49
@@ -1335,7 +1335,7 @@ thread-pre-split354:                              ; preds = %58
 
 65:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.10) #17
-  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %114
@@ -1351,13 +1351,13 @@ thread-pre-split354:                              ; preds = %58
   br label %76
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not263 = icmp eq ptr %73, null
   br i1 %.not263, label %74, label %76
 
 74:                                               ; preds = %72
   %75 = call ptr @php_stream_context_alloc() #17
-  store ptr %75, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %75, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %76
 
 76:                                               ; preds = %72, %74, %69
@@ -1579,13 +1579,13 @@ thread-pre-split:                                 ; preds = %18
   br i1 %.not344, label %61, label %65
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not345 = icmp eq ptr %62, null
   br i1 %.not345, label %63, label %65
 
 63:                                               ; preds = %61
   %64 = call ptr @php_stream_context_alloc() #17
-  store ptr %64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %65
 
 65:                                               ; preds = %61, %58, %63, %55
@@ -2081,7 +2081,7 @@ thread-pre-split:                                 ; preds = %15
 
 44:                                               ; preds = %.thread280
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.20) #17
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %149
@@ -2104,13 +2104,13 @@ thread-pre-split:                                 ; preds = %15
   br i1 %.not244, label %54, label %58
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not245 = icmp eq ptr %55, null
   br i1 %.not245, label %56, label %58
 
 56:                                               ; preds = %54
   %57 = call ptr @php_stream_context_alloc() #17
-  store ptr %57, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %57, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %58
 
 58:                                               ; preds = %54, %53, %56, %50
@@ -2668,13 +2668,13 @@ thread-pre-split:                                 ; preds = %16
   br label %57
 
 .thread271:                                       ; preds = %45, %35, %46
-  %54 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not214 = icmp eq ptr %54, null
   br i1 %.not214, label %55, label %57
 
 55:                                               ; preds = %.thread271
   %56 = call ptr @php_stream_context_alloc() #17
-  store ptr %56, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %57
 
 57:                                               ; preds = %.thread271, %55, %51
@@ -2900,7 +2900,7 @@ thread-pre-split:                                 ; preds = %14
 52:                                               ; preds = %48, %51, %45
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.23) #17
   call void @_efree(ptr noundef %37) #17
-  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)
   br label %78
@@ -3002,11 +3002,11 @@ define hidden void @zif_pclose(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %11
-  store i32 1, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 11), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @file_globals, i64 88), align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 120
   %19 = load ptr, ptr %18, align 8
   tail call void @zend_list_close(ptr noundef %19) #17
-  store i32 0, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 11), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @file_globals, i64 88), align 8
   %20 = load i32, ptr @file_globals, align 8
   %21 = sext i32 %20 to i64
   store i64 %21, ptr %1, align 8
@@ -3183,7 +3183,7 @@ define void @zif_fgets(ptr noundef %0, ptr nocapture noundef writeonly %1) local
 
 48:                                               ; preds = %45
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.25) #17
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
   br label %104
@@ -3418,7 +3418,7 @@ define hidden void @zif_fscanf(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not127, label %35, label %38
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %47
@@ -4015,13 +4015,13 @@ thread-pre-split:                                 ; preds = %16
   br label %57
 
 .thread247:                                       ; preds = %45, %36, %25, %46
-  %54 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not197 = icmp eq ptr %54, null
   br i1 %.not197, label %55, label %57
 
 55:                                               ; preds = %.thread247
   %56 = call ptr @php_stream_context_alloc() #17
-  store ptr %56, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %57
 
 57:                                               ; preds = %.thread247, %55, %51
@@ -4119,13 +4119,13 @@ thread-pre-split:                                 ; preds = %14
   br label %37
 
 .thread147:                                       ; preds = %26, %23
-  %34 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not114 = icmp eq ptr %34, null
   br i1 %.not114, label %35, label %37
 
 35:                                               ; preds = %.thread147
   %36 = call ptr @php_stream_context_alloc() #17
-  store ptr %36, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %37
 
 37:                                               ; preds = %.thread147, %35, %31
@@ -4244,13 +4244,13 @@ thread-pre-split:                                 ; preds = %15
   br label %46
 
 .thread213:                                       ; preds = %34, %24, %35
-  %43 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not165 = icmp eq ptr %43, null
   br i1 %.not165, label %44, label %46
 
 44:                                               ; preds = %.thread213
   %45 = call ptr @php_stream_context_alloc() #17
-  store ptr %45, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %46
 
 46:                                               ; preds = %.thread213, %44, %40
@@ -4333,12 +4333,12 @@ define hidden void @zif_umask(ptr noundef %0, ptr nocapture noundef writeonly %1
 .thread92:                                        ; preds = %16, %.thread85, %8
   %.3.ph = phi i1 [ %.1, %.thread85 ], [ true, %8 ], [ false, %16 ]
   %18 = call i32 @umask(i32 noundef 63) #17
-  %19 = load i32, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1344), align 8
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.thread92
-  store i32 %18, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1344), align 8
   br label %22
 
 22:                                               ; preds = %21, %.thread92
@@ -4564,13 +4564,13 @@ thread-pre-split209:                              ; preds = %31
   br label %73
 
 69:                                               ; preds = %65
-  %70 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not199 = icmp eq ptr %70, null
   br i1 %.not199, label %71, label %73
 
 71:                                               ; preds = %69
   %72 = call ptr @php_stream_context_alloc() #17
-  store ptr %72, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %72, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %73
 
 73:                                               ; preds = %69, %71, %66
@@ -4665,13 +4665,13 @@ thread-pre-split:                                 ; preds = %14
   br label %37
 
 .thread165:                                       ; preds = %26, %23
-  %34 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not128 = icmp eq ptr %34, null
   br i1 %.not128, label %35, label %37
 
 35:                                               ; preds = %.thread165
   %36 = call ptr @php_stream_context_alloc() #17
-  store ptr %36, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %37
 
 37:                                               ; preds = %.thread165, %35, %31
@@ -4890,7 +4890,7 @@ define hidden void @zif_ftruncate(ptr noundef %0, ptr nocapture noundef writeonl
 
 21:                                               ; preds = %.thread121
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.10) #17
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %41
@@ -5261,13 +5261,13 @@ thread-pre-split192:                              ; preds = %31
   br label %63
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   %.not183 = icmp eq ptr %60, null
   br i1 %.not183, label %61, label %63
 
 61:                                               ; preds = %59
   %62 = call ptr @php_stream_context_alloc() #17
-  store ptr %62, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  store ptr %62, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
   br label %63
 
 63:                                               ; preds = %59, %61, %56
@@ -5475,7 +5475,7 @@ define void @zif_fread(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_a
 
 27:                                               ; preds = %24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.25) #17
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %50
@@ -5694,7 +5694,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 71:                                               ; preds = %.thread411.thread, %.thread411
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.50) #17
-  %72 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %73 = icmp ne ptr %72, null
   call void @llvm.assume(i1 %73)
   br label %104
@@ -5706,7 +5706,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 76:                                               ; preds = %74
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.50) #17
-  %77 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %78 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %78)
   br label %104
@@ -5722,7 +5722,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 83:                                               ; preds = %81
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.51) #17
-  %84 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %85 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %85)
   br label %104
@@ -6405,7 +6405,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 69:                                               ; preds = %.thread415, %67
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.50) #17
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %127
@@ -6417,7 +6417,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 74:                                               ; preds = %72
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.50) #17
-  %75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %76 = icmp ne ptr %75, null
   call void @llvm.assume(i1 %76)
   br label %127
@@ -6433,7 +6433,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 81:                                               ; preds = %79
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.51) #17
-  %82 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %83 = icmp ne ptr %82, null
   call void @llvm.assume(i1 %83)
   br label %127
@@ -6469,7 +6469,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 93:                                               ; preds = %91
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.52) #17
-  %94 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %95 = icmp ne ptr %94, null
   call void @llvm.assume(i1 %95)
   br label %127

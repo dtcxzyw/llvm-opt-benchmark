@@ -952,7 +952,7 @@ define internal i32 @dissect_h450_ros_GeneralProblem(ptr noundef %0, i32 noundef
   %7 = load i32, ptr @problem_val, align 4
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @h450_ros_GeneralProblem_vals, ptr noundef nonnull @.str.52) #4
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull @problem_str, ptr noundef %8, i64 noundef 64) #4
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @problem_str, i64 63), align 1
   ret i32 %6
 }
 
@@ -962,7 +962,7 @@ define internal i32 @dissect_h450_ros_InvokeProblem(ptr noundef %0, i32 noundef 
   %7 = load i32, ptr @problem_val, align 4
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @h450_ros_InvokeProblem_vals, ptr noundef nonnull @.str.52) #4
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull @problem_str, ptr noundef %8, i64 noundef 64) #4
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @problem_str, i64 63), align 1
   ret i32 %6
 }
 
@@ -972,7 +972,7 @@ define internal i32 @dissect_h450_ros_ReturnResultProblem(ptr noundef %0, i32 no
   %7 = load i32, ptr @problem_val, align 4
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @h450_ros_ReturnResultProblem_vals, ptr noundef nonnull @.str.52) #4
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull @problem_str, ptr noundef %8, i64 noundef 64) #4
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @problem_str, i64 63), align 1
   ret i32 %6
 }
 
@@ -982,7 +982,7 @@ define internal i32 @dissect_h450_ros_ReturnErrorProblem(ptr noundef %0, i32 nou
   %7 = load i32, ptr @problem_val, align 4
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @h450_ros_ReturnErrorProblem_vals, ptr noundef nonnull @.str.52) #4
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull @problem_str, ptr noundef %8, i64 noundef 64) #4
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @problem_str, i64 63), align 1
   ret i32 %6
 }
 

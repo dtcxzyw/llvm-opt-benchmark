@@ -2207,9 +2207,9 @@ _ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEjSt4hashIS3_ESt8equal_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 56), ptr %add.ptr, align 8
   %d_triggerDatabase = getelementptr inbounds i8, ptr %this, i64 1280
   %0 = load ptr, ptr %d_triggerDatabase, align 8
   tail call void @free(ptr noundef %0) #29
@@ -2218,7 +2218,7 @@ entry:
   %d_propagatedDisequalities = getelementptr inbounds i8, ptr %this, i64 1640
   tail call void @_ZN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_propagatedDisequalities) #29
   %d_deducedDisequalityReasonsSize = getelementptr inbounds i8, ptr %this, i64 1592
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalityReasonsSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalityReasonsSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_deducedDisequalityReasonsSize)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2241,7 +2241,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4cvc57context3CD
 
 _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %_ZN4cvc57context3CDOImED2Ev.exit, %if.then.i.i.i
   %d_deducedDisequalitiesSize = getelementptr inbounds i8, ptr %this, i64 1520
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalitiesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalitiesSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_deducedDisequalitiesSize)
           to label %_ZN4cvc57context3CDOImED2Ev.exit2 unwind label %terminate.lpad.i1
 
@@ -2304,7 +2304,7 @@ if.then.i.i.i7:                                   ; preds = %_ZNSt13unordered_ma
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt13unordered_mapISt4pairIjjEN4cvc58internal6theory2eq20DisequalityReasonRefENS3_16PairHashFunctionIjjSt4hashIjES9_EESt8equal_toIS1_ESaIS0_IKS1_S6_EEED2Ev.exit, %if.then.i.i.i7
   %d_triggerTermSetUpdatesSize = getelementptr inbounds i8, ptr %this, i64 1368
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerTermSetUpdatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerTermSetUpdatesSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_triggerTermSetUpdatesSize)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i8
 
@@ -2327,7 +2327,7 @@ if.then.i.i.i10:                                  ; preds = %_ZN4cvc57context3CD
 
 _ZNSt6vectorIN4cvc58internal6theory2eq14EqualityEngine16TriggerSetUpdateESaIS5_EED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIjED2Ev.exit, %if.then.i.i.i10
   %d_triggerDatabaseSize = getelementptr inbounds i8, ptr %this, i64 1296
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerDatabaseSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerDatabaseSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_triggerDatabaseSize)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit12 unwind label %terminate.lpad.i11
 
@@ -2480,7 +2480,7 @@ if.then.i.i.i29:                                  ; preds = %_ZNSt6vectorIbSaIbE
 
 _ZNSt6vectorIbSaIbEED2Ev.exit40:                  ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit, %if.then.i.i.i29
   %d_subtermEvaluatesSize = getelementptr inbounds i8, ptr %this, i64 1000
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_subtermEvaluatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_subtermEvaluatesSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_subtermEvaluatesSize)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit42 unwind label %terminate.lpad.i41
 
@@ -2581,7 +2581,7 @@ if.then.i.i.i66:                                  ; preds = %_ZNSt6vectorIbSaIbE
 
 _ZNSt6vectorIjSaIjEED2Ev.exit67:                  ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit64, %if.then.i.i.i66
   %d_equalityTriggersCount = getelementptr inbounds i8, ptr %this, i64 760
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_equalityTriggersCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_equalityTriggersCount, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_equalityTriggersCount)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit69 unwind label %terminate.lpad.i68
 
@@ -2698,7 +2698,7 @@ if.then.i.i.i89:                                  ; preds = %_ZNSt6vectorIN4cvc5
 
 _ZNSt6vectorIN4cvc58internal6theory2eq11UseListNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4cvc58internal6theory2eq14EqualityEngine8EqualityESaIS5_EED2Ev.exit, %if.then.i.i.i89
   %d_assertedEqualitiesCount = getelementptr inbounds i8, ptr %this, i64 568
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_assertedEqualitiesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_assertedEqualitiesCount, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_assertedEqualitiesCount)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit92 unwind label %terminate.lpad.i90
 
@@ -2731,7 +2731,7 @@ if.then.i.i.i98:                                  ; preds = %_ZNSt6vectorIN4cvc5
 
 _ZNSt6vectorIN4cvc58internal6theory2eq23FunctionApplicationPairESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4cvc58internal6theory2eq12EqualityNodeESaIS4_EED2Ev.exit, %if.then.i.i.i98
   %d_nodesCount = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_nodesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_nodesCount, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_nodesCount)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit101 unwind label %terminate.lpad.i99
 
@@ -2798,7 +2798,7 @@ if.then.i.i.i112:                                 ; preds = %invoke.cont.i110
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i110, %if.then.i.i.i112
   %d_applicationLookupsCount = getelementptr inbounds i8, ptr %this, i64 400
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_applicationLookupsCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_applicationLookupsCount, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_applicationLookupsCount)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit115 unwind label %terminate.lpad.i113
 
@@ -2881,7 +2881,7 @@ if.end.i.i.i.i138:                                ; preds = %_ZNSt10_HashtableIN
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i138
   %d_done = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %d_done, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_done, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_done)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i139
 
@@ -2903,7 +2903,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2977,7 +2977,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3030,7 +3030,7 @@ _ZNSt10_HashtableISt4pairIjjES0_IKS1_N4cvc58internal6theory2eq20DisequalityReaso
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIjED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3341,7 +3341,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_jESaIS6_ENSt8_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIbED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3399,8 +3399,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 56), ptr %0, align 8
   %d_masterEqualityEngine = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %d_masterEqualityEngine, align 8
   %d_context = getelementptr inbounds i8, ptr %this, i64 56
@@ -3410,7 +3410,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %d_done, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_done, align 8
   %d_data.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -3461,7 +3461,7 @@ invoke.cont4:                                     ; preds = %.noexc, %if.then.i.
           to label %.noexc42 unwind label %lpad6
 
 .noexc42:                                         ; preds = %invoke.cont4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_applicationLookupsCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_applicationLookupsCount, align 8
   %d_data.i36 = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %d_data.i36, align 8
   %d_pScope.i.i37 = getelementptr inbounds i8, ptr %this, i64 408
@@ -3487,7 +3487,7 @@ invoke.cont7:                                     ; preds = %.noexc42, %if.then.
           to label %.noexc50 unwind label %lpad9
 
 .noexc50:                                         ; preds = %invoke.cont7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_nodesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_nodesCount, align 8
   %d_data.i44 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %d_data.i44, align 8
   %d_pScope.i.i45 = getelementptr inbounds i8, ptr %this, i64 480
@@ -3514,7 +3514,7 @@ invoke.cont10:                                    ; preds = %.noexc50, %if.then.
           to label %.noexc59 unwind label %lpad12
 
 .noexc59:                                         ; preds = %invoke.cont10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_assertedEqualitiesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_assertedEqualitiesCount, align 8
   %d_data.i53 = getelementptr inbounds i8, ptr %this, i64 608
   store i32 0, ptr %d_data.i53, align 8
   %d_pScope.i.i54 = getelementptr inbounds i8, ptr %this, i64 576
@@ -3545,7 +3545,7 @@ invoke.cont13:                                    ; preds = %.noexc59, %if.then.
           to label %.noexc68 unwind label %lpad15
 
 .noexc68:                                         ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_equalityTriggersCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_equalityTriggersCount, align 8
   %d_data.i62 = getelementptr inbounds i8, ptr %this, i64 800
   store i32 0, ptr %d_data.i62, align 8
   %d_pScope.i.i63 = getelementptr inbounds i8, ptr %this, i64 768
@@ -3586,7 +3586,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %.noexc78 unwind label %lpad20
 
 .noexc78:                                         ; preds = %invoke.cont18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_subtermEvaluatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_subtermEvaluatesSize, align 8
   %d_data.i72 = getelementptr inbounds i8, ptr %this, i64 1040
   store i32 0, ptr %d_data.i72, align 8
   %d_pScope.i.i73 = getelementptr inbounds i8, ptr %this, i64 1008
@@ -3729,7 +3729,7 @@ invoke.cont33:                                    ; preds = %invoke.cont.i.i98, 
           to label %.noexc109 unwind label %lpad38
 
 .noexc109:                                        ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerDatabaseSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerDatabaseSize, align 8
   %d_data.i103 = getelementptr inbounds i8, ptr %this, i64 1336
   store i32 0, ptr %d_data.i103, align 8
   %d_pScope.i.i104 = getelementptr inbounds i8, ptr %this, i64 1304
@@ -3755,7 +3755,7 @@ invoke.cont39:                                    ; preds = %.noexc109, %if.then
           to label %.noexc118 unwind label %lpad41
 
 .noexc118:                                        ; preds = %invoke.cont39
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerTermSetUpdatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerTermSetUpdatesSize, align 8
   %d_data.i112 = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 0, ptr %d_data.i112, align 8
   %d_pScope.i.i113 = getelementptr inbounds i8, ptr %this, i64 1376
@@ -3793,7 +3793,7 @@ invoke.cont42:                                    ; preds = %.noexc118, %if.then
           to label %.noexc132 unwind label %lpad44
 
 .noexc132:                                        ; preds = %invoke.cont42
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalitiesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalitiesSize, align 8
   %d_data.i126 = getelementptr inbounds i8, ptr %this, i64 1560
   store i64 0, ptr %d_data.i126, align 8
   %d_pScope.i.i127 = getelementptr inbounds i8, ptr %this, i64 1528
@@ -3818,7 +3818,7 @@ invoke.cont45:                                    ; preds = %.noexc132, %if.then
           to label %.noexc140 unwind label %lpad47
 
 .noexc140:                                        ; preds = %invoke.cont45
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalityReasonsSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalityReasonsSize, align 8
   %d_data.i134 = getelementptr inbounds i8, ptr %this, i64 1632
   store i64 0, ptr %d_data.i134, align 8
   %d_pScope.i.i135 = getelementptr inbounds i8, ptr %this, i64 1600
@@ -3842,7 +3842,7 @@ invoke.cont48:                                    ; preds = %.noexc140, %if.then
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %d_propagatedDisequalities, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %d_propagatedDisequalities, align 8
   %d_map.i = getelementptr inbounds i8, ptr %this, i64 1680
   %50 = getelementptr inbounds i8, ptr %this, i64 1712
   store i64 0, ptr %50, align 8
@@ -4199,8 +4199,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 56), ptr %0, align 8
   %d_masterEqualityEngine = getelementptr inbounds i8, ptr %this, i64 40
   %d_context = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_masterEqualityEngine, i8 0, i64 16, i1 false)
@@ -4210,7 +4210,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %d_done, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_done, align 8
   %d_data.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -4261,7 +4261,7 @@ invoke.cont4:                                     ; preds = %.noexc, %if.then.i.
           to label %.noexc42 unwind label %lpad6
 
 .noexc42:                                         ; preds = %invoke.cont4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_applicationLookupsCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_applicationLookupsCount, align 8
   %d_data.i36 = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %d_data.i36, align 8
   %d_pScope.i.i37 = getelementptr inbounds i8, ptr %this, i64 408
@@ -4287,7 +4287,7 @@ invoke.cont7:                                     ; preds = %.noexc42, %if.then.
           to label %.noexc50 unwind label %lpad9
 
 .noexc50:                                         ; preds = %invoke.cont7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_nodesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_nodesCount, align 8
   %d_data.i44 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %d_data.i44, align 8
   %d_pScope.i.i45 = getelementptr inbounds i8, ptr %this, i64 480
@@ -4314,7 +4314,7 @@ invoke.cont10:                                    ; preds = %.noexc50, %if.then.
           to label %.noexc59 unwind label %lpad12
 
 .noexc59:                                         ; preds = %invoke.cont10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_assertedEqualitiesCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_assertedEqualitiesCount, align 8
   %d_data.i53 = getelementptr inbounds i8, ptr %this, i64 608
   store i32 0, ptr %d_data.i53, align 8
   %d_pScope.i.i54 = getelementptr inbounds i8, ptr %this, i64 576
@@ -4345,7 +4345,7 @@ invoke.cont13:                                    ; preds = %.noexc59, %if.then.
           to label %.noexc68 unwind label %lpad15
 
 .noexc68:                                         ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_equalityTriggersCount, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_equalityTriggersCount, align 8
   %d_data.i62 = getelementptr inbounds i8, ptr %this, i64 800
   store i32 0, ptr %d_data.i62, align 8
   %d_pScope.i.i63 = getelementptr inbounds i8, ptr %this, i64 768
@@ -4386,7 +4386,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %.noexc78 unwind label %lpad20
 
 .noexc78:                                         ; preds = %invoke.cont18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_subtermEvaluatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_subtermEvaluatesSize, align 8
   %d_data.i72 = getelementptr inbounds i8, ptr %this, i64 1040
   store i32 0, ptr %d_data.i72, align 8
   %d_pScope.i.i73 = getelementptr inbounds i8, ptr %this, i64 1008
@@ -4529,7 +4529,7 @@ invoke.cont33:                                    ; preds = %invoke.cont.i.i98, 
           to label %.noexc109 unwind label %lpad38
 
 .noexc109:                                        ; preds = %invoke.cont33
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerDatabaseSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerDatabaseSize, align 8
   %d_data.i103 = getelementptr inbounds i8, ptr %this, i64 1336
   store i32 0, ptr %d_data.i103, align 8
   %d_pScope.i.i104 = getelementptr inbounds i8, ptr %this, i64 1304
@@ -4555,7 +4555,7 @@ invoke.cont39:                                    ; preds = %.noexc109, %if.then
           to label %.noexc118 unwind label %lpad41
 
 .noexc118:                                        ; preds = %invoke.cont39
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %d_triggerTermSetUpdatesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_triggerTermSetUpdatesSize, align 8
   %d_data.i112 = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 0, ptr %d_data.i112, align 8
   %d_pScope.i.i113 = getelementptr inbounds i8, ptr %this, i64 1376
@@ -4593,7 +4593,7 @@ invoke.cont42:                                    ; preds = %.noexc118, %if.then
           to label %.noexc132 unwind label %lpad44
 
 .noexc132:                                        ; preds = %invoke.cont42
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalitiesSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalitiesSize, align 8
   %d_data.i126 = getelementptr inbounds i8, ptr %this, i64 1560
   store i64 0, ptr %d_data.i126, align 8
   %d_pScope.i.i127 = getelementptr inbounds i8, ptr %this, i64 1528
@@ -4618,7 +4618,7 @@ invoke.cont45:                                    ; preds = %.noexc132, %if.then
           to label %.noexc140 unwind label %lpad47
 
 .noexc140:                                        ; preds = %invoke.cont45
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %d_deducedDisequalityReasonsSize, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_deducedDisequalityReasonsSize, align 8
   %d_data.i134 = getelementptr inbounds i8, ptr %this, i64 1632
   store i64 0, ptr %d_data.i134, align 8
   %d_pScope.i.i135 = getelementptr inbounds i8, ptr %this, i64 1600
@@ -4642,7 +4642,7 @@ invoke.cont48:                                    ; preds = %.noexc140, %if.then
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %d_propagatedDisequalities, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %d_propagatedDisequalities, align 8
   %d_map.i = getelementptr inbounds i8, ptr %this, i64 1680
   %50 = getelementptr inbounds i8, ptr %this, i64 1712
   store i64 0, ptr %50, align 8
@@ -26890,7 +26890,7 @@ if.then:                                          ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %call.i, align 8
   %d_value.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %4 = load i64, ptr %k, align 4
   store i64 %4, ptr %d_value.i, align 4
@@ -27358,11 +27358,11 @@ declare void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOIbE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %d_data2.i, align 8
@@ -27385,7 +27385,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIbED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -27464,11 +27464,11 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOIjE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %d_data2.i, align 8
@@ -27489,7 +27489,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIjED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -27681,11 +27681,11 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal6theory2eq11TriggerInfoEEEvT
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %d_data2.i, align 8
@@ -27706,7 +27706,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
@@ -31478,7 +31478,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4cvc58internal6theory2eq7EqProofESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4cvc58internal6theory2eq7EqProofESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   store i32 2, ptr %_M_impl.i.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -34094,11 +34094,11 @@ _ZNSt10_HashtableISt4pairIjjES0_IKS1_PN4cvc57context11CDOhash_mapIS1_jNS3_8inter
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 80)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %call.i, align 8
   %d_value.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %second.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %d_value.i, align 4
@@ -34173,7 +34173,7 @@ if.end28:                                         ; preds = %if.end18, %if.else2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -34191,7 +34191,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %_ZN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEED2Ev.exit unwind label %terminate.lpad.i
 

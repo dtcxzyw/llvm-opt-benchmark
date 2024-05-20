@@ -2624,7 +2624,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %derp, align 8
-  %call2 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.16, i32 noundef 1900, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, ptr noundef %0, ptr noundef nonnull getelementptr inbounds ([104 x i8], ptr @kExampleBadECKeyDER, i64 1, i64 0)) #8
+  %call2 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.16, i32 noundef 1900, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @kExampleBadECKeyDER, i64 104)) #8
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %done, label %if.end5
 
@@ -5150,14 +5150,14 @@ if.end11:                                         ; preds = %if.end6
   br i1 %tobool14.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %call17 = tail call ptr @BN_bin2bn(ptr noundef nonnull getelementptr inbounds ([65 x i8], ptr @ec_pub, i64 0, i64 1), i32 noundef 32, ptr noundef null) #8
+  %call17 = tail call ptr @BN_bin2bn(ptr noundef nonnull getelementptr inbounds (i8, ptr @ec_pub, i64 1), i32 noundef 32, ptr noundef null) #8
   store ptr %call17, ptr %x, align 8
   %call18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1213, ptr noundef nonnull @.str.482, ptr noundef %call17) #8
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %call22 = tail call ptr @BN_bin2bn(ptr noundef nonnull getelementptr inbounds ([65 x i8], ptr @ec_pub, i64 0, i64 33), i32 noundef 32, ptr noundef null) #8
+  %call22 = tail call ptr @BN_bin2bn(ptr noundef nonnull getelementptr inbounds (i8, ptr @ec_pub, i64 33), i32 noundef 32, ptr noundef null) #8
   store ptr %call22, ptr %y, align 8
   %call23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1216, ptr noundef nonnull @.str.483, ptr noundef %call22) #8
   %tobool24.not = icmp eq i32 %call23, 0

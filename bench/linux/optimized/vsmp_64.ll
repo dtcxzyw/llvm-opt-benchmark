@@ -40,7 +40,7 @@ define dso_local void @vsmp_init() local_unnamed_addr #0 section ".init.text" al
   br label %3
 
 2:                                                ; preds = %0
-  store ptr @vsmp_apic_post_init, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 10), align 8
+  store ptr @vsmp_apic_post_init, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 80), align 8
   tail call fastcc void @vsmp_cap_cpus() #5
   tail call fastcc void @set_vsmp_ctl() #5
   br label %3

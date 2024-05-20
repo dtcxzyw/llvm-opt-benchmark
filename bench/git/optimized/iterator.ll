@@ -130,7 +130,7 @@ entry:
   br i1 %cmp.i.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ref_iterator_vtable, ptr @empty_ref_iterator_vtable, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %front) #11
   br label %return
 
@@ -140,7 +140,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i9.not, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ref_iterator_vtable, ptr @empty_ref_iterator_vtable, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
   %call.i12 = tail call i32 %3(ptr noundef nonnull %back) #11
   br label %return
 

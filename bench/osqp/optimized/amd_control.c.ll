@@ -30,7 +30,7 @@ define void @amd_l_control(ptr noundef readonly %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1, %2
   %.06 = phi double [ %3, %2 ], [ 1.000000e+01, %1 ]
   %.0 = phi ptr [ %7, %2 ], [ @.str.4, %1 ]
-  %9 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not14 = icmp eq ptr %9, null
   br i1 %.not14, label %12, label %10
 
@@ -40,7 +40,7 @@ define void @amd_l_control(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %10, %8
   %13 = fcmp olt double %.06, 0.000000e+00
-  %14 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not16 = icmp eq ptr %14, null
   br i1 %13, label %15, label %18
 
@@ -59,13 +59,13 @@ define void @amd_l_control(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %19, %15, %16
-  %22 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not18 = icmp eq ptr %22, null
   br i1 %.not18, label %.thread, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 (ptr, ...) %22(ptr noundef nonnull %.0) #1
-  %.pr = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i64 0, i32 3), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   %.not20 = icmp eq ptr %.pr, null
   br i1 %.not20, label %.thread, label %25
 

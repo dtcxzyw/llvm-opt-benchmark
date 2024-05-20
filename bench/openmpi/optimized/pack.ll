@@ -56,12 +56,12 @@ define i32 @pmix20_bfrop_pack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef nonnull getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2), ptr noundef nonnull %0, i16 noundef zeroext 9) #8
+  %11 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 232), ptr noundef nonnull %0, i16 noundef zeroext 9) #8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %pmix20_bfrop_pack_int32.exit
 
 12:                                               ; preds = %10, %6
-  %13 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %13, 64
   br i1 %or.cond.i, label %14, label %20
 
@@ -92,7 +92,7 @@ define i32 @pmix20_bfrop_pack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 4
   store i64 %29, ptr %27, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i16 = icmp ult i32 %30, 64
   br i1 %or.cond.i16, label %31, label %39
 
@@ -117,18 +117,18 @@ define i32 @pmix20_bfrop_pack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef nonnull getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2), ptr noundef nonnull %0, i16 noundef zeroext %..i) #8
+  %43 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 232), ptr noundef nonnull %0, i16 noundef zeroext %..i) #8
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %44, label %pmix20_bfrop_pack_int32.exit
 
 44:                                               ; preds = %42, %39
   %45 = zext i16 %..i to i32
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i = icmp sgt i32 %46, %45
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i, label %pmix20_bfrop_pack_int32.exit
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %44
-  %47 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %48 = zext i16 %..i to i64
   %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
@@ -138,7 +138,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %44
 52:                                               ; preds = %pmix_pointer_array_get_item.exit.i
   %53 = getelementptr inbounds i8, ptr %50, i64 136
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 %54(ptr noundef nonnull getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2), ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %..i) #8
+  %55 = tail call i32 %54(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 232), ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %..i) #8
   br label %pmix20_bfrop_pack_int32.exit
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %52, %pmix_pointer_array_get_item.exit.i, %44, %42, %20, %10, %4
@@ -150,7 +150,7 @@ declare i32 @pmix20_bfrop_store_data_type(ptr noundef, ptr noundef, i16 noundef 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int32(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
@@ -210,7 +210,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int32(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_pack_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %15
 
@@ -242,12 +242,12 @@ define i32 @pmix20_bfrop_pack_buffer(ptr noundef %0, ptr noundef %1, ptr noundef
 
 21:                                               ; preds = %19, %15
   %22 = zext i16 %. to i32
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i = icmp sgt i32 %23, %22
   br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit:                 ; preds = %21
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %25 = zext i16 %. to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
@@ -269,7 +269,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_bool(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
@@ -334,7 +334,7 @@ define i32 @pmix20_bfrop_pack_int(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %7, label %pmix20_bfrop_pack_buffer.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %8, 64
   br i1 %or.cond.i, label %9, label %16
 
@@ -362,12 +362,12 @@ define i32 @pmix20_bfrop_pack_int(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %22, label %pmix20_bfrop_pack_buffer.exit
 
 22:                                               ; preds = %20, %16
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i = icmp sgt i32 %23, 9
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i, label %pmix20_bfrop_pack_buffer.exit
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -391,7 +391,7 @@ define i32 @pmix20_bfrop_pack_sizet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %7, label %pmix20_bfrop_pack_buffer.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %8, 64
   br i1 %or.cond.i, label %9, label %16
 
@@ -419,12 +419,12 @@ define i32 @pmix20_bfrop_pack_sizet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %22, label %pmix20_bfrop_pack_buffer.exit
 
 22:                                               ; preds = %20, %16
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i = icmp sgt i32 %23, 15
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i, label %pmix20_bfrop_pack_buffer.exit
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -448,7 +448,7 @@ define i32 @pmix20_bfrop_pack_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %7, label %pmix20_bfrop_pack_buffer.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %8, 64
   br i1 %or.cond.i, label %9, label %16
 
@@ -476,12 +476,12 @@ define i32 @pmix20_bfrop_pack_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %22, label %pmix20_bfrop_pack_buffer.exit
 
 22:                                               ; preds = %20, %16
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i = icmp sgt i32 %23, 14
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i, label %pmix20_bfrop_pack_buffer.exit
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 112
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -500,7 +500,7 @@ pmix20_bfrop_pack_buffer.exit:                    ; preds = %28, %pmix_pointer_a
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_byte(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
@@ -543,7 +543,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int16(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
@@ -637,7 +637,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int64(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 zeroext %4) local_unnamed_addr #0 {
   %6 = sext i32 %3 to i64
   %7 = shl nsw i64 %6, 3
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %15
 
@@ -735,7 +735,7 @@ define noundef i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noun
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %14, 64
   br i1 %or.cond.i, label %15, label %21
 
@@ -764,7 +764,7 @@ define noundef i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noun
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
   %27 = trunc i64 %26 to i32
   %28 = add nsw i32 %27, 1
-  %29 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i26 = icmp ult i32 %29, 64
   br i1 %or.cond.i26, label %30, label %36
 
@@ -794,7 +794,7 @@ define noundef i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noun
   %43 = add i64 %42, 4
   store i64 %43, ptr %8, align 8
   %44 = load ptr, ptr %10, align 8
-  %45 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i36 = icmp ult i32 %45, 64
   br i1 %or.cond.i36, label %46, label %52
 
@@ -989,7 +989,7 @@ define noundef i32 @pmix20_bfrop_pack_status(ptr nocapture noundef readnone %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i.preheader ]
   %10 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %12, 64
   br i1 %or.cond.i, label %13, label %19
 
@@ -1100,7 +1100,7 @@ define internal fastcc i32 @pack_val(ptr noundef %0, ptr noundef %1, ptr noundef
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %7, 64
   br i1 %or.cond.i, label %8, label %14
 
@@ -1127,12 +1127,12 @@ define internal fastcc i32 @pack_val(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %20, label %pmix20_bfrop_pack_buffer.exit.thread
 
 20:                                               ; preds = %18, %14
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i = icmp sgt i32 %21, 1
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
@@ -1147,7 +1147,7 @@ pmix20_bfrop_pack_buffer.exit:                    ; preds = %pmix_pointer_array_
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds i8, ptr %2, i64 8
-  %31 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i187 = icmp ult i32 %31, 64
   br i1 %or.cond.i187, label %32, label %38
 
@@ -1174,12 +1174,12 @@ pmix20_bfrop_pack_buffer.exit:                    ; preds = %pmix_pointer_array_
   br i1 %.not.i191, label %44, label %pmix20_bfrop_pack_buffer.exit.thread
 
 44:                                               ; preds = %42, %38
-  %45 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i188 = icmp sgt i32 %45, 2
   br i1 %.not.i.i188, label %pmix_pointer_array_get_item.exit.i190, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i190:            ; preds = %44
-  %46 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -1194,7 +1194,7 @@ pmix20_bfrop_pack_buffer.exit192:                 ; preds = %pmix_pointer_array_
 
 53:                                               ; preds = %3
   %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i193 = icmp ult i32 %55, 64
   br i1 %or.cond.i193, label %56, label %62
 
@@ -1221,12 +1221,12 @@ pmix20_bfrop_pack_buffer.exit192:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i197, label %68, label %pmix20_bfrop_pack_buffer.exit.thread
 
 68:                                               ; preds = %66, %62
-  %69 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i194 = icmp sgt i32 %69, 3
   br i1 %.not.i.i194, label %pmix_pointer_array_get_item.exit.i196, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i196:            ; preds = %68
-  %70 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
@@ -1241,7 +1241,7 @@ pmix20_bfrop_pack_buffer.exit198:                 ; preds = %pmix_pointer_array_
 
 77:                                               ; preds = %3
   %78 = getelementptr inbounds i8, ptr %2, i64 8
-  %79 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i199 = icmp ult i32 %79, 64
   br i1 %or.cond.i199, label %80, label %86
 
@@ -1268,12 +1268,12 @@ pmix20_bfrop_pack_buffer.exit198:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i203, label %92, label %pmix20_bfrop_pack_buffer.exit.thread
 
 92:                                               ; preds = %90, %86
-  %93 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i200 = icmp sgt i32 %93, 4
   br i1 %.not.i.i200, label %pmix_pointer_array_get_item.exit.i202, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i202:            ; preds = %92
-  %94 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
@@ -1288,7 +1288,7 @@ pmix20_bfrop_pack_buffer.exit204:                 ; preds = %pmix_pointer_array_
 
 101:                                              ; preds = %3
   %102 = getelementptr inbounds i8, ptr %2, i64 8
-  %103 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %103 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i205 = icmp ult i32 %103, 64
   br i1 %or.cond.i205, label %104, label %110
 
@@ -1315,12 +1315,12 @@ pmix20_bfrop_pack_buffer.exit204:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i209, label %116, label %pmix20_bfrop_pack_buffer.exit.thread
 
 116:                                              ; preds = %114, %110
-  %117 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %117 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i206 = icmp sgt i32 %117, 5
   br i1 %.not.i.i206, label %pmix_pointer_array_get_item.exit.i208, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i208:            ; preds = %116
-  %118 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 40
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
@@ -1335,7 +1335,7 @@ pmix20_bfrop_pack_buffer.exit210:                 ; preds = %pmix_pointer_array_
 
 125:                                              ; preds = %3
   %126 = getelementptr inbounds i8, ptr %2, i64 8
-  %127 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i211 = icmp ult i32 %127, 64
   br i1 %or.cond.i211, label %128, label %134
 
@@ -1362,12 +1362,12 @@ pmix20_bfrop_pack_buffer.exit210:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i215, label %140, label %pmix20_bfrop_pack_buffer.exit.thread
 
 140:                                              ; preds = %138, %134
-  %141 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i212 = icmp sgt i32 %141, 6
   br i1 %.not.i.i212, label %pmix_pointer_array_get_item.exit.i214, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i214:            ; preds = %140
-  %142 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
@@ -1382,7 +1382,7 @@ pmix20_bfrop_pack_buffer.exit216:                 ; preds = %pmix_pointer_array_
 
 149:                                              ; preds = %3
   %150 = getelementptr inbounds i8, ptr %2, i64 8
-  %151 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %151 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i217 = icmp ult i32 %151, 64
   br i1 %or.cond.i217, label %152, label %158
 
@@ -1409,12 +1409,12 @@ pmix20_bfrop_pack_buffer.exit216:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i221, label %164, label %pmix20_bfrop_pack_buffer.exit.thread
 
 164:                                              ; preds = %162, %158
-  %165 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %165 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i218 = icmp sgt i32 %165, 7
   br i1 %.not.i.i218, label %pmix_pointer_array_get_item.exit.i220, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i220:            ; preds = %164
-  %166 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 56
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
@@ -1429,7 +1429,7 @@ pmix20_bfrop_pack_buffer.exit222:                 ; preds = %pmix_pointer_array_
 
 173:                                              ; preds = %3
   %174 = getelementptr inbounds i8, ptr %2, i64 8
-  %175 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i223 = icmp ult i32 %175, 64
   br i1 %or.cond.i223, label %176, label %182
 
@@ -1456,12 +1456,12 @@ pmix20_bfrop_pack_buffer.exit222:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i227, label %188, label %pmix20_bfrop_pack_buffer.exit.thread
 
 188:                                              ; preds = %186, %182
-  %189 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %189 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i224 = icmp sgt i32 %189, 8
   br i1 %.not.i.i224, label %pmix_pointer_array_get_item.exit.i226, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i226:            ; preds = %188
-  %190 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 64
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
@@ -1476,7 +1476,7 @@ pmix20_bfrop_pack_buffer.exit228:                 ; preds = %pmix_pointer_array_
 
 197:                                              ; preds = %3
   %198 = getelementptr inbounds i8, ptr %2, i64 8
-  %199 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %199 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i229 = icmp ult i32 %199, 64
   br i1 %or.cond.i229, label %200, label %206
 
@@ -1503,12 +1503,12 @@ pmix20_bfrop_pack_buffer.exit228:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i233, label %212, label %pmix20_bfrop_pack_buffer.exit.thread
 
 212:                                              ; preds = %210, %206
-  %213 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %213 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i230 = icmp sgt i32 %213, 9
   br i1 %.not.i.i230, label %pmix_pointer_array_get_item.exit.i232, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i232:            ; preds = %212
-  %214 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 72
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, null
@@ -1523,7 +1523,7 @@ pmix20_bfrop_pack_buffer.exit234:                 ; preds = %pmix_pointer_array_
 
 221:                                              ; preds = %3
   %222 = getelementptr inbounds i8, ptr %2, i64 8
-  %223 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %223 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i235 = icmp ult i32 %223, 64
   br i1 %or.cond.i235, label %224, label %230
 
@@ -1550,12 +1550,12 @@ pmix20_bfrop_pack_buffer.exit234:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i239, label %236, label %pmix20_bfrop_pack_buffer.exit.thread
 
 236:                                              ; preds = %234, %230
-  %237 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %237 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i236 = icmp sgt i32 %237, 10
   br i1 %.not.i.i236, label %pmix_pointer_array_get_item.exit.i238, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i238:            ; preds = %236
-  %238 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 80
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
@@ -1570,7 +1570,7 @@ pmix20_bfrop_pack_buffer.exit240:                 ; preds = %pmix_pointer_array_
 
 245:                                              ; preds = %3
   %246 = getelementptr inbounds i8, ptr %2, i64 8
-  %247 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %247 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i241 = icmp ult i32 %247, 64
   br i1 %or.cond.i241, label %248, label %254
 
@@ -1597,12 +1597,12 @@ pmix20_bfrop_pack_buffer.exit240:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i245, label %260, label %pmix20_bfrop_pack_buffer.exit.thread
 
 260:                                              ; preds = %258, %254
-  %261 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %261 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i242 = icmp sgt i32 %261, 11
   br i1 %.not.i.i242, label %pmix_pointer_array_get_item.exit.i244, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i244:            ; preds = %260
-  %262 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 88
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, null
@@ -1617,7 +1617,7 @@ pmix20_bfrop_pack_buffer.exit246:                 ; preds = %pmix_pointer_array_
 
 269:                                              ; preds = %3
   %270 = getelementptr inbounds i8, ptr %2, i64 8
-  %271 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %271 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i247 = icmp ult i32 %271, 64
   br i1 %or.cond.i247, label %272, label %278
 
@@ -1644,12 +1644,12 @@ pmix20_bfrop_pack_buffer.exit246:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i251, label %284, label %pmix20_bfrop_pack_buffer.exit.thread
 
 284:                                              ; preds = %282, %278
-  %285 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %285 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i248 = icmp sgt i32 %285, 12
   br i1 %.not.i.i248, label %pmix_pointer_array_get_item.exit.i250, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i250:            ; preds = %284
-  %286 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 96
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, null
@@ -1664,7 +1664,7 @@ pmix20_bfrop_pack_buffer.exit252:                 ; preds = %pmix_pointer_array_
 
 293:                                              ; preds = %3
   %294 = getelementptr inbounds i8, ptr %2, i64 8
-  %295 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %295 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i253 = icmp ult i32 %295, 64
   br i1 %or.cond.i253, label %296, label %302
 
@@ -1691,12 +1691,12 @@ pmix20_bfrop_pack_buffer.exit252:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i257, label %308, label %pmix20_bfrop_pack_buffer.exit.thread
 
 308:                                              ; preds = %306, %302
-  %309 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %309 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i254 = icmp sgt i32 %309, 13
   br i1 %.not.i.i254, label %pmix_pointer_array_get_item.exit.i256, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i256:            ; preds = %308
-  %310 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 104
   %312 = load ptr, ptr %311, align 8
   %313 = icmp eq ptr %312, null
@@ -1711,7 +1711,7 @@ pmix20_bfrop_pack_buffer.exit258:                 ; preds = %pmix_pointer_array_
 
 317:                                              ; preds = %3
   %318 = getelementptr inbounds i8, ptr %2, i64 8
-  %319 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %319 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i259 = icmp ult i32 %319, 64
   br i1 %or.cond.i259, label %320, label %326
 
@@ -1738,12 +1738,12 @@ pmix20_bfrop_pack_buffer.exit258:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i263, label %332, label %pmix20_bfrop_pack_buffer.exit.thread
 
 332:                                              ; preds = %330, %326
-  %333 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %333 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i260 = icmp sgt i32 %333, 14
   br i1 %.not.i.i260, label %pmix_pointer_array_get_item.exit.i262, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i262:            ; preds = %332
-  %334 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 112
   %336 = load ptr, ptr %335, align 8
   %337 = icmp eq ptr %336, null
@@ -1758,7 +1758,7 @@ pmix20_bfrop_pack_buffer.exit264:                 ; preds = %pmix_pointer_array_
 
 341:                                              ; preds = %3
   %342 = getelementptr inbounds i8, ptr %2, i64 8
-  %343 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %343 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i265 = icmp ult i32 %343, 64
   br i1 %or.cond.i265, label %344, label %350
 
@@ -1785,12 +1785,12 @@ pmix20_bfrop_pack_buffer.exit264:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i269, label %356, label %pmix20_bfrop_pack_buffer.exit.thread
 
 356:                                              ; preds = %354, %350
-  %357 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %357 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i266 = icmp sgt i32 %357, 15
   br i1 %.not.i.i266, label %pmix_pointer_array_get_item.exit.i268, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i268:            ; preds = %356
-  %358 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %358 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 120
   %360 = load ptr, ptr %359, align 8
   %361 = icmp eq ptr %360, null
@@ -1805,7 +1805,7 @@ pmix20_bfrop_pack_buffer.exit270:                 ; preds = %pmix_pointer_array_
 
 365:                                              ; preds = %3
   %366 = getelementptr inbounds i8, ptr %2, i64 8
-  %367 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %367 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i271 = icmp ult i32 %367, 64
   br i1 %or.cond.i271, label %368, label %374
 
@@ -1832,12 +1832,12 @@ pmix20_bfrop_pack_buffer.exit270:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i275, label %380, label %pmix20_bfrop_pack_buffer.exit.thread
 
 380:                                              ; preds = %378, %374
-  %381 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %381 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i272 = icmp sgt i32 %381, 16
   br i1 %.not.i.i272, label %pmix_pointer_array_get_item.exit.i274, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i274:            ; preds = %380
-  %382 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 128
   %384 = load ptr, ptr %383, align 8
   %385 = icmp eq ptr %384, null
@@ -1852,7 +1852,7 @@ pmix20_bfrop_pack_buffer.exit276:                 ; preds = %pmix_pointer_array_
 
 389:                                              ; preds = %3
   %390 = getelementptr inbounds i8, ptr %2, i64 8
-  %391 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %391 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i277 = icmp ult i32 %391, 64
   br i1 %or.cond.i277, label %392, label %398
 
@@ -1879,12 +1879,12 @@ pmix20_bfrop_pack_buffer.exit276:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i281, label %404, label %pmix20_bfrop_pack_buffer.exit.thread
 
 404:                                              ; preds = %402, %398
-  %405 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %405 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i278 = icmp sgt i32 %405, 17
   br i1 %.not.i.i278, label %pmix_pointer_array_get_item.exit.i280, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i280:            ; preds = %404
-  %406 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %407 = getelementptr inbounds i8, ptr %406, i64 136
   %408 = load ptr, ptr %407, align 8
   %409 = icmp eq ptr %408, null
@@ -1899,7 +1899,7 @@ pmix20_bfrop_pack_buffer.exit282:                 ; preds = %pmix_pointer_array_
 
 413:                                              ; preds = %3
   %414 = getelementptr inbounds i8, ptr %2, i64 8
-  %415 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %415 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i283 = icmp ult i32 %415, 64
   br i1 %or.cond.i283, label %416, label %422
 
@@ -1926,12 +1926,12 @@ pmix20_bfrop_pack_buffer.exit282:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i287, label %428, label %pmix20_bfrop_pack_buffer.exit.thread
 
 428:                                              ; preds = %426, %422
-  %429 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %429 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i284 = icmp sgt i32 %429, 18
   br i1 %.not.i.i284, label %pmix_pointer_array_get_item.exit.i286, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i286:            ; preds = %428
-  %430 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %430 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %431 = getelementptr inbounds i8, ptr %430, i64 144
   %432 = load ptr, ptr %431, align 8
   %433 = icmp eq ptr %432, null
@@ -1946,7 +1946,7 @@ pmix20_bfrop_pack_buffer.exit288:                 ; preds = %pmix_pointer_array_
 
 437:                                              ; preds = %3
   %438 = getelementptr inbounds i8, ptr %2, i64 8
-  %439 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %439 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i289 = icmp ult i32 %439, 64
   br i1 %or.cond.i289, label %440, label %446
 
@@ -1973,12 +1973,12 @@ pmix20_bfrop_pack_buffer.exit288:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i293, label %452, label %pmix20_bfrop_pack_buffer.exit.thread
 
 452:                                              ; preds = %450, %446
-  %453 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %453 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i290 = icmp sgt i32 %453, 19
   br i1 %.not.i.i290, label %pmix_pointer_array_get_item.exit.i292, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i292:            ; preds = %452
-  %454 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %454 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 152
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq ptr %456, null
@@ -1993,7 +1993,7 @@ pmix20_bfrop_pack_buffer.exit294:                 ; preds = %pmix_pointer_array_
 
 461:                                              ; preds = %3
   %462 = getelementptr inbounds i8, ptr %2, i64 8
-  %463 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %463 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i295 = icmp ult i32 %463, 64
   br i1 %or.cond.i295, label %464, label %470
 
@@ -2020,12 +2020,12 @@ pmix20_bfrop_pack_buffer.exit294:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i299, label %476, label %pmix20_bfrop_pack_buffer.exit.thread
 
 476:                                              ; preds = %474, %470
-  %477 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %477 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i296 = icmp sgt i32 %477, 20
   br i1 %.not.i.i296, label %pmix_pointer_array_get_item.exit.i298, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i298:            ; preds = %476
-  %478 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %479 = getelementptr inbounds i8, ptr %478, i64 160
   %480 = load ptr, ptr %479, align 8
   %481 = icmp eq ptr %480, null
@@ -2041,7 +2041,7 @@ pmix20_bfrop_pack_buffer.exit300:                 ; preds = %pmix_pointer_array_
 485:                                              ; preds = %3
   %486 = getelementptr inbounds i8, ptr %2, i64 8
   %487 = load ptr, ptr %486, align 8
-  %488 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %488 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i301 = icmp ult i32 %488, 64
   br i1 %or.cond.i301, label %489, label %495
 
@@ -2068,12 +2068,12 @@ pmix20_bfrop_pack_buffer.exit300:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i305, label %501, label %pmix20_bfrop_pack_buffer.exit.thread
 
 501:                                              ; preds = %499, %495
-  %502 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %502 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i302 = icmp sgt i32 %502, 22
   br i1 %.not.i.i302, label %pmix_pointer_array_get_item.exit.i304, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i304:            ; preds = %501
-  %503 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %504 = getelementptr inbounds i8, ptr %503, i64 176
   %505 = load ptr, ptr %504, align 8
   %506 = icmp eq ptr %505, null
@@ -2088,7 +2088,7 @@ pmix20_bfrop_pack_buffer.exit306:                 ; preds = %pmix_pointer_array_
 
 510:                                              ; preds = %3
   %511 = getelementptr inbounds i8, ptr %2, i64 8
-  %512 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %512 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i307 = icmp ult i32 %512, 64
   br i1 %or.cond.i307, label %513, label %519
 
@@ -2115,12 +2115,12 @@ pmix20_bfrop_pack_buffer.exit306:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i311, label %525, label %pmix20_bfrop_pack_buffer.exit.thread
 
 525:                                              ; preds = %523, %519
-  %526 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %526 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i308 = icmp sgt i32 %526, 40
   br i1 %.not.i.i308, label %pmix_pointer_array_get_item.exit.i310, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i310:            ; preds = %525
-  %527 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %527 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %528 = getelementptr inbounds i8, ptr %527, i64 320
   %529 = load ptr, ptr %528, align 8
   %530 = icmp eq ptr %529, null
@@ -2135,7 +2135,7 @@ pmix20_bfrop_pack_buffer.exit312:                 ; preds = %pmix_pointer_array_
 
 534:                                              ; preds = %3, %3
   %535 = getelementptr inbounds i8, ptr %2, i64 8
-  %536 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %536 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i313 = icmp ult i32 %536, 64
   br i1 %or.cond.i313, label %537, label %543
 
@@ -2162,12 +2162,12 @@ pmix20_bfrop_pack_buffer.exit312:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i317, label %549, label %pmix20_bfrop_pack_buffer.exit.thread
 
 549:                                              ; preds = %547, %543
-  %550 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %550 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i314 = icmp sgt i32 %550, 27
   br i1 %.not.i.i314, label %pmix_pointer_array_get_item.exit.i316, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i316:            ; preds = %549
-  %551 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %552 = getelementptr inbounds i8, ptr %551, i64 216
   %553 = load ptr, ptr %552, align 8
   %554 = icmp eq ptr %553, null
@@ -2182,7 +2182,7 @@ pmix20_bfrop_pack_buffer.exit318:                 ; preds = %pmix_pointer_array_
 
 558:                                              ; preds = %3
   %559 = getelementptr inbounds i8, ptr %2, i64 8
-  %560 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %560 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i319 = icmp ult i32 %560, 64
   br i1 %or.cond.i319, label %561, label %567
 
@@ -2209,12 +2209,12 @@ pmix20_bfrop_pack_buffer.exit318:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i323, label %573, label %pmix20_bfrop_pack_buffer.exit.thread
 
 573:                                              ; preds = %571, %567
-  %574 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %574 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i320 = icmp sgt i32 %574, 30
   br i1 %.not.i.i320, label %pmix_pointer_array_get_item.exit.i322, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i322:            ; preds = %573
-  %575 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %575 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %576 = getelementptr inbounds i8, ptr %575, i64 240
   %577 = load ptr, ptr %576, align 8
   %578 = icmp eq ptr %577, null
@@ -2229,7 +2229,7 @@ pmix20_bfrop_pack_buffer.exit324:                 ; preds = %pmix_pointer_array_
 
 582:                                              ; preds = %3
   %583 = getelementptr inbounds i8, ptr %2, i64 8
-  %584 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %584 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i325 = icmp ult i32 %584, 64
   br i1 %or.cond.i325, label %585, label %591
 
@@ -2256,12 +2256,12 @@ pmix20_bfrop_pack_buffer.exit324:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i329, label %597, label %pmix20_bfrop_pack_buffer.exit.thread
 
 597:                                              ; preds = %595, %591
-  %598 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %598 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i326 = icmp sgt i32 %598, 31
   br i1 %.not.i.i326, label %pmix_pointer_array_get_item.exit.i328, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i328:            ; preds = %597
-  %599 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %599 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %600 = getelementptr inbounds i8, ptr %599, i64 248
   %601 = load ptr, ptr %600, align 8
   %602 = icmp eq ptr %601, null
@@ -2276,7 +2276,7 @@ pmix20_bfrop_pack_buffer.exit330:                 ; preds = %pmix_pointer_array_
 
 606:                                              ; preds = %3
   %607 = getelementptr inbounds i8, ptr %2, i64 8
-  %608 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %608 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i331 = icmp ult i32 %608, 64
   br i1 %or.cond.i331, label %609, label %615
 
@@ -2303,12 +2303,12 @@ pmix20_bfrop_pack_buffer.exit330:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i335, label %621, label %pmix20_bfrop_pack_buffer.exit.thread
 
 621:                                              ; preds = %619, %615
-  %622 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %622 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i332 = icmp sgt i32 %622, 32
   br i1 %.not.i.i332, label %pmix_pointer_array_get_item.exit.i334, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i334:            ; preds = %621
-  %623 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %623 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %624 = getelementptr inbounds i8, ptr %623, i64 256
   %625 = load ptr, ptr %624, align 8
   %626 = icmp eq ptr %625, null
@@ -2323,7 +2323,7 @@ pmix20_bfrop_pack_buffer.exit336:                 ; preds = %pmix_pointer_array_
 
 630:                                              ; preds = %3
   %631 = getelementptr inbounds i8, ptr %2, i64 8
-  %632 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %632 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i337 = icmp ult i32 %632, 64
   br i1 %or.cond.i337, label %633, label %639
 
@@ -2350,12 +2350,12 @@ pmix20_bfrop_pack_buffer.exit336:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i341, label %645, label %pmix20_bfrop_pack_buffer.exit.thread
 
 645:                                              ; preds = %643, %639
-  %646 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %646 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i338 = icmp sgt i32 %646, 33
   br i1 %.not.i.i338, label %pmix_pointer_array_get_item.exit.i340, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i340:            ; preds = %645
-  %647 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %647 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %648 = getelementptr inbounds i8, ptr %647, i64 264
   %649 = load ptr, ptr %648, align 8
   %650 = icmp eq ptr %649, null
@@ -2370,7 +2370,7 @@ pmix20_bfrop_pack_buffer.exit342:                 ; preds = %pmix_pointer_array_
 
 654:                                              ; preds = %3
   %655 = getelementptr inbounds i8, ptr %2, i64 8
-  %656 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %656 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i343 = icmp ult i32 %656, 64
   br i1 %or.cond.i343, label %657, label %663
 
@@ -2397,12 +2397,12 @@ pmix20_bfrop_pack_buffer.exit342:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i347, label %669, label %pmix20_bfrop_pack_buffer.exit.thread
 
 669:                                              ; preds = %667, %663
-  %670 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %670 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i344 = icmp sgt i32 %670, 37
   br i1 %.not.i.i344, label %pmix_pointer_array_get_item.exit.i346, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i346:            ; preds = %669
-  %671 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %671 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %672 = getelementptr inbounds i8, ptr %671, i64 296
   %673 = load ptr, ptr %672, align 8
   %674 = icmp eq ptr %673, null
@@ -2418,7 +2418,7 @@ pmix20_bfrop_pack_buffer.exit348:                 ; preds = %pmix_pointer_array_
 678:                                              ; preds = %3
   %679 = getelementptr inbounds i8, ptr %2, i64 8
   %680 = load ptr, ptr %679, align 8
-  %681 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %681 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i349 = icmp ult i32 %681, 64
   br i1 %or.cond.i349, label %682, label %688
 
@@ -2445,12 +2445,12 @@ pmix20_bfrop_pack_buffer.exit348:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i353, label %694, label %pmix20_bfrop_pack_buffer.exit.thread
 
 694:                                              ; preds = %692, %688
-  %695 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %695 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i350 = icmp sgt i32 %695, 38
   br i1 %.not.i.i350, label %pmix_pointer_array_get_item.exit.i352, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i352:            ; preds = %694
-  %696 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %696 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %697 = getelementptr inbounds i8, ptr %696, i64 304
   %698 = load ptr, ptr %697, align 8
   %699 = icmp eq ptr %698, null
@@ -2466,7 +2466,7 @@ pmix20_bfrop_pack_buffer.exit354:                 ; preds = %pmix_pointer_array_
 703:                                              ; preds = %3
   %704 = getelementptr inbounds i8, ptr %2, i64 8
   %705 = load ptr, ptr %704, align 8
-  %706 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %706 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i355 = icmp ult i32 %706, 64
   br i1 %or.cond.i355, label %707, label %713
 
@@ -2493,12 +2493,12 @@ pmix20_bfrop_pack_buffer.exit354:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i359, label %719, label %pmix20_bfrop_pack_buffer.exit.thread
 
 719:                                              ; preds = %717, %713
-  %720 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %720 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i356 = icmp sgt i32 %720, 39
   br i1 %.not.i.i356, label %pmix_pointer_array_get_item.exit.i358, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i358:            ; preds = %719
-  %721 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %721 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %722 = getelementptr inbounds i8, ptr %721, i64 312
   %723 = load ptr, ptr %722, align 8
   %724 = icmp eq ptr %723, null
@@ -2514,7 +2514,7 @@ pmix20_bfrop_pack_buffer.exit360:                 ; preds = %pmix_pointer_array_
 728:                                              ; preds = %3
   %729 = getelementptr inbounds i8, ptr %2, i64 8
   %730 = load ptr, ptr %729, align 8
-  %731 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %731 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i361 = icmp ult i32 %731, 64
   br i1 %or.cond.i361, label %732, label %738
 
@@ -2541,12 +2541,12 @@ pmix20_bfrop_pack_buffer.exit360:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i365, label %744, label %pmix20_bfrop_pack_buffer.exit.thread
 
 744:                                              ; preds = %742, %738
-  %745 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %745 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i362 = icmp sgt i32 %745, 41
   br i1 %.not.i.i362, label %pmix_pointer_array_get_item.exit.i364, label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix_pointer_array_get_item.exit.i364:            ; preds = %744
-  %746 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %746 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %747 = getelementptr inbounds i8, ptr %746, i64 328
   %748 = load ptr, ptr %747, align 8
   %749 = icmp eq ptr %748, null
@@ -2600,7 +2600,7 @@ define i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %13, i64 512
-  %17 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %17, 64
   br i1 %or.cond.i.i, label %18, label %24
 
@@ -2636,7 +2636,7 @@ define i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %35, label %pmix20_bfrop_pack_infodirs.exit
 
 35:                                               ; preds = %.lr.ph.i.i.preheader
-  %36 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i32 = icmp ult i32 %36, 64
   br i1 %or.cond.i.i32, label %37, label %43
 
@@ -2662,12 +2662,12 @@ define i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i.i, label %48, label %pmix20_bfrop_pack_infodirs.exit
 
 48:                                               ; preds = %46, %43
-  %49 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %49, 9
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_infodirs.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %48
-  %50 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 72
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -2692,7 +2692,7 @@ pmix20_bfrop_pack_infodirs.exit:                  ; preds = %12, %pmix20_bfrop_p
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_infodirs(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -2780,7 +2780,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 256
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i.i = icmp ult i32 %18, 64
   br i1 %or.cond.i.i.i, label %19, label %25
 
@@ -2829,7 +2829,7 @@ pmix20_bfrop_pack_proc.exit.thread:               ; preds = %25, %13
   br i1 %.not.i32, label %39, label %pmix20_bfrop_pack_int.exit.thread
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %40, 64
   br i1 %or.cond.i.i, label %41, label %47
 
@@ -2855,12 +2855,12 @@ pmix20_bfrop_pack_proc.exit.thread:               ; preds = %25, %13
   br i1 %.not.i.i, label %52, label %pmix20_bfrop_pack_int.exit.thread
 
 52:                                               ; preds = %50, %47
-  %53 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %53, 9
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_int.exit.thread
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %52
-  %54 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -2905,7 +2905,7 @@ define noundef i32 @pmix20_bfrop_pack_proc(ptr nocapture noundef readnone %0, pt
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %11, i64 256
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %15, 64
   br i1 %or.cond.i.i, label %16, label %22
 
@@ -2965,7 +2965,7 @@ define i32 @pmix20_bfrop_pack_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %14, label %pmix20_bfrop_pack_byte.exit
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %15, 64
   br i1 %or.cond.i.i, label %16, label %22
 
@@ -2991,12 +2991,12 @@ define i32 @pmix20_bfrop_pack_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i.i, label %27, label %pmix20_bfrop_pack_byte.exit
 
 27:                                               ; preds = %25, %22
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %28, 15
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_byte.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %27
-  %29 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -3018,7 +3018,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   %39 = getelementptr inbounds i8, ptr %11, i64 128
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %37 to i32
-  %42 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %42, 64
   br i1 %or.cond.i, label %43, label %49
 
@@ -3062,7 +3062,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_s
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_rank(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3150,7 +3150,7 @@ define i32 @pmix20_bfrop_pack_app(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %19, label %pmix20_bfrop_pack_int.exit.thread
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %20, 64
   br i1 %or.cond.i.i, label %21, label %27
 
@@ -3176,12 +3176,12 @@ define i32 @pmix20_bfrop_pack_app(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i.i, label %32, label %pmix20_bfrop_pack_int.exit.thread
 
 32:                                               ; preds = %30, %27
-  %33 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %33, 9
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_int.exit.thread
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -3219,7 +3219,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @PMIx_Argv_count(ptr noundef %51) #8
   store i32 %52, ptr %6, align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %53, 64
   br i1 %or.cond.i, label %54, label %60
 
@@ -3281,7 +3281,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   br i1 %.not.i80, label %83, label %pmix20_bfrop_pack_int.exit.thread
 
 83:                                               ; preds = %80
-  %84 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i82 = icmp ult i32 %84, 64
   br i1 %or.cond.i.i82, label %85, label %91
 
@@ -3307,12 +3307,12 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   br i1 %.not.i.i85, label %96, label %pmix20_bfrop_pack_int.exit.thread
 
 96:                                               ; preds = %94, %91
-  %97 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %97 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i83 = icmp sgt i32 %97, 9
   br i1 %.not.i.i.i83, label %pmix_pointer_array_get_item.exit.i.i84, label %pmix20_bfrop_pack_int.exit.thread
 
 pmix_pointer_array_get_item.exit.i.i84:           ; preds = %96
-  %98 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 72
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
@@ -3332,7 +3332,7 @@ pmix20_bfrop_pack_int.exit86:                     ; preds = %pmix_pointer_array_
   br i1 %.not.i87, label %108, label %pmix20_bfrop_pack_int.exit.thread
 
 108:                                              ; preds = %105
-  %109 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i89 = icmp ult i32 %109, 64
   br i1 %or.cond.i.i89, label %110, label %116
 
@@ -3358,12 +3358,12 @@ pmix20_bfrop_pack_int.exit86:                     ; preds = %pmix_pointer_array_
   br i1 %.not.i.i92, label %121, label %pmix20_bfrop_pack_int.exit.thread
 
 121:                                              ; preds = %119, %116
-  %122 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %122 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i90 = icmp sgt i32 %122, 15
   br i1 %.not.i.i.i90, label %pmix_pointer_array_get_item.exit.i.i91, label %pmix20_bfrop_pack_int.exit.thread
 
 pmix_pointer_array_get_item.exit.i.i91:           ; preds = %121
-  %123 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 120
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
@@ -3465,7 +3465,7 @@ define i32 @pmix20_bfrop_pack_modex(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %14, label %pmix20_bfrop_pack_byte.exit
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %15, 64
   br i1 %or.cond.i.i, label %16, label %22
 
@@ -3491,12 +3491,12 @@ define i32 @pmix20_bfrop_pack_modex(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i.i, label %27, label %pmix20_bfrop_pack_byte.exit
 
 27:                                               ; preds = %25, %22
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %28, 15
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_byte.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %27
-  %29 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -3518,7 +3518,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   %39 = getelementptr inbounds i8, ptr %11, i64 264
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %37 to i32
-  %42 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %42, 64
   br i1 %or.cond.i, label %43, label %49
 
@@ -3562,7 +3562,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_s
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_persist(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3602,7 +3602,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %13, %17
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_scope(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3642,7 +3642,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %13, %17
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_range(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3682,7 +3682,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %13, %17
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_cmd(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3741,7 +3741,7 @@ define i32 @pmix20_bfrop_pack_bo(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %14, label %pmix20_bfrop_pack_byte.exit
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %15, 64
   br i1 %or.cond.i.i, label %16, label %22
 
@@ -3767,12 +3767,12 @@ define i32 @pmix20_bfrop_pack_bo(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i.i, label %27, label %pmix20_bfrop_pack_byte.exit
 
 27:                                               ; preds = %25, %22
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %28, 15
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_byte.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %27
-  %29 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -3793,7 +3793,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 38:                                               ; preds = %36
   %39 = load ptr, ptr %11, align 8
   %40 = trunc i64 %37 to i32
-  %41 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %41, 64
   br i1 %or.cond.i, label %42, label %48
 
@@ -3837,7 +3837,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_s
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_ptr(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3876,7 +3876,7 @@ pmix20_bfrop_pack_byte.exit:                      ; preds = %13, %16
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_pstate(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 
@@ -3938,7 +3938,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 256
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i.i = icmp ult i32 %16, 64
   br i1 %or.cond.i.i.i, label %17, label %23
 
@@ -3992,7 +3992,7 @@ pmix20_bfrop_pack_proc.exit.thread:               ; preds = %23, %11
   br i1 %.not.i39, label %40, label %pmix20_bfrop_pack_pstate.exit
 
 40:                                               ; preds = %37
-  %41 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %41, 64
   br i1 %or.cond.i.i, label %42, label %48
 
@@ -4018,12 +4018,12 @@ pmix20_bfrop_pack_proc.exit.thread:               ; preds = %23, %11
   br i1 %.not.i.i, label %53, label %pmix20_bfrop_pack_pstate.exit
 
 53:                                               ; preds = %51, %48
-  %54 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %54, 14
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_pstate.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %53
-  %55 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 112
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
@@ -4038,7 +4038,7 @@ pmix20_bfrop_pack_pid.exit:                       ; preds = %pmix_pointer_array_
 
 62:                                               ; preds = %pmix20_bfrop_pack_pid.exit
   %63 = getelementptr inbounds i8, ptr %12, i64 288
-  %64 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i40 = icmp ult i32 %64, 64
   br i1 %or.cond.i.i40, label %65, label %71
 
@@ -4116,7 +4116,7 @@ pmix20_bfrop_pack_datatype.exit:                  ; preds = %pmix_pointer_array_
   br i1 %.not.i, label %23, label %pmix20_bfrop_pack_datatype.exit.thread
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %24, 64
   br i1 %or.cond.i.i, label %25, label %31
 
@@ -4142,12 +4142,12 @@ pmix20_bfrop_pack_datatype.exit:                  ; preds = %pmix_pointer_array_
   br i1 %.not.i.i35, label %36, label %pmix20_bfrop_pack_datatype.exit.thread
 
 36:                                               ; preds = %34, %31
-  %37 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %37, 15
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_datatype.exit.thread
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %36
-  %38 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 120
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
@@ -4174,7 +4174,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   %52 = getelementptr inbounds i8, ptr %11, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = trunc i64 %46 to i32
-  %55 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %55, 64
   br i1 %or.cond.i, label %56, label %64
 
@@ -4206,12 +4206,12 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 
 69:                                               ; preds = %67, %64
   %70 = zext i16 %..i to i32
-  %71 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i36 = icmp sgt i32 %71, %70
   br i1 %.not.i.i36, label %pmix_pointer_array_get_item.exit.i38, label %pmix20_bfrop_pack_datatype.exit.thread
 
 pmix_pointer_array_get_item.exit.i38:             ; preds = %69
-  %72 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %73 = zext i16 %..i to i64
   %74 = getelementptr inbounds ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
@@ -4252,7 +4252,7 @@ define i32 @pmix20_bfrop_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = getelementptr inbounds %struct.pmix_query, ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @PMIx_Argv_count(ptr noundef %12) #8
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %14, 64
   br i1 %or.cond.i, label %15, label %21
 
@@ -4297,7 +4297,7 @@ define i32 @pmix20_bfrop_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %36, label %pmix20_bfrop_pack_int32.exit
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %37, 64
   br i1 %or.cond.i.i, label %38, label %44
 
@@ -4323,12 +4323,12 @@ define i32 @pmix20_bfrop_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i.i, label %49, label %pmix20_bfrop_pack_int32.exit
 
 49:                                               ; preds = %47, %44
-  %50 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 3), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i.i.i = icmp sgt i32 %50, 15
   br i1 %.not.i.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %pmix20_bfrop_pack_int32.exit
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %49
-  %51 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i64 0, i32 2, i32 7), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 120
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
@@ -4366,7 +4366,7 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %30, %pmix20_bfrop_p
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_alloc_directive(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
 

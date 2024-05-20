@@ -1685,7 +1685,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyReversed_Type, i64 0, i32 35), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyReversed_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2
@@ -1925,7 +1925,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end28:                                         ; preds = %if.end23
   %one = getelementptr inbounds i8, ptr %call, i64 48
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), ptr %one, align 8
+  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr %one, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.then27, %if.end.i33, %if.then1.i36, %if.then22, %if.end.i51, %if.then1.i54, %if.then5, %entry, %if.end28
@@ -2060,7 +2060,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @reversed_new_impl(ptr noundef %type, ptr noundef %seq) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %seq, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 133)) #3
+  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %seq, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33072)) #3
   %cmp = icmp eq ptr %call, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.end
 

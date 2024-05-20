@@ -1063,7 +1063,7 @@ for.end45:                                        ; preds = %for.inc43, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue211GoughSSAVarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -3083,7 +3083,7 @@ call.i.noexc:                                     ; preds = %do.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4511,7 +4511,7 @@ call.i.noexc80:                                   ; preds = %invoke.cont10
           to label %.noexc82 unwind label %lpad14
 
 .noexc82:                                         ; preds = %call.i.noexc80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 4))
           to label %invoke.cont15 unwind label %lpad.i79
 
 lpad.i79:                                         ; preds = %.noexc82
@@ -4537,7 +4537,7 @@ call.i.noexc89:                                   ; preds = %invoke.cont23
           to label %.noexc91 unwind label %lpad28
 
 .noexc91:                                         ; preds = %call.i.noexc89
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.4, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 5))
           to label %invoke.cont29 unwind label %lpad.i88
 
 lpad.i88:                                         ; preds = %.noexc91
@@ -6251,7 +6251,7 @@ call.i.noexc221:                                  ; preds = %invoke.cont40
           to label %.noexc223 unwind label %lpad45
 
 .noexc223:                                        ; preds = %call.i.noexc221
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.5, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 5))
           to label %invoke.cont46 unwind label %lpad.i220
 
 lpad.i220:                                        ; preds = %.noexc223
@@ -6272,7 +6272,7 @@ call.i.noexc230:                                  ; preds = %invoke.cont46
           to label %.noexc232 unwind label %lpad54
 
 .noexc232:                                        ; preds = %call.i.noexc230
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.5, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 5))
           to label %invoke.cont55 unwind label %lpad.i229
 
 lpad.i229:                                        ; preds = %.noexc232
@@ -6307,7 +6307,7 @@ invoke.cont63:                                    ; preds = %invoke.cont55
   store i8 0, ptr %only_accel_init.i.i.i, align 8
   %rdfa.i.i = getelementptr inbounds i8, ptr %gbs, i64 24
   store ptr %raw, ptr %rdfa.i.i, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 0, i32 0, i64 2), ptr %gbs, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %gbs, align 8
   %rdfa.i = getelementptr inbounds i8, ptr %gbs, i64 32
   store ptr %raw, ptr %rdfa.i, align 8
   %gg.i = getelementptr inbounds i8, ptr %gbs, i64 40
@@ -7518,7 +7518,7 @@ terminate.lpad.i.i537:                            ; preds = %if.then.i.i536
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit:             ; preds = %cleanup.thread, %cleanup, %if.then.i.i536
   store ptr null, ptr %basic_dfa, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 0, i32 0, i64 2), ptr %gbs, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %gbs, align 8
   %built_accel.i = getelementptr inbounds i8, ptr %gbs, i64 96
   %492 = load ptr, ptr %_M_parent.i.i.i.i.i3.i, align 8
   invoke void @_ZNSt8_Rb_treeIP11gough_accelSt4pairIKS1_tESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %built_accel.i, ptr noundef %492)
@@ -7948,7 +7948,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !364
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !364
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i98, align 8, !noalias !364
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i98, align 8, !noalias !364
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 16
   %seen.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 24
   store i8 0, ptr %seen.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
@@ -7968,7 +7968,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
   %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 80
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !364
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !364
   %23 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 104
   store i32 0, ptr %23, align 8, !noalias !364
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i98, i64 112
@@ -8841,7 +8841,7 @@ if.then.i.i.i24.i:                                ; preds = %if.then.i157
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !408
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !408
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i16.i, align 8, !noalias !408
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i16.i, align 8, !noalias !408
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16.i, i64 16
   %seen.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16.i, i64 24
   store i8 0, ptr %seen.i.i.i.i.i.i.i.i.i.i158, align 8, !noalias !408
@@ -8861,7 +8861,7 @@ if.then.i.i.i24.i:                                ; preds = %if.then.i157
   %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i167 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16.i, i64 80
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i167, align 8, !noalias !408
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i166, align 8, !noalias !408
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarNewE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !408
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214GoughSSAVarNewE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !408
   %adjust.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16.i, i64 96
   store i32 0, ptr %adjust.i.i.i.i.i.i.i.i.i, align 8, !noalias !408
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %ref.tmp14.i, align 16
@@ -9116,7 +9116,7 @@ if.then.i.i.i79.i:                                ; preds = %if.else24.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68.i, align 8, !noalias !430
   %_M_weak_count.i.i.i.i.i.i69.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i71.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i69.i, align 4, !noalias !430
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i71.i, align 8, !noalias !430
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i71.i, align 8, !noalias !430
   %_M_impl.i.i.i.i.i.i70.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i71.i, i64 16
   %seen.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i71.i, i64 24
   store i8 0, ptr %seen.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !430
@@ -9136,7 +9136,7 @@ if.then.i.i.i79.i:                                ; preds = %if.else24.i
   %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i71.i, i64 80
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !430
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !430
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarMinE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i70.i, align 8, !noalias !430
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214GoughSSAVarMinE, i64 16), ptr %_M_impl.i.i.i.i.i.i70.i, align 8, !noalias !430
   store ptr %call5.i.i.i3.i.i.i.i71.i, ptr %_M_refcount.i.i.i67.i, align 8, !alias.scope !430
   store ptr %_M_impl.i.i.i.i.i.i70.i, ptr %vmin.i, align 8, !alias.scope !430
   store ptr %_M_impl.i.i.i.i.i.i70.i, ptr %ref.tmp42.i, align 16
@@ -10987,7 +10987,7 @@ invoke.cont59.i:                                  ; preds = %if.else.i412
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i413, align 8, !noalias !517
   %_M_weak_count.i.i.i.i.i.i173.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i174.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i173.i, align 4, !noalias !517
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i174.i, align 8, !noalias !517
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i174.i, align 8, !noalias !517
   %_M_impl.i.i.i.i.i.i.i414 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i174.i, i64 16
   %seen.i.i.i.i.i.i.i.i.i.i415 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i174.i, i64 24
   store i8 0, ptr %seen.i.i.i.i.i.i.i.i.i.i415, align 8, !noalias !517
@@ -11007,7 +11007,7 @@ invoke.cont59.i:                                  ; preds = %if.else.i412
   %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i424 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i174.i, i64 80
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i424, align 8, !noalias !517
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i423, align 8, !noalias !517
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarNewE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i414, align 8, !noalias !517
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214GoughSSAVarNewE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i414, align 8, !noalias !517
   %adjust.i.i.i.i.i.i.i.i.i425 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i174.i, i64 96
   store i32 %323, ptr %adjust.i.i.i.i.i.i.i.i.i425, align 8, !noalias !517
   %cmp.not.i.i.i.i175.i = icmp eq ptr %vnew.i337.sroa.13.3, null
@@ -11731,7 +11731,7 @@ if.then.i.i.i429.i:                               ; preds = %if.else113.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i418.i, align 8, !noalias !547
   %_M_weak_count.i.i.i.i.i.i419.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i421.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i419.i, align 4, !noalias !547
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i421.i, align 8, !noalias !547
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i421.i, align 8, !noalias !547
   %_M_impl.i.i.i.i.i.i420.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i421.i, i64 16
   %seen.i.i.i.i.i.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i421.i, i64 24
   store i8 0, ptr %seen.i.i.i.i.i.i.i.i.i.i.i366, align 8, !noalias !547
@@ -11751,7 +11751,7 @@ if.then.i.i.i429.i:                               ; preds = %if.else113.i
   %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i375 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i421.i, i64 80
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i375, align 8, !noalias !547
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i374, align 8, !noalias !547
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarMinE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i420.i, align 8, !noalias !547
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214GoughSSAVarMinE, i64 16), ptr %_M_impl.i.i.i.i.i.i420.i, align 8, !noalias !547
   store ptr %_M_impl.i.i.i.i.i.i420.i, ptr %ref.tmp123.i, align 16
   store ptr %call5.i.i.i3.i.i.i.i421.i, ptr %_M_refcount.i.i426.i, align 8
   %455 = load i8, ptr @__libc_single_threaded, align 1
@@ -12998,7 +12998,7 @@ _ZNSt8_Rb_treeISt6vectorI9gough_insSaIS1_EESt4pairIKS3_jESt10_Select1stIS6_ESt4l
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %this, align 8
   %built_accel = getelementptr inbounds i8, ptr %this, i64 96
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -13089,7 +13089,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue211raw_som_dfaD2Ev(ptr noundef nonnull align 8 dereferenceable(644) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211raw_som_dfaE, i64 16), ptr %this, align 8
   %new_som_nfa_states = getelementptr inbounds i8, ptr %this, i64 592
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -13139,7 +13139,7 @@ _ZNSt6vectorIN3ue210dstate_somESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue211raw_som_dfaD0Ev(ptr noundef nonnull align 8 dereferenceable(644) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211raw_som_dfaE, i64 16), ptr %this, align 8
   %new_som_nfa_states.i = getelementptr inbounds i8, ptr %this, i64 592
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -13219,7 +13219,7 @@ _ZN3ue211GoughSSAVar13clear_outputsEv.exit:       ; preds = %for.body.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue214GoughSSAVarNewD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -13260,7 +13260,7 @@ _ZN3ue211GoughSSAVarD2Ev.exit:                    ; preds = %_ZN3ue28flat_setIPN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue214GoughSSAVarNewD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -13308,7 +13308,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221GoughSSAVarWithInputsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -13356,7 +13356,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue214GoughSSAVarMinD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -13397,7 +13397,7 @@ _ZN3ue221GoughSSAVarWithInputsD2Ev.exit:          ; preds = %_ZN3ue28flat_setIPN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue214GoughSSAVarMinD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
@@ -13456,7 +13456,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue215GoughSSAVarJoinD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 16), ptr %this, align 8
   %input_map = getelementptr inbounds i8, ptr %this, i64 80
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -13471,7 +13471,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEED2Ev.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 0
@@ -13512,7 +13512,7 @@ _ZN3ue221GoughSSAVarWithInputsD2Ev.exit:          ; preds = %_ZN3ue28flat_setIPN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue215GoughSSAVarJoinD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue215GoughSSAVarJoinE, i64 16), ptr %this, align 8
   %input_map.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -13527,7 +13527,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEED2Ev.exit.i: ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 0
@@ -19605,7 +19605,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIN5bo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %this, align 8
   %built_accel.i = getelementptr inbounds i8, ptr %this, i64 96
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -19660,7 +19660,7 @@ entry:
   %2 = and i32 %1, -2
   %switch.i = icmp eq i32 %2, 2
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33, !noalias !677
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !677
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 16), ptr %call.i, align 8, !noalias !677
   %rl.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %rl.i.i, i8 0, i64 24, i1 false), !noalias !677
   %3 = getelementptr inbounds i8, ptr %rev, i64 8
@@ -22008,7 +22008,7 @@ _ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 16), ptr %this, align 8
   %rl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %rl, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22056,7 +22056,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 16), ptr %this, align 8
   %rl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %rl.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -27054,7 +27054,7 @@ _ZNSt10unique_ptrI3NFAN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit: ;
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI3NFAN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %unreachable unwind label %lpad
 

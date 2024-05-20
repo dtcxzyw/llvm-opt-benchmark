@@ -24,33 +24,33 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
   %3 = load i32, ptr @_vdso_data, align 16
   %4 = add i32 %3, 1
   store volatile i32 %4, ptr @_vdso_data, align 16
-  %5 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   %6 = add i32 %5, 1
-  store volatile i32 %6, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  store volatile i32 %6, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 80
   %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 1), align 4
-  store i32 %9, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 1), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 4), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 244), align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6), align 16
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 32), align 16
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 0, i32 1), align 8
-  store i64 %11, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 5), align 16
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 40), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 112), align 16
   %14 = load i64, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = zext nneg i32 %16 to i64
   %18 = lshr i64 %14, %17
-  store i64 %18, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 5, i32 1), align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 120), align 8
   %19 = load i64, ptr %10, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 128
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
-  store i64 %22, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 6), align 16
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 128), align 16
   %23 = load i64, ptr %12, align 8
   %24 = load i32, ptr %15, align 4
   %25 = zext nneg i32 %24 to i64
@@ -76,50 +76,50 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
 
 37:                                               ; preds = %.preheader12
   %38 = zext i32 %35 to i64
-  %.pre = load i64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 6), align 16
+  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 128), align 16
   br label %39
 
 39:                                               ; preds = %37, %1
   %40 = phi i64 [ %22, %1 ], [ %.pre, %37 ]
   %41 = phi i64 [ 0, %1 ], [ %38, %37 ]
   %42 = phi i64 [ %29, %1 ], [ %34, %37 ]
-  store i64 %42, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 6, i32 1), align 8
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 136), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %43 = add i64 %40, %41
-  store i64 %43, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 6), align 16
+  store i64 %43, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 128), align 16
   %44 = load i32, ptr @hrtimer_resolution, align 4
-  store volatile i32 %44, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 9), align 8
+  store volatile i32 %44, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 232), align 8
   %45 = icmp eq i32 %9, 0
   br i1 %45, label %117, label %46
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 2), align 8
+  store i64 %48, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 3), align 16
+  store i64 %50, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 16), align 16
   %51 = getelementptr inbounds i8, ptr %0, i64 24
   %52 = load i32, ptr %51, align 8
-  store i32 %52, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 4), align 8
+  store i32 %52, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 24), align 8
   %53 = load i32, ptr %15, align 4
-  store i32 %53, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 5), align 4
+  store i32 %53, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 28), align 4
   %54 = getelementptr inbounds i8, ptr %0, i64 72
   %55 = load i64, ptr %54, align 8
-  store i64 %55, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 2), align 8
+  store i64 %55, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 248), align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 64
   %57 = load i64, ptr %56, align 8
-  store i64 %57, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 3), align 16
+  store i64 %57, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 256), align 16
   %58 = getelementptr inbounds i8, ptr %0, i64 80
   %59 = load i32, ptr %58, align 8
-  store i32 %59, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 4), align 8
+  store i32 %59, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 264), align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 84
   %61 = load i32, ptr %60, align 4
-  store i32 %61, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 5), align 4
+  store i32 %61, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 268), align 4
   %62 = load i64, ptr %10, align 8
   %63 = load i64, ptr %20, align 8
   %64 = add i64 %63, %62
-  store i64 %64, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 1), align 16
+  store i64 %64, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 48), align 16
   %65 = load i64, ptr %12, align 8
   %66 = load i64, ptr %27, align 8
   %67 = load i32, ptr %15, align 4
@@ -136,7 +136,7 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
   %75 = phi i64 [ %76, %.preheader10 ], [ %70, %46 ]
   %76 = sub i64 %75, %74
   %77 = add i64 %73, 1
-  store i64 %77, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 1), align 16
+  store i64 %77, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 48), align 16
   %78 = load i32, ptr %15, align 4
   %79 = zext nneg i32 %78 to i64
   %80 = shl i64 1000000000, %79
@@ -146,7 +146,7 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
 .loopexit11:                                      ; preds = %.preheader10, %46
   %82 = phi i64 [ %64, %46 ], [ %77, %.preheader10 ]
   %83 = phi i64 [ %70, %46 ], [ %76, %.preheader10 ]
-  store i64 %83, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 1, i32 1), align 8
+  store i64 %83, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 56), align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 200
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %82
@@ -156,7 +156,7 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
   %90 = zext nneg i32 %89 to i64
   %91 = shl i64 %88, %90
   %92 = add i64 %91, %83
-  store i64 %86, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 7), align 16
+  store i64 %86, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 144), align 16
   %93 = load i32, ptr %15, align 4
   %94 = zext nneg i32 %93 to i64
   %95 = shl i64 1000000000, %94
@@ -169,7 +169,7 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
   %99 = phi i64 [ %101, %.preheader ], [ %86, %.loopexit11 ]
   %100 = sub i64 %98, %97
   %101 = add i64 %99, 1
-  store i64 %101, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 7), align 16
+  store i64 %101, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 144), align 16
   %102 = load i32, ptr %15, align 4
   %103 = zext nneg i32 %102 to i64
   %104 = shl i64 1000000000, %103
@@ -178,21 +178,21 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11
   %106 = phi i64 [ %92, %.loopexit11 ], [ %100, %.preheader ]
-  store i64 %106, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 7, i32 1), align 8
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 152), align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 192
   %108 = load i64, ptr %107, align 8
-  store i64 %108, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 6, i32 0, i64 4), align 16
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 336), align 16
   %109 = getelementptr inbounds i8, ptr %0, i64 88
   %110 = load i64, ptr %109, align 8
-  store i64 %110, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1, i32 6, i32 0, i64 4, i32 1), align 8
+  store i64 %110, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 344), align 8
   %111 = load i64, ptr %10, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 168
   %113 = load i32, ptr %112, align 8
   %114 = sext i32 %113 to i64
   %115 = add i64 %111, %114
-  store i64 %115, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 11), align 16
+  store i64 %115, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 208), align 16
   %116 = load i64, ptr %12, align 8
-  store i64 %116, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 6, i32 0, i64 11, i32 1), align 8
+  store i64 %116, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 216), align 8
   br label %117
 
 117:                                              ; preds = %.loopexit, %39
@@ -200,9 +200,9 @@ define dso_local void @update_vsyscall(ptr nocapture noundef readonly %0) local_
   %118 = load i32, ptr @_vdso_data, align 16
   %119 = add i32 %118, 1
   store volatile i32 %119, ptr @_vdso_data, align 16
-  %120 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  %120 = load i32, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   %121 = add i32 %120, 1
-  store volatile i32 %121, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  store volatile i32 %121, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   ret void
 }
 
@@ -215,9 +215,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
 define dso_local void @update_vsyscall_tz() local_unnamed_addr #2 align 16 {
   %1 = load i32, ptr @sys_tz, align 4
-  store i32 %1, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 7), align 16
-  %2 = load i32, ptr getelementptr inbounds (%struct.timezone, ptr @sys_tz, i64 0, i32 1), align 4
-  store i32 %2, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 0, i32 8), align 4
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 224), align 16
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @sys_tz, i64 4), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 228), align 4
   ret void
 }
 
@@ -227,9 +227,9 @@ define dso_local i64 @vdso_update_begin() local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @_vdso_data, align 16
   %3 = add i32 %2, 1
   store volatile i32 %3, ptr @_vdso_data, align 16
-  %4 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   %5 = add i32 %4, 1
-  store volatile i32 %5, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  store volatile i32 %5, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   ret i64 %1
 }
@@ -243,9 +243,9 @@ define dso_local void @vdso_update_end(i64 noundef %0) local_unnamed_addr #0 ali
   %2 = load i32, ptr @_vdso_data, align 16
   %3 = add i32 %2, 1
   store volatile i32 %3, ptr @_vdso_data, align 16
-  %4 = load i32, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   %5 = add i32 %4, 1
-  store volatile i32 %5, ptr getelementptr inbounds ([2 x %struct.vdso_data], ptr @_vdso_data, i64 0, i64 1), align 16
+  store volatile i32 %5, ptr getelementptr inbounds (i8, ptr @_vdso_data, i64 240), align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @timekeeper_lock, i64 noundef %0) #4
   ret void
 }

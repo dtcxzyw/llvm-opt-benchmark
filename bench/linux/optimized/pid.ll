@@ -411,7 +411,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pidmap_lock) #14
   %69 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #15, !srcloc !15
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
-  %70 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #14, !srcloc !17
+  %70 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !17
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = icmp eq i8 %70, 0
@@ -1730,10 +1730,10 @@ define dso_local void @pid_idr_init() local_unnamed_addr #7 section ".init.text"
   store i32 %11, ptr @pid_max_min, align 4
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11) #17
   store i32 0, ptr @init_pid_ns, align 8
-  store i32 67108868, ptr getelementptr inbounds (%struct.pid_namespace, ptr @init_pid_ns, i64 0, i32 0, i32 0, i32 1), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.pid_namespace, ptr @init_pid_ns, i64 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
+  store i32 67108868, ptr getelementptr inbounds (i8, ptr @init_pid_ns, i64 4), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @init_pid_ns, i64 8), i8 0, i64 16, i1 false)
   %13 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.3, i32 noundef 112, i32 noundef 8, i32 noundef 270336, ptr noundef null) #14
-  store ptr %13, ptr getelementptr inbounds (%struct.pid_namespace, ptr @init_pid_ns, i64 0, i32 4), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @init_pid_ns, i64 56), align 8
   ret void
 }
 

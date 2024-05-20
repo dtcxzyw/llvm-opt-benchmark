@@ -279,7 +279,7 @@ call.i.noexc29:                                   ; preds = %if.end
           to label %.noexc31 unwind label %lpad11
 
 .noexc31:                                         ; preds = %call.i.noexc29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @.str.1, i64 0, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 8))
           to label %invoke.cont12 unwind label %lpad.i28
 
 lpad.i28:                                         ; preds = %.noexc31
@@ -1854,7 +1854,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define linkonce_odr hidden noundef ptr @_Z3godIN6Assimp7Blender22BlenderModifier_MirrorEEPNS1_15BlenderModifierEv() #0 comdat {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender22BlenderModifier_MirrorE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender22BlenderModifier_MirrorE, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1862,7 +1862,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_Z3godIN6Assimp7Blender27BlenderModifier_SubdivisionEEPNS1_15BlenderModifierEv() #0 comdat {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender27BlenderModifier_SubdivisionE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender27BlenderModifier_SubdivisionE, i64 16), ptr %call, align 8
   ret ptr %call
 }
 

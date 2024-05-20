@@ -350,7 +350,7 @@ define internal i32 @dissect_collectd(ptr noundef %0, ptr noundef %1, ptr nounde
   %67 = load ptr, ptr %10, align 8
   %68 = icmp eq ptr %67, null
   %spec.store.select.i.us = select i1 %68, ptr @.str.96, ptr %67
-  %.020.i.us = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  %.020.i.us = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   %.not21.i.us = icmp eq ptr %.020.i.us, null
   br i1 %.not21.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
 
@@ -380,10 +380,10 @@ define internal i32 @dissect_collectd(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %79, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   store i32 1, ptr %80, align 8
-  %81 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   %82 = getelementptr inbounds i8, ptr %78, i64 16
   store ptr %81, ptr %82, align 8
-  store ptr %78, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  store ptr %78, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   br label %stats_account_string.exit.us
 
 stats_account_string.exit.us:                     ; preds = %._crit_edge.i.us, %74
@@ -391,7 +391,7 @@ stats_account_string.exit.us:                     ; preds = %._crit_edge.i.us, %
   %84 = load ptr, ptr %35, align 8
   %85 = icmp eq ptr %84, null
   %spec.store.select.i303.us = select i1 %85, ptr @.str.96, ptr %84
-  %.020.i304.us = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  %.020.i304.us = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   %.not21.i305.us = icmp eq ptr %.020.i304.us, null
   br i1 %.not21.i305.us, label %._crit_edge.i310.us, label %.lr.ph.i306.us
 
@@ -421,10 +421,10 @@ stats_account_string.exit.us:                     ; preds = %._crit_edge.i.us, %
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 8
   store i32 1, ptr %97, align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   %99 = getelementptr inbounds i8, ptr %95, i64 16
   store ptr %98, ptr %99, align 8
-  store ptr %95, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  store ptr %95, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   br label %stats_account_string.exit311.us
 
 stats_account_string.exit311.us:                  ; preds = %._crit_edge.i310.us, %91
@@ -432,7 +432,7 @@ stats_account_string.exit311.us:                  ; preds = %._crit_edge.i310.us
   %101 = load ptr, ptr %41, align 8
   %102 = icmp eq ptr %101, null
   %spec.store.select.i312.us = select i1 %102, ptr @.str.96, ptr %101
-  %.020.i313.us = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  %.020.i313.us = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   %.not21.i314.us = icmp eq ptr %.020.i313.us, null
   br i1 %.not21.i314.us, label %._crit_edge.i319.us, label %.lr.ph.i315.us
 
@@ -462,10 +462,10 @@ stats_account_string.exit311.us:                  ; preds = %._crit_edge.i310.us
   store ptr %113, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %112, i64 8
   store i32 1, ptr %114, align 8
-  %115 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   %116 = getelementptr inbounds i8, ptr %112, i64 16
   store ptr %115, ptr %116, align 8
-  store ptr %112, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  store ptr %112, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   br label %stats_account_string.exit320.us
 
 117:                                              ; preds = %59
@@ -920,7 +920,7 @@ dissect_collectd_part_values.exit:                ; preds = %202, %211, %225, %c
   %374 = load ptr, ptr %10, align 8
   %375 = icmp eq ptr %374, null
   %spec.store.select.i323 = select i1 %375, ptr @.str.96, ptr %374
-  %.020.i324 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  %.020.i324 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   %.not21.i325 = icmp eq ptr %.020.i324, null
   br i1 %.not21.i325, label %._crit_edge.i330, label %.lr.ph.i326
 
@@ -950,10 +950,10 @@ dissect_collectd_part_values.exit:                ; preds = %202, %211, %225, %c
   store ptr %386, ptr %385, align 8
   %387 = getelementptr inbounds i8, ptr %385, i64 8
   store i32 1, ptr %387, align 8
-  %388 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  %388 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   %389 = getelementptr inbounds i8, ptr %385, i64 16
   store ptr %388, ptr %389, align 8
-  store ptr %385, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 1), align 8
+  store ptr %385, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 8), align 8
   br label %stats_account_string.exit331
 
 stats_account_string.exit331:                     ; preds = %379, %._crit_edge.i330
@@ -961,7 +961,7 @@ stats_account_string.exit331:                     ; preds = %379, %._crit_edge.i
   %391 = load ptr, ptr %35, align 8
   %392 = icmp eq ptr %391, null
   %spec.store.select.i332 = select i1 %392, ptr @.str.96, ptr %391
-  %.020.i333 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  %.020.i333 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   %.not21.i334 = icmp eq ptr %.020.i333, null
   br i1 %.not21.i334, label %._crit_edge.i339, label %.lr.ph.i335
 
@@ -991,10 +991,10 @@ stats_account_string.exit331:                     ; preds = %379, %._crit_edge.i
   store ptr %403, ptr %402, align 8
   %404 = getelementptr inbounds i8, ptr %402, i64 8
   store i32 1, ptr %404, align 8
-  %405 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  %405 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   %406 = getelementptr inbounds i8, ptr %402, i64 16
   store ptr %405, ptr %406, align 8
-  store ptr %402, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 2), align 8
+  store ptr %402, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 16), align 8
   br label %stats_account_string.exit340
 
 stats_account_string.exit340:                     ; preds = %396, %._crit_edge.i339
@@ -1002,7 +1002,7 @@ stats_account_string.exit340:                     ; preds = %396, %._crit_edge.i
   %408 = load ptr, ptr %41, align 8
   %409 = icmp eq ptr %408, null
   %spec.store.select.i341 = select i1 %409, ptr @.str.96, ptr %408
-  %.020.i342 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  %.020.i342 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   %.not21.i343 = icmp eq ptr %.020.i342, null
   br i1 %.not21.i343, label %._crit_edge.i348, label %.lr.ph.i344
 
@@ -1032,10 +1032,10 @@ stats_account_string.exit340:                     ; preds = %396, %._crit_edge.i
   store ptr %420, ptr %419, align 8
   %421 = getelementptr inbounds i8, ptr %419, i64 8
   store i32 1, ptr %421, align 8
-  %422 = load ptr, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   %423 = getelementptr inbounds i8, ptr %419, i64 16
   store ptr %422, ptr %423, align 8
-  store ptr %419, ptr getelementptr inbounds (%struct.tap_data_s, ptr @dissect_collectd.tap_data, i64 0, i32 3), align 8
+  store ptr %419, ptr getelementptr inbounds (i8, ptr @dissect_collectd.tap_data, i64 24), align 8
   br label %stats_account_string.exit349
 
 424:                                              ; preds = %165

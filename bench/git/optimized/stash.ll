@@ -2340,7 +2340,7 @@ if.else102:                                       ; preds = %if.end95
   call void @diff_setup_done(ptr noundef nonnull %diff_opts.i) #14
   %call.i92 = call i32 @do_diff_cache(ptr noundef nonnull %c_tree, ptr noundef nonnull %diff_opts.i) #14
   call void @diffcore_std(ptr noundef nonnull %diff_opts.i) #14
-  %36 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp19.i = icmp sgt i32 %36, 0
   br i1 %cmp19.i, label %for.body.lr.ph.i, label %for.end.i
 
@@ -2441,7 +2441,7 @@ if.then46.i:                                      ; preds = %if.end42.i
 
 for.inc.i:                                        ; preds = %if.then46.i, %if.end42.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %54 = sext i32 %53 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %54
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !9
@@ -2484,14 +2484,14 @@ land.lhs.true:                                    ; preds = %restore_untracked
   %call2.i = call ptr @oid_to_hex(ptr noundef nonnull %u_tree) #14
   %call3.i = call ptr @strvec_push(ptr noundef nonnull %cp.i, ptr noundef %call2.i) #14
   %env.i = getelementptr inbounds i8, ptr %cp.i, i64 24
-  %57 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call4.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.59, ptr noundef %57) #14
   %call5.i = call i32 @run_command(ptr noundef nonnull %cp.i) #14
   %tobool.not.i99 = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i99, label %restore_untracked.exit, label %restore_untracked.exit.thread
 
 restore_untracked.exit.thread:                    ; preds = %land.lhs.true
-  %58 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call15.i112 = call i32 @remove_path(ptr noundef %58) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i)
   br label %if.then107
@@ -2502,10 +2502,10 @@ restore_untracked.exit:                           ; preds = %land.lhs.true
   %bf.set10.i = or i16 %bf.load8.i, 8
   store i16 %bf.set10.i, ptr %git_cmd.i, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef null) #14
-  %59 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call13.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.59, ptr noundef %59) #14
   %call14.i = call i32 @run_command(ptr noundef nonnull %cp.i) #14
-  %60 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call15.i = call i32 @remove_path(ptr noundef %60) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i)
   %tobool106.not = icmp eq i32 %call14.i, 0
@@ -3521,7 +3521,7 @@ entry:
   store i16 8, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_upd_index, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef null) #14
   %env = getelementptr inbounds i8, ptr %cp_upd_index, i64 24
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.59, ptr noundef %1) #14
   %buf = getelementptr inbounds i8, ptr %msg, i64 16
   %2 = load ptr, ptr %buf, align 8
@@ -3532,7 +3532,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %u_tree = getelementptr inbounds i8, ptr %info, i64 252
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call3 = call i32 @write_index_as_tree(ptr noundef nonnull %u_tree, ptr noundef nonnull %istate, ptr noundef %3, i32 noundef 0, ptr noundef null) #14
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %done
@@ -3552,7 +3552,7 @@ done:                                             ; preds = %if.end6, %if.end, %
   %ret.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ %spec.select, %if.end6 ]
   call void @release_index(ptr noundef nonnull %istate) #14
   call void @strbuf_release(ptr noundef nonnull %untracked_msg) #14
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call14 = call i32 @remove_path(ptr noundef %6) #14
   ret i32 %ret.0
 }
@@ -3569,13 +3569,13 @@ entry:
   %repo = getelementptr inbounds i8, ptr %istate, i64 240
   %0 = load ptr, ptr @the_repository, align 8
   store ptr %0, ptr %repo, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call = tail call i32 @remove_path(ptr noundef %1) #14
   %git_cmd = getelementptr inbounds i8, ptr %cp_read_tree, i64 104
   store i16 8, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_read_tree, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.95, ptr noundef null) #14
   %env = getelementptr inbounds i8, ptr %cp_read_tree, i64 24
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call1 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.59, ptr noundef %2) #14
   %call2 = call i32 @run_command(ptr noundef nonnull %cp_read_tree) #14
   %tobool.not = icmp eq i32 %call2, 0
@@ -3585,7 +3585,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr @the_repository, align 8
   %index_file = getelementptr inbounds i8, ptr %3, i64 120
   %4 = load ptr, ptr %index_file, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   store ptr %5, ptr %index_file, align 8
   %call4 = call ptr @getenv(ptr noundef nonnull @.str.116) #14
   %tobool.not.i = icmp eq ptr %call4, null
@@ -3628,7 +3628,7 @@ if.else:                                          ; preds = %land.lhs.true, %xst
 do.body:                                          ; preds = %if.then14, %if.else
   call void @free(ptr noundef %cond.i) #14
   %w_tree = getelementptr inbounds i8, ptr %info, i64 144
-  %10 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call18 = call i32 @write_index_as_tree(ptr noundef nonnull %w_tree, ptr noundef nonnull %istate, ptr noundef %10, i32 noundef 0, ptr noundef null) #14
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %done
@@ -3670,7 +3670,7 @@ _.exit:                                           ; preds = %if.then36, %if.end3
 done:                                             ; preds = %if.then34, %_.exit, %if.end21, %do.body, %entry, %if.end32
   %ret.0 = phi i32 [ %lnot.ext, %if.end32 ], [ -1, %entry ], [ -1, %do.body ], [ -1, %if.end21 ], [ 1, %_.exit ], [ 1, %if.then34 ]
   call void @release_index(ptr noundef nonnull %istate) #14
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call41 = call i32 @remove_path(ptr noundef %14) #14
   ret i32 %ret.0
 }
@@ -3748,7 +3748,7 @@ entry:
   call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %rev, ptr noundef null) #14
   %prune_data = getelementptr inbounds i8, ptr %rev, i64 240
   call void @copy_pathspec(ptr noundef nonnull %prune_data, ptr noundef %ps) #14
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   call void @set_alternate_index_output(ptr noundef %1) #14
   %i_tree = getelementptr inbounds i8, ptr %info, i64 216
   %call = call fastcc i32 @reset_tree(ptr noundef nonnull %i_tree)
@@ -3779,7 +3779,7 @@ if.end6:                                          ; preds = %if.end
   store i16 8, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_upd_index, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef null) #14
   %env = getelementptr inbounds i8, ptr %cp_upd_index, i64 24
-  %4 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call8 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.59, ptr noundef %4) #14
   %buf = getelementptr inbounds i8, ptr %diff_output, i64 16
   %5 = load ptr, ptr %buf, align 8
@@ -3791,7 +3791,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end6
   %w_tree = getelementptr inbounds i8, ptr %info, i64 144
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call13 = call i32 @write_index_as_tree(ptr noundef nonnull %w_tree, ptr noundef nonnull %istate, ptr noundef %7, i32 noundef 0, ptr noundef null) #14
   %tobool14.not = icmp ne i32 %call13, 0
   %spec.select = sext i1 %tobool14.not to i32
@@ -3802,7 +3802,7 @@ done:                                             ; preds = %if.end12, %if.end6,
   call void @release_index(ptr noundef nonnull %istate) #14
   call void @release_revisions(ptr noundef nonnull %rev) #14
   call void @strbuf_release(ptr noundef nonnull %diff_output) #14
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @stash_index_path, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   %call17 = call i32 @remove_path(ptr noundef %8) #14
   ret i32 %ret.0
 }
@@ -3998,7 +3998,7 @@ if.then21:                                        ; preds = %land.lhs.true19
   %conv = sext i32 %5 to i64
   %call23 = tail call ptr @xcalloc(i64 noundef %conv, i64 noundef 1) #14
   tail call void @ensure_full_index(ptr noundef nonnull @the_index) #14
-  %6 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp2484.not = icmp eq i32 %6, 0
   br i1 %cmp2484.not, label %for.end, label %for.body
 
@@ -4019,7 +4019,7 @@ for.body:                                         ; preds = %if.then21, %for.bod
   %name.i = getelementptr inbounds i8, ptr %8, i64 108
   %call.i51 = tail call i32 @match_pathspec(ptr noundef nonnull @the_index, ptr noundef nonnull %ps, ptr noundef nonnull %name.i, i32 noundef %9, i32 noundef 0, ptr noundef %call23, i32 noundef %lor.ext.i) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %12 = zext i32 %11 to i64
   %cmp24 = icmp ult i64 %indvars.iv.next, %12
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !13

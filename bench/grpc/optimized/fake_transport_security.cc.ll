@@ -356,7 +356,7 @@ _ZL36tsi_fake_handshake_message_to_stringi.exit29.i: ; preds = %if.end.i24.i, %i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit29.i, %if.end10.i
-  %9 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i, label %if.then17.i, label %if.end20.i
 
@@ -390,7 +390,7 @@ if.end20.i:                                       ; preds = %_ZL36tsi_fake_hands
   br i1 %cmp24.i, label %if.then25.i, label %if.end17
 
 if.then25.i:                                      ; preds = %if.end20.i
-  %12 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %12 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i39.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i39.i, label %if.then27.i, label %if.end35.i
 
@@ -515,7 +515,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   store i32 1, ptr %needs_draining.i, align 8
   %30 = tail call i32 @llvm.smin.i32(i32 %22, i32 2)
   %spec.store.select.i = add nsw i32 %30, 2
-  %31 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i51 = trunc i8 %31 to i1
   br i1 %tobool.i.i.i.i51, label %if.then12.i52, label %if.end18.thread42.i
 
@@ -584,7 +584,7 @@ land.lhs.true.i:                                  ; preds = %if.end23.i
   br i1 %cmp27.i, label %if.then28.i, label %if.else.i
 
 if.then28.i:                                      ; preds = %land.lhs.true.i
-  %43 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i31.i = trunc i8 %43 to i1
   br i1 %tobool.i.i.i31.i, label %if.then30.i, label %if.end31.i
 

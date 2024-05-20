@@ -3961,7 +3961,7 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
 15:                                               ; preds = %.lr.ph
   %.not23 = icmp eq ptr %11, %10
   %16 = ptrtoint ptr %.028 to i64
-  %17 = sub i64 ptrtoint (ptr getelementptr inbounds ([200 x i8], ptr @multissl_version.backends, i64 1, i64 0) to i64), %16
+  %17 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @multissl_version.backends, i64 200) to i64), %16
   %.not25 = icmp eq ptr %.028, @multissl_version.backends
   %18 = select i1 %.not25, ptr @.str.18, ptr @.str.17
   %19 = select i1 %.not23, ptr @.str.18, ptr @.str.19

@@ -80,7 +80,7 @@ define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %6 = and i32 %5, 262144
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
@@ -166,7 +166,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %41 = phi i32 [ 0, %12 ], [ 4, %38 ], [ 0, %27 ], [ 1, %30 ], [ 1, %31 ], [ %37, %35 ]
   %42 = tail call ptr @avifImageCreate(i32 noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %41) #17
   %43 = icmp eq ptr %42, null
-  %44 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %45 = and i32 %44, 262144
   %46 = icmp eq i32 %45, 0
   br i1 %43, label %47, label %49
@@ -257,7 +257,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br label %83
 
 83:                                               ; preds = %81, %77, %75
-  %84 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %85 = and i32 %84, 262144
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %89, label %87
@@ -286,7 +286,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %96
-  %101 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %102 = and i32 %101, 262144
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %112, label %104
@@ -722,7 +722,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %404, label %405, label %410
 
 405:                                              ; preds = %402
-  %406 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %406 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %407 = and i32 %406, 262144
   %408 = icmp eq i32 %407, 0
   br i1 %408, label %523, label %409
@@ -826,7 +826,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br label %473
 
 473:                                              ; preds = %465, %435
-  %474 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %474 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %475 = and i32 %474, 262144
   %476 = icmp eq i32 %475, 0
   br i1 %476, label %490, label %477
@@ -854,7 +854,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %492, label %499, label %493
 
 493:                                              ; preds = %490
-  %494 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %494 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %495 = and i32 %494, 262144
   %496 = icmp eq i32 %495, 0
   br i1 %496, label %523, label %497
@@ -874,7 +874,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %505, label %506, label %511
 
 506:                                              ; preds = %499
-  %507 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !6
+  %507 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %508 = and i32 %507, 262144
   %509 = icmp eq i32 %508, 0
   br i1 %509, label %523, label %510

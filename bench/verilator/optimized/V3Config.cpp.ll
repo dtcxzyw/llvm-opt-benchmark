@@ -617,7 +617,7 @@ define dso_local void @_ZN8V3Config11addCaseFullERKNSt7__cxx1112basic_stringIcSt
   br label %_ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit
 
 _ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit: ; preds = %8, %6, %2
-  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -717,7 +717,7 @@ define dso_local void @_ZN8V3Config15addCaseParallelERKNSt7__cxx1112basic_string
   br label %_ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit
 
 _ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit: ; preds = %8, %6, %2
-  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -747,7 +747,7 @@ define dso_local void @_ZN8V3Config19addCoverageBlockOffERKNSt7__cxx1112basic_st
   br label %_ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit
 
 _ZN12V3ConfigFile16addLineAttributeEi11VPragmaType.exit: ; preds = %8, %6, %2
-  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %10 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -908,7 +908,7 @@ _ZN8FileLine13globalWarnOffE11V3ErrorCodeb.exit:  ; preds = %8, %11, %14
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %18, %21, %23
-  %25 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %25 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %2)
   tail call void @_ZN12V3ConfigFile9addIgnoreE11V3ErrorCodeib(ptr noundef nonnull align 8 dereferenceable(136) %25, i8 %0, i32 noundef %3, i1 noundef zeroext %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %35, label %26
@@ -930,7 +930,7 @@ _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %18, %21, %23
   br label %_ZN16V3ConfigResolver1sEv.exit14
 
 _ZN16V3ConfigResolver1sEv.exit14:                 ; preds = %26, %29, %31
-  %33 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %33 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %2)
   %34 = xor i1 %1, true
   tail call void @_ZN12V3ConfigFile9addIgnoreE11V3ErrorCodeib(ptr noundef nonnull align 8 dereferenceable(136) %33, i8 %0, i32 noundef %4, i1 noundef zeroext %34)
   br label %35
@@ -952,7 +952,7 @@ _ZN16V3ConfigResolver1sEv.exit14:                 ; preds = %26, %29, %31
   br label %_ZN16V3ConfigResolver1sEv.exit16
 
 _ZN16V3ConfigResolver1sEv.exit16:                 ; preds = %35, %38, %40
-  tail call void @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE5flushEv(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0))
+  tail call void @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE5flushEv(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136))
   br label %42
 
 42:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit16, %_ZN8FileLine13globalWarnOffE11V3ErrorCodeb.exit
@@ -1151,7 +1151,7 @@ define dso_local void @_ZN8V3Config14addIgnoreMatchE11V3ErrorCodeRKNSt7__cxx1112
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %3, %7, %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %11 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE2atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %0, ptr %4, align 1
   %12 = getelementptr inbounds i8, ptr %11, i64 104
@@ -1482,17 +1482,17 @@ define dso_local void @_ZN8V3Config14addProfileDataEP8FileLineRKNSt7__cxx1112bas
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %4, %7, %9
-  %11 = load ptr, ptr getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 4), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 400), align 8
   %.not.i3 = icmp eq ptr %11, null
   br i1 %.not.i3, label %12, label %_ZN16V3ConfigResolver14addProfileDataEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_m.exit
 
 12:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit
-  store ptr %0, ptr getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 4), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 400), align 8
   br label %_ZN16V3ConfigResolver14addProfileDataEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_m.exit
 
 _ZN16V3ConfigResolver14addProfileDataEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_m.exit: ; preds = %_ZN16V3ConfigResolver1sEv.exit, %12
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
-  %13 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIS6_mSt4hashIS6_ESt8equal_toIS6_ESaIS7_IS8_mEEEESaISH_ENS_10_Select1stESD_SB_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 3, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %13 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIS6_mSt4hashIS6_ESt8equal_toIS6_ESaIS7_IS8_mEEEESaISH_ENS_10_Select1stESD_SB_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 344), ptr noundef nonnull align 8 dereferenceable(32) %1)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_mESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %spec.store.select.i
@@ -1518,7 +1518,7 @@ define dso_local void @_ZN8V3Config15addScopeTraceOnEbRKNSt7__cxx1112basic_strin
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %3, %6, %8
-  tail call void @_ZN26V3ConfigScopeTraceResolver15addScopeTraceOnEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0), i1 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
+  tail call void @_ZN26V3ConfigScopeTraceResolver15addScopeTraceOnEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 272), i1 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
   ret void
 }
 
@@ -2394,7 +2394,7 @@ define dso_local void @_ZN8V3Config9applyCaseEP7AstCase(ptr nocapture noundef %0
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %1, %11, %13
-  %15 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %15 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %16 unwind label %74
 
 16:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit
@@ -2656,9 +2656,9 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   %12 = getelementptr inbounds i8, ptr %1, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 0), align 8, !noalias !25
-  %16 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1), align 8, !noalias !25
-  %17 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3), align 8, !noalias !25
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 104), align 8, !noalias !25
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 112), align 8, !noalias !25
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 128), align 8, !noalias !25
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %16 to i64
   %20 = sub i64 %18, %19
@@ -2892,7 +2892,7 @@ define dso_local void @_ZN8V3Config18applyCoverageBlockEP13AstNodeModuleP8AstBeg
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %2, %11, %13
-  %15 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %15 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %16 unwind label %53
 
 16:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit
@@ -3010,7 +3010,7 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i: ; p
           to label %49 unwind label %51
 
 49:                                               ; preds = %.noexc16
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 152
   store i8 1, ptr %50, align 8
   invoke void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %47)
@@ -3287,7 +3287,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule10applyBlockEP12AstNodeBl
           to label %20 unwind label %24
 
 20:                                               ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 152
   store i8 1, ptr %21, align 8
   call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %18)
@@ -3338,7 +3338,7 @@ define dso_local void @_ZN8V3Config12applyIgnoresEP8FileLine(ptr noundef nonnull
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %1, %5, %7
-  %9 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %9 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %10 unwind label %.loopexit.split-lp
 
 10:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit
@@ -3476,7 +3476,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
 12:                                               ; preds = %6
   %13 = trunc i8 %8 to i1
   %14 = select i1 %13, i8 3, i8 4
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 152
   store i8 %14, ptr %15, align 8
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %9)
@@ -3508,7 +3508,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
           to label %27 unwind label %30
 
 27:                                               ; preds = %23
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 152
   store i8 %.sroa.0.0.copyload, ptr %28, align 8
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %25)
@@ -3820,7 +3820,7 @@ define linkonce_odr dso_local void @_ZNK13V3ConfigFTask5applyEP12AstNodeFTask(pt
           to label %10 unwind label %12
 
 10:                                               ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 152
   store i8 5, ptr %11, align 8
   tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %7)
@@ -3845,7 +3845,7 @@ define linkonce_odr dso_local void @_ZNK13V3ConfigFTask5applyEP12AstNodeFTask(pt
           to label %.thread unwind label %23
 
 .thread:                                          ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV9AstPragma, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 152
   store i8 7, ptr %22, align 8
   tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %19)
@@ -4190,7 +4190,7 @@ define linkonce_odr dso_local void @_ZN11V3ConfigVar5applyEP6AstVar(ptr noundef 
           to label %10 unwind label %23
 
 10:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 344) ({ [45 x ptr] }, ptr @_ZTV9AstAttrOf, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstAttrOf, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 152
   store i8 %.sroa.0.0.copyload, ptr %11, align 8
   tail call void @_ZN7AstNode7addOp4pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %8)
@@ -4212,7 +4212,7 @@ define linkonce_odr dso_local void @_ZN11V3ConfigVar5applyEP6AstVar(ptr noundef 
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV15AstAlwaysPublic, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstAlwaysPublic, i64 16), ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN15AstAlwaysPublicC2EP8FileLineP10AstSenTreeP7AstNode.exit, label %21
 
@@ -4268,7 +4268,7 @@ define dso_local noundef i64 @_ZN8V3Config14getProfileDataERKNSt7__cxx1112basic_
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %2, %5, %7
-  %9 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIS5_mSt4hashIS5_ESt8equal_toIS5_ESaIS6_IS7_mEEEESaISG_ENSt8__detail10_Select1stESC_SA_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 3, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %9 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIS5_mSt4hashIS5_ESt8equal_toIS5_ESaIS6_IS7_mEEEESaISG_ENSt8__detail10_Select1stESC_SA_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 344), ptr noundef nonnull align 8 dereferenceable(32) %0)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZNK16V3ConfigResolver14getProfileDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, label %11
 
@@ -4306,7 +4306,7 @@ define dso_local noundef ptr @_ZN8V3Config22getProfileDataFileLineEv() local_unn
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %0, %3, %5
-  %7 = load ptr, ptr getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 4), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 400), align 8
   ret ptr %7
 }
 
@@ -4328,7 +4328,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Config15getScopeTraceOnERKNSt7__cxx11
   br label %_ZN16V3ConfigResolver1sEv.exit
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %1, %4, %6
-  %8 = tail call noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolver15getScopeTraceOnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %8 = tail call noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolver15getScopeTraceOnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 272), ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i1 %8
 }
 
@@ -4616,7 +4616,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Config5waiveEP8FileLine11V3ErrorCodeR
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %3, %7, %9
   call void @_ZNK8FileLine8filenameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %11 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (%class.V3ConfigResolver, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %11 = invoke noundef ptr @_ZN24V3ConfigWildcardResolverI12V3ConfigFileE7resolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 136), ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %12 unwind label %13
 
 12:                                               ; preds = %_ZN16V3ConfigResolver1sEv.exit
@@ -6327,7 +6327,7 @@ define linkonce_odr dso_local void @_ZN8FileLine15builtInFilenameB5cxx11Ev(ptr d
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.134, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.134, i64 0, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.134, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.134, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -7896,7 +7896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 17:                                               ; preds = %12
   %18 = trunc i32 %15 to i8
   store i8 %18, ptr %16, align 1
-  %19 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %19 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %20 unwind label %31
 
 20:                                               ; preds = %17
@@ -7909,7 +7909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc20 unwind label %33
 
 .noexc20:                                         ; preds = %.noexc19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.137, ptr noundef nonnull getelementptr inbounds ([114 x i8], ptr @.str.137, i64 0, i64 113))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.137, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.137, i64 113))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23 unwind label %22
 
 22:                                               ; preds = %.noexc20
@@ -7919,14 +7919,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; preds = %.noexc20
-  %24 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %24 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %25 unwind label %35
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %26 = call i32 @llvm.umax.i32(i32 %19, i32 %24)
-  %27 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
+  %27 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 1710), align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %.thread, label %37
 

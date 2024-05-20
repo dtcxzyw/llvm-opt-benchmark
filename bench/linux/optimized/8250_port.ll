@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -12, 1) i32 @serial8250_em485_config(ptr noun
   br i1 %19, label %21, label %40
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %23 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 2080, i64 noundef 152) #15
   store ptr %23, ptr %17, align 8
   %24 = icmp eq ptr %23, null

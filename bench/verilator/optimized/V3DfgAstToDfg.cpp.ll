@@ -4106,7 +4106,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitorC2ER9AstModuleR24V3DfgOp
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV15AstToDfgVisitor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV15AstToDfgVisitor, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %_ZN12VNUser1InUseC2Ev.exit unwind label %29
@@ -4328,7 +4328,7 @@ _ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIP12Dfg
   unreachable
 
 _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV9VNVisitor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %15 unwind label %18
@@ -4802,8 +4802,8 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
 _ZN8FileLine9singletonEv.exit.i206:               ; preds = %168, %165, %.preheader.i
   %172 = load i16, ptr %137, align 8
   %173 = zext i16 %172 to i64
-  %174 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %175 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %176 = ptrtoint ptr %174 to i64
   %177 = ptrtoint ptr %175 to i64
   %178 = sub i64 %176, %177
@@ -4849,8 +4849,8 @@ _ZNKSt6bitsetILm119EE4testEm.exit34.i:            ; preds = %_ZN8FileLine9single
 _ZN8FileLine9singletonEv.exit.i199:               ; preds = %187, %184, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
   %191 = load i16, ptr %137, align 8
   %192 = zext i16 %191 to i64
-  %193 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %194 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %195 = ptrtoint ptr %193 to i64
   %196 = ptrtoint ptr %194 to i64
   %197 = sub i64 %195, %196
@@ -4906,8 +4906,8 @@ _ZN8FileLine9singletonEv.exit.i199:               ; preds = %187, %184, %_ZNKSt6
 _ZN8FileLine9singletonEv.exit.i192:               ; preds = %219, %216, %213
   %223 = load i16, ptr %138, align 8
   %224 = zext i16 %223 to i64
-  %225 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %226 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %227 = ptrtoint ptr %225 to i64
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
@@ -4949,8 +4949,8 @@ _ZN8FileLine9singletonEv.exit.i192:               ; preds = %219, %216, %213
 _ZN8FileLine9singletonEv.exit.i:                  ; preds = %240, %237, %233
   %244 = load i16, ptr %137, align 8
   %245 = zext i16 %244 to i64
-  %246 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %247 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %248 = ptrtoint ptr %246 to i64
   %249 = ptrtoint ptr %247 to i64
   %250 = sub i64 %248, %249
@@ -5274,7 +5274,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit.i: ; preds =
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %374, i8 0, i64 24, i1 false)
   %375 = getelementptr inbounds i8, ptr %368, i64 96
   store ptr %368, ptr %375, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSel, i64 0, i32 0, i64 2), ptr %368, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgSel, i64 16), ptr %368, align 8
   %376 = getelementptr inbounds i8, ptr %368, i64 104
   store i32 0, ptr %376, align 8
   %377 = load ptr, ptr %129, align 8
@@ -5432,7 +5432,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit.i: ; preds =
   store ptr %429, ptr %434, align 8
   %435 = getelementptr inbounds i8, ptr %429, i64 128
   store ptr %429, ptr %435, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgConcat, i64 0, i32 0, i64 2), ptr %429, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %429, align 8
   %436 = load ptr, ptr %405, align 8
   %437 = getelementptr inbounds i8, ptr %429, i64 104
   invoke void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %437, ptr noundef %436)
@@ -6147,7 +6147,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAcosD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgAcosD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -6356,7 +6356,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAcoshD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgAcoshD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -6599,7 +6599,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgAdd, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -6863,7 +6863,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgAddD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgAddD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -7173,7 +7173,7 @@ _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit71: ; preds = %_ZN11AstNodeExpr
           to label %93 unwind label %107
 
 93:                                               ; preds = %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit71
-  store ptr getelementptr inbounds inrange(-16, 408) ({ [53 x ptr] }, ptr @_ZTV7AstCond, i64 0, i32 0, i64 2), ptr %81, align 8
+  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV7AstCond, i64 16), ptr %81, align 8
   %94 = load ptr, ptr %82, align 8
   %95 = load ptr, ptr %59, align 8
   %96 = tail call noundef zeroext i1 @_ZN15AstToDfgVisitor15convertEquationEP7AstNodeP8FileLineS1_S1_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %1, ptr noundef %94, ptr noundef %95, ptr noundef nonnull %81)
@@ -7378,7 +7378,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgAnd, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -7644,7 +7644,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgArraySel, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgArraySel, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -7876,7 +7876,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAsinD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgAsinD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -8085,7 +8085,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAsinhD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgAsinhD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -8386,7 +8386,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgAssocSel, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgAssocSel, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -8650,7 +8650,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAtan2D, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgAtan2D, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -8882,7 +8882,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAtanD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgAtanD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -9091,7 +9091,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAtanhD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgAtanhD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -9415,7 +9415,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgBitsToRealD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgBitsToRealD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -9662,7 +9662,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgBufIf1, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgBufIf1, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -9894,7 +9894,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgCAwait, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgCAwait, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -10222,7 +10222,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCLog2, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgCLog2, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -10483,7 +10483,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgCastDynamic, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgCastDynamic, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -10719,7 +10719,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgCastWrap, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgCastWrap, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -10928,7 +10928,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCeilD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgCeilD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -11338,7 +11338,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgConcat, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -11602,7 +11602,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgConcatN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgConcatN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -11903,7 +11903,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgCond, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgCond, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -12242,7 +12242,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgCondBound, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgCondBound, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -12490,7 +12490,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %.noexc8 unwind label %93
 
 .noexc8:                                          ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgConst, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgConst, i64 16), ptr %41, align 8
   %53 = getelementptr inbounds i8, ptr %41, i64 72
   invoke void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %46)
           to label %56 unwind label %54
@@ -12735,7 +12735,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgCosD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgCosD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -12944,7 +12944,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCoshD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgCoshD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -13155,7 +13155,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgCountOnes, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgCountOnes, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -13374,7 +13374,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV16DfgCvtPackString, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV16DfgCvtPackString, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -13633,7 +13633,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV16DfgDistChiSquare, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV16DfgDistChiSquare, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -13934,7 +13934,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgDistErlang, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgDistErlang, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -14236,7 +14236,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV18DfgDistExponential, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV18DfgDistExponential, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -14539,7 +14539,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgDistNormal, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgDistNormal, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -14841,7 +14841,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgDistPoisson, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgDistPoisson, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -15105,7 +15105,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgDistT, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgDistT, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -15406,7 +15406,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgDistUniform, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgDistUniform, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -15708,7 +15708,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgDiv, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgDiv, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -15972,7 +15972,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgDivD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgDivD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -16236,7 +16236,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgDivS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgDivS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -16524,7 +16524,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgEq, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV5DfgEq, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -16788,7 +16788,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgEqCase, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgEqCase, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -17052,7 +17052,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgEqD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -17316,7 +17316,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgEqN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -17580,7 +17580,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqT, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgEqT, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -17844,7 +17844,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgEqWild, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgEqWild, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -18080,7 +18080,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgExpD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgExpD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -18291,7 +18291,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgExtend, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgExtend, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -18500,7 +18500,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgExtendS, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgExtendS, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -18711,7 +18711,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgFEof, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgFEof, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -18924,7 +18924,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgFGetC, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgFGetC, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -19165,7 +19165,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgFGetS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgFGetS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -19443,7 +19443,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgFUngetC, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgFUngetC, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -19683,7 +19683,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgFloorD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgFloorD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -19940,7 +19940,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgGetcN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgGetcN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -20204,7 +20204,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgGetcRefN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgGetcRefN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -20468,7 +20468,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgGt, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV5DfgGt, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -20732,7 +20732,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgGtD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -20996,7 +20996,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgGtN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -21260,7 +21260,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgGtS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -21524,7 +21524,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGte, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgGte, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -21788,7 +21788,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgGteD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -22052,7 +22052,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgGteN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -22316,7 +22316,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgGteS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -22580,7 +22580,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgHypotD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgHypotD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -22812,7 +22812,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgISToRD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgISToRD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -23021,7 +23021,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgIToRD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgIToRD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -23256,7 +23256,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgIsUnbounded, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgIsUnbounded, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -23465,7 +23465,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgIsUnknown, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgIsUnknown, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -23682,7 +23682,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLenN, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgLenN, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -23893,7 +23893,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLog10D, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgLog10D, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -24134,7 +24134,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLogAnd, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgLogAnd, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -24366,7 +24366,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLogD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgLogD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -24607,7 +24607,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogEq, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgLogEq, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -24871,7 +24871,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogIf, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgLogIf, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -25103,7 +25103,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLogNot, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgLogNot, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -25344,7 +25344,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogOr, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgLogOr, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -25608,7 +25608,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgLt, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV5DfgLt, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -25872,7 +25872,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgLtD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -26136,7 +26136,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgLtN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -26400,7 +26400,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgLtS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -26664,7 +26664,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLte, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgLte, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -26928,7 +26928,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgLteD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -27192,7 +27192,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgLteN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -27456,7 +27456,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgLteS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -27728,7 +27728,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgModDiv, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgModDiv, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -27992,7 +27992,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgModDivS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgModDivS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -28266,7 +28266,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgMul, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgMul, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -28530,7 +28530,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgMulD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgMulD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -28794,7 +28794,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgMulS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -29026,7 +29026,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNToI, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgNToI, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -29235,7 +29235,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgNegate, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgNegate, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -29444,7 +29444,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNegateD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgNegateD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -29685,7 +29685,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgNeq, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgNeq, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -29949,7 +29949,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNeqCase, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgNeqCase, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -30213,7 +30213,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgNeqD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -30477,7 +30477,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgNeqN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -30741,7 +30741,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqT, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgNeqT, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -31005,7 +31005,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNeqWild, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgNeqWild, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -31329,7 +31329,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgNot, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgNot, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -31540,7 +31540,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgNullCheck, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgNullCheck, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -31749,7 +31749,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgOneHot, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgOneHot, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -31958,7 +31958,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgOneHot0, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgOneHot0, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -32199,7 +32199,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgOr, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV5DfgOr, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -32526,7 +32526,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgPostAdd, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgPostAdd, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -32865,7 +32865,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgPostSub, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgPostSub, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -33167,7 +33167,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgPow, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgPow, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -33431,7 +33431,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgPowD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgPowD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -33695,7 +33695,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowSS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgPowSS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -33959,7 +33959,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowSU, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgPowSU, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -34223,7 +34223,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowUS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgPowUS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -34526,7 +34526,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgPreAdd, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgPreAdd, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -34865,7 +34865,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgPreSub, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgPreSub, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -35214,7 +35214,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPutcN, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgPutcN, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -35486,7 +35486,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgRToIRoundS, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgRToIRoundS, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -35695,7 +35695,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgRToIS, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgRToIS, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -35914,7 +35914,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgRealToBits, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgRealToBits, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -36123,7 +36123,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgRedAnd, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgRedAnd, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -36332,7 +36332,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgRedOr, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgRedOr, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -36541,7 +36541,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgRedXor, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgRedXor, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -36788,7 +36788,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgReplicate, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgReplicate, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -37052,7 +37052,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgReplicateN, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgReplicateN, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -37284,7 +37284,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV15DfgResizeLValue, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV15DfgResizeLValue, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -37534,7 +37534,7 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 24, i1 false)
   %72 = getelementptr inbounds i8, ptr %66, i64 96
   store ptr %66, ptr %72, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSel, i64 0, i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgSel, i64 16), ptr %66, align 8
   %73 = getelementptr inbounds i8, ptr %66, i64 104
   store i32 0, ptr %73, align 8
   %74 = load ptr, ptr %51, align 8
@@ -37584,7 +37584,7 @@ _ZN6DfgMux5frompEP9DfgVertex.exit:                ; preds = %97
   store ptr %93, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %93, i64 128
   store ptr %93, ptr %100, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgMux, i64 0, i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgMux, i64 16), ptr %93, align 8
   %101 = load ptr, ptr %51, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 112
   %103 = load i32, ptr %102, align 8
@@ -37881,7 +37881,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgShiftL, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -38145,7 +38145,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgShiftLOvr, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgShiftLOvr, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -38409,7 +38409,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgShiftR, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgShiftR, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -38673,7 +38673,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgShiftROvr, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgShiftROvr, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -38937,7 +38937,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgShiftRS, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgShiftRS, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -39201,7 +39201,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgShiftRSOvr, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgShiftRSOvr, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -39433,7 +39433,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgSigned, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgSigned, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -39642,7 +39642,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgSinD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgSinD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -39851,7 +39851,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgSinhD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgSinhD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -40229,7 +40229,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgSqrtD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgSqrtD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -40482,7 +40482,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgStreamL, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgStreamL, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -40746,7 +40746,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgStreamR, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgStreamR, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -41016,7 +41016,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSub, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgSub, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -41280,7 +41280,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgSubD, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgSubD, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -41581,7 +41581,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   resume { ptr, i32 } %113
 
 114:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgSubstrN, i64 0, i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgSubstrN, i64 16), ptr %103, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, %103
@@ -41859,7 +41859,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgTanD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7DfgTanD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -42068,7 +42068,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgTanhD, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8DfgTanhD, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -42295,7 +42295,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgTimeImport, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13DfgTimeImport, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -42508,7 +42508,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgToLowerN, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgToLowerN, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -42717,7 +42717,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgToUpperN, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgToUpperN, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -42978,7 +42978,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV15DfgURandomRange, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV15DfgURandomRange, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -43222,7 +43222,7 @@ _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %63, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgUnsigned, i64 0, i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgUnsigned, i64 16), ptr %63, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
@@ -43668,7 +43668,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgWildcardSel, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14DfgWildcardSel, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -43936,7 +43936,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgWordSel, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10DfgWordSel, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -44202,7 +44202,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   store ptr %83, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %83, i64 128
   store ptr %83, ptr %92, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgXor, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgXor, i64 16), ptr %83, align 8
   %93 = load ptr, ptr %41, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8
@@ -44321,7 +44321,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV9VNVisitor, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %6
@@ -45131,7 +45131,7 @@ common.resume:                                    ; preds = %32, %12
   br label %common.resume
 
 _ZN7V3Error1sEv.exit:                             ; preds = %2, %7, %10
-  %14 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (%class.V3ErrorGuarded, ptr @_ZZN7V3Error1sEvE3s_s, i64 0, i32 6), ptr nonnull @.str.20, ptr nonnull @.str.26, i32 322, ptr null)
+  %14 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZZN7V3Error1sEvE3s_s, i64 72), ptr nonnull @.str.20, ptr nonnull @.str.26, i32 322, ptr null)
   store i8 1, ptr %14, align 8
   call void @_ZNK8FileLine11warnContextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   invoke void @_ZNK8FileLine17warnContextParentB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -46016,8 +46016,8 @@ common.resume:                                    ; preds = %129, %96, %70
 _ZN8FileLine9singletonEv.exit.i13:                ; preds = %68, %65, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
   %72 = load i16, ptr %.sroa.03.0.copyload.i, align 8
   %73 = zext i16 %72 to i64
-  %74 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %75 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
@@ -46064,8 +46064,8 @@ _ZNK8FileLine5msgEnEv.exit16:                     ; preds = %_ZN8FileLine9single
 _ZN8FileLine9singletonEv.exit.i9:                 ; preds = %94, %91, %_ZNK8FileLine5msgEnEv.exit16
   %98 = load i16, ptr %32, align 8
   %99 = zext i16 %98 to i64
-  %100 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %101 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %102 = ptrtoint ptr %100 to i64
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
@@ -46130,8 +46130,8 @@ _ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %113
 _ZN8FileLine9singletonEv.exit.i:                  ; preds = %127, %124, %120
   %131 = load i16, ptr %.sroa.03.0.copyload.i, align 8
   %132 = zext i16 %131 to i64
-  %133 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %134 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %135 = ptrtoint ptr %133 to i64
   %136 = ptrtoint ptr %134 to i64
   %137 = sub i64 %135, %136
@@ -46909,8 +46909,8 @@ common.resume:                                    ; preds = %121, %88, %62
 _ZN8FileLine9singletonEv.exit.i38:                ; preds = %60, %57, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
   %64 = load i16, ptr %18, align 8
   %65 = zext i16 %64 to i64
-  %66 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %67 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
@@ -46957,8 +46957,8 @@ _ZNK8FileLine5msgEnEv.exit41:                     ; preds = %_ZN8FileLine9single
 _ZN8FileLine9singletonEv.exit.i34:                ; preds = %86, %83, %_ZNK8FileLine5msgEnEv.exit41
   %90 = load i16, ptr %19, align 8
   %91 = zext i16 %90 to i64
-  %92 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %93 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
@@ -47023,8 +47023,8 @@ _ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %105
 _ZN8FileLine9singletonEv.exit.i:                  ; preds = %119, %116, %112
   %123 = load i16, ptr %18, align 8
   %124 = zext i16 %123 to i64
-  %125 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %126 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %127 = ptrtoint ptr %125 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
@@ -47306,8 +47306,8 @@ common.resume:                                    ; preds = %121, %88, %62
 _ZN8FileLine9singletonEv.exit.i45:                ; preds = %60, %57, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
   %64 = load i16, ptr %18, align 8
   %65 = zext i16 %64 to i64
-  %66 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %67 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
@@ -47354,8 +47354,8 @@ _ZNK8FileLine5msgEnEv.exit48:                     ; preds = %_ZN8FileLine9single
 _ZN8FileLine9singletonEv.exit.i41:                ; preds = %86, %83, %_ZNK8FileLine5msgEnEv.exit48
   %90 = load i16, ptr %19, align 8
   %91 = zext i16 %90 to i64
-  %92 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %93 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
@@ -47420,8 +47420,8 @@ _ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %105
 _ZN8FileLine9singletonEv.exit.i:                  ; preds = %119, %116, %112
   %123 = load i16, ptr %18, align 8
   %124 = zext i16 %123 to i64
-  %125 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %126 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %127 = ptrtoint ptr %125 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
@@ -47811,8 +47811,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
   %11 = load i16, ptr %0, align 8
   %12 = zext i16 %11 to i64
-  %13 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1), align 8
-  %14 = load ptr, ptr getelementptr inbounds (%class.FileLineSingleton, ptr @_ZZN8FileLine9singletonEvE1s, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -50048,7 +50048,7 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit.thread: ;
           to label %.noexc14 unwind label %106
 
 .noexc14:                                         ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %56, align 8
   %62 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #23
           to label %65 unwind label %63
 
@@ -50076,7 +50076,7 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit.thread: ;
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %56, i64 98
   store i8 0, ptr %73, align 2
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgVarPacked, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12DfgVarPacked, i64 16), ptr %56, align 8
   %74 = getelementptr inbounds i8, ptr %56, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   %75 = getelementptr inbounds i8, ptr %0, i64 96
@@ -50322,7 +50322,7 @@ define linkonce_odr dso_local void @_ZN11DfgVarArrayC2ER8DfgGraphP6AstVar(ptr no
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN9DfgVertex8dtypeForEPK7AstNode(ptr noundef nonnull %2)
   tail call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i16 152, ptr noundef %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znam(i64 noundef 128) #23
           to label %.noexc.i.i unwind label %10
 
@@ -50363,7 +50363,7 @@ _ZN12DfgVertexVarC2ER8DfgGraph8VDfgTypeP6AstVarj.exit: ; preds = %.lr.ph.i.i.i
   store i8 0, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %0, i64 98
   store i8 0, ptr %18, align 2
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgVarArray, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11DfgVarArray, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %2, i64 72
@@ -50474,7 +50474,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6AstVar13dtypeSkipRefpEv(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgVertexVarD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -50501,7 +50501,7 @@ define linkonce_odr dso_local void @_ZN11DfgVarArrayD2Ev(ptr noundef nonnull ali
   br label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -50528,7 +50528,7 @@ define linkonce_odr dso_local void @_ZN11DfgVarArrayD0Ev(ptr noundef nonnull ali
   br label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i: ; preds = %4, %1
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -50655,7 +50655,7 @@ _ZN8AstRange9cloneTreeEb.exit:                    ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %26, i8 0, i64 10, i1 false)
   %27 = getelementptr inbounds i8, ptr %8, i64 168
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 432) ({ [56 x ptr] }, ptr @_ZTV19AstUnpackArrayDType, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV19AstUnpackArrayDType, i64 16), ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %8, i64 176
   store i8 0, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %25, null
@@ -50787,7 +50787,7 @@ declare void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DfgVertexVariadicD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -50861,7 +50861,7 @@ define linkonce_odr dso_local void @_ZN12DfgVarPackedD2Ev(ptr noundef nonnull al
   br label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -50888,7 +50888,7 @@ define linkonce_odr dso_local void @_ZN12DfgVarPackedD0Ev(ptr noundef nonnull al
   br label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i: ; preds = %4, %1
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -52067,7 +52067,7 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %108
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, i8 0, i64 24, i1 false)
   %110 = getelementptr inbounds i8, ptr %105, i64 96
   store ptr %105, ptr %110, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSel, i64 0, i32 0, i64 2), ptr %105, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgSel, i64 16), ptr %105, align 8
   %111 = getelementptr inbounds i8, ptr %105, i64 104
   store i32 0, ptr %111, align 8
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef %.tr119137)
@@ -52109,7 +52109,7 @@ tailrecurse:                                      ; preds = %127
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 24, i1 false)
   %129 = getelementptr inbounds i8, ptr %124, i64 96
   store ptr %124, ptr %129, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSel, i64 0, i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV6DfgSel, i64 16), ptr %124, align 8
   %130 = getelementptr inbounds i8, ptr %124, i64 104
   store i32 0, ptr %130, align 8
   tail call void @_ZN6DfgSel5frompEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(112) %124, ptr noundef %.tr119137)

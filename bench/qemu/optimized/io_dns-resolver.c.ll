@@ -28,7 +28,7 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load volatile ptr, ptr getelementptr inbounds (%struct._GOnce, ptr @instance_init, i64 0, i32 1), align 8
+  %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @instance_init, i64 8), align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry

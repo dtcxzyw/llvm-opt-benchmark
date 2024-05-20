@@ -1427,7 +1427,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !101
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !101
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = and i32 %4, 196608
   %11 = icmp ne i32 %10, 0
@@ -1450,7 +1450,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !101
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !101
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = and i32 %4, 196608
   %11 = icmp ne i32 %10, 0
@@ -1473,7 +1473,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L26Emitter_emitArgsAssignme
   %8 = and i8 %7, 1
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !101
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %4, align 8, !tbaa !101
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   %11 = and i32 %5, 196608
   %12 = icmp ne i32 %11, 0

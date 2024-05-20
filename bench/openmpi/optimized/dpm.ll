@@ -259,7 +259,7 @@ define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %48, label %49, label %66
 
 49:                                               ; preds = %45
-  call void @PMIx_Load_procid(ptr noundef nonnull %21, ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1), i32 noundef -2) #22
+  call void @PMIx_Load_procid(ptr noundef nonnull %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 8), i32 noundef -2) #22
   %50 = getelementptr inbounds i8, ptr %21, i64 256
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %56 [
@@ -553,7 +553,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %80, %86, %100
 
 189:                                              ; preds = %181
   %190 = load i32, ptr @opal_class_init_epoch, align 4
-  %191 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not383 = icmp eq i32 %190, %191
   br i1 %.not383, label %193, label %192
 
@@ -565,7 +565,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %80, %86, %100
   store ptr @opal_list_t_class, ptr %15, align 8
   %194 = getelementptr inbounds i8, ptr %15, i64 8
   store volatile i32 1, ptr %194, align 8
-  %195 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %196 = load ptr, ptr %195, align 8
   %.not6.i = icmp eq ptr %196, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -620,10 +620,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %193
 219:                                              ; preds = %206, %216, %215
   %.sink = phi i32 [ %218, %216 ], [ -4, %215 ], [ -2, %206 ]
   store i32 %.sink, ptr %202, align 4
-  %220 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 8), align 8
+  %220 = load i64, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 56), align 8
   %221 = call noalias ptr @malloc(i64 noundef %220) #25
   %222 = load i32, ptr @opal_class_init_epoch, align 4
-  %223 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 4), align 8
+  %223 = load i32, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 32), align 8
   %.not.i424 = icmp eq i32 %222, %223
   br i1 %.not.i424, label %225, label %224
 
@@ -639,7 +639,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %193
   store ptr @opal_proclist_t_class, ptr %221, align 8
   %227 = getelementptr inbounds i8, ptr %221, i64 8
   store volatile i32 1, ptr %227, align 8
-  %228 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 6), align 8
+  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 40), align 8
   %229 = load ptr, ptr %228, align 8
   %.not6.i.i = icmp eq ptr %229, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -688,7 +688,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %225, %
   store ptr %249, ptr %8, align 8
   call void @free(ptr noundef %.1314) #22
   %250 = load i32, ptr @opal_class_init_epoch, align 4
-  %251 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not385 = icmp eq i32 %250, %251
   br i1 %.not385, label %253, label %252
 
@@ -700,7 +700,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %225, %
   store ptr @opal_list_t_class, ptr %14, align 8
   %254 = getelementptr inbounds i8, ptr %14, i64 8
   store volatile i32 1, ptr %254, align 8
-  %255 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %256 = load ptr, ptr %255, align 8
   %.not6.i425 = icmp eq ptr %256, null
   br i1 %.not6.i425, label %opal_obj_run_constructors.exit429, label %.lr.ph.i426
@@ -716,7 +716,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %225, %
 
 opal_obj_run_constructors.exit429:                ; preds = %.lr.ph.i426, %253
   %260 = load i32, ptr @opal_class_init_epoch, align 4
-  %261 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %261 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not386 = icmp eq i32 %260, %261
   br i1 %.not386, label %263, label %262
 
@@ -728,7 +728,7 @@ opal_obj_run_constructors.exit429:                ; preds = %.lr.ph.i426, %253
   store ptr @opal_list_t_class, ptr %16, align 8
   %264 = getelementptr inbounds i8, ptr %16, i64 8
   store volatile i32 1, ptr %264, align 8
-  %265 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %266 = load ptr, ptr %265, align 8
   %.not6.i430 = icmp eq ptr %266, null
   br i1 %.not6.i430, label %opal_obj_run_constructors.exit434, label %.lr.ph.i431
@@ -790,10 +790,10 @@ opal_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %263
 296:                                              ; preds = %283, %293, %292
   %.sink916 = phi i32 [ %295, %293 ], [ -4, %292 ], [ -2, %283 ]
   store i32 %.sink916, ptr %272, align 4
-  %297 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 8), align 8
+  %297 = load i64, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 56), align 8
   %298 = call noalias ptr @malloc(i64 noundef %297) #25
   %299 = load i32, ptr @opal_class_init_epoch, align 4
-  %300 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 4), align 8
+  %300 = load i32, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 32), align 8
   %.not.i435 = icmp eq i32 %299, %300
   br i1 %.not.i435, label %302, label %301
 
@@ -809,7 +809,7 @@ opal_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %263
   store ptr @opal_proclist_t_class, ptr %298, align 8
   %304 = getelementptr inbounds i8, ptr %298, i64 8
   store volatile i32 1, ptr %304, align 8
-  %305 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_proclist_t_class, i64 0, i32 6), align 8
+  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_proclist_t_class, i64 40), align 8
   %306 = load ptr, ptr %305, align 8
   %.not6.i.i437 = icmp eq ptr %306, null
   br i1 %.not6.i.i437, label %opal_obj_new.exit441, label %.lr.ph.i.i438
@@ -1436,9 +1436,9 @@ opal_list_remove_first.exit509.thread:            ; preds = %597, %.preheader787
   br i1 %.not.i520, label %opal_obj_run_destructors.exit479, label %.lr.ph.i518, !llvm.loop !9
 
 607:                                              ; preds = %467
-  %608 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 8), align 8
+  %608 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 56), align 8
   %609 = call noalias ptr @malloc(i64 noundef %608) #25
-  %610 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 4), align 8
+  %610 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 32), align 8
   %.not.i522 = icmp eq i32 %.pre893, %610
   br i1 %.not.i522, label %612, label %611
 
@@ -1454,7 +1454,7 @@ opal_list_remove_first.exit509.thread:            ; preds = %597, %.preheader787
   store ptr @ompi_dpm_proct_caddy_t_class, ptr %609, align 8
   %614 = getelementptr inbounds i8, ptr %609, i64 8
   store volatile i32 1, ptr %614, align 8
-  %615 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 6), align 8
+  %615 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 40), align 8
   %616 = load ptr, ptr %615, align 8
   %.not6.i.i524 = icmp eq ptr %616, null
   br i1 %.not6.i.i524, label %opal_obj_new.exit528, label %.lr.ph.i.i525
@@ -1488,9 +1488,9 @@ opal_obj_new.exit528:                             ; preds = %.lr.ph.i.i525, %612
 
 628:                                              ; preds = %opal_obj_new.exit528, %467
   %629 = phi i32 [ %.pre892, %opal_obj_new.exit528 ], [ %.pre893, %467 ]
-  %630 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 8), align 8
+  %630 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 56), align 8
   %631 = call noalias ptr @malloc(i64 noundef %630) #25
-  %632 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 4), align 8
+  %632 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 32), align 8
   %.not.i529 = icmp eq i32 %629, %632
   br i1 %.not.i529, label %634, label %633
 
@@ -1506,7 +1506,7 @@ opal_obj_new.exit528:                             ; preds = %.lr.ph.i.i525, %612
   store ptr @ompi_dpm_proct_caddy_t_class, ptr %631, align 8
   %636 = getelementptr inbounds i8, ptr %631, i64 8
   store volatile i32 1, ptr %636, align 8
-  %637 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 6), align 8
+  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 40), align 8
   %638 = load ptr, ptr %637, align 8
   %.not6.i.i531 = icmp eq ptr %638, null
   br i1 %.not6.i.i531, label %opal_obj_new.exit535, label %.lr.ph.i.i532
@@ -1836,9 +1836,9 @@ opal_list_remove_first.exit565.thread:            ; preds = %783, %.preheader791
   br i1 %.not.i576, label %opal_obj_run_destructors.exit479, label %.lr.ph.i574, !llvm.loop !9
 
 793:                                              ; preds = %653
-  %794 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 8), align 8
+  %794 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 56), align 8
   %795 = call noalias ptr @malloc(i64 noundef %794) #25
-  %796 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 4), align 8
+  %796 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 32), align 8
   %.not.i578 = icmp eq i32 %.pre891, %796
   br i1 %.not.i578, label %798, label %797
 
@@ -1854,7 +1854,7 @@ opal_list_remove_first.exit565.thread:            ; preds = %783, %.preheader791
   store ptr @ompi_dpm_proct_caddy_t_class, ptr %795, align 8
   %800 = getelementptr inbounds i8, ptr %795, i64 8
   store volatile i32 1, ptr %800, align 8
-  %801 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 6), align 8
+  %801 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 40), align 8
   %802 = load ptr, ptr %801, align 8
   %.not6.i.i580 = icmp eq ptr %802, null
   br i1 %.not6.i.i580, label %opal_obj_new.exit584, label %.lr.ph.i.i581
@@ -1888,9 +1888,9 @@ opal_obj_new.exit584:                             ; preds = %.lr.ph.i.i581, %798
 
 814:                                              ; preds = %opal_obj_new.exit584, %653
   %815 = phi i32 [ %.pre, %opal_obj_new.exit584 ], [ %.pre891, %653 ]
-  %816 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 8), align 8
+  %816 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 56), align 8
   %817 = call noalias ptr @malloc(i64 noundef %816) #25
-  %818 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 4), align 8
+  %818 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 32), align 8
   %.not.i585 = icmp eq i32 %815, %818
   br i1 %.not.i585, label %820, label %819
 
@@ -1906,7 +1906,7 @@ opal_obj_new.exit584:                             ; preds = %.lr.ph.i.i581, %798
   store ptr @ompi_dpm_proct_caddy_t_class, ptr %817, align 8
   %822 = getelementptr inbounds i8, ptr %817, i64 8
   store volatile i32 1, ptr %822, align 8
-  %823 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_dpm_proct_caddy_t_class, i64 0, i32 6), align 8
+  %823 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_dpm_proct_caddy_t_class, i64 40), align 8
   %824 = load ptr, ptr %823, align 8
   %.not6.i.i587 = icmp eq ptr %824, null
   br i1 %.not6.i.i587, label %opal_obj_new.exit591, label %.lr.ph.i.i588
@@ -2283,7 +2283,7 @@ opal_list_remove_first.exit621.thread:            ; preds = %979, %.preheader779
   %1005 = load ptr, ptr %1004, align 8
   %1006 = getelementptr inbounds i8, ptr %1005, i64 40
   %1007 = load i32, ptr %1006, align 8
-  %1008 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @opal_name_wildcard, i64 0, i32 1), align 4
+  %1008 = load i32, ptr getelementptr inbounds (i8, ptr @opal_name_wildcard, i64 4), align 4
   store ptr null, ptr %25, align 8
   %1009 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %24, i32 noundef %1007) #22
   %cond934 = icmp eq i32 %1008, -1
@@ -2504,7 +2504,7 @@ opal_obj_run_destructors.exit640:                 ; preds = %.lr.ph.i637, %1069
 1101:                                             ; preds = %1098, %.thread754
   %.1312753 = phi i32 [ %1099, %1098 ], [ %.1312757, %.thread754 ]
   %1102 = icmp eq i32 %.1312753, 0
-  %1103 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
+  %1103 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 328), align 8
   %1104 = icmp ne ptr %1103, null
   %or.cond3 = select i1 %1102, i1 %1104, i1 false
   br i1 %or.cond3, label %1105, label %.thread758
@@ -3238,7 +3238,7 @@ declare i32 @ompi_comm_activate(ptr noundef, ptr noundef, ptr noundef, ptr nound
 define i32 @ompi_dpm_disconnect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.opal_list_t, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -3250,7 +3250,7 @@ define i32 @ompi_dpm_disconnect(ptr nocapture noundef readonly %0) local_unnamed
   store ptr @opal_list_t_class, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -3703,10 +3703,10 @@ ompi_group_peer_lookup.exit._crit_edge:           ; preds = %ompi_group_peer_loo
 
 51:                                               ; preds = %49, %45
   %.sroa.01.0 = phi i64 [ %.sroa.0.0.insert.insert.i, %45 ], [ %.sroa.01.0.copyload, %49 ]
-  %52 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_namelist_t_class, i64 0, i32 8), align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @opal_namelist_t_class, i64 56), align 8
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #25
   %54 = load i32, ptr @opal_class_init_epoch, align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_namelist_t_class, i64 0, i32 4), align 8
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @opal_namelist_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %54, %55
   br i1 %.not.i, label %57, label %56
 
@@ -3722,7 +3722,7 @@ ompi_group_peer_lookup.exit._crit_edge:           ; preds = %ompi_group_peer_loo
   store ptr @opal_namelist_t_class, ptr %53, align 8
   %59 = getelementptr inbounds i8, ptr %53, i64 8
   store volatile i32 1, ptr %59, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_namelist_t_class, i64 0, i32 6), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_namelist_t_class, i64 40), align 8
   %61 = load ptr, ptr %60, align 8
   %.not6.i.i = icmp eq ptr %61, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -3826,7 +3826,7 @@ define i32 @ompi_dpm_spawn(i32 noundef %0, ptr nocapture noundef readonly %1, pt
   store ptr null, ptr %22, align 8
   store ptr null, ptr %23, align 8
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %26, %27
   br i1 %.not, label %29, label %28
 
@@ -3838,7 +3838,7 @@ define i32 @ompi_dpm_spawn(i32 noundef %0, ptr nocapture noundef readonly %1, pt
   store ptr @opal_list_t_class, ptr %17, align 8
   %30 = getelementptr inbounds i8, ptr %17, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i = icmp eq ptr %32, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -3876,7 +3876,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
   %.05271729 = phi i1 [ false, %.lr.ph1731 ], [ %.41645, %opal_obj_run_destructors.exit1565 ]
   %47 = getelementptr inbounds %struct.pmix_app, ptr %36, i64 %indvars.iv1781
   %48 = load i32, ptr @opal_class_init_epoch, align 4
-  %49 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 4), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not596 = icmp eq i32 %48, %49
   br i1 %.not596, label %51, label %50
 
@@ -3887,7 +3887,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
 51:                                               ; preds = %50, %46
   store ptr @opal_list_t_class, ptr %18, align 8
   store volatile i32 1, ptr %38, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i64 0, i32 6), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %53 = load ptr, ptr %52, align 8
   %.not6.i703 = icmp eq ptr %53, null
   br i1 %.not6.i703, label %opal_obj_run_constructors.exit707, label %.lr.ph.i704
@@ -3983,10 +3983,10 @@ opal_obj_run_constructors.exit707:                ; preds = %.lr.ph.i704, %51
 94:                                               ; preds = %91
   %95 = load ptr, ptr @opal_show_help, align 8
   %96 = call i32 (ptr, ptr, i32, ...) %95(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.20) #22
-  %97 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %97 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %98 = call noalias ptr @malloc(i64 noundef %97) #25
   %99 = load i32, ptr @opal_class_init_epoch, align 4
-  %100 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i708 = icmp eq i32 %99, %100
   br i1 %.not.i708, label %102, label %101
 
@@ -4002,7 +4002,7 @@ opal_obj_run_constructors.exit707:                ; preds = %.lr.ph.i704, %51
   store ptr @opal_info_item_t_class, ptr %98, align 8
   %104 = getelementptr inbounds i8, ptr %98, i64 8
   store volatile i32 1, ptr %104, align 8
-  %105 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %106 = load ptr, ptr %105, align 8
   %.not6.i.i = icmp eq ptr %106, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -4092,10 +4092,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not604, label %192, label %146
 
 146:                                              ; preds = %142
-  %147 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %147 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %148 = call noalias ptr @malloc(i64 noundef %147) #25
   %149 = load i32, ptr @opal_class_init_epoch, align 4
-  %150 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i713 = icmp eq i32 %149, %150
   br i1 %.not.i713, label %152, label %151
 
@@ -4111,7 +4111,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %148, align 8
   %154 = getelementptr inbounds i8, ptr %148, i64 8
   store volatile i32 1, ptr %154, align 8
-  %155 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %156 = load ptr, ptr %155, align 8
   %.not6.i.i715 = icmp eq ptr %156, null
   br i1 %.not6.i.i715, label %opal_obj_new.exit719, label %.lr.ph.i.i716
@@ -4202,10 +4202,10 @@ opal_obj_run_destructors.exit726:                 ; preds = %opal_obj_run_destru
   br i1 %.not605, label %243, label %197
 
 197:                                              ; preds = %192
-  %198 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %198 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %199 = call noalias ptr @malloc(i64 noundef %198) #25
   %200 = load i32, ptr @opal_class_init_epoch, align 4
-  %201 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %201 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i727 = icmp eq i32 %200, %201
   br i1 %.not.i727, label %203, label %202
 
@@ -4221,7 +4221,7 @@ opal_obj_run_destructors.exit726:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %199, align 8
   %205 = getelementptr inbounds i8, ptr %199, i64 8
   store volatile i32 1, ptr %205, align 8
-  %206 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %207 = load ptr, ptr %206, align 8
   %.not6.i.i729 = icmp eq ptr %207, null
   br i1 %.not6.i.i729, label %opal_obj_new.exit733, label %.lr.ph.i.i730
@@ -4311,10 +4311,10 @@ opal_obj_run_destructors.exit740:                 ; preds = %opal_obj_run_destru
   br i1 %.not606, label %296, label %247
 
 247:                                              ; preds = %243
-  %248 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %248 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %249 = call noalias ptr @malloc(i64 noundef %248) #25
   %250 = load i32, ptr @opal_class_init_epoch, align 4
-  %251 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i741 = icmp eq i32 %250, %251
   br i1 %.not.i741, label %253, label %252
 
@@ -4330,7 +4330,7 @@ opal_obj_run_destructors.exit740:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %249, align 8
   %255 = getelementptr inbounds i8, ptr %249, i64 8
   store volatile i32 1, ptr %255, align 8
-  %256 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %257 = load ptr, ptr %256, align 8
   %.not6.i.i743 = icmp eq ptr %257, null
   br i1 %.not6.i.i743, label %opal_obj_new.exit747, label %.lr.ph.i.i744
@@ -4422,10 +4422,10 @@ opal_obj_run_destructors.exit754:                 ; preds = %opal_obj_run_destru
   br i1 %.not607, label %349, label %300
 
 300:                                              ; preds = %296
-  %301 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %301 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %302 = call noalias ptr @malloc(i64 noundef %301) #25
   %303 = load i32, ptr @opal_class_init_epoch, align 4
-  %304 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %304 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i755 = icmp eq i32 %303, %304
   br i1 %.not.i755, label %306, label %305
 
@@ -4441,7 +4441,7 @@ opal_obj_run_destructors.exit754:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %302, align 8
   %308 = getelementptr inbounds i8, ptr %302, i64 8
   store volatile i32 1, ptr %308, align 8
-  %309 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %310 = load ptr, ptr %309, align 8
   %.not6.i.i757 = icmp eq ptr %310, null
   br i1 %.not6.i.i757, label %opal_obj_new.exit761, label %.lr.ph.i.i758
@@ -4534,10 +4534,10 @@ opal_obj_run_destructors.exit768:                 ; preds = %opal_obj_run_destru
   br i1 %.not608, label %403, label %354
 
 354:                                              ; preds = %349
-  %355 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %355 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %356 = call noalias ptr @malloc(i64 noundef %355) #25
   %357 = load i32, ptr @opal_class_init_epoch, align 4
-  %358 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %358 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i769 = icmp eq i32 %357, %358
   br i1 %.not.i769, label %360, label %359
 
@@ -4553,7 +4553,7 @@ opal_obj_run_destructors.exit768:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %356, align 8
   %362 = getelementptr inbounds i8, ptr %356, i64 8
   store volatile i32 1, ptr %362, align 8
-  %363 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %363 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %364 = load ptr, ptr %363, align 8
   %.not6.i.i771 = icmp eq ptr %364, null
   br i1 %.not6.i.i771, label %opal_obj_new.exit775, label %.lr.ph.i.i772
@@ -4645,10 +4645,10 @@ opal_obj_run_destructors.exit782:                 ; preds = %opal_obj_run_destru
   br i1 %.not609, label %.critedge, label %407
 
 407:                                              ; preds = %403
-  %408 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %408 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %409 = call noalias ptr @malloc(i64 noundef %408) #25
   %410 = load i32, ptr @opal_class_init_epoch, align 4
-  %411 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %411 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i783 = icmp eq i32 %410, %411
   br i1 %.not.i783, label %413, label %412
 
@@ -4664,7 +4664,7 @@ opal_obj_run_destructors.exit782:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %409, align 8
   %415 = getelementptr inbounds i8, ptr %409, i64 8
   store volatile i32 1, ptr %415, align 8
-  %416 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %416 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %417 = load ptr, ptr %416, align 8
   %.not6.i.i785 = icmp eq ptr %417, null
   br i1 %.not6.i.i785, label %opal_obj_new.exit789, label %.lr.ph.i.i786
@@ -4753,10 +4753,10 @@ opal_obj_run_destructors.exit796:                 ; preds = %opal_obj_run_destru
   br i1 %.not611, label %502, label %456
 
 456:                                              ; preds = %.critedge
-  %457 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %457 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %458 = call noalias ptr @malloc(i64 noundef %457) #25
   %459 = load i32, ptr @opal_class_init_epoch, align 4
-  %460 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %460 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i797 = icmp eq i32 %459, %460
   br i1 %.not.i797, label %462, label %461
 
@@ -4772,7 +4772,7 @@ opal_obj_run_destructors.exit796:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %458, align 8
   %464 = getelementptr inbounds i8, ptr %458, i64 8
   store volatile i32 1, ptr %464, align 8
-  %465 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %465 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %466 = load ptr, ptr %465, align 8
   %.not6.i.i799 = icmp eq ptr %466, null
   br i1 %.not6.i.i799, label %opal_obj_new.exit803, label %.lr.ph.i.i800
@@ -4862,10 +4862,10 @@ opal_obj_run_destructors.exit810:                 ; preds = %opal_obj_run_destru
   br i1 %.not613, label %.critedge702, label %507
 
 507:                                              ; preds = %502
-  %508 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %508 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %509 = call noalias ptr @malloc(i64 noundef %508) #25
   %510 = load i32, ptr @opal_class_init_epoch, align 4
-  %511 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %511 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i811 = icmp eq i32 %510, %511
   br i1 %.not.i811, label %513, label %512
 
@@ -4881,7 +4881,7 @@ opal_obj_run_destructors.exit810:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %509, align 8
   %515 = getelementptr inbounds i8, ptr %509, i64 8
   store volatile i32 1, ptr %515, align 8
-  %516 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %516 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %517 = load ptr, ptr %516, align 8
   %.not6.i.i813 = icmp eq ptr %517, null
   br i1 %.not6.i.i813, label %opal_obj_new.exit817, label %.lr.ph.i.i814
@@ -5032,10 +5032,10 @@ opal_obj_run_destructors.exit831:                 ; preds = %opal_obj_run_destru
   br i1 %.not615, label %634, label %585
 
 585:                                              ; preds = %581
-  %586 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %586 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %587 = call noalias ptr @malloc(i64 noundef %586) #25
   %588 = load i32, ptr @opal_class_init_epoch, align 4
-  %589 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %589 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i832 = icmp eq i32 %588, %589
   br i1 %.not.i832, label %591, label %590
 
@@ -5051,7 +5051,7 @@ opal_obj_run_destructors.exit831:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %587, align 8
   %593 = getelementptr inbounds i8, ptr %587, i64 8
   store volatile i32 1, ptr %593, align 8
-  %594 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %594 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %595 = load ptr, ptr %594, align 8
   %.not6.i.i834 = icmp eq ptr %595, null
   br i1 %.not6.i.i834, label %opal_obj_new.exit838, label %.lr.ph.i.i835
@@ -5143,10 +5143,10 @@ opal_obj_run_destructors.exit845:                 ; preds = %opal_obj_run_destru
   br i1 %.not616, label %687, label %638
 
 638:                                              ; preds = %634
-  %639 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %639 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %640 = call noalias ptr @malloc(i64 noundef %639) #25
   %641 = load i32, ptr @opal_class_init_epoch, align 4
-  %642 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %642 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i846 = icmp eq i32 %641, %642
   br i1 %.not.i846, label %644, label %643
 
@@ -5162,7 +5162,7 @@ opal_obj_run_destructors.exit845:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %640, align 8
   %646 = getelementptr inbounds i8, ptr %640, i64 8
   store volatile i32 1, ptr %646, align 8
-  %647 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %647 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %648 = load ptr, ptr %647, align 8
   %.not6.i.i848 = icmp eq ptr %648, null
   br i1 %.not6.i.i848, label %opal_obj_new.exit852, label %.lr.ph.i.i849
@@ -5255,10 +5255,10 @@ opal_obj_run_destructors.exit859:                 ; preds = %opal_obj_run_destru
   br i1 %.not617, label %741, label %692
 
 692:                                              ; preds = %687
-  %693 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %693 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %694 = call noalias ptr @malloc(i64 noundef %693) #25
   %695 = load i32, ptr @opal_class_init_epoch, align 4
-  %696 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %696 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i860 = icmp eq i32 %695, %696
   br i1 %.not.i860, label %698, label %697
 
@@ -5274,7 +5274,7 @@ opal_obj_run_destructors.exit859:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %694, align 8
   %700 = getelementptr inbounds i8, ptr %694, i64 8
   store volatile i32 1, ptr %700, align 8
-  %701 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %701 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %702 = load ptr, ptr %701, align 8
   %.not6.i.i862 = icmp eq ptr %702, null
   br i1 %.not6.i.i862, label %opal_obj_new.exit866, label %.lr.ph.i.i863
@@ -5368,10 +5368,10 @@ opal_obj_run_destructors.exit873:                 ; preds = %opal_obj_run_destru
 745:                                              ; preds = %741
   %746 = load ptr, ptr @opal_show_help, align 8
   %747 = call i32 (ptr, ptr, i32, ...) %746(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #22
-  %748 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %748 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %749 = call noalias ptr @malloc(i64 noundef %748) #25
   %750 = load i32, ptr @opal_class_init_epoch, align 4
-  %751 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %751 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i874 = icmp eq i32 %750, %751
   br i1 %.not.i874, label %753, label %752
 
@@ -5387,7 +5387,7 @@ opal_obj_run_destructors.exit873:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %749, align 8
   %755 = getelementptr inbounds i8, ptr %749, i64 8
   store volatile i32 1, ptr %755, align 8
-  %756 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %756 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %757 = load ptr, ptr %756, align 8
   %.not6.i.i876 = icmp eq ptr %757, null
   br i1 %.not6.i.i876, label %opal_obj_new.exit880, label %.lr.ph.i.i877
@@ -5476,10 +5476,10 @@ opal_obj_run_destructors.exit887:                 ; preds = %opal_obj_run_destru
   br i1 %.not619, label %843, label %797
 
 797:                                              ; preds = %793
-  %798 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %798 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %799 = call noalias ptr @malloc(i64 noundef %798) #25
   %800 = load i32, ptr @opal_class_init_epoch, align 4
-  %801 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %801 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i888 = icmp eq i32 %800, %801
   br i1 %.not.i888, label %803, label %802
 
@@ -5495,7 +5495,7 @@ opal_obj_run_destructors.exit887:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %799, align 8
   %805 = getelementptr inbounds i8, ptr %799, i64 8
   store volatile i32 1, ptr %805, align 8
-  %806 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %806 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %807 = load ptr, ptr %806, align 8
   %.not6.i.i890 = icmp eq ptr %807, null
   br i1 %.not6.i.i890, label %opal_obj_new.exit894, label %.lr.ph.i.i891
@@ -5585,10 +5585,10 @@ opal_obj_run_destructors.exit901:                 ; preds = %opal_obj_run_destru
   br i1 %.not620, label %894, label %848
 
 848:                                              ; preds = %843
-  %849 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %849 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %850 = call noalias ptr @malloc(i64 noundef %849) #25
   %851 = load i32, ptr @opal_class_init_epoch, align 4
-  %852 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %852 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i902 = icmp eq i32 %851, %852
   br i1 %.not.i902, label %854, label %853
 
@@ -5604,7 +5604,7 @@ opal_obj_run_destructors.exit901:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %850, align 8
   %856 = getelementptr inbounds i8, ptr %850, i64 8
   store volatile i32 1, ptr %856, align 8
-  %857 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %857 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %858 = load ptr, ptr %857, align 8
   %.not6.i.i904 = icmp eq ptr %858, null
   br i1 %.not6.i.i904, label %opal_obj_new.exit908, label %.lr.ph.i.i905
@@ -5695,10 +5695,10 @@ opal_obj_run_destructors.exit915:                 ; preds = %opal_obj_run_destru
 898:                                              ; preds = %894
   %899 = load ptr, ptr @opal_show_help, align 8
   %900 = call i32 (ptr, ptr, i32, ...) %899(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #22
-  %901 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %901 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %902 = call noalias ptr @malloc(i64 noundef %901) #25
   %903 = load i32, ptr @opal_class_init_epoch, align 4
-  %904 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %904 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i916 = icmp eq i32 %903, %904
   br i1 %.not.i916, label %906, label %905
 
@@ -5714,7 +5714,7 @@ opal_obj_run_destructors.exit915:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %902, align 8
   %908 = getelementptr inbounds i8, ptr %902, i64 8
   store volatile i32 1, ptr %908, align 8
-  %909 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %909 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %910 = load ptr, ptr %909, align 8
   %.not6.i.i918 = icmp eq ptr %910, null
   br i1 %.not6.i.i918, label %opal_obj_new.exit922, label %.lr.ph.i.i919
@@ -5803,10 +5803,10 @@ opal_obj_run_destructors.exit929:                 ; preds = %opal_obj_run_destru
   br i1 %.not622, label %996, label %950
 
 950:                                              ; preds = %946
-  %951 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %951 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %952 = call noalias ptr @malloc(i64 noundef %951) #25
   %953 = load i32, ptr @opal_class_init_epoch, align 4
-  %954 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %954 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i930 = icmp eq i32 %953, %954
   br i1 %.not.i930, label %956, label %955
 
@@ -5822,7 +5822,7 @@ opal_obj_run_destructors.exit929:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %952, align 8
   %958 = getelementptr inbounds i8, ptr %952, i64 8
   store volatile i32 1, ptr %958, align 8
-  %959 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %959 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %960 = load ptr, ptr %959, align 8
   %.not6.i.i932 = icmp eq ptr %960, null
   br i1 %.not6.i.i932, label %opal_obj_new.exit936, label %.lr.ph.i.i933
@@ -5912,10 +5912,10 @@ opal_obj_run_destructors.exit943:                 ; preds = %opal_obj_run_destru
   br i1 %.not623, label %1047, label %1001
 
 1001:                                             ; preds = %996
-  %1002 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1002 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1003 = call noalias ptr @malloc(i64 noundef %1002) #25
   %1004 = load i32, ptr @opal_class_init_epoch, align 4
-  %1005 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1005 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i944 = icmp eq i32 %1004, %1005
   br i1 %.not.i944, label %1007, label %1006
 
@@ -5931,7 +5931,7 @@ opal_obj_run_destructors.exit943:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1003, align 8
   %1009 = getelementptr inbounds i8, ptr %1003, i64 8
   store volatile i32 1, ptr %1009, align 8
-  %1010 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1010 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1011 = load ptr, ptr %1010, align 8
   %.not6.i.i946 = icmp eq ptr %1011, null
   br i1 %.not6.i.i946, label %opal_obj_new.exit950, label %.lr.ph.i.i947
@@ -6265,10 +6265,10 @@ opal_obj_run_destructors.exit978:                 ; preds = %opal_obj_run_destru
 1159:                                             ; preds = %1155
   %1160 = load ptr, ptr @opal_show_help, align 8
   %1161 = call i32 (ptr, ptr, i32, ...) %1160(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #22
-  %1162 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1162 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1163 = call noalias ptr @malloc(i64 noundef %1162) #25
   %1164 = load i32, ptr @opal_class_init_epoch, align 4
-  %1165 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1165 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i979 = icmp eq i32 %1164, %1165
   br i1 %.not.i979, label %1167, label %1166
 
@@ -6284,7 +6284,7 @@ opal_obj_run_destructors.exit978:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1163, align 8
   %1169 = getelementptr inbounds i8, ptr %1163, i64 8
   store volatile i32 1, ptr %1169, align 8
-  %1170 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1170 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1171 = load ptr, ptr %1170, align 8
   %.not6.i.i981 = icmp eq ptr %1171, null
   br i1 %.not6.i.i981, label %opal_obj_new.exit985, label %.lr.ph.i.i982
@@ -6373,10 +6373,10 @@ opal_obj_run_destructors.exit992:                 ; preds = %opal_obj_run_destru
   br i1 %.not631, label %1257, label %1211
 
 1211:                                             ; preds = %1207
-  %1212 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1212 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1213 = call noalias ptr @malloc(i64 noundef %1212) #25
   %1214 = load i32, ptr @opal_class_init_epoch, align 4
-  %1215 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1215 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i993 = icmp eq i32 %1214, %1215
   br i1 %.not.i993, label %1217, label %1216
 
@@ -6392,7 +6392,7 @@ opal_obj_run_destructors.exit992:                 ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1213, align 8
   %1219 = getelementptr inbounds i8, ptr %1213, i64 8
   store volatile i32 1, ptr %1219, align 8
-  %1220 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1220 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1221 = load ptr, ptr %1220, align 8
   %.not6.i.i995 = icmp eq ptr %1221, null
   br i1 %.not6.i.i995, label %opal_obj_new.exit999, label %.lr.ph.i.i996
@@ -6482,10 +6482,10 @@ opal_obj_run_destructors.exit1006:                ; preds = %opal_obj_run_destru
   br i1 %.not632, label %1308, label %1262
 
 1262:                                             ; preds = %1257
-  %1263 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1263 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1264 = call noalias ptr @malloc(i64 noundef %1263) #25
   %1265 = load i32, ptr @opal_class_init_epoch, align 4
-  %1266 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1266 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1007 = icmp eq i32 %1265, %1266
   br i1 %.not.i1007, label %1268, label %1267
 
@@ -6501,7 +6501,7 @@ opal_obj_run_destructors.exit1006:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1264, align 8
   %1270 = getelementptr inbounds i8, ptr %1264, i64 8
   store volatile i32 1, ptr %1270, align 8
-  %1271 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1271 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1272 = load ptr, ptr %1271, align 8
   %.not6.i.i1009 = icmp eq ptr %1272, null
   br i1 %.not6.i.i1009, label %opal_obj_new.exit1013, label %.lr.ph.i.i1010
@@ -6592,10 +6592,10 @@ opal_obj_run_destructors.exit1020:                ; preds = %opal_obj_run_destru
 1312:                                             ; preds = %1308
   %1313 = load ptr, ptr @opal_show_help, align 8
   %1314 = call i32 (ptr, ptr, i32, ...) %1313(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #22
-  %1315 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1315 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1316 = call noalias ptr @malloc(i64 noundef %1315) #25
   %1317 = load i32, ptr @opal_class_init_epoch, align 4
-  %1318 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1318 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1021 = icmp eq i32 %1317, %1318
   br i1 %.not.i1021, label %1320, label %1319
 
@@ -6611,7 +6611,7 @@ opal_obj_run_destructors.exit1020:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1316, align 8
   %1322 = getelementptr inbounds i8, ptr %1316, i64 8
   store volatile i32 1, ptr %1322, align 8
-  %1323 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1323 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1324 = load ptr, ptr %1323, align 8
   %.not6.i.i1023 = icmp eq ptr %1324, null
   br i1 %.not6.i.i1023, label %opal_obj_new.exit1027, label %.lr.ph.i.i1024
@@ -6700,10 +6700,10 @@ opal_obj_run_destructors.exit1034:                ; preds = %opal_obj_run_destru
   br i1 %.not634, label %1410, label %1364
 
 1364:                                             ; preds = %1360
-  %1365 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1365 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1366 = call noalias ptr @malloc(i64 noundef %1365) #25
   %1367 = load i32, ptr @opal_class_init_epoch, align 4
-  %1368 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1368 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1035 = icmp eq i32 %1367, %1368
   br i1 %.not.i1035, label %1370, label %1369
 
@@ -6719,7 +6719,7 @@ opal_obj_run_destructors.exit1034:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1366, align 8
   %1372 = getelementptr inbounds i8, ptr %1366, i64 8
   store volatile i32 1, ptr %1372, align 8
-  %1373 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1373 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1374 = load ptr, ptr %1373, align 8
   %.not6.i.i1037 = icmp eq ptr %1374, null
   br i1 %.not6.i.i1037, label %opal_obj_new.exit1041, label %.lr.ph.i.i1038
@@ -6809,10 +6809,10 @@ opal_obj_run_destructors.exit1048:                ; preds = %opal_obj_run_destru
   br i1 %.not635, label %1461, label %1415
 
 1415:                                             ; preds = %1410
-  %1416 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1416 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1417 = call noalias ptr @malloc(i64 noundef %1416) #25
   %1418 = load i32, ptr @opal_class_init_epoch, align 4
-  %1419 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1419 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1049 = icmp eq i32 %1418, %1419
   br i1 %.not.i1049, label %1421, label %1420
 
@@ -6828,7 +6828,7 @@ opal_obj_run_destructors.exit1048:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1417, align 8
   %1423 = getelementptr inbounds i8, ptr %1417, i64 8
   store volatile i32 1, ptr %1423, align 8
-  %1424 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1424 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1425 = load ptr, ptr %1424, align 8
   %.not6.i.i1051 = icmp eq ptr %1425, null
   br i1 %.not6.i.i1051, label %opal_obj_new.exit1055, label %.lr.ph.i.i1052
@@ -6917,10 +6917,10 @@ opal_obj_run_destructors.exit1062:                ; preds = %opal_obj_run_destru
   br i1 %.not636, label %1488, label %1465
 
 1465:                                             ; preds = %1461
-  %1466 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %1466 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %1467 = call noalias ptr @malloc(i64 noundef %1466) #25
   %1468 = load i32, ptr @opal_class_init_epoch, align 4
-  %1469 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %1469 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1063 = icmp eq i32 %1468, %1469
   br i1 %.not.i1063, label %1471, label %1470
 
@@ -6936,7 +6936,7 @@ opal_obj_run_destructors.exit1062:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %1467, align 8
   %1473 = getelementptr inbounds i8, ptr %1467, i64 8
   store volatile i32 1, ptr %1473, align 8
-  %1474 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %1474 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %1475 = load ptr, ptr %1474, align 8
   %.not6.i.i1065 = icmp eq ptr %1475, null
   br i1 %.not6.i.i1065, label %opal_obj_new.exit1069, label %.lr.ph.i.i1066
@@ -8548,10 +8548,10 @@ opal_obj_run_destructors.exit1278:                ; preds = %.lr.ph.i1275, %opal
   br i1 %.not645, label %2266, label %2220
 
 2220:                                             ; preds = %2216
-  %2221 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2221 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2222 = call noalias ptr @malloc(i64 noundef %2221) #25
   %2223 = load i32, ptr @opal_class_init_epoch, align 4
-  %2224 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2224 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1279 = icmp eq i32 %2223, %2224
   br i1 %.not.i1279, label %2226, label %2225
 
@@ -8567,7 +8567,7 @@ opal_obj_run_destructors.exit1278:                ; preds = %.lr.ph.i1275, %opal
   store ptr @opal_info_item_t_class, ptr %2222, align 8
   %2228 = getelementptr inbounds i8, ptr %2222, i64 8
   store volatile i32 1, ptr %2228, align 8
-  %2229 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2229 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2230 = load ptr, ptr %2229, align 8
   %.not6.i.i1281 = icmp eq ptr %2230, null
   br i1 %.not6.i.i1281, label %opal_obj_new.exit1285, label %.lr.ph.i.i1282
@@ -8657,10 +8657,10 @@ opal_obj_run_destructors.exit1292:                ; preds = %opal_obj_run_destru
   br i1 %.not646, label %2317, label %2271
 
 2271:                                             ; preds = %2266
-  %2272 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2272 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2273 = call noalias ptr @malloc(i64 noundef %2272) #25
   %2274 = load i32, ptr @opal_class_init_epoch, align 4
-  %2275 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2275 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1293 = icmp eq i32 %2274, %2275
   br i1 %.not.i1293, label %2277, label %2276
 
@@ -8676,7 +8676,7 @@ opal_obj_run_destructors.exit1292:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2273, align 8
   %2279 = getelementptr inbounds i8, ptr %2273, i64 8
   store volatile i32 1, ptr %2279, align 8
-  %2280 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2280 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2281 = load ptr, ptr %2280, align 8
   %.not6.i.i1295 = icmp eq ptr %2281, null
   br i1 %.not6.i.i1295, label %opal_obj_new.exit1299, label %.lr.ph.i.i1296
@@ -9014,10 +9014,10 @@ opal_obj_run_destructors.exit1341:                ; preds = %.lr.ph.i1338, %opal
   br i1 %.not649, label %2484, label %2438
 
 2438:                                             ; preds = %2434
-  %2439 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2439 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2440 = call noalias ptr @malloc(i64 noundef %2439) #25
   %2441 = load i32, ptr @opal_class_init_epoch, align 4
-  %2442 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2442 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1342 = icmp eq i32 %2441, %2442
   br i1 %.not.i1342, label %2444, label %2443
 
@@ -9033,7 +9033,7 @@ opal_obj_run_destructors.exit1341:                ; preds = %.lr.ph.i1338, %opal
   store ptr @opal_info_item_t_class, ptr %2440, align 8
   %2446 = getelementptr inbounds i8, ptr %2440, i64 8
   store volatile i32 1, ptr %2446, align 8
-  %2447 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2447 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2448 = load ptr, ptr %2447, align 8
   %.not6.i.i1344 = icmp eq ptr %2448, null
   br i1 %.not6.i.i1344, label %opal_obj_new.exit1348, label %.lr.ph.i.i1345
@@ -9123,10 +9123,10 @@ opal_obj_run_destructors.exit1355:                ; preds = %opal_obj_run_destru
   br i1 %.not650, label %2535, label %2489
 
 2489:                                             ; preds = %2484
-  %2490 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2490 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2491 = call noalias ptr @malloc(i64 noundef %2490) #25
   %2492 = load i32, ptr @opal_class_init_epoch, align 4
-  %2493 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2493 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1356 = icmp eq i32 %2492, %2493
   br i1 %.not.i1356, label %2495, label %2494
 
@@ -9142,7 +9142,7 @@ opal_obj_run_destructors.exit1355:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2491, align 8
   %2497 = getelementptr inbounds i8, ptr %2491, i64 8
   store volatile i32 1, ptr %2497, align 8
-  %2498 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2498 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2499 = load ptr, ptr %2498, align 8
   %.not6.i.i1358 = icmp eq ptr %2499, null
   br i1 %.not6.i.i1358, label %opal_obj_new.exit1362, label %.lr.ph.i.i1359
@@ -9480,10 +9480,10 @@ opal_obj_run_destructors.exit1404:                ; preds = %.lr.ph.i1401, %opal
   br i1 %.not653, label %2702, label %2656
 
 2656:                                             ; preds = %2652
-  %2657 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2657 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2658 = call noalias ptr @malloc(i64 noundef %2657) #25
   %2659 = load i32, ptr @opal_class_init_epoch, align 4
-  %2660 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2660 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1405 = icmp eq i32 %2659, %2660
   br i1 %.not.i1405, label %2662, label %2661
 
@@ -9499,7 +9499,7 @@ opal_obj_run_destructors.exit1404:                ; preds = %.lr.ph.i1401, %opal
   store ptr @opal_info_item_t_class, ptr %2658, align 8
   %2664 = getelementptr inbounds i8, ptr %2658, i64 8
   store volatile i32 1, ptr %2664, align 8
-  %2665 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2665 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2666 = load ptr, ptr %2665, align 8
   %.not6.i.i1407 = icmp eq ptr %2666, null
   br i1 %.not6.i.i1407, label %opal_obj_new.exit1411, label %.lr.ph.i.i1408
@@ -9589,10 +9589,10 @@ opal_obj_run_destructors.exit1418:                ; preds = %opal_obj_run_destru
   br i1 %.not654, label %2753, label %2707
 
 2707:                                             ; preds = %2702
-  %2708 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2708 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2709 = call noalias ptr @malloc(i64 noundef %2708) #25
   %2710 = load i32, ptr @opal_class_init_epoch, align 4
-  %2711 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2711 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1419 = icmp eq i32 %2710, %2711
   br i1 %.not.i1419, label %2713, label %2712
 
@@ -9608,7 +9608,7 @@ opal_obj_run_destructors.exit1418:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2709, align 8
   %2715 = getelementptr inbounds i8, ptr %2709, i64 8
   store volatile i32 1, ptr %2715, align 8
-  %2716 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2716 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2717 = load ptr, ptr %2716, align 8
   %.not6.i.i1421 = icmp eq ptr %2717, null
   br i1 %.not6.i.i1421, label %opal_obj_new.exit1425, label %.lr.ph.i.i1422
@@ -9699,10 +9699,10 @@ opal_obj_run_destructors.exit1432:                ; preds = %opal_obj_run_destru
 2757:                                             ; preds = %2753
   %2758 = load ptr, ptr @opal_show_help, align 8
   %2759 = call i32 (ptr, ptr, i32, ...) %2758(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #22
-  %2760 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2760 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2761 = call noalias ptr @malloc(i64 noundef %2760) #25
   %2762 = load i32, ptr @opal_class_init_epoch, align 4
-  %2763 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2763 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1433 = icmp eq i32 %2762, %2763
   br i1 %.not.i1433, label %2765, label %2764
 
@@ -9718,7 +9718,7 @@ opal_obj_run_destructors.exit1432:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2761, align 8
   %2767 = getelementptr inbounds i8, ptr %2761, i64 8
   store volatile i32 1, ptr %2767, align 8
-  %2768 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2768 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2769 = load ptr, ptr %2768, align 8
   %.not6.i.i1435 = icmp eq ptr %2769, null
   br i1 %.not6.i.i1435, label %opal_obj_new.exit1439, label %.lr.ph.i.i1436
@@ -9757,10 +9757,10 @@ opal_obj_new.exit1439:                            ; preds = %.lr.ph.i.i1436, %27
   br i1 %.not656, label %2809, label %2786
 
 2786:                                             ; preds = %2782
-  %2787 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2787 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2788 = call noalias ptr @malloc(i64 noundef %2787) #25
   %2789 = load i32, ptr @opal_class_init_epoch, align 4
-  %2790 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2790 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1440 = icmp eq i32 %2789, %2790
   br i1 %.not.i1440, label %2792, label %2791
 
@@ -9776,7 +9776,7 @@ opal_obj_new.exit1439:                            ; preds = %.lr.ph.i.i1436, %27
   store ptr @opal_info_item_t_class, ptr %2788, align 8
   %2794 = getelementptr inbounds i8, ptr %2788, i64 8
   store volatile i32 1, ptr %2794, align 8
-  %2795 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2795 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2796 = load ptr, ptr %2795, align 8
   %.not6.i.i1442 = icmp eq ptr %2796, null
   br i1 %.not6.i.i1442, label %opal_obj_new.exit1446, label %.lr.ph.i.i1443
@@ -9816,10 +9816,10 @@ opal_obj_new.exit1446:                            ; preds = %.lr.ph.i.i1443, %27
   br i1 %.not657, label %2837, label %2814
 
 2814:                                             ; preds = %2809
-  %2815 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2815 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2816 = call noalias ptr @malloc(i64 noundef %2815) #25
   %2817 = load i32, ptr @opal_class_init_epoch, align 4
-  %2818 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2818 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1447 = icmp eq i32 %2817, %2818
   br i1 %.not.i1447, label %2820, label %2819
 
@@ -9835,7 +9835,7 @@ opal_obj_new.exit1446:                            ; preds = %.lr.ph.i.i1443, %27
   store ptr @opal_info_item_t_class, ptr %2816, align 8
   %2822 = getelementptr inbounds i8, ptr %2816, i64 8
   store volatile i32 1, ptr %2822, align 8
-  %2823 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2823 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2824 = load ptr, ptr %2823, align 8
   %.not6.i.i1449 = icmp eq ptr %2824, null
   br i1 %.not6.i.i1449, label %opal_obj_new.exit1453, label %.lr.ph.i.i1450
@@ -9876,10 +9876,10 @@ opal_obj_new.exit1453:                            ; preds = %.lr.ph.i.i1450, %28
 2841:                                             ; preds = %2837
   %2842 = load ptr, ptr @opal_show_help, align 8
   %2843 = call i32 (ptr, ptr, i32, ...) %2842(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #22
-  %2844 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2844 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2845 = call noalias ptr @malloc(i64 noundef %2844) #25
   %2846 = load i32, ptr @opal_class_init_epoch, align 4
-  %2847 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2847 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1454 = icmp eq i32 %2846, %2847
   br i1 %.not.i1454, label %2849, label %2848
 
@@ -9895,7 +9895,7 @@ opal_obj_new.exit1453:                            ; preds = %.lr.ph.i.i1450, %28
   store ptr @opal_info_item_t_class, ptr %2845, align 8
   %2851 = getelementptr inbounds i8, ptr %2845, i64 8
   store volatile i32 1, ptr %2851, align 8
-  %2852 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2852 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2853 = load ptr, ptr %2852, align 8
   %.not6.i.i1456 = icmp eq ptr %2853, null
   br i1 %.not6.i.i1456, label %opal_obj_new.exit1460, label %.lr.ph.i.i1457
@@ -9984,10 +9984,10 @@ opal_obj_run_destructors.exit1467:                ; preds = %opal_obj_run_destru
   br i1 %.not659, label %2939, label %2893
 
 2893:                                             ; preds = %2889
-  %2894 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2894 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2895 = call noalias ptr @malloc(i64 noundef %2894) #25
   %2896 = load i32, ptr @opal_class_init_epoch, align 4
-  %2897 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2897 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1468 = icmp eq i32 %2896, %2897
   br i1 %.not.i1468, label %2899, label %2898
 
@@ -10003,7 +10003,7 @@ opal_obj_run_destructors.exit1467:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2895, align 8
   %2901 = getelementptr inbounds i8, ptr %2895, i64 8
   store volatile i32 1, ptr %2901, align 8
-  %2902 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2902 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2903 = load ptr, ptr %2902, align 8
   %.not6.i.i1470 = icmp eq ptr %2903, null
   br i1 %.not6.i.i1470, label %opal_obj_new.exit1474, label %.lr.ph.i.i1471
@@ -10093,10 +10093,10 @@ opal_obj_run_destructors.exit1481:                ; preds = %opal_obj_run_destru
   br i1 %.not660, label %2990, label %2944
 
 2944:                                             ; preds = %2939
-  %2945 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %2945 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %2946 = call noalias ptr @malloc(i64 noundef %2945) #25
   %2947 = load i32, ptr @opal_class_init_epoch, align 4
-  %2948 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %2948 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1482 = icmp eq i32 %2947, %2948
   br i1 %.not.i1482, label %2950, label %2949
 
@@ -10112,7 +10112,7 @@ opal_obj_run_destructors.exit1481:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %2946, align 8
   %2952 = getelementptr inbounds i8, ptr %2946, i64 8
   store volatile i32 1, ptr %2952, align 8
-  %2953 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %2953 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %2954 = load ptr, ptr %2953, align 8
   %.not6.i.i1484 = icmp eq ptr %2954, null
   br i1 %.not6.i.i1484, label %opal_obj_new.exit1488, label %.lr.ph.i.i1485
@@ -10309,10 +10309,10 @@ opal_obj_run_destructors.exit1502:                ; preds = %opal_obj_run_destru
   br label %3050
 
 3050:                                             ; preds = %3046, %3047, %3042
-  %3051 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3051 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3052 = call noalias ptr @malloc(i64 noundef %3051) #25
   %3053 = load i32, ptr @opal_class_init_epoch, align 4
-  %3054 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3054 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1503 = icmp eq i32 %3053, %3054
   br i1 %.not.i1503, label %3056, label %3055
 
@@ -10328,7 +10328,7 @@ opal_obj_run_destructors.exit1502:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %3052, align 8
   %3058 = getelementptr inbounds i8, ptr %3052, i64 8
   store volatile i32 1, ptr %3058, align 8
-  %3059 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3059 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3060 = load ptr, ptr %3059, align 8
   %.not6.i.i1505 = icmp eq ptr %3060, null
   br i1 %.not6.i.i1505, label %opal_obj_new.exit1509, label %.lr.ph.i.i1506
@@ -10441,10 +10441,10 @@ opal_obj_run_destructors.exit1516:                ; preds = %opal_obj_run_destru
   br label %3111
 
 3111:                                             ; preds = %3107, %3108, %3103
-  %3112 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3112 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3113 = call noalias ptr @malloc(i64 noundef %3112) #25
   %3114 = load i32, ptr @opal_class_init_epoch, align 4
-  %3115 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3115 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1517 = icmp eq i32 %3114, %3115
   br i1 %.not.i1517, label %3117, label %3116
 
@@ -10460,7 +10460,7 @@ opal_obj_run_destructors.exit1516:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %3113, align 8
   %3119 = getelementptr inbounds i8, ptr %3113, i64 8
   store volatile i32 1, ptr %3119, align 8
-  %3120 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3120 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3121 = load ptr, ptr %3120, align 8
   %.not6.i.i1519 = icmp eq ptr %3121, null
   br i1 %.not6.i.i1519, label %opal_obj_new.exit1523, label %.lr.ph.i.i1520
@@ -10574,10 +10574,10 @@ opal_obj_run_destructors.exit1530:                ; preds = %opal_obj_run_destru
   br label %3173
 
 3173:                                             ; preds = %3169, %3170, %3165
-  %3174 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3174 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3175 = call noalias ptr @malloc(i64 noundef %3174) #25
   %3176 = load i32, ptr @opal_class_init_epoch, align 4
-  %3177 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3177 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1531 = icmp eq i32 %3176, %3177
   br i1 %.not.i1531, label %3179, label %3178
 
@@ -10593,7 +10593,7 @@ opal_obj_run_destructors.exit1530:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %3175, align 8
   %3181 = getelementptr inbounds i8, ptr %3175, i64 8
   store volatile i32 1, ptr %3181, align 8
-  %3182 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3182 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3183 = load ptr, ptr %3182, align 8
   %.not6.i.i1533 = icmp eq ptr %3183, null
   br i1 %.not6.i.i1533, label %opal_obj_new.exit1537, label %.lr.ph.i.i1534
@@ -10703,10 +10703,10 @@ opal_obj_run_destructors.exit1544:                ; preds = %opal_obj_run_destru
   br label %3612
 
 3226:                                             ; preds = %.thread
-  %3227 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3227 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3228 = call noalias ptr @malloc(i64 noundef %3227) #25
   %3229 = load i32, ptr @opal_class_init_epoch, align 4
-  %3230 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3230 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1545 = icmp eq i32 %3229, %3230
   br i1 %.not.i1545, label %3232, label %3231
 
@@ -10722,7 +10722,7 @@ opal_obj_run_destructors.exit1544:                ; preds = %opal_obj_run_destru
   store ptr @opal_info_item_t_class, ptr %3228, align 8
   %3234 = getelementptr inbounds i8, ptr %3228, i64 8
   store volatile i32 1, ptr %3234, align 8
-  %3235 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3235 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3236 = load ptr, ptr %3235, align 8
   %.not6.i.i1547 = icmp eq ptr %3236, null
   br i1 %.not6.i.i1547, label %opal_obj_new.exit1551, label %.lr.ph.i.i1548
@@ -10879,10 +10879,10 @@ opal_obj_run_destructors.exit1565:                ; preds = %.lr.ph.i1562, %opal
   br i1 %.41645, label %3330, label %.critedge1755
 
 .critedge1755:                                    ; preds = %opal_obj_run_constructors.exit, %._crit_edge1732
-  %3305 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3305 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3306 = call noalias ptr @malloc(i64 noundef %3305) #25
   %3307 = load i32, ptr @opal_class_init_epoch, align 4
-  %3308 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3308 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1566 = icmp eq i32 %3307, %3308
   br i1 %.not.i1566, label %3310, label %3309
 
@@ -10898,7 +10898,7 @@ opal_obj_run_destructors.exit1565:                ; preds = %.lr.ph.i1562, %opal
   store ptr @opal_info_item_t_class, ptr %3306, align 8
   %3312 = getelementptr inbounds i8, ptr %3306, i64 8
   store volatile i32 1, ptr %3312, align 8
-  %3313 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3313 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3314 = load ptr, ptr %3313, align 8
   %.not6.i.i1568 = icmp eq ptr %3314, null
   br i1 %.not6.i.i1568, label %opal_obj_new.exit1572, label %.lr.ph.i.i1569
@@ -10933,7 +10933,7 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
   br label %3330
 
 3330:                                             ; preds = %opal_obj_new.exit1572, %._crit_edge1732
-  %3331 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  %3331 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   %3332 = trunc i8 %3331 to i1
   br i1 %3332, label %3333, label %3544
 
@@ -11023,7 +11023,7 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
   %3378 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %3378) #22
   %3379 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %7, ptr noundef nonnull @.str.112) #22
-  %3380 = call ptr @ompi_pmix_print_id(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1)) #22
+  %3380 = call ptr @ompi_pmix_print_id(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 8)) #22
   %3381 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %7, ptr noundef %3380) #22
   %3382 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %7, ptr noundef nonnull @.str.113) #22
   %3383 = load i32, ptr %10, align 4
@@ -11210,17 +11210,17 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
 3472:                                             ; preds = %3462
   %3473 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0) #22
   %3474 = call i32 @PMIx_Commit() #22
-  store i8 0, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %12)
-  %3475 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3475 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3476 = call noalias ptr @malloc(i64 noundef %3475) #25
   %3477 = load i32, ptr @opal_class_init_epoch, align 4
-  %3478 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3478 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1575 = icmp eq i32 %3477, %3478
   br i1 %.not.i1575, label %3480, label %3479
 
@@ -11236,7 +11236,7 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
   store ptr @opal_info_item_t_class, ptr %3476, align 8
   %3482 = getelementptr inbounds i8, ptr %3476, i64 8
   store volatile i32 1, ptr %3482, align 8
-  %3483 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3483 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3484 = load ptr, ptr %3483, align 8
   %.not6.i.i1577 = icmp eq ptr %3484, null
   br i1 %.not6.i.i1577, label %opal_obj_new.exit1581, label %.lr.ph.i.i1578
@@ -11268,10 +11268,10 @@ opal_obj_new.exit1581:                            ; preds = %.lr.ph.i.i1578, %34
   %3498 = load volatile i64, ptr %3497, align 8
   %3499 = add i64 %3498, 1
   store volatile i64 %3499, ptr %3497, align 8
-  %3500 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3500 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3501 = call noalias ptr @malloc(i64 noundef %3500) #25
   %3502 = load i32, ptr @opal_class_init_epoch, align 4
-  %3503 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3503 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1582 = icmp eq i32 %3502, %3503
   br i1 %.not.i1582, label %3505, label %3504
 
@@ -11287,7 +11287,7 @@ opal_obj_new.exit1581:                            ; preds = %.lr.ph.i.i1578, %34
   store ptr @opal_info_item_t_class, ptr %3501, align 8
   %3507 = getelementptr inbounds i8, ptr %3501, i64 8
   store volatile i32 1, ptr %3507, align 8
-  %3508 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3508 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3509 = load ptr, ptr %3508, align 8
   %.not6.i.i1584 = icmp eq ptr %3509, null
   br i1 %.not6.i.i1584, label %opal_obj_new.exit1588, label %.lr.ph.i.i1585
@@ -11316,10 +11316,10 @@ opal_obj_new.exit1588:                            ; preds = %.lr.ph.i.i1585, %35
   %3520 = load volatile i64, ptr %3497, align 8
   %3521 = add i64 %3520, 1
   store volatile i64 %3521, ptr %3497, align 8
-  %3522 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %3522 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %3523 = call noalias ptr @malloc(i64 noundef %3522) #25
   %3524 = load i32, ptr @opal_class_init_epoch, align 4
-  %3525 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %3525 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i1589 = icmp eq i32 %3524, %3525
   br i1 %.not.i1589, label %3527, label %3526
 
@@ -11335,7 +11335,7 @@ opal_obj_new.exit1588:                            ; preds = %.lr.ph.i.i1585, %35
   store ptr @opal_info_item_t_class, ptr %3523, align 8
   %3529 = getelementptr inbounds i8, ptr %3523, i64 8
   store volatile i32 1, ptr %3529, align 8
-  %3530 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %3530 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %3531 = load ptr, ptr %3530, align 8
   %.not6.i.i1591 = icmp eq ptr %3531, null
   br i1 %.not6.i.i1591, label %opal_obj_new.exit1595, label %.lr.ph.i.i1592
@@ -11627,10 +11627,10 @@ define internal fastcc range(i32 -5, 1) i32 @dpm_convert(ptr noundef %0, ptr nou
 
 41:                                               ; preds = %._crit_edge
   %42 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #22
-  %43 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 8), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #25
   %45 = load i32, ptr @opal_class_init_epoch, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 4), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %45, %46
   br i1 %.not.i, label %48, label %47
 
@@ -11646,7 +11646,7 @@ define internal fastcc range(i32 -5, 1) i32 @dpm_convert(ptr noundef %0, ptr nou
   store ptr @opal_info_item_t_class, ptr %44, align 8
   %50 = getelementptr inbounds i8, ptr %44, i64 8
   store volatile i32 1, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_item_t_class, i64 0, i32 6), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 40), align 8
   %52 = load ptr, ptr %51, align 8
   %.not6.i.i = icmp eq ptr %52, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -11982,7 +11982,7 @@ define range(i32 -2, 1) i32 @ompi_dpm_dyn_finalize() local_unnamed_addr #0 {
   br i1 %7, label %119, label %8
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 4), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 88), align 8
   %10 = icmp sgt i32 %9, 3
   br i1 %10, label %.lr.ph.preheader, label %.sink.split
 
@@ -11993,7 +11993,7 @@ define range(i32 -2, 1) i32 @ompi_dpm_dyn_finalize() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %opal_pointer_array_get_item.exit.thread
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %opal_pointer_array_get_item.exit.thread ]
   %.058 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %opal_pointer_array_get_item.exit.thread ]
-  %11 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 4), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 88), align 8
   %12 = sext i32 %11 to i64
   %.not48 = icmp slt i64 %indvars.iv, %12
   br i1 %.not48, label %13, label %opal_pointer_array_get_item.exit.thread
@@ -12004,20 +12004,20 @@ define range(i32 -2, 1) i32 @ompi_dpm_dyn_finalize() local_unnamed_addr #0 {
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 1, i32 1)) #22
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 32)) #22
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %18
 
 18:                                               ; preds = %16, %13
   %19 = phi i8 [ %14, %13 ], [ %.pre.i, %16 ]
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 112), align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = trunc i8 %19 to i1
   br i1 %23, label %24, label %opal_pointer_array_get_item.exit
 
 24:                                               ; preds = %18
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_communicators, i64 0, i32 1, i32 1)) #22
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_communicators, i64 32)) #22
   br label %opal_pointer_array_get_item.exit
 
 opal_pointer_array_get_item.exit:                 ; preds = %18, %24
@@ -12075,7 +12075,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %18, %24
 
 48:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %49 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %50 = load ptr, ptr %43, align 8
   %51 = shl nuw nsw i64 %indvars.iv.i, 1
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
@@ -12092,7 +12092,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %18, %24
   br label %disconnect_init.exit
 
 57:                                               ; preds = %48
-  %58 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %59 = load ptr, ptr %43, align 8
   %60 = or disjoint i64 %51, 1
   %61 = getelementptr inbounds ptr, ptr %59, i64 %60
@@ -12226,7 +12226,7 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %opal_point
 ._crit_edge38.i:                                  ; preds = %.lr.ph37.i, %._crit_edge.thread.i
   %.027.lcssa4648.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %91, %.lr.ph37.i ]
   %108 = phi ptr [ %95, %._crit_edge.thread.i ], [ %93, %.lr.ph37.i ]
-  %109 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %110 = tail call i32 %109(i64 noundef %.027.lcssa4648.i, ptr noundef nonnull %108, ptr noundef null) #22
   tail call void @free(ptr noundef %108) #22
   br label %disconnect_waitall.exit

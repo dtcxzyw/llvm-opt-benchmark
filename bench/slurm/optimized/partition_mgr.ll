@@ -306,7 +306,7 @@ define internal noundef i32 @_calc_part_tres(ptr noundef %0, ptr nocapture readn
 ._crit_edge39:                                    ; preds = %52, %._crit_edge35
   %57 = getelementptr inbounds i8, ptr %0, i64 88
   %58 = load ptr, ptr %57, align 8
-  %59 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 124), align 2
+  %59 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
   %60 = call double @assoc_mgr_tres_weighted(ptr noundef %8, ptr noundef %58, i16 noundef zeroext %59, i1 noundef zeroext true) #17
   %61 = fptoui double %60 to i64
   %62 = getelementptr inbounds i8, ptr %8, i64 32
@@ -801,7 +801,7 @@ define dso_local ptr @create_part_record(ptr noundef %0) local_unnamed_addr #0 {
   %3 = tail call i64 @time(ptr noundef null) #17
   store i64 %3, ptr @last_part_update, align 8
   store i32 -1359051627, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %5 = and i32 %4, 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_init_part_record.exit, label %6
@@ -876,15 +876,15 @@ define dso_local noundef i32 @dump_all_part_state() local_unnamed_addr #0 {
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.dump_all_part_state.part_read_lock) #17
   %12 = load ptr, ptr @part_list, align 8
   %13 = tail call i32 @list_for_each_ro(ptr noundef %12, ptr noundef nonnull @_dump_part_state, ptr noundef %9) #17
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %15 = tail call ptr @xstrdup(ptr noundef %14) #17
   store ptr %15, ptr %1, align 8
   call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #17
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %17 = call ptr @xstrdup(ptr noundef %16) #17
   store ptr %17, ptr %3, align 8
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.5) #17
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %19 = call ptr @xstrdup(ptr noundef %18) #17
   store ptr %19, ptr %2, align 8
   call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #17
@@ -1327,7 +1327,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state() local_unnamed_addr 
   store i16 -2, ptr %29, align 2
   store ptr null, ptr %30, align 8
   tail call void @lock_state_files() #17
-  %43 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %44 = tail call ptr @xstrdup(ptr noundef %43) #17
   store ptr %44, ptr %9, align 8
   call void @_xstrcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.5) #17

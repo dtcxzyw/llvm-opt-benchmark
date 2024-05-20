@@ -108,34 +108,34 @@ invoke.cont:
   %call1 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
   %0 = getelementptr inbounds i8, ptr %call1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %0, i8 0, i64 16, i1 false)
-  %1 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14RenderPipeline, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14RenderPipeline, i64 16), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %1, i64 -40
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call1, i64 %vbase.offset.i.i
   store ptr %2, ptr %add.ptr.i.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-40, 48) ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5), ptr %call1, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %call1, align 8, !tbaa !14
   %m_pipeline.i = getelementptr inbounds i8, ptr %call1, i64 8
   %m_input.i = getelementptr inbounds i8, ptr %call1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_pipeline.i, i8 0, i64 48, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 1), align 8
-  %4 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT13DynamicSource, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT13DynamicSource, i64 16), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %3, i64 -40
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %m_input.i, i64 %vbase.offset.i.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-40, 40) ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i64 0, i32 0, i64 5), ptr %m_input.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-40, 40) (i8, ptr @_ZTV13DynamicSource, i64 40), ptr %m_input.i, align 8, !tbaa !14
   %upstream.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr null, ptr %upstream.i.i, align 8, !tbaa !16
   %m_output.i = getelementptr inbounds i8, ptr %call1, i64 72
-  %5 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT13DynamicTarget, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT13DynamicTarget, i64 16), align 8
   %vbase.offset.ptr.i.i3.i = getelementptr i8, ptr %5, i64 -40
   %vbase.offset.i.i4.i = load i64, ptr %vbase.offset.ptr.i.i3.i, align 8
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %m_output.i, i64 %vbase.offset.i.i4.i
   store ptr %6, ptr %add.ptr.i.i5.i, align 8, !tbaa !14
   store i8 1, ptr %0, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-40, 32) ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i64 0, i32 0, i64 5), ptr %m_output.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV13DynamicTarget, i64 40), ptr %m_output.i, align 8, !tbaa !14
   %upstream.i6.i = getelementptr inbounds i8, ptr %call1, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !22
   %scale.i = getelementptr inbounds i8, ptr %call1, i64 96
@@ -281,7 +281,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17, !noalias !41
-  store ptr getelementptr inbounds inrange(-40, 48) ({ [11 x ptr] }, ptr @_ZTV19RenderShadowMapStep, i64 0, i32 0, i64 5), ptr %call.i, align 8, !tbaa !14, !noalias !41
+  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV19RenderShadowMapStep, i64 40), ptr %call.i, align 8, !tbaa !14, !noalias !41
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !44, !alias.scope !41
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI19RenderShadowMapStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad

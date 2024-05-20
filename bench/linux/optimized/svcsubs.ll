@@ -131,7 +131,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr nocapture noundef writ
   br label %80
 
 55:                                               ; preds = %23
-  %56 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %57 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 232) #13
   %58 = icmp eq ptr %57, null
   br i1 %58, label %88, label %59

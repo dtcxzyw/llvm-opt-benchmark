@@ -939,7 +939,7 @@ for.body744:                                      ; preds = %for.cond741.prehead
   br i1 %cmp751, label %if.then762, label %for.cond741
 
 if.then762:                                       ; preds = %for.body744
-  %gep = getelementptr inbounds [16 x [2 x i16]], ptr getelementptr inbounds ([16 x [2 x i16]], ptr @_ZL17nuktaSpecialCases, i64 0, i64 0, i64 1), i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds [16 x [2 x i16]], ptr getelementptr inbounds (i8, ptr @_ZL17nuktaSpecialCases, i64 2), i64 0, i64 %indvars.iv
   %107 = load i16, ptr %gep, align 2
   %.fr = freeze i16 %107
   %conv756 = zext i16 %.fr to i32

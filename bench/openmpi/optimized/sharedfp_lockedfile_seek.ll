@@ -37,7 +37,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %12, ptr noundef nonnull @.str) #6
   br label %82
 
@@ -104,7 +104,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 no
   %41 = getelementptr inbounds i8, ptr %9, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %44, ptr noundef nonnull @.str.4) #6
   store i16 1, ptr %4, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 2
@@ -127,7 +127,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 no
   br label %82
 
 55:                                               ; preds = %40
-  %56 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %56 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %56, ptr noundef nonnull @.str.7, i32 noundef %43) #6
   %57 = call i64 @lseek(i32 noundef %43, i64 noundef 0, i32 noundef 0) #6
   %58 = call i32 @opal_fd_write(i32 noundef %43, i32 noundef 8, ptr noundef nonnull %5) #6
@@ -136,7 +136,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 no
   br i1 %.not30, label %62, label %60
 
 60:                                               ; preds = %55
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %61, ptr noundef nonnull @.str.8) #6
   br label %62
 
@@ -159,7 +159,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 no
   br label %82
 
 70:                                               ; preds = %62
-  %71 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %71, ptr noundef nonnull @.str.10, i32 noundef %43) #6
   br label %72
 

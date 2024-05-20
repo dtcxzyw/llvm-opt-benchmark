@@ -32,10 +32,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_register(i32 %0) #0 {
-  store i32 1, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 3), align 4
-  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 3)) #2
-  store i8 0, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 4), align 8
-  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 4)) #2
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 20), align 4
+  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_ras_base, i64 20)) #2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 24), align 8
+  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_ras_base, i64 24)) #2
   ret i32 0
 }
 
@@ -47,7 +47,7 @@ define internal i32 @prte_ras_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_ras_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
 

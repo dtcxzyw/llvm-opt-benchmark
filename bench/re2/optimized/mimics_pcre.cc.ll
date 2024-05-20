@@ -179,20 +179,20 @@ return:                                           ; preds = %for.body, %for.end,
 define internal fastcc noundef zeroext i1 @_ZN3re2L16CanBeEmptyStringEPNS_6RegexpE(ptr noundef %re) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca %"class.re2::EmptyStringWalker", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
   %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re217EmptyStringWalkerE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re217EmptyStringWalkerE, i64 16), ptr %w, align 8
   %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
   store i32 1000000, ptr %max_visits_.i, align 4
   %call.i1 = invoke noundef zeroext i1 @_ZN3re26Regexp6WalkerIbE12WalkInternalEPS0_bb(ptr noundef nonnull align 8 dereferenceable(96) %w, ptr noundef %re, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %w, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %w)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -248,20 +248,20 @@ lpad:                                             ; preds = %entry
 define noundef zeroext i1 @_ZN3re26Regexp10MimicsPCREEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca %"class.re2::PCREWalker", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
   %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re210PCREWalkerE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re210PCREWalkerE, i64 16), ptr %w, align 8
   %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
   store i32 1000000, ptr %max_visits_.i, align 4
   %call.i1 = invoke noundef zeroext i1 @_ZN3re26Regexp6WalkerIbE12WalkInternalEPS0_bb(ptr noundef nonnull align 8 dereferenceable(96) %w, ptr noundef nonnull %this, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %w, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %w, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %w)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -318,7 +318,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re210PCREWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -450,7 +450,7 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re210PCREWalkerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -560,7 +560,7 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re217EmptyStringWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -610,7 +610,7 @@ _ZN3re26Regexp6WalkerIbED2Ev.exit:                ; preds = %invoke.cont.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re217EmptyStringWalkerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -708,7 +708,7 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re26Regexp6WalkerIbED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

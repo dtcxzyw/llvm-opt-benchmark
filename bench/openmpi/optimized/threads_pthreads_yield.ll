@@ -94,7 +94,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 30:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %31 = load i64, ptr @yield_nsleep_time, align 8
   %32 = sitofp i64 %31 to double
-  %33 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @yield_nsleep_time, i64 0, i32 1), align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @yield_nsleep_time, i64 8), align 8
   %34 = sitofp i64 %33 to double
   %35 = call double @llvm.fmuladd.f64(double %32, double 1.000000e+09, double %34)
   %36 = fptoui double %35 to i64
@@ -109,7 +109,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %43 = fmul double %42, 1.000000e+09
   %44 = fptoui double %43 to i64
   %45 = sub i64 %38, %44
-  store i64 %45, ptr getelementptr inbounds (%struct.timespec, ptr @yield_nsleep_time, i64 0, i32 1), align 8
+  store i64 %45, ptr getelementptr inbounds (i8, ptr @yield_nsleep_time, i64 8), align 8
   ret i32 0
 }
 

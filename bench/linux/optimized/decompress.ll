@@ -46,7 +46,7 @@ define dso_local ptr @decompress_method(ptr nocapture noundef readonly %0, i64 n
   br i1 %18, label %.loopexit, label %11, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %11, %5
-  %19 = phi ptr [ @compressed_formats, %5 ], [ %12, %11 ], [ getelementptr inbounds ([9 x %struct.compress_format], ptr @compressed_formats, i64 0, i64 8, i32 0, i64 0), %.preheader ]
+  %19 = phi ptr [ @compressed_formats, %5 ], [ %12, %11 ], [ getelementptr inbounds (i8, ptr @compressed_formats, i64 192), %.preheader ]
   %20 = phi ptr [ @.str, %5 ], [ %17, %11 ], [ null, %.preheader ]
   %21 = icmp eq ptr %2, null
   br i1 %21, label %23, label %22

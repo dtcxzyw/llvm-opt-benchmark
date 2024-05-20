@@ -438,13 +438,13 @@ _my_sleep.exit._crit_edge:                        ; preds = %.backedge, %_my_sle
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_load_config() unnamed_addr #0 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %2 = lshr i16 %1, 1
   %3 = tail call i16 @llvm.umax.i16(i16 %2, i16 1)
   %4 = tail call i16 @llvm.umin.i16(i16 %3, i16 10)
   %5 = zext nneg i16 %4 to i32
   store i32 %5, ptr @sched_timeout, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 159), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %7 = tail call ptr @xstrcasestr(ptr noundef %6, ptr noundef nonnull @.str.4) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %thread-pre-split, label %8
@@ -470,7 +470,7 @@ thread-pre-split:                                 ; preds = %0
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 159), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %18 = tail call ptr @xstrcasestr(ptr noundef %17, ptr noundef nonnull @.str.6) #11
   %.not7 = icmp eq ptr %18, null
   br i1 %.not7, label %22, label %19
@@ -482,7 +482,7 @@ thread-pre-split:                                 ; preds = %0
   br label %22
 
 22:                                               ; preds = %19, %16
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 159), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %24 = tail call ptr @xstrcasestr(ptr noundef %23, ptr noundef nonnull @.str.7) #11
   %.not8 = icmp eq ptr %24, null
   br i1 %.not8, label %thread-pre-split9, label %25

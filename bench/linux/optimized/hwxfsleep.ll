@@ -90,9 +90,9 @@ define dso_local i32 @acpi_enter_sleep_state_s4bios() #1 align 16 {
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 48), align 1
   %15 = zext i32 %14 to i64
-  %16 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 9), align 1
+  %16 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 54), align 1
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @acpi_hw_write_port(i64 noundef %15, i32 noundef %17, i32 noundef 8) #5
   %19 = icmp eq i32 %18, 0

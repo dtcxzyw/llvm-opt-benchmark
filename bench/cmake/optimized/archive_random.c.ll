@@ -63,19 +63,19 @@ arc4_stir_if_needed.exit.i:                       ; preds = %8, %2
   %17 = add i8 %16, 1
   store i8 %17, ptr @rs, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %18
+  %19 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
-  %21 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %22 = add i8 %21, %20
-  store i8 %22, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %22, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %23
+  %24 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   store i8 %25, ptr %19, align 1
   store i8 %20, ptr %24, align 1
   %.narrow.i.i = add i8 %25, %20
   %26 = zext i8 %.narrow.i.i to i64
-  %27 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %26
+  %27 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %0, i64 %10
   store i8 %28, ptr %29, align 1
@@ -99,7 +99,7 @@ define internal fastcc void @arc4_stir() unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %0 ]
   %2 = trunc i64 %indvars.iv.i to i8
-  %3 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %indvars.iv.i
+  %3 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %indvars.iv.i
   store i8 %2, ptr %3, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -107,7 +107,7 @@ define internal fastcc void @arc4_stir() unnamed_addr #0 {
 
 arc4_init.exit:                                   ; preds = %.preheader
   store i8 0, ptr @rs, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   store i1 true, ptr @rs_initialized, align 4
   br label %4
 
@@ -132,7 +132,7 @@ arc4_init.exit:                                   ; preds = %.preheader
 13:                                               ; preds = %.critedge, %7
   %14 = load i8, ptr @rs, align 1
   %15 = add i8 %14, -1
-  %.promoted.i = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  %.promoted.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %16
 
 16:                                               ; preds = %16, %13
@@ -141,7 +141,7 @@ arc4_init.exit:                                   ; preds = %.preheader
   %18 = phi i8 [ %.promoted.i, %13 ], [ %28, %16 ]
   %19 = add i8 %17, 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %20
+  %21 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = add i8 %22, %18
   %24 = and i32 %.07.i, 127
@@ -150,7 +150,7 @@ arc4_init.exit:                                   ; preds = %.preheader
   %27 = load i8, ptr %26, align 1
   %28 = add i8 %23, %27
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %29
+  %30 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   store i8 %31, ptr %21, align 1
   store i8 %22, ptr %30, align 1
@@ -164,11 +164,11 @@ arc4_addrandom.exit:                              ; preds = %16, %arc4_addrandom
   %34 = phi i8 [ %39, %arc4_addrandom.exit ], [ %19, %16 ]
   %35 = add i8 %33, 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %36
+  %37 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = add i8 %34, %38
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i64 0, i32 2, i64 %40
+  %41 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   store i8 %42, ptr %37, align 1
   store i8 %38, ptr %41, align 1
@@ -178,7 +178,7 @@ arc4_addrandom.exit:                              ; preds = %16, %arc4_addrandom
 
 44:                                               ; preds = %arc4_addrandom.exit
   store i8 %35, ptr @rs, align 1
-  store i8 %39, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i64 0, i32 1), align 1
+  store i8 %39, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   store i32 1600000, ptr @arc4_count, align 4
   ret void
 }

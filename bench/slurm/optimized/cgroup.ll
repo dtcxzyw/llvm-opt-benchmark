@@ -151,25 +151,25 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
 
 9:                                                ; preds = %8
   tail call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12)) #12
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1)) #12
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8)) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @slurm_cgroup_conf, i8 0, i64 88, i1 false)
-  store float 1.000000e+02, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
+  store float 1.000000e+02, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
   %10 = tail call ptr @xstrdup(ptr noundef nonnull @.str.51) #12
   store ptr %10, ptr @slurm_cgroup_conf, align 8
   %11 = tail call ptr @xstrdup(ptr noundef nonnull @.str.48) #12
-  store ptr %11, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.52) #12
-  store ptr %12, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
-  store float 1.000000e+02, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
-  store float 1.000000e+02, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
-  store i64 -2, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
-  store i64 30, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
-  store <4 x i8> zeroinitializer, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
+  store float 1.000000e+02, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
+  store float 1.000000e+02, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
+  store i64 -2, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
+  store i64 30, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
+  store <4 x i8> zeroinitializer, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -253,28 +253,28 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   unreachable
 
 47:                                               ; preds = %44
-  %48 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), ptr noundef nonnull @.str.18, ptr noundef %28) #12
-  %49 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), ptr noundef nonnull @.str.22, ptr noundef %28) #12
-  %50 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), ptr noundef nonnull @.str.23, ptr noundef %28) #12
-  %51 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), ptr noundef nonnull @.str.25, ptr noundef %28) #12
-  %52 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), ptr noundef nonnull @.str.28, ptr noundef %28) #12
-  %53 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), ptr noundef nonnull @.str.29, ptr noundef %28) #12
-  %54 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), ptr noundef nonnull @.str.30, ptr noundef %28) #12
-  %55 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), ptr noundef nonnull @.str.26, ptr noundef %28) #12
-  %56 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), ptr noundef nonnull @.str.32, ptr noundef %28) #12
+  %48 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), ptr noundef nonnull @.str.18, ptr noundef %28) #12
+  %49 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), ptr noundef nonnull @.str.22, ptr noundef %28) #12
+  %50 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), ptr noundef nonnull @.str.23, ptr noundef %28) #12
+  %51 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), ptr noundef nonnull @.str.25, ptr noundef %28) #12
+  %52 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), ptr noundef nonnull @.str.28, ptr noundef %28) #12
+  %53 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), ptr noundef nonnull @.str.29, ptr noundef %28) #12
+  %54 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), ptr noundef nonnull @.str.30, ptr noundef %28) #12
+  %55 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), ptr noundef nonnull @.str.26, ptr noundef %28) #12
+  %56 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), ptr noundef nonnull @.str.32, ptr noundef %28) #12
   %57 = icmp ne i32 %56, 0
-  %58 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   %59 = icmp ugt i64 %58, 100
   %or.cond.i = select i1 %57, i1 %59, i1 false
   br i1 %or.cond.i, label %60, label %62
 
 60:                                               ; preds = %47
   %61 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64) #12
-  store i64 100, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
+  store i64 100, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   br label %62
 
 62:                                               ; preds = %60, %47
-  %63 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), ptr noundef nonnull @.str.31, ptr noundef %28) #12
+  %63 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), ptr noundef nonnull @.str.31, ptr noundef %28) #12
   %64 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.57, ptr noundef %28) #12
   %.not23.i = icmp eq i32 %64, 0
   br i1 %.not23.i, label %66, label %65
@@ -290,38 +290,38 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   br i1 %.not24.i, label %70, label %68
 
 68:                                               ; preds = %66
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12)) #12
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
   %69 = load ptr, ptr %3, align 8
-  store ptr %69, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), align 8
+  store ptr %69, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   store ptr null, ptr %3, align 8
   br label %70
 
 70:                                               ; preds = %68, %66
-  %71 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), ptr noundef nonnull @.str.35, ptr noundef %28) #12
+  %71 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), ptr noundef nonnull @.str.35, ptr noundef %28) #12
   %.not25.i = icmp eq i32 %71, 0
   br i1 %.not25.i, label %73, label %72
 
 72:                                               ; preds = %70
-  store i8 1, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
   br label %73
 
 73:                                               ; preds = %72, %70
-  %74 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), align 8
+  %74 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %73
-  %77 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), ptr noundef nonnull @.str.36, ptr noundef %28) #12
+  %77 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), ptr noundef nonnull @.str.36, ptr noundef %28) #12
   %.not26.i = icmp eq i32 %77, 0
   br i1 %.not26.i, label %78, label %79
 
 78:                                               ; preds = %76
-  store i8 0, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
   br label %79
 
 79:                                               ; preds = %78, %76, %73
-  %80 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 15), ptr noundef nonnull @.str.37, ptr noundef %28) #12
-  %81 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 16), ptr noundef nonnull @.str.58, ptr noundef %28) #12
+  %80 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), ptr noundef nonnull @.str.37, ptr noundef %28) #12
+  %81 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), ptr noundef nonnull @.str.58, ptr noundef %28) #12
   call void @s_p_hashtbl_destroy(ptr noundef %28) #12
   br label %_read_slurm_cgroup_conf.exit
 
@@ -355,7 +355,7 @@ _read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
 91:                                               ; preds = %87, %85
   %.022.i = phi i32 [ %90, %87 ], [ 0, %85 ]
   call void @packmem(ptr noundef %86, i32 noundef %.022.i, ptr noundef %84) #12
-  %92 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), align 8
   %.not26.i10 = icmp eq ptr %92, null
   br i1 %.not26.i10, label %97, label %93
 
@@ -368,31 +368,31 @@ _read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
 97:                                               ; preds = %93, %91
   %.021.i = phi i32 [ %96, %93 ], [ 0, %91 ]
   call void @packmem(ptr noundef %92, i32 noundef %.021.i, ptr noundef %84) #12
-  %98 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
+  %98 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
   %99 = trunc i8 %98 to i1
   call void @packbool(i1 noundef zeroext %99, ptr noundef %84) #12
-  %100 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
+  %100 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   %101 = trunc i8 %100 to i1
   call void @packbool(i1 noundef zeroext %101, ptr noundef %84) #12
-  %102 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
+  %102 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
   call void @packfloat(float noundef %102, ptr noundef %84) #12
-  %103 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %103 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   call void @packfloat(float noundef %103, ptr noundef %84) #12
-  %104 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  %104 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
   call void @pack64(i64 noundef %104, ptr noundef %84) #12
-  %105 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %105 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %106 = trunc i8 %105 to i1
   call void @packbool(i1 noundef zeroext %106, ptr noundef %84) #12
-  %107 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), align 4
+  %107 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
   call void @packfloat(float noundef %107, ptr noundef %84) #12
-  %108 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %108 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   call void @packfloat(float noundef %108, ptr noundef %84) #12
-  %109 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
+  %109 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   call void @pack64(i64 noundef %109, ptr noundef %84) #12
-  %110 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
+  %110 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   %111 = trunc i8 %110 to i1
   call void @packbool(i1 noundef zeroext %111, ptr noundef %84) #12
-  %112 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), align 8
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %.not27.i = icmp eq ptr %112, null
   br i1 %.not27.i, label %117, label %113
 
@@ -405,16 +405,16 @@ _read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
 117:                                              ; preds = %113, %97
   %.0.i = phi i32 [ %116, %113 ], [ 0, %97 ]
   call void @packmem(ptr noundef %112, i32 noundef %.0.i, ptr noundef %84) #12
-  %118 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), align 8
+  %118 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
   %119 = trunc i8 %118 to i1
   call void @packbool(i1 noundef zeroext %119, ptr noundef %84) #12
-  %120 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), align 1
+  %120 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
   %121 = trunc i8 %120 to i1
   call void @packbool(i1 noundef zeroext %121, ptr noundef %84) #12
-  %122 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 15), align 2
+  %122 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), align 2
   %123 = trunc i8 %122 to i1
   call void @packbool(i1 noundef zeroext %123, ptr noundef %84) #12
-  %124 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 16), align 1
+  %124 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), align 1
   %125 = trunc i8 %124 to i1
   br label %_pack_cgroup_conf.exit
 
@@ -457,8 +457,8 @@ define void @cgroup_conf_destroy() #0 {
 
 4:                                                ; preds = %0
   tail call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12)) #12
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1)) #12
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8)) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @slurm_cgroup_conf, i8 0, i64 88, i1 false)
   store i1 false, ptr @cg_conf_inited, align 1
   %5 = load ptr, ptr @cg_conf_buf, align 8
@@ -544,7 +544,7 @@ define noundef ptr @autodetect_cgroup_version() #0 {
 24:                                               ; preds = %6, %12, %14
   %switch = phi ptr [ @.str.11, %6 ], [ @.str.11, %14 ], [ @.str.10, %12 ]
   %.0 = phi i32 [ 2, %6 ], [ 2, %14 ], [ 1, %12 ]
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 36028797018963968
   %.not7 = icmp eq i64 %26, 0
   br i1 %.not7, label %31, label %27
@@ -666,7 +666,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 562, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.18) #12
   store ptr %12, ptr %11, align 8
-  %13 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
   %14 = trunc i8 %13 to i1
   %15 = select i1 %14, ptr @.str.20, ptr @.str.21
   %16 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %15) #12
@@ -676,7 +676,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %18 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 568, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %19 = tail call ptr @xstrdup(ptr noundef nonnull @.str.22) #12
   store ptr %19, ptr %18, align 8
-  %20 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, ptr @.str.20, ptr @.str.21
   %23 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %22) #12
@@ -686,7 +686,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %25 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 574, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %26 = tail call ptr @xstrdup(ptr noundef nonnull @.str.23) #12
   store ptr %26, ptr %25, align 8
-  %27 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
+  %27 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
   %28 = fpext float %27 to double
   %29 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %28) #12
   %30 = getelementptr inbounds i8, ptr %25, i64 8
@@ -695,7 +695,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %31 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 579, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %32 = tail call ptr @xstrdup(ptr noundef nonnull @.str.25) #12
   store ptr %32, ptr %31, align 8
-  %33 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %33 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   %34 = fpext float %33 to double
   %35 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %34) #12
   %36 = getelementptr inbounds i8, ptr %31, i64 8
@@ -704,7 +704,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %37 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 584, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %38 = tail call ptr @xstrdup(ptr noundef nonnull @.str.26) #12
   store ptr %38, ptr %37, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
   %40 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.27, i64 noundef %39) #12
   %41 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %40, ptr %41, align 8
@@ -712,7 +712,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %42 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 590, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %43 = tail call ptr @xstrdup(ptr noundef nonnull @.str.28) #12
   store ptr %43, ptr %42, align 8
-  %44 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %44 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %45 = trunc i8 %44 to i1
   %46 = select i1 %45, ptr @.str.20, ptr @.str.21
   %47 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %46) #12
@@ -722,7 +722,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 596, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %50 = tail call ptr @xstrdup(ptr noundef nonnull @.str.29) #12
   store ptr %50, ptr %49, align 8
-  %51 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), align 4
+  %51 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
   %52 = fpext float %51 to double
   %53 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %52) #12
   %54 = getelementptr inbounds i8, ptr %49, i64 8
@@ -731,7 +731,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %55 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 601, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %56 = tail call ptr @xstrdup(ptr noundef nonnull @.str.30) #12
   store ptr %56, ptr %55, align 8
-  %57 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %57 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   %58 = fpext float %57 to double
   %59 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %58) #12
   %60 = getelementptr inbounds i8, ptr %55, i64 8
@@ -740,7 +740,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %61 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 606, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %62 = tail call ptr @xstrdup(ptr noundef nonnull @.str.31) #12
   store ptr %62, ptr %61, align 8
-  %63 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
+  %63 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   %64 = trunc i8 %63 to i1
   %65 = select i1 %64, ptr @.str.20, ptr @.str.21
   %66 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %65) #12
@@ -750,7 +750,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %68 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 612, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %69 = tail call ptr @xstrdup(ptr noundef nonnull @.str.32) #12
   store ptr %69, ptr %68, align 8
-  %70 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
+  %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   %.not83 = icmp eq i64 %70, -2
   br i1 %.not83, label %74, label %71
 
@@ -765,7 +765,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %75 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 619, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %76 = tail call ptr @xstrdup(ptr noundef nonnull @.str.34) #12
   store ptr %76, ptr %75, align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %78 = tail call ptr @xstrdup(ptr noundef %77) #12
   %79 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %78, ptr %79, align 8
@@ -773,7 +773,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %80 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 624, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %81 = tail call ptr @xstrdup(ptr noundef nonnull @.str.35) #12
   store ptr %81, ptr %80, align 8
-  %82 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), align 8
+  %82 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
   %83 = trunc i8 %82 to i1
   %84 = select i1 %83, ptr @.str.20, ptr @.str.21
   %85 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %84) #12
@@ -783,7 +783,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %87 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 631, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %88 = tail call ptr @xstrdup(ptr noundef nonnull @.str.36) #12
   store ptr %88, ptr %87, align 8
-  %89 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), align 1
+  %89 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
   %90 = trunc i8 %89 to i1
   %91 = select i1 %90, ptr @.str.20, ptr @.str.21
   %92 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %91) #12
@@ -793,7 +793,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %94 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 638, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
   %95 = tail call ptr @xstrdup(ptr noundef nonnull @.str.37) #12
   store ptr %95, ptr %94, align 8
-  %96 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 15), align 2
+  %96 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), align 2
   %97 = trunc i8 %96 to i1
   %98 = select i1 %97, ptr @.str.20, ptr @.str.21
   %99 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %98) #12
@@ -1282,97 +1282,97 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
 
 93:                                               ; preds = %89
   call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12)) #12
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1)) #12
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8)) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @slurm_cgroup_conf, i8 0, i64 88, i1 false)
   %94 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull @slurm_cgroup_conf, ptr noundef nonnull %2, ptr noundef %46) #12
   %.not18.i = icmp eq i32 %94, 0
   br i1 %.not18.i, label %95, label %127
 
 95:                                               ; preds = %93
-  %96 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1), ptr noundef nonnull %2, ptr noundef %46) #12
+  %96 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), ptr noundef nonnull %2, ptr noundef %46) #12
   %.not19.i = icmp eq i32 %96, 0
   br i1 %.not19.i, label %97, label %127
 
 97:                                               ; preds = %95
-  %98 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), ptr noundef %46) #12
+  %98 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), ptr noundef %46) #12
   %.not20.i = icmp eq i32 %98, 0
   br i1 %.not20.i, label %99, label %127
 
 99:                                               ; preds = %97
-  %100 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), ptr noundef %46) #12
+  %100 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), ptr noundef %46) #12
   %.not21.i = icmp eq i32 %100, 0
   br i1 %.not21.i, label %101, label %127
 
 101:                                              ; preds = %99
-  %102 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), ptr noundef %46) #12
+  %102 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), ptr noundef %46) #12
   %.not22.i = icmp eq i32 %102, 0
   br i1 %.not22.i, label %103, label %127
 
 103:                                              ; preds = %101
-  %104 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), ptr noundef %46) #12
+  %104 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), ptr noundef %46) #12
   %.not23.i = icmp eq i32 %104, 0
   br i1 %.not23.i, label %105, label %127
 
 105:                                              ; preds = %103
-  %106 = call i32 @unpack64(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), ptr noundef %46) #12
+  %106 = call i32 @unpack64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), ptr noundef %46) #12
   %.not24.i = icmp eq i32 %106, 0
   br i1 %.not24.i, label %107, label %127
 
 107:                                              ; preds = %105
-  %108 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), ptr noundef %46) #12
+  %108 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), ptr noundef %46) #12
   %.not25.i = icmp eq i32 %108, 0
   br i1 %.not25.i, label %109, label %127
 
 109:                                              ; preds = %107
-  %110 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), ptr noundef %46) #12
+  %110 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), ptr noundef %46) #12
   %.not26.i = icmp eq i32 %110, 0
   br i1 %.not26.i, label %111, label %127
 
 111:                                              ; preds = %109
-  %112 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), ptr noundef %46) #12
+  %112 = call i32 @unpackfloat(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), ptr noundef %46) #12
   %.not27.i = icmp eq i32 %112, 0
   br i1 %.not27.i, label %113, label %127
 
 113:                                              ; preds = %111
-  %114 = call i32 @unpack64(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), ptr noundef %46) #12
+  %114 = call i32 @unpack64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), ptr noundef %46) #12
   %.not28.i = icmp eq i32 %114, 0
   br i1 %.not28.i, label %115, label %127
 
 115:                                              ; preds = %113
-  %116 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), ptr noundef %46) #12
+  %116 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), ptr noundef %46) #12
   %.not29.i = icmp eq i32 %116, 0
   br i1 %.not29.i, label %117, label %127
 
 117:                                              ; preds = %115
-  %118 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), ptr noundef nonnull %2, ptr noundef %46) #12
+  %118 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), ptr noundef nonnull %2, ptr noundef %46) #12
   %.not30.i = icmp eq i32 %118, 0
   br i1 %.not30.i, label %119, label %127
 
 119:                                              ; preds = %117
-  %120 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), ptr noundef %46) #12
+  %120 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), ptr noundef %46) #12
   %.not31.i = icmp eq i32 %120, 0
   br i1 %.not31.i, label %121, label %127
 
 121:                                              ; preds = %119
-  %122 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), ptr noundef %46) #12
+  %122 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), ptr noundef %46) #12
   %.not32.i = icmp eq i32 %122, 0
   br i1 %.not32.i, label %123, label %127
 
 123:                                              ; preds = %121
-  %124 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 15), ptr noundef %46) #12
+  %124 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), ptr noundef %46) #12
   %.not33.i = icmp eq i32 %124, 0
   br i1 %.not33.i, label %125, label %127
 
 125:                                              ; preds = %123
-  %126 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 16), ptr noundef %46) #12
+  %126 = call i32 @unpackbool(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), ptr noundef %46) #12
   %.not34.i = icmp eq i32 %126, 0
   br i1 %.not34.i, label %128, label %127
 
 127:                                              ; preds = %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %.outer._crit_edge
   call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12)) #12
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1)) #12
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8)) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @slurm_cgroup_conf, i8 0, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -1444,17 +1444,17 @@ define zeroext i1 @cgroup_memcg_job_confinement() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7, %4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
   %12 = tail call ptr @xstrstr(ptr noundef %11, ptr noundef nonnull @.str.45) #12
   %.not7 = icmp ne ptr %12, null
   br label %13
@@ -1500,7 +1500,7 @@ define range(i32 -1, 1) i32 @cgroup_g_init() local_unnamed_addr #0 {
   br i1 %.not14, label %15, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 36028797018963968
   %.not15 = icmp eq i64 %10, 0
   br i1 %.not15, label %15, label %11
@@ -1515,7 +1515,7 @@ define range(i32 -1, 1) i32 @cgroup_g_init() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %14, %11, %8, %6
-  %16 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 12), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %17 = tail call i32 @xstrcmp(ptr noundef %16, ptr noundef nonnull @.str.48) #12
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %18, label %20
@@ -1613,133 +1613,133 @@ define i32 @cgroup_g_initialize(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_system_create(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %3 = tail call i32 %2(i32 noundef %0) #12
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_system_addto(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %5 = tail call i32 %4(i32 noundef %0, ptr noundef %1, i32 noundef %2) #12
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_system_destroy(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %3 = tail call i32 %2(i32 noundef %0) #12
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 4), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #12
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_addto(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   %5 = tail call i32 %4(i32 noundef %0, ptr noundef %1, i32 noundef %2) #12
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_get_pids(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 6), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #12
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_suspend() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 7), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
   %2 = tail call i32 %1() #12
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_resume() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 64), align 8
   %2 = tail call i32 %1() #12
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 9), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 72), align 8
   %3 = tail call i32 %2(i32 noundef %0) #12
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @cgroup_g_has_pid(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 10), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
   %3 = tail call zeroext i1 %2(i32 noundef %0) #12
   ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @cgroup_g_constrain_get(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 11), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 88), align 8
   %4 = tail call ptr %3(i32 noundef %0, i32 noundef %1) #12
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 12), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 96), align 8
   %5 = tail call i32 %4(i32 noundef %0, i32 noundef %1, ptr noundef %2) #12
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_constrain_apply(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 13), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 104), align 8
   %5 = tail call i32 %4(i32 noundef %0, i32 noundef %1, i32 noundef %2) #12
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_step_start_oom_mgr() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 14), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 112), align 8
   %2 = tail call i32 %1() #12
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @cgroup_g_step_stop_oom_mgr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 15), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 120), align 8
   %3 = tail call ptr %2(ptr noundef %0) #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cgroup_g_task_addto(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 128), align 8
   %6 = tail call i32 %5(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #12
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @cgroup_g_task_get_acct_data(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 17), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 136), align 8
   %3 = tail call ptr %2(i32 noundef %0) #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @cgroup_g_get_acct_units() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 18), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 144), align 8
   %2 = tail call i64 %1() #12
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @cgroup_g_has_feature(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops_t, ptr @ops, i64 0, i32 19), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 152), align 8
   %3 = tail call zeroext i1 %2(i32 noundef %0) #12
   ret i1 %3
 }

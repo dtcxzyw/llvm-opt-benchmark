@@ -46,7 +46,7 @@ define i32 @mca_coll_basic_bcast_log_intra(ptr noundef %0, i32 noundef %1, ptr n
   %24 = and i32 %12, %23
   %25 = add nsw i32 %24, %3
   %26 = srem i32 %25, %.val.val
-  %27 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %28 = sext i32 %1 to i64
   %29 = tail call i32 %27(ptr noundef %0, i64 noundef %28, ptr noundef %2, i32 noundef %26, i32 noundef -17, ptr noundef nonnull %4, ptr noundef null) #4
   %.not = icmp eq i32 %29, 0
@@ -82,7 +82,7 @@ define i32 @mca_coll_basic_bcast_log_intra(ptr noundef %0, i32 noundef %1, ptr n
   %43 = add nsw i32 %40, %3
   %44 = srem i32 %43, %.val.val
   %45 = add nsw i32 %.05895, 1
-  %46 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %47 = getelementptr inbounds i8, ptr %.05796, i64 8
   %48 = tail call i32 %46(ptr noundef %0, i64 noundef %38, ptr noundef %2, i32 noundef %44, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef %.05796) #4
   %.not75 = icmp eq i32 %48, 0
@@ -121,7 +121,7 @@ define i32 @mca_coll_basic_bcast_log_intra(ptr noundef %0, i32 noundef %1, ptr n
   br label %ompi_request_cancel.exit.i
 
 ompi_request_cancel.exit.i:                       ; preds = %59, %56
-  %61 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %62 = tail call i32 %61(ptr noundef nonnull %51, ptr noundef null) #4
   br label %67
 
@@ -149,7 +149,7 @@ ompi_request_cancel.exit.i:                       ; preds = %59, %56
   br i1 %71, label %72, label %ompi_coll_base_free_reqs.exit
 
 72:                                               ; preds = %._crit_edge
-  %73 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %74 = zext nneg i32 %.159 to i64
   %75 = tail call i32 %73(i64 noundef %74, ptr noundef nonnull %33, ptr noundef null) #4
   %.not74 = icmp eq i32 %75, 0
@@ -180,7 +180,7 @@ ompi_request_cancel.exit.i:                       ; preds = %59, %56
   br label %ompi_request_cancel.exit.i87
 
 ompi_request_cancel.exit.i87:                     ; preds = %84, %81
-  %86 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %87 = tail call i32 %86(ptr noundef nonnull %76, ptr noundef null) #4
   br label %92
 
@@ -225,7 +225,7 @@ ompi_comm_remote_size.exit:                       ; preds = %6, %10
   ]
 
 16:                                               ; preds = %ompi_comm_remote_size.exit
-  %17 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %18 = sext i32 %1 to i64
   %19 = tail call i32 %17(ptr noundef %0, i64 noundef %18, ptr noundef %2, i32 noundef %3, i32 noundef -17, ptr noundef nonnull %4, ptr noundef null) #4
   br label %ompi_coll_base_free_reqs.exit
@@ -248,7 +248,7 @@ ompi_comm_remote_size.exit:                       ; preds = %6, %10
 
 27:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %28 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %29 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call i32 %28(ptr noundef %0, i64 noundef %26, ptr noundef %2, i32 noundef %30, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef nonnull %29) #4
@@ -285,7 +285,7 @@ ompi_comm_remote_size.exit:                       ; preds = %6, %10
   br label %ompi_request_cancel.exit.i
 
 ompi_request_cancel.exit.i:                       ; preds = %41, %38
-  %43 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %44 = tail call i32 %43(ptr noundef nonnull %33, ptr noundef null) #4
   br label %49
 
@@ -305,7 +305,7 @@ ompi_request_cancel.exit.i:                       ; preds = %41, %38
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %50, %.preheader
-  %51 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %52 = sext i32 %15 to i64
   %53 = tail call i32 %51(i64 noundef %52, ptr noundef nonnull %23, ptr noundef null) #4
   %.not38 = icmp eq i32 %53, 0
@@ -341,7 +341,7 @@ ompi_request_cancel.exit.i:                       ; preds = %41, %38
   br label %ompi_request_cancel.exit.i50
 
 ompi_request_cancel.exit.i50:                     ; preds = %62, %59
-  %64 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %65 = tail call i32 %64(ptr noundef nonnull %54, ptr noundef null) #4
   br label %70
 

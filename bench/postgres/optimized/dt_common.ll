@@ -108,7 +108,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr nocapture nound
   br label %13
 
 13:                                               ; preds = %26, %10
-  %.01927.i = phi ptr [ getelementptr inbounds ([61 x %struct.datetkn], ptr @deltatktbl, i64 0, i64 60, i32 0, i64 0), %10 ], [ %.1.i, %26 ]
+  %.01927.i = phi ptr [ getelementptr inbounds (i8, ptr @deltatktbl, i64 960), %10 ], [ %.1.i, %26 ]
   %.02026.i = phi ptr [ @deltatktbl, %10 ], [ %.121.i, %26 ]
   %14 = ptrtoint ptr %.01927.i to i64
   %15 = ptrtoint ptr %.02026.i to i64
@@ -1852,7 +1852,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
 115:                                              ; preds = %.critedge.i
   %116 = load i8, ptr %.012.lcssa.i, align 1
   store i8 0, ptr %.012.lcssa.i, align 1
-  %117 = load ptr, ptr getelementptr inbounds ([25 x ptr], ptr @datecache, i64 0, i64 24), align 16
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
   %.not.i.i = icmp eq ptr %117, null
   br i1 %.not.i.i, label %121, label %118
 
@@ -1867,7 +1867,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   br label %124
 
 124:                                              ; preds = %137, %121
-  %.01927.i.i.i = phi ptr [ getelementptr inbounds ([277 x %struct.datetkn], ptr @datetktbl, i64 0, i64 276, i32 0, i64 0), %121 ], [ %.1.i.i.i, %137 ]
+  %.01927.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %121 ], [ %.1.i.i.i, %137 ]
   %.02026.i.i.i = phi ptr [ @datetktbl, %121 ], [ %.121.i.i.i, %137 ]
   %125 = ptrtoint ptr %.01927.i.i.i to i64
   %126 = ptrtoint ptr %.02026.i.i.i to i64
@@ -1896,13 +1896,13 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   br i1 %.not.i.i.i, label %DecodeSpecial.exit.thread.i, label %124, !llvm.loop !4
 
 DecodeSpecial.exit.thread.i:                      ; preds = %137
-  store ptr null, ptr getelementptr inbounds ([25 x ptr], ptr @datecache, i64 0, i64 24), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
   store i8 %116, ptr %.012.lcssa.i, align 1
   br label %DecodePosixTimezone.exit.thread
 
 DecodeSpecial.exit.i:                             ; preds = %134, %118
   %.018.i.i = phi ptr [ %117, %118 ], [ %129, %134 ]
-  store ptr %.018.i.i, ptr getelementptr inbounds ([25 x ptr], ptr @datecache, i64 0, i64 24), align 16
+  store ptr %.018.i.i, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
   %141 = getelementptr inbounds i8, ptr %.018.i.i, i64 11
   %142 = load i8, ptr %141, align 1
   %143 = sext i8 %142 to i32
@@ -2266,7 +2266,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br label %320
 
 320:                                              ; preds = %333, %317
-  %.01927.i.i = phi ptr [ getelementptr inbounds ([277 x %struct.datetkn], ptr @datetktbl, i64 0, i64 276, i32 0, i64 0), %317 ], [ %.1.i.i, %333 ]
+  %.01927.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %317 ], [ %.1.i.i, %333 ]
   %.02026.i.i = phi ptr [ @datetktbl, %317 ], [ %.121.i.i, %333 ]
   %321 = ptrtoint ptr %.01927.i.i to i64
   %322 = ptrtoint ptr %.02026.i.i to i64
@@ -3269,7 +3269,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br label %68
 
 68:                                               ; preds = %81, %66
-  %.01927.i.i = phi ptr [ getelementptr inbounds ([277 x %struct.datetkn], ptr @datetktbl, i64 0, i64 276, i32 0, i64 0), %66 ], [ %.1.i.i, %81 ]
+  %.01927.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %66 ], [ %.1.i.i, %81 ]
   %.02026.i.i = phi ptr [ @datetktbl, %66 ], [ %.121.i.i, %81 ]
   %69 = ptrtoint ptr %.01927.i.i to i64
   %70 = ptrtoint ptr %.02026.i.i to i64

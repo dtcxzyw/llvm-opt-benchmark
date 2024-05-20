@@ -1204,7 +1204,7 @@ define void @_ZNK5faiss9IndexHNSW6searchElPKflPfPlPKNS_16SearchParametersE(ptr n
   store i64 %1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %21, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %21, align 8
   %41 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %4, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %21, i64 40
@@ -1368,18 +1368,18 @@ define void @_ZNK5faiss9IndexHNSW6searchElPKflPfPlPKNS_16SearchParametersE(ptr n
   %103 = load i64, ptr @_ZN5faiss10hnsw_statsE, align 8
   %104 = add i64 %103, %102
   store i64 %104, ptr @_ZN5faiss10hnsw_statsE, align 8
-  %105 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
   %106 = add i64 %105, %101
-  store i64 %106, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
-  %107 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
+  %107 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
   %108 = add i64 %107, %100
-  store i64 %108, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
-  %109 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
+  store i64 %108, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
+  %109 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
   %110 = add i64 %109, %99
-  store i64 %110, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
-  %111 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %110, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
+  %111 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   %112 = add i64 %111, %98
-  store i64 %112, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %112, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -1452,7 +1452,7 @@ define void @_ZNK5faiss9IndexHNSW12range_searchElPKffPNS_17RangeSearchResultEPKN
   store i64 %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %4, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 40
@@ -1628,18 +1628,18 @@ define void @_ZNK5faiss9IndexHNSW12range_searchElPKffPNS_17RangeSearchResultEPKN
   %88 = load i64, ptr @_ZN5faiss10hnsw_statsE, align 8
   %89 = add i64 %88, %87
   store i64 %89, ptr @_ZN5faiss10hnsw_statsE, align 8
-  %90 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
   %91 = add i64 %90, %86
-  store i64 %91, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
-  %92 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
+  store i64 %91, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
   %93 = add i64 %92, %85
-  store i64 %93, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
-  %94 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
+  store i64 %93, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
+  %94 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
   %95 = add i64 %94, %84
-  store i64 %95, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
-  %96 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %95, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
+  %96 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   %97 = add i64 %96, %83
-  store i64 %97, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %97, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -1703,7 +1703,7 @@ define void @_ZNK5faiss9IndexHNSW12range_searchElPKffPNS_17RangeSearchResultEPKN
   resume { ptr, i32 } %eh.lpad-body
 
 .loopexit:                                        ; preds = %106, %.preheader, %82
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %19, align 8
   %117 = getelementptr inbounds i8, ptr %19, i64 56
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %26, align 8
@@ -2008,18 +2008,18 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %85
   %94 = load i64, ptr @_ZN5faiss10hnsw_statsE, align 8
   %95 = add i64 %94, %89
   store i64 %95, ptr @_ZN5faiss10hnsw_statsE, align 8
-  %96 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
+  %96 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
   %97 = add i64 %96, %90
-  store i64 %97, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 1), align 8
-  %98 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
+  store i64 %97, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 8), align 8
+  %98 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
   %99 = add i64 %98, %91
-  store i64 %99, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
-  %100 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
+  store i64 %99, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
   %101 = add i64 %100, %92
-  store i64 %101, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 3), align 8
-  %102 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %101, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 24), align 8
+  %102 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   %103 = add i64 %102, %93
-  store i64 %103, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %103, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   call void @_ZdaPv(ptr noundef nonnull %78) #23
   %104 = load ptr, ptr %22, align 8
   %.not.i18 = icmp eq ptr %104, null
@@ -2070,7 +2070,7 @@ define void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 
   store i32 %3, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %11, i32 noundef %2)
           to label %12 unwind label %15
@@ -2114,7 +2114,7 @@ define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dere
   store i32 %7, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %14, i32 noundef %2)
           to label %15 unwind label %18
@@ -2135,7 +2135,7 @@ define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss9IndexHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 5192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2244,7 +2244,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
@@ -2791,7 +2791,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
   store i8 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %16, i64 8
   store float 0.000000e+00, ptr %44, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %16, align 8
   %45 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %3, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %16, i64 24
@@ -2819,7 +2819,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
           to label %59 unwind label %61
 
 59:                                               ; preds = %.noexc33
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %54, align 8
   %60 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %58, ptr %60, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -3456,7 +3456,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3475,7 +3475,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3495,7 +3495,7 @@ _ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -3816,7 +3816,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %72, %_ZNSt6vectorIm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -3928,7 +3928,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
   store i8 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %16, i64 8
   store float 0.000000e+00, ptr %44, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %16, align 8
   %45 = getelementptr inbounds i8, ptr %16, i64 16
   %46 = getelementptr inbounds i8, ptr %3, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -3963,7 +3963,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
           to label %63 unwind label %65
 
 63:                                               ; preds = %.noexc34
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %62, ptr %64, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -4154,7 +4154,7 @@ _ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i: ; preds = %165
   br label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %165, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %16, align 8
   invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %45)
           to label %169 unwind label %173
 
@@ -4250,7 +4250,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_29RangeSearchBlock
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %3 unwind label %7
@@ -4296,7 +4296,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5faiss29RangeSearchBlockResultHandler
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %3 unwind label %7
@@ -4416,7 +4416,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %16
           to label %46 unwind label %48
 
 46:                                               ; preds = %.noexc47
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %41, align 8
   %47 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %45, ptr %47, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -4806,7 +4806,7 @@ define internal void @_ZN5faiss9IndexHNSW24shrink_level_0_neighborsEi.omp_outlin
           to label %23 unwind label %25
 
 23:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %18, align 8
   %24 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %22, ptr %24, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -5230,7 +5230,7 @@ define void @_ZNK5faiss9IndexHNSW14search_level_0ElPKflPKiS2_PfPlii(ptr noundef 
   store i64 %1, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %20, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 0, i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %20, align 8
   %66 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %6, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %20, i64 40
@@ -5280,7 +5280,7 @@ define internal void @_ZNK5faiss9IndexHNSW14search_level_0ElPKflPKiS2_PfPlii.omp
           to label %29 unwind label %31
 
 29:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %24, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %28, ptr %30, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -5347,7 +5347,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN5faiss12_
   store i8 1, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %14, i64 8
   store float 0.000000e+00, ptr %53, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 16), ptr %14, align 8
   %54 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %4, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %14, i64 24
@@ -5478,13 +5478,13 @@ _ZN5faiss12VisitedTable7advanceEv.exit:           ; preds = %_ZN5faiss22HeapBloc
   %120 = add <2 x i64> %119, %118
   store <2 x i64> %120, ptr @_ZN5faiss10hnsw_statsE, align 8
   %121 = load <2 x i64>, ptr %38, align 16
-  %122 = load <2 x i64>, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
+  %122 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
   %123 = add <2 x i64> %122, %121
-  store <2 x i64> %123, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 2), align 8
+  store <2 x i64> %123, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 16), align 8
   %124 = load i64, ptr %39, align 16
-  %125 = load i64, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  %125 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   %126 = add i64 %125, %124
-  store i64 %126, ptr getelementptr inbounds (%"struct.faiss::HNSWStats", ptr @_ZN5faiss10hnsw_statsE, i64 0, i32 4), align 8
+  store i64 %126, ptr getelementptr inbounds (i8, ptr @_ZN5faiss10hnsw_statsE, i64 32), align 8
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %.pre, ptr nonnull @.gomp_critical_user_.var)
   %127 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %127, null
@@ -5613,7 +5613,7 @@ define internal void @_ZN5faiss9IndexHNSW26init_level_0_from_knngraphEiPKfPKl.om
           to label %42 unwind label %44
 
 42:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %37, align 8
   %43 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %41, ptr %43, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -6144,7 +6144,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %7
           to label %38 unwind label %40
 
 38:                                               ; preds = %.noexc25
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %33, align 8
   %39 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %37, ptr %39, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -6448,7 +6448,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %40 unwind label %42
 
 40:                                               ; preds = %.noexc39
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %35, align 8
   %41 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %39, ptr %41, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
@@ -7032,7 +7032,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2Ev(ptr noundef nonnull align 8 dereferenc
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %8, i32 noundef 32)
           to label %_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit unwind label %9
@@ -7048,7 +7048,7 @@ _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13IndexHNSWFlatE, i64 16), ptr %0, align 8
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -7078,7 +7078,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull a
           to label %_ZN5faiss11IndexFlatL2C2El.exit unwind label %29
 
 _ZN5faiss11IndexFlatL2C2El.exit:                  ; preds = %7
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %12
@@ -7106,7 +7106,7 @@ _ZN5faiss11IndexFlatL2C2El.exit:                  ; preds = %7
   store i32 %17, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %23, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %24, i32 noundef %2)
           to label %_ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit unwind label %25
@@ -7125,7 +7125,7 @@ _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %12
   %27 = getelementptr inbounds i8, ptr %0, i64 5192
   %28 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr %13, ptr %28, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13IndexHNSWFlatE, i64 16), ptr %0, align 8
   store i8 1, ptr %27, align 8
   store i8 1, ptr %21, align 1
   ret void
@@ -7161,7 +7161,7 @@ define void @_ZN5faiss11IndexHNSWPQC2Ev(ptr noundef nonnull align 8 dereferencea
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %8, i32 noundef 32)
           to label %_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit unwind label %9
@@ -7177,7 +7177,7 @@ _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexHNSWPQE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -7206,7 +7206,7 @@ define void @_ZN5faiss11IndexHNSWPQC2Eiiii(ptr noundef nonnull align 8 dereferen
   store i32 %13, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %20, i32 noundef %3)
           to label %_ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit unwind label %21
@@ -7225,7 +7225,7 @@ _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %9
   %23 = getelementptr inbounds i8, ptr %0, i64 5192
   %24 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr %6, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexHNSWPQE, i64 16), ptr %0, align 8
   store i8 1, ptr %23, align 8
   store i8 0, ptr %17, align 1
   ret void
@@ -7264,7 +7264,7 @@ define void @_ZN5faiss11IndexHNSWSQC2EiNS_15ScalarQuantizer13QuantizerTypeEiNS_1
   store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %18, i32 noundef %3)
           to label %_ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit unwind label %19
@@ -7283,7 +7283,7 @@ _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %7
   %21 = getelementptr inbounds i8, ptr %0, i64 5192
   %22 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr %6, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexHNSWSQE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 25
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 1
@@ -7327,7 +7327,7 @@ define void @_ZN5faiss11IndexHNSWSQC2Ev(ptr noundef nonnull align 8 dereferencea
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %8, i32 noundef 32)
           to label %_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit unwind label %9
@@ -7343,7 +7343,7 @@ _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexHNSWSQE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -7370,7 +7370,7 @@ define void @_ZN5faiss15IndexHNSW2LevelC2EPNS_5IndexEmii(ptr noundef nonnull ali
   store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %18, i32 noundef %4)
           to label %_ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit unwind label %19
@@ -7389,7 +7389,7 @@ _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %7
   %21 = getelementptr inbounds i8, ptr %0, i64 5192
   %22 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr %6, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i64 16), ptr %0, align 8
   store i8 1, ptr %21, align 8
   store i8 0, ptr %15, align 1
   ret void
@@ -7417,7 +7417,7 @@ define void @_ZN5faiss15IndexHNSW2LevelC2Ev(ptr noundef nonnull align 8 derefere
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %8, i32 noundef 32)
           to label %_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit unwind label %9
@@ -7433,7 +7433,7 @@ _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 5200
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -7508,7 +7508,7 @@ _ZN5faiss12VisitedTableC2Ei.exit:                 ; preds = %40, %.noexc66, %_ZN
           to label %52 unwind label %54
 
 52:                                               ; preds = %.noexc67
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %47, align 8
   %53 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %51, ptr %53, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit

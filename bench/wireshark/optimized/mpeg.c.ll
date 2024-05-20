@@ -31,7 +31,7 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr nocapture noundef %0, ptr noun
   br i1 %.not, label %8, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([5 x %struct._mpeg_magic], ptr @magic, i64 0, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @magic, i64 8), align 8
   %.not2729 = icmp eq ptr %7, null
   br i1 %.not2729, label %.loopexit, label %.lr.ph
 

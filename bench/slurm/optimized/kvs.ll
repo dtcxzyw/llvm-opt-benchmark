@@ -54,8 +54,8 @@ define noundef i32 @temp_kvs_init() local_unnamed_addr #0 {
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 3), align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 3), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 20), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @tree_info, i64 20), align 4
   %8 = add nsw i32 %7, 1
   tail call void @slurm_pack32(i32 noundef %6, ptr noundef %3) #5
   %9 = load ptr, ptr @tree_info, align 8
@@ -240,13 +240,13 @@ define i32 @temp_kvs_send() local_unnamed_addr #0 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %5 = tail call ptr @slurm_xstrdup(ptr noundef %4) #5
   store ptr %5, ptr %1, align 8
   br label %10
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -334,7 +334,7 @@ define noundef i32 @kvs_init() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
   %6 = add i32 %5, 7
   %7 = lshr i32 %6, 3
   store i32 %7, ptr @hash_size, align 4

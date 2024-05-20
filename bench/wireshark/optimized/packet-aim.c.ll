@@ -3817,7 +3817,7 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %.lr.ph, %._crit_edge, %19
-  %.lcssa = phi ptr [ %25, %._crit_edge ], [ @icq_calls, %19 ], [ getelementptr inbounds ([52 x %struct.anon.0], ptr @icq_calls, i64 0, i64 51, i32 0), %.lr.ph ]
+  %.lcssa = phi ptr [ %25, %._crit_edge ], [ @icq_calls, %19 ], [ getelementptr inbounds (i8, ptr @icq_calls, i64 1224), %.lr.ph ]
   %30 = phi ptr [ %29, %._crit_edge ], [ @.str.733, %19 ], [ @.str.110, %.lr.ph ]
   %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.733, %19 ], [ @.str.731, %.lr.ph ]
   %31 = getelementptr inbounds i8, ptr %3, i64 8

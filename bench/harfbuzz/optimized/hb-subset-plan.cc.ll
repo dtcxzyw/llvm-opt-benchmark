@@ -21442,7 +21442,7 @@ _ZL23_hb_arabic_pua_simp_mapj.exit:               ; preds = %if.end
   %add.i = or disjoint i32 %shl.i, %and.i
   %shr.i5.i = lshr exact i32 %add.i, 1
   %idxprom.i6.i = zext nneg i32 %shr.i5.i to i64
-  %arrayidx.i7.i = getelementptr inbounds i8, ptr getelementptr inbounds ([464 x i8], ptr @_ZL13_hb_arabic_u8, i64 0, i64 8), i64 %idxprom.i6.i
+  %arrayidx.i7.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13_hb_arabic_u8, i64 8), i64 %idxprom.i6.i
   %2 = load i8, ptr %arrayidx.i7.i, align 1
   %conv.i8.i = zext i8 %2 to i32
   %and.i9.i = shl nuw nsw i32 %shr1.i, 2
@@ -21491,7 +21491,7 @@ _ZL23_hb_arabic_pua_trad_mapj.exit:               ; preds = %if.end
   %shr1.i = lshr i32 %codepoint, 6
   %shr.i.i = lshr i32 %codepoint, 11
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([464 x i8], ptr @_ZL13_hb_arabic_u8, i64 0, i64 136), i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13_hb_arabic_u8, i64 136), i64 %idxprom.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %1 = lshr i32 %codepoint, 8
@@ -21503,7 +21503,7 @@ _ZL23_hb_arabic_pua_trad_mapj.exit:               ; preds = %if.end
   %add.i = or disjoint i32 %shl.i, %and.i
   %shr.i5.i = lshr exact i32 %add.i, 1
   %idxprom.i6.i = zext nneg i32 %shr.i5.i to i64
-  %arrayidx.i7.i = getelementptr inbounds i8, ptr getelementptr inbounds ([464 x i8], ptr @_ZL13_hb_arabic_u8, i64 0, i64 168), i64 %idxprom.i6.i
+  %arrayidx.i7.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13_hb_arabic_u8, i64 168), i64 %idxprom.i6.i
   %2 = load i8, ptr %arrayidx.i7.i, align 1
   %conv.i8.i = zext i8 %2 to i32
   %and.i9.i = shl nuw nsw i32 %shr1.i, 2
@@ -50414,7 +50414,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %8 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1, !noalias !375
   %conv.i.i1650.i.i.i = zext i8 %8 to i32
   %shl.i.i1751.i.i.i = shl nuw nsw i32 %conv.i.i1650.i.i.i, 8
-  %9 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1, !noalias !375
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1, !noalias !375
   %conv4.i.i1953.i.i.i = zext i8 %9 to i32
   %add.i.i2054.i.i.i = or disjoint i32 %shl.i.i1751.i.i.i, %conv4.i.i1953.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
@@ -51903,7 +51903,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -55383,7 +55383,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -67945,7 +67945,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -71749,7 +71749,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -83837,7 +83837,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %8 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1, !noalias !587
   %conv.i.i1650.i.i.i = zext i8 %8 to i32
   %shl.i.i1751.i.i.i = shl nuw nsw i32 %conv.i.i1650.i.i.i, 8
-  %9 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1, !noalias !587
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1, !noalias !587
   %conv4.i.i1953.i.i.i = zext i8 %9 to i32
   %add.i.i2054.i.i.i = or disjoint i32 %shl.i.i1751.i.i.i, %conv4.i.i1953.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
@@ -85456,7 +85456,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -85939,7 +85939,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %4 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %4 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %5 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %5 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
@@ -88774,7 +88774,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %8 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1, !noalias !664
   %conv.i.i1650.i.i.i = zext i8 %8 to i32
   %shl.i.i1751.i.i.i = shl nuw nsw i32 %conv.i.i1650.i.i.i, 8
-  %9 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1, !noalias !664
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1, !noalias !664
   %conv4.i.i1953.i.i.i = zext i8 %9 to i32
   %add.i.i2054.i.i.i = or disjoint i32 %shl.i.i1751.i.i.i, %conv4.i.i1953.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
@@ -90389,7 +90389,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %6 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %6 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
-  %7 = load i8, ptr getelementptr inbounds ([9 x i8], ptr @_hb_Null_OT_RangeRecord, i64 0, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_Null_OT_RangeRecord, i64 1), align 1
   %conv4.i.i1953.i.i = zext i8 %7 to i32
   %add.i.i2054.i.i = or disjoint i32 %shl.i.i1751.i.i, %conv4.i.i1953.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i

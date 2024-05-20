@@ -329,8 +329,8 @@ define dso_local ptr @devm_led_get(ptr noundef %0, ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_add_lookup(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @leds_lookup_lock) #10
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @leds_lookup_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @leds_lookup_list, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @leds_lookup_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @leds_lookup_list, i64 8), align 8
   store ptr @leds_lookup_list, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -524,8 +524,8 @@ define dso_local i32 @led_classdev_register_ext(ptr noundef %0, ptr noundef %1, 
   call void @__init_rwsem(ptr noundef %92, ptr noundef nonnull @.str.11, ptr noundef nonnull @led_classdev_register_ext.__key.10) #10
   call void @down_write(ptr noundef nonnull @leds_list_lock) #10
   %93 = getelementptr inbounds i8, ptr %1, i64 96
-  %94 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @leds_list, i64 0, i32 1), align 8
-  store ptr %93, ptr getelementptr inbounds (%struct.list_head, ptr @leds_list, i64 0, i32 1), align 8
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @leds_list, i64 8), align 8
+  store ptr %93, ptr getelementptr inbounds (i8, ptr @leds_list, i64 8), align 8
   store ptr @leds_list, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %1, i64 104
   store ptr %94, ptr %95, align 8

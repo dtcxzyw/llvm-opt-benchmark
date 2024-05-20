@@ -3104,7 +3104,7 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
 .lr.ph158:
   %3 = alloca %struct.Ivy_Cut_t_, align 4
   store i32 0, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  store i32 256, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 2), align 4
+  store i32 256, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 8), align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i16 1, ptr %5, align 4
@@ -3118,14 +3118,14 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
   %11 = shl nuw nsw i32 1, %10
   store i32 %11, ptr %4, align 4
   store i32 1, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4, i64 0, i32 0), ptr noundef nonnull readonly align 4 dereferenceable(36) %3, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), ptr noundef nonnull readonly align 4 dereferenceable(36) %3, i64 36, i1 false)
   %12 = getelementptr i8, ptr %0, i64 24
   br label %13
 
 13:                                               ; preds = %.lr.ph158, %231
   %14 = phi i32 [ 1, %.lr.ph158 ], [ %232, %231 ]
   %indvars.iv172 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next173, %231 ]
-  %15 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4), i64 %indvars.iv172
+  %15 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv172
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
@@ -3499,7 +3499,7 @@ Ivy_NodeCutDeriveNew.exit:                        ; preds = %Ivy_NodeCutDeriveNe
 
 166:                                              ; preds = %Ivy_CutCheckDominance.exit60.i, %.lr.ph86.i
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph86.i ], [ %indvars.iv.next97.i, %Ivy_CutCheckDominance.exit60.i ]
-  %167 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4, i64 0, i32 0), i64 %indvars.iv96.i
+  %167 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv96.i
   %168 = getelementptr inbounds i8, ptr %167, i64 4
   %169 = load i16, ptr %168, align 4
   %170 = icmp eq i16 %169, 0
@@ -3644,7 +3644,7 @@ Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.
   %218 = add nsw i32 %25, 1
   store i32 %218, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   %219 = sext i32 %25 to i64
-  %220 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4, i64 0, i32 0), i64 %219
+  %220 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %219
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %220, ptr noundef nonnull readonly align 4 dereferenceable(36) %3, i64 36, i1 false)
   %.pre = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   br label %Ivy_NodeCutFindOrAddFilter.exit
@@ -3694,7 +3694,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   %236 = phi i32 [ %246, %245 ], [ %.ph, %.lr.ph.i122.preheader ]
   %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i125, %245 ], [ 0, %.lr.ph.i122.preheader ]
   %.012.i = phi i32 [ %.1.i, %245 ], [ 0, %.lr.ph.i122.preheader ]
-  %237 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4, i64 0, i32 0), i64 %indvars.iv.i123
+  %237 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv.i123
   %238 = getelementptr inbounds i8, ptr %237, i64 4
   %239 = load i16, ptr %238, align 4
   %240 = icmp eq i16 %239, 0
@@ -3703,7 +3703,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
 241:                                              ; preds = %.lr.ph.i122
   %242 = add nsw i32 %.012.i, 1
   %243 = sext i32 %.012.i to i64
-  %244 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_NodeFindCutsAll.CutStore, i64 0, i32 4, i64 0, i32 0), i64 0, i64 %243
+  %244 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 0, i64 %243
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %244, ptr noundef nonnull align 4 dereferenceable(36) %237, i64 36, i1 false)
   %.pre.i124 = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   br label %245

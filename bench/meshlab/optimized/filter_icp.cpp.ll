@@ -2256,7 +2256,7 @@ define void @_ZN15FilterIcpPluginC1Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca [3 x i32], align 4
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2271,14 +2271,14 @@ define void @_ZN15FilterIcpPluginC1Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ._crit_edge.i.i.i.thread:                         ; preds = %8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT15FilterIcpPlugin, i64 0, i64 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT15FilterIcpPlugin, i64 8), align 8
   store ptr %10, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT15FilterIcpPlugin, i64 0, i64 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT15FilterIcpPlugin, i64 16), align 8
   %12 = getelementptr i8, ptr %10, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 %13
   store ptr %11, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT15FilterIcpPlugin, i64 0, i64 3), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT15FilterIcpPlugin, i64 24), align 8
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr i8, ptr %16, i64 -32
   %18 = load i64, ptr %17, align 8
@@ -2298,10 +2298,10 @@ define void @_ZN15FilterIcpPluginC1Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %26, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV15FilterIcpPlugin, i64 0, i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV15FilterIcpPlugin, i64 0, i32 1, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV15FilterIcpPlugin, i64 0, i32 2, i64 6), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV15FilterIcpPlugin, i64 0, i32 3, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterIcpPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterIcpPlugin, i64 248), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterIcpPlugin, i64 480), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15FilterIcpPlugin, i64 544), ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 2000, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 84
@@ -2448,13 +2448,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %57, %_ZN9QtPrivate8
 
 73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %70, %72
   %.pn.pn = phi { ptr, i32 } [ %.pn25, %72 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull getelementptr inbounds ([7 x ptr], ptr @_ZTT15FilterIcpPlugin, i64 0, i64 1)) #21
+  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT15FilterIcpPlugin, i64 8)) #21
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %74
 
 74:                                               ; preds = %67, %73, %65
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn.pn, %73 ], [ %68, %67 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %4, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -2465,7 +2465,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   ret void
@@ -3896,7 +3896,7 @@ define void @_ZN15FilterIcpPlugin17applyIcpTwoMeshesB5cxx11ER12MeshDocumentRK17R
   %50 = alloca %class.QVariant, align 8
   call void @_ZN3vcg9AlignPairC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %17)
   call void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %18)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg9AlignPair6A2MeshE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AlignPair6A2MeshE, i64 16), ptr %18, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %19, align 16
   %51 = getelementptr inbounds i8, ptr %19, i64 32
   %52 = getelementptr inbounds i8, ptr %19, i64 16
@@ -4028,11 +4028,11 @@ _ZN7QStringD2Ev.exit138:                          ; preds = %89, %_ZN9QtPrivate8
   br label %99
 
 99:                                               ; preds = %98, %96, %_ZN7QStringD2Ev.exit138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 120), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 128, i1 false)
   %100 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.26, i32 noundef 17)
           to label %101 unwind label %121
@@ -4330,11 +4330,11 @@ _ZN7QStringD2Ev.exit173:                          ; preds = %_ZN10QByteArrayD2Ev
   br label %201
 
 201:                                              ; preds = %200, %198, %195
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 120), align 8
   %202 = invoke noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh8initVertERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %18, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp)
           to label %203 unwind label %121
 
@@ -4445,11 +4445,11 @@ _ZN3vcg9AlignPair11InitFixVertEPNS0_6A2MeshERNS0_5ParamERNS_13GridStaticPtrINS0_
   br label %259
 
 259:                                              ; preds = %258, %256, %253
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 120), align 8
   %260 = invoke noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh4initERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %18, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp)
           to label %261 unwind label %121
 
@@ -16178,7 +16178,7 @@ define linkonce_odr void @_ZN3vcg8MeshTreeI9MeshModelfE10ProcessArcEiiRNS_8Matri
   %18 = alloca %"class.vcg::GridStaticPtr.344", align 16
   %19 = alloca %"class.std::vector.304", align 8
   call void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %15)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg9AlignPair6A2MeshE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AlignPair6A2MeshE, i64 16), ptr %15, align 8
   invoke void @_ZN3vcg9AlignPairC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %16)
           to label %20 unwind label %117
 
@@ -16284,11 +16284,11 @@ define linkonce_odr void @_ZN3vcg8MeshTreeI9MeshModelfE10ProcessArcEiiRNS_8Matri
   br label %73
 
 73:                                               ; preds = %72, %70, %67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 120), align 8
   %74 = invoke noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh8initVertERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %15, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp)
           to label %75 unwind label %121
 
@@ -16387,11 +16387,11 @@ _ZN3vcg9AlignPair11InitFixVertEPNS0_6A2MeshERNS0_5ParamERNS_13GridStaticPtrINS0_
   br label %129
 
 129:                                              ; preds = %128, %126, %123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 1), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 5), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 10), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (%"class.vcg::Matrix44.201", ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 0, i32 0, i32 0, i64 15), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 120), align 8
   %130 = invoke noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh4initERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %15, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp)
           to label %131 unwind label %121
 
@@ -16719,7 +16719,7 @@ define linkonce_odr void @_ZN3vcg9AlignPairC2Ev(ptr noundef nonnull align 8 dere
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 10, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3vcg4math18SubtractiveRingRNGE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg4math18SubtractiveRingRNGE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = getelementptr inbounds i8, ptr %0, i64 360
   store i32 161803398, ptr %17, align 8
@@ -17735,7 +17735,7 @@ define linkonce_odr void @_ZN3vcg9AlignPair6A2MeshD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -18128,7 +18128,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_EE, i64 16), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexESaIS4_EES2_INS3_6A2FaceESaIS7_EENS0_14DummyContainerESA_SA_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
           to label %2 unwind label %62
 
@@ -22546,7 +22546,7 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendINS_9AlignPair6A2MeshE6CMeshOE15Mes
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %88, %85, %83, %77
   %.sink = phi i16 [ %80, %77 ], [ %80, %83 ], [ %65, %85 ], [ %65, %88 ], [ %.sink.ph, %.sink.split.sink.split ]
-  store i16 %.sink, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZN3vcg6vertex9EmptyCoreINS_9AlignPair11A2UsedTypesEE1TEvE14dummy_texcoord, i64 0, i32 1, i64 0), align 4
+  store i16 %.sink, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg6vertex9EmptyCoreINS_9AlignPair11A2UsedTypesEE1TEvE14dummy_texcoord, i64 8), align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %2, %._crit_edge
@@ -22728,7 +22728,7 @@ _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEi.e
 
 _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEi.exit: ; preds = %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEi.exit.sink.split, %117, %114, %112, %106
   %storemerge = phi i16 [ %109, %106 ], [ %109, %112 ], [ %95, %114 ], [ %95, %117 ], [ %storemerge.ph, %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEi.exit.sink.split ]
-  store i16 %storemerge, ptr getelementptr inbounds (%"class.vcg::TexCoord2", ptr @_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEiE13dummy_texture, i64 0, i32 1, i64 0), align 4
+  store i16 %storemerge, ptr getelementptr inbounds (i8, ptr @_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9AlignPair11A2UsedTypesEEEE2WTEiE13dummy_texture, i64 8), align 4
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
   br i1 %exitcond36.not, label %.loopexit, label %85, !llvm.loop !277
@@ -31390,7 +31390,7 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %16, %._crit_edge24.
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 24
   %49 = trunc i64 %48 to i32
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3vcg4math18SubtractiveRingRNGE, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg4math18SubtractiveRingRNGE, i64 16), ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %8, i64 8
   %51 = getelementptr inbounds i8, ptr %8, i64 224
   store i32 161803398, ptr %51, align 8
@@ -31652,8 +31652,8 @@ define linkonce_odr void @_ZN3vcg18PointMatchingScale40computeRotoTranslationSca
   store ptr %1, ptr @_ZN3vcg18PointMatchingScale3fixE, align 8
   store ptr %2, ptr @_ZN3vcg18PointMatchingScale3movE, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr @_ZN3vcg18PointMatchingScale1bE, align 8
-  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8
+  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8
+  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -31668,22 +31668,22 @@ define linkonce_odr void @_ZN3vcg18PointMatchingScale40computeRotoTranslationSca
   br i1 %13, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 1), align 8
-  %16 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8
+  %15 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 8), align 8
+  %16 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8
   %17 = fcmp ogt double %15, %16
   br i1 %17, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.i
 
 _ZNK3vcg4Box3IdE6IsNullEv.exit.i:                 ; preds = %14
-  %18 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8
-  %19 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 2), align 8
+  %18 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8
+  %19 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 40), align 8
   %20 = fcmp ogt double %18, %19
   br i1 %20, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, label %21
 
 _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6IsNullEv.exit.i, %14, %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 0), ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.023, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 24), ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.023, i64 24, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN3vcg18PointMatchingScale1bE, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.023, i64 24, i1 false)
   %.pre = load double, ptr @_ZN3vcg18PointMatchingScale1bE, align 8
-  %.pre27 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 0), align 8
+  %.pre27 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 24), align 8
   br label %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit
 
 21:                                               ; preds = %_ZNK3vcg4Box3IdE6IsNullEv.exit.i
@@ -31703,7 +31703,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6Is
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  store double %28, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 1), align 8
+  store double %28, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 8), align 8
   br label %31
 
 31:                                               ; preds = %30, %25
@@ -31713,7 +31713,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6Is
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  store double %33, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8
+  store double %33, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8
   br label %36
 
 36:                                               ; preds = %35, %31
@@ -31722,7 +31722,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6Is
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %36
-  store double %37, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 0), align 8
+  store double %37, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 24), align 8
   br label %40
 
 40:                                               ; preds = %39, %36
@@ -31732,7 +31732,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6Is
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
-  store double %42, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8
+  store double %42, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8
   br label %45
 
 45:                                               ; preds = %44, %40
@@ -31741,7 +31741,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IdE6Is
   br i1 %47, label %48, label %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit
 
 48:                                               ; preds = %45
-  store double %46, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 2), align 8
+  store double %46, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 40), align 8
   br label %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit
 
 _ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit:        ; preds = %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, %45, %48
@@ -31760,13 +31760,13 @@ _ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit:        ; preds = %_ZNK3vcg4Box3IdE6Is
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %scevgep, i64 48, i1 false)
   call void @_ZN3vcg15RotoTranslationIdE8toMatrixERNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(128) %6)
   %54 = load double, ptr @_ZN3vcg18PointMatchingScale1bE, align 8, !noalias !481
-  %55 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 0), align 8, !noalias !481
+  %55 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 24), align 8, !noalias !481
   %56 = fadd double %54, %55
-  %57 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 1), align 8, !noalias !481
-  %58 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8, !noalias !481
+  %57 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 8), align 8, !noalias !481
+  %58 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8, !noalias !481
   %59 = fadd double %57, %58
-  %60 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8, !noalias !481
-  %61 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 2), align 8, !noalias !481
+  %60 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8, !noalias !481
+  %61 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 40), align 8, !noalias !481
   %62 = fadd double %60, %61
   %63 = fmul double %56, 5.000000e-01
   %64 = fmul double %59, 5.000000e-01
@@ -37983,13 +37983,13 @@ define linkonce_odr noundef double @_ZN3vcg18PointMatchingScale25errorRotoTransl
 
 .lr.ph:                                           ; preds = %2
   %12 = load double, ptr @_ZN3vcg18PointMatchingScale1bE, align 8, !noalias !135
-  %13 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 0), align 8, !noalias !135
+  %13 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 24), align 8, !noalias !135
   %14 = fadd double %12, %13
-  %15 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 1), align 8, !noalias !135
-  %16 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8, !noalias !135
+  %15 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 8), align 8, !noalias !135
+  %16 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8, !noalias !135
   %17 = fadd double %15, %16
-  %18 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8, !noalias !135
-  %19 = load double, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 2), align 8, !noalias !135
+  %18 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8, !noalias !135
+  %19 = load double, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 40), align 8, !noalias !135
   %20 = fadd double %18, %19
   %21 = fmul double %14, 5.000000e-01
   %22 = fmul double %17, 5.000000e-01
@@ -40454,7 +40454,7 @@ define linkonce_odr void @_ZN5Eigen8internal24selfadjoint_product_implINS_5Block
 
 13:                                               ; preds = %4
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -40480,7 +40480,7 @@ define linkonce_odr void @_ZN5Eigen8internal24selfadjoint_product_implINS_5Block
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %27, align 8
   tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -40515,7 +40515,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %23, %15, %20
 
 .invoke:                                          ; preds = %42, %_ZN5Eigen8internal14aligned_mallocEm.exit
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %56
 
@@ -42864,7 +42864,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 .invoke:                                          ; preds = %30, %25, %22
   %34 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8
   invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %35
 
@@ -43752,7 +43752,7 @@ define linkonce_odr void @_ZN5Eigen8internal13trmv_selectorILi6ELi1EE3runINS_9Tr
 
 12:                                               ; preds = %4
   %13 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -43779,7 +43779,7 @@ define linkonce_odr void @_ZN5Eigen8internal13trmv_selectorILi6ELi1EE3runINS_9Tr
 
 25:                                               ; preds = %22
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -44604,7 +44604,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 30:                                               ; preds = %12
   %31 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -44630,7 +44630,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 43:                                               ; preds = %40
   %44 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %44, align 8
   tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -44664,7 +44664,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 
 .invoke:                                          ; preds = %58, %_ZN5Eigen8internal14aligned_mallocEm.exit
   %61 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %61, align 8
   invoke void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %130
 
@@ -46828,7 +46828,7 @@ define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1EL
 
 22:                                               ; preds = %19
   %23 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
   tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -46885,7 +46885,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeEl
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -46897,7 +46897,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeEl
 
 21:                                               ; preds = %17
   %22 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -47002,7 +47002,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 30:                                               ; preds = %12
   %31 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -47028,7 +47028,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 43:                                               ; preds = %40
   %44 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %44, align 8
   tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -47062,7 +47062,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 
 .invoke:                                          ; preds = %58, %_ZN5Eigen8internal14aligned_mallocEm.exit
   %61 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %61, align 8
   invoke void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %131
 
@@ -47409,8 +47409,8 @@ define linkonce_odr void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuris
 
 _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4, %7, %10
   %13 = load i64, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
-  %14 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 0, i32 1), align 8
-  %15 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 0, i32 2), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 16), align 8
   %16 = icmp sgt i64 %3, 1
   br i1 %16, label %17, label %59
 
@@ -48266,7 +48266,7 @@ define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1EL
 
 22:                                               ; preds = %19
   %23 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
   tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -48386,7 +48386,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 25:                                               ; preds = %12
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -48412,7 +48412,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 38:                                               ; preds = %35
   %39 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %39, align 8
   tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -48446,7 +48446,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
 
 .invoke:                                          ; preds = %53, %_ZN5Eigen8internal14aligned_mallocEm.exit
   %56 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %56, align 8
   invoke void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %157
 
@@ -49097,7 +49097,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 25:                                               ; preds = %12
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -49123,7 +49123,7 @@ define linkonce_odr void @_ZN5Eigen8internal32product_triangular_matrix_matrixId
 
 38:                                               ; preds = %35
   %39 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %39, align 8
   tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
   unreachable
 
@@ -49157,7 +49157,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
 
 .invoke:                                          ; preds = %53, %_ZN5Eigen8internal14aligned_mallocEm.exit
   %56 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %56, align 8
   invoke void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.cont unwind label %149
 
@@ -55343,7 +55343,7 @@ _ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11MeshCounterEfED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -55416,7 +55416,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -56053,7 +56053,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -56148,13 +56148,13 @@ _Z7qstrlenPKc.exit:                               ; preds = %3, %5
 
 12:                                               ; preds = %_Z7qstrlenPKc.exit
   %13 = add i32 %8, 14
-  %14 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   %15 = and i32 %14, 2147483647
   %16 = icmp ugt i32 %13, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12, %_Z7qstrlenPKc.exit
-  %18 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 1), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 4), align 4
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %18, i32 %9)
   %19 = add i32 %.sroa.speculated.i, 1
   invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19, i32 1)
@@ -56162,7 +56162,7 @@ _Z7qstrlenPKc.exit:                               ; preds = %3, %5
 
 20:                                               ; preds = %12
   %21 = or i32 %14, -2147483648
-  store i32 %21, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   br label %_ZN10QByteArray7reserveEi.exit
 
 _ZN10QByteArray7reserveEi.exit:                   ; preds = %20, %17
@@ -57254,13 +57254,13 @@ _Z7qstrlenPKc.exit:                               ; preds = %3, %6
 
 13:                                               ; preds = %_Z7qstrlenPKc.exit
   %14 = add i32 %9, 16
-  %15 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   %16 = and i32 %15, 2147483647
   %17 = icmp ugt i32 %14, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13, %_Z7qstrlenPKc.exit
-  %19 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 1), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 4), align 4
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %19, i32 %10)
   %20 = add i32 %.sroa.speculated.i, 1
   invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %20, i32 1)
@@ -57268,7 +57268,7 @@ _Z7qstrlenPKc.exit:                               ; preds = %3, %6
 
 21:                                               ; preds = %13
   %22 = or i32 %15, -2147483648
-  store i32 %22, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   br label %_ZN10QByteArray7reserveEi.exit
 
 _ZN10QByteArray7reserveEi.exit:                   ; preds = %21, %18
@@ -57384,13 +57384,13 @@ _Z7qstrlenPKc.exit16:                             ; preds = %_Z7qstrlenPKc.exit,
 
 19:                                               ; preds = %_Z7qstrlenPKc.exit16
   %20 = add i32 %15, 3
-  %21 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   %22 = and i32 %21, 2147483647
   %23 = icmp ugt i32 %20, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19, %_Z7qstrlenPKc.exit16
-  %25 = load i32, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 1), align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 4), align 4
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %25, i32 %16)
   %26 = add i32 %.sroa.speculated.i, 1
   invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %26, i32 1)
@@ -57398,7 +57398,7 @@ _Z7qstrlenPKc.exit16:                             ; preds = %_Z7qstrlenPKc.exit,
 
 27:                                               ; preds = %19
   %28 = or i32 %21, -2147483648
-  store i32 %28, ptr getelementptr inbounds ([2 x %struct.QArrayData], ptr @_ZN10QArrayData11shared_nullE, i64 0, i64 0, i32 2), align 8
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZN10QArrayData11shared_nullE, i64 8), align 8
   br label %_ZN10QByteArray7reserveEi.exit
 
 _ZN10QByteArray7reserveEi.exit:                   ; preds = %27, %24
@@ -59802,9 +59802,9 @@ define internal void @_GLOBAL__sub_I_filter_icp.cpp() #13 section ".text.startup
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   store ptr %5, ptr @_ZN3vcgL13ColorMapEnumsE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 16), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
-  store ptr %6, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN3vcgL13ColorMapEnumsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #21
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -60132,8 +60132,8 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr @_ZN3vcg18PointMatchingScale1bE, align 8
-  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 0, i32 0, i64 2), align 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (%"class.vcg::Box3", ptr @_ZN3vcg18PointMatchingScale1bE, i64 0, i32 1, i32 0, i64 1), align 8
+  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 16), align 8
+  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3vcg18PointMatchingScale1bE, i64 32), align 8
   ret void
 }
 

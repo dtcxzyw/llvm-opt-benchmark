@@ -147,7 +147,7 @@ define hidden void @_ZN20signal_hook_registry23register_sigaction_impl17h5cc06bb
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4
   store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, ptr %5, align 8, !noalias !4
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (<{ [20 x i8] }>, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 1, i32 0, i64 0), ptr %9, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 20), ptr %9, align 8, !noalias !4
   br label %10
 
 10:                                               ; preds = %12, %4
@@ -3464,7 +3464,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking25try_enter_blockin
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit": ; preds = %0, %2
-  %.08.val.i = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !range !199, !noalias !671, !noundef !19
+  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noalias !671, !noundef !19
   %.not.i.i = icmp eq i8 %.08.val.i, 2
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit.thread"
 
@@ -3488,7 +3488,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !range !199, !noundef !19
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noundef !19
   %.not.i.i = icmp eq i8 %5, 2
   br i1 %.not.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit", label %6
 
@@ -3497,7 +3497,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
 8:                                                ; preds = %6
-  store i8 0, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
 9:                                                ; preds = %0
@@ -6329,10 +6329,10 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   br label %60
 
 60:                                               ; preds = %.noexc19, %53
-  %61 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 6, i64 0), align 4, !range !82, !noundef !19
-  %62 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 7, i64 0), align 1
-  store i8 1, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 6, i64 0), align 4
-  store i8 -128, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 7, i64 0), align 1
+  %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !range !82, !noundef !19
+  %62 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
   br label %63
 
 63:                                               ; preds = %60, %53
@@ -6421,9 +6421,9 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   br label %.thread61.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h58a8df809a97188dE.exit.i": ; preds = %.noexc.i, %74
-  %.08.val.i.i = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 6, i64 0), align 4, !range !82, !noundef !19
+  %.08.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !range !82, !noundef !19
   %86 = trunc nuw i8 %.08.val.i.i to i1
-  %.08.val10.i.i = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 7, i64 0), align 1
+  %.08.val10.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
   %87 = icmp eq i8 %.08.val10.i.i, 0
   %spec.select.i.i.i.i.i.not.i = select i1 %86, i1 %87, i1 false
   br i1 %spec.select.i.i.i.i.i.not.i, label %88, label %.thread74.i
@@ -10136,8 +10136,8 @@ define { ptr, i8 } @_ZN5tokio4task5local8LocalSet5enter17h1f2c73d45ee923ffE(ptr 
   %12 = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
   %13 = load ptr, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8, !noundef !19
   store ptr %12, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8
-  %14 = load i8, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8, !range !82, !noundef !19
-  store i8 1, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8, !range !82, !noundef !19
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8
   %15 = insertvalue { ptr, i8 } poison, ptr %13, 0
   %16 = insertvalue { ptr, i8 } %15, i8 %14, 1
   ret { ptr, i8 } %16
@@ -10471,10 +10471,10 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   br label %146
 
 146:                                              ; preds = %.noexc, %143
-  %147 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 6, i64 0), align 4, !range !82, !noundef !19
-  %148 = load i8, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 7, i64 0), align 1
-  store i8 1, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 6, i64 0), align 4
-  store i8 -128, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 7, i64 0), align 1
+  %147 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !range !82, !noundef !19
+  %148 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4
+  store i8 -128, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
   br label %149
 
 149:                                              ; preds = %146, %143
@@ -10562,8 +10562,8 @@ define hidden void @_ZN5tokio4task5local8LocalSet16with_if_possible17h5d8ed15a8b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1716)
   %14 = load ptr, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8, !noalias !1719, !noundef !19
   store ptr %13, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8, !noalias !1719
-  %15 = load i8, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8, !range !82, !noalias !1719, !noundef !19
-  store i8 0, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8, !noalias !1719
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8, !range !82, !noalias !1719, !noundef !19
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8, !noalias !1719
   store ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, ptr %3, align 8, !alias.scope !1716, !noalias !1713
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %14, ptr %16, align 8, !alias.scope !1716, !noalias !1713
@@ -10654,8 +10654,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17ha46d1442843c45d1E.exit.i.i.i: ; preds = %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1720)
   %17 = load ptr, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8, !noalias !1720, !noundef !19
   store ptr %5, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, align 8, !noalias !1720
-  %18 = load i8, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8, !range !82, !noalias !1720, !noundef !19
-  store i8 0, ptr getelementptr inbounds (<{ [9 x i8], [7 x i8] }>, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 0, i32 0, i64 8), align 8, !noalias !1720
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8, !range !82, !noalias !1720, !noundef !19
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, i64 8), align 8, !noalias !1720
   store ptr @_ZN5tokio4task5local7CURRENT7__getit3VAL17hd2ed8b7853cabb26E, ptr %4, align 8, !alias.scope !1720
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %17, ptr %19, align 8, !alias.scope !1720

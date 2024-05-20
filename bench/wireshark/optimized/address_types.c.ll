@@ -218,21 +218,21 @@ define hidden noundef i32 @ether_name_resolution_len() #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @address_types_initialize() local_unnamed_addr #7 {
   store i32 0, ptr @num_dissector_addr_type, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 14), i8 0, i64 248, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) getelementptr inbounds (i8, ptr @type_list, i64 112), i8 0, i64 248, i1 false)
   store ptr @address_types_initialize.none_address, ptr @type_list, align 16
-  store ptr @address_types_initialize.ether_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 1), align 8
-  store ptr @address_types_initialize.ipv4_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 2), align 16
-  store ptr @address_types_initialize.ipv6_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 3), align 8
-  store ptr @address_types_initialize.ipx_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 4), align 16
-  store ptr @address_types_initialize.fc_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 5), align 8
-  store ptr @address_types_initialize.fcwwn_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 6), align 16
-  store ptr @address_types_initialize.stringz_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 7), align 8
-  store ptr @address_types_initialize.eui64_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 8), align 16
-  store ptr @address_types_initialize.ib_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 9), align 8
-  store ptr @address_types_initialize.ax25_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 10), align 16
-  store ptr @address_types_initialize.vines_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 11), align 8
-  store ptr @address_types_initialize.numeric_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 12), align 16
-  store ptr @address_types_initialize.mctp_address, ptr getelementptr inbounds ([45 x ptr], ptr @type_list, i64 0, i64 13), align 8
+  store ptr @address_types_initialize.ether_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 8), align 8
+  store ptr @address_types_initialize.ipv4_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 16), align 16
+  store ptr @address_types_initialize.ipv6_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 24), align 8
+  store ptr @address_types_initialize.ipx_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 32), align 16
+  store ptr @address_types_initialize.fc_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 40), align 8
+  store ptr @address_types_initialize.fcwwn_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 48), align 16
+  store ptr @address_types_initialize.stringz_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 56), align 8
+  store ptr @address_types_initialize.eui64_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 64), align 16
+  store ptr @address_types_initialize.ib_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 72), align 8
+  store ptr @address_types_initialize.ax25_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 80), align 16
+  store ptr @address_types_initialize.vines_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 88), align 8
+  store ptr @address_types_initialize.numeric_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 96), align 16
+  store ptr @address_types_initialize.mctp_address, ptr getelementptr inbounds (i8, ptr @type_list, i64 104), align 8
   ret void
 }
 
@@ -1119,13 +1119,13 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
 
 20:                                               ; preds = %18
   %21 = icmp ne i32 %3, 4
-  %22 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %23 = icmp ne i32 %22, 0
   %or.cond3 = select i1 %21, i1 true, i1 %23
   br i1 %or.cond3, label %44, label %address_type_get_length.exit.i
 
 24:                                               ; preds = %18
-  %.old = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
+  %.old = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.old2.not = icmp eq i32 %.old, 0
   br i1 %.old2.not, label %address_type_get_length.exit.i, label %44
 

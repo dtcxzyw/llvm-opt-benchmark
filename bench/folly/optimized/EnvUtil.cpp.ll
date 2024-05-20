@@ -239,7 +239,7 @@ invoke.cont6:                                     ; preds = %if.then
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12experimental20MalformedEnvironmentE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !36
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12experimental20MalformedEnvironmentE, i64 16), ptr %exception, align 8, !tbaa !36
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly12experimental20MalformedEnvironmentE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #21
           to label %unreachable unwind label %lpad7
 
@@ -575,7 +575,7 @@ invoke.cont35:                                    ; preds = %if.then31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12experimental20MalformedEnvironmentE, i64 0, i32 0, i64 2), ptr %exception32, align 8, !tbaa !36
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12experimental20MalformedEnvironmentE, i64 16), ptr %exception32, align 8, !tbaa !36
   invoke void @__cxa_throw(ptr nonnull %exception32, ptr nonnull @_ZTIN5folly12experimental20MalformedEnvironmentE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #21
           to label %unreachable unwind label %lpad36
 
@@ -1035,7 +1035,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !36
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !36
   ret void
 }
 

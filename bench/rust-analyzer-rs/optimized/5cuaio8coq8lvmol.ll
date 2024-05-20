@@ -1007,7 +1007,7 @@ define hidden void @_ZN3mbe16DeclarativeMacro12parse_macro217ha47e5ba335706dfdE(
   %72 = getelementptr inbounds i8, ptr %61, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !133
   store ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, ptr %5, align 8, !noalias !133
-  store ptr getelementptr inbounds (<{ [8 x i8] }>, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, i64 1, i32 0, i64 0), ptr %32, align 8, !noalias !133
+  store ptr getelementptr inbounds (i8, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, i64 8), ptr %32, align 8, !noalias !133
   %73 = invoke noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdfcaab1457f4f4baE.llvm.8462471242219372772"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %72)
           to label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$15expect_any_char17h78b1a2c85a25283bE.exit" unwind label %.loopexit.split-lp.loopexit
 
@@ -12192,7 +12192,7 @@ define hidden void @_ZN10hir_expand2db21parse_macro_expansion17haffe4712456afe55
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %43
-  %47 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10hir_expand2db21parse_macro_expansion10__CALLSITE17h1592bafeefeb2e59E, i64 0, i32 1, i64 8) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand2db21parse_macro_expansion10__CALLSITE17h1592bafeefeb2e59E, i64 16) monotonic, align 8
   switch i8 %47, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -12312,7 +12312,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %53,
   br label %.body.i
 
 81:                                               ; preds = %70
-  %82 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN10hir_expand2db12macro_expand10__CALLSITE17hcc349496c81960e5E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !3258
+  %82 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand2db12macro_expand10__CALLSITE17hcc349496c81960e5E, i64 16) monotonic, align 8, !noalias !3258
   switch i8 %82, label %83 [
     i8 0, label %.thread231.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

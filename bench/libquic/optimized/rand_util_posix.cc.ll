@@ -46,8 +46,8 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i.i.i.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.4, i32 noundef 0)
-  store i32 %call.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 0, i32 1), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
+  store i32 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
   br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
 
 _ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -117,8 +117,8 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i.i.i.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.4, i32 noundef 0)
-  store i32 %call.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 0, i32 1), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
+  store i32 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
   br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
 
 _ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i

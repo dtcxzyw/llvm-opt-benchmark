@@ -2802,7 +2802,7 @@ define internal i32 @dissect_spotlight(ptr noundef %0, ptr noundef %1, ptr nound
   %56 = and i32 %55, 65535
   %57 = load i32, ptr @ett_afp_spotlight_queries, align 4
   %58 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef %52, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.1096) #7
-  %59 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 42), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %60 = add i32 %52, 24
   %61 = tail call fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %58, i32 noundef 16, i64 noundef 2560, i32 noundef %59, i32 noundef %60, i32 noundef %.)
   %62 = trunc nuw nsw i64 %42 to i32

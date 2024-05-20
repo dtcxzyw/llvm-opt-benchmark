@@ -128,11 +128,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_TestValue.cpp() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 0, i32 0, i32 5), ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 48), ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPvEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEED2Ev, ptr nonnull @_ZN8facebook5velox6common8testutil9TestValue13injectionMap_B5cxx11E, ptr nonnull @__dso_handle) #9
   ret void
 }

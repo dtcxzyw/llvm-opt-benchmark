@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_ttm_buddy_man_init(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 16 {
   %8 = zext i1 %2 to i8
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 248) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %44, label %12
@@ -293,7 +293,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
 
 13:                                               ; preds = %10, %4
   %14 = phi i64 [ %8, %4 ], [ %12, %10 ]
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 112) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %126, label %18

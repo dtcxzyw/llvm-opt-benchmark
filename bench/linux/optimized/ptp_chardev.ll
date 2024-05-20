@@ -197,7 +197,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ptp_open(ptr nocapture noundef %
   %3 = alloca [32 x i8], align 16
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(4160) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 4160) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %31, label %8
@@ -1198,7 +1198,7 @@ define dso_local range(i64 -512, 961) i64 @ptp_read(ptr nocapture noundef readon
   br i1 %52, label %.thread, label %.thread4
 
 .thread:                                          ; preds = %20, %51
-  %53 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %54 = call noalias align 8 dereferenceable_or_null(960) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 3264, i64 noundef 960) #11
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread4, label %56

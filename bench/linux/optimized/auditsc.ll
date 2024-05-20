@@ -327,9 +327,9 @@ define internal fastcc i32 @audit_filter_task(ptr noundef %0, ptr nocapture noun
   br label %4
 
 4:                                                ; preds = %8, %2
-  %5 = phi ptr [ getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 1), %2 ], [ %6, %8 ]
+  %5 = phi ptr [ getelementptr (i8, ptr @audit_filter_list, i64 16), %2 ], [ %6, %8 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 1)
+  %7 = icmp eq ptr %6, getelementptr (i8, ptr @audit_filter_list, i64 16)
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
@@ -359,7 +359,7 @@ define internal fastcc i32 @audit_filter_task(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @audit_alloc_context(i32 noundef %0) unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(1008) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1008) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -450,8 +450,8 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
-  %30 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
-  %31 = icmp eq ptr %30, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %30 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 64), align 8
+  %31 = icmp eq ptr %30, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %31, label %.loopexit.i, label %32
 
 32:                                               ; preds = %27
@@ -465,7 +465,7 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
 .thread.us.i:                                     ; preds = %32, %.thread.us.i
   %38 = phi ptr [ %39, %.thread.us.i ], [ %30, %32 ]
   %39 = load volatile ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %40 = icmp eq ptr %39, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %40, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %32, %.thread.i
@@ -491,7 +491,7 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
 
 .thread.i:                                        ; preds = %47, %.split.i
   %54 = load volatile ptr, ptr %41, align 8
-  %55 = icmp eq ptr %54, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %55 = icmp eq ptr %54, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %55, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %51, %27
@@ -521,8 +521,8 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
   %65 = load i32, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !5
-  %66 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
-  %67 = icmp eq ptr %66, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %66 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 112), align 8
+  %67 = icmp eq ptr %66, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %67, label %.loopexit.i4, label %68
 
 68:                                               ; preds = %63
@@ -536,7 +536,7 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
 .thread.us.i6:                                    ; preds = %68, %.thread.us.i6
   %74 = phi ptr [ %75, %.thread.us.i6 ], [ %66, %68 ]
   %75 = load volatile ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %76 = icmp eq ptr %75, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %76, label %.loopexit.i4, label %.thread.us.i6, !llvm.loop !6
 
 .split.i3:                                        ; preds = %68, %.thread.i5
@@ -562,7 +562,7 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
 
 .thread.i5:                                       ; preds = %83, %.split.i3
   %90 = load volatile ptr, ptr %77, align 8
-  %91 = icmp eq ptr %90, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %91 = icmp eq ptr %90, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %91, label %.loopexit.i4, label %.split.i3, !llvm.loop !6
 
 .loopexit.i4:                                     ; preds = %.thread.i5, %.thread.us.i6, %87, %63
@@ -1139,7 +1139,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %282 = load i64, ptr %281, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %7, i8 0, i64 96, i1 false), !annotation !5
-  %283 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %284 = tail call noalias align 8 dereferenceable_or_null(7501) ptr @kmalloc_trace(ptr noundef %283, i32 noundef 3264, i64 noundef 7501) #13
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %287
@@ -1949,7 +1949,7 @@ audit_log_pid_context.exit62:                     ; preds = %579, %584
   br label %766
 
 724:                                              ; preds = %719
-  %725 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %725 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %726 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %725, i32 noundef 3264, i64 noundef 128) #13
   %727 = icmp eq ptr %726, null
   br i1 %727, label %770, label %728
@@ -2226,8 +2226,8 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   %37 = load i32, ptr %36, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 0, ptr %5, align 4, !annotation !5
-  %38 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
-  %39 = icmp eq ptr %38, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %38 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 64), align 8
+  %39 = icmp eq ptr %38, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %39, label %.loopexit.i, label %40
 
 40:                                               ; preds = %35
@@ -2241,7 +2241,7 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
 .thread.us.i:                                     ; preds = %40, %.thread.us.i
   %46 = phi ptr [ %47, %.thread.us.i ], [ %38, %40 ]
   %47 = load volatile ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %48 = icmp eq ptr %47, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %48, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %40, %.thread.i
@@ -2267,7 +2267,7 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
 
 .thread.i:                                        ; preds = %55, %.split.i
   %62 = load volatile ptr, ptr %49, align 8
-  %63 = icmp eq ptr %62, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %63 = icmp eq ptr %62, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %63, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %59, %35
@@ -2292,8 +2292,8 @@ audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
   %72 = load i32, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !annotation !5
-  %73 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
-  %74 = icmp eq ptr %73, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %73 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 112), align 8
+  %74 = icmp eq ptr %73, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %74, label %.loopexit.i2, label %75
 
 75:                                               ; preds = %70
@@ -2307,7 +2307,7 @@ audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
 .thread.us.i4:                                    ; preds = %75, %.thread.us.i4
   %81 = phi ptr [ %82, %.thread.us.i4 ], [ %73, %75 ]
   %82 = load volatile ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %83 = icmp eq ptr %82, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %83, label %.loopexit.i2, label %.thread.us.i4, !llvm.loop !6
 
 .split.i1:                                        ; preds = %75, %.thread.i3
@@ -2332,7 +2332,7 @@ audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
 
 .thread.i3:                                       ; preds = %90, %.split.i1
   %96 = load volatile ptr, ptr %84, align 8
-  %97 = icmp eq ptr %96, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %97 = icmp eq ptr %96, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %97, label %.loopexit.i2, label %.split.i1, !llvm.loop !6
 
 .loopexit.i2:                                     ; preds = %.thread.i3, %.thread.us.i4, %94, %70
@@ -2371,8 +2371,8 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
   %111 = load i32, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
-  %112 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
-  %113 = icmp eq ptr %112, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %112 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 112), align 8
+  %113 = icmp eq ptr %112, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %113, label %.loopexit.i6, label %114
 
 114:                                              ; preds = %109
@@ -2386,7 +2386,7 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
 .thread.us.i8:                                    ; preds = %114, %.thread.us.i8
   %120 = phi ptr [ %121, %.thread.us.i8 ], [ %112, %114 ]
   %121 = load volatile ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %122 = icmp eq ptr %121, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %122, label %.loopexit.i6, label %.thread.us.i8, !llvm.loop !6
 
 .split.i5:                                        ; preds = %114, %.thread.i7
@@ -2412,7 +2412,7 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
 
 .thread.i7:                                       ; preds = %129, %.split.i5
   %136 = load volatile ptr, ptr %123, align 8
-  %137 = icmp eq ptr %136, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  %137 = icmp eq ptr %136, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %137, label %.loopexit.i6, label %.split.i5, !llvm.loop !6
 
 .loopexit.i6:                                     ; preds = %.thread.i7, %.thread.us.i8, %133, %109
@@ -2826,8 +2826,8 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   %38 = load i32, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
-  %39 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
-  %40 = icmp eq ptr %39, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %39 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 64), align 8
+  %40 = icmp eq ptr %39, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %40, label %.loopexit.i, label %41
 
 41:                                               ; preds = %36
@@ -2841,7 +2841,7 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
 .thread.us.i:                                     ; preds = %41, %.thread.us.i
   %47 = phi ptr [ %48, %.thread.us.i ], [ %39, %41 ]
   %48 = load volatile ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %49 = icmp eq ptr %48, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %49, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %41, %.thread.i
@@ -2867,7 +2867,7 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
 
 .thread.i:                                        ; preds = %56, %.split.i
   %63 = load volatile ptr, ptr %50, align 8
-  %64 = icmp eq ptr %63, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  %64 = icmp eq ptr %63, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %64, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %60, %36
@@ -2957,7 +2957,7 @@ define dso_local void @__audit_getname(ptr noundef %0) local_unnamed_addr #0 ali
   br label %23
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3392, i64 noundef 112) #13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %audit_alloc_name.exit.thread, label %21
@@ -3038,8 +3038,8 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
 
 16:                                               ; preds = %3
   tail call void @__rcu_read_lock() #12
-  %17 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6), align 8
-  %18 = icmp eq ptr %17, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6)
+  %17 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 96), align 8
+  %18 = icmp eq ptr %17, getelementptr (i8, ptr @audit_filter_list, i64 96)
   br i1 %18, label %.loopexit31, label %19
 
 19:                                               ; preds = %16
@@ -3048,7 +3048,7 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .loopexit30:                                      ; preds = %53, %23
   %21 = load volatile ptr, ptr %24, align 8
-  %22 = icmp eq ptr %21, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6)
+  %22 = icmp eq ptr %21, getelementptr (i8, ptr @audit_filter_list, i64 96)
   br i1 %22, label %.loopexit31, label %23, !llvm.loop !49
 
 23:                                               ; preds = %.loopexit30, %19
@@ -3284,7 +3284,7 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %170
 
 164:                                              ; preds = %.loopexit29
-  %165 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %166 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %165, i32 noundef 3392, i64 noundef 112) #13
   %167 = icmp eq ptr %166, null
   br i1 %167, label %audit_alloc_name.exit.thread, label %168
@@ -3615,8 +3615,8 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
 
 15:                                               ; preds = %3
   tail call void @__rcu_read_lock() #12
-  %16 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6), align 8
-  %17 = icmp eq ptr %16, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6)
+  %16 = load volatile ptr, ptr getelementptr (i8, ptr @audit_filter_list, i64 96), align 8
+  %17 = icmp eq ptr %16, getelementptr (i8, ptr @audit_filter_list, i64 96)
   br i1 %17, label %.loopexit27, label %18
 
 18:                                               ; preds = %15
@@ -3625,7 +3625,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
 
 .loopexit26:                                      ; preds = %52, %22
   %20 = load volatile ptr, ptr %23, align 8
-  %21 = icmp eq ptr %20, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 6)
+  %21 = icmp eq ptr %20, getelementptr (i8, ptr @audit_filter_list, i64 96)
   br i1 %21, label %.loopexit27, label %22, !llvm.loop !57
 
 22:                                               ; preds = %.loopexit26, %18
@@ -3959,7 +3959,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
   br label %224
 
 218:                                              ; preds = %210
-  %219 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %220 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %219, i32 noundef 3392, i64 noundef 112) #13
   %221 = icmp eq ptr %220, null
   br i1 %221, label %audit_alloc_name.exit.thread, label %222
@@ -4053,7 +4053,7 @@ audit_alloc_name.exit:                            ; preds = %224, %236
   br label %279
 
 273:                                              ; preds = %265
-  %274 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %275 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %274, i32 noundef 3392, i64 noundef 112) #13
   %276 = icmp eq ptr %275, null
   br i1 %276, label %audit_alloc_name.exit.thread, label %277
@@ -4462,7 +4462,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__audit_sockaddr(i32 noundef %0,
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 128) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
@@ -4587,7 +4587,7 @@ define dso_local noundef range(i32 -12, 1) i32 @audit_signal_info_syscall(ptr no
   br i1 %42, label %43, label %50
 
 43:                                               ; preds = %39, %35
-  %44 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %45 = tail call noalias align 8 dereferenceable_or_null(600) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 2336, i64 noundef 600) #13
   %46 = icmp eq ptr %45, null
   br i1 %46, label %89, label %47
@@ -4669,7 +4669,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__audit_log_bprm_fcaps(ptr nocap
   %7 = getelementptr inbounds i8, ptr %6, i64 1976
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 144) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %59, label %12
@@ -6874,7 +6874,7 @@ declare dso_local ptr @audit_tree_lookup(ptr noundef) local_unnamed_addr #2
 define internal fastcc noundef range(i32 0, 2) i32 @grow_tree_refs(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 256) #13
   store ptr %5, ptr %2, align 8
   %6 = icmp eq ptr %5, null

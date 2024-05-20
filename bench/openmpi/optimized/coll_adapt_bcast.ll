@@ -19,7 +19,7 @@ define i32 @ompi_coll_adapt_bcast(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %14 = call i32 %13(ptr noundef nonnull %7, ptr noundef null) #2
   br label %15
 

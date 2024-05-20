@@ -337,7 +337,7 @@ entry:
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 1, i64 0), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 128), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #25
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN7GrammarL16ValidMetricTokenB5cxx11E
@@ -536,7 +536,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #25
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp7OpenGEX15OpenGEXImporterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7OpenGEX15OpenGEXImporterE, i64 16), ptr %this, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 72
   %0 = getelementptr inbounds i8, ptr %this, i64 88
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -616,7 +616,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.4, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1049,7 +1049,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -3493,7 +3493,7 @@ if.end.i33:                                       ; preds = %.noexc
           to label %invoke.cont.i35 unwind label %lpad.i34
 
 invoke.cont.i35:                                  ; preds = %if.end.i33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.11, i64 0, i64 4)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 4)) #25
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 4)
           to label %invoke.cont6 unwind label %lpad.i34
@@ -4847,7 +4847,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.23, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4958,7 +4958,7 @@ if.end.i59:                                       ; preds = %.noexc.i
           to label %invoke.cont.i62 unwind label %lpad.i61
 
 invoke.cont.i62:                                  ; preds = %if.end.i59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @_ZN7GrammarL17DiffuseColorTokenE, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @_ZN7GrammarL17DiffuseColorTokenE, i64 0, i64 7)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @_ZN7GrammarL17DiffuseColorTokenE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL17DiffuseColorTokenE, i64 7)) #25
   store ptr null, ptr %__guard.i55, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 7)
           to label %invoke.cont.i unwind label %lpad.i61
@@ -5018,7 +5018,7 @@ if.end.i48:                                       ; preds = %.noexc19.i
           to label %invoke.cont.i51 unwind label %lpad.i50
 
 invoke.cont.i51:                                  ; preds = %if.end.i48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i49, ptr noundef nonnull @_ZN7GrammarL18SpecularColorTokenE, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @_ZN7GrammarL18SpecularColorTokenE, i64 0, i64 8)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i49, ptr noundef nonnull @_ZN7GrammarL18SpecularColorTokenE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL18SpecularColorTokenE, i64 8)) #25
   store ptr null, ptr %__guard.i44, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i, i64 noundef 8)
           to label %invoke.cont8.i unwind label %lpad.i50
@@ -5078,7 +5078,7 @@ if.end.i38:                                       ; preds = %.noexc27.i
           to label %invoke.cont.i41 unwind label %lpad.i40
 
 invoke.cont.i41:                                  ; preds = %if.end.i38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i39, ptr noundef nonnull @_ZN7GrammarL18EmissionColorTokenE, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @_ZN7GrammarL18EmissionColorTokenE, i64 0, i64 8)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i39, ptr noundef nonnull @_ZN7GrammarL18EmissionColorTokenE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL18EmissionColorTokenE, i64 8)) #25
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i, i64 noundef 8)
           to label %invoke.cont19.i unwind label %lpad.i40
@@ -5121,7 +5121,7 @@ call.i.noexc33.i:                                 ; preds = %if.else26.i
           to label %.noexc35.i unwind label %lpad29.i
 
 .noexc35.i:                                       ; preds = %call.i.noexc33.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.47, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 5))
           to label %invoke.cont30.i unwind label %lpad.i32.i
 
 lpad.i32.i:                                       ; preds = %.noexc35.i
@@ -5244,7 +5244,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.23, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -5343,7 +5343,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.23, i64 0, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -5480,7 +5480,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -6337,7 +6337,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @.str.31, i64 0, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 5))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6472,7 +6472,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE5clearEv.exit:       ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp7OpenGEX15OpenGEXImporterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7OpenGEX15OpenGEXImporterE, i64 16), ptr %this, align 8
   %m_unresolvedRefStack = getelementptr inbounds i8, ptr %this, i64 752
   %0 = load ptr, ptr %m_unresolvedRefStack, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 760
@@ -9112,7 +9112,7 @@ if.end.i27:                                       ; preds = %.noexc.i
           to label %invoke.cont.i30 unwind label %lpad.i29
 
 invoke.cont.i30:                                  ; preds = %if.end.i27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i28, ptr noundef nonnull @_ZN7GrammarL19Metric_DistanceTypeE, ptr noundef nonnull getelementptr inbounds ([9 x i8], ptr @_ZN7GrammarL19Metric_DistanceTypeE, i64 0, i64 8)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i28, ptr noundef nonnull @_ZN7GrammarL19Metric_DistanceTypeE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL19Metric_DistanceTypeE, i64 8)) #25
   store ptr null, ptr %__guard.i24, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 noundef 8)
           to label %invoke.cont.i unwind label %lpad.i29
@@ -9127,16 +9127,16 @@ lpad.i29:                                         ; preds = %invoke.cont.i30, %i
 invoke.cont.i:                                    ; preds = %invoke.cont.i30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i24)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #25
-  %call.i9.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1))
+  %call.i9.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32))
           to label %call.i.noexc8.i unwind label %lpad2.i
 
 call.i.noexc8.i:                                  ; preds = %invoke.cont.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1), ptr noundef %call.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), ptr noundef %call.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
           to label %.noexc10.i unwind label %lpad2.i
 
 .noexc10.i:                                       ; preds = %call.i.noexc8.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i14)
-  %call.i.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1))
+  %call.i.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32))
           to label %if.end.i17 unwind label %terminate.lpad.i.i16
 
 terminate.lpad.i.i16:                             ; preds = %.noexc10.i
@@ -9147,36 +9147,36 @@ terminate.lpad.i.i16:                             ; preds = %.noexc10.i
   unreachable
 
 if.end.i17:                                       ; preds = %.noexc10.i
-  store ptr getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1), ptr %__guard.i14, align 8
-  %call4.i18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1))
+  store ptr getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), ptr %__guard.i14, align 8
+  %call4.i18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32))
           to label %invoke.cont.i20 unwind label %lpad.i19
 
 invoke.cont.i20:                                  ; preds = %if.end.i17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i18, ptr noundef nonnull @_ZN7GrammarL16Metric_AngleTypeE, ptr noundef nonnull getelementptr inbounds ([6 x i8], ptr @_ZN7GrammarL16Metric_AngleTypeE, i64 0, i64 5)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i18, ptr noundef nonnull @_ZN7GrammarL16Metric_AngleTypeE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL16Metric_AngleTypeE, i64 5)) #25
   store ptr null, ptr %__guard.i14, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1), i64 noundef 5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), i64 noundef 5)
           to label %invoke.cont3.i unwind label %lpad.i19
 
 lpad.i19:                                         ; preds = %invoke.cont.i20, %if.end.i17
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i14) #25
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1)) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32)) #25
   br label %ehcleanup11.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i14)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #25
-  %call.i17.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2))
+  %call.i17.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64))
           to label %call.i.noexc16.i unwind label %lpad5.i
 
 call.i.noexc16.i:                                 ; preds = %invoke.cont3.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2), ptr noundef %call.i17.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), ptr noundef %call.i17.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %.noexc18.i unwind label %lpad5.i
 
 .noexc18.i:                                       ; preds = %call.i.noexc16.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i4)
-  %call.i.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2))
+  %call.i.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64))
           to label %if.end.i7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %.noexc18.i
@@ -9187,36 +9187,36 @@ terminate.lpad.i.i6:                              ; preds = %.noexc18.i
   unreachable
 
 if.end.i7:                                        ; preds = %.noexc18.i
-  store ptr getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2), ptr %__guard.i4, align 8
-  %call4.i8 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2))
+  store ptr getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), ptr %__guard.i4, align 8
+  %call4.i8 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64))
           to label %invoke.cont.i10 unwind label %lpad.i9
 
 invoke.cont.i10:                                  ; preds = %if.end.i7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i8, ptr noundef nonnull @_ZN7GrammarL15Metric_TimeTypeE, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @_ZN7GrammarL15Metric_TimeTypeE, i64 0, i64 4)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i8, ptr noundef nonnull @_ZN7GrammarL15Metric_TimeTypeE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL15Metric_TimeTypeE, i64 4)) #25
   store ptr null, ptr %__guard.i4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2), i64 noundef 4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), i64 noundef 4)
           to label %invoke.cont6.i unwind label %lpad.i9
 
 lpad.i9:                                          ; preds = %invoke.cont.i10, %if.end.i7
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i4) #25
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2)) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64)) #25
   br label %ehcleanup.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #25
-  %call.i25.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3))
+  %call.i25.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96))
           to label %call.i.noexc24.i unwind label %lpad8.i
 
 call.i.noexc24.i:                                 ; preds = %invoke.cont6.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3), ptr noundef %call.i25.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), ptr noundef %call.i25.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
           to label %.noexc26.i unwind label %lpad8.i
 
 .noexc26.i:                                       ; preds = %call.i.noexc24.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
-  %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3))
+  %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96))
           to label %if.end.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc26.i
@@ -9227,21 +9227,21 @@ terminate.lpad.i.i:                               ; preds = %.noexc26.i
   unreachable
 
 if.end.i:                                         ; preds = %.noexc26.i
-  store ptr getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3), ptr %__guard.i, align 8
-  %call4.i = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3))
+  store ptr getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), ptr %__guard.i, align 8
+  %call4.i = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96))
           to label %invoke.cont.i2 unwind label %lpad.i1
 
 invoke.cont.i2:                                   ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @_ZN7GrammarL13Metric_UpTypeE, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @_ZN7GrammarL13Metric_UpTypeE, i64 0, i64 2)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @_ZN7GrammarL13Metric_UpTypeE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7GrammarL13Metric_UpTypeE, i64 2)) #25
   store ptr null, ptr %__guard.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3), i64 noundef 2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), i64 noundef 2)
           to label %__cxx_global_var_init.exit unwind label %lpad.i1
 
 lpad.i1:                                          ; preds = %invoke.cont.i2, %if.end.i
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #25
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3)) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96)) #25
   br label %lpad8.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -9270,7 +9270,7 @@ lpad8.body.i:                                     ; preds = %lpad8.i, %lpad.i1
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.body.i, %lpad5.i, %lpad.i9
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 3), %lpad8.body.i ], [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2), %lpad.i9 ], [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 2), %lpad5.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), %lpad8.body.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad.i9 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad5.i ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27.i, %lpad8.body.i ], [ %8, %lpad.i9 ], [ %14, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #25
   br label %ehcleanup11.i
@@ -9281,7 +9281,7 @@ ehcleanup11.thread.i:                             ; preds = %lpad.i, %lpad.i29
   br label %eh.resume.i
 
 ehcleanup11.i:                                    ; preds = %ehcleanup.i, %lpad2.i, %lpad.i19
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1), %lpad.i19 ], [ getelementptr inbounds ([4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 1), %lpad2.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad.i19 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad2.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %5, %lpad.i19 ], [ %13, %lpad2.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25

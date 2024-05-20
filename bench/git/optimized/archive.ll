@@ -1684,8 +1684,8 @@ entry:
   %bf.load = load i8, ptr %convert, align 8
   %bf.clear = and i8 %bf.load, -5
   store i8 %bf.clear, ptr %convert, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -1718,32 +1718,32 @@ if.then:                                          ; preds = %strbuf_setlen.exit,
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then
-  %4 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %.neg.i = add i64 %4, 1
   %tobool.not.i = icmp eq i64 %3, %.neg.i
   br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.then
   tail call void @strbuf_grow(ptr noundef nonnull @write_archive_entry.path, i64 noundef 1) #18
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %strbuf_avail.exit.i ]
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 47, ptr %arrayidx.i, align 1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %strbuf_setlen.exit, %strbuf_addch.exit
-  %9 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
   %10 = load i64, ptr %baselen4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %10
   br i1 %cmp, label %if.end22, label %if.then13
@@ -1835,8 +1835,8 @@ if.then32:                                        ; preds = %lor.lhs.false29, %i
   br label %return
 
 if.end36:                                         ; preds = %lor.lhs.false29
-  store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.new_path, i64 0, i32 1), align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.new_path, i64 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @write_archive_entry.new_path, i64 8), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.new_path, i64 16), align 8
   %cmp3.not.i58 = icmp eq ptr %32, @strbuf_slopbuf
   br i1 %cmp3.not.i58, label %strbuf_setlen.exit62, label %if.then4.i59
 
@@ -1865,9 +1865,9 @@ if.end39:                                         ; preds = %strbuf_setlen.exit6
 
 if.then43:                                        ; preds = %if.end39
   %35 = load ptr, ptr @stderr, align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %conv44 = trunc i64 %36 to i32
-  %37 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
   %call45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, i32 noundef %conv44, ptr noundef %37) #19
   br label %if.end46
 
@@ -1879,8 +1879,8 @@ if.end46:                                         ; preds = %if.then43, %if.end3
   ]
 
 if.then54:                                        ; preds = %if.end46, %if.end46
-  %38 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %call55 = tail call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %38, i64 noundef %39, i32 noundef %mode, ptr noundef null, i64 noundef 0) #18
   %tobool56.not = icmp eq i32 %call55, 0
   %cond62 = zext i1 %cmp to i32
@@ -1906,13 +1906,13 @@ land.lhs.true77:                                  ; preds = %land.lhs.true72
   br i1 %cmp78, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %land.lhs.true77
-  %44 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %call81 = call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %44, i64 noundef %45, i32 noundef %mode, ptr noundef null, i64 noundef %42) #18
   br label %return
 
 if.end82:                                         ; preds = %if.end46, %land.lhs.true77, %land.lhs.true72, %land.lhs.true
-  %46 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %meta.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
@@ -2087,8 +2087,8 @@ _.exit:                                           ; preds = %if.then85, %if.end3
 if.end90:                                         ; preds = %object_file_to_archive.exit.thread5, %object_file_to_archive.exit
   %67 = phi i64 [ %.pre, %object_file_to_archive.exit.thread5 ], [ %65, %object_file_to_archive.exit ]
   %buffer.0.i8 = phi ptr [ %call.i65, %object_file_to_archive.exit.thread5 ], [ %call22.i, %object_file_to_archive.exit ]
-  %68 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 2), align 8
-  %69 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @write_archive_entry.path, i64 0, i32 1), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
   %call91 = call i32 %context.8.val(ptr noundef %context.0.val, ptr noundef %oid, ptr noundef %68, i64 noundef %69, i32 noundef %mode, ptr noundef nonnull %buffer.0.i8, i64 noundef %67) #18
   call void @free(ptr noundef nonnull %buffer.0.i8) #18
   br label %return

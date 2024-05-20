@@ -1336,7 +1336,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit477: ; preds = %_ZN5Yosys5RT
   %408 = getelementptr inbounds i8, ptr %403, i64 304
   %409 = load i32, ptr %408, align 4
   %410 = sext i32 %409 to i64
-  %411 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %412 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %413 = ptrtoint ptr %411 to i64
   %414 = ptrtoint ptr %412 to i64
@@ -1381,7 +1381,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit483: ; preds = %420, %_ZN5Yosy
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43)
   %438 = load i32, ptr %408, align 4, !noalias !16
   %439 = sext i32 %438 to i64
-  %440 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !16
+  %440 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !16
   %441 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !16
   %442 = ptrtoint ptr %440 to i64
   %443 = ptrtoint ptr %441 to i64
@@ -1435,7 +1435,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit: ; preds = %967, %.lr.ph6311
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
   %460 = load i32, ptr %408, align 4, !noalias !19
   %461 = sext i32 %460 to i64
-  %462 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !19
+  %462 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !19
   %463 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !19
   %464 = ptrtoint ptr %462 to i64
   %465 = ptrtoint ptr %463 to i64
@@ -1471,7 +1471,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i487:           ; preds = %459
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41)
   %475 = load i32, ptr %474, align 4, !noalias !22
   %476 = sext i32 %475 to i64
-  %477 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !22
+  %477 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !22
   %478 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !22
   %479 = ptrtoint ptr %477 to i64
   %480 = ptrtoint ptr %478 to i64
@@ -1642,7 +1642,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40)
   %531 = load i32, ptr %408, align 4, !noalias !26
   %532 = sext i32 %531 to i64
-  %533 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !26
+  %533 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !26
   %534 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !26
   %535 = ptrtoint ptr %533 to i64
   %536 = ptrtoint ptr %534 to i64
@@ -1677,7 +1677,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i500:           ; preds = %530
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39)
   %545 = load i32, ptr %474, align 4, !noalias !29
   %546 = sext i32 %545 to i64
-  %547 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !29
+  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !29
   %548 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !29
   %549 = ptrtoint ptr %547 to i64
   %550 = ptrtoint ptr %548 to i64
@@ -2006,7 +2006,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5count
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38)
   %687 = load i32, ptr %408, align 4, !noalias !35
   %688 = sext i32 %687 to i64
-  %689 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !35
+  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !35
   %690 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !35
   %691 = ptrtoint ptr %689 to i64
   %692 = ptrtoint ptr %690 to i64
@@ -2042,7 +2042,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i518:           ; preds = %686
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37)
   %702 = load i32, ptr %701, align 4, !noalias !38
   %703 = sext i32 %702 to i64
-  %704 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !38
+  %704 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !38
   %705 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !38
   %706 = ptrtoint ptr %704 to i64
   %707 = ptrtoint ptr %705 to i64
@@ -2147,7 +2147,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5count
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36)
   %734 = load i32, ptr %408, align 4, !noalias !41
   %735 = sext i32 %734 to i64
-  %736 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !41
+  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !41
   %737 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !41
   %738 = ptrtoint ptr %736 to i64
   %739 = ptrtoint ptr %737 to i64
@@ -2183,7 +2183,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i530:           ; preds = %733
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35)
   %749 = load i32, ptr %748, align 4, !noalias !44
   %750 = sext i32 %749 to i64
-  %751 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !44
+  %751 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !44
   %752 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !44
   %753 = ptrtoint ptr %751 to i64
   %754 = ptrtoint ptr %752 to i64
@@ -2436,7 +2436,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34)
   %859 = load i32, ptr %408, align 4, !noalias !47
   %860 = sext i32 %859 to i64
-  %861 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !47
+  %861 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !47
   %862 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !47
   %863 = ptrtoint ptr %861 to i64
   %864 = ptrtoint ptr %862 to i64
@@ -2471,7 +2471,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i567:           ; preds = %858
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33)
   %873 = load i32, ptr %748, align 4, !noalias !50
   %874 = sext i32 %873 to i64
-  %875 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !50
+  %875 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !50
   %876 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !50
   %877 = ptrtoint ptr %875 to i64
   %878 = ptrtoint ptr %876 to i64
@@ -2629,7 +2629,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5count
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32)
   %919 = load i32, ptr %408, align 4, !noalias !53
   %920 = sext i32 %919 to i64
-  %921 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !53
+  %921 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !53
   %922 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !53
   %923 = ptrtoint ptr %921 to i64
   %924 = ptrtoint ptr %922 to i64
@@ -2665,7 +2665,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i579:           ; preds = %918
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31)
   %934 = load i32, ptr %933, align 4, !noalias !56
   %935 = sext i32 %934 to i64
-  %936 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !56
+  %936 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !56
   %937 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !56
   %938 = ptrtoint ptr %936 to i64
   %939 = ptrtoint ptr %937 to i64
@@ -2816,7 +2816,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit591: ; preds = %574, %589, %73
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
   %977 = load i32, ptr %408, align 4, !noalias !59
   %978 = sext i32 %977 to i64
-  %979 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !59
+  %979 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !59
   %980 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !59
   %981 = ptrtoint ptr %979 to i64
   %982 = ptrtoint ptr %980 to i64
@@ -2978,7 +2978,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit629: ; preds = %1108, %.lr.ph6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
   %1038 = load i32, ptr %1037, align 4, !noalias !65
   %1039 = sext i32 %1038 to i64
-  %1040 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !65
+  %1040 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !65
   %1041 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !65
   %1042 = ptrtoint ptr %1040 to i64
   %1043 = ptrtoint ptr %1041 to i64
@@ -3023,7 +3023,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i612:           ; preds = %1036
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28)
   %1055 = load i32, ptr %408, align 4, !noalias !68
   %1056 = sext i32 %1055 to i64
-  %1057 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !68
+  %1057 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !68
   %1058 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !68
   %1059 = ptrtoint ptr %1057 to i64
   %1060 = ptrtoint ptr %1058 to i64
@@ -3058,7 +3058,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i618:           ; preds = %1054
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
   %1069 = load i32, ptr %1037, align 4, !noalias !71
   %1070 = sext i32 %1069 to i64
-  %1071 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !71
+  %1071 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !71
   %1072 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !71
   %1073 = ptrtoint ptr %1071 to i64
   %1074 = ptrtoint ptr %1072 to i64
@@ -3211,7 +3211,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit631: ; preds = %1107, %1049, %
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
   %1117 = load i32, ptr %408, align 4, !noalias !74
   %1118 = sext i32 %1117 to i64
-  %1119 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !74
+  %1119 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !74
   %1120 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !74
   %1121 = ptrtoint ptr %1119 to i64
   %1122 = ptrtoint ptr %1120 to i64
@@ -3813,7 +3813,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
   %1323 = load i32, ptr %408, align 4, !noalias !85
   %1324 = sext i32 %1323 to i64
-  %1325 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !85
+  %1325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !85
   %1326 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !85
   %1327 = ptrtoint ptr %1325 to i64
   %1328 = ptrtoint ptr %1326 to i64
@@ -4068,7 +4068,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
   %1409 = load i32, ptr %408, align 4, !noalias !89
   %1410 = sext i32 %1409 to i64
-  %1411 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !89
+  %1411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !89
   %1412 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !89
   %1413 = ptrtoint ptr %1411 to i64
   %1414 = ptrtoint ptr %1412 to i64
@@ -4361,7 +4361,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i679:           ; preds = %1408
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
   %1510 = load i32, ptr %408, align 4, !noalias !94
   %1511 = sext i32 %1510 to i64
-  %1512 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !94
+  %1512 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !94
   %1513 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !94
   %1514 = ptrtoint ptr %1512 to i64
   %1515 = ptrtoint ptr %1513 to i64
@@ -5309,7 +5309,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   %1807 = load i32, ptr %408, align 4, !noalias !113
   %1808 = sext i32 %1807 to i64
-  %1809 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !113
+  %1809 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !113
   %1810 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !113
   %1811 = ptrtoint ptr %1809 to i64
   %1812 = ptrtoint ptr %1810 to i64
@@ -5511,7 +5511,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i711:           ; preds = %1806
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   %1873 = load i32, ptr %408, align 4, !noalias !116
   %1874 = sext i32 %1873 to i64
-  %1875 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !116
+  %1875 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !116
   %1876 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !116
   %1877 = ptrtoint ptr %1875 to i64
   %1878 = ptrtoint ptr %1876 to i64
@@ -5573,7 +5573,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i717:           ; preds = %1872
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   %1895 = load i32, ptr %408, align 4, !noalias !119
   %1896 = sext i32 %1895 to i64
-  %1897 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !119
+  %1897 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !119
   %1898 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !119
   %1899 = ptrtoint ptr %1897 to i64
   %1900 = ptrtoint ptr %1898 to i64
@@ -5621,7 +5621,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i723:           ; preds = %1894
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   %1913 = load i32, ptr %408, align 4, !noalias !122
   %1914 = sext i32 %1913 to i64
-  %1915 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !122
+  %1915 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !122
   %1916 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !122
   %1917 = ptrtoint ptr %1915 to i64
   %1918 = ptrtoint ptr %1916 to i64
@@ -5683,7 +5683,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i729:           ; preds = %1912
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %1935 = load i32, ptr %408, align 4, !noalias !125
   %1936 = sext i32 %1935 to i64
-  %1937 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !125
+  %1937 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !125
   %1938 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !125
   %1939 = ptrtoint ptr %1937 to i64
   %1940 = ptrtoint ptr %1938 to i64
@@ -5736,7 +5736,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i735:           ; preds = %1934
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %1954 = load i32, ptr %408, align 4, !noalias !128
   %1955 = sext i32 %1954 to i64
-  %1956 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !128
+  %1956 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !128
   %1957 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !128
   %1958 = ptrtoint ptr %1956 to i64
   %1959 = ptrtoint ptr %1957 to i64
@@ -5789,7 +5789,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i741:           ; preds = %1953
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %1973 = load i32, ptr %408, align 4, !noalias !131
   %1974 = sext i32 %1973 to i64
-  %1975 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !131
+  %1975 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !131
   %1976 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !131
   %1977 = ptrtoint ptr %1975 to i64
   %1978 = ptrtoint ptr %1976 to i64
@@ -5842,7 +5842,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i747:           ; preds = %1972
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   %1992 = load i32, ptr %408, align 4, !noalias !134
   %1993 = sext i32 %1992 to i64
-  %1994 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !134
+  %1994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !134
   %1995 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !134
   %1996 = ptrtoint ptr %1994 to i64
   %1997 = ptrtoint ptr %1995 to i64
@@ -6572,7 +6572,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit788: ; preds = %_ZN5Yosys5RT
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %2219 = load i32, ptr %2218, align 4, !noalias !140
   %2220 = sext i32 %2219 to i64
-  %2221 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !140
+  %2221 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !140
   %2222 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !140
   %2223 = ptrtoint ptr %2221 to i64
   %2224 = ptrtoint ptr %2222 to i64
@@ -8022,7 +8022,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 
 11:                                               ; preds = %9, %6, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 8), align 8
   %.not1112 = icmp eq ptr %12, %13
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -9231,7 +9231,7 @@ define linkonce_odr void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef
   br i1 %.not, label %._crit_edge, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %5 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -9254,7 +9254,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %_ZNSt6vectorIPcSaIS0_EE2atEm.exit
-  %15 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %16 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -9270,7 +9270,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %3
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit2:               ; preds = %._crit_edge
   %22 = getelementptr inbounds ptr, ptr %16, i64 %.pre
   %23 = tail call noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE5eraseERKS2_(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %24 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %25 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
@@ -9287,7 +9287,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit4:               ; preds = %_ZNSt6vectorIPcSaIS
   %31 = getelementptr inbounds ptr, ptr %25, i64 %.pre
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32) #18
-  %33 = load ptr, ptr getelementptr inbounds (%"class.std::vector.156", ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %34 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
@@ -9303,16 +9303,16 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit4:               ; preds = %_ZNSt6vectorIPcSaIS
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit6:               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit4
   %40 = getelementptr inbounds ptr, ptr %34, i64 %.pre
   store ptr null, ptr %40, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %42 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   %.not.i = icmp eq ptr %41, %42
   br i1 %.not.i, label %46, label %43
 
 43:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit6
   store i32 %0, ptr %41, align 4
-  %44 = load ptr, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 4
-  store ptr %45, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 46:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit6
@@ -9365,9 +9365,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %64, %_ZNSt
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %61, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, align 8
-  store ptr %66, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 8), align 8
   %68 = getelementptr inbounds i32, ptr %61, i64 %57
-  store ptr %68, ptr getelementptr inbounds (%"class.std::vector.3", ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString21global_free_idx_list_E, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %43, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
@@ -10550,7 +10550,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117TestAutotbBackendE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_117TestAutotbBackendE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117TestAutotbBackendE, i64 16), ptr @_ZN12_GLOBAL__N_117TestAutotbBackendE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

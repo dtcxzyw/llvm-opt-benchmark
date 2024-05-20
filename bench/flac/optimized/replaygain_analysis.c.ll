@@ -242,8 +242,8 @@ if.end:                                           ; preds = %for.body.i
   store double 0.000000e+00, ptr @rsum, align 8
   store i64 0, ptr @totsamp, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @A, i8 0, i64 48000, i1 false)
-  store ptr getelementptr inbounds ([20 x float], ptr @linprebuf, i64 0, i64 10), ptr @linpre, align 8
-  store ptr getelementptr inbounds ([20 x float], ptr @rinprebuf, i64 0, i64 10), ptr @rinpre, align 8
+  store ptr getelementptr inbounds (i8, ptr @linprebuf, i64 40), ptr @linpre, align 8
+  store ptr getelementptr inbounds (i8, ptr @rinprebuf, i64 40), ptr @rinpre, align 8
   %11 = load ptr, ptr @lstepbuf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %add.ptr, ptr @lstep, align 8
@@ -650,9 +650,9 @@ if.then123:                                       ; preds = %while.end
   %add.ptr127 = getelementptr inbounds float, ptr @rinprebuf, i64 %div
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @rinprebuf, ptr nonnull align 4 %add.ptr127, i64 %mul126, i1 false)
   %idx.neg = sub nsw i64 0, %div
-  %add.ptr130 = getelementptr inbounds float, ptr getelementptr inbounds ([20 x float], ptr @linprebuf, i64 0, i64 10), i64 %idx.neg
+  %add.ptr130 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @linprebuf, i64 40), i64 %idx.neg
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr130, ptr align 4 %left_samples, i64 %72, i1 false)
-  %add.ptr133 = getelementptr inbounds float, ptr getelementptr inbounds ([20 x float], ptr @rinprebuf, i64 0, i64 10), i64 %idx.neg
+  %add.ptr133 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @rinprebuf, i64 40), i64 %idx.neg
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr133, ptr align 4 %right_samples.addr.0, i64 %72, i1 false)
   br label %return
 

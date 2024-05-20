@@ -403,7 +403,7 @@ define dso_local i32 @reg_reload_regdb() local_unnamed_addr #2 align 16 {
 26:                                               ; preds = %25, %20
   store ptr %18, ptr @regdb, align 8
   %27 = load volatile ptr, ptr @cfg80211_regdomain, align 8
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %29 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 64) #25
   %30 = icmp eq ptr %29, null
   br i1 %30, label %41, label %31
@@ -1956,7 +1956,7 @@ define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint_user(ptr noundef
   br i1 %25, label %58, label %26
 
 26:                                               ; preds = %18, %8
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %28 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 64) #25
   %29 = icmp eq ptr %28, null
   br i1 %29, label %58, label %30
@@ -1992,8 +1992,8 @@ define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint_user(ptr noundef
   store i8 %52, ptr %36, align 1
   tail call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
   %53 = getelementptr inbounds i8, ptr %28, i64 48
-  %54 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
-  store ptr %53, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store ptr @reg_requests_list, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %28, i64 56
   store ptr %54, ptr %55, align 8
@@ -2081,7 +2081,7 @@ define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint(ptr noundef %0, 
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -2
   store i32 %10, ptr %8, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 64) #25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %42, label %14
@@ -2116,8 +2116,8 @@ define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint(ptr noundef %0, 
   store i8 %36, ptr %21, align 1
   tail call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
   %37 = getelementptr inbounds i8, ptr %12, i64 48
-  %38 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
-  store ptr %37, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store ptr @reg_requests_list, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %12, i64 56
   store ptr %38, ptr %39, align 8
@@ -2144,7 +2144,7 @@ define dso_local void @regulatory_hint_country_ie(ptr noundef %0, i32 noundef %1
   br i1 %8, label %61, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %11 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 64) #25
   %12 = icmp eq ptr %11, null
   br i1 %12, label %61, label %13
@@ -2205,8 +2205,8 @@ define dso_local void @regulatory_hint_country_ie(ptr noundef %0, i32 noundef %1
   store i8 %53, ptr %37, align 1
   tail call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
   %54 = getelementptr inbounds i8, ptr %11, i64 48
-  %55 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
-  store ptr %54, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %54, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store ptr @reg_requests_list, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %11, i64 56
   store ptr %55, ptr %56, align 8
@@ -2497,14 +2497,14 @@ define internal fastcc void @restore_regulatory_settings(i1 noundef zeroext %0, 
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %5, align 8
-  %79 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   %80 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %78, ptr %80, align 8
   store ptr %75, ptr %78, align 8
   store ptr %4, ptr %79, align 8
   store ptr %79, ptr %5, align 8
   store volatile ptr @reg_requests_list, ptr @reg_requests_list, align 8
-  store volatile ptr @reg_requests_list, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  store volatile ptr @reg_requests_list, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   br label %81
 
 81:                                               ; preds = %77, %74
@@ -2738,7 +2738,7 @@ define internal fastcc void @restore_regulatory_settings(i1 noundef zeroext %0, 
 
 214:                                              ; preds = %211
   call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
-  %215 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   %216 = getelementptr i8, ptr %215, i64 -48
   %217 = getelementptr inbounds i8, ptr %215, i64 8
   %218 = load ptr, ptr %217, align 8
@@ -2855,7 +2855,7 @@ notify_self_managed_wiphys.exit:                  ; preds = %246, %226
   br label %321
 
 278:                                              ; preds = %162, %.loopexit18
-  %279 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %280 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %279, i32 noundef 3520, i64 noundef 64) #25
   %281 = icmp eq ptr %280, null
   br i1 %281, label %regulatory_hint_core.exit, label %282
@@ -2885,8 +2885,8 @@ notify_self_managed_wiphys.exit:                  ; preds = %246, %226
   store i8 %300, ptr %284, align 1
   call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
   %301 = getelementptr inbounds i8, ptr %280, i64 48
-  %302 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
-  store ptr %301, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %301, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store ptr @reg_requests_list, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %280, i64 56
   store ptr %302, ptr %303, align 8
@@ -2925,13 +2925,13 @@ regulatory_hint_core.exit:                        ; preds = %278, %282
   br i1 %323, label %328, label %324
 
 324:                                              ; preds = %321
-  %325 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   %326 = load ptr, ptr %5, align 8
   %327 = getelementptr inbounds i8, ptr %322, i64 8
   store ptr %325, ptr %327, align 8
   store ptr %322, ptr %325, align 8
   store ptr @reg_requests_list, ptr %326, align 8
-  store ptr %326, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  store ptr %326, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store volatile ptr %4, ptr %4, align 8
   store volatile ptr %4, ptr %5, align 8
   br label %328
@@ -3044,8 +3044,8 @@ define dso_local noundef range(i32 -12, 1) i32 @regulatory_hint_found_beacon(ptr
   %62 = getelementptr inbounds i8, ptr %59, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %62, ptr noundef align 8 dereferenceable(64) %1, i64 64, i1 false)
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reg_pending_beacons_lock) #23
-  %63 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_pending_beacons, i64 0, i32 1), align 8
-  store ptr %59, ptr getelementptr inbounds (%struct.list_head, ptr @reg_pending_beacons, i64 0, i32 1), align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_pending_beacons, i64 8), align 8
+  store ptr %59, ptr getelementptr inbounds (i8, ptr @reg_pending_beacons, i64 8), align 8
   store ptr @reg_pending_beacons, ptr %59, align 8
   %64 = getelementptr inbounds i8, ptr %59, i64 8
   store ptr %63, ptr %64, align 8
@@ -5483,11 +5483,11 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
 64:                                               ; preds = %62
   %65 = getelementptr i8, ptr %54, i64 16
   %66 = load ptr, ptr %65, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_end_cac, i64 0, i32 1), i32 2) #23
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_end_cac, i64 8), i32 2) #23
           to label %87 [label %67], !srcloc !172
 
 67:                                               ; preds = %64
-  %68 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #23, !srcloc !173
+  %68 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !173
   %69 = zext i32 %68 to i64
   %70 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %69) #23, !srcloc !174
   %71 = icmp ult i8 %70, 2
@@ -5496,9 +5496,9 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
   br i1 %72, label %87, label %73
 
 73:                                               ; preds = %67
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !175
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !175
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !176
-  %74 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_end_cac, i64 0, i32 8), align 8
+  %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rdev_end_cac, i64 72), align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %80, label %76
 
@@ -5510,7 +5510,7 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
 
 80:                                               ; preds = %76, %73
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !177
-  %81 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !178
+  %81 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !178
   %82 = icmp ult i8 %81, 2
   tail call void @llvm.assume(i1 %82)
   %83 = icmp eq i8 %81, 0
@@ -5534,11 +5534,11 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
   br label %93
 
 93:                                               ; preds = %92, %87
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_return_void, i64 0, i32 1), i32 2) #23
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_void, i64 8), i32 2) #23
           to label %114 [label %94], !srcloc !172
 
 94:                                               ; preds = %93
-  %95 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #23, !srcloc !180
+  %95 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !180
   %96 = zext i32 %95 to i64
   %97 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %96) #23, !srcloc !174
   %98 = icmp ult i8 %97, 2
@@ -5547,9 +5547,9 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
   br i1 %99, label %114, label %100
 
 100:                                              ; preds = %94
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !175
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !175
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !181
-  %101 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_return_void, i64 0, i32 8), align 8
+  %101 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_void, i64 72), align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %107, label %103
 
@@ -5561,7 +5561,7 @@ define dso_local void @regulatory_propagate_dfs_state(ptr noundef %0, ptr nounde
 
 107:                                              ; preds = %103, %100
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !182
-  %108 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !178
+  %108 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !178
   %109 = icmp ult i8 %108, 2
   tail call void @llvm.assume(i1 %109)
   %110 = icmp eq i8 %108, 0
@@ -5667,7 +5667,7 @@ define internal i32 @regulatory_init_db() #12 section ".init.text" align 16 {
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @cfg80211_world_regdom, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 64) #25
   %14 = icmp eq ptr %13, null
   br i1 %14, label %regulatory_hint_core.exit, label %16
@@ -5706,8 +5706,8 @@ regulatory_hint_core.exit:                        ; preds = %10
   store i8 %38, ptr %22, align 1
   tail call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #23
   %39 = getelementptr inbounds i8, ptr %13, i64 48
-  %40 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
-  store ptr %39, ptr getelementptr inbounds (%struct.list_head, ptr @reg_requests_list, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %39, ptr getelementptr inbounds (i8, ptr @reg_requests_list, i64 8), align 8
   store ptr @reg_requests_list, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %13, i64 56
   store ptr %40, ptr %41, align 8
@@ -6278,11 +6278,11 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   br i1 %76, label %127, label %77
 
 77:                                               ; preds = %72
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_get_channel, i64 0, i32 1), i32 2) #23
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_get_channel, i64 8), i32 2) #23
           to label %99 [label %78], !srcloc !172
 
 78:                                               ; preds = %77
-  %79 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #23, !srcloc !197
+  %79 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !197
   %80 = zext i32 %79 to i64
   %81 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %80) #23, !srcloc !174
   %82 = icmp ult i8 %81, 2
@@ -6291,9 +6291,9 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   br i1 %83, label %99, label %84
 
 84:                                               ; preds = %78
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !175
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !175
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !198
-  %85 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_get_channel, i64 0, i32 8), align 8
+  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rdev_get_channel, i64 72), align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %92, label %87
 
@@ -6306,7 +6306,7 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
 
 92:                                               ; preds = %87, %84
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !199
-  %93 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !178
+  %93 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !178
   %94 = icmp ult i8 %93, 2
   call void @llvm.assume(i1 %94)
   %95 = icmp eq i8 %93, 0
@@ -6324,11 +6324,11 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   %102 = load ptr, ptr %101, align 8
   %103 = trunc i64 %40 to i32
   %104 = call i32 %102(ptr noundef nonnull %12, ptr noundef %21, i32 noundef %103, ptr noundef nonnull %2) #23
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_return_chandef, i64 0, i32 1), i32 2) #23
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_chandef, i64 8), i32 2) #23
           to label %125 [label %105], !srcloc !172
 
 105:                                              ; preds = %99
-  %106 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #23, !srcloc !201
+  %106 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !201
   %107 = zext i32 %106 to i64
   %108 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %107) #23, !srcloc !174
   %109 = icmp ult i8 %108, 2
@@ -6337,9 +6337,9 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   br i1 %110, label %125, label %111
 
 111:                                              ; preds = %105
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !175
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !175
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !202
-  %112 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rdev_return_chandef, i64 0, i32 8), align 8
+  %112 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_chandef, i64 72), align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %118, label %114
 
@@ -6351,7 +6351,7 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
 
 118:                                              ; preds = %114, %111
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !203
-  %119 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !178
+  %119 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !178
   %120 = icmp ult i8 %119, 2
   call void @llvm.assume(i1 %120)
   %121 = icmp eq i8 %119, 0
@@ -6933,7 +6933,7 @@ define internal fastcc i32 @query_regdb(ptr noundef readonly %0) unnamed_addr #2
   br i1 %117, label %60, label %.loopexit, !llvm.loop !222
 
 .loopexit:                                        ; preds = %.thread, %44
-  %118 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %119 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %118, i32 noundef 3520, i64 noundef 24) #25
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %122
@@ -6946,8 +6946,8 @@ define internal fastcc i32 @query_regdb(ptr noundef readonly %0) unnamed_addr #2
   %123 = getelementptr inbounds i8, ptr %119, i64 16
   store ptr %42, ptr %123, align 8
   tail call void @mutex_lock(ptr noundef nonnull @reg_regdb_apply_mutex) #23
-  %124 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_regdb_apply_list, i64 0, i32 1), align 8
-  store ptr %119, ptr getelementptr inbounds (%struct.list_head, ptr @reg_regdb_apply_list, i64 0, i32 1), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_regdb_apply_list, i64 8), align 8
+  store ptr %119, ptr getelementptr inbounds (i8, ptr @reg_regdb_apply_list, i64 8), align 8
   store ptr @reg_regdb_apply_list, ptr %119, align 8
   %125 = getelementptr inbounds i8, ptr %119, i64 8
   store ptr %124, ptr %125, align 8
@@ -7415,8 +7415,8 @@ handle_reg_beacon.exit:                           ; preds = %146, %142, %140, %9
   br i1 %172, label %.loopexit8, label %79, !llvm.loop !226
 
 .loopexit8:                                       ; preds = %.loopexit, %72
-  %173 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @reg_beacon_list, i64 0, i32 1), align 8
-  store ptr %62, ptr getelementptr inbounds (%struct.list_head, ptr @reg_beacon_list, i64 0, i32 1), align 8
+  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @reg_beacon_list, i64 8), align 8
+  store ptr %62, ptr getelementptr inbounds (i8, ptr @reg_beacon_list, i64 8), align 8
   store ptr @reg_beacon_list, ptr %62, align 8
   store ptr %173, ptr %64, align 8
   store volatile ptr %62, ptr %173, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue27raw_dfaD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %this, align 8
   %states = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %states, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -90,7 +90,7 @@ _ZNSt6vectorIN3ue26dstateESaIS1_EED2Ev.exit:      ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue27raw_dfaD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %this, align 8
   %states.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %states.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24

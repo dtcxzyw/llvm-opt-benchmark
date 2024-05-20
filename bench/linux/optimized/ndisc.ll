@@ -969,7 +969,7 @@ define dso_local void @ndisc_send_skb(ptr noundef %0, ptr noundef %1, ptr nounde
   %104 = getelementptr i8, ptr %103, i64 40
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, ptr elementtype(i64) %104) #14, !srcloc !16
   %105 = load ptr, ptr %42, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([11 x [5 x %struct.static_key]], ptr @nf_hooks_needed, i64 0, i64 10, i64 3), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 848), i32 2) #14
           to label %.thread7 [label %106], !srcloc !17
 
 106:                                              ; preds = %101
@@ -2802,7 +2802,7 @@ ndisc_parse_options.exit:                         ; preds = %57
   br label %279
 
 248:                                              ; preds = %241
-  %249 = load ptr, ptr getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 30), align 8
+  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @nd_tbl, i64 576), align 8
   br i1 %144, label %251, label %.thread22
 
 .thread22:                                        ; preds = %248
@@ -4891,7 +4891,7 @@ define dso_local i32 @ndisc_init() local_unnamed_addr #9 section ".init.text" al
 
 3:                                                ; preds = %0
   tail call void @neigh_table_init(i32 noundef 1, ptr noundef nonnull @nd_tbl) #14
-  %4 = tail call i32 @neigh_sysctl_register(ptr noundef null, ptr noundef nonnull getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 13), ptr noundef nonnull @ndisc_ifinfo_sysctl_change) #14
+  %4 = tail call i32 @neigh_sysctl_register(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_tbl, i64 88), ptr noundef nonnull @ndisc_ifinfo_sysctl_change) #14
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
 
@@ -4936,7 +4936,7 @@ declare dso_local i32 @unregister_netdevice_notifier(ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ndisc_cleanup() local_unnamed_addr #1 align 16 {
-  tail call void @neigh_sysctl_unregister(ptr noundef nonnull getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 13)) #14
+  tail call void @neigh_sysctl_unregister(ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_tbl, i64 88)) #14
   %1 = tail call i32 @neigh_table_clear(i32 noundef 1, ptr noundef nonnull @nd_tbl) #14
   tail call void @unregister_pernet_subsys(ptr noundef nonnull @ndisc_net_ops) #14
   ret void
@@ -5199,7 +5199,7 @@ declare dso_local zeroext i1 @ipv6_chk_acast_addr(ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -1, 2) i32 @pndisc_is_router(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
-  tail call void @_raw_read_lock_bh(ptr noundef nonnull getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 28)) #14
+  tail call void @_raw_read_lock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_tbl, i64 560)) #14
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @__pneigh_lookup(ptr noundef nonnull @nd_tbl, ptr noundef %4, ptr noundef %0, ptr noundef %1) #14
@@ -5215,7 +5215,7 @@ define internal fastcc range(i32 -1, 2) i32 @pndisc_is_router(ptr noundef %0, pt
 
 12:                                               ; preds = %7, %2
   %13 = phi i32 [ %11, %7 ], [ -1, %2 ]
-  tail call void @_raw_read_unlock_bh(ptr noundef nonnull getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 28)) #14
+  tail call void @_raw_read_unlock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @nd_tbl, i64 560)) #14
   ret i32 %13
 }
 

@@ -595,7 +595,7 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i: ; p
   br i1 %54, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i, label %_ZN5QListIP19_recent_item_statusE5beginEv.exit.i.thread
 
 _ZN5QListIP19_recent_item_statusE5beginEv.exit.i.thread: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i
-  %55 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i
 
 _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i, %_ZN7QStringD2Ev.exit25
@@ -604,7 +604,7 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i
 
 _ZN5QListIP19_recent_item_statusE5beginEv.exit.i: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i
   %.pre = load ptr, ptr @_ZL16recent_captures_, align 8
-  %56 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   %.not.i.i.i.i3.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i3.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i
 
@@ -621,13 +621,13 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i
           to label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i._ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit_crit_edge unwind label %.loopexit.split-lp
 
 _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i._ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit_crit_edge: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i
-  %.pre63 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %.pre63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit
 
 _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i._ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit_crit_edge, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i
   %62 = phi ptr [ %61, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i._ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit_crit_edge ], [ %57, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i ]
   %63 = phi ptr [ %.pre63, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i._ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit_crit_edge ], [ %57, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i ]
-  %64 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %65 = getelementptr ptr, ptr %63, i64 %64
   %.not5960 = icmp eq ptr %65, %62
   br i1 %.not5960, label %._crit_edge, label %.lr.ph
@@ -648,14 +648,14 @@ _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds =
   br i1 %73, label %76, label %74
 
 74:                                               ; preds = %71
-  %75 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 28), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
   %.not = icmp ult i32 %.0862, %75
   %or.cond = select i1 %1, i1 true, i1 %.not
   br i1 %or.cond, label %116, label %76
 
 76:                                               ; preds = %74, %71, %.lr.ph
-  %77 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %78 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %79 = getelementptr ptr, ptr %77, i64 %78
   %.not.i27 = icmp eq ptr %79, %.sroa.5.061
   br i1 %.not.i27, label %_ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit, label %80
@@ -678,8 +678,8 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i
           to label %.noexc32 unwind label %.loopexit
 
 .noexc32:                                         ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i.i
-  %.pre.i.i.i = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %.pre.i31 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %.pre.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %.pre.i31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
 
 _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds = %.noexc32, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i.i
@@ -694,7 +694,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   br i1 %or.cond.i.i.i.i.i, label %94, label %93
 
 93:                                               ; preds = %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
-  store ptr %90, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  store ptr %90, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 94:                                               ; preds = %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
@@ -705,15 +705,15 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   %97 = ptrtoint ptr %90 to i64
   %98 = sub i64 %96, %97
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %90, i64 %98, i1 false)
-  %.pre.i.i.i.i.i = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
-  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %.pre.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
+  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 _ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i: ; preds = %95, %94, %93
   %.pre8.i.i.i = phi ptr [ %88, %94 ], [ %.pre8.pre.i.i.i, %95 ], [ %90, %93 ]
   %99 = phi i64 [ %87, %94 ], [ %.pre.i.i.i.i.i, %95 ], [ %87, %93 ]
   %100 = add i64 %99, -1
-  store i64 %100, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store i64 %100, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %101 = getelementptr i8, ptr %.pre8.i.i.i, i64 %83
   %102 = load ptr, ptr @_ZL16recent_captures_, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %102, null
@@ -780,8 +780,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %110
   %.sroa.5.2 = phi ptr [ %.sroa.5.1, %_ZN19_recent_item_statusD2Ev.exit ], [ %66, %74 ]
   %.19 = phi i32 [ %109, %_ZN19_recent_item_statusD2Ev.exit ], [ %.0862, %74 ]
   %117 = add i32 %.19, 1
-  %118 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %119 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %119 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %120 = getelementptr ptr, ptr %118, i64 %119
   %.not59 = icmp eq ptr %120, %.sroa.5.2
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -982,8 +982,8 @@ declare void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 define void @menu_recent_file_write_all(ptr nocapture noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QByteArray, align 8
-  %4 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 28), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
   %6 = zext i32 %5 to i64
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.0725 = add i64 %.sroa.speculated, -1
@@ -998,7 +998,7 @@ define void @menu_recent_file_write_all(ptr nocapture noundef %0) local_unnamed_
 
 11:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
   %.0726 = phi i64 [ %.0725, %.lr.ph ], [ %.07, %_ZN7QStringD2Ev.exit ]
-  %12 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   %13 = getelementptr ptr, ptr %12, i64 %.0726
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -1102,8 +1102,8 @@ define void @_ZN15MainApplication21refreshRecentCapturesEv(ptr noundef nonnull a
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @_ZL16recent_captures_, align 8, !noalias !7
-  %8 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8, !noalias !7
-  %9 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8, !noalias !7
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8, !noalias !7
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8, !noalias !7
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %10
 
@@ -2614,7 +2614,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i274:   ; preds = %394
 
 _ZN7QStringD2Ev.exit276:                          ; preds = %394, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i274, %397
   call void @_ZN9QFontInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #26
-  %399 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 11), align 8
+  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
   invoke void @g_free(ptr noundef %399)
           to label %400 unwind label %523
 
@@ -2627,7 +2627,7 @@ _ZN7QStringD2Ev.exit276:                          ; preds = %394, %_ZN17QArrayDa
           to label %403 unwind label %566
 
 403:                                              ; preds = %401
-  store ptr %402, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 11), align 8
+  store ptr %402, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
   %404 = load ptr, ptr %54, align 8
   %.not.i.i.i277 = icmp eq ptr %404, null
   br i1 %.not.i.i.i277, label %_ZN7QStringD2Ev.exit280, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i278
@@ -3452,8 +3452,8 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br i1 %41, label %89, label %42
 
 42:                                               ; preds = %38, %37
-  %43 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 69), align 4
-  %44 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 396), align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   call void @_ZN15MainApplication15profileChangingEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
   br i1 %2, label %45, label %50
 
@@ -3491,7 +3491,7 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br label %60
 
 60:                                               ; preds = %54, %50
-  %61 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   %.not15 = icmp eq ptr %61, null
   br i1 %.not15, label %67, label %62
 
@@ -3501,23 +3501,23 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   call void @set_last_open_dir(ptr noundef %66)
   br label %67
 
 67:                                               ; preds = %65, %62, %60
-  %68 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
   call void @timestamp_set_type(i32 noundef %68)
-  %69 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   call void @timestamp_set_precision(i32 noundef %69)
-  %70 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   call void @timestamp_set_seconds_type(i32 noundef %70)
   %71 = getelementptr inbounds i8, ptr %0, i64 120
-  %72 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 73), align 8
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 416), align 8
   call void @_ZN6QTimer11setIntervalEi(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %72)
   call void @prefs_to_capture_opts()
   call void @prefs_apply_all()
-  %73 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 11), align 8
+  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
   call void @_ZN15MainApplication16setMonospaceFontEPKc(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %73)
   call void @_ZN15MainApplication16freezePacketListEb(ptr noundef nonnull align 8 dereferenceable(216) %0, i1 noundef zeroext true)
   call void @_ZN15MainApplication14columnsChangedEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
@@ -3540,13 +3540,13 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br label %79
 
 79:                                               ; preds = %75, %67
-  %80 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 69), align 4
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 396), align 4
   %.not17 = icmp eq i32 %80, 0
   br i1 %.not17, label %81, label %87
 
 81:                                               ; preds = %79
   %.not18 = icmp eq i32 %43, 0
-  %82 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 70), align 8
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not19 = icmp eq i32 %82, %44
   %or.cond = select i1 %.not18, i1 %.not19, i1 false
   br i1 %or.cond, label %87, label %83
@@ -3847,10 +3847,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9:     ; preds = %_ZN5QListI7QStringE
   br label %_ZN7QStringD2Ev.exit11
 
 _ZN7QStringD2Ev.exit11:                           ; preds = %_ZN5QListI7QStringE7prependEOS0_.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9, %50
-  %52 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZN15MainApplication23window_title_separator_E, i64 0, i32 0, i32 1), align 8, !noalias !13
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15MainApplication23window_title_separator_E, i64 8), align 8, !noalias !13
   %.not.i.i.i12 = icmp eq ptr %52, null
   %spec.select.i.i.i = select i1 %.not.i.i.i12, ptr @_ZN7QString6_emptyE, ptr %52
-  %53 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZN15MainApplication23window_title_separator_E, i64 0, i32 0, i32 2), align 8, !noalias !13
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15MainApplication23window_title_separator_E, i64 16), align 8, !noalias !13
   call void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %53)
   ret void
 
@@ -3992,7 +3992,7 @@ define void @_ZN15MainApplication27applyCustomColorsFromRecentEv(ptr nocapture n
   %2 = alloca %class.QString, align 8
   %3 = alloca i8, align 1
   %4 = alloca %class.QColor, align 8
-  %.0616 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  %.0616 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %.not17 = icmp eq ptr %.0616, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -4180,9 +4180,9 @@ define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nocapture non
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   tail call void @prefs_clear_string_list(ptr noundef %5)
-  store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %6 = tail call noundef i32 @_ZN12QColorDialog11customCountEv()
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
@@ -4199,10 +4199,10 @@ define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nocapture non
   %12 = extractvalue { i64, i64 } %10, 1
   store i64 %12, ptr %8, align 8
   %13 = call noundef i32 @_ZNK6QColor3rgbEv(ptr noundef nonnull align 4 dereferenceable(14) %2) #26
-  %14 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %15 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %13)
   %16 = call ptr @g_list_append(ptr noundef %14, ptr noundef %15)
-  store ptr %16, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 48), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %17 = add nuw nsw i32 %.04, 1
   %18 = call noundef i32 @_ZN12QColorDialog11customCountEv()
   %19 = icmp slt i32 %17, %18
@@ -4485,8 +4485,8 @@ define void @_ZN15MainApplication19clearRecentCapturesEv(ptr noundef nonnull ali
   %2 = alloca %class.QString, align 16
   %3 = alloca ptr, align 8
   %4 = alloca %class.QString, align 16
-  %5 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %6 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %7 = getelementptr ptr, ptr %5, i64 %6
   %.idx.mask.i = and i64 %6, 2305843009213693951
   %.not4.i.i = icmp eq i64 %.idx.mask.i, 0
@@ -4523,7 +4523,7 @@ _ZN19_recent_item_statusD2Ev.exit.i.i:            ; preds = %13, %_ZN17QArrayDat
   br i1 %.not.i.i, label %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split, label %.lr.ph.i.i, !llvm.loop !28
 
 _Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split: ; preds = %15
-  %.pr = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %.pr = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit
 
 _Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit: ; preds = %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split, %1
@@ -4555,8 +4555,8 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE17allocatedCapacityEv.exit.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %28 = load ptr, ptr @_ZL16recent_captures_, align 8
   store ptr %27, ptr @_ZL16recent_captures_, align 8
-  store ptr %26, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZN5QListIP19_recent_item_statusE5clearEv.exit, label %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i
 
@@ -4570,7 +4570,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i: ; preds = %_ZN1
   br label %_ZN5QListIP19_recent_item_statusE5clearEv.exit
 
 31:                                               ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_ZN5QListIP19_recent_item_statusE5clearEv.exit
 
 _ZN5QListIP19_recent_item_statusE5clearEv.exit:   ; preds = %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit, %_ZN17QArrayDataPointerIP19_recent_item_statusE17allocatedCapacityEv.exit.i, %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i, %30, %31
@@ -4634,8 +4634,8 @@ define void @_ZN15MainApplication7cleanupEv(ptr nocapture noundef nonnull readno
   tail call void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nonnull align 8 poison)
   %3 = tail call i32 @write_profile_recent()
   %4 = tail call i32 @write_recent()
-  %5 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %6 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %7 = getelementptr ptr, ptr %5, i64 %6
   %.idx.mask.i = and i64 %6, 2305843009213693951
   %.not4.i.i = icmp eq i64 %.idx.mask.i, 0
@@ -4672,7 +4672,7 @@ _ZN19_recent_item_statusD2Ev.exit.i.i:            ; preds = %13, %_ZN17QArrayDat
   br i1 %.not.i.i, label %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split, label %.lr.ph.i.i, !llvm.loop !28
 
 _Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split: ; preds = %15
-  %.pr = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %.pr = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit
 
 _Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit: ; preds = %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exitthread-pre-split, %1
@@ -4704,8 +4704,8 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE17allocatedCapacityEv.exit.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %28 = load ptr, ptr @_ZL16recent_captures_, align 8
   store ptr %27, ptr @_ZL16recent_captures_, align 8
-  store ptr %26, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZN5QListIP19_recent_item_statusE5clearEv.exit, label %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i
 
@@ -4719,7 +4719,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i: ; preds = %_ZN1
   br label %_ZN5QListIP19_recent_item_statusE5clearEv.exit
 
 31:                                               ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i
-  store i64 0, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_ZN5QListIP19_recent_item_statusE5clearEv.exit
 
 _ZN5QListIP19_recent_item_statusE5clearEv.exit:   ; preds = %_Z10qDeleteAllI5QListIP19_recent_item_statusEEvRKT_.exit, %_ZN17QArrayDataPointerIP19_recent_item_statusE17allocatedCapacityEv.exit.i, %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i, %30, %31
@@ -4736,8 +4736,8 @@ declare noundef zeroext i1 @_ZN11QThreadPool11waitForDoneEi(ptr noundef nonnull 
 define void @_ZN15MainApplication18itemStatusFinishedE7QStringxb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i1 %3 to i8
   %6 = load ptr, ptr @_ZL16recent_captures_, align 8, !noalias !29
-  %7 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8, !noalias !29
-  %8 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8, !noalias !29
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8, !noalias !29
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8, !noalias !29
   %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %9
 
@@ -4842,7 +4842,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
   %8 = alloca %class.QString, align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2, i32 noundef 393732)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN11QTranslatorC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null)
           to label %11 unwind label %74
@@ -4896,7 +4896,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   store i8 1, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22MimeDatabaseInitThread, i64 0, i32 0, i64 2), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22MimeDatabaseInitThread, i64 16), ptr %30, align 8
   %33 = invoke noundef ptr @_ZN11QThreadPool14globalInstanceEv()
           to label %34 unwind label %88
 
@@ -5203,7 +5203,7 @@ declare void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
   store ptr null, ptr @mainApp, align 8
   invoke void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nonnull align 8 poison)
           to label %2 unwind label %32
@@ -7993,10 +7993,10 @@ define void @_ZNK15MainApplication11recentItemsEv(ptr dead_on_unwind noalias noc
   %3 = load ptr, ptr @_ZL16recent_captures_, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   store i64 %7, ptr %6, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5QListIP19_recent_item_statusEC2ERKS2_.exit, label %8
@@ -8130,13 +8130,13 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i: ; p
   br i1 %7, label %_ZN5QListIP19_recent_item_statusE5beginEv.exit.i, label %_ZN5QListIP19_recent_item_statusE5beginEv.exit.i.thread
 
 _ZN5QListIP19_recent_item_statusE5beginEv.exit.i.thread: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i
-  %8 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i
 
 _ZN5QListIP19_recent_item_statusE5beginEv.exit.i: ; preds = %2, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i
   tail call void @_ZN17QArrayDataPointerIP19_recent_item_statusE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16recent_captures_, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre = load ptr, ptr @_ZL16recent_captures_, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   %.not.i.i.i.i3.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i3.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i
 
@@ -8150,13 +8150,13 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i: ; 
 _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i, %_ZN5QListIP19_recent_item_statusE5beginEv.exit.i
   %14 = phi ptr [ %10, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i ], [ %9, %_ZN5QListIP19_recent_item_statusE5beginEv.exit.i ]
   tail call void @_ZN17QArrayDataPointerIP19_recent_item_statusE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16recent_captures_, i32 noundef 0, i64 noundef 0, ptr noundef null)
-  %.pre18 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %.pre18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit
 
 _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i
   %15 = phi ptr [ %10, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i ], [ %14, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i ]
   %16 = phi ptr [ %10, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i4.i ], [ %.pre18, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i5.i ]
-  %17 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %18 = getelementptr ptr, ptr %16, i64 %17
   %.not16 = icmp eq ptr %18, %15
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -8170,8 +8170,8 @@ _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds =
   br i1 %22, label %23, label %56
 
 23:                                               ; preds = %.lr.ph
-  %24 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %25 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %26 = getelementptr ptr, ptr %24, i64 %25
   %.not.i = icmp eq ptr %26, %.sroa.5.017
   br i1 %.not.i, label %_ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit, label %27
@@ -8191,8 +8191,8 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i.i: ;
 
 _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i.i, %27
   tail call void @_ZN17QArrayDataPointerIP19_recent_item_statusE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16recent_captures_, i32 noundef 0, i64 noundef 0, ptr noundef null)
-  %.pre.i.i.i = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %.pre.i8 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %.pre.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %.pre.i8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   br label %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
 
 _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i.i
@@ -8207,7 +8207,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   br i1 %or.cond.i.i.i.i.i, label %41, label %40
 
 40:                                               ; preds = %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
-  store ptr %37, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 41:                                               ; preds = %_ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i
@@ -8218,15 +8218,15 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   %44 = ptrtoint ptr %37 to i64
   %45 = sub i64 %43, %44
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %36, ptr align 1 %37, i64 %45, i1 false)
-  %.pre.i.i.i.i.i = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
-  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
+  %.pre.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
+  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 _ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i: ; preds = %42, %41, %40
   %.pre8.i.i.i = phi ptr [ %35, %41 ], [ %.pre8.pre.i.i.i, %42 ], [ %37, %40 ]
   %46 = phi i64 [ %34, %41 ], [ %.pre.i.i.i.i.i, %42 ], [ %34, %40 ]
   %47 = add i64 %46, -1
-  store i64 %47, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  store i64 %47, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %48 = getelementptr i8, ptr %.pre8.i.i.i, i64 %30
   %49 = load ptr, ptr @_ZL16recent_captures_, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %49, null
@@ -8263,8 +8263,8 @@ _ZN19_recent_item_statusD2Ev.exit:                ; preds = %_ZN20QMutableListIt
 
 56:                                               ; preds = %_ZN19_recent_item_statusD2Ev.exit, %.lr.ph
   %.sroa.5.2 = phi ptr [ %.sroa.5.1, %_ZN19_recent_item_statusD2Ev.exit ], [ %19, %.lr.ph ]
-  %57 = load ptr, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 1), align 8
-  %58 = load i64, ptr getelementptr inbounds (%class.QList, ptr @_ZL16recent_captures_, i64 0, i32 0, i32 2), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %59 = getelementptr ptr, ptr %57, i64 %58
   %.not = icmp eq ptr %59, %.sroa.5.2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66

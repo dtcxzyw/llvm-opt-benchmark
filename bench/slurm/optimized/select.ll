@@ -201,14 +201,14 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 8:                                                ; preds = %6
   store i32 0, ptr @select_context_cnt, align 4
   store ptr @.str.36, ptr %2, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 163), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1104), align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8
   br i1 %0, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #15
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 163), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1104), align 8
   %14 = tail call ptr @xstrdup(ptr noundef %13) #15
   tail call void @list_append(ptr noundef %12, ptr noundef %14) #15
   br label %17
@@ -249,7 +249,7 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %32
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 163), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1104), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39, ptr noundef %31) #17
   unreachable
 
@@ -337,14 +337,14 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br i1 %cond.i.not, label %72, label %79
 
 72:                                               ; preds = %65
-  %73 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 165), align 8
+  %73 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %74 = zext i16 %73 to i32
   %75 = and i32 %74, 7
   %.not45 = icmp eq i32 %75, 0
   br i1 %.not45, label %79, label %76
 
 76:                                               ; preds = %72
-  %77 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 163), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1104), align 8
   %78 = call ptr @select_type_param_string(i16 noundef zeroext %73)
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.43, ptr noundef %77, ptr noundef nonnull @select_type_param_string.select_str, i32 noundef %74) #17
   unreachable

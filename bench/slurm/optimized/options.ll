@@ -61,13 +61,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), %0 ]
+  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split
@@ -112,7 +112,7 @@ define dso_local void @_usage() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @_do_help() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 2), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
   switch i32 %1, label %15 [
     i32 1, label %2
     i32 2, label %3
@@ -124,14 +124,14 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   br label %18
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
   %.not9.i = icmp eq ptr %4, null
   br i1 %.not9.i, label %_help_fields_msg.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %3 ]
-  %6 = phi ptr [ %12, %9 ], [ getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), %3 ]
+  %6 = phi ptr [ %12, %9 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %3 ]
   %7 = and i64 %indvars.iv.i, 3
   %.not5.i = icmp eq i64 %7, 0
   br i1 %.not5.i, label %8, label %.sink.split.i
@@ -178,8 +178,8 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_init_params() local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @params, i8 0, i64 56, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 7), align 4
-  store i32 -2, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
+  store i32 -2, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
   ret void
 }
 
@@ -260,8 +260,8 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   %6 = tail call ptr @xbasename(ptr noundef %5) #15
   %7 = tail call i32 @log_init(ptr noundef %6, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.parse_command_line.logopt, i32 noundef 0, ptr noundef null) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @params, i8 0, i64 56, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 7), align 4
-  store i32 -2, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
+  store i32 -2, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
   store i32 1, ptr @opterr, align 4
   br label %8
 
@@ -294,27 +294,27 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br label %.backedge104
 
 11:                                               ; preds = %8
-  store i32 2, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
   br label %.backedge104
 
 12:                                               ; preds = %8
-  store i32 1, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 2), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
   br label %.backedge104
 
 13:                                               ; preds = %8
-  store i8 1, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 6), align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 1), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #15
+  store i8 1, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #15
   br label %.backedge104
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr @optarg, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %_addto_job_list.exit
 
 17:                                               ; preds = %14
   %18 = call ptr @list_create(ptr noundef nonnull @slurm_destroy_selected_step) #15
-  store ptr %18, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   br label %_addto_job_list.exit
 
 _addto_job_list.exit:                             ; preds = %14, %17
@@ -327,14 +327,14 @@ _addto_job_list.exit:                             ; preds = %14, %17
   br label %.backedge104
 
 22:                                               ; preds = %8
-  %23 = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 7), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
   %24 = or i32 %23, 2
-  store i32 %24, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 7), align 4
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
   br label %.backedge104
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr @optarg, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 1), ptr noundef nonnull @.str.33, ptr noundef %26) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef %26) #15
   br label %.backedge104
 
 27:                                               ; preds = %8
@@ -346,9 +346,9 @@ _addto_job_list.exit:                             ; preds = %14, %17
   br label %.backedge104
 
 29:                                               ; preds = %8
-  %30 = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 5), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 5), align 4
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
   br label %.backedge104
 
 32:                                               ; preds = %8
@@ -367,7 +367,7 @@ _addto_job_list.exit:                             ; preds = %14, %17
   unreachable
 
 36:                                               ; preds = %8
-  %37 = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 2), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %39, label %38
 
@@ -386,13 +386,13 @@ _addto_job_list.exit:                             ; preds = %14, %17
   %44 = getelementptr inbounds ptr, ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr @optarg, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   %.not.i55 = icmp eq ptr %46, null
   br i1 %.not.i55, label %47, label %_addto_job_list.exit56
 
 47:                                               ; preds = %42
   %48 = call ptr @list_create(ptr noundef nonnull @slurm_destroy_selected_step) #15
-  store ptr %48, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   br label %_addto_job_list.exit56
 
 _addto_job_list.exit56:                           ; preds = %42, %47
@@ -401,16 +401,16 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   br label %51
 
 51:                                               ; preds = %_addto_job_list.exit56, %39
-  %52 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
   %.not42 = icmp eq ptr %52, null
   br i1 %.not42, label %53, label %54
 
 53:                                               ; preds = %51
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 1), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.35) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.35) #15
   br label %54
 
 54:                                               ; preds = %53, %51
-  %55 = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 5), align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
   %.not43 = icmp eq i32 %55, 0
   br i1 %.not43, label %.thread, label %56
 
@@ -421,9 +421,9 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %59 = getelementptr inbounds i8, ptr %4, i64 12
   store i8 1, ptr %59, align 4
   %60 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 0, ptr noundef null) #15
-  %.pre = load i32, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 5), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
   %61 = icmp ne i32 %.pre, 0
-  %62 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   %63 = icmp ne ptr %62, null
   %or.cond = select i1 %61, i1 %63, i1 false
   br i1 %or.cond, label %64, label %.thread
@@ -443,7 +443,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   br label %70
 
 70:                                               ; preds = %69, %66
-  %71 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 3), align 8
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
   %72 = call ptr @list_iterator_create(ptr noundef %71) #15
   %73 = call ptr @list_next(ptr noundef %72) #15
   %.not4559 = icmp eq ptr %73, null
@@ -484,7 +484,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   br label %.thread
 
 .thread:                                          ; preds = %54, %._crit_edge, %64, %56
-  %87 = load ptr, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 1), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
   %strchr67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %87, i32 44)
   %.not4668 = icmp eq ptr %strchr67, null
   br i1 %.not4668, label %._crit_edge73, label %.lr.ph72
@@ -528,7 +528,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
 
 103:                                              ; preds = %100, %99
   %.0 = phi i32 [ %102, %100 ], [ 0, %99 ]
-  %104 = load ptr, ptr getelementptr inbounds ([0 x %struct.print_field], ptr @fields, i64 0, i64 0, i32 1), align 8
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
   %.not5160 = icmp eq ptr %104, null
   br i1 %.not5160, label %._crit_edge64, label %.lr.ph63
 

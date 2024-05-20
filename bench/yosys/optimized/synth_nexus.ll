@@ -284,7 +284,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114SynthNexusPassD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SynthNexusPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -322,7 +322,7 @@ _ZNSt6vectorIN12_GLOBAL__N_114SynthNexusPass7DSPRuleESaIS2_EED2Ev.exit: ; preds 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %12 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5Yosys10ScriptPassE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %14 = getelementptr inbounds i8, ptr %0, i64 120
@@ -353,7 +353,7 @@ define linkonce_odr void @_ZN5Yosys10ScriptPassC2ENSt7__cxx1112basic_stringIcSt1
 7:                                                ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5Yosys10ScriptPassE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %9 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3984,7 +3984,7 @@ declare void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys10ScriptPassD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5Yosys10ScriptPassE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4785,7 +4785,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 
 11:                                               ; preds = %9, %6, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::vector.8", ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, i64 8), align 8
   %.not1112 = icmp eq ptr %12, %13
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -5552,11 +5552,11 @@ define internal void @_GLOBAL__sub_I_synth_nexus.cc() #14 section ".text.startup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 1)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 2)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 3)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 4)) #21
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SynthNexusPassE, i64 16), ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 184)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 216)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 248)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 280)) #21
   store <4 x i32> <i32 36, i32 36, i32 22, i32 22>, ptr %5, align 16
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
@@ -5596,14 +5596,14 @@ define internal void @_GLOBAL__sub_I_synth_nexus.cc() #14 section ".text.startup
           to label %28 unwind label %69
 
 28:                                               ; preds = %25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 17), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 328), i8 0, i64 24, i1 false)
   %29 = invoke noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #25
           to label %.noexc.i.i unwind label %71
 
 .noexc.i.i:                                       ; preds = %28
-  store ptr %29, ptr getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 17), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 328), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 240
-  store ptr %30, ptr getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 344), align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_114SynthNexusPass7DSPRuleEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i, %.noexc.i.i
@@ -5659,7 +5659,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_114SynthNexusPass7DSPRuleEEvT_S4_.exit.i.i.i.i.i.i.
   unreachable
 
 .body.i.i.i:                                      ; preds = %40
-  %.val5.pre.i.i.i = load ptr, ptr getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 17), align 8
+  %.val5.pre.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 328), align 8
   %.not.i.i8.i.i.i = icmp eq ptr %.val5.pre.i.i.i, null
   br i1 %.not.i.i8.i.i.i, label %.body.i.i, label %46
 
@@ -5668,7 +5668,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_114SynthNexusPass7DSPRuleEEvT_S4_.exit.i.i.i.i.i.i.
   br label %.body.i.i
 
 47:                                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_114SynthNexusPass7DSPRuleEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
-  store ptr %33, ptr getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 336), align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 240
   br label %49
 
@@ -5789,10 +5789,10 @@ _ZSt8_DestroyIPN12_GLOBAL__N_114SynthNexusPass7DSPRuleEEvT_S4_.exit.i.i.i.i.i.i.
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %82, %.thread.i.i
   %.pn24.pn.pn.pn.pn5.i.i = phi { ptr, i32 } [ %62, %.thread.i.i ], [ %.pn24.pn.pn.pn.i.i, %82 ], [ %.pn24.pn.pn.pn.i.i, %.preheader.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 4)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 3)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 2)) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::SynthNexusPass", ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 0, i32 1)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 280)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 248)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 216)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_114SynthNexusPassE, i64 184)) #21
   call void @_ZN5Yosys10ScriptPassD2Ev(ptr noundef nonnull align 8 dereferenceable(184) @_ZN12_GLOBAL__N_114SynthNexusPassE) #21
   br label %87
 

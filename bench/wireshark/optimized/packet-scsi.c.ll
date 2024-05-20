@@ -4720,7 +4720,7 @@ split.i:                                          ; preds = %31
   br i1 %50, label %.lr.ph92.i, label %dissect_scsi_log_page.exit
 
 .lr.ph92.i:                                       ; preds = %split.i
-  %51 = select i1 %.not27, ptr getelementptr inbounds ([2 x %struct._log_pages_t], ptr @log_pages, i64 0, i64 0, i32 1), ptr inttoptr (i64 8 to ptr)
+  %51 = select i1 %.not27, ptr getelementptr inbounds (i8, ptr @log_pages, i64 8), ptr inttoptr (i64 8 to ptr)
   br label %52
 
 52:                                               ; preds = %97, %.lr.ph92.i

@@ -211,7 +211,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.2, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -251,7 +251,7 @@ entry:
 define void @_ZN9grpc_core12experimental24StdoutAuditLoggerFactory22ParseAuditLoggerConfigERKNS0_4JsonE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14, !noalias !4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactory6ConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactory6ConfigE, i64 16), ptr %call.i, align 8, !noalias !4
   %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call.i, ptr %1, align 8
   store i64 0, ptr %agg.result, align 8
@@ -296,7 +296,7 @@ if.then:                                          ; preds = %_ZNSt11char_traitsI
 
 _ZNSt10unique_ptrIN9grpc_core12experimental17StdoutAuditLoggerESt14default_deleteIS2_EED2Ev.exit: ; preds = %land.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14, !noalias !7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12experimental17StdoutAuditLoggerE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental17StdoutAuditLoggerE, i64 16), ptr %call.i, align 8, !noalias !7
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

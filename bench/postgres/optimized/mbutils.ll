@@ -1165,7 +1165,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 @errcode(i32 noundef 1088) #13
-  %31 = load ptr, ptr getelementptr ([0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 6), align 8
+  %31 = load ptr, ptr getelementptr (i8, ptr @pg_enc2name_tbl, i64 96), align 8
   %32 = load ptr, ptr @DatabaseEncoding, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %31, ptr noundef %33) #13

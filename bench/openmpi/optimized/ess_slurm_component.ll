@@ -25,7 +25,7 @@ define noundef i32 @prte_mca_ess_slurm_component_close() #0 {
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @prte_mca_ess_slurm_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %10, label %5
@@ -33,7 +33,7 @@ define range(i32 -1, 1) i32 @prte_mca_ess_slurm_component_query(ptr nocapture no
 5:                                                ; preds = %2
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #3
   %7 = icmp ne ptr %6, null
-  %8 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 520), align 8
   %9 = icmp ne ptr %8, null
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %11, label %10

@@ -45,8 +45,8 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @efi_get_runtime_map_size() local_unnamed_addr #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %3 = trunc i64 %2 to i32
   %4 = mul i32 %1, %3
   ret i32 %4
@@ -54,20 +54,20 @@ define dso_local i32 @efi_get_runtime_map_size() local_unnamed_addr #0 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @efi_get_runtime_map_desc_size() local_unnamed_addr #0 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @efi_runtime_map_copy(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %5 = trunc i64 %4 to i32
   %6 = mul i32 %3, %5
   %7 = sext i32 %6 to i64
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 %1)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %9, i64 %8, i1 false)
   ret i32 0
 }
@@ -77,7 +77,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %2 = and i64 %1, 16
   %3 = icmp ne i64 %2, 0
   %4 = load ptr, ptr @efi_kobj, align 8
@@ -86,7 +86,7 @@ define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.thread, label %10, !prof !5
 
@@ -103,11 +103,11 @@ define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   %17 = icmp ne ptr %16, null
-  %18 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %21 = icmp ule ptr %19, %20
   %22 = select i1 %17, i1 %21, i1 false
   br i1 %22, label %.preheader8, label %.loopexit
@@ -127,7 +127,7 @@ define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
   br i1 %30, label %.thread7.loopexit, label %31
 
 31:                                               ; preds = %27, %.preheader8
-  %32 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %33 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 104) #13
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
@@ -185,11 +185,11 @@ define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
   %59 = sext i32 %24 to i64
   %60 = getelementptr ptr, ptr %57, i64 %59
   store ptr %48, ptr %60, align 8
-  %61 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %61 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %62 = getelementptr i8, ptr %23, i64 %61
   %63 = icmp ne ptr %62, null
   %64 = getelementptr i8, ptr %62, i64 %61
-  %65 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %66 = icmp ule ptr %64, %65
   %67 = select i1 %63, i1 %66, i1 false
   br i1 %67, label %.preheader8, label %.loopexit, !llvm.loop !6

@@ -382,7 +382,7 @@ if.end16:                                         ; preds = %if.end12
   br i1 %call17, label %while.end, label %if.then78
 
 while.end:                                        ; preds = %if.end16
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !7
   %tobool23.not66 = icmp eq i64 %1, 0
   br i1 %tobool23.not66, label %for.end, label %for.body
@@ -3301,9 +3301,9 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define dso_local void @postcopy_discard_send_init(ptr nocapture noundef readnone %ms, ptr noundef %name) local_unnamed_addr #8 {
 entry:
   store ptr %name, ptr @pds, align 8
-  store i16 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pds, i64 208), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
   ret void
 }
 
@@ -3313,12 +3313,12 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_target_page_size() #16
   %mul = mul i64 %call, %start
-  %0 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr %struct.PostcopyDiscardState, ptr @pds, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [12 x i64], ptr getelementptr inbounds (i8, ptr @pds, i64 16), i64 0, i64 %idxprom
   store i64 %mul, ptr %arrayidx, align 8
   %mul1 = mul i64 %call, %length
-  %arrayidx3 = getelementptr %struct.PostcopyDiscardState, ptr @pds, i64 0, i32 3, i64 %idxprom
+  %arrayidx3 = getelementptr [12 x i64], ptr getelementptr inbounds (i8, ptr @pds, i64 112), i64 0, i64 %idxprom
   store i64 %mul1, ptr %arrayidx3, align 8
   %1 = load ptr, ptr @pds, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3355,12 +3355,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_postcopy_discard_send_range.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
   %inc = add i16 %8, 1
-  store i16 %inc, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 4), align 8
+  store i16 %inc, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @pds, i64 208), align 8
   %inc4 = add i32 %9, 1
-  store i32 %inc4, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 4), align 8
+  store i32 %inc4, ptr getelementptr inbounds (i8, ptr @pds, i64 208), align 8
   %cmp = icmp eq i16 %inc, 12
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3368,11 +3368,11 @@ if.then:                                          ; preds = %trace_postcopy_disc
   %to_dst_file = getelementptr inbounds i8, ptr %ms, i64 184
   %10 = load ptr, ptr %to_dst_file, align 8
   %11 = load ptr, ptr @pds, align 8
-  tail call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %10, ptr noundef %11, i16 noundef zeroext 12, ptr noundef nonnull getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 3)) #16
-  %12 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
+  tail call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %10, ptr noundef %11, i16 noundef zeroext 12, ptr noundef nonnull getelementptr inbounds (i8, ptr @pds, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @pds, i64 112)) #16
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
   %inc6 = add i32 %12, 1
-  store i32 %inc6, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
-  store i16 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
+  store i32 %inc6, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_postcopy_discard_send_range.exit
@@ -3385,28 +3385,28 @@ declare void @qemu_savevm_send_postcopy_ram_discard(ptr noundef, ptr noundef, i1
 define dso_local void @postcopy_discard_send_finish(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 1), align 8
+  %0 = load i16, ptr getelementptr inbounds (i8, ptr @pds, i64 8), align 8
   %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %to_dst_file = getelementptr inbounds i8, ptr %ms, i64 184
   %1 = load ptr, ptr %to_dst_file, align 8
   %2 = load ptr, ptr @pds, align 8
-  tail call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, ptr noundef nonnull getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 3)) #16
-  %3 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
+  tail call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @pds, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @pds, i64 112)) #16
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
   %inc = add i32 %3, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 5), align 4
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @pds, i64 212), align 4
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %4 = phi i32 [ %.pre, %entry.if.end_crit_edge ], [ %inc, %if.then ]
   %5 = load ptr, ptr @pds, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pds, i64 208), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %7, 0

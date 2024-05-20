@@ -194,7 +194,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %logging_provider_, align 8
   %is_enabled_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -203,7 +203,7 @@ entry:
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %is_enabled_, align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %call, align 8
   %severity_.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %severity, ptr %severity_.i, align 8
   %has_logged_.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -249,7 +249,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow4util8ArrowLogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %logging_provider_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -278,7 +278,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow4util7CerrLogD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %this, align 8
   %has_logged_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_, align 4
   %tobool = trunc i8 %0 to i1
@@ -316,7 +316,7 @@ terminate.lpad:                                   ; preds = %if.then2, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow4util7CerrLogD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %this, align 8
   %has_logged_.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_.i, align 4
   %tobool.i = trunc i8 %0 to i1

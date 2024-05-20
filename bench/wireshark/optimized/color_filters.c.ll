@@ -327,9 +327,9 @@ define range(i32 0, 2) i32 @color_filters_init(ptr nocapture noundef writeonly %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 22), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 128), align 8
   %4 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.14, i32 noundef -1) #15
-  %5 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 23), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 136), align 8
   %6 = tail call ptr @g_strsplit(ptr noundef %5, ptr noundef nonnull @.str.14, i32 noundef -1) #15
   br label %7
 

@@ -340,7 +340,7 @@ define internal noundef range(i32 -12, 1) i32 @mon_text_open(ptr nocapture nound
   tail call void @mutex_lock(ptr noundef nonnull @mon_lock) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 208) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %34, label %8
@@ -356,7 +356,7 @@ define internal noundef range(i32 -12, 1) i32 @mon_text_open(ptr nocapture nound
   tail call void @__mutex_init(ptr noundef %12, ptr noundef nonnull @.str.16, ptr noundef nonnull @mon_text_open.__key.15) #11
   %13 = getelementptr inbounds i8, ptr %6, i64 112
   store i32 250, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(250) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 250) #12
   %16 = getelementptr inbounds i8, ptr %6, i64 136
   store ptr %15, ptr %16, align 8

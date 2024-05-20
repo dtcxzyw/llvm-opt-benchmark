@@ -978,7 +978,7 @@ type_flatten.exit:                                ; preds = %4
   %21 = getelementptr inbounds i8, ptr %6, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 255
-  %24 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %26, label %.critedge
 
@@ -1601,7 +1601,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 255
-  %10 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %11 = icmp ult i32 %9, %10
   %12 = load ptr, ptr @type_cint, align 8
   %spec.select = select i1 %11, ptr %12, ptr %0
@@ -1611,7 +1611,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
   %14 = getelementptr inbounds i8, ptr %4, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
-  %17 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 33), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
   %18 = icmp ult i32 %16, %17
   %19 = load ptr, ptr @type_cuint, align 8
   %spec.select10 = select i1 %18, ptr %19, ptr %0

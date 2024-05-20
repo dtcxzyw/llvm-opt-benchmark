@@ -120,7 +120,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12CVQualifiersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 9
@@ -148,7 +148,7 @@ define dso_local void @_ZN12CVQualifiersC2Ev(ptr nocapture noundef nonnull write
 define dso_local void @_ZN12CVQualifiersC2Ebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = zext i1 %2 to i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 9
@@ -174,7 +174,7 @@ define dso_local void @_ZN12CVQualifiersC2Ebb(ptr nocapture noundef nonnull writ
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 9
@@ -360,7 +360,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %1, %3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -391,7 +391,7 @@ define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12CVQualifiersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -449,7 +449,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIbSaIbE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12CVQualifiersD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -1139,7 +1139,7 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers14match_indirectERKS_(ptr
           to label %41 unwind label %64
 
 41:                                               ; preds = %39
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not.i.i.i.i = icmp eq ptr %43, null
@@ -1206,7 +1206,7 @@ define dso_local void @_ZNK12CVQualifiers19indirect_qualifiersEi(ptr dead_on_unw
   br i1 %6, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %3, %5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = and i8 %.pre, 1
   store i8 %8, ptr %7, align 8
@@ -1235,7 +1235,7 @@ common.resume:                                    ; preds = %64, %67, %32, %17
 
 19:                                               ; preds = %5
   %20 = icmp slt i32 %2, 0
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = and i8 %.pre, 1
   store i8 %22, ptr %21, align 8
@@ -1548,7 +1548,7 @@ define dso_local void @_ZNK12CVQualifiers17random_qualifiersEbN6Effect6AccessERK
   %22 = getelementptr inbounds i8, ptr %1, i64 9
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 9
@@ -1734,7 +1734,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit21:                  ; preds = %98, %96
   br i1 %.not, label %114, label %107
 
 107:                                              ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 9
@@ -1793,7 +1793,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit21:                  ; preds = %98, %96
   br i1 %.not7, label %148, label %141
 
 141:                                              ; preds = %.loopexit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %142 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %0, i64 9
@@ -1962,7 +1962,7 @@ _ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit: ; preds = %.lr.ph
   br i1 %.not8, label %239, label %232
 
 232:                                              ; preds = %_ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %233 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %233, align 8
   %234 = getelementptr inbounds i8, ptr %0, i64 9
@@ -2012,7 +2012,7 @@ _ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit: ; preds = %.lr.ph
   br label %261
 
 261:                                              ; preds = %241, %239
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %262 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3203,7 +3203,7 @@ define dso_local void @_ZNK12CVQualifiers23random_loose_qualifiersEbN6Effect6Acc
   %22 = getelementptr inbounds i8, ptr %1, i64 9
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3379,7 +3379,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit21:                  ; preds = %93, %91
   br i1 %.not, label %109, label %102
 
 102:                                              ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3438,7 +3438,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit21:                  ; preds = %93, %91
   br i1 %.not7, label %143, label %136
 
 136:                                              ; preds = %.loopexit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3597,7 +3597,7 @@ _ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit: ; preds = %.lr.ph
   br i1 %.not8, label %229, label %222
 
 222:                                              ; preds = %_ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %223 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %223, align 8
   %224 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3647,7 +3647,7 @@ _ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit: ; preds = %.lr.ph
   br label %251
 
 251:                                              ; preds = %231, %229
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %252 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %0, i64 9
@@ -3721,7 +3721,7 @@ define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6Acce
   %8 = alloca %class.CVQualifiers, align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 9
@@ -3746,7 +3746,7 @@ define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6Acce
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 9
@@ -4286,7 +4286,7 @@ _ZN12CVQualifiers21make_scalar_volatilesERSt6vectorIbSaIbEE.exit: ; preds = %.lr
   br i1 %273, label %.lr.ph.i88, label %_ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit, !llvm.loop !12
 
 _ZN12CVQualifiers18make_scalar_constsERSt6vectorIbSaIbEE.exit: ; preds = %.lr.ph.i88, %.preheader.i, %.noexc92
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %274 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %274, align 8
   %275 = getelementptr inbounds i8, ptr %0, i64 9
@@ -4349,12 +4349,12 @@ _ZNSt6vectorIbSaIbEED2Ev.exit100:                 ; preds = %_ZN12CVQualifiersC2
   br label %_ZN12CVQualifiersC2ERKS_.exit.thread
 
 _ZN12CVQualifiersC2ERKS_.exit.thread:             ; preds = %290, %_ZNSt6vectorIbSaIbEED2Ev.exit100
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %8, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit.i
 
 _ZN12CVQualifiersC2ERKS_.exit:                    ; preds = %.noexc
   %.pre = load ptr, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i, label %298
 
@@ -4586,7 +4586,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit6:           ; preds = %35, %38, %42
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK12CVQualifiers21random_add_qualifiersEb(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -5552,7 +5552,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit46.sink.split: ; preds = %124, %127
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit46
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit46:          ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit46.sink.split, %131
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %15, align 8
   store i8 0, ptr %64, align 8
   store i8 0, ptr %65, align 1
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %13)
@@ -5592,7 +5592,7 @@ _ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_.exit:  ; preds = %.noexc47
   br i1 %.not.i48, label %158, label %145
 
 145:                                              ; preds = %_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %143, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %143, align 8
   %146 = getelementptr inbounds i8, ptr %143, i64 8
   %147 = load i8, ptr %64, align 8
   %148 = and i8 %147, 1
@@ -5627,7 +5627,7 @@ _ZNSt16allocator_traitsISaI12CVQualifiersEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_
           to label %_ZNSt6vectorI12CVQualifiersSaIS0_EE9push_backERKS0_.exit unwind label %220
 
 _ZNSt6vectorI12CVQualifiersSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt16allocator_traitsISaI12CVQualifiersEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i, %158
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %15, align 8
   %159 = load ptr, ptr %67, align 8
   %.not.i.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i, label %160
@@ -7203,7 +7203,7 @@ _ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
 _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %class.CVQualifiers, ptr %23, i64 %19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = load i8, ptr %26, align 8
@@ -7342,7 +7342,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPK12CVQualifie
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructI12CVQualifiersJRKS0_EEvPT_DpOT0_.exit
   %.019 = phi ptr [ %19, %_ZSt10_ConstructI12CVQualifiersJRKS0_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01218 = phi ptr [ %18, %_ZSt10_ConstructI12CVQualifiersJRKS0_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i64 0, i32 0, i64 2), ptr %.019, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %.019, align 8
   %4 = getelementptr inbounds i8, ptr %.019, i64 8
   %5 = getelementptr inbounds i8, ptr %.01218, i64 8
   %6 = load i8, ptr %5, align 8

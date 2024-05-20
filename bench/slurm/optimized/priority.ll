@@ -61,14 +61,14 @@ define range(i32 -1, 1) i32 @priority_g_init() local_unnamed_addr #1 {
   br i1 %.not8, label %6, label %12
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 128), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
   %8 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 56) #6
   store ptr %8, ptr @g_priority_context, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 128), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %10) #6
   br label %12
 
@@ -131,42 +131,42 @@ define i32 @priority_g_set(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_reconfig(i1 noundef zeroext %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   tail call void %2(i1 noundef zeroext %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @priority_g_recover(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 6), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
   %3 = tail call i32 %2(i32 noundef %0) #6
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_set_assoc_usage(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 2), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   tail call void %2(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define double @priority_g_calc_fs_factor(x86_fp80 noundef %0, x86_fp80 noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
   %4 = tail call double %3(x86_fp80 noundef %0, x86_fp80 noundef %1) #6
   ret double %4
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @priority_g_get_priority_factors_list(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
   %3 = tail call ptr %2(i32 noundef %0) #6
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_job_end(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i64 0, i32 5), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
   tail call void %2(ptr noundef %0) #6
   ret void
 }

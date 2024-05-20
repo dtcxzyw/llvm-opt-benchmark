@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define void @task_initialize() local_unnamed_addr #0 {
-  store ptr @g_child_pool, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  store ptr @g_child_pool, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   br label %1
 
 1:                                                ; preds = %0, %1
@@ -28,13 +28,13 @@ define void @task_initialize() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @group_alloc_child() local_unnamed_addr #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr %1, align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   store ptr null, ptr %1, align 8
   br label %6
 
@@ -56,9 +56,9 @@ define void @group_free_child(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   store ptr %3, ptr %0, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   br label %4
 
 4:                                                ; preds = %2, %1
@@ -155,7 +155,7 @@ define void @group_remove_children(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %.not6, label %._crit_edge, label %group_free_child.exit.preheader
 
 group_free_child.exit.preheader:                  ; preds = %1
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   br label %group_free_child.exit
 
 group_free_child.exit:                            ; preds = %group_free_child.exit.preheader, %group_free_child.exit
@@ -163,7 +163,7 @@ group_free_child.exit:                            ; preds = %group_free_child.ex
   %.07 = phi ptr [ %5, %group_free_child.exit ], [ %3, %group_free_child.exit.preheader ]
   %5 = load ptr, ptr %.07, align 8
   store ptr %4, ptr %.07, align 8
-  store ptr %.07, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i64 0, i32 1), align 8
+  store ptr %.07, ptr getelementptr inbounds (i8, ptr @g_child_pool, i64 384), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %group_free_child.exit, !llvm.loop !11
 

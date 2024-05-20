@@ -5901,7 +5901,7 @@ define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 11)
+  %35 = icmp eq ptr %34, getelementptr inbounds (i8, ptr @expr, i64 128)
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %30

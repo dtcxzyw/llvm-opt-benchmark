@@ -37,7 +37,7 @@ entry:
 define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringES3_RKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont unwind label %lpad
@@ -176,7 +176,7 @@ declare void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringES3_PNS_17RuleBasedCollatorEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %coll, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont unwind label %lpad
@@ -309,7 +309,7 @@ declare ptr @usearch_openFromCollator_75(ptr noundef, i32 noundef, ptr noundef, 
 define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIteratorERKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont unwind label %lpad
@@ -434,7 +434,7 @@ declare void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIt
 define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIteratorEPNS_17RuleBasedCollatorEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %coll, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont unwind label %lpad
@@ -569,7 +569,7 @@ entry:
   %m_breakiterator_ = getelementptr inbounds i8, ptr %that, i64 16
   %0 = load ptr, ptr %m_breakiterator_, align 8
   tail call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %m_text_, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
   %m_pattern_2 = getelementptr inbounds i8, ptr %that, i64 88
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_2)

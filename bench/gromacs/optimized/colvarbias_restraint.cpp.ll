@@ -1485,7 +1485,7 @@ _ZNSt6vectorI11colvarvalueSaIS0_EE5clearEv.exit:  ; preds = %89, %_ZSt8_DestroyI
           to label %.noexc21 unwind label %112
 
 .noexc21:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([59 x i8], ptr @.str.12, i64 0, i64 58))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 58))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %109
 
 109:                                              ; preds = %.noexc21
@@ -1541,7 +1541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc23 unwind label %139
 
 .noexc23:                                         ; preds = %.noexc22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds ([71 x i8], ptr @.str.13, i64 0, i64 70))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 70))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26 unwind label %136
 
 136:                                              ; preds = %.noexc23
@@ -1767,7 +1767,7 @@ define noundef range(i32 0, 5) i32 @_ZN22colvarbias_restraint_k4initERKNSt7__cxx
           to label %.noexc9 unwind label %26
 
 .noexc9:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds ([45 x i8], ptr @.str.16, i64 0, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 44))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %22
 
 22:                                               ; preds = %.noexc9
@@ -1936,7 +1936,7 @@ define noundef i32 @_ZN27colvarbias_restraint_moving4initERKNSt7__cxx1112basic_s
           to label %.noexc27 unwind label %28
 
 .noexc27:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds ([67 x i8], ptr @.str.17, i64 0, i64 66))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 66))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %24
 
 24:                                               ; preds = %.noexc27
@@ -2015,7 +2015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc31 unwind label %62
 
 .noexc31:                                         ; preds = %.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.21, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 40))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34 unwind label %49
 
 49:                                               ; preds = %.noexc31
@@ -2103,7 +2103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
           to label %.noexc36 unwind label %85
 
 .noexc36:                                         ; preds = %.noexc35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([61 x i8], ptr @.str.23, i64 0, i64 60))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 60))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39 unwind label %80
 
 80:                                               ; preds = %.noexc36
@@ -2177,7 +2177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39: ; 
           to label %.noexc41 unwind label %120
 
 .noexc41:                                         ; preds = %.noexc40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([68 x i8], ptr @.str.25, i64 0, i64 67))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 67))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44 unwind label %116
 
 116:                                              ; preds = %.noexc41
@@ -3409,7 +3409,7 @@ define noundef i32 @_ZN35colvarbias_restraint_centers_moving4initERKNSt7__cxx111
           to label %.noexc26 unwind label %47
 
 .noexc26:                                         ; preds = %.noexc25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds ([78 x i8], ptr @.str.32, i64 0, i64 77))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 77))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29 unwind label %43
 
 43:                                               ; preds = %.noexc26
@@ -5736,7 +5736,7 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving4initERKNSt7__cxx1112basic
           to label %.noexc25 unwind label %64
 
 .noexc25:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds ([75 x i8], ptr @.str.51, i64 0, i64 74))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 74))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %60
 
 60:                                               ; preds = %.noexc25
@@ -5828,7 +5828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc27 unwind label %117
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([61 x i8], ptr @.str.23, i64 0, i64 60))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 60))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %112
 
 112:                                              ; preds = %.noexc27
@@ -5916,7 +5916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %.noexc32 unwind label %161
 
 .noexc32:                                         ; preds = %.noexc31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds ([78 x i8], ptr @.str.56, i64 0, i64 77))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.56, i64 77))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35 unwind label %157
 
 157:                                              ; preds = %.noexc32
@@ -5960,7 +5960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; 
           to label %.noexc37 unwind label %173
 
 .noexc37:                                         ; preds = %.noexc36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.57, ptr noundef nonnull getelementptr inbounds ([79 x i8], ptr @.str.57, i64 0, i64 78))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.57, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.57, i64 78))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40 unwind label %170
 
 170:                                              ; preds = %.noexc37
@@ -7379,7 +7379,7 @@ define noundef i32 @_ZN29colvarbias_restraint_harmonic4initERKNSt7__cxx1112basic
           to label %.noexc30 unwind label %122
 
 .noexc30:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.65, ptr noundef nonnull getelementptr inbounds ([36 x i8], ptr @.str.65, i64 0, i64 35))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.65, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.65, i64 35))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc30
@@ -7635,27 +7635,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29colvarbias_restraint_harmonicD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 1, i64 19), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-168, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 0, i64 21), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 432), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-168, 112) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 168), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 2, i64 36), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 824), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 488
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 3, i64 9), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 1160), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 808
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 4, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 1280), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 928
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 5, i64 18), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 1472), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1000
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 0, i32 6, i64 10), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_35colvarbias_restraint_centers_moving, i64 1664), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 0, i32 0, i64 10), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 0, i32 1, i64 9), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 0, i32 2, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 208), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC29colvarbias_restraint_harmonic1000_27colvarbias_restraint_moving, i64 328), ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1024
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -7666,16 +7666,16 @@ define linkonce_odr void @_ZN29colvarbias_restraint_harmonicD1Ev(ptr noundef non
   br label %_ZN27colvarbias_restraint_movingD2Ev.exit
 
 _ZN27colvarbias_restraint_movingD2Ev.exit:        ; preds = %1, %13
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 0, i64 19), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-144, 104) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 1, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 2, i64 36), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 3, i64 9), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 4, i64 7), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 0, i32 5, i64 18), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 152), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 400), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 792), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 1128), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 1248), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC29colvarbias_restraint_harmonic144_28colvarbias_restraint_centers, i64 1440), ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #26
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 40)) #26
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 37)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 320)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 296)) #26
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #26
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %4) #26
   ret void
@@ -8722,7 +8722,7 @@ define noundef i32 @_ZN35colvarbias_restraint_harmonic_walls4initERKNSt7__cxx111
           to label %.noexc126 unwind label %131
 
 .noexc126:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.70, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 40))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %70
 
 70:                                               ; preds = %.noexc126
@@ -8847,7 +8847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc128 unwind label %163
 
 .noexc128:                                        ; preds = %.noexc127
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds ([32 x i8], ptr @.str.72, i64 0, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131 unwind label %142
 
 142:                                              ; preds = %.noexc128
@@ -9033,7 +9033,7 @@ _ZNSt6vectorI11colvarvalueSaIS0_EE5clearEv.exit:  ; preds = %.loopexit219.thread
           to label %.noexc133 unwind label %247
 
 .noexc133:                                        ; preds = %.noexc132
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds ([32 x i8], ptr @.str.74, i64 0, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit136 unwind label %226
 
 226:                                              ; preds = %.noexc133
@@ -9152,7 +9152,7 @@ _ZNSt6vectorI11colvarvalueSaIS0_EE5clearEv.exit152: ; preds = %.loopexit218.thre
           to label %.noexc154 unwind label %264
 
 .noexc154:                                        ; preds = %.noexc153
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds ([27 x i8], ptr @.str.75, i64 0, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 26))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit157 unwind label %260
 
 260:                                              ; preds = %.noexc154
@@ -9298,7 +9298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit157: ;
           to label %.noexc159 unwind label %339
 
 .noexc159:                                        ; preds = %.noexc158
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds ([72 x i8], ptr @.str.78, i64 0, i64 71))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 71))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit162 unwind label %335
 
 335:                                              ; preds = %.noexc159
@@ -9577,7 +9577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit162: ;
           to label %.noexc172 unwind label %463
 
 .noexc172:                                        ; preds = %.noexc171
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds ([86 x i8], ptr @.str.82, i64 0, i64 85))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 85))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit175 unwind label %459
 
 459:                                              ; preds = %.noexc172
@@ -10155,25 +10155,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit175: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN35colvarbias_restraint_harmonic_wallsD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 1, i64 19), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-168, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 0, i64 21), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 432), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-168, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 168), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 2, i64 36), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 824), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 3, i64 9), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1160), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 776
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 4, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1280), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 896
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 5, i64 18), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1472), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 968
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 6, i64 10), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1664), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 0, i32 0, i64 10), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 0, i32 1, i64 9), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 0, i32 2, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 208), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls968_27colvarbias_restraint_moving, i64 328), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 992
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -10184,8 +10184,8 @@ define linkonce_odr void @_ZN35colvarbias_restraint_harmonic_wallsD1Ev(ptr nound
   br label %_ZN27colvarbias_restraint_movingD2Ev.exit
 
 _ZN27colvarbias_restraint_movingD2Ev.exit:        ; preds = %1, %12
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 30)) #26
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 27)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 240)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 216)) #26
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #26
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %4) #26
   ret void
@@ -11593,7 +11593,7 @@ define noundef range(i32 0, 5) i32 @_ZN27colvarbias_restraint_linear4initERKNSt7
           to label %.noexc36 unwind label %74
 
 .noexc36:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds ([41 x i8], ptr @.str.70, i64 0, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 40))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %46
 
 46:                                               ; preds = %.noexc36
@@ -11647,7 +11647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc38 unwind label %78
 
 .noexc38:                                         ; preds = %.noexc37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds ([63 x i8], ptr @.str.87, i64 0, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 62))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41 unwind label %70
 
 70:                                               ; preds = %.noexc38
@@ -11901,27 +11901,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN27colvarbias_restraint_linearD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 1, i64 19), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-168, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 0, i64 21), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 432), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-168, 112) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 168), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 2, i64 36), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 824), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 488
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 3, i64 9), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 1160), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 808
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 4, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 1280), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 928
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 5, i64 18), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 1472), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1000
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 0, i32 6, i64 10), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTC27colvarbias_restraint_linear0_35colvarbias_restraint_centers_moving, i64 1664), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 0, i32 0, i64 10), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 0, i32 1, i64 9), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [17 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 0, i32 2, i64 7), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 208), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC27colvarbias_restraint_linear1000_27colvarbias_restraint_moving, i64 328), ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1024
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -11932,16 +11932,16 @@ define linkonce_odr void @_ZN27colvarbias_restraint_linearD1Ev(ptr noundef nonnu
   br label %_ZN27colvarbias_restraint_movingD2Ev.exit
 
 _ZN27colvarbias_restraint_movingD2Ev.exit:        ; preds = %1, %13
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 0, i64 19), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-144, 104) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 1, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 2, i64 36), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 3, i64 9), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 4, i64 7), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [32 x ptr], [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 0, i32 5, i64 18), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 152), ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 400), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 792), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 1128), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 1248), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC27colvarbias_restraint_linear144_28colvarbias_restraint_centers, i64 1440), ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #26
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 40)) #26
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 37)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 320)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 296)) #26
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #26
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %4) #26
   ret void
@@ -13481,7 +13481,7 @@ define noundef i32 @_ZN30colvarbias_restraint_histogram4initERKNSt7__cxx1112basi
           to label %.noexc107 unwind label %84
 
 .noexc107:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.89, ptr noundef nonnull getelementptr inbounds ([46 x i8], ptr @.str.89, i64 0, i64 45))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.89, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 45))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %54
 
 54:                                               ; preds = %.noexc107
@@ -13529,7 +13529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc109 unwind label %88
 
 .noexc109:                                        ; preds = %.noexc108
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds ([34 x i8], ptr @.str.93, i64 0, i64 33))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 33))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112 unwind label %80
 
 80:                                               ; preds = %.noexc109
@@ -14056,7 +14056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit145: ;
           to label %.noexc147 unwind label %303
 
 .noexc147:                                        ; preds = %.noexc146
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds ([80 x i8], ptr @.str.104, i64 0, i64 79))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 79))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit150 unwind label %294
 
 294:                                              ; preds = %.noexc147
@@ -14122,7 +14122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit150: ;
           to label %.noexc152 unwind label %337
 
 .noexc152:                                        ; preds = %.noexc151
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.105, ptr noundef nonnull getelementptr inbounds ([25 x i8], ptr @.str.105, i64 0, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.105, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.105, i64 24))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155 unwind label %312
 
 312:                                              ; preds = %.noexc152
@@ -14525,7 +14525,7 @@ _ZNK12colvarmodule8vector1dIdE3sumEv.exit:        ; preds = %.lr.ph.i, %438
           to label %.noexc183 unwind label %473
 
 .noexc183:                                        ; preds = %.noexc182
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds ([62 x i8], ptr @.str.110, i64 0, i64 61))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 61))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit186 unwind label %456
 
 456:                                              ; preds = %.noexc183
@@ -14749,7 +14749,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %.noexc29 unwind label %110
 
 .noexc29:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.119, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.119, i64 0, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.119, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %27
 
 27:                                               ; preds = %.noexc29
@@ -17974,20 +17974,20 @@ define void @_ZN29colvarbias_restraint_harmonicC1EPKc(ptr noundef nonnull align 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 176
-  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 37), ptr noundef %1)
+  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 296), ptr noundef %1)
           to label %7 unwind label %32
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 928
-  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 40), ptr noundef %1)
+  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 320), ptr noundef %1)
           to label %9 unwind label %34
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-144, 104) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 0, i32 0, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 0, i32 1, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 0, i32 2, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 0, i32 3, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 0, i32 4, i64 18), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 536), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 872), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 992), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
           to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %36
@@ -18025,15 +18025,15 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
   store <2 x double> zeroinitializer, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 2, i64 19), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-176, 112) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 0, i64 22), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 3, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 4, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 5, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 6, i64 18), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 7, i64 10), ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-168, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 1, i64 21), ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV29colvarbias_restraint_harmonic, i64 0, i32 8, i64 19), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 712), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-176, 112) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 176), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1104), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1440), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1560), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1752), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1944), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-168, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 456), ptr %25, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 2152), ptr %21, align 8
   ret void
 
 30:                                               ; preds = %2
@@ -18054,12 +18054,12 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 40)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 320)) #26
   br label %38
 
 38:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT29colvarbias_restraint_harmonic, i64 0, i64 37)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 296)) #26
   br label %39
 
 39:                                               ; preds = %38, %32
@@ -18584,20 +18584,20 @@ define void @_ZN35colvarbias_restraint_harmonic_wallsC1EPKc(ptr noundef nonnull 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 144
-  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 27), ptr noundef %1)
+  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 216), ptr noundef %1)
           to label %7 unwind label %37
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 896
-  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 30), ptr noundef %1)
+  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 240), ptr noundef %1)
           to label %9 unwind label %39
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-144, 104) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 0, i32 0, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 0, i32 1, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 0, i32 2, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 0, i32 3, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 0, i32 4, i64 18), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 536), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 872), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 992), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
           to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %41
@@ -18629,13 +18629,13 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %25, align 8
   store <2 x double> zeroinitializer, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 1, i64 19), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-168, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 0, i64 21), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 2, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 3, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 4, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 5, i64 18), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [35 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr] }, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 0, i32 6, i64 10), ptr %15, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 432), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-168, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 168), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 824), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1160), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1280), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1472), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1664), ptr %15, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = getelementptr inbounds i8, ptr %0, i64 80
   %28 = getelementptr inbounds i8, ptr %0, i64 104
@@ -18680,17 +18680,17 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
           cleanup
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #26
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #26
-  tail call void @_ZN27colvarbias_restraint_movingD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 34)) #26
+  tail call void @_ZN27colvarbias_restraint_movingD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 272)) #26
   br label %45
 
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 30)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 240)) #26
   br label %46
 
 46:                                               ; preds = %45, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([37 x ptr], ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 0, i64 27)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 216)) #26
   br label %47
 
 47:                                               ; preds = %46, %37
@@ -19278,20 +19278,20 @@ define void @_ZN27colvarbias_restraint_linearC1EPKc(ptr noundef nonnull align 8 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 176
-  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 37), ptr noundef %1)
+  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 296), ptr noundef %1)
           to label %7 unwind label %32
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 928
-  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 40), ptr noundef %1)
+  invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 320), ptr noundef %1)
           to label %9 unwind label %34
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-144, 104) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 0, i32 0, i64 18), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 0, i32 1, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 0, i32 2, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 0, i32 3, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [31 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr] }, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 0, i32 4, i64 18), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 536), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 872), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 992), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
           to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %36
@@ -19328,15 +19328,15 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
   store <2 x double> zeroinitializer, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 2, i64 19), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-176, 112) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 0, i64 22), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 3, i64 36), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 4, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 5, i64 7), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 6, i64 18), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 7, i64 10), ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-168, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 1, i64 21), ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) ({ [36 x ptr], [34 x ptr], [32 x ptr], [69 x ptr], [17 x ptr], [13 x ptr], [32 x ptr], [17 x ptr], [32 x ptr] }, ptr @_ZTV27colvarbias_restraint_linear, i64 0, i32 8, i64 19), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 712), ptr %12, align 8
+  store ptr getelementptr inbounds inrange(-176, 112) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 176), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1104), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1440), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1560), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1752), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1944), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-168, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 456), ptr %25, align 8
+  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 2152), ptr %21, align 8
   store i8 0, ptr %23, align 8
   ret void
 
@@ -19358,12 +19358,12 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 40)) #26
+  tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 320)) #26
   br label %38
 
 38:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds ([53 x ptr], ptr @_ZTT27colvarbias_restraint_linear, i64 0, i64 37)) #26
+  tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 296)) #26
   br label %39
 
 39:                                               ; preds = %38, %32
@@ -19767,13 +19767,13 @@ define void @_ZN30colvarbias_restraint_histogramC1EPKc(ptr noundef nonnull align
           to label %5 unwind label %7
 
 5:                                                ; preds = %2
-  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT30colvarbias_restraint_histogram, i64 0, i64 1), ptr noundef %1)
+  invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT30colvarbias_restraint_histogram, i64 8), ptr noundef %1)
           to label %_ZN12colvarmodule8vector1dIdEC2Em.exit20 unwind label %9
 
 _ZN12colvarmodule8vector1dIdEC2Em.exit20:         ; preds = %5
-  store ptr getelementptr inbounds inrange(-32, 264) ({ [37 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV30colvarbias_restraint_histogram, i64 0, i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [37 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV30colvarbias_restraint_histogram, i64 0, i32 1, i64 9), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [37 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV30colvarbias_restraint_histogram, i64 0, i32 2, i64 7), ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 368), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 488), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   ret void

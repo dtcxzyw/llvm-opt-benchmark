@@ -94,11 +94,11 @@ define hidden void @zif_pdo_drivers(ptr nocapture noundef readonly %0, ptr nound
   store ptr %7, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 3), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 4), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 16), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 24), align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %struct._Bucket, ptr %9, i64 %11
-  %13 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 1), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 8), align 8
   %14 = and i32 %13, 4
   %.not19 = icmp eq i32 %14, 0
   tail call void @llvm.assume(i1 %.not19)
@@ -285,11 +285,11 @@ define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
   %3 = tail call noalias ptr @_estrdup(ptr noundef nonnull @.str.7) #13
   tail call void @php_info_print_table_start() #13
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 3), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 4), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 16), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 24), align 8
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds %struct._Bucket, ptr %4, i64 %6
-  %8 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @pdo_driver_hash, i64 0, i32 1), align 8
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 8), align 8
   %9 = and i32 %8, 4
   %.not = icmp eq i32 %9, 0
   tail call void @llvm.assume(i1 %.not)

@@ -506,7 +506,7 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_pcm_lib_malloc_pages(ptr nou
   br i1 %37, label %64, label %38
 
 38:                                               ; preds = %34, %26
-  %39 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 3520, i64 noundef 56) #10
   %41 = icmp eq ptr %40, null
   br i1 %41, label %64, label %42

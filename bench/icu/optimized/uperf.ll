@@ -88,7 +88,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9UPerfTestC2EiPPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
   %_argv = getelementptr inbounds i8, ptr %this, i64 16
@@ -137,7 +137,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %addOptionsCount to i64
   %mul = mul nuw nsw i64 %conv, 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 1, i64 0), ptr align 8 %addOptions, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @_ZL7options, i64 520), ptr align 8 %addOptions, i64 %mul, i1 false)
   %add = add nuw nsw i32 %addOptionsCount, 13
   br label %if.end
 
@@ -155,16 +155,16 @@ if.end:                                           ; preds = %if.then, %entry
 if.then3:                                         ; preds = %if.end
   %conv4 = zext nneg i32 %addOptionsCount to i64
   %mul5 = mul nuw nsw i64 %conv4, 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %addOptions, ptr nonnull align 8 getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 1, i64 0), i64 %mul5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %addOptions, ptr nonnull align 8 getelementptr inbounds (i8, ptr @_ZL7options, i64 520), i64 %mul5, i1 false)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
   %2 = load i32, ptr %_argc, align 8
   %cmp8 = icmp eq i32 %2, 1
-  %3 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 0, i32 6), align 2
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool = icmp ne i8 %3, 0
   %or.cond = select i1 %cmp8, i1 true, i1 %tobool
-  %4 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 1, i32 6), align 2
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool10 = icmp ne i8 %4, 0
   %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool10
   br i1 %or.cond1, label %if.then11, label %if.end12
@@ -174,7 +174,7 @@ if.then11:                                        ; preds = %if.end6
   br label %if.end86
 
 if.end12:                                         ; preds = %if.end6
-  %5 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 2, i32 6), align 2
+  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %tobool13.not = icmp eq i8 %5, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
@@ -184,29 +184,29 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end12
-  %6 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 3, i32 6), align 2
+  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 154), align 2
   %tobool16.not = icmp eq i8 %6, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %7 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 3, i32 1), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 128), align 16
   %sourceDir = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %7, ptr %sourceDir, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  %8 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 4, i32 6), align 2
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool19.not = icmp eq i8 %8, 0
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %9 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 4, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 168), align 8
   %encoding = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %9, ptr %encoding, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end18
-  %10 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 5, i32 6), align 2
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool22.not = icmp eq i8 %10, 0
   br i1 %tobool22.not, label %if.end24, label %if.then23
 
@@ -216,39 +216,39 @@ if.then23:                                        ; preds = %if.end21
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end21
-  %11 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 6, i32 6), align 2
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool25.not = icmp eq i8 %11, 0
   br i1 %tobool25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %12 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 6, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 248), align 8
   %fileName = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %12, ptr %fileName, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end24
-  %13 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 7, i32 6), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool28.not = icmp eq i8 %13, 0
   br i1 %tobool28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %14 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 7, i32 1), align 16
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
   %call30 = tail call i32 @atoi(ptr nocapture noundef %14) #21
   %passes = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %call30, ptr %passes, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.end27
-  %15 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 8, i32 6), align 2
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool32.not = icmp eq i8 %15, 0
   br i1 %tobool32.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  %16 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 8, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 328), align 8
   %call34 = tail call i32 @atoi(ptr nocapture noundef %16) #21
   %iterations = getelementptr inbounds i8, ptr %this, i64 124
   store i32 %call34, ptr %iterations, align 4
-  %17 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 9, i32 6), align 2
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %tobool35.not = icmp eq i8 %17, 0
   br i1 %tobool35.not, label %if.end44, label %if.then36
 
@@ -257,12 +257,12 @@ if.then36:                                        ; preds = %if.then33
   br label %if.end86
 
 if.else:                                          ; preds = %if.end31
-  %18 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 9, i32 6), align 2
+  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %tobool38.not = icmp eq i8 %18, 0
   br i1 %tobool38.not, label %if.else41, label %if.then39
 
 if.then39:                                        ; preds = %if.else
-  %19 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 9, i32 1), align 16
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 368), align 16
   %call40 = tail call i32 @atoi(ptr nocapture noundef %19) #21
   %time = getelementptr inbounds i8, ptr %this, i64 128
   store i32 %call40, ptr %time, align 8
@@ -274,7 +274,7 @@ if.else41:                                        ; preds = %if.else
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then39, %if.else41, %if.then33
-  %20 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 10, i32 6), align 2
+  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 434), align 2
   %tobool45.not = icmp eq i8 %20, 0
   br i1 %tobool45.not, label %if.end47, label %if.then46
 
@@ -286,7 +286,7 @@ if.then46:                                        ; preds = %if.end44
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then46, %if.end44
-  %21 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 11, i32 6), align 2
+  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 474), align 2
   %tobool48.not = icmp eq i8 %21, 0
   br i1 %tobool48.not, label %if.end52, label %if.then49
 
@@ -298,12 +298,12 @@ if.then49:                                        ; preds = %if.end47
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then49, %if.end47
-  %22 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 12, i32 6), align 2
+  %22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 514), align 2
   %tobool53.not = icmp eq i8 %22, 0
   br i1 %tobool53.not, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %if.end52
-  %23 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 12, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 488), align 8
   %locale = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %23, ptr %locale, align 8
   br label %if.end55
@@ -367,7 +367,7 @@ if.end86:                                         ; preds = %if.end71, %if.then8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9UPerfTestC2EiPPKcP7UOptioniS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef %addUsage, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
   %_argv = getelementptr inbounds i8, ptr %this, i64 16
@@ -1232,7 +1232,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9UPerfTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %lines = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %lines, align 8
   %cmp.not = icmp eq ptr %0, null

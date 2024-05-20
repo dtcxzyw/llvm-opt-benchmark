@@ -53,8 +53,8 @@ define internal i32 @pmix_prm_close() #1 {
 
 3:                                                ; preds = %0
   store i8 0, ptr @pmix_prm_base, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i64 0, i32 1), align 1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_prm_module_t, ptr @pmix_prm, i64 0, i32 2), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_prm_base, i64 1), align 1
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_prm, i64 16), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 

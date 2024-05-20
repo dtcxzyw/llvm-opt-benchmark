@@ -63,8 +63,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ompi_coll_tuned_alltoall_intra_check_forced_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  store i32 6, ptr getelementptr inbounds ([22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 3), align 4
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_tuned_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 3)) #3
+  store i32 6, ptr getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 12), align 4
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_tuned_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 12)) #3
   store i32 0, ptr @coll_tuned_alltoall_forced_algorithm, align 4
   %4 = call i32 @mca_base_var_enum_create(ptr noundef nonnull @.str.2, ptr noundef nonnull @alltoall_algorithms, ptr noundef nonnull %2) #3
   %5 = load ptr, ptr %2, align 8
@@ -154,7 +154,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %45
-  %49 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 6), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %52
 

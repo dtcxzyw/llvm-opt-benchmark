@@ -770,21 +770,21 @@ return:                                           ; preds = %if.end, %if.then
 define dso_local ptr @memintern(ptr noundef %data, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %key = alloca %struct.pool_entry, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 4), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 28), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @memintern.map, i8 0, i64 48, i1 false)
-  store ptr @pool_entry_cmp, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 1), align 8
-  store i32 64, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 4), align 4
+  store ptr @pool_entry_cmp, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 8), align 8
+  store i32 64, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 28), align 4
   %call.i.i = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #14
   store ptr %call.i.i, ptr @memintern.map, align 8
-  store i32 51, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 6), align 4
-  %bf.load.i = load i8, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 7), align 8
+  store i32 51, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 36), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 40), align 8
   %bf.set.i = or i8 %bf.load.i, 1
-  store i8 %bf.set.i, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 7), align 8
+  store i8 %bf.set.i, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 40), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -816,7 +816,7 @@ memhash.exit:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i12, label %do.body, label %if.end.i
 
 if.end.i:                                         ; preds = %memhash.exit
-  %map.val.i.i = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 4), align 4
+  %map.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 28), align 4
   %sub.i.i.i = add i32 %map.val.i.i, -1
   %and.i.i.i = and i32 %sub.i.i.i, %hash.0.lcssa.i
   %idxprom.i.i = zext i32 %and.i.i.i to i64
@@ -837,8 +837,8 @@ lor.rhs.i.i.i:                                    ; preds = %if.end.i, %while.bo
   br i1 %cmp2.i.i.i, label %entry_equals.exit.i.i, label %while.body.i.i
 
 entry_equals.exit.i.i:                            ; preds = %lor.rhs.i.i.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 16), align 8
   %call.i.i.i = call i32 %7(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %key, ptr noundef %data) #14
   %tobool.not.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   %.pre.pre.i = load ptr, ptr %e.015.i.i, align 8

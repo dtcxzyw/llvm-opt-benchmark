@@ -82,7 +82,7 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   store ptr %43, ptr %g_waitingforsignal., align 8
   %.not84 = icmp eq ptr %43, null
   %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %.sink98 = select i1 %.not84, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), ptr %44
+  %.sink98 = select i1 %.not84, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %44
   store ptr %42, ptr %.sink98, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %45 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6
@@ -383,7 +383,7 @@ nxsig_queue_action.exit:                          ; preds = %108, %115, %118, %1
   store ptr %167, ptr %g_waitingforsignal.101, align 8
   %.not80 = icmp eq ptr %167, null
   %168 = getelementptr inbounds i8, ptr %167, i64 8
-  %.sink100 = select i1 %.not80, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i64 0, i32 1), ptr %168
+  %.sink100 = select i1 %.not80, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %168
   store ptr %166, ptr %.sink100, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %169 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6

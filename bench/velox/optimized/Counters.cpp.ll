@@ -635,7 +635,7 @@ invoke.cont10:                                    ; preds = %if.then1
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nonnull @.str, ptr nonnull getelementptr inbounds ([43 x i8], ptr @.str, i64 0, i64 42), i64 noundef 10, i64 noundef 0, i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nonnull @.str, ptr nonnull getelementptr inbounds (i8, ptr @.str, i64 42), i64 noundef 10, i64 noundef 0, i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -720,7 +720,7 @@ if.then21:                                        ; preds = %invoke.cont19
   %vtable25 = load ptr, ptr %20, align 8
   %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 24
   %21 = load ptr, ptr %vfn26, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr nonnull @.str.1, ptr nonnull getelementptr inbounds ([25 x i8], ptr @.str.1, i64 0, i64 24), i32 noundef 3)
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr nonnull @.str.1, ptr nonnull getelementptr inbounds (i8, ptr @.str.1, i64 24), i32 noundef 3)
           to label %if.end28 unwind label %lpad18
 
 lpad18:                                           ; preds = %if.then21
@@ -807,7 +807,7 @@ invoke.cont53:                                    ; preds = %if.then37
   %vtable54 = load ptr, ptr %31, align 8
   %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 40
   %33 = load ptr, ptr %vfn55, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds ([22 x i8], ptr @.str.2, i64 0, i64 21), i64 noundef 10, i64 noundef 0, i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds (i8, ptr @.str.2, i64 21), i64 noundef 10, i64 noundef 0, i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont53
@@ -909,7 +909,7 @@ invoke.cont85:                                    ; preds = %if.then69
   %vtable86 = load ptr, ptr %45, align 8
   %vfn87 = getelementptr inbounds i8, ptr %vtable86, i64 40
   %47 = load ptr, ptr %vfn87, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds ([29 x i8], ptr @.str.3, i64 0, i64 28), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp73)
+  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds (i8, ptr @.str.3, i64 28), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp73)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont85
@@ -1011,7 +1011,7 @@ invoke.cont117:                                   ; preds = %if.then101
   %vtable118 = load ptr, ptr %59, align 8
   %vfn119 = getelementptr inbounds i8, ptr %vtable118, i64 40
   %61 = load ptr, ptr %vfn119, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds ([29 x i8], ptr @.str.4, i64 0, i64 28), i64 noundef 10, i64 noundef 0, i64 noundef 60000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp105)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds (i8, ptr @.str.4, i64 28), i64 noundef 10, i64 noundef 0, i64 noundef 60000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp105)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %invoke.cont117
@@ -1096,7 +1096,7 @@ if.then133:                                       ; preds = %invoke.cont131
   %vtable137 = load ptr, ptr %73, align 8
   %vfn138 = getelementptr inbounds i8, ptr %vtable137, i64 24
   %74 = load ptr, ptr %vfn138, align 8
-  invoke void %74(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds ([27 x i8], ptr @.str.5, i64 0, i64 26), i32 noundef 1)
+  invoke void %74(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds (i8, ptr @.str.5, i64 26), i32 noundef 1)
           to label %if.end140 unwind label %lpad130
 
 lpad130:                                          ; preds = %if.then133
@@ -1166,7 +1166,7 @@ if.then149:                                       ; preds = %invoke.cont147
   %vtable153 = load ptr, ptr %84, align 8
   %vfn154 = getelementptr inbounds i8, ptr %vtable153, i64 24
   %85 = load ptr, ptr %vfn154, align 8
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds ([40 x i8], ptr @.str.6, i64 0, i64 39), i32 noundef 1)
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds (i8, ptr @.str.6, i64 39), i32 noundef 1)
           to label %if.end156 unwind label %lpad146
 
 lpad146:                                          ; preds = %if.then149
@@ -1236,7 +1236,7 @@ if.then165:                                       ; preds = %invoke.cont163
   %vtable169 = load ptr, ptr %95, align 8
   %vfn170 = getelementptr inbounds i8, ptr %vtable169, i64 24
   %96 = load ptr, ptr %vfn170, align 8
-  invoke void %96(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr nonnull @.str.7, ptr nonnull getelementptr inbounds ([35 x i8], ptr @.str.7, i64 0, i64 34), i32 noundef 3)
+  invoke void %96(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr nonnull @.str.7, ptr nonnull getelementptr inbounds (i8, ptr @.str.7, i64 34), i32 noundef 3)
           to label %if.end172 unwind label %lpad162
 
 lpad162:                                          ; preds = %if.then165
@@ -1306,7 +1306,7 @@ if.then181:                                       ; preds = %invoke.cont179
   %vtable185 = load ptr, ptr %106, align 8
   %vfn186 = getelementptr inbounds i8, ptr %vtable185, i64 24
   %107 = load ptr, ptr %vfn186, align 8
-  invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds ([32 x i8], ptr @.str.8, i64 0, i64 31), i32 noundef 3)
+  invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds (i8, ptr @.str.8, i64 31), i32 noundef 3)
           to label %if.end188 unwind label %lpad178
 
 lpad178:                                          ; preds = %if.then181
@@ -1376,7 +1376,7 @@ if.then197:                                       ; preds = %invoke.cont195
   %vtable201 = load ptr, ptr %117, align 8
   %vfn202 = getelementptr inbounds i8, ptr %vtable201, i64 24
   %118 = load ptr, ptr %vfn202, align 8
-  invoke void %118(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds ([31 x i8], ptr @.str.9, i64 0, i64 30), i32 noundef 3)
+  invoke void %118(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds (i8, ptr @.str.9, i64 30), i32 noundef 3)
           to label %if.end204 unwind label %lpad194
 
 lpad194:                                          ; preds = %if.then197
@@ -1446,7 +1446,7 @@ if.then213:                                       ; preds = %invoke.cont211
   %vtable217 = load ptr, ptr %128, align 8
   %vfn218 = getelementptr inbounds i8, ptr %vtable217, i64 24
   %129 = load ptr, ptr %vfn218, align 8
-  invoke void %129(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds ([32 x i8], ptr @.str.10, i64 0, i64 31), i32 noundef 3)
+  invoke void %129(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds (i8, ptr @.str.10, i64 31), i32 noundef 3)
           to label %if.end220 unwind label %lpad210
 
 lpad210:                                          ; preds = %if.then213
@@ -1533,7 +1533,7 @@ invoke.cont245:                                   ; preds = %if.then229
   %vtable246 = load ptr, ptr %139, align 8
   %vfn247 = getelementptr inbounds i8, ptr %vtable246, i64 40
   %141 = load ptr, ptr %vfn247, align 8
-  invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr nonnull @.str.11, ptr nonnull getelementptr inbounds ([31 x i8], ptr @.str.11, i64 0, i64 30), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp233)
+  invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr nonnull @.str.11, ptr nonnull getelementptr inbounds (i8, ptr @.str.11, i64 30), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp233)
           to label %invoke.cont249 unwind label %lpad248
 
 invoke.cont249:                                   ; preds = %invoke.cont245
@@ -1635,7 +1635,7 @@ invoke.cont277:                                   ; preds = %if.then261
   %vtable278 = load ptr, ptr %153, align 8
   %vfn279 = getelementptr inbounds i8, ptr %vtable278, i64 40
   %155 = load ptr, ptr %vfn279, align 8
-  invoke void %155(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([37 x i8], ptr @.str.12, i64 0, i64 36), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp265)
+  invoke void %155(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds (i8, ptr @.str.12, i64 36), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp265)
           to label %invoke.cont281 unwind label %lpad280
 
 invoke.cont281:                                   ; preds = %invoke.cont277
@@ -1720,7 +1720,7 @@ if.then293:                                       ; preds = %invoke.cont291
   %vtable297 = load ptr, ptr %167, align 8
   %vfn298 = getelementptr inbounds i8, ptr %vtable297, i64 24
   %168 = load ptr, ptr %vfn298, align 8
-  invoke void %168(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds ([37 x i8], ptr @.str.13, i64 0, i64 36), i32 noundef 0)
+  invoke void %168(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds (i8, ptr @.str.13, i64 36), i32 noundef 0)
           to label %if.end300 unwind label %lpad290
 
 lpad290:                                          ; preds = %if.then293
@@ -1790,7 +1790,7 @@ if.then309:                                       ; preds = %invoke.cont307
   %vtable313 = load ptr, ptr %178, align 8
   %vfn314 = getelementptr inbounds i8, ptr %vtable313, i64 24
   %179 = load ptr, ptr %vfn314, align 8
-  invoke void %179(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds ([24 x i8], ptr @.str.14, i64 0, i64 23), i32 noundef 1)
+  invoke void %179(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds (i8, ptr @.str.14, i64 23), i32 noundef 1)
           to label %if.end316 unwind label %lpad306
 
 lpad306:                                          ; preds = %if.then309
@@ -1860,7 +1860,7 @@ if.then325:                                       ; preds = %invoke.cont323
   %vtable329 = load ptr, ptr %189, align 8
   %vfn330 = getelementptr inbounds i8, ptr %vtable329, i64 24
   %190 = load ptr, ptr %vfn330, align 8
-  invoke void %190(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds ([18 x i8], ptr @.str.15, i64 0, i64 17), i32 noundef 1)
+  invoke void %190(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds (i8, ptr @.str.15, i64 17), i32 noundef 1)
           to label %if.end332 unwind label %lpad322
 
 lpad322:                                          ; preds = %if.then325
@@ -1930,7 +1930,7 @@ if.then341:                                       ; preds = %invoke.cont339
   %vtable345 = load ptr, ptr %200, align 8
   %vfn346 = getelementptr inbounds i8, ptr %vtable345, i64 24
   %201 = load ptr, ptr %vfn346, align 8
-  invoke void %201(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds ([23 x i8], ptr @.str.16, i64 0, i64 22), i32 noundef 3)
+  invoke void %201(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds (i8, ptr @.str.16, i64 22), i32 noundef 3)
           to label %if.end348 unwind label %lpad338
 
 lpad338:                                          ; preds = %if.then341
@@ -2000,7 +2000,7 @@ if.then357:                                       ; preds = %invoke.cont355
   %vtable361 = load ptr, ptr %211, align 8
   %vfn362 = getelementptr inbounds i8, ptr %vtable361, i64 24
   %212 = load ptr, ptr %vfn362, align 8
-  invoke void %212(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds ([24 x i8], ptr @.str.17, i64 0, i64 23), i32 noundef 3)
+  invoke void %212(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds (i8, ptr @.str.17, i64 23), i32 noundef 3)
           to label %if.end364 unwind label %lpad354
 
 lpad354:                                          ; preds = %if.then357
@@ -2087,7 +2087,7 @@ invoke.cont389:                                   ; preds = %if.then373
   %vtable390 = load ptr, ptr %222, align 8
   %vfn391 = getelementptr inbounds i8, ptr %vtable390, i64 40
   %224 = load ptr, ptr %vfn391, align 8
-  invoke void %224(ptr noundef nonnull align 8 dereferenceable(8) %222, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds ([25 x i8], ptr @.str.18, i64 0, i64 24), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp377)
+  invoke void %224(ptr noundef nonnull align 8 dereferenceable(8) %222, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds (i8, ptr @.str.18, i64 24), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp377)
           to label %invoke.cont393 unwind label %lpad392
 
 invoke.cont393:                                   ; preds = %invoke.cont389
@@ -2189,7 +2189,7 @@ invoke.cont421:                                   ; preds = %if.then405
   %vtable422 = load ptr, ptr %236, align 8
   %vfn423 = getelementptr inbounds i8, ptr %vtable422, i64 40
   %238 = load ptr, ptr %vfn423, align 8
-  invoke void %238(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds ([25 x i8], ptr @.str.19, i64 0, i64 24), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp409)
+  invoke void %238(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds (i8, ptr @.str.19, i64 24), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp409)
           to label %invoke.cont425 unwind label %lpad424
 
 invoke.cont425:                                   ; preds = %invoke.cont421
@@ -2291,7 +2291,7 @@ invoke.cont453:                                   ; preds = %if.then437
   %vtable454 = load ptr, ptr %250, align 8
   %vfn455 = getelementptr inbounds i8, ptr %vtable454, i64 40
   %252 = load ptr, ptr %vfn455, align 8
-  invoke void %252(ptr noundef nonnull align 8 dereferenceable(8) %250, ptr nonnull @.str.20, ptr nonnull getelementptr inbounds ([34 x i8], ptr @.str.20, i64 0, i64 33), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp441)
+  invoke void %252(ptr noundef nonnull align 8 dereferenceable(8) %250, ptr nonnull @.str.20, ptr nonnull getelementptr inbounds (i8, ptr @.str.20, i64 33), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp441)
           to label %invoke.cont457 unwind label %lpad456
 
 invoke.cont457:                                   ; preds = %invoke.cont453
@@ -2376,7 +2376,7 @@ if.then469:                                       ; preds = %invoke.cont467
   %vtable473 = load ptr, ptr %264, align 8
   %vfn474 = getelementptr inbounds i8, ptr %vtable473, i64 24
   %265 = load ptr, ptr %vfn474, align 8
-  invoke void %265(ptr noundef nonnull align 8 dereferenceable(8) %264, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds ([30 x i8], ptr @.str.21, i64 0, i64 29), i32 noundef 3)
+  invoke void %265(ptr noundef nonnull align 8 dereferenceable(8) %264, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29), i32 noundef 3)
           to label %if.end476 unwind label %lpad466
 
 lpad466:                                          ; preds = %if.then469
@@ -2463,7 +2463,7 @@ invoke.cont501:                                   ; preds = %if.then485
   %vtable502 = load ptr, ptr %275, align 8
   %vfn503 = getelementptr inbounds i8, ptr %vtable502, i64 40
   %277 = load ptr, ptr %vfn503, align 8
-  invoke void %277(ptr noundef nonnull align 8 dereferenceable(8) %275, ptr nonnull @.str.22, ptr nonnull getelementptr inbounds ([26 x i8], ptr @.str.22, i64 0, i64 25), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp489)
+  invoke void %277(ptr noundef nonnull align 8 dereferenceable(8) %275, ptr nonnull @.str.22, ptr nonnull getelementptr inbounds (i8, ptr @.str.22, i64 25), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp489)
           to label %invoke.cont505 unwind label %lpad504
 
 invoke.cont505:                                   ; preds = %invoke.cont501
@@ -2565,7 +2565,7 @@ invoke.cont533:                                   ; preds = %if.then517
   %vtable534 = load ptr, ptr %289, align 8
   %vfn535 = getelementptr inbounds i8, ptr %vtable534, i64 40
   %291 = load ptr, ptr %vfn535, align 8
-  invoke void %291(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr nonnull @.str.23, ptr nonnull getelementptr inbounds ([26 x i8], ptr @.str.23, i64 0, i64 25), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp521)
+  invoke void %291(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr nonnull @.str.23, ptr nonnull getelementptr inbounds (i8, ptr @.str.23, i64 25), i64 noundef 20, i64 noundef 0, i64 noundef 600000, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp521)
           to label %invoke.cont537 unwind label %lpad536
 
 invoke.cont537:                                   ; preds = %invoke.cont533
@@ -2650,7 +2650,7 @@ if.then549:                                       ; preds = %invoke.cont547
   %vtable553 = load ptr, ptr %303, align 8
   %vfn554 = getelementptr inbounds i8, ptr %vtable553, i64 24
   %304 = load ptr, ptr %vfn554, align 8
-  invoke void %304(ptr noundef nonnull align 8 dereferenceable(8) %303, ptr nonnull @.str.24, ptr nonnull getelementptr inbounds ([37 x i8], ptr @.str.24, i64 0, i64 36), i32 noundef 3)
+  invoke void %304(ptr noundef nonnull align 8 dereferenceable(8) %303, ptr nonnull @.str.24, ptr nonnull getelementptr inbounds (i8, ptr @.str.24, i64 36), i32 noundef 3)
           to label %if.end556 unwind label %lpad546
 
 lpad546:                                          ; preds = %if.then549
@@ -2726,7 +2726,7 @@ invoke.cont:                                      ; preds = %entry, %cond.false.
   %creating_thread_.i.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %mutex_.i.i, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2224) %creating_thread_.i.i, i8 0, i64 2224, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES7_EE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES7_EE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %cond.false.i.i.i
@@ -3031,7 +3031,7 @@ invoke.cont95:                                    ; preds = %if.end94
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !297
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i28, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !297
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i28, align 8, !noalias !297
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i28, align 8, !noalias !297
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i28, i64 16
   store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 4, !noalias !297
   store ptr %call5.i.i.i2.i.i.i.i28, ptr %_M_refcount.i.i.i, align 8, !alias.scope !297
@@ -3047,7 +3047,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i30, align 8, !noalias !300
   %_M_weak_count.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i33, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i31, align 4, !noalias !300
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !300
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !300
   %_M_impl.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i33, i64 16
   store i8 0, ptr %_M_impl.i.i.i.i.i.i32, align 1, !noalias !300
   store ptr %call5.i.i.i2.i.i.i.i33, ptr %_M_refcount.i.i.i29, align 8, !alias.scope !300
@@ -4397,7 +4397,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly6detail15SingletonHolderIN8facebook5velox17BaseStatsReporterEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderIN8facebook5velox17BaseStatsReporterEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail15SingletonHolderIN8facebook5velox17BaseStatsReporterEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 2296
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -5612,7 +5612,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false)
@@ -5654,7 +5654,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
   %__ec.sroa.36.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -5727,7 +5727,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #27
           to label %invoke.cont unwind label %lpad
 
@@ -5745,7 +5745,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #12 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #26
   unreachable
 }
@@ -8254,7 +8254,7 @@ _ZN5folly16getCoreAllocatorISt10shared_ptrIN8facebook5velox17BaseStatsReporterEE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !373
   %_M_weak_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call7.i.i.i.i3.i.i.i.i13, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i12, align 4, !noalias !373
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt10shared_ptrIN8facebook5velox17BaseStatsReporterEEN5folly19CxxAllocatorAdaptorIS4_NS5_16CoreRawAllocatorILm64EE9AllocatorELb0EEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call7.i.i.i.i3.i.i.i.i13, align 8, !noalias !373
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt10shared_ptrIN8facebook5velox17BaseStatsReporterEEN5folly19CxxAllocatorAdaptorIS4_NS5_16CoreRawAllocatorILm64EE9AllocatorELb0EEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call7.i.i.i.i3.i.i.i.i13, align 8, !noalias !373
   %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call7.i.i.i.i3.i.i.i.i13, i64 16
   store ptr %arrayidx.i.i11, ptr %_M_impl.i.i.i.i.i, align 8, !noalias !373
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7.i.i.i.i3.i.i.i.i13, i64 24
@@ -8895,7 +8895,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN8facebook5velox17BaseStatsRe
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox17BaseStatsReporterEZN5folly6detail15SingletonHolderIS2_E14createInstanceEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox17BaseStatsReporterEZN5folly6detail15SingletonHolderIS2_E14createInstanceEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   store i64 %2, ptr %4, align 8
@@ -9551,7 +9551,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10TLRefCountEZNS1_C1EvEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10TLRefCountEZNS1_C1EvEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   store ptr %this, ptr %_M_impl.i.i.i.i.i, align 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8

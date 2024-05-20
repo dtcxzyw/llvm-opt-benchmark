@@ -38979,7 +38979,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %46, %43, %5
   br i1 %28, label %29, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread56
 
 29:                                               ; preds = %26
-  %30 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def10__CALLSITE17h0ae08ef28e06f103E", i64 0, i32 2, i32 0) monotonic, align 8
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def10__CALLSITE17h0ae08ef28e06f103E", i64 16) monotonic, align 8
   switch i8 %30, label %31 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread56
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -39267,7 +39267,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %46, %43, %5
   br i1 %28, label %29, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread55
 
 29:                                               ; preds = %26
-  %30 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def10__CALLSITE17h0ae08ef28e06f103E", i64 0, i32 2, i32 0) monotonic, align 8
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def10__CALLSITE17h0ae08ef28e06f103E", i64 16) monotonic, align 8
   switch i8 %30, label %31 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread55
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -49976,7 +49976,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h763d878af97096c9E.exit: ;
   br i1 %121, label %122, label %.thread174
 
 122:                                              ; preds = %119
-  %123 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %123 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %123, label %124 [
     i8 0, label %.thread174
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -50134,7 +50134,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %157, label %158, label %.critedge
 
 158:                                              ; preds = %155
-  %159 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %159 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %159, label %160 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit85.thread
@@ -50998,7 +50998,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3cc507bc0da05b0bE.exit: ;
   br i1 %114, label %115, label %.thread165
 
 115:                                              ; preds = %112
-  %116 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %116, label %117 [
     i8 0, label %.thread165
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -51154,7 +51154,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %148
-  %152 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %152 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %152, label %153 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.thread
@@ -52004,7 +52004,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hc27deba14d101a11E.exit: ;
   br i1 %114, label %115, label %.thread165
 
 115:                                              ; preds = %112
-  %116 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %116, label %117 [
     i8 0, label %.thread165
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -52160,7 +52160,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %148
-  %152 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %152 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %152, label %153 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.thread
@@ -53010,7 +53010,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hee39c7cd670ede65E.exit: ;
   br i1 %114, label %115, label %.thread165
 
 115:                                              ; preds = %112
-  %116 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %116, label %117 [
     i8 0, label %.thread165
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -53166,7 +53166,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %148
-  %152 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %152 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %152, label %153 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.thread
@@ -54016,7 +54016,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h6b616606d512fc7eE.exit: ;
   br i1 %114, label %115, label %.thread165
 
 115:                                              ; preds = %112
-  %116 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %116 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %116, label %117 [
     i8 0, label %.thread165
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -54172,7 +54172,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %148
-  %152 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %152 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %152, label %153 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.thread
@@ -55026,7 +55026,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h1179a78da190ed56E.exit: ;
   br i1 %118, label %119, label %.thread168
 
 119:                                              ; preds = %116
-  %120 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 0, i32 2, i32 0) monotonic, align 8
+  %120 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17h9b88c878c87fea62E, i64 16) monotonic, align 8
   switch i8 %120, label %121 [
     i8 0, label %.thread168
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -55182,7 +55182,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %154, label %155, label %.critedge
 
 155:                                              ; preds = %152
-  %156 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %156 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut10__CALLSITE17haf2726b7a095c9b5E, i64 16) monotonic, align 8
   switch i8 %156, label %157 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.thread
@@ -56131,7 +56131,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h9788e125e758d2c5E.exit: ;
   br i1 %126, label %127, label %.thread174
 
 127:                                              ; preds = %124
-  %128 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 0, i32 2, i32 0) monotonic, align 8
+  %128 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 16) monotonic, align 8
   switch i8 %128, label %129 [
     i8 0, label %.thread174
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -56285,7 +56285,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %162, label %163, label %.critedge
 
 163:                                              ; preds = %160
-  %164 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %164 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 16) monotonic, align 8
   switch i8 %164, label %165 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -57451,7 +57451,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h4eed980513183265E.exit: ;
   br i1 %127, label %128, label %.thread176
 
 128:                                              ; preds = %125
-  %129 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 0, i32 2, i32 0) monotonic, align 8
+  %129 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 16) monotonic, align 8
   switch i8 %129, label %130 [
     i8 0, label %.thread176
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -57605,7 +57605,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %163, label %164, label %.critedge
 
 164:                                              ; preds = %161
-  %165 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %165 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 16) monotonic, align 8
   switch i8 %165, label %166 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -58781,7 +58781,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h8b3eaddf568c42afE.exit: ;
   br i1 %126, label %127, label %.thread174
 
 127:                                              ; preds = %124
-  %128 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 0, i32 2, i32 0) monotonic, align 8
+  %128 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 16) monotonic, align 8
   switch i8 %128, label %129 [
     i8 0, label %.thread174
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -58935,7 +58935,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %162, label %163, label %.critedge
 
 163:                                              ; preds = %160
-  %164 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %164 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 16) monotonic, align 8
   switch i8 %164, label %165 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -60092,7 +60092,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h6f3fbed1131db2dfE.exit: ;
   br i1 %126, label %127, label %.thread174
 
 127:                                              ; preds = %124
-  %128 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 0, i32 2, i32 0) monotonic, align 8
+  %128 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 16) monotonic, align 8
   switch i8 %128, label %129 [
     i8 0, label %.thread174
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -60246,7 +60246,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %162, label %163, label %.critedge
 
 163:                                              ; preds = %160
-  %164 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %164 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 16) monotonic, align 8
   switch i8 %164, label %165 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -61411,7 +61411,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3eeec2d3c017e9d0E.exit: ;
   br i1 %126, label %127, label %.thread174
 
 127:                                              ; preds = %124
-  %128 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 0, i32 2, i32 0) monotonic, align 8
+  %128 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17h93944c9f87cbb7d8E, i64 16) monotonic, align 8
   switch i8 %128, label %129 [
     i8 0, label %.thread174
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -61565,7 +61565,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %162, label %163, label %.critedge
 
 163:                                              ; preds = %160
-  %164 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %164 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync10__CALLSITE17hd4b1661887d53db5E, i64 16) monotonic, align 8
   switch i8 %164, label %165 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread
@@ -63229,7 +63229,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h6adb6b630e53dc37E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -63383,7 +63383,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -63967,7 +63967,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h0ca44a99cf4c9737E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -64121,7 +64121,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -64705,7 +64705,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17haa57f81770b19470E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -64859,7 +64859,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -65444,7 +65444,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17heeb7bf52273ca112E.exit: ;
   br i1 %111, label %112, label %.thread142
 
 112:                                              ; preds = %109
-  %113 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %113 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %113, label %114 [
     i8 0, label %.thread142
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -65598,7 +65598,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %147, label %148, label %.critedge
 
 148:                                              ; preds = %145
-  %149 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %149 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %149, label %150 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit74.thread
@@ -66179,7 +66179,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17he50e5fd830d7aa1cE.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -66333,7 +66333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -66917,7 +66917,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hc27f094a70e36b11E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -67071,7 +67071,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -67655,7 +67655,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3b08413a90b24755E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -67809,7 +67809,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -68393,7 +68393,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h1844baaac0083635E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -68547,7 +68547,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -69131,7 +69131,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h27270c1f0954de0aE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -69285,7 +69285,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -69869,7 +69869,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h5de020e830038691E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -70023,7 +70023,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -70607,7 +70607,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3c4142d3dbae4582E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -70761,7 +70761,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -71345,7 +71345,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hb173558922390a31E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -71499,7 +71499,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -72083,7 +72083,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hd4cae1d3f5c51fa6E.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -72237,7 +72237,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -72821,7 +72821,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hf19f7e687080c314E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -72975,7 +72975,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -73559,7 +73559,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h904f80d9c8753f26E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -73713,7 +73713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -74297,7 +74297,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3d2aa6fc3bc94396E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -74451,7 +74451,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -75036,7 +75036,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h4ee4203c628799a0E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -75190,7 +75190,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -75774,7 +75774,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17ha77427fd8b003cb6E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -75928,7 +75928,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -76512,7 +76512,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h6793fb0eff34dd3aE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -76666,7 +76666,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -77250,7 +77250,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hcfaef1ec9a942177E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -77404,7 +77404,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -77988,7 +77988,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17ha2854bb3896fe343E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -78142,7 +78142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -78726,7 +78726,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h40eb26140f210a47E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -78880,7 +78880,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -79464,7 +79464,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h3a42d9f9e9eaaff9E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -79618,7 +79618,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -80202,7 +80202,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h90a382a75e790387E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -80356,7 +80356,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -80940,7 +80940,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hf5db97539d12bd9bE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -81094,7 +81094,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -81678,7 +81678,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h0099cce9748c4ad1E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -81832,7 +81832,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -82416,7 +82416,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17ha70567547e41d266E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -82570,7 +82570,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -83154,7 +83154,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h5641f4f5fc86dfecE.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -83308,7 +83308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -83892,7 +83892,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h57d636c4c5e3e86dE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -84046,7 +84046,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -84630,7 +84630,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h7b07b7c0e7824b0eE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -84784,7 +84784,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -85368,7 +85368,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h624f63a21fc16acdE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -85522,7 +85522,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -86106,7 +86106,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h4a87df7e14db76faE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86260,7 +86260,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -86844,7 +86844,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17he48087189757a8b6E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -86998,7 +86998,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -87582,7 +87582,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h372f72e649160050E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -87736,7 +87736,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -88320,7 +88320,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h7b8e326d40ec357aE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -88474,7 +88474,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -89058,7 +89058,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17heee4faeba2756104E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89212,7 +89212,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -89796,7 +89796,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17he1c58b80c2913ad0E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -89950,7 +89950,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -90534,7 +90534,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h0fdac1e4a6c2154aE.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -90688,7 +90688,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -91272,7 +91272,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h8b563ce9e0bf86deE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -91426,7 +91426,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -92010,7 +92010,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h20cb329dc19d013eE.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92164,7 +92164,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -92748,7 +92748,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17haca9a09d6b5fd475E.exit: ;
   br i1 %109, label %110, label %.thread148
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread148
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -92902,7 +92902,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.thread
@@ -93486,7 +93486,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h40db01bef233abf3E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -93640,7 +93640,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -94224,7 +94224,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17hb0130b579c523baaE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -94378,7 +94378,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -94962,7 +94962,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h328c9c2a6e32ad08E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -95116,7 +95116,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -95700,7 +95700,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17ha04481fc269a6cbbE.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -95854,7 +95854,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -96438,7 +96438,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h86d1c2cab8861092E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -96592,7 +96592,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -97156,7 +97156,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h213f65a1012acb53E.exit: ;
   br i1 %103, label %104, label %.thread140
 
 104:                                              ; preds = %101
-  %105 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %105 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %105, label %106 [
     i8 0, label %.thread140
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -97310,7 +97310,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %139, label %140, label %.critedge
 
 140:                                              ; preds = %137
-  %141 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %141 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %141, label %142 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit74.thread
@@ -97887,7 +97887,7 @@ _ZN13rust_analyzer8dispatch17RequestDispatcher5parse17h846da2bcfdf5f2d4E.exit: ;
   br i1 %109, label %110, label %.thread147
 
 110:                                              ; preds = %107
-  %111 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 0, i32 2, i32 0) monotonic, align 8
+  %111 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17hec1b1ae7d74c3667E, i64 16) monotonic, align 8
   switch i8 %111, label %112 [
     i8 0, label %.thread147
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -98041,7 +98041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %143
-  %147 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 0, i32 2, i32 0) monotonic, align 8
+  %147 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher21on_with_thread_intent10__CALLSITE17h4de59be3ee8b9465E, i64 16) monotonic, align 8
   switch i8 %147, label %148 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit78.thread
@@ -123894,7 +123894,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %30, label %31, label %.thread146
 
 31:                                               ; preds = %28
-  %32 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %32 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %32, label %33 [
     i8 0, label %.thread146
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -124033,7 +124033,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %68, label %69, label %88
 
 69:                                               ; preds = %66
-  %70 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %70 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %70, label %71 [
     i8 0, label %88
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit83.thread
@@ -124370,7 +124370,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread161
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread161
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -124517,7 +124517,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %74, label %75, label %94
 
 75:                                               ; preds = %72
-  %76 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %76 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %76, label %77 [
     i8 0, label %94
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit87.thread
@@ -124866,7 +124866,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread163
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread163
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -125008,7 +125008,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -125356,7 +125356,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread162
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread162
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -125498,7 +125498,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -125844,7 +125844,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %30, label %31, label %.thread146
 
 31:                                               ; preds = %28
-  %32 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %32 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %32, label %33 [
     i8 0, label %.thread146
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -125983,7 +125983,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %68, label %69, label %88
 
 69:                                               ; preds = %66
-  %70 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %70 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %70, label %71 [
     i8 0, label %88
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit83.thread
@@ -126320,7 +126320,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread161
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread161
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -126467,7 +126467,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %74, label %75, label %94
 
 75:                                               ; preds = %72
-  %76 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %76 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %76, label %77 [
     i8 0, label %94
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit87.thread
@@ -126816,7 +126816,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread163
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread163
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -126963,7 +126963,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %74, label %75, label %94
 
 75:                                               ; preds = %72
-  %76 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %76 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %76, label %77 [
     i8 0, label %94
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -127312,7 +127312,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread163
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread163
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -127454,7 +127454,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -127802,7 +127802,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread162
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread162
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -127944,7 +127944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -128292,7 +128292,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread162
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread162
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -128434,7 +128434,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -128780,7 +128780,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %30, label %31, label %.thread146
 
 31:                                               ; preds = %28
-  %32 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %32 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %32, label %33 [
     i8 0, label %.thread146
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -128919,7 +128919,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %68, label %69, label %88
 
 69:                                               ; preds = %66
-  %70 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %70 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %70, label %71 [
     i8 0, label %88
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit83.thread
@@ -129256,7 +129256,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread162
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread162
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -129398,7 +129398,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread
@@ -129746,7 +129746,7 @@ define hidden { i64, ptr } @_ZN13rust_analyzer8dispatch22NotificationDispatcher1
   br i1 %32, label %33, label %.thread162
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 0, i32 2, i32 0) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17h0f37c95321407f48E, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.thread162
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -129888,7 +129888,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %67
-  %72 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 0, i32 2, i32 0) monotonic, align 8
+  %72 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13rust_analyzer8dispatch22NotificationDispatcher11on_sync_mut10__CALLSITE17hce9a5f92be31bfbdE, i64 16) monotonic, align 8
   switch i8 %72, label %73 [
     i8 0, label %90
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit88.thread

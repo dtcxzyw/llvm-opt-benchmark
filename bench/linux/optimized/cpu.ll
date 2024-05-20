@@ -71,30 +71,30 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   tail call void @kernel_fpu_begin_mask(i32 noundef 2) #12
-  tail call void asm sideeffect "sidt $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 18)) #12, !srcloc !5
-  store i16 127, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 16), align 1
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !6
+  tail call void asm sideeffect "sidt $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) getelementptr inbounds (i8, ptr @saved_context, i64 278)) #12, !srcloc !5
+  store i16 127, ptr getelementptr inbounds (i8, ptr @saved_context, i64 266), align 1
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !6
   %2 = zext i32 %1 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @gdt_page to i64)
-  store i64 %5, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 16, i32 1), align 1
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @saved_context, i64 268), align 1
   %6 = tail call i64 asm sideeffect "str $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
-  store i64 %6, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 21), align 1
+  store i64 %6, ptr getelementptr inbounds (i8, ptr @saved_context, i64 292), align 1
   %7 = tail call i16 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
-  store i16 %7, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 4), align 1
+  store i16 %7, ptr getelementptr inbounds (i8, ptr @saved_context, i64 174), align 1
   %8 = tail call i16 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
-  store i16 %8, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 3), align 1
+  store i16 %8, ptr getelementptr inbounds (i8, ptr @saved_context, i64 172), align 1
   %9 = tail call i16 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
-  store i16 %9, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 1), align 1
+  store i16 %9, ptr getelementptr inbounds (i8, ptr @saved_context, i64 168), align 1
   %10 = tail call i16 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  store i16 %10, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 2), align 1
+  store i16 %10, ptr getelementptr inbounds (i8, ptr @saved_context, i64 170), align 1
   %11 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741568) #12, !srcloc !12
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   %14 = shl i64 %13, 32
   %15 = or i64 %14, %12
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %17 [label %16], !srcloc !13
 
 16:                                               ; preds = %0
@@ -102,13 +102,13 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   br label %17
 
 17:                                               ; preds = %16, %0
-  store i64 %15, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 7), align 1
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @saved_context, i64 192), align 1
   %18 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741567) #12, !srcloc !12
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   %21 = shl i64 %20, 32
   %22 = or i64 %21, %19
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %24 [label %23], !srcloc !13
 
 23:                                               ; preds = %17
@@ -116,13 +116,13 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   br label %24
 
 24:                                               ; preds = %23, %17
-  store i64 %22, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 5), align 1
+  store i64 %22, ptr getelementptr inbounds (i8, ptr @saved_context, i64 176), align 1
   %25 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741566) #12, !srcloc !12
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = extractvalue { i64, i64 } %25, 1
   %28 = shl i64 %27, 32
   %29 = or i64 %28, %26
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %31 [label %30], !srcloc !13
 
 30:                                               ; preds = %24
@@ -130,14 +130,14 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   br label %31
 
 31:                                               ; preds = %30, %24
-  store i64 %29, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 6), align 1
+  store i64 %29, ptr getelementptr inbounds (i8, ptr @saved_context, i64 184), align 1
   tail call void @mtrr_save_fixed_ranges(ptr noundef null) #12
   %32 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741696) #12, !srcloc !12
   %33 = extractvalue { i64, i64 } %32, 0
   %34 = extractvalue { i64, i64 } %32, 1
   %35 = shl i64 %34, 32
   %36 = or i64 %35, %33
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %38 [label %37], !srcloc !13
 
 37:                                               ; preds = %31
@@ -145,20 +145,20 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   br label %38
 
 38:                                               ; preds = %37, %31
-  store i64 %36, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 14), align 1
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @saved_context, i64 256), align 1
   %39 = tail call i64 asm sideeffect "mov %cr0,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !14
-  store i64 %39, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 8), align 1
+  store i64 %39, ptr getelementptr inbounds (i8, ptr @saved_context, i64 200), align 1
   %40 = tail call i64 asm sideeffect "mov %cr2,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !15
-  store i64 %40, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 9), align 1
+  store i64 %40, ptr getelementptr inbounds (i8, ptr @saved_context, i64 208), align 1
   %41 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !16
-  store i64 %41, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 10), align 1
+  store i64 %41, ptr getelementptr inbounds (i8, ptr @saved_context, i64 216), align 1
   %42 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !17
-  store i64 %42, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 11), align 1
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @saved_context, i64 224), align 1
   %43 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 416) #12, !srcloc !18
   %44 = extractvalue { i32, i64, i64 } %43, 0
   %45 = extractvalue { i32, i64, i64 } %43, 1
   %46 = extractvalue { i32, i64, i64 } %43, 2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %._crit_edge [label %47], !srcloc !13
 
 ._crit_edge:                                      ; preds = %38
@@ -174,12 +174,12 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
 
 50:                                               ; preds = %._crit_edge, %47
   %.pre-phi3 = phi i64 [ %.pre2, %._crit_edge ], [ %49, %47 ]
-  store i64 %.pre-phi3, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 12), align 8
+  store i64 %.pre-phi3, ptr getelementptr inbounds (i8, ptr @saved_context, i64 232), align 8
   %51 = icmp eq i32 %44, 0
   %52 = zext i1 %51 to i8
-  store i8 %52, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 24), align 1
-  %53 = load ptr, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13, i32 1), align 1
-  %54 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 1
+  store i8 %52, ptr getelementptr inbounds (i8, ptr @saved_context, i64 316), align 1
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_context, i64 248), align 1
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 1
   %55 = zext i32 %54 to i64
   %56 = getelementptr %struct.saved_msr, ptr %53, i64 %55
   %57 = icmp ult ptr %53, %56
@@ -199,7 +199,7 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   %66 = extractvalue { i64, i64 } %64, 1
   %67 = shl i64 %66, 32
   %68 = or i64 %67, %65
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %70 [label %69], !srcloc !13
 
 69:                                               ; preds = %61
@@ -217,7 +217,7 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
   br i1 %74, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %72, %50
-  %75 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 8), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 64), align 8
   tail call void %75() #12
   ret void
 }
@@ -226,17 +226,17 @@ define dso_local void @save_processor_state() local_unnamed_addr #0 align 16 {
 define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.desc_ptr, align 1
-  %3 = load i8, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 24), align 1, !range !19, !noundef !20
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @saved_context, i64 316), align 1, !range !19, !noundef !20
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %0
-  %6 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 12), align 1
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 232), align 1
   %7 = trunc i64 %6 to i32
   %8 = lshr i64 %6, 32
   %9 = trunc nuw i64 %8 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 416, i32 %7, i32 %9) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %11 [label %10], !srcloc !13
 
 10:                                               ; preds = %5
@@ -244,12 +244,12 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   br label %11
 
 11:                                               ; preds = %10, %5, %0
-  %12 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 14), align 1
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 256), align 1
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %12, 32
   %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741696, i32 %13, i32 %15) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %17 [label %16], !srcloc !13
 
 16:                                               ; preds = %11
@@ -257,24 +257,24 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   br label %17
 
 17:                                               ; preds = %16, %11
-  %18 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 11), align 1
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 224), align 1
   tail call void @native_write_cr4(i64 noundef %18) #12
-  %19 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 10), align 1
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 216), align 1
   tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %19) #12, !srcloc !25
-  %20 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 9), align 1
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 208), align 1
   tail call void asm sideeffect "mov $0,%cr2", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20) #12, !srcloc !26
-  %21 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 8), align 1
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 200), align 1
   tail call void @native_write_cr0(i64 noundef %21) #12
-  tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 18)) #12, !srcloc !27
+  tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) getelementptr inbounds (i8, ptr @saved_context, i64 278)) #12, !srcloc !27
   %22 = tail call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ss\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 24) #12, !srcloc !28
   %23 = tail call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ds\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 43) #12, !srcloc !29
   %24 = tail call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%es\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 43) #12, !srcloc !30
-  %25 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 5), align 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 176), align 1
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %25, 32
   %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741567, i32 %26, i32 %28) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %30 [label %29], !srcloc !13
 
 29:                                               ; preds = %17
@@ -282,7 +282,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   br label %30
 
 30:                                               ; preds = %29, %17
-  %31 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !31
+  %31 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !31
   %32 = zext i32 %31 to i64
   %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
@@ -321,7 +321,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   tail call void @syscall_init() #12
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false), !annotation !32
-  %61 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #12, !srcloc !33
+  %61 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !33
   call void asm sideeffect "sgdt $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) %2) #12, !srcloc !34
   %62 = call ptr @get_cpu_entry_area(i32 noundef %61) #12
   %63 = getelementptr inbounds i8, ptr %2, i64 2
@@ -350,14 +350,14 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   call void @initialize_tlbstate_and_flush() #12
   call void @fpu__resume_cpu() #12
   call void @load_fixmap_gdt(i32 noundef %31) #12
-  %74 = load i16, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 2), align 1
+  %74 = load i16, ptr getelementptr inbounds (i8, ptr @saved_context, i64 170), align 1
   %75 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ds\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %74) #12, !srcloc !37
-  %76 = load i16, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 2), align 1
+  %76 = load i16, ptr getelementptr inbounds (i8, ptr @saved_context, i64 170), align 1
   %77 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%es\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %76) #12, !srcloc !38
-  %78 = load i16, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 3), align 1
+  %78 = load i16, ptr getelementptr inbounds (i8, ptr @saved_context, i64 172), align 1
   call void asm sideeffect "\09\09\09\09\09\09\0A1:\09movw $0, %fs\09\09\09\0A2:\09\09\09\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 5 \0A .popsection\0A", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %78) #12, !srcloc !39
-  %79 = load i16, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 4), align 1
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 402, i32 4, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 42)) #12
+  %79 = load i16, ptr getelementptr inbounds (i8, ptr @saved_context, i64 174), align 1
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 402, i32 4, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 90)) #12
           to label %84 [label %84, label %80], !srcloc !40
 
 80:                                               ; preds = %69
@@ -381,12 +381,12 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   br label %87
 
 87:                                               ; preds = %86, %84, %80
-  %88 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 7), align 1
+  %88 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 192), align 1
   %89 = trunc i64 %88 to i32
   %90 = lshr i64 %88, 32
   %91 = trunc nuw i64 %90 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741568, i32 %89, i32 %91) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %93 [label %92], !srcloc !13
 
 92:                                               ; preds = %87
@@ -394,12 +394,12 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   br label %93
 
 93:                                               ; preds = %92, %87
-  %94 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 6), align 1
+  %94 = load i64, ptr getelementptr inbounds (i8, ptr @saved_context, i64 184), align 1
   %95 = trunc i64 %94 to i32
   %96 = lshr i64 %94, 32
   %97 = trunc nuw i64 %96 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741566, i32 %95, i32 %97) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %99 [label %98], !srcloc !13
 
 98:                                               ; preds = %93
@@ -409,11 +409,11 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
 99:                                               ; preds = %98, %93
   call void @kernel_fpu_end() #12
   call void @tsc_verify_tsc_adjust(i1 noundef zeroext true) #12
-  %100 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 9), align 8
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 72), align 8
   call void %100() #12
   call void @cache_bp_restore() #12
   call void @perf_restore_debug_store() #12
-  %101 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !45
+  %101 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !45
   %102 = sext i32 %101 to i64
   %103 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %102
   %104 = load i64, ptr %103, align 8
@@ -430,8 +430,8 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
 
 111:                                              ; preds = %110, %99
   call void @microcode_bsp_resume() #12
-  %112 = load ptr, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13, i32 1), align 1
-  %113 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 1
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_context, i64 248), align 1
+  %113 = load i32, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 1
   %114 = zext i32 %113 to i64
   %115 = getelementptr %struct.saved_msr, ptr %112, i64 %114
   %116 = icmp ult ptr %112, %115
@@ -452,7 +452,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %126 = lshr i64 %124, 32
   %127 = trunc nuw i64 %126 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %122, i32 %125, i32 %127) #12, !srcloc !24
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #12
           to label %129 [label %128], !srcloc !13
 
 128:                                              ; preds = %120
@@ -470,15 +470,15 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @hibernate_resume_nonboot_cpu_disable() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 11), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 88), align 8
   %2 = tail call i32 @cpuhp_smt_enable() #12
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %0
-  store ptr @resume_play_dead, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 11), align 8
+  store ptr @resume_play_dead, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 88), align 8
   %5 = tail call i32 @freeze_secondary_cpus(i32 noundef 0) #12
-  store ptr %1, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 11), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 88), align 8
   br label %6
 
 6:                                                ; preds = %4, %0
@@ -559,7 +559,7 @@ define internal noundef i32 @pm_check_save_msr() #0 align 16 {
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 %27) #12, !srcloc !47
+  %28 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), i64 %27) #12, !srcloc !47
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i8 %28, 0
@@ -705,7 +705,7 @@ define internal noundef range(i32 -12, 1) i32 @msr_initialize_bdw(ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 8
   %3 = add i32 %2, 1
   %4 = sext i32 %3 to i64
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 40)
@@ -723,12 +723,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr noca
   br label %47
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @saved_context, i64 248), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 8
   %17 = zext i32 %16 to i64
   %18 = mul nuw nsw i64 %17, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %13, i64 %18, i1 false)
@@ -736,7 +736,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr noca
   br label %19
 
 19:                                               ; preds = %15, %12
-  %20 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 8
   %21 = icmp slt i32 %20, %3
   br i1 %21, label %22, label %.loopexit
 
@@ -756,7 +756,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr noca
   store i32 %30, ptr %32, align 8
   %33 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %30) #12, !srcloc !18
   %34 = extractvalue { i32, i64, i64 } %33, 0
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #12
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #12
           to label %40 [label %35], !srcloc !13
 
 35:                                               ; preds = %25
@@ -779,8 +779,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr noca
   br i1 %46, label %.loopexit, label %25, !llvm.loop !51
 
 .loopexit:                                        ; preds = %40, %19
-  store i32 %3, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13, i32 1), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @saved_context, i64 240), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @saved_context, i64 248), align 8
   br label %47
 
 47:                                               ; preds = %.loopexit, %.thread

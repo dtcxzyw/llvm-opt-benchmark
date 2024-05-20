@@ -332,9 +332,9 @@ define void @_ZN22LteMacStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nounde
   %20 = alloca %"class.QMetaObject::Connection", align 8
   %21 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 229)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i64 0, i32 1, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 560), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 328
@@ -670,7 +670,7 @@ _ZN11QGridLayout9addWidgetEP7QWidget.exit98:      ; preds = %_ZN7QStringD2Ev.exi
           to label %153 unwind label %223
 
 153:                                              ; preds = %152
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i64 0, i32 0, i64 2), ptr %151, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %151, align 8
   %154 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %151, ptr %154, align 8
   %155 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
@@ -690,7 +690,7 @@ _ZN11QGridLayout9addWidgetEP7QWidget.exit98:      ; preds = %_ZN7QStringD2Ev.exi
           to label %161 unwind label %225
 
 161:                                              ; preds = %160
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i64 0, i32 0, i64 2), ptr %159, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %159, align 8
   %162 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %159, ptr %162, align 8
   %163 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
@@ -1430,9 +1430,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22LteMacStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(329) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i64 0, i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 560), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2776,7 +2776,7 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItemC2EP11QTreeWidgetPK17mac_3gpp_
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MacUETreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19MacUETreeWidgetItem, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = getelementptr inbounds i8, ptr %0, i64 100
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -6605,7 +6605,7 @@ define linkonce_odr void @_ZN21MacULDLTreeWidgetItemC2EP15QTreeWidgetItemjjji(pt
   %17 = alloca %class.QString, align 16
   %18 = alloca %class.QString, align 16
   tail call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21MacULDLTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21MacULDLTreeWidgetItem, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %2, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9930,9 +9930,9 @@ _ZN5QListI7QStringElsEOS0_.exit86.i:              ; preds = %_ZN7QObject2trEPKcS
   store ptr %64, ptr @_ZL23mac_whole_ue_row_labels, align 8
   %65 = getelementptr inbounds i8, ptr %22, i64 8
   %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr getelementptr inbounds (%class.QList, ptr @_ZL23mac_whole_ue_row_labels, i64 0, i32 0, i32 1), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @_ZL23mac_whole_ue_row_labels, i64 8), align 8
   %67 = load i64, ptr %43, align 8
-  store i64 %67, ptr getelementptr inbounds (%class.QList, ptr @_ZL23mac_whole_ue_row_labels, i64 0, i32 0, i32 2), align 8
+  store i64 %67, ptr getelementptr inbounds (i8, ptr @_ZL23mac_whole_ue_row_labels, i64 16), align 8
   %.not.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringEC2ERKS1_.exit.i, label %68
 
@@ -10941,9 +10941,9 @@ _ZN5QListI7QStringElsEOS0_.exit86.i140:           ; preds = %_ZN7QObject2trEPKcS
   store ptr %306, ptr @_ZL25mac_channel_counts_labels, align 8
   %307 = getelementptr inbounds i8, ptr %1, i64 8
   %308 = load ptr, ptr %307, align 8
-  store ptr %308, ptr getelementptr inbounds (%class.QList, ptr @_ZL25mac_channel_counts_labels, i64 0, i32 0, i32 1), align 8
+  store ptr %308, ptr getelementptr inbounds (i8, ptr @_ZL25mac_channel_counts_labels, i64 8), align 8
   %309 = load i64, ptr %285, align 8
-  store i64 %309, ptr getelementptr inbounds (%class.QList, ptr @_ZL25mac_channel_counts_labels, i64 0, i32 0, i32 2), align 8
+  store i64 %309, ptr getelementptr inbounds (i8, ptr @_ZL25mac_channel_counts_labels, i64 16), align 8
   %.not.i.i.i.i141 = icmp eq ptr %306, null
   br i1 %.not.i.i.i.i141, label %_ZN5QListI7QStringEC2ERKS1_.exit.i142, label %310
 

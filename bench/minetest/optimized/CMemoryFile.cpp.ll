@@ -135,8 +135,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !23
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %0, align 8, !tbaa !3
   %Buffer = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !6
   %Len = getelementptr inbounds i8, ptr %this, i64 16
@@ -217,9 +217,9 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io15CMemoryReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
@@ -264,9 +264,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %4, 0
@@ -307,9 +307,9 @@ _ZN3irr2io15CMemoryReadFileD1Ev.exit:             ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io15CMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %0, 0
@@ -358,9 +358,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -547,8 +547,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !23
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
   %Buffer = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !30
   %Len = getelementptr inbounds i8, ptr %this, i64 16
@@ -626,9 +626,9 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io16CMemoryWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
@@ -673,9 +673,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %4, 0
@@ -716,9 +716,9 @@ _ZN3irr2io16CMemoryWriteFileD1Ev.exit:            ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io16CMemoryWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %0, 0
@@ -764,9 +764,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -903,8 +903,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !23
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %0, align 8, !tbaa !3
   %Buffer.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %memory, ptr %Buffer.i, align 8, !tbaa !6
   %Len.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -943,8 +943,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !23
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
   %Buffer.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %memory, ptr %Buffer.i, align 8, !tbaa !30
   %Len.i = getelementptr inbounds i8, ptr %call, i64 16

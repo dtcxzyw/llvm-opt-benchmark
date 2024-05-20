@@ -27,7 +27,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN17btCollisionObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(372) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17btCollisionObject, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btCollisionObject, i64 16), ptr %this, align 8
   %m_worldTransform = getelementptr inbounds i8, ptr %this, i64 8
   %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   %m_interpolationLinearVelocity = getelementptr inbounds i8, ptr %this, i64 136
@@ -106,7 +106,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17btCollisionObjectD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(372) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17btCollisionObject, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btCollisionObject, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -143,7 +143,7 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17btCollisionObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17btCollisionObject, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17btCollisionObject, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

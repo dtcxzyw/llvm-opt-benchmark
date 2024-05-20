@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @diffcore_rotate(ptr nocapture noundef readonly %opt) local_unnamed_addr #0 {
 entry:
   %outq = alloca %struct.diff_queue_struct, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
@@ -94,7 +94,7 @@ for.body26:                                       ; preds = %do.body, %for.body2
   %11 = load ptr, ptr %arrayidx29, align 8
   call void @diff_q(ptr noundef nonnull %outq, ptr noundef %11) #10
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %12 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %13 = trunc nuw i64 %indvars.iv.next38 to i32
   %cmp25 = icmp sgt i32 %12, %13
   br i1 %cmp25, label %for.body26, label %for.cond33.preheader, !llvm.loop !7

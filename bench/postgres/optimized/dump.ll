@@ -35,22 +35,22 @@ define dso_local void @generate_old_dump() local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.PQExpBufferData, align 8
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str) #2
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
   %6 = tail call ptr @cluster_conn_opts(ptr noundef nonnull @old_cluster) #2
-  %7 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %7 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, ptr @.str.3, ptr @.str.4
-  %10 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
   %11 = tail call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull @.str.5) #2
   tail call void @check_ok() #2
   tail call void (ptr, ...) @prep_status_progress(ptr noundef nonnull @.str.6) #2
-  %12 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %15 = getelementptr %struct.DbInfo, ptr %14, i64 %indvars.iv
   call void @initPQExpBuffer(ptr noundef nonnull %3) #2
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #2
@@ -67,17 +67,17 @@ define dso_local void @generate_old_dump() local_unnamed_addr #0 {
   %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.9, i32 noundef %20) #2
   %22 = load i32, ptr %15, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.10, i32 noundef %22) #2
-  %24 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 5), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
   %25 = call ptr @cluster_conn_opts(ptr noundef nonnull @old_cluster) #2
-  %26 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
   %27 = trunc i8 %26 to i1
   %28 = select i1 %27, ptr @.str.3, ptr @.str.4
-  %29 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 5), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
   %30 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ptr, ...) @parallel_exec_prog(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %28, ptr noundef %29, ptr noundef nonnull %1, ptr noundef %30) #2
   call void @termPQExpBuffer(ptr noundef nonnull %4) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 2, i32 1), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %.preheader.preheader, !llvm.loop !5

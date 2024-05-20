@@ -2127,7 +2127,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
   %nb_multiply = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %nb_multiply, align 8
   %_py_long_multiply = getelementptr inbounds i8, ptr %m.val, i64 184
@@ -2140,12 +2140,12 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr %nb_power, align 8
   %_py_long_power = getelementptr inbounds i8, ptr %m.val, i64 200
   store ptr %4, ptr %_py_long_power, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 10), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 96), align 8
   %nb_absolute = getelementptr inbounds i8, ptr %5, i64 64
   %6 = load ptr, ptr %nb_absolute, align 8
   %_py_float_abs = getelementptr inbounds i8, ptr %m.val, i64 208
   store ptr %6, ptr %_py_float_abs, align 8
-  %PyFloat_Type.val = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 27), align 8
+  %PyFloat_Type.val = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 232), align 8
   %cmp.i213 = icmp eq ptr %PyFloat_Type.val, null
   br i1 %cmp.i213, label %cfunc_noargs.exit.thread, label %for.cond.preheader.i
 
@@ -2189,7 +2189,7 @@ cfunc_noargs.exit:                                ; preds = %if.then5.i
   br i1 %cmp, label %do.body548.thread324, label %do.body5
 
 do.body5:                                         ; preds = %cfunc_noargs.exit
-  %PyLong_Type.val = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 27), align 8
+  %PyLong_Type.val = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 232), align 8
   %cmp.i214 = icmp eq ptr %PyLong_Type.val, null
   br i1 %cmp.i214, label %cfunc_noargs.exit233.thread, label %for.cond.preheader.i215
 
@@ -2757,7 +2757,7 @@ do.end399:                                        ; preds = %do.body391
   %ctx1.i = getelementptr inbounds i8, ptr %call393, i64 16
   store i64 9, ptr %ctx1.i, align 8
   %ctx.sroa.3.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 1), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
   %ctx.sroa.32.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 40
   store i32 19391, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i, align 8
   %ctx.sroa.5.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 44
@@ -2785,11 +2785,11 @@ do.end417:                                        ; preds = %do.body409
   %ctx1.i243 = getelementptr inbounds i8, ptr %call411, i64 16
   store i64 9, ptr %ctx1.i243, align 8
   %ctx.sroa.3.0.ctx1.sroa_idx.i244 = getelementptr inbounds i8, ptr %call411, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i244, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 1), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i244, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
   %ctx.sroa.32.0.ctx1.sroa_idx.i245 = getelementptr inbounds i8, ptr %call411, i64 40
   store i32 0, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i245, align 8
   %ctx.sroa.4.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call411, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %ctx.sroa.4.0.ctx1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 4), i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %ctx.sroa.4.0.ctx1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @dflt_ctx, i64 28), i64 20, i1 false)
   %capitals.i246 = getelementptr inbounds i8, ptr %call411, i64 80
   store i32 1, ptr %capitals.i246, align 8
   %84 = load ptr, ptr %extended_context_template, align 8
@@ -33341,7 +33341,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 25), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyTuple_Type, i64 216), align 8
   %SignalTuple = getelementptr inbounds i8, ptr %call.val.i, i64 160
   %5 = load ptr, ptr %SignalTuple, align 8
   %call3 = tail call ptr %4(ptr noundef %5) #15

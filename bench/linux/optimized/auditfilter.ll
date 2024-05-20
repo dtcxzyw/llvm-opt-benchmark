@@ -167,7 +167,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -22, 1) i32 @audit_register_class(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 256) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %30, label %.preheader
@@ -261,7 +261,7 @@ define dso_local range(i32 0, -2147483647) i32 @audit_match_class(i32 noundef %0
 define dso_local ptr @audit_dupe_rule(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 276
   %3 = load i32, ptr %2, align 4
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(408) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 408) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7, !prof !8
@@ -702,7 +702,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nocap
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @classes, i64 0, i64 8), align 16
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @classes, i64 64), align 16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit7, label %.preheader5
 
@@ -722,7 +722,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nocap
   br i1 %18, label %9, label %.loopexit
 
 .loopexit7:                                       ; preds = %9, %5
-  %19 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @classes, i64 0, i64 9), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @classes, i64 72), align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader
 
@@ -752,7 +752,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nocap
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @classes, i64 0, i64 8), align 16
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @classes, i64 64), align 16
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %.preheader8
 
@@ -773,7 +773,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nocap
 
 49:                                               ; preds = %31
   %50 = getelementptr inbounds i8, ptr %0, i64 48
-  %51 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @classes, i64 0, i64 9), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @classes, i64 72), align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.loopexit, label %.preheader11
 
@@ -1221,7 +1221,7 @@ define internal fastcc ptr @audit_data_to_entry(ptr noundef %0, i64 noundef %1) 
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(408) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 408) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19, !prof !8
@@ -1985,7 +1985,7 @@ define internal fastcc void @audit_log_rule_change(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @audit_list_rules_send(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 40) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %179, label %6

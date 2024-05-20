@@ -393,17 +393,17 @@ define void @_Z21gmx_omp_nthreads_initRKN3gmx8MDLoggerEP9t_commreciiiib(ptr noca
   br i1 %45, label %46, label %.thread.sink.split.i
 
 46:                                               ; preds = %44
-  store i32 %5, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %47 = icmp ugt i32 %5, 128
   br i1 %47, label %.critedge.i, label %.thread.i
 
 .critedge.i:                                      ; preds = %46
-  store i32 128, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   br label %48
 
 .thread.sink.split.i:                             ; preds = %44, %42
   %.sink.i = phi i32 [ %spec.select.i, %44 ], [ 0, %42 ]
-  store i32 %.sink.i, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %46
@@ -452,7 +452,7 @@ _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit.th
 
 _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit: ; preds = %.thread.i, %48, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i
   %61 = phi i32 [ %.pre54.i, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %spec.select.i, %48 ], [ %spec.select.i, %.thread.i ]
-  store i32 %61, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2, i32 0, i64 0), align 4
+  store i32 %61, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), align 4
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 1, i1 noundef zeroext %22)
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 2, i1 noundef zeroext %22)
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 3, i1 noundef zeroext %22)
@@ -490,7 +490,7 @@ _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit: ;
   br i1 %70, label %73, label %.thread.i14
 
 .thread.i14:                                      ; preds = %67
-  %72 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   br label %94
 
 73:                                               ; preds = %67
@@ -498,7 +498,7 @@ _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit: ;
   store i32 %74, ptr %8, align 16
   %75 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %71, ptr %75, align 4
-  %76 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %77 = sub nsw i32 0, %76
   %78 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %77, ptr %78, align 8
@@ -731,7 +731,7 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
   %or.cond = and i1 %17, %2
   %.pre = load i32, ptr %4, align 4
   %or.cond.not = xor i1 %or.cond, true
-  %18 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %.not17 = icmp eq i32 %.pre, %18
   %or.cond20 = select i1 %or.cond.not, i1 true, i1 %.not17
   %19 = load i32, ptr @_ZL5modth, align 4
@@ -775,7 +775,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %29
 35:                                               ; preds = %3
   %36 = icmp eq i32 %1, 5
   %or.cond3 = and i1 %36, %2
-  %37 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 1), align 4
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %38 = load i32, ptr @_ZL5modth, align 4
   %39 = select i1 %or.cond3, i32 %37, i32 %38
   store i32 %39, ptr %4, align 4
@@ -792,7 +792,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %29
 _Z20gmx_omp_nthreads_set17ModuleMultiThreadi.exit: ; preds = %40
   %42 = load i32, ptr %4, align 4
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2), i64 0, i64 %43
+  %44 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), i64 0, i64 %43
   store i32 %42, ptr %44, align 4
   ret void
 }
@@ -810,7 +810,7 @@ define void @_Z20gmx_omp_nthreads_set17ModuleMultiThreadi(i32 noundef %0, i32 no
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2), i64 0, i64 %5
+  %6 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), i64 0, i64 %5
   store i32 %1, ptr %6, align 4
   ret void
 }
@@ -824,7 +824,7 @@ define noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef %0) 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2), i64 0, i64 %3
+  %4 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   br label %6
 

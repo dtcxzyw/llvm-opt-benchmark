@@ -556,7 +556,7 @@ if.end:                                           ; preds = %if.else.i.i, %_ZNK4
 define linkonce_odr dso_local void @_ZN4node15TimerWrapHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %search.i.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node15TimerWrapHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15TimerWrapHandleE, i64 16), ptr %this, align 8
   %timer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -603,7 +603,7 @@ _ZN4node15TimerWrapHandle5CloseEv.exit:           ; preds = %entry, %if.then.i
 define linkonce_odr dso_local void @_ZN4node15TimerWrapHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %search.i.i.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node15TimerWrapHandleE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15TimerWrapHandleE, i64 16), ptr %this, align 8
   %timer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1264,7 +1264,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.302", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16

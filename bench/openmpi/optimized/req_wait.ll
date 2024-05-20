@@ -351,10 +351,10 @@ ompi_request_wait_completion.exit:                ; preds = %.preheader20.i, %11
 156:                                              ; preds = %155
   %157 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %157, ptr %1, align 8
-  %158 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %158 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %159 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %158, ptr %159, align 8
-  %160 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %160 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %161 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %160, ptr %161, align 4
   br label %171
@@ -501,10 +501,10 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %32, %40, %opal_t
 55:                                               ; preds = %54
   %56 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %56, ptr %3, align 8
-  %57 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %58 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %57, ptr %58, align 8
-  %59 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %60 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %59, ptr %60, align 4
   br label %61
@@ -1208,7 +1208,7 @@ opal_thread_compare_exchange_strong_ptr.exit138:  ; preds = %132, %135, %127
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %176
-  %182 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 2), align 8
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 8), align 8
   br label %217
 
 183:                                              ; preds = %176

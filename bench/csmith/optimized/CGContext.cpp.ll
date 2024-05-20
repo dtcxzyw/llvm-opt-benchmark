@@ -4218,21 +4218,21 @@ define internal void @_GLOBAL__sub_I_CGContext.cpp() #14 section ".text.startup"
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9CGContext18empty_variable_setE, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev, ptr nonnull @_ZN9CGContext18empty_variable_setE, ptr nonnull @__dso_handle) #18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 24), i8 0, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZN9CGContext13empty_contextE, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1), i8 0, i64 16, i1 false)
-  store ptr @_ZN6Effect12empty_effectE, ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 9), align 8
-  store ptr null, ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 10), align 8
-  invoke void @_ZN6EffectC1Ev(ptr noundef nonnull align 8 dereferenceable(74) getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 0))
+  store ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 72), ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 88), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 72), ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 96), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 104), i8 0, i64 16, i1 false)
+  store ptr @_ZN6Effect12empty_effectE, ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 120), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 128), align 8
+  invoke void @_ZN6EffectC1Ev(ptr noundef nonnull align 8 dereferenceable(74) getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 136))
           to label %__cxx_global_var_init.2.exit unwind label %3
 
 3:                                                ; preds = %0
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 0)) #18
-  %5 = load ptr, ptr getelementptr inbounds (%class.CGContext, ptr @_ZN9CGContext13empty_contextE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0), align 8
+  tail call void @_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 64)) #18
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9CGContext13empty_contextE, i64 24), align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit.i.i, label %6
 

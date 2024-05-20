@@ -5529,7 +5529,7 @@ define hidden { ptr, ptr } @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value
 "_ZN126_$LT$clap_builder..builder..value_parser..BoolValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$15possible_values17h489cefe66d59d056E.exit": ; preds = %1
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr %.fca.0.extract.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i, i64 8
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 1, i32 0), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32), ptr %5, align 8
   %6 = insertvalue { ptr, ptr } poison, ptr %.fca.0.extract.i.i, 0
   %7 = insertvalue { ptr, ptr } %6, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.83.llvm.567936041081457991, 1
   ret { ptr, ptr } %7

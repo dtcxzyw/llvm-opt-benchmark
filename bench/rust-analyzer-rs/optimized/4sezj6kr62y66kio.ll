@@ -331,7 +331,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !52
   store ptr %84, ptr %6, align 8, !noalias !52
   store i64 %87, ptr %24, align 8, !noalias !52
-  store ptr getelementptr inbounds (<{ [16 x i8] }>, ptr @anon.2e41b453ec379ad870f26bf22901bf86.24, i64 0, i32 0, i64 1), ptr %25, align 8, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @anon.2e41b453ec379ad870f26bf22901bf86.24, i64 1), ptr %25, align 8, !noalias !52
   store i64 15, ptr %26, align 8, !noalias !52
   %96 = icmp ugt i64 %87, 79
   br i1 %96, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i

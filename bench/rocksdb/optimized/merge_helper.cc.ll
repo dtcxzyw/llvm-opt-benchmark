@@ -1312,7 +1312,7 @@ if.then.i.i.i.i11.i.i.i:                          ; preds = %sw.bb2.i.i.i
 land.rhs.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i11.i.i.i
   %call.i.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #22, !noalias !110
   %call2.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #22, !noalias !110
-  %34 = load i64, ptr getelementptr inbounds (%"class.rocksdb::Slice", ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 0, i32 1), align 8, !noalias !110
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb22kDefaultWideColumnNameE, i64 8), align 8, !noalias !110
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i.i.i.i.i.i, %34
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN7rocksdbeqERKNS_5SliceES2_.exit.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
@@ -3620,7 +3620,7 @@ if.then365:                                       ; preds = %_ZNK7rocksdb12Merge
   %283 = load ptr, ptr %logger_, align 8
   %conv369 = trunc i64 %11 to i32
   %conv370 = trunc i64 %sub.ptr.div.i.i569 to i32
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %283, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([112 x i8], ptr @.str.1, i64 0, i64 93), i32 noundef %conv369, i32 noundef %conv370)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %283, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 93), i32 noundef %conv369, i32 noundef %conv370)
           to label %if.then365.if.end373_crit_edge unwind label %lpad8.loopexit.split-lp
 
 if.then365.if.end373_crit_edge:                   ; preds = %if.then365

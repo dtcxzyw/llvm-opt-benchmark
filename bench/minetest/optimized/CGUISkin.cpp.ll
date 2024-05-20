@@ -264,8 +264,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !27
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 632
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !29
-  store ptr getelementptr inbounds inrange(-24, 200) ({ [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 200) (i8, ptr @_ZTVN3irr3gui8CGUISkinE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui8CGUISkinE, i64 248), ptr %0, align 8, !tbaa !3
   %SpriteBank = getelementptr inbounds i8, ptr %this, i64 336
   store ptr null, ptr %SpriteBank, align 8, !tbaa !6
   %arrayctor.cur5.ptr = getelementptr inbounds i8, ptr %this, i64 344

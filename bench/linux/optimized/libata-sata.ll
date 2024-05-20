@@ -1773,7 +1773,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_slave_link_init(ptr noundef 
   br label %12
 
 12:                                               ; preds = %11, %6
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(6464) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 6464) #14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16

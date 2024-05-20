@@ -333,7 +333,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %13
-  %17 = tail call zeroext i1 @memblock_overlaps_region(ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), i64 noundef %13, i64 noundef %16) #15
+  %17 = tail call zeroext i1 @memblock_overlaps_region(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %13, i64 noundef %16) #15
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %.preheader
@@ -831,7 +831,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr nocapture no
   store i64 0, ptr @numa_nodes_parsed, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @node_states, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3080) @numa_meminfo, i8 0, i64 3080, i1 false)
-  %2 = tail call i32 @memblock_set_node(i64 noundef 0, i64 noundef -1, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), i32 noundef 64) #15
+  %2 = tail call i32 @memblock_set_node(i64 noundef 0, i64 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i32 noundef 64) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %5, label %4, !prof !14
 
@@ -842,7 +842,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr nocapture no
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = tail call i32 @memblock_set_node(i64 noundef 0, i64 noundef -1, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), i32 noundef 64) #15
+  %6 = tail call i32 @memblock_set_node(i64 noundef 0, i64 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), i32 noundef 64) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8, !prof !14
 
@@ -911,7 +911,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr nocapture no
 
 40:                                               ; preds = %36
   %41 = sext i32 %38 to i64
-  %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %41) #15, !srcloc !33
+  %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %41) #15, !srcloc !33
   %43 = icmp ult i8 %42, 2
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i8 %42, 0
@@ -987,7 +987,7 @@ define internal noundef i32 @dummy_numa_init() #0 section ".init.text" align 16 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @init_gi_nodes() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 5), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 40), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %.thread, label %3
 
@@ -1000,15 +1000,15 @@ define dso_local void @init_gi_nodes() local_unnamed_addr #0 section ".init.text
 .preheader:                                       ; preds = %3, %25
   %7 = phi i32 [ %27, %25 ], [ %5, %3 ]
   %8 = zext nneg i32 %7 to i64
-  %9 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %8) #15, !srcloc !33
+  %9 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %8) #15, !srcloc !33
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.preheader
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %8) #15, !srcloc !15
-  %13 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %8) #15, !srcloc !15
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #19, !srcloc !36
   %15 = trunc i64 %14 to i32
   store i32 %15, ptr @nr_online_nodes, align 4
@@ -1020,7 +1020,7 @@ define dso_local void @init_gi_nodes() local_unnamed_addr #0 section ".init.text
 
 18:                                               ; preds = %16
   %19 = add nuw nsw i32 %7, 1
-  %20 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 5), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 40), align 8
   %21 = zext nneg i32 %19 to i64
   %22 = shl nsw i64 -1, %21
   %23 = and i64 %20, %22
@@ -1099,15 +1099,15 @@ define dso_local void @init_cpu_to_node() local_unnamed_addr #0 section ".init.t
 
 34:                                               ; preds = %28
   %35 = sext i16 %31 to i64
-  %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %35) #15, !srcloc !33
+  %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %35) #15, !srcloc !33
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
   %38 = icmp eq i8 %36, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %34
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %35) #15, !srcloc !15
-  %40 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %35) #15, !srcloc !15
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %41 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %40) #19, !srcloc !36
   %42 = trunc i64 %41 to i32
   store i32 %42, ptr @nr_online_nodes, align 4
@@ -1283,7 +1283,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
   %30 = sub i64 %29, %27
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   %32 = load i32, ptr %31, align 8
-  %33 = tail call i32 @memblock_set_node(i64 noundef %27, i64 noundef %30, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), i32 noundef %32) #15
+  %33 = tail call i32 @memblock_set_node(i64 noundef %27, i64 noundef %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i32 noundef %32) #15
   %34 = add nuw nsw i64 %25, 1
   %35 = load i32, ptr @numa_meminfo, align 8
   %36 = sext i32 %35 to i64
@@ -1387,7 +1387,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: read)
 define internal fastcc void @numa_init_array() unnamed_addr #12 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %6, label %3
 
@@ -1442,7 +1442,7 @@ define internal fastcc void @numa_init_array() unnamed_addr #12 section ".init.t
   store i32 %15, ptr %32, align 4
   %33 = icmp ugt i32 %15, 62
   %.pre = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
-  %.pr.pre = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  %.pr.pre = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   br i1 %33, label %.thread7, label %34, !prof !18
 
 34:                                               ; preds = %.thread6
@@ -1496,14 +1496,14 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 
 .preheader7:                                      ; preds = %0, %15
   %4 = phi i64 [ %16, %15 ], [ 0, %0 ]
-  %5 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (%struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1), i64 %4
+  %5 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (i8, ptr @numa_meminfo, i64 8), i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %8, %6
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i32 @memblock_set_node(i64 noundef %6, i64 noundef %9, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), i32 noundef %11) #15
+  %12 = tail call i32 @memblock_set_node(i64 noundef %6, i64 noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), i32 noundef %11) #15
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %15, label %14, !prof !14
 
@@ -1522,8 +1522,8 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 
 .loopexit8:                                       ; preds = %15, %0
   %20 = phi i32 [ %2, %0 ], [ %17, %15 ]
-  %21 = load ptr, ptr getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3, i32 3), align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @memblock, i64 80), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 56), align 8
   %23 = getelementptr %struct.memblock_region, ptr %21, i64 %22
   %24 = icmp ult ptr %21, %23
   br i1 %24, label %.preheader5, label %.loopexit6
@@ -1549,8 +1549,8 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 33:                                               ; preds = %.preheader5
   %34 = sext i32 %31 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %34) #15, !srcloc !15
-  %.pre = load ptr, ptr getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3, i32 3), align 8
-  %.pre9 = load i64, ptr getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @memblock, i64 80), align 8
+  %.pre9 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 56), align 8
   br label %35
 
 35:                                               ; preds = %33, %.preheader5
@@ -1563,7 +1563,7 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 
 .preheader:                                       ; preds = %.loopexit6, %55
   %41 = phi i64 [ %56, %55 ], [ 0, %.loopexit6 ]
-  %42 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (%struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1), i64 %41
+  %42 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (i8, ptr @numa_meminfo, i64 8), i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -1626,8 +1626,8 @@ define internal fastcc void @alloc_node_data(i32 noundef %0) unnamed_addr #0 sec
   %19 = getelementptr [64 x ptr], ptr @node_data, i64 0, i64 %18
   store ptr %9, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 64 dereferenceable(14016) %9, i8 0, i64 14016, i1 false)
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %18) #15, !srcloc !15
-  %20 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %18) #15, !srcloc !15
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #19, !srcloc !36
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr @nr_online_nodes, align 4

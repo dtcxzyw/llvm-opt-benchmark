@@ -6077,7 +6077,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
   %179 = lshr i32 %178, 8
   %180 = and i32 %178, 255
   %181 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.0, i64 noundef 20, ptr noundef nonnull @.str.63, i32 noundef %179, i32 noundef %180) #10
-  %182 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([2 x [5 x i8]], ptr @ftp_state_use_port.mode, i64 0, i64 1), ptr noundef nonnull %11) #10
+  %182 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %11) #10
   %.not224 = icmp eq i32 %182, 0
   br i1 %.not224, label %.loopexit, label %183
 

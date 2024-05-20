@@ -1188,7 +1188,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %316, label %.thread109, label %317
 
 317:                                              ; preds = %314
-  %318 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %319 = call noalias align 8 dereferenceable_or_null(151) ptr @kmalloc_trace(ptr noundef %318, i32 noundef 3520, i64 noundef 151) #19
   %320 = icmp eq ptr %319, null
   br i1 %320, label %.thread109, label %321
@@ -2150,7 +2150,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %909 = phi ptr [ %907, %906 ], [ null, %905 ]
   %910 = zext i16 %903 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %909, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %910) #17
-  %911 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %911 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %912 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %911, i32 noundef 3520, i64 noundef 72) #19
   %913 = icmp eq ptr %912, null
   br i1 %913, label %.loopexit161, label %914
@@ -2427,7 +2427,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %1059, label %1089, label %1060
 
 1060:                                             ; preds = %1057
-  %1061 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %1061 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %1062 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %1061, i32 noundef 3520, i64 noundef 72) #19
   %1063 = icmp eq ptr %1062, null
   br i1 %1063, label %1092, label %1064
@@ -3691,7 +3691,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br label %.thread71
 
 220:                                              ; preds = %204
-  %221 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %221 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %222 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %221, i32 noundef 3520, i64 noundef 120) #19
   %223 = icmp eq ptr %222, null
   br i1 %223, label %.thread71, label %224
@@ -3852,7 +3852,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %332 = sext i32 %305 to i64
   %333 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %331, i64 0, i64 %332, i32 1
   %334 = load i16, ptr %333, align 1
-  %335 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %336 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %335, i32 noundef 3520, i64 noundef 120) #19
   %337 = icmp eq ptr %336, null
   br i1 %337, label %397, label %338
@@ -4333,7 +4333,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br i1 %648, label %.thread77.preheader, label %649
 
 649:                                              ; preds = %646
-  %650 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %650 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %651 = call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %650, i32 noundef 3520, i64 noundef 120) #19
   %652 = icmp eq ptr %651, null
   br i1 %652, label %.thread77.preheader, label %653

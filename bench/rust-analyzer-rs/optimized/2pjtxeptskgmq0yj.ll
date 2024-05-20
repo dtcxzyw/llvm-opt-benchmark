@@ -5399,7 +5399,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h2906badfe1326c7d
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -11869,7 +11869,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %55
 138:                                              ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread94.i"
   %139 = icmp ult i64 %137, 5
   call void @llvm.assume(i1 %139)
-  %140 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 0, i32 2, i32 0) monotonic, align 8, !noalias !3149
+  %140 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 16) monotonic, align 8, !noalias !3149
   switch i8 %140, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread99.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -16805,7 +16805,7 @@ define hidden noundef nonnull align 8 dereferenceable(320) ptr @_ZN14ide_complet
 47:                                               ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread94"
   %48 = icmp ult i64 %46, 5
   tail call void @llvm.assume(i1 %48)
-  %49 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %49 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 16) monotonic, align 8
   switch i8 %49, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread99
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17135,7 +17135,7 @@ define hidden noundef nonnull align 8 dereferenceable(320) ptr @_ZN14ide_complet
 48:                                               ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread99"
   %49 = icmp ult i64 %47, 5
   tail call void @llvm.assume(i1 %49)
-  %50 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 16) monotonic, align 8
   switch i8 %50, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread104
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -17467,7 +17467,7 @@ define hidden noundef nonnull align 8 dereferenceable(320) ptr @_ZN14ide_complet
 47:                                               ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread91"
   %48 = icmp ult i64 %46, 5
   tail call void @llvm.assume(i1 %48)
-  %49 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 0, i32 2, i32 0) monotonic, align 8
+  %49 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion4item7Builder10set_detail10__CALLSITE17hd5df0b7dfc7bc5e5E, i64 16) monotonic, align 8
   switch i8 %49, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread96
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -18273,7 +18273,7 @@ define hidden void @_ZN14ide_completion6render6macro_12render_macro17hb3197718d9
   br i1 %16, label %17, label %.thread39
 
 17:                                               ; preds = %14
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion6render6macro_12render_macro10__CALLSITE17hb97260007a417199E, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion6render6macro_12render_macro10__CALLSITE17hb97260007a417199E, i64 16) monotonic, align 8
   switch i8 %18, label %19 [
     i8 0, label %.thread39
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -18416,7 +18416,7 @@ define hidden void @_ZN14ide_completion6render6macro_16render_macro_pat17hc97216
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
-  %18 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN14ide_completion6render6macro_16render_macro_pat10__CALLSITE17hd46f7b335eb9e2d8E, i64 0, i32 1, i64 8) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ide_completion6render6macro_16render_macro_pat10__CALLSITE17hd46f7b335eb9e2d8E, i64 16) monotonic, align 8
   switch i8 %18, label %19 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -18946,7 +18946,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h7c362aeed6070f49E.exit.i: ;
   %.sroa.519.0..sroa_idx20.i.i = getelementptr inbounds i8, ptr %27, i64 16
   store ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, ptr %.sroa.519.0..sroa_idx20.i.i, align 8, !noalias !4630
   %.sroa.6.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr getelementptr inbounds (<{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, i64 1, i32 0), ptr %.sroa.6.0..sroa_idx22.i.i, align 8, !noalias !4630
+  store ptr getelementptr inbounds (i8, ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, i64 96), ptr %.sroa.6.0..sroa_idx22.i.i, align 8, !noalias !4630
   %.sroa.624.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %27, i64 32
   store i64 1, ptr %.sroa.624.0..sroa_idx25.i.i, align 8, !noalias !4630
   %.sroa.8.0..sroa_idx27.i.i = getelementptr inbounds i8, ptr %27, i64 40

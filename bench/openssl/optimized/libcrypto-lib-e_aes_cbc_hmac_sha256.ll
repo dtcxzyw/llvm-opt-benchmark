@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cbc_hmac_sha256() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -38,7 +38,7 @@ declare i32 @aesni_cbc_sha256_enc(ptr noundef, ptr noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cbc_hmac_sha256() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -128,13 +128,13 @@ if.else11:                                        ; preds = %if.else
 if.end17:                                         ; preds = %if.else11, %if.then4
   %iv.0 = phi i64 [ 0, %if.then4 ], [ %spec.select, %if.else11 ]
   %plen.0 = phi i64 [ %len, %if.then4 ], [ %0, %if.else11 ]
-  %4 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and18 = and i32 %4, 536870912
   %tobool19.not = icmp eq i32 %and18, 0
   br i1 %tobool19.not, label %lor.lhs.false, label %land.lhs.true25
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %5 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and20 = and i32 %5, 268435456
   %tobool21.not = icmp eq i32 %and20, 0
   br i1 %tobool21.not, label %if.end60, label %land.lhs.true
@@ -1339,7 +1339,7 @@ if.end134:                                        ; preds = %if.then130
   br i1 %cmp135, label %land.lhs.true, label %if.end151
 
 land.lhs.true:                                    ; preds = %if.end134
-  %30 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4
   %and137 = and i32 %30, 32
   %tobool138.not = icmp eq i32 %and137, 0
   %spec.select = select i1 %tobool138.not, i32 1, i32 2

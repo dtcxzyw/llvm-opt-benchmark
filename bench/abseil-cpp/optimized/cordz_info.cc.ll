@@ -29,7 +29,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4absl13cord_internal9CordzInfo4HeadERKNS0_13CordzSnapshotE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %snapshot) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds ({ { { i32 } }, %"struct.std::atomic.1" }, ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, i64 0, i32 1) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, i64 8) acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
   ret ptr %atomic-temp.i.0.i
 }
@@ -53,7 +53,7 @@ invoke.cont:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 0, i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %call, align 8
   %list_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, ptr %list_.i, align 8
   %ci_prev_.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -532,7 +532,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4absl13cord_internal9CordzInfoC2EPNS0_7CordRepEPKS1_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %this, ptr noundef %rep, ptr noundef readonly %src, i32 noundef %method) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %this, align 8
   %list_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, ptr %list_, align 8
   %ci_prev_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -660,7 +660,7 @@ declare void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl13cord_internal9CordzInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %rep_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -702,7 +702,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl13cord_internal9CordzInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %this, align 8
   %rep_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %rep_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null

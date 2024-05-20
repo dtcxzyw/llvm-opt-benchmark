@@ -179,7 +179,7 @@ define ptr @pcre_get_compiled_regex_cache_ex(ptr noundef %0, i1 noundef zeroext 
   %9 = alloca %struct._pcre_cache_entry, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %13 = icmp ne ptr %12, null
   %or.cond = select i1 %1, i1 %13, i1 false
   br i1 %or.cond, label %14, label %22
@@ -280,7 +280,7 @@ define ptr @pcre_get_compiled_regex_cache_ex(ptr noundef %0, i1 noundef zeroext 
 
 64:                                               ; preds = %54, %63, %58, %53
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %356
 
 65:                                               ; preds = %51
@@ -320,7 +320,7 @@ switch.early.test:                                ; preds = %65
 
 78:                                               ; preds = %68, %77, %72, %67
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %356
 
 79:                                               ; preds = %switch.early.test
@@ -431,7 +431,7 @@ switch.early.test:                                ; preds = %65
 123:                                              ; preds = %113, %122, %117, %112
   %.str.3..str.4 = select i1 %111, ptr @.str.3, ptr @.str.4
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.3..str.4, i32 noundef %.pre-phi570) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %356
 
 124:                                              ; preds = %.loopexit
@@ -516,7 +516,7 @@ switch.early.test:                                ; preds = %65
   br label %154
 
 154:                                              ; preds = %153, %151
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   tail call void @_efree(ptr noundef %128) #23
   %.not522 = icmp eq ptr %.0464, %0
   br i1 %.not522, label %356, label %155
@@ -553,7 +553,7 @@ switch.early.test:                                ; preds = %65
   br i1 %.not502, label %216, label %167
 
 167:                                              ; preds = %._crit_edge
-  %168 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %169 = tail call ptr @zend_hash_find(ptr noundef nonnull @char_tables, ptr noundef %168) #23
   %.not503 = icmp eq ptr %169, null
   br i1 %.not503, label %172, label %170
@@ -570,7 +570,7 @@ switch.early.test:                                ; preds = %65
 
 175:                                              ; preds = %172
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.7) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %176 = getelementptr inbounds i8, ptr %.0464, i64 4
   %177 = load i32, ptr %176, align 4
   %178 = and i32 %177, 64
@@ -595,7 +595,7 @@ switch.early.test:                                ; preds = %65
   br label %356
 
 186:                                              ; preds = %172
-  %187 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 3), align 8
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 72), align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 24
   %189 = getelementptr inbounds i8, ptr %187, i64 16
   %190 = load i64, ptr %189, align 8
@@ -691,12 +691,12 @@ switch.early.test:                                ; preds = %65
   %235 = call i32 @php_pcre2_get_error_message(i32 noundef %234, ptr noundef nonnull %6, i64 noundef 128) #23
   %236 = load i64, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %6, i64 noundef %236) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   call void @_efree(ptr noundef %128) #23
   br label %356
 
 237:                                              ; preds = %216
-  %238 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  %238 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %239 = trunc i8 %238 to i1
   br i1 %239, label %240, label %253
 
@@ -721,19 +721,19 @@ switch.early.test:                                ; preds = %65
 
 250:                                              ; preds = %248
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #23
-  store i8 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   br label %253
 
 251:                                              ; preds = %248
   %252 = call i32 @php_pcre2_get_error_message(i32 noundef %241, ptr noundef nonnull %6, i64 noundef 128) #23
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %253
 
 253:                                              ; preds = %243, %251, %250, %237
   %.0467 = phi i32 [ 0, %250 ], [ 0, %251 ], [ 0, %237 ], [ %spec.select532, %243 ]
   call void @_efree(ptr noundef %128) #23
-  %254 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 0, i32 5), align 4
+  %254 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 28), align 4
   %255 = icmp eq i32 %254, 4096
   br i1 %255, label %256, label %257
 
@@ -780,7 +780,7 @@ switch.early.test:                                ; preds = %65
 
 275:                                              ; preds = %265, %274, %269, %264
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %262) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %356
 
 276:                                              ; preds = %257
@@ -814,7 +814,7 @@ switch.early.test:                                ; preds = %65
 
 291:                                              ; preds = %281, %290, %285, %280
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %278) #23
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %356
 
 292:                                              ; preds = %276
@@ -825,7 +825,7 @@ switch.early.test:                                ; preds = %65
   br i1 %.not510, label %296, label %334
 
 296:                                              ; preds = %292
-  %297 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 4), align 1
+  %297 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
   %298 = trunc i8 %297 to i1
   br i1 %298, label %334, label %299
 
@@ -855,7 +855,7 @@ switch.early.test:                                ; preds = %65
   br i1 %.not511, label %322, label %313
 
 313:                                              ; preds = %299
-  %314 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 0, i32 0, i32 1), align 4
+  %314 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 4), align 4
   %315 = and i32 %314, 128
   %.not512 = icmp eq i32 %315, 0
   br i1 %.not512, label %318, label %316
@@ -912,7 +912,7 @@ switch.early.test:                                ; preds = %65
   br i1 %.not515, label %346, label %337
 
 337:                                              ; preds = %334
-  %338 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 0, i32 0, i32 1), align 4
+  %338 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 4), align 4
   %339 = and i32 %338, 128
   %.not516 = icmp eq i32 %339, 0
   br i1 %.not516, label %342, label %340
@@ -994,7 +994,7 @@ define internal fastcc void @pcre_handle_exec_error(i32 noundef %0) unnamed_addr
 
 7:                                                ; preds = %5, %1, %4, %3, %2
   %.0 = phi i32 [ 6, %4 ], [ 5, %3 ], [ 3, %2 ], [ 2, %1 ], [ %., %5 ]
-  store i32 %.0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 %.0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   ret void
 }
 
@@ -1191,7 +1191,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
   br label %.thread
 
 36:                                               ; preds = %28
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %387
@@ -1218,7 +1218,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
 
 48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.13) #23
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %50 = icmp ne ptr %49, null
   tail call void @llvm.assume(i1 %50)
   br label %387
@@ -1237,7 +1237,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %51
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %57 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 2, ptr %57, align 8
   br label %387
@@ -1267,7 +1267,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
 
 70:                                               ; preds = %66, %63, %58
   %.0440 = phi ptr [ %67, %66 ], [ null, %63 ], [ null, %58 ]
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %71 = load i8, ptr @mdata_used, align 1
   %72 = trunc nuw i8 %71 to i1
   %73 = icmp ugt i32 %61, 32
@@ -1280,13 +1280,13 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr %0, align 8
-  %78 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %79 = tail call ptr @php_pcre2_match_data_create_from_pattern(ptr noundef %77, ptr noundef %78) #23
   %.not490 = icmp eq ptr %79, null
   br i1 %.not490, label %80, label %97
 
 80:                                               ; preds = %76
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not491 = icmp eq ptr %.0440, null
   br i1 %.not491, label %95, label %81
 
@@ -1818,7 +1818,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   br i1 %308, label %309, label %310
 
 309:                                              ; preds = %307
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %.loopexit548
 
 310:                                              ; preds = %307
@@ -1978,7 +1978,7 @@ free_subpats_table.exit534:                       ; preds = %367, %354
   br label %368
 
 368:                                              ; preds = %free_subpats_table.exit534, %353
-  %369 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  %369 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %371, label %385
 
@@ -2174,7 +2174,7 @@ define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture nound
   br i1 %.not109, label %25, label %16
 
 16:                                               ; preds = %15
-  %17 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread120, label %22
 
@@ -2187,15 +2187,15 @@ define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture nound
   %20 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 4, ptr %20, align 8
   %21 = call ptr @zend_new_pair(ptr noundef nonnull %9, ptr noundef nonnull %10) #23
-  store ptr %21, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6), align 8
-  store i32 775, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 80), align 8
+  store i32 775, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %.sink.split.sink.split
 
 22:                                               ; preds = %16
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6), align 8
-  %.pre116 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 80), align 8
+  %.pre116 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   store ptr %.pre, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %.pre116, ptr %23, align 8
@@ -2204,7 +2204,7 @@ define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture nound
   br i1 %.not111, label %60, label %.sink.split
 
 25:                                               ; preds = %15
-  %26 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7, i32 1), align 8
+  %26 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 104), align 8
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread122, label %32
 
@@ -2219,15 +2219,15 @@ define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture nound
   %30 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 4, ptr %30, align 8
   %31 = call ptr @zend_new_pair(ptr noundef nonnull %7, ptr noundef nonnull %8) #23
-  store ptr %31, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7), align 8
-  store i32 775, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7, i32 1), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 96), align 8
+  store i32 775, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 104), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %.sink.split.sink.split
 
 32:                                               ; preds = %25
-  %.pre118 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7), align 8
-  %.pre119 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7, i32 1), align 8
+  %.pre118 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 96), align 8
+  %.pre119 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 104), align 8
   store ptr %.pre118, ptr %11, align 8
   %33 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %.pre119, ptr %33, align 8
@@ -2603,7 +2603,7 @@ add_named.exit:                                   ; preds = %82, %77, %79, %71
 111:                                              ; preds = %.lr.ph304, %add_offset_pair.exit
   %.5303 = phi i32 [ %5, %.lr.ph304 ], [ %120, %add_offset_pair.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %112 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  %112 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %.thread120.i, label %115
 
@@ -2614,8 +2614,8 @@ add_named.exit:                                   ; preds = %82, %77, %79, %71
   store i64 -1, ptr %10, align 8
   store i32 4, ptr %110, align 8
   %114 = call ptr @zend_new_pair(ptr noundef nonnull %9, ptr noundef nonnull %10) #23
-  store ptr %114, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6), align 8
-  store i32 775, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  store ptr %114, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 80), align 8
+  store i32 775, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   store ptr %114, ptr %11, align 8
@@ -2623,8 +2623,8 @@ add_named.exit:                                   ; preds = %82, %77, %79, %71
   br label %.sink.split.i
 
 115:                                              ; preds = %111
-  %.pre.i = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6), align 8
-  %.pre116.i = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 80), align 8
+  %.pre116.i = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
   store ptr %.pre.i, ptr %11, align 8
   store i32 %.pre116.i, ptr %108, align 8
   %116 = and i32 %.pre116.i, 65280
@@ -3047,7 +3047,7 @@ define hidden void @zif_preg_match_all(ptr noundef %0, ptr nocapture noundef wri
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre_replace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %19
 
@@ -3077,7 +3077,7 @@ define ptr @php_pcre_replace_impl(ptr nocapture noundef readonly %0, ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %11 = load i8, ptr @mdata_used, align 1
   %12 = trunc nuw i8 %11 to i1
   %13 = icmp ugt i32 %10, 32
@@ -3090,13 +3090,13 @@ define ptr @php_pcre_replace_impl(ptr nocapture noundef readonly %0, ptr noundef
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %19 = tail call ptr @php_pcre2_match_data_create_from_pattern(ptr noundef %17, ptr noundef %18) #23
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %358
 
 21:                                               ; preds = %16, %14
@@ -3172,7 +3172,7 @@ define ptr @php_pcre_replace_impl(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %51, label %52, label %63
 
 52:                                               ; preds = %48
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not537 = icmp eq ptr %.1462, null
   br i1 %.not537, label %355, label %53
 
@@ -3750,7 +3750,7 @@ preg_get_backref.exit548.thread:                  ; preds = %188, %214, %198, %1
 
 pcre_handle_exec_error.exit:                      ; preds = %.loopexit580, %328, %329, %330, %331
   %.0.i = phi i32 [ 6, %330 ], [ 5, %329 ], [ 3, %328 ], [ 2, %.loopexit580 ], [ %..i, %331 ]
-  store i32 %.0.i, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 %.0.i, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not528 = icmp eq ptr %.5, null
   br i1 %.not528, label %355, label %333
 
@@ -4169,7 +4169,7 @@ define internal fastcc void @_preg_replace_common(ptr nocapture noundef writeonl
 
 15:                                               ; preds = %10
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.24) #23
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %156
@@ -4188,7 +4188,7 @@ define internal fastcc void @_preg_replace_common(ptr nocapture noundef writeonl
   %22 = getelementptr inbounds i8, ptr %6, i64 24
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %.loopexit.sink.split
 
@@ -4333,7 +4333,7 @@ php_pcre_replace.exit:                            ; preds = %29, %36
   %94 = getelementptr inbounds i8, ptr %.0153, i64 24
   %95 = getelementptr inbounds i8, ptr %.0153, i64 16
   %96 = load i64, ptr %95, align 8
-  %97 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i187 = icmp eq ptr %97, null
   br i1 %.not.i187, label %98, label %php_pcre_replace.exit189.thread
 
@@ -5104,7 +5104,7 @@ define hidden void @zif_preg_replace_callback_array(ptr noundef %0, ptr nocaptur
 
 131:                                              ; preds = %126, %110
   %.4 = phi ptr [ %.3384, %126 ], [ %111, %110 ]
-  %132 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not330 = icmp eq ptr %132, null
   br i1 %.not330, label %133, label %.loopexit
 
@@ -5382,7 +5382,7 @@ define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef 
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   switch i64 %3, label %16 [
     i64 -1, label %18
     i64 0, label %18
@@ -5406,13 +5406,13 @@ define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef 
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %27 = tail call ptr @php_pcre2_match_data_create_from_pattern(ptr noundef %25, ptr noundef %26) #23
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %29
 
 28:                                               ; preds = %24
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #23
   store i32 2, ptr %12, align 8
   br label %248
@@ -5760,7 +5760,7 @@ define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef 
 .loopexit411.sink.split:                          ; preds = %58, %177, %176, %175, %174, %.loopexit412
   %.0.i.sink = phi i32 [ 6, %176 ], [ 5, %175 ], [ 3, %174 ], [ 2, %.loopexit412 ], [ %..i, %177 ], [ 1, %58 ]
   %.3371.ph = phi i64 [ %.2370, %176 ], [ %.2370, %175 ], [ %.2370, %174 ], [ %.2370, %.loopexit412 ], [ %.2370, %177 ], [ %.1369, %58 ]
-  store i32 %.0.i.sink, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 %.0.i.sink, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit410, %156, %145, %.loopexit411.sink.split, %._crit_edge
@@ -5774,7 +5774,7 @@ define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef 
   br label %195
 
 195:                                              ; preds = %194, %.loopexit411
-  %196 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  %196 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not404 = icmp eq i32 %196, 0
   br i1 %.not404, label %198, label %197
 
@@ -6243,7 +6243,7 @@ define void @php_pcre_grep_impl(ptr nocapture noundef readonly %0, ptr nocapture
   store ptr %8, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 775, ptr %9, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %10 = load i8, ptr @mdata_used, align 1
   %11 = trunc nuw i8 %10 to i1
   %12 = add i32 %7, -32
@@ -6257,13 +6257,13 @@ define void @php_pcre_grep_impl(ptr nocapture noundef readonly %0, ptr nocapture
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %19 = tail call ptr @php_pcre2_match_data_create_from_pattern(ptr noundef %17, ptr noundef %18) #23
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   br label %127
 
 21:                                               ; preds = %16, %14
@@ -6448,7 +6448,7 @@ pcre_handle_exec_error.exit.loopexit:             ; preds = %86
 
 pcre_handle_exec_error.exit:                      ; preds = %86, %pcre_handle_exec_error.exit.loopexit, %pcre_handle_exec_error.exit.loopexit168, %pcre_handle_exec_error.exit.loopexit158, %100
   %.0.i = phi i32 [ %..i, %100 ], [ 5, %pcre_handle_exec_error.exit.loopexit158 ], [ 6, %pcre_handle_exec_error.exit.loopexit168 ], [ 2, %pcre_handle_exec_error.exit.loopexit ], [ 3, %86 ]
-  store i32 %.0.i, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 %.0.i, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not125 = icmp eq ptr %.0117, null
   br i1 %.not125, label %.loopexit, label %102
 
@@ -6528,7 +6528,7 @@ define hidden void @zif_preg_last_error(ptr nocapture noundef readonly %0, ptr n
   br label %10
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %8 = zext i32 %7 to i64
   store i64 %8, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6553,7 +6553,7 @@ define hidden void @zif_preg_last_error_msg(ptr nocapture noundef readonly %0, p
   br label %20
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %8 = icmp ult i32 %7, 7
   br i1 %8, label %switch.lookup, label %php_pcre_get_error_msg.exit
 
@@ -6595,7 +6595,7 @@ define internal range(i32 -1, 1) i32 @zm_startup_pcre(i32 noundef %0, i32 nounde
   br i1 %.b4, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %5 = and i8 %4, 1
   tail call fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %5)
   %.b = load i1, ptr @pcre2_init_ok, align 1
@@ -6659,7 +6659,7 @@ define internal range(i32 -1, 1) i32 @zm_activate_pcre(i32 %0, i32 %1) #0 {
   br i1 %.b1, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %5 = and i8 %4, 1
   tail call fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %5)
   %.b = load i1, ptr @pcre2_init_ok, align 1
@@ -6667,14 +6667,14 @@ define internal range(i32 -1, 1) i32 @zm_activate_pcre(i32 %0, i32 %1) #0 {
 
 6:                                                ; preds = %3, %2
   store i8 0, ptr @mdata_used, align 1
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %7 = tail call ptr @php_pcre2_general_context_create(ptr noundef nonnull @php_pcre_emalloc, ptr noundef nonnull @php_pcre_efree, ptr noundef null) #23
-  store ptr %7, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 4), align 1
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
 
@@ -6689,10 +6689,10 @@ define internal range(i32 -1, 1) i32 @zm_activate_pcre(i32 %0, i32 %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_deactivate_pcre(i32 %0, i32 %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   tail call void @php_pcre2_general_context_free(ptr noundef %3) #23
-  store ptr null, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 4), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -6701,10 +6701,10 @@ define internal noundef i32 @zm_deactivate_pcre(i32 %0, i32 %1) #0 {
   br label %7
 
 7:                                                ; preds = %6, %2
-  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6)) #23
-  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7)) #23
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 6, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 7, i32 1), align 8
+  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @pcre_globals, i64 80)) #23
+  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @pcre_globals, i64 96)) #23
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 104), align 8
   ret i32 0
 }
 
@@ -7064,7 +7064,7 @@ define internal fastcc ptr @php_pcre_replace_array(ptr nocapture noundef readonl
   %59 = getelementptr inbounds i8, ptr %.0132182, i64 24
   %60 = getelementptr inbounds i8, ptr %.0132182, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %63, label %php_pcre_replace.exit
 
@@ -7210,7 +7210,7 @@ php_pcre_replace.exit:                            ; preds = %58, %63, %66
   %128 = getelementptr inbounds i8, ptr %.2186, i64 24
   %129 = getelementptr inbounds i8, ptr %.2186, i64 16
   %130 = load i64, ptr %129, align 8
-  %131 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i167 = icmp eq ptr %131, null
   br i1 %.not.i167, label %132, label %php_pcre_replace.exit169
 
@@ -7483,7 +7483,7 @@ define internal fastcc ptr @php_pcre_replace_func_impl(ptr nocapture noundef rea
 
 19:                                               ; preds = %17, %9
   %.0501 = phi ptr [ %18, %17 ], [ null, %9 ]
-  store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %20 = load i8, ptr @mdata_used, align 1
   %21 = trunc nuw i8 %20 to i1
   %22 = and i8 %20, 1
@@ -7498,13 +7498,13 @@ define internal fastcc ptr @php_pcre_replace_func_impl(ptr nocapture noundef rea
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %0, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 8), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 112), align 8
   %29 = tail call ptr @php_pcre2_match_data_create_from_pattern(ptr noundef %27, ptr noundef %28) #23
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %30, label %46
 
 30:                                               ; preds = %26
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not539 = icmp eq ptr %.0501, null
   br i1 %.not539, label %45, label %31
 
@@ -7632,7 +7632,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   br i1 %80, label %81, label %92
 
 81:                                               ; preds = %77
-  store i32 1, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not557 = icmp eq ptr %.1, null
   br i1 %.not557, label %327, label %82
 
@@ -7705,7 +7705,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   br label %preg_do_repl_func.exit
 
 113:                                              ; preds = %107, %96
-  %114 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not87.i = icmp eq ptr %114, null
   br i1 %.not87.i, label %115, label %116
 
@@ -8088,7 +8088,7 @@ preg_do_repl_func.exit:                           ; preds = %109, %111, %116
 
 pcre_handle_exec_error.exit:                      ; preds = %.loopexit573, %300, %301, %302, %303
   %.0.i562 = phi i32 [ 6, %302 ], [ 5, %301 ], [ 3, %300 ], [ 2, %.loopexit573 ], [ %..i, %303 ]
-  store i32 %.0.i562, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
+  store i32 %.0.i562, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
   %.not549 = icmp eq ptr %.5, null
   br i1 %.not549, label %327, label %305
 
@@ -8314,7 +8314,7 @@ define internal noundef i32 @OnUpdateBacktrackLimit(ptr noundef %0, ptr noundef 
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 1), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 56), align 8
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @php_pcre2_set_match_limit(ptr noundef nonnull %8, i32 noundef %11) #23
   br label %13
@@ -8331,7 +8331,7 @@ define internal noundef i32 @OnUpdateRecursionLimit(ptr noundef %0, ptr noundef 
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 2), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 64), align 8
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @php_pcre2_set_depth_limit(ptr noundef nonnull %8, i32 noundef %11) #23
   br label %13
@@ -8343,7 +8343,7 @@ define internal noundef i32 @OnUpdateRecursionLimit(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @OnUpdateJit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @OnUpdateBool(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #23
-  %8 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 3), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %9 = trunc i8 %8 to i1
   %10 = load ptr, ptr @jit_stack, align 8
   %11 = icmp ne ptr %10, null

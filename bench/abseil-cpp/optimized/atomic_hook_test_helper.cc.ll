@@ -22,7 +22,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl20atomic_hook_internal12RegisterFuncEPFvvE(ptr noundef %f) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%"class.absl::base_internal::AtomicHook", ptr @_ZN4absl20atomic_hook_internal4funcE, i64 0, i32 1), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl20atomic_hook_internal4funcE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %f to i64
   %3 = cmpxchg ptr @_ZN4absl20atomic_hook_internal4funcE, i64 %1, i64 %2 acq_rel acquire, align 8

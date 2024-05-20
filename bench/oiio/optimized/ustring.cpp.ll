@@ -433,7 +433,7 @@ arrayctor.loop.i.i:                               ; preds = %init.check.i39, %ar
   br i1 %arrayctor.done.i.i, label %invoke.cont.i41, label %arrayctor.loop.i.i
 
 invoke.cont.i41:                                  ; preds = %arrayctor.loop.i.i
-  store atomic i32 0, ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::unordered_map_concurrent", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 0, i32 1, i32 0, i32 0) seq_cst, align 4
+  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 4) seq_cst, align 4
   %20 = call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEED2Ev, ptr nonnull @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, ptr nonnull @__dso_handle) #21
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm) #21
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEv.exit
@@ -441,7 +441,7 @@ invoke.cont.i41:                                  ; preds = %arrayctor.loop.i.i
 _ZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEv.exit: ; preds = %if.end18, %init.check.i39, %invoke.cont.i41
   %21 = load i64, ptr %hash, align 8
   %shr.i.i42 = lshr i64 %21, 56
-  %arrayidx.i = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::unordered_map_concurrent", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 0, i32 3, i64 0, i32 0, i32 0, i32 0, i32 0), i64 0, i64 %shr.i.i42
+  %arrayidx.i = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %shr.i.i42
   %22 = cmpxchg weak ptr %arrayidx.i, i32 0, i32 1073741824 acquire acquire, align 4
   %23 = extractvalue { i32, i1 } %22, 1
   br i1 %23, label %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8lock_binERS9_.exit, label %do.body.i.i.i.i
@@ -485,7 +485,7 @@ while.body:                                       ; preds = %_ZN18OpenImageIO_v2
   %num_rehashes.0 = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8lock_binERS9_.exit ], [ %inc, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8iteratorD2Ev.exit100 ]
   %27 = load i64, ptr %hash, align 8
   %shr.i.i43 = lshr i64 %27, 56
-  %arrayidx.i44 = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::unordered_map_concurrent", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 0, i32 3, i64 0, i32 0, i32 0, i32 0, i32 0), i64 0, i64 %shr.i.i43
+  %arrayidx.i44 = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %shr.i.i43
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i44, i64 32
   %28 = load i64, ptr %_M_element_count.i.i.i.i.i, align 32, !noalias !10
   %cmp.not.not.i.i.i.i = icmp eq i64 %28, 0
@@ -554,14 +554,14 @@ if.then26:                                        ; preds = %if.end15.i.i.i.i, %
   %call2.i6465 = call noundef ptr @_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE6insertENS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull align 64 dereferenceable(56) %arrayidx.i.i61, ptr noundef nonnull %agg.tmp.i59, i64 noundef %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i59)
   store ptr %call2.i6465, ptr %result, align 8
-  %map.i69 = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::unordered_map_concurrent", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 0, i32 3, i64 0, i32 0, i32 0, i32 0, i32 0), i64 0, i64 %shr.i.i43, i32 1
+  %map.i69 = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %shr.i.i43, i32 1
   %call.i.i.i7072 = call { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN18OpenImageIO_v2_6_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS1_RKS3_EEES0_INS6_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %map.i69, ptr noundef nonnull align 8 dereferenceable(8) %hash, ptr noundef nonnull align 8 dereferenceable(8) %result)
   %39 = extractvalue { ptr, i8 } %call.i.i.i7072, 1
   %tobool4.i = trunc i8 %39 to i1
   br i1 %tobool4.i, label %invoke.cont31.thread, label %cond.false
 
 invoke.cont31.thread:                             ; preds = %if.then26
-  %40 = atomicrmw add ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::unordered_map_concurrent", ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 0, i32 1, i32 0, i32 0), i32 1 seq_cst, align 4
+  %40 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 4), i32 1 seq_cst, align 4
   br label %while.end
 
 cond.false:                                       ; preds = %if.then26
@@ -634,8 +634,8 @@ if.then.i.i121:                                   ; preds = %if.then64
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit122:       ; preds = %if.then64
-  %47 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %48 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 16), align 8
   %cmp.not.i123 = icmp eq ptr %47, %48
   br i1 %cmp.not.i123, label %if.else.i, label %if.then.i124
 
@@ -644,9 +644,9 @@ if.then.i124:                                     ; preds = %_ZNSt10lock_guardIS
   store ptr %49, ptr %47, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
   store i64 %26, ptr %second.i.i.i.i, align 8
-  %50 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %50, i64 16
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
   br label %invoke.cont67
 
 if.else.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit122
@@ -710,9 +710,9 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRS2_RmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIPKcmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   store ptr %cond.i17.i.i, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, align 8
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
   %add.ptr28.i.i = getelementptr inbounds %"struct.std::pair.9", ptr %cond.i17.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr28.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %add.ptr28.i.i, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 16), align 8
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %_ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRS2_RmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i124
@@ -1344,7 +1344,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %tobool.not = icmp eq ptr %collisions, null
-  %.pre13 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
   %.pre15 = load ptr, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -1461,7 +1461,7 @@ lpad5:                                            ; preds = %lpad5.loopexit.spli
   resume { ptr, i32 } %lpad.phi
 
 if.end.loopexit:                                  ; preds = %invoke.cont6
-  %.pre12 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8
   %.pre14 = load ptr, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE, align 8
   br label %if.end
 

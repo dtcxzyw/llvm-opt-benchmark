@@ -1840,7 +1840,7 @@ define dso_local void @_ZN13StatementGotoC2EP5BlockRK10ExpressionPK9StatementRKS
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %3, ptr %10, align 8
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 8, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementGoto, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1897,13 +1897,13 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i: ; preds = 
 36:                                               ; preds = %35, %.noexc7
   %37 = getelementptr inbounds i8, ptr %26, i64 %34
   store ptr %37, ptr %27, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 16), align 8
   %.not10.i.i.i = icmp eq ptr %38, null
   br i1 %.not10.i.i.i, label %select.unfold, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %38, %36 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %36 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), %36 ]
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = icmp ult ptr %40, %3
@@ -1915,7 +1915,7 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i: ; preds = 
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %42 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %42 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8)
   br i1 %42, label %select.unfold, label %43
 
 43:                                               ; preds = %_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit.i.i
@@ -1931,7 +1931,7 @@ _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4les
 
 47:                                               ; preds = %47, %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE4findERSC_.exit
   %.012.i.i.i.i = phi ptr [ %38, %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE4findERSC_.exit ], [ %.1.i.i.i.i, %47 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE4findERSC_.exit ], [ %.19.i.i.i.i, %47 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE4findERSC_.exit ], [ %.19.i.i.i.i, %47 ]
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ult ptr %49, %3
@@ -1943,7 +1943,7 @@ _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4les
   br i1 %.not.i.i.i.i8, label %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i, label %47, !llvm.loop !15
 
 _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i: ; preds = %47
-  %51 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %51 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8)
   br i1 %51, label %.critedge.i, label %52
 
 52:                                               ; preds = %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i
@@ -1989,7 +1989,7 @@ select.unfold:                                    ; preds = %43, %_ZNSt8_Rb_tree
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %67 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i11 = icmp eq ptr %67, null
   br i1 %.not10.i.i.i.i11, label %.critedge.i22, label %.lr.ph.i.i.i.i12
 
@@ -1999,7 +1999,7 @@ select.unfold:                                    ; preds = %43, %_ZNSt8_Rb_tree
 
 69:                                               ; preds = %69, %.lr.ph.i.i.i.i12
   %.012.i.i.i.i13 = phi ptr [ %67, %.lr.ph.i.i.i.i12 ], [ %.1.i.i.i.i18, %69 ]
-  %.0811.i.i.i.i14 = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %.lr.ph.i.i.i.i12 ], [ %.19.i.i.i.i15, %69 ]
+  %.0811.i.i.i.i14 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), %.lr.ph.i.i.i.i12 ], [ %.19.i.i.i.i15, %69 ]
   %70 = getelementptr inbounds i8, ptr %.012.i.i.i.i13, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = icmp ult ptr %71, %68
@@ -2011,7 +2011,7 @@ select.unfold:                                    ; preds = %43, %_ZNSt8_Rb_tree
   br i1 %.not.i.i.i.i19, label %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20, label %69, !llvm.loop !15
 
 _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20: ; preds = %69
-  %73 = icmp eq ptr %.19.i.i.i.i15, getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %73 = icmp eq ptr %.19.i.i.i.i15, getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8)
   br i1 %73, label %.critedge.i22, label %74
 
 74:                                               ; preds = %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20
@@ -2021,7 +2021,7 @@ _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4les
   br i1 %77, label %.critedge.i22, label %79
 
 .critedge.i22:                                    ; preds = %74, %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20, %65
-  %.08.lcssa.i.i.i10.i23 = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20 ], [ %.19.i.i.i.i15, %74 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %65 ]
+  %.08.lcssa.i.i.i10.i23 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i20 ], [ %.19.i.i.i.i15, %74 ], [ getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), %65 ]
   store ptr %10, ptr %6, align 8
   %78 = invoke ptr @_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN13StatementGoto10stm_labelsB5cxx11E, ptr %.08.lcssa.i.i.i10.i23, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %79 unwind label %61
@@ -2074,7 +2074,7 @@ define dso_local void @_ZN13StatementGotoC2ERKS_(ptr noundef nonnull align 8 der
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementGoto, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -2163,7 +2163,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13StatementGotoD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementGoto, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2195,7 +2195,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %9, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13StatementGotoD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementGoto, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2829,7 +2829,7 @@ declare noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13StatementGoto14doFinalizationEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 16), align 8
   invoke void @_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN13StatementGoto10stm_labelsB5cxx11E, ptr noundef %1)
           to label %_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE5clearEv.exit unwind label %2
 
@@ -2841,10 +2841,10 @@ define dso_local void @_ZN13StatementGoto14doFinalizationEv() local_unnamed_addr
   unreachable
 
 _ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE5clearEv.exit: ; preds = %0
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 40), align 8
   ret void
 }
 
@@ -4617,11 +4617,11 @@ _ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_6EffectESt10_Select1stIS6_ESt4lessIS2_ESa
 define internal void @_GLOBAL__sub_I_StatementGoto.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 16), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN13StatementGoto10stm_labelsB5cxx11E, i64 40), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIPK9StatementNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEED2Ev, ptr nonnull @_ZN13StatementGoto10stm_labelsB5cxx11E, ptr nonnull @__dso_handle) #19
   ret void
 }

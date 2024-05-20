@@ -93,7 +93,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not61, label %6, label %13
 
 6:                                                ; preds = %3, %4
-  %7 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 64
   %.not62 = icmp eq i64 %8, 0
   br i1 %.not62, label %127, label %9
@@ -117,7 +117,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not64, label %16, label %23
 
 16:                                               ; preds = %13, %14
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 64
   %.not65 = icmp eq i64 %18, 0
   br i1 %.not65, label %127, label %19
@@ -136,7 +136,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %23
-  %26 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 64
   %.not69 = icmp eq i64 %27, 0
   br i1 %.not69, label %127, label %28
@@ -237,7 +237,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %74, label %75, label %85
 
 75:                                               ; preds = %71
-  %76 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %77 = and i64 %76, 64
   %.not68 = icmp eq i64 %77, 0
   br i1 %.not68, label %83, label %78
@@ -272,7 +272,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.preheader
 
 91:                                               ; preds = %85
-  %92 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 64
   %.not67 = icmp eq i64 %93, 0
   br i1 %.not67, label %99, label %94
@@ -323,7 +323,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %115 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %115 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %116 = and i64 %115, 64
   %.not66 = icmp eq i64 %116, 0
   br i1 %.not66, label %123, label %117

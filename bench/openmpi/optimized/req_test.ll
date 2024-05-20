@@ -30,10 +30,10 @@ define i32 @ompi_request_default_test(ptr noundef %0, ptr nocapture noundef writ
 13:                                               ; preds = %12
   %14 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %14, ptr %2, align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %15, ptr %16, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %18 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %17, ptr %18, align 4
   br label %67
@@ -275,10 +275,10 @@ define i32 @ompi_request_default_test_any(i64 noundef %0, ptr noundef %1, ptr no
 67:                                               ; preds = %66
   %68 = load <2 x i32>, ptr @ompi_status_empty, align 8
   store <2 x i32> %68, ptr %4, align 8
-  %69 = load i64, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 4), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
   %70 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %69, ptr %70, align 8
-  %71 = load i32, ptr getelementptr inbounds (%struct.ompi_status_public_t, ptr @ompi_status_empty, i64 0, i32 3), align 4
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
   %72 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %71, ptr %72, align 4
   br label %73

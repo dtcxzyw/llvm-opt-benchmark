@@ -144,7 +144,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 16 dereferenceable(96) %35, i64 96, i1 false)
   %53 = mul nuw nsw i64 %indvars.iv, 96
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds (i8, ptr @re_array, i64 96), ptr nonnull align 16 @re_array, i64 %53, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) @re_array, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   br label %105
 
@@ -233,7 +233,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 100:                                              ; preds = %95
   %101 = zext nneg i32 %98 to i64
   %102 = mul nuw nsw i64 %101, 96
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %102, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds (i8, ptr @re_array, i64 96), ptr nonnull align 16 @re_array, i64 %102, i1 false)
   br label %103
 
 103:                                              ; preds = %100, %95
@@ -244,7 +244,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   br label %105
 
 105:                                              ; preds = %51, %52, %103
-  ret ptr getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5)
+  ret ptr getelementptr inbounds (i8, ptr @re_array, i64 32)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -715,7 +715,7 @@ define dso_local i64 @textregexsubstr(ptr nocapture noundef %0) local_unnamed_ad
   br label %69
 
 47:                                               ; preds = %37
-  %48 = load i64, ptr getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5, i32 1), align 8
+  %48 = load i64, ptr getelementptr inbounds (i8, ptr @re_array, i64 40), align 8
   %.not29 = icmp eq i64 %48, 0
   %49 = getelementptr inbounds i8, ptr %2, i64 16
   %50 = load i64, ptr %49, align 16
@@ -1723,7 +1723,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br i1 %5, label %45, label %53
 
 45:                                               ; preds = %32
-  %46 = load i64, ptr getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5, i32 1), align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @re_array, i64 40), align 8
   %.not169 = icmp eq i64 %46, 0
   br i1 %.not169, label %53, label %47
 
@@ -1731,7 +1731,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %48 = trunc i64 %46 to i32
   %49 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %48, ptr %49, align 4
-  %50 = load i64, ptr getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5, i32 1), align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @re_array, i64 40), align 8
   %51 = trunc i64 %50 to i32
   %52 = add i32 %51, 1
   br label %55
@@ -3052,7 +3052,7 @@ define dso_local noundef ptr @regexp_fixed_prefix(ptr noundef %0, i1 noundef zer
   store i8 0, ptr %3, align 1
   %spec.select = select i1 %1, i32 27, i32 19
   %8 = tail call ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %spec.select, i32 noundef %2)
-  %9 = call i32 @pg_regprefix(ptr noundef nonnull getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5), ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %9 = call i32 @pg_regprefix(ptr noundef nonnull getelementptr inbounds (i8, ptr @re_array, i64 32), ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   switch i32 %9, label %11 [
     i32 1, label %29
     i32 -1, label %16
@@ -3064,7 +3064,7 @@ define dso_local noundef ptr @regexp_fixed_prefix(ptr noundef %0, i1 noundef zer
   br label %16
 
 11:                                               ; preds = %4
-  %12 = call i64 @pg_regerror(i32 noundef %9, ptr noundef nonnull getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5), ptr noundef nonnull %7, i64 noundef 100) #8
+  %12 = call i64 @pg_regerror(i32 noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @re_array, i64 32), ptr noundef nonnull %7, i64 noundef 100) #8
   %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %13)
   %14 = call i32 @errcode(i32 noundef 302252162) #8
@@ -3106,12 +3106,12 @@ define internal fastcc zeroext i1 @RE_wchar_execute(ptr noundef %0, i32 noundef 
   %7 = sext i32 %1 to i64
   %8 = sext i32 %2 to i64
   %9 = sext i32 %3 to i64
-  %10 = tail call i32 @pg_regexec(ptr noundef nonnull getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5), ptr noundef %0, i64 noundef %7, i64 noundef %8, ptr noundef null, i64 noundef %9, ptr noundef %4, i32 noundef 0) #8
+  %10 = tail call i32 @pg_regexec(ptr noundef nonnull getelementptr inbounds (i8, ptr @re_array, i64 32), ptr noundef %0, i64 noundef %7, i64 noundef %8, ptr noundef null, i64 noundef %9, ptr noundef %4, i32 noundef 0) #8
   %or.cond = icmp ugt i32 %10, 1
   br i1 %or.cond, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = call i64 @pg_regerror(i32 noundef %10, ptr noundef nonnull getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5), ptr noundef nonnull %6, i64 noundef 100) #8
+  %12 = call i64 @pg_regerror(i32 noundef %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @re_array, i64 32), ptr noundef nonnull %6, i64 noundef 100) #8
   %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %13)
   %14 = call i32 @errcode(i32 noundef 302252162) #8

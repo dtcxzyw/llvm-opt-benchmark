@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tr2_sid_get() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -29,7 +29,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
   ret ptr %1
 }
 
@@ -41,7 +41,7 @@ entry:
   %hash.i = alloca [33 x i8], align 16
   %hex.i = alloca [65 x i8], align 16
   %hostname.i = alloca [65 x i8], align 16
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -84,7 +84,7 @@ for.end:                                          ; preds = %for.cond
   tail call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %call, i64 noundef %call.i) #6
   %3 = load i64, ptr @tr2sid_buf, align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
-  %4 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i = add i64 %4, 1
   %tobool.not1.i = icmp eq i64 %3, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
@@ -92,19 +92,19 @@ for.end:                                          ; preds = %for.cond
 
 if.then.i:                                        ; preds = %for.end
   tail call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
-  %.pre.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %for.end, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %for.end ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %for.end ]
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 47, ptr %arrayidx.i, align 1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
   %9 = load i32, ptr @tr2sid_nr_git_parents, align 4
@@ -124,7 +124,7 @@ if.end10:                                         ; preds = %strbuf_addch.exit, 
   call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %tb_now.i, i64 noundef %call.i.i) #6
   %10 = load i64, ptr @tr2sid_buf, align 8
   %tobool.not.i.i.i = icmp eq i64 %10, 0
-  %11 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i.i = add i64 %11, 1
   %tobool.not1.i.i = icmp eq i64 %10, %.neg.i.i
   %tobool.not.i.i7 = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool.not1.i.i
@@ -132,19 +132,19 @@ if.end10:                                         ; preds = %strbuf_addch.exit, 
 
 if.then.i.i:                                      ; preds = %if.end10
   call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
-  %.pre.i.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.end10
   %inc.pre-phi.i.i = phi i64 [ %.pre2.i.i, %if.then.i.i ], [ %.neg.i.i, %if.end10 ]
   %12 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %11, %if.end10 ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %12
   store i8 45, ptr %arrayidx.i.i, align 1
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %14, i64 %15
   store i8 0, ptr %arrayidx3.i.i, align 1
   %call2.i = call i32 @xgethostname(ptr noundef nonnull %hostname.i, i64 noundef 65) #6
@@ -156,17 +156,17 @@ if.then.i9:                                       ; preds = %strbuf_addch.exit.i
   br label %tr2_sid_append_my_sid_component.exit
 
 if.else.i:                                        ; preds = %strbuf_addch.exit.i
-  %16 = load ptr, ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1, i32 5), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 144), align 16
   call void %16(ptr noundef nonnull %ctx.i) #6
-  %17 = load ptr, ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1, i32 7), align 16
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 160), align 16
   %call5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname.i) #7
   call void %17(ptr noundef nonnull %ctx.i, ptr noundef nonnull %hostname.i, i64 noundef %call5.i) #6
-  %18 = load ptr, ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1, i32 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 168), align 8
   call void %18(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #6
-  %call9.i = call ptr @hash_to_hex_algop_r(ptr noundef nonnull %hex.i, ptr noundef nonnull %hash.i, ptr noundef nonnull getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1)) #6
+  %call9.i = call ptr @hash_to_hex_algop_r(ptr noundef nonnull %hex.i, ptr noundef nonnull %hash.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @hash_algos, i64 104)) #6
   %19 = load i64, ptr @tr2sid_buf, align 8
   %tobool.not.i.i4.i = icmp eq i64 %19, 0
-  %20 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i5.i = add i64 %20, 1
   %tobool.not1.i6.i = icmp eq i64 %19, %.neg.i5.i
   %tobool.not.i7.i = select i1 %tobool.not.i.i4.i, i1 true, i1 %tobool.not1.i6.i
@@ -174,19 +174,19 @@ if.else.i:                                        ; preds = %strbuf_addch.exit.i
 
 if.then.i11.i:                                    ; preds = %if.else.i
   call void @strbuf_grow(ptr noundef nonnull @tr2sid_buf, i64 noundef 1) #6
-  %.pre.i12.i = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %.pre.i12.i = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %.pre2.i13.i = add i64 %.pre.i12.i, 1
   br label %strbuf_addch.exit14.i
 
 strbuf_addch.exit14.i:                            ; preds = %if.then.i11.i, %if.else.i
   %inc.pre-phi.i8.i = phi i64 [ %.pre2.i13.i, %if.then.i11.i ], [ %.neg.i5.i, %if.else.i ]
   %21 = phi i64 [ %.pre.i12.i, %if.then.i11.i ], [ %20, %if.else.i ]
-  %22 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  store i64 %inc.pre-phi.i8.i, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  store i64 %inc.pre-phi.i8.i, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx.i9.i = getelementptr inbounds i8, ptr %22, i64 %21
   store i8 72, ptr %arrayidx.i9.i, align 1
-  %23 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %arrayidx3.i10.i = getelementptr inbounds i8, ptr %23, i64 %24
   store i8 0, ptr %arrayidx3.i10.i, align 1
   call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %hex.i, i64 noundef 8) #6
@@ -199,7 +199,7 @@ tr2_sid_append_my_sid_component.exit:             ; preds = %if.then.i9, %strbuf
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %hash.i)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %hex.i)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %hostname.i)
-  %25 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 2), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 16), align 8
   %call11 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef %25, i32 noundef 1) #6
   br label %return
 
@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %tr2_sid_app
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @tr2_sid_depth() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2sid_buf, i64 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @tr2sid_buf, i64 8), align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 

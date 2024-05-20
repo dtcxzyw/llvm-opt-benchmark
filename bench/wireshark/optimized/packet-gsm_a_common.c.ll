@@ -3957,7 +3957,7 @@ declare zeroext i16 @be_cell_id_aux(ptr noundef, ptr noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i16 @de_lai(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
-  %9 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 2), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 8), align 8
   %10 = tail call ptr @val_to_str_ext_const(i32 noundef 2, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.32) #6
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 5, i32 noundef %9, ptr noundef nonnull %8, ptr noundef %10) #6
   %12 = call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %2, ptr noundef %11, i32 noundef %3, i32 noundef 1, i32 noundef 1) #6
@@ -4237,7 +4237,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i16 @de_ms_cm_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
-  %8 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 4), align 16
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 16), align 16
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 4, ptr noundef nonnull @gsm_common_elem_strings_ext, ptr noundef nonnull @.str.32) #6
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %8, ptr noundef null, ptr noundef %9) #6
   %11 = load i32, ptr @hf_gsm_a_b8spare, align 4
@@ -4362,7 +4362,7 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   %35 = or disjoint i32 %32, 1
   %36 = load i32, ptr @hf_gsm_a_multi_bnd_sup_fields, align 4
   %37 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 3, ptr noundef nonnull %8, i32 noundef 0) #6
-  %38 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 6), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 24), align 8
   %39 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #6
   %40 = load i32, ptr @hf_gsm_a_gsm1800_supported, align 4
   %41 = call ptr @proto_tree_add_bits_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #6
@@ -4375,7 +4375,7 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   %48 = or disjoint i32 %32, 4
   %49 = load i32, ptr @hf_gsm_a_cm3_A5_bits, align 4
   %50 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #6
-  %51 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 6), align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 24), align 8
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #6
   %53 = load i32, ptr @hf_gsm_a_A5_7_algorithm_sup, align 4
   %54 = call ptr @proto_tree_add_bits_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #6
@@ -4557,7 +4557,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 162:                                              ; preds = %156
   %163 = load i32, ptr @hf_gsm_a_ms_pos_method, align 4
   %164 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %163, ptr noundef %0, i32 noundef %159, i32 noundef 5, i32 noundef 0) #6
-  %165 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 6), align 8
+  %165 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 24), align 8
   %166 = call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %165) #6
   %167 = load i32, ptr @hf_gsm_a_ms_assisted_e_otd, align 4
   %168 = call ptr @proto_tree_add_bits_item(ptr noundef %166, i32 noundef %167, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #6
@@ -4641,7 +4641,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %220 = load i32, ptr @hf_gsm_a_8_psk_struct, align 4
   %221 = zext nneg i8 %.1 to i32
   %222 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %220, ptr noundef %0, i32 noundef %209, i32 noundef %221, i32 noundef 0) #6
-  %223 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 6), align 8
+  %223 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 24), align 8
   %224 = call ptr @proto_item_add_subtree(ptr noundef %222, i32 noundef %223) #6
   %225 = load i32, ptr @hf_gsm_a_modulation_capability, align 4
   %226 = call ptr @proto_tree_add_bits_item(ptr noundef %224, i32 noundef %225, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef 0) #6
@@ -5037,7 +5037,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %472 = zext i8 %470 to i32
   %473 = add nuw nsw i32 %472, 4
   %474 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %471, ptr noundef %0, i32 noundef %466, i32 noundef %473, i32 noundef 0) #6
-  %475 = load i32, ptr getelementptr inbounds ([19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 6), align 8
+  %475 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_common_elem, i64 24), align 8
   %476 = call ptr @proto_item_add_subtree(ptr noundef %474, i32 noundef %475) #6
   %477 = load i32, ptr @hf_gsm_a_geran_iu_mode_cap_length, align 4
   %478 = call ptr @proto_tree_add_bits_item(ptr noundef %476, i32 noundef %477, ptr noundef %0, i32 noundef %466, i32 noundef 4, i32 noundef 0) #6
@@ -5887,7 +5887,7 @@ define internal noundef zeroext i16 @de_ciph_key_seq_num(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_pd_sapi(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
-  %8 = load i32, ptr getelementptr ([0 x i32], ptr @ett_gsm_dtap_elem, i64 0, i64 10), align 4
+  %8 = load i32, ptr getelementptr (i8, ptr @ett_gsm_dtap_elem, i64 40), align 4
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 10, ptr noundef nonnull @gsm_dtap_elem_strings_ext, ptr noundef nonnull @.str.32) #6
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %8, ptr noundef null, ptr noundef %9) #6
   %11 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -5952,7 +5952,7 @@ define internal noundef zeroext i16 @de_ms_net_feat_sup(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gsm_a_common() local_unnamed_addr #1 {
   store ptr @ett_gsm_a_plmn, ptr @proto_register_gsm_a_common.ett, align 16
-  store ptr @ett_gsm_a_poly_pnt, ptr getelementptr inbounds ([21 x ptr], ptr @proto_register_gsm_a_common.ett, i64 0, i64 1), align 8
+  store ptr @ett_gsm_a_poly_pnt, ptr getelementptr inbounds (i8, ptr @proto_register_gsm_a_common.ett, i64 8), align 8
   br label %1
 
 1:                                                ; preds = %0, %1

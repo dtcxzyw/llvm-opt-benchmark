@@ -673,7 +673,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_ra_control(ptr noundef %0, i
   br i1 %.not12, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 40) #16
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %54, label %.thread

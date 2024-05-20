@@ -735,12 +735,12 @@ define dso_local void @_ZN13cmSystemTools5ErrorERKNSt7__cxx1112basic_stringIcSt1
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
   store ptr @.str.11, ptr %2, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.not.i.i, label %7, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i: ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %10 unwind label %11
 
@@ -803,12 +803,12 @@ define dso_local void @_ZN13cmSystemTools7MessageERKNSt7__cxx1112basic_stringIcS
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
   store ptr %1, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i = icmp eq ptr %5, null
   br i1 %.not.i.i.not.i, label %7, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i: ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3)
   br label %_ZN13cmSystemTools7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadata.exit
 
@@ -847,12 +847,12 @@ _ZNSt8functionIFbvEEC2EOS1_.exit.i:               ; preds = %8, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_119s_InterruptCallbackE, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 16), align 8
   store ptr %10, ptr %9, align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 24), align 8
   store ptr %11, ptr %3, align 8
-  store ptr %5, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 24), align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFbvEEaSEOS1_.exit, label %12
 
@@ -874,12 +874,12 @@ _ZNSt8functionIFbvEEaSEOS1_.exit:                 ; preds = %_ZNSt8functionIFbvE
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN13cmSystemTools16GetInterruptFlagEv() local_unnamed_addr #4 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 16), align 8
   %.not.i.i.not = icmp eq ptr %1, null
   br i1 %.not.i.i.not, label %4, label %_ZNKSt8functionIFbvEEclEv.exit
 
 _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %0
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::function", ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119s_InterruptCallbackE, i64 24), align 8
   %3 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_119s_InterruptCallbackE)
   br label %4
 
@@ -914,12 +914,12 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMes
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   store ptr %10, ptr %9, align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   store ptr %11, ptr %3, align 8
-  store ptr %5, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEaSEOSC_.exit, label %12
 
@@ -965,12 +965,12 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   store ptr %10, ptr %9, align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   store ptr %11, ptr %3, align 8
-  store ptr %5, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSEOS9_.exit, label %12
 
@@ -1016,12 +1016,12 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 16), align 8
   store ptr %10, ptr %9, align 8
-  store ptr %7, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 24), align 8
   store ptr %11, ptr %3, align 8
-  store ptr %5, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 1), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 24), align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSEOS9_.exit, label %12
 
@@ -1043,12 +1043,12 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSEOS9_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13cmSystemTools6StderrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not = icmp eq ptr %2, null
   br i1 %.not.i.i.not, label %4, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit: ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, i64 24), align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StderrCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %7
 
@@ -1069,12 +1069,12 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not = icmp eq ptr %2, null
   br i1 %.not.i.i.not, label %4, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit: ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %7
 
@@ -1089,12 +1089,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13cmSystemTools7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadata(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not = icmp eq ptr %3, null
   br i1 %.not.i.i.not, label %5, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit: ; preds = %2
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %1)
   br label %8
 
@@ -1156,12 +1156,12 @@ define dso_local void @_ZN13cmSystemTools21ReportLastSystemErrorEPKc(ptr noundef
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %17, align 8
   store ptr @.str.11, ptr %2, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.not.i.i.i, label %20, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %19 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %25 unwind label %23
 
@@ -1579,12 +1579,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 0, ptr %22, align 8
   store ptr @.str.11, ptr %4, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.not.i.i.i, label %55, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc24
-  %54 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %54(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %60 unwind label %58
 
@@ -4981,12 +4981,12 @@ define dso_local void @_ZN13cmSystemTools12RelativePathERKNSt7__cxx1112basic_str
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %12, align 8
   store ptr @.str.11, ptr %6, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i, label %15, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %6)
           to label %20 unwind label %18
 
@@ -5032,12 +5032,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %26, align 8
   store ptr @.str.11, ptr %4, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i9 = icmp eq ptr %27, null
   br i1 %.not.i.i.not.i.i.i9, label %29, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i10
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i10: ; preds = %.noexc12
-  %28 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %34 unwind label %32
 
@@ -5208,7 +5208,7 @@ define dso_local void @_ZN13cmSystemTools19ForceToRelativePathERKNSt7__cxx1112ba
           to label %.noexc35 unwind label %67
 
 .noexc35:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.23, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %65
 
 65:                                               ; preds = %.noexc35
@@ -5263,7 +5263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc37 unwind label %89
 
 .noexc37:                                         ; preds = %.noexc36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.27, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40 unwind label %87
 
 87:                                               ; preds = %.noexc37
@@ -5953,12 +5953,12 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools7EnvDiff14ParseOperationE
   %38 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %38, align 8
   store ptr @.str.11, ptr %7, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.not.i.i.i, label %41, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %40 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %7)
           to label %46 unwind label %44
 
@@ -6040,12 +6040,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
   %66 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %66, align 8
   store ptr @.str.11, ptr %3, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i100 = icmp eq ptr %67, null
   br i1 %.not.i.i.not.i.i.i100, label %69, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i101
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i101: ; preds = %.noexc103
-  %68 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %68(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %3)
           to label %74 unwind label %72
 
@@ -7460,12 +7460,12 @@ _ZN13cmSystemTools26GetCurrentWorkingDirectoryB5cxx11Ev.exit: ; preds = %7
   %54 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 0, ptr %54, align 8
   store ptr @.str.11, ptr %12, align 8
-  %55 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.not.i.i.i, label %57, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %56 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %56(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(12) %12)
           to label %62 unwind label %60
 
@@ -7541,7 +7541,7 @@ switch.lookup:                                    ; preds = %71
           to label %.noexc38 unwind label %96
 
 .noexc38:                                         ; preds = %.noexc37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.47, i64 0, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body39.thread
 
 .body39.thread:                                   ; preds = %.noexc38
@@ -7589,12 +7589,12 @@ _ZNK14cmArchiveWrite8GetErrorB5cxx11Ev.exit:      ; preds = %85
   %87 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %87, align 8
   store ptr @.str.11, ptr %10, align 8
-  %88 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i42 = icmp eq ptr %88, null
   br i1 %.not.i.i.not.i.i.i42, label %90, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i43
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i43: ; preds = %.noexc45
-  %89 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %89(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %95 unwind label %93
 
@@ -7732,12 +7732,12 @@ _ZNK14cmArchiveWrite8GetErrorB5cxx11Ev.exit51:    ; preds = %126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 0, ptr %112, align 8
   store ptr @.str.11, ptr %8, align 8
-  %127 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i52 = icmp eq ptr %127, null
   br i1 %.not.i.i.not.i.i.i52, label %129, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i53
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i53: ; preds = %.noexc55
-  %128 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %128(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %134 unwind label %132
 
@@ -7923,7 +7923,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111extract_tarERKNSt7
           to label %.noexc90 unwind label %67
 
 .noexc90:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.90, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %56
 
 56:                                               ; preds = %.noexc90
@@ -7943,12 +7943,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %58 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 0, ptr %58, align 8
   store ptr @.str.11, ptr %19, align 8
-  %59 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.not.i.i.i, label %61, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc91
-  %60 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(12) %19)
           to label %66 unwind label %64
 
@@ -8051,12 +8051,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
   %80 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 0, ptr %80, align 8
   store ptr @.str.11, ptr %17, align 8
-  %81 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i94 = icmp eq ptr %81, null
   br i1 %.not.i.i.not.i.i.i94, label %83, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i95
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i95: ; preds = %.noexc97
-  %82 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(12) %17)
           to label %88 unwind label %86
 
@@ -8174,7 +8174,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
           to label %.noexc105 unwind label %130
 
 .noexc105:                                        ; preds = %.noexc104
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.94, i64 0, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108 unwind label %116
 
 116:                                              ; preds = %.noexc105
@@ -8184,12 +8184,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
   br label %.body106
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108: ; preds = %.noexc105
-  %118 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i = icmp eq ptr %118, null
   br i1 %.not.i.i.not.i, label %120, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108
-  %119 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   invoke void %119(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %132
 
@@ -8213,12 +8213,12 @@ _ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %_ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit: ; preds = %.noexc112
-  %125 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i114 = icmp eq ptr %125, null
   br i1 %.not.i.i.not.i114, label %127, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i115
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i115: ; preds = %_ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit
-  %126 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   invoke void %126(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119 unwind label %134
 
@@ -8453,7 +8453,7 @@ _ZN12_GLOBAL__N_117list_item_verboseEP8_IO_FILEP13archive_entry.exit: ; preds = 
           to label %.noexc139 unwind label %216
 
 .noexc139:                                        ; preds = %.noexc138
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.75, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142 unwind label %209
 
 209:                                              ; preds = %.noexc139
@@ -8463,12 +8463,12 @@ _ZN12_GLOBAL__N_117list_item_verboseEP8_IO_FILEP13archive_entry.exit: ; preds = 
   br label %.body140
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142: ; preds = %.noexc139
-  %211 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i143 = icmp eq ptr %211, null
   br i1 %.not.i.i.not.i143, label %213, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i144
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i144: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142
-  %212 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   invoke void %212(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %243 unwind label %218
 
@@ -8509,12 +8509,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
           to label %_ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit151 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit151: ; preds = %.noexc149
-  %224 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i152 = icmp eq ptr %224, null
   br i1 %.not.i.i.not.i152, label %226, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i153
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i153: ; preds = %_ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit151
-  %225 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   invoke void %225(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit157 unwind label %237
 
@@ -8537,7 +8537,7 @@ _ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %.noexc159 unwind label %239
 
 .noexc159:                                        ; preds = %.noexc158
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.75, i64 0, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit162 unwind label %230
 
 230:                                              ; preds = %.noexc159
@@ -8547,12 +8547,12 @@ _ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %.body160
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit162: ; preds = %.noexc159
-  %232 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i163 = icmp eq ptr %232, null
   br i1 %.not.i.i.not.i163, label %234, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i164
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit.i164: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit162
-  %233 = load ptr, ptr getelementptr inbounds (%"class.std::function.2", ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 0, i32 1), align 8
+  %233 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, i64 24), align 8
   invoke void %233(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116s_StdoutCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %.thread unwind label %241
 
@@ -8846,12 +8846,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit188: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 0, ptr %291, align 8
   store ptr @.str.11, ptr %8, align 8
-  %310 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i192 = icmp eq ptr %310, null
   br i1 %.not.i.i.not.i.i.i192, label %312, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i193
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i193: ; preds = %.noexc195
-  %311 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %311 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %311(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %317 unwind label %315
 
@@ -8936,7 +8936,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
           to label %.noexc200 unwind label %344
 
 .noexc200:                                        ; preds = %.noexc199
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds ([19 x i8], ptr @.str.101, i64 0, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 18))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit203 unwind label %333
 
 333:                                              ; preds = %.noexc200
@@ -8956,12 +8956,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit203: ;
   %335 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %335, align 8
   store ptr @.str.11, ptr %6, align 8
-  %336 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i204 = icmp eq ptr %336, null
   br i1 %.not.i.i.not.i.i.i204, label %338, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i205
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i205: ; preds = %.noexc207
-  %337 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %337(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %6)
           to label %343 unwind label %341
 
@@ -12628,12 +12628,12 @@ _ZN13cmSystemTools20CreateSymlinkQuietlyERKNSt7__cxx1112basic_stringIcSt11char_t
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %31, align 8
   store ptr @.str.11, ptr %3, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.not.i.i.i, label %34, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %33 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %3)
           to label %39 unwind label %37
 
@@ -12784,12 +12784,12 @@ _ZN13cmSystemTools17CreateLinkQuietlyERKNSt7__cxx1112basic_stringIcSt11char_trai
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %31, align 8
   store ptr @.str.11, ptr %3, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.not.i.i.i, label %34, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc
-  %33 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %3)
           to label %39 unwind label %37
 
@@ -12904,9 +12904,9 @@ define dso_local { i64, ptr } @_ZN13cmSystemTools13GetSystemNameEv() local_unnam
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %13
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%"class.cmsys::RegularExpression", ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 0, i32 7), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 528), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i64 552), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, i8 0, i64 522, i1 false)
   %16 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) @_ZZN13cmSystemTools13GetSystemNameEvE10bsdOsRegex, ptr noundef nonnull @.str.83)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit unwind label %20
@@ -13827,12 +13827,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %25, align 8
   store ptr @.str.11, ptr %3, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 16), align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i, label %28, label %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i
 
 _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataEEclES7_SA_.exit.i.i.i: ; preds = %.noexc9
-  %27 = load ptr, ptr getelementptr inbounds (%"class.std::function.0", ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 0, i32 1), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, i64 24), align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117s_MessageCallbackB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %3)
           to label %33 unwind label %31
 

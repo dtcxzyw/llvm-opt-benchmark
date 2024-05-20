@@ -233,7 +233,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %17
 24:                                               ; preds = %22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %25 = load ptr, ptr @_ZN7logging6Logger9streamVecE, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
   %.not12 = icmp eq ptr %25, %26
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -394,13 +394,13 @@ define void @_ZN7logging6Logger4InitEi(i32 noundef %0) local_unnamed_addr #3 ali
   store i64 %5, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %1 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %1 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %7, align 8
   %8 = icmp ult i64 %.sroa.01.0.copyload.i.i.i.i.i, %5
@@ -412,7 +412,7 @@ define void @_ZN7logging6Logger4InitEi(i32 noundef %0) local_unnamed_addr #3 ali
   br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %9 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %9 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8)
   br i1 %9, label %.critedge.i, label %10
 
 10:                                               ; preds = %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i
@@ -422,7 +422,7 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
   br i1 %12, label %.critedge.i, label %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixEOS1_.exit
 
 .critedge.i:                                      ; preds = %10, %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, %1
-  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %10 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %1 ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %10 ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %1 ]
   store ptr %4, ptr %2, align 8, !alias.scope !8
   %13 = call ptr @_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7logging6Logger11threadNamesB5cxx11E, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
   br label %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixEOS1_.exit
@@ -764,16 +764,16 @@ define void @_ZN7logging6Logger14RegisterStreamEPSo(ptr noundef %0) local_unname
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 16), align 8
   %.not.i = icmp eq ptr %4, %5
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store ptr %0, ptr %4, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %8, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
   br label %_ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit
 
 9:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -829,9 +829,9 @@ _ZNSt6vectorIPSoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %27, 
 
 _ZNSt6vectorIPSoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPSoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %24, ptr @_ZN7logging6Logger9streamVecE, align 8
-  store ptr %29, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
   %31 = getelementptr inbounds ptr, ptr %24, i64 %20
-  store ptr %31, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN7logging6Logger9streamVecE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger9streamVecE, i64 16), align 8
   br label %_ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit:    ; preds = %_ZNSt6vectorIPSoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %6
@@ -878,13 +878,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   store i64 %7, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %8, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %9 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %9, align 8
   %10 = icmp ult i64 %.sroa.01.0.copyload.i.i.i.i.i, %7
@@ -896,7 +896,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %11 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %11 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8)
   br i1 %11, label %.critedge.i, label %12
 
 12:                                               ; preds = %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i
@@ -906,7 +906,7 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
   br i1 %14, label %.critedge.i, label %16
 
 .critedge.i:                                      ; preds = %12, %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %12 ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %12 ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   store ptr %4, ptr %2, align 8, !alias.scope !12
   %15 = invoke ptr @_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7logging6Logger11threadNamesB5cxx11E, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %16 unwind label %21
@@ -949,13 +949,13 @@ define void @_ZN7logging6Logger7GetNameB5cxx11Ev(ptr dead_on_unwind noalias writ
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %8 = tail call i64 @pthread_self() #21
   store i64 %8, ptr %4, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 16), align 8
   %.not10.i.i.i = icmp eq ptr %9, null
   br i1 %.not10.i.i.i, label %.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %10 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %10, align 8
   %11 = icmp ult i64 %.sroa.01.0.copyload.i.i.i.i, %8
@@ -967,7 +967,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNKSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %12 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %12 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8)
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %_ZNKSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
@@ -983,7 +983,7 @@ _ZNKSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_tr
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %9, %.lr.ph.i.i.i.i.preheader ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %.lr.ph.i.i.i.i.preheader ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), %.lr.ph.i.i.i.i.preheader ]
   %15 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %15, align 8
   %16 = icmp ult i64 %.sroa.01.0.copyload.i.i.i.i.i, %8
@@ -995,7 +995,7 @@ _ZNKSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8)
   br i1 %17, label %.critedge.i, label %18
 
 18:                                               ; preds = %_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i
@@ -1151,9 +1151,9 @@ define internal void @_GLOBAL__sub_I_logging.cpp() #14 section ".text.startup" p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7logging6Logger9streamVecE, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIPSoSaIS0_EED2Ev, ptr nonnull @_ZN7logging6Logger9streamVecE, ptr nonnull @__dso_handle) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7logging6Logger11threadNamesB5cxx11E, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 24), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 40), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev, ptr nonnull @_ZN7logging6Logger11threadNamesB5cxx11E, ptr nonnull @__dso_handle) #17
   ret void
 }

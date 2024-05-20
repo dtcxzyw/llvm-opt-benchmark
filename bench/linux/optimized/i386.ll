@@ -345,7 +345,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 .thread:                                          ; preds = %55, %63
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %54) #9
-  %65 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %66 = call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 3520, i64 noundef 112) #12
   %67 = icmp eq ptr %66, null
   br i1 %67, label %81, label %68
@@ -361,8 +361,8 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   %73 = getelementptr inbounds i8, ptr %66, i64 8
   store volatile ptr %66, ptr %73, align 8
   %74 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #9
-  %75 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1), align 8
-  store ptr %66, ptr getelementptr inbounds (%struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1), align 8
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @pcibios_fwaddrmappings, i64 8), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @pcibios_fwaddrmappings, i64 8), align 8
   store ptr @pcibios_fwaddrmappings, ptr %66, align 8
   store ptr %75, ptr %73, align 8
   store volatile ptr %66, ptr %75, align 8

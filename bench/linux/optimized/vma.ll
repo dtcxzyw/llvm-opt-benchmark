@@ -94,7 +94,7 @@ define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0
   store ptr %6, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %8, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #9
           to label %10 [label %9], !srcloc !8
 
 9:                                                ; preds = %2
@@ -104,7 +104,7 @@ define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0
 10:                                               ; preds = %9, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 176
   tail call void @down_read(ptr noundef %11) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #9
           to label %13 [label %12], !srcloc !8
 
 12:                                               ; preds = %10
@@ -135,7 +135,7 @@ define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0
   br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %23, %13
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
           to label %27 [label %26], !srcloc !8
 
 26:                                               ; preds = %.loopexit
@@ -174,7 +174,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   store ptr %8, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %10, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #9
           to label %12 [label %11], !srcloc !8
 
 11:                                               ; preds = %2
@@ -184,7 +184,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
 12:                                               ; preds = %11, %2
   %13 = getelementptr inbounds i8, ptr %7, i64 176
   tail call void @down_write(ptr noundef %13) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #9
           to label %.preheader [label %14], !srcloc !8
 
 14:                                               ; preds = %12
@@ -208,7 +208,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   br i1 %21, label %22, label %15, !llvm.loop !13
 
 22:                                               ; preds = %20, %18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
           to label %24 [label %23], !srcloc !8
 
 23:                                               ; preds = %22
@@ -225,7 +225,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   br label %35
 
 28:                                               ; preds = %15
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
           to label %30 [label %29], !srcloc !8
 
 29:                                               ; preds = %28
@@ -254,7 +254,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1192
   %6 = load ptr, ptr %5, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #9
           to label %8 [label %7], !srcloc !8
 
 7:                                                ; preds = %2
@@ -264,7 +264,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds i8, ptr %6, i64 176
   %10 = tail call i32 @down_write_killable(ptr noundef %9) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #9
           to label %13 [label %11], !srcloc !8
 
 11:                                               ; preds = %8
@@ -329,7 +329,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
 
 50:                                               ; preds = %44, %39, %31, %23
   %51 = phi i32 [ %24, %23 ], [ %33, %31 ], [ %41, %39 ], [ 0, %44 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
           to label %53 [label %52], !srcloc !8
 
 52:                                               ; preds = %50
@@ -363,8 +363,8 @@ define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 368
   %11 = load i64, ptr %10, align 16
-  %12 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_64, i64 0, i32 1), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_64, i64 0, i32 7), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_64, i64 8), align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_64, i64 56), align 8
   %14 = sub i64 %12, %13
   %15 = add i64 %11, 4095
   %16 = and i64 %15, -4096
@@ -436,13 +436,13 @@ define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr nocaptur
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 128
   %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 17), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_32, i64 136), align 8
   %21 = add i64 %20, %10
   %22 = icmp eq i64 %19, %21
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %17
-  %24 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 18), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_32, i64 144), align 8
   %25 = add i64 %24, %10
   %26 = icmp eq i64 %19, %25
   br i1 %26, label %28, label %27
@@ -727,7 +727,7 @@ define internal noundef i32 @vdso_mremap(ptr nocapture readnone %0, ptr nocaptur
   %18 = ptrtoint ptr %17 to i64
   %19 = add i64 %18, 16384
   %20 = inttoptr i64 %19 to ptr
-  %21 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 16), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_32, i64 128), align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 1096
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64

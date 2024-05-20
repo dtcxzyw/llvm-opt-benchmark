@@ -141,7 +141,7 @@ define dso_local ptr @GetTransactionSnapshot() local_unnamed_addr #0 {
   br i1 %.not.i.i, label %10, label %InvalidateCatalogSnapshot.exit
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.sink.split.i.i, label %13
 
@@ -321,7 +321,7 @@ CopySnapshot.exit:                                ; preds = %79, %88
   br i1 %.not.i.i4, label %106, label %InvalidateCatalogSnapshot.exit7
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %.sink.split.i.i5, label %109
 
@@ -378,7 +378,7 @@ define dso_local void @InvalidateCatalogSnapshot() local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %SnapshotResetXmin.exit
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split.i, label %8
 
@@ -457,7 +457,7 @@ define dso_local ptr @GetLatestSnapshot() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetOldestSnapshot() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.thread, label %3
 
@@ -541,7 +541,7 @@ define dso_local ptr @GetNonHistoricCatalogSnapshot(i32 noundef %0) local_unname
   br i1 %.not.i.i, label %12, label %InvalidateCatalogSnapshot.exit.thread
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.sink.split.i.i, label %15
 
@@ -597,7 +597,7 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
   %3 = load ptr, ptr @ActiveSnapshot, align 8
   %4 = icmp eq ptr %3, null
   %or.cond = select i1 %2, i1 %4, i1 false
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %6 = icmp ne ptr %5, null
   %or.cond3 = select i1 %or.cond, i1 %6, i1 false
   br i1 %or.cond3, label %7, label %InvalidateCatalogSnapshot.exit
@@ -616,7 +616,7 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
   br i1 %.not.i.i, label %13, label %InvalidateCatalogSnapshot.exit
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.sink.split.i.i, label %16
 
@@ -960,7 +960,7 @@ define dso_local void @PopActiveSnapshot() local_unnamed_addr #0 {
 
 20:                                               ; preds = %17
   store ptr null, ptr @OldestActiveSnapshot, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.sink.split.i, label %23
 
@@ -1185,7 +1185,7 @@ define dso_local void @UnregisterSnapshotFromOwner(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i, label %19, label %UnregisterSnapshotNoOwner.exit
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.sink.split.i.i, label %22
 
@@ -1292,7 +1292,7 @@ define dso_local void @AtSubAbort_Snapshot(i32 noundef %0) local_unnamed_addr #0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %25 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.sink.split.i, label %27
 
@@ -1397,7 +1397,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   br i1 %.not.i.i, label %33, label %InvalidateCatalogSnapshot.exit
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.sink.split.i.i, label %36
 
@@ -1426,7 +1426,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
   br i1 %0, label %48, label %.loopexit
 
 48:                                               ; preds = %InvalidateCatalogSnapshot.exit
-  %49 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %55, label %51
 
@@ -1463,7 +1463,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
 .loopexit:                                        ; preds = %59, %55, %InvalidateCatalogSnapshot.exit
   store ptr null, ptr @ActiveSnapshot, align 8
   store ptr null, ptr @OldestActiveSnapshot, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   store ptr null, ptr @CurrentSnapshot, align 8
   store ptr null, ptr @SecondarySnapshot, align 8
   store i8 0, ptr @FirstSnapshotSet, align 1
@@ -2343,7 +2343,7 @@ define internal fastcc void @SetTransactionSnapshot(ptr nocapture noundef readon
   br i1 %.not.i.i, label %9, label %InvalidateCatalogSnapshot.exit
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.sink.split.i.i, label %12
 
@@ -2651,7 +2651,7 @@ declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @ThereAreNoPriorRegisteredSnapshots() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %6, label %3
 
@@ -2674,7 +2674,7 @@ define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr
 2:                                                ; preds = %0
   %3 = load ptr, ptr @CatalogSnapshot, align 8
   %4 = icmp ne ptr %3, null
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %6 = icmp ne ptr %5, null
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %7, label %10
@@ -3233,7 +3233,7 @@ define internal void @ResOwnerReleaseSnapshot(i64 noundef %0) #0 {
   br i1 %.not.i.i, label %16, label %UnregisterSnapshotNoOwner.exit
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i64 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.sink.split.i.i, label %19
 

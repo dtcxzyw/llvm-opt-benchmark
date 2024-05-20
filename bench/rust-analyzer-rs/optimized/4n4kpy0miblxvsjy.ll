@@ -5981,7 +5981,7 @@ define hidden noundef align 8 ptr @_ZN12sharded_slab3tid12REGISTRATION7__getit17
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h0e8ba05ad7faaf6bE.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h0e8ba05ad7faaf6bE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12sharded_slab3tid12REGISTRATION7__getit5__KEY17hb9b8a7aadcc04ef1E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN12sharded_slab3tid12REGISTRATION7__getit5__KEY17hb9b8a7aadcc04ef1E, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -7044,7 +7044,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770
   br i1 %9, label %15, label %_ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770162137697.exit.thread
 
 _ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770162137697.exit.thread: ; preds = %2, %_ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770162137697.exit
-  %.0.i.i2 = phi ptr [ %8, %_ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770162137697.exit ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12sharded_slab3tid12REGISTRATION7__getit5__KEY17hb9b8a7aadcc04ef1E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2 = phi ptr [ %8, %_ZN12sharded_slab3tid12REGISTRATION7__getit17hdb3917b9ecc76322E.llvm.17769526770162137697.exit ], [ getelementptr inbounds (i8, ptr @_ZN12sharded_slab3tid12REGISTRATION7__getit5__KEY17hb9b8a7aadcc04ef1E, i64 8), %2 ]
   %10 = load i64, ptr %.0.i.i2, align 8, !range !19, !noalias !478, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i.i.i, label %.thread.i.i, label %13
@@ -7304,11 +7304,11 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h2
   %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
   %7 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %7 to i1
-  %.val = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 0), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
+  %.val17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
   %8 = select i1 %.not, ptr %.val, ptr %.val17
-  %.val18 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 1), align 8
-  %.val19 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8
+  %.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
+  %.val19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
   %9 = select i1 %.not, ptr %.val18, ptr %.val19
   br i1 %trunc.i, label %10, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$23update_status_or_notify28_$u7b$$u7b$closure$u7d$$u7d$17hb7079a7e5177a7eaE.llvm.17769526770162137697.exit"
 
@@ -7341,7 +7341,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   br i1 %24, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3c14a973a96337b0E.llvm.17769526770162137697.exit.thread", label %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread
 
 _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread: ; preds = %21, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit
-  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds ({ { { { i64, [5 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %21 ]
+  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), %21 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i15, i64 32
   %26 = load i8, ptr %25, align 1, !range !464, !noalias !522, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -7380,8 +7380,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %39 = load ptr, ptr %0, align 8, !noalias !537, !nonnull !5, !align !419, !noundef !5
   %40 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !534, !noalias !539, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %40 to i1
-  %41 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !534, !noalias !539, !nonnull !5, !noundef !5
-  %42 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !534, !noalias !539, !nonnull !5, !align !419, !noundef !5
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !534, !noalias !539, !nonnull !5, !noundef !5
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !534, !noalias !539, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i.i, label %43, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$23update_status_or_notify28_$u7b$$u7b$closure$u7d$$u7d$17hb7079a7e5177a7eaE.llvm.17769526770162137697.exit.i.i"
 
 43:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i.i"
@@ -7466,8 +7466,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %83 = load ptr, ptr %0, align 8, !noalias !558, !nonnull !5, !align !419, !noundef !5
   %84 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !555, !noalias !560, !noundef !5
   %trunc.i8 = trunc nuw i64 %84 to i1
-  %85 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !555, !noalias !560, !nonnull !5, !noundef !5
-  %86 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !555, !noalias !560, !nonnull !5, !align !419, !noundef !5
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !555, !noalias !560, !nonnull !5, !noundef !5
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !555, !noalias !560, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i8, label %87, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$23update_status_or_notify28_$u7b$$u7b$closure$u7d$$u7d$17hb7079a7e5177a7eaE.llvm.17769526770162137697.exit10"
 
 87:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3c14a973a96337b0E.llvm.17769526770162137697.exit.thread"
@@ -7503,11 +7503,11 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17hc
   %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
   %7 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %7 to i1
-  %.val = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 0), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
+  %.val17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
   %8 = select i1 %.not, ptr %.val, ptr %.val17
-  %.val18 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 1), align 8
-  %.val19 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8
+  %.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
+  %.val19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
   %9 = select i1 %.not, ptr %.val18, ptr %.val19
   br i1 %trunc.i, label %10, label %"_ZN13rust_analyzer3lsp5utils58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18show_and_log_error28_$u7b$$u7b$closure$u7d$$u7d$17h96a269e91df94b73E.llvm.17769526770162137697.exit"
 
@@ -7540,7 +7540,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   br i1 %24, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h23f06102d2e139c3E.llvm.17769526770162137697.exit.thread", label %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread
 
 _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread: ; preds = %21, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit
-  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds ({ { { { i64, [5 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %21 ]
+  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), %21 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i15, i64 32
   %26 = load i8, ptr %25, align 1, !range !464, !noalias !574, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -7579,8 +7579,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %39 = load ptr, ptr %0, align 8, !noalias !588, !nonnull !5, !align !419, !noundef !5
   %40 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !585, !noalias !590, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %40 to i1
-  %41 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !585, !noalias !590, !nonnull !5, !noundef !5
-  %42 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !585, !noalias !590, !nonnull !5, !align !419, !noundef !5
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !585, !noalias !590, !nonnull !5, !noundef !5
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !585, !noalias !590, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i.i, label %43, label %"_ZN13rust_analyzer3lsp5utils58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18show_and_log_error28_$u7b$$u7b$closure$u7d$$u7d$17h96a269e91df94b73E.llvm.17769526770162137697.exit.i.i"
 
 43:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i.i"
@@ -7665,8 +7665,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %83 = load ptr, ptr %0, align 8, !noalias !609, !nonnull !5, !align !419, !noundef !5
   %84 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !606, !noalias !611, !noundef !5
   %trunc.i8 = trunc nuw i64 %84 to i1
-  %85 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !606, !noalias !611, !nonnull !5, !noundef !5
-  %86 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !606, !noalias !611, !nonnull !5, !align !419, !noundef !5
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !606, !noalias !611, !nonnull !5, !noundef !5
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !606, !noalias !611, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i8, label %87, label %"_ZN13rust_analyzer3lsp5utils58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18show_and_log_error28_$u7b$$u7b$closure$u7d$$u7d$17h96a269e91df94b73E.llvm.17769526770162137697.exit10"
 
 87:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h23f06102d2e139c3E.llvm.17769526770162137697.exit.thread"
@@ -7702,11 +7702,11 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17he
   %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
   %7 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %7 to i1
-  %.val = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 0), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
+  %.val17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
   %8 = select i1 %.not, ptr %.val, ptr %.val17
-  %.val18 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 0, i32 0, i32 1, i64 1), align 8
-  %.val19 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8
+  %.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
+  %.val19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
   %9 = select i1 %.not, ptr %.val18, ptr %.val19
   br i1 %trunc.i, label %10, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$12handle_event28_$u7b$$u7b$closure$u7d$$u7d$17h65b3dcff8866bccfE.llvm.17769526770162137697.exit"
 
@@ -7739,7 +7739,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   br i1 %24, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h415a30c1fd16f2e3E.llvm.17769526770162137697.exit.thread", label %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread
 
 _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit.thread: ; preds = %21, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit
-  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds ({ { { { i64, [5 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %21 ]
+  %.0.i.i15 = phi ptr [ %23, %_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17769526770162137697.exit ], [ getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), %21 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i15, i64 32
   %26 = load i8, ptr %25, align 1, !range !464, !noalias !625, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -7778,8 +7778,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %39 = load ptr, ptr %0, align 8, !noalias !639, !nonnull !5, !align !419, !noundef !5
   %40 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !636, !noalias !641, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %40 to i1
-  %41 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !636, !noalias !641, !nonnull !5, !noundef !5
-  %42 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !636, !noalias !641, !nonnull !5, !align !419, !noundef !5
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !636, !noalias !641, !nonnull !5, !noundef !5
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !636, !noalias !641, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i.i, label %43, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$12handle_event28_$u7b$$u7b$closure$u7d$$u7d$17h65b3dcff8866bccfE.llvm.17769526770162137697.exit.i.i"
 
 43:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i.i"
@@ -7864,8 +7864,8 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %83 = load ptr, ptr %0, align 8, !noalias !660, !nonnull !5, !align !419, !noundef !5
   %84 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !657, !noalias !662, !noundef !5
   %trunc.i8 = trunc nuw i64 %84 to i1
-  %85 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !657, !noalias !662, !nonnull !5, !noundef !5
-  %86 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !657, !noalias !662, !nonnull !5, !align !419, !noundef !5
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !657, !noalias !662, !nonnull !5, !noundef !5
+  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !657, !noalias !662, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i8, label %87, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$12handle_event28_$u7b$$u7b$closure$u7d$$u7d$17h65b3dcff8866bccfE.llvm.17769526770162137697.exit10"
 
 87:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h415a30c1fd16f2e3E.llvm.17769526770162137697.exit.thread"
@@ -7898,7 +7898,7 @@ define hidden noundef align 8 ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17ha75ffc8e5feacf8eE.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17ha75ffc8e5feacf8eE.exit": ; preds = %1, %3
-  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds ({ { { { i64, [5 x i64] } } }, i8, [7 x i8] }, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
+  %.0.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), %1 ]
   ret ptr %.0.i
 }
 
@@ -8335,7 +8335,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i.i: ; pred
   br i1 %9, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h68826e5673a393b4E.exit.thread.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h68826e5673a393b4E.exit.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h68826e5673a393b4E.exit.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i.i, %2
-  %.0.i.i2.i.i = phi ptr [ %8, %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i.i = phi ptr [ %8, %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %2 ]
   %.07.val.i.i = load ptr, ptr %.0.i.i2.i.i, align 8, !noundef !5
   %10 = getelementptr i8, ptr %.07.val.i.i, i64 2072
   %.07.val.val.i.i = load i64, ptr %10, align 8, !noundef !5
@@ -8470,7 +8470,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i: ; preds 
   br i1 %5, label %37, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.thread.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.thread.i: ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i, %0
-  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i ], [ getelementptr inbounds ({ { { { i64, [1 x i64] } } }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %0 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN15crossbeam_epoch7default6HANDLE7__getit17hc61a1115436fb206E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %0 ]
   %.0.val.i = load ptr, ptr %.0.i.i2.i, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.0.val.i, ptr %2, align 8
@@ -12676,8 +12676,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %22 = load ptr, ptr %21, align 8, !noalias !1203, !nonnull !5, !align !419, !noundef !5
   %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !1200, !noalias !1202, !noundef !5
   %trunc.i.i = trunc nuw i64 %23 to i1
-  %24 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !1200, !noalias !1202, !nonnull !5, !noundef !5
-  %25 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !1200, !noalias !1202, !nonnull !5, !align !419, !noundef !5
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !1200, !noalias !1202, !nonnull !5, !noundef !5
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !1200, !noalias !1202, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i, label %26, label %"_ZN13rust_analyzer3lsp5utils58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18show_and_log_error28_$u7b$$u7b$closure$u7d$$u7d$17h96a269e91df94b73E.llvm.17769526770162137697.exit.i"
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i"
@@ -12814,8 +12814,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %22 = load ptr, ptr %21, align 8, !noalias !1237, !nonnull !5, !align !419, !noundef !5
   %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !1234, !noalias !1236, !noundef !5
   %trunc.i.i = trunc nuw i64 %23 to i1
-  %24 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !1234, !noalias !1236, !nonnull !5, !noundef !5
-  %25 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !1234, !noalias !1236, !nonnull !5, !align !419, !noundef !5
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !1234, !noalias !1236, !nonnull !5, !noundef !5
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !1234, !noalias !1236, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i, label %26, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$23update_status_or_notify28_$u7b$$u7b$closure$u7d$$u7d$17hb7079a7e5177a7eaE.llvm.17769526770162137697.exit.i"
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i"
@@ -12952,8 +12952,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %22 = load ptr, ptr %21, align 8, !noalias !1271, !nonnull !5, !align !419, !noundef !5
   %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !19, !alias.scope !1268, !noalias !1270, !noundef !5
   %trunc.i.i = trunc nuw i64 %23 to i1
-  %24 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 0), align 8, !alias.scope !1268, !noalias !1270, !nonnull !5, !noundef !5
-  %25 = load ptr, ptr getelementptr inbounds ({ { i64, [2 x i64] } }, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 0, i32 0, i32 1, i64 1), align 8, !alias.scope !1268, !noalias !1270, !nonnull !5, !align !419, !noundef !5
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !1268, !noalias !1270, !nonnull !5, !noundef !5
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !1268, !noalias !1270, !nonnull !5, !align !419, !noundef !5
   br i1 %trunc.i.i, label %26, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$12handle_event28_$u7b$$u7b$closure$u7d$$u7d$17h65b3dcff8866bccfE.llvm.17769526770162137697.exit.i"
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17h67b931a1dea8b609E.exit.i"

@@ -218,7 +218,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br i1 %85, label %.lr.ph251, label %._crit_edge
 
 .lr.ph251:                                        ; preds = %76
-  %86 = load i32, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 64, i32 2), align 16
+  %86 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   br label %87
 
 87:                                               ; preds = %.lr.ph251, %107

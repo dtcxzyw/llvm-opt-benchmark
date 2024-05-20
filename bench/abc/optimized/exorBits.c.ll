@@ -87,7 +87,7 @@ define void @ExorVar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 2), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
 
@@ -106,7 +106,7 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .preheader:                                       ; preds = %9, %2
   %10 = phi i32 [ 0, %2 ], [ %38, %9 ]
-  %11 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph19, label %.loopexit
 
@@ -169,7 +169,7 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 2), align 8
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
 
@@ -189,7 +189,7 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
 .preheader:                                       ; preds = %9, %2
   %10 = phi i32 [ -1, %2 ], [ %31, %9 ]
   %.pr = phi i32 [ 0, %2 ], [ %43, %9 ]
-  %11 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph28, label %thread-pre-split
 
@@ -329,7 +329,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit33
 
@@ -361,7 +361,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
 
 .loopexit33:                                      ; preds = %10, %3, %16
   %DiffVarCounter.promoted39 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 0, %10 ]
-  %17 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 2), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph45, label %.sink.split
 
@@ -373,7 +373,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
 .thread81:                                        ; preds = %.thread, %73
   %.lcssa374183 = phi i32 [ %74, %73 ], [ %.lcssa374280, %.thread ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %21 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 2), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next75, %22
   br i1 %23, label %24, label %.sink.split, !llvm.loop !13

@@ -79,23 +79,23 @@ define dso_local noundef zeroext i1 @setup_mq_sysctls(ptr noundef %0) local_unna
   %12 = phi i64 [ 0, %5 ], [ %27, %25 ]
   %13 = getelementptr %struct.ctl_table, ptr %3, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 16)
+  %15 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @init_ipc_ns, i64 828)
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %11
-  %17 = icmp eq ptr %14, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 17)
+  %17 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @init_ipc_ns, i64 832)
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp eq ptr %14, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 18)
+  %19 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @init_ipc_ns, i64 836)
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp eq ptr %14, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 19)
+  %21 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @init_ipc_ns, i64 840)
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp eq ptr %14, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 20)
+  %23 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @init_ipc_ns, i64 844)
   %24 = select i1 %23, ptr %6, ptr null
   br label %25
 

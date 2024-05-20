@@ -46,7 +46,7 @@ $__clang_call_terminate = comdat any
 @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE = internal unnamed_addr constant [20 x i32] [i32 3, i32 6, i32 9, i32 96, i32 18, i32 66, i32 33, i32 36, i32 48, i32 72, i32 12, i32 24, i32 69, i32 81, i32 84, i32 21, i32 26, i32 41, i32 11, i32 14], align 16
 @_ZN5ZXing4OneDL8ALPHABETE = internal constant [21 x i32] [i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 45, i32 36, i32 58, i32 47, i32 46, i32 43, i32 65, i32 66, i32 67, i32 68, i32 0], align 16
 @.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii = private unnamed_addr constant [4 x ptr] [ptr @_ZN5ZXing4OneDL15START_END_CHARSE, ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 0, i64 1), ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 0, i64 2), ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 0, i64 3)], align 8
+@switch.table._ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii = private unnamed_addr constant [4 x ptr] [ptr @_ZN5ZXing4OneDL15START_END_CHARSE, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 4), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 12)], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind noalias writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -130,7 +130,7 @@ define void @_ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIw
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %34
   %38 = icmp eq i32 %36, 0
-  %spec.select.i.i = select i1 %38, ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 0, i64 4), ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 1, i64 0)
+  %spec.select.i.i = select i1 %38, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 20)
   br label %40
 
 switch.lookup:                                    ; preds = %34
@@ -141,7 +141,7 @@ switch.lookup:                                    ; preds = %34
 
 40:                                               ; preds = %switch.lookup, %._crit_edge._crit_edge52.i.i.i.i.i
   %.028.i.i.i.i.i = phi ptr [ %spec.select.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %switch.load, %switch.lookup ]
-  %.not = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 1, i64 0)
+  %.not = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL15START_END_CHARSE, i64 20)
   %41 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %._crit_edge._crit_edge52.i.i.i.i.i64 [
@@ -168,7 +168,7 @@ switch.edge:                                      ; preds = %40, %40, %40, %40, 
 
 ._crit_edge._crit_edge52.i.i.i.i.i68:             ; preds = %switch.edge
   %45 = icmp eq i32 %44, 0
-  %spec.select.i.i69 = select i1 %45, ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 0, i64 4), ptr getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 1, i64 0)
+  %spec.select.i.i69 = select i1 %45, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 20)
   br label %46
 
 .fold.split146:                                   ; preds = %switch.edge
@@ -181,8 +181,8 @@ switch.edge:                                      ; preds = %40, %40, %40, %40, 
   br label %46
 
 46:                                               ; preds = %switch.edge, %.fold.split148, %.fold.split147, %.fold.split146, %._crit_edge._crit_edge52.i.i.i.i.i68
-  %.028.i.i.i.i.i70 = phi ptr [ %spec.select.i.i69, %._crit_edge._crit_edge52.i.i.i.i.i68 ], [ @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, %switch.edge ], [ getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 0, i64 1), %.fold.split146 ], [ getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 0, i64 2), %.fold.split147 ], [ getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 0, i64 3), %.fold.split148 ]
-  %.not141 = icmp eq ptr %.028.i.i.i.i.i70, getelementptr inbounds ([5 x i32], ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 1, i64 0)
+  %.028.i.i.i.i.i70 = phi ptr [ %spec.select.i.i69, %._crit_edge._crit_edge52.i.i.i.i.i68 ], [ @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, %switch.edge ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 4), %.fold.split146 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 8), %.fold.split147 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 12), %.fold.split148 ]
+  %.not141 = icmp eq ptr %.028.i.i.i.i.i70, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL19ALT_START_END_CHARSE, i64 20)
   %47 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %._crit_edge._crit_edge52.i.i.i.i.i72 [
@@ -537,7 +537,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %129, %._crit_edge
 
 ._crit_edge._crit_edge52.i.i.i.i.i84:             ; preds = %158
   %162 = icmp eq i32 %142, 0
-  %spec.select.i.i85 = select i1 %162, ptr getelementptr inbounds ([21 x i32], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 20), ptr getelementptr inbounds ([21 x i32], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 1, i64 0)
+  %spec.select.i.i85 = select i1 %162, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 80), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %154
@@ -554,7 +554,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %129, %._crit_edge
 
 .loopexit:                                        ; preds = %143, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit199, %.loopexit.loopexit.split.loop.exit201, %._crit_edge._crit_edge52.i.i.i.i.i84
   %.028.i.i.i.i.i86 = phi ptr [ %spec.select.i.i85, %._crit_edge._crit_edge52.i.i.i.i.i84 ], [ %163, %.loopexit.loopexit.split.loop.exit ], [ %164, %.loopexit.loopexit.split.loop.exit199 ], [ %165, %.loopexit.loopexit.split.loop.exit201 ], [ %.02946.i.i.i.i.i, %143 ]
-  %166 = icmp eq ptr %.028.i.i.i.i.i86, getelementptr inbounds ([21 x i32], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 1, i64 0)
+  %166 = icmp eq ptr %.028.i.i.i.i.i86, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
   %167 = ptrtoint ptr %.028.i.i.i.i.i86 to i64
   %168 = sub i64 %167, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i64)
   %sext = shl i64 %168, 30

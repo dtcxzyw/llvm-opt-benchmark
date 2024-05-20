@@ -6514,7 +6514,7 @@ _ZN5osgeo4proj2ioL9skipSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %33 unwind label %36
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %32, align 8
   invoke void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %288 unwind label %34
 
@@ -6791,7 +6791,7 @@ _ZN5osgeo4proj2ioL9skipSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %.invoke unwind label %148
 
 .invoke:                                          ; preds = %147, %150
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %146, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %146, align 8
   invoke void @__cxa_throw(ptr nonnull %146, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp200
 
@@ -6875,7 +6875,7 @@ _ZNSt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS3_EED2Ev.exit: ; p
 
 .invoke231:                                       ; preds = %178, %279
   %.sink233 = phi ptr [ %280, %279 ], [ %179, %178 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink233, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink233, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink233, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont232 unwind label %.loopexit.split-lp
 
@@ -8213,7 +8213,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL22ThrowNotEnoughChildrenERKNSt7__
   br label %10
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %3, align 8
   invoke void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %12 unwind label %8
 
@@ -9516,7 +9516,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   br label %576
 
 572:                                              ; preds = %570
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %569, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %569, align 8
   invoke void @__cxa_throw(ptr nonnull %569, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %902 unwind label %574
 
@@ -10594,7 +10594,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL32ThrowNotRequiredNumberOfChildre
   br label %10
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %3, align 8
   invoke void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %12 unwind label %8
 
@@ -11072,7 +11072,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %218
 
 214:                                              ; preds = %212
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %209, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %209, align 8
   invoke void @__cxa_throw(ptr nonnull %209, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %695 unwind label %216
 
@@ -11164,7 +11164,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   br label %258
 
 254:                                              ; preds = %252
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %249, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %249, align 8
   invoke void @__cxa_throw(ptr nonnull %249, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %695 unwind label %256
 
@@ -11229,7 +11229,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   store i32 1, ptr %273, align 8, !noalias !64
   %274 = getelementptr inbounds i8, ptr %272, i64 12
   store i32 1, ptr %274, align 4, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %272, align 8, !noalias !64
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %272, align 8, !noalias !64
   %275 = getelementptr inbounds i8, ptr %272, i64 16
   invoke void @_ZN5osgeo4proj6common13UnitOfMeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %277 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !64
@@ -13957,7 +13957,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL12buildRethrowEPKcRKSt9exception(
           to label %15 unwind label %18
 
 15:                                               ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #37
   ret void
 
@@ -16856,7 +16856,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
           to label %603 unwind label %634
 
 603:                                              ; preds = %600
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %602, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %602, align 8
   invoke void @__cxa_throw(ptr nonnull %602, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %755 unwind label %636
 
@@ -16962,7 +16962,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit169:        ; preds = %_ZNSt6vectorIdSaIdE
           to label %641 unwind label %642
 
 641:                                              ; preds = %639
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %640, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %640, align 8
   invoke void @__cxa_throw(ptr nonnull %640, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %755 unwind label %592
 
@@ -17271,7 +17271,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL12ThrowMissingERKNSt7__cxx1112bas
   br label %10
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %3, align 8
   invoke void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %12 unwind label %8
 
@@ -18707,7 +18707,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %60 unwind label %61
 
 60:                                               ; preds = %56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %59, align 8
   invoke void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %76 unwind label %63
 
@@ -19042,7 +19042,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
 70:                                               ; preds = %58
   %71 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8
   store ptr %71, ptr %11, align 8
-  %72 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8
   store ptr %72, ptr %40, align 8
   %.not.i.i.i.i38.us = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i38.us, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit.us, label %73
@@ -19355,7 +19355,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum9EllipsoidEEED2Ev.exit.us
           to label %211 unwind label %214
 
 211:                                              ; preds = %.split.us
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %210, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %210, align 8
   invoke void @__cxa_throw(ptr nonnull %210, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %399 unwind label %.loopexit.split-lp
 
@@ -20536,7 +20536,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   br label %101
 
 97:                                               ; preds = %95
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %94, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %94, align 8
   invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %99
 
@@ -20579,7 +20579,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   br label %111
 
 107:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %109
 
@@ -21079,7 +21079,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %340
 
 336:                                              ; preds = %334
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %329, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %329, align 8
   invoke void @__cxa_throw(ptr nonnull %329, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %338
 
@@ -21244,7 +21244,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   br label %402
 
 398:                                              ; preds = %396
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %393, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %393, align 8
   invoke void @__cxa_throw(ptr nonnull %393, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %400
 
@@ -21358,7 +21358,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   br label %445
 
 441:                                              ; preds = %439
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %436, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %436, align 8
   invoke void @__cxa_throw(ptr nonnull %436, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %443
 
@@ -21461,7 +21461,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   br label %483
 
 479:                                              ; preds = %477
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %476, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %476, align 8
   invoke void @__cxa_throw(ptr nonnull %476, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %589 unwind label %481
 
@@ -22556,7 +22556,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   br label %295
 
 291:                                              ; preds = %289
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %288, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %288, align 8
   invoke void @__cxa_throw(ptr nonnull %288, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %757 unwind label %293
 
@@ -23073,7 +23073,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   br label %448
 
 444:                                              ; preds = %442
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %441, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %441, align 8
   invoke void @__cxa_throw(ptr nonnull %441, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %757 unwind label %446
 
@@ -23131,7 +23131,7 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
 
 .invoke:                                          ; preds = %459, %358
   %.sink = phi ptr [ %359, %358 ], [ %460, %459 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %101
 
@@ -23731,7 +23731,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev.exit: ; 
   br label %702
 
 698:                                              ; preds = %696
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %695, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %695, align 8
   invoke void @__cxa_throw(ptr nonnull %695, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %757 unwind label %700
 
@@ -24417,7 +24417,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL37buildParsingExceptionInvalidAxi
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #37
   ret void
 
@@ -25294,7 +25294,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %163 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8
   store ptr %163, ptr %7, align 8
   %164 = getelementptr inbounds i8, ptr %7, i64 8
-  %165 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8
   store ptr %165, ptr %164, align 8
   %.not.i.i.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i.i.i, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEC2ERKS8_.exit, label %166
@@ -26340,7 +26340,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS4_1
           to label %614 unwind label %615
 
 614:                                              ; preds = %612
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %613, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %613, align 8
   invoke void @__cxa_throw(ptr nonnull %613, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %619
 
@@ -27882,7 +27882,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEEED2Ev.exit
           to label %1314 unwind label %1318
 
 1314:                                             ; preds = %1313
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1306, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1306, align 8
   invoke void @__cxa_throw(ptr nonnull %1306, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1318
 
@@ -27957,7 +27957,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEEED2Ev.exit
           to label %1337 unwind label %1340
 
 1337:                                             ; preds = %1336
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1330, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1330, align 8
   invoke void @__cxa_throw(ptr nonnull %1330, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1340
 
@@ -28052,7 +28052,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS4_16C
           to label %1369 unwind label %1370
 
 1369:                                             ; preds = %1367
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1368, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1368, align 8
   invoke void @__cxa_throw(ptr nonnull %1368, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1374
 
@@ -28188,7 +28188,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEEC2ENS0_30i_p
           to label %1434 unwind label %1438
 
 1434:                                             ; preds = %1433
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1426, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1426, align 8
   invoke void @__cxa_throw(ptr nonnull %1426, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1438
 
@@ -28466,7 +28466,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11SphericalCSEEED2Ev.exit: ;
           to label %1550 unwind label %1554
 
 1550:                                             ; preds = %1549
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1542, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1542, align 8
   invoke void @__cxa_throw(ptr nonnull %1542, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1554
 
@@ -28529,7 +28529,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11SphericalCSEEED2Ev.exit: ;
           to label %1567 unwind label %1570
 
 1567:                                             ; preds = %1566
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1560, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1560, align 8
   invoke void @__cxa_throw(ptr nonnull %1560, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1812 unwind label %1570
 
@@ -30688,7 +30688,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs20DerivedGeographicCRSEEED2
           to label %255 unwind label %258
 
 255:                                              ; preds = %254
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %248, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %248, align 8
   invoke void @__cxa_throw(ptr nonnull %248, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %648 unwind label %258
 
@@ -30776,7 +30776,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS4_16C
           to label %287 unwind label %288
 
 287:                                              ; preds = %285
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %286, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %286, align 8
   invoke void @__cxa_throw(ptr nonnull %286, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %648 unwind label %290
 
@@ -31142,7 +31142,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11SphericalCSEEED2Ev.exit: ;
           to label %451 unwind label %454
 
 451:                                              ; preds = %450
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %444, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %444, align 8
   invoke void @__cxa_throw(ptr nonnull %444, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %648 unwind label %454
 
@@ -33758,7 +33758,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   br label %455
 
 451:                                              ; preds = %449
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %448, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %448, align 8
   invoke void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %580 unwind label %453
 
@@ -35175,7 +35175,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %59 unwind label %60
 
 59:                                               ; preds = %57
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %58, align 8
   invoke void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %683 unwind label %62
 
@@ -35244,7 +35244,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %88 unwind label %89
 
 88:                                               ; preds = %86
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %87, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %87, align 8
   invoke void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %683 unwind label %91
 
@@ -38892,7 +38892,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %54 unwind label %55
 
 54:                                               ; preds = %52
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %53, align 8
   invoke void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %358 unwind label %57
 
@@ -39669,7 +39669,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %43 unwind label %44
 
 43:                                               ; preds = %41
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %42, align 8
   invoke void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %602 unwind label %48
 
@@ -39742,7 +39742,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %76 unwind label %77
 
 76:                                               ; preds = %74
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %75, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %75, align 8
   invoke void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %602 unwind label %81
 
@@ -39802,7 +39802,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %109 unwind label %113
 
 109:                                              ; preds = %107
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %108, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %108, align 8
   invoke void @__cxa_throw(ptr nonnull %108, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %602 unwind label %.loopexit.split-lp
 
@@ -39890,7 +39890,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation19CoordinateOp
           to label %133 unwind label %134
 
 133:                                              ; preds = %.loopexit141
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %132, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %132, align 8
   invoke void @__cxa_throw(ptr nonnull %132, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %602 unwind label %136
 
@@ -40894,7 +40894,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit117: ; preds = %_ZNSt10shared_p
           to label %584 unwind label %588
 
 584:                                              ; preds = %583
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %576, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %576, align 8
   invoke void @__cxa_throw(ptr nonnull %576, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %602 unwind label %588
 
@@ -42678,7 +42678,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
   br label %721
 
 717:                                              ; preds = %715
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %714, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %714, align 8
   invoke void @__cxa_throw(ptr nonnull %714, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %759 unwind label %719
 
@@ -44702,7 +44702,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   br label %393
 
 389:                                              ; preds = %387
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %386, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %386, align 8
   invoke void @__cxa_throw(ptr nonnull %386, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %547 unwind label %391
 
@@ -47712,7 +47712,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   br label %1041
 
 1037:                                             ; preds = %1035
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1034, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1034, align 8
   invoke void @__cxa_throw(ptr nonnull %1034, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1477 unwind label %1039
 
@@ -50214,7 +50214,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %539 unwind label %540
 
 539:                                              ; preds = %537
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %538, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %538, align 8
   invoke void @__cxa_throw(ptr nonnull %538, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2242 unwind label %523
 
@@ -50924,7 +50924,7 @@ _ZN5osgeo4proj2io12_GLOBAL__N_115PJContextHolderD2Ev.exit: ; preds = %789
           to label %822 unwind label %827
 
 822:                                              ; preds = %820
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %821, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %821, align 8
   invoke void @__cxa_throw(ptr nonnull %821, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2242 unwind label %823
 
@@ -50977,7 +50977,7 @@ _ZN5osgeo4proj2io12_GLOBAL__N_115PJContextHolderD2Ev.exit: ; preds = %789
   br label %845
 
 841:                                              ; preds = %839
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %838, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %838, align 8
   invoke void @__cxa_throw(ptr nonnull %838, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2242 unwind label %843
 
@@ -52189,7 +52189,7 @@ _ZNSt6vectorIN5osgeo4proj2io4Step8KeyValueESaIS4_EED2Ev.exit: ; preds = %1261, %
 
 .invoke:                                          ; preds = %1305, %1061
   %.sink = phi ptr [ %1062, %1061 ], [ %1306, %1305 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -57127,7 +57127,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL20createPseudoMercatorERKNS0_4uti
   %18 = load ptr, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, align 8
   store ptr %18, ptr %10, align 8
   %19 = getelementptr inbounds i8, ptr %10, i64 8
-  %20 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.342", ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, i64 8), align 8
   store ptr %20, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEC2IS2_INS5_13GeographicCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %21
@@ -57475,7 +57475,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL22ThrowNotExpectedCSTypeERKNSt7__
   br label %10
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %3, align 8
   invoke void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %12 unwind label %8
 
@@ -62749,7 +62749,7 @@ _ZN5osgeo4proj2io9WKTParser7Private11stripQuotesB5cxx11ERKN7dropbox6oxygen2nnISt
   %1987 = phi ptr [ %1985, %1981 ], [ null, %1978 ]
   store ptr %1987, ptr %89, align 8
   %1988 = getelementptr inbounds i8, ptr %89, i64 8
-  %1989 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.342", ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %1989 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 8), align 8
   store ptr %1989, ptr %1988, align 8
   %.not.i.i.i.i593 = icmp eq ptr %1989, null
   br i1 %.not.i.i.i.i593, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_13GeographicCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %1990
@@ -64845,7 +64845,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs11VerticalCRSENS2_3CRSEESt10shared_pt
           to label %273 unwind label %274
 
 273:                                              ; preds = %271
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %272, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %272, align 8
   invoke void @__cxa_throw(ptr nonnull %272, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %741 unwind label %276
 
@@ -66307,7 +66307,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs10VerticalCSENS4_16Co
           to label %79 unwind label %82
 
 79:                                               ; preds = %78
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %72, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %321 unwind label %82
 
@@ -67818,7 +67818,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %69 unwind label %70
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %502 unwind label %72
 
@@ -67887,7 +67887,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
           to label %98 unwind label %99
 
 98:                                               ; preds = %96
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %97, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %97, align 8
   invoke void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %502 unwind label %101
 
@@ -73373,7 +73373,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private23buildCoordinateMetadata
           to label %19 unwind label %20
 
 19:                                               ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %18, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %192 unwind label %22
 
@@ -73480,7 +73480,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
           to label %68 unwind label %69
 
 68:                                               ; preds = %64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %67, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %67, align 8
   invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %192 unwind label %71
 
@@ -74923,7 +74923,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9getStringERKN8nlohmann10basic_
           to label %23 unwind label %29
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %16, align 8
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %67 unwind label %29
 
@@ -74998,7 +74998,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9getStringERKN8nlohmann10basic_
           to label %47 unwind label %53
 
 47:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %40, align 8
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %67 unwind label %53
 
@@ -75587,7 +75587,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9getObjectERKN8nlohmann10basic_
           to label %23 unwind label %29
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %16, align 8
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %68 unwind label %29
 
@@ -75662,7 +75662,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9getObjectERKN8nlohmann10basic_
           to label %47 unwind label %53
 
 47:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %40, align 8
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %68 unwind label %53
 
@@ -75783,7 +75783,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser8getArrayERKN8nlohmann10basic_j
           to label %23 unwind label %29
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %16, align 8
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %68 unwind label %29
 
@@ -75858,7 +75858,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser8getArrayERKN8nlohmann10basic_j
           to label %47 unwind label %53
 
 47:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %40, align 8
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %68 unwind label %53
 
@@ -75984,7 +75984,7 @@ define hidden noundef i32 @_ZN5osgeo4proj2io10JSONParser10getIntegerERKN8nlohman
           to label %27 unwind label %33
 
 27:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %20, align 8
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %100 unwind label %33
 
@@ -76060,7 +76060,7 @@ define hidden noundef i32 @_ZN5osgeo4proj2io10JSONParser10getIntegerERKN8nlohman
           to label %51 unwind label %57
 
 51:                                               ; preds = %50
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %44, align 8
   invoke void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %100 unwind label %57
 
@@ -76147,7 +76147,7 @@ define hidden noundef i32 @_ZN5osgeo4proj2io10JSONParser10getIntegerERKN8nlohman
           to label %79 unwind label %87
 
 79:                                               ; preds = %78
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %72, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %100 unwind label %87
 
@@ -76265,7 +76265,7 @@ define hidden noundef double @_ZN5osgeo4proj2io10JSONParser9getNumberERKN8nlohma
           to label %23 unwind label %29
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %16, align 8
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %70 unwind label %29
 
@@ -76341,7 +76341,7 @@ define hidden noundef double @_ZN5osgeo4proj2io10JSONParser9getNumberERKN8nlohma
           to label %47 unwind label %53
 
 47:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %40, align 8
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %70 unwind label %53
 
@@ -76478,7 +76478,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser7getUnitERKN8nlohmann10basic_js
           to label %35 unwind label %41
 
 35:                                               ; preds = %34
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %28, align 8
   invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %195 unwind label %41
 
@@ -76657,7 +76657,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %98
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %91, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %91, align 8
   invoke void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %195 unwind label %96
 
@@ -76704,7 +76704,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %107 unwind label %113
 
 107:                                              ; preds = %106
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %100, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %100, align 8
   invoke void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %195 unwind label %113
 
@@ -76794,7 +76794,7 @@ _ZN5osgeo4proj2io10JSONParser7getTypeERKN8nlohmann10basic_jsonISt3mapSt6vectorNS
           to label %140 unwind label %141
 
 140:                                              ; preds = %138
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %139, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %139, align 8
   invoke void @__cxa_throw(ptr nonnull %139, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %195 unwind label %121
 
@@ -76897,7 +76897,7 @@ _ZN5osgeo4proj2io10JSONParser7getNameERKN8nlohmann10basic_jsonISt3mapSt6vectorNS
           to label %175 unwind label %176
 
 175:                                              ; preds = %173
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %174, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %174, align 8
   invoke void @__cxa_throw(ptr nonnull %174, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %195 unwind label %166
 
@@ -77347,7 +77347,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9getLengthERKN8nlohmann10basic_
           to label %26 unwind label %32
 
 26:                                               ; preds = %25
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %84 unwind label %32
 
@@ -77481,7 +77481,7 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit: ; preds = %53
           to label %66 unwind label %72
 
 66:                                               ; preds = %65
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %59, align 8
   invoke void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %84 unwind label %72
 
@@ -77855,7 +77855,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   store i32 1, ptr %128, align 8, !noalias !430
   %129 = getelementptr inbounds i8, ptr %127, i64 12
   store i32 1, ptr %129, align 4, !noalias !430
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %127, align 8, !noalias !430
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %127, align 8, !noalias !430
   %130 = getelementptr inbounds i8, ptr %127, i64 16
   invoke void @_ZN5osgeo4proj6common13UnitOfMeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %132 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !430
@@ -79278,7 +79278,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %71 unwind label %72
 
 71:                                               ; preds = %69
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %70, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %70, align 8
   invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %160 unwind label %54
 
@@ -79363,7 +79363,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
           to label %101 unwind label %102
 
 101:                                              ; preds = %99
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %100, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %100, align 8
   invoke void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %160 unwind label %52
 
@@ -79431,7 +79431,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
           to label %124 unwind label %125
 
 124:                                              ; preds = %122
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %123, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %123, align 8
   invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %160 unwind label %115
 
@@ -80033,7 +80033,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %94 unwind label %97
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %93, align 8
   invoke void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %663 unwind label %.loopexit.split-lp148
 
@@ -80692,7 +80692,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 .invoke:                                          ; preds = %360, %387
   %.sink169 = phi ptr [ %388, %387 ], [ %361, %360 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink169, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink169, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink169, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -80789,7 +80789,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %396 unwind label %397
 
 396:                                              ; preds = %394
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %395, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %395, align 8
   invoke void @__cxa_throw(ptr nonnull %395, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %663 unwind label %399
 
@@ -82783,7 +82783,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11TemporalCRSEEEON7dropbox6oxygen
           to label %517 unwind label %522
 
 517:                                              ; preds = %515
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %516, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %516, align 8
   invoke void @__cxa_throw(ptr nonnull %516, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1077 unwind label %524
 
@@ -83092,7 +83092,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs18DerivedGeodeticCRSEEEON7dropbox
           to label %636 unwind label %637
 
 636:                                              ; preds = %634
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %635, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %635, align 8
   invoke void @__cxa_throw(ptr nonnull %635, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1077 unwind label %630
 
@@ -84097,7 +84097,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_2cs20CoordinateSystemAxisEEEON7dropbo
           to label %1072 unwind label %1073
 
 1072:                                             ; preds = %1070
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1071, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1071, align 8
   invoke void @__cxa_throw(ptr nonnull %1071, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1077 unwind label %120
 
@@ -84271,7 +84271,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev.ex
           to label %69 unwind label %74
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %244 unwind label %76
 
@@ -84761,7 +84761,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS4_16C
           to label %48 unwind label %61
 
 48:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %47, align 8
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %427 unwind label %65
 
@@ -84918,7 +84918,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEEC2ENS0_30i_p
           to label %125 unwind label %129
 
 125:                                              ; preds = %124
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %117, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %117, align 8
   invoke void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %427 unwind label %129
 
@@ -85196,7 +85196,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11SphericalCSEEED2Ev.exit: ;
           to label %241 unwind label %245
 
 241:                                              ; preds = %240
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %233, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %233, align 8
   invoke void @__cxa_throw(ptr nonnull %233, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %427 unwind label %245
 
@@ -85247,7 +85247,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11SphericalCSEEED2Ev.exit: ;
           to label %252 unwind label %253
 
 252:                                              ; preds = %250
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %251, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %251, align 8
   invoke void @__cxa_throw(ptr nonnull %251, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %427 unwind label %257
 
@@ -85938,7 +85938,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev.ex
           to label %135 unwind label %142
 
 135:                                              ; preds = %133
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %134, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %134, align 8
   invoke void @__cxa_throw(ptr nonnull %134, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %373 unwind label %144
 
@@ -86740,7 +86740,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev.exit: ; preds
           to label %126 unwind label %127
 
 126:                                              ; preds = %124
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %125, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %125, align 8
   invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %706 unwind label %62
 
@@ -87079,7 +87079,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev.ex
           to label %276 unwind label %279
 
 276:                                              ; preds = %274
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %275, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %275, align 8
   invoke void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %706 unwind label %281
 
@@ -88208,7 +88208,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %46 unwind label %47
 
 46:                                               ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %45, align 8
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %158 unwind label %.loopexit.split-lp
 
@@ -88685,7 +88685,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %90 unwind label %103
 
 90:                                               ; preds = %88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %89, align 8
   invoke void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %652 unwind label %.loopexit.split-lp
 
@@ -90215,7 +90215,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs16CoordinateSystemES5
           to label %51 unwind label %58
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %50, align 8
   invoke void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %223 unwind label %60
 
@@ -90771,7 +90771,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs12ParametricCSENS4_16
           to label %54 unwind label %61
 
 54:                                               ; preds = %52
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %53, align 8
   invoke void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %226 unwind label %63
 
@@ -91327,7 +91327,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs10TemporalCSENS4_16Co
           to label %54 unwind label %61
 
 54:                                               ; preds = %52
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %53, align 8
   invoke void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %226 unwind label %63
 
@@ -91869,7 +91869,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser7buildCSERKN8nlohmann10basic_js
           to label %28 unwind label %31
 
 28:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %27, align 8
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %341 unwind label %29
 
@@ -91903,7 +91903,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser7buildCSERKN8nlohmann10basic_js
           to label %41 unwind label %42
 
 41:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %40, align 8
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %341 unwind label %44
 
@@ -91969,7 +91969,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
 
 .invoke:                                          ; preds = %67, %288, %284, %270, %256, %242, %221, %200, %187, %168, %149
   %.sink = phi ptr [ %150, %149 ], [ %169, %168 ], [ %188, %187 ], [ %201, %200 ], [ %222, %221 ], [ %243, %242 ], [ %257, %256 ], [ %271, %270 ], [ %285, %284 ], [ %289, %288 ], [ %68, %67 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -93043,7 +93043,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %167 unwind label %168
 
 167:                                              ; preds = %165
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %622 unwind label %.loopexit.split-lp
 
@@ -94229,7 +94229,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS3_4u
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %43
 
@@ -94319,7 +94319,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS4_1
           to label %69 unwind label %72
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %74
 
@@ -94990,7 +94990,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSENS3_4
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %329 unwind label %43
 
@@ -95075,7 +95075,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs16CoordinateSystemES5
           to label %66 unwind label %69
 
 66:                                               ; preds = %64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %65, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %65, align 8
   invoke void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %329 unwind label %71
 
@@ -95746,7 +95746,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11VerticalCRSENS3_4u
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %43
 
@@ -95836,7 +95836,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs10VerticalCSENS4_16Co
           to label %69 unwind label %72
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %74
 
@@ -96507,7 +96507,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs14EngineeringCRSENS3
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %329 unwind label %43
 
@@ -96592,7 +96592,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs16CoordinateSystemES5
           to label %66 unwind label %69
 
 66:                                               ; preds = %64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %65, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %65, align 8
   invoke void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %329 unwind label %71
 
@@ -97263,7 +97263,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13ParametricCRSENS3_
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %43
 
@@ -97353,7 +97353,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs12ParametricCSENS4_16
           to label %69 unwind label %72
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %74
 
@@ -98024,7 +98024,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11TemporalCRSENS3_4u
           to label %38 unwind label %41
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %43
 
@@ -98114,7 +98114,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj2cs10TemporalCSENS4_16Co
           to label %69 unwind label %72
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %68, align 8
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %332 unwind label %74
 
@@ -98860,7 +98860,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %95 unwind label %99
 
 95:                                               ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %94, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %94, align 8
   invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %813 unwind label %.loopexit.split-lp
 
@@ -99106,7 +99106,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
           to label %190 unwind label %191
 
 190:                                              ; preds = %188
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %189, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %189, align 8
   invoke void @__cxa_throw(ptr nonnull %189, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %813 unwind label %.loopexit.split-lp163
 
@@ -99573,7 +99573,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj5datum5DatumENS3_6common
           to label %373 unwind label %382
 
 373:                                              ; preds = %.loopexit182
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %372, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %372, align 8
   invoke void @__cxa_throw(ptr nonnull %372, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %813 unwind label %384
 
@@ -100698,7 +100698,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser27buildGeodeticReferenceFrameER
   %17 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8
   store ptr %17, ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 8
-  %19 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8
   store ptr %19, ptr %18, align 8
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit, label %20
@@ -101120,7 +101120,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser34buildDynamicGeodeticReference
   %19 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8
   store ptr %19, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 8
-  %21 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8
   store ptr %21, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit, label %22
@@ -101700,7 +101700,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser14buildEllipsoidERKN8nlohmann10
           to label %48 unwind label %49
 
 48:                                               ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %47, align 8
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %74 unwind label %25
 
@@ -101953,7 +101953,7 @@ _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit: ; preds = %42
           to label %55 unwind label %56
 
 55:                                               ; preds = %53
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %54, align 8
   invoke void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %66 unwind label %28
 
@@ -102168,7 +102168,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %86 unwind label %97
 
 86:                                               ; preds = %84
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %85, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %85, align 8
   invoke void @__cxa_throw(ptr nonnull %85, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %685 unwind label %.loopexit.split-lp
 
@@ -103776,7 +103776,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %74 unwind label %81
 
 74:                                               ; preds = %72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %508 unwind label %.loopexit.split-lp
 
@@ -105034,7 +105034,7 @@ _ZN8nlohmann6detail9iter_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_
           to label %74 unwind label %94
 
 74:                                               ; preds = %72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %484 unwind label %.loopexit.split-lp
 
@@ -105148,7 +105148,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation19CoordinateOp
           to label %114 unwind label %115
 
 114:                                              ; preds = %.loopexit95
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %113, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %113, align 8
   invoke void @__cxa_throw(ptr nonnull %113, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %484 unwind label %117
 
@@ -105963,7 +105963,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit79: ; preds
           to label %465 unwind label %469
 
 465:                                              ; preds = %464
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %457, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %457, align 8
   invoke void @__cxa_throw(ptr nonnull %457, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %484 unwind label %469
 
@@ -106142,7 +106142,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
           to label %39 unwind label %40
 
 39:                                               ; preds = %37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %38, align 8
   invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %82 unwind label %35
 
@@ -106319,7 +106319,7 @@ define hidden void @_ZN5osgeo4proj2io10JSONParser9buildAxisERKN8nlohmann10basic_
   br label %41
 
 31:                                               ; preds = %29
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %28, align 8
   invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %150 unwind label %39
 
@@ -106486,7 +106486,7 @@ _ZN5osgeo4proj4util8optionalINS0_2cs12RangeMeaningEEC2Ev.exit: ; preds = %74
   br label %92
 
 86:                                               ; preds = %84
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %83, align 8
   invoke void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %150 unwind label %90
 
@@ -106885,7 +106885,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEED2Ev.exit: ; preds
           to label %99 unwind label %100
 
 99:                                               ; preds = %97
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %98, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %98, align 8
   invoke void @__cxa_throw(ptr nonnull %98, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %192 unwind label %35
 
@@ -107727,7 +107727,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_11Vertica
   %193 = phi ptr [ %191, %187 ], [ null, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_11VerticalCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit ]
   store ptr %193, ptr %12, align 8
   %194 = getelementptr inbounds i8, ptr %12, i64 8
-  %195 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.342", ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 8), align 8
   store ptr %195, ptr %194, align 8
   %.not.i.i.i.i29 = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i29, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_13GeographicCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %196
@@ -108730,7 +108730,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %21, %_ZN7dropbox6o
           to label %68 unwind label %69
 
 68:                                               ; preds = %66
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %67, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %67, align 8
   invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %74 unwind label %71
 
@@ -109166,7 +109166,7 @@ _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit: ; preds = %35
           to label %46 unwind label %47
 
 46:                                               ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %45, align 8
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %56 unwind label %25
 
@@ -110090,7 +110090,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
           to label %247 unwind label %248
 
 247:                                              ; preds = %244
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %246, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %246, align 8
   invoke void @__cxa_throw(ptr nonnull %246, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %250
 
@@ -110167,7 +110167,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
           to label %281 unwind label %285
 
 281:                                              ; preds = %280
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %273, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %273, align 8
   invoke void @__cxa_throw(ptr nonnull %273, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %285
 
@@ -110461,7 +110461,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
           to label %388 unwind label %389
 
 388:                                              ; preds = %381
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %383, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %383, align 8
   invoke void @__cxa_throw(ptr nonnull %383, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %391
 
@@ -110607,7 +110607,7 @@ _ZN5osgeo4proj2io10JSONParserD2Ev.exit:           ; preds = %394, %412, %425, %_
 
 444:                                              ; preds = %.critedge532
   %445 = load ptr, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, align 8
-  %446 = load ptr, ptr getelementptr inbounds (%"class.std::vector.672", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %446 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8
   %.not820889 = icmp eq ptr %445, %446
   br i1 %.not820889, label %.loopexit858, label %.lr.ph891
 
@@ -111684,7 +111684,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs3CRSEEEON7dropbox6oxygen2nnISt10s
           to label %883 unwind label %884
 
 883:                                              ; preds = %881
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %882, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %882, align 8
   invoke void @__cxa_throw(ptr nonnull %882, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %886
 
@@ -112079,7 +112079,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs3CRSEEEON7dropbox6oxygen2nnISt10s
   br label %1049
 
 1043:                                             ; preds = %1041
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1040, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1040, align 8
   invoke void @__cxa_throw(ptr nonnull %1040, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1047
 
@@ -112177,7 +112177,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   br label %1093
 
 1083:                                             ; preds = %1081
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1080, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1080, align 8
   invoke void @__cxa_throw(ptr nonnull %1080, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1091
 
@@ -112285,7 +112285,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   br label %1136
 
 1126:                                             ; preds = %1124
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1123, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1123, align 8
   invoke void @__cxa_throw(ptr nonnull %1123, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1134
 
@@ -113284,7 +113284,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEEC2ENS0_30i_pr
           to label %1508 unwind label %1509
 
 1508:                                             ; preds = %1506
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1507, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1507, align 8
   invoke void @__cxa_throw(ptr nonnull %1507, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1265
 
@@ -113406,7 +113406,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEEC2ENS0_30i_pr
   br label %1552
 
 1548:                                             ; preds = %1546
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1543, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1543, align 8
   invoke void @__cxa_throw(ptr nonnull %1543, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1550
 
@@ -113544,7 +113544,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   br label %1605
 
 1601:                                             ; preds = %1599
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1598, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1598, align 8
   invoke void @__cxa_throw(ptr nonnull %1598, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1603
 
@@ -113715,7 +113715,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   br label %1669
 
 1665:                                             ; preds = %1663
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1660, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1660, align 8
   invoke void @__cxa_throw(ptr nonnull %1660, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1667
 
@@ -113839,7 +113839,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   br label %1714
 
 1710:                                             ; preds = %1708
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1707, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1707, align 8
   invoke void @__cxa_throw(ptr nonnull %1707, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2081 unwind label %1712
 
@@ -114807,7 +114807,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
 
 .invoke:                                          ; preds = %2067, %1632, %1003, %624
   %.sink = phi ptr [ %625, %624 ], [ %1004, %1003 ], [ %1633, %1632 ], [ %2068, %2067 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %630
 
@@ -115222,7 +115222,7 @@ define void @_ZN5osgeo4proj2io9WKTParser13createFromWKTERKNSt7__cxx1112basic_str
   %47 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8, !noalias !662
   store ptr %47, ptr %6, align 16, !noalias !662
   %48 = getelementptr inbounds i8, ptr %6, i64 8
-  %49 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8, !noalias !662
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8, !noalias !662
   store ptr %49, ptr %48, align 8, !noalias !662
   %.not.i.i.i.i75 = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i75, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEC2ERKS8_.exit, label %50
@@ -116300,7 +116300,7 @@ define noundef range(i32 0, 5) i32 @_ZN5osgeo4proj2io9WKTParser12guessDialectERK
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%"class.std::vector.672", ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8
   %.not5265 = icmp eq ptr %44, %45
   br i1 %.not5265, label %.loopexit53, label %.lr.ph67
 
@@ -116496,7 +116496,7 @@ declare noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_string
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2io19FormattingExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -116505,7 +116505,7 @@ declare hidden void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2io19FormattingExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -116514,7 +116514,7 @@ declare hidden void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_string
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io19FormattingExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io19FormattingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -116573,21 +116573,21 @@ define hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowERKNSt7__cxx1112
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2io16ParsingExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2io16ParsingExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io16ParsingExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -126330,7 +126330,7 @@ _ZNSt6vectorIN5osgeo4proj2io4Step8KeyValueESaIS4_EE9push_backERKS4_.exit: ; pred
 
 .invoke:                                          ; preds = %272, %263
   %.sink358 = phi ptr [ %264, %263 ], [ %273, %272 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink358, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink358, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink358, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -128789,7 +128789,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueINSt7__cxx1112basic_st
           to label %43 unwind label %50
 
 43:                                               ; preds = %42
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %37, align 8
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %108 unwind label %50
 
@@ -128924,7 +128924,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueINSt7__cxx1112basic_st
   br label %89
 
 85:                                               ; preds = %83
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %82, align 8
   invoke void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %108 unwind label %87
 
@@ -129292,7 +129292,7 @@ define hidden void @_ZN5osgeo4proj2io16PROJStringParser7Private18buildPrimeMerid
   %15 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, align 8
   store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian9GREENWICHE, i64 8), align 8
   store ptr %17, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEC2ERKS8_.exit, label %18
@@ -129590,7 +129590,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEED2Ev.ex
 143:                                              ; preds = %140
   %144 = load ptr, ptr @_ZN5osgeo4proj5datum13PrimeMeridian5PARISE, align 8
   store ptr %144, ptr %0, align 8
-  %145 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.176", ptr @_ZN5osgeo4proj5datum13PrimeMeridian5PARISE, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj5datum13PrimeMeridian5PARISE, i64 8), align 8
   %146 = load ptr, ptr %16, align 8
   %.not.i.i.i.i46 = icmp eq ptr %145, %146
   br i1 %.not.i.i.i.i46, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEaSERKS8_.exit, label %147
@@ -129961,7 +129961,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %306
 
 302:                                              ; preds = %300
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %299, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %299, align 8
   invoke void @__cxa_throw(ptr nonnull %299, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %307 unwind label %304
 
@@ -130974,7 +130974,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %304 unwind label %305
 
 304:                                              ; preds = %301
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %303, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %303, align 8
   invoke void @__cxa_throw(ptr nonnull %303, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %307
 
@@ -131364,7 +131364,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %463
 
 459:                                              ; preds = %457
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %456, align 8, !noalias !713
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %456, align 8, !noalias !713
   invoke void @__cxa_throw(ptr nonnull %456, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %464 unwind label %461, !noalias !713
 
@@ -132102,7 +132102,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %739
 
 735:                                              ; preds = %733
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %732, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %732, align 8
   invoke void @__cxa_throw(ptr nonnull %732, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %740 unwind label %737
 
@@ -132284,7 +132284,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameE
           to label %804 unwind label %805
 
 804:                                              ; preds = %801
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %803, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %803, align 8
   invoke void @__cxa_throw(ptr nonnull %803, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %807
 
@@ -132353,7 +132353,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameE
           to label %833 unwind label %834
 
 833:                                              ; preds = %830
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %832, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %832, align 8
   invoke void @__cxa_throw(ptr nonnull %832, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %836
 
@@ -132663,7 +132663,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %959 unwind label %960
 
 959:                                              ; preds = %956
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %958, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %958, align 8
   invoke void @__cxa_throw(ptr nonnull %958, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %962
 
@@ -132809,7 +132809,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %1005 unwind label %1006
 
 1005:                                             ; preds = %1002
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1004, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1004, align 8
   invoke void @__cxa_throw(ptr nonnull %1004, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %1008
 
@@ -132956,7 +132956,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %1056 unwind label %1057
 
 1056:                                             ; preds = %1053
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1055, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1055, align 8
   invoke void @__cxa_throw(ptr nonnull %1055, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %1059
 
@@ -133103,7 +133103,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %1107 unwind label %1108
 
 1107:                                             ; preds = %1104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1106, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1106, align 8
   invoke void @__cxa_throw(ptr nonnull %1106, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1261 unwind label %1110
 
@@ -133396,7 +133396,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .invoke590:                                       ; preds = %1210, %1200, %1190, %1180, %1170
   %.sink597 = phi ptr [ %1171, %1170 ], [ %1181, %1180 ], [ %1191, %1190 ], [ %1201, %1200 ], [ %1211, %1210 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink597, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink597, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink597, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %277
 
@@ -133989,7 +133989,7 @@ define hidden void @_ZN5osgeo4proj2io16PROJStringParser7Private15processAxisSwap
   %89 = load ptr, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, align 8
   store ptr %89, ptr %17, align 8
   %90 = getelementptr inbounds i8, ptr %17, i64 8
-  %91 = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 0, i32 1, i32 0), align 8
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 8), align 8
   store ptr %91, ptr %90, align 8
   %.not.i.i.i230 = icmp eq ptr %91, null
   br i1 %.not.i.i.i230, label %_ZNSt10shared_ptrIN5osgeo4proj2cs8MeridianEEC2ERKS4_.exit, label %92
@@ -134223,7 +134223,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs8MeridianEEED2Ev.exit: ; pre
   %186 = load ptr, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, align 8
   store ptr %186, ptr %25, align 16
   %187 = getelementptr inbounds i8, ptr %25, i64 8
-  %188 = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 0, i32 1, i32 0), align 8
+  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 8), align 8
   store ptr %188, ptr %187, align 8
   %.not.i.i.i236 = icmp eq ptr %188, null
   br i1 %.not.i.i.i236, label %_ZNSt10shared_ptrIN5osgeo4proj2cs8MeridianEEC2ERKS4_.exit238, label %189
@@ -134304,7 +134304,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs8MeridianEEED2Ev.exit: ; pre
   %220 = load ptr, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, align 8
   store ptr %220, ptr %25, align 16
   %221 = getelementptr inbounds i8, ptr %25, i64 8
-  %222 = load ptr, ptr getelementptr inbounds ({ ptr, %"class.std::__shared_count" }, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 0, i32 1, i32 0), align 8
+  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj2ioL12nullMeridianE, i64 8), align 8
   store ptr %222, ptr %221, align 8
   %.not.i.i.i242 = icmp eq ptr %222, null
   br i1 %.not.i.i.i242, label %_ZNSt10shared_ptrIN5osgeo4proj2cs8MeridianEEC2ERKS4_.exit238, label %223
@@ -135659,7 +135659,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   br label %767
 
 763:                                              ; preds = %761
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %760, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %760, align 8
   invoke void @__cxa_throw(ptr nonnull %760, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1339 unwind label %765
 
@@ -135698,7 +135698,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEaSE
   br label %776
 
 772:                                              ; preds = %770
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %769, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %769, align 8
   invoke void @__cxa_throw(ptr nonnull %769, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1339 unwind label %774
 
@@ -135798,7 +135798,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
   br label %813
 
 809:                                              ; preds = %807
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %806, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %806, align 8
   invoke void @__cxa_throw(ptr nonnull %806, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1339 unwind label %811
 
@@ -135835,7 +135835,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %822 unwind label %823
 
 822:                                              ; preds = %820
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %821, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %821, align 8
   invoke void @__cxa_throw(ptr nonnull %821, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1339 unwind label %825
 
@@ -136344,7 +136344,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   br label %1060
 
 1056:                                             ; preds = %1054
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1053, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1053, align 8
   invoke void @__cxa_throw(ptr nonnull %1053, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1339 unwind label %1058
 
@@ -137231,7 +137231,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %75 unwind label %76
 
 75:                                               ; preds = %73
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %74, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %74, align 8
   invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %270 unwind label %61
 
@@ -137887,7 +137887,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %67 unwind label %68
 
 67:                                               ; preds = %65
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %66, align 8
   invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %128 unwind label %53
 
@@ -138950,7 +138950,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
           to label %125 unwind label %126
 
 125:                                              ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %124, align 8
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %299 unwind label %103
 
@@ -139030,7 +139030,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
           to label %155 unwind label %158
 
 155:                                              ; preds = %153
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %154, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %154, align 8
   invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %299 unwind label %156
 
@@ -139843,7 +139843,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
           to label %222 unwind label %223
 
 222:                                              ; preds = %219
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %221, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %221, align 8
   invoke void @__cxa_throw(ptr nonnull %221, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1474 unwind label %225
 
@@ -140304,7 +140304,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev.exit: ; 
   %397 = phi ptr [ %395, %391 ], [ null, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev.exit ]
   store ptr %397, ptr %27, align 8
   %398 = getelementptr inbounds i8, ptr %27, i64 8
-  %399 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.342", ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, i64 8), align 8
   store ptr %399, ptr %398, align 8
   %.not.i.i.i.i159 = icmp eq ptr %399, null
   br i1 %.not.i.i.i.i159, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_13GeographicCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %400
@@ -141207,7 +141207,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %785 unwind label %786
 
 785:                                              ; preds = %783
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %784, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %784, align 8
   invoke void @__cxa_throw(ptr nonnull %784, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %1474 unwind label %449
 
@@ -143464,7 +143464,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEED2Ev.ex
           to label %276 unwind label %281
 
 276:                                              ; preds = %274
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %275, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %275, align 8
   invoke void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2985 unwind label %162
 
@@ -144653,7 +144653,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13hasParamValueIPKcEEbRNS1_4StepET_.e
 
 .invoke:                                          ; preds = %803, %758, %735
   %.sink = phi ptr [ %736, %735 ], [ %759, %758 ], [ %804, %803 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %337
 
@@ -144910,7 +144910,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %906 unwind label %907
 
 906:                                              ; preds = %904
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %905, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %905, align 8
   invoke void @__cxa_throw(ptr nonnull %905, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2985 unwind label %894
 
@@ -144995,7 +144995,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private13getParamValueIPKcEERKNSt7__cxx1112b
           to label %939 unwind label %942
 
 939:                                              ; preds = %937
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %938, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %938, align 8
   invoke void @__cxa_throw(ptr nonnull %938, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2985 unwind label %940
 
@@ -145574,7 +145574,7 @@ _ZN5osgeo4proj2ioL15getNumericValueERKNSt7__cxx1112basic_stringIcSt11char_traits
   br label %1173
 
 1169:                                             ; preds = %1167
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1166, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1166, align 8
   invoke void @__cxa_throw(ptr nonnull %1166, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2985 unwind label %1171
 
@@ -145768,7 +145768,7 @@ _ZN5osgeo4proj2io16PROJStringParser7Private14getParamValueKB5cxx11ERNS1_4StepE.e
 
 .invoke1473:                                      ; preds = %1241, %1270, %1255
   %.sink1475 = phi ptr [ %1256, %1255 ], [ %1271, %1270 ], [ %1242, %1241 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink1475, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink1475, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink1475, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont1474 unwind label %.loopexit.split-lp1173
 
@@ -147350,7 +147350,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   br label %1902
 
 1898:                                             ; preds = %1896
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %1895, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %1895, align 8
   invoke void @__cxa_throw(ptr nonnull %1895, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %2985 unwind label %1900
 
@@ -152939,7 +152939,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %89 unwind label %98
 
 89:                                               ; preds = %87
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %88, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %88, align 8
   invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %415 unwind label %102
 
@@ -153096,7 +153096,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
           to label %153 unwind label %154
 
 153:                                              ; preds = %150
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %152, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %152, align 8
   invoke void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %415 unwind label %156
 
@@ -153205,7 +153205,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
           to label %181 unwind label %182
 
 181:                                              ; preds = %_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.thread
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %180, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %415 unwind label %.loopexit.split-lp146
 
@@ -153522,7 +153522,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %309 unwind label %310
 
 309:                                              ; preds = %307
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %308, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %308, align 8
   invoke void @__cxa_throw(ptr nonnull %308, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %415 unwind label %35
 
@@ -154172,7 +154172,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL17importFromWMSAUTOERKNSt7__cxx11
           to label %181 unwind label %182
 
 181:                                              ; preds = %179
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %180, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %501 unwind label %82
 
@@ -154206,7 +154206,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL17importFromWMSAUTOERKNSt7__cxx11
   %191 = load ptr, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, align 8
   store ptr %191, ptr %34, align 8
   %192 = getelementptr inbounds i8, ptr %34, i64 8
-  %193 = load ptr, ptr getelementptr inbounds (%"class.dropbox::oxygen::nn.342", ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, i64 0, i32 0, i32 0, i32 1, i32 0), align 8
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4326E, i64 8), align 8
   store ptr %193, ptr %192, align 8
   %.not.i.i.i.i = icmp eq ptr %193, null
   br i1 %.not.i.i.i.i, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEC2IS2_INS5_13GeographicCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %194
@@ -154695,7 +154695,7 @@ _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit.i: ; p
 
 .invoke:                                          ; preds = %334, %230
   %.sink = phi ptr [ %231, %230 ], [ %335, %334 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %.sink, align 8, !noalias !792
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink, align 8, !noalias !792
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %475
 
@@ -154749,7 +154749,7 @@ _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit.i: ; p
           to label %342 unwind label %343
 
 342:                                              ; preds = %340
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %341, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %341, align 8
   invoke void @__cxa_throw(ptr nonnull %341, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.noexc53 unwind label %477
 
@@ -155129,7 +155129,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %488 unwind label %489
 
 488:                                              ; preds = %485
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %487, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %487, align 8
   invoke void @__cxa_throw(ptr nonnull %487, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %501 unwind label %491
 
@@ -156327,7 +156327,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_11coordinates18CoordinateMetadataEEEO
   br label %390
 
 386:                                              ; preds = %384
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %383, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %383, align 8
   invoke void @__cxa_throw(ptr nonnull %383, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %465 unwind label %388
 
@@ -157223,7 +157223,7 @@ _ZNSt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEED2Ev.exit.thread: ; pre
           to label %183 unwind label %184
 
 183:                                              ; preds = %.loopexit
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 0, i32 0, i64 2), ptr %182, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %182, align 8
   invoke void @__cxa_throw(ptr nonnull %182, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %227 unwind label %.loopexit.split-lp
 
@@ -157653,7 +157653,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -157662,7 +157662,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -157843,7 +157843,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 82:                                               ; preds = %77
   %83 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = getelementptr inbounds i8, ptr %9, i64 8
   %86 = load i32, ptr %85, align 8
@@ -157851,7 +157851,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   %87 = getelementptr inbounds i8, ptr %83, i64 16
   %88 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %83, align 8
   %89 = getelementptr inbounds i8, ptr %83, i64 32
   %90 = getelementptr inbounds i8, ptr %9, i64 32
   %91 = load i64, ptr %90, align 8
@@ -157863,7 +157863,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %77
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %9, align 8
   %92 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #37
@@ -157926,7 +157926,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 113:                                              ; preds = %82
   %114 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %9, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %88) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #37
   br label %115
@@ -158101,7 +158101,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 175:                                              ; preds = %171
   %176 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %176, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %176, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = getelementptr inbounds i8, ptr %19, i64 8
   %179 = load i32, ptr %178, align 8
@@ -158109,7 +158109,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %180 = getelementptr inbounds i8, ptr %176, i64 16
   %181 = getelementptr inbounds i8, ptr %19, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 8 dereferenceable(16) %181) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %176, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %176, align 8
   %182 = getelementptr inbounds i8, ptr %176, i64 32
   %183 = getelementptr inbounds i8, ptr %19, i64 32
   %184 = load i64, ptr %183, align 8
@@ -158121,7 +158121,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %171
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %19, align 8
   %185 = getelementptr inbounds i8, ptr %19, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %185) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #37
@@ -158166,7 +158166,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 198:                                              ; preds = %175
   %199 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %19, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %181) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #37
   br label %200
@@ -160712,7 +160712,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
           to label %103 unwind label %111
 
 103:                                              ; preds = %101
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %14, align 8
   %104 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #37
@@ -160740,7 +160740,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
 111:                                              ; preds = %101
   %112 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %14, align 8
   %113 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %113) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #37
@@ -160807,7 +160807,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
           to label %131 unwind label %139
 
 131:                                              ; preds = %129
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %21, align 8
   %132 = getelementptr inbounds i8, ptr %21, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %132) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #37
@@ -160835,7 +160835,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
 139:                                              ; preds = %129
   %140 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %21, align 8
   %141 = getelementptr inbounds i8, ptr %21, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %141) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #37
@@ -160990,7 +160990,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %176, %173
           to label %198 unwind label %208
 
 198:                                              ; preds = %196
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %28, align 8
   %199 = getelementptr inbounds i8, ptr %28, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %199) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #37
@@ -161023,7 +161023,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %176, %173
 208:                                              ; preds = %196
   %209 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %28, align 8
   %210 = getelementptr inbounds i8, ptr %28, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %210) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #37
@@ -161153,7 +161153,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
           to label %251 unwind label %259
 
 251:                                              ; preds = %249
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %34, align 8
   %252 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %252) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #37
@@ -161181,7 +161181,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 259:                                              ; preds = %249
   %260 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %34, align 8
   %261 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %261) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #37
@@ -161232,7 +161232,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
           to label %273 unwind label %281
 
 273:                                              ; preds = %271
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %41, align 8
   %274 = getelementptr inbounds i8, ptr %41, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %274) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #37
@@ -161260,7 +161260,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 281:                                              ; preds = %271
   %282 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %41, align 8
   %283 = getelementptr inbounds i8, ptr %41, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %283) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #37
@@ -161409,7 +161409,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 
 342:                                              ; preds = %337
   %343 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %343, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %343, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 8
   %345 = getelementptr inbounds i8, ptr %48, i64 8
   %346 = load i32, ptr %345, align 8
@@ -161417,7 +161417,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
   %347 = getelementptr inbounds i8, ptr %343, i64 16
   %348 = getelementptr inbounds i8, ptr %48, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %347, ptr noundef nonnull align 8 dereferenceable(16) %348) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %343, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %343, align 8
   %349 = getelementptr inbounds i8, ptr %343, i64 32
   %350 = getelementptr inbounds i8, ptr %48, i64 32
   %351 = load i64, ptr %350, align 8
@@ -161429,7 +161429,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %337
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %48, align 8
   %352 = getelementptr inbounds i8, ptr %48, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %352) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #37
@@ -161468,7 +161468,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 363:                                              ; preds = %342
   %364 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %48, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %348) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #37
   br label %365
@@ -161577,7 +161577,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 399:                                              ; preds = %394
   %400 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %400, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %400, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 8
   %402 = getelementptr inbounds i8, ptr %55, i64 8
   %403 = load i32, ptr %402, align 8
@@ -161585,7 +161585,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %404 = getelementptr inbounds i8, ptr %400, i64 16
   %405 = getelementptr inbounds i8, ptr %55, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %404, ptr noundef nonnull align 8 dereferenceable(16) %405) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %400, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %400, align 8
   %406 = getelementptr inbounds i8, ptr %400, i64 32
   %407 = getelementptr inbounds i8, ptr %55, i64 32
   %408 = load i64, ptr %407, align 8
@@ -161597,7 +161597,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit143: ; preds = %394
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %55, align 8
   %409 = getelementptr inbounds i8, ptr %55, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %409) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #37
@@ -161636,7 +161636,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 420:                                              ; preds = %399
   %421 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %55, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %405) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #37
   br label %422
@@ -161741,7 +161741,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 456:                                              ; preds = %451
   %457 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %457, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %457, i64 8
   %459 = getelementptr inbounds i8, ptr %62, i64 8
   %460 = load i32, ptr %459, align 8
@@ -161749,7 +161749,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %461 = getelementptr inbounds i8, ptr %457, i64 16
   %462 = getelementptr inbounds i8, ptr %62, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %461, ptr noundef nonnull align 8 dereferenceable(16) %462) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %457, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %457, align 8
   %463 = getelementptr inbounds i8, ptr %457, i64 32
   %464 = getelementptr inbounds i8, ptr %62, i64 32
   %465 = load i64, ptr %464, align 8
@@ -161761,7 +161761,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit155: ; preds = %451
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %62, align 8
   %466 = getelementptr inbounds i8, ptr %62, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %466) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #37
@@ -161800,7 +161800,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 477:                                              ; preds = %456
   %478 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %62, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %462) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #37
   br label %479
@@ -161907,7 +161907,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 515:                                              ; preds = %510
   %516 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %516, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %516, align 8
   %517 = getelementptr inbounds i8, ptr %516, i64 8
   %518 = getelementptr inbounds i8, ptr %69, i64 8
   %519 = load i32, ptr %518, align 8
@@ -161915,7 +161915,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %520 = getelementptr inbounds i8, ptr %516, i64 16
   %521 = getelementptr inbounds i8, ptr %69, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %521) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %516, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %516, align 8
   %522 = getelementptr inbounds i8, ptr %516, i64 32
   %523 = getelementptr inbounds i8, ptr %69, i64 32
   %524 = load i64, ptr %523, align 8
@@ -161927,7 +161927,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit168: ; preds = %510
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %69, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %69, align 8
   %525 = getelementptr inbounds i8, ptr %69, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %525) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #37
@@ -161966,7 +161966,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 536:                                              ; preds = %515
   %537 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %69, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %69, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %521) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #37
   br label %538
@@ -162209,7 +162209,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_error6createINS_10ba
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #37
   %53 = load i64, ptr %2, align 8
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
@@ -162224,7 +162224,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_error6createINS_10ba
   br label %83
 
 58:                                               ; preds = %52
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %53, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #37
@@ -162764,7 +162764,7 @@ _ZN8nlohmann6detail10lexer_baseINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -163059,7 +163059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
           to label %105 unwind label %113
 
 105:                                              ; preds = %103
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %14, align 8
   %106 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #37
@@ -163087,7 +163087,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
 113:                                              ; preds = %103
   %114 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %14, align 8
   %115 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #37
@@ -163157,7 +163157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
           to label %137 unwind label %145
 
 137:                                              ; preds = %135
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %21, align 8
   %138 = getelementptr inbounds i8, ptr %21, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %138) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #37
@@ -163185,7 +163185,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10b
 145:                                              ; preds = %135
   %146 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %21, align 8
   %147 = getelementptr inbounds i8, ptr %21, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %147) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #37
@@ -163339,7 +163339,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %182, %179
           to label %204 unwind label %214
 
 204:                                              ; preds = %202
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %28, align 8
   %205 = getelementptr inbounds i8, ptr %28, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %205) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #37
@@ -163372,7 +163372,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %182, %179
 214:                                              ; preds = %202
   %215 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %28, align 8
   %216 = getelementptr inbounds i8, ptr %28, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %216) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #37
@@ -163502,7 +163502,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
           to label %257 unwind label %265
 
 257:                                              ; preds = %255
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %34, align 8
   %258 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %258) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #37
@@ -163530,7 +163530,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 265:                                              ; preds = %255
   %266 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %34, align 8
   %267 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %267) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #37
@@ -163581,7 +163581,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
           to label %279 unwind label %287
 
 279:                                              ; preds = %277
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %41, align 8
   %280 = getelementptr inbounds i8, ptr %41, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %280) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #37
@@ -163609,7 +163609,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 287:                                              ; preds = %277
   %288 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %41, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %41, align 8
   %289 = getelementptr inbounds i8, ptr %41, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %289) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #37
@@ -163754,7 +163754,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 
 347:                                              ; preds = %342
   %348 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %348, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %348, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 8
   %350 = getelementptr inbounds i8, ptr %48, i64 8
   %351 = load i32, ptr %350, align 8
@@ -163762,7 +163762,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
   %352 = getelementptr inbounds i8, ptr %348, i64 16
   %353 = getelementptr inbounds i8, ptr %48, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %352, ptr noundef nonnull align 8 dereferenceable(16) %353) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %348, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %348, align 8
   %354 = getelementptr inbounds i8, ptr %348, i64 32
   %355 = getelementptr inbounds i8, ptr %48, i64 32
   %356 = load i64, ptr %355, align 8
@@ -163774,7 +163774,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %342
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %48, align 8
   %357 = getelementptr inbounds i8, ptr %48, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %357) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #37
@@ -163813,7 +163813,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 368:                                              ; preds = %347
   %369 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %48, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %353) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #37
   br label %370
@@ -163922,7 +163922,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 404:                                              ; preds = %399
   %405 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %405, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %405, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 8
   %407 = getelementptr inbounds i8, ptr %55, i64 8
   %408 = load i32, ptr %407, align 8
@@ -163930,7 +163930,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %409 = getelementptr inbounds i8, ptr %405, i64 16
   %410 = getelementptr inbounds i8, ptr %55, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %409, ptr noundef nonnull align 8 dereferenceable(16) %410) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %405, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %405, align 8
   %411 = getelementptr inbounds i8, ptr %405, i64 32
   %412 = getelementptr inbounds i8, ptr %55, i64 32
   %413 = load i64, ptr %412, align 8
@@ -163942,7 +163942,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit143: ; preds = %399
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %55, align 8
   %414 = getelementptr inbounds i8, ptr %55, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %414) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #37
@@ -163981,7 +163981,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 425:                                              ; preds = %404
   %426 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %55, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %410) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #37
   br label %427
@@ -164089,7 +164089,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 465:                                              ; preds = %460
   %466 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %466, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %466, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 8
   %468 = getelementptr inbounds i8, ptr %62, i64 8
   %469 = load i32, ptr %468, align 8
@@ -164097,7 +164097,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %470 = getelementptr inbounds i8, ptr %466, i64 16
   %471 = getelementptr inbounds i8, ptr %62, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %471) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %466, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %466, align 8
   %472 = getelementptr inbounds i8, ptr %466, i64 32
   %473 = getelementptr inbounds i8, ptr %62, i64 32
   %474 = load i64, ptr %473, align 8
@@ -164109,7 +164109,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit157: ; preds = %460
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %62, align 8
   %475 = getelementptr inbounds i8, ptr %62, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %475) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #37
@@ -164148,7 +164148,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 486:                                              ; preds = %465
   %487 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %62, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %471) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #37
   br label %488
@@ -164251,7 +164251,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 523:                                              ; preds = %518
   %524 = call ptr @__cxa_allocate_exception(i64 40) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %524, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %524, align 8
   %525 = getelementptr inbounds i8, ptr %524, i64 8
   %526 = getelementptr inbounds i8, ptr %69, i64 8
   %527 = load i32, ptr %526, align 8
@@ -164259,7 +164259,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %528 = getelementptr inbounds i8, ptr %524, i64 16
   %529 = getelementptr inbounds i8, ptr %69, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %528, ptr noundef nonnull align 8 dereferenceable(16) %529) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %524, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %524, align 8
   %530 = getelementptr inbounds i8, ptr %524, i64 32
   %531 = getelementptr inbounds i8, ptr %69, i64 32
   %532 = load i64, ptr %531, align 8
@@ -164271,7 +164271,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit170: ; preds = %518
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %69, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %69, align 8
   %533 = getelementptr inbounds i8, ptr %69, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %533) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #37
@@ -164310,7 +164310,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 544:                                              ; preds = %523
   %545 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %69, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %69, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %529) #37
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #37
   br label %546
@@ -165509,7 +165509,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_range6createINS_10b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #37
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 16
@@ -165524,7 +165524,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_range6createINS_10b
   br label %47
 
 35:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
   ret void
 
@@ -165576,7 +165576,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_range6createINS_10b
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -166460,7 +166460,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iterator6createINS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #37
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 16
@@ -166475,7 +166475,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iterator6createINS
   br label %47
 
 35:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
   ret void
 
@@ -166527,7 +166527,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iterator6createINS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -166536,7 +166536,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -166699,7 +166699,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail10type_error6createINS_10bas
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #37
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 16
@@ -166714,7 +166714,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail10type_error6createINS_10bas
   br label %47
 
 35:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #37
   ret void
 
@@ -166783,7 +166783,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -166798,7 +166798,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -168003,7 +168003,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -168011,13 +168011,13 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr n
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -169516,7 +169516,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -169524,7 +169524,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr no
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #37
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
@@ -169534,7 +169534,7 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #37
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
@@ -173658,7 +173658,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i42:   ; preds = %_ZNSt14_Bit_referen
   store i32 1, ptr %40, align 8, !noalias !955
   %41 = getelementptr inbounds i8, ptr %37, i64 12
   store i32 1, ptr %41, align 4, !noalias !955
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %37, align 8, !noalias !955
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %37, align 8, !noalias !955
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   invoke void @_ZN5osgeo4proj6common13UnitOfMeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure5METREE)
           to label %44 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !955
@@ -173784,7 +173784,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common13UnitOfMeasureEEED2Ev.e
   store i32 1, ptr %92, align 8, !noalias !961
   %93 = getelementptr inbounds i8, ptr %91, i64 12
   store i32 1, ptr %93, align 4, !noalias !961
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %91, align 8, !noalias !961
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %91, align 8, !noalias !961
   %94 = getelementptr inbounds i8, ptr %91, i64 16
   invoke void @_ZN5osgeo4proj6common13UnitOfMeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %96 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i54, !noalias !961

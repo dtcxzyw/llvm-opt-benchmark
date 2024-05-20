@@ -125,7 +125,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %isnull = icmp eq ptr %0, null
@@ -143,7 +143,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -180,7 +180,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit: ; preds = %cond.true.i, %cond.false.i
   %call1.sink.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %call1.sink.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %call1.sink.i, align 8
   %call.i4.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %data_.i5.i = getelementptr inbounds i8, ptr %call1.sink.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i4.i) #10

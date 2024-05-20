@@ -385,7 +385,7 @@ cond.false14:                                     ; preds = %cond.end
   unreachable
 
 cond.end15:                                       ; preds = %cond.end
-  %call.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBytes_Type, i64 0, i32 19), align 8
+  %call.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyBytes_Type, i64 168), align 8
   %5 = and i64 %call.val.i, 134217728
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %cond.false.i, label %PyBytes_GET_SIZE.exit
@@ -489,7 +489,7 @@ cond.false14:                                     ; preds = %cond.end
   unreachable
 
 cond.end15:                                       ; preds = %cond.end
-  %call.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBytes_Type, i64 0, i32 19), align 8
+  %call.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyBytes_Type, i64 168), align 8
   %5 = and i64 %call.val.i, 134217728
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %cond.false.i, label %PyBytes_GET_SIZE.exit

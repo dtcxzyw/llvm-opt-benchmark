@@ -141,7 +141,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cipso_v4_cache_add(ptr noundef %
   %9 = getelementptr i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 2336, i64 noundef 56) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %109, label %15
@@ -645,13 +645,13 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
 
 .loopexit:                                        ; preds = %45, %48, %.split7.us
   %51 = getelementptr inbounds i8, ptr %0, i64 32
-  %52 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @cipso_v4_doi_list, i64 0, i32 1), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @cipso_v4_doi_list, i64 8), align 8
   store ptr @cipso_v4_doi_list, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %52, ptr %53, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   store volatile ptr %51, ptr %52, align 8
-  store ptr %51, ptr getelementptr inbounds (%struct.list_head, ptr @cipso_v4_doi_list, i64 0, i32 1), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @cipso_v4_doi_list, i64 8), align 8
   br label %54
 
 54:                                               ; preds = %.loopexit, %48
@@ -1542,7 +1542,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_sock_setattr(ptr nounde
   br i1 %4, label %56, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2080, i64 noundef 40) #15
   %8 = icmp eq ptr %7, null
   br i1 %8, label %54, label %9
@@ -2056,7 +2056,7 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cipso_v4_req_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 2080, i64 noundef 40) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
@@ -3137,7 +3137,7 @@ declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -12, 1) i32 @cipso_v4_cache_init() unnamed_addr #7 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 3072) #15
   store ptr %2, ptr @cipso_v4_cache, align 8
   %3 = icmp eq ptr %2, null

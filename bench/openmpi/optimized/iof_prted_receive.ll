@@ -51,7 +51,7 @@ define void @prte_iof_prted_send_xonxoff(i16 noundef zeroext %0) local_unnamed_a
   br label %.sink.split
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_iof_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %19
 
@@ -83,13 +83,13 @@ define void @prte_iof_prted_send_xonxoff(i16 noundef zeroext %0) local_unnamed_a
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 1, i32 1), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 516), align 4
   %28 = call ptr @pmix_util_print_rank(i32 noundef %27) #2
   call void (i32, ptr, ...) @pmix_output(i32 noundef %20, ptr noundef nonnull @.str.5, ptr noundef %28, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.prte_iof_prted_send_xonxoff, i32 noundef 69) #2
   br label %29
 
 29:                                               ; preds = %26, %21, %19
-  %30 = load i32, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 1, i32 1), align 4
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 516), align 4
   %31 = call i32 @prte_rml_send_buffer_nb(i32 noundef %30, ptr noundef %3, i32 noundef 2) #2
   switch i32 %31, label %32 [
     i32 0, label %34
@@ -183,7 +183,7 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %.loopexit
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_iof_base_framework, i64 0, i32 11), align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %27, 64
   br i1 %or.cond, label %28, label %37
 
@@ -202,8 +202,8 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %37
 
 37:                                               ; preds = %33, %28, %26
-  %.034 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1, i32 1), align 8
-  %.not3035 = icmp eq ptr %.034, getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1)
+  %.034 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 464), align 8
+  %.not3035 = icmp eq ptr %.034, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
   br i1 %.not3035, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
@@ -224,7 +224,7 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br i1 %46, label %47, label %72
 
 47:                                               ; preds = %42
-  %48 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_iof_base_framework, i64 0, i32 11), align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond3 = icmp ult i32 %48, 64
   br i1 %or.cond3, label %49, label %57
 
@@ -257,19 +257,19 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %61
-  %69 = load i8, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 2), align 8
+  %69 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 496), align 8
   %70 = trunc i8 %69 to i1
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %68
-  store i8 1, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 496), align 8
   call void @prte_iof_prted_send_xonxoff(i16 noundef zeroext 8192)
   br label %72
 
 72:                                               ; preds = %39, %61, %71, %68, %42, %57
   %73 = getelementptr inbounds i8, ptr %.036, i64 120
   %.0 = load ptr, ptr %73, align 8
-  %.not30 = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1)
+  %.not30 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
   br i1 %.not30, label %.loopexit, label %39, !llvm.loop !4
 
 .loopexit:                                        ; preds = %72, %37, %22, %18, %5, %24, %20, %12, %16

@@ -77,7 +77,7 @@ entry:
   %binary_and_json_suite = alloca %"class.google::protobuf::BinaryAndJsonConformanceSuite", align 8
   %ref.tmp = alloca %"class.std::vector", align 8
   call void @_ZN6google8protobuf20ConformanceTestSuiteC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %binary_and_json_suite)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %binary_and_json_suite, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 16), ptr %binary_and_json_suite, align 8
   %type_resolver_.i = getelementptr inbounds i8, ptr %binary_and_json_suite, i64 400
   store ptr null, ptr %type_resolver_.i, align 8
   %type_url_.i = getelementptr inbounds i8, ptr %binary_and_json_suite, i64 408
@@ -122,7 +122,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   br label %_ZNSt6vectorIPN6google8protobuf20ConformanceTestSuiteESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN6google8protobuf20ConformanceTestSuiteESaIS3_EED2Ev.exit: ; preds = %invoke.cont4, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %binary_and_json_suite, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 16), ptr %binary_and_json_suite, align 8
   %4 = load ptr, ptr %type_url_.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i5
@@ -179,7 +179,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 16), ptr %this, align 8
   %type_url_ = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %type_url_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 424
@@ -224,7 +224,7 @@ entry:
   %ref.tmp.i1 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 16), ptr %this, align 8
   %verbose_ = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %verbose_, align 8
   %performance_ = getelementptr inbounds i8, ptr %this, i64 25
@@ -451,7 +451,7 @@ invoke.cont:                                      ; preds = %if.then.i, %_ZNKSt7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 16), ptr %this, align 8
   %skipped_ = getelementptr inbounds i8, ptr %this, i64 352
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

@@ -19,7 +19,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_get_default_
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local ptr @find_font(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @font_vga_8x16, i64 8), align 8
   %3 = tail call i32 @strcmp(ptr noundef %2, ptr noundef %0) #3
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, ptr @font_vga_8x16, ptr null
@@ -31,14 +31,14 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local ptr @get_default_font(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
-  %5 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 6), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @font_vga_8x16, i64 40), align 8
   %6 = icmp slt i32 %1, 400
-  %7 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 3), align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @font_vga_8x16, i64 20), align 4
   %8 = icmp ugt i32 %7, 8
   %9 = xor i1 %6, %8
   %10 = add i32 %5, 1000
   %11 = select i1 %9, i32 %10, i32 %5
-  %12 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 2), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @font_vga_8x16, i64 16), align 8
   %13 = udiv i32 %0, %12
   %14 = udiv i32 %1, %7
   %15 = mul i32 %14, %13

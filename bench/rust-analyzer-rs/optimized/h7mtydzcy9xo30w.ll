@@ -1931,7 +1931,7 @@ define void @_ZN7base_db5input10CrateGraph7add_dep17h5feec6028ffdace2E(ptr noali
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  %17 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN7base_db5input10CrateGraph7add_dep10__CALLSITE17h1eea63d67f494212E, i64 0, i32 1, i64 8) monotonic, align 8
+  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7base_db5input10CrateGraph7add_dep10__CALLSITE17h1eea63d67f494212E, i64 16) monotonic, align 8
   switch i8 %17, label %18 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

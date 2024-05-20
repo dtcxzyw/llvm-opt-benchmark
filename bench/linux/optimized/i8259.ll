@@ -93,7 +93,7 @@ define internal void @mask_and_ack_8259A(ptr nocapture noundef readonly %0) #0 a
 
 15:                                               ; preds = %11
   %16 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 161) #6, !srcloc !6
-  %17 = load i8, ptr getelementptr (i8, ptr @cached_irq_mask, i64 1), align 1
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @cached_irq_mask, i64 1), align 1
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %17, i16 161) #6, !srcloc !5
   %18 = and i8 %14, 7
   %19 = or disjoint i8 %18, 96
@@ -310,7 +310,7 @@ define internal void @unmask_8259A() #0 align 16 {
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8259A_lock) #6
   %2 = load i8, ptr @cached_irq_mask, align 4
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %2, i16 33) #6, !srcloc !5
-  %3 = load i8, ptr getelementptr (i8, ptr @cached_irq_mask, i64 1), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @cached_irq_mask, i64 1), align 1
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %3, i16 161) #6, !srcloc !5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8259A_lock, i64 noundef %1) #6
   ret void
@@ -349,11 +349,11 @@ define internal void @init_8259A(i32 noundef %0) #0 align 16 {
   tail call void @__const_udelay(i64 noundef 8590) #6
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 1, i16 161) #6, !srcloc !5
   tail call void @__const_udelay(i64 noundef 8590) #6
-  store ptr %7, ptr getelementptr inbounds (%struct.irq_chip, ptr @i8259A_chip, i64 0, i32 7), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @i8259A_chip, i64 56), align 8
   tail call void @__const_udelay(i64 noundef 429500) #6
   %8 = load i8, ptr @cached_irq_mask, align 4
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %8, i16 33) #6, !srcloc !5
-  %9 = load i8, ptr getelementptr (i8, ptr @cached_irq_mask, i64 1), align 1
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @cached_irq_mask, i64 1), align 1
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %9, i16 161) #6, !srcloc !5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8259A_lock, i64 noundef %2) #6
   ret void

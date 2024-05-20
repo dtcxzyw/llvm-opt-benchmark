@@ -418,7 +418,7 @@ define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #0 a
   store ptr %2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %5 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -477,7 +477,7 @@ declare dso_local void @pci_bus_add_devices(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @pcibios_set_cache_line_size() local_unnamed_addr #1 section ".init.text" align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
+  %1 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
   %2 = icmp eq i16 %1, 0
   br i1 %2, label %9, label %3
 
@@ -841,7 +841,7 @@ define dso_local range(i32 0, 2) i32 @pcibios_assign_all_busses() local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit3, label %4
 

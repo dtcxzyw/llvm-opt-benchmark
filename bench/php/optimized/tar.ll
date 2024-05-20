@@ -342,7 +342,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr nound
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %30, ptr noundef nonnull dereferenceable(5) @.str.4, i64 5)
   %31 = icmp ne i32 %bcmp, 0
   %32 = zext i1 %31 to i32
-  %33 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 8), align 4
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 196), align 4
   %.not543 = icmp eq i32 %33, 0
   br i1 %.not543, label %36, label %34
 
@@ -356,7 +356,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr nound
 
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
-  %40 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 8), align 4
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 196), align 4
   %41 = getelementptr inbounds i8, ptr %39, i64 324
   %42 = trunc i32 %40 to i16
   %43 = load i16, ptr %41, align 4
@@ -1555,7 +1555,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
   %masksel = select i1 %.not570, i16 0, i16 128
   %storemerge571 = or disjoint i16 %558, %masksel
   store i16 %storemerge571, ptr %41, align 4
-  %559 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 15), align 8
+  %559 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 216), align 8
   %560 = icmp ne i32 %559, 0
   %or.cond30 = select i1 %.not570, i1 %560, i1 false
   br i1 %or.cond30, label %561, label %568
@@ -1637,7 +1637,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
   store ptr %39, ptr %12, align 8
   %601 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 13, ptr %601, align 8
-  %602 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %600, i64 noundef %2, ptr noundef nonnull %12) #16
+  %602 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %600, i64 noundef %2, ptr noundef nonnull %12) #16
   %.not576 = icmp eq ptr %602, null
   br i1 %.not576, label %603, label %608
 
@@ -1666,7 +1666,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
   %614 = getelementptr inbounds i8, ptr %609, i64 40
   %615 = load i32, ptr %614, align 8
   %616 = zext i32 %615 to i64
-  %617 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef nonnull %.5, i64 noundef %616) #16
+  %617 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %.5, i64 noundef %616) #16
   %.not585 = icmp eq ptr %617, null
   br i1 %.not585, label %.thread731, label %618
 
@@ -1687,7 +1687,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
 
 626:                                              ; preds = %624, %623
   %627 = load ptr, ptr %609, align 8
-  %628 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %627, i64 noundef %2) #16
+  %628 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %627, i64 noundef %2) #16
   br label %684
 
 .thread731:                                       ; preds = %610, %618
@@ -1696,7 +1696,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
   store ptr %609, ptr %13, align 8
   %631 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 13, ptr %631, align 8
-  %632 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef nonnull %.5, i64 noundef %630, ptr noundef nonnull %13) #16
+  %632 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %.5, i64 noundef %630, ptr noundef nonnull %13) #16
   %.not588 = icmp eq ptr %632, null
   br i1 %.not588, label %682, label %633
 
@@ -1711,7 +1711,7 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
   br i1 %.not578, label %665, label %637
 
 637:                                              ; preds = %636
-  %638 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef %3, i64 noundef %4) #16
+  %638 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef %3, i64 noundef %4) #16
   %.not580 = icmp eq ptr %638, null
   br i1 %.not580, label %.thread734, label %639
 
@@ -1730,14 +1730,14 @@ phar_validate_alias.exit.thread:                  ; preds = %493, %496, %498, %5
 
 645:                                              ; preds = %643, %642
   %646 = load ptr, ptr %609, align 8
-  %647 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1), ptr noundef %646, i64 noundef %2) #16
+  %647 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %646, i64 noundef %2) #16
   br label %684
 
 .thread734:                                       ; preds = %637, %639
   store ptr %609, ptr %14, align 8
   %648 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 13, ptr %648, align 8
-  %649 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3), ptr noundef %3, i64 noundef %4, ptr noundef nonnull %14) #16
+  %649 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef %3, i64 noundef %4, ptr noundef nonnull %14) #16
   %.not583 = icmp eq ptr %649, null
   br i1 %.not583, label %653, label %650
 

@@ -5066,7 +5066,7 @@ define noundef ptr @php_unescape_html_entities(ptr noundef %0, i32 noundef %1, i
   br i1 %.not20.i, label %23, label %31
 
 23:                                               ; preds = %21, %20
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 30), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 184), align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %27, label %25
 
@@ -5076,7 +5076,7 @@ define noundef ptr @php_unescape_html_entities(ptr noundef %0, i32 noundef %1, i
   br i1 %.not3.i.i, label %27, label %31
 
 27:                                               ; preds = %25, %23
-  %28 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 408), align 8
   %.not4.i.i = icmp eq ptr %28, null
   br i1 %.not4.i.i, label %determine_charset.exit, label %29
 
@@ -5634,7 +5634,7 @@ define ptr @php_escape_html_entities_ex(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %.not20.i, label %16, label %24
 
 16:                                               ; preds = %14, %7
-  %17 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 30), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 184), align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %20, label %18
 
@@ -5644,7 +5644,7 @@ define ptr @php_escape_html_entities_ex(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %.not3.i.i, label %20, label %24
 
 20:                                               ; preds = %18, %16
-  %21 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 408), align 8
   %.not4.i.i = icmp eq ptr %21, null
   br i1 %.not4.i.i, label %determine_charset.exit, label %22
 
@@ -7294,7 +7294,7 @@ define hidden void @zif_get_html_translation_table(ptr noundef %0, ptr noundef %
   br i1 %.not20.i, label %.thread261, label %50
 
 .thread261:                                       ; preds = %10, %20, %30, %41
-  %43 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 30), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 184), align 8
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %46, label %44
 
@@ -7304,7 +7304,7 @@ define hidden void @zif_get_html_translation_table(ptr noundef %0, ptr noundef %
   br i1 %.not3.i.i, label %46, label %50
 
 46:                                               ; preds = %44, %.thread261
-  %47 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 408), align 8
   %.not4.i.i = icmp eq ptr %47, null
   br i1 %.not4.i.i, label %determine_charset.exit, label %48
 
@@ -7875,7 +7875,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
 
 .lr.ph.i:                                         ; preds = %19, %36
   %.01725.i = phi ptr [ %.1.i, %36 ], [ @unimap_iso885915, %19 ]
-  %.01824.i = phi ptr [ %.119.i, %36 ], [ getelementptr inbounds ([27 x %struct.uni_to_enc], ptr @unimap_iso885915, i64 0, i64 26, i32 0), %19 ]
+  %.01824.i = phi ptr [ %.119.i, %36 ], [ getelementptr inbounds (i8, ptr @unimap_iso885915, i64 104), %19 ]
   %21 = ptrtoint ptr %.01824.i to i64
   %22 = ptrtoint ptr %.01725.i to i64
   %23 = sub i64 %21, %22
@@ -7928,7 +7928,7 @@ unimap_bsearch.exit:                              ; preds = %32
 
 .lr.ph.i82:                                       ; preds = %44, %61
   %.01725.i83 = phi ptr [ %.1.i87, %61 ], [ @unimap_win1252, %44 ]
-  %.01824.i84 = phi ptr [ %.119.i86, %61 ], [ getelementptr inbounds ([27 x %struct.uni_to_enc], ptr @unimap_win1252, i64 0, i64 26, i32 0), %44 ]
+  %.01824.i84 = phi ptr [ %.119.i86, %61 ], [ getelementptr inbounds (i8, ptr @unimap_win1252, i64 104), %44 ]
   %46 = ptrtoint ptr %.01824.i84 to i64
   %47 = ptrtoint ptr %.01725.i83 to i64
   %48 = sub i64 %46, %47

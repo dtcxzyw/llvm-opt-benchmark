@@ -246,7 +246,7 @@ define internal noundef i64 @i915_l3_write(ptr nocapture readnone %0, ptr nocapt
   br i1 %26, label %select.unfold, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %29 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 128) #10
   %30 = icmp eq ptr %29, null
   br i1 %30, label %select.unfold, label %31

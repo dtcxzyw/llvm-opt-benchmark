@@ -1125,7 +1125,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %158 = getelementptr inbounds i8, ptr %62, i64 24
   %159 = icmp ugt i32 %.sroa.10.0.copyload.i, 43199
   %anon.d49ddda43ab23c9b18523738528052a2.86.anon.d49ddda43ab23c9b18523738528052a2.85.i = select i1 %159, ptr @anon.d49ddda43ab23c9b18523738528052a2.86, ptr @anon.d49ddda43ab23c9b18523738528052a2.85
-  %160 = select i1 %159, ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.d49ddda43ab23c9b18523738528052a2.86, i64 1, i32 0, i64 0), ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.d49ddda43ab23c9b18523738528052a2.85, i64 1, i32 0, i64 0)
+  %160 = select i1 %159, ptr getelementptr inbounds (i8, ptr @anon.d49ddda43ab23c9b18523738528052a2.86, i64 2), ptr getelementptr inbounds (i8, ptr @anon.d49ddda43ab23c9b18523738528052a2.85, i64 2)
   %.sroa.052.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %64, i64 8
   %.sroa.052.sroa.3.sroa.2.0..sroa.052.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %64, i64 24
   %.sroa.052.sroa.4.sroa.2.0..sroa.052.sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %64, i64 36

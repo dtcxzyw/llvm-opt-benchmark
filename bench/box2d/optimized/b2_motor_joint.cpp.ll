@@ -76,7 +76,7 @@ entry:
 define void @_ZN12b2MotorJointC2EPK15b2MotorJointDef(ptr noundef nonnull align 8 dereferenceable(252) %this, ptr noundef %def) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2MotorJoint, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12b2MotorJoint, i64 16), ptr %this, align 8
   %linearOffset = getelementptr inbounds i8, ptr %def, i64 36
   %m_linearOffset2 = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %linearOffset, align 4

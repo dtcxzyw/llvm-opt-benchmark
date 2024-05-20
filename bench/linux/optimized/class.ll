@@ -56,7 +56,7 @@ define dso_local ptr @devm_rtc_allocate_device(ptr noundef %0) #0 align 16 {
   br label %48
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(1264) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 1264) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12

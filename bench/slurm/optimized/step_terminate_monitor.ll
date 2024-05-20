@@ -444,7 +444,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %126
-  %129 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %129 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %130 = icmp sgt i32 %129, -1
   br i1 %130, label %131, label %140
 

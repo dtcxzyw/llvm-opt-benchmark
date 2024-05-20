@@ -50,8 +50,8 @@ define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 6), align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 7), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 128), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 136), align 8
   %15 = tail call i32 @ompi_errhandler_invoke(ptr noundef %13, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %14, i32 noundef 30, ptr noundef nonnull @FUNC_NAME) #4
   br label %67
 

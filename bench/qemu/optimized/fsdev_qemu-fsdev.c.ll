@@ -163,11 +163,11 @@ if.then62:                                        ; preds = %if.then55
 do.body:                                          ; preds = %if.end42, %if.then55
   %next = getelementptr inbounds i8, ptr %call28, i64 624
   store ptr null, ptr %next, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @fsdriver_entries, i64 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @fsdriver_entries, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call28, i64 632
   store ptr %6, ptr %tql_prev, align 8
   store ptr %call28, ptr %6, align 8
-  store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @fsdriver_entries, i64 0, i32 0, i32 1), align 8
+  store ptr %next, ptr getelementptr inbounds (i8, ptr @fsdriver_entries, i64 8), align 8
   br label %return
 
 return:                                           ; preds = %if.end21, %do.body, %if.then62, %if.else, %if.then19, %if.then

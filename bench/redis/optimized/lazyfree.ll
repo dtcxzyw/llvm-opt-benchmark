@@ -346,7 +346,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 11), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 72), align 8
   tail call void @listDelNode(ptr noundef %4, ptr noundef nonnull %3) #5
   store ptr null, ptr %metadata1, align 8
   br label %if.end
@@ -361,7 +361,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 11), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 72), align 8
   tail call void @listDelNode(ptr noundef %8, ptr noundef nonnull %7) #5
   store ptr null, ptr %metadata6, align 8
   br label %for.inc

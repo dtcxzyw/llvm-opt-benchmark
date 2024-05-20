@@ -124,7 +124,7 @@ define void @nxtask_uninit(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %4, ptr %g_inactivetasks., align 8
   %.not16 = icmp eq ptr %4, null
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink17 = select i1 %.not16, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i64 0, i32 1), ptr %5
+  %.sink17 = select i1 %.not16, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %5
   store ptr %3, ptr %.sink17, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

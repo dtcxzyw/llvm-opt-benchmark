@@ -30,28 +30,28 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @openChildInfoPipe() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @anetPipe(ptr noundef nonnull getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), i32 noundef 2048, i32 noundef 0) #7
+  %call = tail call i32 @anetPipe(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4268), i32 noundef 2048, i32 noundef 0) #7
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end.sink.split
 
 if.then:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
   %cmp.i = icmp ne i32 %0, -1
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %cmp1.i = icmp ne i32 %1, -1
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   br i1 %or.cond.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
   %call.i = tail call i32 @close(i32 noundef %0) #7
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %call2.i = tail call i32 @close(i32 noundef %2) #7
-  store i32 -1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   br label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %entry, %if.then.i
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %if.then
@@ -63,20 +63,20 @@ declare i32 @anetPipe(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local void @closeChildInfoPipe() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
   %cmp = icmp ne i32 %0, -1
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %cmp1 = icmp ne i32 %1, -1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @close(i32 noundef %0) #7
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %call2 = tail call i32 @close(i32 noundef %2) #7
-  store i32 -1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
@@ -89,7 +89,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 define dso_local void @sendChildInfoGeneric(i32 noundef %info_type, i64 noundef %keys, double noundef %progress, ptr noundef %pname) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.child_info_data, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.end41, label %if.end
 
@@ -143,7 +143,7 @@ if.end10:                                         ; preds = %if.then9, %if.then4
 
 do.body:                                          ; preds = %if.end10
   %cond = select i1 %cmp11, i32 2, i32 1
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp17 = icmp slt i32 %cond, %11
   br i1 %cmp17, label %if.end26, label %if.end20
 
@@ -168,13 +168,13 @@ if.end26:                                         ; preds = %if.end10, %do.body,
   store i64 %12, ptr %cow_updated, align 8
   %progress28 = getelementptr inbounds i8, ptr %data, i64 24
   store double %progress, ptr %progress28, align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246, i64 1), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %call29 = call i64 @write(i32 noundef %14, ptr noundef nonnull %data, i64 noundef 40) #7
   %cmp30.not = icmp eq i64 %call29, 40
   br i1 %cmp30.not, label %if.end41, label %do.body33
 
 do.body33:                                        ; preds = %if.end26
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp34 = icmp sgt i32 %15, 3
   br i1 %cmp34, label %do.end40, label %if.end37
 
@@ -211,12 +211,12 @@ declare void @exitFromChild(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @updateChildInfo(i32 noundef %information_type, i64 noundef %cow, i64 noundef %cow_updated, i64 noundef %keys, double noundef %progress) local_unnamed_addr #5 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 128), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
   %cmp = icmp ult i64 %0, %cow
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i64 %cow, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 128), align 8
+  store i64 %cow, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -229,26 +229,26 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 if.then2:                                         ; preds = %if.end
-  store i64 %cow, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 129), align 8
-  store i64 %cow_updated, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 130), align 8
-  store i64 %keys, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 131), align 8
+  store i64 %cow, ptr getelementptr inbounds (i8, ptr @server, i64 2312), align 8
+  store i64 %cow_updated, ptr getelementptr inbounds (i8, ptr @server, i64 2320), align 8
+  store i64 %keys, ptr getelementptr inbounds (i8, ptr @server, i64 2328), align 8
   %cmp3 = fcmp une double %progress, -1.000000e+00
   br i1 %cmp3, label %if.then4, label %if.end17
 
 if.then4:                                         ; preds = %if.then2
-  store double %progress, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 136), align 8
+  store double %progress, ptr getelementptr inbounds (i8, ptr @server, i64 2368), align 8
   br label %if.end17
 
 if.then7:                                         ; preds = %if.end
-  store i64 %1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 134), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @server, i64 2352), align 8
   br label %if.end17
 
 if.then10:                                        ; preds = %if.end
-  store i64 %1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 133), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @server, i64 2344), align 8
   br label %if.end17
 
 if.then13:                                        ; preds = %if.end
-  store i64 %1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 135), align 8
+  store i64 %1, ptr getelementptr inbounds (i8, ptr @server, i64 2360), align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %if.then7, %if.then13, %if.then10, %if.then2, %if.then4
@@ -258,29 +258,29 @@ if.end17:                                         ; preds = %if.end, %if.then7, 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local range(i32 0, 2) i32 @readChildInfo(ptr nocapture noundef writeonly %information_type, ptr nocapture noundef writeonly %cow, ptr nocapture noundef writeonly %cow_updated, ptr nocapture noundef writeonly %keys, ptr nocapture noundef writeonly %progress) local_unnamed_addr #6 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   %cmp = icmp eq i32 %0, 40
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi i32 [ 0, %if.then ], [ %0, %entry ]
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr @readChildInfo.buffer, i64 %idx.ext
   %sub = sub nsw i64 40, %idx.ext
   %call = tail call i64 @read(i32 noundef %2, ptr noundef nonnull %add.ptr, i64 noundef %sub) #7
   %conv3 = trunc i64 %call to i32
   %cmp4 = icmp sgt i32 %conv3, 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
   %add = add nsw i32 %3, %conv3
-  store i32 %add, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 %add, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %if.then6
@@ -289,15 +289,15 @@ if.end7:                                          ; preds = %if.end, %if.then6
   br i1 %cmp9, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end7
-  %5 = load i32, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 4), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 32), align 8
   store i32 %5, ptr %information_type, align 4
-  %6 = load i64, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 1), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 8), align 8
   store i64 %6, ptr %cow, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 2), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 16), align 8
   store i64 %7, ptr %cow_updated, align 8
   %8 = load i64, ptr @readChildInfo.buffer, align 8
   store i64 %8, ptr %keys, align 8
-  %9 = load double, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 3), align 8
+  %9 = load double, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 24), align 8
   store double %9, ptr %progress, align 8
   br label %return
 
@@ -312,12 +312,12 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @receiveChildInfo() local_unnamed_addr #6 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %while.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %.pre = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
@@ -326,24 +326,24 @@ while.cond:                                       ; preds = %while.cond.backedge
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.cond
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.cond
   %2 = phi i32 [ 0, %if.then.i ], [ %1, %while.cond ]
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 246), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
   %idx.ext.i = sext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr @readChildInfo.buffer, i64 %idx.ext.i
   %sub.i = sub nsw i64 40, %idx.ext.i
   %call.i = tail call i64 @read(i32 noundef %3, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #7
   %conv3.i = trunc i64 %call.i to i32
   %cmp4.i = icmp sgt i32 %conv3.i, 0
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br i1 %cmp4.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
   %add.i = add nsw i32 %4, %conv3.i
-  store i32 %add.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
+  store i32 %add.i, ptr getelementptr inbounds (i8, ptr @server, i64 4276), align 4
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end.i
@@ -352,17 +352,17 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.end
   br i1 %cmp9.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end7.i
-  %6 = load i32, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 4), align 8
-  %7 = load <2 x i64>, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 1), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 32), align 8
+  %7 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 8), align 8
   %8 = load i64, ptr @readChildInfo.buffer, align 8
-  %9 = load double, ptr getelementptr inbounds (%struct.child_info_data, ptr @readChildInfo.buffer, i64 0, i32 3), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 128), align 8
+  %9 = load double, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 24), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
   %11 = extractelement <2 x i64> %7, i64 0
   %cmp.i1 = icmp ult i64 %10, %11
   br i1 %cmp.i1, label %if.then.i3, label %if.end.i2
 
 if.then.i3:                                       ; preds = %while.body
-  store i64 %11, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 128), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
   br label %if.end.i2
 
 if.end.i2:                                        ; preds = %if.then.i3, %while.body
@@ -378,25 +378,25 @@ while.cond.backedge:                              ; preds = %if.end.i2, %if.then
   br label %while.cond, !llvm.loop !5
 
 if.then2.i:                                       ; preds = %if.end.i2
-  store <2 x i64> %7, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 129), align 8
-  store i64 %8, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 131), align 8
+  store <2 x i64> %7, ptr getelementptr inbounds (i8, ptr @server, i64 2312), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @server, i64 2328), align 8
   %cmp3.i = fcmp une double %9, -1.000000e+00
   br i1 %cmp3.i, label %if.then4.i, label %while.cond.backedge
 
 if.then4.i:                                       ; preds = %if.then2.i
-  store double %9, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 136), align 8
+  store double %9, ptr getelementptr inbounds (i8, ptr @server, i64 2368), align 8
   br label %while.cond.backedge
 
 if.then7.i:                                       ; preds = %if.end.i2
-  store i64 %12, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 134), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @server, i64 2352), align 8
   br label %while.cond.backedge
 
 if.then10.i:                                      ; preds = %if.end.i2
-  store i64 %12, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 133), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @server, i64 2344), align 8
   br label %while.cond.backedge
 
 if.then13.i:                                      ; preds = %if.end.i2
-  store i64 %12, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 135), align 8
+  store i64 %12, ptr getelementptr inbounds (i8, ptr @server, i64 2360), align 8
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %if.end7.i, %entry

@@ -81,21 +81,21 @@ define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr noc
 
 10:                                               ; preds = %9, %5
   %11 = zext i32 %0 to i64
-  %12 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %13 = mul i64 %12, %11
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %13, ptr %14, align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 4), align 8
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 240), align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %15, ptr %16, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, -7
   store i64 %21, ptr %19, align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 6), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 256), align 8
   %23 = and i64 %22, 1
   %24 = or i64 %23, %21
   store i64 %24, ptr %19, align 8
@@ -144,7 +144,7 @@ define internal fastcc range(i64 0, -63) i64 @__efi_memmap_alloc_late(i64 nounde
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @efi_memmap_install(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   tail call void @efi_memmap_unmap() #8
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %3 = and i64 %2, 64
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %7

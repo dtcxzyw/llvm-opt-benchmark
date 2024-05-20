@@ -212,7 +212,7 @@ define hidden void @zif_phpdbg_exec(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %60
@@ -233,12 +233,12 @@ define hidden void @zif_phpdbg_exec(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not64, label %52, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not65 = icmp eq ptr %21, null
   br i1 %.not65, label %42, label %22
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
   %26 = call noalias ptr @_emalloc(i64 noundef %25) #26
@@ -256,18 +256,18 @@ define hidden void @zif_phpdbg_exec(ptr nocapture noundef readonly %0, ptr nocap
   store ptr %26, ptr %1, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %32, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   call void @free(ptr noundef %33) #25
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = getelementptr inbounds i8, ptr %34, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = call noalias ptr @zend_strndup(ptr noundef nonnull %35, i64 noundef %37) #25
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8
-  store i64 %41, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  store i64 %41, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   br label %60
 
 42:                                               ; preds = %20
@@ -276,11 +276,11 @@ define hidden void @zif_phpdbg_exec(ptr nocapture noundef readonly %0, ptr nocap
   %45 = getelementptr inbounds i8, ptr %43, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = call noalias ptr @zend_strndup(ptr noundef nonnull %44, i64 noundef %46) #25
-  store ptr %47, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  store ptr %47, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  store i64 %50, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %51, align 8
   br label %60
@@ -331,13 +331,13 @@ define hidden void @zif_phpdbg_break_next(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %.critedge12.preheader, label %5
 
 .critedge12.preheader:                            ; preds = %2
-  %.015 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.015 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not816 = icmp eq ptr %.015, null
   br i1 %.not816, label %.critedge13, label %.lr.ph
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #25
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.critedge13
@@ -386,7 +386,7 @@ define hidden void @zif_phpdbg_break_file(ptr nocapture noundef readonly %0, ptr
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %16
@@ -416,7 +416,7 @@ define hidden void @zif_phpdbg_break_method(ptr nocapture noundef readonly %0, p
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %17
@@ -444,7 +444,7 @@ define hidden void @zif_phpdbg_break_function(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %15
@@ -470,21 +470,21 @@ define hidden void @zif_phpdbg_clear(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #25
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %8
 
 .critedge:                                        ; preds = %2
   tail call void @zend_hash_clean(ptr noundef nonnull @phpdbg_globals) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 1)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 2)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 7)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 8)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 9)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 3)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 4)) #25
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 5)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 56)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 112)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 168)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 224)) #25
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 280)) #25
   br label %8
 
 8:                                                ; preds = %.critedge, %5
@@ -505,7 +505,7 @@ define hidden void @zif_phpdbg_color(ptr nocapture noundef readonly %0, ptr noca
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %20
@@ -547,7 +547,7 @@ define hidden void @zif_phpdbg_prompt(ptr nocapture noundef readonly %0, ptr noc
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %14
@@ -572,13 +572,13 @@ define hidden void @zif_phpdbg_start_oplog(ptr nocapture noundef readonly %0, pt
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #25
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %18
 
 .critedge:                                        ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   %.not44 = icmp eq ptr %8, null
   br i1 %.not44, label %9, label %15
 
@@ -591,15 +591,15 @@ define hidden void @zif_phpdbg_start_oplog(ptr nocapture noundef readonly %0, pt
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr null, ptr %14, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 36), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1472), align 8
   br label %15
 
 15:                                               ; preds = %9, %.critedge
   %16 = tail call noalias ptr @_emalloc_56() #25
-  store ptr %16, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   store ptr %8, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %17, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 38), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1488), align 8
   store ptr null, ptr %17, align 8
   br label %18
 
@@ -629,7 +629,7 @@ define hidden void @zif_phpdbg_get_executable(ptr nocapture noundef readonly %0,
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %287
@@ -765,24 +765,24 @@ define hidden void @zif_phpdbg_get_executable(ptr nocapture noundef readonly %0,
 .loopexit231.sink.split:                          ; preds = %30, %31, %24, %17, %40, %43
   %.0155226.ph = phi i1 [ %.0155.ph, %43 ], [ %.0155.ph, %40 ], [ %.0155.ph, %31 ], [ %.0155.ph, %30 ], [ false, %24 ], [ false, %17 ]
   %.0153217224.ph = phi i1 [ %.0153.ph, %43 ], [ %.0153.ph, %40 ], [ %.0153.ph, %31 ], [ %.0153.ph, %30 ], [ %.0153.ph, %24 ], [ false, %17 ]
-  %77 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), align 8
+  %77 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), align 8
   %78 = add i32 %77, 1
-  store i32 %78, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), align 8
+  store i32 %78, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), align 8
   br label %.loopexit231
 
 .loopexit231:                                     ; preds = %74, %.loopexit231.sink.split, %47
   %.0155226 = phi i1 [ %.0155.ph, %47 ], [ %.0155226.ph, %.loopexit231.sink.split ], [ %.0155.ph, %74 ]
   %.0153217224 = phi i1 [ %.0153.ph, %47 ], [ %.0153217224.ph, %.loopexit231.sink.split ], [ %.0153.ph, %74 ]
-  %.0158.sroa.phi163 = phi ptr [ %.0158.sroa.gep, %47 ], [ getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35, i32 3), %.loopexit231.sink.split ], [ %.0158.sroa.gep, %74 ]
-  %.0158.sroa.phi165 = phi ptr [ %.0158.sroa.gep166, %47 ], [ getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35, i32 4), %.loopexit231.sink.split ], [ %.0158.sroa.gep166, %74 ]
-  %.0158.sroa.phi167 = phi ptr [ %.0158.sroa.gep168, %47 ], [ getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35, i32 1), %.loopexit231.sink.split ], [ %.0158.sroa.gep168, %74 ]
-  %.0158 = phi ptr [ %9, %47 ], [ getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), %.loopexit231.sink.split ], [ %9, %74 ]
+  %.0158.sroa.phi163 = phi ptr [ %.0158.sroa.gep, %47 ], [ getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1432), %.loopexit231.sink.split ], [ %.0158.sroa.gep, %74 ]
+  %.0158.sroa.phi165 = phi ptr [ %.0158.sroa.gep166, %47 ], [ getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1440), %.loopexit231.sink.split ], [ %.0158.sroa.gep166, %74 ]
+  %.0158.sroa.phi167 = phi ptr [ %.0158.sroa.gep168, %47 ], [ getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1424), %.loopexit231.sink.split ], [ %.0158.sroa.gep168, %74 ]
+  %.0158 = phi ptr [ %9, %47 ], [ getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), %.loopexit231.sink.split ], [ %9, %74 ]
   %.0153217224.fr = freeze i1 %.0153217224
   %79 = call ptr @_zend_new_array_0() #25
   store ptr %79, ptr %1, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %80, align 8
-  %81 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 10), align 8
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %81, i64 24
@@ -875,7 +875,7 @@ phpdbg_add_empty_array.exit205:                   ; preds = %115, %117
   br i1 %.not187, label %._crit_edge, label %93
 
 ._crit_edge:                                      ; preds = %122, %.loopexit231
-  %124 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %124, i64 24
@@ -1158,7 +1158,7 @@ phpdbg_add_empty_array.exit208:                   ; preds = %245, %249
 267:                                              ; preds = %263
   %268 = getelementptr inbounds i8, ptr %.0154249, i64 24
   %269 = load ptr, ptr %268, align 8
-  %270 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), ptr noundef %269) #25
+  %270 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %269) #25
   %.not193 = icmp eq ptr %270, null
   br i1 %.not193, label %.thread228, label %271
 
@@ -1417,13 +1417,13 @@ define hidden void @zif_phpdbg_end_oplog(ptr nocapture noundef readonly %0, ptr 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %.loopexit
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %17
 
@@ -1436,7 +1436,7 @@ define hidden void @zif_phpdbg_end_oplog(ptr nocapture noundef readonly %0, ptr 
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %15, align 8
   call void @_efree(ptr noundef nonnull %15) #25
-  store ptr %20, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   %21 = load ptr, ptr %5, align 8
   %.not162 = icmp eq ptr %21, null
   br i1 %.not162, label %.thread, label %22
@@ -1697,7 +1697,7 @@ phpdbg_add_empty_array.exit179:                   ; preds = %79, %82
   br i1 %.not175, label %126, label %.loopexit
 
 126:                                              ; preds = %125
-  %127 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 36), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1472), align 8
   br label %128
 
 128:                                              ; preds = %128, %126
@@ -1792,7 +1792,7 @@ define hidden void @phpdbg_register_file_handles() local_unnamed_addr #0 {
   store i8 0, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %35, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %43 = tail call i32 @zend_hash_del(ptr noundef %42, ptr noundef nonnull %35) #25
   %44 = call i32 @zend_register_constant(ptr noundef nonnull %1) #25
   store ptr %26, ptr %2, align 8
@@ -1814,7 +1814,7 @@ define hidden void @phpdbg_register_file_handles() local_unnamed_addr #0 {
   store i8 0, ptr %50, align 1
   %51 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %45, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %53 = call i32 @zend_hash_del(ptr noundef %52, ptr noundef nonnull %45) #25
   %54 = call i32 @zend_register_constant(ptr noundef nonnull %2) #25
   store ptr %31, ptr %3, align 8
@@ -1836,7 +1836,7 @@ define hidden void @phpdbg_register_file_handles() local_unnamed_addr #0 {
   store i8 0, ptr %60, align 1
   %61 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %55, ptr %61, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %63 = call i32 @zend_hash_del(ptr noundef %62, ptr noundef nonnull %55) #25
   %64 = call i32 @zend_register_constant(ptr noundef nonnull %3) #25
   br label %65
@@ -1869,7 +1869,7 @@ define hidden void @phpdbg_signal_handler(i32 noundef %0, ptr noundef %1, ptr no
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 52), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -1878,7 +1878,7 @@ define hidden void @phpdbg_signal_handler(i32 noundef %0, ptr noundef %1, ptr no
   unreachable
 
 10:                                               ; preds = %7
-  tail call void @zend_sigaction(i32 noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 10), ptr noundef null) #25
+  tail call void @zend_sigaction(i32 noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 840), ptr noundef null) #25
   br label %11
 
 11:                                               ; preds = %4, %10, %3
@@ -1949,7 +1949,7 @@ define hidden ptr @phpdbg_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, pt
   %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
   %8 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.23, i64 noundef 6) #29
   %9 = icmp eq i32 %8, 0
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 47), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1616), align 8
   %11 = icmp ne ptr %10, null
   %or.cond = select i1 %9, i1 %11, i1 false
   br i1 %or.cond, label %12, label %16
@@ -1961,7 +1961,7 @@ define hidden ptr @phpdbg_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, pt
   br label %21
 
 16:                                               ; preds = %6
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 48), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1624), align 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef %0, ptr noundef %spec.select, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #25
@@ -2264,17 +2264,17 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %107
 
 107:                                              ; preds = %106, %105
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 31), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 32), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 25), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 240), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 248), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 196), align 4
   call void @sapi_startup(ptr noundef nonnull @phpdbg_sapi_module) #25
   %108 = load ptr, ptr %1, align 8
-  store ptr %108, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 23), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 32), align 8
+  store ptr %108, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 184), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 248), align 8
   %109 = and i8 %.0241, 1
   %110 = zext nneg i8 %109 to i32
-  store i32 %110, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 24), align 8
-  store ptr %.0243, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 20), align 8
+  store i32 %110, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 192), align 8
+  store ptr %.0243, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 160), align 8
   call void @php_ini_builder_prepend(ptr noundef nonnull %3, ptr noundef nonnull @phpdbg_ini_hardcoded, i64 noundef 160) #25
   %.not337 = icmp eq i64 %.0239, 0
   br i1 %.not337, label %117, label %.preheader
@@ -2309,33 +2309,33 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 php_ini_builder_finish.exit:                      ; preds = %117, %119
   %122 = phi ptr [ %.pre.i, %119 ], [ null, %117 ]
-  store ptr %122, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 33), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43, i64 0), i8 0, i64 40, i1 false)
+  store ptr %122, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 256), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1560), i8 0, i64 40, i1 false)
   %123 = call i32 @phpdbg_get_terminal_height() #25
   %124 = zext i32 %123 to i64
-  store i64 %124, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 55), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 45), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i8 0, i64 16, i1 false)
-  store i8 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 46), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 28), i8 0, i64 9, i1 false)
-  store i64 9126969344, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 0, i32 0), i8 0, i64 12, i1 false)
-  store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 5, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 54), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 31), align 1
-  store i64 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 42), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 41, i32 0), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 41, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 50), align 4
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 0), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 52), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 47), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 7), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 11), align 8
-  store i64 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 12), align 8
+  store i64 %124, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1600), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), i8 0, i64 16, i1 false)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1608), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1352), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), i8 0, i64 9, i1 false)
+  store i64 9126969344, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1496), i8 0, i64 12, i1 false)
+  store i32 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 744), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2184), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1385), align 1
+  store i64 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1552), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1520), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1524), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2132), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2136), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1616), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 776), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 768), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1000), align 8
   call void @phpdbg_set_color_ex(i32 noundef 0, ptr noundef nonnull @.str.26, i64 noundef 10) #25
   call void @phpdbg_set_color_ex(i32 noundef 1, ptr noundef nonnull @.str.27, i64 noundef 8) #25
   call void @phpdbg_set_color_ex(i32 noundef 2, ptr noundef nonnull @.str.28, i64 noundef 5) #25
@@ -2352,8 +2352,8 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %128
 
 128:                                              ; preds = %127, %126
-  store i64 %.0260, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  %129 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 2), align 8
+  store i64 %.0260, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_sapi_module, i64 16), align 8
   %130 = call i32 %129(ptr noundef nonnull @phpdbg_sapi_module) #25
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %507
@@ -2368,14 +2368,14 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
 135:                                              ; preds = %132
   %136 = load ptr, ptr @stdout, align 8
   %137 = call i32 @fileno(ptr noundef %136) #25
-  store i32 %137, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  store i32 %137, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %138 = trunc nuw i8 %.1295 to i1
   br i1 %138, label %141, label %142
 
 .thread:                                          ; preds = %133
   %139 = load ptr, ptr @stdout, align 8
   %140 = call i32 @fileno(ptr noundef %139) #25
-  store i32 %140, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  store i32 %140, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   br label %141
 
 141:                                              ; preds = %.thread, %135
@@ -2388,9 +2388,9 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %.thread381
 
 .thread381:                                       ; preds = %142, %141
-  %145 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %145 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %146 = or i64 %145, 65536
-  store i64 %146, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %146, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   call void @php_module_shutdown() #25
   call void @sapi_deactivate() #25
   call void @sapi_shutdown() #25
@@ -2416,8 +2416,8 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br i1 %.not372, label %508, label %.sink.split404
 
 151:                                              ; preds = %133
-  %152 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %153 = call i32 @__sigsetjmp(ptr noundef nonnull %13, i32 noundef 0) #30
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %156
@@ -2427,7 +2427,7 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %156
 
 156:                                              ; preds = %155, %151
-  store ptr %152, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %152, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @zend_signal(i32 noundef 1, ptr noundef nonnull @phpdbg_sighup_handler) #25
   %157 = call ptr @zend_mm_get_heap() #25
   call void @zend_mm_get_custom_handlers(ptr noundef %157, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #25
@@ -2441,7 +2441,7 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   %163 = select i1 %or.cond.not, i1 %.not338, i1 false
   %164 = zext i1 %163 to i8
   store i8 %164, ptr @use_mm_wrappers, align 1
-  store ptr %162, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 22), align 8
+  store ptr %162, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1320), align 8
   store ptr @phpdbg_watch_efree, ptr %8, align 8
   br i1 %163, label %165, label %166
 
@@ -2454,16 +2454,16 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %167
 
 167:                                              ; preds = %166, %165
-  %168 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 22), align 8
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1320), align 8
   store ptr %168, ptr %8, align 8
   call void @phpdbg_init_list() #25
-  store ptr %.0235, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 54), align 8
+  store ptr %.0235, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2184), align 8
   %.not341 = icmp eq ptr %.3, null
   br i1 %.not341, label %175, label %169
 
 169:                                              ; preds = %167
   %170 = call ptr @phpdbg_resolve_path(ptr noundef nonnull %.3) #25
-  store ptr %170, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  store ptr %170, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not342 = icmp eq ptr %170, null
   br i1 %.not342, label %173, label %171
 
@@ -2473,20 +2473,20 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
 
 173:                                              ; preds = %169, %171
   %174 = phi i64 [ %172, %171 ], [ 0, %169 ]
-  store i64 %174, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  store i64 %174, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   call void @free(ptr noundef nonnull %.3) #25
   br label %175
 
 175:                                              ; preds = %173, %167
   %176 = call i32 @php_output_activate() #25
   call void @php_output_deactivate() #25
-  %177 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 3), align 8
+  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
   %.not343 = icmp eq ptr %177, null
   br i1 %.not343, label %179, label %178
 
 178:                                              ; preds = %175
   call void @_efree(ptr noundef nonnull %177) #25
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
   br label %179
 
 179:                                              ; preds = %178, %175
@@ -2494,12 +2494,12 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   %181 = load i32, ptr %5, align 4
   %182 = sub nsw i32 %0, %181
   %183 = add nsw i32 %182, 1
-  store i32 %183, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 19), align 4
+  store i32 %183, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
   %184 = sext i32 %183 to i64
   %185 = shl nsw i64 %184, 3
   %186 = call noalias ptr @_emalloc(i64 noundef %185) #26
-  store ptr %186, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 20), align 8
-  %187 = load i32, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 19), align 4
+  store ptr %186, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
+  %187 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
   %.not344388 = icmp eq i32 %187, 1
   br i1 %.not344388, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2518,7 +2518,7 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   %195 = getelementptr inbounds ptr, ptr %1, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = call noalias ptr @_estrdup(ptr noundef %196) #25
-  %198 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 20), align 8
+  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   %199 = getelementptr inbounds ptr, ptr %198, i64 %indvars.iv
   store ptr %197, ptr %199, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2526,11 +2526,11 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br i1 %.not344, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %179
-  %200 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not345 = icmp eq ptr %200, null
   %.str.34. = select i1 %.not345, ptr @.str.34, ptr %200
   %201 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.34.) #25
-  %202 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 20), align 8
+  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   store ptr %201, ptr %202, align 8
   %203 = call i32 @php_request_startup() #25
   %204 = icmp eq i32 %203, -1
@@ -2541,33 +2541,33 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %525
 
 207:                                              ; preds = %._crit_edge
-  %208 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 11), align 8
+  %208 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %.not346 = icmp eq i32 %208, 0
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br i1 %.not346, label %209, label %217
 
 209:                                              ; preds = %207
-  store ptr %14, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %210 = call i32 @__sigsetjmp(ptr noundef nonnull %14, i32 noundef 0) #30
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %212, label %213
 
 212:                                              ; preds = %209
-  call void @zend_sigaction(i32 noundef 11, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 10)) #25
+  call void @zend_sigaction(i32 noundef 11, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 840)) #25
   br label %213
 
 213:                                              ; preds = %212, %209
-  store ptr %15, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %214 = call i32 @__sigsetjmp(ptr noundef nonnull %15, i32 noundef 0) #30
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %217
 
 216:                                              ; preds = %213
-  call void @zend_sigaction(i32 noundef 7, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 10)) #25
+  call void @zend_sigaction(i32 noundef 7, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 840)) #25
   br label %217
 
 217:                                              ; preds = %213, %216, %207
-  store ptr %16, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %218 = call i32 @__sigsetjmp(ptr noundef nonnull %16, i32 noundef 0) #30
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %221
@@ -2577,23 +2577,23 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br label %221
 
 221:                                              ; preds = %220, %217
-  store ptr %.pre, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %.pre, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %222 = load ptr, ptr @stdin, align 8
   %223 = call i32 @fileno(ptr noundef %222) #25
-  store i32 %223, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39), align 8
+  store i32 %223, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1496), align 8
   %224 = load ptr, ptr @stdout, align 8
   %225 = call i32 @fileno(ptr noundef %224) #25
-  store i32 %225, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  store i32 %225, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %226 = load ptr, ptr @stderr, align 8
   %227 = call i32 @fileno(ptr noundef %226) #25
-  store i32 %227, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  store i32 %227, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1504), align 8
   %228 = load ptr, ptr @php_stream_stdio_ops, align 8
-  store ptr %228, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 40), align 8
+  store ptr %228, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1512), align 8
   store ptr @phpdbg_stdiop_write, ptr @php_stream_stdio_ops, align 8
   %229 = call ptr @_php_stream_get_url_stream_wrappers_hash() #25
   %230 = call ptr @zend_hash_str_find(ptr noundef %229, ptr noundef nonnull @.str.36, i64 noundef 3) #25
   %231 = load ptr, ptr %230, align 8
-  store ptr %231, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 48), align 8
+  store ptr %231, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1624), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
   %232 = load ptr, ptr %231, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %232, i64 88, i1 false)
@@ -2612,11 +2612,11 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br i1 %236, label %244, label %237
 
 237:                                              ; preds = %235
-  %238 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %238 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %239 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %238, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.31) #25
-  %240 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %241 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 3, i32 noundef %240, ptr noundef nonnull @.str.101) #25
-  %242 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %242 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %243 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %242, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103) #25
   br label %phpdbg_welcome.exit
 
@@ -2626,17 +2626,17 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   br i1 %246, label %247, label %phpdbg_welcome.exit
 
 247:                                              ; preds = %244
-  %248 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %249 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
+  %248 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 28
   %251 = load i32, ptr %250, align 4
-  %252 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 10), align 8
+  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 28
   %254 = load i32, ptr %253, align 4
-  %255 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
+  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 28
   %257 = load i32, ptr %256, align 4
-  %258 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 6, i32 5), align 4
+  %258 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 388), align 4
   %259 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %248, ptr noundef nonnull @.str.104, i32 noundef %251, i32 noundef %254, i32 noundef %257, i32 noundef %258) #25
   br label %phpdbg_welcome.exit
 
@@ -2644,17 +2644,17 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %.1313, label %260, label %263
 
 260:                                              ; preds = %phpdbg_welcome.exit
-  %261 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 21), align 4
+  %261 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
   %262 = or i32 %261, 3
-  store i32 %262, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 21), align 4
+  store i32 %262, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
   br label %263
 
 263:                                              ; preds = %260, %phpdbg_welcome.exit
-  %264 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %264 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %265 = or i64 %264, 33554432
-  store i64 %265, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  %266 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %17, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store i64 %265, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %267 = call i32 @__sigsetjmp(ptr noundef nonnull %17, i32 noundef 0) #30
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %270
@@ -2664,10 +2664,10 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %270
 
 270:                                              ; preds = %269, %263
-  store ptr %266, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %271 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store ptr %266, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %271 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %272 = and i64 %271, -33554433
-  store i64 %272, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %272, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %273 = and i64 %271, 65536
   %.not347 = icmp eq i64 %273, 0
   br i1 %.not347, label %274, label %.loopexit
@@ -2686,18 +2686,18 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %278, label %284, label %279
 
 279:                                              ; preds = %277
-  %280 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %280 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %281 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %280, ptr noundef nonnull @.str.37) #25
-  %282 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %282 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %283 = or i64 %282, 65536
-  store i64 %283, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %283, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %.loopexit
 
 284:                                              ; preds = %277
   br i1 %233, label %.thread383, label %287
 
 .thread383:                                       ; preds = %275, %284
-  %285 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %285 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %286 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %285, ptr noundef nonnull @.str.38, ptr noundef nonnull %.1304) #25
   br label %287
 
@@ -2707,14 +2707,14 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %289, label %290, label %293
 
 290:                                              ; preds = %287
-  %291 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %291 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %292 = or i64 %291, 4294967296
-  store i64 %292, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %292, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %293
 
 293:                                              ; preds = %290, %287
-  %294 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %18, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %294 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %295 = call i32 @__sigsetjmp(ptr noundef nonnull %18, i32 noundef 0) #30
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %.sink.split
@@ -2727,7 +2727,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %.sink.split
 
 300:                                              ; preds = %274
-  %301 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not348 = icmp eq ptr %301, null
   br i1 %.not348, label %318, label %302
 
@@ -2740,11 +2740,11 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 
 306:                                              ; preds = %302
   %307 = or i64 %272, 4294967296
-  store i64 %307, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %307, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %308
 
 308:                                              ; preds = %302, %306
-  store ptr %20, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %309 = call i32 @__sigsetjmp(ptr noundef nonnull %20, i32 noundef 0) #30
   %310 = icmp eq i32 %309, 0
   br i1 %310, label %311, label %.sink.split
@@ -2764,10 +2764,10 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 .sink.split:                                      ; preds = %308, %314, %312, %293, %297
   %.sink = phi ptr [ %294, %297 ], [ %294, %293 ], [ %266, %312 ], [ %266, %314 ], [ %266, %308 ]
   %.1298.ph = phi ptr [ %.0297, %297 ], [ %.0297, %293 ], [ null, %312 ], [ null, %314 ], [ null, %308 ]
-  store ptr %.sink, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %316 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %316 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %317 = and i64 %316, -4294967297
-  store i64 %317, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %317, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %318
 
 318:                                              ; preds = %.sink.split, %300
@@ -2778,12 +2778,12 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 
 320:                                              ; preds = %318
   %321 = or i64 %319, 4328521728
-  store i64 %321, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %321, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   call void @phpdbg_string_init(ptr noundef nonnull %.0279) #25
   call void @free(ptr noundef nonnull %.0279) #25
-  %322 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %322 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %323 = and i64 %322, -4328521729
-  store i64 %323, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %323, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %324
 
 324:                                              ; preds = %320, %318
@@ -2791,7 +2791,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %325, label %326, label %332
 
 326:                                              ; preds = %324
-  %327 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
+  %327 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1352), align 8
   %.not358 = icmp eq ptr %327, null
   br i1 %.not358, label %329, label %328
 
@@ -2800,21 +2800,21 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %.loopexit
 
 329:                                              ; preds = %326
-  %330 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  %330 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1504), align 8
   %331 = call i64 @write(i32 noundef %330, ptr noundef nonnull @.str.39, i64 noundef 72) #25
   br label %.loopexit
 
 332:                                              ; preds = %324
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 51), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 482), align 2
   store i1 true, ptr @phpdbg_fully_started, align 1
   %.not356 = icmp eq ptr %.0248, null
-  %.pre401 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %.pre401 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %333
 
 333:                                              ; preds = %369, %332
   %.2281 = phi ptr [ null, %332 ], [ %.4283, %369 ]
   %.1267 = phi i64 [ -1, %332 ], [ %.2268, %369 ]
-  store ptr %21, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %334 = call i32 @__sigsetjmp(ptr noundef nonnull %21, i32 noundef 0) #30
   %335 = icmp eq i32 %334, 0
   br i1 %335, label %336, label %359
@@ -2828,14 +2828,14 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   store i32 0, ptr @phpdbg_startup_run, align 4
   %.0..0..0..0.91 = load volatile i8, ptr %6, align 1
   %339 = trunc i8 %.0..0..0..0.91 to i1
-  %340 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %340 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %341 = or i64 %340, 134217728
   %342 = and i64 %340, -8992587777
   %343 = or disjoint i64 %342, 402653184
   %storemerge = select i1 %339, i64 %343, i64 %341
-  store i64 %storemerge, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  %344 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %22, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store i64 %storemerge, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %344 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %345 = call i32 @__sigsetjmp(ptr noundef nonnull %22, i32 noundef 0) #30
   %346 = icmp eq i32 %345, 0
   br i1 %346, label %347, label %353
@@ -2853,35 +2853,35 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %353
 
 353:                                              ; preds = %348, %351, %338
-  store ptr %344, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %344, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %.0..0..0..0.92 = load volatile i8, ptr %6, align 1
   %354 = trunc i8 %.0..0..0..0.92 to i1
   br i1 %354, label %355, label %357
 
 355:                                              ; preds = %353
-  store ptr %.pre401, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %356 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 9), align 4
+  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %356 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %.loopexit
 
 357:                                              ; preds = %353, %336
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 83), align 1
   %358 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null) #25
   br label %369
 
 359:                                              ; preds = %333
-  store ptr %.pre401, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %360 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %360 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %361 = and i64 %360, 262144
   %.not353 = icmp eq i64 %361, 0
   br i1 %.not353, label %369, label %362
 
 362:                                              ; preds = %359
   %363 = or i64 %360, 4294967296
-  store i64 %363, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %363, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   call void @phpdbg_export_breakpoints_to_string(ptr noundef nonnull %23) #25
-  %364 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %364 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %365 = and i64 %364, -4294967297
-  store i64 %365, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %365, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %366 = load ptr, ptr %23, align 8
   %.not354 = icmp eq ptr %366, null
   br i1 %.not354, label %369, label %367
@@ -2894,8 +2894,8 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 369:                                              ; preds = %359, %362, %367, %357
   %.4283 = phi ptr [ %.2281, %357 ], [ %368, %367 ], [ %.2281, %362 ], [ %.2281, %359 ]
   %.2268 = phi i64 [ %.1267, %357 ], [ 1, %367 ], [ 1, %362 ], [ 0, %359 ]
-  store ptr %.pre401, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %370 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %370 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %371 = and i64 %370, 327680
   %.not357 = icmp eq i64 %371, 0
   br i1 %.not357, label %333, label %.loopexit
@@ -2918,14 +2918,14 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %374, label %378, label %375
 
 375:                                              ; preds = %373
-  %376 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %376 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %377 = and i64 %376, -262145
-  store i64 %377, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %377, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %378
 
 378:                                              ; preds = %375, %373
   %.4270 = phi i64 [ -1, %375 ], [ 1, %373 ]
-  %379 = load i32, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 19), align 4
+  %379 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
   %.not360389 = icmp eq i32 %379, 0
   br i1 %.not360389, label %._crit_edge393, label %.lr.ph392.preheader
 
@@ -2936,7 +2936,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 .lr.ph392:                                        ; preds = %.lr.ph392.preheader, %.lr.ph392
   %indvars.iv398 = phi i64 [ %380, %.lr.ph392.preheader ], [ %indvars.iv.next399, %.lr.ph392 ]
   %indvars.iv.next399 = add nsw i64 %indvars.iv398, -1
-  %381 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 20), align 8
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   %382 = getelementptr inbounds ptr, ptr %381, i64 %indvars.iv.next399
   %383 = load ptr, ptr %382, align 8
   call void @_efree(ptr noundef %383) #25
@@ -2944,7 +2944,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %.not360, label %._crit_edge393, label %.lr.ph392
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %378
-  %384 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 20), align 8
+  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   call void @_efree(ptr noundef %384) #25
   %.val380 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val380) #25
@@ -2956,19 +2956,19 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %386
 
 386:                                              ; preds = %385, %._crit_edge393
-  %387 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %387 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %388 = and i64 %387, 524288
   %.not362 = icmp eq i64 %388, 0
   br i1 %.not362, label %389, label %396
 
 389:                                              ; preds = %386
-  %390 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
+  %390 = load i8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1384), align 8
   %391 = trunc i8 %390 to i1
   %392 = xor i8 %390, 1
-  %393 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 31), align 1
+  %393 = load i8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1385), align 1
   %394 = and i8 %393, 1
   %395 = select i1 %391, i8 %394, i8 1
-  store i8 %395, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
+  store i8 %395, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 83), align 1
   br label %396
 
 396:                                              ; preds = %389, %386
@@ -2979,11 +2979,11 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 
 399:                                              ; preds = %396
   call void @php_free_shutdown_functions() #25
-  call void @zend_objects_store_mark_destructed(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 49)) #25
+  call void @zend_objects_store_mark_destructed(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 840)) #25
   br label %400
 
 400:                                              ; preds = %399, %396
-  %401 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not363 = icmp eq ptr %401, null
   br i1 %.not363, label %423, label %402
 
@@ -2993,8 +2993,8 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %404, label %405, label %423
 
 405:                                              ; preds = %402
-  %406 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
-  %407 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), ptr noundef nonnull %401, i64 noundef %406) #25
+  %406 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
+  %407 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef nonnull %401, i64 noundef %406) #25
   %.not364 = icmp ne ptr %407, null
   call void @llvm.assume(i1 %.not364)
   %408 = load ptr, ptr %407, align 8, !nonnull !5, !noundef !5
@@ -3020,8 +3020,8 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 
 423:                                              ; preds = %405, %402, %400
   %.3300 = phi ptr [ %414, %405 ], [ %.2299, %402 ], [ %.2299, %400 ]
-  %424 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %24, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %24, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %425 = call i32 @__sigsetjmp(ptr noundef nonnull %24, i32 noundef 0) #30
   %426 = icmp eq i32 %425, 0
   br i1 %426, label %427, label %428
@@ -3031,7 +3031,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %428
 
 428:                                              ; preds = %427, %423
-  store ptr %424, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %424, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br i1 %374, label %429, label %474
 
 429:                                              ; preds = %428
@@ -3091,37 +3091,37 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   store i32 0, ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %432, i64 1000
   store i64 0, ptr %458, align 8
-  %459 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %459 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not365 = icmp eq ptr %459, null
   br i1 %.not365, label %465, label %460
 
 460:                                              ; preds = %431
-  %461 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  %461 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   %462 = call noalias ptr @zend_strndup(ptr noundef nonnull %459, i64 noundef %461) #25
   store ptr %462, ptr %437, align 8
-  %463 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  %463 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   %464 = getelementptr inbounds i8, ptr %432, i64 1344
   store i64 %463, ptr %464, align 8
   br label %465
 
 465:                                              ; preds = %460, %431
-  %466 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43), align 8
+  %466 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1560), align 8
   store <2 x ptr> %466, ptr %433, align 8
   %467 = getelementptr inbounds i8, ptr %432, i64 1576
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %467, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 44), i64 24, i1 false)
-  %468 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 50), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %467, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1576), i64 24, i1 false)
+  %468 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2132), align 4
   store i32 %468, ptr %450, align 4
   %469 = getelementptr inbounds i8, ptr %432, i64 1632
   %470 = sext i32 %468 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %469, ptr nonnull align 8 getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 49), i64 %470, i1 false)
-  %471 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %469, ptr nonnull align 8 getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1632), i64 %470, i1 false)
+  %471 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %472 = and i64 %471, 10217504768
   store i64 %472, ptr %442, align 8
-  %473 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 7), align 8
+  %473 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 776), align 8
   br label %483
 
 474:                                              ; preds = %429, %428
-  %475 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43), align 8
+  %475 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1560), align 8
   %.not366 = icmp eq ptr %475, null
   br i1 %.not366, label %477, label %476
 
@@ -3130,7 +3130,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %477
 
 477:                                              ; preds = %476, %474
-  %478 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43, i64 1), align 8
+  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1568), align 8
   %.not367 = icmp eq ptr %478, null
   br i1 %.not367, label %480, label %479
 
@@ -3139,7 +3139,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %480
 
 480:                                              ; preds = %479, %477
-  %481 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 7), align 8
+  %481 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 776), align 8
   %.not368 = icmp eq ptr %481, null
   br i1 %.not368, label %483, label %482
 
@@ -3151,18 +3151,18 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   %.3276 = phi ptr [ %.1274, %482 ], [ %.1274, %480 ], [ %432, %465 ]
   %.2250 = phi ptr [ null, %482 ], [ null, %480 ], [ %473, %465 ]
   %484 = icmp eq i32 %.0307, 0
-  %485 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 9), align 4
+  %485 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   %spec.select = select i1 %484, i32 %485, i32 %.0307
   call void @php_output_deactivate() #25
-  %486 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %486 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %487 = and i64 %486, 65536
   %.not369 = icmp eq i64 %487, 0
   br i1 %.not369, label %488, label %500
 
 488:                                              ; preds = %483
   %489 = or disjoint i64 %486, 65536
-  store i64 %489, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  %490 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
+  store i64 %489, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %490 = load i8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1384), align 8
   %491 = trunc i8 %490 to i1
   br i1 %491, label %494, label %492
 
@@ -3179,7 +3179,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %or.cond7, label %500, label %498
 
 498:                                              ; preds = %494
-  store i64 %486, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %486, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %499 = add nsw i64 %.4270, 1
   br label %500
 
@@ -3187,11 +3187,11 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   %.5271 = phi i64 [ %.4270, %483 ], [ %.4270, %494 ], [ %499, %498 ], [ %.4270, %492 ]
   %501 = call ptr @_php_stream_get_url_stream_wrappers_hash() #25
   %502 = call ptr @zend_hash_str_find(ptr noundef %501, ptr noundef nonnull @.str.36, i64 noundef 3) #25
-  %503 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 48), align 8
+  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1624), align 8
   store ptr %503, ptr %502, align 8
   %504 = call ptr @signal(i32 noundef 11, ptr noundef null) #25
   %505 = call ptr @signal(i32 noundef 7, ptr noundef null) #25
-  %506 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 40), align 8
+  %506 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1512), align 8
   store ptr %506, ptr @php_stream_stdio_ops, align 8
   br label %507
 
@@ -3348,7 +3348,7 @@ declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal void @phpdbg_sigint_handler(i32 %0) #0 {
   %2 = alloca [4194305 x i8], align 16
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %4 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %5 = and i64 %4, 134217728
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %24
@@ -3360,8 +3360,8 @@ define internal void @phpdbg_sigint_handler(i32 %0) #0 {
 
 8:                                                ; preds = %6
   call void @phpdbg_set_sigsafe_mem(ptr noundef nonnull %2) #25
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %10 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #30
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
@@ -3371,11 +3371,11 @@ define internal void @phpdbg_sigint_handler(i32 %0) #0 {
   br label %13
 
 13:                                               ; preds = %12, %8
-  store ptr %9, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   call void @phpdbg_clear_sigsafe_mem() #25
-  %14 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %15 = and i64 %14, -67108865
-  store i64 %15, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %16 = and i64 %14, 327680
   %.not3 = icmp eq i64 %16, 0
   br i1 %.not3, label %24, label %17
@@ -3386,7 +3386,7 @@ define internal void @phpdbg_sigint_handler(i32 %0) #0 {
 
 18:                                               ; preds = %6
   %19 = or disjoint i64 %4, 67108864
-  store i64 %19, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %20 = and i64 %4, 268435456
   %.not2 = icmp eq i64 %20, 0
   br i1 %.not2, label %24, label %21
@@ -3394,7 +3394,7 @@ define internal void @phpdbg_sigint_handler(i32 %0) #0 {
 21:                                               ; preds = %18
   %22 = and i64 %4, -9059696641
   %23 = or disjoint i64 %22, 8657043456
-  store i64 %23, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   br label %24
 
 24:                                               ; preds = %13, %21, %18, %1
@@ -3443,7 +3443,7 @@ define internal i64 @phpdbg_stdiop_write(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
-  %34 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %35 = trunc i64 %2 to i32
   %36 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 5, i32 noundef %34, ptr noundef nonnull @.str.73, i32 noundef %35, ptr noundef %1) #25
   br label %53
@@ -3462,13 +3462,13 @@ define internal i64 @phpdbg_stdiop_write(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %40
-  %47 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %48 = trunc i64 %2 to i32
   %49 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 6, i32 noundef %47, ptr noundef nonnull @.str.73, i32 noundef %48, ptr noundef %1) #25
   br label %53
 
 50:                                               ; preds = %37, %40, %10, %3
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 40), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1512), align 8
   %52 = tail call i64 %51(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #25
   br label %53
 
@@ -3556,28 +3556,28 @@ define internal noundef i32 @php_sapi_phpdbg_activate() #21 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_sapi_phpdbg_deactivate() #0 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416)) #25
   tail call void @zend_hash_destroy(ptr noundef nonnull @phpdbg_globals) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 1)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 2)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 7)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 8)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 9)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 3)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 6)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 4)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 5)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 10)) #25
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 2)) #25
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 56)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 112)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 168)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 336)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 224)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 280)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 672)) #25
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1352), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
   tail call void @destroy_op_array(ptr noundef nonnull %1) #25
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1352), align 8
   tail call void @_efree(ptr noundef %3) #25
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1352), align 8
   br label %4
 
 4:                                                ; preds = %2, %0
@@ -3586,7 +3586,7 @@ define internal noundef i32 @php_sapi_phpdbg_deactivate() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @php_sapi_phpdbg_ub_write(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %4 = trunc i64 %1 to i32
   %5 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 5, i32 noundef %3, ptr noundef nonnull @.str.73, i32 noundef %4, ptr noundef %0) #25
   %6 = sext i32 %5 to i64
@@ -3620,62 +3620,62 @@ define internal void @php_sapi_phpdbg_register_vars(ptr noundef %0) #0 {
   store ptr @.str.34, ptr %3, align 8
   %4 = load ptr, ptr @php_import_environment_variables, align 8
   tail call void %4(ptr noundef %0) #25
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %30, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
   store i64 %7, ptr %2, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
-  %9 = call i32 %8(i32 noundef 5, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i64 noundef %7, ptr noundef nonnull %2) #25
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %9 = call i32 %8(i32 noundef 5, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), i64 noundef %7, ptr noundef nonnull %2) #25
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   call void @php_register_variable(ptr noundef nonnull @.str.74, ptr noundef %11, ptr noundef %0) #25
   br label %12
 
 12:                                               ; preds = %10, %6
-  %13 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
-  %15 = call i32 %13(i32 noundef 5, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i64 noundef %14, ptr noundef nonnull %2) #25
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
+  %15 = call i32 %13(i32 noundef 5, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), i64 noundef %14, ptr noundef nonnull %2) #25
   %.not7 = icmp eq i32 %15, 0
   br i1 %.not7, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   call void @php_register_variable(ptr noundef nonnull @.str.75, ptr noundef %17, ptr noundef %0) #25
   br label %18
 
 18:                                               ; preds = %16, %12
-  %19 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
-  %21 = call i32 %19(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i64 noundef %20, ptr noundef nonnull %2) #25
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
+  %21 = call i32 %19(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), i64 noundef %20, ptr noundef nonnull %2) #25
   %.not8 = icmp eq i32 %21, 0
   br i1 %.not8, label %24, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   call void @php_register_variable(ptr noundef nonnull @.str.76, ptr noundef %23, ptr noundef %0) #25
   br label %24
 
 24:                                               ; preds = %22, %18
-  %25 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 25), align 8
-  %27 = call i32 %25(i32 noundef 5, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i64 noundef %26, ptr noundef nonnull %2) #25
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1344), align 8
+  %27 = call i32 %25(i32 noundef 5, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), i64 noundef %26, ptr noundef nonnull %2) #25
   %.not9 = icmp eq i32 %27, 0
   br i1 %.not9, label %30, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   call void @php_register_variable(ptr noundef nonnull @.str.77, ptr noundef %29, ptr noundef %0) #25
   br label %30
 
 30:                                               ; preds = %24, %28, %1
   store i64 0, ptr %2, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 30), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
   %32 = call i32 %31(i32 noundef 5, ptr noundef nonnull @.str.78, ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %2) #25
   %.not10 = icmp eq i32 %32, 0
   br i1 %.not10, label %35, label %33
@@ -3695,21 +3695,21 @@ define internal void @php_sapi_phpdbg_log_message(ptr noundef %0, i32 %1) #0 {
   br i1 %.b6970, label %3, label %44
 
 3:                                                ; preds = %2
-  %4 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %5 = and i64 %4, 4096
   %.not = icmp eq i64 %5, 0
-  %6 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %7 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.79, ptr noundef %0) #25
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %10 = and i64 %9, 268435456
   %.not71 = icmp eq i64 %10, 0
   br i1 %.not71, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 55), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @core_globals, i64 488), align 8
   %13 = and i32 %12, 4437
   %.not72 = icmp eq i32 %13, 0
   br i1 %.not72, label %.loopexit, label %14
@@ -3773,7 +3773,7 @@ define internal void @php_sapi_phpdbg_log_message(ptr noundef %0, i32 %1) #0 {
   br i1 %switch, label %.loopexit, label %41
 
 41:                                               ; preds = %.preheader
-  %42 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %43 = and i64 %42, 327680
   %.not76 = icmp eq i64 %43, 0
   br i1 %.not76, label %.preheader, label %.loopexit
@@ -3792,19 +3792,19 @@ declare i32 @php_module_startup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_startup_phpdbg(i32 %0, i32 noundef %1) #0 {
   tail call void @_zend_hash_init(ptr noundef nonnull @phpdbg_globals, i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_file, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 1), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_file, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 2), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_symbol, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 7), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 8), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 9), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 3), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_opline, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 6), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_opcode, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 4), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 5), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_condition, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 0, i64 10), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 2), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 1), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_registered, i1 noundef zeroext false) #25
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 35), i32 noundef 0, ptr noundef nonnull @php_phpdbg_destroy_file_source, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 56), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_file, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 112), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_symbol, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 168), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_opline, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 336), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_opcode, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 224), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_methods, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 280), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_bp_condition, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 672), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 616), i32 noundef 8, ptr noundef nonnull @php_phpdbg_destroy_registered, i1 noundef zeroext false) #25
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), i32 noundef 0, ptr noundef nonnull @php_phpdbg_destroy_file_source, i1 noundef zeroext false) #25
   tail call void @phpdbg_setup_watchpoints() #25
   store ptr @phpdbg_execute_ex, ptr @zend_execute_ex, align 8
   tail call void @zend_register_string_constant(ptr noundef nonnull @.str.66, i64 noundef 14, ptr noundef nonnull @.str.31, i32 noundef 1, i32 noundef %1) #25
@@ -3816,15 +3816,15 @@ define internal noundef i32 @zm_startup_phpdbg(i32 %0, i32 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_shutdown_phpdbg(i32 %0, i32 %1) #0 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 1)) #25
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 616)) #25
   tail call void @phpdbg_destroy_watchpoints() #25
-  %3 = load i64, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %4 = and i64 %3, 65536
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %7 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %6, ptr noundef nonnull @.str.70) #25
   br label %8
 
@@ -3839,27 +3839,27 @@ define internal noundef i32 @zm_shutdown_phpdbg(i32 %0, i32 %1) #0 {
   br label %13
 
 13:                                               ; preds = %11, %8
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 45), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1600), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %16, label %15
 
 15:                                               ; preds = %13
   tail call void @free(ptr noundef nonnull %14) #25
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 45), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1600), align 8
   br label %16
 
 16:                                               ; preds = %15, %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not14 = icmp eq ptr %17, null
   br i1 %.not14, label %19, label %18
 
 18:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %17) #25
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   %.not15 = icmp eq ptr %20, null
   br i1 %.not15, label %28, label %.preheader
 
@@ -3871,7 +3871,7 @@ define internal noundef i32 @zm_shutdown_phpdbg(i32 %0, i32 %1) #0 {
   br i1 %.not16, label %22, label %.preheader
 
 22:                                               ; preds = %.preheader
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 36), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1472), align 8
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -3883,19 +3883,19 @@ define internal noundef i32 @zm_shutdown_phpdbg(i32 %0, i32 %1) #0 {
   br i1 %.not17, label %27, label %24
 
 27:                                               ; preds = %24
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 37), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1480), align 8
   br label %28
 
 28:                                               ; preds = %27, %19
   %29 = load ptr, ptr @stdout, align 8
   %30 = tail call i32 @fflush(ptr noundef %29)
-  %31 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 16), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 120), align 8
   %.not18 = icmp eq ptr %31, null
   br i1 %.not18, label %33, label %32
 
 32:                                               ; preds = %28
   tail call void @free(ptr noundef nonnull %31) #25
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 120), align 8
   br label %33
 
 33:                                               ; preds = %32, %28
@@ -3904,7 +3904,7 @@ define internal noundef i32 @zm_shutdown_phpdbg(i32 %0, i32 %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_activate_phpdbg(i32 %0, i32 %1) #0 {
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 2), ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 3), align 8
+  store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 32), ptr getelementptr inbounds (i8, ptr @executor_globals, i64 288), align 8
   %3 = tail call i32 @zend_vm_kind() #25
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %41, label %4
@@ -3996,13 +3996,13 @@ define internal noundef i32 @zm_activate_phpdbg(i32 %0, i32 %1) #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @zm_deactivate_phpdbg(i32 %0, i32 %1) #22 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 47), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1616), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @fclose(ptr noundef nonnull %3)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 47), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1616), align 8
   br label %6
 
 6:                                                ; preds = %4, %2

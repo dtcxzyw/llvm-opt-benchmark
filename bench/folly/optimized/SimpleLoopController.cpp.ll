@@ -349,7 +349,7 @@ entry:
 define void @_ZN5folly6fibers20SimpleLoopControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.5", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !96
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 16), ptr %this, align 8, !tbaa !96
   %fm_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fm_, align 8, !tbaa !7
   %scheduled_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -375,7 +375,7 @@ lpad.i:                                           ; preds = %entry
   br label %ehcleanup10
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerE, i64 0, i32 0, i64 2), ptr %call.i14, align 8, !tbaa !96, !noalias !102
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerE, i64 16), ptr %call.i14, align 8, !tbaa !96, !noalias !102
   %loopController_.i.i = getelementptr inbounds i8, ptr %call.i14, i64 16
   store ptr %this, ptr %loopController_.i.i, align 8, !tbaa !91, !noalias !102
   %timeout_.i.i = getelementptr inbounds i8, ptr %call.i14, i64 24
@@ -470,7 +470,7 @@ ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTim
   br label %_ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i: ; preds = %ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i_crit_edge, %ehcleanup.thread
-  %vtable.i.i26 = phi ptr [ getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerE, i64 0, i32 0, i64 2), %ehcleanup.thread ], [ %vtable.i.i26.pre, %ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i_crit_edge ]
+  %vtable.i.i26 = phi ptr [ getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerE, i64 16), %ehcleanup.thread ], [ %vtable.i.i26.pre, %ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i_crit_edge ]
   %.pn30 = phi { ptr, i32 } [ %7, %ehcleanup.thread ], [ %.pn.ph, %ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i_crit_edge ]
   %13 = phi ptr [ %call.i14, %ehcleanup.thread ], [ %.pr, %ehcleanup._ZNKSt14default_deleteIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerEEclEPS3_.exit.i_crit_edge ]
   %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 8
@@ -696,7 +696,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !131
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i10.i9, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !96
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i10.i9, align 8, !tbaa !96
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i10.i9, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !134
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !130
@@ -993,7 +993,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6fibers20SimpleLoopControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !96
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 16), ptr %this, align 8, !tbaa !96
   %scheduled_ = getelementptr inbounds i8, ptr %this, i64 16
   store atomic i8 0, ptr %scheduled_ seq_cst, align 8
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1912,7 +1912,7 @@ lpad24:                                           ; preds = %if.then23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp26) #20
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %ref.tmp26) #20
   %22 = load ptr, ptr %call_.i393, align 16, !tbaa !184
-  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds ([23 x i8], ptr @.str.4, i64 0, i64 22), ptr noundef nonnull align 16 dereferenceable(48) %exceptionCallback_)
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds (i8, ptr @.str.4, i64 22), ptr noundef nonnull align 16 dereferenceable(48) %exceptionCallback_)
           to label %invoke.cont29 unwind label %lpad27
 
 invoke.cont29:                                    ; preds = %lpad24
@@ -2135,7 +2135,7 @@ lpad93:                                           ; preds = %if.then91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp98) #20
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %ref.tmp98) #20
   %51 = load ptr, ptr %call_.i393, align 16, !tbaa !184
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds ([21 x i8], ptr @.str.5, i64 0, i64 20), ptr noundef nonnull align 16 dereferenceable(48) %exceptionCallback_)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds (i8, ptr @.str.5, i64 20), ptr noundef nonnull align 16 dereferenceable(48) %exceptionCallback_)
           to label %invoke.cont102 unwind label %lpad100
 
 invoke.cont102:                                   ; preds = %lpad93
@@ -2551,7 +2551,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !96
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !96
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -2570,7 +2570,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #16 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !96
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !96
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #26
   unreachable
 }

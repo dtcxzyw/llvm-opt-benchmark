@@ -250,8 +250,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_thermostat() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_thermostat, ptr @proto_register_zbee_zcl_thermostat.ett, align 16
-  store ptr @ett_zbee_zcl_thermostat_schedule_days, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_thermostat.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_thermostat_schedule_mode, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_thermostat.ett, i64 0, i64 2), align 16
+  store ptr @ett_zbee_zcl_thermostat_schedule_days, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_thermostat.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_thermostat_schedule_mode, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_thermostat.ett, i64 16), align 16
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46) #2
   store i32 %1, ptr @proto_zbee_zcl_thermostat, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_thermostat.hf, i32 noundef 21) #2
@@ -422,7 +422,7 @@ define internal void @dissect_zcl_ias_zone_attr_data(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_ias_zone() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_ias_zone, ptr @proto_register_zbee_zcl_ias_zone.ett, align 16
-  store ptr @ett_zbee_zcl_ias_zone_status, ptr getelementptr inbounds ([2 x ptr], ptr @proto_register_zbee_zcl_ias_zone.ett, i64 0, i64 1), align 8
+  store ptr @ett_zbee_zcl_ias_zone_status, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_ias_zone.ett, i64 8), align 8
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.47) #2
   store i32 %1, ptr @proto_zbee_zcl_ias_zone, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_ias_zone.hf, i32 noundef 19) #2

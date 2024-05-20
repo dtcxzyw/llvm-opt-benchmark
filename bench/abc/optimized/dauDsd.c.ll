@@ -2453,7 +2453,7 @@ define ptr @Dau_DsdToTruth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5
   br i1 %exitcond15.not.i.i, label %Dau_DsdTtElems.exit, label %.preheader.i, !llvm.loop !47
 
 Dau_DsdTtElems.exit:                              ; preds = %.loopexit.i.i, %2
-  %29 = load ptr, ptr getelementptr inbounds ([13 x ptr], ptr @Dau_DsdTtElems.pTtElems, i64 0, i64 12), align 16
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %30 = load i8, ptr %0, align 1
   switch i8 %30, label %Dau_DsdIsConst1.exit.thread [
     i8 48, label %Dau_DsdIsConst0.exit
@@ -11778,7 +11778,7 @@ Abc_Clock.exit:                                   ; preds = %0, %19
   br i1 %exitcond15.not.i.i.i, label %Dau_DsdTtElems.exit.i, label %.preheader.i.i, !llvm.loop !47
 
 Dau_DsdTtElems.exit.i:                            ; preds = %.loopexit.i.i.i, %48
-  %72 = load ptr, ptr getelementptr inbounds ([13 x ptr], ptr @Dau_DsdTtElems.pTtElems, i64 0, i64 12), align 16
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %73 = load i8, ptr %51, align 1
   switch i8 %73, label %Dau_DsdIsConst1.exit.thread.i [
     i8 48, label %Dau_DsdIsConst0.exit.i
@@ -12157,7 +12157,7 @@ Dau_DsdNormalize.exit:                            ; preds = %Abc_Clock.exit52, %
   br i1 %exitcond15.not.i.i.i97, label %Dau_DsdTtElems.exit.i65, label %.preheader.i.i88, !llvm.loop !47
 
 Dau_DsdTtElems.exit.i65:                          ; preds = %.loopexit.i.i.i95, %Dau_DsdNormalize.exit
-  %187 = load ptr, ptr getelementptr inbounds ([13 x ptr], ptr @Dau_DsdTtElems.pTtElems, i64 0, i64 12), align 16
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %188 = load i8, ptr %15, align 16
   switch i8 %188, label %Dau_DsdIsConst1.exit.thread.i82 [
     i8 48, label %Dau_DsdIsConst0.exit.i80

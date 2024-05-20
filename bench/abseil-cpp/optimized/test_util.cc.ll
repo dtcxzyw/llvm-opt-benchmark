@@ -32,7 +32,7 @@ entry:
 
 do.body2:                                         ; preds = %entry
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #5
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([131 x i8], ptr @.str, i64 0, i64 118), i32 noundef 26, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %call3)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 26, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %call3)
   unreachable
 
 do.end6:                                          ; preds = %entry

@@ -13732,8 +13732,8 @@ _ZN8pybind116class_IN12_GLOBAL__N_117SharedFromThisRefEJSt10unique_ptrIS2_St14de
   %4011 = getelementptr inbounds i8, ptr %4009, i64 8
   %4012 = getelementptr inbounds i8, ptr %4009, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4012, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 0, i64 3), ptr %4009, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 1, i64 3), ptr %4011, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 24), ptr %4009, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 64), ptr %4011, align 8
   invoke fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118SharedFromThisVirtEEC2IS1_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZ24test_submodule_smart_ptrRN8pybind117module_EE3sft, ptr noundef nonnull %4009)
           to label %4013 unwind label %5870
 
@@ -20209,11 +20209,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(100) ptr @_ZN
   br i1 %.not.i, label %_ZN16ConstructorStats3getESt10type_index.exit, label %6
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getESt10type_index.exit
@@ -20679,7 +20679,7 @@ _ZNSt13unordered_setIPN12_GLOBAL__N_19MyObject4ESt4hashIS2_ESt8equal_toIS2_ESaIS
           to label %153 unwind label %.body5.i
 
 153:                                              ; preds = %151
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %152, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %152, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i unwind label %.body5.i
@@ -20711,11 +20711,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
   br i1 %.not.i.i.i.i1.i, label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject4EJEEvPT_.exit.i.i, label %160
 
 160:                                              ; preds = %158
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %161 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject4EJEEvPT_.exit.i.i
@@ -21223,7 +21223,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN12_GLOBAL__N_118SharedF
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_118SharedFromThisVirtELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_118SharedFromThisVirtELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -21763,7 +21763,7 @@ _ZN8pybind116detail12generic_typeD2Ev.exit:       ; preds = %1, %3, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -21844,7 +21844,7 @@ _ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -23112,7 +23112,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail25make_static_propert
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.98)
   store ptr %3, ptr %1, align 8, !alias.scope !965
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -23276,7 +23276,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail22make_default_metacl
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.103)
   store ptr %3, ptr %1, align 8, !alias.scope !968
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 36), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -23741,7 +23741,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
           to label %4 unwind label %24
@@ -23790,7 +23790,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 24
@@ -25307,7 +25307,7 @@ _ZNO8pybind116object4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %17 unwind label %24
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #31
           to label %31 unwind label %24
 
@@ -25701,7 +25701,7 @@ define linkonce_odr hidden void @_ZN8pybind114moveINSt7__cxx1112basic_stringIcSt
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #31
           to label %37 unwind label %28
 
@@ -26351,7 +26351,7 @@ _ZNKR8pybind116handle7inc_refEv.exit5:            ; preds = %_ZNKR8pybind116hand
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_static_get(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i64 0, i32 32), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 272), align 8
   %5 = tail call noundef ptr %4(ptr noundef %0, ptr noundef %2, ptr noundef %2)
   ret ptr %5
 }
@@ -26365,7 +26365,7 @@ define linkonce_odr hidden i32 @pybind11_static_set(ptr noundef %0, ptr noundef 
   %6 = and i64 %.val.val, 2147483648
   %.not6 = icmp eq i64 %6, 0
   %spec.select = select i1 %.not6, ptr %.val, ptr %1
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i64 0, i32 33), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 280), align 8
   %8 = tail call noundef i32 %7(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
   ret i32 %8
 }
@@ -26377,7 +26377,7 @@ declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 14), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 128), align 8
   %6 = tail call noundef ptr %5(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZL10_Py_DECREFP7_object.exit, label %8
@@ -26550,7 +26550,7 @@ define linkonce_odr hidden i32 @pybind11_meta_setattro(ptr noundef %0, ptr nound
   br label %23
 
 .critedge:                                        ; preds = %10, %3, %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 17), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 152), align 8
   %22 = tail call noundef i32 %21(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %23
 
@@ -26578,7 +26578,7 @@ define linkonce_odr hidden ptr @pybind11_meta_getattro(ptr noundef %0, ptr nound
   br label %12
 
 9:                                                ; preds = %4, %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 144), align 8
   %11 = tail call noundef ptr %10(ptr noundef %0, ptr noundef %1)
   br label %12
 
@@ -26858,7 +26858,7 @@ _ZN8pybind116detail9type_infoD2Ev.exit:           ; preds = %_ZNSt6vectorISt4pai
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i, %30, %9, %14, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116detail9type_infoD2Ev.exit, %43
-  %127 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i64 0, i32 4), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 48), align 8
   call void %127(ptr noundef %0)
   ret void
 }
@@ -29961,7 +29961,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   %705 = phi ptr [ %702, %703 ], [ %685, %_ZN8pybind1112cpp_function12strdup_guard7releaseEv.exit432 ], [ %685, %688 ], [ %685, %691 ], [ %702, %699 ]
   %.0175480 = phi ptr [ %.0176, %703 ], [ %46, %_ZN8pybind1112cpp_function12strdup_guard7releaseEv.exit432 ], [ %46, %688 ], [ %46, %691 ], [ %.0176, %699 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #28
-  %706 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %706 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %707 = trunc i8 %706 to i1
   br i1 %707, label %708, label %.lr.ph562.preheader
 
@@ -29999,7 +29999,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   %.0144560 = phi ptr [ %771, %769 ], [ %.0175474, %.lr.ph562.preheader ]
   %.0145559 = phi i1 [ %.2147, %769 ], [ true, %.lr.ph562.preheader ]
   %.0148558 = phi i32 [ %.2150, %769 ], [ 0, %.lr.ph562.preheader ]
-  %716 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %716 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %717 = trunc i8 %716 to i1
   br i1 %717, label %718, label %743
 
@@ -30080,7 +30080,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
   br i1 %750, label %751, label %769
 
 751:                                              ; preds = %748
-  %752 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %752 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %753 = trunc i8 %752 to i1
   %brmerge = select i1 %753, i1 true, i1 %.0145559
   %.0145.mux = select i1 %753, i1 %.0145559, i1 false
@@ -30091,7 +30091,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
           to label %._crit_edge619 unwind label %.loopexit
 
 ._crit_edge619:                                   ; preds = %754
-  %.pre620 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %.pre620 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   br label %756
 
 756:                                              ; preds = %._crit_edge619, %751
@@ -30110,7 +30110,7 @@ _ZN8pybind117capsuleD2Ev.exit422.thread476:       ; preds = %699, %691, %688, %_
           to label %764 unwind label %.loopexit
 
 764:                                              ; preds = %761
-  %765 = load i8, ptr getelementptr inbounds (%"struct.pybind11::options::state", ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 0, i32 1), align 1
+  %765 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN8pybind117options12global_stateEvE8instance, i64 1), align 1
   %766 = trunc i8 %765 to i1
   br i1 %766, label %767, label %769
 
@@ -31031,7 +31031,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idERNSt7__cxx11
           to label %22 unwind label %.body15
 
 22:                                               ; preds = %20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.133, ptr noundef nonnull getelementptr inbounds ([11 x i8], ptr @.str.133, i64 0, i64 10)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.133, i64 10)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 10)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body15
@@ -34498,7 +34498,7 @@ _ZN8pybind115tupleD2Ev.exit590:                   ; preds = %_ZN8pybind119set_er
           to label %.noexc592 unwind label %1211
 
 .noexc592:                                        ; preds = %.noexc591
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.149, ptr noundef nonnull getelementptr inbounds ([78 x i8], ptr @.str.149, i64 0, i64 77))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.149, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.149, i64 77))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit595 unwind label %1197
 
 1197:                                             ; preds = %.noexc592
@@ -34869,7 +34869,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15local_internalsC2Ev(ptr no
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.131, ptr noundef nonnull getelementptr inbounds ([14 x i8], ptr @.str.131, i64 0, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.131, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.131, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %13
 
 13:                                               ; preds = %.noexc11
@@ -38082,7 +38082,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   ret void
@@ -39264,7 +39264,7 @@ select.unfold:                                    ; preds = %19, %_ZN8pybind116d
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #31
   unreachable
 
@@ -42961,7 +42961,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
           to label %33 unwind label %40
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %24, align 8
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #31
           to label %46 unwind label %40
 
@@ -45940,7 +45940,7 @@ define linkonce_odr hidden void @_Z18print_copy_createdI3refI6ObjectEJRA13_KcRPS
           to label %.noexc7 unwind label %10
 
 .noexc7:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.188, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc7
@@ -45991,11 +45991,11 @@ define linkonce_odr hidden void @_Z18track_copy_createdI7ref_tagEvPT_(ptr nounde
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit
@@ -46269,11 +46269,11 @@ define linkonce_odr hidden void @_Z18track_copy_createdI3refI6ObjectEEvPT_(ptr n
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit
@@ -46762,7 +46762,7 @@ define linkonce_odr hidden void @_Z13print_createdI3refI6ObjectEJRA13_KcRPS1_EEv
           to label %.noexc9 unwind label %10
 
 .noexc9:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc9
@@ -46813,11 +46813,11 @@ define linkonce_odr hidden void @_Z13track_createdI7ref_tagJRA13_KcEEvPT_DpOT0_(
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit, label %8
 
 8:                                                ; preds = %6
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit
@@ -46901,11 +46901,11 @@ define linkonce_odr hidden void @_Z13track_createdI3refI6ObjectEJRA13_KcRPS1_EEv
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit, label %9
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit
@@ -47192,11 +47192,11 @@ _ZNK6Object6decRefEb.exit:                        ; preds = %13, %9, %1
   br i1 %.not.i.i.i, label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit.i, label %26
 
 26:                                               ; preds = %24
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit.i
@@ -47239,7 +47239,7 @@ define linkonce_odr hidden void @_Z15print_destroyedI3refI6ObjectEJEEvPT_DpOT0_(
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc5
@@ -47267,11 +47267,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %_Z15track_destroyedI3refI6ObjectEJEEvPT_.exit, label %13
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %14 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedI3refI6ObjectEJEEvPT_.exit
@@ -48990,7 +48990,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind114moveIbEENSt9enable_i
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #31
           to label %37 unwind label %27
 
@@ -51009,7 +51009,7 @@ declare void @llvm.assume(i1 noundef) #19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -52476,7 +52476,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2EPS1_(ptr noun
           to label %20 unwind label %.body
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -52508,11 +52508,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i, label %27
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %28 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i
@@ -52676,7 +52676,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2ERKS2_(ptr nou
           to label %.noexc7.i unwind label %45
 
 .noexc7.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.188, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %10
 
 10:                                               ; preds = %.noexc7.i
@@ -52704,11 +52704,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i, label %17
 
 17:                                               ; preds = %15
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %18 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i
@@ -53114,7 +53114,7 @@ _ZNK6Object6decRefEb.exit:                        ; preds = %17, %13, %1
           to label %32 unwind label %.body7
 
 32:                                               ; preds = %30
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %31, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %31, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body7
@@ -53146,11 +53146,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedI3refIN12_GLOBAL__N_19MyObject1EEJEEvPT_.exit.i, label %39
 
 39:                                               ; preds = %37
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %40 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedI3refIN12_GLOBAL__N_19MyObject1EEJEEvPT_.exit.i
@@ -53195,11 +53195,11 @@ _Z15track_destroyedI3refIN12_GLOBAL__N_19MyObject1EEJEEvPT_.exit.i: ; preds = %3
   br i1 %.not.i.i.i, label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit.i, label %51
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit.i
@@ -53529,11 +53529,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject1C2Ei(ptr noundef nonnull
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Object, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %13, align 8
   tail call void @_Z21print_default_createdI6ObjectJEEvPT_DpOT0_(ptr noundef nonnull %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %14, align 4
   invoke void @_ZNK12_GLOBAL__N_19MyObject18toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -53568,7 +53568,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject1C2Ei(ptr noundef nonnull
           to label %23 unwind label %.body7
 
 23:                                               ; preds = %21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %22, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %22, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body7
@@ -53694,11 +53694,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject1EEERS_v.exit.i.i, label %56
 
 56:                                               ; preds = %54
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %57 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject1EEERS_v.exit.i.i
@@ -53867,7 +53867,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject1D2Ev(ptr noundef nonnull align 
   %8 = alloca %"class.pybind11::str", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
@@ -53896,7 +53896,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject1D2Ev(ptr noundef nonnull align 
           to label %18 unwind label %.body2
 
 18:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body2
@@ -54022,11 +54022,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject1EJEEvPT_.exit.i, label %51
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject1EJEEvPT_.exit.i
@@ -54063,7 +54063,7 @@ _Z15track_destroyedIN12_GLOBAL__N_19MyObject1EJEEvPT_.exit.i: ; preds = %51, %49
 58:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Object, i64 16), ptr %0, align 8
   invoke void @_Z15print_destroyedI6ObjectJEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN6ObjectD2Ev.exit unwind label %59
 
@@ -54109,7 +54109,7 @@ define linkonce_odr hidden void @_Z21print_default_createdI6ObjectJEEvPT_DpOT0_(
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([32 x i8], ptr @.str.207, i64 0, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.207, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc5
@@ -54147,7 +54147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Object, i64 16), ptr %0, align 8
   invoke void @_Z15print_destroyedI6ObjectJEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %3
 
@@ -54284,11 +54284,11 @@ define linkonce_odr hidden void @_Z21track_default_createdI6ObjectJEEvPT_DpOT0_(
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI6ObjectEERS_v.exit, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI6ObjectEERS_v.exit
@@ -54834,7 +54834,7 @@ define linkonce_odr hidden void @_Z15print_destroyedI6ObjectJEEvPT_DpOT0_(ptr no
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc5
@@ -54862,11 +54862,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %_Z15track_destroyedI6ObjectJEEvPT_.exit, label %13
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %14 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedI6ObjectJEEvPT_.exit
@@ -55346,7 +55346,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 
 .invoke:                                          ; preds = %70, %60, %52
   %.sink = phi ptr [ %53, %52 ], [ %61, %60 ], [ %71, %70 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #31
           to label %.cont unwind label %38
 
@@ -57013,7 +57013,7 @@ define linkonce_odr hidden void @_Z21print_default_createdI3refI6ObjectEJEEvPT_D
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([32 x i8], ptr @.str.207, i64 0, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.207, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc5
@@ -57064,11 +57064,11 @@ define linkonce_odr hidden void @_Z21track_default_createdI7ref_tagJEEvPT_DpOT0_
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI7ref_tagEERS_v.exit
@@ -57155,11 +57155,11 @@ define linkonce_odr hidden void @_Z21track_default_createdI3refI6ObjectEJEEvPT_D
   br i1 %.not.i.i, label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refI6ObjectEEERS_v.exit
@@ -57661,11 +57661,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3r
   br i1 %.not.i.i.i, label %_Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit, label %10
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit
@@ -57753,7 +57753,7 @@ define linkonce_odr hidden void @_Z19print_copy_assignedI3refI6ObjectEJRA8_KcRKP
           to label %.noexc9 unwind label %21
 
 .noexc9:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.221, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc9
@@ -57781,11 +57781,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %_Z19track_copy_assignedI3refI6ObjectEJRA8_KcRKPS1_EEvPT_DpOT0_.exit, label %15
 
 15:                                               ; preds = %13
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z19track_copy_assignedI3refI6ObjectEJRA8_KcRKPS1_EEvPT_DpOT0_.exit
@@ -58595,7 +58595,7 @@ _ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_19MyObject1EEC2Ev.exit.i.i.i
           to label %.noexc5.i.i.i.i.i.i unwind label %52
 
 .noexc5.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds ([32 x i8], ptr @.str.207, i64 0, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.207, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i unwind label %17
 
 17:                                               ; preds = %.noexc5.i.i.i.i.i.i
@@ -58623,11 +58623,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i1.i.i.i.i, label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i.i.i.i.i, label %24
 
 24:                                               ; preds = %22
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %25 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i.i.i.i.i
@@ -59080,7 +59080,7 @@ _ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit: ; preds = %23
           to label %.noexc9.i.i unwind label %121
 
 .noexc9.i.i:                                      ; preds = %.noexc.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.221, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.221, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i unwind label %43
 
 43:                                               ; preds = %.noexc9.i.i
@@ -59287,11 +59287,11 @@ _ZN8pybind113strD2Ev.exit.i.i.i:                  ; preds = %77, %74, %72
   br i1 %.not.i.i.i.i.i, label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i, label %100
 
 100:                                              ; preds = %98
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %101 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i
@@ -59388,11 +59388,11 @@ _Z19print_copy_assignedI3refIN12_GLOBAL__N_19MyObject1EEJRA8_KcRKPS2_EEvPT_DpOT0
   br i1 %.not.i.i.i.i, label %_Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit.i, label %129
 
 129:                                              ; preds = %127
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %130 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit.i
@@ -60310,7 +60310,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_19MyObject2EEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject2ELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject2ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -60709,7 +60709,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject2C2Ei(ptr noundef nonnull
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %13, align 8
   call fastcc void @_ZNK12_GLOBAL__N_19MyObject28toStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 %1)
@@ -60741,7 +60741,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject2C2Ei(ptr noundef nonnull
           to label %21 unwind label %.body5
 
 21:                                               ; preds = %19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %20, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %20, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body5
@@ -60867,11 +60867,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject2EEERS_v.exit.i.i, label %54
 
 54:                                               ; preds = %52
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %55 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject2EEERS_v.exit.i.i
@@ -61028,7 +61028,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject2D2Ev(ptr noundef nonnull align 
   %8 = alloca %"class.pybind11::str", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
@@ -61057,7 +61057,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject2D2Ev(ptr noundef nonnull align 
           to label %18 unwind label %.body2
 
 18:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body2
@@ -61183,11 +61183,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject2EJEEvPT_.exit.i, label %51
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject2EJEEvPT_.exit.i
@@ -61367,7 +61367,7 @@ _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.thread16: ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_19MyObject2EE21make_copy_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIKS6_EEEtlPFPvPKvEEEPS7_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -61378,7 +61378,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_19MyObject2EE21make_move_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIOS6_EEEtlPFPvPKvEEEPKS6_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -61403,7 +61403,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_
   store i32 1, ptr %8, align 8, !noalias !1808
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !1808
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !1808
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !1808
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_19MyObject2C2Ei(ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 7)
           to label %"_ZNO8pybind116detail15argument_loaderIJEE4callISt10shared_ptrIN12_GLOBAL__N_19MyObject2EENS0_9void_typeERZ24test_submodule_smart_ptrRNS_7module_EE4$_13EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_.exit.i" unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i, !noalias !1808
@@ -61499,7 +61499,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %46, align 8, !noalias !1829
   %47 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 1, ptr %47, align 4, !noalias !1829
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %45, align 8, !noalias !1829
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !1829
   %48 = getelementptr inbounds i8, ptr %45, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_19MyObject2C2Ei(ptr noundef nonnull align 8 dereferenceable(12) %48, i32 noundef 7)
           to label %"_ZNO8pybind116detail15argument_loaderIJEE4callISt10shared_ptrIN12_GLOBAL__N_19MyObject2EENS0_9void_typeERZ24test_submodule_smart_ptrRNS_7module_EE4$_13EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_.exit21.i" unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i20.i, !noalias !1829
@@ -63890,7 +63890,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN12_GLOBAL__N_19MyObject
   store i32 1, ptr %199, align 8
   %200 = getelementptr inbounds i8, ptr %182, i64 12
   store i32 1, ptr %200, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject3ELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %182, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject3ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %182, align 8
   %201 = getelementptr inbounds i8, ptr %182, i64 16
   store ptr %180, ptr %201, align 8
   store ptr %182, ptr %181, align 8
@@ -64440,7 +64440,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject3C2Ei(ptr noundef nonnull
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %14, align 8
   invoke fastcc void @_ZNK12_GLOBAL__N_19MyObject38toStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 %1)
@@ -64475,7 +64475,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject3C2Ei(ptr noundef nonnull
           to label %23 unwind label %.body10
 
 23:                                               ; preds = %21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %22, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %22, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body10
@@ -64601,11 +64601,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject3EEERS_v.exit.i.i, label %56
 
 56:                                               ; preds = %54
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %57 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject3EEERS_v.exit.i.i
@@ -64805,7 +64805,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject3D2Ev(ptr noundef nonnull align 
   %8 = alloca %"class.pybind11::str", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
@@ -64834,7 +64834,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject3D2Ev(ptr noundef nonnull align 
           to label %18 unwind label %.body3
 
 18:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %17, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body3
@@ -64960,11 +64960,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject3EJEEvPT_.exit.i, label %51
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject3EJEEvPT_.exit.i
@@ -65180,7 +65180,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -65193,7 +65193,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -65407,7 +65407,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt1
   store i32 1, ptr %3, align 8, !noalias !1873
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !1873
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !1873
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !1873
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_19MyObject3C2Ei(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef 9)
           to label %7 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i, !noalias !1873
@@ -67781,7 +67781,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
           to label %26 unwind label %.body.i.i.i.i.i
 
 26:                                               ; preds = %24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i unwind label %.body.i.i.i.i.i
@@ -67813,11 +67813,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject4EEERS_v.exit.i.i.i.i.i.i.i, label %33
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject4EEERS_v.exit.i.i.i.i.i.i.i
@@ -68360,7 +68360,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IN12_GLOBAL__N_19MyObject4EJS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.107)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -69684,7 +69684,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110MyObject4aC2Ei(ptr noundef nonnu
   %4 = alloca %"struct.std::type_index", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -69715,7 +69715,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110MyObject4aC2Ei(ptr noundef nonnu
           to label %15 unwind label %.body
 
 15:                                               ; preds = %13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -69747,11 +69747,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_110MyObject4aEEERS_v.exit.i.i, label %22
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_110MyObject4aEEERS_v.exit.i.i
@@ -70159,7 +70159,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4aD2Ev(ptr noundef nonnull alig
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i64 16), ptr %0, align 8
   %6 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_111pointer_setINS_10MyObject4aEEERSt13unordered_setIPT_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEvE9singleton acquire, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %20, !prof !597
@@ -70393,7 +70393,7 @@ _ZNSt13unordered_setIPN12_GLOBAL__N_110MyObject4aESt4hashIS2_ESt8equal_toIS2_ESa
           to label %88 unwind label %.body5
 
 88:                                               ; preds = %86
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %87, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %87, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body5
@@ -70425,11 +70425,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i1, label %_Z15track_destroyedIN12_GLOBAL__N_110MyObject4aEJEEvPT_.exit.i, label %95
 
 95:                                               ; preds = %93
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %96 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_110MyObject4aEJEEvPT_.exit.i
@@ -71789,7 +71789,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
           to label %.noexc.i.i.i.i unwind label %67
 
 .noexc.i.i.i.i:                                   ; preds = %17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i64 0, i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i64 16), ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
@@ -71818,7 +71818,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
           to label %26 unwind label %.body4.i.i.i.i.i
 
 26:                                               ; preds = %24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i unwind label %.body4.i.i.i.i.i
@@ -71850,11 +71850,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_110MyObject4bEEERS_v.exit.i.i.i.i.i.i.i, label %33
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_110MyObject4bEEERS_v.exit.i.i.i.i.i.i.i
@@ -71983,7 +71983,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4bD2Ev(ptr noundef nonnull alig
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
@@ -72012,7 +72012,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4bD2Ev(ptr noundef nonnull alig
           to label %13 unwind label %.body2
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body2
@@ -72044,11 +72044,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_110MyObject4bEJEEvPT_.exit.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_110MyObject4bEJEEvPT_.exit.i
@@ -72484,7 +72484,7 @@ _ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit: ; preds = %13
           to label %35 unwind label %.body2.i.i.i.i
 
 35:                                               ; preds = %33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %34, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %34, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i unwind label %.body2.i.i.i.i
@@ -72516,11 +72516,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject5EJEEvPT_.exit.i.i.i.i.i, label %42
 
 42:                                               ; preds = %40
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %43 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_19MyObject5EJEEvPT_.exit.i.i.i.i.i
@@ -72788,7 +72788,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
           to label %26 unwind label %.body.i.i.i.i.i
 
 26:                                               ; preds = %24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %25, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i unwind label %.body.i.i.i.i.i
@@ -72820,11 +72820,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject5EEERS_v.exit.i.i.i.i.i.i.i, label %33
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_19MyObject5EEERS_v.exit.i.i.i.i.i.i.i
@@ -73561,7 +73561,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_112SharedPtrRef1AEEC2IS2_vEEPT_.exit.i: ; preds 
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_112SharedPtrRef1AELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_112SharedPtrRef1AELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -73796,7 +73796,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112SharedPtrRef1AD2Ev(ptr noundef n
           to label %13 unwind label %.body2
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body2
@@ -73828,11 +73828,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_112SharedPtrRef1AEJEEvPT_.exit.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_112SharedPtrRef1AEJEEvPT_.exit.i
@@ -74503,7 +74503,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   store i32 1, ptr %7, align 8, !noalias !1954
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !1954
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !1954
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !1954
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_112SharedPtrRef1AC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEEE4callIvNS0_9void_typeERZNS0_8initimpl11constructorIJEE7executeINS_6class_IN12_GLOBAL__N_112SharedPtrRefEJSt10unique_ptrISD_St14default_deleteISD_EEEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSK_DpRKT0_EUlS3_E_EENSJ_IXsr3std7is_voidISK_EE5valueES6_E4typeEOT1_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i.i.i.i, !noalias !1954
@@ -74581,7 +74581,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112SharedPtrRef1AC2Ev(ptr noundef n
           to label %13 unwind label %.body
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -74613,11 +74613,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i
@@ -74914,7 +74914,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112SharedPtrRef1AC2ERKS1_(ptr nound
           to label %.noexc5.i unwind label %41
 
 .noexc5.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.188, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %6
 
 6:                                                ; preds = %.noexc5.i
@@ -74942,11 +74942,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i, label %13
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %14 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i
@@ -75057,7 +75057,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_
           to label %.noexc5.i.i.i unwind label %42
 
 .noexc5.i.i.i:                                    ; preds = %.noexc.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.231, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.231, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i unwind label %7
 
 7:                                                ; preds = %.noexc5.i.i.i
@@ -75085,11 +75085,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %12
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_112SharedPtrRef1AEEERS_v.exit.i.i.i.i
@@ -76163,7 +76163,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_112SharedPtrRefESt10shared_
           to label %50 unwind label %51
 
 50:                                               ; preds = %48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 16), ptr %49, align 8
   invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #31
           to label %.noexc unwind label %40
 
@@ -77650,7 +77650,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN12_GLOBAL__N_117SharedF
   store i32 1, ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %180, i64 12
   store i32 1, ptr %195, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_117SharedFromThisRef1BELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %180, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_117SharedFromThisRef1BELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %180, align 8
   %196 = getelementptr inbounds i8, ptr %180, i64 16
   store ptr %178, ptr %196, align 8
   store ptr %180, ptr %179, align 8
@@ -78110,7 +78110,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BD2Ev(ptr noun
           to label %13 unwind label %.body3
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body3
@@ -78142,11 +78142,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_117SharedFromThisRef1BEJEEvPT_.exit.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_117SharedFromThisRef1BEJEEvPT_.exit.i
@@ -78774,7 +78774,7 @@ define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail
   store i32 1, ptr %7, align 8, !noalias !2016
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !2016
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !2016
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !2016
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i.i.i.i, !noalias !2016
@@ -78919,7 +78919,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BC2Ev(ptr noun
           to label %13 unwind label %.body5
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body5
@@ -78951,11 +78951,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i
@@ -79298,7 +79298,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BC2ERKS1_(ptr 
           to label %.noexc5.i unwind label %41
 
 .noexc5.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.188, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %6
 
 6:                                                ; preds = %.noexc5.i
@@ -79326,11 +79326,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i, label %13
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %14 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i
@@ -79487,7 +79487,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_
           to label %.noexc5.i.i.i unwind label %42
 
 .noexc5.i.i.i:                                    ; preds = %.noexc.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.231, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.231, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i unwind label %7
 
 7:                                                ; preds = %.noexc5.i.i.i
@@ -79515,11 +79515,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %12
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_117SharedFromThisRef1BEEERS_v.exit.i.i.i.i
@@ -80711,7 +80711,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_117SharedFromThisRefESt10sh
           to label %50 unwind label %51
 
 50:                                               ; preds = %48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 16), ptr %49, align 8
   invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #31
           to label %.noexc unwind label %40
 
@@ -82597,8 +82597,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 64), ptr %3, align 8
   ret ptr %2
 }
 
@@ -82608,8 +82608,8 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 64), ptr %3, align 8
   ret ptr %2
 }
 
@@ -82954,7 +82954,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117custom_unique_ptrINS_1CEED2Ev(pt
           to label %15 unwind label %.body2.i.i.i
 
 15:                                               ; preds = %13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i unwind label %.body2.i.i.i
@@ -82986,11 +82986,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_11CEJEEvPT_.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_11CEJEEvPT_.exit.i.i.i.i
@@ -83258,7 +83258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_11CC2Ev(ptr noundef nonnull align 1
           to label %13 unwind label %.body
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -83290,11 +83290,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_11CEEERS_v.exit.i.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_11CEEERS_v.exit.i.i
@@ -83946,7 +83946,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEC2IS1_vEEPT_.exit
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_126TypeForHolderWithAddressOfELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_126TypeForHolderWithAddressOfELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %1, ptr %21, align 8
   store ptr %4, ptr %3, align 8
@@ -83987,7 +83987,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126TypeForHolderWithAddressOfD2Ev(p
           to label %13 unwind label %.body2
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %12, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body2
@@ -84019,11 +84019,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_126TypeForHolderWithAddressOfEJEEvPT_.exit.i, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_126TypeForHolderWithAddressOfEJEEvPT_.exit.i
@@ -84517,7 +84517,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callIN12
           to label %14 unwind label %.body.i.i.i, !noalias !2116
 
 14:                                               ; preds = %12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %13, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28, !noalias !2116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %13, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28, !noalias !2116
   store ptr null, ptr %2, align 8, !noalias !2116
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i unwind label %.body.i.i.i, !noalias !2116
@@ -84549,11 +84549,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i.i, label %21
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8, !noalias !2116
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8, !noalias !2116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false), !noalias !2116
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8, !noalias !2116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false), !noalias !2116
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8, !noalias !2116
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8, !noalias !2116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false), !noalias !2116
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8, !noalias !2116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false), !noalias !2116
   %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28, !noalias !2116
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28, !noalias !2116
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i.i
@@ -85370,7 +85370,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_
           to label %.noexc5.i.i.i unwind label %42
 
 .noexc5.i.i.i:                                    ; preds = %.noexc.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.188, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i unwind label %7
 
 7:                                                ; preds = %.noexc5.i.i.i
@@ -85398,11 +85398,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %12
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i
@@ -85526,7 +85526,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_
           to label %.noexc5.i.i.i unwind label %42
 
 .noexc5.i.i.i:                                    ; preds = %.noexc.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds ([29 x i8], ptr @.str.231, i64 0, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.231, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.231, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i unwind label %7
 
 7:                                                ; preds = %.noexc5.i.i.i
@@ -85554,11 +85554,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %12
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_126TypeForHolderWithAddressOfEEERS_v.exit.i.i.i.i
@@ -86958,7 +86958,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_134unique_ptr_with_addressof_operat
           to label %15 unwind label %.body2.i.i.i
 
 15:                                               ; preds = %13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds ([10 x i8], ptr @.str.170, i64 0, i64 9)) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %14, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 9)) #28
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i unwind label %.body2.i.i.i
@@ -86990,11 +86990,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_Z15track_destroyedIN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJEEvPT_.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false)
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28
   br label %_Z15track_destroyedIN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJEEvPT_.exit.i.i.i.i
@@ -87235,7 +87235,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callIN12
           to label %14 unwind label %.body.i.i.i, !noalias !2142
 
 14:                                               ; preds = %12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %13, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.190, i64 0, i64 7)) #28, !noalias !2142
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %13, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 7)) #28, !noalias !2142
   store ptr null, ptr %2, align 8, !noalias !2142
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i unwind label %.body.i.i.i, !noalias !2142
@@ -87267,11 +87267,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN16ConstructorStats3getIN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEEERS_v.exit.i.i.i.i.i, label %21
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 5), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8, !noalias !2142
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 1), align 8, !noalias !2142
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false), !noalias !2142
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 0), align 8, !noalias !2142
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map.491", ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false), !noalias !2142
+  store ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 48), ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, align 8, !noalias !2142
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 8), align 8, !noalias !2142
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 16), i8 0, i64 16, i1 false), !noalias !2142
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 32), align 8, !noalias !2142
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, i64 40), i8 0, i64 16, i1 false), !noalias !2142
   %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZZN16ConstructorStats3getESt10type_indexE10all_cstats, ptr nonnull @__dso_handle) #28, !noalias !2142
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats) #28, !noalias !2142
   br label %_ZN16ConstructorStats3getIN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEEERS_v.exit.i.i.i.i.i
@@ -89607,7 +89607,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEC2IS1_vEEPT_.exit.i: ; preds = %
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementBaseELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementBaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -90097,7 +90097,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_18ElementAEEC2IS1_vEEPT_.exit.i: ; preds = %99
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %122, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_18ElementAELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_18ElementAELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %123 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %123, align 8
   store ptr %104, ptr %103, align 8
@@ -90369,7 +90369,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %14 = getelementptr i8, ptr %.val17.i, i64 24
   %.val17.val.i = load ptr, ptr %14, align 8
   %15 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18ElementAE, i64 0, i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_18ElementAE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %.val16.i, ptr %16, align 8
   store ptr %15, ptr %.val17.val.i, align 8
@@ -90748,7 +90748,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_111ElementListEEC2IS1_vEEPT_.exit.i: ; preds = %
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementListELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementListELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8

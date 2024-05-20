@@ -2518,10 +2518,10 @@ if.then1398:                                      ; preds = %if.end1394
 
 if.end1450:                                       ; preds = %if.end1394, %if.then1398
   %rot1347.sroa.0.0 = phi i8 [ %bf.set1429, %if.then1398 ], [ %spec.select794, %if.end1394 ]
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 1), i8 noundef zeroext %mesh1348.1, i32 noundef 24)
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 3), i8 noundef zeroext %mesh1348.1, i32 noundef 26)
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbvox_vmesh_crossed_pair, i64 16), i8 noundef zeroext %mesh1348.1, i32 noundef 24)
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbvox_vmesh_crossed_pair, i64 48), i8 noundef zeroext %mesh1348.1, i32 noundef 26)
   tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull @stbvox_vmesh_crossed_pair, i8 noundef zeroext %mesh1348.1, i32 noundef 27)
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 2), i8 noundef zeroext %mesh1348.1, i32 noundef 25)
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rot1347.sroa.0.0, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add1343, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbvox_vmesh_crossed_pair, i64 32), i8 noundef zeroext %mesh1348.1, i32 noundef 25)
   br label %if.end1462
 
 if.end1462:                                       ; preds = %if.end493, %if.end1450, %if.then1392, %if.end1327, %if.then1076, %if.then591

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @allocate(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
   %4 = tail call i32 @prte_util_add_hostfile_nodes(ptr noundef %1, ptr noundef %3) #3
   ret i32 %4
 }

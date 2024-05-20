@@ -2963,7 +2963,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZN4node28NativeSymbolDebuggingContext3NewEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN4node27PosixSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i, align 8, !noalias !8
   %pagesize_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i.i = tail call i32 @getpagesize() #20
   %conv.i.i = sext i32 %call.i.i to i64
@@ -3041,7 +3041,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 32, i64 1, ptr %fp)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !11
   %pagesize_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64
@@ -3079,7 +3079,7 @@ _ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED
   br label %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit, %entry
-  %vtable.i.i = phi ptr [ %vtable.i.i.pre, %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, i32 0, i64 2), %entry ]
+  %vtable.i.i = phi ptr [ %vtable.i.i.pre, %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ getelementptr inbounds (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), %entry ]
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i) #17
@@ -3148,7 +3148,7 @@ entry:
   %info = alloca %struct.Info, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !20
   %pagesize_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64

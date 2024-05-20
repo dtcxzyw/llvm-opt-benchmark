@@ -856,7 +856,7 @@ if.end31.us.us.us:                                ; preds = %for.body.us.us.us
   br i1 %tobool34.not.us.us.us, label %if.then35, label %if.end41.us.us.us
 
 if.end41.us.us.us:                                ; preds = %if.end31.us.us.us
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us = icmp eq i32 %call.i38.us.us.us, 0
   %inc.us.us.us = add nuw nsw i32 %symref_count.090.us.us.us, 1
@@ -882,7 +882,7 @@ if.end31.us.us:                                   ; preds = %for.body.us.us
   br i1 %tobool34.not.us.us, label %if.then35, label %if.end41.us.us
 
 if.end41.us.us:                                   ; preds = %if.end31.us.us
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %3, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us = icmp eq i32 %call.i38.us.us, 0
   %inc.us.us = add nuw nsw i32 %symref_count.090.us.us, 1
@@ -910,7 +910,7 @@ if.end31.us.us102:                                ; preds = %for.body.us.us96
   br i1 %tobool34.not.us.us109, label %if.then35, label %if.end41.us.us110
 
 if.end41.us.us110:                                ; preds = %if.end31.us.us102
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us111 = call fastcc i32 @check_or_sanitize_refname(ptr noundef %5, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us112 = icmp eq i32 %call.i38.us.us111, 0
   br i1 %tobool47.not.us.us112, label %for.inc.us.us114, label %if.then48.us.us113
@@ -944,7 +944,7 @@ if.end31.us:                                      ; preds = %for.body.us
   br i1 %tobool34.not.us, label %if.then35, label %if.end41.us
 
 if.end41.us:                                      ; preds = %if.end31.us
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us = icmp eq i32 %call.i38.us, 0
   br i1 %tobool47.not.us, label %for.inc.us, label %if.then48.us
@@ -1070,7 +1070,7 @@ if.then38.else:                                   ; preds = %if.then38
   br label %return
 
 if.end41:                                         ; preds = %if.end31.cont
-  %15 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %spec.select, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr @the_repository, align 8
   %hash_algo.i32 = getelementptr inbounds i8, ptr %16, i64 256
@@ -1118,7 +1118,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1169,7 +1169,7 @@ if.then.i:                                        ; preds = %if.end4
   unreachable
 
 ref_store_init.exit:                              ; preds = %if.end4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i = tail call ptr %3(ptr noundef nonnull %r, ptr noundef nonnull %1, i32 noundef 15) #22
   store ptr %call1.i, ptr %refs_private, align 8
   %4 = load ptr, ptr %r, align 8
@@ -1211,7 +1211,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1256,7 +1256,7 @@ if.then.i.i.i:                                    ; preds = %if.end4.i.i
   unreachable
 
 ref_store_init.exit.i.i:                          ; preds = %if.end4.i.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i.i, ptr %refs_private.i.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1300,7 +1300,7 @@ if.end31.us.us.us.i:                              ; preds = %for.body.us.us.us.i
   br i1 %tobool34.not.us.us.us.i, label %refs_resolve_ref_unsafe.exit.loopexit, label %if.end41.us.us.us.i
 
 if.end41.us.us.us.i:                              ; preds = %if.end31.us.us.us.i
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us.i = call fastcc i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i = icmp eq i32 %call.i38.us.us.us.i, 0
   %inc.us.us.us.i = add nuw nsw i32 %symref_count.090.us.us.us.i, 1
@@ -1354,7 +1354,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1386,7 +1386,7 @@ if.end31.us.us.us.i.i:                            ; preds = %for.body.us.us.us.i
   br i1 %tobool34.not.us.us.us.i.i, label %refs_ref_exists.exit.loopexit, label %if.end41.us.us.us.i.i
 
 if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us.i.i = call fastcc i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i.i = icmp eq i32 %call.i38.us.us.us.i.i, 0
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
@@ -1518,7 +1518,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 get_main_ref_store.exit:                          ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1592,7 +1592,7 @@ if.then.i.i.i:                                    ; preds = %if.end4.i.i
   unreachable
 
 ref_store_init.exit.i.i:                          ; preds = %if.end4.i.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i.i, ptr %refs_private.i.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1749,7 +1749,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1799,7 +1799,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1849,7 +1849,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1900,7 +1900,7 @@ if.then.i.i.i:                                    ; preds = %if.end4.i.i
   unreachable
 
 ref_store_init.exit.i.i:                          ; preds = %if.end4.i.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i.i = call ptr %5(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 15) #22
   store ptr %call1.i.i.i, ptr %refs_private.i.i, align 8
   %6 = load ptr, ptr %1, align 8
@@ -2179,7 +2179,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 get_main_ref_store.exit:                          ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2364,7 +2364,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %sub.ptr.rhs.cast = ptrtoint ptr %p.07 to i64
-  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds ([7 x ptr], ptr @ref_rev_parse_rules, i64 0, i64 6) to i64), %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @ref_rev_parse_rules, i64 48) to i64), %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv4 = trunc i64 %sub.ptr.div to i32
   br label %return
@@ -2600,7 +2600,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = call ptr %4(ptr noundef nonnull %repo, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %repo, align 8
@@ -2749,7 +2749,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %3(ptr noundef nonnull %r, ptr noundef nonnull %1, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %4 = load ptr, ptr %r, align 8
@@ -3486,7 +3486,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4208,7 +4208,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4749,7 +4749,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5067,7 +5067,7 @@ if.end31.us.us.us.i.i:                            ; preds = %refs_read_raw_ref.e
   br i1 %tobool34.not.us.us.us.i.i, label %refs_ref_exists.exit, label %if.end41.us.us.us.i.i
 
 if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i.i
-  %26 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i64 0, i32 2), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %27 = load i8, ptr %26, align 1
   %.not.i = icmp eq i8 %27, 64
   br i1 %.not.i, label %entry.tail.i, label %while.body.i.preheader
@@ -5240,7 +5240,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5523,7 +5523,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5687,7 +5687,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5738,7 +5738,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 get_main_ref_store.exit:                          ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5844,7 +5844,7 @@ do_for_each_ref.exit:                             ; preds = %entry, %refs_ref_it
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @for_each_replace_ref(ptr noundef %r, ptr noundef %fn, ptr noundef %cb_data) local_unnamed_addr #5 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %conv = trunc i64 %call to i32
   %refs_private.i.i = getelementptr inbounds i8, ptr %r, i64 32
@@ -5872,7 +5872,7 @@ if.then.i.i.i:                                    ; preds = %if.end4.i.i
   unreachable
 
 get_main_ref_store.exit.i:                        ; preds = %if.end4.i.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i.i = tail call ptr %4(ptr noundef nonnull %r, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i.i, ptr %refs_private.i.i, align 8
   %5 = load ptr, ptr %r, align 8
@@ -5958,7 +5958,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 get_main_ref_store.exit:                          ; preds = %if.end4.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %6 = load ptr, ptr %0, align 8
@@ -6335,7 +6335,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -6381,7 +6381,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -6491,7 +6491,7 @@ if.then9:                                         ; preds = %if.end6
 if.end11:                                         ; preds = %if.then9, %if.end6
   %submodule.addr.0 = phi ptr [ %call10, %if.then9 ], [ %submodule, %if.end6 ]
   %to_free.0 = phi ptr [ %call10, %if.then9 ], [ null, %if.end6 ]
-  %3 = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @submodule_ref_stores, i64 0, i32 4), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @submodule_ref_stores, i64 28), align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.end15, label %if.end.i
 
@@ -6549,7 +6549,7 @@ if.then.i:                                        ; preds = %if.end29
 ref_store_init.exit:                              ; preds = %if.end29
   %buf = getelementptr inbounds i8, ptr %submodule_sb, i64 16
   %7 = load ptr, ptr %buf, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i = call ptr %8(ptr noundef nonnull %call24, ptr noundef %7, i32 noundef 5) #22
   call fastcc void @register_ref_store_map(ptr noundef nonnull @submodule_ref_stores, ptr noundef nonnull @.str.50, ptr noundef %call1.i, ptr noundef %submodule.addr.0)
   br label %done
@@ -6663,7 +6663,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %5(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %6 = load ptr, ptr %1, align 8
@@ -6676,7 +6676,7 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %id1, align 8
   %tobool2.not = icmp eq ptr %7, null
   %spec.select = select i1 %tobool2.not, ptr @.str.16, ptr %7
-  %8 = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @worktree_ref_stores, i64 0, i32 4), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @worktree_ref_stores, i64 28), align 4
   %tobool.not.i11 = icmp eq i32 %8, 0
   br i1 %tobool.not.i11, label %if.end7, label %if.end.i12
 
@@ -6730,7 +6730,7 @@ if.then.i17:                                      ; preds = %if.else
 
 if.end16:                                         ; preds = %if.else, %if.then10
   %call14.sink = phi ptr [ %call12, %if.then10 ], [ %call14, %if.else ]
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i19 = call ptr %14(ptr noundef nonnull %11, ptr noundef %call14.sink, i32 noundef 15) #22
   %tobool17.not = icmp eq ptr %call1.i19, null
   br i1 %tobool17.not, label %return, label %if.then18
@@ -6915,7 +6915,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7562,7 +7562,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7615,7 +7615,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7661,7 +7661,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7707,7 +7707,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7763,7 +7763,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7819,7 +7819,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -7875,7 +7875,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -8135,7 +8135,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -8190,7 +8190,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8
@@ -8250,7 +8250,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
   unreachable
 
 ref_store_init.exit.i:                            ; preds = %if.end4.i
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ref_storage_be, ptr @refs_be_files, i64 0, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_be_files, i64 8), align 8
   %call1.i.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 15) #22
   store ptr %call1.i.i, ptr %refs_private.i, align 8
   %5 = load ptr, ptr %0, align 8

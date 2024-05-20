@@ -286,16 +286,16 @@ define dso_local void @_Z24InitializeTypeAttributesv() local_unnamed_addr #4 per
           to label %25 unwind label %319
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %27 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   %.not.i.i = icmp eq ptr %26, %27
   br i1 %.not.i.i, label %31, label %28
 
 28:                                               ; preds = %25
   store ptr %21, ptr %26, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %30, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 31:                                               ; preds = %25
@@ -351,9 +351,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pre
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %46, ptr @struct_type_attr_generator, align 8
-  store ptr %51, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %53 = getelementptr inbounds ptr, ptr %46, i64 %42
-  store ptr %53, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %28
@@ -373,16 +373,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP9
           to label %58 unwind label %322
 
 58:                                               ; preds = %57
-  %59 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %60 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   %.not.i.i57 = icmp eq ptr %59, %60
   br i1 %.not.i.i57, label %64, label %61
 
 61:                                               ; preds = %58
   store ptr %54, ptr %59, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %63, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %63, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit67
 
 64:                                               ; preds = %58
@@ -438,9 +438,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i62: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i64: ; preds = %85, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i62
   store ptr %79, ptr @struct_type_attr_generator, align 8
-  store ptr %84, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %84, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %86 = getelementptr inbounds ptr, ptr %79, i64 %75
-  store ptr %86, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %86, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit67
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit67: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i64, %61
@@ -460,16 +460,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit67: ; preds = %_ZNSt6vectorI
           to label %91 unwind label %325
 
 91:                                               ; preds = %90
-  %92 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %93 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   %.not.i.i68 = icmp eq ptr %92, %93
   br i1 %.not.i.i68, label %97, label %94
 
 94:                                               ; preds = %91
   store ptr %87, ptr %92, align 8
-  %95 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store ptr %96, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %96, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit78
 
 97:                                               ; preds = %91
@@ -525,9 +525,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i73: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i75: ; preds = %118, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i73
   store ptr %112, ptr @struct_type_attr_generator, align 8
-  store ptr %117, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %117, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %119 = getelementptr inbounds ptr, ptr %112, i64 %108
-  store ptr %119, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %119, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit78
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit78: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i75, %94
@@ -547,16 +547,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit78: ; preds = %_ZNSt6vectorI
           to label %124 unwind label %328
 
 124:                                              ; preds = %123
-  %125 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %126 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
+  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   %.not.i.i79 = icmp eq ptr %125, %126
   br i1 %.not.i.i79, label %130, label %127
 
 127:                                              ; preds = %124
   store ptr %120, ptr %125, align 8
-  %128 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 8
-  store ptr %129, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %129, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit89
 
 130:                                              ; preds = %124
@@ -612,9 +612,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i84: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i86: ; preds = %151, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i84
   store ptr %145, ptr @struct_type_attr_generator, align 8
-  store ptr %150, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %150, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 8), align 8
   %152 = getelementptr inbounds ptr, ptr %145, i64 %141
-  store ptr %152, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @struct_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %152, ptr getelementptr inbounds (i8, ptr @struct_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit89
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit89: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i86, %127
@@ -634,16 +634,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit89: ; preds = %_ZNSt6vectorI
           to label %157 unwind label %331
 
 157:                                              ; preds = %156
-  %158 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %159 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   %.not.i.i90 = icmp eq ptr %158, %159
   br i1 %.not.i.i90, label %163, label %160
 
 160:                                              ; preds = %157
   store ptr %153, ptr %158, align 8
-  %161 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 8
-  store ptr %162, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %162, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit100
 
 163:                                              ; preds = %157
@@ -699,9 +699,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i95: ; p
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i97: ; preds = %184, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i95
   store ptr %178, ptr @union_type_attr_generator, align 8
-  store ptr %183, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %183, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %185 = getelementptr inbounds ptr, ptr %178, i64 %174
-  store ptr %185, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %185, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit100
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit100: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i97, %160
@@ -721,16 +721,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit100: ; preds = %_ZNSt6vector
           to label %190 unwind label %334
 
 190:                                              ; preds = %189
-  %191 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %192 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
+  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   %.not.i.i101 = icmp eq ptr %191, %192
   br i1 %.not.i.i101, label %196, label %193
 
 193:                                              ; preds = %190
   store ptr %186, ptr %191, align 8
-  %194 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 8
-  store ptr %195, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %195, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit111
 
 196:                                              ; preds = %190
@@ -786,9 +786,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108: ; preds = %217, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
   store ptr %211, ptr @union_type_attr_generator, align 8
-  store ptr %216, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %216, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %218 = getelementptr inbounds ptr, ptr %211, i64 %207
-  store ptr %218, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %218, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit111
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit111: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108, %193
@@ -808,16 +808,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit111: ; preds = %_ZNSt6vector
           to label %223 unwind label %337
 
 223:                                              ; preds = %222
-  %224 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %225 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
+  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   %.not.i.i112 = icmp eq ptr %224, %225
   br i1 %.not.i.i112, label %229, label %226
 
 226:                                              ; preds = %223
   store ptr %219, ptr %224, align 8
-  %227 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 8
-  store ptr %228, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %228, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit122
 
 229:                                              ; preds = %223
@@ -873,9 +873,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i117: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i119: ; preds = %250, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i117
   store ptr %244, ptr @union_type_attr_generator, align 8
-  store ptr %249, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %249, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %251 = getelementptr inbounds ptr, ptr %244, i64 %240
-  store ptr %251, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %251, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit122
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit122: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i119, %226
@@ -895,16 +895,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit122: ; preds = %_ZNSt6vector
           to label %256 unwind label %340
 
 256:                                              ; preds = %255
-  %257 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %258 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
+  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   %.not.i.i123 = icmp eq ptr %257, %258
   br i1 %.not.i.i123, label %262, label %259
 
 259:                                              ; preds = %256
   store ptr %252, ptr %257, align 8
-  %260 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 8
-  store ptr %261, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %261, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit133
 
 262:                                              ; preds = %256
@@ -960,9 +960,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130: ; preds = %283, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128
   store ptr %277, ptr @union_type_attr_generator, align 8
-  store ptr %282, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %282, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %284 = getelementptr inbounds ptr, ptr %277, i64 %273
-  store ptr %284, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %284, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit133
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit133: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130, %259
@@ -982,16 +982,16 @@ _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit133: ; preds = %_ZNSt6vector
           to label %289 unwind label %343
 
 289:                                              ; preds = %288
-  %290 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %291 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
+  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   %.not.i.i134 = icmp eq ptr %290, %291
   br i1 %.not.i.i134, label %295, label %292
 
 292:                                              ; preds = %289
   store ptr %285, ptr %290, align 8
-  %293 = load ptr, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %293 = load ptr, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 8
-  store ptr %294, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %294, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit144
 
 295:                                              ; preds = %289
@@ -1047,9 +1047,9 @@ _ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i139: ; 
 
 _ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i141: ; preds = %316, %_ZNSt6vectorIP9AttributeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i139
   store ptr %310, ptr @union_type_attr_generator, align 8
-  store ptr %315, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %315, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 8), align 8
   %317 = getelementptr inbounds ptr, ptr %310, i64 %306
-  store ptr %317, ptr getelementptr inbounds (%class.AttributeGenerator, ptr @union_type_attr_generator, i64 0, i32 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %317, ptr getelementptr inbounds (i8, ptr @union_type_attr_generator, i64 16), align 8
   br label %_ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit144
 
 _ZNSt6vectorIP9AttributeSaIS1_EE9push_backEOS1_.exit144: ; preds = %_ZNSt6vectorIP9AttributeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i141, %292
@@ -1225,7 +1225,7 @@ declare void @_ZN16BooleanAttributeC1ENSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17NonVoidTypeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17NonVoidTypeFilter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   ret void
@@ -1313,7 +1313,7 @@ define dso_local noundef ptr @_ZN17NonVoidTypeFilter8get_typeEv(ptr nocapture no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28NonVoidNonVolatileTypeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   ret void
@@ -1482,7 +1482,7 @@ define dso_local void @_ZN22ChooseRandomTypeFilterC2Ebb(ptr noundef nonnull alig
   %4 = zext i1 %1 to i8
   %5 = zext i1 %2 to i8
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 17
@@ -2047,7 +2047,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
   br i1 %6, label %.preheader, label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
 .preheader:                                       ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %8 = load ptr, ptr @_ZL8AllTypes, align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -2101,15 +2101,15 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %30, i8 0, i64 57, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false)
   store ptr %27, ptr %4, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i = icmp eq ptr %7, %32
   br i1 %.not.i, label %36, label %33
 
 33:                                               ; preds = %._crit_edge.thread
   store ptr %27, ptr %7, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %35, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
 36:                                               ; preds = %._crit_edge.thread
@@ -2157,9 +2157,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %4
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %46, ptr @_ZL8AllTypes, align 8
-  store ptr %51, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %53 = getelementptr inbounds ptr, ptr %46, i64 %42
-  store ptr %53, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %33, %._crit_edge, %2
@@ -2307,7 +2307,7 @@ define dso_local noundef nonnull ptr @_Z12get_int_typev() local_unnamed_addr #4 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4Type9find_typeEPKS_(ptr noundef readnone %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %3 = load ptr, ptr @_ZL8AllTypes, align 8
   %.not = icmp eq ptr %2, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -2339,7 +2339,7 @@ define dso_local noundef ptr @_ZN4Type9find_typeEPKS_(ptr noundef readnone %0) l
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4Type17find_pointer_typeEPKS_b(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %4 = load ptr, ptr @_ZL13derived_types, align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -2382,15 +2382,15 @@ define dso_local noundef ptr @_ZN4Type17find_pointer_typeEPKS_b(ptr noundef %0, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %21, i8 0, i64 5, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
-  %23 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 16), align 8
   %.not.i = icmp eq ptr %3, %23
   br i1 %.not.i, label %27, label %24
 
 24:                                               ; preds = %16
   store ptr %17, ptr %3, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %26, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %26, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
 27:                                               ; preds = %16
@@ -2438,9 +2438,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %4
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %37, ptr @_ZL13derived_types, align 8
-  store ptr %42, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %44 = getelementptr inbounds ptr, ptr %37, i64 %33
-  store ptr %44, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 16), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit: ; preds = %.lr.ph, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %24, %._crit_edge
@@ -2725,7 +2725,7 @@ declare noundef i32 @_ZN9CGOptions8int_sizeEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Type29get_all_ok_struct_union_typesERSt6vectorIPS_SaIS1_EEbbbb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
   %6 = load ptr, ptr @_ZL8AllTypes, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not1415 = icmp eq ptr %6, %7
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
@@ -2839,7 +2839,7 @@ _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
 
 _ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %26, %15, %18, %21, %.critedge, %13
   %52 = getelementptr inbounds i8, ptr %.sroa.011.016, i64 8
-  %53 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not14 = icmp eq ptr %52, %53
   br i1 %.not14, label %._crit_edge, label %10, !llvm.loop !17
 
@@ -2920,7 +2920,7 @@ declare noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4Type26choose_random_pointer_typeEv() local_unnamed_addr #4 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %2 = load ptr, ptr @_ZL13derived_types, align 8
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %2 to i64
@@ -2946,7 +2946,7 @@ define dso_local noundef ptr @_ZN4Type26choose_random_pointer_typeEv() local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4Type16has_pointer_typeEv() local_unnamed_addr #11 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %2 = load ptr, ptr @_ZL13derived_types, align 8
   %3 = icmp ne ptr %1, %2
   ret i1 %3
@@ -3066,10 +3066,10 @@ define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef
 
 12:                                               ; preds = %10
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %15 = load ptr, ptr @_ZL8AllTypes, align 8
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -3111,10 +3111,10 @@ _ZN4Type33choose_random_nonvoid_nonvolatileEv.exit: ; preds = %10, %22
 
 29:                                               ; preds = %27
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17NonVoidTypeFilter, i64 0, i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %32 = load ptr, ptr @_ZL8AllTypes, align 8
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
@@ -3194,10 +3194,10 @@ define dso_local noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv() lo
 
 3:                                                ; preds = %0
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %6 = load ptr, ptr @_ZL8AllTypes, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -3235,10 +3235,10 @@ define dso_local noundef ptr @_ZN4Type21choose_random_nonvoidEv() local_unnamed_
 
 3:                                                ; preds = %0
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17NonVoidTypeFilter, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %6 = load ptr, ptr @_ZL8AllTypes, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -3593,14 +3593,14 @@ define dso_local void @_ZN4Type21make_one_struct_fieldERSt6vectorIPKS_SaIS2_EERS
   %6 = alloca %class.CVQualifiers, align 8
   %7 = zext i1 %3 to i8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 17
   store i8 %7, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %12 = load ptr, ptr @_ZL8AllTypes, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -3849,7 +3849,7 @@ define dso_local void @_ZN4Type20make_one_union_fieldERSt6vectorIPKS_SaIS2_EERS0
   br label %_ZNSt6vectorIP4TypeSaIS1_EED2Ev.exit52
 
 .critedge:                                        ; preds = %6, %3, %8
-  %12 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %13 = load ptr, ptr @_ZL8AllTypes, align 8
   %.not113 = icmp eq ptr %12, %13
   br i1 %.not113, label %.preheader.split.us.preheader, label %.lr.ph
@@ -4095,7 +4095,7 @@ _ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Type
   %.sroa.14.2 = phi ptr [ %.sroa.14.0106, %.lr.ph ], [ %.sroa.14.0106, %75 ], [ %.sroa.14.0106, %77 ], [ %.sroa.14.0106, %81 ], [ %.sroa.14.0106, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.14.0106, %51 ], [ %.sroa.14.0106, %83 ], [ %106, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i35 ]
   %.sroa.069.2 = phi ptr [ %.sroa.069.0107, %.lr.ph ], [ %.sroa.069.0107, %75 ], [ %.sroa.069.0107, %77 ], [ %.sroa.069.0107, %81 ], [ %67, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.069.0107, %51 ], [ %.sroa.069.0107, %83 ], [ %.sroa.069.0107, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i35 ]
   %107 = add nuw i64 %.0108, 1
-  %108 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %109 = load ptr, ptr @_ZL8AllTypes, align 8
   %110 = ptrtoint ptr %108 to i64
   %111 = ptrtoint ptr %109 to i64
@@ -6666,7 +6666,7 @@ define dso_local void @_ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE(ptr n
 _ZNSt6vectorIPK4TypeSaIS2_EE5clearEv.exit:        ; preds = %1, %5
   %6 = phi ptr [ %4, %1 ], [ %2, %5 ]
   %7 = load ptr, ptr @_ZL8AllTypes, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not7 = icmp eq ptr %7, %8
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -6748,7 +6748,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
 _ZNSt6vectorIPK4TypeSaIS2_EE9push_backERKS2_.exit: ; preds = %13, %_ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %41 = phi ptr [ %16, %13 ], [ %38, %_ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %42 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
-  %43 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not = icmp eq ptr %42, %43
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !32
 
@@ -7214,7 +7214,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EE5clearEv.exit.i:      ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr @_ZL8AllTypes, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not7.i = icmp eq ptr %5, %6
   br i1 %.not7.i, label %_ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit, label %.lr.ph.i
 
@@ -7292,7 +7292,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
 _ZNSt6vectorIPK4TypeSaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %11
   %38 = phi ptr [ %14, %11 ], [ %35, %_ZNSt6vectorIPK4TypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %39 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 8
-  %40 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not.i = icmp eq ptr %39, %40
   br i1 %.not.i, label %_ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit, label %8, !llvm.loop !32
 
@@ -7301,7 +7301,7 @@ _ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit: ; preds = %_ZNSt6vecto
           to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 41:                                               ; preds = %_ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit
-  %42 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %43 = load ptr, ptr @_ZL8AllTypes, align 8
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
@@ -7317,7 +7317,7 @@ _ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit: ; preds = %_ZNSt6vecto
   br i1 %54, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %41
-  %.pre22 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %.pre22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
@@ -7331,10 +7331,10 @@ _ZN4Type17reset_accum_typesERSt6vectorIPKS_SaIS2_EE.exit: ; preds = %_ZNSt6vecto
 
 59:                                               ; preds = %.lr.ph
   store ptr %58, ptr %56, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %61, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %61, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
 
 62:                                               ; preds = %.lr.ph
@@ -7390,9 +7390,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %82, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %76, ptr @_ZL8AllTypes, align 8
-  store ptr %81, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %81, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %83 = getelementptr inbounds ptr, ptr %76, i64 %72
-  store ptr %83, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %83, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit:  ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %59
@@ -8126,7 +8126,7 @@ define dso_local noundef ptr @_ZN4Type24make_random_pointer_typeEv() local_unnam
   br i1 %.not, label %5, label %59
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %7 = load ptr, ptr @_ZL13derived_types, align 8
   %.not6 = icmp eq ptr %6, %7
   br i1 %.not6, label %27, label %8
@@ -8170,14 +8170,14 @@ _ZNK4Type18get_indirect_levelEv.exit:             ; preds = %21
 27:                                               ; preds = %5, %_ZNK4Type18get_indirect_levelEv.exit, %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 17
   store i8 0, ptr %29, align 1
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %32 = load ptr, ptr @_ZL8AllTypes, align 8
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
@@ -8265,14 +8265,14 @@ declare noundef i32 @_ZN9CGOptions18max_indirect_levelEv() local_unnamed_addr #0
 define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %class.ChooseRandomTypeFilter, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i64 0, i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 17
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %6 = load ptr, ptr @_ZL8AllTypes, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -8316,7 +8316,7 @@ define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Type19GenerateSimpleTypesEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   br label %1
 
 1:                                                ; preds = %0, %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
@@ -8332,15 +8332,15 @@ define dso_local void @_ZN4Type19GenerateSimpleTypesEv() local_unnamed_addr #4 a
   %7 = getelementptr inbounds i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %6, i8 0, i64 57, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i.i = icmp eq ptr %2, %8
   br i1 %.not.i.i, label %12, label %9
 
 9:                                                ; preds = %1
   store ptr %3, ptr %2, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %11, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
 
 12:                                               ; preds = %1
@@ -8393,9 +8393,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %27, ptr @_ZL8AllTypes, align 8
-  store ptr %32, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %34 = getelementptr inbounds ptr, ptr %27, i64 %23
-  store ptr %34, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit:  ; preds = %9, %_ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
@@ -8442,7 +8442,7 @@ define dso_local void @_Z16GenerateAllTypesv() local_unnamed_addr #4 {
   br i1 %2, label %.preheader17.preheader, label %.loopexit18
 
 .preheader17.preheader:                           ; preds = %7
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.pre20 = load ptr, ptr @_ZL8AllTypes, align 8
   br label %.preheader17
 
@@ -8462,16 +8462,16 @@ _ZL20MoreTypesProbabilityv.exit:                  ; preds = %.preheader17
 
 _ZL20MoreTypesProbabilityv.exit.thread:           ; preds = %.preheader17, %_ZL20MoreTypesProbabilityv.exit
   %16 = tail call noundef ptr @_ZN4Type23make_random_struct_typeEv()
-  %17 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %18 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i = icmp eq ptr %17, %18
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %_ZL20MoreTypesProbabilityv.exit.thread
   store ptr %16, ptr %17, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %21, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.pre19 = load ptr, ptr @_ZL8AllTypes, align 8
   br label %.preheader17.backedge
 
@@ -8530,9 +8530,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %4
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %37, ptr @_ZL8AllTypes, align 8
-  store ptr %42, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %44 = getelementptr inbounds ptr, ptr %37, i64 %33
-  store ptr %44, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %.preheader17.backedge
 
 .loopexit18:                                      ; preds = %_ZL20MoreTypesProbabilityv.exit, %7
@@ -8540,7 +8540,7 @@ _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
   br i1 %45, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.loopexit18
-  %.pre21 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.pre23 = load ptr, ptr @_ZL8AllTypes, align 8
   br label %.preheader
 
@@ -8560,16 +8560,16 @@ _ZL20MoreTypesProbabilityv.exit2:                 ; preds = %.preheader
 
 _ZL20MoreTypesProbabilityv.exit2.thread:          ; preds = %.preheader, %_ZL20MoreTypesProbabilityv.exit2
   %54 = tail call noundef ptr @_ZN4Type22make_random_union_typeEv()
-  %55 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %56 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i3 = icmp eq ptr %55, %56
   br i1 %.not.i3, label %60, label %57
 
 57:                                               ; preds = %_ZL20MoreTypesProbabilityv.exit2.thread
   store ptr %54, ptr %55, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr %59, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %59, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.pre22 = load ptr, ptr @_ZL8AllTypes, align 8
   br label %.preheader.backedge
 
@@ -8628,9 +8628,9 @@ _ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i8: ; preds = %
 
 _ZNSt6vectorIP4TypeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i10: ; preds = %81, %_ZNSt6vectorIP4TypeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i8
   store ptr %75, ptr @_ZL8AllTypes, align 8
-  store ptr %80, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %82 = getelementptr inbounds ptr, ptr %75, i64 %71
-  store ptr %82, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   br label %.preheader.backedge
 
 .loopexit:                                        ; preds = %_ZL20MoreTypesProbabilityv.exit2, %3, %4, %6, %.loopexit18
@@ -10272,7 +10272,7 @@ define dso_local void @_Z29OutputStructUnionDeclarationsRSo(ptr noundef nonnull 
 5:                                                ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  %6 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %7 = load ptr, ptr @_ZL8AllTypes, align 8
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -10296,7 +10296,7 @@ define dso_local void @_Z29OutputStructUnionDeclarationsRSo(ptr noundef nonnull 
 
 18:                                               ; preds = %15
   call void @_Z17OutputStructUnionP4TypeRSo(ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.pre15 = load ptr, ptr @_ZL8AllTypes, align 8
   br label %24
 
@@ -10485,7 +10485,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Type14doFinalizationEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZL8AllTypes, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %.not29 = icmp eq ptr %1, %2
   br i1 %.not29, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, label %.lr.ph
 
@@ -10558,7 +10558,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EED2Ev.exit.i:          ; preds = %21, %_ZNSt6vectorI1
 
 _ZN4TypeD2Ev.exit:                                ; preds = %_ZNSt6vectorIPK4TypeSaIS2_EED2Ev.exit.i, %24
   tail call void @_ZdlPv(ptr noundef nonnull %4) #21
-  %.pre = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN4TypeD2Ev.exit
@@ -10573,12 +10573,12 @@ _ZN4TypeD2Ev.exit:                                ; preds = %_ZNSt6vectorIPK4Typ
   br i1 %.not.i.i, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, label %28
 
 28:                                               ; preds = %._crit_edge
-  store ptr %.pre38, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL8AllTypes, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre38, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 8), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %28
   %29 = load ptr, ptr @_ZL13derived_types, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   %.not2731 = icmp eq ptr %29, %30
   br i1 %.not2731, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit19, label %.lr.ph33
 
@@ -10651,7 +10651,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EED2Ev.exit.i15:        ; preds = %49, %_ZNSt6vectorI1
 
 _ZN4TypeD2Ev.exit17:                              ; preds = %_ZNSt6vectorIPK4TypeSaIS2_EED2Ev.exit.i15, %52
   tail call void @_ZdlPv(ptr noundef nonnull %32) #21
-  %.pre39 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %.pre39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   br label %53
 
 53:                                               ; preds = %.lr.ph33, %_ZN4TypeD2Ev.exit17
@@ -10666,7 +10666,7 @@ _ZN4TypeD2Ev.exit17:                              ; preds = %_ZNSt6vectorIPK4Typ
   br i1 %.not.i.i18, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit19, label %56
 
 56:                                               ; preds = %._crit_edge34
-  store ptr %.pre40, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL13derived_types, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
+  store ptr %.pre40, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 8), align 8
   br label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit19
 
 _ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit19:       ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, %._crit_edge34, %56

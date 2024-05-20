@@ -1937,7 +1937,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_tc_port_init(ptr noundef %
   br label %70
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %23 = tail call noalias noundef align 8 dereferenceable_or_null(264) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 264) #11
   %24 = icmp eq ptr %23, null
   br i1 %24, label %70, label %25

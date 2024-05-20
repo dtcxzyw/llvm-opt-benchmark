@@ -288,7 +288,7 @@ define internal i32 @dissect_rtp_events(ptr noundef %0, ptr noundef %1, ptr noun
 
 15:                                               ; preds = %4, %12
   %storemerge = phi i32 [ %14, %12 ], [ 0, %4 ]
-  store i32 %storemerge, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i64 0, i32 1), align 4
+  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @rtp_event_info, i64 4), align 4
   %16 = load ptr, ptr %5, align 8
   %17 = zext i8 %8 to i32
   %18 = tail call ptr @val_to_str_ext(i32 noundef %17, ptr noundef nonnull @rtp_event_type_values_ext, ptr noundef nonnull @.str.207) #2
@@ -302,13 +302,13 @@ define internal i32 @dissect_rtp_events(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   tail call void @proto_tree_add_bitmask_list(ptr noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @dissect_rtp_events.events, i32 noundef 0) #2
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #2
-  store i16 %26, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i64 0, i32 2), align 4
+  store i16 %26, ptr getelementptr inbounds (i8, ptr @rtp_event_info, i64 8), align 4
   %27 = load i32, ptr @hf_rtp_events_duration, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %.not34 = icmp slt i8 %25, 0
   %.lobit = lshr i8 %25, 7
   %. = zext nneg i8 %.lobit to i32
-  store i32 %., ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i64 0, i32 3), align 4
+  store i32 %., ptr getelementptr inbounds (i8, ptr @rtp_event_info, i64 12), align 4
   br i1 %.not34, label %29, label %31
 
 29:                                               ; preds = %15

@@ -10620,7 +10620,7 @@ _ZN5arrow10Int8ScalarCI2NS_13NumericScalarINS_8Int8TypeEEEEa.exit.i: ; preds = %
   store i8 1, ptr %is_valid3.i.i.i.i.i.i, align 8, !noalias !538
   %value2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 41
   store i8 %bound_min.0.i, ptr %value2.i.i.i.i, align 1, !noalias !538
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !noalias !538
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %ref.tmp.i, align 8, !noalias !538
   %call.i.i.i215.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev()
           to label %call.i.i.i2.noexc.i unwind label %lpad.i
 
@@ -10655,12 +10655,12 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i, align 8, !noalias !538
   %value2.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 41
   store i8 %bound_max.0.i, ptr %value2.i.i.i13.i, align 1, !noalias !538
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10Int8ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i, align 8, !noalias !538
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Int8ScalarE, i64 16), ptr %ref.tmp1.i, align 8, !noalias !538
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i, align 8, !noalias !538
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i, align 8, !noalias !538
   br i1 %cmp.not.i.i.i.i.i.i4.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i18.i
 
 if.then.i.i.i.i.i.i.i.i18.i:                      ; preds = %invoke.cont3.i
@@ -10766,7 +10766,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow10Int8ScalarD2Ev.exit.i
 
 _ZN5arrow10Int8ScalarD2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !noalias !538
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i, align 8, !noalias !538
   %31 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !538
   %cmp.not.i.i.i.i.i.i.i.i20.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i, label %if.then.i.i.i.i.i.i.i.i21.i
@@ -10949,7 +10949,7 @@ _ZN5arrow11Int16ScalarCI2NS_13NumericScalarINS_9Int16TypeEEEEs.exit.i: ; preds =
   store i8 1, ptr %is_valid3.i.i.i.i.i.i41, align 8, !noalias !549
   %value2.i.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i26, i64 42
   store i16 %bound_min.0.i29, ptr %value2.i.i.i.i42, align 2, !noalias !549
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i26, align 8, !noalias !549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %ref.tmp.i26, align 8, !noalias !549
   %call.i.i.i215.i43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev()
           to label %call.i.i.i2.noexc.i47 unwind label %lpad.i44
 
@@ -10984,12 +10984,12 @@ invoke.cont.i55:                                  ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i58, align 8, !noalias !549
   %value2.i.i.i13.i59 = getelementptr inbounds i8, ptr %ref.tmp1.i27, i64 42
   store i16 %bound_max.0.i30, ptr %value2.i.i.i13.i59, align 2, !noalias !549
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int16ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i27, align 8, !noalias !549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int16ScalarE, i64 16), ptr %ref.tmp1.i27, align 8, !noalias !549
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i26, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i27)
           to label %invoke.cont3.i61 unwind label %lpad2.i60
 
 invoke.cont3.i61:                                 ; preds = %invoke.cont.i55
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i27, align 8, !noalias !549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i27, align 8, !noalias !549
   br i1 %cmp.not.i.i.i.i.i.i4.i49, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i72, label %if.then.i.i.i.i.i.i.i.i18.i62
 
 if.then.i.i.i.i.i.i.i.i18.i62:                    ; preds = %invoke.cont3.i61
@@ -11095,7 +11095,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i128:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow11Int16ScalarD2Ev.exit.i
 
 _ZN5arrow11Int16ScalarD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i128, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i80, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i72
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i26, align 8, !noalias !549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i26, align 8, !noalias !549
   %79 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i40, align 8, !noalias !549
   %cmp.not.i.i.i.i.i.i.i.i20.i83 = icmp eq ptr %79, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i83, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i94, label %if.then.i.i.i.i.i.i.i.i21.i84
@@ -11274,7 +11274,7 @@ _ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit.i: ; preds =
   store i8 1, ptr %is_valid3.i.i.i.i.i.i172, align 8, !noalias !560
   %value2.i.i.i.i173 = getelementptr inbounds i8, ptr %ref.tmp.i157, i64 44
   store i32 %bound_min.0.i160, ptr %value2.i.i.i.i173, align 4, !noalias !560
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i157, align 8, !noalias !560
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %ref.tmp.i157, align 8, !noalias !560
   %call.i.i.i215.i174 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev()
           to label %call.i.i.i2.noexc.i178 unwind label %lpad.i175
 
@@ -11309,12 +11309,12 @@ invoke.cont.i186:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i189, align 8, !noalias !560
   %value2.i.i.i13.i190 = getelementptr inbounds i8, ptr %ref.tmp1.i158, i64 44
   store i32 %bound_max.0.i161, ptr %value2.i.i.i13.i190, align 4, !noalias !560
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int32ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i158, align 8, !noalias !560
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int32ScalarE, i64 16), ptr %ref.tmp1.i158, align 8, !noalias !560
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i157, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i158)
           to label %invoke.cont3.i192 unwind label %lpad2.i191
 
 invoke.cont3.i192:                                ; preds = %invoke.cont.i186
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i158, align 8, !noalias !560
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i158, align 8, !noalias !560
   br i1 %cmp.not.i.i.i.i.i.i4.i180, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i203, label %if.then.i.i.i.i.i.i.i.i18.i193
 
 if.then.i.i.i.i.i.i.i.i18.i193:                   ; preds = %invoke.cont3.i192
@@ -11420,7 +11420,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i259:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow11Int32ScalarD2Ev.exit.i
 
 _ZN5arrow11Int32ScalarD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i259, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i211, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i203
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i157, align 8, !noalias !560
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i157, align 8, !noalias !560
   %127 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i171, align 8, !noalias !560
   %cmp.not.i.i.i.i.i.i.i.i20.i214 = icmp eq ptr %127, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i214, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i225, label %if.then.i.i.i.i.i.i.i.i21.i215
@@ -11599,7 +11599,7 @@ _ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit.i: ; preds =
   store i8 1, ptr %is_valid3.i.i.i.i.i.i306, align 8, !noalias !571
   %value2.i.i.i.i307 = getelementptr inbounds i8, ptr %ref.tmp.i291, i64 48
   store i64 %bound_min.0.i294, ptr %value2.i.i.i.i307, align 8, !noalias !571
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i291, align 8, !noalias !571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %ref.tmp.i291, align 8, !noalias !571
   %call.i.i.i215.i308 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev()
           to label %call.i.i.i2.noexc.i312 unwind label %lpad.i309
 
@@ -11634,12 +11634,12 @@ invoke.cont.i320:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i323, align 8, !noalias !571
   %value2.i.i.i13.i324 = getelementptr inbounds i8, ptr %ref.tmp1.i292, i64 48
   store i64 %bound_max.0.i295, ptr %value2.i.i.i13.i324, align 8, !noalias !571
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i292, align 8, !noalias !571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11Int64ScalarE, i64 16), ptr %ref.tmp1.i292, align 8, !noalias !571
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i291, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i292)
           to label %invoke.cont3.i326 unwind label %lpad2.i325
 
 invoke.cont3.i326:                                ; preds = %invoke.cont.i320
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i292, align 8, !noalias !571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i292, align 8, !noalias !571
   br i1 %cmp.not.i.i.i.i.i.i4.i314, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i337, label %if.then.i.i.i.i.i.i.i.i18.i327
 
 if.then.i.i.i.i.i.i.i.i18.i327:                   ; preds = %invoke.cont3.i326
@@ -11745,7 +11745,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i393:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow11Int64ScalarD2Ev.exit.i
 
 _ZN5arrow11Int64ScalarD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i393, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i345, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i337
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i291, align 8, !noalias !571
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i291, align 8, !noalias !571
   %175 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i305, align 8, !noalias !571
   %cmp.not.i.i.i.i.i.i.i.i20.i348 = icmp eq ptr %175, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i348, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i359, label %if.then.i.i.i.i.i.i.i.i21.i349
@@ -11915,7 +11915,7 @@ _ZN5arrow11UInt8ScalarCI2NS_13NumericScalarINS_9UInt8TypeEEEEh.exit.i: ; preds =
   store i8 1, ptr %is_valid3.i.i.i.i.i.i439, align 8, !noalias !582
   %value2.i.i.i.i440 = getelementptr inbounds i8, ptr %ref.tmp.i425, i64 41
   store i8 0, ptr %value2.i.i.i.i440, align 1, !noalias !582
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i425, align 8, !noalias !582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %ref.tmp.i425, align 8, !noalias !582
   %call.i.i.i215.i441 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5uint8Ev()
           to label %call.i.i.i2.noexc.i445 unwind label %lpad.i442
 
@@ -11950,12 +11950,12 @@ invoke.cont.i453:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i456, align 8, !noalias !582
   %value2.i.i.i13.i457 = getelementptr inbounds i8, ptr %ref.tmp1.i426, i64 41
   store i8 %bound_max.0.i428, ptr %value2.i.i.i13.i457, align 1, !noalias !582
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11UInt8ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i426, align 8, !noalias !582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11UInt8ScalarE, i64 16), ptr %ref.tmp1.i426, align 8, !noalias !582
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i425, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i426)
           to label %invoke.cont3.i459 unwind label %lpad2.i458
 
 invoke.cont3.i459:                                ; preds = %invoke.cont.i453
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i426, align 8, !noalias !582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i426, align 8, !noalias !582
   br i1 %cmp.not.i.i.i.i.i.i4.i447, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i470, label %if.then.i.i.i.i.i.i.i.i18.i460
 
 if.then.i.i.i.i.i.i.i.i18.i460:                   ; preds = %invoke.cont3.i459
@@ -12061,7 +12061,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i526:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow11UInt8ScalarD2Ev.exit.i
 
 _ZN5arrow11UInt8ScalarD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i526, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i478, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i470
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i425, align 8, !noalias !582
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i425, align 8, !noalias !582
   %221 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i438, align 8, !noalias !582
   %cmp.not.i.i.i.i.i.i.i.i20.i481 = icmp eq ptr %221, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i481, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i492, label %if.then.i.i.i.i.i.i.i.i21.i482
@@ -12236,7 +12236,7 @@ _ZN5arrow12UInt16ScalarCI2NS_13NumericScalarINS_10UInt16TypeEEEEt.exit.i: ; pred
   store i8 1, ptr %is_valid3.i.i.i.i.i.i572, align 8, !noalias !593
   %value2.i.i.i.i573 = getelementptr inbounds i8, ptr %ref.tmp.i558, i64 42
   store i16 0, ptr %value2.i.i.i.i573, align 2, !noalias !593
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i558, align 8, !noalias !593
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %ref.tmp.i558, align 8, !noalias !593
   %call.i.i.i215.i574 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint16Ev()
           to label %call.i.i.i2.noexc.i578 unwind label %lpad.i575
 
@@ -12271,12 +12271,12 @@ invoke.cont.i586:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i589, align 8, !noalias !593
   %value2.i.i.i13.i590 = getelementptr inbounds i8, ptr %ref.tmp1.i559, i64 42
   store i16 %bound_max.0.i561, ptr %value2.i.i.i13.i590, align 2, !noalias !593
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt16ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i559, align 8, !noalias !593
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt16ScalarE, i64 16), ptr %ref.tmp1.i559, align 8, !noalias !593
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i558, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i559)
           to label %invoke.cont3.i592 unwind label %lpad2.i591
 
 invoke.cont3.i592:                                ; preds = %invoke.cont.i586
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i559, align 8, !noalias !593
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i559, align 8, !noalias !593
   br i1 %cmp.not.i.i.i.i.i.i4.i580, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i603, label %if.then.i.i.i.i.i.i.i.i18.i593
 
 if.then.i.i.i.i.i.i.i.i18.i593:                   ; preds = %invoke.cont3.i592
@@ -12382,7 +12382,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i659:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow12UInt16ScalarD2Ev.exit.i
 
 _ZN5arrow12UInt16ScalarD2Ev.exit.i:               ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i659, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i611, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i603
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i558, align 8, !noalias !593
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i558, align 8, !noalias !593
   %268 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i571, align 8, !noalias !593
   %cmp.not.i.i.i.i.i.i.i.i20.i614 = icmp eq ptr %268, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i614, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i625, label %if.then.i.i.i.i.i.i.i.i21.i615
@@ -12557,7 +12557,7 @@ _ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit.i: ; pred
   store i8 1, ptr %is_valid3.i.i.i.i.i.i705, align 8, !noalias !604
   %value2.i.i.i.i706 = getelementptr inbounds i8, ptr %ref.tmp.i691, i64 44
   store i32 0, ptr %value2.i.i.i.i706, align 4, !noalias !604
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i691, align 8, !noalias !604
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %ref.tmp.i691, align 8, !noalias !604
   %call.i.i.i215.i707 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint32Ev()
           to label %call.i.i.i2.noexc.i711 unwind label %lpad.i708
 
@@ -12592,12 +12592,12 @@ invoke.cont.i719:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i722, align 8, !noalias !604
   %value2.i.i.i13.i723 = getelementptr inbounds i8, ptr %ref.tmp1.i692, i64 44
   store i32 %bound_max.0.i694, ptr %value2.i.i.i13.i723, align 4, !noalias !604
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt32ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i692, align 8, !noalias !604
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt32ScalarE, i64 16), ptr %ref.tmp1.i692, align 8, !noalias !604
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i691, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i692)
           to label %invoke.cont3.i725 unwind label %lpad2.i724
 
 invoke.cont3.i725:                                ; preds = %invoke.cont.i719
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i692, align 8, !noalias !604
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i692, align 8, !noalias !604
   br i1 %cmp.not.i.i.i.i.i.i4.i713, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i736, label %if.then.i.i.i.i.i.i.i.i18.i726
 
 if.then.i.i.i.i.i.i.i.i18.i726:                   ; preds = %invoke.cont3.i725
@@ -12703,7 +12703,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i792:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow12UInt32ScalarD2Ev.exit.i
 
 _ZN5arrow12UInt32ScalarD2Ev.exit.i:               ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i792, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i744, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i736
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i691, align 8, !noalias !604
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i691, align 8, !noalias !604
   %315 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i704, align 8, !noalias !604
   %cmp.not.i.i.i.i.i.i.i.i20.i747 = icmp eq ptr %315, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i747, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i758, label %if.then.i.i.i.i.i.i.i.i21.i748
@@ -12878,7 +12878,7 @@ _ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit.i: ; pred
   store i8 1, ptr %is_valid3.i.i.i.i.i.i838, align 8, !noalias !615
   %value2.i.i.i.i839 = getelementptr inbounds i8, ptr %ref.tmp.i824, i64 48
   store i64 0, ptr %value2.i.i.i.i839, align 8, !noalias !615
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i824, align 8, !noalias !615
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %ref.tmp.i824, align 8, !noalias !615
   %call.i.i.i215.i840 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint64Ev()
           to label %call.i.i.i2.noexc.i844 unwind label %lpad.i841
 
@@ -12913,12 +12913,12 @@ invoke.cont.i852:                                 ; preds = %if.else.i.i.i.i.i.i
   store i8 1, ptr %is_valid3.i.i.i.i.i12.i855, align 8, !noalias !615
   %value2.i.i.i13.i856 = getelementptr inbounds i8, ptr %ref.tmp1.i825, i64 48
   store i64 %bound_max.0.i827, ptr %value2.i.i.i13.i856, align 8, !noalias !615
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow12UInt64ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i825, align 8, !noalias !615
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12UInt64ScalarE, i64 16), ptr %ref.tmp1.i825, align 8, !noalias !615
   invoke void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6ScalarES6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp.i824, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp1.i825)
           to label %invoke.cont3.i858 unwind label %lpad2.i857
 
 invoke.cont3.i858:                                ; preds = %invoke.cont.i852
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp1.i825, align 8, !noalias !615
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp1.i825, align 8, !noalias !615
   br i1 %cmp.not.i.i.i.i.i.i4.i846, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i869, label %if.then.i.i.i.i.i.i.i.i18.i859
 
 if.then.i.i.i.i.i.i.i.i18.i859:                   ; preds = %invoke.cont3.i858
@@ -13024,7 +13024,7 @@ if.then.i.i.i.i.i2.i.i.i.i.i.i925:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow12UInt64ScalarD2Ev.exit.i
 
 _ZN5arrow12UInt64ScalarD2Ev.exit.i:               ; preds = %if.then.i.i.i.i.i2.i.i.i.i.i.i925, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i877, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i.i869
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %ref.tmp.i824, align 8, !noalias !615
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %ref.tmp.i824, align 8, !noalias !615
   %362 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i837, align 8, !noalias !615
   %cmp.not.i.i.i.i.i.i.i.i20.i880 = icmp eq ptr %362, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20.i880, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i891, label %if.then.i.i.i.i.i.i.i.i21.i881
@@ -23843,7 +23843,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_8Dat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10Int8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -23958,7 +23958,7 @@ _ZN5arrow13NumericScalarINS_8Int8TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow10Int8ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24098,7 +24098,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev() loca
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -24213,7 +24213,7 @@ _ZNSt23enable_shared_from_thisIN5arrow6ScalarEED2Ev.exit: ; preds = %_ZNSt10shar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -24329,7 +24329,7 @@ _ZN5arrow6ScalarD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24444,7 +24444,7 @@ _ZN5arrow13NumericScalarINS_9Int16TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int16ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24584,7 +24584,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev() loc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24699,7 +24699,7 @@ _ZN5arrow13NumericScalarINS_9Int32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24839,7 +24839,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev() loc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -24954,7 +24954,7 @@ _ZN5arrow13NumericScalarINS_9Int64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11Int64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25094,7 +25094,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev() loc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11UInt8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25209,7 +25209,7 @@ _ZN5arrow13NumericScalarINS_9UInt8TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11UInt8ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25349,7 +25349,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5uint8Ev() loc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25464,7 +25464,7 @@ _ZN5arrow13NumericScalarINS_10UInt16TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt16ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25604,7 +25604,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint16Ev() lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25719,7 +25719,7 @@ _ZN5arrow13NumericScalarINS_10UInt32TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt32ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25859,7 +25859,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint32Ev() lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -25974,7 +25974,7 @@ _ZN5arrow13NumericScalarINS_10UInt64TypeEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12UInt64ScalarD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow6ScalarE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null

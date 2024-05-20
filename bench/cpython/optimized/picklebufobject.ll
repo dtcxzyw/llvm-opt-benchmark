@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyPickleBuffer_FromObject(ptr noundef %base) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyPickleBuffer_Type, i64 0, i32 36), align 8
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyPickleBuffer_Type, i64 304), align 8
   %call = tail call ptr %0(ptr noundef nonnull @PyPickleBuffer_Type, i64 noundef 0) #4
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end

@@ -6516,7 +6516,7 @@ define hidden void @_ZN13project_model13build_scripts21WorkspaceBuildScripts11ru
   br label %28
 
 32:                                               ; preds = %7
-  %33 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13project_model13build_scripts21WorkspaceBuildScripts11run_command10__CALLSITE17hc4bd2a36be65c2d3E, i64 0, i32 2, i32 0) monotonic, align 8
+  %33 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model13build_scripts21WorkspaceBuildScripts11run_command10__CALLSITE17hc4bd2a36be65c2d3E, i64 16) monotonic, align 8
   switch i8 %33, label %34 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -6886,7 +6886,7 @@ define hidden void @_ZN13project_model13build_scripts21WorkspaceBuildScripts11ru
   br label %28
 
 32:                                               ; preds = %7
-  %33 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN13project_model13build_scripts21WorkspaceBuildScripts11run_command10__CALLSITE17hc4bd2a36be65c2d3E, i64 0, i32 2, i32 0) monotonic, align 8
+  %33 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model13build_scripts21WorkspaceBuildScripts11run_command10__CALLSITE17hc4bd2a36be65c2d3E, i64 16) monotonic, align 8
   switch i8 %33, label %34 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -11574,7 +11574,7 @@ define hidden void @_ZN13project_model9rustc_cfg3get17hf5beb136039325bcE(ptr noa
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
 
 66:                                               ; preds = %5
-  %67 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h03b2503da0cfe5d3E, i64 0, i32 1, i64 8) monotonic, align 8
+  %67 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h03b2503da0cfe5d3E, i64 16) monotonic, align 8
   switch i8 %67, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -12094,7 +12094,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i6
   br i1 %218, label %219, label %.critedge.i
 
 219:                                              ; preds = %214
-  %220 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model9rustc_cfg13get_rust_cfgs10__CALLSITE17had35c7cb2dfb3130E, i64 0, i32 1, i64 8) monotonic, align 8, !noalias !2196
+  %220 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model9rustc_cfg13get_rust_cfgs10__CALLSITE17had35c7cb2dfb3130E, i64 16) monotonic, align 8, !noalias !2196
   switch i8 %220, label %221 [
     i8 0, label %.critedge.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
@@ -12449,7 +12449,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i7
   br i1 %295, label %296, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit226.thread414
 
 296:                                              ; preds = %293
-  %297 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h57c4a7794f21ef9aE, i64 0, i32 1, i64 8) monotonic, align 8
+  %297 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h57c4a7794f21ef9aE, i64 16) monotonic, align 8
   switch i8 %297, label %298 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit226.thread414
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit226.thread
@@ -12681,7 +12681,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit226
   br i1 %359, label %360, label %.critedge197
 
 360:                                              ; preds = %357
-  %361 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17hc617f74bea7c87e8E, i64 0, i32 1, i64 8) monotonic, align 8
+  %361 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17hc617f74bea7c87e8E, i64 16) monotonic, align 8
   switch i8 %361, label %362 [
     i8 0, label %.critedge197
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit243.thread
@@ -12853,7 +12853,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit243
   br i1 %400, label %401, label %.critedge201
 
 401:                                              ; preds = %398
-  %402 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h9cc0004de1c2e2a7E, i64 0, i32 1, i64 8) monotonic, align 8
+  %402 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model9rustc_cfg3get10__CALLSITE17h9cc0004de1c2e2a7E, i64 16) monotonic, align 8
   switch i8 %402, label %403 [
     i8 0, label %.critedge201
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit262.thread
@@ -13424,7 +13424,7 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i7
   br i1 %130, label %131, label %.critedge
 
 131:                                              ; preds = %126
-  %132 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN13project_model18target_data_layout3get10__CALLSITE17h39fd0f3765cb2cfeE, i64 0, i32 1, i64 8) monotonic, align 8
+  %132 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN13project_model18target_data_layout3get10__CALLSITE17h39fd0f3765cb2cfeE, i64 16) monotonic, align 8
   switch i8 %132, label %133 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

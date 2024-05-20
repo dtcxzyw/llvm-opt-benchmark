@@ -274,7 +274,7 @@ define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 8) #6
   %14 = icmp eq ptr %13, null
   br i1 %14, label %50, label %15

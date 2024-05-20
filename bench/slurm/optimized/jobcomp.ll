@@ -116,7 +116,7 @@ define i32 @jobcomp_g_init() local_unnamed_addr #0 {
   br i1 %.not9, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 73), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 520), align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %.sink.split, label %8
 
@@ -127,7 +127,7 @@ define i32 @jobcomp_g_init() local_unnamed_addr #0 {
   br i1 %.not11, label %10, label %.thread
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 73), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 520), align 8
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #5
   br label %.sink.split
 
@@ -242,7 +242,7 @@ define i32 @jobcomp_g_write(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobcomp_ops, ptr @ops, i64 0, i32 1), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
   %10 = tail call i32 %9(ptr noundef %0) #5
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #5
   %.not8 = icmp eq i32 %11, 0
@@ -277,7 +277,7 @@ define ptr @jobcomp_g_get_jobs(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobcomp_ops, ptr @ops, i64 0, i32 2), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %10 = tail call ptr %9(ptr noundef %0) #5
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #5
   %.not8 = icmp eq i32 %11, 0

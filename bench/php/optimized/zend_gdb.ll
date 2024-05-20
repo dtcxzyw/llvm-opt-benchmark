@@ -33,7 +33,7 @@ define noundef zeroext i1 @zend_gdb_register_code(ptr nocapture noundef readonly
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %0, i64 %1, i1 false)
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   store ptr %11, ptr %4, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -44,9 +44,9 @@ define noundef zeroext i1 @zend_gdb_register_code(ptr nocapture noundef readonly
   br label %14
 
 14:                                               ; preds = %12, %6
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 1), align 4
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 4), align 4
   tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
   br label %15
 
@@ -62,15 +62,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define void @zend_gdb_unregister_all() local_unnamed_addr #0 {
-  store i32 2, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 1), align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 4), align 4
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %6
   %2 = phi ptr [ %7, %6 ], [ %1, %0 ]
   %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %6, label %4
 
@@ -80,10 +80,10 @@ define void @zend_gdb_unregister_all() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %4, %.lr.ph
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 2), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 8), align 8
   tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
   tail call void @free(ptr noundef nonnull %2) #9
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

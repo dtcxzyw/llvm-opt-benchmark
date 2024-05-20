@@ -482,7 +482,7 @@ define internal void @ata_tlink_release(ptr nocapture readnone %0) #4 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @ata_attach_transport() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(1184) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 1184) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %69, label %4

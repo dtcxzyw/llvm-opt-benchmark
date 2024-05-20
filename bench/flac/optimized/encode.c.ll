@@ -6496,7 +6496,7 @@ entry:
   %call2 = tail call ptr @FLAC__stream_encoder_get_resolved_state_string(ptr noundef %3) #19
   %4 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %4, i32 noundef 1, ptr noundef nonnull @.str.150, i32 noundef %conv, ptr noundef nonnull @.str.96, ptr noundef %call2) #19
-  %5 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @FLAC__StreamEncoderStateString, i64 40), align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %5) #22
   %cmp = icmp eq i32 %call3, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -7405,13 +7405,13 @@ if.then:                                          ; preds = %entry
   %call3 = tail call ptr @FLAC__stream_encoder_get_resolved_state_string(ptr noundef %5) #19
   %6 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.150, i32 noundef %conv, ptr noundef nonnull @.str.96, ptr noundef %call3) #19
-  %7 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @FLAC__StreamEncoderStateString, i64 40), align 8
   %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(1) %7) #22
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %if.end18.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %8 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 6), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @FLAC__StreamEncoderStateString, i64 48), align 8
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(1) %8) #22
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.end18.sink.split, label %if.end18

@@ -93,7 +93,7 @@ define internal noundef range(i32 -12, 1) i32 @sysfs_init_fs_context(ptr nocaptu
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %6, %1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 32) #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %25, label %12

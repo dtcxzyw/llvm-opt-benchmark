@@ -258,7 +258,7 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
   %7 = alloca i64, align 8
   %8 = alloca %union.pthread_attr_t, align 8
   %9 = icmp slt i32 %4, 1
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %10 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %11 = zext i16 %10 to i32
   %12 = mul nuw nsw i32 %11, 1000
   %.0 = select i1 %9, i32 %12, i32 %4
@@ -822,7 +822,7 @@ define internal fastcc void @_start_msg_tree_internal(ptr noundef %0, ptr nounde
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
-  %11 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %11 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %12 = zext i16 %11 to i32
   %13 = mul nuw nsw i32 %12, 1000
   store i32 %13, ptr %7, align 8
@@ -1641,7 +1641,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   br i1 %.not213, label %165, label %167
 
 165:                                              ; preds = %162
-  %166 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 213), align 8
+  %166 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1472), align 8
   store i16 %166, ptr %163, align 4
   br label %167
 
@@ -1651,7 +1651,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   %170 = add nuw nsw i32 %169, 1
   %171 = zext i16 %168 to i32
   %172 = udiv i32 %170, %171
-  %173 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
+  %173 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %174 = zext i16 %173 to i32
   %175 = mul nuw nsw i32 %172, 1000
   %176 = mul i32 %175, %174

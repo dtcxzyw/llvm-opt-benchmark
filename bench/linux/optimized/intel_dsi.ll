@@ -167,7 +167,7 @@ declare dso_local i32 @intel_mode_valid_max_plane_size(ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @intel_dsi_host_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
@@ -179,7 +179,7 @@ define dso_local noundef ptr @intel_dsi_host_init(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 %2, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(808) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 808) #6
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15

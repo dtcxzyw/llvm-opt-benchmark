@@ -257,7 +257,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   br i1 %30, label %31, label %221
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %33 = tail call noalias noundef align 8 dereferenceable_or_null(944) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 944) #13
   %34 = icmp eq ptr %33, null
   br i1 %34, label %221, label %35

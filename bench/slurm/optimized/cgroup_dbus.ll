@@ -62,7 +62,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   store ptr %22, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
   store i32 %0, ptr %21, align 4
-  %23 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 36028797018963968
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %29, label %25
@@ -334,7 +334,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 121:                                              ; preds = %115
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %122 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %122 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %123 = and i64 %122, 36028797018963968
   %.not23 = icmp eq i64 %123, 0
   br i1 %.not23, label %129, label %124
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
 
 7:                                                ; preds = %5
   call void @dbus_message_iter_get_basic(ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %8 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 36028797018963968
   %.not4 = icmp eq i64 %9, 0
   br i1 %.not4, label %25, label %10
@@ -472,7 +472,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
 
 15:                                               ; preds = %5, %5
   call void @dbus_message_iter_get_basic(ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %17 = and i64 %16, 36028797018963968
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %25, label %18

@@ -231,7 +231,7 @@ define internal i32 @mac_hid_emumouse_connect(ptr noundef %0, ptr noundef %1, pt
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 72) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %25, label %10

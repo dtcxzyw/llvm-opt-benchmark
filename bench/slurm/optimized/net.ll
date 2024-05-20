@@ -107,7 +107,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.linger, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 82), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 576), align 8
   %5 = icmp eq i32 %4, -2
   br i1 %5, label %31, label %6
 
@@ -124,14 +124,14 @@ define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_ad
   br label %12
 
 12:                                               ; preds = %10, %6
-  %13 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 82), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 576), align 8
   store i32 %13, ptr %2, align 4
   %14 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %2, i32 noundef 4) #6
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %12
-  %17 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 80), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 568), align 8
   %.not = icmp eq i32 %17, -2
   br i1 %.not, label %21, label %18
 
@@ -142,7 +142,7 @@ define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_ad
   br i1 %20, label %.sink.split, label %21
 
 21:                                               ; preds = %18, %16
-  %22 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 81), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 572), align 4
   %.not13 = icmp eq i32 %22, -2
   br i1 %.not13, label %26, label %23
 
@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_ad
   br i1 %25, label %.sink.split, label %26
 
 26:                                               ; preds = %23, %21
-  %27 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 82), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 576), align 8
   store i32 %27, ptr %2, align 4
   %28 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %2, i32 noundef 4) #6
   %29 = icmp slt i32 %28, 0
@@ -217,7 +217,7 @@ thread-pre-split:                                 ; preds = %100, %.lr.ph
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %25
-  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 1024
   %.not39 = icmp eq i64 %32, 0
   br i1 %.not39, label %109, label %33
@@ -241,7 +241,7 @@ thread-pre-split:                                 ; preds = %100, %.lr.ph
   br label %50
 
 40:                                               ; preds = %37
-  %41 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %42 = and i64 %41, 1024
   %.not38 = icmp eq i64 %42, 0
   br i1 %.not38, label %47, label %43
@@ -303,7 +303,7 @@ thread-pre-split:                                 ; preds = %100, %.lr.ph
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %65
-  %69 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %70 = and i64 %69, 1024
   %.not.i = icmp eq i64 %70, 0
   br i1 %.not.i, label %_is_port_ok.exit.thread, label %71
@@ -334,7 +334,7 @@ _is_port_ok.exit.thread:                          ; preds = %62, %68, %71, %74
   br label %109
 
 81:                                               ; preds = %76
-  %82 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %83 = and i64 %82, 1024
   %.not35 = icmp eq i64 %83, 0
   br i1 %.not35, label %88, label %84
@@ -355,7 +355,7 @@ _is_port_ok.exit.thread:                          ; preds = %62, %68, %71, %74
   br i1 %.not36, label %99, label %91
 
 91:                                               ; preds = %88
-  %92 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 1024
   %.not37 = icmp eq i64 %93, 0
   br i1 %.not37, label %99, label %94

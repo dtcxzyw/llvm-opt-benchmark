@@ -52,22 +52,22 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @_mi_heap_main_get() local_unnamed_addr #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %mi_heap_main_init.exit
 
 if.then.i:                                        ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit
 
 mi_heap_main_init.exit:                           ; preds = %entry, %if.then.i
@@ -111,7 +111,7 @@ declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define hidden zeroext i1 @_mi_is_main_thread() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %lor.end, label %lor.rhs
 
@@ -144,7 +144,7 @@ entry:
   br i1 %cmp.i.i.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i24.i = icmp eq i64 %2, 0
   br i1 %cmp.i24.i, label %if.then3.i, label %_mi_is_main_thread.exit.i
 
@@ -155,22 +155,22 @@ _mi_is_main_thread.exit.i:                        ; preds = %if.end.i
   br i1 %cmp1.i.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %_mi_is_main_thread.exit.i, %if.end.i
-  %5 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i25.i = icmp eq i64 %5, 0
   br i1 %cmp.i25.i, label %if.then.i.i, label %_mi_heap_init.exit.thread1
 
 if.then.i.i:                                      ; preds = %if.then3.i
   %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %_mi_heap_init.exit.thread1
 
 _mi_heap_init.exit.thread1:                       ; preds = %if.then3.i, %if.then.i.i
@@ -277,7 +277,7 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   br label %if.end
 
 if.end:                                           ; preds = %if.end6.i, %mi_thread_data_zalloc.exit.i, %_mi_heap_init.exit.thread1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9), i64 noundef 1) #13
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #13
   %15 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %return
 
@@ -288,22 +288,22 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define void @mi_process_init() local_unnamed_addr #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %mi_heap_main_init.exit
 
 if.then.i:                                        ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit
 
 mi_heap_main_init.exit:                           ; preds = %entry, %if.then.i
@@ -334,22 +334,22 @@ if.end.i6:                                        ; preds = %if.end
 
 mi_process_setup_auto_thread_done.exit:           ; preds = %if.end, %if.end.i6
   tail call void @_mi_os_init() #13
-  %9 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i7 = icmp eq i64 %9, 0
   br i1 %cmp.i7, label %if.then.i9, label %mi_heap_main_init.exit13
 
 if.then.i9:                                       ; preds = %mi_process_setup_auto_thread_done.exit
   %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %11 = ptrtoint ptr %10 to i64
-  store i64 %11, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i10 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i10, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i10, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i11 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i11, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i11, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i12 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i12, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i12, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit13
 
 mi_heap_main_init.exit13:                         ; preds = %mi_process_setup_auto_thread_done.exit, %if.then.i9
@@ -423,7 +423,7 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.end6:                                          ; preds = %if.end3
   %2 = atomicrmw sub ptr @thread_count, i64 1 monotonic, align 8
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9), i64 noundef 1) #13
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #13
   %thread_id = getelementptr inbounds i8, ptr %heap.addr.0, i64 2848
   %3 = load i64, ptr %thread_id, align 8
   %4 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
@@ -432,7 +432,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp8.not, label %if.end.i, label %if.end13
 
 if.end.i:                                         ; preds = %if.end6
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i13.i = icmp eq i64 %6, 0
   br i1 %cmp.i13.i, label %_mi_is_main_thread.exit.thread.i, label %_mi_is_main_thread.exit.i
 
@@ -572,22 +572,22 @@ declare i32 @mi_reserve_os_memory(i64 noundef, i1 noundef zeroext, i1 noundef ze
 ; Function Attrs: nounwind uwtable
 define internal void @_mi_process_init() #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %mi_heap_main_init.exit.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %2, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit.i
 
 mi_heap_main_init.exit.i:                         ; preds = %if.then.i.i, %entry
@@ -607,7 +607,7 @@ if.end.i.i:                                       ; preds = %mi_heap_main_init.e
 
 mi_process_load.exit:                             ; preds = %mi_heap_main_init.exit.i, %if.end.i.i
   tail call void @mi_process_init() #14
-  tail call void @_mi_random_reinit_if_weak(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  tail call void @_mi_random_reinit_if_weak(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   ret void
 }
 
@@ -659,22 +659,22 @@ if.end3:                                          ; preds = %if.end
 if.then4:                                         ; preds = %if.end3
   tail call void @mi_collect(i1 noundef zeroext true) #13
   tail call void @_mi_heap_unsafe_destroy_all() #13
-  %1 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_mi_heap_main_get.exit
 
 if.then.i.i:                                      ; preds = %if.then4
   %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
+  store i64 %3, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call1.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  store i64 %call1.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call2.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7), align 8
+  store i64 %call2.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
   %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
-  store i64 %call3.i.i, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 7, i64 1), align 8
+  store i64 %call3.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %_mi_heap_main_get.exit
 
 _mi_heap_main_get.exit:                           ; preds = %if.then4, %if.then.i.i
@@ -696,7 +696,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
-  %5 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %5) #13
   store i1 false, ptr @os_preloading, align 1
   br label %return

@@ -105,7 +105,7 @@ _ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIi
   %agg.tmp.sroa.0.0.copyload5.i.i = load <8 x i32>, ptr @_ZZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits, align 32
   %7 = and <8 x i32> %4, <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>
   %8 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i, <8 x i32> %7)
-  %retval.sroa.0.0.copyload.i.i6.i.i = load <8 x i32>, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8), align 32
+  %retval.sroa.0.0.copyload.i.i6.i.i = load <8 x i32>, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 256), align 32
   %9 = ashr <8 x i32> %4, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
   %10 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %9, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i, i8 1)
   %and.i.i.i.i27.i.i = and <8 x i32> %10, %8
@@ -369,7 +369,7 @@ __cxx_global_var_init.exit:                       ; preds = %for.body.i.i5.i.i
   %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ne <8 x i32> %6, zeroinitializer
   %7 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i to <8 x i32>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
-  store <8 x i32> %7, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
+  store <8 x i32> %7, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 256), align 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i3)
   store i32 0, ptr %tmp.i.i3, align 4
@@ -426,7 +426,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i5.i.i17
   %15 = icmp ne <4 x i64> %14, zeroinitializer
   %xor.i.i.i.i.i.i.i.i12.i.i = sext <4 x i1> %15 to <4 x i64>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
-  store <4 x i64> %xor.i.i.i.i.i.i.i.i12.i.i, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask.2", ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i32 0, i64 4, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
+  store <4 x i64> %xor.i.i.i.i.i.i.i.i12.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 128), align 32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i24)
   br label %for.cond2.preheader.i.i

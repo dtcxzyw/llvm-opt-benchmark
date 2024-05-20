@@ -40,14 +40,14 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
-  %3 = load i8, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 1), align 1
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 1), align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %46, label %5
 
 5:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 1), align 1
-  %.01929 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not30 = icmp eq ptr %.01929, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 12, i32 1)
+  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 1), align 1
+  %.01929 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 320), align 8
+  %.not30 = icmp eq ptr %.01929, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
   br i1 %.not30, label %.critedge, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %5, %.thread
@@ -60,7 +60,7 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
   %.01933 = phi ptr [ %.019, %34 ], [ %.01933.ph, %.lr.ph.outer ]
   %6 = getelementptr inbounds i8, ptr %.01933, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
   br i1 %or.cond, label %9, label %16
 
@@ -107,7 +107,7 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
 
 31:                                               ; preds = %26, %30
   %.lcssa = phi i32 [ %.old, %30 ], [ %28, %26 ]
-  %32 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_module_t, ptr @pmix_ptl, i64 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl, i64 16), align 8
   %.not28 = icmp eq ptr %32, null
   br i1 %.not28, label %.thread, label %33
 
@@ -118,14 +118,14 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
 34:                                               ; preds = %30, %26, %16
   %35 = getelementptr inbounds i8, ptr %.01933, i64 120
   %.019 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .thread:                                          ; preds = %31, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) @pmix_ptl, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false)
   %36 = getelementptr inbounds i8, ptr %.01933, i64 120
   %.01936 = load ptr, ptr %36, align 8
-  %.not37 = icmp eq ptr %.01936, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 12, i32 1)
+  %.not37 = icmp eq ptr %.01936, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
   br i1 %.not37, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %34
@@ -136,7 +136,7 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
   br label %46
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
-  %38 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
   %or.cond5 = icmp ult i32 %38, 64
   br i1 %or.cond5, label %39, label %46
 

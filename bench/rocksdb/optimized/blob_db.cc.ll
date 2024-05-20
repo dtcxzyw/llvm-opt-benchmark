@@ -2312,7 +2312,7 @@ define void @_ZN7rocksdb7blob_db6BlobDBC2Ev(ptr nocapture noundef nonnull writeo
 entry:
   %db_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %db_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [161 x ptr] }, ptr @_ZTVN7rocksdb7blob_db6BlobDBE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb7blob_db6BlobDBE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2387,7 +2387,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb7blob_db6BlobDBD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11StackableDBE, i64 16), ptr %this, align 8
   %shared_db_ptr_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null
@@ -8152,7 +8152,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11StackableDBD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11StackableDBE, i64 16), ptr %this, align 8
   %shared_db_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
@@ -8255,7 +8255,7 @@ _ZNSt10shared_ptrIN7rocksdb2DBEED2Ev.exit:        ; preds = %if.end, %_ZN9__gnu_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11StackableDBD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11StackableDBE, i64 16), ptr %this, align 8
   %shared_db_ptr_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null

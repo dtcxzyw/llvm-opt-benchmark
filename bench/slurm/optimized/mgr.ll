@@ -437,7 +437,7 @@ define dso_local void @batch_finish(ptr noundef %0, i32 noundef %1) local_unname
   %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.39, ptr noundef %.val, ptr noundef nonnull @.str.40) #15
   store ptr %8, ptr %6, align 8
   %9 = tail call fastcc i32 @_get_exit_code(ptr noundef %0)
-  store i32 %9, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %10 = tail call i32 @unlink(ptr noundef %8) #15
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
@@ -487,19 +487,19 @@ define dso_local void @batch_finish(ptr noundef %0, i32 noundef %1) local_unname
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %18, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, i32 noundef %34, i32 noundef %1, i32 noundef %35) #15
   br label %36
 
 36:                                               ; preds = %33, %30
-  %37 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %38 = icmp eq i32 %37, 0
   %39 = icmp ne i32 %1, 0
   %or.cond = and i1 %39, %38
   br i1 %or.cond, label %40, label %41
 
 40:                                               ; preds = %36
-  store i32 %1, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %41
 
 41:                                               ; preds = %40, %36
@@ -535,7 +535,7 @@ define dso_local void @batch_finish(ptr noundef %0, i32 noundef %1) local_unname
   store i16 5018, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %59, align 8
-  %60 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %61 = and i64 %60, 67108864
   %.not.i = icmp eq i64 %61, 0
   br i1 %.not.i, label %67, label %62
@@ -597,7 +597,7 @@ _send_complete_batch_script_msg.exit:             ; preds = %._crit_edge.i, %._c
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, i32 noundef %1, i32 noundef %83) #15
   br label %84
 
@@ -723,7 +723,7 @@ define internal fastcc i32 @_get_exit_code(ptr nocapture noundef readonly %0) un
   br i1 %.not, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %. = tail call i32 @llvm.smax.i32(i32 %58, i32 %25)
   br label %59
 
@@ -772,7 +772,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -783,16 +783,16 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   unreachable
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %8 = icmp ne ptr %7, null
-  %9 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 6), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 112), align 8
   %10 = icmp sgt i32 %9, 0
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %46
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 7), align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 3), align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 116), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 92), align 4
   %14 = sub nsw i32 %12, %13
   %15 = mul nsw i32 %14, 3
   %16 = sext i32 %15 to i64
@@ -803,7 +803,7 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   br label %20
 
 20:                                               ; preds = %30, %11
-  %21 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %22 = call i32 @bit_clear_count(ptr noundef %21) #15
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %39
@@ -814,13 +814,13 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 6), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 112), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, i32 noundef %28, i32 noundef %22, i32 noundef %29) #15
   br label %30
 
 30:                                               ; preds = %27, %24
-  %31 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @step_complete, ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1), ptr noundef nonnull %2) #15
+  %31 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @step_complete, ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48), ptr noundef nonnull %2) #15
   %32 = icmp eq i32 %31, 110
   br i1 %32, label %33, label %20, !llvm.loop !10
 
@@ -830,8 +830,8 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 6), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 112), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.12, i32 noundef %37, i32 noundef %22, i32 noundef %38) #15
   br label %.thread
 
@@ -845,7 +845,7 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.13, i32 noundef %45) #15
   br label %.thread
 
@@ -855,15 +855,15 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.14, i32 noundef %50) #15
   br label %.thread
 
 .thread:                                          ; preds = %36, %33, %46, %49, %39, %44, %41
   %51 = call fastcc i32 @_get_exit_code(ptr noundef %0)
-  store i32 %51, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 8), align 8
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  store i32 %51, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @step_complete, i64 120), align 8
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not11 = icmp eq i32 %52, 0
   br i1 %.not11, label %55, label %53
 
@@ -879,7 +879,7 @@ define dso_local void @stepd_wait_for_children_slurmstepd(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -890,7 +890,7 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %.not21 = icmp eq ptr %6, null
   br i1 %.not21, label %.thread, label %7
 
@@ -901,7 +901,7 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
   br i1 %10, label %.thread, label %.split16
 
 .split16:                                         ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %.not.i = icmp ne ptr %11, null
   %12 = icmp sgt i32 %9, 0
   %or.cond105 = and i1 %.not.i, %12
@@ -916,7 +916,7 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
   %.046 = phi i32 [ %.147, %.sink.split.i ], [ -1, %.lr.ph.i.preheader ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.sink.split.i ], [ 0, %.lr.ph.i.preheader ]
   %.023.i = phi i8 [ %.1.i, %.sink.split.i ], [ 0, %.lr.ph.i.preheader ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %14 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %indvars.iv.i) #15
   %.not18.i = icmp eq i32 %14, 0
   %15 = trunc nuw i8 %.023.i to i1
@@ -953,9 +953,9 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   br i1 %24, label %.critedge, label %.split
 
 .thread:                                          ; preds = %5, %7
-  %25 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %25, i32 noundef %25)
-  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %54, label %27
 
@@ -975,13 +975,13 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   %or.cond = select i1 %29, i1 %30, i1 false
   %spec.select60 = select i1 %or.cond, i32 -1, i32 %.55371
   %spec.select61 = select i1 %or.cond, i1 true, i1 %.01573
-  %31 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %32 = add i32 %31, 1
   %33 = add i32 %32, %spec.select60
   %34 = add i32 %.472, 1
   %35 = add i32 %34, %31
   tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %33, i32 noundef %35)
-  %36 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %.not.i25 = icmp ne ptr %36, null
   %37 = icmp slt i32 %34, %9
   %or.cond98 = and i1 %.not.i25, %37
@@ -996,7 +996,7 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   %.5 = phi i32 [ %.472, %.lr.ph.preheader.i31 ], [ %.6, %.sink.split.i36 ]
   %indvars.iv.i33 = phi i64 [ %38, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i39, %.sink.split.i36 ]
   %.023.i34 = phi i8 [ 0, %.lr.ph.preheader.i31 ], [ %.1.i38, %.sink.split.i36 ]
-  %39 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 9), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %40 = tail call i32 @bit_test(ptr noundef %39, i64 noundef %indvars.iv.i33) #15
   %.not18.i35 = icmp eq i32 %40, 0
   %41 = trunc nuw i8 %.023.i34 to i1
@@ -1037,12 +1037,12 @@ _bit_getrange.exit42:                             ; preds = %.sink.split.i36, %4
   br i1 %spec.select61, label %50, label %.critedge
 
 .critedge:                                        ; preds = %.split16, %_bit_getrange.exit, %._crit_edge
-  %49 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %49, i32 noundef %49)
   br label %50
 
 50:                                               ; preds = %._crit_edge, %.critedge
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not23 = icmp eq i32 %51, 0
   br i1 %.not23, label %54, label %52
 
@@ -1361,7 +1361,7 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   %17 = getelementptr inbounds i8, ptr %0, i64 826
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
-  %20 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %spec.select = select i1 %19, i32 253, i32 %20
   %21 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 %spec.select, ptr %21, align 4
@@ -1372,11 +1372,11 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %.b25, label %30, label %24
 
 24:                                               ; preds = %3
-  %25 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 11), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 144), align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 704
   %27 = load ptr, ptr %26, align 8
   tail call void @jobacctinfo_aggregate(ptr noundef %25, ptr noundef %27) #15
-  %28 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 11), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 144), align 8
   %29 = tail call i32 @jobacctinfo_getinfo(ptr noundef %28, i32 noundef 0, ptr noundef %22, i16 noundef zeroext 10496) #15
   store i1 true, ptr @_one_step_complete_msg.acct_sent, align 1
   br label %30
@@ -1387,20 +1387,20 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 4), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 96), align 8
   %35 = tail call ptr @slurm_strerror(i32 noundef %spec.select) #15
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__._one_step_complete_msg, i32 noundef %.023, i32 noundef %.024, i32 noundef %34, i32 noundef %spec.select, ptr noundef %35) #15
   br label %36
 
 36:                                               ; preds = %33, %30
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #15
-  %37 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 171), align 8
+  %37 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %4, i32 noundef %37) #15
   %38 = getelementptr inbounds i8, ptr %4, i64 204
   store i16 5016, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %39, align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 4), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 96), align 8
   %.not = icmp eq i32 %40, -1
   %41 = call i32 @get_log_level() #15
   %42 = icmp sgt i32 %41, 6
@@ -1410,21 +1410,21 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %42, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 4), align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 5), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 96), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 104), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.45, i32 noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %.023, i32 noundef %.024) #15
   br label %48
 
 48:                                               ; preds = %44, %43
-  %49 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 5), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 104), align 8
   %50 = call i32 @slurm_conf_get_addr(ptr noundef %49, ptr noundef nonnull %4, i16 noundef zeroext 0) #15
   %.not26 = icmp eq i32 %50, 0
   br i1 %.not26, label %.lr.ph, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 5), align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 4), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 104), align 8
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 96), align 8
   %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__._one_step_complete_msg, ptr noundef %52, i32 noundef %53) #15
   br label %._crit_edge
 
@@ -1460,7 +1460,7 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %66, %._crit_edge
   %.str.48.sink = phi ptr [ @.str.47, %._crit_edge ], [ @.str.48, %66 ]
-  %67 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull %.str.48.sink, i32 noundef %67, i32 noundef %.023, i32 noundef %.024) #15
   br label %68
 
@@ -1477,7 +1477,7 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %.lr.ph31
-  %75 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, i32 noundef %75) #15
   br label %77
 
@@ -1497,7 +1497,7 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %82
-  %86 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %86 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.50, i32 noundef %86) #15
   br label %.loopexit
 
@@ -1870,13 +1870,13 @@ define dso_local i32 @job_manager(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not123.i, label %.thread.i, label %162
 
 162:                                              ; preds = %161
-  %163 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 75), align 8
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 536), align 8
   %164 = call ptr @xstrcasestr(ptr noundef %163, ptr noundef nonnull @.str.87) #15
   %.not.i.i = icmp eq ptr %164, null
   br i1 %.not.i.i, label %_need_join_container.exit.i, label %165
 
 165:                                              ; preds = %162
-  %166 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 219), align 8
+  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1512), align 8
   %167 = call ptr @xstrcasestr(ptr noundef %166, ptr noundef nonnull @.str.88) #15
   %.not1.i.i = icmp eq ptr %167, null
   br i1 %.not1.i.i, label %168, label %_need_join_container.exit.i
@@ -1995,7 +1995,7 @@ _need_join_container.exit.i:                      ; preds = %165, %162
   %220 = call i32 @jobacct_gather_set_proctrack_container_id(i64 noundef %219) #15
   %221 = call i32 @jobacct_gather_add_task(i32 noundef %191, ptr noundef nonnull %21, i32 noundef 1) #15
   call void @set_job_state(ptr noundef nonnull %0, i32 noundef 2)
-  %222 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 64), align 8
+  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
   %.not128.i = icmp eq ptr %222, null
   br i1 %.not128.i, label %223, label %225
 
@@ -2010,7 +2010,7 @@ _need_join_container.exit.i:                      ; preds = %165, %162
 
 228:                                              ; preds = %225
   %229 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.73) #15
-  %230 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %230 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not129.i = icmp eq i32 %230, 0
   br i1 %.not129.i, label %233, label %231
 
@@ -2021,16 +2021,16 @@ _need_join_container.exit.i:                      ; preds = %165, %162
   unreachable
 
 233:                                              ; preds = %228
-  %234 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %234 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %.not130.i = icmp eq i32 %234, 0
   br i1 %.not130.i, label %235, label %236
 
 235:                                              ; preds = %233
-  store i32 -1, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %236
 
 236:                                              ; preds = %235, %233
-  %237 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %237 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not131.i = icmp eq i32 %237, 0
   br i1 %.not131.i, label %.preheader.i, label %241
 
@@ -2172,7 +2172,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %293, %291
 ._crit_edge.i:                                    ; preds = %_local_jobacctinfo_aggregate.exit.i, %.critedge.i
   %307 = call i32 @acct_gather_profile_g_task_end(i32 noundef %191) #15
   %308 = load i32, ptr %215, align 4
-  store i32 %308, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  store i32 %308, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   call void @acct_gather_profile_endpoll() #15
   %309 = call i32 @acct_gather_profile_g_node_step_end() #15
   call void @set_job_state(ptr noundef %0, i32 noundef 4)
@@ -2270,7 +2270,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %293, %291
 
 353:                                              ; preds = %352, %349
   call void @set_job_state(ptr noundef nonnull %0, i32 noundef 4)
-  %354 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %354 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %355 = icmp sgt i32 %354, -1
   br i1 %355, label %356, label %357
 
@@ -2280,13 +2280,13 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %293, %291
 
 357:                                              ; preds = %356, %353
   %358 = icmp eq i32 %.3.i, 0
-  %359 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %359 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %360 = icmp ne i32 %359, 0
   %or.cond.i = select i1 %358, i1 true, i1 %360
   br i1 %or.cond.i, label %362, label %361
 
 361:                                              ; preds = %357
-  store i32 %.3.i, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 %.3.i, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %362
 
 362:                                              ; preds = %361, %357
@@ -2825,7 +2825,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   %613 = getelementptr inbounds i8, ptr %0, i64 368
   %614 = load i32, ptr %613, align 8
   %615 = icmp eq i32 %614, 0
-  %616 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %616 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %617 = icmp eq i32 %614, %616
   %or.cond.i.i = select i1 %615, i1 true, i1 %617
   br i1 %or.cond.i.i, label %618, label %619
@@ -2835,7 +2835,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   br label %622
 
 619:                                              ; preds = %612
-  %620 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 170), align 8
+  %620 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1160), align 8
   %621 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.118, ptr noundef %620) #15
   %.pre.i184.i = load ptr, ptr @conf, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i184.i, i64 4388
@@ -2922,7 +2922,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   %668 = load ptr, ptr %667, align 8
   %669 = getelementptr inbounds i8, ptr %668, i64 148
   store i32 %.1201.i, ptr %669, align 4
-  %670 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %670 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not177.i = icmp eq i32 %670, 0
   br i1 %.not177.i, label %673, label %671
 
@@ -2933,8 +2933,8 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   unreachable
 
 673:                                              ; preds = %.thread.i142
-  store i32 %.1201.i, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
-  %674 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  store i32 %.1201.i, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
+  %674 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not178.i = icmp eq i32 %674, 0
   br i1 %.not178.i, label %677, label %675
 
@@ -2966,7 +2966,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   %686 = getelementptr inbounds i8, ptr %0, i64 776
   %687 = load ptr, ptr %686, align 8
   %688 = icmp eq ptr %687, null
-  %689 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 57), align 8
+  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 408), align 8
   %690 = icmp ne ptr %689, null
   %or.cond.i143 = select i1 %688, i1 %690, i1 false
   br i1 %or.cond.i143, label %691, label %698
@@ -2977,12 +2977,12 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   br i1 %693, label %694, label %696
 
 694:                                              ; preds = %691
-  %695 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 57), align 8
+  %695 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 408), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.95, ptr noundef %695) #15
   br label %696
 
 696:                                              ; preds = %694, %691
-  %697 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 57), align 8
+  %697 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 408), align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %686, ptr noundef nonnull @.str.96, ptr noundef %697) #15
   %.pr.i150 = load ptr, ptr %686, align 8
   br label %698
@@ -3052,7 +3052,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   %734 = load ptr, ptr %733, align 8
   %735 = getelementptr inbounds i8, ptr %734, i64 147
   store i8 1, ptr %735, align 1
-  %736 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %736 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not173.i = icmp eq i32 %736, 0
   br i1 %.not173.i, label %739, label %737
 
@@ -3063,16 +3063,16 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   unreachable
 
 739:                                              ; preds = %728
-  %740 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %740 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %.not174.i = icmp eq i32 %740, 0
   br i1 %.not174.i, label %741, label %742
 
 741:                                              ; preds = %739
-  store i32 -1, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %742
 
 742:                                              ; preds = %741, %739
-  %743 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %743 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not175.i = icmp eq i32 %743, 0
   br i1 %.not175.i, label %1055, label %744
 
@@ -3140,7 +3140,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   br label %776
 
 776:                                              ; preds = %775, %774
-  %777 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 141), align 8
+  %777 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 944), align 8
   %.not171.i = icmp eq i16 %777, 0
   br i1 %.not171.i, label %_set_prio_process.exit.i, label %778
 
@@ -3162,7 +3162,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
 
 786:                                              ; preds = %783, %781
   %.0.i186.i = phi i32 [ %785, %783 ], [ 0, %781 ]
-  %787 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 141), align 8
+  %787 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 944), align 8
   %788 = icmp eq i16 %787, 2
   br i1 %788, label %789, label %793
 
@@ -3579,7 +3579,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
 
 1012:                                             ; preds = %1009
   %1013 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.112, i32 noundef %1004) #15
-  %1014 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %1014 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not167.i = icmp eq i32 %1014, 0
   br i1 %.not167.i, label %1017, label %1015
 
@@ -3590,16 +3590,16 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   unreachable
 
 1017:                                             ; preds = %1012
-  %1018 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %1018 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %.not168.i = icmp eq i32 %1018, 0
   br i1 %.not168.i, label %1019, label %1020
 
 1019:                                             ; preds = %1017
-  store i32 -1, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %1020
 
 1020:                                             ; preds = %1019, %1017
-  %1021 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %1021 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not169.i = icmp eq i32 %1021, 0
   br i1 %.not169.i, label %1024, label %1022
 
@@ -3763,7 +3763,7 @@ _fork_all_tasks.exit:                             ; preds = %473, %677, %.thread
   call void @io_close_task_fds(ptr noundef %0) #15
   %1077 = call i32 @getpid() #15
   call void @attach_system_cgroup_pid(i32 noundef %1077) #15
-  %1078 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 64), align 8
+  %1078 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
   %.not127 = icmp eq ptr %1078, null
   br i1 %.not127, label %1079, label %1081
 
@@ -4048,7 +4048,7 @@ _wait_for_io.exit:                                ; preds = %1146
   %.2167 = phi i32 [ %.2166, %1194 ], [ 0, %1193 ]
   %1198 = load i8, ptr %56, align 1
   %1199 = trunc i8 %1198 to i1
-  %1200 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
+  %1200 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %1201 = icmp slt i32 %1200, 0
   %or.cond7.not = select i1 %1199, i1 true, i1 %1201
   br i1 %or.cond7.not, label %1216, label %1202
@@ -4073,13 +4073,13 @@ _wait_for_io.exit:                                ; preds = %1146
   br label %1211
 
 1211:                                             ; preds = %1206, %1209, %1210
-  %1212 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %1212 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %1213 = icmp ne i32 %1212, 0
   %or.cond9 = select i1 %.not138169, i1 true, i1 %1213
   br i1 %or.cond9, label %1215, label %1214
 
 1214:                                             ; preds = %1211
-  store i32 %.2167, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 %.2167, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %1215
 
 1215:                                             ; preds = %1214, %1211
@@ -4492,7 +4492,7 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   br i1 %73, label %74, label %_random_sleep.exit.i
 
 74:                                               ; preds = %66
-  %75 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 209), align 8
+  %75 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1440), align 8
   %76 = zext i16 %75 to i32
   %77 = mul i32 %72, %76
   %78 = call i32 @llvm.umin.i32(i32 %77, i32 5000)
@@ -4692,13 +4692,13 @@ define internal noalias noundef ptr @_x11_signal_handler(ptr noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 75), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 536), align 8
   %19 = call ptr @xstrcasestr(ptr noundef %18, ptr noundef nonnull @.str.87) #15
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_need_join_container.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 219), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1512), align 8
   %22 = call ptr @xstrcasestr(ptr noundef %21, ptr noundef nonnull @.str.88) #15
   %.not1.i = icmp eq ptr %22, null
   br i1 %.not1.i, label %33, label %_need_join_container.exit
@@ -5847,7 +5847,7 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
   br label %177
 
 177:                                              ; preds = %172, %175, %_log_task_exit.exit
-  %178 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 205), align 8
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1408), align 8
   %.not93 = icmp eq ptr %178, null
   br i1 %.not93, label %184, label %179
 
@@ -5898,7 +5898,7 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
   br i1 %.not97, label %job_task_info_by_pid.exit.thread, label %.thread108
 
 .thread108:                                       ; preds = %196, %194, %197
-  %198 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %198 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not98 = icmp eq i32 %198, 0
   br i1 %.not98, label %201, label %199
 
@@ -5909,17 +5909,17 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
   unreachable
 
 201:                                              ; preds = %.thread108
-  %202 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  %202 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   %.not99 = icmp eq i32 %202, 0
   br i1 %.not99, label %203, label %205
 
 203:                                              ; preds = %201
   %204 = load i32, ptr %130, align 4
-  store i32 %204, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 10), align 8
+  store i32 %204, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
   br label %205
 
 205:                                              ; preds = %201, %203
-  %206 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 1)) #15
+  %206 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not100 = icmp eq i32 %206, 0
   br i1 %.not100, label %job_task_info_by_pid.exit.thread, label %207
 

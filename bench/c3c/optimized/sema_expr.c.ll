@@ -6299,7 +6299,7 @@ sema_analyse_ct_expr.exit85:                      ; preds = %139
   br label %sema_analyse_ct_expr.exit.thread
 
 196:                                              ; preds = %192
-  %197 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 24), align 8
+  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 368), align 8
   %.not78 = icmp eq ptr %197, null
   br i1 %.not78, label %198, label %.thread100
 
@@ -6358,12 +6358,12 @@ sema_analyse_ct_expr.exit85:                      ; preds = %139
   br i1 %223, label %.thread102, label %218
 
 .thread102:                                       ; preds = %219
-  store ptr %221, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 24), align 8
+  store ptr %221, ptr getelementptr inbounds (i8, ptr @global_context, i64 368), align 8
   br label %.thread100
 
 .loopexit:                                        ; preds = %218, %211, %214, %202, %206, %.thread
   %.070 = phi ptr [ %205, %206 ], [ %205, %202 ], [ %201, %.thread ], [ %205, %214 ], [ %205, %211 ], [ %205, %218 ]
-  store ptr %.070, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 24), align 8
+  store ptr %.070, ptr getelementptr inbounds (i8, ptr @global_context, i64 368), align 8
   %.not82 = icmp eq ptr %.070, null
   br i1 %.not82, label %.critedge4, label %.thread100
 
@@ -6398,7 +6398,7 @@ sema_analyse_ct_expr.exit85:                      ; preds = %139
   store i16 %240, ptr %171, align 8
   %241 = load ptr, ptr @type_wildcard_optional, align 8
   store ptr %241, ptr %1, align 8
-  %242 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 24), align 8
+  %242 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 368), align 8
   store ptr %242, ptr %180, align 8
   %243 = load i16, ptr %11, align 8
   %244 = and i16 %243, -3841
@@ -10375,7 +10375,7 @@ sema_identifier_find_possible_inferred.exit:      ; preds = %42
   %76 = getelementptr inbounds i8, ptr %62, i64 56
   %77 = load ptr, ptr %76, align 8
   %.not84 = icmp eq ptr %77, null
-  %. = select i1 %.not84, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %77
+  %. = select i1 %.not84, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %77
   %78 = load ptr, ptr %., align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
@@ -14557,7 +14557,7 @@ type_flatten.exit186:                             ; preds = %141
   unreachable
 
 .thread:                                          ; preds = %12
-  %209 = tail call ptr @htable_get(ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 15), ptr noundef %5) #13
+  %209 = tail call ptr @htable_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 112), ptr noundef %5) #13
   %.not = icmp eq ptr %209, null
   br i1 %.not, label %210, label %214
 
@@ -14578,7 +14578,7 @@ type_flatten.exit186:                             ; preds = %141
   br label %305
 
 216:                                              ; preds = %13
-  %217 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %217 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %218 = trunc i8 %217 to i1
   br i1 %218, label %231, label %219
 
@@ -14615,7 +14615,7 @@ type_flatten.exit186:                             ; preds = %141
   br label %305
 
 238:                                              ; preds = %13
-  %239 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 32), align 1
+  %239 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
   %240 = trunc i8 %239 to i1
   br i1 %240, label %253, label %241
 
@@ -14652,7 +14652,7 @@ type_flatten.exit186:                             ; preds = %141
   br label %305
 
 260:                                              ; preds = %13
-  %261 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %261 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %262 = trunc i8 %261 to i1
   br i1 %262, label %275, label %263
 
@@ -14689,7 +14689,7 @@ type_flatten.exit186:                             ; preds = %141
   br label %305
 
 282:                                              ; preds = %13
-  %283 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 33), align 2
+  %283 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
   %284 = trunc i8 %283 to i1
   br i1 %284, label %297, label %285
 
@@ -20980,7 +20980,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   %535 = getelementptr inbounds i8, ptr %525, i64 56
   %536 = load ptr, ptr %535, align 8
   %.not505 = icmp eq ptr %536, null
-  %.526 = select i1 %.not505, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %536
+  %.526 = select i1 %.not505, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %536
   %537 = load ptr, ptr %.526, align 8
   %538 = load ptr, ptr %537, align 8
   %539 = getelementptr inbounds i8, ptr %538, i64 8
@@ -20988,7 +20988,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   %541 = getelementptr inbounds i8, ptr %532, i64 56
   %542 = load ptr, ptr %541, align 8
   %.not506 = icmp eq ptr %542, null
-  %.in507 = select i1 %.not506, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %542
+  %.in507 = select i1 %.not506, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %542
   %543 = load ptr, ptr %.in507, align 8
   %544 = load ptr, ptr %543, align 8
   %545 = getelementptr inbounds i8, ptr %544, i64 8
@@ -21170,7 +21170,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   %633 = getelementptr inbounds i8, ptr %.1, i64 56
   %634 = load ptr, ptr %633, align 8
   %.not514 = icmp eq ptr %634, null
-  %.529 = select i1 %.not514, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %634
+  %.529 = select i1 %.not514, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %634
   %635 = load ptr, ptr %.529, align 8
   %636 = load ptr, ptr %635, align 8
   %637 = getelementptr inbounds i8, ptr %636, i64 8
@@ -21178,7 +21178,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   %639 = getelementptr inbounds i8, ptr %630, i64 56
   %640 = load ptr, ptr %639, align 8
   %.not516 = icmp eq ptr %640, null
-  %.in517 = select i1 %.not516, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %640
+  %.in517 = select i1 %.not516, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %640
   %641 = load ptr, ptr %.in517, align 8
   %642 = load ptr, ptr %641, align 8
   %643 = getelementptr inbounds i8, ptr %642, i64 8
@@ -22699,7 +22699,7 @@ decl_is_var_local.exit.thread:                    ; preds = %84, %decl_is_var_lo
   tail call void @scratch_buffer_clear() #13
   %99 = load ptr, ptr %80, align 8
   %.not36 = icmp eq ptr %99, null
-  %. = select i1 %.not36, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %99
+  %. = select i1 %.not36, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %99
   %100 = load ptr, ptr %., align 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 8
@@ -22755,7 +22755,7 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_feature(ptr nocapture no
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %12, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @htable_get(ptr noundef nonnull getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 16), ptr noundef %25) #13
+  %26 = tail call ptr @htable_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 128), ptr noundef %25) #13
   %27 = load ptr, ptr @type_bool, align 8
   %28 = icmp ne ptr %26, null
   %29 = zext i1 %28 to i8
@@ -23145,7 +23145,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %179 = getelementptr inbounds i8, ptr %176, i64 56
   %180 = load ptr, ptr %179, align 8
   %.not136 = icmp eq ptr %180, null
-  %. = select i1 %.not136, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %180
+  %. = select i1 %.not136, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %180
   %181 = load ptr, ptr %., align 8
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 8
@@ -23153,7 +23153,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %185 = getelementptr inbounds i8, ptr %177, i64 56
   %186 = load ptr, ptr %185, align 8
   %.not137 = icmp eq ptr %186, null
-  %.in138 = select i1 %.not137, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %186
+  %.in138 = select i1 %.not137, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %186
   %187 = load ptr, ptr %.in138, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 8
@@ -27969,7 +27969,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
   %113 = getelementptr inbounds i8, ptr %103, i64 56
   %114 = load ptr, ptr %113, align 8
   %.not101 = icmp eq ptr %114, null
-  %. = select i1 %.not101, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %114
+  %. = select i1 %.not101, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %114
   %115 = load ptr, ptr %., align 8
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 8
@@ -27977,7 +27977,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
   %119 = getelementptr inbounds i8, ptr %110, i64 56
   %120 = load ptr, ptr %119, align 8
   %.not102 = icmp eq ptr %120, null
-  %.in103 = select i1 %.not102, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 1), ptr %120
+  %.in103 = select i1 %.not102, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %120
   %121 = load ptr, ptr %.in103, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 8

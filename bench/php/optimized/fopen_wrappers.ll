@@ -66,7 +66,7 @@ define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, 
   ]
 
 11:                                               ; preds = %6, %6, %6, %6
-  %12 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 96), align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %16
 
@@ -80,7 +80,7 @@ define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, 
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = select i1 %.not256, ptr null, ptr %17
   store ptr %18, ptr %10, align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 96), align 8
   br label %163
 
 19:                                               ; preds = %6
@@ -348,7 +348,7 @@ define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, 
   %.0215 = phi ptr [ %140, %139 ], [ %142, %141 ]
   %144 = getelementptr inbounds i8, ptr %.0215, i64 24
   %145 = call noalias ptr @_estrdup(ptr noundef nonnull %144) #16
-  %146 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
+  %146 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 96), align 8
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %150
 
@@ -359,7 +359,7 @@ define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, 
 
 150:                                              ; preds = %148, %143
   store ptr %145, ptr %10, align 8
-  store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @core_globals, i64 96), align 8
   %151 = getelementptr inbounds i8, ptr %.0215, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
@@ -411,7 +411,7 @@ define ptr @expand_filepath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 18), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %28, label %4
 
@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0, i32 nound
   br i1 %.not23, label %26, label %24
 
 24:                                               ; preds = %.critedge
-  %25 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 18), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef %25) #16
   br label %26
 
@@ -703,8 +703,8 @@ declare ptr @__errno_location() local_unnamed_addr #7
 define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 5), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 48), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 72), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %40, label %5
 
@@ -751,7 +751,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br i1 %.not250, label %28, label %88
 
 28:                                               ; preds = %25, %19
-  %29 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %.not251 = icmp eq ptr %29, null
   br i1 %.not251, label %.thread278.thread, label %30
 
@@ -774,7 +774,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br label %.thread265
 
 40:                                               ; preds = %12, %9, %5, %1
-  %41 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 15), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 64), align 8
   %42 = icmp ne ptr %41, null
   %43 = icmp ne ptr %3, null
   %or.cond3 = select i1 %42, i1 %43, i1 false
@@ -805,7 +805,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   %58 = getelementptr inbounds i8, ptr %55, i64 16
   store i64 %52, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %55, i64 24
-  %60 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 15), align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 64), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr align 1 %60, i64 %45, i1 false)
   %61 = add i64 %45, -1
   %62 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %61
@@ -833,7 +833,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br label %.thread265
 
 76:                                               ; preds = %46, %44, %40
-  %77 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %.not247 = icmp eq ptr %77, null
   br i1 %.not247, label %.thread278.thread, label %78
 
@@ -856,7 +856,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br label %.thread265
 
 88:                                               ; preds = %25
-  %89 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 16), align 8
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 72), align 8
   %90 = getelementptr inbounds i8, ptr %18, i64 1
   %91 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %27, i32 noundef 47, ptr noundef %89, i32 noundef 47, ptr noundef nonnull %90) #16
   %.not252 = icmp eq ptr %91, null
@@ -899,7 +899,7 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br label %.thread278
 
 .thread278:                                       ; preds = %88, %16, %94, %105, %106, %98
-  %.pr = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %.not256 = icmp eq ptr %.pr, null
   br i1 %.not256, label %.thread278.thread, label %.thread278.thread.sink.split
 
@@ -924,10 +924,10 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
   br label %117
 
 117:                                              ; preds = %111, %116, %107
-  %118 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 3), align 2
+  %118 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 10), align 2
   %119 = icmp ne i8 %118, 0
   %120 = zext i1 %119 to i8
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 3), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 10), align 2
   tail call void @zend_stream_init_filename_ex(ptr noundef nonnull %0, ptr noundef nonnull %.0228268) #16
   %121 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 1, ptr %121, align 1
@@ -948,18 +948,18 @@ define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unna
 129:                                              ; preds = %117, %125
   %130 = tail call i32 @zend_stream_open(ptr noundef nonnull %0) #16
   %131 = icmp eq i32 %130, -1
-  store i8 %120, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 3), align 2
+  store i8 %120, ptr getelementptr inbounds (i8, ptr @core_globals, i64 10), align 2
   br i1 %131, label %132, label %.thread278.thread
 
 132:                                              ; preds = %129
-  %133 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %.not259 = icmp eq ptr %133, null
   br i1 %.not259, label %.thread278.thread, label %.thread278.thread.sink.split
 
 .thread278.thread.sink.split:                     ; preds = %132, %.thread278
   %.sink = phi ptr [ %.pr, %.thread278 ], [ %133, %132 ]
   tail call void @_efree(ptr noundef nonnull %.sink) #16
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   br label %.thread278.thread
 
 .thread278.thread:                                ; preds = %.thread278.thread.sink.split, %129, %76, %28, %132, %.thread278
@@ -1291,7 +1291,7 @@ tsrm_realpath_str.exit309.backedge:               ; preds = %127, %144, %111, %1
   br label %tsrm_realpath_str.exit
 
 144:                                              ; preds = %131
-  %145 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not281 = icmp eq ptr %145, null
   br i1 %.not281, label %tsrm_realpath_str.exit309.backedge, label %tsrm_realpath_str.exit
 
@@ -1846,7 +1846,7 @@ define ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef writeonly %1, 
   br label %34
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 4), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   %19 = call ptr @getcwd(ptr noundef nonnull %7, i64 noundef 4096) #16
   %20 = icmp ne ptr %19, null
   %.not45 = icmp eq ptr %18, %0

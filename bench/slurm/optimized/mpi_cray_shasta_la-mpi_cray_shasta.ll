@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 189), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1296), align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @slurm_conf_expand_slurmd_path(ptr noundef %5, ptr noundef %7, ptr noundef %7) #9

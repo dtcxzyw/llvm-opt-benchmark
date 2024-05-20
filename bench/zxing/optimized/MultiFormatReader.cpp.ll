@@ -201,7 +201,7 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
   store ptr %1, ptr %41, align 8, !tbaa !3
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   store i8 1, ptr %42, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing6QRCode6ReaderE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing6QRCode6ReaderE, i64 16), ptr %39, align 8, !tbaa !12
   store ptr %39, ptr %4, align 8, !tbaa !3
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6QRCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #17
           to label %44 unwind label %45
@@ -231,7 +231,7 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
   store ptr %1, ptr %53, align 8, !tbaa !3
   %54 = getelementptr inbounds i8, ptr %51, i64 16
   store i8 1, ptr %54, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing10DataMatrix6ReaderE, i64 0, i32 0, i64 2), ptr %51, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing10DataMatrix6ReaderE, i64 16), ptr %51, align 8, !tbaa !12
   store ptr %51, ptr %5, align 8, !tbaa !3
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_10DataMatrix6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
           to label %56 unwind label %57
@@ -261,7 +261,7 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
   store ptr %1, ptr %65, align 8, !tbaa !3
   %66 = getelementptr inbounds i8, ptr %63, i64 16
   store i8 1, ptr %66, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing5Aztec6ReaderE, i64 0, i32 0, i64 2), ptr %63, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing5Aztec6ReaderE, i64 16), ptr %63, align 8, !tbaa !12
   store ptr %63, ptr %6, align 8, !tbaa !3
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_5Aztec6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
           to label %68 unwind label %69
@@ -291,7 +291,7 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
   store ptr %1, ptr %77, align 8, !tbaa !3
   %78 = getelementptr inbounds i8, ptr %75, i64 16
   store i8 0, ptr %78, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing6Pdf4176ReaderE, i64 0, i32 0, i64 2), ptr %75, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing6Pdf4176ReaderE, i64 16), ptr %75, align 8, !tbaa !12
   store ptr %75, ptr %7, align 8, !tbaa !3
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6Pdf4176ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
           to label %80 unwind label %81
@@ -321,7 +321,7 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
   store ptr %1, ptr %89, align 8, !tbaa !3
   %90 = getelementptr inbounds i8, ptr %87, i64 16
   store i8 0, ptr %90, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing8MaxiCode6ReaderE, i64 0, i32 0, i64 2), ptr %87, align 8, !tbaa !12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5ZXing8MaxiCode6ReaderE, i64 16), ptr %87, align 8, !tbaa !12
   store ptr %87, ptr %8, align 8, !tbaa !3
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_8MaxiCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
           to label %92 unwind label %93

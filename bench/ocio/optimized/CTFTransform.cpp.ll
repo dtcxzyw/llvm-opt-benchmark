@@ -2356,7 +2356,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_4de
 define hidden void @_ZN19OpenColorIO_v2_4dev15TransformWriterC2ERNS_12XmlFormatterESt10shared_ptrIKNS_18CTFReaderTransformEEb(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr nocapture noundef readonly %transform, i1 noundef zeroext %isCLF) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 16), ptr %this, align 8
   %m_transform = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %transform, align 8
   store ptr %0, ptr %m_transform, align 8
@@ -2395,7 +2395,7 @@ declare void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev15TransformWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -2480,7 +2480,7 @@ declare void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterD2Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev15TransformWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -2604,7 +2604,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load <2 x i32>, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8
   store <2 x i32> %0, ptr %writeVersion, align 8
   %m_revision.i = getelementptr inbounds i8, ptr %writeVersion, i64 8
-  %1 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8
   store i32 %1, ptr %m_revision.i, align 8
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %fversion)
           to label %invoke.cont5 unwind label %lpad4
@@ -2696,8 +2696,8 @@ if.else:                                          ; preds = %invoke.cont5
   %10 = getelementptr i8, ptr %m_transform.val, i64 288
   %m_transform.val.val21 = load ptr, ptr %10, align 8
   %11 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, align 4, !noalias !22
-  %12 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !22
-  %13 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !22
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !22
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !22
   %cmp.i.not10.i = icmp eq ptr %m_transform.val.val, %m_transform.val.val21
   br i1 %cmp.i.not10.i, label %invoke.cont16, label %for.body.lr.ph.i
 
@@ -2750,8 +2750,8 @@ sw.bb.i.i:                                        ; preds = %call1.i3.i.noexc
 
 sw.bb3.i.i:                                       ; preds = %call1.i3.i.noexc
   %20 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, align 4, !noalias !25
-  %21 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
-  %22 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   %23 = load ptr, ptr %__begin2.sroa.0.011.i, align 8, !noalias !28
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, label %dynamic_cast.end.i.i.i
@@ -2799,8 +2799,8 @@ lor.lhs.false.i.i:                                ; preds = %_ZSt20dynamic_point
 
 if.then.i16.i.i:                                  ; preds = %lor.lhs.false.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %32 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8, !noalias !25
-  %33 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4, !noalias !25
-  %34 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8, !noalias !25
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4, !noalias !25
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8, !noalias !25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i16.i.i, %lor.lhs.false.i.i
@@ -2880,8 +2880,8 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb14.i.i:                                      ; preds = %call1.i3.i.noexc
   %45 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8, !noalias !25
-  %46 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4, !noalias !25
-  %47 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8, !noalias !25
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4, !noalias !25
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8, !noalias !25
   %48 = load ptr, ptr %__begin2.sroa.0.011.i, align 8, !noalias !32, !nonnull !35, !noundef !35
   %49 = call ptr @__dynamic_cast(ptr nonnull %48, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev19FixedFunctionOpDataE, i64 0) #25, !noalias !36
   %tobool.not.i29.i.i = icmp ne ptr %49, null
@@ -2991,8 +2991,8 @@ if.end8.sink.split.i.i.i.i70.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb26.i.i:                                      ; preds = %call1.i3.i.noexc, %call1.i3.i.noexc, %call1.i3.i.noexc, %call1.i3.i.noexc
   %68 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8, !noalias !25
-  %69 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4, !noalias !25
-  %70 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8, !noalias !25
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4, !noalias !25
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8, !noalias !25
   br label %invoke.cont.i
 
 sw.bb28.i.i:                                      ; preds = %call1.i3.i.noexc
@@ -3029,11 +3029,11 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev14ExponentOpDataEKNS0_6OpDataE
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val9.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.0, align 4
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val9.i = zext i1 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val9.i.b to i32
   %78 = select i1 %cmp30.i.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E.val8.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val9.i
-  %.val339.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
+  %.val339.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
   %.val340.i.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.1, align 4
   %.val340.i.i = select i1 %.val340.i.i.b, i32 5, i32 0
   %79 = select i1 %cmp30.i.i, i32 %.val339.i.i, i32 %.val340.i.i
-  %.val341.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %.val341.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   %80 = select i1 %cmp30.i.i, i32 %.val341.i.i, i32 0
   br i1 %cmp.not.i.i.i.i90.i.i, label %invoke.cont.i, label %if.then.i.i.i108.i.i
 
@@ -3161,11 +3161,11 @@ invoke.cont38.i.i:                                ; preds = %sw.bb35.i.i
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.0, align 4
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val.i = zext i1 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val.i.b to i32
   %99 = select i1 %call39.i.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E.val7.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.val.i
-  %.val335.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
+  %.val335.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
   %.val336.i.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.1, align 4
   %.val336.i.i = select i1 %.val336.i.i.b, i32 5, i32 0
   %100 = select i1 %call39.i.i, i32 %.val335.i.i, i32 %.val336.i.i
-  %.val337.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %.val337.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   %101 = select i1 %call39.i.i, i32 %.val337.i.i, i32 0
   br label %sw.epilog.i.i
 
@@ -3177,8 +3177,8 @@ lpad37.i.i:                                       ; preds = %sw.bb35.i.i
 
 sw.bb45.i.i:                                      ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %103 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8, !noalias !25
-  %104 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4, !noalias !25
-  %105 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8, !noalias !25
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4, !noalias !25
+  %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8, !noalias !25
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb45.i.i, %invoke.cont38.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11GammaOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
@@ -3307,11 +3307,11 @@ sw.bb52.i.i:                                      ; preds = %_ZSt20dynamic_point
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.val.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.0, align 4
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.val.i = zext i1 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.val.i.b to i32
   %126 = select i1 %cmp55.not.i.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E.val.i, i32 %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.val.i
-  %.val.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
+  %.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
   %.val332.i.i.b = load i1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.1, align 4
   %.val332.i.i = select i1 %.val332.i.i.b, i32 4, i32 0
   %127 = select i1 %cmp55.not.i.i, i32 %.val.i.i, i32 %.val332.i.i
-  %.val333.i.i = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %.val333.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   %128 = select i1 %cmp55.not.i.i, i32 %.val333.i.i, i32 0
   br label %sw.epilog73.i.i
 
@@ -3452,8 +3452,8 @@ sw.bb82.i.i:                                      ; preds = %_ZSt20dynamic_point
 
 sw.epilog84.sink.split.i.i:                       ; preds = %sw.bb82.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E.sink.i.i = phi ptr [ @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, %sw.bb82.i.i ], [ @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ]
-  %.sink347.i.i = phi ptr [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 0, i32 1), %sw.bb82.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ]
-  %.sink345.i.i = phi ptr [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 0, i32 2), %sw.bb82.i.i ], [ getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ]
+  %.sink347.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 4), %sw.bb82.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ]
+  %.sink345.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 8), %sw.bb82.i.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ]
   %151 = load i32, ptr %_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E.sink.i.i, align 4, !noalias !25
   %152 = load i32, ptr %.sink347.i.i, align 4, !noalias !25
   %153 = load i32, ptr %.sink345.i.i, align 4, !noalias !25
@@ -3535,8 +3535,8 @@ if.end8.sink.split.i.i.i.i305.i.i:                ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb85.i.i:                                      ; preds = %call1.i3.i.noexc, %call1.i3.i.noexc
   %164 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, align 4, !noalias !25
-  %165 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
-  %166 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %165 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
+  %166 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   br label %invoke.cont.i
 
 sw.bb87.i.i:                                      ; preds = %call1.i3.i.noexc
@@ -3559,8 +3559,8 @@ lpad88.i.i:                                       ; preds = %sw.bb87.i.i
 
 sw.bb90.i.i:                                      ; preds = %call1.i3.i.noexc
   %168 = load i32, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, align 4, !noalias !25
-  %169 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4, !noalias !25
-  %170 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4, !noalias !25
+  %169 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4, !noalias !25
+  %170 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4, !noalias !25
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %sw.bb90.i.i, %sw.bb85.i.i, %if.end8.sink.split.i.i.i.i305.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i302.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i292.i.i, %sw.epilog84.i.i, %if.end8.sink.split.i.i.i.i248.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i245.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i235.i.i, %sw.epilog73.i.i, %if.end8.sink.split.i.i.i.i187.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i184.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i174.i.i, %sw.epilog.i.i, %if.end8.sink.split.i.i.i.i128.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev14ExponentOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb26.i.i, %if.end8.sink.split.i.i.i.i70.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i67.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i57.i.i, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end.i.i, %sw.bb.i.i, %call1.i3.i.noexc
@@ -5150,7 +5150,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEEC2ERKS3_.exit: ; preds = %_
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i, align 8
   store i32 0, ptr %m_outBitDepth.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 0, i32 0, i64 2), ptr %opWriter, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 16), ptr %opWriter, align 8
   %58 = load ptr, ptr %agg.tmp23, align 8
   store ptr %58, ptr %m_cdl.i, align 8
   %59 = load ptr, ptr %_M_refcount.i.i165, align 8
@@ -5252,7 +5252,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEED2Ev.exit: ; preds = %.noex
           to label %invoke.cont29 unwind label %lpad26
 
 invoke.cont29:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 0, i32 0, i64 2), ptr %opWriter, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 16), ptr %opWriter, align 8
   %73 = load ptr, ptr %_M_refcount.i.i.i174, align 8
   %cmp.not.i.i.i.i214 = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i.i214, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterD2Ev.exit, label %if.then.i.i.i.i215
@@ -5520,7 +5520,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont74
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !59
   %_M_weak_count.i.i.i.i.i.i299 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i301, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i299, align 4, !noalias !59
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i301, align 8, !noalias !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i301, align 8, !noalias !59
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i301, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpDataC1ERKNS0_5StyleERKSt6vectorIdSaIdEES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(24) %paramR, ptr noundef nonnull align 8 dereferenceable(24) %paramG, ptr noundef nonnull align 8 dereferenceable(24) %paramB, ptr noundef nonnull align 8 dereferenceable(24) %paramA)
           to label %invoke.cont78 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !59
@@ -5621,7 +5621,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2IS1_vEERKS_IT_E.exit: 
 .noexc324:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2IS1_vEERKS_IT_E.exit
   store i32 0, ptr %m_inBitDepth.i.i313, align 8
   store i32 0, ptr %m_outBitDepth.i.i314, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %opWriter102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %opWriter102, align 8
   %122 = load <2 x i32>, ptr %version, align 4
   store <2 x i32> %122, ptr %m_version.i, align 8
   %123 = load i32, ptr %m_revision4.i.i1693, align 4
@@ -5727,7 +5727,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev.exit: ; preds = %.n
           to label %invoke.cont111 unwind label %lpad108
 
 invoke.cont111:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %opWriter102, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %opWriter102, align 8
   %139 = load ptr, ptr %_M_refcount.i.i.i315, align 8
   %cmp.not.i.i.i.i359 = icmp eq ptr %139, null
   br i1 %cmp.not.i.i.i.i359, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterD2Ev.exit, label %if.then.i.i.i.i360
@@ -6142,7 +6142,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEEC2ERKS3_.exit
 .noexc515:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i504, align 8
   store i32 0, ptr %m_outBitDepth.i.i505, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 0, i32 0, i64 2), ptr %opWriter132, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 16), ptr %opWriter132, align 8
   %199 = load ptr, ptr %agg.tmp134, align 8
   store ptr %199, ptr %m_ec.i, align 8
   %200 = load ptr, ptr %_M_refcount.i.i495, align 8
@@ -6244,7 +6244,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEED2Ev.exit: ; 
           to label %invoke.cont141 unwind label %lpad138
 
 invoke.cont141:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 0, i32 0, i64 2), ptr %opWriter132, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 16), ptr %opWriter132, align 8
   %214 = load ptr, ptr %_M_refcount.i.i.i506, align 8
   %cmp.not.i.i.i.i550 = icmp eq ptr %214, null
   br i1 %cmp.not.i.i.i.i550, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterD2Ev.exit, label %if.then.i.i.i.i551
@@ -6505,7 +6505,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEEC2ERKS3_.exit: ;
 .noexc645:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i634, align 8
   store i32 0, ptr %m_outBitDepth.i.i635, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 0, i32 0, i64 2), ptr %opWriter157, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 16), ptr %opWriter157, align 8
   %255 = load ptr, ptr %agg.tmp159, align 8
   store ptr %255, ptr %m_ff.i, align 8
   %256 = load ptr, ptr %_M_refcount.i.i625, align 8
@@ -6607,7 +6607,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit: ; pre
           to label %invoke.cont166 unwind label %lpad163
 
 invoke.cont166:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 0, i32 0, i64 2), ptr %opWriter157, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 16), ptr %opWriter157, align 8
   %270 = load ptr, ptr %_M_refcount.i.i.i636, align 8
   %cmp.not.i.i.i.i680 = icmp eq ptr %270, null
   br i1 %cmp.not.i.i.i.i680, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterD2Ev.exit, label %if.then.i.i.i.i681
@@ -6871,7 +6871,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit: ; preds =
 .noexc781:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i764, align 8
   store i32 0, ptr %m_outBitDepth.i.i765, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %opWriter188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %opWriter188, align 8
   %308 = load <2 x i32>, ptr %version, align 4
   store <2 x i32> %308, ptr %m_version.i766, align 8
   %309 = load i32, ptr %m_revision4.i.i1693, align 4
@@ -6977,7 +6977,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev.exit814: ; preds = 
           to label %invoke.cont197 unwind label %lpad194
 
 invoke.cont197:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev.exit814
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %opWriter188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %opWriter188, align 8
   %325 = load ptr, ptr %_M_refcount.i.i.i772, align 8
   %cmp.not.i.i.i.i818 = icmp eq ptr %325, null
   br i1 %cmp.not.i.i.i.i818, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterD2Ev.exit848, label %if.then.i.i.i.i819
@@ -7238,7 +7238,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEC2ERKS3_.exit: 
 .noexc914:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i903, align 8
   store i32 0, ptr %m_outBitDepth.i.i904, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 0, i32 0, i64 2), ptr %opWriter213, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 16), ptr %opWriter213, align 8
   %366 = load ptr, ptr %agg.tmp215, align 8
   store ptr %366, ptr %m_primary.i, align 8
   %367 = load ptr, ptr %_M_refcount.i.i894, align 8
@@ -7340,7 +7340,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; pr
           to label %invoke.cont222 unwind label %lpad219
 
 invoke.cont222:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 0, i32 0, i64 2), ptr %opWriter213, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 16), ptr %opWriter213, align 8
   %381 = load ptr, ptr %_M_refcount.i.i.i905, align 8
   %cmp.not.i.i.i.i949 = icmp eq ptr %381, null
   br i1 %cmp.not.i.i.i.i949, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterD2Ev.exit, label %if.then.i.i.i.i950
@@ -7601,7 +7601,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEEC2ERKS3_.exit:
 .noexc1044:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i1033, align 8
   store i32 0, ptr %m_outBitDepth.i.i1034, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 0, i32 0, i64 2), ptr %opWriter238, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 16), ptr %opWriter238, align 8
   %422 = load ptr, ptr %agg.tmp240, align 8
   store ptr %422, ptr %m_curves.i, align 8
   %423 = load ptr, ptr %_M_refcount.i.i1024, align 8
@@ -7703,7 +7703,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEED2Ev.exit: ; p
           to label %invoke.cont247 unwind label %lpad244
 
 invoke.cont247:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 0, i32 0, i64 2), ptr %opWriter238, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 16), ptr %opWriter238, align 8
   %437 = load ptr, ptr %_M_refcount.i.i.i1035, align 8
   %cmp.not.i.i.i.i1079 = icmp eq ptr %437, null
   br i1 %cmp.not.i.i.i.i1079, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterD2Ev.exit, label %if.then.i.i.i.i1080
@@ -7964,7 +7964,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEEC2ERKS3_.exit: ; p
 .noexc1174:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i1163, align 8
   store i32 0, ptr %m_outBitDepth.i.i1164, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 0, i32 0, i64 2), ptr %opWriter263, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 16), ptr %opWriter263, align 8
   %478 = load ptr, ptr %agg.tmp265, align 8
   store ptr %478, ptr %m_tone.i, align 8
   %479 = load ptr, ptr %_M_refcount.i.i1154, align 8
@@ -8066,7 +8066,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEED2Ev.exit: ; preds
           to label %invoke.cont272 unwind label %lpad269
 
 invoke.cont272:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 0, i32 0, i64 2), ptr %opWriter263, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 16), ptr %opWriter263, align 8
   %493 = load ptr, ptr %_M_refcount.i.i.i1165, align 8
   %cmp.not.i.i.i.i1209 = icmp eq ptr %493, null
   br i1 %cmp.not.i.i.i.i1209, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterD2Ev.exit, label %if.then.i.i.i.i1210
@@ -8294,7 +8294,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEEC2ERKS3_.exit: ; preds = %_
 .noexc1304:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i1293, align 8
   store i32 0, ptr %m_outBitDepth.i.i1294, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 0, i32 0, i64 2), ptr %opWriter276, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 16), ptr %opWriter276, align 8
   %531 = load ptr, ptr %agg.tmp278, align 8
   store ptr %531, ptr %m_log.i, align 8
   %532 = load ptr, ptr %_M_refcount.i.i1284, align 8
@@ -8396,7 +8396,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEED2Ev.exit: ; preds = %.noex
           to label %invoke.cont285 unwind label %lpad282
 
 invoke.cont285:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 0, i32 0, i64 2), ptr %opWriter276, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 16), ptr %opWriter276, align 8
   %546 = load ptr, ptr %_M_refcount.i.i.i1295, align 8
   %cmp.not.i.i.i.i1339 = icmp eq ptr %546, null
   br i1 %cmp.not.i.i.i.i1339, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterD2Ev.exit, label %if.then.i.i.i.i1340
@@ -8654,7 +8654,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit: ; preds =
 .noexc1434:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i1423, align 8
   store i32 0, ptr %m_outBitDepth.i.i1424, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 0, i32 0, i64 2), ptr %opWriter308, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 16), ptr %opWriter308, align 8
   %584 = load ptr, ptr %agg.tmp310, align 8
   store ptr %584, ptr %m_lut.i, align 8
   %585 = load ptr, ptr %_M_refcount.i.i1414, align 8
@@ -8763,7 +8763,7 @@ invoke.cont318:                                   ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont322 unwind label %lpad315
 
 invoke.cont322:                                   ; preds = %invoke.cont318
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 0, i32 0, i64 2), ptr %opWriter308, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 16), ptr %opWriter308, align 8
   %601 = load ptr, ptr %_M_refcount.i.i.i1425, align 8
   %cmp.not.i.i.i.i1469 = icmp eq ptr %601, null
   br i1 %cmp.not.i.i.i.i1469, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterD2Ev.exit, label %if.then.i.i.i.i1470
@@ -9021,7 +9021,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEEC2ERKS3_.exit: ; preds =
 .noexc1566:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEEC2ERKS3_.exit
   store i32 0, ptr %m_inBitDepth.i.i1554, align 8
   store i32 0, ptr %m_outBitDepth.i.i1555, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 0, i32 0, i64 2), ptr %opWriter346, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 16), ptr %opWriter346, align 8
   %639 = load ptr, ptr %agg.tmp348, align 8
   store ptr %639, ptr %m_lut.i1556, align 8
   %640 = load ptr, ptr %_M_refcount.i.i1545, align 8
@@ -9130,7 +9130,7 @@ invoke.cont356:                                   ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont360 unwind label %lpad353
 
 invoke.cont360:                                   ; preds = %invoke.cont356
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 0, i32 0, i64 2), ptr %opWriter346, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 16), ptr %opWriter346, align 8
   %656 = load ptr, ptr %_M_refcount.i.i.i1557, align 8
   %cmp.not.i.i.i.i1602 = icmp eq ptr %656, null
   br i1 %cmp.not.i.i.i.i1602, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterD2Ev.exit, label %if.then.i.i.i.i1603
@@ -9406,7 +9406,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEEC2IS1_vEERKS_IT_E.exit:
 .noexc1703:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEEC2IS1_vEERKS_IT_E.exit
   store i32 0, ptr %m_inBitDepth.i.i1687, align 8
   store i32 0, ptr %m_outBitDepth.i.i1688, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %opWriter390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %opWriter390, align 8
   %697 = load <2 x i32>, ptr %version, align 4
   store <2 x i32> %697, ptr %m_version.i1689, align 8
   %698 = load i32, ptr %m_revision4.i.i1693, align 4
@@ -9512,7 +9512,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit: ; preds = %.
           to label %invoke.cont399 unwind label %lpad396
 
 invoke.cont399:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %opWriter390, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %opWriter390, align 8
   %714 = load ptr, ptr %_M_refcount.i.i.i1694, align 8
   %cmp.not.i.i.i.i1738 = icmp eq ptr %714, null
   br i1 %cmp.not.i.i.i.i1738, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterD2Ev.exit, label %if.then.i.i.i.i1739
@@ -9816,7 +9816,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEEC2IS1_vEERKS_IT_E.exit: 
 .noexc1865:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEEC2IS1_vEERKS_IT_E.exit
   store i32 0, ptr %m_inBitDepth.i.i1854, align 8
   store i32 0, ptr %m_outBitDepth.i.i1855, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 0, i32 0, i64 2), ptr %opWriter413, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 16), ptr %opWriter413, align 8
   %763 = load ptr, ptr %agg.tmp415, align 8
   store ptr %763, ptr %m_range.i, align 8
   %764 = load ptr, ptr %_M_refcount.i.i1845, align 8
@@ -9918,7 +9918,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit: ; preds = %.n
           to label %invoke.cont422 unwind label %lpad419
 
 invoke.cont422:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 0, i32 0, i64 2), ptr %opWriter413, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 16), ptr %opWriter413, align 8
   %778 = load ptr, ptr %_M_refcount.i.i.i1856, align 8
   %cmp.not.i.i.i.i1900 = icmp eq ptr %778, null
   br i1 %cmp.not.i.i.i.i1900, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterD2Ev.exit, label %if.then.i.i.i.i1901
@@ -10217,7 +10217,7 @@ if.then438:                                       ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i1993, align 8, !noalias !96
   %_M_weak_count.i.i.i.i.i.i1994 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i1994, align 4, !noalias !96
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !96
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !96
   %_M_impl.i.i.i.i.i.i1995 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i1995)
           to label %if.then.i.i.i2000 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !96
@@ -10264,7 +10264,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEEC2IS1_vEERKS_IT_E.exit2
   store i32 0, ptr %m_inBitDepth.i.i2007, align 8
   %m_outBitDepth.i.i2008 = getelementptr inbounds i8, ptr %opWriter440, i64 20
   store i32 0, ptr %m_outBitDepth.i.i2008, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %opWriter440, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %opWriter440, align 8
   %m_version.i2009 = getelementptr inbounds i8, ptr %opWriter440, i64 24
   %822 = load <2 x i32>, ptr %version, align 4
   store <2 x i32> %822, ptr %m_version.i2009, align 8
@@ -10375,7 +10375,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit2057: ; preds 
           to label %invoke.cont449 unwind label %lpad446
 
 invoke.cont449:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit2057
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %opWriter440, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %opWriter440, align 8
   %839 = load ptr, ptr %_M_refcount.i.i.i2015, align 8
   %cmp.not.i.i.i.i2061 = icmp eq ptr %839, null
   br i1 %cmp.not.i.i.i.i2061, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterD2Ev.exit2091, label %if.then.i.i.i.i2062
@@ -11213,7 +11213,7 @@ ehcleanup29:                                      ; preds = %ehcleanup28, %lpad1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11446,7 +11446,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataELN9__gnu_cxx12_Lock_pol
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11768,7 +11768,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataELN9__gnu_cxx
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11930,7 +11930,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataELN9__gnu_cxx12_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12092,7 +12092,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataELN9__gnu_cxx12
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12254,7 +12254,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataELN9__gnu_cxx1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12416,7 +12416,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataELN9__gnu_cxx12_Lo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12578,7 +12578,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataELN9__gnu_cxx12_Lock_policy
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12863,7 +12863,7 @@ unreachable:                                      ; preds = %invoke.cont31
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13025,7 +13025,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataELN9__gnu_cxx12_Lock_pol
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13191,7 +13191,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_po
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13435,7 +13435,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataELN9__gnu_cxx12_Lock_pol
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13622,7 +13622,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -15584,7 +15584,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -15717,7 +15717,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.else9.i:                                       ; preds = %if.else.i
   %m_minor.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %m_minor.i, align 4
-  %3 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4
   %cmp11.i = icmp ult i32 %2, %3
   br i1 %cmp11.i, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit.thread4, label %if.else13.i
 
@@ -15728,7 +15728,7 @@ if.else13.i:                                      ; preds = %if.else9.i
 _ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit: ; preds = %if.else13.i
   %m_revision.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %m_revision.i, align 8
-  %5 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8
   %cmp20.i = icmp ult i32 %4, %5
   %cond.fr = freeze i1 %cmp20.i
   br i1 %cond.fr, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit.thread4, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit.thread
@@ -15865,7 +15865,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.else9.i:                                       ; preds = %if.else.i
   %m_minor.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %m_minor.i, align 4
-  %3 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4
   %cmp11.i = icmp ult i32 %2, %3
   br i1 %cmp11.i, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit.thread, label %if.else13.i
 
@@ -15876,7 +15876,7 @@ if.else13.i:                                      ; preds = %if.else9.i
 _ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit: ; preds = %if.else13.i
   %m_revision.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %m_revision.i, align 8
-  %5 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8
   %cmp20.i = icmp ult i32 %4, %5
   %cond.fr = freeze i1 %cmp20.i
   %spec.select = select i1 %cond.fr, ptr @_ZN19OpenColorIO_v2_4devL16TAG_GAMMA_PARAMSE, ptr @_ZN19OpenColorIO_v2_4devL19TAG_EXPONENT_PARAMSE
@@ -16585,7 +16585,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -18246,7 +18246,7 @@ eh.resume:                                        ; preds = %lpad4, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -18682,7 +18682,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -20110,7 +20110,7 @@ declare noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampWhiteEv
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -21596,7 +21596,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -22626,7 +22626,7 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_13GradingRGBMSWES2_(
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -23467,7 +23467,7 @@ ehcleanup9:                                       ; preds = %ehcleanup, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -24745,7 +24745,7 @@ declare noundef ptr @_ZN19OpenColorIO_v2_4dev11GetTypeNameENS_6OpData4TypeE(i32 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -25192,7 +25192,7 @@ declare noundef ptr @_ZN19OpenColorIO_v2_4dev22GetInterpolation3DNameENS_13Inter
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -25346,7 +25346,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.else9.i:                                       ; preds = %if.else.i
   %m_minor.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %m_minor.i, align 4
-  %3 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4
   %cmp11.i = icmp ult i32 %2, %3
   br i1 %cmp11.i, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit, label %if.else13.i
 
@@ -25357,7 +25357,7 @@ if.else13.i:                                      ; preds = %if.else9.i
 if.else18.i:                                      ; preds = %if.else13.i
   %m_revision.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %m_revision.i, align 8
-  %5 = load i32, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8
   %cmp20.i = icmp ult i32 %4, %5
   br label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit
 
@@ -26265,7 +26265,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7Offsets9isNo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -27554,20 +27554,20 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   store i32 1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, align 4
-  store i32 3, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 0, i32 2), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_3E, i64 8), align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.0, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_4E.1, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.0, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_5E.1, align 4
   store i32 1, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, align 4
-  store i32 6, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 0, i32 2), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_6E, i64 8), align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_7E.0, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_1_7E.1, align 4
   store i32 2, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, align 8
-  store i32 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%"class.OpenColorIO_v2_4dev::CTFVersion", ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 0, i32 2), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 8
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_1E.0, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_1E.1, align 4
   store i1 true, ptr @_ZN19OpenColorIO_v2_4devL24CTF_PROCESS_LIST_VERSIONE.0, align 4

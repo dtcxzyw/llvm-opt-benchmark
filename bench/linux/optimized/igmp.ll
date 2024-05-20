@@ -999,7 +999,7 @@ define internal fastcc void @____ip_mc_inc_group(ptr noundef %0, i32 noundef %1,
   br i1 %79, label %99, label %80
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %82 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3520, i64 noundef 4096) #17
   %83 = icmp eq ptr %82, null
   br i1 %83, label %99, label %84
@@ -3863,7 +3863,7 @@ thread-pre-split:                                 ; preds = %49
 
 .loopexit17:                                      ; preds = %76, %69
   %84 = phi ptr [ null, %69 ], [ %80, %76 ]
-  %85 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %86 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %85, i32 noundef 2336, i64 noundef 32) #17
   %87 = icmp eq ptr %86, null
   br i1 %87, label %104, label %88
@@ -7235,7 +7235,7 @@ thread-pre-split:                                 ; preds = %75
   br i1 %65, label %.loopexit, label %57, !llvm.loop !162
 
 66:                                               ; preds = %57
-  %67 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %68 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 2080, i64 noundef 32) #17
   %69 = icmp eq ptr %68, null
   br i1 %69, label %75, label %70

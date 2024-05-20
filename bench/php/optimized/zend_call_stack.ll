@@ -33,23 +33,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @zend_call_stack_init() local_unnamed_addr #0 {
-  %1 = tail call zeroext i1 @zend_call_stack_get(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 77))
+  %1 = tail call zeroext i1 @zend_call_stack_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1712))
   br i1 %1, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 77), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @executor_globals, i64 1712), i8 0, i64 16, i1 false)
   br label %3
 
 3:                                                ; preds = %2, %0
-  %4 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 78), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1728), align 8
   switch i64 %4, label %24 [
     i64 0, label %5
     i64 -1, label %23
   ]
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 77), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 77, i32 1), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1712), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1720), align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %11
 
@@ -60,8 +60,8 @@ define void @zend_call_stack_init() local_unnamed_addr #0 {
 11:                                               ; preds = %9, %5
   %.08 = phi ptr [ %10, %9 ], [ %6, %5 ]
   %.07 = phi i64 [ 8355840, %9 ], [ %7, %5 ]
-  store ptr %.08, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 79), align 8
+  store ptr %.08, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 552), align 8
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1736), align 8
   %13 = ptrtoint ptr %.08 to i64
   %14 = icmp ugt i64 %.07, %13
   br i1 %14, label %zend_call_stack_limit.exit, label %15
@@ -80,17 +80,17 @@ define void @zend_call_stack_init() local_unnamed_addr #0 {
 
 zend_call_stack_limit.exit:                       ; preds = %11, %15, %21
   %.0.i = phi ptr [ %22, %21 ], [ null, %11 ], [ inttoptr (i64 -1 to ptr), %15 ]
-  store ptr %.0.i, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
+  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 560), align 8
   br label %42
 
 23:                                               ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @executor_globals, i64 552), i8 0, i64 16, i1 false)
   br label %42
 
 24:                                               ; preds = %3
   %25 = icmp sgt i64 %4, 0
   tail call void @llvm.assume(i1 %25)
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 77), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1712), align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
@@ -100,8 +100,8 @@ zend_call_stack_limit.exit:                       ; preds = %11, %15, %21
 
 30:                                               ; preds = %28, %24
   %.0 = phi ptr [ %29, %28 ], [ %26, %24 ]
-  store ptr %.0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 79), align 8
+  store ptr %.0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 552), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1736), align 8
   %32 = ptrtoint ptr %.0 to i64
   %33 = icmp ugt i64 %4, %32
   br i1 %33, label %zend_call_stack_limit.exit12, label %34
@@ -120,7 +120,7 @@ zend_call_stack_limit.exit:                       ; preds = %11, %15, %21
 
 zend_call_stack_limit.exit12:                     ; preds = %30, %34, %40
   %.0.i11 = phi ptr [ %41, %40 ], [ null, %30 ], [ inttoptr (i64 -1 to ptr), %34 ]
-  store ptr %.0.i11, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
+  store ptr %.0.i11, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 560), align 8
   br label %42
 
 42:                                               ; preds = %zend_call_stack_limit.exit12, %23, %zend_call_stack_limit.exit

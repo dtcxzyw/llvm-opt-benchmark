@@ -34,15 +34,15 @@ define hidden void @__jit_debug_register_code() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_gdb_unregister_all() local_unnamed_addr #0 {
-  store i32 2, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 1), align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 4), align 4
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %6
   %2 = phi ptr [ %7, %6 ], [ %1, %0 ]
   %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %6, label %4
 
@@ -52,10 +52,10 @@ define hidden void @ir_gdb_unregister_all() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %4, %.lr.ph
-  store ptr %2, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 2), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 8), align 8
   tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !4
   tail call void @free(ptr noundef nonnull %2) #10
-  %7 = load ptr, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -679,7 +679,7 @@ ir_gdbjit_buildobj.exit:                          ; preds = %240, %.lr.ph96.preh
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %259, ptr nonnull readonly align 8 %13, i64 %253, i1 false)
   %262 = getelementptr inbounds i8, ptr %256, i64 8
   store ptr null, ptr %262, align 8
-  %263 = load ptr, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
+  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   store ptr %263, ptr %256, align 8
   %.not.i = icmp eq ptr %263, null
   br i1 %.not.i, label %266, label %264
@@ -690,9 +690,9 @@ ir_gdbjit_buildobj.exit:                          ; preds = %240, %.lr.ph96.preh
   br label %266
 
 266:                                              ; preds = %264, %258
-  store ptr %256, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8
-  store ptr %256, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 1), align 4
+  store ptr %256, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
+  store ptr %256, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 4), align 4
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !4
   br label %ir_gdb_register_code.exit
 

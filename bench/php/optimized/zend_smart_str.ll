@@ -763,7 +763,7 @@ smart_str_erealloc.exit185:                       ; preds = %51, %45, %39
 
 64:                                               ; preds = %3
   %65 = load double, ptr %1, align 8
-  %66 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 21), align 8
+  %66 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 512), align 8
   %67 = trunc i64 %66 to i32
   tail call void @smart_str_append_double(ptr noundef %0, double noundef %65, i32 noundef %67, i1 noundef zeroext true)
   br label %211

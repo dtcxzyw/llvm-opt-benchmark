@@ -991,7 +991,7 @@ define dso_local noundef ptr @asm_instr_by_name(ptr noundef %0) local_unnamed_ad
   %4 = lshr i64 %2, 15
   %5 = xor i64 %3, %4
   %6 = and i64 %5, 4095
-  %7 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %6
+  %7 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %._crit_edge, label %.lr.ph.preheader
@@ -1004,7 +1004,7 @@ define dso_local noundef ptr @asm_instr_by_name(ptr noundef %0) local_unnamed_ad
   %12 = add i32 %.0912, 1
   %.09 = and i32 %12, 4095
   %13 = zext nneg i32 %.09 to i64
-  %14 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %13
+  %14 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %._crit_edge, label %.lr.ph
@@ -1027,7 +1027,7 @@ define dso_local noundef ptr @asm_reg_by_name(ptr noundef %0) local_unnamed_addr
   %4 = lshr i64 %2, 15
   %5 = xor i64 %3, %4
   %6 = and i64 %5, 4095
-  %7 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %6
+  %7 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %._crit_edge, label %.lr.ph.preheader
@@ -1040,7 +1040,7 @@ define dso_local noundef ptr @asm_reg_by_name(ptr noundef %0) local_unnamed_addr
   %12 = add i32 %.01013, 1
   %.010 = and i32 %12, 4095
   %13 = zext nneg i32 %.010 to i64
-  %14 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %13
+  %14 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %._crit_edge, label %.lr.ph
@@ -1109,7 +1109,7 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
 
 46:                                               ; preds = %0
   store i8 1, ptr @asm_target, align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %47, label %722 [
     i32 5, label %48
     i32 8, label %48
@@ -1186,7 +1186,7 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
   call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %41, i32 noundef 0, i32 noundef -1)
   call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %42, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef -1)
   call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %43, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 5, i32 noundef -1)
-  %49 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %50 = icmp eq i32 %49, 32
   br i1 %50, label %.critedge.i, label %.lr.ph.preheader.i.i.i
 
@@ -1205,7 +1205,7 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
   %.0166.in.i.i = phi i32 [ %56, %.lr.ph.preheader.i.i.i ], [ %61, %57 ]
   %.0166.i.i = and i32 %.0166.in.i.i, 4095
   %58 = zext nneg i32 %.0166.i.i to i64
-  %59 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %58
+  %59 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
   %.not.i.i = icmp eq ptr %60, null
   %61 = add nuw nsw i32 %.0166.i.i, 1
@@ -1232,7 +1232,7 @@ reg_instr_clob.exit.i:                            ; preds = %57
   %.0166.in.i433.i = phi i32 [ %69, %reg_instr_clob.exit.i ], [ %74, %70 ]
   %.0166.i434.i = and i32 %.0166.in.i433.i, 4095
   %71 = zext nneg i32 %.0166.i434.i to i64
-  %72 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %71
+  %72 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   %.not.i435.i = icmp eq ptr %73, null
   %74 = add nuw nsw i32 %.0166.i434.i, 1
@@ -1266,7 +1266,7 @@ reg_instr_clob.exit436.i:                         ; preds = %70
   %.0166.in.i447.i = phi i32 [ %82, %.critedge.i ], [ %87, %83 ]
   %.0166.i448.i = and i32 %.0166.in.i447.i, 4095
   %84 = zext nneg i32 %.0166.i448.i to i64
-  %85 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %84
+  %85 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %84
   %86 = load ptr, ptr %85, align 8
   %.not.i449.i = icmp eq ptr %86, null
   %87 = add nuw nsw i32 %.0166.i448.i, 1
@@ -1317,7 +1317,7 @@ reg_instr_clob.exit450.i:                         ; preds = %83
   %.0166.in.i461.i = phi i32 [ %95, %.lr.ph.preheader.i.i452.i ], [ %100, %96 ]
   %.0166.i462.i = and i32 %.0166.in.i461.i, 4095
   %97 = zext nneg i32 %.0166.i462.i to i64
-  %98 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %97
+  %98 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %97
   %99 = load ptr, ptr %98, align 8
   %.not.i463.i = icmp eq ptr %99, null
   %100 = add nuw nsw i32 %.0166.i462.i, 1
@@ -1344,7 +1344,7 @@ reg_instr_clob.exit464.i:                         ; preds = %96
   %.0166.in.i475.i = phi i32 [ %108, %reg_instr_clob.exit464.i ], [ %113, %109 ]
   %.0166.i476.i = and i32 %.0166.in.i475.i, 4095
   %110 = zext nneg i32 %.0166.i476.i to i64
-  %111 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %110
+  %111 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %110
   %112 = load ptr, ptr %111, align 8
   %.not.i477.i = icmp eq ptr %112, null
   %113 = add nuw nsw i32 %.0166.i476.i, 1
@@ -1371,7 +1371,7 @@ reg_instr_clob.exit478.i:                         ; preds = %109
   %.0166.in.i489.i = phi i32 [ %121, %reg_instr_clob.exit478.i ], [ %126, %122 ]
   %.0166.i490.i = and i32 %.0166.in.i489.i, 4095
   %123 = zext nneg i32 %.0166.i490.i to i64
-  %124 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %123
+  %124 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %123
   %125 = load ptr, ptr %124, align 8
   %.not.i491.i = icmp eq ptr %125, null
   %126 = add nuw nsw i32 %.0166.i490.i, 1
@@ -1398,7 +1398,7 @@ reg_instr_clob.exit492.i:                         ; preds = %122
   %.0166.in.i503.i = phi i32 [ %134, %reg_instr_clob.exit492.i ], [ %139, %135 ]
   %.0166.i504.i = and i32 %.0166.in.i503.i, 4095
   %136 = zext nneg i32 %.0166.i504.i to i64
-  %137 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %136
+  %137 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %136
   %138 = load ptr, ptr %137, align 8
   %.not.i505.i = icmp eq ptr %138, null
   %139 = add nuw nsw i32 %.0166.i504.i, 1
@@ -1425,7 +1425,7 @@ reg_instr_clob.exit506.i:                         ; preds = %135
   %.0166.in.i517.i = phi i32 [ %147, %reg_instr_clob.exit506.i ], [ %152, %148 ]
   %.0166.i518.i = and i32 %.0166.in.i517.i, 4095
   %149 = zext nneg i32 %.0166.i518.i to i64
-  %150 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %149
+  %150 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %149
   %151 = load ptr, ptr %150, align 8
   %.not.i519.i = icmp eq ptr %151, null
   %152 = add nuw nsw i32 %.0166.i518.i, 1
@@ -1469,7 +1469,7 @@ reg_instr_clob.exit520.i:                         ; preds = %148
   %.0166.in.i531.i = phi i32 [ %160, %reg_instr_clob.exit520.i ], [ %165, %161 ]
   %.0166.i532.i = and i32 %.0166.in.i531.i, 4095
   %162 = zext nneg i32 %.0166.i532.i to i64
-  %163 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %162
+  %163 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8
   %.not.i533.i = icmp eq ptr %164, null
   %165 = add nuw nsw i32 %.0166.i532.i, 1
@@ -1496,7 +1496,7 @@ reg_instr.exit.i:                                 ; preds = %161
   %.0166.in.i544.i = phi i32 [ %173, %reg_instr.exit.i ], [ %178, %174 ]
   %.0166.i545.i = and i32 %.0166.in.i544.i, 4095
   %175 = zext nneg i32 %.0166.i545.i to i64
-  %176 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %175
+  %176 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %175
   %177 = load ptr, ptr %176, align 8
   %.not.i546.i = icmp eq ptr %177, null
   %178 = add nuw nsw i32 %.0166.i545.i, 1
@@ -1523,7 +1523,7 @@ reg_instr.exit547.i:                              ; preds = %174
   %.0166.in.i558.i = phi i32 [ %186, %reg_instr.exit547.i ], [ %191, %187 ]
   %.0166.i559.i = and i32 %.0166.in.i558.i, 4095
   %188 = zext nneg i32 %.0166.i559.i to i64
-  %189 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %188
+  %189 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %188
   %190 = load ptr, ptr %189, align 8
   %.not.i560.i = icmp eq ptr %190, null
   %191 = add nuw nsw i32 %.0166.i559.i, 1
@@ -1576,7 +1576,7 @@ reg_instr.exit561.i:                              ; preds = %187
   %.0166.in.i572.i = phi i32 [ %199, %reg_instr.exit561.i ], [ %204, %200 ]
   %.0166.i573.i = and i32 %.0166.in.i572.i, 4095
   %201 = zext nneg i32 %.0166.i573.i to i64
-  %202 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %201
+  %202 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %201
   %203 = load ptr, ptr %202, align 8
   %.not.i574.i = icmp eq ptr %203, null
   %204 = add nuw nsw i32 %.0166.i573.i, 1
@@ -1604,7 +1604,7 @@ reg_instr_clob.exit575.i:                         ; preds = %200
   %.0166.in.i586.i = phi i32 [ %212, %reg_instr_clob.exit575.i ], [ %217, %213 ]
   %.0166.i587.i = and i32 %.0166.in.i586.i, 4095
   %214 = zext nneg i32 %.0166.i587.i to i64
-  %215 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %214
+  %215 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %214
   %216 = load ptr, ptr %215, align 8
   %.not.i588.i = icmp eq ptr %216, null
   %217 = add nuw nsw i32 %.0166.i587.i, 1
@@ -1636,7 +1636,7 @@ reg_instr.exit589.i:                              ; preds = %213
   %.0166.in.i600.i = phi i32 [ %225, %reg_instr.exit589.i ], [ %230, %226 ]
   %.0166.i601.i = and i32 %.0166.in.i600.i, 4095
   %227 = zext nneg i32 %.0166.i601.i to i64
-  %228 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %227
+  %228 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %227
   %229 = load ptr, ptr %228, align 8
   %.not.i602.i = icmp eq ptr %229, null
   %230 = add nuw nsw i32 %.0166.i601.i, 1
@@ -1663,7 +1663,7 @@ reg_instr.exit603.i:                              ; preds = %226
   %.0166.in.i614.i = phi i32 [ %238, %reg_instr.exit603.i ], [ %243, %239 ]
   %.0166.i615.i = and i32 %.0166.in.i614.i, 4095
   %240 = zext nneg i32 %.0166.i615.i to i64
-  %241 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %240
+  %241 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %240
   %242 = load ptr, ptr %241, align 8
   %.not.i616.i = icmp eq ptr %242, null
   %243 = add nuw nsw i32 %.0166.i615.i, 1
@@ -1690,7 +1690,7 @@ reg_instr.exit617.i:                              ; preds = %239
   %.0166.in.i628.i = phi i32 [ %251, %reg_instr.exit617.i ], [ %256, %252 ]
   %.0166.i629.i = and i32 %.0166.in.i628.i, 4095
   %253 = zext nneg i32 %.0166.i629.i to i64
-  %254 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %253
+  %254 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %253
   %255 = load ptr, ptr %254, align 8
   %.not.i630.i = icmp eq ptr %255, null
   %256 = add nuw nsw i32 %.0166.i629.i, 1
@@ -1718,7 +1718,7 @@ reg_instr.exit631.i:                              ; preds = %252
   %.0166.in.i642.i = phi i32 [ %264, %reg_instr.exit631.i ], [ %269, %265 ]
   %.0166.i643.i = and i32 %.0166.in.i642.i, 4095
   %266 = zext nneg i32 %.0166.i643.i to i64
-  %267 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %266
+  %267 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %266
   %268 = load ptr, ptr %267, align 8
   %.not.i644.i = icmp eq ptr %268, null
   %269 = add nuw nsw i32 %.0166.i643.i, 1
@@ -1745,7 +1745,7 @@ reg_instr_clob.exit645.i:                         ; preds = %265
   %.0166.in.i656.i = phi i32 [ %277, %reg_instr_clob.exit645.i ], [ %282, %278 ]
   %.0166.i657.i = and i32 %.0166.in.i656.i, 4095
   %279 = zext nneg i32 %.0166.i657.i to i64
-  %280 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %279
+  %280 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %279
   %281 = load ptr, ptr %280, align 8
   %.not.i658.i = icmp eq ptr %281, null
   %282 = add nuw nsw i32 %.0166.i657.i, 1
@@ -1772,7 +1772,7 @@ reg_instr_clob.exit659.i:                         ; preds = %278
   %.0166.in.i670.i = phi i32 [ %290, %reg_instr_clob.exit659.i ], [ %295, %291 ]
   %.0166.i671.i = and i32 %.0166.in.i670.i, 4095
   %292 = zext nneg i32 %.0166.i671.i to i64
-  %293 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %292
+  %293 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %292
   %294 = load ptr, ptr %293, align 8
   %.not.i672.i = icmp eq ptr %294, null
   %295 = add nuw nsw i32 %.0166.i671.i, 1
@@ -1802,7 +1802,7 @@ reg_instr.exit673.i:                              ; preds = %291
   %.0166.in.i684.i = phi i32 [ %303, %reg_instr.exit673.i ], [ %308, %304 ]
   %.0166.i685.i = and i32 %.0166.in.i684.i, 4095
   %305 = zext nneg i32 %.0166.i685.i to i64
-  %306 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %305
+  %306 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %305
   %307 = load ptr, ptr %306, align 8
   %.not.i686.i = icmp eq ptr %307, null
   %308 = add nuw nsw i32 %.0166.i685.i, 1
@@ -1829,7 +1829,7 @@ reg_instr.exit687.i:                              ; preds = %304
   %.0166.in.i698.i = phi i32 [ %316, %reg_instr.exit687.i ], [ %321, %317 ]
   %.0166.i699.i = and i32 %.0166.in.i698.i, 4095
   %318 = zext nneg i32 %.0166.i699.i to i64
-  %319 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %318
+  %319 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %318
   %320 = load ptr, ptr %319, align 8
   %.not.i700.i = icmp eq ptr %320, null
   %321 = add nuw nsw i32 %.0166.i699.i, 1
@@ -1856,7 +1856,7 @@ reg_instr.exit701.i:                              ; preds = %317
   %.0166.in.i712.i = phi i32 [ %329, %reg_instr.exit701.i ], [ %334, %330 ]
   %.0166.i713.i = and i32 %.0166.in.i712.i, 4095
   %331 = zext nneg i32 %.0166.i713.i to i64
-  %332 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %331
+  %332 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %331
   %333 = load ptr, ptr %332, align 8
   %.not.i714.i = icmp eq ptr %333, null
   %334 = add nuw nsw i32 %.0166.i713.i, 1
@@ -1883,7 +1883,7 @@ reg_instr.exit715.i:                              ; preds = %330
   %.0166.in.i726.i = phi i32 [ %342, %reg_instr.exit715.i ], [ %347, %343 ]
   %.0166.i727.i = and i32 %.0166.in.i726.i, 4095
   %344 = zext nneg i32 %.0166.i727.i to i64
-  %345 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %344
+  %345 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %344
   %346 = load ptr, ptr %345, align 8
   %.not.i728.i = icmp eq ptr %346, null
   %347 = add nuw nsw i32 %.0166.i727.i, 1
@@ -1910,7 +1910,7 @@ reg_instr.exit729.i:                              ; preds = %343
   %.0166.in.i740.i = phi i32 [ %355, %reg_instr.exit729.i ], [ %360, %356 ]
   %.0166.i741.i = and i32 %.0166.in.i740.i, 4095
   %357 = zext nneg i32 %.0166.i741.i to i64
-  %358 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %357
+  %358 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %357
   %359 = load ptr, ptr %358, align 8
   %.not.i742.i = icmp eq ptr %359, null
   %360 = add nuw nsw i32 %.0166.i741.i, 1
@@ -1937,7 +1937,7 @@ reg_instr.exit743.i:                              ; preds = %356
   %.0166.in.i754.i = phi i32 [ %368, %reg_instr.exit743.i ], [ %373, %369 ]
   %.0166.i755.i = and i32 %.0166.in.i754.i, 4095
   %370 = zext nneg i32 %.0166.i755.i to i64
-  %371 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %370
+  %371 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %370
   %372 = load ptr, ptr %371, align 8
   %.not.i756.i = icmp eq ptr %372, null
   %373 = add nuw nsw i32 %.0166.i755.i, 1
@@ -1964,7 +1964,7 @@ reg_instr.exit757.i:                              ; preds = %369
   %.0166.in.i768.i = phi i32 [ %381, %reg_instr.exit757.i ], [ %386, %382 ]
   %.0166.i769.i = and i32 %.0166.in.i768.i, 4095
   %383 = zext nneg i32 %.0166.i769.i to i64
-  %384 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %383
+  %384 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %383
   %385 = load ptr, ptr %384, align 8
   %.not.i770.i = icmp eq ptr %385, null
   %386 = add nuw nsw i32 %.0166.i769.i, 1
@@ -1980,9 +1980,9 @@ reg_instr.exit771.i:                              ; preds = %382
   call fastcc void @reg_instr(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.124)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145)
-  store ptr @X86ClobberNames, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 1), align 8
-  store ptr @.str.146, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 2), align 8
-  %389 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  store ptr @X86ClobberNames, ptr getelementptr inbounds (i8, ptr @asm_target, i64 8), align 8
+  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @asm_target, i64 16), align 8
+  %389 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %390 = icmp eq i32 %389, 31
   br i1 %390, label %.preheader906.i, label %.preheader915.i
 
@@ -2026,7 +2026,7 @@ fnv1a.exit.i:                                     ; preds = %.lr.ph.i.i, %.prehe
   %.0400.in.i = phi i32 [ %405, %fnv1a.exit.i ], [ %410, %406 ]
   %.0400.i = and i32 %.0400.in.i, 4095
   %407 = zext nneg i32 %.0400.i to i64
-  %408 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %407
+  %408 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %407
   %409 = load ptr, ptr %408, align 8
   %.not422.i = icmp eq ptr %409, null
   %410 = add nuw nsw i32 %.0400.i, 1
@@ -2042,9 +2042,9 @@ fnv1a.exit.i:                                     ; preds = %.lr.ph.i.i, %.prehe
   %412 = trunc i64 %indvars.iv1113.i to i32
   %413 = add i32 %412, 2
   store i32 %413, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %414 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %414 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %415 = add i32 %414, 1
-  store i32 %415, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %415, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1114.i = add nuw nsw i64 %indvars.iv1113.i, 1
   %exitcond1116.not.i = icmp eq i64 %indvars.iv.next1114.i, 8
   br i1 %exitcond1116.not.i, label %.preheader905.i, label %.preheader906.i, !llvm.loop !9
@@ -2089,7 +2089,7 @@ fnv1a.exit782.i:                                  ; preds = %.lr.ph.i776.i, %.pr
   %.0399.in.i = phi i32 [ %430, %fnv1a.exit782.i ], [ %435, %431 ]
   %.0399.i = and i32 %.0399.in.i, 4095
   %432 = zext nneg i32 %.0399.i to i64
-  %433 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %432
+  %433 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %432
   %434 = load ptr, ptr %433, align 8
   %.not421.i = icmp eq ptr %434, null
   %435 = add nuw nsw i32 %.0399.i, 1
@@ -2105,9 +2105,9 @@ fnv1a.exit782.i:                                  ; preds = %.lr.ph.i776.i, %.pr
   %437 = trunc i64 %indvars.iv1117.i to i32
   %438 = add i32 %437, 2
   store i32 %438, ptr %.sroa.4137.0..sroa_idx.i, align 8
-  %439 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %439 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %440 = add i32 %439, 1
-  store i32 %440, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %440, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1118.i = add nuw nsw i64 %indvars.iv1117.i, 1
   %exitcond1120.not.i = icmp eq i64 %indvars.iv.next1118.i, 8
   br i1 %exitcond1120.not.i, label %.preheader904.i, label %.preheader905.i, !llvm.loop !10
@@ -2152,7 +2152,7 @@ fnv1a.exit792.i:                                  ; preds = %.lr.ph.i786.i, %.pr
   %.0397.in.i = phi i32 [ %455, %fnv1a.exit792.i ], [ %460, %456 ]
   %.0397.i = and i32 %.0397.in.i, 4095
   %457 = zext nneg i32 %.0397.i to i64
-  %458 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %457
+  %458 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %457
   %459 = load ptr, ptr %458, align 8
   %.not420.i = icmp eq ptr %459, null
   %460 = add nuw nsw i32 %.0397.i, 1
@@ -2168,9 +2168,9 @@ fnv1a.exit792.i:                                  ; preds = %.lr.ph.i786.i, %.pr
   %462 = trunc i64 %indvars.iv1121.i to i32
   %463 = add i32 %462, 2
   store i32 %463, ptr %.sroa.4158.0..sroa_idx.i, align 8
-  %464 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %464 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %465 = add i32 %464, 1
-  store i32 %465, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %465, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1122.i = add nuw nsw i64 %indvars.iv1121.i, 1
   %exitcond1124.not.i = icmp eq i64 %indvars.iv.next1122.i, 8
   br i1 %exitcond1124.not.i, label %.preheader903.i, label %.preheader904.i, !llvm.loop !11
@@ -2215,7 +2215,7 @@ fnv1a.exit802.i:                                  ; preds = %.lr.ph.i796.i, %.pr
   %.0396.in.i = phi i32 [ %480, %fnv1a.exit802.i ], [ %485, %481 ]
   %.0396.i = and i32 %.0396.in.i, 4095
   %482 = zext nneg i32 %.0396.i to i64
-  %483 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %482
+  %483 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %482
   %484 = load ptr, ptr %483, align 8
   %.not419.i = icmp eq ptr %484, null
   %485 = add nuw nsw i32 %.0396.i, 1
@@ -2231,9 +2231,9 @@ fnv1a.exit802.i:                                  ; preds = %.lr.ph.i796.i, %.pr
   %487 = trunc i64 %indvars.iv1125.i to i32
   %488 = add i32 %487, 41
   store i32 %488, ptr %.sroa.4179.0..sroa_idx.i, align 8
-  %489 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %489 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %490 = add i32 %489, 1
-  store i32 %490, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %490, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1126.i = add nuw nsw i64 %indvars.iv1125.i, 1
   %exitcond1128.not.i = icmp eq i64 %indvars.iv.next1126.i, 8
   br i1 %exitcond1128.not.i, label %.preheader.i, label %.preheader903.i, !llvm.loop !12
@@ -2278,7 +2278,7 @@ fnv1a.exit812.i:                                  ; preds = %.lr.ph.i806.i, %.pr
   %.0395.in.i = phi i32 [ %505, %fnv1a.exit812.i ], [ %510, %506 ]
   %.0395.i = and i32 %.0395.in.i, 4095
   %507 = zext nneg i32 %.0395.i to i64
-  %508 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %507
+  %508 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %507
   %509 = load ptr, ptr %508, align 8
   %.not418.i = icmp eq ptr %509, null
   %510 = add nuw nsw i32 %.0395.i, 1
@@ -2294,9 +2294,9 @@ fnv1a.exit812.i:                                  ; preds = %.lr.ph.i806.i, %.pr
   %512 = trunc i64 %indvars.iv1129.i to i32
   %513 = add i32 %512, 49
   store i32 %513, ptr %.sroa.4200.0..sroa_idx.i, align 8
-  %514 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %514 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %515 = add i32 %514, 1
-  store i32 %515, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %515, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1130.i = add nuw nsw i64 %indvars.iv1129.i, 1
   %exitcond1132.not.i = icmp eq i64 %indvars.iv.next1130.i, 8
   br i1 %exitcond1132.not.i, label %init_asm_x86.exit, label %.preheader.i, !llvm.loop !13
@@ -2341,7 +2341,7 @@ fnv1a.exit822.i:                                  ; preds = %.lr.ph.i816.i, %.pr
   %.0394.in.i = phi i32 [ %530, %fnv1a.exit822.i ], [ %535, %531 ]
   %.0394.i = and i32 %.0394.in.i, 4095
   %532 = zext nneg i32 %.0394.i to i64
-  %533 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %532
+  %533 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %532
   %534 = load ptr, ptr %533, align 8
   %.not417.i = icmp eq ptr %534, null
   %535 = add nuw nsw i32 %.0394.i, 1
@@ -2357,9 +2357,9 @@ fnv1a.exit822.i:                                  ; preds = %.lr.ph.i816.i, %.pr
   %537 = trunc i64 %indvars.iv.i to i32
   %538 = add i32 %537, 2
   store i32 %538, ptr %.sroa.4221.0..sroa_idx.i, align 8
-  %539 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %539 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %540 = add i32 %539, 1
-  store i32 %540, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %540, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %.preheader914.i, label %.preheader915.i, !llvm.loop !14
@@ -2404,7 +2404,7 @@ fnv1a.exit832.i:                                  ; preds = %.lr.ph.i826.i, %.pr
   %.0393.in.i = phi i32 [ %555, %fnv1a.exit832.i ], [ %560, %556 ]
   %.0393.i = and i32 %.0393.in.i, 4095
   %557 = zext nneg i32 %.0393.i to i64
-  %558 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %557
+  %558 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %557
   %559 = load ptr, ptr %558, align 8
   %.not416.i = icmp eq ptr %559, null
   %560 = add nuw nsw i32 %.0393.i, 1
@@ -2420,9 +2420,9 @@ fnv1a.exit832.i:                                  ; preds = %.lr.ph.i826.i, %.pr
   %562 = trunc i64 %indvars.iv1085.i to i32
   %563 = add i32 %562, 2
   store i32 %563, ptr %.sroa.4242.0..sroa_idx.i, align 8
-  %564 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %564 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %565 = add i32 %564, 1
-  store i32 %565, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %565, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1086.i = add nuw nsw i64 %indvars.iv1085.i, 1
   %exitcond1088.not.i = icmp eq i64 %indvars.iv.next1086.i, 15
   br i1 %exitcond1088.not.i, label %.preheader913.i, label %.preheader914.i, !llvm.loop !15
@@ -2467,7 +2467,7 @@ fnv1a.exit842.i:                                  ; preds = %.lr.ph.i836.i, %.pr
   %.0391.in.i = phi i32 [ %580, %fnv1a.exit842.i ], [ %585, %581 ]
   %.0391.i = and i32 %.0391.in.i, 4095
   %582 = zext nneg i32 %.0391.i to i64
-  %583 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %582
+  %583 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %582
   %584 = load ptr, ptr %583, align 8
   %.not415.i = icmp eq ptr %584, null
   %585 = add nuw nsw i32 %.0391.i, 1
@@ -2483,9 +2483,9 @@ fnv1a.exit842.i:                                  ; preds = %.lr.ph.i836.i, %.pr
   %587 = trunc i64 %indvars.iv1089.i to i32
   %588 = add i32 %587, 2
   store i32 %588, ptr %.sroa.4263.0..sroa_idx.i, align 8
-  %589 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %589 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %590 = add i32 %589, 1
-  store i32 %590, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %590, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1090.i = add nuw nsw i64 %indvars.iv1089.i, 1
   %exitcond1092.not.i = icmp eq i64 %indvars.iv.next1090.i, 15
   br i1 %exitcond1092.not.i, label %.preheader912.i, label %.preheader913.i, !llvm.loop !16
@@ -2530,7 +2530,7 @@ fnv1a.exit852.i:                                  ; preds = %.lr.ph.i846.i, %.pr
   %.0390.in.i = phi i32 [ %605, %fnv1a.exit852.i ], [ %610, %606 ]
   %.0390.i = and i32 %.0390.in.i, 4095
   %607 = zext nneg i32 %.0390.i to i64
-  %608 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %607
+  %608 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %607
   %609 = load ptr, ptr %608, align 8
   %.not414.i = icmp eq ptr %609, null
   %610 = add nuw nsw i32 %.0390.i, 1
@@ -2546,9 +2546,9 @@ fnv1a.exit852.i:                                  ; preds = %.lr.ph.i846.i, %.pr
   %612 = trunc i64 %indvars.iv1093.i to i32
   %613 = add i32 %612, 2
   store i32 %613, ptr %.sroa.4284.0..sroa_idx.i, align 8
-  %614 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %614 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %615 = add i32 %614, 1
-  store i32 %615, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %615, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1094.i = add nuw nsw i64 %indvars.iv1093.i, 1
   %exitcond1096.not.i = icmp eq i64 %indvars.iv.next1094.i, 15
   br i1 %exitcond1096.not.i, label %.preheader911.i, label %.preheader912.i, !llvm.loop !17
@@ -2593,7 +2593,7 @@ fnv1a.exit862.i:                                  ; preds = %.lr.ph.i856.i, %.pr
   %.0389.in.i = phi i32 [ %630, %fnv1a.exit862.i ], [ %635, %631 ]
   %.0389.i = and i32 %.0389.in.i, 4095
   %632 = zext nneg i32 %.0389.i to i64
-  %633 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %632
+  %633 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %632
   %634 = load ptr, ptr %633, align 8
   %.not413.i = icmp eq ptr %634, null
   %635 = add nuw nsw i32 %.0389.i, 1
@@ -2609,9 +2609,9 @@ fnv1a.exit862.i:                                  ; preds = %.lr.ph.i856.i, %.pr
   %637 = trunc i64 %indvars.iv1097.i to i32
   %638 = add i32 %637, 2
   store i32 %638, ptr %.sroa.4305.0..sroa_idx.i, align 8
-  %639 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %639 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %640 = add i32 %639, 1
-  store i32 %640, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %640, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1098.i = add nuw nsw i64 %indvars.iv1097.i, 1
   %exitcond1100.not.i = icmp eq i64 %indvars.iv.next1098.i, 4
   br i1 %exitcond1100.not.i, label %.preheader910.i, label %.preheader911.i, !llvm.loop !18
@@ -2656,7 +2656,7 @@ fnv1a.exit872.i:                                  ; preds = %.lr.ph.i866.i, %.pr
   %.0388.in.i = phi i32 [ %655, %fnv1a.exit872.i ], [ %660, %656 ]
   %.0388.i = and i32 %.0388.in.i, 4095
   %657 = zext nneg i32 %.0388.i to i64
-  %658 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %657
+  %658 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %657
   %659 = load ptr, ptr %658, align 8
   %.not412.i = icmp eq ptr %659, null
   %660 = add nuw nsw i32 %.0388.i, 1
@@ -2672,9 +2672,9 @@ fnv1a.exit872.i:                                  ; preds = %.lr.ph.i866.i, %.pr
   %662 = trunc i64 %indvars.iv1101.i to i32
   %663 = add i32 %662, 17
   store i32 %663, ptr %.sroa.4326.0..sroa_idx.i, align 8
-  %664 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %664 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %665 = add i32 %664, 1
-  store i32 %665, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %665, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1102.i = add nuw nsw i64 %indvars.iv1101.i, 1
   %exitcond1104.not.i = icmp eq i64 %indvars.iv.next1102.i, 16
   br i1 %exitcond1104.not.i, label %.preheader909.i, label %.preheader910.i, !llvm.loop !19
@@ -2719,7 +2719,7 @@ fnv1a.exit882.i:                                  ; preds = %.lr.ph.i876.i, %.pr
   %.0387.in.i = phi i32 [ %680, %fnv1a.exit882.i ], [ %685, %681 ]
   %.0387.i = and i32 %.0387.in.i, 4095
   %682 = zext nneg i32 %.0387.i to i64
-  %683 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %682
+  %683 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %682
   %684 = load ptr, ptr %683, align 8
   %.not411.i = icmp eq ptr %684, null
   %685 = add nuw nsw i32 %.0387.i, 1
@@ -2735,9 +2735,9 @@ fnv1a.exit882.i:                                  ; preds = %.lr.ph.i876.i, %.pr
   %687 = trunc i64 %indvars.iv1105.i to i32
   %688 = add i32 %687, 17
   store i32 %688, ptr %.sroa.4347.0..sroa_idx.i, align 8
-  %689 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %689 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %690 = add i32 %689, 1
-  store i32 %690, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %690, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1106.i = add nuw nsw i64 %indvars.iv1105.i, 1
   %exitcond1108.not.i = icmp eq i64 %indvars.iv.next1106.i, 16
   br i1 %exitcond1108.not.i, label %.preheader907.i, label %.preheader909.i, !llvm.loop !20
@@ -2782,7 +2782,7 @@ fnv1a.exit892.i:                                  ; preds = %.lr.ph.i886.i, %.pr
   %.0.in.i = phi i32 [ %705, %fnv1a.exit892.i ], [ %710, %706 ]
   %.0.i = and i32 %.0.in.i, 4095
   %707 = zext nneg i32 %.0.i to i64
-  %708 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %707
+  %708 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %707
   %709 = load ptr, ptr %708, align 8
   %.not.i = icmp eq ptr %709, null
   %710 = add nuw nsw i32 %.0.i, 1
@@ -2798,9 +2798,9 @@ fnv1a.exit892.i:                                  ; preds = %.lr.ph.i886.i, %.pr
   %712 = trunc i64 %indvars.iv1109.i to i32
   %713 = add i32 %712, 17
   store i32 %713, ptr %.sroa.4368.0..sroa_idx.i, align 8
-  %714 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %714 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %715 = add i32 %714, 1
-  store i32 %715, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %715, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next1110.i = add nuw nsw i64 %indvars.iv1109.i, 1
   %exitcond1112.not.i = icmp eq i64 %indvars.iv.next1110.i, 16
   br i1 %exitcond1112.not.i, label %init_asm_x86.exit, label %.preheader907.i, !llvm.loop !21
@@ -2875,8 +2875,8 @@ define internal fastcc void @init_asm_aarch64() unnamed_addr #1 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr @Aarch64ClobberNames, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 2), align 8
+  store ptr @Aarch64ClobberNames, ptr getelementptr inbounds (i8, ptr @asm_target, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @asm_target, i64 16), align 8
   tail call fastcc void @reg_instr(ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.349)
   tail call fastcc void @reg_instr(ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.351)
   tail call fastcc void @reg_instr(ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.349)
@@ -2933,7 +2933,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %17
   %.0483.in = phi i32 [ %32, %fnv1a.exit ], [ %37, %33 ]
   %.0483 = and i32 %.0483.in, 4095
   %34 = zext nneg i32 %.0483 to i64
-  %35 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %34
+  %35 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not509 = icmp eq ptr %36, null
   %37 = add nuw nsw i32 %.0483, 1
@@ -2948,9 +2948,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %17
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
   %39 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %39, ptr %.sroa.4.0..sroa_idx, align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %41 = add i32 %40, 1
-  store i32 %41, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.preheader670, label %17, !llvm.loop !22
 
@@ -2995,7 +2995,7 @@ fnv1a.exit519:                                    ; preds = %.lr.ph.i513, %.preh
   %.0481.in = phi i32 [ %56, %fnv1a.exit519 ], [ %61, %57 ]
   %.0481 = and i32 %.0481.in, 4095
   %58 = zext nneg i32 %.0481 to i64
-  %59 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %58
+  %59 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
   %.not508 = icmp eq ptr %60, null
   %61 = add nuw nsw i32 %.0481, 1
@@ -3010,9 +3010,9 @@ fnv1a.exit519:                                    ; preds = %.lr.ph.i513, %.preh
   %.sroa.4153.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 16
   %63 = trunc nuw nsw i64 %indvars.iv.next750 to i32
   store i32 %63, ptr %.sroa.4153.0..sroa_idx, align 8
-  %64 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %64 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %65 = add i32 %64, 1
-  store i32 %65, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %65, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %exitcond752.not = icmp eq i64 %indvars.iv.next750, 32
   br i1 %exitcond752.not, label %.preheader669, label %.preheader670, !llvm.loop !23
 
@@ -3056,7 +3056,7 @@ fnv1a.exit529:                                    ; preds = %.lr.ph.i523, %.preh
   %.0480.in = phi i32 [ %80, %fnv1a.exit529 ], [ %85, %81 ]
   %.0480 = and i32 %.0480.in, 4095
   %82 = zext nneg i32 %.0480 to i64
-  %83 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %82
+  %83 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %82
   %84 = load ptr, ptr %83, align 8
   %.not507 = icmp eq ptr %84, null
   %85 = add nuw nsw i32 %.0480, 1
@@ -3072,9 +3072,9 @@ fnv1a.exit529:                                    ; preds = %.lr.ph.i523, %.preh
   %87 = trunc i64 %indvars.iv753 to i32
   %88 = add i32 %87, 33
   store i32 %88, ptr %.sroa.4174.0..sroa_idx, align 8
-  %89 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %90 = add i32 %89, 1
-  store i32 %90, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
   %exitcond756.not = icmp eq i64 %indvars.iv.next754, 32
   br i1 %exitcond756.not, label %.preheader668, label %.preheader669, !llvm.loop !24
@@ -3119,7 +3119,7 @@ fnv1a.exit539:                                    ; preds = %.lr.ph.i533, %.preh
   %.0479.in = phi i32 [ %105, %fnv1a.exit539 ], [ %110, %106 ]
   %.0479 = and i32 %.0479.in, 4095
   %107 = zext nneg i32 %.0479 to i64
-  %108 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %107
+  %108 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %107
   %109 = load ptr, ptr %108, align 8
   %.not506 = icmp eq ptr %109, null
   %110 = add nuw nsw i32 %.0479, 1
@@ -3135,9 +3135,9 @@ fnv1a.exit539:                                    ; preds = %.lr.ph.i533, %.preh
   %112 = trunc i64 %indvars.iv757 to i32
   %113 = add i32 %112, 33
   store i32 %113, ptr %.sroa.4195.0..sroa_idx, align 8
-  %114 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %114 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %115 = add i32 %114, 1
-  store i32 %115, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %115, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next758, 32
   br i1 %exitcond760.not, label %.preheader667, label %.preheader668, !llvm.loop !25
@@ -3182,7 +3182,7 @@ fnv1a.exit549:                                    ; preds = %.lr.ph.i543, %.preh
   %.0478.in = phi i32 [ %130, %fnv1a.exit549 ], [ %135, %131 ]
   %.0478 = and i32 %.0478.in, 4095
   %132 = zext nneg i32 %.0478 to i64
-  %133 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %132
+  %133 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not505 = icmp eq ptr %134, null
   %135 = add nuw nsw i32 %.0478, 1
@@ -3198,9 +3198,9 @@ fnv1a.exit549:                                    ; preds = %.lr.ph.i543, %.preh
   %137 = trunc i64 %indvars.iv761 to i32
   %138 = add i32 %137, 33
   store i32 %138, ptr %.sroa.4216.0..sroa_idx, align 8
-  %139 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %139 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %140 = add i32 %139, 1
-  store i32 %140, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %140, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next762 = add nuw nsw i64 %indvars.iv761, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next762, 32
   br i1 %exitcond764.not, label %.preheader666, label %.preheader667, !llvm.loop !26
@@ -3245,7 +3245,7 @@ fnv1a.exit559:                                    ; preds = %.lr.ph.i553, %.preh
   %.0477.in = phi i32 [ %155, %fnv1a.exit559 ], [ %160, %156 ]
   %.0477 = and i32 %.0477.in, 4095
   %157 = zext nneg i32 %.0477 to i64
-  %158 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %157
+  %158 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %157
   %159 = load ptr, ptr %158, align 8
   %.not504 = icmp eq ptr %159, null
   %160 = add nuw nsw i32 %.0477, 1
@@ -3261,9 +3261,9 @@ fnv1a.exit559:                                    ; preds = %.lr.ph.i553, %.preh
   %162 = trunc i64 %indvars.iv765 to i32
   %163 = add i32 %162, 33
   store i32 %163, ptr %.sroa.4237.0..sroa_idx, align 8
-  %164 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %164 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %165 = add i32 %164, 1
-  store i32 %165, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %165, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next766 = add nuw nsw i64 %indvars.iv765, 1
   %exitcond768.not = icmp eq i64 %indvars.iv.next766, 32
   br i1 %exitcond768.not, label %.preheader665, label %.preheader666, !llvm.loop !27
@@ -3308,7 +3308,7 @@ fnv1a.exit569:                                    ; preds = %.lr.ph.i563, %.preh
   %.0475.in = phi i32 [ %180, %fnv1a.exit569 ], [ %185, %181 ]
   %.0475 = and i32 %.0475.in, 4095
   %182 = zext nneg i32 %.0475 to i64
-  %183 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %182
+  %183 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %182
   %184 = load ptr, ptr %183, align 8
   %.not503 = icmp eq ptr %184, null
   %185 = add nuw nsw i32 %.0475, 1
@@ -3324,9 +3324,9 @@ fnv1a.exit569:                                    ; preds = %.lr.ph.i563, %.preh
   %187 = trunc i64 %indvars.iv769 to i32
   %188 = add i32 %187, 33
   store i32 %188, ptr %.sroa.4258.0..sroa_idx, align 8
-  %189 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %189 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %190 = add i32 %189, 1
-  store i32 %190, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %190, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond772.not = icmp eq i64 %indvars.iv.next770, 32
   br i1 %exitcond772.not, label %.preheader664, label %.preheader665, !llvm.loop !28
@@ -3371,7 +3371,7 @@ fnv1a.exit579:                                    ; preds = %.lr.ph.i573, %.preh
   %.0474.in = phi i32 [ %205, %fnv1a.exit579 ], [ %210, %206 ]
   %.0474 = and i32 %.0474.in, 4095
   %207 = zext nneg i32 %.0474 to i64
-  %208 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %207
+  %208 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %207
   %209 = load ptr, ptr %208, align 8
   %.not502 = icmp eq ptr %209, null
   %210 = add nuw nsw i32 %.0474, 1
@@ -3387,9 +3387,9 @@ fnv1a.exit579:                                    ; preds = %.lr.ph.i573, %.preh
   %212 = trunc i64 %indvars.iv773 to i32
   %213 = add i32 %212, 65
   store i32 %213, ptr %.sroa.4279.0..sroa_idx, align 8
-  %214 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %214 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %215 = add i32 %214, 1
-  store i32 %215, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %215, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
   %exitcond776.not = icmp eq i64 %indvars.iv.next774, 32
   br i1 %exitcond776.not, label %.preheader663, label %.preheader664, !llvm.loop !29
@@ -3434,7 +3434,7 @@ fnv1a.exit589:                                    ; preds = %.lr.ph.i583, %.preh
   %.0473.in = phi i32 [ %230, %fnv1a.exit589 ], [ %235, %231 ]
   %.0473 = and i32 %.0473.in, 4095
   %232 = zext nneg i32 %.0473 to i64
-  %233 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %232
+  %233 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %232
   %234 = load ptr, ptr %233, align 8
   %.not501 = icmp eq ptr %234, null
   %235 = add nuw nsw i32 %.0473, 1
@@ -3450,9 +3450,9 @@ fnv1a.exit589:                                    ; preds = %.lr.ph.i583, %.preh
   %237 = trunc i64 %indvars.iv777 to i32
   %238 = add i32 %237, 65
   store i32 %238, ptr %.sroa.4300.0..sroa_idx, align 8
-  %239 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %239 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %240 = add i32 %239, 1
-  store i32 %240, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %240, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
   %exitcond780.not = icmp eq i64 %indvars.iv.next778, 32
   br i1 %exitcond780.not, label %.preheader662, label %.preheader663, !llvm.loop !30
@@ -3497,7 +3497,7 @@ fnv1a.exit599:                                    ; preds = %.lr.ph.i593, %.preh
   %.0472.in = phi i32 [ %255, %fnv1a.exit599 ], [ %260, %256 ]
   %.0472 = and i32 %.0472.in, 4095
   %257 = zext nneg i32 %.0472 to i64
-  %258 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %257
+  %258 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %257
   %259 = load ptr, ptr %258, align 8
   %.not500 = icmp eq ptr %259, null
   %260 = add nuw nsw i32 %.0472, 1
@@ -3513,9 +3513,9 @@ fnv1a.exit599:                                    ; preds = %.lr.ph.i593, %.preh
   %262 = trunc i64 %indvars.iv781 to i32
   %263 = add i32 %262, 65
   store i32 %263, ptr %.sroa.4321.0..sroa_idx, align 8
-  %264 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %264 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %265 = add i32 %264, 1
-  store i32 %265, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %265, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
   %exitcond784.not = icmp eq i64 %indvars.iv.next782, 32
   br i1 %exitcond784.not, label %.preheader661, label %.preheader662, !llvm.loop !31
@@ -3560,7 +3560,7 @@ fnv1a.exit609:                                    ; preds = %.lr.ph.i603, %.preh
   %.0471.in = phi i32 [ %280, %fnv1a.exit609 ], [ %285, %281 ]
   %.0471 = and i32 %.0471.in, 4095
   %282 = zext nneg i32 %.0471 to i64
-  %283 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %282
+  %283 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %282
   %284 = load ptr, ptr %283, align 8
   %.not499 = icmp eq ptr %284, null
   %285 = add nuw nsw i32 %.0471, 1
@@ -3576,9 +3576,9 @@ fnv1a.exit609:                                    ; preds = %.lr.ph.i603, %.preh
   %287 = trunc i64 %indvars.iv785 to i32
   %288 = add i32 %287, 65
   store i32 %288, ptr %.sroa.4342.0..sroa_idx, align 8
-  %289 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %289 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %290 = add i32 %289, 1
-  store i32 %290, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %290, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next786 = add nuw nsw i64 %indvars.iv785, 1
   %exitcond788.not = icmp eq i64 %indvars.iv.next786, 32
   br i1 %exitcond788.not, label %.preheader660, label %.preheader661, !llvm.loop !32
@@ -3623,7 +3623,7 @@ fnv1a.exit619:                                    ; preds = %.lr.ph.i613, %.preh
   %.0469.in = phi i32 [ %305, %fnv1a.exit619 ], [ %310, %306 ]
   %.0469 = and i32 %.0469.in, 4095
   %307 = zext nneg i32 %.0469 to i64
-  %308 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %307
+  %308 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %307
   %309 = load ptr, ptr %308, align 8
   %.not498 = icmp eq ptr %309, null
   %310 = add nuw nsw i32 %.0469, 1
@@ -3639,9 +3639,9 @@ fnv1a.exit619:                                    ; preds = %.lr.ph.i613, %.preh
   %312 = trunc i64 %indvars.iv789 to i32
   %313 = add i32 %312, 65
   store i32 %313, ptr %.sroa.4363.0..sroa_idx, align 8
-  %314 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %314 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %315 = add i32 %314, 1
-  store i32 %315, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %315, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
   %exitcond792.not = icmp eq i64 %indvars.iv.next790, 32
   br i1 %exitcond792.not, label %.preheader659, label %.preheader660, !llvm.loop !33
@@ -3686,7 +3686,7 @@ fnv1a.exit629:                                    ; preds = %.lr.ph.i623, %.preh
   %.0468.in = phi i32 [ %330, %fnv1a.exit629 ], [ %335, %331 ]
   %.0468 = and i32 %.0468.in, 4095
   %332 = zext nneg i32 %.0468 to i64
-  %333 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %332
+  %333 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %332
   %334 = load ptr, ptr %333, align 8
   %.not497 = icmp eq ptr %334, null
   %335 = add nuw nsw i32 %.0468, 1
@@ -3702,9 +3702,9 @@ fnv1a.exit629:                                    ; preds = %.lr.ph.i623, %.preh
   %337 = trunc i64 %indvars.iv793 to i32
   %338 = add i32 %337, 65
   store i32 %338, ptr %.sroa.4384.0..sroa_idx, align 8
-  %339 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %339 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %340 = add i32 %339, 1
-  store i32 %340, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %340, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next794 = add nuw nsw i64 %indvars.iv793, 1
   %exitcond796.not = icmp eq i64 %indvars.iv.next794, 32
   br i1 %exitcond796.not, label %.preheader658, label %.preheader659, !llvm.loop !34
@@ -3749,7 +3749,7 @@ fnv1a.exit639:                                    ; preds = %.lr.ph.i633, %.preh
   %.0467.in = phi i32 [ %355, %fnv1a.exit639 ], [ %360, %356 ]
   %.0467 = and i32 %.0467.in, 4095
   %357 = zext nneg i32 %.0467 to i64
-  %358 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %357
+  %358 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %357
   %359 = load ptr, ptr %358, align 8
   %.not496 = icmp eq ptr %359, null
   %360 = add nuw nsw i32 %.0467, 1
@@ -3765,9 +3765,9 @@ fnv1a.exit639:                                    ; preds = %.lr.ph.i633, %.preh
   %362 = trunc i64 %indvars.iv797 to i32
   %363 = add i32 %362, 65
   store i32 %363, ptr %.sroa.4405.0..sroa_idx, align 8
-  %364 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %364 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %365 = add i32 %364, 1
-  store i32 %365, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %365, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %exitcond800.not = icmp eq i64 %indvars.iv.next798, 32
   br i1 %exitcond800.not, label %.preheader, label %.preheader658, !llvm.loop !35
@@ -3812,7 +3812,7 @@ fnv1a.exit649:                                    ; preds = %.lr.ph.i643, %.preh
   %.0466.in = phi i32 [ %380, %fnv1a.exit649 ], [ %385, %381 ]
   %.0466 = and i32 %.0466.in, 4095
   %382 = zext nneg i32 %.0466 to i64
-  %383 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %382
+  %383 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %382
   %384 = load ptr, ptr %383, align 8
   %.not495 = icmp eq ptr %384, null
   %385 = add nuw nsw i32 %.0466, 1
@@ -3828,9 +3828,9 @@ fnv1a.exit649:                                    ; preds = %.lr.ph.i643, %.preh
   %387 = trunc i64 %indvars.iv801 to i32
   %388 = add i32 %387, 65
   store i32 %388, ptr %.sroa.4426.0..sroa_idx, align 8
-  %389 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %389 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %390 = add i32 %389, 1
-  store i32 %390, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %390, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
   %exitcond804.not = icmp eq i64 %indvars.iv.next802, 32
   br i1 %exitcond804.not, label %fnv1a.exit657, label %.preheader, !llvm.loop !36
@@ -3849,7 +3849,7 @@ fnv1a.exit657:                                    ; preds = %386
   %.0465.in = phi i32 [ %396, %fnv1a.exit657 ], [ %401, %397 ]
   %.0465 = and i32 %.0465.in, 4095
   %398 = zext nneg i32 %.0465 to i64
-  %399 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 3, i64 %398
+  %399 = getelementptr inbounds [4096 x %struct.AsmRegister], ptr getelementptr inbounds (i8, ptr @asm_target, i64 24), i64 0, i64 %398
   %400 = load ptr, ptr %399, align 8
   %.not = icmp eq ptr %400, null
   %401 = add nuw nsw i32 %.0465, 1
@@ -3863,9 +3863,9 @@ fnv1a.exit657:                                    ; preds = %386
   store i32 8, ptr %.sroa.3446.0..sroa_idx, align 4
   %.sroa.4447.0..sroa_idx = getelementptr inbounds i8, ptr %399, i64 16
   store i32 32, ptr %.sroa.4447.0..sroa_idx, align 8
-  %403 = load i32, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  %403 = load i32, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   %404 = add i32 %403, 1
-  store i32 %404, ptr getelementptr inbounds (%struct.AsmTarget, ptr @asm_target, i64 0, i32 5), align 8
+  store i32 %404, ptr getelementptr inbounds (i8, ptr @asm_target, i64 589848), align 8
   ret void
 }
 
@@ -4028,7 +4028,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %.0166.in = phi i32 [ %18, %fnv1a.exit ], [ %23, %19 ]
   %.0166 = and i32 %.0166.in, 4095
   %20 = zext nneg i32 %.0166 to i64
-  %21 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %20
+  %21 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   %23 = add nuw nsw i32 %.0166, 1
@@ -4495,7 +4495,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   %.0166.in = phi i32 [ %17, %fnv1a.exit ], [ %22, %18 ]
   %.0166 = and i32 %.0166.in, 4095
   %19 = zext nneg i32 %.0166 to i64
-  %20 = getelementptr inbounds %struct.AsmTarget, ptr @asm_target, i64 0, i32 4, i64 %19
+  %20 = getelementptr inbounds [4096 x %struct.AsmInstruction], ptr getelementptr inbounds (i8, ptr @asm_target, i64 98328), i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   %22 = add nuw nsw i32 %.0166, 1

@@ -20,7 +20,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC7Decoder6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 16), ptr %this, align 8
   %decoder_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__stream_decoder_new()
   store ptr %call, ptr %decoder_, align 8
@@ -32,7 +32,7 @@ declare ptr @FLAC__stream_decoder_new() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC7Decoder6StreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 16), ptr %this, align 8
   %decoder_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %decoder_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -522,18 +522,18 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC7Decoder4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 16), ptr %this, align 8
   %decoder_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call ptr @FLAC__stream_decoder_new()
   store ptr %call.i, ptr %decoder_.i, align 8
-  store ptr getelementptr inbounds ({ [45 x ptr] }, ptr @_ZTVN4FLAC7Decoder4FileE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Decoder4FileE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC7Decoder4FileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Decoder6StreamE, i64 16), ptr %this, align 8
   %decoder_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %decoder_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

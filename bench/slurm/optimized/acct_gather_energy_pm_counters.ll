@@ -107,7 +107,7 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
   store i32 %storemerge, ptr %0, align 8
   store i32 %.pre-phi, ptr @_get_joules_task.readings, align 4
   store i32 %9, ptr %2, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 262144
   %.not25 = icmp eq i64 %28, 0
   br i1 %.not25, label %37, label %29
@@ -305,7 +305,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
   br i1 %.b1.i.pr.i, label %13, label %_send_profile.exit
 
 13:                                               ; preds = %_running_profile.exit.i, %_running_profile.exit.thread.i
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 262144
   %.not1.i = icmp eq i64 %15, 0
   br i1 %.not1.i, label %23, label %16
@@ -330,7 +330,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
 26:                                               ; preds = %23
   %27 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %4) #8
   store i32 %27, ptr @_send_profile.dataset_id, align 4
-  %28 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 262144
   %.not2.i = icmp eq i64 %29, 0
   br i1 %.not2.i, label %35, label %30
@@ -364,7 +364,7 @@ thread-pre-split.i:                               ; preds = %33, %30
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   store i64 %44, ptr %3, align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %46 = and i64 %45, 2097152
   %.not3.i = icmp eq i64 %46, 0
   br i1 %.not3.i, label %53, label %47

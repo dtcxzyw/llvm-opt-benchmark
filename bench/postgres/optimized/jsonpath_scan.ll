@@ -351,9 +351,9 @@ addchar.exit165:                                  ; preds = %addchar.exit165.bac
   %87 = load ptr, ptr @jsonpath_yytext, align 8
   %88 = load i32, ptr @jsonpath_yyleng, align 4
   %89 = add i32 %88, 1
-  %90 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %91 = add i32 %89, %90
-  %92 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i = icmp slt i32 %91, %92
   br i1 %.not.i.i, label %.resizeString.exit_crit_edge.i, label %.lr.ph.i.i
 
@@ -368,12 +368,12 @@ addchar.exit165:                                  ; preds = %addchar.exit165.bac
   br i1 %.not5.i.i, label %95, label %.lr.ph.i.i, !llvm.loop !7
 
 95:                                               ; preds = %.lr.ph.i.i
-  store i32 %94, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %94, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %96 = load ptr, ptr @scanstring, align 8
   %97 = sext i32 %94 to i64
   %98 = tail call ptr @repalloc(ptr noundef %96, i64 noundef %97) #15
   store ptr %98, ptr @scanstring, align 8
-  %.pre4.i = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre4.i = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addstring.exit
 
 addstring.exit:                                   ; preds = %.resizeString.exit_crit_edge.i, %95
@@ -384,19 +384,19 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %103 = sext i32 %88 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr readonly align 1 %87, i64 %103, i1 false)
   %104 = add i32 %99, %88
-  store i32 %104, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %104, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 105:                                              ; preds = %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) @scanstring, i64 16, i1 false)
   store i32 1, ptr @yy_start, align 4
-  %106 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %106 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %107 = icmp sgt i32 %106, 12
   br i1 %107, label %checkKeyword.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %105, %144
   %108 = phi i32 [ %126, %144 ], [ %106, %105 ]
-  %.01828.i = phi ptr [ %.1.i, %144 ], [ getelementptr inbounds ([33 x %struct.JsonPathKeyword], ptr @keywords, i64 1, i64 0), %105 ]
+  %.01828.i = phi ptr [ %.1.i, %144 ], [ getelementptr inbounds (i8, ptr @keywords, i64 528), %105 ]
   %.01927.i = phi ptr [ %.120.i, %144 ], [ @keywords, %105 ]
   %109 = ptrtoint ptr %.01828.i to i64
   %110 = ptrtoint ptr %.01927.i to i64
@@ -414,7 +414,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %120 = load ptr, ptr @scanstring, align 8
   %121 = sext i32 %108 to i64
   %122 = tail call i32 @pg_strncasecmp(ptr noundef %119, ptr noundef %120, i64 noundef %121) #15
-  %.pre.i94 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre.i94 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %125
 
 123:                                              ; preds = %.preheader.i
@@ -478,13 +478,13 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   store i8 0, ptr %.182, align 1
   store ptr %.182, ptr @yy_c_buf_p, align 8
   store i32 1, ptr @yy_start, align 4
-  %150 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %150 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %151 = icmp sgt i32 %150, 12
   br i1 %151, label %checkKeyword.exit, label %.preheader.i95
 
 .preheader.i95:                                   ; preds = %147, %188
   %152 = phi i32 [ %170, %188 ], [ %150, %147 ]
-  %.01828.i96 = phi ptr [ %.1.i101, %188 ], [ getelementptr inbounds ([33 x %struct.JsonPathKeyword], ptr @keywords, i64 1, i64 0), %147 ]
+  %.01828.i96 = phi ptr [ %.1.i101, %188 ], [ getelementptr inbounds (i8, ptr @keywords, i64 528), %147 ]
   %.01927.i97 = phi ptr [ %.120.i100, %188 ], [ @keywords, %147 ]
   %153 = ptrtoint ptr %.01828.i96 to i64
   %154 = ptrtoint ptr %.01927.i97 to i64
@@ -502,7 +502,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %164 = load ptr, ptr @scanstring, align 8
   %165 = sext i32 %152 to i64
   %166 = tail call i32 @pg_strncasecmp(ptr noundef %163, ptr noundef %164, i64 noundef %165) #15
-  %.pre.i104 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre.i104 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %169
 
 167:                                              ; preds = %.preheader.i95
@@ -552,13 +552,13 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
 190:                                              ; preds = %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) @scanstring, i64 16, i1 false)
   store i32 1, ptr @yy_start, align 4
-  %191 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %192 = icmp sgt i32 %191, 12
   br i1 %192, label %checkKeyword.exit, label %.preheader.i106
 
 .preheader.i106:                                  ; preds = %190, %229
   %193 = phi i32 [ %211, %229 ], [ %191, %190 ]
-  %.01828.i107 = phi ptr [ %.1.i112, %229 ], [ getelementptr inbounds ([33 x %struct.JsonPathKeyword], ptr @keywords, i64 1, i64 0), %190 ]
+  %.01828.i107 = phi ptr [ %.1.i112, %229 ], [ getelementptr inbounds (i8, ptr @keywords, i64 528), %190 ]
   %.01927.i108 = phi ptr [ %.120.i111, %229 ], [ @keywords, %190 ]
   %194 = ptrtoint ptr %.01828.i107 to i64
   %195 = ptrtoint ptr %.01927.i108 to i64
@@ -576,7 +576,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %205 = load ptr, ptr @scanstring, align 8
   %206 = sext i32 %193 to i64
   %207 = tail call i32 @pg_strncasecmp(ptr noundef %204, ptr noundef %205, i64 noundef %206) #15
-  %.pre.i115 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre.i115 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %210
 
 208:                                              ; preds = %.preheader.i106
@@ -624,9 +624,9 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   br i1 %230, label %.preheader.i106, label %checkKeyword.exit, !llvm.loop !8
 
 231:                                              ; preds = %85
-  %232 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %233 = add i32 %232, 1
-  %234 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %234 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i117 = icmp slt i32 %233, %234
   br i1 %.not.i.i117, label %.resizeString.exit_crit_edge.i120, label %.lr.ph.i.i118
 
@@ -641,12 +641,12 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   br i1 %.not5.i.i119, label %237, label %.lr.ph.i.i118, !llvm.loop !7
 
 237:                                              ; preds = %.lr.ph.i.i118
-  store i32 %236, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %236, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %238 = load ptr, ptr @scanstring, align 8
   %239 = sext i32 %236 to i64
   %240 = tail call ptr @repalloc(ptr noundef %238, i64 noundef %239) #15
   store ptr %240, ptr @scanstring, align 8
-  %.pre3.i = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre736 = add i32 %.pre3.i, 1
   br label %addchar.exit
 
@@ -657,13 +657,13 @@ addchar.exit:                                     ; preds = %.resizeString.exit_
   %243 = sext i32 %241 to i64
   %244 = getelementptr i8, ptr %242, i64 %243
   store i8 8, ptr %244, align 1
-  store i32 %.pre-phi, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 245:                                              ; preds = %85
-  %246 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %246 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %247 = add i32 %246, 1
-  %248 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %248 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i122 = icmp slt i32 %247, %248
   br i1 %.not.i.i122, label %.resizeString.exit_crit_edge.i126, label %.lr.ph.i.i123
 
@@ -678,12 +678,12 @@ addchar.exit:                                     ; preds = %.resizeString.exit_
   br i1 %.not5.i.i124, label %251, label %.lr.ph.i.i123, !llvm.loop !7
 
 251:                                              ; preds = %.lr.ph.i.i123
-  store i32 %250, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %250, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %252 = load ptr, ptr @scanstring, align 8
   %253 = sext i32 %250 to i64
   %254 = tail call ptr @repalloc(ptr noundef %252, i64 noundef %253) #15
   store ptr %254, ptr @scanstring, align 8
-  %.pre3.i125 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i125 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre737 = add i32 %.pre3.i125, 1
   br label %addchar.exit128
 
@@ -694,13 +694,13 @@ addchar.exit128:                                  ; preds = %.resizeString.exit_
   %257 = sext i32 %255 to i64
   %258 = getelementptr i8, ptr %256, i64 %257
   store i8 12, ptr %258, align 1
-  store i32 %.pre-phi738, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi738, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 259:                                              ; preds = %85
-  %260 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %260 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %261 = add i32 %260, 1
-  %262 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %262 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i129 = icmp slt i32 %261, %262
   br i1 %.not.i.i129, label %.resizeString.exit_crit_edge.i133, label %.lr.ph.i.i130
 
@@ -715,12 +715,12 @@ addchar.exit128:                                  ; preds = %.resizeString.exit_
   br i1 %.not5.i.i131, label %265, label %.lr.ph.i.i130, !llvm.loop !7
 
 265:                                              ; preds = %.lr.ph.i.i130
-  store i32 %264, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %264, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %266 = load ptr, ptr @scanstring, align 8
   %267 = sext i32 %264 to i64
   %268 = tail call ptr @repalloc(ptr noundef %266, i64 noundef %267) #15
   store ptr %268, ptr @scanstring, align 8
-  %.pre3.i132 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i132 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre739 = add i32 %.pre3.i132, 1
   br label %addchar.exit135
 
@@ -731,13 +731,13 @@ addchar.exit135:                                  ; preds = %.resizeString.exit_
   %271 = sext i32 %269 to i64
   %272 = getelementptr i8, ptr %270, i64 %271
   store i8 10, ptr %272, align 1
-  store i32 %.pre-phi740, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi740, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 273:                                              ; preds = %85
-  %274 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %274 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %275 = add i32 %274, 1
-  %276 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %276 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i136 = icmp slt i32 %275, %276
   br i1 %.not.i.i136, label %.resizeString.exit_crit_edge.i140, label %.lr.ph.i.i137
 
@@ -752,12 +752,12 @@ addchar.exit135:                                  ; preds = %.resizeString.exit_
   br i1 %.not5.i.i138, label %279, label %.lr.ph.i.i137, !llvm.loop !7
 
 279:                                              ; preds = %.lr.ph.i.i137
-  store i32 %278, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %278, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %280 = load ptr, ptr @scanstring, align 8
   %281 = sext i32 %278 to i64
   %282 = tail call ptr @repalloc(ptr noundef %280, i64 noundef %281) #15
   store ptr %282, ptr @scanstring, align 8
-  %.pre3.i139 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i139 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre741 = add i32 %.pre3.i139, 1
   br label %addchar.exit142
 
@@ -768,13 +768,13 @@ addchar.exit142:                                  ; preds = %.resizeString.exit_
   %285 = sext i32 %283 to i64
   %286 = getelementptr i8, ptr %284, i64 %285
   store i8 13, ptr %286, align 1
-  store i32 %.pre-phi742, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi742, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 287:                                              ; preds = %85
-  %288 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %288 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %289 = add i32 %288, 1
-  %290 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %290 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i143 = icmp slt i32 %289, %290
   br i1 %.not.i.i143, label %.resizeString.exit_crit_edge.i147, label %.lr.ph.i.i144
 
@@ -789,12 +789,12 @@ addchar.exit142:                                  ; preds = %.resizeString.exit_
   br i1 %.not5.i.i145, label %293, label %.lr.ph.i.i144, !llvm.loop !7
 
 293:                                              ; preds = %.lr.ph.i.i144
-  store i32 %292, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %292, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %294 = load ptr, ptr @scanstring, align 8
   %295 = sext i32 %292 to i64
   %296 = tail call ptr @repalloc(ptr noundef %294, i64 noundef %295) #15
   store ptr %296, ptr @scanstring, align 8
-  %.pre3.i146 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i146 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre743 = add i32 %.pre3.i146, 1
   br label %addchar.exit149
 
@@ -805,13 +805,13 @@ addchar.exit149:                                  ; preds = %.resizeString.exit_
   %299 = sext i32 %297 to i64
   %300 = getelementptr i8, ptr %298, i64 %299
   store i8 9, ptr %300, align 1
-  store i32 %.pre-phi744, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi744, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 301:                                              ; preds = %85
-  %302 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %302 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %303 = add i32 %302, 1
-  %304 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %304 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i150 = icmp slt i32 %303, %304
   br i1 %.not.i.i150, label %.resizeString.exit_crit_edge.i154, label %.lr.ph.i.i151
 
@@ -826,12 +826,12 @@ addchar.exit149:                                  ; preds = %.resizeString.exit_
   br i1 %.not5.i.i152, label %307, label %.lr.ph.i.i151, !llvm.loop !7
 
 307:                                              ; preds = %.lr.ph.i.i151
-  store i32 %306, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %306, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %308 = load ptr, ptr @scanstring, align 8
   %309 = sext i32 %306 to i64
   %310 = tail call ptr @repalloc(ptr noundef %308, i64 noundef %309) #15
   store ptr %310, ptr @scanstring, align 8
-  %.pre3.i153 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i153 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre745 = add i32 %.pre3.i153, 1
   br label %addchar.exit156
 
@@ -842,7 +842,7 @@ addchar.exit156:                                  ; preds = %.resizeString.exit_
   %313 = sext i32 %311 to i64
   %314 = getelementptr i8, ptr %312, i64 %313
   store i8 11, ptr %314, align 1
-  store i32 %.pre-phi746, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %.pre-phi746, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 315:                                              ; preds = %85
@@ -937,9 +937,9 @@ parseHexChar.exit:                                ; preds = %329, %335, %337
   %356 = load ptr, ptr @jsonpath_yytext, align 8
   %357 = getelementptr i8, ptr %356, i64 1
   %358 = load i8, ptr %357, align 1
-  %359 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %359 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %360 = add i32 %359, 1
-  %361 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %361 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i158 = icmp slt i32 %360, %361
   br i1 %.not.i.i158, label %.resizeString.exit_crit_edge.i163, label %.lr.ph.i.i159
 
@@ -954,12 +954,12 @@ parseHexChar.exit:                                ; preds = %329, %335, %337
   br i1 %.not5.i.i160, label %364, label %.lr.ph.i.i159, !llvm.loop !7
 
 364:                                              ; preds = %.lr.ph.i.i159
-  store i32 %363, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %363, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %365 = load ptr, ptr @scanstring, align 8
   %366 = sext i32 %363 to i64
   %367 = tail call ptr @repalloc(ptr noundef %365, i64 noundef %366) #15
   store ptr %367, ptr @scanstring, align 8
-  %.pre3.i161 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i161 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %resizeString.exit.i
 
 resizeString.exit.i:                              ; preds = %364, %.resizeString.exit_crit_edge.i163
@@ -973,7 +973,7 @@ resizeString.exit.i:                              ; preds = %364, %.resizeString
 
 372:                                              ; preds = %resizeString.exit.i
   %373 = add i32 %368, 1
-  store i32 %373, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %373, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 addchar.exit165.backedge:                         ; preds = %85, %85, %85, %372, %resizeString.exit.i, %345, %parseHexChar.exit, %315, %535, %531, %529, %427, %421, %397, %addstring.exit173, %addchar.exit156, %addchar.exit149, %addchar.exit142, %addchar.exit135, %addchar.exit128, %addchar.exit, %146, %addstring.exit
@@ -1001,9 +1001,9 @@ addchar.exit165.backedge:                         ; preds = %85, %85, %85, %372,
   %379 = load ptr, ptr @jsonpath_yytext, align 8
   %380 = load i32, ptr @jsonpath_yyleng, align 4
   %381 = add i32 %380, 1
-  %382 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %382 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %383 = add i32 %381, %382
-  %384 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %384 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i166 = icmp slt i32 %383, %384
   br i1 %.not.i.i166, label %.resizeString.exit_crit_edge.i171, label %.lr.ph.i.i167
 
@@ -1018,12 +1018,12 @@ addchar.exit165.backedge:                         ; preds = %85, %85, %85, %372,
   br i1 %.not5.i.i168, label %387, label %.lr.ph.i.i167, !llvm.loop !7
 
 387:                                              ; preds = %.lr.ph.i.i167
-  store i32 %386, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %386, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %388 = load ptr, ptr @scanstring, align 8
   %389 = sext i32 %386 to i64
   %390 = tail call ptr @repalloc(ptr noundef %388, i64 noundef %389) #15
   store ptr %390, ptr @scanstring, align 8
-  %.pre4.i169 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre4.i169 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addstring.exit173
 
 addstring.exit173:                                ; preds = %.resizeString.exit_crit_edge.i171, %387
@@ -1034,7 +1034,7 @@ addstring.exit173:                                ; preds = %.resizeString.exit_
   %395 = sext i32 %380 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %394, ptr readonly align 1 %379, i64 %395, i1 false)
   %396 = add i32 %391, %380
-  store i32 %396, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %396, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
 
 397:                                              ; preds = %85
@@ -1066,14 +1066,14 @@ addstring.exit173:                                ; preds = %.resizeString.exit_
   %407 = load i32, ptr @jsonpath_yyleng, align 4
   %408 = add i32 %407, -1
   %409 = tail call i32 @llvm.smax.i32(i32 %407, i32 32)
-  store i32 %409, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %409, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %410 = zext nneg i32 %409 to i64
   %411 = tail call ptr @palloc(i64 noundef %410) #15
   store ptr %411, ptr @scanstring, align 8
   %412 = sext i32 %408 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %411, ptr readonly align 1 %406, i64 %412, i1 false)
-  store i32 %408, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %413 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %408, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %413 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i175 = icmp slt i32 %407, %413
   br i1 %.not.i.i175, label %addchar.exit182, label %.lr.ph.i.i176
 
@@ -1084,11 +1084,11 @@ addstring.exit173:                                ; preds = %.resizeString.exit_
   br i1 %.not5.i.i177, label %416, label %.lr.ph.i.i176, !llvm.loop !7
 
 416:                                              ; preds = %.lr.ph.i.i176
-  store i32 %415, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %415, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %417 = sext i32 %415 to i64
   %418 = tail call ptr @repalloc(ptr noundef %411, i64 noundef %417) #15
   store ptr %418, ptr @scanstring, align 8
-  %.pre3.i178 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i178 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre747 = sext i32 %.pre3.i178 to i64
   br label %addchar.exit182
 
@@ -1101,10 +1101,10 @@ addchar.exit182:                                  ; preds = %404, %416
   br label %checkKeyword.exit
 
 421:                                              ; preds = %85
-  store i32 32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %422 = tail call ptr @palloc(i64 noundef 32) #15
   store ptr %422, ptr @scanstring, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i8 0, ptr %422, align 1
   store i32 7, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
@@ -1116,10 +1116,10 @@ addchar.exit182:                                  ; preds = %404, %416
   br label %checkKeyword.exit
 
 427:                                              ; preds = %85
-  store i32 32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %428 = tail call ptr @palloc(i64 noundef 32) #15
   store ptr %428, ptr @scanstring, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i8 0, ptr %428, align 1
   store i32 9, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
@@ -1129,14 +1129,14 @@ addchar.exit182:                                  ; preds = %404, %416
   %431 = load i32, ptr @jsonpath_yyleng, align 4
   %432 = add i32 %431, 1
   %433 = tail call i32 @llvm.smax.i32(i32 %432, i32 32)
-  store i32 %433, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %433, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %434 = zext nneg i32 %433 to i64
   %435 = tail call ptr @palloc(i64 noundef %434) #15
   store ptr %435, ptr @scanstring, align 8
   %436 = sext i32 %431 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %435, ptr readonly align 1 %430, i64 %436, i1 false)
-  store i32 %431, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %437 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %431, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %437 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i186 = icmp slt i32 %432, %437
   br i1 %.not.i.i186, label %addchar.exit193, label %.lr.ph.i.i187
 
@@ -1147,11 +1147,11 @@ addchar.exit182:                                  ; preds = %404, %416
   br i1 %.not5.i.i188, label %440, label %.lr.ph.i.i187, !llvm.loop !7
 
 440:                                              ; preds = %.lr.ph.i.i187
-  store i32 %439, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %439, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %441 = sext i32 %439 to i64
   %442 = tail call ptr @repalloc(ptr noundef %435, i64 noundef %441) #15
   store ptr %442, ptr @scanstring, align 8
-  %.pre3.i189 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i189 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre749 = sext i32 %.pre3.i189 to i64
   br label %addchar.exit193
 
@@ -1168,14 +1168,14 @@ addchar.exit193:                                  ; preds = %429, %440
   %447 = load i32, ptr @jsonpath_yyleng, align 4
   %448 = add i32 %447, 1
   %449 = tail call i32 @llvm.smax.i32(i32 %448, i32 32)
-  store i32 %449, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %449, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %450 = zext nneg i32 %449 to i64
   %451 = tail call ptr @palloc(i64 noundef %450) #15
   store ptr %451, ptr @scanstring, align 8
   %452 = sext i32 %447 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr readonly align 1 %446, i64 %452, i1 false)
-  store i32 %447, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %453 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %447, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %453 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i195 = icmp slt i32 %448, %453
   br i1 %.not.i.i195, label %addchar.exit202, label %.lr.ph.i.i196
 
@@ -1186,11 +1186,11 @@ addchar.exit193:                                  ; preds = %429, %440
   br i1 %.not5.i.i197, label %456, label %.lr.ph.i.i196, !llvm.loop !7
 
 456:                                              ; preds = %.lr.ph.i.i196
-  store i32 %455, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %455, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %457 = sext i32 %455 to i64
   %458 = tail call ptr @repalloc(ptr noundef %451, i64 noundef %457) #15
   store ptr %458, ptr @scanstring, align 8
-  %.pre3.i198 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i198 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre751 = sext i32 %.pre3.i198 to i64
   br label %addchar.exit202
 
@@ -1207,14 +1207,14 @@ addchar.exit202:                                  ; preds = %445, %456
   %463 = load i32, ptr @jsonpath_yyleng, align 4
   %464 = add i32 %463, 1
   %465 = tail call i32 @llvm.smax.i32(i32 %464, i32 32)
-  store i32 %465, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %465, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %466 = zext nneg i32 %465 to i64
   %467 = tail call ptr @palloc(i64 noundef %466) #15
   store ptr %467, ptr @scanstring, align 8
   %468 = sext i32 %463 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %467, ptr readonly align 1 %462, i64 %468, i1 false)
-  store i32 %463, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %469 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %463, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %469 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i204 = icmp slt i32 %464, %469
   br i1 %.not.i.i204, label %addchar.exit211, label %.lr.ph.i.i205
 
@@ -1225,11 +1225,11 @@ addchar.exit202:                                  ; preds = %445, %456
   br i1 %.not5.i.i206, label %472, label %.lr.ph.i.i205, !llvm.loop !7
 
 472:                                              ; preds = %.lr.ph.i.i205
-  store i32 %471, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %471, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %473 = sext i32 %471 to i64
   %474 = tail call ptr @repalloc(ptr noundef %467, i64 noundef %473) #15
   store ptr %474, ptr @scanstring, align 8
-  %.pre3.i207 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i207 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre753 = sext i32 %.pre3.i207 to i64
   br label %addchar.exit211
 
@@ -1246,14 +1246,14 @@ addchar.exit211:                                  ; preds = %461, %472
   %479 = load i32, ptr @jsonpath_yyleng, align 4
   %480 = add i32 %479, 1
   %481 = tail call i32 @llvm.smax.i32(i32 %480, i32 32)
-  store i32 %481, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %481, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %482 = zext nneg i32 %481 to i64
   %483 = tail call ptr @palloc(i64 noundef %482) #15
   store ptr %483, ptr @scanstring, align 8
   %484 = sext i32 %479 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %483, ptr readonly align 1 %478, i64 %484, i1 false)
-  store i32 %479, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %485 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %479, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %485 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i213 = icmp slt i32 %480, %485
   br i1 %.not.i.i213, label %addchar.exit220, label %.lr.ph.i.i214
 
@@ -1264,11 +1264,11 @@ addchar.exit211:                                  ; preds = %461, %472
   br i1 %.not5.i.i215, label %488, label %.lr.ph.i.i214, !llvm.loop !7
 
 488:                                              ; preds = %.lr.ph.i.i214
-  store i32 %487, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %487, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %489 = sext i32 %487 to i64
   %490 = tail call ptr @repalloc(ptr noundef %483, i64 noundef %489) #15
   store ptr %490, ptr @scanstring, align 8
-  %.pre3.i216 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i216 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre755 = sext i32 %.pre3.i216 to i64
   br label %addchar.exit220
 
@@ -1285,14 +1285,14 @@ addchar.exit220:                                  ; preds = %477, %488
   %495 = load i32, ptr @jsonpath_yyleng, align 4
   %496 = add i32 %495, 1
   %497 = tail call i32 @llvm.smax.i32(i32 %496, i32 32)
-  store i32 %497, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %497, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %498 = zext nneg i32 %497 to i64
   %499 = tail call ptr @palloc(i64 noundef %498) #15
   store ptr %499, ptr @scanstring, align 8
   %500 = sext i32 %495 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %499, ptr readonly align 1 %494, i64 %500, i1 false)
-  store i32 %495, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %501 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %495, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %501 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i222 = icmp slt i32 %496, %501
   br i1 %.not.i.i222, label %addchar.exit229, label %.lr.ph.i.i223
 
@@ -1303,11 +1303,11 @@ addchar.exit220:                                  ; preds = %477, %488
   br i1 %.not5.i.i224, label %504, label %.lr.ph.i.i223, !llvm.loop !7
 
 504:                                              ; preds = %.lr.ph.i.i223
-  store i32 %503, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %503, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %505 = sext i32 %503 to i64
   %506 = tail call ptr @repalloc(ptr noundef %499, i64 noundef %505) #15
   store ptr %506, ptr @scanstring, align 8
-  %.pre3.i225 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i225 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre757 = sext i32 %.pre3.i225 to i64
   br label %addchar.exit229
 
@@ -1324,14 +1324,14 @@ addchar.exit229:                                  ; preds = %493, %504
   %511 = load i32, ptr @jsonpath_yyleng, align 4
   %512 = add i32 %511, 1
   %513 = tail call i32 @llvm.smax.i32(i32 %512, i32 32)
-  store i32 %513, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %513, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %514 = zext nneg i32 %513 to i64
   %515 = tail call ptr @palloc(i64 noundef %514) #15
   store ptr %515, ptr @scanstring, align 8
   %516 = sext i32 %511 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %515, ptr readonly align 1 %510, i64 %516, i1 false)
-  store i32 %511, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
-  %517 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %511, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
+  %517 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i231 = icmp slt i32 %512, %517
   br i1 %.not.i.i231, label %addchar.exit238, label %.lr.ph.i.i232
 
@@ -1342,11 +1342,11 @@ addchar.exit229:                                  ; preds = %493, %504
   br i1 %.not5.i.i233, label %520, label %.lr.ph.i.i232, !llvm.loop !7
 
 520:                                              ; preds = %.lr.ph.i.i232
-  store i32 %519, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %519, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %521 = sext i32 %519 to i64
   %522 = tail call ptr @repalloc(ptr noundef %515, i64 noundef %521) #15
   store ptr %522, ptr @scanstring, align 8
-  %.pre3.i234 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre3.i234 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %.pre759 = sext i32 %.pre3.i234 to i64
   br label %addchar.exit238
 
@@ -1375,10 +1375,10 @@ addchar.exit238:                                  ; preds = %509, %520
   br label %checkKeyword.exit
 
 529:                                              ; preds = %85
-  store i32 32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %530 = tail call ptr @palloc(i64 noundef 32) #15
   store ptr %530, ptr @scanstring, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i8 0, ptr %530, align 1
   store i32 3, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
@@ -1393,10 +1393,10 @@ addchar.exit238:                                  ; preds = %509, %520
   store i8 %533, ptr @yy_hold_char, align 1
   store i8 0, ptr %.182, align 1
   store ptr %.182, ptr @yy_c_buf_p, align 8
-  store i32 32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %534 = tail call ptr @palloc(i64 noundef 32) #15
   store ptr %534, ptr @scanstring, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i8 0, ptr %534, align 1
   store i32 5, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
@@ -1406,13 +1406,13 @@ addchar.exit238:                                  ; preds = %509, %520
   %537 = load i32, ptr @jsonpath_yyleng, align 4
   %538 = add i32 %537, 1
   %539 = tail call i32 @llvm.smax.i32(i32 %538, i32 32)
-  store i32 %539, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %539, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %540 = zext nneg i32 %539 to i64
   %541 = tail call ptr @palloc(i64 noundef %540) #15
   store ptr %541, ptr @scanstring, align 8
   %542 = sext i32 %537 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %541, ptr readonly align 1 %536, i64 %542, i1 false)
-  store i32 %537, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %537, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i32 5, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
 
@@ -3553,9 +3553,9 @@ define internal fastcc noundef zeroext i1 @addUnicodeChar(i32 noundef %0, ptr no
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %25 = trunc i64 %24 to i32
   %26 = add i32 %25, 1
-  %27 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %28 = add i32 %26, %27
-  %29 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i = icmp slt i32 %28, %29
   br i1 %.not.i.i, label %.resizeString.exit_crit_edge.i, label %.lr.ph.i.i
 
@@ -3570,12 +3570,12 @@ define internal fastcc noundef zeroext i1 @addUnicodeChar(i32 noundef %0, ptr no
   br i1 %.not5.i.i, label %32, label %.lr.ph.i.i, !llvm.loop !7
 
 32:                                               ; preds = %.lr.ph.i.i
-  store i32 %31, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 2), align 4
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %33 = load ptr, ptr @scanstring, align 8
   %34 = sext i32 %31 to i64
   %35 = call ptr @repalloc(ptr noundef %33, i64 noundef %34) #15
   store ptr %35, ptr @scanstring, align 8
-  %.pre4.i = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  %.pre4.i = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addstring.exit
 
 addstring.exit:                                   ; preds = %.resizeString.exit_crit_edge.i, %32
@@ -3587,7 +3587,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %40 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull readonly align 16 %3, i64 %40, i1 false)
   %41 = add i32 %36, %25
-  store i32 %41, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i64 0, i32 1), align 8
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %42
 
 42:                                               ; preds = %20, %18, %7, %5, %addstring.exit

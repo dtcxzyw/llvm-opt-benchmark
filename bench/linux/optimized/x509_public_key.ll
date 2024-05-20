@@ -362,7 +362,7 @@ define internal i32 @x509_key_preparse(ptr nocapture noundef %0) #0 align 16 {
   store i8 32, ptr %51, align 1
   %53 = tail call ptr @bin2hex(ptr noundef %52, ptr noundef %40, i64 noundef %42) #12
   store i8 0, ptr %53, align 1
-  %54 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %55 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3264, i64 noundef 24) #14
   %56 = icmp eq ptr %55, null
   br i1 %56, label %89, label %57

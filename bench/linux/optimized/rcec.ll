@@ -296,7 +296,7 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 8) #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %36, label %16

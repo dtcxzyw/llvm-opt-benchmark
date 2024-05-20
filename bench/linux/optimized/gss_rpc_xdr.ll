@@ -899,7 +899,7 @@ define internal fastcc noundef i32 @gssx_dec_option_array(ptr noundef %0, ptr no
 
 9:                                                ; preds = %5
   store i32 1, ptr %1, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 32) #11
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %11, ptr %12, align 8
@@ -907,7 +907,7 @@ define internal fastcc noundef i32 @gssx_dec_option_array(ptr noundef %0, ptr no
   br i1 %13, label %.thread23, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 56) #11
   %17 = icmp eq ptr %16, null
   %18 = load ptr, ptr %12, align 8

@@ -2524,7 +2524,7 @@ vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %whi
   store i32 %inc.i.i71, ptr %x.i.i51, align 8
   %incdec.ptr.i72 = getelementptr i8, ptr %buf.addr.04.i50, i64 1
   %188 = load i8, ptr %incdec.ptr.i72, align 1
-  %exitcond = icmp eq ptr %incdec.ptr.i72, getelementptr inbounds ([5 x i8], ptr @.str.20, i64 0, i64 4)
+  %exitcond = icmp eq ptr %incdec.ptr.i72, getelementptr inbounds (i8, ptr @.str.20, i64 4)
   br i1 %exitcond, label %vc_putchar.exit, label %while.body.i49, !llvm.loop !27
 
 sw.bb232.i:                                       ; preds = %sw.bb228.i

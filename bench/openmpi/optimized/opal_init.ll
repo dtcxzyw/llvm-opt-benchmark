@@ -151,7 +151,7 @@ opal_init_psm.exit:                               ; preds = %24, %27
 
 32:                                               ; preds = %opal_init_psm.exit
   %33 = load i32, ptr @opal_class_init_epoch, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_finalize_domain_t_class, i64 0, i32 4), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 32), align 8
   %.not42 = icmp eq i32 %33, %34
   br i1 %.not42, label %36, label %35
 
@@ -161,8 +161,8 @@ opal_init_psm.exit:                               ; preds = %24, %27
 
 36:                                               ; preds = %35, %32
   store ptr @opal_finalize_domain_t_class, ptr @opal_init_domain, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_finalize_domain_t, ptr @opal_init_domain, i64 0, i32 0, i32 0, i32 1), align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_finalize_domain_t_class, i64 0, i32 6), align 8
+  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @opal_init_domain, i64 8), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %38 = load ptr, ptr %37, align 8
   %.not1.i = icmp eq ptr %38, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -203,7 +203,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %36
   br label %88
 
 52:                                               ; preds = %48, %45
-  %53 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_component_t, ptr @opal_accelerator_base_selected_component, i64 0, i32 3), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator_base_selected_component, i64 272), align 8
   tail call void @opal_finalize_append_cleanup(ptr noundef %53, ptr noundef nonnull @.str.11, ptr noundef null) #4
   %54 = tail call i32 @opal_datatype_init() #4
   %.not45 = icmp eq i32 %54, 0

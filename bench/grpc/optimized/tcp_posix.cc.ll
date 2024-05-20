@@ -287,9 +287,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i: ; preds = %i
 _ZN9grpc_core20GlobalStatsCollector21IncrementSyscallWriteEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i
   %6 = load i16, ptr %0, align 2
   %conv4.i.i.i = zext i16 %6 to i64
-  %7 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i = urem i64 %conv4.i.i.i, %7
-  %8 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %syscall_write.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %8, i64 %rem.i.i, i32 6
   %9 = atomicrmw add ptr %syscall_write.i, i64 1 monotonic, align 8
   %call1 = tail call i64 @sendmsg(i32 noundef %fd, ptr noundef %msg, i32 noundef %or)
@@ -1154,7 +1154,7 @@ if.else52:                                        ; preds = %if.then45
           to label %if.end55 unwind label %lpad23
 
 if.end55:                                         ; preds = %if.then49, %if.else52, %land.lhs.true, %if.end42
-  %99 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %99 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   store i64 1, ptr %refcount.i, align 8
   %shutdown_count = getelementptr inbounds i8, ptr %call, i64 48
   store atomic i64 0, ptr %shutdown_count monotonic, align 8
@@ -1687,7 +1687,7 @@ entry:
   %ref.tmp25 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp26 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp48 = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -1838,9 +1838,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i: ; preds = 
 _ZN9grpc_core20GlobalStatsCollector24IncrementTcpReadAlloc64kEv.exit.i: ; preds = %.noexc30, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i
   %19 = load i16, ptr %9, align 2
   %conv4.i.i.i.i = zext i16 %19 to i64
-  %20 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i.i = urem i64 %conv4.i.i.i.i, %20
-  %21 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_read_alloc_64k.i.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %21, i64 %rem.i.i.i, i32 9
   %22 = atomicrmw add ptr %tcp_read_alloc_64k.i.i, i64 1 monotonic, align 8
   %cmp21.i = icmp ugt i32 %extra_wanted.047.i, 65536
@@ -1912,9 +1912,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i27.i: ; preds 
 _ZN9grpc_core20GlobalStatsCollector23IncrementTcpReadAlloc8kEv.exit.i: ; preds = %.noexc37, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i27.i
   %31 = load i16, ptr %10, align 2
   %conv4.i.i.i29.i = zext i16 %31 to i64
-  %32 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i30.i = urem i64 %conv4.i.i.i29.i, %32
-  %33 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_read_alloc_8k.i.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %33, i64 %rem.i.i30.i, i32 8
   %34 = atomicrmw add ptr %tcp_read_alloc_8k.i.i, i64 1 monotonic, align 8
   %cmp29.i = icmp ugt i32 %extra_wanted.148.i, 8192
@@ -2006,7 +2006,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 _ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEEC2ERKS3_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %call.i.i.i.noexc.i.i.i.i
   %refs_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i1.i.i.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i.i.i.i.i, align 8, !noalias !33
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14ReclaimerQueue6HandleE, i64 0, i32 0, i64 2), ptr %call.i.i.i1.i.i.i.i, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14ReclaimerQueue6HandleE, i64 16), ptr %call.i.i.i1.i.i.i.i, align 8, !noalias !33
   %call.i1.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i, !noalias !33
 
@@ -2021,7 +2021,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZNSt10shared_ptrIN
   %state_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i.i.i.i.i.i, i64 8
   %47 = load <2 x ptr>, ptr %agg.tmp3.i.i.i.i.i.i.i, align 16, !noalias !33
   store <2 x ptr> %47, ptr %state_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !33
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @"_ZTVN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_18grpc_tcpEE3$_0EE", i64 0, i32 0, i64 2), ptr %call.i1.i.i.i.i.i.i.i, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_18grpc_tcpEE3$_0EE", i64 16), ptr %call.i1.i.i.i.i.i.i.i, align 8, !noalias !33
   %f_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i.i.i.i.i.i, i64 24
   %48 = ptrtoint ptr %arg to i64
   store i64 %48, ptr %f_.i.i.i.i.i.i.i.i.i, align 8, !noalias !33
@@ -2126,7 +2126,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4.i.i.i.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp92.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp93.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp189.i)
-  %63 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %63 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i41 = trunc i8 %63 to i1
   br i1 %tobool.i.i.i.i41, label %if.then.i64, label %if.end.i
 
@@ -2291,8 +2291,8 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i50: ; preds 
 
 _ZN9grpc_core20GlobalStatsCollector21IncrementTcpReadOfferEi.exit.i: ; preds = %.noexc71, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i50
   %83 = load i16, ptr %74, align 2
-  %84 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
-  %85 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %84 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %call.i.i.i73 = invoke noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %conv49.i)
           to label %call.i.i.i.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
@@ -2356,8 +2356,8 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i103.i: ; preds
 
 _ZN9grpc_core20GlobalStatsCollector28IncrementTcpReadOfferIovSizeEi.exit.i: ; preds = %.noexc77, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i103.i
   %94 = load i16, ptr %74, align 2
-  %95 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
-  %96 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %95 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %call.i.i107.i79 = invoke noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %conv53.i)
           to label %call.i.i107.i.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
@@ -2421,9 +2421,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i120.i: ; preds
 _ZN9grpc_core20GlobalStatsCollector20IncrementSyscallReadEv.exit.i: ; preds = %.noexc83, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i120.i
   %103 = load i16, ptr %74, align 2
   %conv4.i.i.i122.i = zext i16 %103 to i64
-  %104 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %104 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i123.i = urem i64 %conv4.i.i.i122.i, %104
-  %105 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %syscall_read.i.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %105, i64 %rem.i.i123.i, i32 7
   %106 = atomicrmw add ptr %syscall_read.i.i, i64 1 monotonic, align 8
   %107 = load i32, ptr %fd.i, align 8
@@ -2756,8 +2756,8 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i164.i: ; preds
 
 _ZN9grpc_core20GlobalStatsCollector20IncrementTcpReadSizeEi.exit.i: ; preds = %.noexc92, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i164.i
   %151 = load i16, ptr %74, align 2
-  %152 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
-  %153 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %152 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
+  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %call.i.i168.i94 = invoke noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %conv113.i)
           to label %call.i.i168.i.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
@@ -2987,7 +2987,7 @@ invoke.cont11:                                    ; preds = %if.then10
           to label %invoke.cont13 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %181 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %181 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i102 = trunc i8 %181 to i1
   br i1 %tobool.i.i.i.i102, label %if.then.i104, label %if.end.i103
 
@@ -3078,7 +3078,7 @@ invoke.cont16:                                    ; preds = %if.end15.thread, %i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %read_cb.i = getelementptr inbounds i8, ptr %arg, i64 360
   %187 = load ptr, ptr %read_cb.i, align 8
-  %188 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %188 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i109 = trunc i8 %188 to i1
   br i1 %tobool.i.i.i.i109, label %if.then.i110, label %invoke.cont18
 
@@ -3551,7 +3551,7 @@ cond.end:                                         ; preds = %if.end5
   br i1 %call10, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %cond.true, %cond.end
-  %27 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %27 to i1
   br i1 %tobool.i.i.i, label %if.then13, label %if.end14
 
@@ -3568,7 +3568,7 @@ if.else:                                          ; preds = %cond.true, %cond.en
   %28 = load ptr, ptr %write_cb15, align 8
   store ptr null, ptr %write_cb15, align 8
   store ptr null, ptr %current_zerocopy_send6, align 8
-  %29 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i24 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i24, label %if.then19, label %if.end24
 
@@ -3693,7 +3693,7 @@ define internal void @_ZL36tcp_drop_uncovered_then_handle_writePvN4absl12lts_202
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -3730,7 +3730,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 do.end.i:                                         ; preds = %if.end
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i, label %if.then1.i, label %_ZL14drop_uncoveredPN12_GLOBAL__N_18grpc_tcpE.exit
 
@@ -3792,7 +3792,7 @@ declare noundef zeroext i1 @_Z34grpc_event_engine_can_track_errorsv() local_unna
 define internal void @_ZL16tcp_handle_errorPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef %error) #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -4433,7 +4433,7 @@ init.check:                                       ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %options.i.i.i.i, i64 8
   store i64 32, ptr %1, align 8
   %call.i.i.i.i = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %options.i.i.i.i)
-  store i64 %call.i.i.i.i, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  store i64 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %2 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %call.i.i.i.i, i64 2344)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
@@ -4450,7 +4450,7 @@ new.ctorloop.i.i.i.i:                             ; preds = %init.check
   br label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit
 
 _ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit: ; preds = %init.check, %new.ctorloop.i.i.i.i
-  store ptr %call3.i.i.i.i, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  store ptr %call3.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %options.i.i.i.i)
   br label %init.end
 
@@ -4467,7 +4467,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -4673,7 +4673,7 @@ do.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %do.end
   tail call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %read_mu)
   store i8 0, ptr %is_first_read, align 4
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZL14notify_on_readPN12_GLOBAL__N_18grpc_tcpE.exit
 
@@ -4699,7 +4699,7 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then10:                                        ; preds = %land.lhs.true
   tail call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %read_mu)
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i18 = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i18, label %if.then.i21, label %_ZL14notify_on_readPN12_GLOBAL__N_18grpc_tcpE.exit22
 
@@ -4783,7 +4783,7 @@ if.end.i:                                         ; preds = %entry
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry, %if.end.i
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %for.cond.preheader, label %do.body
 
@@ -5211,7 +5211,7 @@ if.then90:                                        ; preds = %cond.end88
   store ptr %cb, ptr %write_cb, align 8
   %current_zerocopy_send = getelementptr inbounds i8, ptr %ep, i64 752
   store ptr %zerocopy_send_record.1.i107, ptr %current_zerocopy_send, align 8
-  %53 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %53 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i61 = trunc i8 %53 to i1
   br i1 %tobool.i.i.i61, label %if.then95, label %if.end97
 
@@ -5224,7 +5224,7 @@ if.end97:                                         ; preds = %if.then95, %if.then
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 if.else:                                          ; preds = %cond.end88
-  %54 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %54 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i62 = trunc i8 %54 to i1
   br i1 %tobool.i.i.i62, label %if.then101, label %if.end108
 
@@ -6085,9 +6085,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i: ; preds = 
 _ZN9grpc_core20GlobalStatsCollector21IncrementTcpWriteSizeEi.exit.i: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i.i
   %18 = load i16, ptr %0, align 2
   %conv4.i.i.i.i = zext i16 %18 to i64
-  %19 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i.i = urem i64 %conv4.i.i.i.i, %19
-  %20 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_write_size.i.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %20, i64 %rem.i.i.i, i32 22
   %call.i.i.i = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %conv.i)
   %idxprom.i.i.i = sext i32 %call.i.i.i to i64
@@ -6138,9 +6138,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i32.i: ; preds 
 _ZN9grpc_core20GlobalStatsCollector24IncrementTcpWriteIovSizeEi.exit.i: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i32.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i39.i
   %27 = load i16, ptr %0, align 2
   %conv4.i.i.i34.i = zext i16 %27 to i64
-  %28 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i35.i = urem i64 %conv4.i.i.i34.i, %28
-  %29 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_write_iov_size.i.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %29, i64 %rem.i.i35.i, i32 23
   %call.i.i36.i = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %conv10.i)
   %idxprom.i.i37.i = sext i32 %call.i.i36.i to i64
@@ -6775,9 +6775,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i: ; preds = %i
 _ZN9grpc_core20GlobalStatsCollector21IncrementTcpWriteSizeEi.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i
   %21 = load i16, ptr %0, align 2
   %conv4.i.i.i = zext i16 %21 to i64
-  %22 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i = urem i64 %conv4.i.i.i, %22
-  %23 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_write_size.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %23, i64 %rem.i.i, i32 22
   %call.i.i = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %conv50)
   %idxprom.i.i = sext i32 %call.i.i to i64
@@ -6828,9 +6828,9 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i74: ; preds = 
 _ZN9grpc_core20GlobalStatsCollector24IncrementTcpWriteIovSizeEi.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i81, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i74
   %30 = load i16, ptr %0, align 2
   %conv4.i.i.i76 = zext i16 %30 to i64
-  %31 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %rem.i.i77 = urem i64 %conv4.i.i.i76, %31
-  %32 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   %tcp_write_iov_size.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %32, i64 %rem.i.i77, i32 23
   %call.i.i78 = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %conv52)
   %idxprom.i.i79 = sext i32 %call.i.i78 to i64
@@ -7225,7 +7225,7 @@ eh.resume:                                        ; preds = %lpad86, %ehcleanup9
 define internal fastcc void @_ZL15notify_on_writePN12_GLOBAL__N_18grpc_tcpE(ptr noundef %tcp) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -7255,7 +7255,7 @@ if.then.i:                                        ; preds = %if.then2
   tail call void @_Z17grpc_pollset_initP12grpc_pollsetPPl(ptr noundef nonnull %add.ptr.i, ptr noundef %call1.i)
   %3 = load ptr, ptr @_ZL18g_backup_poller_mu, align 8
   tail call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then3.i, label %if.end.i
 
@@ -7308,7 +7308,7 @@ if.else.i:                                        ; preds = %if.then2
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then.i.i.i, %invoke.cont.i
   %p.0.i = phi ptr [ %9, %if.else.i ], [ %call1.i, %invoke.cont.i ], [ %call1.i, %if.then.i.i.i ]
-  %11 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %11 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i10.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i10.i, label %if.then7.i, label %_ZL10cover_selfPN12_GLOBAL__N_18grpc_tcpE.exit
 
@@ -7662,7 +7662,7 @@ if.then31:                                        ; preds = %if.else
   br i1 %cmp.i21, label %if.then.i25, label %if.end3.i
 
 if.then.i25:                                      ; preds = %if.then31
-  %44 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %44 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %44 to i1
   br i1 %tobool.i.i.i.i, label %if.then2.i, label %for.inc
 
@@ -7693,7 +7693,7 @@ if.then6.if.end14_crit_edge.i:                    ; preds = %if.then6.i
   br label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %47 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i21.i = trunc i8 %47 to i1
   br i1 %tobool.i.i.i21.i, label %if.then11.i, label %for.inc
 
@@ -7719,7 +7719,7 @@ lor.lhs.false19.i:                                ; preds = %if.end14.i, %if.end
   ]
 
 if.then25.i:                                      ; preds = %lor.lhs.false19.i, %if.end14.i, %land.lhs.true.i
-  %50 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i22.i = trunc i8 %50 to i1
   br i1 %tobool.i.i.i22.i, label %if.then27.i, label %for.inc
 
@@ -7749,7 +7749,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false33.i
   br label %for.inc
 
 if.else33:                                        ; preds = %_ZL14CmsgIsZeroCopyRK7cmsghdr.exit, %if.end.i, %if.else
-  %53 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %53 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %53 to i1
   br i1 %tobool.i.i.i, label %if.then36, label %return
 
@@ -8062,7 +8062,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %if.then3, label %return
 
@@ -8508,7 +8508,7 @@ entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp9 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp27 = alloca %"class.absl::lts_20230802::Status", align 8
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -8634,7 +8634,7 @@ do.end:                                           ; preds = %do.body
   store i32 0, ptr @_ZL33g_uncovered_notifications_pending, align 4
   %21 = load ptr, ptr @_ZL18g_backup_poller_mu, align 8
   call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i15 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i15, label %if.then19, label %if.end20
 
@@ -8656,7 +8656,7 @@ if.end20:                                         ; preds = %if.then19, %do.end
 if.else:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %23 = load ptr, ptr @_ZL18g_backup_poller_mu, align 8
   call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %24 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i16 = trunc i8 %24 to i1
   br i1 %tobool.i.i.i16, label %if.then24, label %if.end25
 
@@ -8715,7 +8715,7 @@ declare void @_Z21grpc_pollset_shutdownP12grpc_pollsetP12grpc_closure(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL11done_pollerPvN4absl12lts_202308026StatusE(ptr noundef %bp, ptr nocapture readnone %0) #6 {
 entry:
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -9165,7 +9165,7 @@ if.then.i:                                        ; preds = %if.end
   store i16 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, ptr %4, align 16
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   %5 = load ptr, ptr %f_, align 8
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_resource_quota_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i2 = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i.i2, label %if.then.i.i, label %if.end.i.i
 
@@ -9210,7 +9210,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   br label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core14ReclaimerQueue6Handle5SweepE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14ReclaimerQueue6Handle5SweepE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %10, null

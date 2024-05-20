@@ -170,7 +170,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread:                                          ; preds = %37, %15, %.loopexit25
   %46 = phi i32 [ %44, %.loopexit25 ], [ %17, %15 ], [ %17, %37 ]
-  %47 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %48 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 2336, i64 noundef 80) #11
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread23, label %50
@@ -281,7 +281,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %107 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %106, i32 noundef 2336, i64 noundef 56) #11
   %108 = icmp eq ptr %107, null
   br i1 %108, label %120, label %109
@@ -320,7 +320,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   br label %160
 
 126:                                              ; preds = %102
-  %127 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %128 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %127, i32 noundef 2336, i64 noundef 80) #11
   %129 = icmp eq ptr %128, null
   br i1 %129, label %156, label %130
@@ -781,7 +781,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlabel_init(i32 noundef 
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 16) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %24, label %7
@@ -974,7 +974,7 @@ define dso_local i32 @netlbl_unlabel_defconf() local_unnamed_addr #3 section ".i
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %3, align 4
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 64) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %18, label %7

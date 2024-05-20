@@ -615,7 +615,7 @@ define internal range(i32 -128, 128) i32 @php_sockop_set_option(ptr nocapture no
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 3), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
   br label %22
 
 18:                                               ; preds = %12
@@ -1462,7 +1462,7 @@ define dso_local ptr @php_stream_generic_socket_factory(ptr nocapture noundef re
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   store i8 1, ptr %28, align 4
-  %29 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 3), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %29, ptr %30, align 8
   store i32 -1, ptr %27, align 8

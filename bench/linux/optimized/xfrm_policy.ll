@@ -4660,7 +4660,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__xfrm_sk_clone_policy(ptr nound
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %9, align 8
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 2336, i64 noundef 832) #24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %103, label %16
@@ -9477,7 +9477,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br i1 %76, label %77, label %.loopexit11
 
 77:                                               ; preds = %68
-  %78 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %78 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %79 = zext i16 %78 to i64
   %80 = sub nsw i64 0, %79
   br label %81
@@ -9533,7 +9533,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br i1 %111, label %.loopexit10.loopexit18, label %21, !prof !7
 
 .loopexit10.loopexit18:                           ; preds = %108
-  %.pre = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %.pre = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %.pre24 = zext i16 %.pre to i64
   %.pre25 = sub nsw i64 0, %.pre24
   br label %.loopexit10
@@ -9549,7 +9549,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br i1 %116, label %117, label %340
 
 117:                                              ; preds = %.loopexit10
-  %118 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %119 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %118, i32 noundef 2336, i64 noundef 88) #24
   %120 = icmp eq ptr %119, null
   br i1 %120, label %340, label %121
@@ -9571,7 +9571,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   store i32 0, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %119, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
-  %130 = load ptr, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 8), align 8
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 40), align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %133, !prof !6
 
@@ -9583,7 +9583,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
 133:                                              ; preds = %121
   tail call void @__rcu_read_lock() #23
   %134 = load volatile ptr, ptr @xfrm_policy_inexact_table, align 8
-  %135 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %135 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %136 = zext i16 %135 to i64
   %137 = sub nsw i64 0, %136
   %138 = getelementptr i8, ptr %129, i64 %137
@@ -9657,7 +9657,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   %195 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !99
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !100
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !100
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !101
   %196 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %192, i64 0, ptr nonnull elementtype(i64) %192) #23, !srcloc !102
   %197 = icmp ult i8 %196, 2
@@ -9667,7 +9667,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
 
 .preheader:                                       ; preds = %194, %209
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !104
-  %199 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %199 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %200 = icmp ult i8 %199, 2
   call void @llvm.assume(i1 %200)
   %201 = icmp eq i8 %199, 0
@@ -9690,7 +9690,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br i1 %208, label %209, label %205, !llvm.loop !107
 
 209:                                              ; preds = %205
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !100
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !100
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !108
   %210 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %192, i64 0, ptr nonnull elementtype(i64) %192) #23, !srcloc !102
   %211 = icmp ult i8 %210, 2
@@ -9708,7 +9708,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !111
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %192, i32 -2, ptr nonnull elementtype(i8) %192) #23, !srcloc !112
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !113
-  %217 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %217 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %218 = icmp ult i8 %217, 2
   call void @llvm.assume(i1 %218)
   %219 = icmp eq i8 %217, 0
@@ -9748,7 +9748,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
 
 239:                                              ; preds = %229
   %240 = inttoptr i64 %236 to ptr
-  %241 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %241 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %242 = zext i16 %241 to i64
   %243 = sub nsw i64 0, %242
   %244 = load ptr, ptr %119, align 8
@@ -9803,16 +9803,16 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br i1 %277, label %216, label %278
 
 278:                                              ; preds = %276, %229
-  %279 = load volatile i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), align 4
-  %280 = load i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 2), align 4
+  %279 = load volatile i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
+  %280 = load i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 12), align 4
   %281 = icmp ult i32 %279, %280
   br i1 %281, label %282, label %.loopexit, !prof !7
 
 282:                                              ; preds = %278
-  %283 = load volatile i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), align 4
+  %283 = load volatile i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
   %284 = load i32, ptr %134, align 64
   %285 = icmp ugt i32 %283, %284
-  %286 = load i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 4), align 8
+  %286 = load i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 24), align 8
   %287 = add i32 %286, -1
   %288 = icmp uge i32 %287, %284
   %289 = select i1 %285, i1 %288, i1 false
@@ -9821,11 +9821,11 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
 290:                                              ; preds = %282
   %291 = inttoptr i64 %236 to ptr
   store volatile ptr %291, ptr %129, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8)) #23, !srcloc !26
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132)) #23, !srcloc !26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !117
   store volatile ptr %129, ptr %192, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !118
-  %292 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %292 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %293 = icmp ult i8 %292, 2
   call void @llvm.assume(i1 %293)
   %294 = icmp eq i8 %292, 0
@@ -9847,12 +9847,12 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   br label %302
 
 302:                                              ; preds = %301, %298
-  %303 = load volatile i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), align 4
+  %303 = load volatile i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
   %304 = load i32, ptr %134, align 64
   %305 = lshr i32 %304, 2
   %306 = mul nuw i32 %305, 3
   %307 = icmp ugt i32 %303, %306
-  %308 = load i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 4), align 8
+  %308 = load i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 24), align 8
   %309 = add i32 %308, -1
   %310 = icmp uge i32 %309, %304
   %311 = select i1 %307, i1 %310, i1 false
@@ -9860,7 +9860,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
 
 312:                                              ; preds = %302
   %313 = load ptr, ptr @system_wq, align 8
-  %314 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %313, ptr noundef nonnull getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 5)) #23
+  %314 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %313, ptr noundef nonnull getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 64)) #23
   br label %315
 
 315:                                              ; preds = %327, %324, %312, %302, %191
@@ -9873,7 +9873,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !111
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %192, i32 -2, ptr nonnull elementtype(i8) %192) #23, !srcloc !112
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !113
-  %318 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %318 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %319 = icmp ult i8 %318, 2
   call void @llvm.assume(i1 %319)
   %320 = icmp eq i8 %318, 0
@@ -10166,7 +10166,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 
 25:                                               ; preds = %.thread11, %22
   %26 = phi ptr [ %24, %22 ], [ %176, %.thread11 ]
-  %27 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %27 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %28 = zext i16 %27 to i64
   %29 = sub nsw i64 0, %28
   %30 = getelementptr i8, ptr %23, i64 %29
@@ -10240,7 +10240,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %87 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !99
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !100
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !100
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !101
   %88 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %84, i64 0, ptr nonnull elementtype(i64) %84) #23, !srcloc !102
   %89 = icmp ult i8 %88, 2
@@ -10250,7 +10250,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 
 .preheader:                                       ; preds = %86, %101
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !104
-  %91 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %91 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %92 = icmp ult i8 %91, 2
   call void @llvm.assume(i1 %92)
   %93 = icmp eq i8 %91, 0
@@ -10273,7 +10273,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br i1 %100, label %101, label %97, !llvm.loop !107
 
 101:                                              ; preds = %97
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !100
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !100
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !108
   %102 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %84, i64 0, ptr nonnull elementtype(i64) %84) #23, !srcloc !102
   %103 = icmp ult i8 %102, 2
@@ -10321,7 +10321,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !111
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %84, i32 -2, ptr nonnull elementtype(i8) %84) #23, !srcloc !112
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !113
-  %123 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %123 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %124 = icmp ult i8 %123, 2
   call void @llvm.assume(i1 %124)
   %125 = icmp eq i8 %123, 0
@@ -10350,7 +10350,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !117
   store volatile ptr %136, ptr %84, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !118
-  %137 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %137 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %138 = icmp ult i8 %137, 2
   call void @llvm.assume(i1 %138)
   %139 = icmp eq i8 %137, 0
@@ -10381,7 +10381,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !111
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %84, i32 -2, ptr nonnull elementtype(i8) %84) #23, !srcloc !112
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !113
-  %150 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #23, !srcloc !105
+  %150 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !105
   %151 = icmp ult i8 %150, 2
   call void @llvm.assume(i1 %151)
   %152 = icmp eq i8 %150, 0
@@ -10403,18 +10403,18 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br label %.thread11
 
 .thread8:                                         ; preds = %129, %130, %143, %144
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8)) #23, !srcloc !127
-  %160 = load i8, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 6), align 2, !range !128, !noundef !129
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132)) #23, !srcloc !127
+  %160 = load i8, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 30), align 2, !range !128, !noundef !129
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %.thread10, label %162
 
 162:                                              ; preds = %.thread8
-  %163 = load volatile i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 8), align 4
+  %163 = load volatile i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
   %164 = load i32, ptr %26, align 64
   %165 = mul i32 %164, 3
   %166 = udiv i32 %165, 10
   %167 = icmp ult i32 %163, %166
-  %168 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 5), align 4
+  %168 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 28), align 4
   %169 = zext i16 %168 to i32
   %170 = icmp ugt i32 %164, %169
   %171 = select i1 %167, i1 %170, i1 false
@@ -10422,7 +10422,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 
 172:                                              ; preds = %162
   %173 = load ptr, ptr @system_wq, align 8
-  %174 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %173, ptr noundef nonnull getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 5)) #23
+  %174 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 64)) #23
   br label %.thread10
 
 .thread11:                                        ; preds = %159, %156, %83
@@ -10476,8 +10476,8 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr nocapture noun
   %9 = phi ptr [ %61, %.split9.us.us ], [ %7, %2 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 7), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 1), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 8), align 8
   %14 = tail call i32 %12(ptr noundef %0, i32 noundef %13, i32 noundef %11) #23
   %15 = load i32, ptr %9, align 64
   %16 = add i32 %15, -1
@@ -10522,12 +10522,12 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr nocapture noun
   br i1 %41, label %.split9.us.us, label %31, !llvm.loop !94
 
 .preheader.us.us:                                 ; preds = %31
-  %42 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %42 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %43 = zext i16 %42 to i64
   %44 = sub nsw i64 0, %43
-  %45 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 2), align 4
+  %45 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 20), align 4
   %46 = zext i16 %45 to i64
-  %47 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 1), align 2
+  %47 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 18), align 2
   %48 = zext i16 %47 to i64
   br label %49
 
@@ -10557,8 +10557,8 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr nocapture noun
   %63 = phi ptr [ %109, %.split9 ], [ %7, %2 ]
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 7), align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 1), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 32), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 8), align 8
   %68 = call i32 %66(ptr noundef %0, i32 noundef %67, i32 noundef %65) #23
   %69 = load i32, ptr %63, align 64
   %70 = add i32 %69, -1
@@ -10599,7 +10599,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr nocapture noun
 
 .preheader:                                       ; preds = %85, %101
   %94 = phi ptr [ %102, %101 ], [ %91, %85 ]
-  %95 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %95 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %96 = zext i16 %95 to i64
   %97 = sub nsw i64 0, %96
   %98 = getelementptr i8, ptr %94, i64 %97
@@ -10630,7 +10630,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr nocapture noun
   %111 = phi ptr [ %50, %49 ], [ null, %.split9.us.us ], [ %94, %.preheader ], [ null, %.split9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
   %112 = icmp eq ptr %111, null
-  %113 = load i16, ptr getelementptr inbounds (%struct.rhashtable, ptr @xfrm_policy_inexact_table, i64 0, i32 3, i32 3), align 2
+  %113 = load i16, ptr getelementptr inbounds (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %114 = zext i16 %113 to i64
   %115 = sub nsw i64 0, %114
   %116 = getelementptr i8, ptr %111, i64 %115
@@ -11256,7 +11256,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef %0, ptr 
 .thread59:                                        ; preds = %5, %255
   %258 = phi ptr [ %.ph55, %255 ], [ %1, %5 ]
   %259 = phi i64 [ %256, %255 ], [ 0, %5 ]
-  %260 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %261 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %260, i32 noundef 2336, i64 noundef 64) #24
   %262 = icmp eq ptr %261, null
   br i1 %262, label %271, label %263

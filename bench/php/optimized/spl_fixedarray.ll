@@ -114,7 +114,7 @@ define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %spl_fixedarray_init.exit
@@ -126,7 +126,7 @@ define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly
 
 15:                                               ; preds = %12
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #12
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %spl_fixedarray_init.exit
@@ -196,7 +196,7 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %58
@@ -322,7 +322,7 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %.loopexit
@@ -465,7 +465,7 @@ define hidden void @zim_SplFixedArray___unserialize(ptr nocapture noundef readon
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %85
@@ -649,7 +649,7 @@ define hidden void @zim_SplFixedArray_count(ptr nocapture noundef readonly %0, p
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -677,7 +677,7 @@ define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0,
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.loopexit
@@ -755,7 +755,7 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %160
@@ -837,7 +837,7 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
 .split.us:                                        ; preds = %35
   %48 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8
   %49 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %48, i64 noundef 0, ptr noundef nonnull @.str.4) #12
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
   br label %160
@@ -850,7 +850,7 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
 53:                                               ; preds = %._crit_edge
   %54 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8
   %55 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %54, i64 noundef 0, ptr noundef nonnull @.str.5) #12
-  %56 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
   br label %160
@@ -1090,7 +1090,7 @@ define hidden void @zim_SplFixedArray_getSize(ptr nocapture noundef readonly %0,
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1120,7 +1120,7 @@ define hidden void @zim_SplFixedArray_setSize(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %64
@@ -1132,7 +1132,7 @@ define hidden void @zim_SplFixedArray_setSize(ptr nocapture noundef readonly %0,
 
 15:                                               ; preds = %12
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #12
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %64
@@ -1291,7 +1291,7 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr nocapture noundef readonl
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %27
@@ -1301,7 +1301,7 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr nocapture noundef readonl
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef %14)
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp ne ptr %16, null
   %17 = icmp slt i64 %15, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %17
@@ -1343,7 +1343,7 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr nocapture noundef readonly %
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %54
@@ -1362,7 +1362,7 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr nocapture noundef readonly %
 
 17:                                               ; preds = %11
   %18 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %15)
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not9.i = icmp eq ptr %19, null
   br i1 %.not9.i, label %20, label %spl_fixedarray_object_read_dimension_helper.exit.thread
 
@@ -1450,7 +1450,7 @@ define hidden void @zim_SplFixedArray_offsetSet(ptr nocapture noundef readonly %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %18
@@ -1480,7 +1480,7 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
 
 6:                                                ; preds = %3
   %7 = tail call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %1)
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not36 = icmp eq ptr %8, null
   br i1 %.not36, label %9, label %45
 
@@ -1564,7 +1564,7 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr nocapture noundef readonly
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %spl_fixedarray_object_unset_dimension_helper.exit
@@ -1575,7 +1575,7 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr nocapture noundef readonly
   %14 = getelementptr inbounds i8, ptr %13, i64 -32
   %15 = load ptr, ptr %3, align 8
   %16 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef %15)
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %spl_fixedarray_object_unset_dimension_helper.exit
 
@@ -1616,7 +1616,7 @@ define hidden void @zim_SplFixedArray_getIterator(ptr noundef %0, ptr noundef %1
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %10
@@ -1722,15 +1722,15 @@ define hidden noundef i32 @zm_startup_spl_fixedarray(i32 noundef %0, i32 noundef
   store ptr @spl_fixedarray_get_iterator, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplFixedArray, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 192, i1 false)
   store i32 32, ptr @spl_handler_SplFixedArray, align 8
-  store ptr @spl_fixedarray_object_clone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 3), align 8
-  store ptr @spl_fixedarray_object_read_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 6), align 8
-  store ptr @spl_fixedarray_object_write_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 7), align 8
-  store ptr @spl_fixedarray_object_unset_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 12), align 8
-  store ptr @spl_fixedarray_object_has_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 11), align 8
-  store ptr @spl_fixedarray_object_count_elements, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 18), align 8
-  store ptr @spl_fixedarray_object_get_properties_for, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 24), align 8
-  store ptr @spl_fixedarray_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 21), align 8
-  store ptr @spl_fixedarray_object_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @spl_handler_SplFixedArray, i64 0, i32 1), align 8
+  store ptr @spl_fixedarray_object_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 24), align 8
+  store ptr @spl_fixedarray_object_read_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 48), align 8
+  store ptr @spl_fixedarray_object_write_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 56), align 8
+  store ptr @spl_fixedarray_object_unset_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 96), align 8
+  store ptr @spl_fixedarray_object_has_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 88), align 8
+  store ptr @spl_fixedarray_object_count_elements, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 144), align 8
+  store ptr @spl_fixedarray_object_get_properties_for, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 192), align 8
+  store ptr @spl_fixedarray_object_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 168), align 8
+  store ptr @spl_fixedarray_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_SplFixedArray, i64 8), align 8
   ret i32 0
 }
 
@@ -1813,7 +1813,7 @@ define internal ptr @spl_fixedarray_object_read_dimension(ptr noundef %0, ptr no
 
 .critedge.i:                                      ; preds = %12, %8
   %21 = tail call fastcc i64 @spl_offset_convert_to_long(ptr noundef %1)
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i.i = icmp ne ptr %22, null
   %23 = icmp slt i64 %21, 0
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %23
@@ -1883,7 +1883,7 @@ spl_fixedarray_object_has_dimension.exit:         ; preds = %24
 
 50:                                               ; preds = %.critedge
   %51 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %1)
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not9.i = icmp eq ptr %52, null
   br i1 %.not9.i, label %53, label %spl_fixedarray_object_read_dimension_helper.exit
 
@@ -1979,7 +1979,7 @@ define internal void @spl_fixedarray_object_unset_dimension(ptr noundef %0, ptr 
 .critedge:                                        ; preds = %2, %6
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = tail call fastcc i64 @spl_offset_convert_to_long(ptr noundef %1)
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %spl_fixedarray_object_unset_dimension_helper.exit
 
@@ -2040,7 +2040,7 @@ define internal range(i32 0, 2) i32 @spl_fixedarray_object_has_dimension(ptr nou
 .critedge:                                        ; preds = %3, %8
   %.not23 = icmp eq i32 %2, 0
   %18 = tail call fastcc i64 @spl_offset_convert_to_long(ptr noundef %1)
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp ne ptr %19, null
   %20 = icmp slt i64 %18, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %20
@@ -2657,7 +2657,7 @@ define internal nonnull ptr @spl_fixedarray_it_get_current_data(ptr nocapture no
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 4, ptr %8, align 8
   %9 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %2)
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %11, label %spl_fixedarray_object_read_dimension_helper.exit
 

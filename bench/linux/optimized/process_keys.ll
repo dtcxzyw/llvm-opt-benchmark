@@ -90,30 +90,30 @@ define dso_local i32 @look_up_user_keyrings(ptr noundef writeonly %0, ptr nounde
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %12 = load volatile ptr, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 11), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 296), align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  tail call void @down_write(ptr noundef nonnull getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 12)) #10
-  %15 = load ptr, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 11), align 8
+  tail call void @down_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_user_ns, i64 304)) #10
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 296), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 5), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 228), align 4
   %19 = tail call ptr @keyring_alloc(ptr noundef nonnull @.str.7, i32 %18, i32 -1, ptr noundef nonnull @init_cred, i32 noundef 201523200, i64 noundef 0, ptr noundef null, ptr noundef null) #10
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile ptr %19, ptr getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 11), align 8
+  store volatile ptr %19, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 296), align 8
   br label %22
 
 22:                                               ; preds = %21, %17, %14
   %23 = phi ptr [ %15, %14 ], [ %19, %17 ], [ %19, %21 ]
-  tail call void @up_write(ptr noundef nonnull getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 12)) #10
+  tail call void @up_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_user_ns, i64 304)) #10
   br label %24
 
 24:                                               ; preds = %22, %2
@@ -128,7 +128,7 @@ define dso_local i32 @look_up_user_keyrings(ptr noundef writeonly %0, ptr nounde
 
 30:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !7
-  tail call void @down_write(ptr noundef nonnull getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 12)) #10
+  tail call void @down_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_user_ns, i64 304)) #10
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %11) #10
   %32 = ptrtoint ptr %25 to i64
   %33 = or i64 %32, 1
@@ -210,7 +210,7 @@ define dso_local i32 @look_up_user_keyrings(ptr noundef writeonly %0, ptr nounde
 
 82:                                               ; preds = %79, %71
   %83 = phi ptr [ %63, %71 ], [ %81, %79 ]
-  call void @up_write(ptr noundef nonnull getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 12)) #10
+  call void @up_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_user_ns, i64 304)) #10
   %84 = icmp eq ptr %1, null
   br i1 %84, label %86, label %85
 
@@ -246,7 +246,7 @@ define dso_local i32 @look_up_user_keyrings(ptr noundef writeonly %0, ptr nounde
 
 95:                                               ; preds = %93, %49, %43
   %96 = phi i32 [ %45, %43 ], [ %94, %93 ], [ %50, %49 ]
-  call void @up_write(ptr noundef nonnull getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 12)) #10
+  call void @up_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_user_ns, i64 304)) #10
   br label %97
 
 97:                                               ; preds = %95, %90, %89, %27

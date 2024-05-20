@@ -56,19 +56,19 @@ define i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr n
   %13 = alloca ptr, align 8
   %14 = alloca %struct.ompi_status_public_t, align 8
   store ptr @ompi_request_null, ptr %13, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %16 = call i32 %15(ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %13) #17
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %25
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %19 = call i32 %18(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, ptr noundef %10) #17
   %.not32 = icmp eq i32 %19, 0
   br i1 %.not32, label %20, label %25
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %22 = call i32 %21(ptr noundef nonnull %13, ptr noundef nonnull %14) #17
   %.not33 = icmp eq i32 %22, 0
   br i1 %.not33, label %23, label %25
@@ -114,7 +114,7 @@ define i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr n
   br label %ompi_request_cancel.exit
 
 ompi_request_cancel.exit:                         ; preds = %33, %36
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 4), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %39 = call i32 %38(ptr noundef nonnull %13, ptr noundef null) #17
   %40 = icmp eq i32 %.0, 76
   %spec.store.select = select i1 %40, i32 75, i32 %.0

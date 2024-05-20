@@ -73,12 +73,12 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %9, label %10, label %37
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
   %12 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %11) #12
   store ptr %12, ptr %2, align 8
   %13 = tail call i32 @getuid() #12
   %14 = add i32 %13, 1
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
   %16 = tail call ptr @auth_p_create(ptr noundef %15, i32 noundef %14, ptr noundef null, i32 noundef 0)
   %.not8 = icmp eq ptr %16, null
   br i1 %.not8, label %21, label %17
@@ -699,7 +699,7 @@ define ptr @auth_p_get_host(ptr noundef readonly %0) local_unnamed_addr #0 {
 21:                                               ; preds = %16, %15
   %22 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 392, ptr noundef nonnull @__func__.auth_p_get_host) #12
   call void @slurm_get_ip_str(ptr noundef nonnull %2, ptr noundef %22, i32 noundef 16) #12
-  %23 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
   %24 = and i32 %23, 128
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %25, label %27

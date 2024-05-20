@@ -31,15 +31,15 @@ define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   br i1 %.not16, label %7, label %16
 
 7:                                                ; preds = %6
-  %8 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 8), align 8
+  %8 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
   %9 = icmp eq i8 %8, 45
-  %10 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 13), align 1
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
   %11 = icmp eq i8 %10, 45
   %or.cond.not22 = select i1 %9, i1 %11, i1 false
-  %12 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 18), align 2
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
   %13 = icmp eq i8 %12, 45
   %or.cond5.not19 = select i1 %or.cond.not22, i1 %13, i1 false
-  %14 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 23), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
   %15 = icmp eq i8 %14, 45
   %or.cond8.not = select i1 %or.cond5.not19, i1 %15, i1 false
   %. = zext i1 %or.cond8.not to i32
@@ -81,15 +81,15 @@ define noalias ptr @get_hostid(ptr nocapture noundef readnone %0) local_unnamed_
   br i1 %.not16.i, label %is_valid_hostid.exit, label %is_valid_hostid.exit.thread
 
 is_valid_hostid.exit:                             ; preds = %8
-  %9 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 8), align 8
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
   %10 = icmp ne i8 %9, 45
-  %11 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 13), align 1
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
   %12 = icmp ne i8 %11, 45
   %or.cond.not22.i.not9 = select i1 %10, i1 true, i1 %12
-  %13 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 18), align 2
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
   %14 = icmp ne i8 %13, 45
   %or.cond5.not19.i.not6 = select i1 %or.cond.not22.i.not9, i1 true, i1 %14
-  %15 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 23), align 1
+  %15 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
   %16 = icmp ne i8 %15, 45
   %or.cond8.not.i.not = select i1 %or.cond5.not19.i.not6, i1 true, i1 %16
   br i1 %or.cond8.not.i.not, label %is_valid_hostid.exit.thread, label %18

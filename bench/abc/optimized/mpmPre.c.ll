@@ -608,7 +608,7 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %82 = lshr i32 %81, 29
   %83 = and i32 %82, 3
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds [2 x [4 x i8]], ptr @__const.Ifd_ObjPrint_rec.Symb, i64 0, i64 1, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @__const.Ifd_ObjPrint_rec.Symb, i64 4), i64 0, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i32
   br label %.sink.split

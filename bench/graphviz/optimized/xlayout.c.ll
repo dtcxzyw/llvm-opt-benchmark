@@ -91,7 +91,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %.fca.0.extract.i = extractvalue { <2 x float>, i8 } %34, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, i8 } %34, 1
   store <2 x float> %.fca.0.extract.i, ptr @X_marg, align 8
-  store i8 %.fca.1.extract.i, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  store i8 %.fca.1.extract.i, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %35 = trunc i8 %.fca.1.extract.i to i1
   br i1 %35, label %36, label %38
 
@@ -136,7 +136,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %55 = load double, ptr %54, align 8
   %56 = fsub double %53, %55
   %57 = tail call double @llvm.fabs.f64(double %56)
-  %58 = load i8, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  %58 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %59 = trunc i8 %58 to i1
   %60 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 48
   %61 = load double, ptr %60, align 8
@@ -177,7 +177,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 87:                                               ; preds = %64
   %88 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 56
   %89 = load double, ptr %88, align 8
-  %90 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %90 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %91 = fpext float %90 to double
   %92 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 56
   %93 = load double, ptr %92, align 8
@@ -192,7 +192,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 .thread4.i.i.i:                                   ; preds = %.thread3.i.i.i
   %100 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 56
   %101 = load double, ptr %100, align 8
-  %102 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %102 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %103 = fpext float %102 to double
   %104 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 56
   %105 = load double, ptr %104, align 8
@@ -407,7 +407,7 @@ xinit_params.exit.i:                              ; preds = %134, %132
   %207 = tail call double @llvm.fabs.f64(double %206)
   %208 = extractelement <2 x double> %205, i64 1
   %209 = tail call double @llvm.fabs.f64(double %208)
-  %210 = load i8, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  %210 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %211 = trunc i8 %210 to i1
   %212 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 48
   %213 = load double, ptr %212, align 8
@@ -448,7 +448,7 @@ xinit_params.exit.i:                              ; preds = %134, %132
 239:                                              ; preds = %216
   %240 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 56
   %241 = load double, ptr %240, align 8
-  %242 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %242 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %243 = fpext float %242 to double
   %244 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 56
   %245 = load double, ptr %244, align 8
@@ -463,7 +463,7 @@ xinit_params.exit.i:                              ; preds = %134, %132
 .thread4.i.i.i.i.i:                               ; preds = %.thread3.i.i.i.i.i
   %252 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 56
   %253 = load double, ptr %252, align 8
-  %254 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %254 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %255 = fpext float %254 to double
   %256 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 56
   %257 = load double, ptr %256, align 8
@@ -561,7 +561,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %319 = load double, ptr %318, align 8
   %320 = fsub double %317, %319
   %321 = tail call double @llvm.fabs.f64(double %320)
-  %322 = load i8, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  %322 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %323 = trunc i8 %322 to i1
   %324 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 48
   %325 = load double, ptr %324, align 8
@@ -602,7 +602,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
 351:                                              ; preds = %328
   %352 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
   %353 = load double, ptr %352, align 8
-  %354 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %354 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %355 = fpext float %354 to double
   %356 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 56
   %357 = load double, ptr %356, align 8
@@ -617,7 +617,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
 .thread4.i.i.i.i:                                 ; preds = %.thread3.i.i.i.i
   %364 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
   %365 = load double, ptr %364, align 8
-  %366 = load float, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 1), align 4
+  %366 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %367 = fpext float %366 to double
   %368 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 56
   %369 = load double, ptr %368, align 8
@@ -639,7 +639,7 @@ overlap.exit.i.i.i:                               ; preds = %.thread4.i.i.i.i, %
 
 overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i, %.thread3.i.i.i.i, %328
   %380 = tail call double @hypot(double noundef %314, double noundef %320) #10
-  %381 = load i8, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  %381 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %382 = trunc i8 %381 to i1
   %383 = load ptr, ptr %299, align 8
   %384 = getelementptr inbounds i8, ptr %383, i64 48
@@ -665,7 +665,7 @@ RAD.exit.i.i.i:                                   ; preds = %391, %386
   %397 = extractelement <2 x double> %396, i64 0
   %398 = extractelement <2 x double> %396, i64 1
   %399 = tail call double @hypot(double noundef %397, double noundef %398) #10
-  %400 = load i8, ptr getelementptr inbounds (%struct.expand_t, ptr @X_marg, i64 0, i32 2), align 8
+  %400 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %401 = trunc i8 %400 to i1
   %402 = load ptr, ptr %307, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 48

@@ -168,9 +168,9 @@ declare ptr @qstring_from_str(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qlist_append_null(ptr nocapture noundef %qlist) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr @qnull_, ptr %call.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8

@@ -80,13 +80,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @startup_scanner() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 8), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 20), align 8
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
-  store i8 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
   ret void
 }
 
@@ -96,8 +96,8 @@ declare void @zend_ptr_stack_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @shutdown_scanner() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %2
 
@@ -122,16 +122,16 @@ define hidden void @shutdown_scanner() local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %6, %11, %2
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %13
 
 13:                                               ; preds = %0, %12
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
-  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #16
-  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
-  store i8 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
+  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #16
+  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
+  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   ret void
 }
 
@@ -150,76 +150,76 @@ declare void @zend_ptr_stack_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @zend_save_lexical_state(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %2, ptr %0, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %15 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %16 = load ptr, ptr @language_scanner_globals, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %16, ptr %17, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %18, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %20, ptr %21, align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %24, ptr %25, align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %26 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 168
   store i64 %26, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %28, ptr %29, align 8
-  %30 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 184
   store i64 %30, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %38, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %44, ptr %45, align 8
   ret void
@@ -231,88 +231,88 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @zend_restore_lexical_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
-  store i32 %2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #16
-  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #16
+  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %15 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr @language_scanner_globals, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
-  store i32 %19, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   %21 = load i32, ptr %20, align 8
-  store i32 %21, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   tail call void @zend_restore_compiled_filename(ptr noundef %23) #16
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %1
   tail call void @_efree(ptr noundef nonnull %24) #16
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %26
 
 26:                                               ; preds = %25, %1
   %27 = getelementptr inbounds i8, ptr %0, i64 160
   %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 168
   %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  store i64 %30, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 176
   %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 184
   %34 = load i64, ptr %33, align 8
-  store i64 %34, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  store i64 %34, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 192
   %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  store ptr %36, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 200
   %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 208
   %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  store ptr %40, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 216
   %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 224
   %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 232
   %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 240
   %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not32 = icmp eq ptr %49, null
   br i1 %.not32, label %61, label %50
 
@@ -337,7 +337,7 @@ define void @zend_restore_lexical_state(ptr nocapture noundef readonly %0) local
   br label %60
 
 60:                                               ; preds = %54, %59, %50
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %61
 
 61:                                               ; preds = %26, %60
@@ -394,12 +394,12 @@ define range(i32 -1, 1) i32 @zend_lex_tstring(ptr nocapture noundef writeonly %0
   br label %40
 
 26:                                               ; preds = %10
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %27(i32 noundef 1, i32 noundef 262, i32 noundef 0, ptr noundef %1, i64 noundef %13, ptr noundef %29) #16
   br label %30
 
@@ -440,17 +440,17 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_filter(ptr noundef %0) local_unn
   br i1 %.not, label %3, label %zend_multibyte_find_script_encoding.exit.thread
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 29), align 1
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 417), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %zend_multibyte_detect_unicode.exit.thread.i
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %8 = icmp ult i64 %7, 4
   br i1 %8, label %zend_multibyte_detect_unicode.exit.thread.i, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %select.unfold.i.i, label %11
@@ -484,9 +484,9 @@ select.unfold.i.i:                                ; preds = %14, %13, %12, %11, 
 
 zend_multibyte_detect_unicode.exit.thread9.i:     ; preds = %select.unfold.i.i
   %15 = getelementptr inbounds i8, ptr %10, i64 %.038.i.i
-  store ptr %15, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %16 = sub nuw i64 %7, %.038.i.i
-  store i64 %16, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  store i64 %16, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   br label %zend_multibyte_find_script_encoding.exit.thread
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i, %14
@@ -645,9 +645,9 @@ zend_multibyte_detect_unicode.exit.thread9.i:     ; preds = %select.unfold.i.i
   br i1 %.not.i, label %zend_multibyte_detect_unicode.exit.thread.i, label %zend_multibyte_find_script_encoding.exit.thread
 
 zend_multibyte_detect_unicode.exit.thread.i:      ; preds = %.preheader.i.i, %._crit_edge51.i.i.i, %.thread.i.i, %6, %3
-  %67 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 26), align 8
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
   %68 = icmp ne ptr %67, null
-  %69 = load i64, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 27), align 8
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 408), align 8
   %70 = icmp ne i64 %69, 0
   %or.cond.i = select i1 %68, i1 %70, i1 false
   br i1 %or.cond.i, label %71, label %zend_multibyte_find_script_encoding.exit.thread23
@@ -657,8 +657,8 @@ zend_multibyte_detect_unicode.exit.thread.i:      ; preds = %.preheader.i.i, %._
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  %75 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %75 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %76 = tail call ptr @zend_multibyte_encoding_detector(ptr noundef %74, i64 noundef %75, ptr noundef nonnull %67, i64 noundef %69) #16
   br label %zend_multibyte_find_script_encoding.exit
 
@@ -673,11 +673,11 @@ zend_multibyte_find_script_encoding.exit:         ; preds = %77, %73
 
 zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_detect_unicode.exit.thread9.i, %._crit_edge51.i.i.i, %1, %zend_multibyte_find_script_encoding.exit
   %80 = phi ptr [ %79, %zend_multibyte_find_script_encoding.exit ], [ %.039.i.i, %zend_multibyte_detect_unicode.exit.thread9.i ], [ %66, %._crit_edge51.i.i.i ], [ %0, %1 ]
-  store ptr %80, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  store ptr %80, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %.not11 = icmp eq ptr %2, null
   %81 = icmp eq ptr %80, %2
   %or.cond = or i1 %.not11, %81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), i8 0, i64 16, i1 false)
   br i1 %or.cond, label %82, label %84
 
 82:                                               ; preds = %zend_multibyte_find_script_encoding.exit.thread
@@ -693,7 +693,7 @@ zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_dete
   br i1 %.not12, label %86, label %zend_multibyte_find_script_encoding.exit.thread23.sink.split
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %88 = tail call i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %87) #16
   %.not13 = icmp eq i32 %88, 0
   %encoding_filter_script_to_intermediate.40 = select i1 %.not13, ptr @encoding_filter_script_to_intermediate, ptr null
@@ -703,8 +703,8 @@ zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_dete
 zend_multibyte_find_script_encoding.exit.thread23.sink.split: ; preds = %86, %84, %82
   %encoding_filter_script_to_internal.sink = phi ptr [ %encoding_filter_script_to_intermediate., %82 ], [ @encoding_filter_script_to_internal, %84 ], [ %encoding_filter_script_to_intermediate.40, %86 ]
   %.sink = phi ptr [ %encoding_filter_intermediate_to_script., %82 ], [ null, %84 ], [ %encoding_filter_intermediate_to_internal.encoding_filter_script_to_internal, %86 ]
-  store ptr %encoding_filter_script_to_internal.sink, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
-  store ptr %.sink, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  store ptr %encoding_filter_script_to_internal.sink, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   br label %zend_multibyte_find_script_encoding.exit.thread23
 
 zend_multibyte_find_script_encoding.exit.thread23: ; preds = %zend_multibyte_find_script_encoding.exit.thread23.sink.split, %zend_multibyte_detect_unicode.exit.thread.i, %zend_multibyte_find_script_encoding.exit
@@ -719,14 +719,14 @@ declare i32 @zend_multibyte_check_lexer_compatibility(ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal i64 @encoding_filter_script_to_intermediate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = load ptr, ptr @zend_multibyte_encoding_utf8, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %7 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %5, ptr noundef %6) #16
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @encoding_filter_intermediate_to_script(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %6 = load ptr, ptr @zend_multibyte_encoding_utf8, align 8
   %7 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %5, ptr noundef %6) #16
   ret i64 %7
@@ -737,7 +737,7 @@ define internal i64 @encoding_filter_script_to_internal(ptr noundef %0, ptr noun
   %5 = tail call ptr @zend_multibyte_get_internal_encoding() #16
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %8 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %5, ptr noundef %7) #16
   ret i64 %8
 }
@@ -761,36 +761,36 @@ define range(i32 -1, 1) i32 @open_file_for_scanning(ptr noundef %0) local_unname
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13), ptr noundef %0) #16
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 58
   store i8 1, ptr %7, align 2
   br label %77
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   call void @llvm.assume(i1 %.not)
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13), ptr noundef %0) #16
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #16
   %10 = getelementptr inbounds i8, ptr %0, i64 58
   store i8 1, ptr %10, align 2
   store ptr %0, ptr @language_scanner_globals, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %11 = load i64, ptr %3, align 8
   %.not41 = icmp eq i64 %11, -1
   br i1 %.not41, label %39, label %12
 
 12:                                               ; preds = %8
-  %13 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 28), align 8
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 416), align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %thread-pre-split
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %2, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  store i64 %11, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %17 = call i32 @zend_multibyte_set_filter(ptr noundef null)
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %.thread-pre-split_crit_edge, label %19
 
@@ -799,22 +799,22 @@ define range(i32 -1, 1) i32 @open_file_for_scanning(ptr noundef %0) local_unname
   br label %thread-pre-split
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  %21 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
-  %22 = call i64 %18(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), ptr noundef %20, i64 noundef %21) #16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %22 = call i64 %18(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), ptr noundef %20, i64 noundef %21) #16
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %26 = call ptr @zend_multibyte_get_encoding_name(ptr noundef %25) #16
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %26) #19
   unreachable
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   store ptr %28, ptr %2, align 8
-  %29 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   store i64 %29, ptr %3, align 8
   br label %30
 
@@ -826,22 +826,22 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 30:                                               ; preds = %thread-pre-split, %27
   %31 = phi i64 [ %.pre, %thread-pre-split ], [ %29, %27 ]
   %32 = phi ptr [ %.pr, %thread-pre-split ], [ %28, %27 ]
-  store ptr %32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
-  store ptr %32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  store ptr %33, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %34, label %yy_scan_buffer.exit
 
 34:                                               ; preds = %30
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   br label %yy_scan_buffer.exit
 
 yy_scan_buffer.exit:                              ; preds = %30, %34
-  %35 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 15), align 8
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
   %36 = trunc i8 %35 to i1
   %. = select i1 %36, i32 7, i32 8
-  store i32 %., ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %., ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not43 = icmp eq ptr %38, null
@@ -897,7 +897,7 @@ yy_scan_buffer.exit:                              ; preds = %30, %34
   br label %63
 
 63:                                               ; preds = %52, %62, %57
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not47 = icmp eq ptr %64, null
   br i1 %.not47, label %76, label %65
 
@@ -922,12 +922,12 @@ yy_scan_buffer.exit:                              ; preds = %30, %34
   br label %75
 
 75:                                               ; preds = %69, %74, %65
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %76
 
 76:                                               ; preds = %63, %75
-  store i32 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
+  store i32 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
   br label %77
 
 77:                                               ; preds = %76, %6
@@ -949,69 +949,69 @@ declare ptr @zend_set_compiled_filename(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_lex_state, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %6 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   store <2 x ptr> %6, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %8 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store <2 x ptr> %8, ptr %7, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %12 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %13 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %14 = load ptr, ptr @language_scanner_globals, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %14, ptr %15, align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 %16, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 152
   store ptr %18, ptr %19, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 %20, ptr %21, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr %22, ptr %23, align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 168
   store i64 %24, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 176
   store ptr %26, ptr %27, align 8
-  %28 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 184
   store i64 %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 192
-  %31 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %31 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   store <2 x ptr> %31, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 208
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 216
-  %35 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %35 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   store <2 x ptr> %35, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %3, i64 232
-  %37 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %37 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   store <2 x ptr> %37, ptr %36, align 8
   %38 = tail call i32 @open_file_for_scanning(ptr noundef %0)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %42, label %51
 
@@ -1046,9 +1046,9 @@ declare void @zend_message_dispatcher(i64 noundef, ptr noundef) local_unnamed_ad
 define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_context, align 8
   %3 = alloca %struct._zend_oparray_context, align 8
-  %4 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %4 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   %5 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #17
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %6, ptr %5, align 8
@@ -1057,18 +1057,18 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %9, align 8
-  store ptr %5, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   %10 = tail call i32 @zendparse() #16
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
   %14 = tail call noalias ptr @_emalloc_256() #16
   %15 = trunc nuw nsw i32 %0 to i8
   tail call void @init_op_array(ptr noundef %14, i8 noundef zeroext %15, i32 noundef 64) #16
-  store ptr %14, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 67108864
@@ -1078,16 +1078,16 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0
   br i1 %.not60, label %22, label %20
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   tail call void %19(ptr noundef %21) #16
   br label %22
 
 22:                                               ; preds = %20, %11
   call void @zend_file_context_begin(ptr noundef nonnull %2) #16
   call void @zend_oparray_context_begin(ptr noundef nonnull %3) #16
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   call void @zend_compile_top_stmt(ptr noundef %23) #16
-  store i32 %12, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %12, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %24 = icmp eq i32 %0, 2
   call void @zend_emit_final_return(i1 noundef zeroext %24) #16
   %25 = getelementptr inbounds i8, ptr %14, i64 160
@@ -1097,14 +1097,14 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0
   call void @pass_two(ptr noundef nonnull %14) #16
   call void @zend_oparray_context_end(ptr noundef nonnull %3) #16
   call void @zend_file_context_end(ptr noundef nonnull %2) #16
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
   br label %27
 
 27:                                               ; preds = %22, %1
   %.058 = phi ptr [ null, %1 ], [ %14, %22 ]
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   call void @zend_ast_destroy(ptr noundef %28) #16
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   br label %30
 
 30:                                               ; preds = %30, %27
@@ -1117,7 +1117,7 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0
 
 33:                                               ; preds = %30
   %34 = and i8 %4, 1
-  store i8 %34, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 %34, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   ret ptr %.058
 }
 
@@ -1142,68 +1142,68 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   %.sink = phi i32 [ 262, %9 ], [ 6, %3 ]
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sink, ptr %13, align 8
-  %14 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  %14 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %15 = and i8 %14, 1
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %16, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %18 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   store <2 x ptr> %18, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 24
-  %20 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %20 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store <2 x ptr> %20, ptr %19, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %24 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %25 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %26 = load ptr, ptr @language_scanner_globals, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 136
   store ptr %26, ptr %27, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 %28, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 152
   store ptr %30, ptr %31, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 144
   store i32 %32, ptr %33, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr %34, ptr %35, align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 168
   store i64 %36, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 176
   store ptr %38, ptr %39, align 8
-  %40 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %41 = getelementptr inbounds i8, ptr %5, i64 184
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %5, i64 192
-  %43 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %43 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   store <2 x ptr> %43, ptr %42, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %45 = getelementptr inbounds i8, ptr %5, i64 208
   store ptr %44, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %5, i64 216
-  %47 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %47 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   store <2 x ptr> %47, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 232
-  %49 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %49 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   store <2 x ptr> %49, ptr %48, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %4, ptr noundef %2)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   %50 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #17
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %51, ptr %50, align 8
@@ -1212,16 +1212,16 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr null, ptr %54, align 8
-  store ptr %50, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
-  store i32 8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %55 = tail call i32 @zendparse() #16
   %.not65 = icmp eq i32 %55, 0
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   br i1 %.not65, label %62, label %56
 
 56:                                               ; preds = %12
   tail call void @zend_ast_destroy(ptr noundef %.pre) #16
-  %57 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   br label %58
 
 58:                                               ; preds = %58, %56
@@ -1233,15 +1233,15 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not66, label %61, label %58
 
 61:                                               ; preds = %58
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   br label %62
 
 62:                                               ; preds = %61, %12
   %63 = phi ptr [ null, %61 ], [ %.pre, %12 ]
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 32), align 8
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   store ptr %64, ptr %1, align 8
   call void @zend_restore_lexical_state(ptr noundef nonnull %5)
-  store i8 %15, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
+  store i8 %15, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %65 = getelementptr inbounds i8, ptr %4, i64 9
   %66 = load i8, ptr %65, align 1
   %.not67 = icmp eq i8 %66, 0
@@ -1336,67 +1336,67 @@ define void @zend_prepare_string_for_scanning(ptr nocapture noundef %0, ptr noun
   %43 = getelementptr inbounds i8, ptr %42, i64 %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %43, i8 0, i64 33, i1 false)
   store ptr null, ptr @language_scanner_globals, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 24
-  %46 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 28), align 8
+  %46 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 416), align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %49, label %.thread
 
 .thread:                                          ; preds = %40
-  store ptr %45, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %5
-  store ptr %48, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  store ptr %48, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   br label %66
 
 49:                                               ; preds = %40
-  store ptr %45, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  store i64 %5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %50 = tail call ptr @zend_multibyte_get_internal_encoding() #16
   %51 = tail call i32 @zend_multibyte_set_filter(ptr noundef %50)
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not102 = icmp eq ptr %52, null
   br i1 %.not102, label %64, label %53
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  %55 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
-  %56 = tail call i64 %52(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), ptr noundef %54, i64 noundef %55) #16
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %55 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %56 = tail call i64 %52(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), ptr noundef %54, i64 noundef %55) #16
   %57 = icmp eq i64 %56, -1
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %60 = tail call ptr @zend_multibyte_get_encoding_name(ptr noundef %59) #16
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %60) #19
   unreachable
 
 61:                                               ; preds = %53
-  %62 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %63 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   br label %64
 
 64:                                               ; preds = %49, %61
   %.097.ph = phi ptr [ %45, %49 ], [ %62, %61 ]
   %.096.ph = phi i64 [ %5, %49 ], [ %63, %61 ]
-  %.pr = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
-  store ptr %.097.ph, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %.097.ph, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %65 = getelementptr inbounds i8, ptr %.097.ph, i64 %.096.ph
-  store ptr %65, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  store ptr %65, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %66, label %yy_scan_buffer.exit
 
 66:                                               ; preds = %.thread, %64
   %.097108 = phi ptr [ %45, %.thread ], [ %.097.ph, %64 ]
-  store ptr %.097108, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr %.097108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   br label %yy_scan_buffer.exit
 
 yy_scan_buffer.exit:                              ; preds = %64, %66
   %67 = tail call ptr @zend_set_compiled_filename(ptr noundef %1) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not103 = icmp eq ptr %68, null
   br i1 %.not103, label %80, label %69
 
@@ -1421,7 +1421,7 @@ yy_scan_buffer.exit:                              ; preds = %64, %66
   br label %79
 
 79:                                               ; preds = %73, %78, %69
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %80
 
 80:                                               ; preds = %yy_scan_buffer.exit, %79
@@ -1451,7 +1451,7 @@ define ptr @compile_filename(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %13, label %.thread
 
 .thread:                                          ; preds = %9
-  %12 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 6), ptr noundef nonnull %11) #16
+  %12 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %11) #16
   br label %30
 
 13:                                               ; preds = %9
@@ -1469,7 +1469,7 @@ define ptr @compile_filename(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 
 20:                                               ; preds = %17, %13
   store ptr %1, ptr %10, align 8
-  %21 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 6), ptr noundef nonnull %1) #16
+  %21 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %1) #16
   %22 = load i32, ptr %14, align 4
   %23 = and i32 %22, 64
   %.not24 = icmp eq i32 %23, 0
@@ -1506,12 +1506,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define i64 @zend_get_scanned_file_offset() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -1522,8 +1522,8 @@ define i64 @zend_get_scanned_file_offset() local_unnamed_addr #0 {
 10:                                               ; preds = %15, %9
   %.09 = phi i64 [ %7, %9 ], [ %.1, %15 ]
   store ptr null, ptr %2, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %13 = call i64 %11(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %12, i64 noundef %.09) #16
   %14 = icmp eq i64 %13, -1
   br i1 %14, label %.loopexit, label %15
@@ -1572,62 +1572,62 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   %.sink = phi i32 [ 262, %13 ], [ 6, %9 ]
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %17, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %18, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %20 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   store <2 x ptr> %20, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 24
-  %22 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %22 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store <2 x ptr> %22, ptr %21, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %26 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %27 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %28 = load ptr, ptr @language_scanner_globals, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %28, ptr %29, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %30, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %33 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr %32, ptr %33, align 8
-  %34 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 %34, ptr %35, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr %36, ptr %37, align 8
-  %38 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %39 = getelementptr inbounds i8, ptr %4, i64 168
   store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 176
   store ptr %40, ptr %41, align 8
-  %42 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 184
   store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 192
-  %45 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %45 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   store <2 x ptr> %45, ptr %44, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 208
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 216
-  %49 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %49 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   store <2 x ptr> %49, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %4, i64 232
-  %51 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %51 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   store <2 x ptr> %51, ptr %50, align 8
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %53 = and i64 %52, -8
@@ -1680,7 +1680,7 @@ switch.lookup:                                    ; preds = %72
   %74 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.compile_string, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %75
 
 75:                                               ; preds = %72, %switch.lookup
@@ -1704,62 +1704,62 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
   %3 = alloca %struct._zend_lex_state, align 8
   %4 = alloca %struct._zend_file_handle, align 8
   call void @zend_stream_init_filename(ptr noundef nonnull %4, ptr noundef %0) #16
-  %5 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %7 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   store <2 x ptr> %7, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %9 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store <2 x ptr> %9, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %13 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %14 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %15 = load ptr, ptr @language_scanner_globals, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %15, ptr %16, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 %17, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 152
   store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 %21, ptr %22, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr %23, ptr %24, align 8
-  %25 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 168
   store i64 %25, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 176
   store ptr %27, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 184
   store i64 %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 192
-  %32 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %32 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   store <2 x ptr> %32, ptr %31, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 208
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 216
-  %36 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %36 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   store <2 x ptr> %36, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 232
-  %38 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %38 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   store <2 x ptr> %38, ptr %37, align 8
   %39 = call i32 @open_file_for_scanning(ptr noundef nonnull %4)
   %40 = icmp eq i32 %39, -1
@@ -1771,13 +1771,13 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
 
 42:                                               ; preds = %2
   call void @zend_highlight(ptr noundef %1) #16
-  %43 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %45, label %44
 
 44:                                               ; preds = %42
   call void @_efree(ptr noundef nonnull %43) #16
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %45
 
 45:                                               ; preds = %42, %44, %41
@@ -1827,62 +1827,62 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %.sink = phi i32 [ 262, %18 ], [ 6, %3 ]
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %22, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %23, ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %25 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   store <2 x ptr> %25, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 24
-  %27 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %27 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store <2 x ptr> %27, ptr %26, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #16
   %31 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #16
   %32 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #16
   %33 = load ptr, ptr @language_scanner_globals, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %33, ptr %34, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %35, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr %37, ptr %38, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %40 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 %39, ptr %40, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   %42 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr %41, ptr %42, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 168
   store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 176
   store ptr %45, ptr %46, align 8
-  %47 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 184
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %4, i64 192
-  %50 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %50 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   store <2 x ptr> %50, ptr %49, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 208
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 216
-  %54 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %54 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   store <2 x ptr> %54, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %4, i64 232
-  %56 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
+  %56 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
   store <2 x ptr> %56, ptr %55, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef nonnull %9)
   %57 = load i32, ptr %10, align 4
@@ -1913,15 +1913,15 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br label %68
 
 68:                                               ; preds = %59, %67, %66, %21
-  store i32 8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   tail call void @zend_highlight(ptr noundef %1) #16
-  %69 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not79 = icmp eq ptr %69, null
   br i1 %.not79, label %71, label %70
 
 70:                                               ; preds = %68
   tail call void @_efree(ptr noundef nonnull %69) #16
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %71
 
 71:                                               ; preds = %70, %68
@@ -1934,41 +1934,41 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 define void @zend_multibyte_yyinput_again(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void @_efree(ptr noundef nonnull %7) #16
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %9
 
 9:                                                ; preds = %8, %6
-  store i64 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
   br label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
   %15 = call i64 %5(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %13, i64 noundef %14) #16
   %16 = icmp eq i64 %15, -1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
   %19 = call ptr @zend_multibyte_get_encoding_name(ptr noundef %18) #16
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %19) #19
   unreachable
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not4 = icmp eq ptr %21, null
   br i1 %.not4, label %23, label %22
 
@@ -1978,34 +1978,34 @@ define void @zend_multibyte_yyinput_again(ptr nocapture noundef readnone %0, ptr
 
 23:                                               ; preds = %22, %20
   %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
+  store ptr %24, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
   %25 = load i64, ptr %3, align 8
-  store i64 %25, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 18), align 8
+  store i64 %25, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
   br label %26
 
 26:                                               ; preds = %23, %9
   %27 = phi i64 [ %25, %23 ], [ %10, %9 ]
   %28 = phi ptr [ %24, %23 ], [ %11, %9 ]
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %28, i64 %33
-  store ptr %34, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %34, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %32
   %38 = getelementptr inbounds i8, ptr %28, i64 %37
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %32
   %42 = getelementptr inbounds i8, ptr %28, i64 %41
-  store ptr %42, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %43 = getelementptr inbounds i8, ptr %28, i64 %27
-  store ptr %43, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
-  store ptr %28, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 3), align 8
+  store ptr %43, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
   ret void
 }
 
@@ -2035,7 +2035,7 @@ define i32 @lex_scan(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
   %24 = alloca i64, align 8
   %25 = alloca i64, align 8
   %26 = alloca ptr, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %28, align 8
   %.not5992 = icmp eq ptr %1, null
@@ -2046,20 +2046,20 @@ thread-pre-split.outer:                           ; preds = %thread-pre-split.ou
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.outer, %6587
-  %.pr = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %30 = icmp slt i32 %.pr, 5
   br i1 %30, label %._crit_edge9472, label %.lr.ph9471.preheader
 
 .lr.ph9471.preheader:                             ; preds = %thread-pre-split
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = icmp ult i32 %.pr, 8
   br i1 %33, label %.lr.ph20501, label %41
 
 .lr.ph20501:                                      ; preds = %.lr.ph9471.preheader
-  %.promoted = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %34 = getelementptr inbounds i8, ptr %29, i64 2
   switch i32 %.pr, label %7335 [
     i32 5, label %7273
@@ -2076,7 +2076,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 37:                                               ; preds = %._crit_edge9472
   %38 = getelementptr inbounds i8, ptr %29, i64 2
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %.not6053 = icmp ult ptr %38, %40
   switch i32 %.pr, label %6798 [
@@ -2093,7 +2093,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 43:                                               ; preds = %41
   %44 = icmp ult i32 %.lcssa17128, 10
   %45 = getelementptr inbounds i8, ptr %.lcssa17137, i64 1
-  %46 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 32
   %.not5989 = icmp ult ptr %45, %47
   br i1 %44, label %7796, label %7812
@@ -2101,7 +2101,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .loopexit20798:                                   ; preds = %36, %.thread13171
   %.promoted103941316013175 = phi ptr [ %.pre13075, %.thread13171 ], [ %29, %36 ]
   %48 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 16
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = getelementptr inbounds i8, ptr %49, i64 32
   %.not6074 = icmp ult ptr %48, %51
@@ -2241,8 +2241,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 60:                                               ; preds = %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59
   %61 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %61, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %61, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %62 = icmp ugt ptr %61, %49
   br i1 %62, label %63, label %.loopexit7123
 
@@ -2256,7 +2256,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .preheader7116:                                   ; preds = %52, %68
   %65 = phi ptr [ %66, %68 ], [ %.promoted103941316013175, %52 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 1
-  store ptr %66, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %66, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %67 = getelementptr inbounds i8, ptr %65, i64 2
   %.not6598 = icmp ult ptr %67, %51
   br i1 %.not6598, label %68, label %.loopexit
@@ -2273,7 +2273,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 75:                                               ; preds = %59, %59
   %76 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %76, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %76, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 61
   br i1 %78, label %828, label %.loopexit7207
@@ -2296,12 +2296,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 .loopexit7207:                                    ; preds = %414, %.loopexit7207.loopexit.split.loop.exit16815, %.loopexit7207.loopexit.split.loop.exit16818, %.loopexit7207.loopexit.split.loop.exit16821, %.loopexit7207.loopexit.split.loop.exit16824, %166, %166, %166, %166, %166, %166, %901, %806, %395, %392, %163, %790, %558, %548, %542, %540, %534, %531, %519, %418, %408, %404, %169, %161, %75, %398
   %83 = phi ptr [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %895, %901 ], [ %807, %806 ], [ %396, %395 ], [ %393, %392 ], [ %158, %163 ], [ %791, %790 ], [ %559, %558 ], [ %543, %548 ], [ %543, %542 ], [ %535, %540 ], [ %535, %534 ], [ %532, %531 ], [ %520, %519 ], [ %411, %418 ], [ %401, %408 ], [ %401, %404 ], [ %170, %169 ], [ %158, %161 ], [ %76, %75 ], [ %399, %398 ], [ %79, %.loopexit7207.loopexit.split.loop.exit16815 ], [ %80, %.loopexit7207.loopexit.split.loop.exit16818 ], [ %81, %.loopexit7207.loopexit.split.loop.exit16821 ], [ %82, %.loopexit7207.loopexit.split.loop.exit16824 ], [ %411, %414 ]
-  %84 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %85 = ptrtoint ptr %83 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %88, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %89 = load i8, ptr %84, align 1
   %90 = sext i8 %89 to i32
   br label %.loopexit7123
@@ -2313,12 +2313,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .split.loop.exit16801:                            ; preds = %59, %.split.loop.exit
   %92 = phi ptr [ %91, %.split.loop.exit ], [ %.promoted103941316013175, %59 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 1
-  store ptr %93, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %93, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %94 = ptrtoint ptr %93 to i64
   %95 = ptrtoint ptr %.promoted103941316013175 to i64
   %96 = sub i64 %94, %95
   %97 = trunc i64 %96 to i32
-  store i32 %97, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %97, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %98 = load i8, ptr %.promoted103941316013175, align 1
   %.not6529 = icmp ne i8 %98, 34
   %99 = icmp ult ptr %93, %49
@@ -2327,7 +2327,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .lr.ph10361:                                      ; preds = %.split.loop.exit16801, %.backedge
   %100 = phi ptr [ %126, %.backedge ], [ %93, %.split.loop.exit16801 ]
   %101 = getelementptr inbounds i8, ptr %100, i64 1
-  store ptr %101, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %101, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %102 = load i8, ptr %100, align 1
   switch i8 %102, label %.backedge [
     i8 34, label %103
@@ -2340,7 +2340,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %104 = ptrtoint ptr %101 to i64
   %105 = sub i64 %104, %95
   %106 = trunc i64 %105 to i32
-  store i32 %106, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %106, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %107 = zext i1 %.not6529 to i64
   %108 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 1
@@ -2378,7 +2378,7 @@ switch.early.test:                                ; preds = %114
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds i8, ptr %100, i64 2
-  store ptr %125, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %125, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph10361, %124, %122, %119, %switch.early.test
@@ -2392,15 +2392,15 @@ switch.early.test:                                ; preds = %114
   %130 = and i64 %96, 4294967295
   %131 = sub i64 %129, %94
   %132 = trunc i64 %131 to i32
-  store i32 %132, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 22), align 8
+  store i32 %132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
   %133 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 %130
-  store ptr %133, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %133, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 134:                                              ; preds = %59
   %135 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %135, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %135, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %136 = load i8, ptr %135, align 1
   %137 = icmp eq i8 %136, 91
   br i1 %137, label %838, label %138
@@ -2411,7 +2411,7 @@ switch.early.test:                                ; preds = %114
   %141 = ptrtoint ptr %.promoted103941316013175 to i64
   %142 = sub i64 %140, %141
   %143 = trunc i64 %142 to i32
-  store i32 %143, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %143, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %144 = icmp ult ptr %139, %49
   br i1 %144, label %.lr.ph10202.preheader, label %.loopexit6995
 
@@ -2423,7 +2423,7 @@ switch.early.test:                                ; preds = %114
 .lr.ph10202:                                      ; preds = %.lr.ph10202.preheader, %152
   %146 = phi ptr [ %147, %152 ], [ %139, %.lr.ph10202.preheader ]
   %147 = getelementptr inbounds i8, ptr %146, i64 1
-  store ptr %147, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %147, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %148 = load i8, ptr %146, align 1
   switch i8 %148, label %152 [
     i8 13, label %.loopexit6995.sink.split
@@ -2441,7 +2441,7 @@ switch.early.test:                                ; preds = %114
   br i1 %exitcond.not, label %.loopexit6995, label %.lr.ph10202
 
 .loopexit6995.sink.split:                         ; preds = %149, %.lr.ph10202, %.lr.ph10202
-  store ptr %146, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %146, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6995
 
 .loopexit6995:                                    ; preds = %152, %.loopexit6995.sink.split, %138
@@ -2449,12 +2449,12 @@ switch.early.test:                                ; preds = %114
   %154 = ptrtoint ptr %153 to i64
   %155 = sub i64 %154, %141
   %156 = trunc i64 %155 to i32
-  store i32 %156, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %156, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 157:                                              ; preds = %59
   %158 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %158, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %158, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %159 = load i8, ptr %158, align 1
   %160 = icmp ult i8 %159, 96
   br i1 %160, label %161, label %166
@@ -2481,22 +2481,22 @@ switch.early.test:                                ; preds = %114
 
 .preheader6801:                                   ; preds = %163, %166
   %167 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %167, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %167, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %168 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
   %.not652710357 = icmp ult ptr %168, %51
   br i1 %.not652710357, label %.lr.ph10358, label %.loopexit
 
 169:                                              ; preds = %59
   %170 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %170, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %170, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %171 = load i8, ptr %170, align 1
   %172 = icmp eq i8 %171, 61
   br i1 %172, label %864, label %.loopexit7207
 
 173:                                              ; preds = %59
   %174 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %174, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %174, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %174, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %174, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %175 = load i8, ptr %174, align 1
   %176 = icmp ult i8 %175, 35
   br i1 %176, label %177, label %182
@@ -2541,12 +2541,12 @@ switch.early.test:                                ; preds = %114
 
 .loopexit7214:                                    ; preds = %181, %179, %901, %190, %186
   %192 = phi ptr [ %895, %901 ], [ %174, %190 ], [ %174, %186 ], [ %174, %179 ], [ %174, %181 ]
-  %193 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %194 = ptrtoint ptr %192 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
-  store i32 %197, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %197, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 .split.loop.exit16806:                            ; preds = %596
@@ -2556,12 +2556,12 @@ switch.early.test:                                ; preds = %114
 .split.loop.exit16808:                            ; preds = %59, %.split.loop.exit16806
   %199 = phi ptr [ %198, %.split.loop.exit16806 ], [ %.promoted103941316013175, %59 ]
   %200 = getelementptr inbounds i8, ptr %199, i64 1
-  store ptr %200, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %200, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %201 = ptrtoint ptr %200 to i64
   %202 = ptrtoint ptr %.promoted103941316013175 to i64
   %203 = sub i64 %201, %202
   %204 = trunc i64 %203 to i32
-  store i32 %204, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %205 = load i8, ptr %.promoted103941316013175, align 1
   %.not6465 = icmp ne i8 %205, 39
   %206 = icmp ult ptr %200, %49
@@ -2572,14 +2572,14 @@ switch.early.test:                                ; preds = %114
   %208 = load i8, ptr %207, align 1
   %209 = icmp eq i8 %208, 39
   %210 = getelementptr inbounds i8, ptr %207, i64 1
-  store ptr %210, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %209, label %211, label %218
 
 211:                                              ; preds = %.lr.ph10348
   %212 = ptrtoint ptr %210 to i64
   %213 = sub i64 %212, %202
   %214 = trunc i64 %213 to i32
-  store i32 %214, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %215 = select i1 %.not6465, i32 -3, i32 -2
   %216 = add i32 %215, %214
   %217 = icmp ult i32 %216, 2
@@ -2594,13 +2594,13 @@ switch.early.test:                                ; preds = %114
 
 222:                                              ; preds = %218
   %223 = getelementptr inbounds i8, ptr %207, i64 2
-  store ptr %223, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %223, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %226
 
 ._crit_edge10349:                                 ; preds = %226, %.split.loop.exit16808
   %224 = sub i64 %50, %202
   %225 = trunc i64 %224 to i32
-  store i32 %225, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %225, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 1, ptr %28, align 8
   br label %.loopexit6823
 
@@ -2630,9 +2630,9 @@ switch.early.test:                                ; preds = %114
   ]
 
 238:                                              ; preds = %233, %233
-  %239 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %239 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %240 = add nsw i32 %239, 1
-  store i32 %240, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %240, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %241
 
 241:                                              ; preds = %233, %238
@@ -2664,7 +2664,7 @@ switch.early.test:                                ; preds = %114
   store i8 0, ptr %257, align 1
   store ptr %252, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %.promoted10350 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10350 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %258
 
 258:                                              ; preds = %267, %245
@@ -2689,7 +2689,7 @@ switch.early.test:                                ; preds = %114
 
 265:                                              ; preds = %258, %262
   %266 = add nsw i32 %259, 1
-  store i32 %266, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %266, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %267
 
 267:                                              ; preds = %258, %265, %262
@@ -2751,9 +2751,9 @@ switch.early.test:                                ; preds = %114
   br i1 %.not6467, label %292, label %289
 
 289:                                              ; preds = %284, %286
-  %290 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %290 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %291 = add nsw i32 %290, 1
-  store i32 %291, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %291, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %292
 
 292:                                              ; preds = %284, %289, %286
@@ -2774,7 +2774,7 @@ switch.early.test:                                ; preds = %114
   br label %.loopexit6805
 
 .loopexit6805:                                    ; preds = %267, %231, %241, %._crit_edge10354
-  %301 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not6469 = icmp eq ptr %301, null
   br i1 %.not6469, label %.loopexit6823, label %302
 
@@ -2842,8 +2842,8 @@ switch.early.test:                                ; preds = %114
 
 335:                                              ; preds = %59
   %336 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %336, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %336, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %337 = load i8, ptr %336, align 1
   %338 = icmp ult i8 %337, 84
   br i1 %338, label %339, label %353
@@ -2935,24 +2935,24 @@ switch.early.test:                                ; preds = %114
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %373, %374
   %376 = trunc i64 %375 to i32
-  store i32 %376, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %376, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %377 = load i8, ptr %371, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i8 %377, ptr %12, align 4
   %378 = getelementptr inbounds i8, ptr %12, i64 4
-  %379 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %379 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %379, ptr %378, align 4
-  %380 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %12) #16
+  %380 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %381 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %382 = load i8, ptr %381, align 1
   %383 = sext i8 %382 to i32
   br label %.loopexit7123
 
 384:                                              ; preds = %59, %59
   %385 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %385, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %385, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %386 = load i8, ptr %.promoted103941316013175, align 1
   %387 = tail call fastcc i32 @exit_nesting(i8 noundef signext %386)
   %.not6448 = icmp eq i32 %387, 0
@@ -2960,14 +2960,14 @@ switch.early.test:                                ; preds = %114
   br i1 %or.cond, label %388, label %.loopexit7123
 
 388:                                              ; preds = %384
-  %389 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %390 = load i8, ptr %389, align 1
   %391 = sext i8 %390 to i32
   br label %.loopexit7123
 
 392:                                              ; preds = %59
   %393 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %393, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %393, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %394 = load i8, ptr %393, align 1
   switch i8 %394, label %.loopexit7207 [
     i8 42, label %1060
@@ -2976,7 +2976,7 @@ switch.early.test:                                ; preds = %114
 
 395:                                              ; preds = %59
   %396 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %396, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %397 = load i8, ptr %396, align 1
   switch i8 %397, label %.loopexit7207 [
     i8 43, label %1067
@@ -2985,12 +2985,12 @@ switch.early.test:                                ; preds = %114
 
 398:                                              ; preds = %59, %59, %59, %59
   %399 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %399, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %399, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7207
 
 400:                                              ; preds = %59
   %401 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %401, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %401, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %402 = load i8, ptr %401, align 1
   %403 = icmp ult i8 %402, 61
   br i1 %403, label %404, label %406
@@ -3009,8 +3009,8 @@ switch.early.test:                                ; preds = %114
 
 410:                                              ; preds = %59
   %411 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %411, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %411, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %412 = load i8, ptr %411, align 1
   %413 = icmp ult i8 %412, 48
   br i1 %413, label %414, label %416
@@ -3029,7 +3029,7 @@ switch.early.test:                                ; preds = %114
 
 420:                                              ; preds = %59
   %421 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %421, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %422 = load i8, ptr %421, align 1
   %423 = icmp ult i8 %422, 47
   br i1 %423, label %424, label %426
@@ -3046,8 +3046,8 @@ switch.early.test:                                ; preds = %114
 
 427:                                              ; preds = %59
   %428 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %428, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %428, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %429 = load i8, ptr %428, align 1
   %430 = icmp ult i8 %429, 89
   br i1 %430, label %431, label %436
@@ -3096,7 +3096,7 @@ switch.early.test:                                ; preds = %114
   %444 = ptrtoint ptr %441 to i64
   %445 = sub i64 %443, %444
   %446 = trunc i64 %445 to i32
-  store i32 %446, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %446, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %447 = and i64 %445, 4294967295
   %448 = load i8, ptr %441, align 1
   %449 = icmp eq i8 %448, 48
@@ -3238,8 +3238,8 @@ strip_underscores.exit:                           ; preds = %453
 498:                                              ; preds = %1243, %504, %59, %59, %59, %59, %59, %59, %59, %59, %59
   %499 = phi ptr [ %1241, %1243 ], [ %505, %504 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ], [ %.promoted103941316013175, %59 ]
   %500 = getelementptr inbounds i8, ptr %499, i64 1
-  store ptr %500, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %500, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %501 = getelementptr inbounds i8, ptr %499, i64 4
   %.not6438 = icmp ult ptr %501, %51
   br i1 %.not6438, label %502, label %.loopexit
@@ -3283,14 +3283,14 @@ strip_underscores.exit:                           ; preds = %453
 
 519:                                              ; preds = %59
   %520 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %520, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %520, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %521 = load i8, ptr %520, align 1
   %522 = icmp eq i8 %521, 58
   br i1 %522, label %1250, label %.loopexit7207
 
 523:                                              ; preds = %59
   %524 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %524, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %524, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %525 = load i8, ptr %524, align 1
   %526 = icmp ult i8 %525, 60
   br i1 %526, label %.loopexit7207.loopexit.split.loop.exit16818, label %527
@@ -3310,7 +3310,7 @@ strip_underscores.exit:                           ; preds = %453
 
 534:                                              ; preds = %59
   %535 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %535, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %535, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %536 = load i8, ptr %535, align 1
   %537 = icmp ult i8 %536, 61
   br i1 %537, label %.loopexit7207, label %538
@@ -3325,7 +3325,7 @@ strip_underscores.exit:                           ; preds = %453
 
 542:                                              ; preds = %59
   %543 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %543, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %543, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %544 = load i8, ptr %543, align 1
   %545 = icmp ult i8 %544, 61
   br i1 %545, label %.loopexit7207, label %546
@@ -3340,8 +3340,8 @@ strip_underscores.exit:                           ; preds = %453
 
 550:                                              ; preds = %59
   %551 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %551, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %551, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %551, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %551, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %552 = load i8, ptr %551, align 1
   %553 = icmp ult i8 %552, 62
   br i1 %553, label %554, label %556
@@ -3361,8 +3361,8 @@ strip_underscores.exit:                           ; preds = %453
 
 561:                                              ; preds = %59, %59
   %562 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %562, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %562, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %562, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %562, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %563 = load i8, ptr %562, align 1
   %564 = icmp ult i8 %563, 84
   br i1 %564, label %565, label %574
@@ -3411,18 +3411,18 @@ strip_underscores.exit:                           ; preds = %453
 
 .loopexit7216:                                    ; preds = %674, %902
   %583 = phi ptr [ %895, %902 ], [ %.promoted10206.pre, %674 ]
-  %584 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %584 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %585 = ptrtoint ptr %583 to i64
   %586 = ptrtoint ptr %584 to i64
   %587 = sub i64 %585, %586
   %588 = trunc i64 %587 to i32
-  store i32 %588, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %588, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 589:                                              ; preds = %59, %59
   %590 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %590, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %590, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %590, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %590, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %591 = load i8, ptr %590, align 1
   %592 = icmp ult i8 %591, 60
   br i1 %592, label %593, label %598
@@ -3455,8 +3455,8 @@ strip_underscores.exit:                           ; preds = %453
 
 603:                                              ; preds = %59, %59
   %604 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %604, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %604, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %604, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %604, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %605 = load i8, ptr %604, align 1
   %606 = icmp ult i8 %605, 80
   br i1 %606, label %607, label %612
@@ -3491,8 +3491,8 @@ strip_underscores.exit:                           ; preds = %453
 
 617:                                              ; preds = %59, %59
   %618 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %618, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %618, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %618, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %618, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %619 = load i8, ptr %618, align 1
   %620 = icmp ult i8 %619, 80
   br i1 %620, label %621, label %626
@@ -3527,8 +3527,8 @@ strip_underscores.exit:                           ; preds = %453
 
 631:                                              ; preds = %59, %59
   %632 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %632, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %632, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %632, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %632, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %633 = load i8, ptr %632, align 1
   switch i8 %633, label %669 [
     i8 67, label %1421
@@ -3547,8 +3547,8 @@ strip_underscores.exit:                           ; preds = %453
 
 634:                                              ; preds = %59, %59
   %635 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %635, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %635, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %636 = load i8, ptr %635, align 1
   %637 = icmp ult i8 %636, 86
   br i1 %637, label %638, label %647
@@ -3591,8 +3591,8 @@ strip_underscores.exit:                           ; preds = %453
 
 651:                                              ; preds = %59, %59
   %652 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %652, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %652, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %652, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %652, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %653 = load i8, ptr %652, align 1
   %654 = icmp ult i8 %653, 80
   br i1 %654, label %655, label %656
@@ -3618,10 +3618,10 @@ strip_underscores.exit:                           ; preds = %453
 661:                                              ; preds = %._crit_edge13113, %3826, %3385, %2617, %2162, %4476, %4414, %6364, %6157, %6001, %5914, %5899, %5542, %5427, %5408, %5301, %5286, %5241, %5210, %5167, %5151, %5136, %5121, %4996, %4911, %4888, %4816, %4773, %4713, %4686, %4671, %4656, %4553, %4486, %4478, %4447, %4424, %4416, %4385, %4370, %4355, %4237, %4222, %4036, %4021, %4006, %3983, %3936, %3842, %3837, %3831, %3801, %3581, %3566, %3551, %3536, %3521, %3474, %3455, %3440, %3401, %3396, %3390, %3292, %3269, %3238, %3223, %3208, %3193, %3174, %3159, %2770, %2729, %2694, %2679, %2633, %2628, %2622, %2596, %2553, %2343, %2324, %2309, %2290, %2229, %2178, %2173, %2167, %2106, %2012, %1549, %1492, %1461, %1406, %1323, %59
   %662 = phi ptr [ %.pre13114, %._crit_edge13113 ], [ %3821, %3826 ], [ %3380, %3385 ], [ %2612, %2617 ], [ %2157, %2162 ], [ %4471, %4476 ], [ %4409, %4414 ], [ %6365, %6364 ], [ %6158, %6157 ], [ %6002, %6001 ], [ %5915, %5914 ], [ %5900, %5899 ], [ %5543, %5542 ], [ %5428, %5427 ], [ %5409, %5408 ], [ %5302, %5301 ], [ %5287, %5286 ], [ %5242, %5241 ], [ %5211, %5210 ], [ %5168, %5167 ], [ %5152, %5151 ], [ %5137, %5136 ], [ %5122, %5121 ], [ %4997, %4996 ], [ %4912, %4911 ], [ %4889, %4888 ], [ %4817, %4816 ], [ %4774, %4773 ], [ %4714, %4713 ], [ %4687, %4686 ], [ %4672, %4671 ], [ %4657, %4656 ], [ %4554, %4553 ], [ %4471, %4486 ], [ %4471, %4478 ], [ %4448, %4447 ], [ %4409, %4424 ], [ %4409, %4416 ], [ %4386, %4385 ], [ %4371, %4370 ], [ %4356, %4355 ], [ %4238, %4237 ], [ %4223, %4222 ], [ %4037, %4036 ], [ %4022, %4021 ], [ %4007, %4006 ], [ %3984, %3983 ], [ %3937, %3936 ], [ %3821, %3842 ], [ %3821, %3837 ], [ %3821, %3831 ], [ %3802, %3801 ], [ %3582, %3581 ], [ %3567, %3566 ], [ %3552, %3551 ], [ %3537, %3536 ], [ %3522, %3521 ], [ %3475, %3474 ], [ %3456, %3455 ], [ %3441, %3440 ], [ %3380, %3401 ], [ %3380, %3396 ], [ %3380, %3390 ], [ %3293, %3292 ], [ %3270, %3269 ], [ %3239, %3238 ], [ %3224, %3223 ], [ %3209, %3208 ], [ %3194, %3193 ], [ %3175, %3174 ], [ %3160, %3159 ], [ %2771, %2770 ], [ %2730, %2729 ], [ %2695, %2694 ], [ %2680, %2679 ], [ %2612, %2633 ], [ %2612, %2628 ], [ %2612, %2622 ], [ %2597, %2596 ], [ %2554, %2553 ], [ %2344, %2343 ], [ %2325, %2324 ], [ %2310, %2309 ], [ %2291, %2290 ], [ %2230, %2229 ], [ %2157, %2178 ], [ %2157, %2173 ], [ %2157, %2167 ], [ %2107, %2106 ], [ %2013, %2012 ], [ %1550, %1549 ], [ %1493, %1492 ], [ %1462, %1461 ], [ %1407, %1406 ], [ %1324, %1323 ], [ %.promoted103941316013175, %59 ]
   %663 = getelementptr inbounds i8, ptr %662, i64 1
-  store ptr %663, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %663, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %663, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %663, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %664 = getelementptr inbounds i8, ptr %662, i64 2
-  %665 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %665 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %666 = getelementptr inbounds i8, ptr %665, i64 32
   %.not6534 = icmp ult ptr %664, %666
   br i1 %.not6534, label %667, label %.loopexit
@@ -3640,18 +3640,18 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %.not6535, label %674, label %._crit_edge13113
 
 ._crit_edge13113:                                 ; preds = %669
-  %.pre13114 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.pre13114 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %661
 
 674:                                              ; preds = %669
   %675 = icmp eq i8 %.15310, 92
-  %.promoted10206.pre = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.promoted10206.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %675, label %.preheader6991, label %.loopexit7216
 
 676:                                              ; preds = %59, %59
   %677 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %677, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %677, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %677, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %677, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %678 = load i8, ptr %677, align 1
   %679 = icmp ult i8 %678, 84
   br i1 %679, label %680, label %689
@@ -3694,8 +3694,8 @@ strip_underscores.exit:                           ; preds = %453
 
 693:                                              ; preds = %59, %59
   %694 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %694, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %694, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %695 = load i8, ptr %694, align 1
   %696 = and i8 %695, -33
   %or.cond74 = icmp eq i8 %696, 73
@@ -3703,8 +3703,8 @@ strip_underscores.exit:                           ; preds = %453
 
 697:                                              ; preds = %59, %59
   %698 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %698, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %698, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %698, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %698, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %699 = load i8, ptr %698, align 1
   %700 = and i8 %699, -33
   %or.cond77 = icmp eq i8 %700, 65
@@ -3712,8 +3712,8 @@ strip_underscores.exit:                           ; preds = %453
 
 701:                                              ; preds = %59, %59
   %702 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %702, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %702, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %702, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %702, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %703 = load i8, ptr %702, align 1
   %704 = icmp ult i8 %703, 70
   br i1 %704, label %705, label %706
@@ -3738,8 +3738,8 @@ strip_underscores.exit:                           ; preds = %453
 
 711:                                              ; preds = %59, %59
   %712 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %712, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %712, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %712, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %712, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %713 = load i8, ptr %712, align 1
   %714 = and i8 %713, -33
   %or.cond80 = icmp eq i8 %714, 82
@@ -3747,8 +3747,8 @@ strip_underscores.exit:                           ; preds = %453
 
 715:                                              ; preds = %59, %59
   %716 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %716, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %716, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %716, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %716, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %717 = load i8, ptr %716, align 1
   %718 = icmp ult i8 %717, 86
   br i1 %718, label %719, label %720
@@ -3773,8 +3773,8 @@ strip_underscores.exit:                           ; preds = %453
 
 725:                                              ; preds = %59, %59
   %726 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %726, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %726, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %727 = load i8, ptr %726, align 1
   %728 = and i8 %727, -33
   %or.cond83 = icmp eq i8 %728, 69
@@ -3782,8 +3782,8 @@ strip_underscores.exit:                           ; preds = %453
 
 729:                                              ; preds = %59, %59
   %730 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %730, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %730, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %731 = load i8, ptr %730, align 1
   %732 = icmp ult i8 %731, 88
   br i1 %732, label %733, label %734
@@ -3808,8 +3808,8 @@ strip_underscores.exit:                           ; preds = %453
 
 739:                                              ; preds = %59, %59
   %740 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %740, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %740, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %740, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %740, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %741 = load i8, ptr %740, align 1
   %742 = icmp ult i8 %741, 83
   br i1 %742, label %743, label %744
@@ -3834,8 +3834,8 @@ strip_underscores.exit:                           ; preds = %453
 
 749:                                              ; preds = %59, %59
   %750 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %750, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %750, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %750, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %750, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %751 = load i8, ptr %750, align 1
   %752 = icmp ult i8 %751, 84
   br i1 %752, label %753, label %754
@@ -3860,8 +3860,8 @@ strip_underscores.exit:                           ; preds = %453
 
 759:                                              ; preds = %59, %59
   %760 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %760, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %760, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %760, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %760, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %761 = load i8, ptr %760, align 1
   %762 = and i8 %761, -33
   %or.cond86 = icmp eq i8 %762, 65
@@ -3869,8 +3869,8 @@ strip_underscores.exit:                           ; preds = %453
 
 763:                                              ; preds = %59, %59
   %764 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %764, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %764, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %764, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %764, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %765 = load i8, ptr %764, align 1
   %766 = and i8 %765, -33
   %or.cond89 = icmp eq i8 %766, 72
@@ -3878,8 +3878,8 @@ strip_underscores.exit:                           ; preds = %453
 
 767:                                              ; preds = %59, %59
   %768 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %768, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %768, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %769 = load i8, ptr %768, align 1
   %770 = and i8 %769, -33
   %or.cond92 = icmp eq i8 %770, 79
@@ -3887,8 +3887,8 @@ strip_underscores.exit:                           ; preds = %453
 
 771:                                              ; preds = %59, %59
   %772 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %772, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %772, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %772, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %772, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %773 = load i8, ptr %772, align 1
   %774 = and i8 %773, -33
   %or.cond95 = icmp eq i8 %774, 73
@@ -3896,12 +3896,12 @@ strip_underscores.exit:                           ; preds = %453
 
 775:                                              ; preds = %59
   %776 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %776, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %776, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7213
 
 777:                                              ; preds = %59
   %778 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %778, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %778, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %779 = load i8, ptr %778, align 1
   %780 = icmp ult i8 %779, 96
   br i1 %780, label %781, label %786
@@ -3928,56 +3928,56 @@ strip_underscores.exit:                           ; preds = %453
 
 .preheader7111:                                   ; preds = %783, %786
   %787 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %787, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %787, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %787, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %787, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %788 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
   %.not60919477 = icmp ult ptr %788, %51
   br i1 %.not60919477, label %.lr.ph9478, label %.loopexit
 
 789:                                              ; preds = %786, %786, %786, %786, %786, %786, %783, %781
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 790:                                              ; preds = %59
   %791 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %791, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %791, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %792 = load i8, ptr %791, align 1
   %793 = icmp eq i8 %792, 61
   br i1 %793, label %1665, label %.loopexit7207
 
 794:                                              ; preds = %59
   %795 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %795, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %795, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %795, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %795, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %796 = load i8, ptr %795, align 1
   %797 = icmp eq i8 %796, 95
   br i1 %797, label %1667, label %669
 
 798:                                              ; preds = %59
   %799 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %799, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %799, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 800:                                              ; preds = %59
   %801 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %801, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %802 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %801, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %802 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i8 123, ptr %11, align 4
   %803 = getelementptr inbounds i8, ptr %11, i64 4
-  %804 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %804 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %804, ptr %803, align 4
-  %805 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %11) #16
+  %805 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.loopexit7123
 
 806:                                              ; preds = %59
   %807 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %807, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %807, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %808 = load i8, ptr %807, align 1
   switch i8 %808, label %.loopexit7207 [
     i8 61, label %1670
@@ -3986,9 +3986,9 @@ strip_underscores.exit:                           ; preds = %453
 
 809:                                              ; preds = %59
   %810 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 1
-  store ptr %810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %811 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr %810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %811 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not6076 = icmp eq ptr %811, null
   br i1 %.not6076, label %823, label %812
 
@@ -4013,11 +4013,11 @@ strip_underscores.exit:                           ; preds = %453
   br label %822
 
 822:                                              ; preds = %816, %821, %812
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br label %823
 
 823:                                              ; preds = %809, %822
-  %824 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  %824 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   br i1 %824, label %826, label %825
 
 825:                                              ; preds = %823
@@ -4033,7 +4033,7 @@ strip_underscores.exit:                           ; preds = %453
 
 828:                                              ; preds = %75
   %829 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %829, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %829, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %830 = load i8, ptr %829, align 1
   %831 = icmp eq i8 %830, 61
   br i1 %831, label %1674, label %832
@@ -4044,19 +4044,19 @@ strip_underscores.exit:                           ; preds = %453
   %835 = ptrtoint ptr %.promoted103941316013175 to i64
   %836 = sub i64 %834, %835
   %837 = trunc i64 %836 to i32
-  store i32 %837, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %837, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 838:                                              ; preds = %134
   %839 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %839, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %839, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i8 91, ptr %10, align 4
   %840 = getelementptr inbounds i8, ptr %10, i64 4
-  %841 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %841 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %841, ptr %840, align 4
-  %842 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %10) #16
+  %842 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.loopexit7123
 
@@ -4076,7 +4076,7 @@ strip_underscores.exit:                           ; preds = %453
 
 .backedge6803:                                    ; preds = %848, %856, %858, %852
   %850 = getelementptr inbounds i8, ptr %843, i64 1
-  store ptr %850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %851 = getelementptr inbounds i8, ptr %843, i64 2
   %.not6527 = icmp ult ptr %851, %51
   br i1 %.not6527, label %.lr.ph10358, label %.loopexit
@@ -4103,20 +4103,20 @@ strip_underscores.exit:                           ; preds = %453
   %861 = ptrtoint ptr %.promoted103941316013175 to i64
   %862 = sub i64 %860, %861
   %863 = trunc i64 %862 to i32
-  store i32 %863, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %863, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 864:                                              ; preds = %169
   %865 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %865, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %865, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 .loopexit6955:                                    ; preds = %2444, %2891, %2890, %2457, %2443, %2437, %2436, %1701, %1701, %876, %876, %874, %2429, %1686
   %.promoted1007710088 = phi ptr [ %870, %874 ], [ %870, %876 ], [ %1678, %1686 ], [ %1694, %1701 ], [ %2421, %2429 ], [ %1693, %2437 ], [ %2432, %2891 ], [ %870, %876 ], [ %1694, %1701 ], [ %1693, %2436 ], [ %1693, %2443 ], [ %2449, %2457 ], [ %2432, %2890 ], [ %1693, %2444 ]
   %.25316 = phi i32 [ %.35317, %874 ], [ %.35317, %876 ], [ %.11.ph, %1686 ], [ %.12.ph10074, %1701 ], [ 26, %2429 ], [ %.12.ph10074, %2437 ], [ %.12.ph10074, %2891 ], [ %.35317, %876 ], [ %.12.ph10074, %1701 ], [ %.12.ph10074, %2436 ], [ %.12.ph10074, %2443 ], [ %.16.ph, %2457 ], [ %.12.ph10074, %2890 ], [ %.12.ph10074, %2444 ]
   %866 = getelementptr inbounds i8, ptr %.promoted1007710088, i64 1
-  store ptr %866, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %867 = getelementptr inbounds i8, ptr %.promoted1007710088, i64 4
   %.not6526 = icmp ult ptr %867, %51
   br i1 %.not6526, label %868, label %.loopexit
@@ -4173,20 +4173,20 @@ strip_underscores.exit:                           ; preds = %453
 
 .thread6762:                                      ; preds = %2372, %2372, %2372, %2372, %2372, %2372, %2369, %2367, %1973, %2536, %2536, %2536, %2536, %2536, %2536, %2531, %2527, %3005, %3003, %2999, %2987, %2985, %2981, %1234, %1229, %1213, %.preheader7025, %3776, %3772, %2959, %2955, %4204, %4200, %3743, %3739, %4182, %4178, %3702, %3698, %3777, %3718, %2936, %1976, %1026, %1018, %1734, %2458, %2903, %1030, %1029, %1742, %2466, %3725, %4183, %3716, %1738, %2462, %2909, %3703, %1032, %1746, %2470, %2917, %3729, %1036, %1750, %2474, %2921, %1040, %1754, %2943, %3744, %4192, %2934, %1044, %1758, %2482, %2947, %3748, %1048, %1762, %2486, %1052, %1766, %2492, %2960, %3762, %1056, %1770, %2496, %2964, %1078, %1790, %1788, %1243, %1781, %1225, %1221, %1849, %1287, %1352, %2055, %1984, %1984, %1984, %1984, %1984, %1984, %2523, %1981, %1979, %2997, %2513, %2979, %2508
   %.45318.ph = phi i32 [ %.15.ph, %1984 ], [ %.15.ph, %1984 ], [ %.15.ph, %1984 ], [ %.15.ph, %1984 ], [ %.15.ph, %1984 ], [ %.15.ph, %3777 ], [ 1, %3718 ], [ 1, %2936 ], [ %.15.ph, %1976 ], [ 1, %1026 ], [ 1, %1018 ], [ 1, %1734 ], [ 1, %2458 ], [ 1, %2903 ], [ 1, %1030 ], [ 1, %1029 ], [ 1, %1742 ], [ 1, %2466 ], [ 1, %3725 ], [ 1, %4183 ], [ 1, %3716 ], [ 1, %1738 ], [ 1, %2462 ], [ 1, %2909 ], [ 1, %3703 ], [ 1, %1032 ], [ 1, %1746 ], [ 1, %2470 ], [ 1, %2917 ], [ 1, %3729 ], [ 1, %1036 ], [ 1, %1750 ], [ 1, %2474 ], [ 1, %2921 ], [ 1, %1040 ], [ 1, %1754 ], [ 1, %2943 ], [ 1, %3744 ], [ 1, %4192 ], [ 1, %2934 ], [ 1, %1044 ], [ 1, %1758 ], [ 1, %2482 ], [ 1, %2947 ], [ 1, %3748 ], [ 1, %1048 ], [ 1, %1762 ], [ 1, %2486 ], [ 1, %1052 ], [ 1, %1766 ], [ 1, %2492 ], [ 1, %2960 ], [ 1, %3762 ], [ 1, %1056 ], [ 1, %1770 ], [ 1, %2496 ], [ 1, %2964 ], [ 2, %1078 ], [ 6, %1790 ], [ 6, %1788 ], [ 3, %1243 ], [ 5, %1781 ], [ %.75321, %1225 ], [ %.75321, %1221 ], [ %.14, %1849 ], [ 2, %1287 ], [ 4, %1352 ], [ 4, %2055 ], [ %.15.ph, %1984 ], [ %.15.ph, %2523 ], [ %.15.ph, %1981 ], [ %.15.ph, %1979 ], [ %.15.ph, %2997 ], [ %.15.ph, %2513 ], [ %.15.ph, %2979 ], [ %.15.ph, %2508 ], [ 1, %3698 ], [ 1, %3702 ], [ 1, %4178 ], [ 1, %4182 ], [ 1, %3739 ], [ 1, %3743 ], [ 1, %4200 ], [ 1, %4204 ], [ 1, %2955 ], [ 1, %2959 ], [ 1, %3772 ], [ 1, %3776 ], [ 1, %.preheader7025 ], [ %.65320, %1213 ], [ %.85322, %1229 ], [ %.95323, %1234 ], [ %.15.ph, %2981 ], [ %.15.ph, %2985 ], [ %.15.ph, %2987 ], [ %.15.ph, %2999 ], [ %.15.ph, %3003 ], [ %.15.ph, %3005 ], [ %.15.ph, %2527 ], [ %.15.ph, %2531 ], [ %.15.ph, %2536 ], [ %.15.ph, %2536 ], [ %.15.ph, %2536 ], [ %.15.ph, %2536 ], [ %.15.ph, %2536 ], [ %.15.ph, %2536 ], [ %.15.ph, %1973 ], [ 13, %2367 ], [ 13, %2369 ], [ 13, %2372 ], [ 13, %2372 ], [ 13, %2372 ], [ 13, %2372 ], [ 13, %2372 ], [ 13, %2372 ]
-  %888 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
-  store ptr %888, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %888 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %888, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %894
 
 .thread6759:                                      ; preds = %5617, %5854, %6081, %6207, %6326, %5625, %5862, %6089, %6215, %6334, %6418, %6478, %4749, %5086, %5385, %5635, %5876, %4765, %5101, %5400, %5650, %5891, %6107, %6225, %6053, %6179, %6294, %6386, %6450, %6068, %6194, %6309, %6401, %6465, %6540, %6554, %5448, %5450, %5453, %5453, %5453, %5453, %5453, %5453, %5561, %5316, %5011, %4728, %4268, %6024, %5791, %5568, %5320, %5015, %4732, %4272
   %889 = phi ptr [ %3863, %4272 ], [ %3863, %4732 ], [ %3863, %5015 ], [ %3863, %5320 ], [ %3863, %5568 ], [ %3863, %5791 ], [ %3863, %6024 ], [ %3860, %4268 ], [ %3860, %4728 ], [ %3860, %5011 ], [ %3860, %5316 ], [ %5562, %5561 ], [ %5442, %5453 ], [ %5442, %5453 ], [ %5442, %5453 ], [ %5442, %5453 ], [ %5442, %5453 ], [ %5442, %5453 ], [ %5442, %5450 ], [ %5442, %5448 ], [ %5818, %6053 ], [ %5818, %6179 ], [ %5818, %6294 ], [ %5818, %6386 ], [ %6441, %6450 ], [ %5834, %6068 ], [ %5834, %6194 ], [ %5834, %6309 ], [ %5834, %6401 ], [ %5834, %6465 ], [ %5834, %6540 ], [ %5834, %6554 ], [ %5357, %5617 ], [ %5357, %5854 ], [ %5357, %6081 ], [ %5357, %6207 ], [ %.pre1310013130, %6326 ], [ %5368, %5625 ], [ %5368, %5862 ], [ %5368, %6089 ], [ %5368, %6215 ], [ %5368, %6334 ], [ %5368, %6418 ], [ %5368, %6478 ], [ %4308, %4749 ], [ %4308, %5086 ], [ %4308, %5385 ], [ %4308, %5635 ], [ %.pre1310013131, %5876 ], [ %4326, %4765 ], [ %4326, %5101 ], [ %4326, %5400 ], [ %4326, %5650 ], [ %4326, %5891 ], [ %4326, %6107 ], [ %4326, %6225 ]
   %.45318.ph6758 = phi i32 [ 53, %4272 ], [ 53, %4732 ], [ 53, %5015 ], [ 53, %5320 ], [ 53, %5568 ], [ 53, %5791 ], [ 53, %6024 ], [ 53, %4268 ], [ 53, %4728 ], [ 53, %5011 ], [ 53, %5316 ], [ 53, %5561 ], [ %.39, %5453 ], [ %.39, %5453 ], [ %.39, %5453 ], [ %.39, %5453 ], [ %.39, %5453 ], [ %.39, %5453 ], [ %.39, %5450 ], [ %.39, %5448 ], [ 53, %6554 ], [ 53, %6540 ], [ 53, %6465 ], [ 53, %6401 ], [ 53, %6309 ], [ 53, %6194 ], [ 53, %6068 ], [ 53, %6450 ], [ 53, %6386 ], [ 53, %6294 ], [ 53, %6179 ], [ 53, %6053 ], [ 53, %6225 ], [ 53, %6107 ], [ 53, %5891 ], [ 53, %5650 ], [ 53, %5400 ], [ 53, %5101 ], [ 53, %4765 ], [ 53, %5876 ], [ 53, %5635 ], [ 53, %5385 ], [ 53, %5086 ], [ 53, %4749 ], [ 53, %6478 ], [ 53, %6418 ], [ 53, %6334 ], [ 53, %6215 ], [ 53, %6089 ], [ 53, %5862 ], [ 53, %5625 ], [ 53, %6326 ], [ 53, %6207 ], [ 53, %6081 ], [ 53, %5854 ], [ 53, %5617 ]
-  store ptr %889, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7217
 
 .loopexit6866:                                    ; preds = %4064, %4060, %4080, %4079, %4547, %4881, %4505, %3331, %3327, %3918, %4352, %3869, %4636, %4160, %2890, %2457, %2443, %2436, %1008, %995, %994, %876, %1732, %1686, %886, %882, %879, %874, %1350, %1350, %1350, %1350, %1350, %1350, %1347, %1345, %4281, %3888, %4739, %6035, %5331, %5067, %4844, %4524, %5193, %6244, %5727, %5507, %5807, %5346, %5028, %1700, %2419, %5278, %5263, %4969, %4132, %3684, %2899, %6344, %6259, %6137, %6127, %5742, %5479, %5800, %5581, %4645, %4166, %3656, %4984, %4945, %4603, %6120, %5936, %6150, %5974, %5966, %5754, %5609, %4852, %4292, %4087, %4067, %3373, %3364, %3363, %5467, %5186, %4835, %4493, %4070, %3354, %5526, %5473, %5471, %5465, %5202, %4864, %3346, %3337, %3334, %1718, %1001
   %.45318 = phi i32 [ %.32.ph69809714, %4852 ], [ %.44, %5966 ], [ %.45, %5754 ], [ %.45, %5974 ], [ %.45, %6150 ], [ %.32.ph69809714, %4864 ], [ %.32.ph69809714, %5202 ], [ %.32.ph69809714, %5526 ], [ %.30, %5465 ], [ %.30, %5467 ], [ %.30, %5471 ], [ %.30, %5473 ], [ %.30, %5186 ], [ %.30, %4835 ], [ %.30, %4493 ], [ %.26.ph, %4070 ], [ %.18.ph, %3334 ], [ %.19, %3363 ], [ %.24.ph9887, %4292 ], [ %.369768, %5609 ], [ %.18.ph, %3337 ], [ %.18.ph, %3346 ], [ %.18.ph, %3354 ], [ %.35317, %1718 ], [ %.35317, %1001 ], [ %.19, %3364 ], [ %.20, %3373 ], [ %.26.ph, %4067 ], [ %.28, %4087 ], [ %.43, %5936 ], [ %.43, %6120 ], [ %.219968, %4603 ], [ %.219968, %4945 ], [ %.219968, %4984 ], [ %.219968, %3656 ], [ %.219968, %4166 ], [ %.219968, %4645 ], [ %.369768, %5581 ], [ %.369768, %5800 ], [ %.44, %5742 ], [ %.43, %6344 ], [ %.43, %6259 ], [ %.43, %6137 ], [ %.43, %6127 ], [ %.409570, %5479 ], [ %.219968, %5278 ], [ %.219968, %5263 ], [ %.219968, %4969 ], [ %.22.ph, %3684 ], [ %.219968, %4132 ], [ %.1710066, %2899 ], [ %.12.ph10074, %2419 ], [ %.12.ph10074, %1700 ], [ %.369768, %5028 ], [ %.369768, %5346 ], [ %.369768, %5807 ], [ %.43, %6244 ], [ %.41.ph, %5507 ], [ %.43, %5727 ], [ %.389704, %5193 ], [ %.32.ph69809714, %4524 ], [ %.32.ph69809714, %4844 ], [ %.369768, %6035 ], [ %.37.ph, %5067 ], [ %.369768, %5331 ], [ %.349879, %4739 ], [ %.24.ph9887, %3888 ], [ %.24.ph9887, %4281 ], [ %.10, %1345 ], [ %.10, %1347 ], [ %.10, %1350 ], [ %.10, %1350 ], [ %.10, %1350 ], [ %.10, %1350 ], [ %.10, %1350 ], [ %.10, %1350 ], [ %.35317, %1008 ], [ %.35317, %995 ], [ %.35317, %886 ], [ %.35317, %882 ], [ %.219968, %4636 ], [ %.219968, %4160 ], [ %.13.ph, %1732 ], [ %.16.ph, %2457 ], [ %.12.ph10074, %2443 ], [ %.12.ph10074, %2890 ], [ %.12.ph10074, %2436 ], [ %.11.ph, %1686 ], [ %.35317, %994 ], [ %.35317, %879 ], [ %.35317, %876 ], [ %.35317, %874 ], [ %.23.ph, %3869 ], [ %.29.ph, %4352 ], [ %.25.ph, %3918 ], [ %.18.ph, %3327 ], [ %.18.ph, %3331 ], [ %.31.ph, %4505 ], [ %.35.ph7092, %4881 ], [ %.33.ph7097, %4547 ], [ %.27, %4079 ], [ %.27, %4080 ], [ %.26.ph, %4060 ], [ %.26.ph, %4064 ]
-  %890 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
-  store ptr %890, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %890 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %890, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %891 = icmp ult i32 %.45318, 48
   br i1 %891, label %892, label %.loopexit7217
 
@@ -4215,7 +4215,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7213_crit_edge:                         ; preds = %901
-  %.pre13128 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13128 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7213
 
 902:                                              ; preds = %899
@@ -4225,11 +4225,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7030_crit_edge:                         ; preds = %902
-  %.pre13140 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13140 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7030
 
 ..loopexit7211_crit_edge:                         ; preds = %902
-  %.pre13137 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13137 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7211
 
 903:                                              ; preds = %897
@@ -4243,11 +4243,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7208.loopexit_crit_edge:                ; preds = %905
-  %.pre13126.pre = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13126.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7208
 
 ._crit_edge13124:                                 ; preds = %905
-  %.pre13125 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13125 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %split
 
 906:                                              ; preds = %903
@@ -4311,7 +4311,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7136_crit_edge:                         ; preds = %923
-  %.pre13120 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13120 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7136
 
 924:                                              ; preds = %921
@@ -4391,7 +4391,7 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %946, label %947, label %948
 
 947:                                              ; preds = %945
-  %.pre13139 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13139 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   switch i32 %.453186761, label %.loopexit7137 [
     i32 50, label %.loopexit7133
     i32 48, label %.loopexit7140
@@ -4404,7 +4404,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7185_crit_edge:                         ; preds = %948
-  %.pre13119 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13119 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7185
 
 949:                                              ; preds = %943
@@ -4494,7 +4494,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ._crit_edge13117:                                 ; preds = %973
-  %.pre13118 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13118 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %5160
 
 974:                                              ; preds = %971
@@ -4518,11 +4518,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7186_crit_edge:                         ; preds = %979
-  %.pre13143 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13143 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7186
 
 980:                                              ; preds = %977
-  %.pre13141 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13141 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   switch i32 %.453186761, label %.loopexit6810 [
     i32 89, label %.loopexit7163
     i32 87, label %.loopexit7126
@@ -4539,11 +4539,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7129_crit_edge:                         ; preds = %983
-  %.pre13132 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13132 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7129
 
 ..loopexit7148_crit_edge:                         ; preds = %983
-  %.pre13116 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13116 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7148
 
 984:                                              ; preds = %981
@@ -4551,7 +4551,7 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %985, label %986, label %..loopexit7128_crit_edge
 
 ..loopexit7128_crit_edge:                         ; preds = %984
-  %.pre13142 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13142 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7128
 
 986:                                              ; preds = %984
@@ -4559,12 +4559,12 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %987, label %.loopexit6932, label %..loopexit7125_crit_edge
 
 ..loopexit7125_crit_edge:                         ; preds = %986
-  %.pre13144 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %.pre13144 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7125
 
 988:                                              ; preds = %881
   %989 = getelementptr inbounds i8, ptr %870, i64 1
-  store ptr %989, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %990 = getelementptr inbounds i8, ptr %870, i64 2
   %.not6475 = icmp ult ptr %990, %51
   br i1 %.not6475, label %991, label %.loopexit
@@ -4587,34 +4587,34 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 .preheader6953:                                   ; preds = %994, %995
-  store ptr %990, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %990, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %996 = getelementptr inbounds i8, ptr %870, i64 3
   %.not6476994010073 = icmp ult ptr %996, %51
   br i1 %.not6476994010073, label %.lr.ph9941, label %.loopexit
 
 .loopexit6893:                                    ; preds = %1718, %4150, %2429, %881, %4958, %923
-  %997 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %997 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %998 = getelementptr inbounds i8, ptr %997, i64 1
-  store ptr %998, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %998, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 999:                                              ; preds = %186
   %1000 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1000, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1000, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1001:                                             ; preds = %884
   %1002 = getelementptr inbounds i8, ptr %870, i64 1
-  store ptr %1002, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1002, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1003 = load i8, ptr %1002, align 1
   %1004 = icmp eq i8 %1003, 46
   br i1 %1004, label %1718, label %.loopexit6866
 
 1005:                                             ; preds = %886
   %1006 = getelementptr inbounds i8, ptr %870, i64 1
-  store ptr %1006, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1006, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1007 = getelementptr inbounds i8, ptr %870, i64 2
   %.not6473 = icmp ult ptr %1007, %51
   br i1 %.not6473, label %1008, label %.loopexit
@@ -4628,8 +4628,8 @@ strip_underscores.exit:                           ; preds = %453
 
 1010:                                             ; preds = %190
   %1011 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1011, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1011, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1012:                                             ; preds = %1015
@@ -4664,14 +4664,14 @@ strip_underscores.exit:                           ; preds = %453
 
 1015:                                             ; preds = %.preheader7025, %.preheader7025
   %1016 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1016, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1016, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1017 = getelementptr inbounds i8, ptr %1014, i64 8
   %.not6464 = icmp ult ptr %1017, %51
   br i1 %.not6464, label %1012, label %.loopexit
 
 1018:                                             ; preds = %.preheader7025, %.preheader7025
   %1019 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1019, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1019, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1020 = load i8, ptr %1019, align 1
   %1021 = and i8 %1020, -33
   %or.cond116 = icmp eq i8 %1021, 82
@@ -4679,7 +4679,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1022:                                             ; preds = %.preheader7025, %.preheader7025
   %1023 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1023, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1023, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1024 = load i8, ptr %1023, align 1
   %1025 = icmp ult i8 %1024, 80
   br i1 %1025, label %1026, label %1027
@@ -4704,7 +4704,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1032:                                             ; preds = %.preheader7025, %.preheader7025
   %1033 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1033, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1033, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1034 = load i8, ptr %1033, align 1
   %1035 = and i8 %1034, -33
   %or.cond119 = icmp eq i8 %1035, 79
@@ -4712,7 +4712,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1036:                                             ; preds = %.preheader7025, %.preheader7025
   %1037 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1037, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1037, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1038 = load i8, ptr %1037, align 1
   %1039 = and i8 %1038, -33
   %or.cond122 = icmp eq i8 %1039, 76
@@ -4720,7 +4720,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1040:                                             ; preds = %.preheader7025, %.preheader7025
   %1041 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1041, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1041, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1042 = load i8, ptr %1041, align 1
   %1043 = and i8 %1042, -33
   %or.cond125 = icmp eq i8 %1043, 78
@@ -4728,7 +4728,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1044:                                             ; preds = %.preheader7025, %.preheader7025
   %1045 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1045, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1045, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1046 = load i8, ptr %1045, align 1
   %1047 = and i8 %1046, -33
   %or.cond128 = icmp eq i8 %1047, 66
@@ -4736,7 +4736,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1048:                                             ; preds = %.preheader7025, %.preheader7025
   %1049 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1049, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1049, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1050 = load i8, ptr %1049, align 1
   %1051 = and i8 %1050, -33
   %or.cond131 = icmp eq i8 %1051, 69
@@ -4744,7 +4744,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1052:                                             ; preds = %.preheader7025, %.preheader7025
   %1053 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1053, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1054 = load i8, ptr %1053, align 1
   %1055 = and i8 %1054, -33
   %or.cond134 = icmp eq i8 %1055, 84
@@ -4752,7 +4752,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1056:                                             ; preds = %.preheader7025, %.preheader7025
   %1057 = getelementptr inbounds i8, ptr %1014, i64 1
-  store ptr %1057, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1057, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1058 = load i8, ptr %1057, align 1
   %1059 = and i8 %1058, -33
   %or.cond137 = icmp eq i8 %1059, 78
@@ -4760,56 +4760,56 @@ strip_underscores.exit:                           ; preds = %453
 
 1060:                                             ; preds = %392
   %1061 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1061, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1061, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1062 = load i8, ptr %1061, align 1
   %1063 = icmp eq i8 %1062, 61
   br i1 %1063, label %1774, label %1064
 
 1064:                                             ; preds = %1060
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1065:                                             ; preds = %392
   %1066 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1066, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1066, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1067:                                             ; preds = %395
   %1068 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1068, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1068, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1069:                                             ; preds = %395
   %1070 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1070, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1071:                                             ; preds = %404
   %1072 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1072, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1072, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1073:                                             ; preds = %406
   %1074 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1074, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1075:                                             ; preds = %408
   %1076 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1076, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %1077 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %1076, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %1077 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 1078:                                             ; preds = %414
   %1079 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1079, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1079, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1080 = load i8, ptr %1079, align 1
   %1081 = icmp eq i8 %1080, 46
   br i1 %1081, label %1776, label %.thread6762
@@ -4817,8 +4817,8 @@ strip_underscores.exit:                           ; preds = %453
 1082:                                             ; preds = %1781, %1093, %416
   %1083 = phi ptr [ %1779, %1781 ], [ %1089, %1093 ], [ %411, %416 ]
   %1084 = getelementptr inbounds i8, ptr %1083, i64 1
-  store ptr %1084, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1084, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1084, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1084, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1085 = getelementptr inbounds i8, ptr %1083, i64 3
   %.not6444 = icmp ult ptr %1085, %51
   br i1 %.not6444, label %1086, label %.loopexit
@@ -4864,7 +4864,7 @@ strip_underscores.exit:                           ; preds = %453
   %1106 = ptrtoint ptr %1103 to i64
   %1107 = sub i64 %1105, %1106
   %1108 = trunc i64 %1107 to i32
-  store i32 %1108, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1109 = and i64 %1107, 4294967295
   %1110 = tail call ptr @memchr(ptr noundef %1103, i32 noundef 95, i64 noundef %1109) #18
   %.not6589 = icmp eq ptr %1110, null
@@ -4921,31 +4921,31 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1127:                                             ; preds = %418
   %1128 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1128, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1128, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1129:                                             ; preds = %424
   %1130 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1130, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1130, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1131 = load i8, ptr %1130, align 1
   %1132 = icmp eq i8 %1131, 42
   br i1 %1132, label %1784, label %.loopexit7033
 
 .loopexit7033:                                    ; preds = %2507, %2503, %905, %1129
   %1133 = phi ptr [ %895, %905 ], [ %1130, %1129 ], [ %2500, %2503 ], [ %2500, %2507 ]
-  %1134 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1134 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1135 = ptrtoint ptr %1133 to i64
   %1136 = ptrtoint ptr %1134 to i64
   %1137 = sub i64 %1135, %1136
   %1138 = trunc i64 %1137 to i32
-  store i32 %1138, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1138, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1139 = icmp ult i32 %1138, 3
   br i1 %1139, label %1153, label %1140
 
 1140:                                             ; preds = %.loopexit7033
-  %1141 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %1141 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %.not6580 = icmp eq ptr %1141, null
   br i1 %.not6580, label %1153, label %1142
 
@@ -4970,20 +4970,20 @@ strip_underscores.exit6694:                       ; preds = %1113
   br label %1152
 
 1152:                                             ; preds = %1146, %1151, %1142
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
-  %.promoted10210.pre = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %.promoted10210.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1153
 
 1153:                                             ; preds = %.loopexit7033, %1152, %1140
   %.promoted10210 = phi ptr [ %1133, %.loopexit7033 ], [ %.promoted10210.pre, %1152 ], [ %1133, %1140 ]
-  %1154 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %1154 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %1155 = icmp ult ptr %.promoted10210, %1154
   br i1 %1155, label %.lr.ph10212, label %._crit_edge10213
 
 .lr.ph10212:                                      ; preds = %1153, %.lr.ph10212.backedge
   %1156 = phi ptr [ %1157, %.lr.ph10212.backedge ], [ %.promoted10210, %1153 ]
   %1157 = getelementptr inbounds i8, ptr %1156, i64 1
-  store ptr %1157, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1157, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1158 = load i8, ptr %1156, align 1
   %1159 = icmp eq i8 %1158, 42
   br i1 %1159, label %1160, label %1164
@@ -5009,34 +5009,34 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1167:                                             ; preds = %._crit_edge10213
   %1168 = getelementptr inbounds i8, ptr %1165, i64 1
-  store ptr %1168, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1168, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1173
 
 1169:                                             ; preds = %._crit_edge10213
   %1170 = load ptr, ptr @zend_ce_parse_error, align 8
-  %1171 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %1171 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %1172 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %1170, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %1171) #16
   br i1 %.not5992, label %._crit_edge13122, label %.loopexit7123
 
 ._crit_edge13122:                                 ; preds = %1169
-  %.pre13123 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.pre13123 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1173
 
 1173:                                             ; preds = %._crit_edge13122, %1167
   %1174 = phi ptr [ %.pre13123, %._crit_edge13122 ], [ %1168, %1167 ]
-  %1175 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1175 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1176 = ptrtoint ptr %1174 to i64
   %1177 = ptrtoint ptr %1175 to i64
   %1178 = sub i64 %1176, %1177
   %1179 = trunc i64 %1178 to i32
-  store i32 %1179, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1179, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1180 = and i64 %1178, 4294967295
   %1181 = getelementptr inbounds i8, ptr %1175, i64 %1180
   %.not10403 = icmp eq i64 %1180, 0
   br i1 %.not10403, label %._crit_edge10221, label %.lr.ph10220.preheader
 
 .lr.ph10220.preheader:                            ; preds = %1173
-  %.promoted10217 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10217 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10220
 
 .lr.ph10220:                                      ; preds = %.lr.ph10220.preheader, %1189
@@ -5056,7 +5056,7 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1187:                                             ; preds = %.lr.ph10220, %1184
   %1188 = add nsw i32 %1182, 1
-  store i32 %1188, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %1188, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %1189
 
 1189:                                             ; preds = %.lr.ph10220, %1187, %1184
@@ -5083,7 +5083,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1200, ptr align 1 %1175, i64 %1180, i1 false)
   %1201 = getelementptr inbounds [1 x i8], ptr %1200, i64 0, i64 %1180
   store i8 0, ptr %1201, align 1
-  store ptr %1196, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store ptr %1196, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 1202:                                             ; preds = %._crit_edge10221
@@ -5091,19 +5091,19 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1203:                                             ; preds = %426
   %1204 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1204, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %138
 
 1205:                                             ; preds = %426
   %1206 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1206, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1207:                                             ; preds = %513
   %1208 = getelementptr inbounds i8, ptr %505, i64 1
-  store ptr %1208, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1208, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1208, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1208, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1209 = load i8, ptr %1208, align 1
   %1210 = icmp eq i8 %1209, 95
   br i1 %1210, label %.loopexit7030, label %1088
@@ -5112,7 +5112,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   %.promoted99119913 = phi ptr [ %1794, %1799 ], [ %428, %.preheader7035.preheader ]
   %.65320 = phi i32 [ 14, %1799 ], [ 3, %.preheader7035.preheader ]
   %1211 = getelementptr inbounds i8, ptr %.promoted99119913, i64 1
-  store ptr %1211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1212 = getelementptr inbounds i8, ptr %.promoted99119913, i64 2
   %.not6439 = icmp ult ptr %1212, %51
   br i1 %.not6439, label %1213, label %.loopexit
@@ -5127,7 +5127,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   %1217 = phi ptr [ %1089, %1095 ], [ %1089, %1101 ], [ %505, %517 ], [ %505, %513 ]
   %.75321 = phi i32 [ 5, %1095 ], [ 5, %1101 ], [ 3, %517 ], [ 3, %513 ]
   %1218 = getelementptr inbounds i8, ptr %1217, i64 1
-  store ptr %1218, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1219 = load i8, ptr %1218, align 1
   %1220 = icmp ult i8 %1219, 45
   br i1 %1220, label %1221, label %1223
@@ -5149,7 +5149,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   %.promoted99069908 = phi ptr [ %1863, %1868 ], [ %428, %.preheader7039.preheader ]
   %.85322 = phi i32 [ 15, %1868 ], [ 3, %.preheader7039.preheader ]
   %1227 = getelementptr inbounds i8, ptr %.promoted99069908, i64 1
-  store ptr %1227, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1227, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1228 = getelementptr inbounds i8, ptr %.promoted99069908, i64 2
   %.not6429 = icmp ult ptr %1228, %51
   br i1 %.not6429, label %1229, label %.loopexit
@@ -5164,7 +5164,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   %.promoted99019903 = phi ptr [ %1910, %1918 ], [ %428, %.preheader7043.preheader ]
   %.95323 = phi i32 [ 16, %1918 ], [ 3, %.preheader7043.preheader ]
   %1232 = getelementptr inbounds i8, ptr %.promoted99019903, i64 1
-  store ptr %1232, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1232, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1233 = getelementptr inbounds i8, ptr %.promoted99019903, i64 2
   %.not6425 = icmp ult ptr %1233, %51
   br i1 %.not6425, label %1234, label %.loopexit
@@ -5180,7 +5180,7 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1240:                                             ; preds = %516
   %1241 = getelementptr inbounds i8, ptr %505, i64 1
-  store ptr %1241, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1241, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1242 = getelementptr inbounds i8, ptr %505, i64 2
   %.not6435 = icmp ult ptr %1242, %51
   br i1 %.not6435, label %1243, label %.loopexit
@@ -5197,14 +5197,14 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1250:                                             ; preds = %519
   %1251 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1251, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1251, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1252:                                             ; preds = %527
   %1253 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1253, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1253, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1253, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1253, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1254 = load i8, ptr %1253, align 1
   %1255 = icmp ult i8 %1254, 60
   br i1 %1255, label %.loopexit7208, label %1256
@@ -5224,69 +5224,69 @@ strip_underscores.exit6694:                       ; preds = %1113
   %1263 = ptrtoint ptr %1260 to i64
   %1264 = sub i64 %1262, %1263
   %1265 = trunc i64 %1264 to i32
-  store i32 %1265, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1265, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1266:                                             ; preds = %529
   %1267 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1267, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1268 = load i8, ptr %1267, align 1
   %1269 = icmp eq i8 %1268, 62
   br i1 %1269, label %1989, label %1270
 
 1270:                                             ; preds = %1266
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1271:                                             ; preds = %531
   %1272 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1272, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1272, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %832
 
 1273:                                             ; preds = %538
   %1274 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1274, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1274, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1275 = load i8, ptr %1274, align 1
   %1276 = icmp eq i8 %1275, 61
   br i1 %1276, label %1991, label %1277
 
 1277:                                             ; preds = %1273
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1278:                                             ; preds = %540
   %1279 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1279, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1280:                                             ; preds = %546
   %1281 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1281, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1281, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1282:                                             ; preds = %548
   %1283 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1283, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1284 = load i8, ptr %1283, align 1
   %1285 = icmp eq i8 %1284, 61
   br i1 %1285, label %1993, label %1286
 
 1286:                                             ; preds = %1282
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1287:                                             ; preds = %554
   %1288 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1288, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1288, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1289 = load i8, ptr %1288, align 1
   %1290 = icmp eq i8 %1289, 62
   br i1 %1290, label %1995, label %.thread6762
 
 1291:                                             ; preds = %556
   %1292 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1292, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1292, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1293 = load i8, ptr %1292, align 1
   switch i8 %1293, label %1294 [
     i8 10, label %1998
@@ -5299,8 +5299,8 @@ strip_underscores.exit6694:                       ; preds = %1113
   %1297 = ptrtoint ptr %.promoted103941316013175 to i64
   %1298 = sub i64 %1296, %1297
   %1299 = trunc i64 %1298 to i32
-  store i32 %1299, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %1299, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %1300 = add i64 %1298, 4294967295
   %1301 = and i64 %1300, 4294967295
   %1302 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 %1301
@@ -5309,7 +5309,7 @@ strip_underscores.exit6694:                       ; preds = %1113
   br i1 %.not6403, label %1305, label %1304
 
 1304:                                             ; preds = %1294
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
   br label %1305
 
 1305:                                             ; preds = %1304, %1294
@@ -5318,19 +5318,19 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1306:                                             ; preds = %558
   %1307 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1307, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1307, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1308 = load i8, ptr %1307, align 1
   %1309 = icmp eq i8 %1308, 61
   br i1 %1309, label %2006, label %1310
 
 1310:                                             ; preds = %1306
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1311:                                             ; preds = %576, %567
   %1312 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1312, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1312, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1313 = load i8, ptr %1312, align 1
   %1314 = and i8 %1313, -33
   %or.cond143 = icmp eq i8 %1314, 83
@@ -5338,8 +5338,8 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1315:                                             ; preds = %576, %569
   %1316 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1316, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1316, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1316, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1316, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1317 = load i8, ptr %1316, align 1
   %1318 = and i8 %1317, -33
   %or.cond146 = icmp eq i8 %1318, 68
@@ -5347,8 +5347,8 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1319:                                             ; preds = %579, %573
   %1320 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1320, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1320, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1320, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1320, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1321 = load i8, ptr %1320, align 1
   %1322 = and i8 %1321, -33
   %or.cond149 = icmp eq i8 %1322, 82
@@ -5356,8 +5356,8 @@ strip_underscores.exit6694:                       ; preds = %1113
 
 1323:                                             ; preds = %581, %573
   %1324 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1324, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1324, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1324, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1324, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1325 = load i8, ptr %1324, align 1
   %1326 = zext i8 %1325 to i64
   %1327 = or disjoint i64 %1326, 256
@@ -5383,7 +5383,7 @@ split:                                            ; preds = %1330, %._crit_edge1
   %1339 = phi ptr [ %2031, %2042 ], [ %.promoted10206, %.preheader6991 ]
   %.10 = phi i32 [ 18, %2042 ], [ %.10.ph, %.preheader6991 ]
   %1340 = getelementptr inbounds i8, ptr %1339, i64 1
-  store ptr %1340, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1340, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1341 = getelementptr inbounds i8, ptr %1339, i64 2
   %.not6536 = icmp ult ptr %1341, %3601
   br i1 %.not6536, label %1342, label %.loopexit
@@ -5414,23 +5414,23 @@ split:                                            ; preds = %1330, %._crit_edge1
   ]
 
 .preheader6943:                                   ; preds = %1347, %1350
-  store ptr %1341, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1341, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1341, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1341, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1351 = getelementptr inbounds i8, ptr %1339, i64 3
   %.not653710204 = icmp ult ptr %1351, %3601
   br i1 %.not653710204, label %.lr.ph10205, label %.loopexit
 
 1352:                                             ; preds = %600
   %1353 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1353, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1353, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1354 = load i8, ptr %1353, align 1
   %1355 = icmp eq i8 %1354, 60
   br i1 %1355, label %2055, label %.thread6762
 
 1356:                                             ; preds = %600, %601
   %1357 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1357, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1357, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1358 = load i8, ptr %1357, align 1
   %1359 = and i8 %1358, -33
   %or.cond158 = icmp eq i8 %1359, 69
@@ -5438,8 +5438,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1360:                                             ; preds = %614, %609
   %1361 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1361, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1361, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1361, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1361, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1362 = load i8, ptr %1361, align 1
   %1363 = icmp ult i8 %1362, 85
   br i1 %1363, label %1364, label %1370
@@ -5478,8 +5478,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1378:                                             ; preds = %616, %611
   %1379 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1379, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1379, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1379, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1379, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1380 = load i8, ptr %1379, align 1
   %1381 = icmp ult i8 %1380, 80
   br i1 %1381, label %1382, label %1383
@@ -5504,8 +5504,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1388:                                             ; preds = %616, %611
   %1389 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1389, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1389, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1389, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1389, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1390 = load i8, ptr %1389, align 1
   %1391 = and i8 %1390, -33
   %or.cond161 = icmp eq i8 %1391, 78
@@ -5513,8 +5513,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1392:                                             ; preds = %628, %623
   %1393 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1393, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1393, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1393, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1393, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1394 = load i8, ptr %1393, align 1
   %1395 = icmp ult i8 %1394, 71
   br i1 %1395, label %1396, label %1397
@@ -5539,8 +5539,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1402:                                             ; preds = %630, %625
   %1403 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1403, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1403, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1403, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1403, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1404 = load i8, ptr %1403, align 1
   %1405 = and i8 %1404, -33
   %or.cond164 = icmp eq i8 %1405, 69
@@ -5548,8 +5548,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1406:                                             ; preds = %630, %625
   %1407 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1407, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1407, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1407, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1407, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1408 = load i8, ptr %1407, align 1
   %1409 = zext i8 %1408 to i64
   %1410 = or disjoint i64 %1409, 256
@@ -5564,7 +5564,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7192:                                    ; preds = %1413, %906
   %1415 = phi ptr [ %895, %906 ], [ %1407, %1413 ]
-  %1416 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1416 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1417 = ptrtoint ptr %1415 to i64
   %1418 = ptrtoint ptr %1416 to i64
   %1419 = sub i64 %1417, %1418
@@ -5573,8 +5573,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1421:                                             ; preds = %631, %631
   %1422 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1423 = load i8, ptr %1422, align 1
   %1424 = and i8 %1423, -33
   %or.cond167 = icmp eq i8 %1424, 72
@@ -5582,8 +5582,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1425:                                             ; preds = %631, %631
   %1426 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1426, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1426, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1426, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1426, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1427 = load i8, ptr %1426, align 1
   %1428 = and i8 %1427, -33
   %or.cond170 = icmp eq i8 %1428, 83
@@ -5591,8 +5591,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1429:                                             ; preds = %631, %631
   %1430 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1430, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1430, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1430, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1430, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1431 = load i8, ptr %1430, align 1
   %1432 = and i8 %1431, -33
   %or.cond173 = icmp eq i8 %1432, 80
@@ -5600,8 +5600,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1433:                                             ; preds = %631, %631
   %1434 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1434, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1434, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1434, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1434, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1435 = load i8, ptr %1434, align 1
   %1436 = icmp ult i8 %1435, 86
   br i1 %1436, label %1437, label %1438
@@ -5626,8 +5626,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1443:                                             ; preds = %631, %631
   %1444 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1445 = load i8, ptr %1444, align 1
   %1446 = and i8 %1445, -33
   %or.cond176 = icmp eq i8 %1446, 65
@@ -5635,8 +5635,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1447:                                             ; preds = %631, %631
   %1448 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1448, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1448, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1448, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1448, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1449 = load i8, ptr %1448, align 1
   %1450 = icmp ult i8 %1449, 85
   br i1 %1450, label %1451, label %1452
@@ -5661,8 +5661,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1457:                                             ; preds = %649, %640
   %1458 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1458, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1458, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1458, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1458, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1459 = load i8, ptr %1458, align 1
   %1460 = and i8 %1459, -33
   %or.cond179 = icmp eq i8 %1460, 78
@@ -5670,8 +5670,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1461:                                             ; preds = %649, %642
   %1462 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1462, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1462, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1462, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1462, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1463 = load i8, ptr %1462, align 1
   %1464 = zext i8 %1463 to i64
   %1465 = or disjoint i64 %1464, 256
@@ -5686,7 +5686,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7171:                                    ; preds = %1468, %906
   %1470 = phi ptr [ %895, %906 ], [ %1462, %1468 ]
-  %1471 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1471 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1472 = ptrtoint ptr %1470 to i64
   %1473 = ptrtoint ptr %1471 to i64
   %1474 = sub i64 %1472, %1473
@@ -5695,8 +5695,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1476:                                             ; preds = %650, %644
   %1477 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1477, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1477, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1477, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1477, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1478 = load i8, ptr %1477, align 1
   %1479 = and i8 %1478, -33
   %or.cond182 = icmp eq i8 %1479, 82
@@ -5704,8 +5704,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1480:                                             ; preds = %650, %646
   %1481 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1481, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1481, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1482 = load i8, ptr %1481, align 1
   %1483 = and i8 %1482, -33
   %or.cond185 = icmp eq i8 %1483, 78
@@ -5713,8 +5713,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1484:                                             ; preds = %655, %658
   %1485 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1485, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1485, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1485, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1485, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1486 = load i8, ptr %1485, align 1
   %1487 = and i8 %1486, -33
   %or.cond188 = icmp eq i8 %1487, 79
@@ -5722,8 +5722,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1488:                                             ; preds = %655, %659
   %1489 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1489, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1489, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1489, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1489, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1490 = load i8, ptr %1489, align 1
   %1491 = and i8 %1490, -33
   %or.cond191 = icmp eq i8 %1491, 84
@@ -5731,8 +5731,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1492:                                             ; preds = %691, %682
   %1493 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1493, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1493, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1493, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1493, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1494 = load i8, ptr %1493, align 1
   %1495 = zext i8 %1494 to i64
   %1496 = or disjoint i64 %1495, 256
@@ -5747,7 +5747,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7165:                                    ; preds = %1499, %906
   %1501 = phi ptr [ %895, %906 ], [ %1493, %1499 ]
-  %1502 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1502 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1503 = ptrtoint ptr %1501 to i64
   %1504 = ptrtoint ptr %1502 to i64
   %1505 = sub i64 %1503, %1504
@@ -5756,8 +5756,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1507:                                             ; preds = %691, %684
   %1508 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1508, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1508, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1508, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1508, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1509 = load i8, ptr %1508, align 1
   %1510 = and i8 %1509, -33
   %or.cond194 = icmp eq i8 %1510, 80
@@ -5765,8 +5765,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1511:                                             ; preds = %692, %686
   %1512 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1512, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1512, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1512, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1512, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1513 = load i8, ptr %1512, align 1
   %1514 = icmp ult i8 %1513, 85
   br i1 %1514, label %1515, label %1521
@@ -5805,8 +5805,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1529:                                             ; preds = %692, %688
   %1530 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1530, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1530, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1530, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1530, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1531 = load i8, ptr %1530, align 1
   %1532 = and i8 %1531, -33
   %or.cond197 = icmp eq i8 %1532, 83
@@ -5814,8 +5814,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1533:                                             ; preds = %693
   %1534 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1534, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1534, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1534, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1534, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1535 = load i8, ptr %1534, align 1
   %1536 = and i8 %1535, -33
   %or.cond200 = icmp eq i8 %1536, 83
@@ -5823,8 +5823,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1537:                                             ; preds = %697
   %1538 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1538, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1538, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1539 = load i8, ptr %1538, align 1
   %1540 = and i8 %1539, -33
   %or.cond203 = icmp eq i8 %1540, 84
@@ -5832,8 +5832,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1541:                                             ; preds = %705, %708
   %1542 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1542, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1542, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1543 = load i8, ptr %1542, align 1
   %1544 = and i8 %1543, -33
   %or.cond206 = icmp eq i8 %1544, 77
@@ -5841,8 +5841,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1545:                                             ; preds = %705, %709
   %1546 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1546, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1546, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1547 = load i8, ptr %1546, align 1
   %1548 = and i8 %1547, -33
   %or.cond209 = icmp eq i8 %1548, 87
@@ -5850,8 +5850,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1549:                                             ; preds = %711
   %1550 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1551 = load i8, ptr %1550, align 1
   %1552 = zext i8 %1551 to i64
   %1553 = or disjoint i64 %1552, 256
@@ -5866,7 +5866,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7154:                                    ; preds = %1556, %911
   %1558 = phi ptr [ %895, %911 ], [ %1550, %1556 ]
-  %1559 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1559 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1560 = ptrtoint ptr %1558 to i64
   %1561 = ptrtoint ptr %1559 to i64
   %1562 = sub i64 %1560, %1561
@@ -5875,8 +5875,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1564:                                             ; preds = %719, %722
   %1565 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1565, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1565, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1565, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1565, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1566 = load i8, ptr %1565, align 1
   %1567 = icmp ult i8 %1566, 80
   br i1 %1567, label %1568, label %1569
@@ -5901,8 +5901,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1574:                                             ; preds = %719, %723
   %1575 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1575, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1575, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1575, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1575, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1576 = load i8, ptr %1575, align 1
   %1577 = and i8 %1576, -33
   %or.cond212 = icmp eq i8 %1577, 66
@@ -5910,8 +5910,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1578:                                             ; preds = %725
   %1579 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1579, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1579, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1579, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1579, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1580 = load i8, ptr %1579, align 1
   %1581 = icmp ult i8 %1580, 85
   br i1 %1581, label %1582, label %1587
@@ -5946,8 +5946,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1592:                                             ; preds = %733, %736
   %1593 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1594 = load i8, ptr %1593, align 1
   %1595 = and i8 %1594, -33
   %or.cond215 = icmp eq i8 %1595, 65
@@ -5955,8 +5955,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1596:                                             ; preds = %733, %737
   %1597 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1597, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1597, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1598 = load i8, ptr %1597, align 1
   %1599 = and i8 %1598, -33
   %or.cond218 = icmp eq i8 %1599, 73
@@ -5964,8 +5964,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1600:                                             ; preds = %743, %746
   %1601 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1601, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1601, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1601, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1601, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1602 = load i8, ptr %1601, align 1
   %1603 = and i8 %1602, -33
   %or.cond221 = icmp eq i8 %1603, 82
@@ -5973,8 +5973,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1604:                                             ; preds = %743, %747
   %1605 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1605, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1605, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1605, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1605, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1606 = load i8, ptr %1605, align 1
   %1607 = icmp ult i8 %1606, 90
   br i1 %1607, label %1608, label %1609
@@ -5999,8 +5999,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1614:                                             ; preds = %753, %756
   %1615 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1615, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1615, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1615, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1615, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1616 = load i8, ptr %1615, align 1
   %1617 = and i8 %1616, -33
   %or.cond224 = icmp eq i8 %1617, 83
@@ -6008,8 +6008,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1618:                                             ; preds = %753, %757
   %1619 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1619, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1619, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1620 = load i8, ptr %1619, align 1
   %1621 = and i8 %1620, -33
   %or.cond227 = icmp eq i8 %1621, 69
@@ -6017,8 +6017,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1622:                                             ; preds = %759
   %1623 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1623, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1623, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1624 = load i8, ptr %1623, align 1
   %1625 = and i8 %1624, -33
   %or.cond230 = icmp eq i8 %1625, 82
@@ -6026,8 +6026,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1626:                                             ; preds = %763
   %1627 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1627, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1627, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1627, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1627, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1628 = load i8, ptr %1627, align 1
   %1629 = and i8 %1628, -33
   %or.cond233 = icmp eq i8 %1629, 73
@@ -6035,8 +6035,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1630:                                             ; preds = %767
   %1631 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1631, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1631, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1632 = load i8, ptr %1631, align 1
   %1633 = and i8 %1632, -33
   %or.cond236 = icmp eq i8 %1633, 82
@@ -6044,8 +6044,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1634:                                             ; preds = %771
   %1635 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1635, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1635, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1636 = load i8, ptr %1635, align 1
   %1637 = and i8 %1636, -33
   %or.cond239 = icmp eq i8 %1637, 69
@@ -6075,8 +6075,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 .backedge7115:                                    ; preds = %1647, %1656, %1658, %2369, %1645, %2372
   %1649 = phi ptr [ %1639, %1647 ], [ %1639, %1656 ], [ %1639, %1658 ], [ %1638, %2369 ], [ %1639, %1645 ], [ %1638, %2372 ]
   %1650 = getelementptr inbounds i8, ptr %1649, i64 1
-  store ptr %1650, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1650, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1650, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1650, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1651 = getelementptr inbounds i8, ptr %1649, i64 2
   %.not6091 = icmp ult ptr %1651, %51
   br i1 %.not6091, label %.lr.ph9478, label %.loopexit
@@ -6099,24 +6099,24 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7113:                                    ; preds = %1658, %1652, %1656, %1645, %911
   %1659 = phi ptr [ %895, %911 ], [ %1639, %1645 ], [ %1639, %1656 ], [ %1639, %1652 ], [ %1639, %1658 ]
-  %1660 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1660 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1661 = ptrtoint ptr %1659 to i64
   %1662 = ptrtoint ptr %1660 to i64
   %1663 = sub i64 %1661, %1662
   %1664 = trunc i64 %1663 to i32
-  store i32 %1664, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1664, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 1665:                                             ; preds = %790
   %1666 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1666, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1666, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1667:                                             ; preds = %794
   %1668 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1668, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1668, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1668, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1668, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1669 = load i8, ptr %1668, align 1
   switch i8 %1669, label %669 [
     i8 67, label %2373
@@ -6139,26 +6139,26 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1670:                                             ; preds = %806
   %1671 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1671, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1671, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1672:                                             ; preds = %806
   %1673 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 2
-  store ptr %1673, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1673, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1674:                                             ; preds = %828
   %1675 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1675, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1675, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1676:                                             ; preds = %.preheader6947, %1680
   %1677 = phi ptr [ %.promoted1007710079, %.preheader6947 ], [ %1678, %1680 ]
   %1678 = getelementptr inbounds i8, ptr %1677, i64 1
-  store ptr %1678, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1678, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1679 = getelementptr inbounds i8, ptr %1677, i64 2
   %.not6524 = icmp ult ptr %1679, %51
   br i1 %.not6524, label %1680, label %.loopexit
@@ -6177,7 +6177,7 @@ split:                                            ; preds = %1330, %._crit_edge1
   br i1 %1687, label %.loopexit6866, label %.loopexit6955
 
 .loopexit6919:                                    ; preds = %3692
-  store ptr %3678, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3678, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1688 = getelementptr inbounds i8, ptr %3676, i64 3
   %.not64769940 = icmp ult ptr %1688, %51
   br i1 %.not64769940, label %.lr.ph9941, label %.loopexit
@@ -6224,7 +6224,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 .backedge6958:                                    ; preds = %1704, %2419, %1700
   %1706 = phi ptr [ %1694, %1704 ], [ %1693, %2419 ], [ %1694, %1700 ]
   %1707 = getelementptr inbounds i8, ptr %1706, i64 1
-  store ptr %1707, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1707, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1708 = getelementptr inbounds i8, ptr %1706, i64 2
   %.not6476 = icmp ult ptr %1708, %51
   br i1 %.not6476, label %1692, label %.loopexit
@@ -6251,7 +6251,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1718:                                             ; preds = %1001
   %1719 = getelementptr inbounds i8, ptr %870, i64 2
-  store ptr %1719, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1719, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1720 = load i8, ptr %1719, align 1
   %1721 = icmp eq i8 %1720, 46
   br i1 %1721, label %.loopexit6893, label %.loopexit6866
@@ -6271,7 +6271,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 1722:                                             ; preds = %.preheader6951, %1726
   %1723 = phi ptr [ %.promoted1007710085, %.preheader6951 ], [ %1724, %1726 ]
   %1724 = getelementptr inbounds i8, ptr %1723, i64 1
-  store ptr %1724, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1724, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1725 = getelementptr inbounds i8, ptr %1723, i64 2
   %.not6514 = icmp ult ptr %1725, %51
   br i1 %.not6514, label %1726, label %.loopexit
@@ -6291,7 +6291,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1734:                                             ; preds = %1018
   %1735 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1735, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1735, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1736 = load i8, ptr %1735, align 1
   %1737 = and i8 %1736, -33
   %or.cond251 = icmp eq i8 %1737, 82
@@ -6299,7 +6299,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1738:                                             ; preds = %1026, %1029
   %1739 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1739, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1739, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1740 = load i8, ptr %1739, align 1
   %1741 = and i8 %1740, -33
   %or.cond254 = icmp eq i8 %1741, 78
@@ -6307,7 +6307,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1742:                                             ; preds = %1026, %1030
   %1743 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1743, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1743, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1744 = load i8, ptr %1743, align 1
   %1745 = and i8 %1744, -33
   %or.cond257 = icmp eq i8 %1745, 79
@@ -6315,7 +6315,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1746:                                             ; preds = %1032
   %1747 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1747, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1748 = load i8, ptr %1747, align 1
   %1749 = and i8 %1748, -33
   %or.cond260 = icmp eq i8 %1749, 85
@@ -6323,7 +6323,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1750:                                             ; preds = %1036
   %1751 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1751, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1751, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1752 = load i8, ptr %1751, align 1
   %1753 = and i8 %1752, -33
   %or.cond263 = icmp eq i8 %1753, 79
@@ -6331,7 +6331,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1754:                                             ; preds = %1040
   %1755 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1755, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1755, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1756 = load i8, ptr %1755, align 1
   %1757 = and i8 %1756, -33
   %or.cond266 = icmp eq i8 %1757, 84
@@ -6339,7 +6339,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1758:                                             ; preds = %1044
   %1759 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1759, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1759, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1760 = load i8, ptr %1759, align 1
   %1761 = and i8 %1760, -33
   %or.cond269 = icmp eq i8 %1761, 74
@@ -6347,7 +6347,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1762:                                             ; preds = %1048
   %1763 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1763, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1763, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1764 = load i8, ptr %1763, align 1
   %1765 = and i8 %1764, -33
   %or.cond272 = icmp eq i8 %1765, 65
@@ -6355,7 +6355,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1766:                                             ; preds = %1052
   %1767 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1767, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1767, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1768 = load i8, ptr %1767, align 1
   %1769 = and i8 %1768, -33
   %or.cond275 = icmp eq i8 %1769, 82
@@ -6363,7 +6363,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1770:                                             ; preds = %1056
   %1771 = getelementptr inbounds i8, ptr %1014, i64 2
-  store ptr %1771, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1771, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1772 = load i8, ptr %1771, align 1
   %1773 = and i8 %1772, -33
   %or.cond278 = icmp eq i8 %1773, 83
@@ -6371,19 +6371,19 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1774:                                             ; preds = %1060
   %1775 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1775, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1775, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1776:                                             ; preds = %1078
   %1777 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1777, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1777, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1778:                                             ; preds = %1099
   %1779 = getelementptr inbounds i8, ptr %1089, i64 1
-  store ptr %1779, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1779, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1780 = getelementptr inbounds i8, ptr %1089, i64 2
   %.not6445 = icmp ult ptr %1780, %51
   br i1 %.not6445, label %1781, label %.loopexit
@@ -6396,7 +6396,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 1784:                                             ; preds = %1129
   %1785 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1785, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1785, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1786 = load i8, ptr %1785, align 1
   %1787 = icmp ult i8 %1786, 13
   br i1 %1787, label %1788, label %1790
@@ -6414,7 +6414,7 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .preheader7031:                                   ; preds = %1788, %1790, %1790
   %1791 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %1791, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1791, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1792 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
   %.not64439917 = icmp ult ptr %1792, %51
   br i1 %.not64439917, label %.lr.ph9918, label %.loopexit
@@ -6422,8 +6422,8 @@ split:                                            ; preds = %1330, %._crit_edge1
 .preheader6961:                                   ; preds = %1213, %1796
   %1793 = phi ptr [ %1794, %1796 ], [ %1211, %1213 ]
   %1794 = getelementptr inbounds i8, ptr %1793, i64 1
-  store ptr %1794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1795 = getelementptr inbounds i8, ptr %1793, i64 2
   %.not6441 = icmp ult ptr %1795, %51
   br i1 %.not6441, label %1796, label %.loopexit
@@ -6440,12 +6440,12 @@ split:                                            ; preds = %1330, %._crit_edge1
 
 .loopexit7038:                                    ; preds = %1799, %911
   %1801 = phi ptr [ %895, %911 ], [ %1794, %1799 ]
-  %1802 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1802 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1803 = ptrtoint ptr %1801 to i64
   %1804 = ptrtoint ptr %1802 to i64
   %1805 = sub i64 %1803, %1804
   %1806 = trunc i64 %1805 to i32
-  store i32 %1806, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1807 = add i64 %1805, 4294967294
   %1808 = and i64 %1807, 4294967295
   %1809 = getelementptr inbounds i8, ptr %1802, i64 2
@@ -6567,7 +6567,7 @@ strip_underscores.exit6698:                       ; preds = %1817
   %1846 = phi ptr [ %1218, %1221 ], [ %1853, %1860 ], [ %1218, %1223 ]
   %.14 = phi i32 [ %.75321, %1221 ], [ 5, %1860 ], [ %.75321, %1223 ]
   %1847 = getelementptr inbounds i8, ptr %1846, i64 1
-  store ptr %1847, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1847, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1848 = getelementptr inbounds i8, ptr %1846, i64 2
   %.not6446 = icmp ult ptr %1848, %51
   br i1 %.not6446, label %1849, label %.loopexit
@@ -6585,8 +6585,8 @@ strip_underscores.exit6698:                       ; preds = %1817
 .preheader7028:                                   ; preds = %.preheader7028.preheader, %1858
   %1852 = phi ptr [ %1853, %1858 ], [ %.ph20733, %.preheader7028.preheader ]
   %1853 = getelementptr inbounds i8, ptr %1852, i64 1
-  store ptr %1853, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1853, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1853, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1853, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1854 = getelementptr inbounds i8, ptr %1852, i64 2
   %.not6447 = icmp ult ptr %1854, %51
   br i1 %.not6447, label %1855, label %.loopexit
@@ -6607,8 +6607,8 @@ strip_underscores.exit6698:                       ; preds = %1817
 .preheader6963:                                   ; preds = %1229, %1865
   %1862 = phi ptr [ %1863, %1865 ], [ %1227, %1229 ]
   %1863 = getelementptr inbounds i8, ptr %1862, i64 1
-  store ptr %1863, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1863, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1863, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1863, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1864 = getelementptr inbounds i8, ptr %1862, i64 2
   %.not6431 = icmp ult ptr %1864, %51
   br i1 %.not6431, label %1865, label %.loopexit
@@ -6625,12 +6625,12 @@ strip_underscores.exit6698:                       ; preds = %1817
 
 .loopexit7042:                                    ; preds = %1868, %912
   %1870 = phi ptr [ %895, %912 ], [ %1863, %1868 ]
-  %1871 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1871 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1872 = ptrtoint ptr %1870 to i64
   %1873 = ptrtoint ptr %1871 to i64
   %1874 = sub i64 %1872, %1873
   %1875 = trunc i64 %1874 to i32
-  store i32 %1875, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1875, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1876 = add i64 %1874, 4294967294
   %1877 = and i64 %1876, 4294967295
   %1878 = getelementptr inbounds i8, ptr %1871, i64 2
@@ -6740,8 +6740,8 @@ strip_underscores.exit6702:                       ; preds = %1885
 .preheader6965:                                   ; preds = %1234, %1912
   %1909 = phi ptr [ %1910, %1912 ], [ %1232, %1234 ]
   %1910 = getelementptr inbounds i8, ptr %1909, i64 1
-  store ptr %1910, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %1910, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %1910, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1910, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %1911 = getelementptr inbounds i8, ptr %1909, i64 2
   %.not6427 = icmp ult ptr %1911, %51
   br i1 %.not6427, label %1912, label %.loopexit
@@ -6761,12 +6761,12 @@ strip_underscores.exit6702:                       ; preds = %1885
 
 .loopexit7046:                                    ; preds = %1918, %912
   %1920 = phi ptr [ %895, %912 ], [ %1910, %1918 ]
-  %1921 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %1921 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %1922 = ptrtoint ptr %1920 to i64
   %1923 = ptrtoint ptr %1921 to i64
   %1924 = sub i64 %1922, %1923
   %1925 = trunc i64 %1924 to i32
-  store i32 %1925, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %1925, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %1926 = add i64 %1924, 4294967294
   %1927 = and i64 %1926, 4294967295
   %1928 = getelementptr inbounds i8, ptr %1921, i64 2
@@ -6912,7 +6912,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7061:                                    ; preds = %1973, %1973
   %1974 = getelementptr inbounds i8, ptr %.promoted9896, i64 1
-  store ptr %1974, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1974, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1975 = getelementptr inbounds i8, ptr %.promoted9896, i64 3
   %.not6405 = icmp ult ptr %1975, %51
   br i1 %.not6405, label %.lr.ph9895, label %.loopexit
@@ -6949,67 +6949,67 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7053:                                   ; preds = %1981, %1984
   %1985 = getelementptr inbounds i8, ptr %.promoted9896, i64 1
-  store ptr %1985, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1985, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %1986 = getelementptr inbounds i8, ptr %.promoted9896, i64 3
   %.not64069897 = icmp ult ptr %1986, %51
   br i1 %.not64069897, label %.lr.ph9898, label %.loopexit
 
 1987:                                             ; preds = %1258
   %1988 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1988, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1988, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1989:                                             ; preds = %1266
   %1990 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1990, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1990, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1991:                                             ; preds = %1273
   %1992 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1992, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1992, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1993:                                             ; preds = %1282
   %1994 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1994, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %1994, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 1995:                                             ; preds = %1287
   %1996 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %1996, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %1997 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %1996, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %1997 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 1998:                                             ; preds = %1291, %2002
   %1999 = phi i64 [ 2, %1291 ], [ 3, %2002 ]
   %2000 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 %1999
   %2001 = getelementptr inbounds i8, ptr %2000, i64 1
-  store ptr %2001, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2001, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1294
 
 2002:                                             ; preds = %1291
   %2003 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2003, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2004 = load i8, ptr %2003, align 1
   %2005 = icmp eq i8 %2004, 10
   br i1 %2005, label %1998, label %1294
 
 2006:                                             ; preds = %1306
   %2007 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2007, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %2007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 2008:                                             ; preds = %1311
   %2009 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2009, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2009, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2009, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2009, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2010 = load i8, ptr %2009, align 1
   %2011 = and i8 %2010, -33
   %or.cond302 = icmp eq i8 %2011, 84
@@ -7017,8 +7017,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2012:                                             ; preds = %1315
   %2013 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2013, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2013, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2014 = load i8, ptr %2013, align 1
   %2015 = zext i8 %2014 to i64
   %2016 = or disjoint i64 %2015, 256
@@ -7033,7 +7033,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7205:                                    ; preds = %2019, %912
   %2021 = phi ptr [ %895, %912 ], [ %2013, %2019 ]
-  %2022 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2022 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2023 = ptrtoint ptr %2021 to i64
   %2024 = ptrtoint ptr %2022 to i64
   %2025 = sub i64 %2023, %2024
@@ -7042,8 +7042,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2027:                                             ; preds = %1319
   %2028 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2028, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2028, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2028, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2028, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2029 = load i8, ptr %2028, align 1
   %2030 = and i8 %2029, -33
   %or.cond305 = icmp eq i8 %2030, 65
@@ -7070,8 +7070,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge6946:                                    ; preds = %2038, %2046, %2048, %2036
   %2040 = getelementptr inbounds i8, ptr %2031, i64 1
-  store ptr %2040, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2040, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2040, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2040, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2041 = getelementptr inbounds i8, ptr %2031, i64 2
   %.not6537 = icmp ult ptr %2041, %3601
   br i1 %.not6537, label %.lr.ph10205, label %.loopexit
@@ -7094,17 +7094,17 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit6945:                                    ; preds = %2042, %2048, %2046, %2036, %915
   %2049 = phi ptr [ %895, %915 ], [ %2031, %2036 ], [ %2031, %2046 ], [ %2031, %2048 ], [ %2031, %2042 ]
-  %2050 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2050 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2051 = ptrtoint ptr %2049 to i64
   %2052 = ptrtoint ptr %2050 to i64
   %2053 = sub i64 %2051, %2052
   %2054 = trunc i64 %2053 to i32
-  store i32 %2054, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %2054, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 2055:                                             ; preds = %1352
   %2056 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2056, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2056, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2057 = load i8, ptr %2056, align 1
   %2058 = icmp eq i8 %2057, 60
   br i1 %2058, label %.preheader7058, label %.thread6762
@@ -7113,15 +7113,15 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted9893 = phi ptr [ %1253, %1256 ], [ %2056, %2055 ]
   %.15.ph = phi i32 [ 7, %1256 ], [ 4, %2055 ]
   %2059 = getelementptr inbounds i8, ptr %.promoted9893, i64 1
-  store ptr %2059, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2059, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2060 = getelementptr inbounds i8, ptr %.promoted9893, i64 3
   %.not64059894 = icmp ult ptr %2060, %51
   br i1 %.not64059894, label %.lr.ph9895, label %.loopexit
 
 2061:                                             ; preds = %1356
   %2062 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2062, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2062, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2062, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2062, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2063 = load i8, ptr %2062, align 1
   %2064 = and i8 %2063, -33
   %or.cond314 = icmp eq i8 %2064, 65
@@ -7129,8 +7129,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2065:                                             ; preds = %1372, %1366
   %2066 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2066, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2066, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2066, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2066, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2067 = load i8, ptr %2066, align 1
   %2068 = and i8 %2067, -33
   %or.cond317 = icmp eq i8 %2068, 76
@@ -7138,8 +7138,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2069:                                             ; preds = %1374, %1369
   %2070 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2070, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2070, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2071 = load i8, ptr %2070, align 1
   %2072 = and i8 %2071, -33
   %or.cond320 = icmp eq i8 %2072, 69
@@ -7147,8 +7147,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2073:                                             ; preds = %1376, %1369
   %2074 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2074, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2074, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2075 = load i8, ptr %2074, align 1
   %2076 = and i8 %2075, -33
   %or.cond323 = icmp eq i8 %2076, 67
@@ -7156,8 +7156,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2077:                                             ; preds = %1382, %1385
   %2078 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2078, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2078, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2078, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2078, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2079 = load i8, ptr %2078, align 1
   %2080 = and i8 %2079, -33
   %or.cond326 = icmp eq i8 %2080, 83
@@ -7165,8 +7165,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2081:                                             ; preds = %1382, %1386
   %2082 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2082, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2082, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2083 = load i8, ptr %2082, align 1
   %2084 = and i8 %2083, -33
   %or.cond329 = icmp eq i8 %2084, 78
@@ -7174,8 +7174,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2085:                                             ; preds = %1388
   %2086 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2086, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2086, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2086, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2086, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2087 = load i8, ptr %2086, align 1
   %2088 = icmp ult i8 %2087, 85
   br i1 %2088, label %2089, label %2092
@@ -7202,8 +7202,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2098:                                             ; preds = %1396, %1399
   %2099 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2099, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2099, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2099, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2099, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2100 = load i8, ptr %2099, align 1
   %2101 = and i8 %2100, -33
   %or.cond332 = icmp eq i8 %2101, 76
@@ -7211,8 +7211,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2102:                                             ; preds = %1396, %1400
   %2103 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2103, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2103, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2103, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2103, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2104 = load i8, ptr %2103, align 1
   %2105 = and i8 %2104, -33
   %or.cond335 = icmp eq i8 %2105, 65
@@ -7220,8 +7220,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2106:                                             ; preds = %1402
   %2107 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2107, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2107, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2107, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2107, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2108 = load i8, ptr %2107, align 1
   %2109 = zext i8 %2108 to i64
   %2110 = or disjoint i64 %2109, 256
@@ -7236,7 +7236,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7193:                                    ; preds = %2113, %915
   %2115 = phi ptr [ %895, %915 ], [ %2107, %2113 ]
-  %2116 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2116 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2117 = ptrtoint ptr %2115 to i64
   %2118 = ptrtoint ptr %2116 to i64
   %2119 = sub i64 %2117, %2118
@@ -7245,8 +7245,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2121:                                             ; preds = %1421
   %2122 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2123 = load i8, ptr %2122, align 1
   %2124 = and i8 %2123, -33
   %or.cond338 = icmp eq i8 %2124, 79
@@ -7254,8 +7254,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2125:                                             ; preds = %1425
   %2126 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2126, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2126, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2126, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2126, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2127 = load i8, ptr %2126, align 1
   %2128 = and i8 %2127, -33
   %or.cond341 = icmp eq i8 %2128, 69
@@ -7263,8 +7263,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2129:                                             ; preds = %1429
   %2130 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2130, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2130, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2131 = load i8, ptr %2130, align 1
   %2132 = and i8 %2131, -33
   %or.cond344 = icmp eq i8 %2132, 84
@@ -7272,8 +7272,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2133:                                             ; preds = %1437, %1440
   %2134 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2134, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2134, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2135 = load i8, ptr %2134, align 1
   switch i8 %2135, label %669 [
     i8 68, label %2644
@@ -7290,8 +7290,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2136:                                             ; preds = %1437, %1441
   %2137 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2137, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2137, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2137, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2137, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2138 = load i8, ptr %2137, align 1
   %2139 = and i8 %2138, -33
   %or.cond347 = icmp eq i8 %2139, 77
@@ -7299,8 +7299,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2140:                                             ; preds = %1443
   %2141 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2141, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2141, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2141, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2141, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2142 = load i8, ptr %2141, align 1
   %2143 = and i8 %2142, -33
   %or.cond350 = icmp eq i8 %2143, 76
@@ -7308,8 +7308,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2144:                                             ; preds = %1451, %1454
   %2145 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2145, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2145, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2145, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2145, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2146 = load i8, ptr %2145, align 1
   %2147 = and i8 %2146, -33
   %or.cond353 = icmp eq i8 %2147, 84
@@ -7317,8 +7317,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2148:                                             ; preds = %1451, %1455
   %2149 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2149, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2149, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2149, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2149, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2150 = load i8, ptr %2149, align 1
   %2151 = and i8 %2150, -33
   %or.cond356 = icmp eq i8 %2151, 69
@@ -7326,8 +7326,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2152:                                             ; preds = %1457
   %2153 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2153, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2153, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2153, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2153, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2154 = load i8, ptr %2153, align 1
   %2155 = and i8 %2154, -33
   %or.cond359 = icmp eq i8 %2155, 65
@@ -7335,8 +7335,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2156:                                             ; preds = %1476
   %2157 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2157, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2157, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2157, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2157, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2158 = load i8, ptr %2157, align 1
   %2159 = icmp ult i8 %2158, 93
   br i1 %2159, label %2160, label %2171
@@ -7384,7 +7384,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7169:                                    ; preds = %2178, %2173, %2169, %2162, %915
   %2179 = phi ptr [ %895, %915 ], [ %2157, %2162 ], [ %2157, %2169 ], [ %2157, %2173 ], [ %2157, %2178 ]
-  %2180 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2180 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2181 = ptrtoint ptr %2179 to i64
   %2182 = ptrtoint ptr %2180 to i64
   %2183 = sub i64 %2181, %2182
@@ -7393,8 +7393,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2185:                                             ; preds = %1480
   %2186 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2186, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2186, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2186, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2186, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2187 = load i8, ptr %2186, align 1
   %2188 = and i8 %2187, -33
   %or.cond371 = icmp eq i8 %2188, 67
@@ -7402,8 +7402,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2189:                                             ; preds = %1484
   %2190 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2190, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2190, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2191 = load i8, ptr %2190, align 1
   %2192 = and i8 %2191, -33
   %or.cond374 = icmp eq i8 %2192, 66
@@ -7411,8 +7411,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2193:                                             ; preds = %1488
   %2194 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2194, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2194, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2195 = load i8, ptr %2194, align 1
   %2196 = and i8 %2195, -33
   %or.cond377 = icmp eq i8 %2196, 79
@@ -7420,8 +7420,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2197:                                             ; preds = %1507
   %2198 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2198, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2198, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2198, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2198, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2199 = load i8, ptr %2198, align 1
   %2200 = and i8 %2199, -33
   %or.cond380 = icmp eq i8 %2200, 76
@@ -7429,8 +7429,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2201:                                             ; preds = %1523, %1517
   %2202 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2202, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2202, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2202, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2202, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2203 = load i8, ptr %2202, align 1
   %2204 = and i8 %2203, -33
   %or.cond383 = icmp eq i8 %2204, 76
@@ -7438,8 +7438,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2205:                                             ; preds = %1525, %1520
   %2206 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2206, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2206, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2207 = load i8, ptr %2206, align 1
   %2208 = and i8 %2207, -33
   %or.cond386 = icmp eq i8 %2208, 84
@@ -7447,8 +7447,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2209:                                             ; preds = %1527, %1520
   %2210 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2210, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2210, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2211 = load i8, ptr %2210, align 1
   %2212 = and i8 %2211, -33
   %or.cond389 = icmp eq i8 %2212, 69
@@ -7456,8 +7456,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2213:                                             ; preds = %1529
   %2214 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2214, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2214, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2215 = load i8, ptr %2214, align 1
   %2216 = and i8 %2215, -33
   %or.cond392 = icmp eq i8 %2216, 69
@@ -7465,8 +7465,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2217:                                             ; preds = %1533
   %2218 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2218, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2218, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2219 = load i8, ptr %2218, align 1
   %2220 = and i8 %2219, -33
   %or.cond395 = icmp eq i8 %2220, 84
@@ -7474,8 +7474,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2221:                                             ; preds = %1537
   %2222 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2222, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2222, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2222, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2222, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2223 = load i8, ptr %2222, align 1
   %2224 = and i8 %2223, -33
   %or.cond398 = icmp eq i8 %2224, 67
@@ -7483,8 +7483,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2225:                                             ; preds = %1541
   %2226 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2226, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2226, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2227 = load i8, ptr %2226, align 1
   %2228 = and i8 %2227, -33
   %or.cond401 = icmp eq i8 %2228, 69
@@ -7492,8 +7492,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2229:                                             ; preds = %1545
   %2230 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2230, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2230, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2231 = load i8, ptr %2230, align 1
   %2232 = zext i8 %2231 to i64
   %2233 = or disjoint i64 %2232, 256
@@ -7508,7 +7508,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7155:                                    ; preds = %2236, %916
   %2238 = phi ptr [ %895, %916 ], [ %2230, %2236 ]
-  %2239 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2239 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2240 = ptrtoint ptr %2238 to i64
   %2241 = ptrtoint ptr %2239 to i64
   %2242 = sub i64 %2240, %2241
@@ -7517,8 +7517,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2244:                                             ; preds = %1568, %1571
   %2245 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2245, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2245, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2245, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2245, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2246 = load i8, ptr %2245, align 1
   %2247 = icmp ult i8 %2246, 87
   br i1 %2247, label %2248, label %2249
@@ -7543,8 +7543,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2254:                                             ; preds = %1568, %1572
   %2255 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2255, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2255, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2255, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2255, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2256 = load i8, ptr %2255, align 1
   %2257 = and i8 %2256, -33
   %or.cond404 = icmp eq i8 %2257, 84
@@ -7552,8 +7552,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2258:                                             ; preds = %1574
   %2259 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2259, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2259, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2259, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2259, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2260 = load i8, ptr %2259, align 1
   %2261 = and i8 %2260, -33
   %or.cond407 = icmp eq i8 %2261, 76
@@ -7561,8 +7561,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2262:                                             ; preds = %1589, %1584
   %2263 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2263, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2263, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2264 = load i8, ptr %2263, align 1
   %2265 = and i8 %2264, -33
   %or.cond410 = icmp eq i8 %2265, 68
@@ -7570,8 +7570,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2266:                                             ; preds = %1591, %1586
   %2267 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2267, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2267, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2268 = load i8, ptr %2267, align 1
   %2269 = and i8 %2268, -33
   %or.cond413 = icmp eq i8 %2269, 85
@@ -7579,8 +7579,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2270:                                             ; preds = %1591, %1586
   %2271 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2271, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2271, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2272 = load i8, ptr %2271, align 1
   %2273 = and i8 %2272, -33
   %or.cond416 = icmp eq i8 %2273, 85
@@ -7588,8 +7588,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2274:                                             ; preds = %1592
   %2275 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2275, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2275, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2276 = load i8, ptr %2275, align 1
   %2277 = and i8 %2276, -33
   %or.cond419 = icmp eq i8 %2277, 84
@@ -7597,8 +7597,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2278:                                             ; preds = %1596
   %2279 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2279, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2279, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2280 = load i8, ptr %2279, align 1
   %2281 = and i8 %2280, -33
   %or.cond422 = icmp eq i8 %2281, 84
@@ -7606,8 +7606,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2282:                                             ; preds = %1600
   %2283 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2283, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2283, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2284 = load i8, ptr %2283, align 1
   %2285 = and i8 %2284, -33
   %or.cond425 = icmp eq i8 %2285, 79
@@ -7615,8 +7615,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2286:                                             ; preds = %1608, %1611
   %2287 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2287, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2287, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2288 = load i8, ptr %2287, align 1
   %2289 = and i8 %2288, -33
   %or.cond428 = icmp eq i8 %2289, 73
@@ -7624,8 +7624,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2290:                                             ; preds = %1608, %1612
   %2291 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2291, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2291, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2291, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2291, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2292 = load i8, ptr %2291, align 1
   %2293 = zext i8 %2292 to i64
   %2294 = or disjoint i64 %2293, 256
@@ -7640,7 +7640,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7141:                                    ; preds = %2297, %916
   %2299 = phi ptr [ %895, %916 ], [ %2291, %2297 ]
-  %2300 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2300 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2301 = ptrtoint ptr %2299 to i64
   %2302 = ptrtoint ptr %2300 to i64
   %2303 = sub i64 %2301, %2302
@@ -7649,8 +7649,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2305:                                             ; preds = %1614
   %2306 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2306, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2306, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2306, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2306, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2307 = load i8, ptr %2306, align 1
   %2308 = and i8 %2307, -33
   %or.cond431 = icmp eq i8 %2308, 69
@@ -7658,8 +7658,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2309:                                             ; preds = %1618
   %2310 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2310, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2310, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2310, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2310, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2311 = load i8, ptr %2310, align 1
   %2312 = zext i8 %2311 to i64
   %2313 = or disjoint i64 %2312, 256
@@ -7674,7 +7674,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7139:                                    ; preds = %2316, %916
   %2318 = phi ptr [ %895, %916 ], [ %2310, %2316 ]
-  %2319 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2319 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2320 = ptrtoint ptr %2318 to i64
   %2321 = ptrtoint ptr %2319 to i64
   %2322 = sub i64 %2320, %2321
@@ -7683,8 +7683,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2324:                                             ; preds = %1622
   %2325 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2325, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2325, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2325, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2325, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2326 = load i8, ptr %2325, align 1
   %2327 = zext i8 %2326 to i64
   %2328 = or disjoint i64 %2327, 256
@@ -7699,7 +7699,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7138:                                    ; preds = %2331, %923
   %2333 = phi ptr [ %890, %923 ], [ %2325, %2331 ]
-  %2334 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2334 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2335 = ptrtoint ptr %2333 to i64
   %2336 = ptrtoint ptr %2334 to i64
   %2337 = sub i64 %2335, %2336
@@ -7708,8 +7708,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2339:                                             ; preds = %1626
   %2340 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2340, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2340, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2340, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2340, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2341 = load i8, ptr %2340, align 1
   %2342 = and i8 %2341, -33
   %or.cond434 = icmp eq i8 %2342, 76
@@ -7717,8 +7717,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2343:                                             ; preds = %1630
   %2344 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2344, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2344, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2344, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2344, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2345 = load i8, ptr %2344, align 1
   %2346 = zext i8 %2345 to i64
   %2347 = or disjoint i64 %2346, 256
@@ -7742,15 +7742,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2358:                                             ; preds = %1634
   %2359 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2359, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2359, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2359, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2359, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2360 = load i8, ptr %2359, align 1
   %2361 = and i8 %2360, -33
   %or.cond437 = icmp eq i8 %2361, 76
   br i1 %or.cond437, label %2845, label %669
 
 2362:                                             ; preds = %1652
-  store ptr %1638, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1638, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2363 = getelementptr inbounds i8, ptr %1640, i64 3
   %.not6092 = icmp ult ptr %2363, %51
   br i1 %.not6092, label %2364, label %.loopexit
@@ -7782,8 +7782,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2373:                                             ; preds = %1667, %1667
   %2374 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2374, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2374, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2374, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2374, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2375 = load i8, ptr %2374, align 1
   %2376 = and i8 %2375, -33
   %or.cond446 = icmp eq i8 %2376, 76
@@ -7791,8 +7791,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2377:                                             ; preds = %1667, %1667
   %2378 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2378, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2378, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2379 = load i8, ptr %2378, align 1
   %2380 = and i8 %2379, -33
   %or.cond449 = icmp eq i8 %2380, 73
@@ -7800,8 +7800,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2381:                                             ; preds = %1667, %1667
   %2382 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2382, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2382, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2382, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2382, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2383 = load i8, ptr %2382, align 1
   %2384 = icmp ult i8 %2383, 86
   br i1 %2384, label %2385, label %2386
@@ -7826,8 +7826,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2391:                                             ; preds = %1667, %1667
   %2392 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2392, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2392, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2392, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2392, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2393 = load i8, ptr %2392, align 1
   %2394 = and i8 %2393, -33
   %or.cond452 = icmp eq i8 %2394, 65
@@ -7835,8 +7835,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2395:                                             ; preds = %1667, %1667
   %2396 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2396, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2396, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2397 = load i8, ptr %2396, align 1
   %2398 = and i8 %2397, -33
   %or.cond455 = icmp eq i8 %2398, 73
@@ -7844,8 +7844,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2399:                                             ; preds = %1667, %1667
   %2400 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2400, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2400, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2400, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2400, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2401 = load i8, ptr %2400, align 1
   %2402 = and i8 %2401, -33
   %or.cond458 = icmp eq i8 %2402, 69
@@ -7853,8 +7853,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2403:                                             ; preds = %1667, %1667
   %2404 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2404, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2404, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2405 = load i8, ptr %2404, align 1
   %2406 = and i8 %2405, -33
   %or.cond461 = icmp eq i8 %2406, 65
@@ -7862,15 +7862,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2407:                                             ; preds = %1667, %1667
   %2408 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 3
-  store ptr %2408, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2408, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2409 = load i8, ptr %2408, align 1
   %2410 = and i8 %2409, -33
   %or.cond464 = icmp eq i8 %2410, 82
   br i1 %or.cond464, label %2881, label %669
 
 2411:                                             ; preds = %1711
-  store ptr %1693, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1693, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2412 = getelementptr inbounds i8, ptr %1695, i64 3
   %.not6521 = icmp ult ptr %2412, %51
   br i1 %.not6521, label %2413, label %.loopexit
@@ -7891,8 +7891,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 .loopexit6956:                                    ; preds = %1711, %2891
   %.promoted1007710089 = phi ptr [ %2432, %2891 ], [ %1694, %1711 ]
   %2421 = getelementptr inbounds i8, ptr %.promoted1007710089, i64 1
-  store ptr %2421, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2421, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2422 = getelementptr inbounds i8, ptr %.promoted1007710089, i64 2
   %.not6519 = icmp ult ptr %2422, %51
   br i1 %.not6519, label %2423, label %.loopexit
@@ -7911,7 +7911,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %2430, label %.loopexit6893, label %.loopexit6955
 
 2431:                                             ; preds = %1714
-  store ptr %1693, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1693, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2432 = getelementptr inbounds i8, ptr %1695, i64 3
   %.not6516 = icmp ult ptr %2432, %51
   br i1 %.not6516, label %2433, label %.loopexit
@@ -7934,7 +7934,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 2438:                                             ; preds = %1716
-  store ptr %1693, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %1693, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2439 = getelementptr inbounds i8, ptr %1695, i64 3
   %.not6477 = icmp ult ptr %2439, %51
   br i1 %.not6477, label %2440, label %.loopexit
@@ -7958,7 +7958,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader6914:                                   ; preds = %2444
   %2445 = getelementptr inbounds i8, ptr %1693, i64 1
-  store ptr %2445, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2445, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2446 = getelementptr inbounds i8, ptr %1693, i64 2
   %.not647810065 = icmp ult ptr %2446, %51
   br i1 %.not647810065, label %.lr.ph10067, label %.loopexit
@@ -7971,7 +7971,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 2447:                                             ; preds = %.preheader6949, %2451
   %2448 = phi ptr [ %.promoted1007710083, %.preheader6949 ], [ %2449, %2451 ]
   %2449 = getelementptr inbounds i8, ptr %2448, i64 1
-  store ptr %2449, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2449, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2450 = getelementptr inbounds i8, ptr %2448, i64 2
   %.not6512 = icmp ult ptr %2450, %51
   br i1 %.not6512, label %2451, label %.loopexit
@@ -7993,7 +7993,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2458:                                             ; preds = %1734
   %2459 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2459, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2459, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2460 = load i8, ptr %2459, align 1
   %2461 = and i8 %2460, -33
   %or.cond467 = icmp eq i8 %2461, 65
@@ -8001,7 +8001,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2462:                                             ; preds = %1738
   %2463 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2463, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2464 = load i8, ptr %2463, align 1
   %2465 = and i8 %2464, -33
   %or.cond470 = icmp eq i8 %2465, 65
@@ -8009,7 +8009,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2466:                                             ; preds = %1742
   %2467 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2467, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2467, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2468 = load i8, ptr %2467, align 1
   %2469 = and i8 %2468, -33
   %or.cond473 = icmp eq i8 %2469, 76
@@ -8017,7 +8017,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2470:                                             ; preds = %1746
   %2471 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2471, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2472 = load i8, ptr %2471, align 1
   %2473 = and i8 %2472, -33
   %or.cond476 = icmp eq i8 %2473, 66
@@ -8025,7 +8025,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2474:                                             ; preds = %1750
   %2475 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2475, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2475, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2476 = load i8, ptr %2475, align 1
   %2477 = and i8 %2476, -33
   %or.cond479 = icmp eq i8 %2477, 65
@@ -8033,7 +8033,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2478:                                             ; preds = %1754
   %2479 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2479, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2479, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2480 = load i8, ptr %2479, align 1
   %2481 = and i8 %2480, -33
   %or.cond482 = icmp eq i8 %2481, 69
@@ -8041,7 +8041,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2482:                                             ; preds = %1758
   %2483 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2483, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2483, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2484 = load i8, ptr %2483, align 1
   %2485 = and i8 %2484, -33
   %or.cond485 = icmp eq i8 %2485, 69
@@ -8049,7 +8049,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2486:                                             ; preds = %1762
   %2487 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2487, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2487, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2488 = load i8, ptr %2487, align 1
   %2489 = and i8 %2488, -33
   %or.cond488 = icmp eq i8 %2489, 76
@@ -8057,14 +8057,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7017:                                   ; preds = %2486
   %2490 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2490, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2491 = getelementptr inbounds i8, ptr %1014, i64 5
   %.not64529925 = icmp ult ptr %2491, %51
   br i1 %.not64529925, label %.lr.ph9926, label %.loopexit
 
 2492:                                             ; preds = %1766
   %2493 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2493, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2493, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2494 = load i8, ptr %2493, align 1
   %2495 = and i8 %2494, -33
   %or.cond491 = icmp eq i8 %2495, 73
@@ -8072,7 +8072,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2496:                                             ; preds = %1770
   %2497 = getelementptr inbounds i8, ptr %1014, i64 3
-  store ptr %2497, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2497, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2498 = load i8, ptr %2497, align 1
   %2499 = and i8 %2498, -33
   %or.cond494 = icmp eq i8 %2499, 69
@@ -8091,7 +8091,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7034:                                    ; preds = %2503, %2507, %2507
   %2505 = getelementptr inbounds i8, ptr %2500, i64 1
-  store ptr %2505, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2505, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2506 = getelementptr inbounds i8, ptr %2500, i64 2
   %.not6443 = icmp ult ptr %2506, %51
   br i1 %.not6443, label %.lr.ph9918, label %.loopexit
@@ -8104,7 +8104,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2508:                                             ; preds = %1976
   %2509 = getelementptr inbounds i8, ptr %1968, i64 2
-  store ptr %2509, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2509, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2510 = load i8, ptr %2509, align 1
   %2511 = icmp eq i8 %2510, 34
   %2512 = add i8 %2510, -48
@@ -8114,7 +8114,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2513:                                             ; preds = %1976
   %2514 = getelementptr inbounds i8, ptr %1968, i64 2
-  store ptr %2514, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2514, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2515 = load i8, ptr %2514, align 1
   %2516 = icmp eq i8 %2515, 39
   %2517 = add i8 %2515, -48
@@ -8157,7 +8157,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7057:                                    ; preds = %2531, %2527, %2536
   %2534 = getelementptr inbounds i8, ptr %2518, i64 1
-  store ptr %2534, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2534, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2535 = getelementptr inbounds i8, ptr %2518, i64 3
   %.not6406 = icmp ult ptr %2535, %51
   br i1 %.not6406, label %.lr.ph9898, label %.loopexit
@@ -8174,8 +8174,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2537:                                             ; preds = %2008
   %2538 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2538, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2538, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2539 = load i8, ptr %2538, align 1
   %2540 = and i8 %2539, -33
   %or.cond518 = icmp eq i8 %2540, 82
@@ -8183,8 +8183,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2541:                                             ; preds = %2027
   %2542 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2542, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2542, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2543 = load i8, ptr %2542, align 1
   %2544 = and i8 %2543, -33
   %or.cond521 = icmp eq i8 %2544, 89
@@ -8192,8 +8192,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2545:                                             ; preds = %2061
   %2546 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2546, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2546, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2547 = load i8, ptr %2546, align 1
   %2548 = and i8 %2547, -33
   %or.cond524 = icmp eq i8 %2548, 75
@@ -8201,8 +8201,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2549:                                             ; preds = %2065
   %2550 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2551 = load i8, ptr %2550, align 1
   %2552 = and i8 %2551, -33
   %or.cond527 = icmp eq i8 %2552, 65
@@ -8210,8 +8210,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2553:                                             ; preds = %2069
   %2554 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2554, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2554, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2555 = load i8, ptr %2554, align 1
   %2556 = zext i8 %2555 to i64
   %2557 = or disjoint i64 %2556, 256
@@ -8226,7 +8226,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7200:                                    ; preds = %2560, %924
   %2562 = phi ptr [ %890, %924 ], [ %2554, %2560 ]
-  %2563 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2563 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2564 = ptrtoint ptr %2562 to i64
   %2565 = ptrtoint ptr %2563 to i64
   %2566 = sub i64 %2564, %2565
@@ -8235,8 +8235,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2568:                                             ; preds = %2073
   %2569 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2569, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2569, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2569, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2569, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2570 = load i8, ptr %2569, align 1
   %2571 = and i8 %2570, -33
   %or.cond530 = icmp eq i8 %2571, 72
@@ -8244,8 +8244,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2572:                                             ; preds = %2077
   %2573 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2573, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2573, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2574 = load i8, ptr %2573, align 1
   %2575 = and i8 %2574, -33
   %or.cond533 = icmp eq i8 %2575, 83
@@ -8253,8 +8253,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2576:                                             ; preds = %2081
   %2577 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2577, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2577, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2578 = load i8, ptr %2577, align 1
   %2579 = and i8 %2578, -33
   %or.cond536 = icmp eq i8 %2579, 69
@@ -8262,8 +8262,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2580:                                             ; preds = %2094, %2091
   %2581 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2581, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2581, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2582 = load i8, ptr %2581, align 1
   %2583 = and i8 %2582, -33
   %or.cond539 = icmp eq i8 %2583, 84
@@ -8271,8 +8271,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2584:                                             ; preds = %2096, %2091
   %2585 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2585, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2585, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2586 = load i8, ptr %2585, align 1
   %2587 = and i8 %2586, -33
   %or.cond542 = icmp eq i8 %2587, 73
@@ -8280,8 +8280,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2588:                                             ; preds = %2098
   %2589 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2589, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2589, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2590 = load i8, ptr %2589, align 1
   %2591 = and i8 %2590, -33
   %or.cond545 = icmp eq i8 %2591, 65
@@ -8289,8 +8289,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2592:                                             ; preds = %2102
   %2593 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2594 = load i8, ptr %2593, align 1
   %2595 = and i8 %2594, -33
   %or.cond548 = icmp eq i8 %2595, 85
@@ -8298,8 +8298,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2596:                                             ; preds = %2121
   %2597 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2597, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2597, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2598 = load i8, ptr %2597, align 1
   %2599 = zext i8 %2598 to i64
   %2600 = or disjoint i64 %2599, 256
@@ -8314,7 +8314,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7191:                                    ; preds = %2603, %924
   %2605 = phi ptr [ %890, %924 ], [ %2597, %2603 ]
-  %2606 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2606 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2607 = ptrtoint ptr %2605 to i64
   %2608 = ptrtoint ptr %2606 to i64
   %2609 = sub i64 %2607, %2608
@@ -8323,8 +8323,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2611:                                             ; preds = %2125
   %2612 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2612, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2612, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2612, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2612, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2613 = load i8, ptr %2612, align 1
   %2614 = icmp ult i8 %2613, 93
   br i1 %2614, label %2615, label %2626
@@ -8372,7 +8372,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7189:                                    ; preds = %2633, %2628, %2624, %2617, %924
   %2634 = phi ptr [ %890, %924 ], [ %2612, %2617 ], [ %2612, %2624 ], [ %2612, %2628 ], [ %2612, %2633 ]
-  %2635 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2635 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2636 = ptrtoint ptr %2634 to i64
   %2637 = ptrtoint ptr %2635 to i64
   %2638 = sub i64 %2636, %2637
@@ -8381,8 +8381,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2640:                                             ; preds = %2129
   %2641 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2641, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2641, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2641, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2641, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2642 = load i8, ptr %2641, align 1
   %2643 = and i8 %2642, -33
   %or.cond560 = icmp eq i8 %2643, 89
@@ -8390,8 +8390,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2644:                                             ; preds = %2133, %2133
   %2645 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2645, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2645, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2645, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2645, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2646 = load i8, ptr %2645, align 1
   %2647 = and i8 %2646, -33
   %or.cond563 = icmp eq i8 %2647, 69
@@ -8399,8 +8399,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2648:                                             ; preds = %2133, %2133
   %2649 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2649, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2649, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2649, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2649, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2650 = load i8, ptr %2649, align 1
   %2651 = and i8 %2650, -33
   %or.cond566 = icmp eq i8 %2651, 79
@@ -8408,8 +8408,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2652:                                             ; preds = %2133, %2133
   %2653 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2653, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2653, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2654 = load i8, ptr %2653, align 1
   %2655 = and i8 %2654, -33
   %or.cond569 = icmp eq i8 %2655, 70
@@ -8417,8 +8417,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2656:                                             ; preds = %2133, %2133
   %2657 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2657, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2657, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2658 = load i8, ptr %2657, align 1
   %2659 = and i8 %2658, -33
   %or.cond572 = icmp eq i8 %2659, 87
@@ -8426,8 +8426,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2660:                                             ; preds = %2133, %2133
   %2661 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2661, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2661, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2661, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2661, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2662 = load i8, ptr %2661, align 1
   %2663 = and i8 %2662, -33
   %or.cond575 = icmp eq i8 %2663, 72
@@ -8435,8 +8435,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2664:                                             ; preds = %2136
   %2665 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2665, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2665, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2666 = load i8, ptr %2665, align 1
   %2667 = icmp ult i8 %2666, 32
   br i1 %2667, label %2668, label %2674
@@ -8469,8 +8469,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2679:                                             ; preds = %2140
   %2680 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2680, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2680, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2680, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2680, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2681 = load i8, ptr %2680, align 1
   %2682 = zext i8 %2681 to i64
   %2683 = or disjoint i64 %2682, 256
@@ -8485,7 +8485,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7176:                                    ; preds = %2686, %927
   %2688 = phi ptr [ %890, %927 ], [ %2680, %2686 ]
-  %2689 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2689 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2690 = ptrtoint ptr %2688 to i64
   %2691 = ptrtoint ptr %2689 to i64
   %2692 = sub i64 %2690, %2691
@@ -8494,8 +8494,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2694:                                             ; preds = %2144
   %2695 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2695, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2695, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2696 = load i8, ptr %2695, align 1
   %2697 = zext i8 %2696 to i64
   %2698 = or disjoint i64 %2697, 256
@@ -8510,7 +8510,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7175:                                    ; preds = %2701, %927
   %2703 = phi ptr [ %890, %927 ], [ %2695, %2701 ]
-  %2704 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2704 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2705 = ptrtoint ptr %2703 to i64
   %2706 = ptrtoint ptr %2704 to i64
   %2707 = sub i64 %2705, %2706
@@ -8519,8 +8519,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2709:                                             ; preds = %2148
   %2710 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2710, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2710, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2711 = load i8, ptr %2710, align 1
   %2712 = and i8 %2711, -33
   %or.cond578 = icmp eq i8 %2712, 78
@@ -8528,8 +8528,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2713:                                             ; preds = %2152
   %2714 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2714, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2714, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2715 = load i8, ptr %2714, align 1
   %2716 = and i8 %2715, -33
   %or.cond581 = icmp eq i8 %2716, 76
@@ -8537,8 +8537,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2717:                                             ; preds = %2176, %2165
   %2718 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2718, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2718, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2718, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2718, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2719 = load i8, ptr %2718, align 1
   %2720 = and i8 %2719, -33
   %or.cond584 = icmp eq i8 %2720, 65
@@ -8546,8 +8546,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2721:                                             ; preds = %2185
   %2722 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2722, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2722, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2722, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2722, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2723 = load i8, ptr %2722, align 1
   %2724 = and i8 %2723, -33
   %or.cond587 = icmp eq i8 %2724, 84
@@ -8555,8 +8555,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2725:                                             ; preds = %2189
   %2726 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2726, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2726, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2727 = load i8, ptr %2726, align 1
   %2728 = and i8 %2727, -33
   %or.cond590 = icmp eq i8 %2728, 65
@@ -8564,8 +8564,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2729:                                             ; preds = %2193
   %2730 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2730, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2730, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2731 = load i8, ptr %2730, align 1
   %2732 = zext i8 %2731 to i64
   %2733 = or disjoint i64 %2732, 256
@@ -8580,7 +8580,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7166:                                    ; preds = %2736, %927
   %2738 = phi ptr [ %890, %927 ], [ %2730, %2736 ]
-  %2739 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2739 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2740 = ptrtoint ptr %2738 to i64
   %2741 = ptrtoint ptr %2739 to i64
   %2742 = sub i64 %2740, %2741
@@ -8589,8 +8589,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2744:                                             ; preds = %2197
   %2745 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2745, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2745, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2745, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2745, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2746 = load i8, ptr %2745, align 1
   %2747 = and i8 %2746, -33
   %or.cond593 = icmp eq i8 %2747, 69
@@ -8598,8 +8598,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2748:                                             ; preds = %2201
   %2749 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2749, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2749, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2750 = load i8, ptr %2749, align 1
   %2751 = and i8 %2750, -33
   %or.cond596 = icmp eq i8 %2751, 85
@@ -8607,8 +8607,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2752:                                             ; preds = %2205
   %2753 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2753, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2753, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2754 = load i8, ptr %2753, align 1
   %2755 = icmp ult i8 %2754, 70
   br i1 %2755, label %2756, label %2757
@@ -8633,8 +8633,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2762:                                             ; preds = %2209
   %2763 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2763, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2763, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2763, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2763, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2764 = load i8, ptr %2763, align 1
   %2765 = and i8 %2764, -33
   %or.cond599 = icmp eq i8 %2765, 82
@@ -8642,8 +8642,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2766:                                             ; preds = %2213
   %2767 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2767, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2767, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2767, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2767, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2768 = load i8, ptr %2767, align 1
   %2769 = and i8 %2768, -33
   %or.cond602 = icmp eq i8 %2769, 84
@@ -8651,8 +8651,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2770:                                             ; preds = %2217
   %2771 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2771, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2771, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2771, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2771, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2772 = load i8, ptr %2771, align 1
   %2773 = zext i8 %2772 to i64
   %2774 = or disjoint i64 %2773, 256
@@ -8667,7 +8667,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7157:                                    ; preds = %2777, %928
   %2779 = phi ptr [ %890, %928 ], [ %2771, %2777 ]
-  %2780 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %2780 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %2781 = ptrtoint ptr %2779 to i64
   %2782 = ptrtoint ptr %2780 to i64
   %2783 = sub i64 %2781, %2782
@@ -8676,8 +8676,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2785:                                             ; preds = %2221
   %2786 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2787 = load i8, ptr %2786, align 1
   %2788 = and i8 %2787, -33
   %or.cond605 = icmp eq i8 %2788, 72
@@ -8685,8 +8685,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2789:                                             ; preds = %2225
   %2790 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2790, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2790, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2791 = load i8, ptr %2790, align 1
   %2792 = and i8 %2791, -33
   %or.cond608 = icmp eq i8 %2792, 83
@@ -8694,8 +8694,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2793:                                             ; preds = %2248, %2251
   %2794 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2795 = load i8, ptr %2794, align 1
   %2796 = and i8 %2795, -33
   %or.cond611 = icmp eq i8 %2796, 84
@@ -8703,8 +8703,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2797:                                             ; preds = %2248, %2252
   %2798 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2798, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2798, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2799 = load i8, ptr %2798, align 1
   %2800 = and i8 %2799, -33
   %or.cond614 = icmp eq i8 %2800, 65
@@ -8712,8 +8712,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2801:                                             ; preds = %2254
   %2802 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2802, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2802, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2803 = load i8, ptr %2802, align 1
   %2804 = and i8 %2803, -33
   %or.cond617 = icmp eq i8 %2804, 69
@@ -8721,8 +8721,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2805:                                             ; preds = %2258
   %2806 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2806, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2806, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2807 = load i8, ptr %2806, align 1
   %2808 = and i8 %2807, -33
   %or.cond620 = icmp eq i8 %2808, 73
@@ -8730,8 +8730,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2809:                                             ; preds = %2262
   %2810 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2811 = load i8, ptr %2810, align 1
   %2812 = and i8 %2811, -33
   %or.cond623 = icmp eq i8 %2812, 79
@@ -8739,8 +8739,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2813:                                             ; preds = %2266
   %2814 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2814, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2814, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2814, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2814, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2815 = load i8, ptr %2814, align 1
   %2816 = and i8 %2815, -33
   %or.cond626 = icmp eq i8 %2816, 73
@@ -8748,8 +8748,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2817:                                             ; preds = %2270
   %2818 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2818, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2818, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2819 = load i8, ptr %2818, align 1
   %2820 = and i8 %2819, -33
   %or.cond629 = icmp eq i8 %2820, 82
@@ -8757,8 +8757,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2821:                                             ; preds = %2274
   %2822 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2822, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2822, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2822, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2822, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2823 = load i8, ptr %2822, align 1
   %2824 = and i8 %2823, -33
   %or.cond632 = icmp eq i8 %2824, 73
@@ -8766,8 +8766,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2825:                                             ; preds = %2278
   %2826 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2826, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2826, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2826, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2826, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2827 = load i8, ptr %2826, align 1
   %2828 = and i8 %2827, -33
   %or.cond635 = icmp eq i8 %2828, 67
@@ -8775,8 +8775,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2829:                                             ; preds = %2282
   %2830 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2830, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2830, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2830, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2830, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2831 = load i8, ptr %2830, align 1
   %2832 = and i8 %2831, -33
   %or.cond638 = icmp eq i8 %2832, 87
@@ -8784,8 +8784,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2833:                                             ; preds = %2286
   %2834 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2834, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2834, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2835 = load i8, ptr %2834, align 1
   %2836 = and i8 %2835, -33
   %or.cond641 = icmp eq i8 %2836, 84
@@ -8793,8 +8793,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2837:                                             ; preds = %2305
   %2838 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2838, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2838, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2839 = load i8, ptr %2838, align 1
   %2840 = and i8 %2839, -33
   %or.cond644 = icmp eq i8 %2840, 84
@@ -8802,8 +8802,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2841:                                             ; preds = %2339
   %2842 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2842, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2842, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2843 = load i8, ptr %2842, align 1
   %2844 = and i8 %2843, -33
   %or.cond647 = icmp eq i8 %2844, 69
@@ -8811,8 +8811,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2845:                                             ; preds = %2358
   %2846 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2846, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2846, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2847 = load i8, ptr %2846, align 1
   %2848 = and i8 %2847, -33
   %or.cond650 = icmp eq i8 %2848, 68
@@ -8820,8 +8820,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2849:                                             ; preds = %2373
   %2850 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2851 = load i8, ptr %2850, align 1
   %2852 = and i8 %2851, -33
   %or.cond653 = icmp eq i8 %2852, 65
@@ -8829,8 +8829,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2853:                                             ; preds = %2377
   %2854 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2854, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2854, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2855 = load i8, ptr %2854, align 1
   %2856 = and i8 %2855, -33
   %or.cond656 = icmp eq i8 %2856, 82
@@ -8838,8 +8838,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2857:                                             ; preds = %2385, %2388
   %2858 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2859 = load i8, ptr %2858, align 1
   %2860 = and i8 %2859, -33
   %or.cond659 = icmp eq i8 %2860, 76
@@ -8847,8 +8847,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2861:                                             ; preds = %2385, %2389
   %2862 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2862, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2862, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2862, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2862, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2863 = load i8, ptr %2862, align 1
   %2864 = and i8 %2863, -33
   %or.cond662 = icmp eq i8 %2864, 78
@@ -8856,8 +8856,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2865:                                             ; preds = %2391
   %2866 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2866, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2866, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2867 = load i8, ptr %2866, align 1
   %2868 = and i8 %2867, -33
   %or.cond665 = icmp eq i8 %2868, 76
@@ -8865,8 +8865,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2869:                                             ; preds = %2395
   %2870 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2870, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2870, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2871 = load i8, ptr %2870, align 1
   %2872 = and i8 %2871, -33
   %or.cond668 = icmp eq i8 %2872, 78
@@ -8874,8 +8874,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2873:                                             ; preds = %2399
   %2874 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2874, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2874, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2874, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2874, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2875 = load i8, ptr %2874, align 1
   %2876 = and i8 %2875, -33
   %or.cond671 = icmp eq i8 %2876, 84
@@ -8883,8 +8883,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2877:                                             ; preds = %2403
   %2878 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2878, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2878, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2878, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2878, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2879 = load i8, ptr %2878, align 1
   %2880 = and i8 %2879, -33
   %or.cond674 = icmp eq i8 %2880, 77
@@ -8892,15 +8892,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2881:                                             ; preds = %2407
   %2882 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 4
-  store ptr %2882, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %2882, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %2882, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2882, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %2883 = load i8, ptr %2882, align 1
   %2884 = and i8 %2883, -33
   %or.cond677 = icmp eq i8 %2884, 65
   br i1 %or.cond677, label %3640, label %669
 
 2885:                                             ; preds = %2437
-  store ptr %2432, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2886 = getelementptr inbounds i8, ptr %1695, i64 4
   %.not6517 = icmp ult ptr %2886, %51
   br i1 %.not6517, label %2887, label %.loopexit
@@ -8941,7 +8941,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted99769980 = phi ptr [ %2892, %.lr.ph10067 ], [ %3644, %4132 ], [ %3677, %3684 ], [ %3677, %3686 ], [ %3677, %3692 ], [ %4597, %4622 ], [ %4596, %4969 ], [ %4596, %4974 ], [ %4963, %5263 ], [ %4963, %5268 ], [ %4978, %5278 ], [ %4978, %5283 ], [ %3644, %4139 ], [ %3644, %4140 ], [ %3644, %4167 ], [ %4597, %4605 ], [ %4597, %4614 ], [ %4597, %4626 ], [ %4596, %4940 ], [ %4596, %4979 ], [ %4978, %5284 ], [ %4597, %4611 ], [ %3677, %3691 ], [ %4978, %5280 ], [ %4596, %4975 ], [ %4963, %5269 ], [ %4963, %5265 ], [ %4596, %4971 ], [ %4597, %4618 ], [ %4951, %4953 ], [ %3644, %4134 ]
   %.17.be = phi i32 [ %.1710066, %.lr.ph10067 ], [ %.219968, %4132 ], [ %.22.ph, %3684 ], [ %.22.ph, %3686 ], [ %.22.ph, %3692 ], [ %.219968, %4622 ], [ %.219968, %4969 ], [ %.219968, %4974 ], [ %.219968, %5263 ], [ %.219968, %5268 ], [ %.219968, %5278 ], [ %.219968, %5283 ], [ %.219968, %4139 ], [ %.219968, %4140 ], [ %.219968, %4167 ], [ %.219968, %4605 ], [ %.219968, %4614 ], [ %.219968, %4626 ], [ %.219968, %4940 ], [ %.219968, %4979 ], [ %.219968, %5284 ], [ %.219968, %4611 ], [ %.22.ph, %3691 ], [ %.219968, %5280 ], [ %.219968, %4975 ], [ %.219968, %5269 ], [ %.219968, %5265 ], [ %.219968, %4971 ], [ %.219968, %4618 ], [ 26, %4953 ], [ %.219968, %4134 ]
   %2897 = getelementptr inbounds i8, ptr %.promoted99769980, i64 1
-  store ptr %2897, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2897, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2898 = getelementptr inbounds i8, ptr %.promoted99769980, i64 2
   %.not6478 = icmp ult ptr %2898, %51
   br i1 %.not6478, label %.lr.ph10067, label %.loopexit
@@ -8956,7 +8956,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2903:                                             ; preds = %2458
   %2904 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2904, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2904, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2905 = load i8, ptr %2904, align 1
   %2906 = and i8 %2905, -33
   %or.cond680 = icmp eq i8 %2906, 89
@@ -8964,14 +8964,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7002:                                   ; preds = %2903
   %2907 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %2907, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2907, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2908 = getelementptr inbounds i8, ptr %1014, i64 6
   %.not64639937 = icmp ult ptr %2908, %51
   br i1 %.not64639937, label %.lr.ph9938, label %.loopexit
 
 2909:                                             ; preds = %2462
   %2910 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2910, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2910, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2911 = load i8, ptr %2910, align 1
   %2912 = and i8 %2911, -33
   %or.cond683 = icmp eq i8 %2912, 82
@@ -8979,7 +8979,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2913:                                             ; preds = %2466
   %2914 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2914, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2914, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2915 = load i8, ptr %2914, align 1
   %2916 = and i8 %2915, -33
   %or.cond686 = icmp eq i8 %2916, 69
@@ -8987,7 +8987,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2917:                                             ; preds = %2470
   %2918 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2918, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2918, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2919 = load i8, ptr %2918, align 1
   %2920 = and i8 %2919, -33
   %or.cond689 = icmp eq i8 %2920, 76
@@ -8995,7 +8995,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2921:                                             ; preds = %2474
   %2922 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2922, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2923 = load i8, ptr %2922, align 1
   %2924 = and i8 %2923, -33
   %or.cond692 = icmp eq i8 %2924, 84
@@ -9004,7 +9004,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 2925:                                             ; preds = %2936, %4192, %2934
   %2926 = phi ptr [ %2932, %2936 ], [ %4193, %4192 ], [ %2932, %2934 ]
   %2927 = getelementptr inbounds i8, ptr %2926, i64 1
-  store ptr %2927, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2927, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2928 = getelementptr inbounds i8, ptr %2926, i64 2
   %.not6455 = icmp ult ptr %2928, %51
   br i1 %.not6455, label %2929, label %.loopexit
@@ -9031,17 +9031,17 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2937:                                             ; preds = %2936
   %2938 = getelementptr inbounds i8, ptr %2932, i64 1
-  store ptr %2938, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2938, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2939 = ptrtoint ptr %2938 to i64
   %2940 = ptrtoint ptr %.promoted103941316013175 to i64
   %2941 = sub i64 %2939, %2940
   %2942 = trunc i64 %2941 to i32
-  store i32 %2942, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %2942, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 2943:                                             ; preds = %2478
   %2944 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2944, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2944, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2945 = load i8, ptr %2944, align 1
   %2946 = and i8 %2945, -33
   %or.cond695 = icmp eq i8 %2946, 71
@@ -9049,7 +9049,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2947:                                             ; preds = %2482
   %2948 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2948, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2948, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2949 = load i8, ptr %2948, align 1
   %2950 = and i8 %2949, -33
   %or.cond698 = icmp eq i8 %2950, 67
@@ -9068,7 +9068,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7020:                                    ; preds = %2955, %2959
   %2957 = getelementptr inbounds i8, ptr %2952, i64 1
-  store ptr %2957, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2957, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2958 = getelementptr inbounds i8, ptr %2952, i64 2
   %.not6452 = icmp ult ptr %2958, %51
   br i1 %.not6452, label %.lr.ph9926, label %.loopexit
@@ -9081,7 +9081,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2960:                                             ; preds = %2492
   %2961 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2961, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2961, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2962 = load i8, ptr %2961, align 1
   %2963 = and i8 %2962, -33
   %or.cond701 = icmp eq i8 %2963, 78
@@ -9089,7 +9089,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2964:                                             ; preds = %2496
   %2965 = getelementptr inbounds i8, ptr %1014, i64 4
-  store ptr %2965, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2965, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2966 = load i8, ptr %2965, align 1
   %2967 = and i8 %2966, -33
   %or.cond704 = icmp eq i8 %2967, 84
@@ -9097,14 +9097,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7021:                                   ; preds = %2964
   %2968 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %2968, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2968, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2969 = getelementptr inbounds i8, ptr %1014, i64 6
   %.not64519922 = icmp ult ptr %2969, %51
   br i1 %.not64519922, label %.lr.ph9923, label %.loopexit
 
 2970:                                             ; preds = %2987, %2985, %2981
   %2971 = getelementptr inbounds i8, ptr %2975, i64 1
-  store ptr %2971, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2971, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2972 = getelementptr inbounds i8, ptr %2975, i64 4
   %.not6409 = icmp ult ptr %2972, %51
   br i1 %.not6409, label %2973, label %.loopexit
@@ -9146,7 +9146,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 2988:                                             ; preds = %3005, %3003, %2999
   %2989 = getelementptr inbounds i8, ptr %2993, i64 1
-  store ptr %2989, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %2990 = getelementptr inbounds i8, ptr %2993, i64 4
   %.not6408 = icmp ult ptr %2990, %51
   br i1 %.not6408, label %2991, label %.loopexit
@@ -9193,7 +9193,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .loopexit7209:                                    ; preds = %2523, %.loopexit7209.loopexit.split.loop.exit16793, %.loopexit7056
   %3007 = phi ptr [ %3152, %.loopexit7056 ], [ %3006, %.loopexit7209.loopexit.split.loop.exit16793 ], [ %2518, %2523 ]
   %3008 = getelementptr inbounds i8, ptr %3007, i64 1
-  store ptr %3008, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3008, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %3009
 
 3009:                                             ; preds = %.loopexit7056, %.loopexit7209
@@ -9202,15 +9202,15 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3012 = ptrtoint ptr %.promoted103941316013175 to i64
   %3013 = sub i64 %3011, %3012
   %3014 = trunc i64 %3013 to i32
-  store i32 %3014, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %3014, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %3015 = load i8, ptr %.promoted103941316013175, align 1
   %.not6410 = icmp ne i8 %3015, 60
   %3016 = tail call noalias ptr @_emalloc_24() #16
-  %3017 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %3017 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %3018 = add nsw i32 %3017, 1
-  store i32 %3018, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  %3019 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %3020 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i32 %3018, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %3019 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %3020 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3021 = add i32 %3019, -2
   %3022 = zext i32 %3021 to i64
   %3023 = getelementptr inbounds i8, ptr %3020, i64 %3022
@@ -9261,7 +9261,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3044 = phi i32 [ %3034, %3039 ], [ %3042, %.sink.split ]
   %storemerge6412 = phi i32 [ 4, %3039 ], [ %storemerge6412.ph, %.sink.split ]
   %.25356 = phi ptr [ %.05354, %3039 ], [ %3041, %.sink.split ]
-  store i32 %storemerge6412, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %storemerge6412, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %3045 = sext i32 %3044 to i64
   %3046 = tail call noalias ptr @_estrndup(ptr noundef nonnull %.25356, i64 noundef %3045) #16
   store ptr %3046, ptr %3016, align 8
@@ -9269,14 +9269,14 @@ strip_underscores.exit6706:                       ; preds = %1936
   store i8 0, ptr %3047, align 8
   %3048 = getelementptr inbounds i8, ptr %3016, i64 12
   store i32 0, ptr %3048, align 4
-  %3049 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  %3050 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
-  %3051 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 1), align 4
+  %3049 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %3050 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  %3051 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
   %.not6413 = icmp slt i32 %3050, %3051
   br i1 %.not6413, label %._crit_edge13107, label %.preheader6807
 
 ._crit_edge13107:                                 ; preds = %3043
-  %.pre13108 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  %.pre13108 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   br label %3068
 
 .preheader6807:                                   ; preds = %3043, %.preheader6807
@@ -9286,10 +9286,10 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %.not6414, label %3054, label %.preheader6807
 
 3054:                                             ; preds = %.preheader6807
-  store i32 %3053, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 1), align 4
-  %3055 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 4), align 8
+  store i32 %3053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
+  %3055 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 120), align 8
   %3056 = trunc i8 %3055 to i1
-  %3057 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
+  %3057 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
   %3058 = sext i32 %3053 to i64
   br i1 %3056, label %3059, label %3061
 
@@ -9303,8 +9303,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3063:                                             ; preds = %3061, %3059
   %3064 = phi ptr [ %3060, %3059 ], [ %3062, %3061 ]
-  store ptr %3064, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
-  %3065 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store ptr %3064, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %3065 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %3066 = sext i32 %3065 to i64
   %3067 = getelementptr inbounds ptr, ptr %3064, i64 %3066
   br label %3068
@@ -9313,13 +9313,13 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3069 = phi ptr [ %3067, %3063 ], [ %.pre13108, %._crit_edge13107 ]
   %3070 = phi i32 [ %3065, %3063 ], [ %3050, %._crit_edge13107 ]
   %3071 = add nsw i32 %3070, 1
-  store i32 %3071, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store i32 %3071, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %3072 = getelementptr inbounds i8, ptr %3069, i64 8
-  store ptr %3072, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  store ptr %3072, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   store ptr %3016, ptr %3069, align 8
-  %3073 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %3073 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %3074 = ptrtoint ptr %3073 to i64
-  %.promoted10330 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.promoted10330 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3075 = icmp ult ptr %.promoted10330, %3073
   br i1 %3075, label %.lr.ph10334.preheader, label %.critedge16
 
@@ -9345,7 +9345,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.15358.v = select i1 %3081, i32 2, i32 1
   %.15358 = or i32 %.15358.v, %.0535710332
   %3082 = getelementptr inbounds i8, ptr %3079, i64 1
-  store ptr %3082, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3083 = add nuw nsw i32 %.0535910331, 1
   %exitcond13065.not = icmp eq ptr %3082, %3073
   br i1 %exitcond13065.not, label %.critedge16.loopexit, label %.lr.ph10334
@@ -9365,7 +9365,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %3085, label %3086, label %3087
 
 3086:                                             ; preds = %.critedge16
-  store ptr %3049, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3049, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7123
 
 3087:                                             ; preds = %.critedge16
@@ -9407,28 +9407,28 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %.not5992, label %3107, label %.loopexit7123
 
 3107:                                             ; preds = %3104, %3103
-  store ptr %3049, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3049, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store i32 %.05359.lcssa, ptr %3048, align 4
-  store i32 9, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 3108:                                             ; preds = %3094, %3100, %3093, %3087
-  store ptr %3049, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3049, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %.not6418, label %3149, label %3109
 
 3109:                                             ; preds = %3108
-  %3110 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
+  %3110 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
   %3111 = trunc i8 %3110 to i1
   br i1 %3111, label %3149, label %3112
 
 3112:                                             ; preds = %3109
-  %3113 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  %3113 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   call void @zend_save_lexical_state(ptr noundef nonnull %20)
-  store i8 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 13), align 4
-  store i8 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 14), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %3114 = getelementptr inbounds i8, ptr %20, i64 80
   call void @zend_ptr_stack_reverse_apply(ptr noundef nonnull %3114, ptr noundef nonnull @copy_heredoc_label_stack) #16
   call void @zend_exception_save() #16
@@ -9461,7 +9461,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br label %3127
 
 3127:                                             ; preds = %3125, %3120, %3117
-  %3128 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %3128 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not6422 = icmp eq ptr %3128, null
   br i1 %.not6422, label %3130, label %3129
 
@@ -9498,7 +9498,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3137 = add i32 %.053637230, -395
   %3138 = icmp ult i32 %3137, 2
   %or.cond22 = or i1 %3136, %3138
-  %3139 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 13), align 4
+  %3139 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
   %3140 = icmp ne i32 %3139, 0
   %or.cond24 = select i1 %or.cond22, i1 %3140, i1 false
   br i1 %or.cond24, label %3141, label %3144
@@ -9506,19 +9506,19 @@ strip_underscores.exit6706:                       ; preds = %1936
 3141:                                             ; preds = %.loopexit6806
   %3142 = load ptr, ptr @zend_ce_parse_error, align 8
   %3143 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %3142, i64 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %3139) #16
-  %.pre13109 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 13), align 4
+  %.pre13109 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
   br label %3144
 
 3144:                                             ; preds = %.loopexit6806, %3141
   %3145 = phi i32 [ %3139, %.loopexit6806 ], [ %.pre13109, %3141 ]
   store i32 %3145, ptr %3048, align 4
-  %3146 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 14), align 8
+  %3146 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
   %3147 = and i8 %3146, 1
   store i8 %3147, ptr %3047, align 8
   call void @zend_restore_lexical_state(ptr noundef nonnull %20)
-  store i8 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
-  store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
-  store ptr %3113, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 19), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  store ptr %3113, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   %3148 = icmp ne ptr %1, null
   %or.cond26 = and i1 %3148, %or.cond24
   br i1 %or.cond26, label %.loopexit7123, label %3149
@@ -9533,15 +9533,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 .loopexit7056:                                    ; preds = %2525, %.loopexit7056.loopexit13346
   %3151 = phi ptr [ %3150, %.loopexit7056.loopexit13346 ], [ %2518, %2525 ]
   %3152 = getelementptr inbounds i8, ptr %3151, i64 1
-  store ptr %3152, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3152, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3153 = load i8, ptr %3152, align 1
   %3154 = icmp eq i8 %3153, 10
   br i1 %3154, label %.loopexit7209, label %3009
 
 3155:                                             ; preds = %2537
   %3156 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3156, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3156, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3156, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3156, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3157 = load i8, ptr %3156, align 1
   %3158 = and i8 %3157, -33
   %or.cond719 = icmp eq i8 %3158, 65
@@ -9549,8 +9549,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3159:                                             ; preds = %2541
   %3160 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3160, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3160, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3160, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3160, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3161 = load i8, ptr %3160, align 1
   %3162 = zext i8 %3161 to i64
   %3163 = or disjoint i64 %3162, 256
@@ -9565,7 +9565,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7204:                                    ; preds = %3166, %928
   %3168 = phi ptr [ %890, %928 ], [ %3160, %3166 ]
-  %3169 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3169 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3170 = ptrtoint ptr %3168 to i64
   %3171 = ptrtoint ptr %3169 to i64
   %3172 = sub i64 %3170, %3171
@@ -9574,8 +9574,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3174:                                             ; preds = %2545
   %3175 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3175, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3175, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3175, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3175, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3176 = load i8, ptr %3175, align 1
   %3177 = zext i8 %3176 to i64
   %3178 = or disjoint i64 %3177, 256
@@ -9590,7 +9590,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7203:                                    ; preds = %3181, %928
   %3183 = phi ptr [ %890, %928 ], [ %3175, %3181 ]
-  %3184 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3184 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3185 = ptrtoint ptr %3183 to i64
   %3186 = ptrtoint ptr %3184 to i64
   %3187 = sub i64 %3185, %3186
@@ -9599,8 +9599,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3189:                                             ; preds = %2549
   %3190 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3190, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3190, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3191 = load i8, ptr %3190, align 1
   %3192 = and i8 %3191, -33
   %or.cond722 = icmp eq i8 %3192, 66
@@ -9608,8 +9608,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3193:                                             ; preds = %2568
   %3194 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3194, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3194, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3195 = load i8, ptr %3194, align 1
   %3196 = zext i8 %3195 to i64
   %3197 = or disjoint i64 %3196, 256
@@ -9624,7 +9624,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7201:                                    ; preds = %3200, %933
   %3202 = phi ptr [ %890, %933 ], [ %3194, %3200 ]
-  %3203 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3203 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3204 = ptrtoint ptr %3202 to i64
   %3205 = ptrtoint ptr %3203 to i64
   %3206 = sub i64 %3204, %3205
@@ -9633,8 +9633,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3208:                                             ; preds = %2572
   %3209 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3209, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3209, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3210 = load i8, ptr %3209, align 1
   %3211 = zext i8 %3210 to i64
   %3212 = or disjoint i64 %3211, 256
@@ -9649,7 +9649,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7199:                                    ; preds = %3215, %933
   %3217 = phi ptr [ %890, %933 ], [ %3209, %3215 ]
-  %3218 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3218 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3219 = ptrtoint ptr %3217 to i64
   %3220 = ptrtoint ptr %3218 to i64
   %3221 = sub i64 %3219, %3220
@@ -9658,8 +9658,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3223:                                             ; preds = %2576
   %3224 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3224, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3224, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3224, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3224, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3225 = load i8, ptr %3224, align 1
   %3226 = zext i8 %3225 to i64
   %3227 = or disjoint i64 %3226, 256
@@ -9674,7 +9674,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7198:                                    ; preds = %3230, %933
   %3232 = phi ptr [ %890, %933 ], [ %3224, %3230 ]
-  %3233 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3233 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3234 = ptrtoint ptr %3232 to i64
   %3235 = ptrtoint ptr %3233 to i64
   %3236 = sub i64 %3234, %3235
@@ -9683,8 +9683,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3238:                                             ; preds = %2580
   %3239 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3239, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3239, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3239, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3239, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3240 = load i8, ptr %3239, align 1
   %3241 = zext i8 %3240 to i64
   %3242 = or disjoint i64 %3241, 256
@@ -9699,7 +9699,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7196:                                    ; preds = %3245, %934
   %3247 = phi ptr [ %890, %934 ], [ %3239, %3245 ]
-  %3248 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3248 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3249 = ptrtoint ptr %3247 to i64
   %3250 = ptrtoint ptr %3248 to i64
   %3251 = sub i64 %3249, %3250
@@ -9708,8 +9708,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3253:                                             ; preds = %2584
   %3254 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3254, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3254, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3254, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3254, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3255 = load i8, ptr %3254, align 1
   %3256 = and i8 %3255, -33
   %or.cond725 = icmp eq i8 %3256, 78
@@ -9717,8 +9717,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3257:                                             ; preds = %2588
   %3258 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3258, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3258, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3258, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3258, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3259 = load i8, ptr %3258, align 1
   %3260 = and i8 %3259, -33
   %or.cond728 = icmp eq i8 %3260, 82
@@ -9726,8 +9726,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3261:                                             ; preds = %2592
   %3262 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3262, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3262, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3262, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3262, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3263 = load i8, ptr %3262, align 1
   %3264 = and i8 %3263, -33
   %or.cond731 = icmp eq i8 %3264, 76
@@ -9735,8 +9735,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3265:                                             ; preds = %2631, %2620
   %3266 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3266, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3266, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3266, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3266, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3267 = load i8, ptr %3266, align 1
   %3268 = and i8 %3267, -33
   %or.cond734 = icmp eq i8 %3268, 70
@@ -9744,8 +9744,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3269:                                             ; preds = %2640
   %3270 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3270, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3270, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3270, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3270, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3271 = load i8, ptr %3270, align 1
   %3272 = zext i8 %3271 to i64
   %3273 = or disjoint i64 %3272, 256
@@ -9760,7 +9760,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7188:                                    ; preds = %3276, %934
   %3278 = phi ptr [ %890, %934 ], [ %3270, %3276 ]
-  %3279 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3279 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3280 = ptrtoint ptr %3278 to i64
   %3281 = ptrtoint ptr %3279 to i64
   %3282 = sub i64 %3280, %3281
@@ -9769,8 +9769,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3284:                                             ; preds = %2644
   %3285 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3285, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3285, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3285, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3285, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3286 = load i8, ptr %3285, align 1
   %3287 = and i8 %3286, -33
   %or.cond737 = icmp eq i8 %3287, 67
@@ -9778,8 +9778,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3288:                                             ; preds = %2648
   %3289 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3289, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3289, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3289, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3289, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3290 = load i8, ptr %3289, align 1
   %3291 = and i8 %3290, -33
   %or.cond740 = icmp eq i8 %3291, 82
@@ -9787,8 +9787,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3292:                                             ; preds = %2652
   %3293 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3293, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3293, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3293, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3293, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3294 = load i8, ptr %3293, align 1
   %3295 = zext i8 %3294 to i64
   %3296 = or disjoint i64 %3295, 256
@@ -9803,7 +9803,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7184:                                    ; preds = %3299, %934
   %3301 = phi ptr [ %890, %934 ], [ %3293, %3299 ]
-  %3302 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3302 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3303 = ptrtoint ptr %3301 to i64
   %3304 = ptrtoint ptr %3302 to i64
   %3305 = sub i64 %3303, %3304
@@ -9812,8 +9812,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3307:                                             ; preds = %2656
   %3308 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3308, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3308, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3308, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3308, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3309 = load i8, ptr %3308, align 1
   %3310 = and i8 %3309, -33
   %or.cond743 = icmp eq i8 %3310, 73
@@ -9821,8 +9821,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3311:                                             ; preds = %2660
   %3312 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3312, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3312, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3313 = load i8, ptr %3312, align 1
   %3314 = and i8 %3313, -33
   %or.cond746 = icmp eq i8 %3314, 73
@@ -9834,10 +9834,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7082:                                   ; preds = %4293, %.preheader7082.loopexit, %2670, %2672, %4305, %4353, %6098, %2676, %3889, %3889, %4292, %4304, %4319, %4319, %4337, %4337, %4751, %4751, %4767, %4767, %5088, %5088, %5103, %5103, %5387, %5387, %5402, %5402, %5637, %5637, %5652, %5652, %5878, %5878, %5893, %5893, %6097, %6109, %6109, %6227, %6227
   %.promoted9721 = phi ptr [ %6101, %6227 ], [ %5885, %6109 ], [ %5869, %6097 ], [ %5644, %5893 ], [ %5868, %5878 ], [ %5394, %5652 ], [ %5379, %5637 ], [ %5095, %5402 ], [ %5080, %5387 ], [ %4759, %5103 ], [ %4743, %5088 ], [ %4758, %4767 ], [ %4742, %4751 ], [ %4326, %4337 ], [ %4308, %4319 ], [ %4297, %4304 ], [ %3879, %4292 ], [ %3880, %3889 ], [ %2665, %2676 ], [ %2665, %2672 ], [ %6101, %6227 ], [ %5885, %6109 ], [ %5644, %5893 ], [ %5394, %5652 ], [ %5095, %5402 ], [ %4759, %5103 ], [ %4758, %4767 ], [ %4326, %4337 ], [ %5869, %6098 ], [ %5868, %5878 ], [ %5379, %5637 ], [ %5080, %5387 ], [ %4743, %5088 ], [ %4742, %4751 ], [ %4308, %4319 ], [ %4297, %4305 ], [ %4347, %4353 ], [ %3880, %3889 ], [ %2665, %2670 ], [ %3866, %.preheader7082.loopexit ], [ %3879, %4293 ]
   %.18.ph = phi i32 [ 53, %6227 ], [ 53, %6109 ], [ 93, %6097 ], [ 53, %5893 ], [ 53, %5878 ], [ 53, %5652 ], [ 53, %5637 ], [ 53, %5402 ], [ 53, %5387 ], [ 53, %5103 ], [ 53, %5088 ], [ 53, %4767 ], [ 53, %4751 ], [ 53, %4337 ], [ 53, %4319 ], [ 53, %4304 ], [ %.24.ph9887, %4292 ], [ %.24.ph9887, %3889 ], [ 4, %2676 ], [ 4, %2672 ], [ 53, %6227 ], [ 53, %6109 ], [ 53, %5893 ], [ 53, %5652 ], [ 53, %5402 ], [ 53, %5103 ], [ 53, %4767 ], [ 53, %4337 ], [ 93, %6098 ], [ 53, %5878 ], [ 53, %5637 ], [ 53, %5387 ], [ 53, %5088 ], [ 53, %4751 ], [ 53, %4319 ], [ 53, %4305 ], [ %.29.ph, %4353 ], [ %.24.ph9887, %3889 ], [ 4, %2670 ], [ %.23.ph, %.preheader7082.loopexit ], [ %.24.ph9887, %4293 ]
-  %3315 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %3315 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %3316 = getelementptr inbounds i8, ptr %3315, i64 32
   %3317 = getelementptr inbounds i8, ptr %.promoted9721, i64 1
-  store ptr %3317, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3317, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3318 = getelementptr inbounds i8, ptr %.promoted9721, i64 11
   %.not62409722 = icmp ult ptr %3318, %3316
   br i1 %.not62409722, label %.lr.ph9723, label %.loopexit
@@ -9864,7 +9864,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7085:                                    ; preds = %3327, %3331, %3331
   %3329 = getelementptr inbounds i8, ptr %3319, i64 1
-  store ptr %3329, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3329, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3330 = getelementptr inbounds i8, ptr %3319, i64 11
   %.not6240 = icmp ult ptr %3330, %3316
   br i1 %.not6240, label %.lr.ph9723, label %.loopexit
@@ -9932,7 +9932,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3356 = phi ptr [ %3319, %3334 ], [ %2665, %2676 ]
   %.19 = phi i32 [ %.18.ph, %3334 ], [ 4, %2676 ]
   %3357 = getelementptr inbounds i8, ptr %3356, i64 1
-  store ptr %3357, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3358 = getelementptr inbounds i8, ptr %3356, i64 2
   %3359 = getelementptr inbounds i8, ptr %3355, i64 32
   %.not6244 = icmp ult ptr %3358, %3359
@@ -9957,7 +9957,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7074:                                   ; preds = %3363, %3364
   %3365 = getelementptr inbounds i8, ptr %3356, i64 2
-  store ptr %3365, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3365, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3366 = getelementptr inbounds i8, ptr %3356, i64 3
   %.not624597259886 = icmp ult ptr %3366, %3359
   br i1 %.not624597259886, label %.lr.ph9726, label %.loopexit
@@ -9967,7 +9967,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3369 = phi ptr [ %3319, %3335 ], [ %2665, %2677 ]
   %.20 = phi i32 [ %.18.ph, %3335 ], [ 4, %2677 ]
   %3370 = getelementptr inbounds i8, ptr %3369, i64 1
-  store ptr %3370, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3370, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3371 = getelementptr inbounds i8, ptr %3369, i64 2
   %3372 = getelementptr inbounds i8, ptr %3368, i64 32
   %.not6242 = icmp ult ptr %3371, %3372
@@ -9982,8 +9982,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3375:                                             ; preds = %2709
   %3376 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3376, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3376, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3376, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3376, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3377 = load i8, ptr %3376, align 1
   %3378 = and i8 %3377, -33
   %or.cond758 = icmp eq i8 %3378, 68
@@ -9991,8 +9991,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3379:                                             ; preds = %2713
   %3380 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3380, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3380, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3381 = load i8, ptr %3380, align 1
   %3382 = icmp ult i8 %3381, 93
   br i1 %3382, label %3383, label %3394
@@ -10040,7 +10040,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7172:                                    ; preds = %3401, %3396, %3392, %3385, %937
   %3402 = phi ptr [ %890, %937 ], [ %3380, %3385 ], [ %3380, %3392 ], [ %3380, %3396 ], [ %3380, %3401 ]
-  %3403 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3403 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3404 = ptrtoint ptr %3402 to i64
   %3405 = ptrtoint ptr %3403 to i64
   %3406 = sub i64 %3404, %3405
@@ -10049,8 +10049,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3408:                                             ; preds = %2717
   %3409 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3410 = load i8, ptr %3409, align 1
   %3411 = and i8 %3410, -33
   %or.cond770 = icmp eq i8 %3411, 67
@@ -10058,8 +10058,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3412:                                             ; preds = %2721
   %3413 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3413, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3413, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3413, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3413, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3414 = load i8, ptr %3413, align 1
   %3415 = and i8 %3414, -33
   %or.cond773 = icmp eq i8 %3415, 73
@@ -10067,8 +10067,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3416:                                             ; preds = %2725
   %3417 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3417, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3417, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3417, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3417, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3418 = load i8, ptr %3417, align 1
   %3419 = and i8 %3418, -33
   %or.cond776 = icmp eq i8 %3419, 76
@@ -10076,8 +10076,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3420:                                             ; preds = %2744
   %3421 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3421, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3421, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3422 = load i8, ptr %3421, align 1
   %3423 = and i8 %3422, -33
   %or.cond779 = icmp eq i8 %3423, 77
@@ -10085,8 +10085,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3424:                                             ; preds = %2748
   %3425 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3425, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3425, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3425, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3425, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3426 = load i8, ptr %3425, align 1
   %3427 = and i8 %3426, -33
   %or.cond782 = icmp eq i8 %3427, 68
@@ -10094,8 +10094,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3428:                                             ; preds = %2756, %2759
   %3429 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3429, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3429, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3429, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3429, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3430 = load i8, ptr %3429, align 1
   %3431 = and i8 %3430, -33
   %or.cond785 = icmp eq i8 %3431, 78
@@ -10103,8 +10103,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3432:                                             ; preds = %2756, %2760
   %3433 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3433, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3433, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3433, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3433, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3434 = load i8, ptr %3433, align 1
   %3435 = and i8 %3434, -33
   %or.cond788 = icmp eq i8 %3435, 65
@@ -10112,8 +10112,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3436:                                             ; preds = %2762
   %3437 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3437, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3437, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3437, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3437, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3438 = load i8, ptr %3437, align 1
   %3439 = and i8 %3438, -33
   %or.cond791 = icmp eq i8 %3439, 70
@@ -10121,8 +10121,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3440:                                             ; preds = %2766
   %3441 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3441, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3441, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3441, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3441, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3442 = load i8, ptr %3441, align 1
   %3443 = zext i8 %3442 to i64
   %3444 = or disjoint i64 %3443, 256
@@ -10137,7 +10137,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7158:                                    ; preds = %3447, %937
   %3449 = phi ptr [ %890, %937 ], [ %3441, %3447 ]
-  %3450 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3450 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3451 = ptrtoint ptr %3449 to i64
   %3452 = ptrtoint ptr %3450 to i64
   %3453 = sub i64 %3451, %3452
@@ -10146,8 +10146,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3455:                                             ; preds = %2785
   %3456 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3456, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3456, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3456, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3456, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3457 = load i8, ptr %3456, align 1
   %3458 = zext i8 %3457 to i64
   %3459 = or disjoint i64 %3458, 256
@@ -10162,7 +10162,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7156:                                    ; preds = %3462, %937
   %3464 = phi ptr [ %890, %937 ], [ %3456, %3462 ]
-  %3465 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3465 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3466 = ptrtoint ptr %3464 to i64
   %3467 = ptrtoint ptr %3465 to i64
   %3468 = sub i64 %3466, %3467
@@ -10171,8 +10171,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3470:                                             ; preds = %2789
   %3471 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3471, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3471, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3472 = load i8, ptr %3471, align 1
   %3473 = and i8 %3472, -33
   %or.cond794 = icmp eq i8 %3473, 80
@@ -10180,8 +10180,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3474:                                             ; preds = %2793
   %3475 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3475, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3475, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3475, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3475, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3476 = load i8, ptr %3475, align 1
   %3477 = zext i8 %3476 to i64
   %3478 = or disjoint i64 %3477, 256
@@ -10196,7 +10196,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7153:                                    ; preds = %3481, %938
   %3483 = phi ptr [ %890, %938 ], [ %3475, %3481 ]
-  %3484 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3484 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3485 = ptrtoint ptr %3483 to i64
   %3486 = ptrtoint ptr %3484 to i64
   %3487 = sub i64 %3485, %3486
@@ -10205,8 +10205,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3489:                                             ; preds = %2797
   %3490 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3490, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3490, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3491 = load i8, ptr %3490, align 1
   %3492 = and i8 %3491, -33
   %or.cond797 = icmp eq i8 %3492, 84
@@ -10214,8 +10214,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3493:                                             ; preds = %2801
   %3494 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3494, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3494, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3494, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3494, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3495 = load i8, ptr %3494, align 1
   %3496 = and i8 %3495, -33
   %or.cond800 = icmp eq i8 %3496, 67
@@ -10223,8 +10223,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3497:                                             ; preds = %2805
   %3498 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3498, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3498, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3498, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3498, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3499 = load i8, ptr %3498, align 1
   %3500 = and i8 %3499, -33
   %or.cond803 = icmp eq i8 %3500, 67
@@ -10232,8 +10232,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3501:                                             ; preds = %2809
   %3502 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3502, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3502, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3502, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3502, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3503 = load i8, ptr %3502, align 1
   %3504 = and i8 %3503, -33
   %or.cond806 = icmp eq i8 %3504, 78
@@ -10241,8 +10241,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3505:                                             ; preds = %2813
   %3506 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3506, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3506, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3506, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3506, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3507 = load i8, ptr %3506, align 1
   %3508 = and i8 %3507, -33
   %or.cond809 = icmp eq i8 %3508, 82
@@ -10250,8 +10250,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3509:                                             ; preds = %2817
   %3510 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3510, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3510, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3511 = load i8, ptr %3510, align 1
   %3512 = and i8 %3511, -33
   %or.cond812 = icmp eq i8 %3512, 78
@@ -10259,8 +10259,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3513:                                             ; preds = %2821
   %3514 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3514, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3514, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3514, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3514, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3515 = load i8, ptr %3514, align 1
   %3516 = and i8 %3515, -33
   %or.cond815 = icmp eq i8 %3516, 67
@@ -10268,8 +10268,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3517:                                             ; preds = %2825
   %3518 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3518, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3518, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3518, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3518, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3519 = load i8, ptr %3518, align 1
   %3520 = and i8 %3519, -33
   %or.cond818 = icmp eq i8 %3520, 72
@@ -10277,8 +10277,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3521:                                             ; preds = %2829
   %3522 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3522, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3522, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3522, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3522, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3523 = load i8, ptr %3522, align 1
   %3524 = zext i8 %3523 to i64
   %3525 = or disjoint i64 %3524, 256
@@ -10293,7 +10293,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7143:                                    ; preds = %3528, %938
   %3530 = phi ptr [ %890, %938 ], [ %3522, %3528 ]
-  %3531 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3531 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3532 = ptrtoint ptr %3530 to i64
   %3533 = ptrtoint ptr %3531 to i64
   %3534 = sub i64 %3532, %3533
@@ -10302,8 +10302,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3536:                                             ; preds = %2833
   %3537 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3537, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3537, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3537, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3537, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3538 = load i8, ptr %3537, align 1
   %3539 = zext i8 %3538 to i64
   %3540 = or disjoint i64 %3539, 256
@@ -10318,7 +10318,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7142:                                    ; preds = %3543, %938
   %3545 = phi ptr [ %890, %938 ], [ %3537, %3543 ]
-  %3546 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3546 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3547 = ptrtoint ptr %3545 to i64
   %3548 = ptrtoint ptr %3546 to i64
   %3549 = sub i64 %3547, %3548
@@ -10327,8 +10327,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3551:                                             ; preds = %2837
   %3552 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3552, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3552, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3552, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3552, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3553 = load i8, ptr %3552, align 1
   %3554 = zext i8 %3553 to i64
   %3555 = or disjoint i64 %3554, 256
@@ -10352,8 +10352,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3566:                                             ; preds = %2841
   %3567 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3567, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3567, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3567, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3567, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3568 = load i8, ptr %3567, align 1
   %3569 = zext i8 %3568 to i64
   %3570 = or disjoint i64 %3569, 256
@@ -10377,8 +10377,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3581:                                             ; preds = %2845
   %3582 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3582, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3582, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3582, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3582, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3583 = load i8, ptr %3582, align 1
   %3584 = zext i8 %3583 to i64
   %3585 = or disjoint i64 %3584, 256
@@ -10423,7 +10423,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader6991:                                   ; preds = %674, %1330, %1413, %1468, %1499, %1556, %2019, %2113, %2169, %2236, %2297, %2316, %2331, %2350, %2560, %2603, %2624, %2686, %2701, %2736, %2777, %3166, %3181, %3200, %3215, %3230, %3245, %3276, %3299, %3392, %3447, %3462, %3481, %3528, %3543, %3558, %3573, %3808, %3833, %3943, %3990, %4013, %4028, %4043, %4229, %4244, %4362, %4377, %4392, %4418, %4454, %4480, %4560, %4663, %4678, %4693, %4720, %4780, %4823, %4895, %4918, %5003, %5128, %5143, %5174, %5217, %5248, %5293, %5308, %5415, %5434, %5549, %5906, %5921, %6008, %6164, %6371, %3599
   %.promoted10206 = phi ptr [ %3582, %3599 ], [ %1324, %1330 ], [ %3160, %3166 ], [ %2013, %2019 ], [ %4657, %4663 ], [ %3175, %3181 ], [ %4687, %4693 ], [ %3239, %3245 ], [ %3224, %3230 ], [ %3209, %3215 ], [ %3194, %3200 ], [ %2554, %2560 ], [ %4672, %4678 ], [ %1407, %1413 ], [ %2107, %2113 ], [ %4238, %4244 ], [ %4223, %4229 ], [ %2597, %2603 ], [ %2612, %2624 ], [ %3802, %3808 ], [ %3270, %3276 ], [ %5287, %5293 ], [ %3821, %3833 ], [ %5302, %5308 ], [ %3293, %3299 ], [ %4997, %5003 ], [ %4714, %4720 ], [ %2680, %2686 ], [ %4356, %4362 ], [ %2695, %2701 ], [ %4774, %4780 ], [ %2157, %2169 ], [ %4386, %4392 ], [ %1462, %1468 ], [ %3380, %3392 ], [ %4371, %4377 ], [ %2730, %2736 ], [ %3937, %3943 ], [ %3441, %3447 ], [ %5137, %5143 ], [ %5122, %5128 ], [ %5428, %5434 ], [ %5900, %5906 ], [ %4409, %4418 ], [ %5409, %5415 ], [ %1493, %1499 ], [ %2771, %2777 ], [ %3456, %3462 ], [ %2230, %2236 ], [ %1550, %1556 ], [ %3984, %3990 ], [ %5168, %5174 ], [ %4448, %4454 ], [ %3475, %3481 ], [ %4007, %4013 ], [ %5915, %5921 ], [ %4471, %4480 ], [ %4817, %4823 ], [ %4037, %4043 ], [ %4022, %4028 ], [ %2291, %2297 ], [ %3537, %3543 ], [ %3522, %3528 ], [ %2310, %2316 ], [ %3552, %3558 ], [ %2325, %2331 ], [ %3567, %3573 ], [ %2344, %2350 ], [ %5211, %5217 ], [ %4554, %4560 ], [ %6002, %6008 ], [ %4889, %4895 ], [ %6365, %6371 ], [ %4912, %4918 ], [ %5543, %5549 ], [ %6158, %6164 ], [ %5242, %5248 ], [ %.promoted10206.pre, %674 ]
   %.10.ph = phi i32 [ 50, %3599 ], [ 8, %1330 ], [ 34, %3166 ], [ 17, %2019 ], [ 68, %4663 ], [ 35, %3181 ], [ 70, %4693 ], [ 39, %3245 ], [ 38, %3230 ], [ 37, %3215 ], [ 36, %3200 ], [ 27, %2560 ], [ 69, %4678 ], [ 9, %1413 ], [ 19, %2113 ], [ 60, %4244 ], [ 59, %4229 ], [ 28, %2603 ], [ 29, %2624 ], [ 51, %3808 ], [ 40, %3276 ], [ 83, %5293 ], [ 52, %3833 ], [ 84, %5308 ], [ 41, %3299 ], [ 76, %5003 ], [ 71, %4720 ], [ 30, %2686 ], [ 61, %4362 ], [ 31, %2701 ], [ 72, %4780 ], [ 20, %2169 ], [ 63, %4392 ], [ 10, %1468 ], [ 42, %3392 ], [ 62, %4377 ], [ 32, %2736 ], [ 54, %3943 ], [ 43, %3447 ], [ 78, %5143 ], [ 77, %5128 ], [ 86, %5434 ], [ 89, %5906 ], [ 64, %4418 ], [ 85, %5415 ], [ 11, %1499 ], [ 33, %2777 ], [ 44, %3462 ], [ 21, %2236 ], [ 12, %1556 ], [ 55, %3990 ], [ 80, %5174 ], [ 65, %4454 ], [ 45, %3481 ], [ 56, %4013 ], [ 90, %5921 ], [ 66, %4480 ], [ 73, %4823 ], [ 58, %4043 ], [ 57, %4028 ], [ 22, %2297 ], [ 47, %3543 ], [ 46, %3528 ], [ 23, %2316 ], [ 48, %3558 ], [ 24, %2331 ], [ 49, %3573 ], [ 25, %2350 ], [ 81, %5217 ], [ 67, %4560 ], [ 92, %6008 ], [ 74, %4895 ], [ 95, %6371 ], [ 75, %4918 ], [ 87, %5549 ], [ 94, %6164 ], [ 82, %5248 ], [ 4, %674 ]
-  %3600 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %3600 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %3601 = getelementptr inbounds i8, ptr %3600, i64 32
   br label %1338
 
@@ -10438,8 +10438,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3608:                                             ; preds = %2849
   %3609 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3609, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3609, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3609, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3609, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3610 = load i8, ptr %3609, align 1
   %3611 = and i8 %3610, -33
   %or.cond827 = icmp eq i8 %3611, 83
@@ -10447,16 +10447,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3612:                                             ; preds = %2853
   %3613 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3613, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3613, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3613, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3613, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3614 = load i8, ptr %3613, align 1
   %3615 = icmp eq i8 %3614, 95
   br i1 %3615, label %4093, label %669
 
 3616:                                             ; preds = %2857
   %3617 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3617, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3617, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3617, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3617, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3618 = load i8, ptr %3617, align 1
   %3619 = and i8 %3618, -33
   %or.cond830 = icmp eq i8 %3619, 69
@@ -10464,8 +10464,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3620:                                             ; preds = %2861
   %3621 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3621, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3621, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3621, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3621, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3622 = load i8, ptr %3621, align 1
   %3623 = and i8 %3622, -33
   %or.cond833 = icmp eq i8 %3623, 67
@@ -10473,8 +10473,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3624:                                             ; preds = %2865
   %3625 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3625, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3625, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3625, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3625, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3626 = load i8, ptr %3625, align 1
   %3627 = and i8 %3626, -33
   %or.cond836 = icmp eq i8 %3627, 84
@@ -10482,8 +10482,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3628:                                             ; preds = %2869
   %3629 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3629, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3629, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3629, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3629, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3630 = load i8, ptr %3629, align 1
   %3631 = and i8 %3630, -33
   %or.cond839 = icmp eq i8 %3631, 69
@@ -10491,8 +10491,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3632:                                             ; preds = %2873
   %3633 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3633, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3633, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3633, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3633, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3634 = load i8, ptr %3633, align 1
   %3635 = and i8 %3634, -33
   %or.cond842 = icmp eq i8 %3635, 72
@@ -10500,8 +10500,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3636:                                             ; preds = %2877
   %3637 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3637, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3637, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3637, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3637, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3638 = load i8, ptr %3637, align 1
   %3639 = and i8 %3638, -33
   %or.cond845 = icmp eq i8 %3639, 69
@@ -10509,8 +10509,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3640:                                             ; preds = %2881
   %3641 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 5
-  store ptr %3641, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3641, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3641, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3641, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3642 = load i8, ptr %3641, align 1
   %3643 = and i8 %3642, -33
   %or.cond848 = icmp eq i8 %3643, 73
@@ -10549,7 +10549,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %3660 = phi ptr [ %3645, %3658 ], [ %3645, %3663 ], [ %4951, %4960 ], [ %4596, %4971 ], [ %4963, %5265 ], [ %4978, %5280 ], [ %3645, %3663 ], [ %4162, %4645 ], [ %4596, %4971 ], [ %4963, %5265 ], [ %4978, %5280 ], [ %4597, %4607 ], [ %4596, %4986 ], [ %4597, %4611 ]
   %.21.be = phi i32 [ %.219968, %3658 ], [ %.219968, %3663 ], [ 26, %4960 ], [ %.219968, %4971 ], [ %.219968, %5265 ], [ %.219968, %5280 ], [ %.219968, %3663 ], [ %.219968, %4645 ], [ %.219968, %4971 ], [ %.219968, %5265 ], [ %.219968, %5280 ], [ %.219968, %4607 ], [ %.219968, %4986 ], [ %.219968, %4611 ]
   %3661 = getelementptr inbounds i8, ptr %3660, i64 1
-  store ptr %3661, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3661, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3662 = getelementptr inbounds i8, ptr %3660, i64 2
   %.not6480 = icmp ult ptr %3662, %51
   br i1 %.not6480, label %.lr.ph9969, label %.loopexit
@@ -10592,7 +10592,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 3675:                                             ; preds = %.preheader6883, %3691
   %3676 = phi ptr [ %.promoted99769978, %.preheader6883 ], [ %3677, %3691 ]
   %3677 = getelementptr inbounds i8, ptr %3676, i64 1
-  store ptr %3677, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3677, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3678 = getelementptr inbounds i8, ptr %3676, i64 2
   %.not6508 = icmp ult ptr %3678, %51
   br i1 %.not6508, label %3679, label %.loopexit
@@ -10620,7 +10620,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted99769979 = phi ptr [ %3677, %3686 ], [ %3677, %3686 ], [ %2892, %2901 ]
   %.21.ph = phi i32 [ %.22.ph, %3686 ], [ %.22.ph, %3686 ], [ %.1710066, %2901 ]
   %3687 = getelementptr inbounds i8, ptr %.promoted99769979, i64 1
-  store ptr %3687, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3688 = getelementptr inbounds i8, ptr %.promoted99769979, i64 2
   %.not64809967 = icmp ult ptr %3688, %51
   br i1 %.not64809967, label %.lr.ph9969, label %.loopexit
@@ -10650,7 +10650,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7004:                                    ; preds = %3698, %3702
   %3700 = getelementptr inbounds i8, ptr %3695, i64 1
-  store ptr %3700, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3700, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3701 = getelementptr inbounds i8, ptr %3695, i64 2
   %.not6463 = icmp ult ptr %3701, %51
   br i1 %.not6463, label %.lr.ph9938, label %.loopexit
@@ -10663,7 +10663,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3703:                                             ; preds = %2909
   %3704 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3704, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3704, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3705 = load i8, ptr %3704, align 1
   %3706 = and i8 %3705, -33
   %or.cond857 = icmp eq i8 %3706, 89
@@ -10672,7 +10672,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 3707:                                             ; preds = %3718, %4183, %3716
   %3708 = phi ptr [ %3714, %3718 ], [ %4184, %4183 ], [ %3714, %3716 ]
   %3709 = getelementptr inbounds i8, ptr %3708, i64 1
-  store ptr %3709, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3709, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3710 = getelementptr inbounds i8, ptr %3708, i64 2
   %.not6460 = icmp ult ptr %3710, %51
   br i1 %.not6460, label %3711, label %.loopexit
@@ -10699,17 +10699,17 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3719:                                             ; preds = %3718
   %3720 = getelementptr inbounds i8, ptr %3714, i64 1
-  store ptr %3720, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3721 = ptrtoint ptr %3720 to i64
   %3722 = ptrtoint ptr %.promoted103941316013175 to i64
   %3723 = sub i64 %3721, %3722
   %3724 = trunc i64 %3723 to i32
-  store i32 %3724, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %3724, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 3725:                                             ; preds = %2913
   %3726 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3726, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3727 = load i8, ptr %3726, align 1
   %3728 = and i8 %3727, -33
   %or.cond860 = icmp eq i8 %3728, 65
@@ -10717,7 +10717,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3729:                                             ; preds = %2917
   %3730 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3730, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3731 = load i8, ptr %3730, align 1
   %3732 = and i8 %3731, -33
   %or.cond863.not = icmp eq i8 %3732, 69
@@ -10726,7 +10726,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7009:                                   ; preds = %2921, %3729
   %.promoted9930 = phi ptr [ %2922, %2921 ], [ %3730, %3729 ]
   %3733 = getelementptr inbounds i8, ptr %.promoted9930, i64 1
-  store ptr %3733, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3733, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3734 = getelementptr inbounds i8, ptr %.promoted9930, i64 2
   %.not64579931 = icmp ult ptr %3734, %51
   br i1 %.not64579931, label %.lr.ph9932, label %.loopexit
@@ -10744,7 +10744,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7012:                                    ; preds = %3739, %3743
   %3741 = getelementptr inbounds i8, ptr %3736, i64 1
-  store ptr %3741, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3741, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3742 = getelementptr inbounds i8, ptr %3736, i64 2
   %.not6457 = icmp ult ptr %3742, %51
   br i1 %.not6457, label %.lr.ph9932, label %.loopexit
@@ -10757,7 +10757,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3744:                                             ; preds = %2943
   %3745 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3745, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3745, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3746 = load i8, ptr %3745, align 1
   %3747 = and i8 %3746, -33
   %or.cond866 = icmp eq i8 %3747, 69
@@ -10765,7 +10765,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3748:                                             ; preds = %2947
   %3749 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3749, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3750 = load i8, ptr %3749, align 1
   %3751 = and i8 %3750, -33
   %or.cond869 = icmp eq i8 %3751, 84
@@ -10773,18 +10773,18 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7013:                                   ; preds = %3748
   %3752 = getelementptr inbounds i8, ptr %1014, i64 6
-  store ptr %3752, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3752, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3753 = getelementptr inbounds i8, ptr %1014, i64 7
   %.not64549928 = icmp ult ptr %3753, %51
   br i1 %.not64549928, label %.lr.ph9929, label %.loopexit
 
 3754:                                             ; preds = %2959
-  store ptr %2951, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %2951, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3755 = ptrtoint ptr %2951 to i64
   %3756 = ptrtoint ptr %.promoted103941316013175 to i64
   %3757 = sub i64 %3755, %3756
   %3758 = trunc i64 %3757 to i32
-  store i32 %3758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %3758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %.not5992, label %.loopexit7123, label %3759
 
 3759:                                             ; preds = %3754
@@ -10794,7 +10794,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3762:                                             ; preds = %2960
   %3763 = getelementptr inbounds i8, ptr %1014, i64 5
-  store ptr %3763, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3763, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3764 = load i8, ptr %3763, align 1
   %3765 = and i8 %3764, -33
   %or.cond872 = icmp eq i8 %3765, 71
@@ -10802,7 +10802,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader7005:                                   ; preds = %3703, %3762
   %3766 = getelementptr inbounds i8, ptr %1014, i64 6
-  store ptr %3766, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3766, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3767 = getelementptr inbounds i8, ptr %1014, i64 7
   %.not64629934 = icmp ult ptr %3767, %51
   br i1 %.not64629934, label %.lr.ph9935, label %.loopexit
@@ -10820,7 +10820,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7024:                                    ; preds = %3772, %3776
   %3774 = getelementptr inbounds i8, ptr %3769, i64 1
-  store ptr %3774, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3774, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3775 = getelementptr inbounds i8, ptr %3769, i64 2
   %.not6451 = icmp ult ptr %3775, %51
   br i1 %.not6451, label %.lr.ph9923, label %.loopexit
@@ -10834,7 +10834,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 3777:                                             ; preds = %2997, %2979
   %3778 = phi ptr [ %2993, %2997 ], [ %2975, %2979 ]
   %3779 = getelementptr inbounds i8, ptr %3778, i64 1
-  store ptr %3779, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3779, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3780 = load i8, ptr %3779, align 1
   switch i8 %3780, label %.thread6762 [
     i8 10, label %.loopexit7209.loopexit.split.loop.exit16793
@@ -10843,8 +10843,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3781:                                             ; preds = %3155
   %3782 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3782, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3782, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3782, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3782, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3783 = load i8, ptr %3782, align 1
   %3784 = and i8 %3783, -33
   %or.cond875 = icmp eq i8 %3784, 67
@@ -10852,8 +10852,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3785:                                             ; preds = %3189
   %3786 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3787 = load i8, ptr %3786, align 1
   %3788 = and i8 %3787, -33
   %or.cond878 = icmp eq i8 %3788, 76
@@ -10861,8 +10861,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3789:                                             ; preds = %3253
   %3790 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3790, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3790, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3791 = load i8, ptr %3790, align 1
   %3792 = and i8 %3791, -33
   %or.cond881 = icmp eq i8 %3792, 85
@@ -10870,8 +10870,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3793:                                             ; preds = %3257
   %3794 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3794, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3795 = load i8, ptr %3794, align 1
   %3796 = and i8 %3795, -33
   %or.cond884 = icmp eq i8 %3796, 69
@@ -10879,8 +10879,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3797:                                             ; preds = %3261
   %3798 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3798, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3798, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3799 = load i8, ptr %3798, align 1
   %3800 = and i8 %3799, -33
   %or.cond887 = icmp eq i8 %3800, 84
@@ -10888,8 +10888,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3801:                                             ; preds = %3265
   %3802 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3802, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3802, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3803 = load i8, ptr %3802, align 1
   %3804 = zext i8 %3803 to i64
   %3805 = or disjoint i64 %3804, 256
@@ -10904,7 +10904,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7190:                                    ; preds = %3808, %948
   %3810 = phi ptr [ %939, %948 ], [ %3802, %3808 ]
-  %3811 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3811 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3812 = ptrtoint ptr %3810 to i64
   %3813 = ptrtoint ptr %3811 to i64
   %3814 = sub i64 %3812, %3813
@@ -10913,8 +10913,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3816:                                             ; preds = %3284
   %3817 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3817, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3817, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3817, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3817, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3818 = load i8, ptr %3817, align 1
   %3819 = and i8 %3818, -33
   %or.cond890 = icmp eq i8 %3819, 76
@@ -10922,8 +10922,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3820:                                             ; preds = %3288
   %3821 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3821, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3821, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3821, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3821, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3822 = load i8, ptr %3821, align 1
   %3823 = icmp ult i8 %3822, 93
   br i1 %3823, label %3824, label %3835
@@ -10980,8 +10980,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3849:                                             ; preds = %3307
   %3850 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3851 = load i8, ptr %3850, align 1
   %3852 = and i8 %3851, -33
   %or.cond902 = icmp eq i8 %3852, 84
@@ -10989,23 +10989,23 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3853:                                             ; preds = %3311
   %3854 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3854, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3854, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3855 = load i8, ptr %3854, align 1
   %3856 = and i8 %3855, -33
   %or.cond905 = icmp eq i8 %3856, 76
   br i1 %or.cond905, label %4264, label %669
 
 .loopexit6931:                                    ; preds = %5375, %5364, %5354, %4304, %4335, %4317, %3346, %3354, %5841, %5825, %5815, %3339, %3344, %3350, %948, %.loopexit7177, %3859
-  %3857 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3857 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3858 = getelementptr inbounds i8, ptr %3857, i64 4
-  store ptr %3858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6799.sink.split
 
 3859:                                             ; preds = %3350, %3339
   %3860 = getelementptr inbounds i8, ptr %3320, i64 2
-  store ptr %3860, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3860, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3861 = load i8, ptr %3860, align 1
   %3862 = and i8 %3861, -33
   %or.cond908 = icmp eq i8 %3862, 88
@@ -11013,8 +11013,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7177:                                    ; preds = %3352, %3344
   %3863 = getelementptr inbounds i8, ptr %3320, i64 2
-  store ptr %3863, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3863, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3863, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3863, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3864 = load i8, ptr %3863, align 1
   %3865 = and i8 %3864, -33
   %or.cond911 = icmp eq i8 %3865, 77
@@ -11038,13 +11038,13 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7066:                                    ; preds = %3870, %3869
   %3872 = getelementptr inbounds i8, ptr %3866, i64 1
-  store ptr %3872, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3872, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3873 = getelementptr inbounds i8, ptr %3866, i64 2
   %.not6364 = icmp ult ptr %3873, %6229
   br i1 %.not6364, label %.lr.ph9892, label %.loopexit
 
 .loopexit6972:                                    ; preds = %5077
-  store ptr %5061, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5061, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3874 = getelementptr inbounds i8, ptr %5059, i64 3
   %.not62459725 = icmp ult ptr %3874, %3359
   br i1 %.not62459725, label %.lr.ph9726, label %.loopexit
@@ -11148,14 +11148,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7071:                                   ; preds = %4352, %.preheader7071.loopexit20706, %.preheader7071.loopexit, %4353, %5049, %5057, %5365, %5376, %5618, %5626, %5855, %5863, %6082, %6090, %6208, %6216, %6327, %6335, %6419, %6479, %3373, %5054, %5354, %5364, %5375, %5609, %5617, %5625, %5854, %5862, %6081, %6089, %6207, %6215, %6326, %6334, %6411, %6418, %6478
   %.promoted9888 = phi ptr [ %6414, %6478 ], [ %6330, %6418 ], [ %6321, %6411 ], [ %6211, %6334 ], [ %6320, %6326 ], [ %6085, %6215 ], [ %6077, %6207 ], [ %5858, %6089 ], [ %5850, %6081 ], [ %5621, %5862 ], [ %5613, %5854 ], [ %5369, %5625 ], [ %5358, %5617 ], [ %5342, %5609 ], [ %5368, %5375 ], [ %5357, %5364 ], [ %5350, %5354 ], [ %3370, %3373 ], [ %5020, %5057 ], [ %5020, %5054 ], [ %5020, %5049 ], [ %5368, %5376 ], [ %5369, %5626 ], [ %5621, %5863 ], [ %5858, %6090 ], [ %6085, %6216 ], [ %6211, %6335 ], [ %6330, %6419 ], [ %6414, %6479 ], [ %5357, %5365 ], [ %5358, %5618 ], [ %5613, %5855 ], [ %5850, %6082 ], [ %6077, %6208 ], [ %6320, %6327 ], [ %4347, %4353 ], [ %.promoted9888.ph, %.preheader7071.loopexit ], [ %5019, %.preheader7071.loopexit20706 ], [ %4347, %4352 ]
   %.25.ph = phi i32 [ 53, %6478 ], [ 53, %6418 ], [ 93, %6411 ], [ 53, %6334 ], [ 53, %6326 ], [ 53, %6215 ], [ 53, %6207 ], [ 53, %6089 ], [ 53, %6081 ], [ 53, %5862 ], [ 53, %5854 ], [ 53, %5625 ], [ 53, %5617 ], [ %.369768, %5609 ], [ 53, %5375 ], [ 53, %5364 ], [ 53, %5354 ], [ %.20, %3373 ], [ %.369768, %5057 ], [ %.369768, %5054 ], [ %.369768, %5049 ], [ 53, %5376 ], [ 53, %5626 ], [ 53, %5863 ], [ 53, %6090 ], [ 53, %6216 ], [ 53, %6335 ], [ 53, %6419 ], [ 53, %6479 ], [ 53, %5365 ], [ 53, %5618 ], [ 53, %5855 ], [ 53, %6082 ], [ 53, %6208 ], [ 53, %6327 ], [ %.29.ph, %4353 ], [ %.369768, %.preheader7071.loopexit ], [ %.369768, %.preheader7071.loopexit20706 ], [ %.29.ph, %4352 ]
-  %3912 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %3912 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %3913 = getelementptr inbounds i8, ptr %3912, i64 32
   br label %3914
 
 3914:                                             ; preds = %.preheader7071, %3918
   %3915 = phi ptr [ %.promoted9888, %.preheader7071 ], [ %3916, %3918 ]
   %3916 = getelementptr inbounds i8, ptr %3915, i64 1
-  store ptr %3916, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3916, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %3917 = getelementptr inbounds i8, ptr %3915, i64 2
   %.not6357 = icmp ult ptr %3917, %3913
   br i1 %.not6357, label %3918, label %.loopexit
@@ -11169,8 +11169,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3920:                                             ; preds = %3375
   %3921 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3921, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3921, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3921, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3921, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3922 = load i8, ptr %3921, align 1
   %3923 = and i8 %3922, -33
   %or.cond923 = icmp eq i8 %3923, 83
@@ -11178,8 +11178,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3924:                                             ; preds = %3399, %3388
   %3925 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3925, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3925, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3925, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3925, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3926 = load i8, ptr %3925, align 1
   %3927 = and i8 %3926, -33
   %or.cond926 = icmp eq i8 %3927, 89
@@ -11187,8 +11187,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3928:                                             ; preds = %3408
   %3929 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3929, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3929, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3929, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3929, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3930 = load i8, ptr %3929, align 1
   %3931 = and i8 %3930, -33
   %or.cond929 = icmp eq i8 %3931, 72
@@ -11196,8 +11196,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3932:                                             ; preds = %3412
   %3933 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3933, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3933, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3933, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3933, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3934 = load i8, ptr %3933, align 1
   %3935 = and i8 %3934, -33
   %or.cond932 = icmp eq i8 %3935, 79
@@ -11205,8 +11205,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3936:                                             ; preds = %3416
   %3937 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3937, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3937, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3937, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3937, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3938 = load i8, ptr %3937, align 1
   %3939 = zext i8 %3938 to i64
   %3940 = or disjoint i64 %3939, 256
@@ -11221,7 +11221,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7167:                                    ; preds = %3943, %951
   %3945 = phi ptr [ %939, %951 ], [ %3937, %3943 ]
-  %3946 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3946 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3947 = ptrtoint ptr %3945 to i64
   %3948 = ptrtoint ptr %3946 to i64
   %3949 = sub i64 %3947, %3948
@@ -11230,8 +11230,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3951:                                             ; preds = %3420
   %3952 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3952, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3952, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3952, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3952, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3953 = load i8, ptr %3952, align 1
   %3954 = and i8 %3953, -33
   %or.cond935 = icmp eq i8 %3954, 69
@@ -11239,8 +11239,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3955:                                             ; preds = %3424
   %3956 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3956, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3956, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3956, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3956, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3957 = load i8, ptr %3956, align 1
   %3958 = and i8 %3957, -33
   %or.cond938 = icmp eq i8 %3958, 69
@@ -11248,8 +11248,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3959:                                             ; preds = %3428
   %3960 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3960, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3960, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3960, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3960, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3961 = load i8, ptr %3960, align 1
   %3962 = and i8 %3961, -33
   %or.cond941 = icmp eq i8 %3962, 67
@@ -11257,8 +11257,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3963:                                             ; preds = %3432
   %3964 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3964, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3964, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3964, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3964, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3965 = load i8, ptr %3964, align 1
   %3966 = and i8 %3965, -33
   %or.cond944 = icmp eq i8 %3966, 68
@@ -11266,8 +11266,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3967:                                             ; preds = %3436
   %3968 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3968, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3968, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3968, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3968, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3969 = load i8, ptr %3968, align 1
   %3970 = and i8 %3969, -33
   %or.cond947 = icmp eq i8 %3970, 65
@@ -11275,8 +11275,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3971:                                             ; preds = %3470
   %3972 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3972, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3972, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3972, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3972, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3973 = load i8, ptr %3972, align 1
   %3974 = and i8 %3973, -33
   %or.cond950 = icmp eq i8 %3974, 65
@@ -11284,8 +11284,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3975:                                             ; preds = %3489
   %3976 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3976, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3976, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3976, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3976, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3977 = load i8, ptr %3976, align 1
   %3978 = and i8 %3977, -33
   %or.cond953 = icmp eq i8 %3978, 69
@@ -11293,8 +11293,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3979:                                             ; preds = %3493
   %3980 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3980, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3980, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3980, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3980, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3981 = load i8, ptr %3980, align 1
   %3982 = and i8 %3981, -33
   %or.cond956 = icmp eq i8 %3982, 84
@@ -11302,8 +11302,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3983:                                             ; preds = %3497
   %3984 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3984, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3984, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3984, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3984, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %3985 = load i8, ptr %3984, align 1
   %3986 = zext i8 %3985 to i64
   %3987 = or disjoint i64 %3986, 256
@@ -11318,7 +11318,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7150:                                    ; preds = %3990, %951
   %3992 = phi ptr [ %939, %951 ], [ %3984, %3990 ]
-  %3993 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %3993 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %3994 = ptrtoint ptr %3992 to i64
   %3995 = ptrtoint ptr %3993 to i64
   %3996 = sub i64 %3994, %3995
@@ -11327,8 +11327,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 3998:                                             ; preds = %3501
   %3999 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %3999, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %3999, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %3999, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3999, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4000 = load i8, ptr %3999, align 1
   %4001 = and i8 %4000, -33
   %or.cond959 = icmp eq i8 %4001, 76
@@ -11336,8 +11336,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4002:                                             ; preds = %3505
   %4003 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4003, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4003, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4004 = load i8, ptr %4003, align 1
   %4005 = and i8 %4004, -33
   %or.cond962 = icmp eq i8 %4005, 69
@@ -11345,8 +11345,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4006:                                             ; preds = %3509
   %4007 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4007, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4007, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4008 = load i8, ptr %4007, align 1
   %4009 = zext i8 %4008 to i64
   %4010 = or disjoint i64 %4009, 256
@@ -11361,7 +11361,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7146:                                    ; preds = %4013, %951
   %4015 = phi ptr [ %939, %951 ], [ %4007, %4013 ]
-  %4016 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4016 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4017 = ptrtoint ptr %4015 to i64
   %4018 = ptrtoint ptr %4016 to i64
   %4019 = sub i64 %4017, %4018
@@ -11370,8 +11370,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4021:                                             ; preds = %3513
   %4022 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4022, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4022, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4022, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4022, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4023 = load i8, ptr %4022, align 1
   %4024 = zext i8 %4023 to i64
   %4025 = or disjoint i64 %4024, 256
@@ -11386,7 +11386,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7145:                                    ; preds = %4028, %952
   %4030 = phi ptr [ %939, %952 ], [ %4022, %4028 ]
-  %4031 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4031 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4032 = ptrtoint ptr %4030 to i64
   %4033 = ptrtoint ptr %4031 to i64
   %4034 = sub i64 %4032, %4033
@@ -11395,8 +11395,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4036:                                             ; preds = %3517
   %4037 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4037, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4037, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4037, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4037, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4038 = load i8, ptr %4037, align 1
   %4039 = zext i8 %4038 to i64
   %4040 = or disjoint i64 %4039, 256
@@ -11411,7 +11411,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7144:                                    ; preds = %4043, %952
   %4045 = phi ptr [ %939, %952 ], [ %4037, %4043 ]
-  %4046 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4046 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4047 = ptrtoint ptr %4045 to i64
   %4048 = ptrtoint ptr %4046 to i64
   %4049 = sub i64 %4047, %4048
@@ -11427,10 +11427,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7107:                                   ; preds = %4853, %.preheader7107.loopexit20763, %.preheader7107.loopexit, %4882, %5984, %6362, %3592, %5993, %3594, %3594, %4852, %4866, %4866, %5204, %5204, %5528, %5528, %5983, %5995, %5995
   %.promoted9480 = phi ptr [ %5758, %5995 ], [ %5758, %5983 ], [ %5196, %5528 ], [ %4858, %5204 ], [ %4857, %4866 ], [ %4517, %4852 ], [ %3582, %3594 ], [ %3582, %3594 ], [ %5758, %5995 ], [ %5758, %5993 ], [ %5758, %5984 ], [ %5196, %5528 ], [ %4858, %5204 ], [ %4857, %4866 ], [ %6268, %6362 ], [ %4876, %4882 ], [ %3582, %3592 ], [ %4518, %.preheader7107.loopexit ], [ %4502, %.preheader7107.loopexit20763 ], [ %4517, %4853 ]
   %.26.ph = phi i32 [ 91, %5995 ], [ 91, %5983 ], [ %.32.ph69809714, %5528 ], [ %.32.ph69809714, %5204 ], [ %.32.ph69809714, %4866 ], [ %.32.ph69809714, %4852 ], [ 50, %3594 ], [ 50, %3594 ], [ 91, %5995 ], [ 91, %5993 ], [ 91, %5984 ], [ %.32.ph69809714, %5528 ], [ %.32.ph69809714, %5204 ], [ %.32.ph69809714, %4866 ], [ 91, %6362 ], [ %.35.ph7092, %4882 ], [ 50, %3592 ], [ %.32.ph69809714, %.preheader7107.loopexit ], [ %.31.ph, %.preheader7107.loopexit20763 ], [ %.32.ph69809714, %4853 ]
-  %4051 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4051 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4052 = getelementptr inbounds i8, ptr %4051, i64 32
   %4053 = getelementptr inbounds i8, ptr %.promoted9480, i64 1
-  store ptr %4053, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4054 = getelementptr inbounds i8, ptr %.promoted9480, i64 6
   %.not60949481 = icmp ult ptr %4054, %4052
   br i1 %.not60949481, label %.lr.ph9482, label %.loopexit
@@ -11452,7 +11452,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7110:                                    ; preds = %4060, %4064, %4064
   %4062 = getelementptr inbounds i8, ptr %4055, i64 1
-  store ptr %4062, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4062, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4063 = getelementptr inbounds i8, ptr %4055, i64 6
   %.not6094 = icmp ult ptr %4063, %4052
   br i1 %.not6094, label %.lr.ph9482, label %.loopexit
@@ -11489,7 +11489,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %4073 = phi ptr [ %5758, %5998 ], [ %.promoted9715, %.preheader7100 ]
   %.27 = phi i32 [ 91, %5998 ], [ %.27.ph, %.preheader7100 ]
   %4074 = getelementptr inbounds i8, ptr %4073, i64 1
-  store ptr %4074, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4075 = getelementptr inbounds i8, ptr %4073, i64 2
   %.not6095 = icmp ult ptr %4075, %4069
   br i1 %.not6095, label %4076, label %.loopexit
@@ -11512,13 +11512,13 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 .preheader6974:                                   ; preds = %4079, %4080
-  store ptr %4075, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4075, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4081 = getelementptr inbounds i8, ptr %4073, i64 3
   %.not609694849713 = icmp ult ptr %4081, %4069
   br i1 %.not609694849713, label %.lr.ph9485, label %.loopexit
 
 .loopexit7106.loopexit:                           ; preds = %5998
-  %.pre13088 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %.pre13088 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   br label %.loopexit7106
 
 .loopexit7106:                                    ; preds = %.loopexit7106.loopexit, %4067, %3599
@@ -11526,7 +11526,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %4083 = phi ptr [ %3582, %3599 ], [ %4055, %4067 ], [ %5758, %.loopexit7106.loopexit ]
   %.28 = phi i32 [ 50, %3599 ], [ %.26.ph, %4067 ], [ 91, %.loopexit7106.loopexit ]
   %4084 = getelementptr inbounds i8, ptr %4083, i64 1
-  store ptr %4084, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4084, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4085 = getelementptr inbounds i8, ptr %4083, i64 2
   %4086 = getelementptr inbounds i8, ptr %4082, i64 32
   %.not6107 = icmp ult ptr %4085, %4086
@@ -11541,8 +11541,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4089:                                             ; preds = %3608
   %4090 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4090, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4090, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4090, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4090, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4091 = load i8, ptr %4090, align 1
   %4092 = and i8 %4091, -33
   %or.cond974 = icmp eq i8 %4092, 83
@@ -11550,24 +11550,24 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4093:                                             ; preds = %3612
   %4094 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4094, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4094, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4094, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4094, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4095 = load i8, ptr %4094, align 1
   %4096 = icmp eq i8 %4095, 95
   br i1 %4096, label %4553, label %669
 
 4097:                                             ; preds = %3616
   %4098 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4098, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4098, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4098, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4098, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4099 = load i8, ptr %4098, align 1
   %4100 = icmp eq i8 %4099, 95
   br i1 %4100, label %4568, label %669
 
 4101:                                             ; preds = %3620
   %4102 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4102, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4102, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4102, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4102, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4103 = load i8, ptr %4102, align 1
   %4104 = and i8 %4103, -33
   %or.cond977 = icmp eq i8 %4104, 84
@@ -11575,24 +11575,24 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4105:                                             ; preds = %3624
   %4106 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4106, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4106, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4106, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4106, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4107 = load i8, ptr %4106, align 1
   %4108 = icmp eq i8 %4107, 95
   br i1 %4108, label %4576, label %669
 
 4109:                                             ; preds = %3628
   %4110 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4110, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4110, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4110, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4110, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4111 = load i8, ptr %4110, align 1
   %4112 = icmp eq i8 %4111, 95
   br i1 %4112, label %4580, label %669
 
 4113:                                             ; preds = %3632
   %4114 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4114, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4114, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4114, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4114, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4115 = load i8, ptr %4114, align 1
   %4116 = and i8 %4115, -33
   %or.cond980 = icmp eq i8 %4116, 79
@@ -11600,8 +11600,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4117:                                             ; preds = %3636
   %4118 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4118, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4118, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4118, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4118, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4119 = load i8, ptr %4118, align 1
   %4120 = and i8 %4119, -33
   %or.cond983 = icmp eq i8 %4120, 83
@@ -11609,15 +11609,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4121:                                             ; preds = %3640
   %4122 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 6
-  store ptr %4122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4123 = load i8, ptr %4122, align 1
   %4124 = and i8 %4123, -33
   %or.cond986 = icmp eq i8 %4124, 84
   br i1 %or.cond986, label %4592, label %669
 
 4125:                                             ; preds = %3668
-  store ptr %3644, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3644, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4126 = getelementptr inbounds i8, ptr %3646, i64 3
   %.not6493 = icmp ult ptr %4126, %51
   br i1 %.not6493, label %4127, label %.loopexit
@@ -11643,7 +11643,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader6868:                                   ; preds = %4134, %4134
   %4135 = getelementptr inbounds i8, ptr %3644, i64 1
-  store ptr %4135, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4135, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4136 = getelementptr inbounds i8, ptr %3644, i64 2
   %.not64959944 = icmp ult ptr %4136, %51
   br i1 %.not64959944, label %.lr.ph9945, label %.loopexit
@@ -11663,8 +11663,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 .loopexit6891:                                    ; preds = %3668, %4636
   %.promoted1007710090 = phi ptr [ %4153, %4636 ], [ %3645, %3668 ]
   %4142 = getelementptr inbounds i8, ptr %.promoted1007710090, i64 1
-  store ptr %4142, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4142, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4142, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4142, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4143 = getelementptr inbounds i8, ptr %.promoted1007710090, i64 2
   %.not6491 = icmp ult ptr %4143, %51
   br i1 %.not6491, label %4144, label %.loopexit
@@ -11683,7 +11683,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4151, label %.loopexit6893, label %.preheader6949
 
 4152:                                             ; preds = %3671
-  store ptr %3644, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3644, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4153 = getelementptr inbounds i8, ptr %3646, i64 3
   %.not6486 = icmp ult ptr %4153, %51
   br i1 %.not6486, label %4154, label %.loopexit
@@ -11704,7 +11704,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 4161:                                             ; preds = %3673
-  store ptr %3644, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3644, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4162 = getelementptr inbounds i8, ptr %3646, i64 3
   %.not6482 = icmp ult ptr %4162, %51
   br i1 %.not6482, label %4163, label %.loopexit
@@ -11725,12 +11725,12 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4168, label %.backedge6920, label %.preheader6951.loopexit20671
 
 4169:                                             ; preds = %3702
-  store ptr %3694, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4170 = ptrtoint ptr %3694 to i64
   %4171 = ptrtoint ptr %.promoted103941316013175 to i64
   %4172 = sub i64 %4170, %4171
   %4173 = trunc i64 %4172 to i32
-  store i32 %4173, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %4173, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 .lr.ph9935:                                       ; preds = %.preheader7005, %.backedge7008
@@ -11746,7 +11746,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7008:                                    ; preds = %4178, %4182
   %4180 = getelementptr inbounds i8, ptr %4175, i64 1
-  store ptr %4180, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4180, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4181 = getelementptr inbounds i8, ptr %4175, i64 2
   %.not6462 = icmp ult ptr %4181, %51
   br i1 %.not6462, label %.lr.ph9935, label %.loopexit
@@ -11759,24 +11759,24 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4183:                                             ; preds = %3725
   %4184 = getelementptr inbounds i8, ptr %1014, i64 6
-  store ptr %4184, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4184, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4185 = load i8, ptr %4184, align 1
   %4186 = and i8 %4185, -33
   %or.cond992 = icmp eq i8 %4186, 78
   br i1 %or.cond992, label %3707, label %.thread6762
 
 4187:                                             ; preds = %3743
-  store ptr %3735, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3735, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4188 = ptrtoint ptr %3735 to i64
   %4189 = ptrtoint ptr %.promoted103941316013175 to i64
   %4190 = sub i64 %4188, %4189
   %4191 = trunc i64 %4190 to i32
-  store i32 %4191, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %4191, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 4192:                                             ; preds = %3744
   %4193 = getelementptr inbounds i8, ptr %1014, i64 6
-  store ptr %4193, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4193, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4194 = load i8, ptr %4193, align 1
   %4195 = and i8 %4194, -33
   %or.cond995 = icmp eq i8 %4195, 82
@@ -11795,7 +11795,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7016:                                    ; preds = %4200, %4204
   %4202 = getelementptr inbounds i8, ptr %4197, i64 1
-  store ptr %4202, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4202, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4203 = getelementptr inbounds i8, ptr %4197, i64 2
   %.not6454 = icmp ult ptr %4203, %51
   br i1 %.not6454, label %.lr.ph9929, label %.loopexit
@@ -11807,18 +11807,18 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 4205:                                             ; preds = %3776
-  store ptr %3768, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4206 = ptrtoint ptr %3768 to i64
   %4207 = ptrtoint ptr %.promoted103941316013175 to i64
   %4208 = sub i64 %4206, %4207
   %4209 = trunc i64 %4208 to i32
-  store i32 %4209, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %4209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 4210:                                             ; preds = %3781
   %4211 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4212 = load i8, ptr %4211, align 1
   %4213 = and i8 %4212, -33
   %or.cond998 = icmp eq i8 %4213, 84
@@ -11826,8 +11826,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4214:                                             ; preds = %3785
   %4215 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4215, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4215, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4215, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4215, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4216 = load i8, ptr %4215, align 1
   %4217 = and i8 %4216, -33
   %or.cond1001 = icmp eq i8 %4217, 69
@@ -11835,8 +11835,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4218:                                             ; preds = %3789
   %4219 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4219, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4219, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4220 = load i8, ptr %4219, align 1
   %4221 = and i8 %4220, -33
   %or.cond1004 = icmp eq i8 %4221, 69
@@ -11844,8 +11844,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4222:                                             ; preds = %3793
   %4223 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4223, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4223, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4223, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4223, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4224 = load i8, ptr %4223, align 1
   %4225 = zext i8 %4224 to i64
   %4226 = or disjoint i64 %4225, 256
@@ -11860,7 +11860,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7195:                                    ; preds = %4229, %952
   %4231 = phi ptr [ %939, %952 ], [ %4223, %4229 ]
-  %4232 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4232 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4233 = ptrtoint ptr %4231 to i64
   %4234 = ptrtoint ptr %4232 to i64
   %4235 = sub i64 %4233, %4234
@@ -11869,8 +11869,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4237:                                             ; preds = %3797
   %4238 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4238, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4238, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4238, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4238, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4239 = load i8, ptr %4238, align 1
   %4240 = zext i8 %4239 to i64
   %4241 = or disjoint i64 %4240, 256
@@ -11885,7 +11885,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7194:                                    ; preds = %4244, %957
   %4246 = phi ptr [ %939, %957 ], [ %4238, %4244 ]
-  %4247 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4247 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4248 = ptrtoint ptr %4246 to i64
   %4249 = ptrtoint ptr %4247 to i64
   %4250 = sub i64 %4248, %4249
@@ -11894,8 +11894,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4252:                                             ; preds = %3816
   %4253 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4253, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4253, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4253, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4253, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4254 = load i8, ptr %4253, align 1
   %4255 = and i8 %4254, -33
   %or.cond1007 = icmp eq i8 %4255, 65
@@ -11903,8 +11903,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4256:                                             ; preds = %3840, %3829
   %4257 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4257, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4257, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4257, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4257, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4258 = load i8, ptr %4257, align 1
   %4259 = and i8 %4258, -33
   %or.cond1010 = icmp eq i8 %4259, 65
@@ -11912,8 +11912,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4260:                                             ; preds = %3849
   %4261 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4261, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4261, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4261, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4261, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4262 = load i8, ptr %4261, align 1
   %4263 = and i8 %4262, -33
   %or.cond1013 = icmp eq i8 %4263, 67
@@ -11921,8 +11921,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4264:                                             ; preds = %3853
   %4265 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4265, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4265, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4265, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4265, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4266 = load i8, ptr %4265, align 1
   %4267 = and i8 %4266, -33
   %or.cond1016 = icmp eq i8 %4267, 69
@@ -11930,7 +11930,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4268:                                             ; preds = %3859
   %4269 = getelementptr inbounds i8, ptr %3320, i64 3
-  store ptr %4269, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4269, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4270 = load i8, ptr %4269, align 1
   %4271 = and i8 %4270, -33
   %or.cond1019 = icmp eq i8 %4271, 84
@@ -11938,14 +11938,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4272:                                             ; preds = %.loopexit7177
   %4273 = getelementptr inbounds i8, ptr %3320, i64 3
-  store ptr %4273, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4273, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4274 = load i8, ptr %4273, align 1
   %4275 = and i8 %4274, -33
   %or.cond1022 = icmp eq i8 %4275, 80
   br i1 %or.cond1022, label %4732, label %.thread6759
 
 4276:                                             ; preds = %3892
-  store ptr %3879, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4277 = getelementptr inbounds i8, ptr %3881, i64 3
   %.not6361 = icmp ult ptr %4277, %3359
   br i1 %.not6361, label %4278, label %.loopexit
@@ -11968,13 +11968,13 @@ strip_underscores.exit6706:                       ; preds = %1936
 .backedge7079:                                    ; preds = %4282, %3888, %3892, %4281
   %4284 = phi ptr [ %3879, %4282 ], [ %3880, %3888 ], [ %3880, %3892 ], [ %3879, %4281 ]
   %4285 = getelementptr inbounds i8, ptr %4284, i64 1
-  store ptr %4285, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4285, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4286 = getelementptr inbounds i8, ptr %4284, i64 2
   %.not6245 = icmp ult ptr %4286, %3359
   br i1 %.not6245, label %3878, label %.loopexit
 
 4287:                                             ; preds = %3893
-  store ptr %3879, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %3879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4288 = getelementptr inbounds i8, ptr %3881, i64 3
   %.not6279 = icmp ult ptr %4288, %3359
   br i1 %.not6279, label %4289, label %.loopexit
@@ -11998,17 +11998,17 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader6967:                                   ; preds = %4293
   %4294 = getelementptr inbounds i8, ptr %3879, i64 1
-  store ptr %4294, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4294, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4295 = getelementptr inbounds i8, ptr %3879, i64 2
   %.not62809878 = icmp ult ptr %4295, %3359
   br i1 %.not62809878, label %.lr.ph9880, label %.loopexit
 
 4296:                                             ; preds = %3901, %3911, %3907, %3902, %3895
   %4297 = getelementptr inbounds i8, ptr %3881, i64 2
-  store ptr %4297, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4297, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4297, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4297, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4298 = getelementptr inbounds i8, ptr %3881, i64 3
-  %4299 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4299 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4300 = getelementptr inbounds i8, ptr %4299, i64 32
   %.not6277 = icmp ult ptr %4298, %4300
   br i1 %.not6277, label %4301, label %.loopexit
@@ -12030,10 +12030,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4307:                                             ; preds = %3901, %3907
   %4308 = getelementptr inbounds i8, ptr %3881, i64 2
-  store ptr %4308, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4308, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4308, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4308, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4309 = getelementptr inbounds i8, ptr %3881, i64 3
-  %4310 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4310 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4311 = getelementptr inbounds i8, ptr %4310, i64 32
   %.not6263 = icmp ult ptr %4309, %4311
   br i1 %.not6263, label %4312, label %.loopexit
@@ -12071,10 +12071,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4325:                                             ; preds = %3901, %3909
   %4326 = getelementptr inbounds i8, ptr %3881, i64 2
-  store ptr %4326, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4326, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4326, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4326, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4327 = getelementptr inbounds i8, ptr %3881, i64 3
-  %4328 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4328 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4329 = getelementptr inbounds i8, ptr %4328, i64 32
   %.not6247 = icmp ult ptr %4327, %4329
   br i1 %.not6247, label %4330, label %.loopexit
@@ -12113,14 +12113,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7067:                                   ; preds = %3918, %5040, %5354, %5364, %5375, %5609, %5617, %5625, %5854, %5862, %6081, %6089, %6207, %6215, %6326, %6334, %6411, %6418, %6478
   %.promoted9889 = phi ptr [ %6414, %6478 ], [ %6330, %6418 ], [ %6321, %6411 ], [ %6211, %6334 ], [ %6320, %6326 ], [ %6085, %6215 ], [ %6077, %6207 ], [ %5858, %6089 ], [ %5850, %6081 ], [ %5621, %5862 ], [ %5613, %5854 ], [ %5369, %5625 ], [ %5358, %5617 ], [ %5342, %5609 ], [ %5368, %5375 ], [ %5357, %5364 ], [ %5350, %5354 ], [ %5020, %5040 ], [ %3916, %3918 ]
   %.29.ph = phi i32 [ 53, %6478 ], [ 53, %6418 ], [ 93, %6411 ], [ 53, %6334 ], [ 53, %6326 ], [ 53, %6215 ], [ 53, %6207 ], [ 53, %6089 ], [ 53, %6081 ], [ 53, %5862 ], [ 53, %5854 ], [ 53, %5625 ], [ 53, %5617 ], [ %.369768, %5609 ], [ 53, %5375 ], [ 53, %5364 ], [ 53, %5354 ], [ %.369768, %5040 ], [ %.25.ph, %3918 ]
-  %4343 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4343 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4344 = getelementptr inbounds i8, ptr %4343, i64 32
   br label %4345
 
 4345:                                             ; preds = %.preheader7067, %4352
   %4346 = phi ptr [ %.promoted9889, %.preheader7067 ], [ %4347, %4352 ]
   %4347 = getelementptr inbounds i8, ptr %4346, i64 1
-  store ptr %4347, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4347, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4348 = getelementptr inbounds i8, ptr %4346, i64 2
   %.not6358 = icmp ult ptr %4348, %4344
   br i1 %.not6358, label %4349, label %.loopexit
@@ -12142,8 +12142,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4355:                                             ; preds = %3920
   %4356 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4356, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4356, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4356, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4356, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4357 = load i8, ptr %4356, align 1
   %4358 = zext i8 %4357 to i64
   %4359 = or disjoint i64 %4358, 256
@@ -12158,7 +12158,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7174:                                    ; preds = %4362, %957
   %4364 = phi ptr [ %939, %957 ], [ %4356, %4362 ]
-  %4365 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4365 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4366 = ptrtoint ptr %4364 to i64
   %4367 = ptrtoint ptr %4365 to i64
   %4368 = sub i64 %4366, %4367
@@ -12167,8 +12167,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4370:                                             ; preds = %3924
   %4371 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4371, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4371, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4371, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4371, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4372 = load i8, ptr %4371, align 1
   %4373 = zext i8 %4372 to i64
   %4374 = or disjoint i64 %4373, 256
@@ -12183,7 +12183,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7173:                                    ; preds = %4377, %957
   %4379 = phi ptr [ %939, %957 ], [ %4371, %4377 ]
-  %4380 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4380 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4381 = ptrtoint ptr %4379 to i64
   %4382 = ptrtoint ptr %4380 to i64
   %4383 = sub i64 %4381, %4382
@@ -12192,8 +12192,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4385:                                             ; preds = %3928
   %4386 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4386, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4386, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4387 = load i8, ptr %4386, align 1
   %4388 = zext i8 %4387 to i64
   %4389 = or disjoint i64 %4388, 256
@@ -12208,7 +12208,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7170:                                    ; preds = %4392, %958
   %4394 = phi ptr [ %939, %958 ], [ %4386, %4392 ]
-  %4395 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4395 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4396 = ptrtoint ptr %4394 to i64
   %4397 = ptrtoint ptr %4395 to i64
   %4398 = sub i64 %4396, %4397
@@ -12217,8 +12217,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4400:                                             ; preds = %3932
   %4401 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4401, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4401, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4401, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4401, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4402 = load i8, ptr %4401, align 1
   %4403 = and i8 %4402, -33
   %or.cond1031 = icmp eq i8 %4403, 78
@@ -12226,8 +12226,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4404:                                             ; preds = %3951
   %4405 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4405, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4405, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4405, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4405, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4406 = load i8, ptr %4405, align 1
   %4407 = and i8 %4406, -33
   %or.cond1034 = icmp eq i8 %4407, 78
@@ -12235,8 +12235,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4408:                                             ; preds = %3955
   %4409 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4410 = load i8, ptr %4409, align 1
   %4411 = icmp ult i8 %4410, 93
   br i1 %4411, label %4412, label %4420
@@ -12272,7 +12272,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7162:                                    ; preds = %4424, %4418, %4422, %4414, %958
   %4425 = phi ptr [ %939, %958 ], [ %4409, %4414 ], [ %4409, %4422 ], [ %4409, %4418 ], [ %4409, %4424 ]
-  %4426 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4426 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4427 = ptrtoint ptr %4425 to i64
   %4428 = ptrtoint ptr %4426 to i64
   %4429 = sub i64 %4427, %4428
@@ -12281,8 +12281,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4431:                                             ; preds = %3959
   %4432 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4432, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4432, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4433 = load i8, ptr %4432, align 1
   %4434 = and i8 %4433, -33
   %or.cond1043 = icmp eq i8 %4434, 69
@@ -12290,8 +12290,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4435:                                             ; preds = %3963
   %4436 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4436, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4436, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4436, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4436, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4437 = load i8, ptr %4436, align 1
   %4438 = and i8 %4437, -33
   %or.cond1046 = icmp eq i8 %4438, 79
@@ -12299,8 +12299,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4439:                                             ; preds = %3967
   %4440 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4440, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4440, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4440, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4440, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4441 = load i8, ptr %4440, align 1
   %4442 = and i8 %4441, -33
   %or.cond1049 = icmp eq i8 %4442, 67
@@ -12308,8 +12308,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4443:                                             ; preds = %3971
   %4444 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4445 = load i8, ptr %4444, align 1
   %4446 = and i8 %4445, -33
   %or.cond1052 = icmp eq i8 %4446, 67
@@ -12317,8 +12317,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4447:                                             ; preds = %3975
   %4448 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4448, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4448, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4448, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4448, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4449 = load i8, ptr %4448, align 1
   %4450 = zext i8 %4449 to i64
   %4451 = or disjoint i64 %4450, 256
@@ -12333,7 +12333,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7152:                                    ; preds = %4454, %958
   %4456 = phi ptr [ %939, %958 ], [ %4448, %4454 ]
-  %4457 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4457 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4458 = ptrtoint ptr %4456 to i64
   %4459 = ptrtoint ptr %4457 to i64
   %4460 = sub i64 %4458, %4459
@@ -12342,8 +12342,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4462:                                             ; preds = %3979
   %4463 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4463, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4463, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4464 = load i8, ptr %4463, align 1
   %4465 = and i8 %4464, -33
   %or.cond1055 = icmp eq i8 %4465, 69
@@ -12351,8 +12351,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4466:                                             ; preds = %3998
   %4467 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4467, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4467, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4467, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4467, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4468 = load i8, ptr %4467, align 1
   %4469 = and i8 %4468, -33
   %or.cond1058 = icmp eq i8 %4469, 89
@@ -12360,8 +12360,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4470:                                             ; preds = %4002
   %4471 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4471, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4471, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4472 = load i8, ptr %4471, align 1
   %4473 = icmp ult i8 %4472, 93
   br i1 %4473, label %4474, label %4482
@@ -12397,7 +12397,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7147:                                    ; preds = %4486, %4480, %4484, %4476, %961
   %4487 = phi ptr [ %939, %961 ], [ %4471, %4476 ], [ %4471, %4484 ], [ %4471, %4480 ], [ %4471, %4486 ]
-  %4488 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4488 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4489 = ptrtoint ptr %4487 to i64
   %4490 = ptrtoint ptr %4488 to i64
   %4491 = sub i64 %4489, %4490
@@ -12408,7 +12408,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %4494 = phi ptr [ %5758, %5999 ], [ %4055, %4070 ]
   %.30 = phi i32 [ 91, %5999 ], [ %.26.ph, %4070 ]
   %4495 = getelementptr inbounds i8, ptr %4494, i64 1
-  store ptr %4495, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4495, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4496 = load i8, ptr %4495, align 1
   %4497 = and i8 %4496, -33
   %or.cond1067 = icmp eq i8 %4497, 82
@@ -12417,10 +12417,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7086:                                   ; preds = %4538, %4539, %4869, %4870, %5207, %5208, %5531, %5532, %4079, %4080, %4853, %4844, %4535, %4532, %4845, %4526, %4864, %5202, %5526, %5767, %5773, %5984, %4087, %4852, %4866, %5204, %5528, %5983, %5776
   %.promoted9718 = phi ptr [ %5758, %5983 ], [ %5520, %5776 ], [ %4517, %4852 ], [ %4084, %4087 ], [ %5520, %5773 ], [ %5520, %5767 ], [ %5758, %5984 ], [ %5196, %5528 ], [ %5196, %5526 ], [ %4858, %5204 ], [ %4858, %5202 ], [ %4857, %4866 ], [ %4857, %4864 ], [ %4517, %4844 ], [ %4518, %4535 ], [ %4518, %4532 ], [ %4517, %4845 ], [ %4518, %4526 ], [ %4517, %4853 ], [ %4518, %4538 ], [ %4857, %4869 ], [ %4858, %5207 ], [ %5196, %5531 ], [ %5196, %5532 ], [ %4858, %5208 ], [ %4857, %4870 ], [ %4518, %4539 ], [ %4074, %4079 ], [ %4074, %4080 ]
   %.31.ph = phi i32 [ 91, %5983 ], [ %.32.ph69809714, %5776 ], [ %.32.ph69809714, %4852 ], [ %.28, %4087 ], [ %.32.ph69809714, %5773 ], [ %.32.ph69809714, %5767 ], [ 91, %5984 ], [ %.32.ph69809714, %5528 ], [ %.32.ph69809714, %5526 ], [ %.32.ph69809714, %5204 ], [ %.32.ph69809714, %5202 ], [ %.32.ph69809714, %4866 ], [ %.32.ph69809714, %4864 ], [ %.32.ph69809714, %4526 ], [ %.32.ph69809714, %4845 ], [ %.32.ph69809714, %4532 ], [ %.32.ph69809714, %4535 ], [ %.32.ph69809714, %4844 ], [ %.32.ph69809714, %4853 ], [ %.32.ph69809714, %4538 ], [ %.32.ph69809714, %4869 ], [ %.32.ph69809714, %5207 ], [ %.32.ph69809714, %5531 ], [ %.32.ph69809714, %5532 ], [ %.32.ph69809714, %5208 ], [ %.32.ph69809714, %4870 ], [ %.32.ph69809714, %4539 ], [ %.27, %4079 ], [ %.27, %4080 ]
-  %4498 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4498 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4499 = getelementptr inbounds i8, ptr %4498, i64 32
   %4500 = getelementptr inbounds i8, ptr %.promoted9718, i64 1
-  store ptr %4500, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4501 = getelementptr inbounds i8, ptr %.promoted9718, i64 2
   %.not61669719 = icmp ult ptr %4501, %4499
   br i1 %.not61669719, label %.lr.ph9720, label %.loopexit
@@ -12443,7 +12443,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge7090:                                    ; preds = %4506, %4505
   %4508 = getelementptr inbounds i8, ptr %4502, i64 1
-  store ptr %4508, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4508, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4509 = getelementptr inbounds i8, ptr %4502, i64 2
   %.not6166 = icmp ult ptr %4509, %4499
   br i1 %.not6166, label %.lr.ph9720, label %.loopexit
@@ -12452,7 +12452,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %4510 = phi ptr [ %6422, %6524 ], [ %5500, %5517 ]
   %.32.ph = phi i32 [ 91, %6524 ], [ %.41.ph, %5517 ]
   %4511 = getelementptr inbounds i8, ptr %4510, i64 1
-  store ptr %4511, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4511, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4512 = getelementptr inbounds i8, ptr %4510, i64 2
   %.not60969484 = icmp ult ptr %4512, %4069
   br i1 %.not60969484, label %.lr.ph9485, label %.loopexit
@@ -12491,7 +12491,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .backedge6981:                                    ; preds = %4528, %4845, %4532, %4844
   %4529 = phi ptr [ %4518, %4528 ], [ %4517, %4845 ], [ %4518, %4532 ], [ %4517, %4844 ]
   %4530 = getelementptr inbounds i8, ptr %4529, i64 1
-  store ptr %4530, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4530, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4531 = getelementptr inbounds i8, ptr %4529, i64 2
   %.not6096 = icmp ult ptr %4531, %4069
   br i1 %.not6096, label %4516, label %.loopexit
@@ -12537,14 +12537,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7096:                                   ; preds = %4881, %6502, %.preheader7096.loopexit20687, %.preheader7096.loopexit20661, %4882, %5495, %5496, %6279, %6362, %6508, %6509, %5755, %5975, %6151, %6275, %4087, %5754, %5966, %5974, %6150, %6354, %6361, %6282
   %.promoted9716 = phi ptr [ %6268, %6361 ], [ %6268, %6354 ], [ %6146, %6282 ], [ %5970, %6150 ], [ %5748, %5974 ], [ %5738, %5966 ], [ %5747, %5754 ], [ %4084, %4087 ], [ %5474, %5496 ], [ %5474, %5495 ], [ %6422, %6509 ], [ %5747, %5755 ], [ %5748, %5975 ], [ %5970, %6151 ], [ %6146, %6279 ], [ %6146, %6275 ], [ %6268, %6362 ], [ %6422, %6508 ], [ %4876, %4882 ], [ %.promoted9716.ph, %.preheader7096.loopexit20661 ], [ %.promoted9716.ph20688, %.preheader7096.loopexit20687 ], [ %6422, %6502 ], [ %4876, %4881 ]
   %.33.ph7097 = phi i32 [ 91, %6361 ], [ 91, %6354 ], [ %.45, %6282 ], [ %.45, %6150 ], [ %.45, %5974 ], [ %.44, %5966 ], [ %.45, %5754 ], [ %.28, %4087 ], [ %.409570, %5496 ], [ %.409570, %5495 ], [ 91, %6509 ], [ %.45, %5755 ], [ %.45, %5975 ], [ %.45, %6151 ], [ %.45, %6279 ], [ %.45, %6275 ], [ 91, %6362 ], [ 91, %6508 ], [ %.35.ph7092, %4882 ], [ %.33.ph7097.ph, %.preheader7096.loopexit20661 ], [ %.33.ph7097.ph20689, %.preheader7096.loopexit20687 ], [ 91, %6502 ], [ %.35.ph7092, %4881 ]
-  %4541 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4541 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4542 = getelementptr inbounds i8, ptr %4541, i64 32
   br label %4543
 
 4543:                                             ; preds = %.preheader7096, %4547
   %4544 = phi ptr [ %.promoted9716, %.preheader7096 ], [ %4545, %4547 ]
   %4545 = getelementptr inbounds i8, ptr %4544, i64 1
-  store ptr %4545, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4545, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4546 = getelementptr inbounds i8, ptr %4544, i64 2
   %.not6159 = icmp ult ptr %4546, %4542
   br i1 %.not6159, label %4547, label %.loopexit
@@ -12558,16 +12558,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4549:                                             ; preds = %4089
   %4550 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4550, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4551 = load i8, ptr %4550, align 1
   %4552 = icmp eq i8 %4551, 95
   br i1 %4552, label %4884, label %669
 
 4553:                                             ; preds = %4093
   %4554 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4554, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4554, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4555 = load i8, ptr %4554, align 1
   %4556 = zext i8 %4555 to i64
   %4557 = or disjoint i64 %4556, 256
@@ -12582,7 +12582,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7131:                                    ; preds = %4560, %961
   %4562 = phi ptr [ %939, %961 ], [ %4554, %4560 ]
-  %4563 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4563 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4564 = ptrtoint ptr %4562 to i64
   %4565 = ptrtoint ptr %4563 to i64
   %4566 = sub i64 %4564, %4565
@@ -12591,16 +12591,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4568:                                             ; preds = %4097
   %4569 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4569, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4569, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4569, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4569, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4570 = load i8, ptr %4569, align 1
   %4571 = icmp eq i8 %4570, 95
   br i1 %4571, label %4888, label %669
 
 4572:                                             ; preds = %4101
   %4573 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4573, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4573, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4574 = load i8, ptr %4573, align 1
   %4575 = and i8 %4574, -33
   %or.cond1070 = icmp eq i8 %4575, 73
@@ -12608,8 +12608,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4576:                                             ; preds = %4105
   %4577 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4577, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4577, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4578 = load i8, ptr %4577, align 1
   %4579 = and i8 %4578, -33
   %or.cond1073 = icmp eq i8 %4579, 67
@@ -12617,16 +12617,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4580:                                             ; preds = %4109
   %4581 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4581, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4581, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4582 = load i8, ptr %4581, align 1
   %4583 = icmp eq i8 %4582, 95
   br i1 %4583, label %4911, label %669
 
 4584:                                             ; preds = %4113
   %4585 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4585, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4585, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4586 = load i8, ptr %4585, align 1
   %4587 = and i8 %4586, -33
   %or.cond1076 = icmp eq i8 %4587, 68
@@ -12634,8 +12634,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4588:                                             ; preds = %4117
   %4589 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4589, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4589, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4590 = load i8, ptr %4589, align 1
   %4591 = and i8 %4590, -33
   %or.cond1079 = icmp eq i8 %4591, 80
@@ -12643,8 +12643,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4592:                                             ; preds = %4121
   %4593 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 7
-  store ptr %4593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4593, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4594 = load i8, ptr %4593, align 1
   %4595 = icmp eq i8 %4594, 95
   br i1 %4595, label %4934, label %669
@@ -12676,7 +12676,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .backedge6874:                                    ; preds = %4607, %4947, %5284, %4611
   %4608 = phi ptr [ %4597, %4607 ], [ %4596, %4947 ], [ %4978, %5284 ], [ %4597, %4611 ]
   %4609 = getelementptr inbounds i8, ptr %4608, i64 1
-  store ptr %4609, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4609, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4610 = getelementptr inbounds i8, ptr %4608, i64 2
   %.not6495 = icmp ult ptr %4610, %51
   br i1 %.not6495, label %.lr.ph9945, label %.loopexit
@@ -12720,7 +12720,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4627, label %4977, label %.backedge6920
 
 4628:                                             ; preds = %4160
-  store ptr %4153, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4153, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4629 = getelementptr inbounds i8, ptr %3646, i64 4
   %.not6488 = icmp ult ptr %4629, %51
   br i1 %.not6488, label %4630, label %.loopexit
@@ -12741,7 +12741,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 4637:                                             ; preds = %4166
-  store ptr %4162, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4162, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4638 = getelementptr inbounds i8, ptr %3646, i64 4
   %.not6484 = icmp ult ptr %4638, %51
   br i1 %.not6484, label %4639, label %.loopexit
@@ -12762,27 +12762,27 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 4646:                                             ; preds = %4182
-  store ptr %4174, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4174, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4647 = ptrtoint ptr %4174 to i64
   %4648 = ptrtoint ptr %.promoted103941316013175 to i64
   %4649 = sub i64 %4647, %4648
   %4650 = trunc i64 %4649 to i32
-  store i32 %4650, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %4650, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 4651:                                             ; preds = %4204
-  store ptr %4196, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4196, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4652 = ptrtoint ptr %4196 to i64
   %4653 = ptrtoint ptr %.promoted103941316013175 to i64
   %4654 = sub i64 %4652, %4653
   %4655 = trunc i64 %4654 to i32
-  store i32 %4655, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %4655, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 4656:                                             ; preds = %4210
   %4657 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4657, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4657, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4658 = load i8, ptr %4657, align 1
   %4659 = zext i8 %4658 to i64
   %4660 = or disjoint i64 %4659, 256
@@ -12797,7 +12797,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7206:                                    ; preds = %4663, %961
   %4665 = phi ptr [ %939, %961 ], [ %4657, %4663 ]
-  %4666 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4666 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4667 = ptrtoint ptr %4665 to i64
   %4668 = ptrtoint ptr %4666 to i64
   %4669 = sub i64 %4667, %4668
@@ -12806,8 +12806,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4671:                                             ; preds = %4214
   %4672 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4672, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4672, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4672, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4672, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4673 = load i8, ptr %4672, align 1
   %4674 = zext i8 %4673 to i64
   %4675 = or disjoint i64 %4674, 256
@@ -12822,7 +12822,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7202:                                    ; preds = %4678, %962
   %4680 = phi ptr [ %939, %962 ], [ %4672, %4678 ]
-  %4681 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4681 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4682 = ptrtoint ptr %4680 to i64
   %4683 = ptrtoint ptr %4681 to i64
   %4684 = sub i64 %4682, %4683
@@ -12831,8 +12831,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4686:                                             ; preds = %4218
   %4687 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4687, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4687, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4688 = load i8, ptr %4687, align 1
   %4689 = zext i8 %4688 to i64
   %4690 = or disjoint i64 %4689, 256
@@ -12847,7 +12847,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7197:                                    ; preds = %4693, %962
   %4695 = phi ptr [ %939, %962 ], [ %4687, %4693 ]
-  %4696 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4696 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4697 = ptrtoint ptr %4695 to i64
   %4698 = ptrtoint ptr %4696 to i64
   %4699 = sub i64 %4697, %4698
@@ -12856,8 +12856,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4701:                                             ; preds = %4252
   %4702 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4702, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4702, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4702, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4702, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4703 = load i8, ptr %4702, align 1
   %4704 = and i8 %4703, -33
   %or.cond1082 = icmp eq i8 %4704, 82
@@ -12865,8 +12865,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4705:                                             ; preds = %4256
   %4706 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4706, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4706, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4706, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4706, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4707 = load i8, ptr %4706, align 1
   %4708 = and i8 %4707, -33
   %or.cond1085 = icmp eq i8 %4708, 67
@@ -12874,8 +12874,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4709:                                             ; preds = %4260
   %4710 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4710, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4710, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4711 = load i8, ptr %4710, align 1
   %4712 = and i8 %4711, -33
   %or.cond1088 = icmp eq i8 %4712, 72
@@ -12883,8 +12883,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4713:                                             ; preds = %4264
   %4714 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4714, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4714, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4715 = load i8, ptr %4714, align 1
   %4716 = zext i8 %4715 to i64
   %4717 = or disjoint i64 %4716, 256
@@ -12899,7 +12899,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7182:                                    ; preds = %4720, %962
   %4722 = phi ptr [ %939, %962 ], [ %4714, %4720 ]
-  %4723 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4723 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4724 = ptrtoint ptr %4722 to i64
   %4725 = ptrtoint ptr %4723 to i64
   %4726 = sub i64 %4724, %4725
@@ -12908,7 +12908,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4728:                                             ; preds = %4268
   %4729 = getelementptr inbounds i8, ptr %3320, i64 4
-  store ptr %4729, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4729, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4730 = load i8, ptr %4729, align 1
   %4731 = and i8 %4730, -33
   %or.cond1091 = icmp eq i8 %4731, 69
@@ -12916,7 +12916,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4732:                                             ; preds = %4272
   %4733 = getelementptr inbounds i8, ptr %3320, i64 4
-  store ptr %4733, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4733, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4734 = load i8, ptr %4733, align 1
   %4735 = and i8 %4734, -33
   %or.cond1094 = icmp eq i8 %4735, 76
@@ -12943,7 +12943,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4741:                                             ; preds = %4323, %4322
   %4742 = getelementptr inbounds i8, ptr %3881, i64 3
-  store ptr %4742, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4742, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4743 = getelementptr inbounds i8, ptr %3881, i64 4
   %.not6265 = icmp ult ptr %4743, %4311
   br i1 %.not6265, label %4744, label %.loopexit
@@ -12981,7 +12981,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4757:                                             ; preds = %4341, %4340
   %4758 = getelementptr inbounds i8, ptr %3881, i64 3
-  store ptr %4758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4759 = getelementptr inbounds i8, ptr %3881, i64 4
   %.not6249 = icmp ult ptr %4759, %4329
   br i1 %.not6249, label %4760, label %.loopexit
@@ -13019,8 +13019,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4773:                                             ; preds = %4400
   %4774 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4774, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4774, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4774, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4774, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4775 = load i8, ptr %4774, align 1
   %4776 = zext i8 %4775 to i64
   %4777 = or disjoint i64 %4776, 256
@@ -13035,7 +13035,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7168:                                    ; preds = %4780, %969
   %4782 = phi ptr [ %939, %969 ], [ %4774, %4780 ]
-  %4783 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4783 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4784 = ptrtoint ptr %4782 to i64
   %4785 = ptrtoint ptr %4783 to i64
   %4786 = sub i64 %4784, %4785
@@ -13044,8 +13044,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4788:                                             ; preds = %4404
   %4789 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4789, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4789, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4789, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4789, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4790 = load i8, ptr %4789, align 1
   %4791 = and i8 %4790, -33
   %or.cond1103 = icmp eq i8 %4791, 84
@@ -13053,8 +13053,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4792:                                             ; preds = %4422
   %4793 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4793, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4793, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4793, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4793, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4794 = load i8, ptr %4793, align 1
   %4795 = and i8 %4794, -33
   %or.cond1106 = icmp eq i8 %4795, 79
@@ -13062,8 +13062,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4796:                                             ; preds = %4431
   %4797 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4797, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4797, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4797, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4797, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4798 = load i8, ptr %4797, align 1
   %4799 = and i8 %4798, -33
   %or.cond1109 = icmp eq i8 %4799, 79
@@ -13071,8 +13071,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4800:                                             ; preds = %4435
   %4801 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4801, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4801, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4801, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4801, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4802 = load i8, ptr %4801, align 1
   %4803 = and i8 %4802, -33
   %or.cond1112 = icmp eq i8 %4803, 70
@@ -13080,8 +13080,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4804:                                             ; preds = %4439
   %4805 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4805, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4805, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4805, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4805, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4806 = load i8, ptr %4805, align 1
   %4807 = and i8 %4806, -33
   %or.cond1115 = icmp eq i8 %4807, 69
@@ -13089,8 +13089,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4808:                                             ; preds = %4443
   %4809 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4809, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4809, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4809, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4809, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4810 = load i8, ptr %4809, align 1
   %4811 = and i8 %4810, -33
   %or.cond1118 = icmp eq i8 %4811, 69
@@ -13098,8 +13098,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4812:                                             ; preds = %4462
   %4813 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4813, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4813, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4813, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4813, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4814 = load i8, ptr %4813, align 1
   %4815 = and i8 %4814, -33
   %or.cond1121 = icmp eq i8 %4815, 68
@@ -13107,8 +13107,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4816:                                             ; preds = %4466
   %4817 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4817, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4817, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4817, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4817, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4818 = load i8, ptr %4817, align 1
   %4819 = zext i8 %4818 to i64
   %4820 = or disjoint i64 %4819, 256
@@ -13123,7 +13123,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7149:                                    ; preds = %4823, %969
   %4825 = phi ptr [ %939, %969 ], [ %4817, %4823 ]
-  %4826 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4826 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4827 = ptrtoint ptr %4825 to i64
   %4828 = ptrtoint ptr %4826 to i64
   %4829 = sub i64 %4827, %4828
@@ -13132,8 +13132,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4831:                                             ; preds = %4484
   %4832 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4832, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4832, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4832, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4832, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4833 = load i8, ptr %4832, align 1
   %4834 = and i8 %4833, -33
   %or.cond1124 = icmp eq i8 %4834, 79
@@ -13141,14 +13141,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4835:                                             ; preds = %4493
   %4836 = getelementptr inbounds i8, ptr %4494, i64 2
-  store ptr %4836, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4836, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4837 = load i8, ptr %4836, align 1
   %4838 = and i8 %4837, -33
   %or.cond1127 = icmp eq i8 %4838, 79
   br i1 %or.cond1127, label %5186, label %.loopexit6866
 
 4839:                                             ; preds = %4535
-  store ptr %4517, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4517, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4840 = getelementptr inbounds i8, ptr %4519, i64 3
   %.not6162 = icmp ult ptr %4840, %4069
   br i1 %.not6162, label %4841, label %.loopexit
@@ -13169,7 +13169,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4846, label %.backedge6981, label %.preheader7086
 
 4847:                                             ; preds = %4535
-  store ptr %4517, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4517, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4848 = getelementptr inbounds i8, ptr %4519, i64 3
   %.not6111 = icmp ult ptr %4848, %4069
   br i1 %.not6111, label %4849, label %.loopexit
@@ -13193,14 +13193,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader6934:                                   ; preds = %4853
   %4854 = getelementptr inbounds i8, ptr %4517, i64 1
-  store ptr %4854, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4855 = getelementptr inbounds i8, ptr %4517, i64 2
   %.not61129703 = icmp ult ptr %4855, %4069
   br i1 %.not61129703, label %.lr.ph9705, label %.loopexit
 
 4856:                                             ; preds = %4539, %4538
   %4857 = getelementptr inbounds i8, ptr %4519, i64 2
-  store ptr %4857, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4857, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4858 = getelementptr inbounds i8, ptr %4519, i64 3
   %.not6098 = icmp ult ptr %4858, %4069
   br i1 %.not6098, label %4859, label %.loopexit
@@ -13239,14 +13239,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7091:                                   ; preds = %4547, %6505, %5492, %5754, %5966, %5974, %6150, %6354, %6361
   %.promoted9717 = phi ptr [ %6268, %6361 ], [ %6268, %6354 ], [ %5970, %6150 ], [ %5748, %5974 ], [ %5738, %5966 ], [ %5747, %5754 ], [ %5474, %5492 ], [ %6422, %6505 ], [ %4545, %4547 ]
   %.35.ph7092 = phi i32 [ 91, %6361 ], [ 91, %6354 ], [ %.45, %6150 ], [ %.45, %5974 ], [ %.44, %5966 ], [ %.45, %5754 ], [ %.409570, %5492 ], [ 91, %6505 ], [ %.33.ph7097, %4547 ]
-  %4872 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %4872 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4873 = getelementptr inbounds i8, ptr %4872, i64 32
   br label %4874
 
 4874:                                             ; preds = %.preheader7091, %4881
   %4875 = phi ptr [ %.promoted9717, %.preheader7091 ], [ %4876, %4881 ]
   %4876 = getelementptr inbounds i8, ptr %4875, i64 1
-  store ptr %4876, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4876, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4877 = getelementptr inbounds i8, ptr %4875, i64 2
   %.not6160 = icmp ult ptr %4877, %4873
   br i1 %.not6160, label %4878, label %.loopexit
@@ -13268,16 +13268,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4884:                                             ; preds = %4549
   %4885 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4885, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4885, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4885, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4885, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4886 = load i8, ptr %4885, align 1
   %4887 = icmp eq i8 %4886, 95
   br i1 %4887, label %5210, label %669
 
 4888:                                             ; preds = %4568
   %4889 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4889, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4889, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4890 = load i8, ptr %4889, align 1
   %4891 = zext i8 %4890 to i64
   %4892 = or disjoint i64 %4891, 256
@@ -13292,7 +13292,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7130:                                    ; preds = %4895, %969
   %4897 = phi ptr [ %939, %969 ], [ %4889, %4895 ]
-  %4898 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4898 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4899 = ptrtoint ptr %4897 to i64
   %4900 = ptrtoint ptr %4898 to i64
   %4901 = sub i64 %4899, %4900
@@ -13301,8 +13301,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4903:                                             ; preds = %4572
   %4904 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4904, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4904, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4904, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4904, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4905 = load i8, ptr %4904, align 1
   %4906 = and i8 %4905, -33
   %or.cond1133 = icmp eq i8 %4906, 79
@@ -13310,8 +13310,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4907:                                             ; preds = %4576
   %4908 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4908, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4908, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4908, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4908, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4909 = load i8, ptr %4908, align 1
   %4910 = and i8 %4909, -33
   %or.cond1136 = icmp eq i8 %4910, 79
@@ -13319,8 +13319,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4911:                                             ; preds = %4580
   %4912 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4912, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4912, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4912, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4912, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4913 = load i8, ptr %4912, align 1
   %4914 = zext i8 %4913 to i64
   %4915 = or disjoint i64 %4914, 256
@@ -13335,7 +13335,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7127:                                    ; preds = %4918, %970
   %4920 = phi ptr [ %939, %970 ], [ %4912, %4918 ]
-  %4921 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %4921 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %4922 = ptrtoint ptr %4920 to i64
   %4923 = ptrtoint ptr %4921 to i64
   %4924 = sub i64 %4922, %4923
@@ -13344,16 +13344,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4926:                                             ; preds = %4584
   %4927 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4927, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4927, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4927, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4927, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4928 = load i8, ptr %4927, align 1
   %4929 = icmp eq i8 %4928, 95
   br i1 %4929, label %5233, label %669
 
 4930:                                             ; preds = %4588
   %4931 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4931, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4931, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4931, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4931, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4932 = load i8, ptr %4931, align 1
   %4933 = and i8 %4932, -33
   %or.cond1139 = icmp eq i8 %4933, 65
@@ -13361,14 +13361,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4934:                                             ; preds = %4592
   %4935 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 8
-  store ptr %4935, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4935, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4935, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4935, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4936 = load i8, ptr %4935, align 1
   %4937 = icmp eq i8 %4936, 95
   br i1 %4937, label %5241, label %669
 
 4938:                                             ; preds = %4616
-  store ptr %4596, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4596, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4939 = getelementptr inbounds i8, ptr %4598, i64 3
   %.not6506 = icmp ult ptr %4939, %51
   br i1 %.not6506, label %4940, label %.loopexit
@@ -13392,8 +13392,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 4949:                                             ; preds = %5269, %4618
   %4950 = phi ptr [ %4963, %5269 ], [ %4597, %4618 ]
   %4951 = getelementptr inbounds i8, ptr %4950, i64 1
-  store ptr %4951, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4951, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4951, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4951, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4952 = getelementptr inbounds i8, ptr %4950, i64 2
   %.not6504 = icmp ult ptr %4952, %51
   br i1 %.not6504, label %4953, label %.loopexit
@@ -13415,7 +13415,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4961, label %.backedge6894, label %.preheader6883
 
 4962:                                             ; preds = %4624
-  store ptr %4596, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4596, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4963 = getelementptr inbounds i8, ptr %4598, i64 3
   %.not6500 = icmp ult ptr %4963, %51
   br i1 %.not6500, label %4964, label %.loopexit
@@ -13452,7 +13452,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %4976, label %5256, label %.backedge6920
 
 4977:                                             ; preds = %4626
-  store ptr %4596, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4596, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %4978 = getelementptr inbounds i8, ptr %4598, i64 3
   %.not6496 = icmp ult ptr %4978, %51
   br i1 %.not6496, label %4979, label %.loopexit
@@ -13475,8 +13475,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4988:                                             ; preds = %4701
   %4989 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %4989, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4989, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4990 = load i8, ptr %4989, align 1
   %4991 = and i8 %4990, -33
   %or.cond1145 = icmp eq i8 %4991, 69
@@ -13484,8 +13484,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4992:                                             ; preds = %4705
   %4993 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %4993, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4993, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4993, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4993, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4994 = load i8, ptr %4993, align 1
   %4995 = and i8 %4994, -33
   %or.cond1148 = icmp eq i8 %4995, 72
@@ -13493,8 +13493,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4996:                                             ; preds = %4709
   %4997 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %4997, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %4997, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %4997, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4997, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %4998 = load i8, ptr %4997, align 1
   %4999 = zext i8 %4998 to i64
   %5000 = or disjoint i64 %4999, 256
@@ -13509,7 +13509,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7183:                                    ; preds = %5003, %970
   %5005 = phi ptr [ %939, %970 ], [ %4997, %5003 ]
-  %5006 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5006 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5007 = ptrtoint ptr %5005 to i64
   %5008 = ptrtoint ptr %5006 to i64
   %5009 = sub i64 %5007, %5008
@@ -13518,7 +13518,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5011:                                             ; preds = %4728
   %5012 = getelementptr inbounds i8, ptr %3320, i64 5
-  store ptr %5012, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5012, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5013 = load i8, ptr %5012, align 1
   %5014 = and i8 %5013, -33
   %or.cond1151 = icmp eq i8 %5014, 78
@@ -13526,7 +13526,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5015:                                             ; preds = %4732
   %5016 = getelementptr inbounds i8, ptr %3320, i64 5
-  store ptr %5016, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5016, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5017 = load i8, ptr %5016, align 1
   %5018 = and i8 %5017, -33
   %or.cond1154 = icmp eq i8 %5018, 69
@@ -13561,7 +13561,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5032 = phi ptr [ %5020, %5030 ], [ %5020, %5035 ], [ %5573, %5582 ], [ %5803, %6037 ], [ %5818, %5826 ], [ %5819, %6054 ], [ %6047, %6180 ], [ %6173, %6295 ], [ %6288, %6387 ], [ %6443, %6451 ], [ %6444, %6532 ], [ %5810, %5816 ], [ %5834, %5842 ], [ %5835, %6069 ], [ %6062, %6195 ], [ %6188, %6310 ], [ %6303, %6402 ], [ %6395, %6466 ], [ %6459, %6541 ], [ %6534, %6555 ], [ %5342, %5610 ], [ %5020, %5035 ], [ %5573, %5582 ], [ %5572, %5807 ], [ %5810, %5815 ], [ %5818, %5825 ], [ %5834, %5841 ], [ %5803, %6037 ], [ %5819, %6053 ], [ %5835, %6068 ], [ %6047, %6179 ], [ %6062, %6194 ], [ %6173, %6294 ], [ %6188, %6309 ], [ %6288, %6386 ], [ %6303, %6401 ], [ %6443, %6450 ], [ %6395, %6465 ], [ %6444, %6531 ], [ %6459, %6540 ], [ %6534, %6554 ], [ %5572, %5808 ]
   %.36.be = phi i32 [ %.369768, %5030 ], [ %.369768, %5035 ], [ %.369768, %5582 ], [ %.369768, %6037 ], [ 53, %5826 ], [ 53, %6054 ], [ 53, %6180 ], [ 53, %6295 ], [ 53, %6387 ], [ 53, %6451 ], [ 93, %6532 ], [ 53, %5816 ], [ 53, %5842 ], [ 53, %6069 ], [ 53, %6195 ], [ 53, %6310 ], [ 53, %6402 ], [ 53, %6466 ], [ 53, %6541 ], [ 53, %6555 ], [ %.369768, %5610 ], [ %.369768, %5035 ], [ %.369768, %5582 ], [ %.369768, %5807 ], [ 53, %5815 ], [ 53, %5825 ], [ 53, %5841 ], [ %.369768, %6037 ], [ 53, %6053 ], [ 53, %6068 ], [ 53, %6179 ], [ 53, %6194 ], [ 53, %6294 ], [ 53, %6309 ], [ 53, %6386 ], [ 53, %6401 ], [ 53, %6450 ], [ 53, %6465 ], [ 93, %6531 ], [ 53, %6540 ], [ 53, %6554 ], [ %.369768, %5808 ]
   %5033 = getelementptr inbounds i8, ptr %5032, i64 1
-  store ptr %5033, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5033, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5034 = getelementptr inbounds i8, ptr %5032, i64 2
   %.not6281 = icmp ult ptr %5034, %3359
   br i1 %.not6281, label %.lr.ph9769, label %.loopexit
@@ -13634,7 +13634,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 5058:                                             ; preds = %.preheader6921, %5076
   %5059 = phi ptr [ %.promoted97899791, %.preheader6921 ], [ %5060, %5076 ]
   %5060 = getelementptr inbounds i8, ptr %5059, i64 1
-  store ptr %5060, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5060, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5061 = getelementptr inbounds i8, ptr %5059, i64 2
   %.not6354 = icmp ult ptr %5061, %3359
   br i1 %.not6354, label %5062, label %.loopexit
@@ -13656,7 +13656,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted97899795 = phi ptr [ %5019, %5331 ], [ %5060, %5067 ], [ %5060, %5071 ], [ %5060, %5077 ], [ %5803, %6035 ], [ %5803, %6040 ], [ %5019, %5338 ], [ %5019, %5339 ], [ %5019, %5347 ], [ %4736, %4739 ], [ %4736, %4740 ], [ %5803, %6041 ], [ %5573, %5581 ], [ %5573, %5585 ], [ %5573, %5586 ], [ %5572, %5800 ], [ %5572, %5801 ], [ %5572, %5808 ], [ %5060, %5076 ], [ %6534, %6559 ], [ %6534, %6554 ], [ %6459, %6545 ], [ %6459, %6540 ], [ %6444, %6532 ], [ %6444, %6531 ], [ %6395, %6470 ], [ %6395, %6465 ], [ %6443, %6455 ], [ %6443, %6450 ], [ %6303, %6406 ], [ %6303, %6401 ], [ %6288, %6391 ], [ %6288, %6386 ], [ %6188, %6314 ], [ %6188, %6309 ], [ %6173, %6299 ], [ %6173, %6294 ], [ %6062, %6199 ], [ %6062, %6194 ], [ %6047, %6184 ], [ %6047, %6179 ], [ %5835, %6073 ], [ %5835, %6068 ], [ %5819, %6058 ], [ %5819, %6053 ], [ %5834, %5846 ], [ %5834, %5841 ], [ %5818, %5830 ], [ %5818, %5825 ], [ %5810, %5816 ], [ %5810, %5815 ], [ %5572, %5807 ], [ %5573, %5603 ], [ %5573, %5600 ], [ %5573, %5595 ], [ %5834, %5847 ], [ %5835, %6074 ], [ %6062, %6200 ], [ %6188, %6315 ], [ %6303, %6407 ], [ %6395, %6471 ], [ %6459, %6546 ], [ %6534, %6560 ], [ %6534, %6555 ], [ %6459, %6541 ], [ %6395, %6466 ], [ %6303, %6402 ], [ %6188, %6310 ], [ %6062, %6195 ], [ %5835, %6069 ], [ %5834, %5842 ], [ %5818, %5831 ], [ %5819, %6059 ], [ %6047, %6185 ], [ %6173, %6300 ], [ %6288, %6392 ], [ %6443, %6456 ], [ %6443, %6451 ], [ %6288, %6387 ], [ %6173, %6295 ], [ %6047, %6180 ], [ %5819, %6054 ], [ %5818, %5826 ], [ %5803, %6037 ], [ %5573, %5582 ], [ %5019, %5333 ]
   %.34.be = phi i32 [ %.369768, %5331 ], [ %.37.ph, %5067 ], [ %.37.ph, %5071 ], [ %.37.ph, %5077 ], [ %.369768, %6035 ], [ %.369768, %6040 ], [ %.369768, %5338 ], [ %.369768, %5339 ], [ %.369768, %5347 ], [ %.349879, %4739 ], [ %.349879, %4740 ], [ %.369768, %6041 ], [ %.369768, %5581 ], [ %.369768, %5585 ], [ %.369768, %5586 ], [ %.369768, %5800 ], [ %.369768, %5801 ], [ %.369768, %5808 ], [ %.37.ph, %5076 ], [ 53, %6559 ], [ 53, %6554 ], [ 53, %6545 ], [ 53, %6540 ], [ 93, %6532 ], [ 93, %6531 ], [ 53, %6470 ], [ 53, %6465 ], [ 53, %6455 ], [ 53, %6450 ], [ 53, %6406 ], [ 53, %6401 ], [ 53, %6391 ], [ 53, %6386 ], [ 53, %6314 ], [ 53, %6309 ], [ 53, %6299 ], [ 53, %6294 ], [ 53, %6199 ], [ 53, %6194 ], [ 53, %6184 ], [ 53, %6179 ], [ 53, %6073 ], [ 53, %6068 ], [ 53, %6058 ], [ 53, %6053 ], [ 53, %5846 ], [ 53, %5841 ], [ 53, %5830 ], [ 53, %5825 ], [ 53, %5816 ], [ 53, %5815 ], [ %.369768, %5807 ], [ %.369768, %5603 ], [ %.369768, %5600 ], [ %.369768, %5595 ], [ 53, %5847 ], [ 53, %6074 ], [ 53, %6200 ], [ 53, %6315 ], [ 53, %6407 ], [ 53, %6471 ], [ 53, %6546 ], [ 53, %6560 ], [ 53, %6555 ], [ 53, %6541 ], [ 53, %6466 ], [ 53, %6402 ], [ 53, %6310 ], [ 53, %6195 ], [ 53, %6069 ], [ 53, %5842 ], [ 53, %5831 ], [ 53, %6059 ], [ 53, %6185 ], [ 53, %6300 ], [ 53, %6392 ], [ 53, %6456 ], [ 53, %6451 ], [ 53, %6387 ], [ 53, %6295 ], [ 53, %6180 ], [ 53, %6054 ], [ 53, %5826 ], [ %.369768, %6037 ], [ %.369768, %5582 ], [ %.369768, %5333 ]
   %5069 = getelementptr inbounds i8, ptr %.promoted97899795, i64 1
-  store ptr %5069, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5069, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5070 = getelementptr inbounds i8, ptr %.promoted97899795, i64 2
   %.not6280 = icmp ult ptr %5070, %3359
   br i1 %.not6280, label %.lr.ph9880, label %.loopexit
@@ -13671,7 +13671,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted97899794 = phi ptr [ %5060, %5071 ], [ %4736, %4739 ], [ %4736, %4740 ], [ %5060, %5071 ]
   %.36.ph = phi i32 [ %.37.ph, %5071 ], [ %.349879, %4739 ], [ %.349879, %4740 ], [ %.37.ph, %5071 ]
   %5072 = getelementptr inbounds i8, ptr %.promoted97899794, i64 1
-  store ptr %5072, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5072, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5073 = getelementptr inbounds i8, ptr %.promoted97899794, i64 2
   %.not62819767 = icmp ult ptr %5073, %3359
   br i1 %.not62819767, label %.lr.ph9769, label %.loopexit
@@ -13689,7 +13689,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5078, label %.loopexit6972, label %.backedge6973
 
 5079:                                             ; preds = %4755, %4754
-  store ptr %4743, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4743, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5080 = getelementptr inbounds i8, ptr %3881, i64 5
   %.not6267 = icmp ult ptr %5080, %4311
   br i1 %.not6267, label %5081, label %.loopexit
@@ -13726,7 +13726,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5093, label %5378, label %.preheader7062
 
 5094:                                             ; preds = %4771, %4770
-  store ptr %4759, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4759, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5095 = getelementptr inbounds i8, ptr %3881, i64 5
   %.not6251 = icmp ult ptr %5095, %4329
   br i1 %.not6251, label %5096, label %.loopexit
@@ -13764,8 +13764,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5109:                                             ; preds = %4788
   %5110 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5110, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5110, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5110, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5110, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5111 = load i8, ptr %5110, align 1
   %5112 = and i8 %5111, -33
   %or.cond1175 = icmp eq i8 %5112, 83
@@ -13773,8 +13773,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5113:                                             ; preds = %4792
   %5114 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5114, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5114, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5114, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5114, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5115 = load i8, ptr %5114, align 1
   %5116 = and i8 %5115, -33
   %or.cond1178 = icmp eq i8 %5116, 78
@@ -13782,8 +13782,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5117:                                             ; preds = %4796
   %5118 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5118, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5118, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5118, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5118, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5119 = load i8, ptr %5118, align 1
   %5120 = and i8 %5119, -33
   %or.cond1181 = icmp eq i8 %5120, 70
@@ -13791,8 +13791,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5121:                                             ; preds = %4800
   %5122 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5122, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5122, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5123 = load i8, ptr %5122, align 1
   %5124 = zext i8 %5123 to i64
   %5125 = or disjoint i64 %5124, 256
@@ -13807,7 +13807,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7159:                                    ; preds = %5128, %970
   %5130 = phi ptr [ %939, %970 ], [ %5122, %5128 ]
-  %5131 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5131 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5132 = ptrtoint ptr %5130 to i64
   %5133 = ptrtoint ptr %5131 to i64
   %5134 = sub i64 %5132, %5133
@@ -13816,8 +13816,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5136:                                             ; preds = %4804
   %5137 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5137, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5137, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5137, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5137, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5138 = load i8, ptr %5137, align 1
   %5139 = zext i8 %5138 to i64
   %5140 = or disjoint i64 %5139, 256
@@ -13832,7 +13832,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7161:                                    ; preds = %5143, %973
   %5145 = phi ptr [ %939, %973 ], [ %5137, %5143 ]
-  %5146 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5146 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5147 = ptrtoint ptr %5145 to i64
   %5148 = ptrtoint ptr %5146 to i64
   %5149 = sub i64 %5147, %5148
@@ -13841,8 +13841,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5151:                                             ; preds = %4808
   %5152 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5152, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5152, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5152, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5152, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5153 = load i8, ptr %5152, align 1
   %5154 = zext i8 %5153 to i64
   %5155 = or disjoint i64 %5154, 256
@@ -13866,8 +13866,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5167:                                             ; preds = %4812
   %5168 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5168, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5168, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5168, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5168, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5169 = load i8, ptr %5168, align 1
   %5170 = zext i8 %5169 to i64
   %5171 = or disjoint i64 %5170, 256
@@ -13882,7 +13882,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7151:                                    ; preds = %5174, %973
   %5176 = phi ptr [ %939, %973 ], [ %5168, %5174 ]
-  %5177 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5177 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5178 = ptrtoint ptr %5176 to i64
   %5179 = ptrtoint ptr %5177 to i64
   %5180 = sub i64 %5178, %5179
@@ -13891,8 +13891,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5182:                                             ; preds = %4831
   %5183 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5183, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5183, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5183, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5183, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5184 = load i8, ptr %5183, align 1
   %5185 = and i8 %5184, -33
   %or.cond1184 = icmp eq i8 %5185, 78
@@ -13900,7 +13900,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5186:                                             ; preds = %4835
   %5187 = getelementptr inbounds i8, ptr %4494, i64 3
-  store ptr %5187, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5187, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5188 = load i8, ptr %5187, align 1
   %5189 = and i8 %5188, -33
   %or.cond1187 = icmp eq i8 %5189, 77
@@ -13926,7 +13926,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 5195:                                             ; preds = %4870, %4869
-  store ptr %4858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5196 = getelementptr inbounds i8, ptr %4519, i64 4
   %.not6100 = icmp ult ptr %5196, %4069
   br i1 %.not6100, label %5197, label %.loopexit
@@ -13964,8 +13964,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5210:                                             ; preds = %4884
   %5211 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5212 = load i8, ptr %5211, align 1
   %5213 = zext i8 %5212 to i64
   %5214 = or disjoint i64 %5213, 256
@@ -13980,7 +13980,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7132:                                    ; preds = %5217, %974
   %5219 = phi ptr [ %939, %974 ], [ %5211, %5217 ]
-  %5220 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5220 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5221 = ptrtoint ptr %5219 to i64
   %5222 = ptrtoint ptr %5220 to i64
   %5223 = sub i64 %5221, %5222
@@ -13989,8 +13989,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5225:                                             ; preds = %4903
   %5226 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5226, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5226, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5227 = load i8, ptr %5226, align 1
   %5228 = and i8 %5227, -33
   %or.cond1193 = icmp eq i8 %5228, 78
@@ -13998,8 +13998,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5229:                                             ; preds = %4907
   %5230 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5230, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5230, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5231 = load i8, ptr %5230, align 1
   %5232 = and i8 %5231, -33
   %or.cond1196 = icmp eq i8 %5232, 77
@@ -14007,16 +14007,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5233:                                             ; preds = %4926
   %5234 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5234, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5234, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5235 = load i8, ptr %5234, align 1
   %5236 = icmp eq i8 %5235, 95
   br i1 %5236, label %5542, label %669
 
 5237:                                             ; preds = %4930
   %5238 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5238, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5238, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5238, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5238, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5239 = load i8, ptr %5238, align 1
   %5240 = and i8 %5239, -33
   %or.cond1199 = icmp eq i8 %5240, 67
@@ -14024,8 +14024,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5241:                                             ; preds = %4934
   %5242 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 9
-  store ptr %5242, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5242, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5242, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5242, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5243 = load i8, ptr %5242, align 1
   %5244 = zext i8 %5243 to i64
   %5245 = or disjoint i64 %5244, 256
@@ -14040,7 +14040,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7124:                                    ; preds = %5248, %974
   %5250 = phi ptr [ %939, %974 ], [ %5242, %5248 ]
-  %5251 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5251 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5252 = ptrtoint ptr %5250 to i64
   %5253 = ptrtoint ptr %5251 to i64
   %5254 = sub i64 %5252, %5253
@@ -14048,7 +14048,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br label %.loopexit6799.sink.split
 
 5256:                                             ; preds = %4975
-  store ptr %4963, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4963, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5257 = getelementptr inbounds i8, ptr %4598, i64 4
   %.not6501 = icmp ult ptr %5257, %51
   br i1 %.not6501, label %5258, label %.loopexit
@@ -14085,7 +14085,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5270, label %4949, label %.backedge6920
 
 5271:                                             ; preds = %4986
-  store ptr %4978, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %4978, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5272 = getelementptr inbounds i8, ptr %4598, i64 4
   %.not6498 = icmp ult ptr %5272, %51
   br i1 %.not6498, label %5273, label %.loopexit
@@ -14123,8 +14123,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5286:                                             ; preds = %4988
   %5287 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5287, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5287, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5288 = load i8, ptr %5287, align 1
   %5289 = zext i8 %5288 to i64
   %5290 = or disjoint i64 %5289, 256
@@ -14139,7 +14139,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7187:                                    ; preds = %5293, %974
   %5295 = phi ptr [ %939, %974 ], [ %5287, %5293 ]
-  %5296 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5296 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5297 = ptrtoint ptr %5295 to i64
   %5298 = ptrtoint ptr %5296 to i64
   %5299 = sub i64 %5297, %5298
@@ -14148,8 +14148,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5301:                                             ; preds = %4992
   %5302 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5302, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5302, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5302, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5302, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5303 = load i8, ptr %5302, align 1
   %5304 = zext i8 %5303 to i64
   %5305 = or disjoint i64 %5304, 256
@@ -14173,7 +14173,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5316:                                             ; preds = %5011
   %5317 = getelementptr inbounds i8, ptr %3320, i64 6
-  store ptr %5317, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5317, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5318 = load i8, ptr %5317, align 1
   %5319 = and i8 %5318, -33
   %or.cond1208 = icmp eq i8 %5319, 68
@@ -14181,14 +14181,14 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5320:                                             ; preds = %5015
   %5321 = getelementptr inbounds i8, ptr %3320, i64 6
-  store ptr %5321, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5321, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5322 = load i8, ptr %5321, align 1
   %5323 = and i8 %5322, -33
   %or.cond1211 = icmp eq i8 %5323, 77
   br i1 %or.cond1211, label %5568, label %.thread6759
 
 5324:                                             ; preds = %5038
-  store ptr %5019, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5019, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5325 = getelementptr inbounds i8, ptr %5021, i64 3
   %.not6302 = icmp ult ptr %5325, %3359
   br i1 %.not6302, label %5326, label %.loopexit
@@ -14214,7 +14214,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .preheader6895:                                   ; preds = %5333, %5333
   %5334 = getelementptr inbounds i8, ptr %5019, i64 1
-  store ptr %5334, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5334, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5335 = getelementptr inbounds i8, ptr %5019, i64 2
   %.not63049729 = icmp ult ptr %5335, %3359
   br i1 %.not63049729, label %.lr.ph9730, label %.loopexit
@@ -14232,7 +14232,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5340, label %.preheader7071.loopexit20706, label %.backedge6973
 
 5341:                                             ; preds = %5040
-  store ptr %5019, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5019, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5342 = getelementptr inbounds i8, ptr %5021, i64 3
   %.not6298 = icmp ult ptr %5342, %3359
   br i1 %.not6298, label %5343, label %.loopexit
@@ -14254,10 +14254,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5349:                                             ; preds = %5054, %5057, %5049, %5045
   %5350 = getelementptr inbounds i8, ptr %5021, i64 2
-  store ptr %5350, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5350, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5350, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5350, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5351 = getelementptr inbounds i8, ptr %5021, i64 3
-  %5352 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %5352 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %5353 = getelementptr inbounds i8, ptr %5352, i64 32
   %.not6290 = icmp ult ptr %5351, %5353
   br i1 %.not6290, label %5354, label %.loopexit
@@ -14271,10 +14271,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5356:                                             ; preds = %5054, %5045
   %5357 = getelementptr inbounds i8, ptr %5021, i64 2
-  store ptr %5357, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5357, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5358 = getelementptr inbounds i8, ptr %5021, i64 3
-  %5359 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %5359 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %5360 = getelementptr inbounds i8, ptr %5359, i64 32
   %.not6291 = icmp ult ptr %5358, %5360
   br i1 %.not6291, label %5361, label %.loopexit
@@ -14297,10 +14297,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5367:                                             ; preds = %5055, %5047
   %5368 = getelementptr inbounds i8, ptr %5021, i64 2
-  store ptr %5368, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5368, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5368, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5368, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5369 = getelementptr inbounds i8, ptr %5021, i64 3
-  %5370 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %5370 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %5371 = getelementptr inbounds i8, ptr %5370, i64 32
   %.not6282 = icmp ult ptr %5369, %5371
   br i1 %.not6282, label %5372, label %.loopexit
@@ -14322,7 +14322,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1220, label %5620, label %.preheader7071
 
 5378:                                             ; preds = %5092, %5091
-  store ptr %5080, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5080, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5379 = getelementptr inbounds i8, ptr %3881, i64 6
   %.not6269 = icmp ult ptr %5379, %4311
   br i1 %.not6269, label %5380, label %.loopexit
@@ -14359,7 +14359,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5392, label %5628, label %.preheader7062
 
 5393:                                             ; preds = %5107, %5106
-  store ptr %5095, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5095, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5394 = getelementptr inbounds i8, ptr %3881, i64 6
   %.not6253 = icmp ult ptr %5394, %4329
   br i1 %.not6253, label %5395, label %.loopexit
@@ -14397,8 +14397,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5408:                                             ; preds = %5109
   %5409 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5409, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5410 = load i8, ptr %5409, align 1
   %5411 = zext i8 %5410 to i64
   %5412 = or disjoint i64 %5411, 256
@@ -14413,7 +14413,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7164:                                    ; preds = %5415, %979
   %5417 = phi ptr [ %939, %979 ], [ %5409, %5415 ]
-  %5418 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5418 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5419 = ptrtoint ptr %5417 to i64
   %5420 = ptrtoint ptr %5418 to i64
   %5421 = sub i64 %5419, %5420
@@ -14422,8 +14422,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5423:                                             ; preds = %5113
   %5424 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5424, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5424, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5424, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5424, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5425 = load i8, ptr %5424, align 1
   %5426 = and i8 %5425, -33
   %or.cond1229 = icmp eq i8 %5426, 67
@@ -14431,8 +14431,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5427:                                             ; preds = %5117
   %5428 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5428, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5428, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5429 = load i8, ptr %5428, align 1
   %5430 = zext i8 %5429 to i64
   %5431 = or disjoint i64 %5430, 256
@@ -14447,7 +14447,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit7160:                                    ; preds = %5434, %979
   %5436 = phi ptr [ %939, %979 ], [ %5428, %5434 ]
-  %5437 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5437 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5438 = ptrtoint ptr %5436 to i64
   %5439 = ptrtoint ptr %5437 to i64
   %5440 = sub i64 %5438, %5439
@@ -14458,7 +14458,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5442 = phi ptr [ %5662, %5673 ], [ %5152, %5158 ]
   %.39 = phi i32 [ 88, %5673 ], [ 79, %5158 ]
   %5443 = getelementptr inbounds i8, ptr %5442, i64 1
-  store ptr %5443, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5443, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5444 = getelementptr inbounds i8, ptr %5442, i64 2
   %.not6205 = icmp ult ptr %5444, %51
   br i1 %.not6205, label %5445, label %.loopexit
@@ -14489,16 +14489,16 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 .preheader6808:                                   ; preds = %5450, %5453
-  store ptr %5444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5454 = getelementptr inbounds i8, ptr %5442, i64 3
   %.not620610322 = icmp ult ptr %5454, %51
   br i1 %.not620610322, label %.lr.ph10323, label %.loopexit
 
 5455:                                             ; preds = %5182
   %5456 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5456, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5456, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5456, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5456, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5457 = load i8, ptr %5456, align 1
   %5458 = and i8 %5457, -33
   %or.cond1238 = icmp eq i8 %5458, 67
@@ -14506,7 +14506,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5459:                                             ; preds = %5186
   %5460 = getelementptr inbounds i8, ptr %4494, i64 4
-  store ptr %5460, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5460, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5461 = load i8, ptr %5460, align 1
   %5462 = icmp ult i8 %5461, 95
   br i1 %5462, label %5463, label %5469
@@ -14568,7 +14568,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted94939496 = phi ptr [ %5474, %5481 ], [ %5474, %5485 ], [ %5474, %5489 ], [ %5930, %5946 ], [ %6123, %6246 ], [ %6130, %6138 ], [ %6131, %6260 ], [ %6253, %6345 ], [ %6422, %6496 ], [ %6422, %6500 ], [ %5738, %5967 ], [ %6422, %6486 ], [ %6422, %6520 ], [ %5929, %6127 ], [ %6130, %6137 ], [ %6123, %6246 ], [ %6131, %6259 ], [ %6253, %6344 ], [ %6422, %6485 ], [ %6422, %6520 ], [ %5930, %5940 ], [ %5929, %6128 ], [ %6422, %6502 ]
   %.40.be = phi i32 [ %.409570, %5481 ], [ %.409570, %5485 ], [ %.409570, %5489 ], [ %.43, %5946 ], [ %.43, %6246 ], [ %.43, %6138 ], [ %.43, %6260 ], [ %.43, %6345 ], [ 91, %6496 ], [ 91, %6500 ], [ %.44, %5967 ], [ 91, %6486 ], [ 91, %6520 ], [ %.43, %6127 ], [ %.43, %6137 ], [ %.43, %6246 ], [ %.43, %6259 ], [ %.43, %6344 ], [ 91, %6485 ], [ 91, %6520 ], [ %.43, %5940 ], [ %.43, %6128 ], [ 91, %6502 ]
   %5487 = getelementptr inbounds i8, ptr %.promoted94939496, i64 1
-  store ptr %5487, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5487, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5488 = getelementptr inbounds i8, ptr %.promoted94939496, i64 2
   %.not6113 = icmp ult ptr %5488, %4069
   br i1 %.not6113, label %.lr.ph9571, label %.loopexit
@@ -14609,7 +14609,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 5498:                                             ; preds = %.preheader6902, %5516
   %5499 = phi ptr [ %.promoted95769578, %.preheader6902 ], [ %5500, %5516 ]
   %5500 = getelementptr inbounds i8, ptr %5499, i64 1
-  store ptr %5500, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5501 = getelementptr inbounds i8, ptr %5499, i64 2
   %.not6155 = icmp ult ptr %5501, %4069
   br i1 %.not6155, label %5502, label %.loopexit
@@ -14631,7 +14631,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted95769582 = phi ptr [ %5720, %5727 ], [ %5500, %5507 ], [ %5500, %5511 ], [ %5500, %5517 ], [ %6123, %6244 ], [ %6123, %6249 ], [ %5737, %5743 ], [ %6422, %6518 ], [ %6422, %6523 ], [ %6422, %6524 ], [ %5720, %5733 ], [ %5720, %5734 ], [ %5190, %5193 ], [ %5190, %5194 ], [ %5930, %5938 ], [ %5930, %5947 ], [ %5930, %5953 ], [ %6123, %6250 ], [ %5930, %5955 ], [ %5929, %6120 ], [ %5929, %6121 ], [ %5929, %6128 ], [ %5930, %5958 ], [ %5930, %5959 ], [ %6130, %6143 ], [ %6131, %6265 ], [ %6253, %6350 ], [ %5720, %5729 ], [ %6130, %6142 ], [ %6131, %6264 ], [ %6253, %6349 ], [ %5500, %5516 ], [ %6422, %6486 ], [ %6422, %6485 ], [ %6253, %6344 ], [ %6131, %6259 ], [ %6130, %6137 ], [ %5929, %6127 ], [ %6338, %6439 ], [ %6338, %6437 ], [ %6338, %6432 ], [ %6422, %6520 ], [ %6253, %6345 ], [ %6131, %6260 ], [ %6130, %6138 ], [ %6123, %6246 ], [ %5930, %5946 ]
   %.38.be = phi i32 [ %.43, %5727 ], [ %.41.ph, %5507 ], [ %.41.ph, %5511 ], [ %.41.ph, %5517 ], [ %.43, %6244 ], [ %.43, %6249 ], [ %.44, %5743 ], [ 91, %6518 ], [ 91, %6523 ], [ 91, %6524 ], [ %.43, %5733 ], [ %.43, %5734 ], [ %.389704, %5193 ], [ %.389704, %5194 ], [ %.43, %5938 ], [ %.43, %5947 ], [ %.43, %5953 ], [ %.43, %6250 ], [ %.43, %5955 ], [ %.43, %6120 ], [ %.43, %6121 ], [ %.43, %6128 ], [ %.43, %5958 ], [ %.43, %5959 ], [ %.43, %6143 ], [ %.43, %6265 ], [ %.43, %6350 ], [ %.43, %5729 ], [ %.43, %6142 ], [ %.43, %6264 ], [ %.43, %6349 ], [ %.41.ph, %5516 ], [ 91, %6486 ], [ 91, %6485 ], [ %.43, %6344 ], [ %.43, %6259 ], [ %.43, %6137 ], [ %.43, %6127 ], [ %.43, %6439 ], [ %.43, %6437 ], [ %.43, %6432 ], [ 91, %6520 ], [ %.43, %6345 ], [ %.43, %6260 ], [ %.43, %6138 ], [ %.43, %6246 ], [ %.43, %5946 ]
   %5509 = getelementptr inbounds i8, ptr %.promoted95769582, i64 1
-  store ptr %5509, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5509, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5510 = getelementptr inbounds i8, ptr %.promoted95769582, i64 2
   %.not6112 = icmp ult ptr %5510, %4069
   br i1 %.not6112, label %.lr.ph9705, label %.loopexit
@@ -14646,7 +14646,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted95769581 = phi ptr [ %5500, %5511 ], [ %5190, %5193 ], [ %5190, %5194 ], [ %5500, %5511 ]
   %.40.ph = phi i32 [ %.41.ph, %5511 ], [ %.389704, %5193 ], [ %.389704, %5194 ], [ %.41.ph, %5511 ]
   %5512 = getelementptr inbounds i8, ptr %.promoted95769581, i64 1
-  store ptr %5512, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5512, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5513 = getelementptr inbounds i8, ptr %.promoted95769581, i64 2
   %.not61139569 = icmp ult ptr %5513, %4069
   br i1 %.not61139569, label %.lr.ph9571, label %.loopexit
@@ -14664,7 +14664,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5518, label %.loopexit6940, label %.backedge6942
 
 5519:                                             ; preds = %5208, %5207
-  store ptr %5196, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5196, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5520 = getelementptr inbounds i8, ptr %4519, i64 5
   %.not6102 = icmp ult ptr %5520, %4069
   br i1 %.not6102, label %5521, label %.loopexit
@@ -14702,16 +14702,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5534:                                             ; preds = %5225
   %5535 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5535, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5535, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5535, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5535, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5536 = load i8, ptr %5535, align 1
   %5537 = icmp eq i8 %5536, 95
   br i1 %5537, label %5777, label %669
 
 5538:                                             ; preds = %5229
   %5539 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5539, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5539, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5539, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5539, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5540 = load i8, ptr %5539, align 1
   %5541 = and i8 %5540, -33
   %or.cond1256 = icmp eq i8 %5541, 80
@@ -14719,8 +14719,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5542:                                             ; preds = %5233
   %5543 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5543, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5543, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5543, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5543, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5544 = load i8, ptr %5543, align 1
   %5545 = zext i8 %5544 to i64
   %5546 = or disjoint i64 %5545, 256
@@ -14744,8 +14744,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5557:                                             ; preds = %5237
   %5558 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 10
-  store ptr %5558, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5558, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5558, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5558, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5559 = load i8, ptr %5558, align 1
   %5560 = and i8 %5559, -33
   %or.cond1259 = icmp eq i8 %5560, 69
@@ -14756,7 +14756,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5563 = phi i64 [ 9, %6024 ], [ 6, %5316 ]
   %5564 = getelementptr inbounds i8, ptr %3320, i64 %5563
   %5565 = getelementptr inbounds i8, ptr %5564, i64 1
-  store ptr %5565, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5565, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5566 = load i8, ptr %5565, align 1
   %5567 = and i8 %5566, -33
   %or.cond1262 = icmp eq i8 %5567, 83
@@ -14764,7 +14764,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5568:                                             ; preds = %5320
   %5569 = getelementptr inbounds i8, ptr %3320, i64 7
-  store ptr %5569, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5569, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5570 = load i8, ptr %5569, align 1
   %5571 = and i8 %5570, -33
   %or.cond1265 = icmp eq i8 %5571, 69
@@ -14855,7 +14855,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1274, label %.backedge6973, label %5809
 
 5604:                                             ; preds = %5346
-  store ptr %5342, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5342, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5605 = getelementptr inbounds i8, ptr %5021, i64 4
   %.not6300 = icmp ult ptr %5605, %3359
   br i1 %.not6300, label %5606, label %.loopexit
@@ -14876,7 +14876,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5611, label %.backedge6933, label %.preheader7071.loopexit
 
 5612:                                             ; preds = %5365
-  store ptr %5358, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5358, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5613 = getelementptr inbounds i8, ptr %5021, i64 4
   %.not6292 = icmp ult ptr %5613, %5360
   br i1 %.not6292, label %5614, label %.loopexit
@@ -14898,7 +14898,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1277, label %5849, label %.preheader7071
 
 5620:                                             ; preds = %5376
-  store ptr %5369, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5369, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5621 = getelementptr inbounds i8, ptr %5021, i64 4
   %.not6283 = icmp ult ptr %5621, %5371
   br i1 %.not6283, label %5622, label %.loopexit
@@ -14920,7 +14920,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1280, label %5857, label %.preheader7071
 
 5628:                                             ; preds = %5391, %5390
-  store ptr %5379, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5379, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5629 = getelementptr inbounds i8, ptr %3881, i64 7
   %.not6271 = icmp ult ptr %5629, %4311
   br i1 %.not6271, label %5630, label %.loopexit
@@ -14957,7 +14957,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5642, label %5865, label %.preheader7062
 
 5643:                                             ; preds = %5406, %5405
-  store ptr %5394, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5394, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5644 = getelementptr inbounds i8, ptr %3881, i64 7
   %.not6255 = icmp ult ptr %5644, %4329
   br i1 %.not6255, label %5645, label %.loopexit
@@ -14995,8 +14995,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5658:                                             ; preds = %5423
   %5659 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 11
-  store ptr %5659, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5659, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5659, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5659, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5660 = load i8, ptr %5659, align 1
   %5661 = and i8 %5660, -33
   %or.cond1289 = icmp eq i8 %5661, 69
@@ -15023,8 +15023,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .backedge6811:                                    ; preds = %5669, %5677, %5679, %5667
   %5671 = getelementptr inbounds i8, ptr %5662, i64 1
-  store ptr %5671, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5671, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5671, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5671, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5672 = getelementptr inbounds i8, ptr %5662, i64 2
   %.not6206 = icmp ult ptr %5672, %51
   br i1 %.not6206, label %.lr.ph10323, label %.loopexit
@@ -15052,13 +15052,13 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5683 = ptrtoint ptr %5680 to i64
   %5684 = sub i64 %5682, %5683
   %5685 = trunc i64 %5684 to i32
-  store i32 %5685, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %5685, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 5686:                                             ; preds = %5455
   %5687 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 11
-  store ptr %5687, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5687, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5688 = load i8, ptr %5687, align 1
   %5689 = and i8 %5688, -33
   %or.cond1298 = icmp eq i8 %5689, 69
@@ -15087,7 +15087,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 .loopexit6912:                                    ; preds = %6361, %6354, %5995, %5983, %5999, %5993, %5998, %6518, %6485, %6494, %983, %.loopexit6880
   %5696 = phi ptr [ %939, %983 ], [ %5695, %.loopexit6880 ], [ %6422, %6494 ], [ %6422, %6485 ], [ %6422, %6518 ], [ %5758, %5998 ], [ %6268, %6361 ], [ %6268, %6354 ], [ %5758, %5995 ], [ %5758, %5983 ], [ %5758, %5999 ], [ %5758, %5993 ]
-  %5697 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5697 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5698 = ptrtoint ptr %5696 to i64
   %5699 = ptrtoint ptr %5697 to i64
   %5700 = sub i64 %5698, %5699
@@ -15095,16 +15095,16 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5702 = and i64 %5700, 4294967295
   %5703 = getelementptr inbounds i8, ptr %5697, i64 %5702
   %5704 = getelementptr inbounds i8, ptr %5703, i64 -1
-  store ptr %5704, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5704, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5705 = add i32 %5701, -1
-  store i32 %5705, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %5705, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %5706 = zext i32 %5705 to i64
   %5707 = getelementptr inbounds i8, ptr %5697, i64 %5706
   %.not10402 = icmp eq i32 %5705, 0
   br i1 %.not10402, label %.loopexit6799, label %.lr.ph10365.preheader
 
 .lr.ph10365.preheader:                            ; preds = %.loopexit6912
-  %.promoted10362 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10362 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10365
 
 .lr.ph10365:                                      ; preds = %.lr.ph10365.preheader, %5715
@@ -15124,7 +15124,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5713:                                             ; preds = %.lr.ph10365, %5710
   %5714 = add nsw i32 %5708, 1
-  store i32 %5714, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %5714, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %5715
 
 5715:                                             ; preds = %.lr.ph10365, %5713, %5710
@@ -15137,7 +15137,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5719 = phi ptr [ %6422, %6502 ], [ %5474, %5489 ]
   %.43 = phi i32 [ 91, %6502 ], [ %.409570, %5489 ]
   %5720 = getelementptr inbounds i8, ptr %5719, i64 1
-  store ptr %5720, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5721 = getelementptr inbounds i8, ptr %5719, i64 2
   %.not6117 = icmp ult ptr %5721, %4069
   br i1 %.not6117, label %5722, label %.loopexit
@@ -15162,7 +15162,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 .preheader6861:                                   ; preds = %5729, %5729
-  store ptr %5721, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5721, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5730 = getelementptr inbounds i8, ptr %5719, i64 3
   %.not61199488 = icmp ult ptr %5730, %4069
   br i1 %.not61199488, label %.lr.ph9489, label %.loopexit
@@ -15183,7 +15183,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted94939495 = phi ptr [ %5474, %5492 ], [ %6422, %6505 ]
   %.44 = phi i32 [ %.409570, %5492 ], [ 91, %6505 ]
   %5737 = getelementptr inbounds i8, ptr %.promoted94939495, i64 1
-  store ptr %5737, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5737, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5738 = getelementptr inbounds i8, ptr %.promoted94939495, i64 2
   %.not6142 = icmp ult ptr %5738, %4069
   br i1 %.not6142, label %5739, label %.loopexit
@@ -15207,9 +15207,9 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5746 = phi ptr [ %6422, %6508 ], [ %6422, %6509 ], [ %5474, %5495 ], [ %5474, %5496 ]
   %.45 = phi i32 [ 91, %6508 ], [ 91, %6509 ], [ %.409570, %5495 ], [ %.409570, %5496 ]
   %5747 = getelementptr inbounds i8, ptr %5746, i64 1
-  store ptr %5747, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5748 = getelementptr inbounds i8, ptr %5746, i64 2
-  %5749 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %5749 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %5750 = getelementptr inbounds i8, ptr %5749, i64 32
   %.not6133 = icmp ult ptr %5748, %5750
   br i1 %.not6133, label %5751, label %.loopexit
@@ -15231,7 +15231,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1304, label %5969, label %.preheader7096
 
 5757:                                             ; preds = %5532, %5531
-  store ptr %5520, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5520, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5758 = getelementptr inbounds i8, ptr %4519, i64 6
   %.not6104 = icmp ult ptr %5758, %4069
   br i1 %.not6104, label %5759, label %.loopexit
@@ -15285,16 +15285,16 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5777:                                             ; preds = %5534
   %5778 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 11
-  store ptr %5778, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5778, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5778, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5778, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5779 = load i8, ptr %5778, align 1
   %5780 = icmp eq i8 %5779, 95
   br i1 %5780, label %6001, label %669
 
 5781:                                             ; preds = %5538
   %5782 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 11
-  store ptr %5782, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5782, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5782, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5782, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5783 = load i8, ptr %5782, align 1
   %5784 = and i8 %5783, -33
   %or.cond1313 = icmp eq i8 %5784, 73
@@ -15302,29 +15302,29 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5785:                                             ; preds = %5557
   %5786 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 11
-  store ptr %5786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5786, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5787 = load i8, ptr %5786, align 1
   %5788 = icmp eq i8 %5787, 95
   br i1 %5788, label %6020, label %669
 
 .loopexit6932:                                    ; preds = %6411, %6097, %6531, %5561, %986
-  %5789 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %5789 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %5790 = getelementptr inbounds i8, ptr %5789, i64 4
-  store ptr %5790, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 4, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %5790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 5791:                                             ; preds = %5568
   %5792 = getelementptr inbounds i8, ptr %3320, i64 8
-  store ptr %5792, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5793 = load i8, ptr %5792, align 1
   %5794 = and i8 %5793, -33
   %or.cond1316 = icmp eq i8 %5794, 78
   br i1 %or.cond1316, label %6024, label %.thread6759
 
 5795:                                             ; preds = %5585
-  store ptr %5572, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5572, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5796 = getelementptr inbounds i8, ptr %5574, i64 3
   %.not6353 = icmp ult ptr %5796, %3359
   br i1 %.not6353, label %5797, label %.loopexit
@@ -15347,7 +15347,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 5802:                                             ; preds = %5586
-  store ptr %5572, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5572, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5803 = getelementptr inbounds i8, ptr %5574, i64 3
   %.not6350 = icmp ult ptr %5803, %3359
   br i1 %.not6350, label %5804, label %.loopexit
@@ -15371,8 +15371,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5809:                                             ; preds = %5600, %5603, %5595, %5591
   %5810 = getelementptr inbounds i8, ptr %5574, i64 2
-  store ptr %5810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5811 = getelementptr inbounds i8, ptr %5574, i64 3
   %.not6330 = icmp ult ptr %5811, %3359
   br i1 %.not6330, label %5812, label %.loopexit
@@ -15396,8 +15396,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5817:                                             ; preds = %5600, %5591
   %5818 = getelementptr inbounds i8, ptr %5574, i64 2
-  store ptr %5818, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5818, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5819 = getelementptr inbounds i8, ptr %5574, i64 3
   %.not6331 = icmp ult ptr %5819, %3359
   br i1 %.not6331, label %5820, label %.loopexit
@@ -15437,8 +15437,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5833:                                             ; preds = %5601, %5593
   %5834 = getelementptr inbounds i8, ptr %5574, i64 2
-  store ptr %5834, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5834, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5835 = getelementptr inbounds i8, ptr %5574, i64 3
   %.not6305 = icmp ult ptr %5835, %3359
   br i1 %.not6305, label %5836, label %.loopexit
@@ -15477,7 +15477,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5848, label %6061, label %.backedge6973
 
 5849:                                             ; preds = %5618
-  store ptr %5613, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5613, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5850 = getelementptr inbounds i8, ptr %5021, i64 5
   %.not6293 = icmp ult ptr %5850, %5360
   br i1 %.not6293, label %5851, label %.loopexit
@@ -15499,7 +15499,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1319, label %6076, label %.preheader7071
 
 5857:                                             ; preds = %5626
-  store ptr %5621, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5621, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5858 = getelementptr inbounds i8, ptr %5021, i64 5
   %.not6284 = icmp ult ptr %5858, %5371
   br i1 %.not6284, label %5859, label %.loopexit
@@ -15525,7 +15525,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %5866 = phi ptr [ %4328, %6235 ], [ %4328, %6234 ], [ %4310, %5641 ], [ %4310, %5640 ]
   %5867 = phi ptr [ %6101, %6235 ], [ %6101, %6234 ], [ %5379, %5641 ], [ %5379, %5640 ]
   %5868 = getelementptr inbounds i8, ptr %5867, i64 1
-  store ptr %5868, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5868, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5869 = getelementptr inbounds i8, ptr %5867, i64 2
   %5870 = getelementptr inbounds i8, ptr %5866, i64 32
   %.not6273 = icmp ult ptr %5869, %5870
@@ -15563,7 +15563,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5883, label %6092, label %.preheader7062
 
 5884:                                             ; preds = %5656, %5655
-  store ptr %5644, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5644, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5885 = getelementptr inbounds i8, ptr %3881, i64 8
   %.not6257 = icmp ult ptr %5885, %4329
   br i1 %.not6257, label %5886, label %.loopexit
@@ -15601,8 +15601,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5899:                                             ; preds = %5658
   %5900 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 12
-  store ptr %5900, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5900, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5900, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5900, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5901 = load i8, ptr %5900, align 1
   %5902 = zext i8 %5901 to i64
   %5903 = or disjoint i64 %5902, 256
@@ -15626,8 +15626,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5914:                                             ; preds = %5686
   %5915 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 12
-  store ptr %5915, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5915, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5915, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5915, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5916 = load i8, ptr %5915, align 1
   %5917 = zext i8 %5916 to i64
   %5918 = or disjoint i64 %5917, 256
@@ -15676,7 +15676,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .backedge6867:                                    ; preds = %5940, %5947, %6250, %6120, %6121
   %5941 = phi ptr [ %5930, %5940 ], [ %5930, %5947 ], [ %6123, %6250 ], [ %5929, %6120 ], [ %5929, %6121 ]
   %5942 = getelementptr inbounds i8, ptr %5941, i64 1
-  store ptr %5942, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5942, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5943 = getelementptr inbounds i8, ptr %5941, i64 2
   %.not6119 = icmp ult ptr %5943, %4069
   br i1 %.not6119, label %.lr.ph9489, label %.loopexit
@@ -15724,7 +15724,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5960, label %6129, label %.backedge6942
 
 5961:                                             ; preds = %5742
-  store ptr %5738, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5738, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5962 = getelementptr inbounds i8, ptr %.promoted94939495, i64 3
   %.not6144 = icmp ult ptr %5962, %4069
   br i1 %.not6144, label %5963, label %.loopexit
@@ -15745,7 +15745,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5968, label %.backedge6913, label %.preheader7096.loopexit20661
 
 5969:                                             ; preds = %5755
-  store ptr %5748, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5748, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %5970 = getelementptr inbounds i8, ptr %5746, i64 3
   %.not6134 = icmp ult ptr %5970, %5750
   br i1 %.not6134, label %5971, label %.loopexit
@@ -15767,10 +15767,10 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1331, label %6145, label %.preheader7096
 
 .loopexit7103:                                    ; preds = %5764, %5776, %5776, %5776, %5776, %5776, %5776, %5773, %5771, %5767
-  store ptr %5758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5977 = getelementptr inbounds i8, ptr %4519, i64 7
-  %5978 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %5978 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %5979 = getelementptr inbounds i8, ptr %5978, i64 32
   %.not6108 = icmp ult ptr %5977, %5979
   br i1 %.not6108, label %5980, label %.loopexit
@@ -15791,8 +15791,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5985, label %.preheader7107, label %.preheader7086
 
 5986:                                             ; preds = %5764, %5765
-  store ptr %5758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5758, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %5987 = getelementptr inbounds i8, ptr %4519, i64 11
   %.not6106 = icmp ult ptr %5987, %4069
   br i1 %.not6106, label %5988, label %.loopexit
@@ -15834,8 +15834,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6001:                                             ; preds = %5777
   %6002 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 12
-  store ptr %6002, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6002, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6002, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6002, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6003 = load i8, ptr %6002, align 1
   %6004 = zext i8 %6003 to i64
   %6005 = or disjoint i64 %6004, 256
@@ -15859,8 +15859,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6016:                                             ; preds = %5781
   %6017 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 12
-  store ptr %6017, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6017, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6018 = load i8, ptr %6017, align 1
   %6019 = and i8 %6018, -33
   %or.cond1343 = icmp eq i8 %6019, 76
@@ -15868,22 +15868,22 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6020:                                             ; preds = %5785
   %6021 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 12
-  store ptr %6021, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6021, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6021, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6021, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6022 = load i8, ptr %6021, align 1
   %6023 = icmp eq i8 %6022, 95
   br i1 %6023, label %6157, label %669
 
 6024:                                             ; preds = %5791
   %6025 = getelementptr inbounds i8, ptr %3320, i64 9
-  store ptr %6025, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6025, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6026 = load i8, ptr %6025, align 1
   %6027 = and i8 %6026, -33
   %or.cond1346 = icmp eq i8 %6027, 84
   br i1 %or.cond1346, label %5561, label %.thread6759
 
 6028:                                             ; preds = %5808
-  store ptr %5803, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5803, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6029 = getelementptr inbounds i8, ptr %5574, i64 4
   %.not6351 = icmp ult ptr %6029, %3359
   br i1 %.not6351, label %6030, label %.loopexit
@@ -15922,13 +15922,13 @@ strip_underscores.exit6706:                       ; preds = %1936
 .backedge6901:                                    ; preds = %6041, %5581, %5585, %5800, %5801
   %6043 = phi ptr [ %5803, %6041 ], [ %5573, %5581 ], [ %5573, %5585 ], [ %5572, %5800 ], [ %5572, %5801 ]
   %6044 = getelementptr inbounds i8, ptr %6043, i64 1
-  store ptr %6044, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6044, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6045 = getelementptr inbounds i8, ptr %6043, i64 2
   %.not6304 = icmp ult ptr %6045, %3359
   br i1 %.not6304, label %.lr.ph9730, label %.loopexit
 
 6046:                                             ; preds = %5830, %5831
-  store ptr %5819, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5819, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6047 = getelementptr inbounds i8, ptr %5574, i64 4
   %.not6333 = icmp ult ptr %6047, %3359
   br i1 %.not6333, label %6048, label %.loopexit
@@ -15967,7 +15967,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6060, label %6172, label %.backedge6973
 
 6061:                                             ; preds = %5846, %5847
-  store ptr %5835, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5835, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6062 = getelementptr inbounds i8, ptr %5574, i64 4
   %.not6307 = icmp ult ptr %6062, %3359
   br i1 %.not6307, label %6063, label %.loopexit
@@ -16006,7 +16006,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6075, label %6187, label %.backedge6973
 
 6076:                                             ; preds = %5855
-  store ptr %5850, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6077 = getelementptr inbounds i8, ptr %5021, i64 6
   %.not6294 = icmp ult ptr %6077, %5360
   br i1 %.not6294, label %6078, label %.loopexit
@@ -16028,7 +16028,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1352, label %6202, label %.preheader7071
 
 6084:                                             ; preds = %5863
-  store ptr %5858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6085 = getelementptr inbounds i8, ptr %5021, i64 6
   %.not6285 = icmp ult ptr %6085, %5371
   br i1 %.not6285, label %6086, label %.loopexit
@@ -16050,8 +16050,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1355, label %6210, label %.preheader7071
 
 6092:                                             ; preds = %5882, %5881
-  store ptr %5869, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %5869, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %5869, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5869, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6093 = getelementptr inbounds i8, ptr %5867, i64 3
   %.not6275 = icmp ult ptr %6093, %5870
   br i1 %.not6275, label %6094, label %.loopexit
@@ -16072,7 +16072,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6099, label %.preheader7082, label %.preheader7062
 
 6100:                                             ; preds = %5897, %5896
-  store ptr %5885, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5885, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6101 = getelementptr inbounds i8, ptr %3881, i64 9
   %.not6259 = icmp ult ptr %6101, %4329
   br i1 %.not6259, label %6102, label %.loopexit
@@ -16109,7 +16109,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6114, label %6218, label %.preheader7062
 
 6115:                                             ; preds = %5953
-  store ptr %5929, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5929, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6116 = getelementptr inbounds i8, ptr %5931, i64 3
   %.not6154 = icmp ult ptr %6116, %4069
   br i1 %.not6154, label %6117, label %.loopexit
@@ -16132,7 +16132,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 6122:                                             ; preds = %5955
-  store ptr %5929, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5929, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6123 = getelementptr inbounds i8, ptr %5931, i64 3
   %.not6151 = icmp ult ptr %6123, %4069
   br i1 %.not6151, label %6124, label %.loopexit
@@ -16156,7 +16156,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6129:                                             ; preds = %5959, %5958
   %6130 = getelementptr inbounds i8, ptr %5931, i64 2
-  store ptr %6130, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6131 = getelementptr inbounds i8, ptr %5931, i64 3
   %.not6121 = icmp ult ptr %6131, %4069
   br i1 %.not6121, label %6132, label %.loopexit
@@ -16195,7 +16195,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6144, label %6252, label %.backedge6942
 
 6145:                                             ; preds = %5975
-  store ptr %5970, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %5970, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6146 = getelementptr inbounds i8, ptr %5746, i64 4
   %.not6135 = icmp ult ptr %6146, %5750
   br i1 %.not6135, label %6147, label %.loopexit
@@ -16218,8 +16218,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6153:                                             ; preds = %6016
   %6154 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 13
-  store ptr %6154, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6154, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6154, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6154, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6155 = load i8, ptr %6154, align 1
   %6156 = and i8 %6155, -33
   %or.cond1364 = icmp eq i8 %6156, 69
@@ -16227,8 +16227,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6157:                                             ; preds = %6020
   %6158 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 13
-  store ptr %6158, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6158, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6158, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6158, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6159 = load i8, ptr %6158, align 1
   %6160 = zext i8 %6159 to i64
   %6161 = or disjoint i64 %6160, 256
@@ -16251,7 +16251,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br label %.loopexit6799.sink.split
 
 6172:                                             ; preds = %6058, %6059
-  store ptr %6047, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6047, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6173 = getelementptr inbounds i8, ptr %5574, i64 5
   %.not6335 = icmp ult ptr %6173, %3359
   br i1 %.not6335, label %6174, label %.loopexit
@@ -16290,7 +16290,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6186, label %6287, label %.backedge6973
 
 6187:                                             ; preds = %6073, %6074
-  store ptr %6062, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6062, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6188 = getelementptr inbounds i8, ptr %5574, i64 5
   %.not6309 = icmp ult ptr %6188, %3359
   br i1 %.not6309, label %6189, label %.loopexit
@@ -16329,7 +16329,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6201, label %6302, label %.backedge6973
 
 6202:                                             ; preds = %6082
-  store ptr %6077, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6077, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6203 = getelementptr inbounds i8, ptr %5021, i64 7
   %.not6295 = icmp ult ptr %6203, %5360
   br i1 %.not6295, label %6204, label %.loopexit
@@ -16351,7 +16351,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1367, label %6317, label %.preheader7071
 
 6210:                                             ; preds = %6090
-  store ptr %6085, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6085, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6211 = getelementptr inbounds i8, ptr %5021, i64 7
   %.not6286 = icmp ult ptr %6211, %5371
   br i1 %.not6286, label %6212, label %.loopexit
@@ -16373,7 +16373,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1370, label %6329, label %.preheader7071
 
 6218:                                             ; preds = %6113, %6112
-  store ptr %6101, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6101, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6219 = getelementptr inbounds i8, ptr %3881, i64 10
   %.not6261 = icmp ult ptr %6219, %4329
   br i1 %.not6261, label %6220, label %.loopexit
@@ -16400,10 +16400,10 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7062:                                   ; preds = %4293, %4282, %3888, %3892, %4281, %3895, %4305, %4317, %4322, %4323, %4335, %4340, %4341, %4749, %4754, %4755, %4765, %4770, %4771, %5086, %5091, %5092, %5101, %5106, %5107, %5385, %5390, %5391, %5400, %5405, %5406, %5635, %5640, %5641, %5650, %5655, %5656, %5876, %5881, %5882, %5891, %5896, %5897, %6098, %6107, %6112, %6113, %6225, %6234, %6235, %3902, %3911, %3363, %3364, %3373, %3889, %4292, %4304, %4319, %4337, %4751, %4767, %5088, %5103, %5387, %5402, %5637, %5652, %5878, %5893, %6097, %6109, %6227
   %.promoted9890 = phi ptr [ %5869, %6097 ], [ %4297, %4304 ], [ %3879, %4292 ], [ %3370, %3373 ], [ %3357, %3364 ], [ %3357, %3363 ], [ %3880, %3911 ], [ %3880, %3902 ], [ %4326, %4341 ], [ %4758, %4771 ], [ %4759, %5107 ], [ %5095, %5406 ], [ %5394, %5656 ], [ %5644, %5897 ], [ %5885, %6113 ], [ %6101, %6235 ], [ %6101, %6234 ], [ %6101, %6227 ], [ %6101, %6225 ], [ %5885, %6112 ], [ %5885, %6109 ], [ %5885, %6107 ], [ %5644, %5896 ], [ %5644, %5893 ], [ %5644, %5891 ], [ %5394, %5655 ], [ %5394, %5652 ], [ %5394, %5650 ], [ %5095, %5405 ], [ %5095, %5402 ], [ %5095, %5400 ], [ %4759, %5106 ], [ %4759, %5103 ], [ %4759, %5101 ], [ %4758, %4770 ], [ %4758, %4767 ], [ %4758, %4765 ], [ %4326, %4340 ], [ %4326, %4337 ], [ %4326, %4335 ], [ %4308, %4323 ], [ %4742, %4755 ], [ %4743, %5092 ], [ %5080, %5391 ], [ %5379, %5641 ], [ %5868, %5882 ], [ %5869, %6098 ], [ %5868, %5881 ], [ %5868, %5878 ], [ %5868, %5876 ], [ %5379, %5640 ], [ %5379, %5637 ], [ %5379, %5635 ], [ %5080, %5390 ], [ %5080, %5387 ], [ %5080, %5385 ], [ %4743, %5091 ], [ %4743, %5088 ], [ %4743, %5086 ], [ %4742, %4754 ], [ %4742, %4751 ], [ %4742, %4749 ], [ %4308, %4322 ], [ %4308, %4319 ], [ %4308, %4317 ], [ %4297, %4305 ], [ %3880, %3895 ], [ %3880, %3889 ], [ %3879, %4282 ], [ %3880, %3888 ], [ %3880, %3892 ], [ %3879, %4281 ], [ %3879, %4293 ]
   %.23.ph = phi i32 [ 93, %6097 ], [ 53, %4304 ], [ %.24.ph9887, %4292 ], [ %.20, %3373 ], [ %.19, %3364 ], [ %.19, %3363 ], [ %.24.ph9887, %3911 ], [ %.24.ph9887, %3902 ], [ 53, %4341 ], [ 53, %4771 ], [ 53, %5107 ], [ 53, %5406 ], [ 53, %5656 ], [ 53, %5897 ], [ 53, %6113 ], [ 53, %6235 ], [ 53, %6234 ], [ 53, %6227 ], [ 53, %6225 ], [ 53, %6112 ], [ 53, %6109 ], [ 53, %6107 ], [ 53, %5896 ], [ 53, %5893 ], [ 53, %5891 ], [ 53, %5655 ], [ 53, %5652 ], [ 53, %5650 ], [ 53, %5405 ], [ 53, %5402 ], [ 53, %5400 ], [ 53, %5106 ], [ 53, %5103 ], [ 53, %5101 ], [ 53, %4770 ], [ 53, %4767 ], [ 53, %4765 ], [ 53, %4340 ], [ 53, %4337 ], [ 53, %4335 ], [ 53, %4323 ], [ 53, %4755 ], [ 53, %5092 ], [ 53, %5391 ], [ 53, %5641 ], [ 53, %5882 ], [ 93, %6098 ], [ 53, %5881 ], [ 53, %5878 ], [ 53, %5876 ], [ 53, %5640 ], [ 53, %5637 ], [ 53, %5635 ], [ 53, %5390 ], [ 53, %5387 ], [ 53, %5385 ], [ 53, %5091 ], [ 53, %5088 ], [ 53, %5086 ], [ 53, %4754 ], [ 53, %4751 ], [ 53, %4749 ], [ 53, %4322 ], [ 53, %4319 ], [ 53, %4317 ], [ 53, %4305 ], [ %.24.ph9887, %3895 ], [ %.24.ph9887, %3889 ], [ %.24.ph9887, %4281 ], [ %.24.ph9887, %3892 ], [ %.24.ph9887, %3888 ], [ %.24.ph9887, %4282 ], [ %.24.ph9887, %4293 ]
-  %6228 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %6228 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %6229 = getelementptr inbounds i8, ptr %6228, i64 32
   %6230 = getelementptr inbounds i8, ptr %.promoted9890, i64 1
-  store ptr %6230, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6231 = getelementptr inbounds i8, ptr %.promoted9890, i64 2
   %.not63649891 = icmp ult ptr %6231, %6229
   br i1 %.not63649891, label %.lr.ph9892, label %.loopexit
@@ -16421,7 +16421,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6236, label %5865, label %.preheader7062
 
 6237:                                             ; preds = %6128
-  store ptr %6123, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6123, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6238 = getelementptr inbounds i8, ptr %5931, i64 4
   %.not6152 = icmp ult ptr %6238, %4069
   br i1 %.not6152, label %6239, label %.loopexit
@@ -16458,7 +16458,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6251, label %.backedge6867, label %.backedge6942
 
 6252:                                             ; preds = %6142, %6143
-  store ptr %6131, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6131, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6253 = getelementptr inbounds i8, ptr %5931, i64 4
   %.not6123 = icmp ult ptr %6253, %4069
   br i1 %.not6123, label %6254, label %.loopexit
@@ -16497,7 +16497,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6266, label %6337, label %.backedge6942
 
 6267:                                             ; preds = %6151
-  store ptr %6146, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6146, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6268 = getelementptr inbounds i8, ptr %5746, i64 5
   %.not6136 = icmp ult ptr %6268, %5750
   br i1 %.not6136, label %6269, label %.loopexit
@@ -16544,15 +16544,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6283:                                             ; preds = %6153
   %6284 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 14
-  store ptr %6284, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6284, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6284, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6284, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6285 = load i8, ptr %6284, align 1
   %6286 = and i8 %6285, -33
   %or.cond1388 = icmp eq i8 %6286, 82
   br i1 %or.cond1388, label %6364, label %669
 
 6287:                                             ; preds = %6184, %6185
-  store ptr %6173, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6173, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6288 = getelementptr inbounds i8, ptr %5574, i64 6
   %.not6337 = icmp ult ptr %6288, %3359
   br i1 %.not6337, label %6289, label %.loopexit
@@ -16591,7 +16591,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6301, label %6379, label %.backedge6973
 
 6302:                                             ; preds = %6199, %6200
-  store ptr %6188, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6188, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6303 = getelementptr inbounds i8, ptr %5574, i64 6
   %.not6311 = icmp ult ptr %6303, %3359
   br i1 %.not6311, label %6304, label %.loopexit
@@ -16634,7 +16634,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %6318 = phi ptr [ %5370, %6479 ], [ %5359, %6208 ]
   %6319 = phi ptr [ %6414, %6479 ], [ %6077, %6208 ]
   %6320 = getelementptr inbounds i8, ptr %6319, i64 1
-  store ptr %6320, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6320, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6321 = getelementptr inbounds i8, ptr %6319, i64 2
   %6322 = getelementptr inbounds i8, ptr %6318, i64 32
   %.not6296 = icmp ult ptr %6321, %6322
@@ -16657,7 +16657,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1391, label %6409, label %.preheader7071
 
 6329:                                             ; preds = %6216
-  store ptr %6211, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6211, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6330 = getelementptr inbounds i8, ptr %5021, i64 8
   %.not6287 = icmp ult ptr %6330, %5371
   br i1 %.not6287, label %6331, label %.loopexit
@@ -16679,7 +16679,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1394, label %6413, label %.preheader7071
 
 6337:                                             ; preds = %6264, %6265
-  store ptr %6253, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6253, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6338 = getelementptr inbounds i8, ptr %5931, i64 5
   %.not6125 = icmp ult ptr %6338, %4069
   br i1 %.not6125, label %6339, label %.loopexit
@@ -16718,8 +16718,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6351, label %6421, label %.backedge6942
 
 6352:                                             ; preds = %6282, %6282, %6282, %6282, %6282, %6282, %6274, %6279, %6275
-  store ptr %6268, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6268, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6353 = getelementptr inbounds i8, ptr %5746, i64 6
   %.not6140 = icmp ult ptr %6353, %5750
   br i1 %.not6140, label %6354, label %.loopexit
@@ -16732,8 +16732,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 6356:                                             ; preds = %6274
-  store ptr %6268, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6268, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6357 = getelementptr inbounds i8, ptr %5746, i64 6
   %.not6138 = icmp ult ptr %6357, %5750
   br i1 %.not6138, label %6358, label %.loopexit
@@ -16755,8 +16755,8 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6364:                                             ; preds = %6283
   %6365 = getelementptr inbounds i8, ptr %.promoted103941316013175, i64 15
-  store ptr %6365, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6365, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6365, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6365, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6366 = load i8, ptr %6365, align 1
   %6367 = zext i8 %6366 to i64
   %6368 = or disjoint i64 %6367, 256
@@ -16779,7 +16779,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br label %.loopexit6799.sink.split
 
 6379:                                             ; preds = %6299, %6300
-  store ptr %6288, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6288, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6380 = getelementptr inbounds i8, ptr %5574, i64 7
   %.not6339 = icmp ult ptr %6380, %3359
   br i1 %.not6339, label %6381, label %.loopexit
@@ -16818,7 +16818,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6393, label %6440, label %.backedge6973
 
 6394:                                             ; preds = %6314, %6315
-  store ptr %6303, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6303, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6395 = getelementptr inbounds i8, ptr %5574, i64 7
   %.not6313 = icmp ult ptr %6395, %3359
   br i1 %.not6313, label %6396, label %.loopexit
@@ -16857,8 +16857,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6408, label %6458, label %.backedge6973
 
 6409:                                             ; preds = %6327
-  store ptr %6321, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6321, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6321, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6321, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6410 = getelementptr inbounds i8, ptr %6319, i64 3
   %.not6297 = icmp ult ptr %6410, %6322
   br i1 %.not6297, label %6411, label %.loopexit
@@ -16871,7 +16871,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 6413:                                             ; preds = %6335
-  store ptr %6330, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6330, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6414 = getelementptr inbounds i8, ptr %5021, i64 9
   %.not6288 = icmp ult ptr %6414, %5371
   br i1 %.not6288, label %6415, label %.loopexit
@@ -16893,7 +16893,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1397, label %6473, label %.preheader7071
 
 6421:                                             ; preds = %6349, %6350
-  store ptr %6338, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6338, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6422 = getelementptr inbounds i8, ptr %5931, i64 6
   %.not6127 = icmp ult ptr %6422, %4069
   br i1 %.not6127, label %6423, label %.loopexit
@@ -16946,7 +16946,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %6441 = phi ptr [ %5834, %6559 ], [ %5818, %6391 ], [ %5834, %6560 ], [ %5818, %6392 ]
   %6442 = phi ptr [ %6534, %6559 ], [ %6288, %6391 ], [ %6534, %6560 ], [ %6288, %6392 ]
   %6443 = getelementptr inbounds i8, ptr %6442, i64 1
-  store ptr %6443, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6443, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6444 = getelementptr inbounds i8, ptr %6442, i64 2
   %.not6341 = icmp ult ptr %6444, %3359
   br i1 %.not6341, label %6445, label %.loopexit
@@ -16985,7 +16985,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6457, label %6526, label %.backedge6973
 
 6458:                                             ; preds = %6406, %6407
-  store ptr %6395, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6395, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6459 = getelementptr inbounds i8, ptr %5574, i64 8
   %.not6315 = icmp ult ptr %6459, %3359
   br i1 %.not6315, label %6460, label %.loopexit
@@ -17024,7 +17024,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6472, label %6533, label %.backedge6973
 
 6473:                                             ; preds = %6419
-  store ptr %6414, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6414, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6474 = getelementptr inbounds i8, ptr %5021, i64 10
   %.not6289 = icmp ult ptr %6474, %5371
   br i1 %.not6289, label %6475, label %.loopexit
@@ -17046,8 +17046,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %or.cond1406, label %6317, label %.preheader7071
 
 .loopexit6879:                                    ; preds = %6429, %6428, %6432, %6439, %6437
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6481 = getelementptr inbounds i8, ptr %5931, i64 7
   %.not6130 = icmp ult ptr %6481, %4069
   br i1 %.not6130, label %6482, label %.loopexit
@@ -17070,8 +17070,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 6487:                                             ; preds = %6429, %6428
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6488 = getelementptr inbounds i8, ptr %5931, i64 7
   %.not6131 = icmp ult ptr %6488, %4069
   br i1 %.not6131, label %6489, label %.loopexit
@@ -17131,8 +17131,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6510, label %5745, label %.preheader7096
 
 6511:                                             ; preds = %6429
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6422, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6422, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6512 = getelementptr inbounds i8, ptr %5931, i64 7
   %.not6128 = icmp ult ptr %6512, %4069
   br i1 %.not6128, label %6513, label %.loopexit
@@ -17169,8 +17169,8 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6525, label %.loopexit6940, label %.backedge6942
 
 6526:                                             ; preds = %6455, %6456
-  store ptr %6444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6444, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6444, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6527 = getelementptr inbounds i8, ptr %6442, i64 3
   %.not6343 = icmp ult ptr %6527, %3359
   br i1 %.not6343, label %6528, label %.loopexit
@@ -17193,7 +17193,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   ]
 
 6533:                                             ; preds = %6470, %6471
-  store ptr %6459, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6459, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6534 = getelementptr inbounds i8, ptr %5574, i64 9
   %.not6317 = icmp ult ptr %6534, %3359
   br i1 %.not6317, label %6535, label %.loopexit
@@ -17232,7 +17232,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %.not6318, label %6547, label %.backedge6973
 
 6547:                                             ; preds = %6545, %6546
-  store ptr %6534, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6534, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6548 = getelementptr inbounds i8, ptr %5574, i64 10
   %.not6320 = icmp ult ptr %6548, %3359
   br i1 %.not6320, label %6549, label %.loopexit
@@ -17272,7 +17272,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6562:                                             ; preds = %36
   %6563 = getelementptr inbounds i8, ptr %29, i64 3
-  %6564 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %6564 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %6565 = getelementptr inbounds i8, ptr %6564, i64 32
   %.not6067 = icmp ult ptr %6563, %6565
   br i1 %.not6067, label %6566, label %.loopexit
@@ -17322,18 +17322,18 @@ strip_underscores.exit6706:                       ; preds = %1936
   br label %.preheader
 
 6587:                                             ; preds = %6622, %6580, %6576, %6584, %6586, %6603, %6599
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6588 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6588 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   %6589 = load i32, ptr %6588, align 4
-  store i32 %6589, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  store i32 %6589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   br label %thread-pre-split
 
 .preheader6989:                                   ; preds = %6566, %6593
   %6590 = phi ptr [ %6591, %6593 ], [ %29, %6566 ]
   %6591 = getelementptr inbounds i8, ptr %6590, i64 1
-  store ptr %6591, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6591, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6592 = getelementptr inbounds i8, ptr %6590, i64 2
   %.not6071 = icmp ult ptr %6592, %6565
   br i1 %.not6071, label %6593, label %.loopexit
@@ -17349,15 +17349,15 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6599:                                             ; preds = %6576
   %6600 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6600, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6600, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6601 = load i8, ptr %6600, align 1
   %6602 = icmp eq i8 %6601, 62
   br i1 %6602, label %6620, label %6587
 
 6603:                                             ; preds = %6578
   %6604 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6604, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6604, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6604, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6604, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6605 = load i8, ptr %6604, align 1
   %6606 = icmp eq i8 %6605, 45
   br i1 %6606, label %6622, label %6587
@@ -17365,7 +17365,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader:                                       ; preds = %.preheader.preheader, %6610
   %6607 = phi ptr [ %6608, %6610 ], [ %29, %.preheader.preheader ]
   %6608 = getelementptr inbounds i8, ptr %6607, i64 1
-  store ptr %6608, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6608, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6609 = getelementptr inbounds i8, ptr %6607, i64 2
   %.not6069 = icmp ult ptr %6609, %6565
   br i1 %.not6069, label %6610, label %.loopexit
@@ -17383,26 +17383,26 @@ strip_underscores.exit6706:                       ; preds = %1936
   %6617 = ptrtoint ptr %29 to i64
   %6618 = sub i64 %6616, %6617
   %6619 = trunc i64 %6618 to i32
-  store i32 %6619, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   br label %7959
 
 6620:                                             ; preds = %6599
   %6621 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %6621, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %6621, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 6622:                                             ; preds = %6603
   %6623 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %6623, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6624 = load i8, ptr %6623, align 1
   %6625 = icmp eq i8 %6624, 62
   br i1 %6625, label %6626, label %6587
 
 6626:                                             ; preds = %6622
-  store ptr %6563, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %6563, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7123
 
 6627:                                             ; preds = %37
@@ -17425,7 +17425,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6634:                                             ; preds = %6633, %6631
   %6635 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6635, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6636
 
 6636:                                             ; preds = %6683, %6696, %6692, %6688, %6681, %6634
@@ -17434,7 +17434,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %6639 = ptrtoint ptr %29 to i64
   %6640 = sub i64 %6638, %6639
   %6641 = trunc i64 %6640 to i32
-  store i32 %6641, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6641, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %6642 = icmp ugt ptr %6637, %39
   br i1 %6642, label %6643, label %6645
 
@@ -17454,7 +17454,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6649:                                             ; preds = %6645
   %6650 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %6650, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6650, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6651
 
 6651:                                             ; preds = %6649, %6645
@@ -17465,7 +17465,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 .lr.ph10316:                                      ; preds = %6651, %.backedge6820
   %6653 = phi ptr [ %6668, %.backedge6820 ], [ %.promoted10314, %6651 ]
   %6654 = getelementptr inbounds i8, ptr %6653, i64 1
-  store ptr %6654, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6654, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6655 = load i8, ptr %6653, align 1
   switch i8 %6655, label %.backedge6820 [
     i8 96, label %6670
@@ -17501,7 +17501,7 @@ switch.early.test6683:                            ; preds = %6656
 
 6666:                                             ; preds = %6664
   %6667 = getelementptr inbounds i8, ptr %6653, i64 2
-  store ptr %6667, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6667, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6820
 
 .backedge6820:                                    ; preds = %.lr.ph10316, %6666, %6664, %6661, %switch.early.test6683
@@ -17510,7 +17510,7 @@ switch.early.test6683:                            ; preds = %6656
   br i1 %6669, label %.lr.ph10316, label %.loopexit6819
 
 6670:                                             ; preds = %switch.early.test6683, %switch.early.test6683, %6656, %6661, %.lr.ph10316
-  store ptr %6653, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6819
 
 .loopexit6819:                                    ; preds = %.backedge6820, %6651, %6670
@@ -17518,7 +17518,7 @@ switch.early.test6683:                            ; preds = %6656
   %6672 = ptrtoint ptr %6671 to i64
   %6673 = sub i64 %6672, %6639
   %6674 = trunc i64 %6673 to i32
-  store i32 %6674, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6674, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %6675 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %6674, i8 noundef signext 96)
   %6676 = icmp eq i32 %6675, 0
   %or.cond6638 = or i1 %.not5992, %6676
@@ -17526,7 +17526,7 @@ switch.early.test6683:                            ; preds = %6656
 
 6677:                                             ; preds = %6631
   %6678 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6678, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6678, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6679 = load i8, ptr %6678, align 1
   %6680 = icmp ult i8 %6679, 96
   br i1 %6680, label %6681, label %6686
@@ -17562,14 +17562,14 @@ switch.early.test6683:                            ; preds = %6656
 
 6694:                                             ; preds = %6633
   %6695 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6695, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %6695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 6696:                                             ; preds = %6633
   %6697 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6697, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6698 = load i8, ptr %6697, align 1
   %6699 = icmp eq i8 %6698, 36
   br i1 %6699, label %6726, label %6636
@@ -17577,8 +17577,8 @@ switch.early.test6683:                            ; preds = %6656
 .preheader6821:                                   ; preds = %.preheader6821.preheader, %6703
   %6700 = phi ptr [ %6701, %6703 ], [ %6678, %.preheader6821.preheader ]
   %6701 = getelementptr inbounds i8, ptr %6700, i64 1
-  store ptr %6701, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6701, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6701, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6701, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6702 = getelementptr inbounds i8, ptr %6700, i64 5
   %.not6061 = icmp ult ptr %6702, %40
   br i1 %.not6061, label %6703, label %.loopexit
@@ -17613,55 +17613,55 @@ switch.early.test6683:                            ; preds = %6656
   %6718 = ptrtoint ptr %29 to i64
   %6719 = sub i64 %6717, %6718
   %6720 = trunc i64 %6719 to i32
-  store i32 %6720, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 6721:                                             ; preds = %6690
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6722 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6722 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i8 123, ptr %9, align 4
   %6723 = getelementptr inbounds i8, ptr %9, i64 4
-  %6724 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %6724 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6724, ptr %6723, align 4
-  %6725 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %9) #16
+  %6725 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.loopexit7123
 
 6726:                                             ; preds = %6696
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6727 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %6728 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6727 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %6728 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %6729 = getelementptr inbounds i8, ptr %6728, i64 1
-  store ptr %6729, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %6729, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i8 123, ptr %8, align 4
   %6730 = getelementptr inbounds i8, ptr %8, i64 4
-  %6731 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %6731 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6731, ptr %6730, align 4
-  %6732 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %8) #16
+  %6732 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.loopexit7123
 
 6733:                                             ; preds = %6710
   %6734 = getelementptr inbounds i8, ptr %6700, i64 2
-  store ptr %6734, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6734, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6735 = load i8, ptr %6734, align 1
   %6736 = icmp eq i8 %6735, 62
   br i1 %6736, label %6753, label %6737
 
 6737:                                             ; preds = %6787, %6787, %6787, %6787, %6787, %6787, %6762, %6762, %6762, %6762, %6762, %6762, %6784, %6759, %6782, %6763, %6757, %6738, %6733
-  store ptr %6701, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6701, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6716
 
 6738:                                             ; preds = %6712
   %6739 = getelementptr inbounds i8, ptr %6700, i64 2
-  store ptr %6739, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6739, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6740 = load i8, ptr %6739, align 1
   %6741 = icmp eq i8 %6740, 45
   br i1 %6741, label %6763, label %6737
@@ -17675,16 +17675,16 @@ switch.early.test6683:                            ; preds = %6656
   %6748 = and i64 %6746, 4294967295
   %6749 = getelementptr inbounds i8, ptr %29, i64 %6748
   %6750 = getelementptr inbounds i8, ptr %6749, i64 -1
-  store ptr %6750, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6750, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6751 = add i32 %6747, -1
-  store i32 %6751, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6752 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 6, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6751, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6752 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6753:                                             ; preds = %6733
   %6754 = getelementptr inbounds i8, ptr %6700, i64 3
-  store ptr %6754, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6754, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6755 = load i8, ptr %6754, align 1
   %6756 = icmp ult i8 %6755, 96
   br i1 %6756, label %6757, label %6762
@@ -17711,7 +17711,7 @@ switch.early.test6683:                            ; preds = %6656
 
 6763:                                             ; preds = %6738
   %6764 = getelementptr inbounds i8, ptr %6700, i64 3
-  store ptr %6764, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6764, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6765 = load i8, ptr %6764, align 1
   %6766 = icmp eq i8 %6765, 62
   br i1 %6766, label %6778, label %6737
@@ -17725,16 +17725,16 @@ switch.early.test6683:                            ; preds = %6656
   %6773 = and i64 %6771, 4294967295
   %6774 = getelementptr inbounds i8, ptr %29, i64 %6773
   %6775 = getelementptr inbounds i8, ptr %6774, i64 -3
-  store ptr %6775, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6775, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6776 = add i32 %6772, -3
-  store i32 %6776, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6777 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6776, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6777 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6778:                                             ; preds = %6763
   %6779 = getelementptr inbounds i8, ptr %6700, i64 4
-  store ptr %6779, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6779, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6780 = load i8, ptr %6779, align 1
   %6781 = icmp ult i8 %6780, 96
   br i1 %6781, label %6782, label %6787
@@ -17767,11 +17767,11 @@ switch.early.test6683:                            ; preds = %6656
   %6793 = and i64 %6791, 4294967295
   %6794 = getelementptr inbounds i8, ptr %29, i64 %6793
   %6795 = getelementptr inbounds i8, ptr %6794, i64 -4
-  store ptr %6795, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6795, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6796 = add i32 %6792, -4
-  store i32 %6796, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6797 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6797 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6798:                                             ; preds = %37
@@ -17794,7 +17794,7 @@ switch.early.test6683:                            ; preds = %6656
 
 6805:                                             ; preds = %6804, %6802
   %6806 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6806, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6807
 
 6807:                                             ; preds = %6863, %6874, %6872, %6868, %6861, %6805
@@ -17803,8 +17803,8 @@ switch.early.test6683:                            ; preds = %6656
   %6810 = ptrtoint ptr %29 to i64
   %6811 = sub i64 %6809, %6810
   %6812 = trunc i64 %6811 to i32
-  store i32 %6812, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6813 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 22), align 8
+  store i32 %6812, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6813 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
   %.not6056 = icmp eq i32 %6813, 0
   br i1 %.not6056, label %6819, label %6814
 
@@ -17813,8 +17813,8 @@ switch.early.test6683:                            ; preds = %6656
   %6816 = sext i32 %6813 to i64
   %6817 = getelementptr i8, ptr %6815, i64 %6816
   %6818 = getelementptr i8, ptr %6817, i64 -1
-  store ptr %6818, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 22), align 8
+  store ptr %6818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
   br label %.loopexit6815
 
 6819:                                             ; preds = %6807
@@ -17837,7 +17837,7 @@ switch.early.test6683:                            ; preds = %6656
 
 6827:                                             ; preds = %6823
   %6828 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %6828, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6828, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6829
 
 6829:                                             ; preds = %6827, %6823
@@ -17848,7 +17848,7 @@ switch.early.test6683:                            ; preds = %6656
 .lr.ph10320:                                      ; preds = %6829, %.backedge6816
   %6831 = phi ptr [ %6846, %.backedge6816 ], [ %.promoted10318, %6829 ]
   %6832 = getelementptr inbounds i8, ptr %6831, i64 1
-  store ptr %6832, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6832, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6833 = load i8, ptr %6831, align 1
   switch i8 %6833, label %.backedge6816 [
     i8 34, label %6848
@@ -17884,7 +17884,7 @@ switch.early.test6685:                            ; preds = %6834
 
 6844:                                             ; preds = %6842
   %6845 = getelementptr inbounds i8, ptr %6831, i64 2
-  store ptr %6845, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6845, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6816
 
 .backedge6816:                                    ; preds = %.lr.ph10320, %6844, %6842, %6839, %switch.early.test6685
@@ -17893,7 +17893,7 @@ switch.early.test6685:                            ; preds = %6834
   br i1 %6847, label %.lr.ph10320, label %.loopexit6815
 
 6848:                                             ; preds = %switch.early.test6685, %switch.early.test6685, %6834, %6839, %.lr.ph10320
-  store ptr %6831, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6831, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6815
 
 .loopexit6815:                                    ; preds = %.backedge6816, %6829, %6848, %6814
@@ -17901,7 +17901,7 @@ switch.early.test6685:                            ; preds = %6834
   %6850 = ptrtoint ptr %6849 to i64
   %6851 = sub i64 %6850, %6810
   %6852 = trunc i64 %6851 to i32
-  store i32 %6852, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6852, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %6853 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef %29, i32 noundef %6852, i8 noundef signext 34)
   %6854 = icmp eq i32 %6853, 0
   %or.cond6647 = or i1 %.not5992, %6854
@@ -17909,14 +17909,14 @@ switch.early.test6685:                            ; preds = %6834
 
 6855:                                             ; preds = %6802
   %6856 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6856, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %6856, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 6857:                                             ; preds = %6804
   %6858 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6858, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6859 = load i8, ptr %6858, align 1
   %6860 = icmp ult i8 %6859, 96
   br i1 %6860, label %6861, label %6866
@@ -17952,7 +17952,7 @@ switch.early.test6685:                            ; preds = %6834
 
 6874:                                             ; preds = %6804
   %6875 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6875, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6875, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6876 = load i8, ptr %6875, align 1
   %6877 = icmp eq i8 %6876, 36
   br i1 %6877, label %6904, label %6807
@@ -17960,8 +17960,8 @@ switch.early.test6685:                            ; preds = %6834
 .preheader6817:                                   ; preds = %.preheader6817.preheader, %6881
   %6878 = phi ptr [ %6879, %6881 ], [ %6858, %.preheader6817.preheader ]
   %6879 = getelementptr inbounds i8, ptr %6878, i64 1
-  store ptr %6879, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %6879, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %6879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %6880 = getelementptr inbounds i8, ptr %6878, i64 5
   %.not6054 = icmp ult ptr %6880, %40
   br i1 %.not6054, label %6881, label %.loopexit
@@ -17996,55 +17996,55 @@ switch.early.test6685:                            ; preds = %6834
   %6896 = ptrtoint ptr %29 to i64
   %6897 = sub i64 %6895, %6896
   %6898 = trunc i64 %6897 to i32
-  store i32 %6898, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %6898, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 6899:                                             ; preds = %6870
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6900 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6900 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i8 123, ptr %7, align 4
   %6901 = getelementptr inbounds i8, ptr %7, i64 4
-  %6902 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %6902 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6902, ptr %6901, align 4
-  %6903 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %7) #16
+  %6903 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit7123
 
 6904:                                             ; preds = %6874
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6905 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %6906 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6905 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %6906 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %6907 = getelementptr inbounds i8, ptr %6906, i64 1
-  store ptr %6907, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %6907, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i8 123, ptr %6, align 4
   %6908 = getelementptr inbounds i8, ptr %6, i64 4
-  %6909 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %6909 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6909, ptr %6908, align 4
-  %6910 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %6) #16
+  %6910 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit7123
 
 6911:                                             ; preds = %6888
   %6912 = getelementptr inbounds i8, ptr %6878, i64 2
-  store ptr %6912, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6912, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6913 = load i8, ptr %6912, align 1
   %6914 = icmp eq i8 %6913, 62
   br i1 %6914, label %6931, label %6915
 
 6915:                                             ; preds = %6965, %6965, %6965, %6965, %6965, %6965, %6940, %6940, %6940, %6940, %6940, %6940, %6962, %6937, %6960, %6941, %6935, %6916, %6911
-  store ptr %6879, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6894
 
 6916:                                             ; preds = %6890
   %6917 = getelementptr inbounds i8, ptr %6878, i64 2
-  store ptr %6917, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6917, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6918 = load i8, ptr %6917, align 1
   %6919 = icmp eq i8 %6918, 45
   br i1 %6919, label %6941, label %6915
@@ -18058,16 +18058,16 @@ switch.early.test6685:                            ; preds = %6834
   %6926 = and i64 %6924, 4294967295
   %6927 = getelementptr inbounds i8, ptr %29, i64 %6926
   %6928 = getelementptr inbounds i8, ptr %6927, i64 -1
-  store ptr %6928, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6928, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6929 = add i32 %6925, -1
-  store i32 %6929, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6930 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 6, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6929, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6930 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6931:                                             ; preds = %6911
   %6932 = getelementptr inbounds i8, ptr %6878, i64 3
-  store ptr %6932, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6932, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6933 = load i8, ptr %6932, align 1
   %6934 = icmp ult i8 %6933, 96
   br i1 %6934, label %6935, label %6940
@@ -18094,7 +18094,7 @@ switch.early.test6685:                            ; preds = %6834
 
 6941:                                             ; preds = %6916
   %6942 = getelementptr inbounds i8, ptr %6878, i64 3
-  store ptr %6942, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6942, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6943 = load i8, ptr %6942, align 1
   %6944 = icmp eq i8 %6943, 62
   br i1 %6944, label %6956, label %6915
@@ -18108,16 +18108,16 @@ switch.early.test6685:                            ; preds = %6834
   %6951 = and i64 %6949, 4294967295
   %6952 = getelementptr inbounds i8, ptr %29, i64 %6951
   %6953 = getelementptr inbounds i8, ptr %6952, i64 -3
-  store ptr %6953, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6953, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6954 = add i32 %6950, -3
-  store i32 %6954, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6955 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6954, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6955 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6956:                                             ; preds = %6941
   %6957 = getelementptr inbounds i8, ptr %6878, i64 4
-  store ptr %6957, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6957, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6958 = load i8, ptr %6957, align 1
   %6959 = icmp ult i8 %6958, 96
   br i1 %6959, label %6960, label %6965
@@ -18150,11 +18150,11 @@ switch.early.test6685:                            ; preds = %6834
   %6971 = and i64 %6969, 4294967295
   %6972 = getelementptr inbounds i8, ptr %29, i64 %6971
   %6973 = getelementptr inbounds i8, ptr %6972, i64 -4
-  store ptr %6973, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6973, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6974 = add i32 %6970, -4
-  store i32 %6974, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6975 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %6974, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6975 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 6976:                                             ; preds = %37
@@ -18163,7 +18163,7 @@ switch.early.test6685:                            ; preds = %6834
 6977:                                             ; preds = %6976
   %6978 = load i8, ptr %29, align 1
   %6979 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %6979, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6979, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   switch i8 %6978, label %6980 [
     i8 36, label %7156
     i8 123, label %7172
@@ -18171,9 +18171,9 @@ switch.early.test6685:                            ; preds = %6834
 
 6980:                                             ; preds = %6977, %7161, %7172, %7170, %7166, %7159
   %6981 = ptrtoint ptr %29 to i64
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6982 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
-  %6983 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6982 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %6983 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %6984 = sext i32 %6983 to i64
   %6985 = getelementptr ptr, ptr %6982, i64 %6984
   %6986 = getelementptr i8, ptr %6985, i64 -8
@@ -18189,7 +18189,7 @@ switch.early.test6685:                            ; preds = %6834
   br label %.loopexit7123
 
 6991:                                             ; preds = %6980
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6992 = icmp ult ptr %29, %39
   br i1 %6992, label %.lr.ph10303, label %.loopexit6824
 
@@ -18202,7 +18202,7 @@ switch.early.test6685:                            ; preds = %6834
 6996:                                             ; preds = %.lr.ph10303, %.backedge6825
   %6997 = phi ptr [ %29, %.lr.ph10303 ], [ %7056, %.backedge6825 ]
   %6998 = getelementptr inbounds i8, ptr %6997, i64 1
-  store ptr %6998, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6998, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %6999 = load i8, ptr %6997, align 1
   switch i8 %6999, label %.backedge6825 [
     i8 13, label %7000
@@ -18219,7 +18219,7 @@ switch.early.test6685:                            ; preds = %6834
 
 7003:                                             ; preds = %7000
   %7004 = getelementptr inbounds i8, ptr %6997, i64 2
-  store ptr %7004, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7004, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7005
 
 7005:                                             ; preds = %7000, %7003, %6996
@@ -18251,7 +18251,7 @@ switch.early.test6685:                            ; preds = %6834
   %.15371.v = select i1 %7012, i32 2, i32 1
   %.15371 = or i32 %.15371.v, %.0537010289
   %7013 = getelementptr inbounds i8, ptr %7010, i64 1
-  store ptr %7013, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7014 = add nuw nsw i32 %.0536910290, 1
   %exitcond13062.not = icmp eq ptr %7013, %scevgep13061
   br i1 %exitcond13062.not, label %.critedge28, label %.lr.ph10292
@@ -18266,14 +18266,14 @@ switch.early.test6685:                            ; preds = %6834
 7016:                                             ; preds = %.critedge28
   %7017 = sub i64 %6993, %6981
   %7018 = trunc i64 %7017 to i32
-  store i32 %7018, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7018, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7019 = and i64 %7017, 4294967295
   %7020 = getelementptr inbounds i8, ptr %29, i64 %7019
   %.not10400 = icmp eq i64 %7019, 0
   br i1 %.not10400, label %._crit_edge10312, label %.lr.ph10311.preheader
 
 .lr.ph10311.preheader:                            ; preds = %7016
-  %.promoted10308 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10308 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10311
 
 .lr.ph10311:                                      ; preds = %.lr.ph10311.preheader, %7028
@@ -18293,7 +18293,7 @@ switch.early.test6685:                            ; preds = %6834
 
 7026:                                             ; preds = %.lr.ph10311, %7023
   %7027 = add nsw i32 %7021, 1
-  store i32 %7027, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7027, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7028
 
 7028:                                             ; preds = %.lr.ph10311, %7026, %7023
@@ -18365,7 +18365,7 @@ switch.early.test6685:                            ; preds = %6834
   br i1 %.not5992, label %._crit_edge13080, label %.loopexit7123
 
 ._crit_edge13080:                                 ; preds = %7060
-  %.pre13081 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.pre13081 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7063
 
 7063:                                             ; preds = %._crit_edge13080, %7058
@@ -18390,29 +18390,29 @@ switch.early.test6685:                            ; preds = %6834
 
 7077:                                             ; preds = %7070, %7076
   %.05367 = phi i32 [ 1, %7076 ], [ 2, %7070 ]
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
-  %7078 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  %7078 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
   %7079 = trunc i8 %7078 to i1
   br i1 %7079, label %7080, label %7083
 
 7080:                                             ; preds = %7077
-  store i32 %.05369.lcssa, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 13), align 4
+  store i32 %.05369.lcssa, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
   %7081 = icmp eq i32 %.05370.lcssa, 1
   %7082 = zext i1 %7081 to i8
-  store i8 %7082, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 14), align 8
+  store i8 %7082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
   br label %7087
 
 7083:                                             ; preds = %7077
   %7084 = zext nneg i32 %.05369.lcssa to i64
   %7085 = sub nsw i64 0, %7084
   %7086 = getelementptr inbounds i8, ptr %7064, i64 %7085
-  store ptr %7086, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7086, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7087
 
 7087:                                             ; preds = %7083, %7080
   %7088 = phi ptr [ %7086, %7083 ], [ %7064, %7080 ]
-  store i32 9, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %.pre13082 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13082 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %.pre13145 = ptrtoint ptr %.pre13082 to i64
   br label %.loopexit6824
 
@@ -18450,11 +18450,11 @@ switch.early.test6687:                            ; preds = %7089
 
 7101:                                             ; preds = %7099
   %7102 = getelementptr inbounds i8, ptr %6997, i64 2
-  store ptr %7102, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7102, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6825
 
 7103:                                             ; preds = %switch.early.test6687, %switch.early.test6687, %7089, %7094
-  store ptr %6997, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %6997, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6824
 
 .loopexit6824:                                    ; preds = %.backedge6825, %6991, %7103, %7087
@@ -18465,7 +18465,7 @@ switch.early.test6687:                            ; preds = %7089
   %7106 = ptrtoint ptr %7105 to i64
   %7107 = sub i64 %7106, %.pre-phi13146
   %7108 = trunc i64 %7107 to i32
-  store i32 %7108, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7109 = sub i32 %7108, %.15368
   %7110 = zext i32 %7109 to i64
   %7111 = add nuw nsw i64 %7110, 32
@@ -18484,13 +18484,13 @@ switch.early.test6687:                            ; preds = %7089
   store i8 0, ptr %7118, align 1
   store ptr %7113, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %7119 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
+  %7119 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
   %7120 = trunc i8 %7119 to i1
-  %7121 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7122 = icmp ne ptr %7121, null
   %or.cond32 = select i1 %7120, i1 true, i1 %7122
   %or.cond6662 = or i1 %.not5992, %or.cond32
-  %7123 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7123 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br i1 %or.cond6662, label %7140, label %7124
 
 7124:                                             ; preds = %.loopexit6824
@@ -18517,7 +18517,7 @@ switch.early.test6687:                            ; preds = %7089
   br i1 %.not6048, label %.thread6766, label %.loopexit7123
 
 7140:                                             ; preds = %.loopexit6824
-  %7141 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %7141 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7142 = sub i32 %7141, %.15368
   %7143 = zext i32 %7142 to i64
   %7144 = getelementptr inbounds i8, ptr %7123, i64 %7143
@@ -18525,7 +18525,7 @@ switch.early.test6687:                            ; preds = %7089
   br i1 %.not10401, label %.loopexit6823, label %.lr.ph10307.preheader
 
 .lr.ph10307.preheader:                            ; preds = %7140
-  %.promoted10304 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10304 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10307
 
 .lr.ph10307:                                      ; preds = %.lr.ph10307.preheader, %7152
@@ -18545,7 +18545,7 @@ switch.early.test6687:                            ; preds = %7089
 
 7150:                                             ; preds = %.lr.ph10307, %7147
   %7151 = add nsw i32 %7145, 1
-  store i32 %7151, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7151, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7152
 
 7152:                                             ; preds = %.lr.ph10307, %7150, %7147
@@ -18596,8 +18596,8 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6826:                                   ; preds = %.preheader6826.preheader, %7178
   %7175 = phi ptr [ %7176, %7178 ], [ %6979, %.preheader6826.preheader ]
   %7176 = getelementptr inbounds i8, ptr %7175, i64 1
-  store ptr %7176, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7176, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7176, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7176, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7177 = getelementptr inbounds i8, ptr %7175, i64 5
   %.not6040 = icmp ult ptr %7177, %40
   br i1 %.not6040, label %7178, label %.loopexit
@@ -18632,55 +18632,55 @@ switch.early.test6687:                            ; preds = %7089
   %7193 = ptrtoint ptr %29 to i64
   %7194 = sub i64 %7192, %7193
   %7195 = trunc i64 %7194 to i32
-  store i32 %7195, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7195, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 7196:                                             ; preds = %7168
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7197 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7197 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i8 123, ptr %5, align 4
   %7198 = getelementptr inbounds i8, ptr %5, i64 4
-  %7199 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %7199 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %7199, ptr %7198, align 4
-  %7200 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %5) #16
+  %7200 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit7123
 
 7201:                                             ; preds = %7172
-  store ptr %38, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7202 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %7203 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7202 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %7203 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7204 = getelementptr inbounds i8, ptr %7203, i64 1
-  store ptr %7204, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %7204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i8 123, ptr %4, align 4
   %7205 = getelementptr inbounds i8, ptr %4, i64 4
-  %7206 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %7206 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %7206, ptr %7205, align 4
-  %7207 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), ptr noundef nonnull %4) #16
+  %7207 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit7123
 
 7208:                                             ; preds = %7185
   %7209 = getelementptr inbounds i8, ptr %7175, i64 2
-  store ptr %7209, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7210 = load i8, ptr %7209, align 1
   %7211 = icmp eq i8 %7210, 62
   br i1 %7211, label %7228, label %7212
 
 7212:                                             ; preds = %7262, %7262, %7262, %7262, %7262, %7262, %7237, %7237, %7237, %7237, %7237, %7237, %7259, %7234, %7257, %7238, %7232, %7213, %7208
-  store ptr %7176, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7176, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7191
 
 7213:                                             ; preds = %7187
   %7214 = getelementptr inbounds i8, ptr %7175, i64 2
-  store ptr %7214, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7215 = load i8, ptr %7214, align 1
   %7216 = icmp eq i8 %7215, 45
   br i1 %7216, label %7238, label %7212
@@ -18694,16 +18694,16 @@ switch.early.test6687:                            ; preds = %7089
   %7223 = and i64 %7221, 4294967295
   %7224 = getelementptr inbounds i8, ptr %29, i64 %7223
   %7225 = getelementptr inbounds i8, ptr %7224, i64 -1
-  store ptr %7225, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7225, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7226 = add i32 %7222, -1
-  store i32 %7226, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7227 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 6, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %7226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7227 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 7228:                                             ; preds = %7208
   %7229 = getelementptr inbounds i8, ptr %7175, i64 3
-  store ptr %7229, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7229, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7230 = load i8, ptr %7229, align 1
   %7231 = icmp ult i8 %7230, 96
   br i1 %7231, label %7232, label %7237
@@ -18730,7 +18730,7 @@ switch.early.test6687:                            ; preds = %7089
 
 7238:                                             ; preds = %7213
   %7239 = getelementptr inbounds i8, ptr %7175, i64 3
-  store ptr %7239, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7239, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7240 = load i8, ptr %7239, align 1
   %7241 = icmp eq i8 %7240, 62
   br i1 %7241, label %7253, label %7212
@@ -18744,16 +18744,16 @@ switch.early.test6687:                            ; preds = %7089
   %7248 = and i64 %7246, 4294967295
   %7249 = getelementptr inbounds i8, ptr %29, i64 %7248
   %7250 = getelementptr inbounds i8, ptr %7249, i64 -3
-  store ptr %7250, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7250, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7251 = add i32 %7247, -3
-  store i32 %7251, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7252 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %7251, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7252 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 7253:                                             ; preds = %7238
   %7254 = getelementptr inbounds i8, ptr %7175, i64 4
-  store ptr %7254, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7254, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7255 = load i8, ptr %7254, align 1
   %7256 = icmp ult i8 %7255, 96
   br i1 %7256, label %7257, label %7262
@@ -18786,15 +18786,15 @@ switch.early.test6687:                            ; preds = %7089
   %7268 = and i64 %7266, 4294967295
   %7269 = getelementptr inbounds i8, ptr %29, i64 %7268
   %7270 = getelementptr inbounds i8, ptr %7269, i64 -4
-  store ptr %7270, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7270, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7271 = add i32 %7267, -4
-  store i32 %7271, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7272 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 %7271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7272 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 7273:                                             ; preds = %.lr.ph20501
-  %7274 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %7274 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7275 = getelementptr inbounds i8, ptr %7274, i64 32
   %.not6035 = icmp ult ptr %34, %7275
   br i1 %.not6035, label %7276, label %.loopexit
@@ -18825,28 +18825,28 @@ switch.early.test6687:                            ; preds = %7089
   ]
 
 .thread13171:                                     ; preds = %._crit_edge, %7321, %7279, %7281, %7284, %7284, %7284, %7284, %7284, %7284, %7295, %7302, %7297, %7305
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7285 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7285 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   %7286 = load i32, ptr %7285, align 4
-  store i32 %7286, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
-  %7287 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %.pre13075 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %.pre13075, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i32 %7286, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
+  %7287 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13075 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %.pre13075, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit20798
 
 .backedge7119:                                    ; preds = %7597, %7606
   %7288 = phi ptr [ %7603, %7606 ], [ %29, %7597 ]
-  store i32 8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  store ptr %7288, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %7288, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %41
 
 7289:                                             ; preds = %7284, %7281
   %7290 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7290, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7290, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7290, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7290, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7291 = load i8, ptr %7290, align 1
   %7292 = icmp ult i8 %7291, 96
   br i1 %7292, label %7293, label %7300
@@ -18900,7 +18900,7 @@ switch.early.test6687:                            ; preds = %7089
 .lr.ph:                                           ; preds = %.preheader6985, %7311
   %7316 = phi ptr [ %7317, %7311 ], [ %7290, %.preheader6985 ]
   %7317 = getelementptr inbounds i8, ptr %7316, i64 1
-  store ptr %7317, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7317, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7318 = getelementptr inbounds i8, ptr %7316, i64 2
   %.not6037 = icmp ult ptr %7318, %7275
   br i1 %.not6037, label %7311, label %.loopexit
@@ -18926,16 +18926,16 @@ switch.early.test6687:                            ; preds = %7089
   %7330 = and i64 %7328, 4294967295
   %7331 = getelementptr inbounds i8, ptr %29, i64 %7330
   %7332 = getelementptr inbounds i8, ptr %7331, i64 -1
-  store ptr %7332, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7332, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7333 = add i32 %7329, -1
-  store i32 %7333, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7333, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
-  %7334 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8)) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  %7334 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7959
 
 7335:                                             ; preds = %.lr.ph20501
-  %7336 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %7336 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7337 = getelementptr inbounds i8, ptr %7336, i64 32
   %.not6009 = icmp ult ptr %34, %7337
   br i1 %.not6009, label %7338, label %.loopexit
@@ -19029,8 +19029,8 @@ switch.early.test6687:                            ; preds = %7089
 
 7373:                                             ; preds = %7347, %7371, %7345
   %7374 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7374, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %7374, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7375 = icmp ugt ptr %7374, %7336
   br i1 %7375, label %7376, label %.loopexit7123
 
@@ -19042,15 +19042,15 @@ switch.early.test6687:                            ; preds = %7089
   br label %.loopexit7123
 
 7378:                                             ; preds = %7362, %7353, %7347, %7347, %7345, %7352
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   store i32 1, ptr %28, align 8
   br label %.loopexit6823
 
 7379:                                             ; preds = %7362, %7353, %7369, %7365, %7360, %7350
   %7380 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7380, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7381
 
 7381:                                             ; preds = %7398, %7398, %7398, %7398, %7398, %7398, %7395, %7393, %7379
@@ -19059,14 +19059,14 @@ switch.early.test6687:                            ; preds = %7089
   %7384 = ptrtoint ptr %29 to i64
   %7385 = sub i64 %7383, %7384
   %7386 = trunc i64 %7385 to i32
-  store i32 %7386, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7387 = load i8, ptr %29, align 1
   %7388 = sext i8 %7387 to i32
   br label %.loopexit7123
 
 7389:                                             ; preds = %7352
   %7390 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7390, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7390, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7391 = load i8, ptr %7390, align 1
   %7392 = icmp ult i8 %7391, 96
   br i1 %7392, label %7393, label %7398
@@ -19093,15 +19093,15 @@ switch.early.test6687:                            ; preds = %7089
 
 .preheader6828:                                   ; preds = %7395, %7398
   %7399 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %7399, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7399, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7400 = getelementptr inbounds i8, ptr %29, i64 3
   %.not603210285 = icmp ult ptr %7400, %7337
   br i1 %.not603210285, label %.lr.ph10286, label %.loopexit
 
 7401:                                             ; preds = %7353
   %7402 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7402, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7402, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7402, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7402, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7403 = load i8, ptr %7402, align 1
   %7404 = icmp ult i8 %7403, 89
   br i1 %7404, label %7405, label %7414
@@ -19166,7 +19166,7 @@ switch.early.test6687:                            ; preds = %7089
   %7427 = ptrtoint ptr %7424 to i64
   %7428 = sub i64 %7426, %7427
   %7429 = trunc i64 %7428 to i32
-  store i32 %7429, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7429, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7430 = icmp ult i32 %7429, 19
   br i1 %7430, label %7436, label %7431
 
@@ -19182,14 +19182,14 @@ switch.early.test6687:                            ; preds = %7089
 7436:                                             ; preds = %7433, %7423
   %7437 = tail call ptr @__errno_location() #21
   store i32 0, ptr %7437, align 4
-  %7438 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7438 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7439 = call i64 @strtoll(ptr noundef %7438, ptr noundef nonnull %22, i32 noundef 10) #16
   store i64 %7439, ptr %0, align 8
   store i32 4, ptr %28, align 8
   %7440 = load i32, ptr %7437, align 4
   %7441 = icmp eq i32 %7440, 34
-  %.pre13077 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %.pre13078 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %.pre13077 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13078 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %7441, label %7447, label %7442
 
 7442:                                             ; preds = %7436
@@ -19225,8 +19225,8 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6852:                                   ; preds = %7358, %7462
   %7459 = phi ptr [ %7460, %7462 ], [ %29, %7358 ]
   %7460 = getelementptr inbounds i8, ptr %7459, i64 1
-  store ptr %7460, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7460, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7460, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7460, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7461 = getelementptr inbounds i8, ptr %7459, i64 2
   %.not6013 = icmp ult ptr %7461, %7337
   br i1 %.not6013, label %7462, label %.loopexit
@@ -19245,7 +19245,7 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6854:                                   ; preds = %.preheader6854.preheader, %7471
   %7468 = phi ptr [ %7469, %7471 ], [ %29, %.preheader6854.preheader ]
   %7469 = getelementptr inbounds i8, ptr %7468, i64 1
-  store ptr %7469, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7469, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7470 = getelementptr inbounds i8, ptr %7468, i64 2
   %.not6011 = icmp ult ptr %7470, %7337
   br i1 %.not6011, label %7471, label %.loopexit
@@ -19264,13 +19264,13 @@ switch.early.test6687:                            ; preds = %7089
   %7479 = ptrtoint ptr %29 to i64
   %7480 = sub i64 %7478, %7479
   %7481 = trunc i64 %7480 to i32
-  store i32 %7481, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 7482:                                             ; preds = %7362
   %7483 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7483, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %7483, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   br label %.loopexit7123
 
@@ -19290,7 +19290,7 @@ switch.early.test6687:                            ; preds = %7089
 
 .backedge6830:                                    ; preds = %7489, %7497, %7499, %7493
   %7491 = getelementptr inbounds i8, ptr %7484, i64 1
-  store ptr %7491, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7491, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7492 = getelementptr inbounds i8, ptr %7484, i64 2
   %.not6032 = icmp ult ptr %7492, %7337
   br i1 %.not6032, label %.lr.ph10286, label %.loopexit
@@ -19317,14 +19317,14 @@ switch.early.test6687:                            ; preds = %7089
   %7502 = ptrtoint ptr %29 to i64
   %7503 = sub i64 %7501, %7502
   %7504 = trunc i64 %7503 to i32
-  store i32 %7504, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7504, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7959
 
 .preheader6831:                                   ; preds = %.preheader6831.preheader, %7511
   %7505 = phi ptr [ %7506, %7511 ], [ %.ph20579, %.preheader6831.preheader ]
   %7506 = getelementptr inbounds i8, ptr %7505, i64 1
-  store ptr %7506, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7506, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7506, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7506, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7507 = getelementptr inbounds i8, ptr %7505, i64 2
   %.not6028 = icmp ult ptr %7507, %7337
   br i1 %.not6028, label %7508, label %.loopexit
@@ -19349,7 +19349,7 @@ switch.early.test6687:                            ; preds = %7089
   %7518 = ptrtoint ptr %7515 to i64
   %7519 = sub i64 %7517, %7518
   %7520 = trunc i64 %7519 to i32
-  store i32 %7520, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7520, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7521 = icmp eq i32 %7520, 1
   br i1 %7521, label %7522, label %7527
 
@@ -19389,7 +19389,7 @@ switch.early.test6687:                            ; preds = %7089
   %.promoted1027810280 = phi ptr [ %7568, %7573 ], [ %7402, %.preheader6836.preheader ]
   %.49 = phi i32 [ 1, %7573 ], [ 0, %.preheader6836.preheader ]
   %7538 = getelementptr inbounds i8, ptr %.promoted1027810280, i64 1
-  store ptr %7538, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7539 = getelementptr inbounds i8, ptr %.promoted1027810280, i64 2
   %.not6024 = icmp ult ptr %7539, %7337
   br i1 %.not6024, label %7540, label %.loopexit
@@ -19404,7 +19404,7 @@ switch.early.test6687:                            ; preds = %7089
   %7543 = phi ptr [ %7559, %7563 ], [ %29, %7540 ], [ %29, %7548 ], [ %29, %7553 ]
   %7544 = phi ptr [ %7560, %7563 ], [ %.promoted1027810280, %7540 ], [ %.promoted1027310275, %7548 ], [ %.promoted1026810270, %7553 ]
   %.50 = phi i32 [ %.53, %7563 ], [ %.49, %7540 ], [ %.51, %7548 ], [ %.52, %7553 ]
-  store ptr %7544, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7544, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7545 = icmp eq i32 %.50, 0
   br i1 %7545, label %7423, label %.loopexit6833
 
@@ -19412,7 +19412,7 @@ switch.early.test6687:                            ; preds = %7089
   %.promoted1027310275 = phi ptr [ %7576, %7581 ], [ %7402, %.preheader6842.preheader ]
   %.51 = phi i32 [ 1, %7581 ], [ 0, %.preheader6842.preheader ]
   %7546 = getelementptr inbounds i8, ptr %.promoted1027310275, i64 1
-  store ptr %7546, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7547 = getelementptr inbounds i8, ptr %.promoted1027310275, i64 2
   %.not6020 = icmp ult ptr %7547, %7337
   br i1 %.not6020, label %7548, label %.loopexit
@@ -19427,7 +19427,7 @@ switch.early.test6687:                            ; preds = %7089
   %.promoted1026810270 = phi ptr [ %7584, %7591 ], [ %7402, %.preheader6848.preheader ]
   %.52 = phi i32 [ 1, %7591 ], [ 0, %.preheader6848.preheader ]
   %7551 = getelementptr inbounds i8, ptr %.promoted1026810270, i64 1
-  store ptr %7551, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7551, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7552 = getelementptr inbounds i8, ptr %.promoted1026810270, i64 2
   %.not6016 = icmp ult ptr %7552, %7337
   br i1 %.not6016, label %7553, label %.loopexit
@@ -19445,7 +19445,7 @@ switch.early.test6687:                            ; preds = %7089
   %7560 = phi ptr [ %7506, %7513 ], [ %7402, %7416 ], [ %7460, %7466 ]
   %.53 = phi i32 [ 1, %7513 ], [ 0, %7416 ], [ 0, %7466 ]
   %7561 = getelementptr inbounds i8, ptr %7560, i64 1
-  store ptr %7561, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7561, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7562 = getelementptr inbounds i8, ptr %7560, i64 2
   %.not6029 = icmp ult ptr %7562, %7337
   br i1 %.not6029, label %7563, label %.loopexit
@@ -19464,8 +19464,8 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6834:                                   ; preds = %7540, %7570
   %7567 = phi ptr [ %7568, %7570 ], [ %7538, %7540 ]
   %7568 = getelementptr inbounds i8, ptr %7567, i64 1
-  store ptr %7568, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7568, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7568, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7568, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7569 = getelementptr inbounds i8, ptr %7567, i64 2
   %.not6026 = icmp ult ptr %7569, %7337
   br i1 %.not6026, label %7570, label %.loopexit
@@ -19483,8 +19483,8 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6840:                                   ; preds = %7548, %7578
   %7575 = phi ptr [ %7576, %7578 ], [ %7546, %7548 ]
   %7576 = getelementptr inbounds i8, ptr %7575, i64 1
-  store ptr %7576, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7576, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7576, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7576, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7577 = getelementptr inbounds i8, ptr %7575, i64 2
   %.not6022 = icmp ult ptr %7577, %7337
   br i1 %.not6022, label %7578, label %.loopexit
@@ -19502,8 +19502,8 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6846:                                   ; preds = %7553, %7586
   %7583 = phi ptr [ %7584, %7586 ], [ %7551, %7553 ]
   %7584 = getelementptr inbounds i8, ptr %7583, i64 1
-  store ptr %7584, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7584, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7584, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7584, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7585 = getelementptr inbounds i8, ptr %7583, i64 2
   %.not6018 = icmp ult ptr %7585, %7337
   br i1 %.not6018, label %7586, label %.loopexit
@@ -19530,13 +19530,13 @@ switch.early.test6687:                            ; preds = %7089
   br i1 %7596, label %7598, label %7597
 
 7597:                                             ; preds = %7594, %7598
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.backedge7119
 
 7598:                                             ; preds = %7594
   %7599 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %7599, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7599, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7600 = load i8, ptr %7599, align 1
   %.not6006 = icmp eq i8 %7600, 33
   br i1 %.not6006, label %.preheader6987, label %7597
@@ -19544,7 +19544,7 @@ switch.early.test6687:                            ; preds = %7089
 .preheader6987:                                   ; preds = %7598, %7604
   %7601 = phi ptr [ %7602, %7604 ], [ %7599, %7598 ]
   %7602 = getelementptr inbounds i8, ptr %7601, i64 1
-  store ptr %7602, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7602, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7603 = getelementptr inbounds i8, ptr %7601, i64 2
   %.not6007 = icmp ult ptr %7603, %32
   br i1 %.not6007, label %7604, label %.loopexit
@@ -19555,19 +19555,19 @@ switch.early.test6687:                            ; preds = %7089
   br i1 %.not6008, label %7606, label %.preheader6987
 
 7606:                                             ; preds = %7604
-  store ptr %7603, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7603, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7607 = ptrtoint ptr %7603 to i64
   %7608 = ptrtoint ptr %29 to i64
   %7609 = sub i64 %7607, %7608
   %7610 = trunc i64 %7609 to i32
-  store i32 %7610, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7610, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7611 = add nsw i32 %.promoted, 1
-  store i32 %7611, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7611, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.backedge7119
 
 7612:                                             ; preds = %41
   %7613 = getelementptr inbounds i8, ptr %.lcssa17137, i64 7
-  %7614 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 7), align 8
+  %7614 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7615 = getelementptr inbounds i8, ptr %7614, i64 32
   %.not5990 = icmp ult ptr %7613, %7615
   br i1 %.not5990, label %7616, label %.loopexit
@@ -19576,7 +19576,7 @@ switch.early.test6687:                            ; preds = %7089
   %7617 = load i8, ptr %.lcssa17137, align 1
   %7618 = icmp eq i8 %7617, 60
   %7619 = getelementptr inbounds i8, ptr %.lcssa17137, i64 1
-  store ptr %7619, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %7618, label %7735, label %.loopexit7121
 
 .loopexit7121.loopexit:                           ; preds = %7735
@@ -19589,23 +19589,23 @@ switch.early.test6687:                            ; preds = %7089
   %7623 = ptrtoint ptr %.lcssa17137 to i64
   %7624 = sub i64 %7622, %7623
   %7625 = trunc i64 %7624 to i32
-  store i32 %7625, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7625, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7626 = icmp ugt ptr %7621, %7614
   br i1 %7626, label %7627, label %.loopexit7122
 
 7627:                                             ; preds = %.loopexit7121
-  %7628 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %7628 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   br i1 %7628, label %check_nesting_at_end.exit, label %7629
 
 7629:                                             ; preds = %7627
-  %7630 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %7630 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   %7631 = load i8, ptr %7630, align 4
   %7632 = getelementptr inbounds i8, ptr %7630, i64 4
   %7633 = load i32, ptr %7632, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %7634 = sext i8 %7631 to i32
   %7635 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %7634) #16
-  %7636 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %7636 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i.i = icmp eq i32 %7636, %7633
   br i1 %.not.i.i, label %report_bad_nesting.exit.i, label %7637
 
@@ -19641,12 +19641,12 @@ check_nesting_at_end.exit:                        ; preds = %7627, %report_bad_n
   %.not599710258 = icmp eq ptr %7646, null
   %7647 = getelementptr inbounds i8, ptr %7646, i64 1
   %7648 = select i1 %.not599710258, ptr %7614, ptr %7647
-  store ptr %7648, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7648, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %.not599810259 = icmp ult ptr %7648, %7614
   br i1 %.not599810259, label %.lr.ph10261, label %.loopexit6857
 
 .lr.ph10261:                                      ; preds = %.loopexit7122
-  %7649 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 10), align 2
+  %7649 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
   %7650 = trunc i8 %7649 to i1
   br label %7651
 
@@ -19686,7 +19686,7 @@ check_nesting_at_end.exit:                        ; preds = %7627, %report_bad_n
 
 7667:                                             ; preds = %7665, %7665, %7665, %7665, %7662, %7656, %7655
   %7668 = getelementptr inbounds i8, ptr %7652, i64 -1
-  store ptr %7668, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7668, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6857
 
 7669:                                             ; preds = %7665, %7660, %7651
@@ -19696,7 +19696,7 @@ check_nesting_at_end.exit:                        ; preds = %7627, %report_bad_n
   %.not5997 = icmp eq ptr %7672, null
   %7673 = getelementptr inbounds i8, ptr %7672, i64 1
   %7674 = select i1 %.not5997, ptr %7614, ptr %7673
-  store ptr %7674, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7674, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %.not5998 = icmp ult ptr %7674, %7614
   br i1 %.not5998, label %7651, label %.loopexit6857
 
@@ -19706,8 +19706,8 @@ check_nesting_at_end.exit:                        ; preds = %7627, %report_bad_n
   %7677 = ptrtoint ptr %.lcssa17137 to i64
   %7678 = sub i64 %7676, %7677
   %7679 = trunc i64 %7678 to i32
-  store i32 %7679, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7680 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  store i32 %7679, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7680 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not6000 = icmp eq ptr %7680, null
   br i1 %.not6000, label %7702, label %7681
 
@@ -19736,17 +19736,17 @@ check_nesting_at_end.exit:                        ; preds = %7627, %report_bad_n
   store i32 262, ptr %28, align 8
   %7694 = load ptr, ptr %23, align 8
   call void @_efree(ptr noundef %7694) #16
-  %7695 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %7695 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7696 = zext i32 %7695 to i64
   %7697 = icmp ult i64 %7683, %7696
   br i1 %7697, label %7698, label %7719
 
 7698:                                             ; preds = %7681
-  %7699 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7699 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7700 = getelementptr inbounds i8, ptr %7699, i64 %7683
-  store ptr %7700, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7700, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7701 = trunc nuw i64 %7683 to i32
-  store i32 %7701, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7701, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7719
 
 7702:                                             ; preds = %.loopexit6857
@@ -19783,19 +19783,19 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %.sink16837 = phi i32 [ 6, %7704 ], [ 262, %7709 ]
   store ptr %.sink16838, ptr %0, align 8
   store i32 %.sink16837, ptr %28, align 8
-  %.pr13156 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %.pr13156 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7719
 
 7719:                                             ; preds = %thread-pre-split13155, %7698, %7681
   %7720 = phi i32 [ %.pr13156, %thread-pre-split13155 ], [ %7701, %7698 ], [ %7695, %7681 ]
-  %7721 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7721 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7722 = zext i32 %7720 to i64
   %7723 = getelementptr inbounds i8, ptr %7721, i64 %7722
   %.not10399 = icmp eq i32 %7720, 0
   br i1 %.not10399, label %.loopexit6823, label %.lr.ph10265.preheader
 
 .lr.ph10265.preheader:                            ; preds = %7719
-  %.promoted10262 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10262 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10265
 
 .lr.ph10265:                                      ; preds = %.lr.ph10265.preheader, %7731
@@ -19815,7 +19815,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7729:                                             ; preds = %.lr.ph10265, %7726
   %7730 = add nsw i32 %7724, 1
-  store i32 %7730, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7730, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7731
 
 7731:                                             ; preds = %.lr.ph10265, %7729, %7726
@@ -19831,8 +19831,8 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7737:                                             ; preds = %7735
   %7738 = getelementptr inbounds i8, ptr %.lcssa17137, i64 2
-  store ptr %7738, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store ptr %7738, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 6), align 8
+  store ptr %7738, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7738, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7739 = load i8, ptr %7738, align 1
   %7740 = icmp ult i8 %7739, 80
   br i1 %7740, label %7741, label %7743
@@ -19847,37 +19847,37 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %or.cond1514, label %7751, label %7745
 
 7745:                                             ; preds = %7743, %7741, %7755
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7746 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 10), align 2
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7746 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
   %7747 = trunc i8 %7746 to i1
   br i1 %7747, label %7748, label %.loopexit7122.loopexit
 
 7748:                                             ; preds = %7745
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 7749:                                             ; preds = %7741
   %7750 = getelementptr inbounds i8, ptr %.lcssa17137, i64 3
-  store ptr %7750, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %7750, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5992, label %.loopexit7123, label %.thread6770
 
 7751:                                             ; preds = %7743
   %7752 = getelementptr inbounds i8, ptr %.lcssa17137, i64 3
-  store ptr %7752, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7752, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7753 = load i8, ptr %7752, align 1
   %7754 = and i8 %7753, -33
   %or.cond1517 = icmp eq i8 %7754, 72
   br i1 %or.cond1517, label %7756, label %7755
 
 7755:                                             ; preds = %7756, %7751
-  store ptr %7738, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7738, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7745
 
 7756:                                             ; preds = %7751
   %7757 = getelementptr inbounds i8, ptr %.lcssa17137, i64 4
-  store ptr %7757, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7757, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7758 = load i8, ptr %7757, align 1
   %7759 = and i8 %7758, -33
   %or.cond1520.not = icmp eq i8 %7759, 80
@@ -19885,7 +19885,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7760:                                             ; preds = %7756
   %7761 = getelementptr inbounds i8, ptr %.lcssa17137, i64 5
-  store ptr %7761, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7762 = load i8, ptr %7761, align 1
   %7763 = icmp ult i8 %7762, 13
   br i1 %7763, label %7764, label %7766
@@ -19902,30 +19902,30 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   ]
 
 7767:                                             ; preds = %7766, %7764
-  store i32 5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7768 = icmp eq ptr %7761, %7614
   br i1 %7768, label %7769, label %7770
 
 7769:                                             ; preds = %7767
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 7770:                                             ; preds = %7767
-  %7771 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 10), align 2
+  %7771 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
   %7772 = trunc i8 %7771 to i1
   br i1 %7772, label %7773, label %.loopexit7122.loopexit
 
 7773:                                             ; preds = %7770
-  store ptr %7738, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store ptr %7738, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 7774:                                             ; preds = %7766, %7764, %7792
   %7775 = phi i64 [ 5, %7766 ], [ 5, %7764 ], [ 6, %7792 ]
   %7776 = getelementptr inbounds i8, ptr %.lcssa17137, i64 %7775
   %7777 = getelementptr inbounds i8, ptr %7776, i64 1
-  store ptr %7777, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7777, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7778
 
 7778:                                             ; preds = %7792, %7774
@@ -19934,7 +19934,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %7781 = ptrtoint ptr %.lcssa17137 to i64
   %7782 = sub i64 %7780, %7781
   %7783 = trunc i64 %7782 to i32
-  store i32 %7783, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7783, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7784 = add i64 %7782, 4294967295
   %7785 = and i64 %7784, 4294967295
   %7786 = getelementptr inbounds i8, ptr %.lcssa17137, i64 %7785
@@ -19945,18 +19945,18 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   ]
 
 7788:                                             ; preds = %7778, %7778
-  %7789 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %7789 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %7790 = add nsw i32 %7789, 1
-  store i32 %7790, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7790, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7791
 
 7791:                                             ; preds = %7778, %7788
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5992, label %.loopexit7123, label %8038
 
 7792:                                             ; preds = %7766
   %7793 = getelementptr inbounds i8, ptr %.lcssa17137, i64 6
-  store ptr %7793, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7793, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7794 = load i8, ptr %7793, align 1
   %7795 = icmp eq i8 %7794, 10
   br i1 %7795, label %7774, label %7778
@@ -19965,40 +19965,40 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %.not5989, label %7797, label %.loopexit
 
 7797:                                             ; preds = %7796
-  store ptr %45, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7798 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7798 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %7799 = add nsw i32 %7798, -1
-  store i32 %7799, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
-  %7800 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  store i32 %7799, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  %7800 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   %7801 = getelementptr inbounds i8, ptr %7800, i64 -8
-  store ptr %7801, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  store ptr %7801, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   %7802 = load ptr, ptr %7801, align 8
   %7803 = getelementptr inbounds i8, ptr %7802, i64 12
   %7804 = load i32, ptr %7803, align 4
   %7805 = getelementptr inbounds i8, ptr %7802, i64 8
   %7806 = load i32, ptr %7805, align 8
   %7807 = add nsw i32 %7806, %7804
-  store i32 %7807, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7807, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7808 = add i32 %7807, -1
   %7809 = zext i32 %7808 to i64
   %7810 = getelementptr inbounds i8, ptr %45, i64 %7809
-  store ptr %7810, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7811 = load ptr, ptr %7802, align 8
   tail call void @_efree(ptr noundef %7811) #16
   tail call void @_efree(ptr noundef nonnull %7802) #16
-  store i32 0, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7123
 
 7812:                                             ; preds = %43
   br i1 %.not5989, label %7813, label %.loopexit
 
 7813:                                             ; preds = %7812
-  store ptr %45, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7814 = ptrtoint ptr %.lcssa17137 to i64
-  store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %7815 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
-  %7816 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7815 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %7816 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %7817 = sext i32 %7816 to i64
   %7818 = getelementptr ptr, ptr %7815, i64 %7817
   %7819 = getelementptr i8, ptr %7818, i64 -8
@@ -20014,7 +20014,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br label %.loopexit7123
 
 7824:                                             ; preds = %7813
-  store ptr %.lcssa17137, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %.lcssa17137, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7825 = icmp ult ptr %.lcssa17137, %46
   br i1 %7825, label %.lr.ph10245, label %.loopexit6859
 
@@ -20029,7 +20029,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %.0533510243 = phi i32 [ -1, %.lr.ph10245 ], [ %.05335.be, %.backedge6860 ]
   %.0534010242 = phi i32 [ 0, %.lr.ph10245 ], [ %.05340.be, %.backedge6860 ]
   %7831 = getelementptr inbounds i8, ptr %7830, i64 1
-  store ptr %7831, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7831, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7832 = load i8, ptr %7830, align 1
   switch i8 %7832, label %.backedge6860 [
     i8 13, label %7833
@@ -20043,7 +20043,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7836:                                             ; preds = %7833
   %7837 = getelementptr inbounds i8, ptr %7830, i64 2
-  store ptr %7837, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7837, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7838
 
 7838:                                             ; preds = %7833, %7836, %7829
@@ -20075,7 +20075,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %.25337.v = select i1 %7845, i32 2, i32 1
   %.25337 = or i32 %.25337.v, %.1533610230
   %7846 = getelementptr inbounds i8, ptr %7843, i64 1
-  store ptr %7846, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7847 = add nuw nsw i32 %.1534110229, 1
   %exitcond13058.not = icmp eq ptr %7846, %scevgep13057
   br i1 %exitcond13058.not, label %.critedge34, label %.lr.ph10232
@@ -20090,14 +20090,14 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 7849:                                             ; preds = %.critedge34
   %7850 = sub i64 %7826, %7814
   %7851 = trunc i64 %7850 to i32
-  store i32 %7851, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7851, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7852 = and i64 %7850, 4294967295
   %7853 = getelementptr inbounds i8, ptr %.lcssa17137, i64 %7852
   %.not10397 = icmp eq i64 %7852, 0
   br i1 %.not10397, label %._crit_edge10256, label %.lr.ph10255.preheader
 
 .lr.ph10255.preheader:                            ; preds = %7849
-  %.promoted10252 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10252 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10255
 
 .lr.ph10255:                                      ; preds = %.lr.ph10255.preheader, %7861
@@ -20117,7 +20117,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7859:                                             ; preds = %.lr.ph10255, %7856
   %7860 = add nsw i32 %7854, 1
-  store i32 %7860, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7860, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7861
 
 7861:                                             ; preds = %.lr.ph10255, %7859, %7856
@@ -20191,7 +20191,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %.not5992, label %._crit_edge13070, label %.loopexit7123
 
 ._crit_edge13070:                                 ; preds = %7893
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7896
 
 7896:                                             ; preds = %._crit_edge13070, %7891
@@ -20216,16 +20216,16 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7910:                                             ; preds = %7903, %7909
   %.05344 = phi i32 [ 1, %7909 ], [ 2, %7903 ]
-  store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
   %7911 = zext nneg i32 %.15341.lcssa to i64
   %7912 = sub nsw i64 0, %7911
   %7913 = getelementptr inbounds i8, ptr %7897, i64 %7912
-  store ptr %7913, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
+  store ptr %7913, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7914 = getelementptr inbounds i8, ptr %7820, i64 12
   store i32 %.15341.lcssa, ptr %7914, align 4
-  store i32 9, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  %.pre13071 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
-  %.pre13072 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13071 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre13072 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %.pre13149 = ptrtoint ptr %.pre13072 to i64
   br label %.loopexit6859
 
@@ -20239,7 +20239,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %7917 = ptrtoint ptr %7916 to i64
   %7918 = sub i64 %7917, %.pre-phi13150
   %7919 = trunc i64 %7918 to i32
-  store i32 %7919, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %7919, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7920 = sub i32 %7919, %.15345
   %7921 = zext i32 %7920 to i64
   %7922 = add nuw nsw i64 %7921, 32
@@ -20258,7 +20258,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   store i8 0, ptr %7929, align 1
   store ptr %7924, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %7930 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %7930 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7931 = icmp ne ptr %7930, null
   %7932 = icmp eq i32 %.45339, -1
   %or.cond38.not6777 = select i1 %7931, i1 true, i1 %7932
@@ -20266,7 +20266,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %or.cond6678, label %7942, label %7933
 
 7933:                                             ; preds = %.loopexit6859
-  %7934 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7934 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7935 = getelementptr inbounds i8, ptr %7934, i64 -1
   %7936 = load i8, ptr %7935, align 1
   %7937 = icmp eq i8 %7936, 10
@@ -20278,8 +20278,8 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %7941, label %7942, label %.loopexit7123
 
 7942:                                             ; preds = %.loopexit6859, %7933
-  %7943 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %7944 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %7943 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7944 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7945 = sub i32 %7944, %.15345
   %7946 = zext i32 %7945 to i64
   %7947 = getelementptr inbounds i8, ptr %7943, i64 %7946
@@ -20287,7 +20287,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %.not10398, label %.loopexit6823, label %.lr.ph10251.preheader
 
 .lr.ph10251.preheader:                            ; preds = %7942
-  %.promoted10248 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10248 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10251
 
 .lr.ph10251:                                      ; preds = %.lr.ph10251.preheader, %7955
@@ -20307,7 +20307,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 7953:                                             ; preds = %.lr.ph10251, %7950
   %7954 = add nsw i32 %7948, 1
-  store i32 %7954, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %7954, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %7955
 
 7955:                                             ; preds = %.lr.ph10251, %7953, %7950
@@ -20319,17 +20319,17 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 7959:                                             ; preds = %7500, %7477, %7324, %7263, %7242, %7217, %7191, %6966, %6945, %6920, %6894, %6788, %6767, %6742, %6716, %6615, %.loopexit6932, %.loopexit6810, %.loopexit6945, %.loopexit7113, %859, %.loopexit7216
   %.05307 = phi i32 [ 0, %.loopexit7216 ], [ 1, %.loopexit7113 ], [ 0, %.loopexit6945 ], [ 10, %.loopexit6810 ], [ 0, %.loopexit6932 ], [ 1, %859 ], [ 0, %6615 ], [ 1, %6716 ], [ 1, %6767 ], [ 1, %6788 ], [ 1, %6742 ], [ 1, %6894 ], [ 1, %6945 ], [ 1, %6966 ], [ 1, %6920 ], [ 1, %7191 ], [ 1, %7242 ], [ 1, %7263 ], [ 1, %7217 ], [ 0, %7324 ], [ 1, %7500 ], [ 0, %7477 ]
   %.05306 = phi i32 [ 262, %.loopexit7216 ], [ 263, %.loopexit7113 ], [ 265, %.loopexit6945 ], [ 264, %.loopexit6810 ], [ 262, %.loopexit6932 ], [ 266, %859 ], [ 262, %6615 ], [ 266, %6716 ], [ 266, %6767 ], [ 266, %6788 ], [ 266, %6742 ], [ 266, %6894 ], [ 266, %6945 ], [ 266, %6966 ], [ 266, %6920 ], [ 266, %7191 ], [ 266, %7242 ], [ 266, %7263 ], [ 266, %7217 ], [ 270, %7324 ], [ 266, %7500 ], [ 262, %7477 ]
-  %7960 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %7960 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not6590 = icmp eq ptr %7960, null
   br i1 %.not6590, label %7980, label %7961
 
 7961:                                             ; preds = %7959
   store i64 0, ptr %25, align 8
   store ptr null, ptr %26, align 8
-  %7962 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7962 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7963 = zext nneg i32 %.05307 to i64
   %7964 = getelementptr inbounds i8, ptr %7962, i64 %7963
-  %7965 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %7965 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7966 = sub i32 %7965, %.05307
   %7967 = zext i32 %7966 to i64
   %7968 = call i64 %7960(ptr noundef nonnull %26, ptr noundef nonnull %25, ptr noundef %7964, i64 noundef %7967) #16
@@ -20356,10 +20356,10 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br label %.loopexit6823
 
 7980:                                             ; preds = %7959
-  %7981 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %7981 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7982 = sub i32 %7981, %.05307
   %7983 = icmp eq i32 %7982, 1
-  %7984 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
+  %7984 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
   %7985 = zext nneg i32 %.05307 to i64
   %7986 = getelementptr inbounds i8, ptr %7984, i64 %7985
   br i1 %7983, label %7987, label %7992
@@ -20405,15 +20405,15 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 .loopexit7123:                                    ; preds = %1169, %7791, %7773, %7769, %7748, %1202, %1193, %.loopexit6995, %7136, %7822, %check_nesting_at_end.exit, %7376, %6989, %6821, %6643, %826, %63, %7933, %7893, %7749, %7373, %7124, %7060, %.loopexit6815, %.loopexit6819, %3754, %3144, %3104, %1305, %384, %103, %60, %.loopexit6823, %.thread6766, %7797, %7482, %7381, %7201, %7196, %6904, %6899, %6855, %6726, %6721, %6694, %6626, %6620, %4651, %4646, %4205, %4187, %4169, %3759, %3719, %3149, %3107, %3086, %2937, %2006, %1995, %1993, %1991, %1989, %1987, %1776, %1774, %1674, %1672, %1670, %1665, %1310, %1286, %1280, %1278, %1277, %1270, %.loopexit7208, %1250, %1205, %1127, %1075, %1073, %1071, %1069, %1067, %1065, %1064, %1010, %999, %.loopexit6893, %864, %838, %832, %800, %798, %789, %471, %388, %.loopexit7213, %.loopexit7214, %.loopexit6800, %.loopexit7207
   %.2 = phi i32 [ 404, %.loopexit7214 ], [ %383, %.loopexit7213 ], [ %90, %.loopexit7207 ], [ 406, %471 ], [ %.16769, %.thread6766 ], [ %.1, %.loopexit6823 ], [ 373, %.loopexit7208 ], [ 403, %.loopexit6893 ], [ 359, %1670 ], [ 364, %1672 ], [ 123, %800 ], [ 96, %798 ], [ 360, %1665 ], [ 398, %789 ], [ 34, %.loopexit6800 ], [ 393, %3086 ], [ 393, %3149 ], [ 393, %3107 ], [ 385, %1995 ], [ 363, %2006 ], [ 400, %1310 ], [ 371, %1280 ], [ 362, %1993 ], [ 374, %1286 ], [ 368, %1991 ], [ 366, %1277 ], [ 386, %1278 ], [ 361, %1987 ], [ 372, %1989 ], [ 370, %1270 ], [ 367, %832 ], [ 397, %1250 ], [ 355, %1205 ], [ 399, %1776 ], [ 356, %1127 ], [ 376, %1071 ], [ 353, %1073 ], [ 384, %1075 ], [ 375, %1067 ], [ 352, %1069 ], [ 402, %1774 ], [ 401, %1064 ], [ 354, %1065 ], [ %391, %388 ], [ 383, %4205 ], [ 379, %4646 ], [ 406, %3759 ], [ 381, %4651 ], [ 377, %2937 ], [ 378, %4187 ], [ 382, %3719 ], [ 380, %4169 ], [ 365, %999 ], [ 358, %1010 ], [ 357, %864 ], [ 351, %838 ], [ 369, %1674 ], [ 384, %6620 ], [ 385, %6626 ], [ 395, %6721 ], [ 96, %6694 ], [ 396, %6726 ], [ 34, %6855 ], [ 395, %6899 ], [ 396, %6904 ], [ 395, %7196 ], [ 396, %7201 ], [ %7388, %7381 ], [ 93, %7482 ], [ 394, %7797 ], [ 405, %60 ], [ 406, %103 ], [ 406, %384 ], [ %., %1305 ], [ 406, %3104 ], [ 406, %3144 ], [ 378, %3754 ], [ 406, %.loopexit6819 ], [ 406, %.loopexit6815 ], [ 406, %7060 ], [ 406, %7124 ], [ 405, %7373 ], [ 390, %7749 ], [ 406, %7893 ], [ 406, %7933 ], [ %spec.select6680, %63 ], [ %spec.select6681, %826 ], [ %spec.select6682, %6643 ], [ %spec.select6684, %6821 ], [ %spec.select6686, %6989 ], [ %spec.select6688, %7376 ], [ %spec.select6689, %check_nesting_at_end.exit ], [ %spec.select6690, %7822 ], [ 406, %7136 ], [ 406, %1169 ], [ 389, %7773 ], [ 389, %7769 ], [ 389, %7791 ], [ 389, %7748 ], [ 387, %.loopexit6995 ], [ 387, %1202 ], [ 388, %1193 ]
-  %8003 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %8003 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6597 = icmp eq ptr %8003, null
   br i1 %.not6597, label %.loopexit, label %8004
 
 8004:                                             ; preds = %.loopexit7123
-  %8005 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %8006 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %8005 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8006 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %8007 = zext i32 %8006 to i64
-  %8008 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %8008 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   call void %8003(i32 noundef 0, i32 noundef %.2, i32 noundef %.05308.ph.ph, ptr noundef %8005, i64 noundef %8007, ptr noundef %8008) #16
   br label %.loopexit
 
@@ -20421,7 +20421,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %.sink16839 = phi i32 [ %6378, %.loopexit7128 ], [ %6171, %.loopexit7125 ], [ %6015, %.loopexit7129 ], [ %5928, %.loopexit7148 ], [ %5913, %.loopexit7163 ], [ %5556, %.loopexit7126 ], [ %5441, %.loopexit7160 ], [ %5422, %.loopexit7164 ], [ %5315, %.loopexit7186 ], [ %5300, %.loopexit7187 ], [ %5255, %.loopexit7124 ], [ %5224, %.loopexit7132 ], [ %5181, %.loopexit7151 ], [ %5166, %5160 ], [ %5150, %.loopexit7161 ], [ %5135, %.loopexit7159 ], [ %5010, %.loopexit7183 ], [ %4925, %.loopexit7127 ], [ %4902, %.loopexit7130 ], [ %4830, %.loopexit7149 ], [ %4787, %.loopexit7168 ], [ %4727, %.loopexit7182 ], [ %4700, %.loopexit7197 ], [ %4685, %.loopexit7202 ], [ %4670, %.loopexit7206 ], [ %4567, %.loopexit7131 ], [ %4492, %.loopexit7147 ], [ %4461, %.loopexit7152 ], [ %4430, %.loopexit7162 ], [ %4399, %.loopexit7170 ], [ %4384, %.loopexit7173 ], [ %4369, %.loopexit7174 ], [ %4251, %.loopexit7194 ], [ %4236, %.loopexit7195 ], [ %4050, %.loopexit7144 ], [ %4035, %.loopexit7145 ], [ %4020, %.loopexit7146 ], [ %3997, %.loopexit7150 ], [ %3950, %.loopexit7167 ], [ 4, %.loopexit6931 ], [ %3848, %.loopexit7185 ], [ %3815, %.loopexit7190 ], [ %3607, %.loopexit7133 ], [ %3580, %.loopexit7137 ], [ %3565, %.loopexit7140 ], [ %3550, %.loopexit7142 ], [ %3535, %.loopexit7143 ], [ %3488, %.loopexit7153 ], [ %3469, %.loopexit7156 ], [ %3454, %.loopexit7158 ], [ %3407, %.loopexit7172 ], [ %3306, %.loopexit7184 ], [ %3283, %.loopexit7188 ], [ %3252, %.loopexit7196 ], [ %3237, %.loopexit7198 ], [ %3222, %.loopexit7199 ], [ %3207, %.loopexit7201 ], [ %3188, %.loopexit7203 ], [ %3173, %.loopexit7204 ], [ %2784, %.loopexit7157 ], [ %2743, %.loopexit7166 ], [ %2708, %.loopexit7175 ], [ %2693, %.loopexit7176 ], [ %2639, %.loopexit7189 ], [ %2610, %.loopexit7191 ], [ %2567, %.loopexit7200 ], [ %2357, %.loopexit7136 ], [ %2338, %.loopexit7138 ], [ %2323, %.loopexit7139 ], [ %2304, %.loopexit7141 ], [ %2243, %.loopexit7155 ], [ %2184, %.loopexit7169 ], [ %2120, %.loopexit7193 ], [ %2026, %.loopexit7205 ], [ %1563, %.loopexit7154 ], [ %1506, %.loopexit7165 ], [ %1475, %.loopexit7171 ], [ %1420, %.loopexit7192 ], [ %1337, %split ]
   %.ph = phi ptr [ %6373, %.loopexit7128 ], [ %6166, %.loopexit7125 ], [ %6010, %.loopexit7129 ], [ %5923, %.loopexit7148 ], [ %5908, %.loopexit7163 ], [ %5551, %.loopexit7126 ], [ %5437, %.loopexit7160 ], [ %5418, %.loopexit7164 ], [ %5310, %.loopexit7186 ], [ %5296, %.loopexit7187 ], [ %5251, %.loopexit7124 ], [ %5220, %.loopexit7132 ], [ %5177, %.loopexit7151 ], [ %5161, %5160 ], [ %5146, %.loopexit7161 ], [ %5131, %.loopexit7159 ], [ %5006, %.loopexit7183 ], [ %4921, %.loopexit7127 ], [ %4898, %.loopexit7130 ], [ %4826, %.loopexit7149 ], [ %4783, %.loopexit7168 ], [ %4723, %.loopexit7182 ], [ %4696, %.loopexit7197 ], [ %4681, %.loopexit7202 ], [ %4666, %.loopexit7206 ], [ %4563, %.loopexit7131 ], [ %4488, %.loopexit7147 ], [ %4457, %.loopexit7152 ], [ %4426, %.loopexit7162 ], [ %4395, %.loopexit7170 ], [ %4380, %.loopexit7173 ], [ %4365, %.loopexit7174 ], [ %4247, %.loopexit7194 ], [ %4232, %.loopexit7195 ], [ %4046, %.loopexit7144 ], [ %4031, %.loopexit7145 ], [ %4016, %.loopexit7146 ], [ %3993, %.loopexit7150 ], [ %3946, %.loopexit7167 ], [ %3857, %.loopexit6931 ], [ %3843, %.loopexit7185 ], [ %3811, %.loopexit7190 ], [ %3602, %.loopexit7133 ], [ %3575, %.loopexit7137 ], [ %3560, %.loopexit7140 ], [ %3546, %.loopexit7142 ], [ %3531, %.loopexit7143 ], [ %3484, %.loopexit7153 ], [ %3465, %.loopexit7156 ], [ %3450, %.loopexit7158 ], [ %3403, %.loopexit7172 ], [ %3302, %.loopexit7184 ], [ %3279, %.loopexit7188 ], [ %3248, %.loopexit7196 ], [ %3233, %.loopexit7198 ], [ %3218, %.loopexit7199 ], [ %3203, %.loopexit7201 ], [ %3184, %.loopexit7203 ], [ %3169, %.loopexit7204 ], [ %2780, %.loopexit7157 ], [ %2739, %.loopexit7166 ], [ %2704, %.loopexit7175 ], [ %2689, %.loopexit7176 ], [ %2635, %.loopexit7189 ], [ %2606, %.loopexit7191 ], [ %2563, %.loopexit7200 ], [ %2352, %.loopexit7136 ], [ %2334, %.loopexit7138 ], [ %2319, %.loopexit7139 ], [ %2300, %.loopexit7141 ], [ %2239, %.loopexit7155 ], [ %2180, %.loopexit7169 ], [ %2116, %.loopexit7193 ], [ %2022, %.loopexit7205 ], [ %1559, %.loopexit7154 ], [ %1502, %.loopexit7165 ], [ %1471, %.loopexit7171 ], [ %1416, %.loopexit7192 ], [ %1332, %split ]
   %.3.ph = phi i32 [ 332, %.loopexit7128 ], [ 350, %.loopexit7125 ], [ 349, %.loopexit7129 ], [ 276, %.loopexit7148 ], [ 273, %.loopexit7163 ], [ 348, %.loopexit7126 ], [ 283, %.loopexit7160 ], [ 338, %.loopexit7164 ], [ 298, %.loopexit7186 ], [ 300, %.loopexit7187 ], [ 347, %.loopexit7124 ], [ 346, %.loopexit7132 ], [ 325, %.loopexit7151 ], [ 339, %5160 ], [ 335, %.loopexit7161 ], [ 319, %.loopexit7159 ], [ 303, %.loopexit7183 ], [ 343, %.loopexit7127 ], [ 344, %.loopexit7130 ], [ 327, %.loopexit7149 ], [ 310, %.loopexit7168 ], [ 294, %.loopexit7182 ], [ 308, %.loopexit7197 ], [ 342, %.loopexit7202 ], [ 322, %.loopexit7206 ], [ 345, %.loopexit7131 ], [ 275, %.loopexit7147 ], [ 324, %.loopexit7152 ], [ 272, %.loopexit7162 ], [ 297, %.loopexit7170 ], [ 316, %.loopexit7173 ], [ 337, %.loopexit7174 ], [ 305, %.loopexit7194 ], [ 299, %.loopexit7195 ], [ 302, %.loopexit7144 ], [ 321, %.loopexit7145 ], [ 313, %.loopexit7146 ], [ 326, %.loopexit7150 ], [ 320, %.loopexit7167 ], [ 336, %.loopexit6931 ], [ 296, %.loopexit7185 ], [ 288, %.loopexit7190 ], [ 281, %.loopexit7133 ], [ 293, %.loopexit7137 ], [ 329, %.loopexit7140 ], [ 334, %.loopexit7142 ], [ 317, %.loopexit7143 ], [ 280, %.loopexit7153 ], [ 306, %.loopexit7156 ], [ 330, %.loopexit7158 ], [ 323, %.loopexit7172 ], [ 290, %.loopexit7184 ], [ 331, %.loopexit7188 ], [ 312, %.loopexit7196 ], [ 285, %.loopexit7198 ], [ 333, %.loopexit7199 ], [ 315, %.loopexit7201 ], [ 307, %.loopexit7203 ], [ 341, %.loopexit7204 ], [ 340, %.loopexit7157 ], [ 309, %.loopexit7166 ], [ 286, %.loopexit7175 ], [ 274, %.loopexit7176 ], [ 289, %.loopexit7189 ], [ 291, %.loopexit7191 ], [ 304, %.loopexit7200 ], [ 278, %.loopexit7136 ], [ 328, %.loopexit7138 ], [ 318, %.loopexit7139 ], [ 314, %.loopexit7141 ], [ 284, %.loopexit7155 ], [ 295, %.loopexit7169 ], [ 286, %.loopexit7193 ], [ 279, %.loopexit7205 ], [ 277, %.loopexit7154 ], [ 287, %.loopexit7165 ], [ 311, %.loopexit7171 ], [ 292, %.loopexit7192 ], [ 301, %split ]
-  store i32 %.sink16839, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %.sink16839, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit6799
 
 .loopexit6799:                                    ; preds = %5715, %.loopexit6799.sink.split, %.loopexit6912
@@ -20437,15 +20437,15 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 8011:                                             ; preds = %.thread6770, %.loopexit6799
   %.36774 = phi i32 [ %.36773, %.thread6770 ], [ %.3, %.loopexit6799 ]
-  %8012 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %8012 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6579 = icmp eq ptr %8012, null
   br i1 %.not6579, label %.loopexit, label %8013
 
 8013:                                             ; preds = %8011
-  %8014 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %8015 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %8014 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8015 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %8016 = zext i32 %8015 to i64
-  %8017 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %8017 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8012(i32 noundef 0, i32 noundef %.36774, i32 noundef %.05308.ph.ph, ptr noundef %8014, i64 noundef %8016, ptr noundef %8017) #16
   br label %.loopexit
 
@@ -20456,14 +20456,14 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   %8019 = ptrtoint ptr %.promoted103941316013175.sink to i64
   %8020 = sub i64 %8018, %8019
   %storemerge6073 = trunc i64 %8020 to i32
-  store i32 %storemerge6073, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  store i32 %storemerge6073, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %8021 = and i64 %8020, 4294967295
   %8022 = getelementptr inbounds i8, ptr %.promoted103941316013175.sink, i64 %8021
   %.not10404 = icmp eq i64 %8021, 0
   br i1 %.not10404, label %._crit_edge10227, label %.lr.ph10226.preheader
 
 .lr.ph10226.preheader:                            ; preds = %.loopexit16935
-  %.promoted10223 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted10223 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10226
 
 .lr.ph10226:                                      ; preds = %.lr.ph10226.preheader, %8030
@@ -20483,7 +20483,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 8028:                                             ; preds = %.lr.ph10226, %8025
   %8029 = add nsw i32 %8023, 1
-  store i32 %8029, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %8029, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %8030
 
 8030:                                             ; preds = %.lr.ph10226, %8028, %8025
@@ -20493,12 +20493,12 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %8033, label %.lr.ph10226, label %._crit_edge10227
 
 ._crit_edge10227:                                 ; preds = %8030, %.loopexit16935
-  %8034 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %8034 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6600 = icmp eq ptr %8034, null
   br i1 %.not6600, label %8037, label %8035
 
 8035:                                             ; preds = %._crit_edge10227
-  %8036 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %8036 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8034(i32 noundef 0, i32 noundef 392, i32 noundef %.05308.ph.ph, ptr noundef %.promoted103941316013175.sink, i64 noundef %8021, ptr noundef %8036) #16
   br label %8037
 
@@ -20507,20 +20507,20 @@ thread-pre-split13155:                            ; preds = %7704, %7709
 
 8038:                                             ; preds = %7791, %7773, %7769, %7748, %1202, %1193, %.loopexit6995
   %.4 = phi i32 [ 388, %1193 ], [ 387, %1202 ], [ 387, %.loopexit6995 ], [ 389, %7748 ], [ 389, %7791 ], [ 389, %7769 ], [ 389, %7773 ]
-  %8039 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %8039 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6586 = icmp eq ptr %8039, null
   br i1 %.not6586, label %thread-pre-split.outer.backedge, label %8040
 
 8040:                                             ; preds = %8038
-  %8041 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
-  %8042 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
+  %8041 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8042 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %8043 = zext i32 %8042 to i64
-  %8044 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  %8044 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8039(i32 noundef 0, i32 noundef %.4, i32 noundef %.05308.ph.ph, ptr noundef %8041, i64 noundef %8043, ptr noundef %8044) #16
   br label %thread-pre-split.outer.backedge
 
 thread-pre-split.outer.backedge:                  ; preds = %8038, %8040, %8037
-  %.05308.ph.ph.be = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.05308.ph.ph.be = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %thread-pre-split.outer
 
 .loopexit:                                        ; preds = %6562, %8037, %7612, %6473, %6413, %6409, %6356, %6352, %6329, %6317, %6267, %6218, %6210, %6202, %6145, %6100, %6092, %6084, %6076, %.loopexit7103, %5969, %5884, %5865, %5857, %5849, %5745, %5643, %5628, %5620, %5612, %5393, %5378, %5367, %5356, %5349, %5094, %5079, %4757, %4741, %4325, %4307, %4296, %.loopexit7106, %3707, %3367, %._crit_edge13098, %2925, %1845, %1778, %1240, %1082, %661, %498, %.loopexit20798, %.preheader7111, %.preheader7107, %.preheader7086, %.preheader7082, %.preheader7074, %.preheader7062, %.preheader7058, %.preheader7053, %.preheader7031, %.preheader7021, %.preheader7017, %.preheader7013, %.preheader7009, %.preheader7005, %.preheader7002, %7273, %7593, %.preheader6987, %.lr.ph, %.preheader7116, %.backedge7115, %2362, %.backedge7110, %5986, %5757, %5519, %5195, %4856, %4072, %.preheader6974, %4543, %4874, %.backedge7090, %.backedge7085, %.loopexit6972, %4287, %.preheader6967, %3914, %4345, %.backedge7066, %.backedge7061, %.backedge7057, %2988, %2970, %.preheader7043, %.preheader7039, %.preheader7035, %.backedge7034, %.preheader7028, %1015, %.backedge7024, %.backedge7020, %.backedge7016, %.backedge7012, %.backedge7008, %.backedge7004, %4628, %4152, %.loopexit6891, %2885, %2431, %.loopexit6956, %1005, %988, %.loopexit6955, %.preheader6953, %1338, %.preheader6943, %.preheader6989, %.loopexit6940, %4847, %.preheader6934, %.backedge7079, %4276, %.backedge6973, %.preheader6924, %.preheader6965, %.preheader6963, %.preheader6961, %.loopexit6919, %2438, %.preheader6914, %1722, %2447, %1676, %.backedge6946, %.backedge6981, %4839, %.backedge6942, %.preheader6905, %.backedge6933, %5324, %5341, %5604, %5809, %5817, %5833, %6046, %6061, %6172, %6187, %6287, %6302, %6379, %6394, %6440, %6458, %6526, %6533, %6547, %.preheader6895, %5058, %.backedge6958, %2411, %.backedge6920, %.preheader6886, %.backedge6913, %5736, %5961, %.loopexit6879, %6511, %5498, %.backedge6901, %5795, %5802, %6028, %.backedge6894, %4125, %4161, %4637, %4949, %4962, %5256, %.preheader6868, %3675, %6487, %6421, %6337, %6252, %6129, %.preheader6875, %.preheader6861, %.backedge6874, %4938, %4977, %5271, %.backedge6867, %6115, %6122, %6237, %.preheader6854, %.preheader6852, %.preheader6848, %.preheader6846, %.preheader6842, %.preheader6840, %.preheader6836, %.preheader6834, %.preheader6831, %.backedge6830, %.preheader6826, %.preheader6821, %.preheader6817, %.preheader6812, %.preheader6808, %.backedge6811, %.backedge6803, %.preheader, %.preheader6828, %.preheader6801, %8011, %8013, %.loopexit7123, %8004, %7812, %7796, %7558, %7335, %6976, %6798, %6627
@@ -20531,18 +20531,18 @@ thread-pre-split.outer.backedge:                  ; preds = %8038, %8040, %8037
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_nesting_at_end() unnamed_addr #0 {
   %1 = alloca [256 x i8], align 16
-  %2 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %2 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %4 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   %5 = load i8, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
   %8 = sext i8 %5 to i32
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %8) #16
-  %10 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i = icmp eq i32 %10, %7
   br i1 %.not.i, label %report_bad_nesting.exit, label %11
 
@@ -20592,9 +20592,9 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
   ]
 
 16:                                               ; preds = %14, %14
-  %17 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %18 = add nsw i32 %17, 1
-  store i32 %18, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %19
 
 19:                                               ; preds = %14, %16
@@ -20625,7 +20625,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
   store ptr %28, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 262, ptr %34, align 8
-  %.promoted = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %35
 
 35:                                               ; preds = %47, %24
@@ -20656,7 +20656,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
 
 45:                                               ; preds = %35, %42
   %46 = add nsw i32 %36, 1
-  store i32 %46, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %47
 
 47:                                               ; preds = %35, %45, %42
@@ -21002,7 +21002,7 @@ switch.early.test326:                             ; preds = %.lr.ph
   br i1 %186, label %187, label %.thread
 
 187:                                              ; preds = %185
-  %188 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 12), align 8
+  %188 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
   %189 = trunc i8 %188 to i1
   br i1 %189, label %.thread, label %190
 
@@ -21047,9 +21047,9 @@ switch.early.test326:                             ; preds = %.lr.ph
   br i1 %.not301, label %208, label %205
 
 205:                                              ; preds = %200, %202
-  %206 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %206 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %207 = add nsw i32 %206, 1
-  store i32 %207, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %207, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %208
 
 208:                                              ; preds = %200, %205, %202
@@ -21070,7 +21070,7 @@ switch.early.test326:                             ; preds = %.lr.ph
   br label %.loopexit328
 
 .loopexit328:                                     ; preds = %47, %11, %19, %.loopexit
-  %217 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 20), align 8
+  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not303 = icmp eq ptr %217, null
   br i1 %.not303, label %236, label %218
 
@@ -21113,7 +21113,7 @@ switch.early.test326:                             ; preds = %.lr.ph
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %3 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
@@ -21123,7 +21123,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   br label %41
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  %9 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 123
   %12 = icmp ne i8 %0, 125
@@ -21149,7 +21149,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   %22 = zext nneg i8 %10 to i32
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %22) #16
   %24 = sext i32 %23 to i64
-  %25 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i = icmp eq i32 %25, %21
   br i1 %.not.i, label %32, label %26
 
@@ -21180,7 +21180,7 @@ report_bad_nesting.exit:                          ; preds = %32, %33
   br label %41
 
 40:                                               ; preds = %16
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #16
   br label %41
 
 41:                                               ; preds = %40, %report_bad_nesting.exit, %4
@@ -21207,10 +21207,10 @@ declare zeroext i1 @zend_stack_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @yy_pop_state() unnamed_addr #0 {
-  %1 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  %1 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   %2 = load i32, ptr %1, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 8), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9)) #16
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #16
   ret void
 }
 
@@ -21234,13 +21234,13 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @_estrndup(ptr noundef %3, i64 noundef %6) #16
   store ptr %7, ptr %2, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 1), align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
   %.not = icmp slt i32 %8, %9
   br i1 %.not, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %1
-  %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   br label %26
 
 .preheader:                                       ; preds = %1, %.preheader
@@ -21250,10 +21250,10 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   br i1 %.not24, label %12, label %.preheader
 
 12:                                               ; preds = %.preheader
-  store i32 %11, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 1), align 4
-  %13 = load i8, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 4), align 8
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
+  %13 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 120), align 8
   %14 = trunc i8 %13 to i1
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
   %16 = sext i32 %11 to i64
   br i1 %14, label %17, label %19
 
@@ -21267,8 +21267,8 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %19, %17
   %22 = phi ptr [ %18, %17 ], [ %20, %19 ]
-  store ptr %22, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 2), align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds ptr, ptr %22, i64 %24
   br label %26
@@ -21277,9 +21277,9 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   %27 = phi ptr [ %25, %21 ], [ %.pre, %._crit_edge ]
   %28 = phi i32 [ %23, %21 ], [ %8, %._crit_edge ]
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), align 8
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %30, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10, i32 3), align 8
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
   store ptr %2, ptr %27, align 8
   ret void
 }
@@ -21537,18 +21537,18 @@ next_newline.exit90:                              ; preds = %.lr.ph.i87, %90, %.
 
 .split.us:                                        ; preds = %94, %.lr.ph, %74, %.lr.ph.us
   %.us-phi = phi i32 [ %.168121.us131, %.lr.ph.us ], [ %.168121.us131, %74 ], [ %.168121, %.lr.ph ], [ %.168121, %94 ]
-  %96 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %96 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %97 = add nsw i32 %96, %.us-phi
-  store i32 %97, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %97, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %98 = load ptr, ptr @zend_ce_parse_error, align 8
   %99 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %98, i64 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %1) #16
   br label %127
 
 .split112.us:                                     ; preds = %94, %74
   %.us-phi113 = phi i32 [ %.168121.us131, %74 ], [ %.168121, %94 ]
-  %100 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %101 = add nsw i32 %100, %.us-phi113
-  store i32 %101, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  store i32 %101, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %102 = load ptr, ptr @zend_ce_parse_error, align 8
   %103 = tail call ptr @zend_throw_exception(ptr noundef %102, ptr noundef nonnull @.str.6, i64 noundef 0) #16
   br label %127

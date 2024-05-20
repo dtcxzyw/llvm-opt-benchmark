@@ -538,7 +538,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7519LanguageBreakEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519LanguageBreakEngineE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -565,7 +565,7 @@ declare void @llvm.trap() #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7520LanguageBreakFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520LanguageBreakFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520LanguageBreakFactoryE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -585,7 +585,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7515UnhandledEngineC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture nonnull readnone align 4 %status) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515UnhandledEngineE, i64 16), ptr %this, align 8
   %fHandled = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fHandled, align 8
   ret void
@@ -594,7 +594,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515UnhandledEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515UnhandledEngineE, i64 16), ptr %this, align 8
   %fHandled = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHandled, align 8
   %isnull = icmp eq ptr %0, null
@@ -751,7 +751,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7523ICULanguageBreakFactoryC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i64 16), ptr %this, align 8
   %fEngines = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fEngines, align 8
   ret void
@@ -760,7 +760,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7523ICULanguageBreakFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i64 16), ptr %this, align 8
   %fEngines = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fEngines, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1324,7 +1324,7 @@ if.then43:                                        ; preds = %invoke.cont39
 new.notnull:                                      ; preds = %if.then43
   %idx.ext = sext i32 %16 to i64
   %add.ptr45 = getelementptr inbounds i8, ptr %call40, i64 %idx.ext
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i64 0, i32 0, i64 2), ptr %call46, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i64 16), ptr %call46, align 8
   %characters.i = getelementptr inbounds i8, ptr %call46, i64 8
   store ptr %add.ptr45, ptr %characters.i, align 8
   %transformConstant.i = getelementptr inbounds i8, ptr %call46, i64 16
@@ -1363,7 +1363,7 @@ if.then51:                                        ; preds = %if.else
 new.notnull57:                                    ; preds = %if.then51
   %idx.ext53 = sext i32 %16 to i64
   %add.ptr54 = getelementptr inbounds i8, ptr %call40, i64 %idx.ext53
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i64 0, i32 0, i64 2), ptr %call55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i64 16), ptr %call55, align 8
   %characters.i30 = getelementptr inbounds i8, ptr %call55, i64 8
   store ptr %add.ptr54, ptr %characters.i30, align 8
   %file.i31 = getelementptr inbounds i8, ptr %call55, i64 16
@@ -1570,7 +1570,7 @@ _ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev.exit28: ; preds = %ehcle
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7518BreakEngineWrapperC2EPNS_19ExternalBreakEngineER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %engine, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i64 16), ptr %this, align 8
   %delegate = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %engine, ptr %delegate, align 8
   %cmp.i = icmp ne ptr %engine, null
@@ -1590,7 +1590,7 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518BreakEngineWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i64 16), ptr %this, align 8
   %delegate = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate, align 8
   %isnull.i = icmp eq ptr %0, null

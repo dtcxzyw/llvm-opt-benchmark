@@ -59,7 +59,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_memattr_init() local_unnamed
   %21 = load i64, ptr @efi_mem_attr_table, align 8
   %22 = sext i32 %20 to i64
   %23 = tail call i32 @memblock_reserve(i64 noundef %21, i64 noundef %22) #6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), i64 1), i32 4, ptr elementtype(i8) getelementptr (i8, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), i64 1)) #6, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @efi, i64 265), i32 4, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @efi, i64 265)) #6, !srcloc !5
   br label %24
 
 24:                                               ; preds = %14, %12
@@ -98,7 +98,7 @@ define dso_local i32 @efi_memattr_apply_permissions(ptr noundef %0, ptr nocaptur
   br i1 %6, label %130, label %7
 
 7:                                                ; preds = %2
-  %8 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %9 = and i64 %8, 16
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12, !prof !6
@@ -135,7 +135,7 @@ define dso_local i32 @efi_memattr_apply_permissions(ptr noundef %0, ptr nocaptur
 
 28:                                               ; preds = %23, %20
   %29 = phi i1 [ false, %20 ], [ %27, %23 ]
-  %30 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %30 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %31 = and i64 %30, 256
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %35, label %33
@@ -184,11 +184,11 @@ define dso_local i32 @efi_memattr_apply_permissions(ptr noundef %0, ptr nocaptur
   br i1 %60, label %61, label %.thread17
 
 61:                                               ; preds = %.preheader
-  %62 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
   %63 = icmp ne ptr %62, null
-  %64 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %65 = getelementptr i8, ptr %62, i64 %64
-  %66 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
+  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
   %67 = icmp ule ptr %65, %66
   %68 = select i1 %63, i1 %67, i1 false
   br i1 %68, label %69, label %.thread17
@@ -246,7 +246,7 @@ define dso_local i32 @efi_memattr_apply_permissions(ptr noundef %0, ptr nocaptur
   %105 = add i64 %83, %89
   store i64 %105, ptr %39, align 8
   %106 = load i64, ptr %40, align 8
-  %107 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %107 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %108 = and i64 %107, 256
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %.thread18, label %.thread18.critedge
@@ -255,7 +255,7 @@ define dso_local i32 @efi_memattr_apply_permissions(ptr noundef %0, ptr nocaptur
   %.sink = phi ptr [ @.str.8, %.preheader ], [ @.str.11, %61 ], [ @.str.9, %92 ], [ @.str.10, %95 ], [ @.str.11, %98 ], [ @.str.11, %81 ]
   %110 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %.sink) #7
   %111 = load i64, ptr %40, align 8
-  %112 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
+  %112 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %113 = shl i64 %111, 12
   %114 = load i64, ptr %41, align 8
   %115 = add i64 %113, -1

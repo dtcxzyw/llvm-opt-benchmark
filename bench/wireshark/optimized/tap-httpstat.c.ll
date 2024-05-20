@@ -59,7 +59,7 @@ define internal void @httpstat_init(ptr noundef %0, ptr nocapture readnone %1) #
   %13 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #10
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([0 x %struct._value_string], ptr @vals_http_status_code, i64 0, i64 0, i32 1), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @vals_http_status_code, i64 8), align 8
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %http_init_hash.exit, label %.lr.ph.i
 

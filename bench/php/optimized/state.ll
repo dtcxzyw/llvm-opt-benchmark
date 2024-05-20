@@ -1622,7 +1622,7 @@ define hidden ptr @lxb_html_tokenizer_state_char_ref(ptr nocapture noundef %0, p
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ([9854 x %struct.lexbor_sbst_entry_static_t], ptr @lxb_html_tokenizer_res_entities_sbst, i64 0, i64 1), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_html_tokenizer_res_entities_sbst, i64 14), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5793,7 +5793,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_attr(ptr nocapture nounde
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr getelementptr inbounds ([9854 x %struct.lexbor_sbst_entry_static_t], ptr @lxb_html_tokenizer_res_entities_sbst, i64 0, i64 1), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @lxb_html_tokenizer_res_entities_sbst, i64 14), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 136

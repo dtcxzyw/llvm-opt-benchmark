@@ -8130,7 +8130,7 @@ _ZN4just5lexer5Lexer6lexeme17h630072bddef39e18E.exit: ; preds = %"_ZN4core3str21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1552
   store ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, ptr %4, align 8, !noalias !1552
   %64 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (<{ [12 x i8] }>, ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, i64 1, i32 0, i64 0), ptr %64, align 8, !noalias !1552
+  store ptr getelementptr inbounds (i8, ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, i64 12), ptr %64, align 8, !noalias !1552
   %65 = invoke noundef align 1 dereferenceable_or_null(2) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3533ae8fe5fa6854E.llvm.12352545699060731367"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %.noexc16 unwind label %.loopexit.split-lp
 
@@ -13022,7 +13022,7 @@ _ZN4just5lexer5Lexer4rest17h9dc0b956cc9a07d5E.exit.i: ; preds = %"_ZN4core3str21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2298
   store ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, ptr %7, align 8, !noalias !2298
   %753 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (<{ [12 x i8] }>, ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, i64 1, i32 0, i64 0), ptr %753, align 8, !noalias !2298
+  store ptr getelementptr inbounds (i8, ptr @anon.7dbcd5d78972d10e75f23ce35f923e43.337.llvm.12352545699060731367, i64 12), ptr %753, align 8, !noalias !2298
   %754 = call noundef align 1 dereferenceable_or_null(2) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3533ae8fe5fa6854E.llvm.12352545699060731367"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !2301
   %.not7.i.i.i = icmp eq ptr %754, null
   br i1 %.not7.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i

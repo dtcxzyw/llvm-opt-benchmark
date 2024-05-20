@@ -1648,25 +1648,25 @@ define hidden void @_Py_ClearArgcArgv() local_unnamed_addr #5 {
 entry:
   %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
   %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #21
-  %0 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1856), align 8
   %cmp7.i = icmp sgt i64 %0, 0
   br i1 %cmp7.i, label %for.body.i, label %_PyWideStringList_Clear.exit
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %i.08.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %entry ]
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1864), align 8
   %arrayidx.i = getelementptr ptr, ptr %1, i64 %i.08.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   call void @PyMem_RawFree(ptr noundef %2) #21
   %inc.i = add nuw nsw i64 %i.08.i, 1
-  %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18), align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1856), align 8
   %cmp.i = icmp slt i64 %inc.i, %3
   br i1 %cmp.i, label %for.body.i, label %_PyWideStringList_Clear.exit, !llvm.loop !8
 
 _PyWideStringList_Clear.exit:                     ; preds = %for.body.i, %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18, i32 1), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1864), align 8
   call void @PyMem_RawFree(ptr noundef %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_PyRuntime, i64 1856), i8 0, i64 16, i1 false)
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #21
   ret void
 }
@@ -1678,10 +1678,10 @@ declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @Py_GetArgcArgv(ptr nocapture noundef writeonly %argc, ptr nocapture noundef writeonly %argv) local_unnamed_addr #9 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18), align 8
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1856), align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr %argc, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18, i32 1), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1864), align 8
   store ptr %1, ptr %argv, align 8
   ret void
 }
@@ -3416,7 +3416,7 @@ if.end:                                           ; preds = %if.end7.sink.split.
   %items.i = getelementptr inbounds i8, ptr %argv_list.i, i64 8
   store ptr %25, ptr %items.i, align 8
   %call.i14 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc.i) #21
-  %call1.i = call i32 @_PyWideStringList_Copy(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 18), ptr noundef nonnull %argv_list.i)
+  %call1.i = call i32 @_PyWideStringList_Copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 1856), ptr noundef nonnull %argv_list.i)
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %argv_list.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %old_alloc.i)
@@ -3846,7 +3846,7 @@ if.then.i:                                        ; preds = %if.end15
   br i1 %cmp2.i, label %core_read_precmdline.exit.thread, label %if.end4.i26
 
 if.end4.i26:                                      ; preds = %if.then.i, %if.end15
-  call void @_PyPreConfig_InitFromPreConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28)) #21, !noalias !48
+  call void @_PyPreConfig_InitFromPreConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536)) #21, !noalias !48
   %status.sroa.0.0.copyload.i = load i32, ptr %tmp.i, align 8, !noalias !48
   %cmp6.not.i = icmp eq i32 %status.sroa.0.0.copyload.i, 0
   br i1 %cmp6.not.i, label %if.end8.i27, label %if.then7.i
@@ -6360,7 +6360,7 @@ lor.lhs.false:                                    ; preds = %if.end42
   br i1 %cmp44, label %if.then6.i, label %if.end51
 
 if.then.i93:                                      ; preds = %if.end42
-  %73 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 7), align 4, !noalias !180
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !180
   %tobool.not.i.i94 = icmp eq i32 %73, 0
   br i1 %tobool.not.i.i94, label %if.end.i.i104, label %if.then.i.i95
 
@@ -6446,7 +6446,7 @@ PyConfig_SetString.exit17.i.i:                    ; preds = %if.end7.i12.i.i, %i
   br label %config_get_fs_encoding.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i104
-  %82 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 7), align 4, !noalias !192
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !192
   %tobool.not.i16.i = icmp eq i32 %82, 0
   br i1 %tobool.not.i16.i, label %if.else.i.i110, label %if.then.i17.i
 
@@ -6743,7 +6743,7 @@ if.end43.i:                                       ; preds = %if.end42.i, %if.end
   br i1 %cmp45.i, label %if.then46.i, label %if.end53.i
 
 if.then46.i:                                      ; preds = %if.end43.i
-  %110 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 7), align 4, !noalias !210
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !210
   %tobool.not.i.i128 = icmp eq i32 %110, 0
   br i1 %tobool.not.i.i128, label %if.else.i70.i, label %if.then.i63.i
 
@@ -6808,7 +6808,7 @@ if.end53.i:                                       ; preds = %config_get_locale_e
   br i1 %cmp55.i, label %if.then56.i, label %if.end56
 
 if.then56.i:                                      ; preds = %if.end53.i
-  %116 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 7), align 4, !noalias !201
+  %116 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !201
   %tobool.not.i71.i = icmp eq i32 %116, 0
   br i1 %tobool.not.i71.i, label %if.end.i72.i, label %config_get_stdio_errors.exit.i
 

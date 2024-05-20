@@ -1866,9 +1866,9 @@ switch.lookup:                                    ; preds = %811
   %.0295 = phi ptr [ null, %13 ], [ null, %21 ], [ null, %63 ], [ %67, %123 ], [ %67, %145 ], [ %67, %156 ], [ %67, %176 ], [ %67, %276 ], [ %67, %297 ], [ %67, %326 ], [ %67, %337 ], [ %67, %342 ], [ %67, %380 ], [ %67, %391 ], [ %67, %402 ], [ %67, %413 ], [ %67, %438 ], [ %67, %449 ], [ %67, %460 ], [ %67, %471 ], [ %67, %482 ], [ %67, %493 ], [ %67, %504 ], [ %67, %515 ], [ %67, %526 ], [ %67, %537 ], [ %67, %548 ], [ %67, %815 ], [ %67, %826 ], [ %67, %837 ], [ %67, %849 ], [ %67, %877 ], [ %67, %315 ], [ null, %68 ], [ %67, %308 ], [ %67, %890 ], [ %67, %286 ]
   %.19 = phi i32 [ 2, %13 ], [ 2, %21 ], [ 2, %63 ], [ 2, %123 ], [ 2, %145 ], [ 2, %156 ], [ 2, %176 ], [ 2, %276 ], [ 2, %297 ], [ 2, %326 ], [ 2, %337 ], [ 2, %342 ], [ 2, %380 ], [ 2, %391 ], [ 2, %402 ], [ 2, %413 ], [ 2, %438 ], [ 2, %449 ], [ 2, %460 ], [ 2, %471 ], [ 2, %482 ], [ 2, %493 ], [ 2, %504 ], [ 2, %515 ], [ 2, %526 ], [ 2, %537 ], [ 2, %548 ], [ 2, %815 ], [ 2, %826 ], [ 2, %837 ], [ 2, %849 ], [ %.18, %877 ], [ 2, %315 ], [ 2, %68 ], [ 2, %308 ], [ %.18, %890 ], [ 2, %286 ]
   %893 = call i32 @cl_engine_free(ptr noundef %.0295) #21
-  %894 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 3), align 4
+  %894 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 12), align 4
   %.not501 = icmp eq i32 %894, 0
-  %895 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %895 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %.not502 = icmp eq i32 %895, 0
   %spec.select506 = select i1 %.not502, i32 %.19, i32 2
   %.20 = select i1 %.not501, i32 %spec.select506, i32 1
@@ -2871,26 +2871,26 @@ sub_1:                                            ; preds = %sub_0
 64:                                               ; preds = %.preheader.i
   %65 = call i32 @fclose(ptr noundef nonnull %51)
   %66 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.177, ptr noundef nonnull %47) #21
-  %67 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   %68 = add i32 %67, 1
-  store i32 %68, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  store i32 %68, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   %69 = lshr i32 %.026.i, 12
   %70 = zext nneg i32 %69 to i64
-  %71 = load i64, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 6), align 8
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
   %72 = add i64 %71, %70
-  store i64 %72, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 6), align 8
+  store i64 %72, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
   store ptr @.str.178, ptr %25, align 8
   store ptr null, ptr %8, align 8
-  %73 = call i32 @cl_scanfile_callback(ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 5), ptr noundef %0, ptr noundef %2, ptr noundef nonnull %8) #21
+  %73 = call i32 @cl_scanfile_callback(ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef %0, ptr noundef %2, ptr noundef nonnull %8) #21
   switch i32 %73, label %83 [
     i32 1, label %74
     i32 0, label %80
   ]
 
 74:                                               ; preds = %64
-  %75 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 3), align 4
+  %75 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 12), align 4
   %76 = add i32 %75, 1
-  store i32 %76, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 3), align 4
+  store i32 %76, ptr getelementptr inbounds (i8, ptr @info, i64 12), align 4
   %77 = load i16, ptr @bell, align 2
   %.not36.i = icmp eq i16 %77, 0
   br i1 %.not36.i, label %91, label %78
@@ -2920,9 +2920,9 @@ sub_1:                                            ; preds = %sub_0
   br label %88
 
 88:                                               ; preds = %85, %83
-  %89 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %90 = add i32 %89, 1
-  store i32 %90, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %91
 
 91:                                               ; preds = %88, %82, %80, %78, %74
@@ -3141,9 +3141,9 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not87, label %142, label %52
 
 52:                                               ; preds = %42
-  %53 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 1), align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 4), align 4
   %54 = add i32 %53, 1
-  store i32 %54, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 1), align 4
+  store i32 %54, ptr getelementptr inbounds (i8, ptr @info, i64 4), align 4
   %55 = add i32 %4, 1
   %56 = tail call ptr @readdir(ptr noundef nonnull %51) #21
   %.not89117 = icmp eq ptr %56, null
@@ -3358,9 +3358,9 @@ sub_1110:                                         ; preds = %sub_0109
   br label %146
 
 146:                                              ; preds = %144, %142
-  %147 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %147 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %148 = add i32 %147, 1
-  store i32 %148, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %148, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %149
 
 149:                                              ; preds = %.loopexit112, %.critedge, %35, %17, %19, %146, %.loopexit
@@ -3604,9 +3604,9 @@ define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr nounde
 
 69:                                               ; preds = %62
   %70 = sdiv i64 %64, 4096
-  %71 = load i64, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 6), align 8
+  %71 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
   %72 = add i64 %71, %70
-  store i64 %72, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 6), align 8
+  store i64 %72, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
   br label %73
 
 73:                                               ; preds = %69, %.loopexit
@@ -3701,9 +3701,9 @@ checkaccess.exit:                                 ; preds = %80
   br label %111
 
 111:                                              ; preds = %109, %107
-  %112 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %113 = add i32 %112, 1
-  store i32 %113, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %113, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %211
 
 114:                                              ; preds = %102, %checkaccess.exit, %73
@@ -3729,9 +3729,9 @@ checkaccess.exit:                                 ; preds = %80
 122:                                              ; preds = %120
   call void @free(ptr noundef nonnull %119) #21
   %123 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.191) #21
-  %124 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %124 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %125 = add i32 %124, 1
-  store i32 %125, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %125, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %211
 
 126:                                              ; preds = %120
@@ -3750,16 +3750,16 @@ checkaccess.exit:                                 ; preds = %80
   %134 = load i32, ptr %133, align 4
   %135 = call ptr @strerror(i32 noundef %134) #21
   %136 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.193, ptr noundef %.0, ptr noundef %135) #21
-  %137 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %137 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %138 = add i32 %137, 1
-  store i32 %138, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %138, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %211
 
 139:                                              ; preds = %128
   store ptr %8, ptr %9, align 8
   %140 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.0, ptr %140, align 8
-  %141 = call i32 @cl_scandesc_callback(i32 noundef %130, ptr noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 5), ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9) #21
+  %141 = call i32 @cl_scandesc_callback(i32 noundef %130, ptr noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9) #21
   %142 = icmp eq i32 %141, 1
   br i1 %142, label %143, label %177
 
@@ -3805,9 +3805,9 @@ checkaccess.exit:                                 ; preds = %80
   br label %171
 
 171:                                              ; preds = %151, %167, %164, %143
-  %172 = load <2 x i32>, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  %172 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   %173 = add <2 x i32> %172, <i32 1, i32 1>
-  store <2 x i32> %173, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  store <2 x i32> %173, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   %174 = load i16, ptr @bell, align 2
   %.not93 = icmp eq i16 %174, 0
   br i1 %.not93, label %195, label %175
@@ -3834,9 +3834,9 @@ checkaccess.exit:                                 ; preds = %80
   br label %185
 
 185:                                              ; preds = %184, %181
-  %186 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   %187 = add i32 %186, 1
-  store i32 %187, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 2), align 8
+  store i32 %187, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
   br label %195
 
 188:                                              ; preds = %177
@@ -3848,9 +3848,9 @@ checkaccess.exit:                                 ; preds = %80
   br label %192
 
 192:                                              ; preds = %189, %188
-  %193 = load i32, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  %193 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   %194 = add i32 %193, 1
-  store i32 %194, ptr getelementptr inbounds (%struct.s_info, ptr @info, i64 0, i32 4), align 8
+  store i32 %194, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %195
 
 195:                                              ; preds = %185, %192, %171, %175

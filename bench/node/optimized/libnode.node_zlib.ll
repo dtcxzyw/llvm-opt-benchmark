@@ -4553,7 +4553,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr.i63 = getelementptr inbounds i8, ptr %24, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call22, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i63, i32 noundef 48, double noundef -1.000000e+00) #22
   %25 = getelementptr inbounds i8, ptr %call22, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %25, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 200
@@ -4567,12 +4567,12 @@ do.body4.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 192), ptr %25, align 8
   %init_done_.i.i = getelementptr inbounds i8, ptr %call22, i64 208
   %ctx_.i.i = getelementptr inbounds i8, ptr %call22, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111ZlibContextE, i64 0, i32 0, i64 2), ptr %ctx_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111ZlibContextE, i64 16), ptr %ctx_.i.i, align 8
   %mutex_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 248
   %call.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
@@ -4591,8 +4591,8 @@ _ZN4node12_GLOBAL__N_110ZlibStreamC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dictionary_.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %err_.i.i.i, i8 0, i64 32, i1 false)
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call22) #22
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i64 192), ptr %25, align 8
   %mode_.i.i = getelementptr inbounds i8, ptr %call22, i64 308
   store i32 %call21, ptr %mode_.i.i, align 4
   ret void
@@ -6705,7 +6705,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -7252,9 +7252,9 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i64 192), ptr %add.ptr, align 8
   %write_in_progress_ = getelementptr inbounds i8, ptr %this, i64 209
   %0 = load i8, ptr %write_in_progress_, align 1
   %tobool = trunc i8 %0 to i1
@@ -7575,7 +7575,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -8540,7 +8540,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.8", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -10010,7 +10010,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr.i63 = getelementptr inbounds i8, ptr %24, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call22, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i63, i32 noundef 48, double noundef -1.000000e+00) #22
   %25 = getelementptr inbounds i8, ptr %call22, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %25, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 200
@@ -10024,8 +10024,8 @@ do.body4.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_14node_zlib_modeE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 192), ptr %25, align 8
   %init_done_.i.i = getelementptr inbounds i8, ptr %call22, i64 208
   %ctx_.i.i = getelementptr inbounds i8, ptr %call22, i64 240
   %mode_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 248
@@ -10035,14 +10035,14 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEC2EP
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i64 0, i32 0, i64 2), ptr %ctx_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i64 16), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320
   store i8 0, ptr %last_result_.i.i.i, align 8
   %state_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 328
   store ptr null, ptr %state_.i.i.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call22) #22
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i64 192), ptr %25, align 8
   store i32 %call21, ptr %mode_.i.i.i.i, align 8
   ret void
 }
@@ -11767,7 +11767,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -12171,9 +12171,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i64 192), ptr %add.ptr, align 8
   %write_in_progress_ = getelementptr inbounds i8, ptr %this, i64 209
   %0 = load i8, ptr %write_in_progress_, align 1
   %tobool = trunc i8 %0 to i1
@@ -12667,7 +12667,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr.i63 = getelementptr inbounds i8, ptr %24, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call22, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i63, i32 noundef 48, double noundef -1.000000e+00) #22
   %25 = getelementptr inbounds i8, ptr %call22, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %25, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 200
@@ -12681,8 +12681,8 @@ do.body4.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_14node_zlib_modeE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 192), ptr %25, align 8
   %init_done_.i.i = getelementptr inbounds i8, ptr %call22, i64 208
   %ctx_.i.i = getelementptr inbounds i8, ptr %call22, i64 240
   %mode_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 248
@@ -12692,7 +12692,7 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EP
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i64 0, i32 0, i64 2), ptr %ctx_.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i64 16), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320
   store i32 1, ptr %last_result_.i.i.i, align 8
   %error_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 324
@@ -12702,8 +12702,8 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EP
   %state_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 360
   store ptr null, ptr %state_.i.i.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call22) #22
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 0, i64 2), ptr %call22, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 1, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i64 16), ptr %call22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i64 192), ptr %25, align 8
   store i32 %call21, ptr %mode_.i.i.i.i, align 8
   ret void
 }
@@ -14453,7 +14453,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -14604,7 +14604,7 @@ if.then22.i:                                      ; preds = %do.end14.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27.i) #22
   %call.i.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i) #22
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.306, i64 0, i64 4)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.306, i64 4)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, i64 noundef 4) #22
   %6 = load i32, ptr %error_.i, align 4
   %call29.i = call ptr @BrotliDecoderErrorString(i32 noundef %6) #22
@@ -14872,9 +14872,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i64 192), ptr %add.ptr, align 8
   %write_in_progress_ = getelementptr inbounds i8, ptr %this, i64 209
   %0 = load i8, ptr %write_in_progress_, align 1
   %tobool = trunc i8 %0 to i1

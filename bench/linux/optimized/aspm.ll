@@ -193,7 +193,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 71:                                               ; preds = %66
   call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
-  %72 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %73 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %72, i32 noundef 3520, i64 noundef 56) #16
   %74 = icmp eq ptr %73, null
   br i1 %74, label %pcie_aspm_update_sysfs_visibility.exit, label %75

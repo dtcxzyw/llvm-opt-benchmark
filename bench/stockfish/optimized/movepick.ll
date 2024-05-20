@@ -1040,7 +1040,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit: ; preds
   %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i, i1 true)
   %36 = add i64 %.046.i, -1
   %37 = and i64 %36, %.046.i
-  %38 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %35
+  %38 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %35
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %.07.i
   %.not.i = icmp eq i64 %37, 0

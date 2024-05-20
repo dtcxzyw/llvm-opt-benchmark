@@ -884,7 +884,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %180 = getelementptr inbounds i8, ptr %85, i64 24
   %181 = icmp ugt i32 %.sroa.10.0.copyload.i.i, 43199
   %anon.83dd8536bdca2e5c8688614313edd3af.86.anon.83dd8536bdca2e5c8688614313edd3af.85.i.i = select i1 %181, ptr @anon.83dd8536bdca2e5c8688614313edd3af.86, ptr @anon.83dd8536bdca2e5c8688614313edd3af.85
-  %182 = select i1 %181, ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.83dd8536bdca2e5c8688614313edd3af.86, i64 1, i32 0, i64 0), ptr getelementptr inbounds (<{ [2 x i8] }>, ptr @anon.83dd8536bdca2e5c8688614313edd3af.85, i64 1, i32 0, i64 0)
+  %182 = select i1 %181, ptr getelementptr inbounds (i8, ptr @anon.83dd8536bdca2e5c8688614313edd3af.86, i64 2), ptr getelementptr inbounds (i8, ptr @anon.83dd8536bdca2e5c8688614313edd3af.85, i64 2)
   %.sroa.052.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %.sroa.052.sroa.3.sroa.2.0..sroa.052.sroa.3.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %87, i64 24
   %.sroa.052.sroa.4.sroa.2.0..sroa.052.sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %87, i64 36

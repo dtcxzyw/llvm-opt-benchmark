@@ -2439,7 +2439,7 @@ widen_string.exit.thread.i:                       ; preds = %102
 194:                                              ; preds = %191, %.preheader18.i
   %195 = phi ptr [ %192, %191 ], [ %182, %.preheader18.i ]
   %196 = phi i32 [ %193, %191 ], [ %184, %.preheader18.i ]
-  %197 = icmp eq ptr %183, getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 4)
+  %197 = icmp eq ptr %183, getelementptr inbounds (i8, ptr @.str.17, i64 4)
   br i1 %197, label %198, label %.preheader18.i
 
 198:                                              ; preds = %194
@@ -2496,7 +2496,7 @@ widen_string.exit.thread.i:                       ; preds = %102
 225:                                              ; preds = %222, %.preheader16.i
   %226 = phi ptr [ %223, %222 ], [ %213, %.preheader16.i ]
   %227 = phi i32 [ %224, %222 ], [ %215, %.preheader16.i ]
-  %228 = icmp eq ptr %214, getelementptr inbounds ([5 x i8], ptr @.str.18, i64 0, i64 4)
+  %228 = icmp eq ptr %214, getelementptr inbounds (i8, ptr @.str.18, i64 4)
   br i1 %228, label %229, label %.preheader16.i
 
 229:                                              ; preds = %225
@@ -2553,7 +2553,7 @@ widen_string.exit.thread.i:                       ; preds = %102
 256:                                              ; preds = %253, %.preheader14.i
   %257 = phi ptr [ %254, %253 ], [ %244, %.preheader14.i ]
   %258 = phi i32 [ %255, %253 ], [ %246, %.preheader14.i ]
-  %259 = icmp eq ptr %245, getelementptr inbounds ([5 x i8], ptr @.str.19, i64 0, i64 4)
+  %259 = icmp eq ptr %245, getelementptr inbounds (i8, ptr @.str.19, i64 4)
   br i1 %259, label %260, label %.preheader14.i
 
 260:                                              ; preds = %256
@@ -2610,7 +2610,7 @@ widen_string.exit.thread.i:                       ; preds = %102
 287:                                              ; preds = %284, %.preheader12.i
   %288 = phi ptr [ %285, %284 ], [ %275, %.preheader12.i ]
   %289 = phi i32 [ %286, %284 ], [ %277, %.preheader12.i ]
-  %290 = icmp eq ptr %276, getelementptr inbounds ([5 x i8], ptr @.str.20, i64 0, i64 4)
+  %290 = icmp eq ptr %276, getelementptr inbounds (i8, ptr @.str.20, i64 4)
   br i1 %290, label %291, label %.preheader12.i
 
 291:                                              ; preds = %287
@@ -2644,7 +2644,7 @@ widen_string.exit.thread.i:                       ; preds = %102
 
 .preheader9.i.preheader:                          ; preds = %303, %.preheader9.i
   %306 = phi i8 [ %313, %.preheader9.i ], [ 98, %303 ]
-  %307 = phi ptr [ %312, %.preheader9.i ], [ getelementptr inbounds ([5 x i8], ptr @.str.21, i64 0, i64 1), %303 ]
+  %307 = phi ptr [ %312, %.preheader9.i ], [ getelementptr inbounds (i8, ptr @.str.21, i64 1), %303 ]
   %308 = phi ptr [ %311, %.preheader9.i ], [ %177, %303 ]
   %309 = icmp ult ptr %308, %103
   br i1 %309, label %310, label %.preheader9.i
@@ -2657,12 +2657,12 @@ widen_string.exit.thread.i:                       ; preds = %102
   %311 = getelementptr i8, ptr %308, i64 1
   %312 = getelementptr i8, ptr %307, i64 1
   %313 = load i8, ptr %307, align 1
-  %exitcond.i = icmp eq ptr %307, getelementptr inbounds ([5 x i8], ptr @.str.21, i64 0, i64 4)
+  %exitcond.i = icmp eq ptr %307, getelementptr inbounds (i8, ptr @.str.21, i64 4)
   br i1 %exitcond.i, label %widen_string.exit26.i, label %.preheader9.i.preheader
 
 .preheader6.i.preheader:                          ; preds = %303, %.preheader6.i
   %314 = phi i8 [ %321, %.preheader6.i ], [ 63, %303 ]
-  %315 = phi ptr [ %320, %.preheader6.i ], [ getelementptr inbounds ([5 x i8], ptr @.str.22, i64 0, i64 1), %303 ]
+  %315 = phi ptr [ %320, %.preheader6.i ], [ getelementptr inbounds (i8, ptr @.str.22, i64 1), %303 ]
   %316 = phi ptr [ %319, %.preheader6.i ], [ %177, %303 ]
   %317 = icmp ult ptr %316, %103
   br i1 %317, label %318, label %.preheader6.i
@@ -2675,7 +2675,7 @@ widen_string.exit.thread.i:                       ; preds = %102
   %319 = getelementptr i8, ptr %316, i64 1
   %320 = getelementptr i8, ptr %315, i64 1
   %321 = load i8, ptr %315, align 1
-  %exitcond103.i = icmp eq ptr %315, getelementptr inbounds ([5 x i8], ptr @.str.22, i64 0, i64 4)
+  %exitcond103.i = icmp eq ptr %315, getelementptr inbounds (i8, ptr @.str.22, i64 4)
   br i1 %exitcond103.i, label %widen_string.exit26.thread.i, label %.preheader6.i.preheader
 
 widen_string.exit26.i:                            ; preds = %207, %238, %269, %300, %.preheader9.i, %291, %260, %229, %198
@@ -2714,7 +2714,7 @@ widen_string.exit26.i:                            ; preds = %207, %238, %269, %3
 340:                                              ; preds = %337, %.preheader8.i
   %341 = phi ptr [ %338, %337 ], [ %328, %.preheader8.i ]
   %342 = phi i32 [ %339, %337 ], [ %330, %.preheader8.i ]
-  %343 = icmp eq ptr %329, getelementptr inbounds ([6 x i8], ptr @.str.23, i64 0, i64 5)
+  %343 = icmp eq ptr %329, getelementptr inbounds (i8, ptr @.str.23, i64 5)
   br i1 %343, label %344, label %.preheader8.i
 
 344:                                              ; preds = %340
@@ -2811,7 +2811,7 @@ widen_string.exit26.thread.i:                     ; preds = %.preheader6.i, %324
 396:                                              ; preds = %393, %.preheader4.i
   %397 = phi ptr [ %394, %393 ], [ %384, %.preheader4.i ]
   %398 = phi i32 [ %395, %393 ], [ %386, %.preheader4.i ]
-  %399 = icmp eq ptr %385, getelementptr inbounds ([7 x i8], ptr @.str.24, i64 0, i64 6)
+  %399 = icmp eq ptr %385, getelementptr inbounds (i8, ptr @.str.24, i64 6)
   br i1 %399, label %400, label %.preheader4.i
 
 400:                                              ; preds = %396
@@ -2870,7 +2870,7 @@ widen_string.exit38.i:                            ; preds = %409, %400, %379
 428:                                              ; preds = %425, %.preheader3.i
   %429 = phi ptr [ %426, %425 ], [ %416, %.preheader3.i ]
   %430 = phi i32 [ %427, %425 ], [ %418, %.preheader3.i ]
-  %431 = icmp eq ptr %417, getelementptr inbounds ([6 x i8], ptr @.str.25, i64 0, i64 5)
+  %431 = icmp eq ptr %417, getelementptr inbounds (i8, ptr @.str.25, i64 5)
   br i1 %431, label %432, label %.preheader3.i
 
 432:                                              ; preds = %428
@@ -2929,7 +2929,7 @@ widen_string.exit40.i:                            ; preds = %441, %432, %widen_s
 460:                                              ; preds = %457, %.preheader2.i
   %461 = phi ptr [ %458, %457 ], [ %448, %.preheader2.i ]
   %462 = phi i32 [ %459, %457 ], [ %450, %.preheader2.i ]
-  %463 = icmp eq ptr %449, getelementptr inbounds ([8 x i8], ptr @.str.26, i64 0, i64 7)
+  %463 = icmp eq ptr %449, getelementptr inbounds (i8, ptr @.str.26, i64 7)
   br i1 %463, label %464, label %.preheader2.i
 
 464:                                              ; preds = %460
@@ -2988,7 +2988,7 @@ widen_string.exit42.i:                            ; preds = %473, %464, %widen_s
 492:                                              ; preds = %489, %.preheader.i
   %493 = phi ptr [ %490, %489 ], [ %480, %.preheader.i ]
   %494 = phi i32 [ %491, %489 ], [ %482, %.preheader.i ]
-  %495 = icmp eq ptr %481, getelementptr inbounds ([10 x i8], ptr @.str.27, i64 0, i64 9)
+  %495 = icmp eq ptr %481, getelementptr inbounds (i8, ptr @.str.27, i64 9)
   br i1 %495, label %496, label %.preheader.i
 
 496:                                              ; preds = %492
@@ -3040,7 +3040,7 @@ widen_string.exit42.i:                            ; preds = %473, %464, %widen_s
 520:                                              ; preds = %517, %.preheader5.i
   %521 = phi ptr [ %518, %517 ], [ %508, %.preheader5.i ]
   %522 = phi i32 [ %519, %517 ], [ %510, %.preheader5.i ]
-  %523 = icmp eq ptr %509, getelementptr inbounds ([8 x i8], ptr @.str.28, i64 0, i64 7)
+  %523 = icmp eq ptr %509, getelementptr inbounds (i8, ptr @.str.28, i64 7)
   br i1 %523, label %524, label %.preheader5.i
 
 524:                                              ; preds = %520
@@ -4810,7 +4810,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
 1550:                                             ; preds = %1547, %1540
   %1551 = phi ptr [ %1548, %1547 ], [ %1534, %1540 ]
   %1552 = phi i32 [ %1549, %1547 ], [ %1536, %1540 ]
-  %1553 = icmp eq ptr %1535, getelementptr inbounds ([9 x i8], ptr @.str.16, i64 0, i64 8)
+  %1553 = icmp eq ptr %1535, getelementptr inbounds (i8, ptr @.str.16, i64 8)
   br i1 %1553, label %1554, label %1533
 
 1554:                                             ; preds = %1550, %1533
@@ -5575,7 +5575,7 @@ uuid_string.exit:                                 ; preds = %1838, %1931, %.thre
   br label %hex_string.exit
 
 1985:                                             ; preds = %1981
-  %1986 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #18, !srcloc !46
+  %1986 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !46
   %1987 = and i32 %1986, 16711936
   %1988 = icmp eq i32 %1987, 0
   br i1 %1988, label %2070, label %1989
@@ -5629,7 +5629,7 @@ uuid_string.exit:                                 ; preds = %1838, %1931, %.thre
 2022:                                             ; preds = %2019, %2012
   %2023 = phi ptr [ %2020, %2019 ], [ %2006, %2012 ]
   %2024 = phi i32 [ %2021, %2019 ], [ %2008, %2012 ]
-  %2025 = icmp eq ptr %2007, getelementptr inbounds ([9 x i8], ptr @.str.34, i64 0, i64 8)
+  %2025 = icmp eq ptr %2007, getelementptr inbounds (i8, ptr @.str.34, i64 8)
   br i1 %2025, label %2026, label %2005
 
 2026:                                             ; preds = %2022, %2005
@@ -5924,7 +5924,7 @@ widen_string.exit.thread.i86:                     ; preds = %2101
 2206:                                             ; preds = %2203, %2196
   %2207 = phi ptr [ %2204, %2203 ], [ %2190, %2196 ]
   %2208 = phi i32 [ %2205, %2203 ], [ %2192, %2196 ]
-  %2209 = icmp eq ptr %2191, getelementptr inbounds ([7 x i8], ptr @.str.35, i64 0, i64 6)
+  %2209 = icmp eq ptr %2191, getelementptr inbounds (i8, ptr @.str.35, i64 6)
   br i1 %2209, label %2210, label %2189
 
 2210:                                             ; preds = %2206, %2189
@@ -6058,7 +6058,7 @@ widen_string.exit.thread.i86:                     ; preds = %2101
 2288:                                             ; preds = %2285, %2278
   %2289 = phi ptr [ %2286, %2285 ], [ %2272, %2278 ]
   %2290 = phi i32 [ %2287, %2285 ], [ %2274, %2278 ]
-  %2291 = icmp eq ptr %2273, getelementptr inbounds ([7 x i8], ptr @.str.36, i64 0, i64 6)
+  %2291 = icmp eq ptr %2273, getelementptr inbounds (i8, ptr @.str.36, i64 6)
   br i1 %2291, label %2292, label %2271
 
 2292:                                             ; preds = %2288, %2271
@@ -6547,7 +6547,7 @@ widen_string.exit.thread.i105:                    ; preds = %2446
 2582:                                             ; preds = %2579, %2572
   %2583 = phi ptr [ %2580, %2579 ], [ %2566, %2572 ]
   %2584 = phi i32 [ %2581, %2579 ], [ %2568, %2572 ]
-  %2585 = icmp eq ptr %2567, getelementptr inbounds ([7 x i8], ptr @.str.40, i64 0, i64 6)
+  %2585 = icmp eq ptr %2567, getelementptr inbounds (i8, ptr @.str.40, i64 6)
   br i1 %2585, label %2586, label %2565
 
 2586:                                             ; preds = %2582, %2565
@@ -6667,7 +6667,7 @@ widen_string.exit.thread.i105:                    ; preds = %2446
 2656:                                             ; preds = %2653, %2646
   %2657 = phi ptr [ %2654, %2653 ], [ %2640, %2646 ]
   %2658 = phi i32 [ %2655, %2653 ], [ %2642, %2646 ]
-  %2659 = icmp eq ptr %2641, getelementptr inbounds ([7 x i8], ptr @.str.43, i64 0, i64 6)
+  %2659 = icmp eq ptr %2641, getelementptr inbounds (i8, ptr @.str.43, i64 6)
   br i1 %2659, label %2660, label %2639
 
 2660:                                             ; preds = %2656, %2639
@@ -7187,7 +7187,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
   br i1 %2962, label %.thread35.i.preheader, label %.preheader.i148
 
 .preheader.i148:                                  ; preds = %2960
-  %2963 = load ptr, ptr getelementptr inbounds ([0 x %struct.trace_print_flags], ptr @pageflag_names, i64 0, i64 0, i32 1), align 8
+  %2963 = load ptr, ptr getelementptr inbounds (i8, ptr @pageflag_names, i64 8), align 8
   %2964 = icmp eq ptr %2963, null
   br i1 %2964, label %._crit_edge72.i, label %.lr.ph71.i149
 
@@ -7332,7 +7332,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
 3044:                                             ; preds = %3041
   %3045 = xor i32 %3036, -1
   %3046 = zext nneg i32 %3045 to i64
-  %3047 = load ptr, ptr getelementptr inbounds ([0 x %struct.trace_print_flags], ptr @pagetype_names, i64 0, i64 0, i32 1), align 8
+  %3047 = load ptr, ptr getelementptr inbounds (i8, ptr @pagetype_names, i64 8), align 8
   %3048 = icmp eq ptr %3047, null
   br i1 %3048, label %._crit_edge68.i, label %.lr.ph67.i
 
@@ -7444,7 +7444,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
 3110:                                             ; preds = %3107, %3100
   %3111 = phi ptr [ %3108, %3107 ], [ %3094, %3100 ]
   %3112 = phi i32 [ %3109, %3107 ], [ %3096, %3100 ]
-  %3113 = icmp eq ptr %3095, getelementptr inbounds ([7 x i8], ptr @.str.44, i64 0, i64 6)
+  %3113 = icmp eq ptr %3095, getelementptr inbounds (i8, ptr @.str.44, i64 6)
   br i1 %3113, label %3114, label %3093
 
 3114:                                             ; preds = %3110, %3093
@@ -7623,7 +7623,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
 3217:                                             ; preds = %3214, %3207
   %3218 = phi ptr [ %3215, %3214 ], [ %3201, %3207 ]
   %3219 = phi i32 [ %3216, %3214 ], [ %3203, %3207 ]
-  %3220 = icmp eq ptr %3202, getelementptr inbounds ([7 x i8], ptr @.str.51, i64 0, i64 6)
+  %3220 = icmp eq ptr %3202, getelementptr inbounds (i8, ptr @.str.51, i64 6)
   br i1 %3220, label %3221, label %.preheader2.i150
 
 3221:                                             ; preds = %3217, %.preheader2.i150
@@ -7732,7 +7732,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
 3281:                                             ; preds = %3278, %3271
   %3282 = phi ptr [ %3279, %3278 ], [ %3265, %3271 ]
   %3283 = phi i32 [ %3280, %3278 ], [ %3267, %3271 ]
-  %3284 = icmp eq ptr %3266, getelementptr inbounds ([8 x i8], ptr @.str.52, i64 0, i64 7)
+  %3284 = icmp eq ptr %3266, getelementptr inbounds (i8, ptr @.str.52, i64 7)
   br i1 %3284, label %3285, label %.preheader.i156
 
 3285:                                             ; preds = %3281, %.preheader.i156
@@ -7859,7 +7859,7 @@ widen_string.exit.thread.i145:                    ; preds = %2879
 3360:                                             ; preds = %3357, %3350
   %3361 = phi ptr [ %3358, %3357 ], [ %3344, %3350 ]
   %3362 = phi i32 [ %3359, %3357 ], [ %3346, %3350 ]
-  %3363 = icmp eq ptr %3345, getelementptr inbounds ([7 x i8], ptr @.str.53, i64 0, i64 6)
+  %3363 = icmp eq ptr %3345, getelementptr inbounds (i8, ptr @.str.53, i64 6)
   br i1 %3363, label %3364, label %3343
 
 3364:                                             ; preds = %3360, %3343
@@ -8232,7 +8232,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3495, %3487, %3484
 3577:                                             ; preds = %3574, %3567
   %3578 = phi ptr [ %3575, %3574 ], [ %3561, %3567 ]
   %3579 = phi i32 [ %3576, %3574 ], [ %3563, %3567 ]
-  %3580 = icmp eq ptr %3562, getelementptr inbounds ([7 x i8], ptr @.str.15, i64 0, i64 6)
+  %3580 = icmp eq ptr %3562, getelementptr inbounds (i8, ptr @.str.15, i64 6)
   br i1 %3580, label %3581, label %3560
 
 3581:                                             ; preds = %3577, %3560
@@ -8388,7 +8388,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3495, %3487, %3484
 3675:                                             ; preds = %3672, %3665
   %3676 = phi ptr [ %3673, %3672 ], [ %3659, %3665 ]
   %3677 = phi i32 [ %3674, %3672 ], [ %3661, %3665 ]
-  %3678 = icmp eq ptr %3660, getelementptr inbounds ([9 x i8], ptr @.str.16, i64 0, i64 8)
+  %3678 = icmp eq ptr %3660, getelementptr inbounds (i8, ptr @.str.16, i64 8)
   br i1 %3678, label %3679, label %3658
 
 3679:                                             ; preds = %3675, %3658
@@ -10034,7 +10034,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br i1 %41, label %.loopexit38, label %42
 
 42:                                               ; preds = %39
-  %43 = load i8, ptr getelementptr ([0 x i8], ptr @_ctype, i64 0, i64 42), align 1
+  %43 = load i8, ptr getelementptr (i8, ptr @_ctype, i64 42), align 1
   %44 = freeze i8 %43
   %45 = and i8 %44, 32
   %46 = icmp eq i8 %45, 0
@@ -11858,7 +11858,7 @@ define internal fastcc ptr @default_pointer(ptr noundef %0, ptr noundef %1, ptr 
 62:                                               ; preds = %59, %52
   %63 = phi ptr [ %60, %59 ], [ %46, %52 ]
   %64 = phi i32 [ %61, %59 ], [ %48, %52 ]
-  %65 = icmp eq ptr %47, getelementptr inbounds ([17 x i8], ptr @.str.54, i64 0, i64 16)
+  %65 = icmp eq ptr %47, getelementptr inbounds (i8, ptr @.str.54, i64 16)
   br i1 %65, label %66, label %45
 
 66:                                               ; preds = %62, %45

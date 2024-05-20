@@ -111,7 +111,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %4 = alloca %struct.sockaddr_un, align 2
   %5 = alloca ptr, align 8
   store i1 true, ptr @run_in_stepd, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds (i8, ptr @job_info, i64 16), i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
@@ -129,36 +129,36 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   store i32 %storemerge.i, ptr @job_info, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 368
   %13 = load i32, ptr %12, align 8
-  store i32 %13, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 1), align 4
+  store i32 %13, ptr getelementptr inbounds (i8, ptr @job_info, i64 12), align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %.not66.i = icmp eq i32 %15, -2
   %16 = getelementptr inbounds i8, ptr %0, i64 116
   %17 = load <2 x i32>, ptr %16, align 4
-  store <2 x i32> %17, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 1), align 4
+  store <2 x i32> %17, ptr getelementptr inbounds (i8, ptr @job_info, i64 4), align 4
   br i1 %.not66.i, label %49, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %0, i64 140
   %20 = getelementptr inbounds i8, ptr %0, i64 172
   %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %22 = load i32, ptr %19, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 184
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %22
-  store i32 %25, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 3), align 4
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @job_info, i64 20), align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 188
   %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 4), align 8
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 144
   %29 = load i32, ptr %28, align 8
-  store i32 %29, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 2
   %32 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 123, ptr noundef nonnull @__func__._setup_stepd_job_info) #13
-  store ptr %32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -176,11 +176,11 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %35, align 8
   %43 = add i32 %42, %41
-  %44 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
   %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i
   store i32 %43, ptr %45, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next.i, %47
   br i1 %48, label %36, label %.loopexit.i, !llvm.loop !6
@@ -189,13 +189,13 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %50 = getelementptr inbounds i8, ptr %0, i64 132
   %51 = load <4 x i32>, ptr %50, align 4
   %52 = shufflevector <4 x i32> %51, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x i32> %52, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  store <4 x i32> %52, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %53 = extractelement <4 x i32> %51, i64 3
   %54 = zext i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 2
   %56 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %55, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 135, ptr noundef nonnull @__func__._setup_stepd_job_info) #13
-  store ptr %56, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  store ptr %56, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %.not78.i = icmp eq i32 %57, 0
   br i1 %.not78.i, label %.loopexit.i, label %.lr.ph77.i
 
@@ -210,11 +210,11 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 60
   %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
   %66 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv81.i
   store i32 %64, ptr %66, align 4
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
-  %67 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %68 = zext i32 %67 to i64
   %69 = icmp ult i64 %indvars.iv.next82.i, %68
   br i1 %69, label %59, label %.loopexit.i, !llvm.loop !8
@@ -231,7 +231,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 74:                                               ; preds = %72, %.loopexit.i
   %storemerge68.i = phi i32 [ %73, %72 ], [ 0, %.loopexit.i ]
-  store i32 %storemerge68.i, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 8), align 4
+  store i32 %storemerge68.i, ptr getelementptr inbounds (i8, ptr @job_info, i64 44), align 4
   %75 = load ptr, ptr %1, align 8
   %76 = tail call ptr @slurm_getenvp(ptr noundef %75, ptr noundef nonnull @.str.12) #13
   %.not69.i = icmp eq ptr %76, null
@@ -239,20 +239,20 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 77:                                               ; preds = %74
   %78 = tail call i32 @atoi(ptr nocapture noundef nonnull %76) #14
-  store i32 %78, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
+  store i32 %78, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
   %79 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %79, ptr noundef nonnull @.str.12) #13
   %80 = load ptr, ptr %1, align 8
   %81 = tail call ptr @slurm_getenvp(ptr noundef %80, ptr noundef nonnull @.str.13) #13
   %82 = tail call ptr @slurm_xstrdup(ptr noundef %81) #13
-  store ptr %82, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 12), align 8
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @job_info, i64 72), align 8
   %83 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %83, ptr noundef nonnull @.str.13) #13
   br label %85
 
 84:                                               ; preds = %74
-  store i32 0, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 12), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @job_info, i64 72), align 8
   br label %85
 
 85:                                               ; preds = %84, %77
@@ -263,15 +263,15 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 88:                                               ; preds = %85
   %89 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %87) #13
-  store ptr %89, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   %90 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %90, ptr noundef nonnull @.str.14) #13
   br label %94
 
 91:                                               ; preds = %85
   %92 = load i32, ptr @job_info, align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
-  tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), ptr noundef nonnull @.str.15, i32 noundef %92, i32 noundef %93) #13
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
+  tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @job_info, i64 64), ptr noundef nonnull @.str.15, i32 noundef %92, i32 noundef %93) #13
   br label %94
 
 94:                                               ; preds = %91, %88
@@ -286,7 +286,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 99:                                               ; preds = %94
   %100 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %96) #13
-  store ptr %100, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %101 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %101, ptr noundef nonnull @.str.16) #13
   %102 = load ptr, ptr %1, align 8
@@ -300,13 +300,13 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 106:                                              ; preds = %99
   %107 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %103) #13
-  store ptr %107, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 10), align 8
+  store ptr %107, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %108 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %108, ptr noundef nonnull @.str.18) #13
   %109 = load ptr, ptr %1, align 8
   %110 = tail call ptr @slurm_env_array_copy(ptr noundef %109) #13
-  store ptr %110, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 13), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 14), i8 0, i64 16, i1 false)
+  store ptr %110, ptr getelementptr inbounds (i8, ptr @job_info, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @job_info, i64 88), i8 0, i64 16, i1 false)
   %111 = load ptr, ptr %1, align 8
   %112 = tail call ptr @slurm_getenvp(ptr noundef %111, ptr noundef nonnull @.str.20) #13
   %.not73.i = icmp eq ptr %112, null
@@ -323,7 +323,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 117:                                              ; preds = %106
   %118 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %112) #13
-  store ptr %118, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 16), align 8
+  store ptr %118, ptr getelementptr inbounds (i8, ptr @job_info, i64 104), align 8
   %119 = tail call i32 @slurm_get_log_level() #13
   %120 = icmp sgt i32 %119, 2
   br i1 %120, label %121, label %122
@@ -334,9 +334,9 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 122:                                              ; preds = %117, %121, %113, %116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @tree_info, i8 0, i64 56, i1 false)
-  %123 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %124 = tail call ptr @slurm_hostlist_create(ptr noundef %123) #13
-  %125 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 3), align 4
+  %125 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 20), align 4
   %126 = tail call ptr @slurm_hostlist_nth(ptr noundef %124, i32 noundef %125) #13
   %127 = tail call ptr @slurm_xstrdup(ptr noundef %126) #13
   store ptr %127, ptr @tree_info, align 8
@@ -361,42 +361,42 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br label %137
 
 137:                                              ; preds = %136, %133
-  %138 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 213), align 8
+  %138 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1472), align 8
   %139 = zext i16 %138 to i32
   br label %143
 
 140:                                              ; preds = %122
-  %141 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 213), align 8
+  %141 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1472), align 8
   %142 = zext i16 %141 to i32
   br label %143
 
 143:                                              ; preds = %140, %137, %130
   %.0.i = phi i32 [ %139, %137 ], [ %131, %130 ], [ %142, %140 ]
-  %144 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 3), align 4
+  %144 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 20), align 4
   %145 = add i32 %144, 1
-  %146 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  %146 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %147 = add i32 %146, 1
-  tail call void @reverse_tree_info(i32 noundef %145, i32 noundef %147, i32 noundef %.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 3), ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 4), ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 5)) #13
-  %148 = load i32, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 2), align 8
+  tail call void @reverse_tree_info(i32 noundef %145, i32 noundef %147, i32 noundef %.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 20), ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 24), ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 28)) #13
+  %148 = load i32, ptr getelementptr inbounds (i8, ptr @tree_info, i64 16), align 8
   %149 = add nsw i32 %148, -1
-  store i32 %149, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 2), align 8
+  store i32 %149, ptr getelementptr inbounds (i8, ptr @tree_info, i64 16), align 8
   %150 = icmp slt i32 %148, 1
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %143
-  store ptr null, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
   br label %155
 
 152:                                              ; preds = %143
   %153 = tail call ptr @slurm_hostlist_nth(ptr noundef %124, i32 noundef %149) #13
   %154 = tail call ptr @slurm_xstrdup(ptr noundef %153) #13
-  store ptr %154, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
+  store ptr %154, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
   tail call void @free(ptr noundef %153) #13
   br label %155
 
 155:                                              ; preds = %152, %151
   tail call void @slurm_hostlist_destroy(ptr noundef %124) #13
-  store i16 0, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  store i16 0, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %156 = load ptr, ptr %1, align 8
   %157 = tail call ptr @slurm_getenvp(ptr noundef %156, ptr noundef nonnull @.str.25) #13
   %.not27.i = icmp eq ptr %157, null
@@ -420,15 +420,15 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %166 = tail call i32 @atoi(ptr nocapture noundef nonnull %162) #14
   %167 = trunc i32 %166 to i16
   %168 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 270, ptr noundef nonnull @__func__._setup_stepd_tree_info) #13
-  store ptr %168, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  store ptr %168, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   tail call void @slurm_set_addr(ptr noundef %168, i16 noundef zeroext %167, ptr noundef nonnull %157) #13
   %169 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %169, ptr noundef nonnull @.str.27) #13
-  %170 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  %170 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %171 = zext i32 %170 to i64
   %172 = shl nuw nsw i64 %171, 2
   %173 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %172, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 277, ptr noundef nonnull @__func__._setup_stepd_tree_info) #13
-  store ptr %173, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 8), align 8
+  store ptr %173, ptr getelementptr inbounds (i8, ptr @tree_info, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %174 = tail call i32 @slurm_get_log_level() #13
@@ -451,17 +451,17 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 182:                                              ; preds = %177
   store i16 1, ptr %4, align 2
-  %183 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 189), align 8
+  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1296), align 8
   %184 = load i32, ptr @job_info, align 8
-  %185 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %185 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %186 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @tree_sock_addr, i64 noundef 128, ptr noundef nonnull @.str.31, ptr noundef %183, i32 noundef %184, i32 noundef %185) #13
-  %187 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 189), align 8
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1296), align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 304
   %189 = load ptr, ptr %188, align 8
   %190 = tail call ptr @slurm_conf_expand_slurmd_path(ptr noundef %187, ptr noundef %189, ptr noundef %189) #13
   store ptr %190, ptr %5, align 8
   %191 = load i32, ptr @job_info, align 8
-  %192 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %192 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull @fmt_tree_sock_addr, ptr noundef nonnull @.str.31, ptr noundef %190, i32 noundef %191, i32 noundef %192) #13
   call void @slurm_xfree(ptr noundef nonnull %5) #13
   %193 = load ptr, ptr @fmt_tree_sock_addr, align 8
@@ -587,7 +587,7 @@ _setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %242
   br label %_setup_stepd_job_info.exit
 
 .loopexit:                                        ; preds = %.lr.ph.i34, %247, %244
-  %258 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 10), align 8
+  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %259 = call i32 @kvs_put(ptr noundef nonnull @.str.39, ptr noundef %258) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %260 = call i32 @pmix_ring_init(ptr noundef nonnull @job_info, ptr noundef nonnull %1) #13
@@ -658,18 +658,18 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   store i32 %storemerge.i, ptr @job_info, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 12
   %20 = load <2 x i32>, ptr %19, align 4
-  store <2 x i32> %20, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 1), align 4
+  store <2 x i32> %20, ptr getelementptr inbounds (i8, ptr @job_info, i64 4), align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 72
   %26 = load i32, ptr %25, align 8
-  store i32 %26, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 4), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
-  store ptr null, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 6), align 8
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @job_info, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
+  store ptr null, ptr getelementptr inbounds (i8, ptr @job_info, i64 32), align 8
   %27 = tail call ptr @getenv(ptr noundef nonnull @.str.11) #13
   %.not33.i = icmp eq ptr %27, null
   br i1 %.not33.i, label %30, label %28
@@ -680,30 +680,30 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 30:                                               ; preds = %28, %18
   %storemerge34.i = phi i32 [ %29, %28 ], [ 0, %18 ]
-  store i32 %storemerge34.i, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 8), align 4
+  store i32 %storemerge34.i, ptr getelementptr inbounds (i8, ptr @job_info, i64 44), align 4
   %31 = tail call ptr @getenv(ptr noundef nonnull @.str.12) #13
   %.not35.i = icmp eq ptr %31, null
   br i1 %.not35.i, label %36, label %32
 
 32:                                               ; preds = %30
   %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #14
-  store i32 %33, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
   %34 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #13
   %35 = tail call ptr @slurm_xstrdup(ptr noundef %34) #13
   br label %37
 
 36:                                               ; preds = %30
-  store i32 0, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
   br label %37
 
 37:                                               ; preds = %36, %32
   %storemerge36.i = phi ptr [ null, %36 ], [ %35, %32 ]
-  store ptr %storemerge36.i, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 12), align 8
+  store ptr %storemerge36.i, ptr getelementptr inbounds (i8, ptr @job_info, i64 72), align 8
   %38 = load ptr, ptr %21, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @slurm_xstrdup(ptr noundef %40) #13
-  store ptr %41, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  store ptr %41, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %42 = load ptr, ptr %21, align 8
@@ -1092,7 +1092,7 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   %199 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store ptr %199, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 10), align 8
+  store ptr %199, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %200 = icmp eq ptr %199, null
   br i1 %200, label %.thread72, label %201
 
@@ -1103,19 +1103,19 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
 
 203:                                              ; preds = %201
   %204 = call ptr @slurm_xstrdup(ptr noundef nonnull %202) #13
-  store ptr %204, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  store ptr %204, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   br label %208
 
 205:                                              ; preds = %201
   %206 = load i32, ptr @job_info, align 8
-  %207 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), ptr noundef nonnull @.str.15, i32 noundef %206, i32 noundef %207) #13
+  %207 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @job_info, i64 64), ptr noundef nonnull @.str.15, i32 noundef %206, i32 noundef %207) #13
   br label %208
 
 208:                                              ; preds = %205, %203
   %209 = load ptr, ptr @environ, align 8
   %210 = call ptr @slurm_env_array_copy(ptr noundef %209) #13
-  store ptr %210, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 13), align 8
+  store ptr %210, ptr getelementptr inbounds (i8, ptr @job_info, i64 80), align 8
   %211 = call ptr @dlopen(ptr noundef null, i32 noundef 1) #13
   %212 = icmp eq ptr %211, null
   br i1 %212, label %.thread72.sink.split, label %213
@@ -1140,7 +1140,7 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
 
 222:                                              ; preds = %220, %219, %216
   %storemerge38.i = phi ptr [ %221, %220 ], [ null, %219 ], [ null, %216 ]
-  store ptr %storemerge38.i, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 14), align 8
+  store ptr %storemerge38.i, ptr getelementptr inbounds (i8, ptr @job_info, i64 88), align 8
   %223 = call ptr @dlsym(ptr noundef nonnull %211, ptr noundef nonnull @.str.43) #13
   %224 = icmp eq ptr %223, null
   br i1 %224, label %225, label %229
@@ -1155,16 +1155,16 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   br label %229
 
 229:                                              ; preds = %228, %225, %222
-  store ptr %223, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
+  store ptr %223, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %230 = call i32 @dlclose(ptr noundef nonnull %211) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tree_info, i64 32), i8 0, i64 24, i1 false)
   store ptr @.str.52, ptr @tree_info, align 8
-  store i32 -2, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 1), align 8
-  %231 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
-  store i32 %231, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 5), align 4
+  store i32 -2, ptr getelementptr inbounds (i8, ptr @tree_info, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
+  %231 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
+  store i32 %231, ptr getelementptr inbounds (i8, ptr @tree_info, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @tree_info, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @tree_info, i64 28), align 4
   %232 = call ptr @getenv(ptr noundef nonnull @.str.53) #13
   %.not.i = icmp eq ptr %232, null
   br i1 %.not.i, label %237, label %233
@@ -1173,30 +1173,30 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   %234 = call i32 @atoi(ptr nocapture noundef nonnull %232) #14
   %235 = trunc i32 %234 to i16
   %236 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 688, ptr noundef nonnull @__func__._setup_srun_tree_info) #13
-  store ptr %236, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
+  store ptr %236, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
   call void @slurm_set_addr(ptr noundef %236, i16 noundef zeroext %235, ptr noundef nonnull @.str.54) #13
   br label %237
 
 237:                                              ; preds = %233, %229
-  %238 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 189), align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1296), align 8
   %239 = load i32, ptr @job_info, align 8
-  %240 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 0, i32 2), align 8
+  %240 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 8), align 8
   %241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @tree_sock_addr, i64 noundef 128, ptr noundef nonnull @.str.31, ptr noundef %238, i32 noundef %239, i32 noundef %240) #13
-  %242 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 2), align 8
+  %242 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 16), align 8
   %243 = zext i32 %242 to i64
   %244 = shl nuw nsw i64 %243, 2
   %245 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %244, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 704, ptr noundef nonnull @__func__._setup_srun_tree_info) #13
-  store ptr %245, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 8), align 8
+  store ptr %245, ptr getelementptr inbounds (i8, ptr @tree_info, i64 48), align 8
   %246 = call ptr @slurm_get_srun_port_range() #13
   %.not.i65 = icmp eq ptr %246, null
   br i1 %.not.i65, label %249, label %247
 
 247:                                              ; preds = %237
-  %248 = call i32 @net_stream_listen_ports(ptr noundef nonnull @tree_sock, ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), ptr noundef nonnull %246, i1 noundef zeroext false) #13
+  %248 = call i32 @net_stream_listen_ports(ptr noundef nonnull @tree_sock, ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 32), ptr noundef nonnull %246, i1 noundef zeroext false) #13
   br label %251
 
 249:                                              ; preds = %237
-  %250 = call i32 @slurm_net_stream_listen(ptr noundef nonnull @tree_sock, ptr noundef nonnull getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6)) #13
+  %250 = call i32 @slurm_net_stream_listen(ptr noundef nonnull @tree_sock, ptr noundef nonnull getelementptr inbounds (i8, ptr @tree_info, i64 32)) #13
   br label %251
 
 251:                                              ; preds = %249, %247
@@ -1210,7 +1210,7 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   br i1 %255, label %256, label %259
 
 256:                                              ; preds = %253
-  %257 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  %257 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %258 = zext i16 %257 to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.56, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._setup_srun_socket, i32 noundef %258) #13
   br label %259
@@ -1222,14 +1222,14 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   br i1 %261, label %262, label %.thread72
 
 262:                                              ; preds = %259
-  %263 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  %263 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %264 = zext i16 %263 to i32
   %265 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.57, i32 noundef %264) #13
-  %266 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %267 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.58, ptr noundef %266) #13
-  %268 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 10), align 8
+  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %269 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.58, ptr noundef %268) #13
-  %270 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
+  %270 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
   %.not76 = icmp eq i32 %270, 0
   br i1 %.not76, label %.thread72, label %271
 
@@ -1388,12 +1388,12 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   br i1 %327, label %328, label %336
 
 328:                                              ; preds = %326
-  %329 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  %329 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %330 = zext i16 %329 to i32
   %331 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.57, i32 noundef %330) #13
-  %332 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 9), align 8
+  %332 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %333 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.58, ptr noundef %332) #13
-  %334 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 10), align 8
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %335 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.58, ptr noundef %334) #13
   br label %336
 
@@ -1431,12 +1431,12 @@ define internal noalias noundef ptr @_task_launch_detection(ptr nocapture readno
   br label %3
 
 3:                                                ; preds = %_tasks_launched.exit, %1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 14), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 88), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_tasks_launched.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %6 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 4), align 8
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_tasks_launched.exit.thread, label %.lr.ph.preheader.i
 
@@ -1466,9 +1466,9 @@ _tasks_launched.exit:                             ; preds = %.lr.ph.i
 _tasks_launched.exit.thread:                      ; preds = %.preheader.i, %3, %_tasks_launched.exit, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %.preheader.i ], [ 0, %3 ], [ 1, %_tasks_launched.exit ]
   %15 = tail call ptr @spawn_resp_new() #13
-  %16 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 7), align 8
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
   store i32 %16, ptr %15, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   %18 = tail call ptr @slurm_xstrdup(ptr noundef %17) #13
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %18, ptr %19, align 8
@@ -1476,7 +1476,7 @@ _tasks_launched.exit.thread:                      ; preds = %.preheader.i, %3, %
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 %.0, ptr %21, align 4
-  %22 = load i16, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 6), align 8
+  %22 = load i16, ptr getelementptr inbounds (i8, ptr @tree_info, i64 32), align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 16
   store i16 %22, ptr %23, align 8
   %24 = tail call i32 @spawn_resp_send_to_srun(ptr noundef nonnull %15) #13

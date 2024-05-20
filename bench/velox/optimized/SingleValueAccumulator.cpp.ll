@@ -114,7 +114,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %2 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
@@ -130,7 +130,7 @@ _ZN8facebook5velox15ByteInputStreamD2Ev.exit:     ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i1 = getelementptr inbounds i8, ptr %stream, i64 8
   %4 = load ptr, ptr %ranges_.i1, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %4, null
@@ -177,7 +177,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %1 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -193,7 +193,7 @@ _ZN8facebook5velox15ByteInputStreamD2Ev.exit:     ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %stream, align 8
   %ranges_.i1 = getelementptr inbounds i8, ptr %stream, i64 8
   %3 = load ptr, ptr %ranges_.i1, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %3, null

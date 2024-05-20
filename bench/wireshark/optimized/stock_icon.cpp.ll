@@ -978,9 +978,9 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %313, %320
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %327 = load ptr, ptr @_ZL9path_pfx_, align 8, !noalias !10
   store ptr %327, ptr %30, align 8, !alias.scope !10
-  %328 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 1), align 8, !noalias !10
+  %328 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 8), align 8, !noalias !10
   store ptr %328, ptr %218, align 8, !alias.scope !10
-  %329 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 8, !noalias !10
+  %329 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 8, !noalias !10
   store i64 %329, ptr %219, align 8, !alias.scope !10
   %.not.i.i.i.i162 = icmp eq ptr %327, null
   br i1 %.not.i.i.i.i162, label %_ZN7QStringC2ERKS_.exit.i, label %330
@@ -1449,9 +1449,9 @@ _ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit207: ; preds = %452, %_
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %459 = load ptr, ptr @_ZL9path_pfx_, align 8, !noalias !21
   store ptr %459, ptr %47, align 8, !alias.scope !21
-  %460 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 1), align 8, !noalias !21
+  %460 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 8), align 8, !noalias !21
   store ptr %460, ptr %222, align 8, !alias.scope !21
-  %461 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 8, !noalias !21
+  %461 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 8, !noalias !21
   store i64 %461, ptr %223, align 8, !alias.scope !21
   %.not.i.i.i.i209 = icmp eq ptr %459, null
   br i1 %.not.i.i.i.i209, label %_ZN7QStringC2ERKS_.exit.i210, label %462
@@ -1623,9 +1623,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i235:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %510 = load ptr, ptr @_ZL9path_pfx_, align 8, !noalias !24
   store ptr %510, ptr %52, align 8, !alias.scope !24
-  %511 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 1), align 8, !noalias !24
+  %511 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 8), align 8, !noalias !24
   store ptr %511, ptr %227, align 8, !alias.scope !24
-  %512 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 8, !noalias !24
+  %512 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 8, !noalias !24
   store i64 %512, ptr %228, align 8, !alias.scope !24
   %.not.i.i.i.i239 = icmp eq ptr %510, null
   br i1 %.not.i.i.i.i239, label %_ZN7QStringC2ERKS_.exit.i240, label %513
@@ -1797,9 +1797,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i265:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %561 = load ptr, ptr @_ZL9path_pfx_, align 8, !noalias !27
   store ptr %561, ptr %57, align 8, !alias.scope !27
-  %562 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 1), align 8, !noalias !27
+  %562 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 8), align 8, !noalias !27
   store ptr %562, ptr %232, align 8, !alias.scope !27
-  %563 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 8, !noalias !27
+  %563 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 8, !noalias !27
   store i64 %563, ptr %233, align 8, !alias.scope !27
   %.not.i.i.i.i269 = icmp eq ptr %561, null
   br i1 %.not.i.i.i.i269, label %_ZN7QStringC2ERKS_.exit.i270, label %564
@@ -1971,9 +1971,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i295:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %612 = load ptr, ptr @_ZL9path_pfx_, align 8, !noalias !30
   store ptr %612, ptr %62, align 8, !alias.scope !30
-  %613 = load ptr, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 1), align 8, !noalias !30
+  %613 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 8), align 8, !noalias !30
   store ptr %613, ptr %237, align 8, !alias.scope !30
-  %614 = load i64, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 8, !noalias !30
+  %614 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 8, !noalias !30
   store i64 %614, ptr %238, align 8, !alias.scope !30
   %.not.i.i.i.i299 = icmp eq ptr %612, null
   br i1 %.not.i.i.i.i299, label %_ZN7QStringC2ERKS_.exit.i300, label %615
@@ -6747,7 +6747,7 @@ define internal void @_GLOBAL__sub_I_stock_icon.cpp() #13 section ".text.startup
   store <2 x ptr> %2, ptr @_ZL9path_pfx_, align 16
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 16
-  store i64 %4, ptr getelementptr inbounds (%class.QString, ptr @_ZL9path_pfx_, i64 0, i32 0, i32 2), align 16
+  store i64 %4, ptr getelementptr inbounds (i8, ptr @_ZL9path_pfx_, i64 16), align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZL9path_pfx_, ptr nonnull @__dso_handle) #17
   %6 = call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapI7QStringN6QStyle14StandardPixmapEED2Ev, ptr nonnull @_ZL29icon_name_to_standard_pixmap_, ptr nonnull @__dso_handle) #17

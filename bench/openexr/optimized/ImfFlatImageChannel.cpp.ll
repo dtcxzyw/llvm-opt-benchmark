@@ -267,7 +267,7 @@ entry:
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEC5ERNS_14FlatImageLevelEiib) align 2 personality ptr @__gxx_personality_v0 {
 delete.end.i:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_pixels, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
@@ -318,7 +318,7 @@ lpad:                                             ; preds = %for.end.i, %.noexc,
 define void @_ZN7Imf_3_216FlatImageChannelC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(88) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_216FlatImageChannelE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_216FlatImageChannelE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -334,7 +334,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_pixels, align 8
   %isnull = icmp eq ptr %0, null
@@ -579,7 +579,7 @@ entry:
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIfEC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedFlatImageChannelIfEC5ERNS_14FlatImageLevelEiib) align 2 personality ptr @__gxx_personality_v0 {
 delete.end.i:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_pixels, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
@@ -629,7 +629,7 @@ lpad:                                             ; preds = %for.end.i, %.noexc,
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIfED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIfED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_pixels, align 8
   %isnull = icmp eq ptr %0, null
@@ -858,7 +858,7 @@ entry:
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIjEC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedFlatImageChannelIjEC5ERNS_14FlatImageLevelEiib) align 2 personality ptr @__gxx_personality_v0 {
 delete.end.i:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_pixels, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
@@ -908,7 +908,7 @@ lpad:                                             ; preds = %for.end.i, %.noexc,
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIjED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i64 16), ptr %this, align 8
   %_pixels = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_pixels, align 8
   %isnull = icmp eq ptr %0, null

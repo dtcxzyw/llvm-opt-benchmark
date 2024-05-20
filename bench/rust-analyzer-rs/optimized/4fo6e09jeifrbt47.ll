@@ -4472,7 +4472,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %6), !noalias !628
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %13, ptr noundef nonnull align 8 dereferenceable(216) %7, i64 216, i1 false), !noalias !632
@@ -4629,7 +4629,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6), !noalias !666
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %13, ptr noundef nonnull align 8 dereferenceable(248) %7, i64 248, i1 false), !noalias !670
@@ -4778,7 +4778,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %8, label %19, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i4.i = phi ptr [ %7, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i4.i = phi ptr [ %7, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5), !noalias !704
   store ptr %.0.i.i4.i, ptr %5, align 8, !noalias !704
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4873,7 +4873,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %8, label %20, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i4.i = phi ptr [ %7, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i4.i = phi ptr [ %7, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %5), !noalias !725
   store ptr %.0.i.i4.i, ptr %5, align 8, !noalias !725
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4966,7 +4966,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %7, label %17, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %2
-  %.0.i.i2.i = phi ptr [ %6, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %6, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %2 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 96
@@ -5053,7 +5053,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %6), !noalias !757
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %13, ptr noundef nonnull align 8 dereferenceable(216) %7, i64 216, i1 false), !noalias !761
@@ -5210,7 +5210,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %12, label %43, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %3
-  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %3 ]
+  %.0.i.i9.i = phi ptr [ %11, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %3 ]
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6), !noalias !795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %13, ptr noundef nonnull align 8 dereferenceable(248) %7, i64 248, i1 false), !noalias !799
@@ -5357,7 +5357,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e2
   br i1 %7, label %17, label %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i
 
 _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i, %2
-  %.0.i.i2.i = phi ptr [ %6, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds ({ { { { i32, [3 x i32] } } }, i8, [3 x i8] }, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %2 ]
+  %.0.i.i2.i = phi ptr [ %6, %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc1f7f0e211ac1a3fE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h615627d91e55cb03E, i64 4), %2 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !832
   %8 = getelementptr inbounds i8, ptr %4, i64 96
   store ptr %.0.i.i2.i, ptr %8, align 8, !noalias !832
@@ -18612,7 +18612,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17hf298834eb0b62a1f
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  %19 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 0, i32 2, i32 0) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -30294,7 +30294,7 @@ define void @_ZN6ide_db13source_change12SourceChange30insert_source_and_snippet_
   br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %91
-  %95 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db13source_change12SourceChange30insert_source_and_snippet_edit10__CALLSITE17h13f6c6dae0d6e567E, i64 0, i32 1, i64 8) monotonic, align 8
+  %95 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db13source_change12SourceChange30insert_source_and_snippet_edit10__CALLSITE17h13f6c6dae0d6e567E, i64 16) monotonic, align 8
   switch i8 %95, label %96 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -30388,7 +30388,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %119, label %120, label %.critedge101thread-pre-split
 
 120:                                              ; preds = %117
-  %121 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db13source_change12SourceChange30insert_source_and_snippet_edit10__CALLSITE17hdcd8afe88cdc2fe1E, i64 0, i32 1, i64 8) monotonic, align 8
+  %121 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db13source_change12SourceChange30insert_source_and_snippet_edit10__CALLSITE17hdcd8afe88cdc2fe1E, i64 16) monotonic, align 8
   switch i8 %121, label %122 [
     i8 0, label %.critedge101thread-pre-split
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit118.thread
@@ -31273,7 +31273,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h07e216440be6b717E.exit: ; pred
   br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37
-  %41 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db13source_change11SnippetEdit3new10__CALLSITE17h81865a7924c7bfe1E, i64 0, i32 1, i64 8) monotonic, align 8
+  %41 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db13source_change11SnippetEdit3new10__CALLSITE17h81865a7924c7bfe1E, i64 16) monotonic, align 8
   switch i8 %41, label %42 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -32825,7 +32825,7 @@ define void @_ZN6ide_db13source_change19SourceChangeBuilder6finish17h1833b400255
   br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %30
-  %34 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN6ide_db13source_change19SourceChangeBuilder6finish10__CALLSITE17h8b67ea59e27a64ebE, i64 0, i32 1, i64 8) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db13source_change19SourceChangeBuilder6finish10__CALLSITE17h8b67ea59e27a64ebE, i64 16) monotonic, align 8
   switch i8 %34, label %35 [
     i8 0, label %.critedge
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -33568,7 +33568,7 @@ define hidden void @_ZN6ide_db7imports13import_assets23path_applicable_imports17
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %6
-  %28 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN6ide_db7imports13import_assets23path_applicable_imports10__CALLSITE17hc920191fd3cfcc79E, i64 0, i32 2, i32 0) monotonic, align 8
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db7imports13import_assets23path_applicable_imports10__CALLSITE17hc920191fd3cfcc79E, i64 16) monotonic, align 8
   switch i8 %28, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -33906,7 +33906,7 @@ define hidden void @_ZN6ide_db7imports13import_assets15import_for_item17h8d837ce
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
 
 42:                                               ; preds = %7
-  %43 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN6ide_db7imports13import_assets15import_for_item10__CALLSITE17hf433cfd253136c6eE, i64 0, i32 2, i32 0) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db7imports13import_assets15import_for_item10__CALLSITE17hf433cfd253136c6eE, i64 16) monotonic, align 8
   switch i8 %43, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread239
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -34824,7 +34824,7 @@ define hidden void @_ZN6ide_db7imports13import_assets22trait_applicable_items17h
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %8
-  %40 = load atomic i8, ptr getelementptr inbounds ({ ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }, ptr @_ZN6ide_db7imports13import_assets22trait_applicable_items10__CALLSITE17hde51af07bef5d7ddE, i64 0, i32 2, i32 0) monotonic, align 8
+  %40 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN6ide_db7imports13import_assets22trait_applicable_items10__CALLSITE17hde51af07bef5d7ddE, i64 16) monotonic, align 8
   switch i8 %40, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

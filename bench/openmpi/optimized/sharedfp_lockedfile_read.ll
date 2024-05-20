@@ -38,7 +38,7 @@ define i32 @mca_sharedfp_lockedfile_read(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not19, label %36, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %13, ptr noundef nonnull @.str) #4
   br label %36
 
@@ -52,7 +52,7 @@ define i32 @mca_sharedfp_lockedfile_read(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %20, ptr noundef nonnull @.str.1, i64 noundef %17) #4
   %.pre = load ptr, ptr %7, align 8
   br label %21
@@ -75,7 +75,7 @@ define i32 @mca_sharedfp_lockedfile_read(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not18, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.2, i64 noundef %28) #4
   %.pre20 = load i64, ptr %6, align 8
   br label %33
@@ -108,7 +108,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered(ptr noundef %0, ptr noundef %1,
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %13, ptr noundef nonnull @.str.3) #4
   br label %89
 
@@ -182,7 +182,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered(ptr noundef %0, ptr noundef %1,
   br i1 %.not65, label %50, label %48
 
 48:                                               ; preds = %.lr.ph.split
-  %49 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %49, ptr noundef nonnull @.str.4, i64 noundef %47) #4
   %.pre = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
   br label %50
@@ -206,7 +206,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered(ptr noundef %0, ptr noundef %1,
   br i1 %.not63, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %58 = load i64, ptr %8, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef nonnull @.str.5, i64 noundef %58) #4
   br label %59
@@ -254,7 +254,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered(ptr noundef %0, ptr noundef %1,
   br i1 %.not64, label %85, label %83
 
 83:                                               ; preds = %.loopexit
-  %84 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %84, ptr noundef nonnull @.str.6, i64 noundef %81) #4
   br label %85
 

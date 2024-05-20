@@ -988,7 +988,7 @@ define noundef i32 @prte_hwloc_base_report_bind_failure(ptr noundef %0, i32 noun
   br i1 %or.cond.not, label %14, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %9 = tail call i32 @getpid() #16
   %10 = load i32, ptr @prte_hwloc_base_mbfa, align 4
   %11 = icmp eq i32 %10, 1

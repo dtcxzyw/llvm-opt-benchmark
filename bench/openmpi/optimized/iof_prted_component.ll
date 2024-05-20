@@ -34,7 +34,7 @@ define internal noundef i32 @prte_iof_prted_close() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @prte_iof_prted_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
+  %3 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %5, label %6

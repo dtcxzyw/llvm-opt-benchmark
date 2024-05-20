@@ -1500,7 +1500,7 @@ define ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noundef %1) lo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   store i8 1, ptr %9, align 4
-  %10 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 3), align 8
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %10, ptr %11, align 8
   store i32 %0, ptr %8, align 8
@@ -1641,7 +1641,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 13), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 128), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1650,8 +1650,8 @@ define ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 12), i8 0, i64 48, i1 false)
-  %5 = tail call ptr @gethostname_re(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 12), ptr noundef nonnull getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 13), ptr noundef nonnull getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 14))
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @file_globals, i64 96), i8 0, i64 48, i1 false)
+  %5 = tail call ptr @gethostname_re(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @file_globals, i64 96), ptr noundef nonnull getelementptr inbounds (i8, ptr @file_globals, i64 128), ptr noundef nonnull getelementptr inbounds (i8, ptr @file_globals, i64 136))
   ret ptr %5
 }
 

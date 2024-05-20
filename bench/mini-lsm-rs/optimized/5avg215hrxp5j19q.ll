@@ -2602,7 +2602,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br i1 %trunc.i.i.i, label %951, label %931
 
 931:                                              ; preds = %"_ZN15crossbeam_utils6atomic11atomic_cell19AtomicCell$LT$T$GT$5store17heff19adafdefcc9bE.exit112"
-  %932 = load i8, ptr getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 1), align 8, !range !507, !noalias !508, !noundef !7
+  %932 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 16), align 8, !range !507, !noalias !508, !noundef !7
   switch i8 %932, label %default.unreachable [
     i8 0, label %933
     i8 1, label %934
@@ -2617,7 +2617,7 @@ default.unreachable:                              ; preds = %931
           to label %.noexc117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc117:                                        ; preds = %933
-  store i8 1, ptr getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 1), align 8, !noalias !508
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 16), align 8, !noalias !508
   br label %934
 
 934:                                              ; preds = %.noexc117, %931
@@ -2630,9 +2630,9 @@ default.unreachable:                              ; preds = %931
 
 .noexc119:                                        ; preds = %.noexc118
   %937 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, align 8, !range !239, !noalias !511, !noundef !7
-  %938 = load ptr, ptr getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 0, i32 1), align 8, !noalias !511
+  %938 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 8), align 8, !noalias !511
   store i64 1, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, align 8, !noalias !511
-  store ptr %936, ptr getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 0, i32 1), align 8, !noalias !511
+  store ptr %936, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 8), align 8, !noalias !511
   %939 = icmp eq i64 %937, 0
   br i1 %939, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbdd0f7962eb3cd4cE.exit.i.i.i.i", label %940
 
@@ -2663,7 +2663,7 @@ default.unreachable:                              ; preds = %931
   br label %951
 
 951:                                              ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbdd0f7962eb3cd4cE.exit.i.i.i.i", %"_ZN15crossbeam_utils6atomic11atomic_cell19AtomicCell$LT$T$GT$5store17heff19adafdefcc9bE.exit112"
-  %.0.val.i.i = load ptr, ptr getelementptr inbounds ({ { i64, ptr }, i8, [7 x i8] }, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 0, i32 0, i32 1), align 8, !noundef !7
+  %.0.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h30ab46c8024cf4a2E, i64 8), align 8, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store ptr %.0.val.i.i, ptr %42, align 8
   %952 = getelementptr inbounds i8, ptr %.0.val.i.i, i64 2080

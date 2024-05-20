@@ -375,13 +375,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i8 @_ZN5ZXing14ToCharacterSetENS_3ECIE(i32 noundef %0) local_unnamed_addr #5 {
-  %2 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 16), align 8
   %.not10.i.i.i = icmp eq ptr %2, null
   br i1 %.not10.i.i.i, label %_ZNKSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %2, %1 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %1 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 8), %1 ]
   %3 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, %0
@@ -393,7 +393,7 @@ define noundef zeroext i8 @_ZN5ZXing14ToCharacterSetENS_3ECIE(i32 noundef %0) lo
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNKSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %6 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %6 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 8)
   br i1 %6, label %_ZNKSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread, label %7
 
 7:                                                ; preds = %_ZNKSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
@@ -423,8 +423,8 @@ define noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext %0) lo
   br label %.loopexit
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
-  %.not12 = icmp eq ptr %4, getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 24), align 8
+  %.not12 = icmp eq ptr %4, getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 8)
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %11
@@ -441,7 +441,7 @@ define noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext %0) lo
 
 11:                                               ; preds = %.lr.ph
   %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.013) #16
-  %.not = icmp eq ptr %12, getelementptr inbounds (%"class.std::map", ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  %.not = icmp eq ptr %12, getelementptr inbounds (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 8)
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %11, %3, %1, %8, %2

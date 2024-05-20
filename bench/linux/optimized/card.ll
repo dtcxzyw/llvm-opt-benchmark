@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_unregist
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(872) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 872) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %81, label %7
@@ -66,7 +66,7 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   store i64 16777215, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 560
   store ptr %18, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #7
   %22 = icmp eq ptr %21, null
   br i1 %22, label %80, label %23
@@ -197,8 +197,8 @@ define dso_local i32 @pnp_add_card(ptr noundef %0) local_unnamed_addr #0 align 1
 14:                                               ; preds = %13, %10, %7
   tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
   %15 = getelementptr inbounds i8, ptr %0, i64 736
-  %16 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_cards, i64 0, i32 1), align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_cards, i64 0, i32 1), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pnp_cards, i64 8), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @pnp_cards, i64 8), align 8
   store ptr @pnp_cards, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %16, ptr %17, align 8
@@ -350,7 +350,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %42, label %.thread10, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %45 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3520, i64 noundef 32) #7
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread10, label %47
@@ -572,7 +572,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
   %40 = getelementptr inbounds i8, ptr %10, i64 136
   %41 = getelementptr i8, ptr %25, i64 -672
   store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.bus_type, ptr @pnp_bus_type, i64 0, i32 7), align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @pnp_bus_type, i64 56), align 8
   %43 = tail call i32 %42(ptr noundef %39) #8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %48
@@ -692,8 +692,8 @@ define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr nou
 
 23:                                               ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pnp_card_drivers, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @pnp_card_drivers, i64 8), align 8
   store ptr @pnp_card_drivers, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8

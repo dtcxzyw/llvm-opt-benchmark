@@ -36,11 +36,11 @@ define dso_local range(i32 0, 15) i32 @onas_set_sock_only_once(ptr nocapture nou
 
 14:                                               ; preds = %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) @onas_sock, i8 0, i64 116, i1 false)
-  store i16 1, ptr getelementptr inbounds (%struct.onas_sock_t, ptr @onas_sock, i64 0, i32 1), align 4
+  store i16 1, ptr getelementptr inbounds (i8, ptr @onas_sock, i64 4), align 4
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (%struct.onas_sock_t, ptr @onas_sock, i64 0, i32 1, i32 1), ptr noundef nonnull dereferenceable(1) %16, i64 noundef 108) #5
-  store i8 0, ptr getelementptr inbounds (%struct.onas_sock_t, ptr @onas_sock, i64 0, i32 1, i32 1, i64 107), align 1
+  %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @onas_sock, i64 6), ptr noundef nonnull dereferenceable(1) %16, i64 noundef 108) #5
+  store i8 0, ptr getelementptr inbounds (i8, ptr @onas_sock, i64 113), align 1
   store i32 1, ptr @onas_sock, align 4
   br label %18
 
@@ -69,7 +69,7 @@ define dso_local range(i32 -1, -2147483648) i32 @onas_get_sockd() local_unnamed_
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @connect(i32 noundef %3, ptr nonnull getelementptr inbounds (%struct.onas_sock_t, ptr @onas_sock, i64 0, i32 1), i32 noundef 110) #5
+  %6 = tail call i32 @connect(i32 noundef %3, ptr nonnull getelementptr inbounds (i8, ptr @onas_sock, i64 4), i32 noundef 110) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %11, label %8
 

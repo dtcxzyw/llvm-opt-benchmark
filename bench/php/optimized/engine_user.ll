@@ -39,7 +39,7 @@ define internal { i64, i64 } @generate(ptr nocapture noundef readonly %0) #0 {
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   call void @zend_call_known_function(ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #3
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %25
 

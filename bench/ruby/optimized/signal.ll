@@ -90,7 +90,7 @@ define dso_local ptr @ruby_signal_name(i32 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %.06.i, i64 12
-  %8 = icmp ult ptr %7, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %8 = icmp ult ptr %7, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %8, label %2, label %signo2signm.exit, !llvm.loop !7
 
 signo2signm.exit:                                 ; preds = %2, %6
@@ -437,7 +437,7 @@ signal_ignored.exit:                              ; preds = %93
 
 .thread117:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
   %107 = atomicrmw volatile add ptr %51, i32 1 seq_cst, align 4
-  %108 = atomicrmw volatile add ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), i32 1 seq_cst, align 4
+  %108 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   %indvars.iv.next101119 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond105.not120 = icmp eq i64 %indvars.iv.next101119, %wide.trip.count104
   br i1 %exitcond105.not120, label %._crit_edge.thread122, label %.lr.ph.split.split.outer, !llvm.loop !10
@@ -595,7 +595,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   %.not91 = icmp eq i32 %2, 0
   %60 = zext i1 %.not91 to i64
   %61 = getelementptr %struct.signals, ptr @siglist, i64 %60
-  %62 = icmp ult ptr %61, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %62 = icmp ult ptr %61, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %59, %73
@@ -619,7 +619,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 
 73:                                               ; preds = %.lr.ph, %64
   %74 = getelementptr i8, ptr %.07896, i64 12
-  %75 = icmp ult ptr %74, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %75 = icmp ult ptr %74, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %73, %59, %55, %51
@@ -784,13 +784,13 @@ ruby_signal.exit:                                 ; preds = %12, %22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @rb_signal_buff_size() local_unnamed_addr #7 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), align 4
   ret i32 %1
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, argmem: none) uwtable
 define hidden i32 @rb_get_next_signal() local_unnamed_addr #8 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), align 4
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -805,7 +805,7 @@ define hidden i32 @rb_get_next_signal() local_unnamed_addr #8 {
   %5 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = atomicrmw volatile sub ptr %5, i32 1 seq_cst, align 4
-  %8 = atomicrmw volatile sub ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), i32 1 seq_cst, align 4
+  %8 = atomicrmw volatile sub ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   br label %.loopexit
 
 9:                                                ; preds = %.preheader
@@ -1141,7 +1141,7 @@ define internal void @sighandler(i32 noundef %0) #1 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %4
   %6 = atomicrmw volatile add ptr %5, i32 1 seq_cst, align 4
-  %7 = atomicrmw volatile add ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), i32 1 seq_cst, align 4
+  %7 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   tail call void @rb_thread_wakeup_timer_thread(i32 noundef %0) #16
   %8 = tail call ptr @rb_errno_ptr() #16
   store i32 %3, ptr %8, align 4
@@ -1540,7 +1540,7 @@ reserved_signal_p.exit:                           ; preds = %reserved_signal_p.e
 
 24:                                               ; preds = %reserved_signal_p.exit
   %25 = getelementptr i8, ptr %.06.i, i64 12
-  %26 = icmp ult ptr %25, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %26 = icmp ult ptr %25, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %26, label %reserved_signal_p.exit, label %28, !llvm.loop !7
 
 signo2signm.exit:                                 ; preds = %reserved_signal_p.exit
@@ -1845,7 +1845,7 @@ define internal i64 @sig_list(i64 %0) #1 {
   %9 = or disjoint i64 %8, 1
   %10 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %4, i64 noundef %9) #16
   %11 = getelementptr i8, ptr %.05, i64 12
-  %12 = icmp ult ptr %11, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %12 = icmp ult ptr %11, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %12, label %3, label %13, !llvm.loop !21
 
 13:                                               ; preds = %3
@@ -1880,7 +1880,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %.06.i, i64 12
-  %15 = icmp ult ptr %14, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %15 = icmp ult ptr %14, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %15, label %9, label %signo2signm.exit.thread, !llvm.loop !7
 
 signo2signm.exit:                                 ; preds = %9
@@ -1958,7 +1958,7 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 
 29:                                               ; preds = %.preheader
   %30 = getelementptr i8, ptr %.06.i.i, i64 12
-  %31 = icmp ult ptr %30, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %31 = icmp ult ptr %30, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %31, label %.preheader, label %33, !llvm.loop !7
 
 signo2signm.exit.i:                               ; preds = %.preheader
@@ -2386,7 +2386,7 @@ define internal fastcc i64 @rb_signo2signm(i32 noundef %0) unnamed_addr #1 {
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %.06.i, i64 12
-  %8 = icmp ult ptr %7, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
+  %8 = icmp ult ptr %7, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %8, label %2, label %10, !llvm.loop !7
 
 signo2signm.exit:                                 ; preds = %2
